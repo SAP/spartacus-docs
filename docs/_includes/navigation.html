@@ -1,4 +1,13 @@
 <nav>
+<<<<<<< HEAD
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
   </nav>
+=======
+  {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
+      {{ item.name }}
+    </a>
+  {% endfor %}
+</nav>
+>>>>>>> 9fbf1b6d52035311a11b474ba2653262a5abf411
