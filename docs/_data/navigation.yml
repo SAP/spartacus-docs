@@ -1,0 +1,6 @@
+- name: Home
+  link: /
+  site_link: index.html
+- name: About
+  link: /about.html
+  site_link: about.html
