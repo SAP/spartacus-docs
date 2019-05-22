@@ -4,3 +4,6 @@
 - name: About
   link: /about.html
   site_link: about.html
+- name: Blog
+  link: /blog.html
+  site_link: blog.html
