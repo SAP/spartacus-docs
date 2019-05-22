@@ -1,9 +1,9 @@
 - name: Home
-  link: /
+  link: https://sap.github.io/cloud-commerce-spartacus-storefront-docs/
   site_link: index.html
 - name: About
-  link: /about.html
+  link: https://sap.github.io/cloud-commerce-spartacus-storefront-docs/about.html
   site_link: about.html
 - name: Blog
-  link: /blog.html
+  link: https://sap.github.io/cloud-commerce-spartacus-storefront-docs/blog.html
   site_link: blog.html
