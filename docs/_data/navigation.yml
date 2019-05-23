@@ -1,9 +1,0 @@
-- name: Home
-  link: /
-  site_link: index.html
-- name: About
-  link: /about.html
-  site_link: about.html
-- name: Blog
-  link: /blog.html
-  site_link: blog.html
