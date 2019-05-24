@@ -1,0 +1,4 @@
+<nav>
+    <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}style="color: red;"{% endif %}>Home</a>
+    <a href="{{ "/about.html" | relative_url }}" {% if page.url == "/about.html" %}style="color: red;"{% endif %}>About</a>
+  </nav>
