@@ -1,8 +1,13 @@
 <nav>
-    <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}style="color: green;"{% endif %}>
-      Home
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link | relative_url }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
+      {{ item.name }}
     </a>
-    <a href="{{ "/about.html" | relative_url }}" {% if page.url == "/about.html" %}style="color: green;"{% endif %}>
-      About
-    </a>
-  </nav>
+  {% endfor %}
+</nav>
+<!-- <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}style="color: green;"{% endif %}>
+  Home
+</a>
+<a href="{{ "/about.html" | relative_url }}" {% if page.url == "/about.html" %}style="color: green;"{% endif %}>
+  About
+</a> -->
