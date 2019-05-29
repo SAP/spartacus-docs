@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 # Questions related to Spartacus as a product
 
 ### What is SAP Commerce Cloud (Project Spartacus)? (referred to as just “Spartacus”)

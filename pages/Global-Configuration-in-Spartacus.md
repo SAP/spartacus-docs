@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# Global Configuration in Spartacus (DRAFT)
+
 Spartacus uses a configuration mechanism that provides global app configuration at app bootstrap and is not changed while the app is running.
 
 Each storefront module that is using configuration usually provides typing for its part of the configuration with some defaults.

@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# Icon Library (DRAFT)
+
 Like most storefronts, Spartacus uses icons in the UI. You are welcome to use the Spartacus icons in your storefront, but of course, these icons can also be replaced. The following sections describe how icons are integrated in the storefront, and also how you can replace them.
 
 ## Technical Icon Format

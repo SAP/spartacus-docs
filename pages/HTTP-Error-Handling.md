@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# HTTP Error Handling
+
 Spartacus is a decoupled JavaScript application that relies extensively on APIs to communicate with the back end. This communication takes place over HTTP, and whenever a request is made, there are many things that could go wrong, from simple network connectivity issues to very specific errors in the back end. As a result, every HTTP response from the back end contains a status. In some cases the status provides details about the error, while in other cases, the status just contains a status code (such as, 404 Not Found). Different errors are typically handled in different ways. Quite a number of errors should be shown to the end user, while others might only end up in the console logs.
 
 Spartacus provides a number of "handlers" for standard error handling. You can customize these by overriding existing error handlers, or by adding new ones. Spartacus evaluates error handlers in an HTTP interceptor, and uses the first one that corresponds to the error response.

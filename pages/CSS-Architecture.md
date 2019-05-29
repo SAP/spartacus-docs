@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# CSS Architecture (DRAFT)
+
 This document provides a high level overview of the CSS architecture of Spartacus.
 
 ## Style Library

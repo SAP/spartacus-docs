@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# Configurable State Persistence and Rehydration (DRAFT)
+
 ## Storage Synchronization
 
 You can configure state synchronization to persist with session storage or local storage. The following example shows how to configure the synchronization of the "user token" and "clientToken" parts of the state:

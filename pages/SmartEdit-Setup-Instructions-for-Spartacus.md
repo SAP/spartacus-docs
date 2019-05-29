@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# SmartEdit Setup Instructions for Spartacus
+
 Pre-requisites:
 
 - SAP Commerce Cloud 1905 (expected release: May 29, 2019)

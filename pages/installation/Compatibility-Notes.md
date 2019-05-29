@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# Compatibility Notes
+
 ## March 27, 2019
 
 Libraries: spartacus/

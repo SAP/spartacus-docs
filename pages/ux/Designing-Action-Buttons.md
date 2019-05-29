@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# Designing Action Buttons
+
 This section details the context in which different action buttons should be used in SPArtacus.
 
 ## Primary (Forward) Action Buttons

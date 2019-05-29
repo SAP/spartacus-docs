@@ -1,3 +1,9 @@
+---
+layout: home
+---
+
+# Writing Notification Banners
+
 The objective of these guidelines are to show how to write effective notification banners, and to promote consistency across the entire SPA product line.
 
 ## Golden Rules in Writing Notifications
