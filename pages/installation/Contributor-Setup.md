@@ -1,0 +1,202 @@
+To contribute to the Spartacus project, the first steps are to clone the Spartacus library sources, build, and then run the storefront from the library development workspace.
+
+This guide shows how to build and run both in development mode and in production mode.
+
+# Prerequisites
+
+Before carrying out the procedures below, please ensure the following front end and back end requirements are in place.
+
+## Front End Requirements
+
+Your Angular development environment should include the following:
+
+- node.js >= 10.14.1
+- yarn >= 1.9.4
+
+## Back End Requirements
+
+The Spartacus JavaScript Storefront uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator electronics storefront in particular.
+
+For more information, see [[Installing SAP Commerce Cloud]]. If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
+
+Note: The latest release of SAP Commerce Cloud is recommended.
+
+# Cloning the Sources
+
+The first step is to clone the Spartacus GitHub repository on your local system.
+
+# Installing the Dependencies.
+
+Install the dependencies by running the following yarn command:
+
+```bash
+yarn install
+```
+
+# Building and Running in Development Mode
+
+The simplest way to build and run from the source code is to work in development mode.
+
+## Configuring Your Back End URL and Base Site
+
+Carry out the following steps before you build and launch.
+
+1. Configure your back end URL in the `projects/storefrontapp/environments/environment.ts` file.
+
+   The `environment.ts` file contains properties that are applied when the app is run in development mode.
+
+2. Add your back end base URL to the `occBaseUrl` property, as follows:
+
+   ```typescript
+   export const environment = {
+     production: false,
+     occBaseUrl: "https://custom-backend-url"
+   };
+   ```
+
+3. In your `app.module.ts` file, update the `values` and `defaultValue` of the `BASE_SITE` parameter to point to the base site(s) that you have configured in your back end.
+
+   The following is an example:
+
+   ```typescript
+   siteContext: {
+       urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
+       parameters: {
+         BASE_SITE: {
+           values: ['electronics-spa', 'apparel-de', 'apparel-uk'],
+           defaultValue: 'electronics-spa',
+           persistence: 'route',
+         },
+       },
+     },
+   ```
+
+## Launching the Storefront
+
+Lauch the storefront with the following command:
+
+```bash
+yarn start
+```
+
+This is the most convenient way for a developer to run the storefront. It allows for hot-reloading of the library code as the code changes.
+
+# Building and Running in Production Mode
+
+Building in production mode has more retrictive rules about what kind of code is allowed, but it also allows you to generate a build that is optimized for production. Use this mode as your development cycle nears completion.
+
+## Building the @spartacus/storefront Library
+
+Contrary to development mode, in production mode you need to package and build a standalone storefront library. This is done with the following command:
+
+```bash
+yarn build:core:lib
+```
+
+## Configuring Your Back End URL and Base Site
+
+1. Configure your back end URL in the `projects/storefrontapp/environments/environment.prod.ts` file.
+
+2. Add your back end base URL to the `occBaseUrl` property, as follows:
+
+   ```typescript
+   export const environment = {
+     production: true,
+     occBaseUrl: "https://custom-backend-url"
+   };
+   ```
+
+3. In your `app.module.ts` file, update the `values` and `defaultValue` of the `BASE_SITE` parameter to point to the base site(s) that you have configured in your back end.
+
+   The following is an example:
+
+   ```typescript
+   siteContext: {
+       urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
+       parameters: {
+         BASE_SITE: {
+           values: ['electronics-spa', 'apparel-de', 'apparel-uk'],
+           defaultValue: 'electronics-spa',
+           persistence: 'route',
+         },
+       },
+     },
+   ```
+
+## Launching the Storefront
+
+Launch the server with ng serve, as follows:
+
+```bash
+yarn start:prod
+```
+
+## Launching the Storefront with SSR (and PWA) Enabled
+
+1. Build the server-side rendering (SSR) version of the app (that is, the production build wrapped in the `express.js` server), as follows:
+
+   ```bash
+   yarn build:ssr
+   ```
+
+2. Launch the SSR server as follows:
+
+   ```bash
+   yarn start:ssr
+   ```
+
+The app will be served with the production build, without using the webpack dev server. As a result, PWA and the features related to service workers will be fully functional.
+
+# Additional Storefront Configuration
+
+In both development mode and production mode, the Spartacus storefront has default values for all of its configurations. However, you may need to override these values.
+
+To configure the storefront, use the `withConfig` method on the StorefrontModule. The following is an example:
+
+```typescript
+@NgModule({
+  imports: [
+    BrowserModule,
+    StorefrontModule.withConfig({
+      backend: {
+        occ: {
+          baseUrl: environment.occBaseUrl,
+          prefix: '/rest/v2/'
+        }
+      }
+      authentication: {
+        client_id: 'mobile_android',
+        client_secret: 'secret'
+      }
+    }),
+    ...devImports
+  ],
+  bootstrap: [StorefrontComponent]
+})
+export class AppModule {}
+```
+
+The occ back end `baseUrl` is pulled from the `environment.*.ts` file, but the rest of the properties in this example use the default values for the configs. You do not have to specify a config if you do not need to override the default value.
+
+For example, if you only need to override the `baseUrl` and the `client_secret`, and want to use the default values for other properties, you can use the following config:
+
+```typescript
+@NgModule({
+  imports: [
+    BrowserModule,
+    StorefrontModule.withConfig({
+      backend: {
+        occ: {
+          baseUrl: environment.occBaseUrl
+        }
+      },
+      authentication: {
+        client_secret: "secret"
+      }
+    }),
+    ...devImports
+  ],
+  bootstrap: [StorefrontComponent]
+})
+export class AppModule {}
+```

@@ -1,8 +1,9 @@
 ---
 layout: home
-author_profile: false
 ---
-[[/assets/spartacus-blue.png]]
+![Spartacus JavaScript Storefront]({{ site.baseurl }}{% link /assets/images/spartacus-blue.png %})
+
+# About
 
 Spartacus is a lean, Angular-based JavaScript storefront for SAP Commerce Cloud. Spartacus talks to SAP Commerce Cloud exclusively through the Commerce REST API.
 
