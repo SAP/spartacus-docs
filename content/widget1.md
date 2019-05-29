@@ -1,5 +1,0 @@
----
----
-# Introduction
-
-Place-holder text.

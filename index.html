@@ -1,10 +1,48 @@
 ---
+layout: home
+author_profile: false
 ---
-{% for item in site.data.samplelist.toc %}
-    <h3>{{ item.title }}</h3>
-      <ul>
-        {% for entry in item.subfolderitems %}
-          <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
-        {% endfor %}
-      </ul>
-  {% endfor %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+![Spartacus JavaScript Storefront](assets/spartacus-blue.png)
+<h1>What is Spartacus?</h1>
+
+Spartacus is a lean, Angular-based JavaScript storefront for SAP Commerce Cloud. Spartacus talks to SAP Commerce Cloud exclusively through the Commerce REST API.
+
+<h2>Quick Navigation</h2>
+<ul>
+  <li><a href="pages/About-Spartacus">About Spartacus</a></li>
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+</ul>
+- [[About Spartacus]]
+- [[Release 1.0 Information and Roadmap]]
+- [[Spartacus FAQ]]
+- [Contributing to the Spartacus Storefront](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/CONTRIBUTING.md)
+- [[Spartacus Guidelines and Best Practices]]
+- [[Installing Spartacus]]
+
+<h2>Technical Documentation</h2>
+
+The following is an ever expanding suite of documentation that explains how to customize and extend Spartacus:
+
+- [[Configurable State Persistence and Rehydration (DRAFT)]]
+- [[Customizing CMS Components]]
+- [[CSS Architecture (DRAFT)]]
+- [[Data Binding (DRAFT)]]
+- [[Global Configuration in Spartacus (DRAFT)]]
+- [[HTTP Error Handling]]
+- [[Icon Library (DRAFT)]]
+- [[Internationalization (i18n) (DRAFT)]]
+- [[Page Layout]]
+- [[SEO Capabilities]]
+  </body>
+</html>

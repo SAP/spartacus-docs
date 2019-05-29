@@ -1,5 +1,0 @@
----
----
-# Configuration
-
-Place-holder text.
