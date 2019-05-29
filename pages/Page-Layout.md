@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Page Layout
 ---
-
-# Page Layout
 
 Spartacus is based on a Single Page Application design pattern, but there are still pages that are rendered in the storefront. The concept of a "page" is key to the web and cannot be avoided: pages are identified by URLs, indexed by search engines, shared through social media, stored in browser history, and so on. Pages are fundamental to end users, and to the content creation process as well.
 

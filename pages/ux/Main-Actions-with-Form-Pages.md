@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Main Actions with Form Pages
 ---
-
-# Main Actions with Form Pages
 
 This page details some of the design considerations for Main Actions on pages which have form fields.
 

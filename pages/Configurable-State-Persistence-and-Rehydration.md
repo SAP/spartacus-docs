@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Configurable State Persistence and Rehydration (DRAFT)
 ---
-
-# Configurable State Persistence and Rehydration (DRAFT)
 
 ## Storage Synchronization
 

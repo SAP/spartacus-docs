@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Type Safety in Spartacus
 ---
-
-# Type Safety in Spartacus
 
 The entire Spartacus codebase has type safe methods, parameters, objects, and so on, with a few minor exceptions.
 

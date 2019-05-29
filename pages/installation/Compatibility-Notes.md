@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Compatibility Notes
 ---
-
-# Compatibility Notes
 
 ## March 27, 2019
 

@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Spartacus Roadmap
 ---
-
-# Spartacus Roadmap
 
 *aka the P.O.'s soapbox*
 

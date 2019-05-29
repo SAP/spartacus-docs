@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Setup and Installation
 ---
-
-# Setup and Installation
 
 If you're just getting started, see the document [[Building the Spartacus Storefront from Libraries]], which demonstrates step-by-step how to build a Spartacus-based storefront using the Spartacus libraries.
 

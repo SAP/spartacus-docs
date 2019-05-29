@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Installing Spartacus
 ---
-
-# Installing Spartacus
 
 The installation instructions provided here allow you to set up a Spartacus-based project with SAP Commerce Cloud.
 

@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Designing Action Buttons
 ---
-
-# Designing Action Buttons
 
 This section details the context in which different action buttons should be used in SPArtacus.
 

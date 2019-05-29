@@ -1,8 +1,7 @@
 ---
 layout: home
+title: Committing Code to Spartacus
 ---
-
-# Committing Code to Spartacus
 
 ## Settings
 
