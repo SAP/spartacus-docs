@@ -1,6 +1,8 @@
 ---
 layout: home
 title: Installing SAP Commerce Cloud
+sidebar: 
+  nav: "install"
 ---
 
 The Spartacus JavaScript Storefront uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator electronics storefront in particular.
