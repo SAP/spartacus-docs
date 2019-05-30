@@ -12,7 +12,7 @@ docs:
   - title: Getting Started
     children:
       - title: "About Spartacus"
-        url: pages/About-Spartacus
+        url: /pages/About-Spartacus/
       - title: "Release 1.0 Information and Roadmap"
         url: pages/Release-1.0-Information-and-Roadmap
       - title: "Spartacus FAQ"
