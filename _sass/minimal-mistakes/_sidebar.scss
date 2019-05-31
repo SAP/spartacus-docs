@@ -61,6 +61,13 @@
     line-height: 1.5;
   }
 
+  li li li {
+    font-family: $sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    margin-left: 1em;
+  }
+
   img {
     width: 100%;
     

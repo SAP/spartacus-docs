@@ -61,15 +61,17 @@ install:
     children:
       - title: "Installing Spartacus"
         url: /pages/installation/Installing-Spartacus/
-      - title: "Building the Spartacus Storefront from Libraries"
-        url: /pages/installation/Building-the-Spartacus-Storefront-from-Libraries/
-      - title: "Contributor Setup"
-        url: /pages/installation/Contributor-Setup/
-      - title: "Installing SAP Commerce Cloud"
-        url: /pages/installation/Installing-SAP-Commerce-Cloud/
+        subchildren:
+        - title: "Building the Spartacus Storefront from Libraries"
+          url: /pages/installation/Building-the-Spartacus-Storefront-from-Libraries/
+        - title: "Contributor Setup"
+          url: /pages/installation/Contributor-Setup/
+        - title: "Installing SAP Commerce Cloud"
+          url: /pages/installation/Installing-SAP-Commerce-Cloud/
       - title: "Server-Side Rendering in Spartacus"
         url: /pages/installation/Server-Side-Rendering-in-Spartacus/
       - title: "Configuring the Base URL"
         url: /pages/installation/Configuring-the-Base-URL/
-      - title: "Compatibility Notes"
-        url: /pages/installation/Compatibility-Notes/
+        subchildren:
+        - title: "Compatibility Notes"
+          url: /pages/installation/Compatibility-Notes/

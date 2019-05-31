@@ -12,6 +12,7 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
@@ -37,6 +38,15 @@
     </div>
 
     {% include scripts.html %}
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'a80d5313e9ea5b00e5004f69b9c090e9', 
+    indexName: 'sap-spartacus', 
+    inputSelector: 'search', 
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
 
   </body>
 </html>

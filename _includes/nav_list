@@ -20,7 +20,7 @@
           <span class="nav__sub-title">{{ nav.title }}</span>
         {% endif %}
 
-        {% if nav.children != null %}
+        {% if nav.children[0] %}
         <ul>
           {% for child in nav.children %}
             {% comment %} internal/external URL check {% endcomment %}
@@ -37,8 +37,61 @@
               {% assign active = "" %}
             {% endif %}
 
-            <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }}</a></li>
-          {% endfor %}
+            <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }}</a>
+ 
+              {% comment %} show child pages if current main page is active {% endcomment %}
+
+              {% if child.subchildren[0] %}
+                <ul>
+                  {% for subchild in child.subchildren %}
+                    {% if subchild.url == page.url %}
+                      {% if child.subchildren[0] %}
+                        {% for subchild in child.subchildren %}
+
+                          {% comment %} internal/external URL check {% endcomment %}
+                          {% if subchild.url contains "://" %}
+                            {% assign subchild_url = subchild.url %}
+                          {% else %}
+                            {% assign subchild_url = subchild.url | relative_url %}
+                           {% endif %}
+
+                          {% comment %} set "active" class on current page {% endcomment %}
+                          {% if subchild.url == page.url %}
+                            {% assign active = "active" %}
+                          {% else %}
+                            {% assign active = "" %}
+                           {% endif %}
+      
+                          <li><a href="{{ subchild_url }}" class="{{ active }}">{{ subchild.title }}</a></li>
+                    
+                         {% endfor %}
+                       {% endif %}
+                     {% endif %}
+
+                     {% if child.url == page.url %}
+
+                          {% comment %} internal/external URL check {% endcomment %}
+                          {% if subchild.url contains "://" %}
+                            {% assign subchild_url = subchild.url %}
+                          {% else %}
+                            {% assign subchild_url = subchild.url | relative_url %}
+                           {% endif %}
+
+                          {% comment %} set "active" class on current page {% endcomment %}
+                          {% if subchild.url == page.url %}
+                            {% assign active = "active" %}
+                          {% else %}
+                            {% assign active = "" %}
+                           {% endif %}
+      
+                          <li><a href="{{ subchild_url }}" class="{{ active }}">{{ subchild.title }}</a></li>
+         
+                     {% endif %}
+                   {% endfor %}
+                 </ul>
+               {% endif %}  
+             </li>
+           {% endfor %}
         </ul>
         {% endif %}
       </li>
