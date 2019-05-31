@@ -106,10 +106,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  name             : # "Your Name"
+  avatar           : "assets/images/spartacus-logo-blue-large.png"
+  bio              : # "I am an amazing person."
+  location         : # "Somewhere"
   email            :
   links:
     - label: "Email"
@@ -286,6 +286,9 @@ defaults:
       path: ""
     values:
       layout: "home"
+      author_profile: true
+#      image: 
+#      image_alt: "Spartacus Logo"
   - scope:
       path: ""
       type: install
