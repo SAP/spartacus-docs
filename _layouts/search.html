@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: archive
 ---
 
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
@@ -37,6 +37,8 @@ layout: default
       {%- when "algolia" -%}
         <div class="search-searchbar"></div>
         <div class="search-hits"></div>
+      {%- when "docsearch" -%}
+        <input type="text" id="docsearch" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />  
     {%- endcase -%}
   </div>
 </div>

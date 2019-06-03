@@ -35,6 +35,8 @@
   visibility: hidden;
   padding-top: 1em;
   padding-bottom: 1em;
+  height: 35em;
+  overflow: scroll;
 
   &__inner-wrap {
     width: 100%;
@@ -50,6 +52,10 @@
     @include breakpoint($x-large) {
       max-width: $max-width;
     }
+  }
+
+  .ds-dataset-1 {
+    width: 55em;
   }
 
   .search-input {
@@ -124,3 +130,7 @@
   font-style: normal;
   font-weight: bold;
 }
+
+/* DocSearch search */
+
+// .docsearch-container
