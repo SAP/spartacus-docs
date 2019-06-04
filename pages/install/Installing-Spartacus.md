@@ -1,8 +1,6 @@
 ---
 layout: home
 title: Installing Spartacus
-sidebar: 
-  nav: "install"
 ---
 
 The installation instructions provided here allow you to set up a Spartacus-based project with SAP Commerce Cloud.
@@ -13,7 +11,7 @@ If you are building the Spartacus project from source, see [[Contributor Setup]]
 
 The following topics may also be of assistance while you are getting set up:
 
-- [Compatibility Notes]({{ site.baseurl }}{% link pages/installation/Compatibility-Notes.md %})
-- [Configuring the Base URL]({{ site.baseurl }}{% link pages/installation/Configuring-the-Base-URL.md %})
-- [Installing SAP Commerce Cloud]({{ site.baseurl }}{% link pages/installation/Installing-SAP-Commerce-Cloud.md %})
-- [Server-Side Rendering in Spartacus]({{ site.baseurl }}{% link pages/installation/Server-Side-Rendering-in-Spartacus.md %})
+- [Compatibility Notes]({{ site.baseurl }}{% link pages/install/Compatibility-Notes.md %})
+- [Configuring the Base URL]({{ site.baseurl }}{% link pages/dev/Site-Context.md %})
+- [Installing SAP Commerce Cloud]({{ site.baseurl }}{% link pages/install/Installing-SAP-Commerce-Cloud.md %})
+- [Server-Side Rendering in Spartacus]({{ site.baseurl }}{% link pages/dev/Server-Side-Rendering-in-Spartacus.md %})

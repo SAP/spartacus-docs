@@ -9,69 +9,118 @@ main:
  
 # sidebar menu
 docs:
-  - title: Getting Started
+  - title: Home
     children:
       - title: "About Spartacus"
-        url: /pages/About-Spartacus/
-      - title: "Release 1.0 Information and Roadmap"
-        url: /pages/Release-1.0-Information-and-Roadmap/
+        url: /pages/home/About-Spartacus/
       - title: "Spartacus FAQ"
-        url: /pages/Spartacus-FAQ/
-      - title: "Contributing to the Spartacus Storefront"
-        url: https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/CONTRIBUTING.md
-      - title: "Spartacus Guidelines and Best Practices"
-        url: /pages/contributing/Spartacus-Guidelines-and-Best-Practices/
-      - title: Installing Spartacus
-        url: /pages/installation/Installing-Spartacus/
+        url: /pages/home/Spartacus-FAQ/
+      - title: "Release 1.0 Information and Roadmap"
+        url: /pages/home/Release-1.0-Information-and-Roadmap/
 
-  - title: Customization
+  - title: Getting Started with Spartacus Libraries
     children:
-      - title: "Configurable State Persistence and Rehydration"
-        url: /pages/Configurable-State-Persistence-and-Rehydration/
-      - title: "CSS Architecture"
-        url: /pages/CSS-Architecture/
-      - title: "Customizing CMS Components"
-        url: /pages/Customizing-CMS-Components/
-      - title: "Data Binding"
-        url: /pages/Data-Binding/
+      - title: Installing SAP Commerce Cloud for use with Spartacus"
+        url: /pages/install/Installing-SAP-Commerce-Cloud/
+        subchildren:
+          - title: "Compatibility Notes"
+            url: /pages/install/Compatibility-Notes/
+          - title: "Working with Older Versions of SAP Commerce Cloud"
+            url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
+      - title: "Building the Spartacus Storefront from Libraries"
+        url: /pages/install/Building-the-Spartacus-Storefront-from-Libraries/
+      - title: "SmartEdit Setup Instructions for Spartacus"
+        url: /pages/install/SmartEdit-Setup-Instructions-for-Spartacus/
+
+  - title: Storefront Development Guide
+    children:
+      - title: "Storefront Development FAQ"
+        url: /pages/dev/Storefront-Development-FAQ/
       - title: "Global Configuration in Spartacus"
-        url: /pages/Global-Configuration-in-Spartacus/
-      - title: "HTTP Error Handling"
-        url: /pages/HTTP-Error-Handling/
-      - title: "Internationalization (i18n)"
-        url: /pages/i18n/
-      - title: "Icon Library"
-        url: /pages/Icon-Library/
-      - title: "Page Layout"
-        url: /pages/Page-Layout/
+        url: /pages/dev/Global-Configuration-in-Spartacus/
+      - title: "Styling and Page Layout"
+        url: /pages/dev/Styling-and-Page-Layout/
+        subchildren:
+          - title: "Global Variables"
+            url: /pages/dev/Global-Variables/
+          - title: "CSS Architecture"
+            url: /pages/dev/CSS-Architecture/
+          - title: "Icon Library"
+            url: /pages/dev/Icon-Library/
+          - title: "Page Layout"
+            url: /pages/dev/Page-Layout/
+      - title: "Extending Spartacus Features"
+        url: /pages/dev/Extending-Spartacus-Features/
+        subchildren:
+          - title: "Customizing-CMS-Components"
+            url: /pages/dev/Customizing-CMS-Components/
+      - title: "Configurable Routing"
+        url: /pages/dev/Configurable-Routing/
+      - title: "Site Context (Configuring the Base URL)"
+        url: /pages/dev/Site-Context/
       - title: "SEO Capabilities"
-        url: /pages/SEO-Capabilities/
+        url: /pages/dev/SEO-Capabilities/
+      - title: "Internationalization (i18n)"
+        url: /pages/dev/i18n/
+      - title: "Connecting to Other Systems"
+        url: /pages/dev/Data-Binding/
+      - title: "HTTP Error Handling"
+        url: /pages/dev/HTTP-Error-Handling/
+      - title: "Configurable State Persistence and Rehydration"
+        url: /pages/dev/Configurable-State-Persistence-and-Rehydration/
+      - title: "Server-Side-Rendering-in-Spartacus"
+        url: /pages/dev/Server-Side-Rendering-in-Spartacus/
+        subchildren:
+          - title: "Server–Side Rendering Coding Guidelines"
+            url: /pages/dev/Server-Side-Rendering-Coding-Guidelines/
+      - title: "User Experience Guidelines"
+        url: /pages/dev/ux/User-Experience-Guidelines/
+        subchildren:
+          - title: "Designing Action Buttons"
+            url: /pages/dev/ux/Designing-Action-Buttons/
+          - title: "Main Actions with Form Pages"
+            url: /pages/dev/ux/Main-Actions-with-Form-Pages/
+          - title: "Writing Notification Banners"
+            url: /pages/dev/ux/Writing-Notification-Banners/
 
-  - title: UX
+  - title: Contributing to Spartacus
     children:
-       - title: "Designing Action Buttons"
-         url: /pages/ux/Designing-Action-Buttons/
-       - title: "Main Actions with Form Pages"
-         url: /pages/ux/Main-Actions-with-Form-Pages/
-       - title: "Writing Notification Banners"
-         url: /pages/ux/Writing-Notification-Banners/
+      - title: "Contributor's Guide"
+        url: /pages/contributing/Contributors-Guide/
+        subchildren:
+          - title: "Contributing to the Spartacus Storefront"
+            url: https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/CONTRIBUTING.md
+          - title: "Development Tools for Spartacus"
+            url: /pages/contributing/Development-Tools-for-Spartacus/
+          - title: "Contributor Setup"
+            url: /pages/contributing/Contributor-Setup/
+          - title: "Coding Guidelines"
+            url: /pages/contributing/Coding-Guidelines/
+          - title: "Committing Code to Spartacus"
+            url: /pages/contributing/Commit-Guidelines/
+          - title: "Type Safety in Spartacus"
+            url: /pages/contributing/Type-Safety-in-Spartacus/
+          - title: "Definition Of Done"
+            url: /pages/contributing/Definition-Of-Done/    
+
+ 
     
-install:
-  - title: Installation
-    children:
-      - title: "Installing Spartacus"
-        url: /pages/installation/Installing-Spartacus/
-        subchildren:
-        - title: "Building the Spartacus Storefront from Libraries"
-          url: /pages/installation/Building-the-Spartacus-Storefront-from-Libraries/
-        - title: "Contributor Setup"
-          url: /pages/installation/Contributor-Setup/
-        - title: "Installing SAP Commerce Cloud"
-          url: /pages/installation/Installing-SAP-Commerce-Cloud/
-      - title: "Server-Side Rendering in Spartacus"
-        url: /pages/installation/Server-Side-Rendering-in-Spartacus/
-      - title: "Configuring the Base URL"
-        url: /pages/installation/Configuring-the-Base-URL/
-        subchildren:
-        - title: "Compatibility Notes"
-          url: /pages/installation/Compatibility-Notes/
+# install:
+#   - title: Installation
+#     children:
+#       - title: "Installing Spartacus"
+#         url: /pages/installation/Installing-Spartacus/
+#         subchildren:
+#         - title: "Building the Spartacus Storefront from Libraries"
+#           url: /pages/installation/Building-the-Spartacus-Storefront-from-Libraries/
+#         - title: "Contributor Setup"
+#           url: /pages/installation/Contributor-Setup/
+#         - title: "Installing SAP Commerce Cloud"
+#           url: /pages/installation/Installing-SAP-Commerce-Cloud/
+#       - title: "Server-Side Rendering in Spartacus"
+#         url: /pages/installation/Server-Side-Rendering-in-Spartacus/
+#       - title: "Configuring the Base URL"
+#         url: /pages/installation/Configuring-the-Base-URL/
+#         subchildren:
+#         - title: "Compatibility Notes"
+#           url: /pages/installation/Compatibility-Notes/

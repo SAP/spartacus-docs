@@ -1,8 +1,6 @@
 ---
 layout: home
 title: Compatibility Notes
-sidebar: 
-  nav: "install"
 ---
 
 ## March 27, 2019

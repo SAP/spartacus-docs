@@ -287,8 +287,6 @@ defaults:
     values:
       layout: "home"
       author_profile: true
-#      image: 
-#      image_alt: "Spartacus Logo"
   - scope:
       path: ""
       type: install

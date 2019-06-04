@@ -1,3 +1,8 @@
+---
+layout: home
+title: Storefront Development FAQ
+---
+
 This document compiles frequently-asked or interesting questions we've received regarding developing with Spartacus libraries. Some information may apply to source code but the intent of this page is for people developing with the libraries only.
 
 ----
