@@ -3,13 +3,14 @@ main:
   - title: Home
     url: /
   - title: Installing Spartacus
-    url: pages/installation/Installing-Spartacus
+    url: pages/install/Building-the-Spartacus-Storefront-from-Libraries
   - title: "GitHub"
     url: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs
  
 # sidebar menu
 docs:
   - title: Home
+    url: /
     children:
       - title: "About Spartacus"
         url: /pages/home/About-Spartacus/
