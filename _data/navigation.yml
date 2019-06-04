@@ -20,7 +20,7 @@ docs:
 
   - title: Getting Started with Spartacus Libraries
     children:
-      - title: Installing SAP Commerce Cloud for use with Spartacus"
+      - title: "Installing SAP Commerce Cloud for use with Spartacus"
         url: /pages/install/Installing-SAP-Commerce-Cloud/
         subchildren:
           - title: "Compatibility Notes"
