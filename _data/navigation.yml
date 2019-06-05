@@ -14,7 +14,7 @@ docs:
       - title: "About Spartacus"
         url: /
       - title: "Spartacus FAQ"
-        url: /pages/home/Spartacus-FAQ/
+        url: /Spartacus-FAQ/
       - title: "Release 1.0 Information and Roadmap"
         url: /pages/home/Release-1.0-Information-and-Roadmap/
 
@@ -35,7 +35,7 @@ docs:
   - title: Storefront Development Guide
     children:
       - title: "Storefront Development FAQ"
-        url: /pages/dev/Storefront-Development-FAQ/
+        url: /Storefront-Development-FAQ/
       - title: "Global Configuration in Spartacus"
         url: /pages/dev/Global-Configuration-in-Spartacus/
       - title: "Styling and Page Layout"
@@ -77,7 +77,7 @@ docs:
         url: /pages/dev/ux/User-Experience-Guidelines/
         subchildren:
           - title: "Designing Action Buttons"
-            url: /pages/dev/ux/Designing-Action-Buttons/
+            url: /Designing-Action-Buttons/
           - title: "Main Actions with Form Pages"
             url: /pages/dev/ux/Main-Actions-with-Form-Pages/
           - title: "Writing Notification Banners"

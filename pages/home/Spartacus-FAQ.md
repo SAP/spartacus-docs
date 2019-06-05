@@ -1,10 +1,13 @@
 ---
 title: Questions related to Spartacus as a product
+permalink: /Spartacus-FAQ/
 ---
 
 ### What is SAP Commerce Cloud (Project Spartacus)? (referred to as just “Spartacus”)
 
-Spartacus is an open-source JavaScript web application hosted [here](https://github.com/SAP/cloud-commerce-spartacus-storefront) that allows you to quickly create your own branded JavaScript-based storefront for SAP Commerce Cloud. Spartacus is written using Angular and published as libraries. The recommended approach to using JavaScript is to build your own JavaScript web app and import the libraries. Without modification, the storefront works out of the box, but Spartacus has been designed to be upgradable, customizable, and extendable, to suit all your branding and functionality requirements. 
+Spartacus is an open-source JavaScript web application hosted [here](https://github.com/SAP/cloud-commerce-spartacus-storefront) that allows you to quickly create your own branded JavaScript-based storefront for SAP Commerce Cloud. Spartacus is written using Angular and published as libraries. The recommended approach to using JavaScript is to build your own JavaScript web app and import the libraries. Without modification, the storefront works out of the box, but Spartacus has been designed to be upgradable, customizable, and extendable, to suit all your branding and functionality requirements.
+
+[Storefront FAQ]({% link pages/dev/Storefront-Development-FAQ.md %})
 
 ### When will Spartacus be available? 
 
