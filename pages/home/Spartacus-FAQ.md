@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Questions related to Spartacus as a product
 ---
 

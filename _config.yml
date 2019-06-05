@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name             : # "Your Name"
-  avatar           : "assets/images/spartacus-logo-blue-large.png"
+  avatar           : # "assets/images/spartacus-logo-blue-large.png"
   bio              : # "I am an amazing person."
   location         : # "Somewhere"
   email            :
@@ -286,7 +286,7 @@ defaults:
       path: ""
     values:
       layout: "home"
-      author_profile: true
+    # author_profile: true
   - scope:
       path: ""
       type: install

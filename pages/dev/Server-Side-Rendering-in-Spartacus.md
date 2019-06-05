@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Server-Side Rendering in Spartacus (DRAFT)
 ---
 

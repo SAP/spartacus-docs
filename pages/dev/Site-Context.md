@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Site Context (Configuring the Base URL)
 ---
 

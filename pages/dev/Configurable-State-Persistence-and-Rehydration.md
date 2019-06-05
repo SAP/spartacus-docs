@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Configurable State Persistence and Rehydration (DRAFT)
 ---
 

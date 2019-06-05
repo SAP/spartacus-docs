@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Installing SAP Commerce Cloud for use with Spartacus
 ---
 

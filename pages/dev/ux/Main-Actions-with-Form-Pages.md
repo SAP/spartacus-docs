@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Main Actions with Form Pages
 ---
 

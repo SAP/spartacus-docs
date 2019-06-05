@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Development Tools for Spartacus
 ---
 

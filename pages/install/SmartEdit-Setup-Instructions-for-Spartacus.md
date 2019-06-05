@@ -1,5 +1,4 @@
 ---
-layout: home
 title: SmartEdit Setup Instructions for Spartacus
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Global Configuration in Spartacus (DRAFT)
 ---
 

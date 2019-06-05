@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Building the Spartacus Storefront from Libraries
 ---
 

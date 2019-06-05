@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Committing Code to Spartacus
 ---
 

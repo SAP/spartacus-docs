@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Styling and Page Layout
 ---
 
