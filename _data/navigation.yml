@@ -63,7 +63,7 @@ docs:
       - title: "Internationalization (i18n)"
         url: /i18n/
       - title: "Connecting to Other Systems"
-        url: /Data-Binding/
+        url: /Connecting-to-Other-Systems/
       - title: "HTTP Error Handling"
         url: /HTTP-Error-Handling/
       - title: "Configurable State Persistence and Rehydration"

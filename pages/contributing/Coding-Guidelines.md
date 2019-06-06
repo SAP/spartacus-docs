@@ -104,7 +104,7 @@ We are currently planning to add a one-layer "facade" between `ngrx/store` and `
 
 Do not break server-side rendering (SSR).
 
-For more information, see the [[Server–Side Rendering Coding Guidelines]].
+For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link pages/dev/Server-Side-Rendering-Coding-Guidelines.md %}).
 
 ### Protected and Private Methods
 
