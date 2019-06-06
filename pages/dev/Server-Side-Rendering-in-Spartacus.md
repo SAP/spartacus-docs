@@ -1,5 +1,6 @@
 ---
 title: Server-Side Rendering in Spartacus (DRAFT)
+permalink: /Server-Side-Rendering-in-Spartacus/
 ---
 
 ## Steps

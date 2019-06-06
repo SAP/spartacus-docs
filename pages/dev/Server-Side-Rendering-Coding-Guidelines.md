@@ -1,5 +1,6 @@
 ---
 title: Server-Side Rendering Coding Guidelines
+permalink: /Server-Side-Rendering-Coding-Guidelines/
 ---
 
 The following guidelines are highly recommended when working with server-side rendering (SSR).

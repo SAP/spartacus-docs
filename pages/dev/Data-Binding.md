@@ -1,5 +1,6 @@
 ---
 title: Connecting to Other Systems (DRAFT)
+permalink: /Data-Binding/
 ---
 
 The system landscape of a Commerce solution is made up of various systems. The systems are typically orchestrated on various application layers, including the front end. While the Spartacus component UIs connect to SAP Commerce Cloud APIs by default, the underlying framework can be used to _adapt_ other systems as well. This is done by so-called connectors which can be added to connect to other systems.

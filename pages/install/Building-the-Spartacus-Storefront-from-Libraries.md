@@ -1,5 +1,6 @@
 ---
 title: Building the Spartacus Storefront from Libraries
+permalink: /Building-the-Spartacus-Storefront-from-Libraries/
 ---
 
 The following instructions describe how to build a storefront application using published Spartacus libraries.

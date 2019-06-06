@@ -1,5 +1,6 @@
 ---
 title: Definition of Done
+permalink: /Definition-Of-Done/
 ---
 
 This document describes the necessary steps to declare a feature or bug for Spartacus as "Done".

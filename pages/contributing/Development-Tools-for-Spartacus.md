@@ -1,5 +1,6 @@
 ---
 title: Development Tools for Spartacus
+permalink: /Development-Tools-for-Spartacus/
 ---
 
 The Spartacus team works with a number of development tools that are recommended if you are contributing to the Spartacus project.

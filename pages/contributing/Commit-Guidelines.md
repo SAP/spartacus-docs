@@ -1,5 +1,6 @@
 ---
 title: Committing Code to Spartacus
+permalink: /Commit-Guidelines/
 ---
 
 ## Settings

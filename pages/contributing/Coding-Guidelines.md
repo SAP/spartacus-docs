@@ -1,5 +1,6 @@
 ---
 title: Coding Guidelines
+permalink: /Coding-Guidelines/
 ---
 
 To keep the Spartacus code readable and maintainable, please follow our coding guidelines, even if you find them violated somewhere. If a file is consistently not following the guidelines, and adhering to the guidelines would make the code worse, then follow the local style.

@@ -1,5 +1,6 @@
 ---
 title: Contributor Setup
+permalink: /Contributor-Setup/
 ---
 
 To contribute to the Spartacus project, the first steps are to clone the Spartacus library sources, build, and then run the storefront from the library development workspace.

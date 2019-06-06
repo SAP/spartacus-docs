@@ -1,5 +1,6 @@
 ---
 title: SmartEdit Setup Instructions for Spartacus
+permalink: /SmartEdit-Setup-Instructions-for-Spartacus/
 ---
 
 Pre-requisites:

@@ -1,5 +1,6 @@
 ---
 title: SEO Capabilities
+permalink: /SEO-Capabilities/
 ---
 
 Search engine optimization (SEO) is an important element of the Spartacus storefront framework. The implementation of SEO in Spartacus is focused on the architecture, rather than on features, so that a solid foundation exists for adding a wide range of SEO capabilities.
