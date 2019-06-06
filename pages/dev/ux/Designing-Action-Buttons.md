@@ -7,7 +7,7 @@ This section details the context in which different action buttons should be use
 
 ## Primary (Forward) Action Buttons
 
-![submit button](/assets/images/ux/action_how/submit_button.png)
+![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
 
 This action button style is dedicated to the most important action on any given page.
 This button is designed to grab the user's attention, and communicate that this is the way forward to accomplish their tasks.
