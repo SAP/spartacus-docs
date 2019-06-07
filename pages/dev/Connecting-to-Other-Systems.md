@@ -22,7 +22,7 @@ This design involves multiple layers:
 - **In-memory Store (ngrx)**: Spartacus uses ngrx for state management. Ngrx is considered complex and therefor you can use the facade layer.
 - **Back end connector**: The back end connector is called by ngrx _effects_, and return the response from the back end in the required UI model. The connector delegates to an adapter, which interacts with a back end system.
 
-[[/assets/component-data-binding.png]]
+![component data binding]({{ site.baseurl }}/assets/images/component-data-binding.png)
 
 While this is a pretty complex setup, you don't need to worry about most layers. When you want to connect a UI component to an alternative data source, you would customize some low level layers without being concerned with the facade layer or data store. Only if alternative client-side business logic is required, you would provide additional logic, most likely close to the UI layer.
 
