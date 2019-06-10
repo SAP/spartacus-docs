@@ -156,13 +156,13 @@ The app will be served with the production build, without using the webpack dev 
 
 In both development mode and production mode, the Spartacus storefront has default values for all of its configurations. However, you may need to override these values.
 
-To configure the storefront, use the `withConfig` method on the StorefrontModule. The following is an example:
+To configure the storefront, use the `withConfig` method on the B2cStorefrontModule. The following is an example:
 
 ```typescript
 @NgModule({
   imports: [
     BrowserModule,
-    StorefrontModule.withConfig({
+    B2cStorefrontModule.withConfig({
       backend: {
         occ: {
           baseUrl: environment.occBaseUrl,
@@ -189,7 +189,7 @@ For example, if you only need to override the `baseUrl` and the `client_secret`,
 @NgModule({
   imports: [
     BrowserModule,
-    StorefrontModule.withConfig({
+    B2cStorefrontModule.withConfig({
       backend: {
         occ: {
           baseUrl: environment.occBaseUrl

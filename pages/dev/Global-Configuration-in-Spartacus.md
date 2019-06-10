@@ -13,7 +13,7 @@ Any configuration provided can be overridden in the main app module.
 
 ### StorefrontLib.withConfig
 
-If you import StorefrontModule in your app, preferred and easiest method to provide configuration is to use `StorefrontModule.withConfig(config?: StorefrontModuleConfig)`.
+If you import B2cStorefrontModule in your app, preferred and easiest method to provide configuration is to use `B2cStorefrontModule.withConfig(config?: StorefrontModuleConfig)`.
 `StorefrontModuleConfig` interface provides type safety and context-aware code completion that speed ups defining configuration and helps to avoid any typos.
 
 ### ConfigModule.withConfig
@@ -141,5 +141,5 @@ e.g. `{ provide: MyModuleConfig, useExisting: Config }`
 5. Add interface to storefrontConfiguration type
 
 If you are developing core storefront feature, to make your configuration options available to the customer
-to use with `StorefrontModule.withConfig()`, import and include your new type to global `StorefrontModuleConfig` type in  
+to use with `B2cStorefrontModule.withConfig()`, import and include your new type to global `StorefrontModuleConfig` type in  
 `projects/storefrontlib/src/lib/storefront-config.ts`.

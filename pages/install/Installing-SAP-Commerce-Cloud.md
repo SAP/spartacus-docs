@@ -130,7 +130,7 @@ To configure CORS settings for OCC REST APIs, adding the following to your SAP C
 ```
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control
 ```
 
 For more information, [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
@@ -139,13 +139,13 @@ For more information, [this help document](https://help.sap.com/viewer/9d346683b
 
 # Installing the Spartacus sample data addon (optional)
 
-The [Spartacus Sample Data Addon](assets/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
+The [Spartacus Sample Data Addon](/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
 
 The name of the new storefront base site is **electronics-spa**.
 
 #### Step 1: Download and install the Spartacus sample data addon
 
-1. [Download](assets/spartacussampledataaddon.zip) the Spartacus sample data add-on.
+1. [Download](/assets/other/spartacussampledataaddon.zip) the Spartacus sample data add-on.
 
 2. Unzip the archive.
 
@@ -208,7 +208,7 @@ When setting up your Spartacus storefront, set the base site in `app.module.ts` 
 
 Instead of including the admin password in every install command as required for release 1905, you can create a configuration file that is used each time.
 
-1. Create a file named `custom.properties` inside the `installer/recipes/customconfig` folder of your SAP Commerce Cloud folder.
+1. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
 
 2. Add the following line: `initialpassword.admin=nimda`
 

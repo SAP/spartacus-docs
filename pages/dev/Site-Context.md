@@ -3,7 +3,7 @@ title: Site Context (Configuring the Base URL)
 permalink: /Site-Context/
 ---
 
-You can configure the base URL with a special HTML `meta` tag, instead of hard coding it in the `withConfig` method of the StorefrontModule. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
+You can configure the base URL with a special HTML `meta` tag, instead of hard coding it in the `withConfig` method of the B2cStorefrontModule. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
 
 The following example shows how the `meta` tag can be configured in the `index.html` file:
 
@@ -15,7 +15,7 @@ The corresponding `app.module.ts` file appears as follows:
 
 ```typescript
   imports: [
-    BrowserModule, StorefrontModule.withConfig({
+    BrowserModule, B2cStorefrontModule.withConfig({
       backend: {
         occ: {
           baseUrl: 'https://electronics.local:9002', // This value is overridden by the value from the meta tag.
@@ -40,4 +40,3 @@ The corresponding `app.module.ts` file appears as follows:
   ```
   <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
   ```
-

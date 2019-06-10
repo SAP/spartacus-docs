@@ -3,7 +3,9 @@ title: Building the Spartacus Storefront from Libraries
 permalink: /Building-the-Spartacus-Storefront-from-Libraries/
 ---
 
-The following instructions describe how to build a storefront application using published Spartacus libraries.
+The following instructions describe how to build a storefront application using published Spartacus libraries, which currently use Angular 7. 
+
+Note: The 1.0 Beta libraries that use Angular 8 are not yet officially released but are available for use, though are untested. Setup differences are described at the end of this document.
 
 To build the Spartacus project from source, see [Contributor Setup]({{ site.baseurl }}{% link pages/contributing/Contributor-Setup.md %}).
 
@@ -11,15 +13,32 @@ To build the Spartacus project from source, see [Contributor Setup]({{ site.base
 
 Before carrying out the procedures below, ensure the following front end and back end requirements are in place.
 
-## Front End Requirements
+## Front-End Development Requirements
 
 Your Angular development environment should include the following:
 
-- [Angular CLI](https://angular.io/): v7.3.7 or later, < v8.0.0
+- [Angular CLI](https://angular.io/): v8.0.0 or later, < v9.0.0
 - node.js: v10 or later, < v12
 - yarn: v1.15 or later
 
-## Back End Requirements
+### Installing the Prerequisite Development Tools
+
+There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS but also works on Linux and Windows 10 (through the Linux subsystem feature). 
+
+Install [Homebrew](https://brew.sh), and then run the following commands:
+
+```
+brew install yarn
+brew install node@10
+brew install angular-cli
+```
+
+Note: 
+- If you have a later version of node.js installed in addition v10, you can set v10 to be used with the following command:
+`brew link --force --overwrite node@10`
+- Installing Homebrew and the prerequisites is beyond the scope of this document. You can also install the prerequisites using their individual installers.
+
+## Back End Server Requirements
 
 Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator Electronics storefront in particular.
 
@@ -39,9 +58,9 @@ The following procedure describes how to create a new Angular application with t
    ng new mystore --style=scss
    ```
 
-3. When prompted if you would like to add Angular routing, enter `n` for 'no'.
+   When prompted if you would like to add Angular routing, enter `n` for 'no'.
 
-    The `mystore` folder and the new app are created.
+   The `mystore` folder and the new app are created.
 
 4.  Access the newly created `mystore` folder with the following command:
 
@@ -58,8 +77,8 @@ The dependencies in this procedure are required by the Spartacus storefront.
 2. Add the following dependencies to the end of the `dependencies` section of `package.json`. 
 
    ```json
-   "@angular/pwa": "^0.13.7",
-   "@angular/service-worker": "~7.2.11",
+   "@angular/pwa": "^0.800.0",
+   "@angular/service-worker": "~8.0.0",
    "@ng-bootstrap/ng-bootstrap": "^4.0.1",
    "@ng-select/ng-select": "^2.13.2",
    "@ngrx/effects": "~7.4.0",
@@ -124,7 +143,8 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
          baseSite: 'electronics'
        },
        i18n: {
-         resources: translations
+         resources: translations,
+         fallbackLang: 'en'
        }
      }),
      ConfigModule.withConfigFactory(defaultCmsContentConfig)
@@ -167,7 +187,8 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
              baseSite: 'electronics'
            },
            i18n: {
-             resources: translations
+             resources: translations,
+             fallbackLang: 'en'
            }
          }),
          ConfigModule.withConfigFactory(defaultCmsContentConfig)
@@ -285,3 +306,68 @@ If you are using the `electronics` sample store that is included with SAP Commer
 6. In the pop-up search box that appears, search for the desired media file in your system and select it.
 
 7. Save your changes.
+
+
+----
+----
+----
+
+
+## Instructions for using the Unreleased Spartacus Beta with Angular 8
+
+(last updated June 7, 2019)
+
+The Spartacus 1.0 Beta Release will be made available the week of June 10, 2019. The 1.0 Beta release will use Angular 8. Untested "incremental" releases of Spartacus libraries are available to use now if you wish.
+
+The following instructions describe the differences in the setup instructions if you want to upgrade to Angular 8 and use the untested use-at-your-own-risk incremental libraries. 
+
+### Minimum requirements for unreleased 1.0 Beta
+
+- [Angular CLI](https://angular.io/): **v8.0** or later
+- node.js: **v10.9** or later, < v12
+- yarn: same
+
+
+### Differences in Dependencies
+
+The following is the complete list of dependencies we are using for the unrelease 1.0 beta that uses Angular 8. These dependencies are added to `mystore/package.json`.
+
+The dependencies for the Spartacus Core, Styles and Storefront libraries point to the unreleased incremental 1.0 beta release. (The Spartacus Assets library is not yet available as an incremental release.)
+
+```json
+"@angular/pwa": "^0.800.2",
+"@angular/service-worker": "~8.0.0",
+"@ng-bootstrap/ng-bootstrap": "4.1.0",
+"@ng-select/ng-select": "^2.13.2",
+"@ngrx/effects": "~7.4.0",
+"@ngrx/router-store": "~7.4.0",
+"@ngrx/store": "~7.4.0",
+"bootstrap": "^4.2.1",
+"i18next": "^15.0.6",
+"i18next-xhr-backend": "^2.0.1",
+"rxjs": "^6.4.0",
+
+"@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds",
+"@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds",
+"@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds",
+"@spartacus/assets": "~0.1.0-alpha.1"
+```
+
+
+### Import Declarations and Storefront Configuration Settings
+
+In `src/ap/app.module.ts`, use `B2cStorefrontModule` instead of `StorefrontModule`, as shown:
+
+In the imports list at the top:
+
+```typescript
+import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
+```
+
+In the `NgModule/imports` section:
+
+```typescript
+  B2cStorefrontModule.withConfig({
+    backend: {
+      ...
+```

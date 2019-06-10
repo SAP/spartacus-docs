@@ -3,9 +3,9 @@ main:
   - title: Home
     url: /
   - title: Installing Spartacus
-    url: pages/install/Building-the-Spartacus-Storefront-from-Libraries
-  - title: "GitHub"
-    url: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs
+    url: /Setup-and-Installation/
+  - title: "Spartacus Source"
+    url: https://github.com/SAP/cloud-commerce-spartacus-storefront
  
 # sidebar menu
 docs:
@@ -15,8 +15,12 @@ docs:
         url: /
       - title: "Spartacus FAQ"
         url: /Spartacus-FAQ/
-      - title: "Release 1.0 Information and Roadmap"
-        url: /Release-1.0-Information-and-Roadmap/
+      - title: "Release 1.0 Information"
+        url: /Release-1.0-Information/
+      - title: Roadmap after Spartacus 1.0
+        url: /Roadmap-after-Spartacus-1.0/
+      - title: Setup and Installation
+        url: /Setup-and-Installation/  
 
   - title: Getting Started with Spartacus Libraries
     children:
@@ -89,7 +93,7 @@ docs:
         url: /Contributors-Guide/
         subchildren:
           - title: "Contributing to the Spartacus Storefront"
-            url: https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/CONTRIBUTING.md
+            url: /Contributing-to-the-Spartacus-Storefront/
           - title: "Development Tools for Spartacus"
             url: /Development-Tools-for-Spartacus/
           - title: "Contributor Setup"

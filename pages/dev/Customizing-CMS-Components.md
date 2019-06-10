@@ -21,7 +21,7 @@ There are two types of components that can be configured: angular components, an
 
 ### Custom Angular CMS Components
 
-You can provide a CMS component configuration to the `ConfigModule`, or directly to the `StorefrontModule`. The following configuration shows how to configure a custom Angular component for the `BannerComponent`:
+You can provide a CMS component configuration to the `ConfigModule`, or directly to the `B2cStorefrontModule`. The following configuration shows how to configure a custom Angular component for the `BannerComponent`:
 
 ```typescript
 ConfigModule.withConfig({
