@@ -139,13 +139,13 @@ For more information, [this help document](https://help.sap.com/viewer/9d346683b
 
 # Installing the Spartacus sample data addon (optional)
 
-The [Spartacus Sample Data Addon](/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
+The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
 
 The name of the new storefront base site is **electronics-spa**.
 
 #### Step 1: Download and install the Spartacus sample data addon
 
-1. [Download](/assets/other/spartacussampledataaddon.zip) the Spartacus sample data add-on.
+1. [Download]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) the Spartacus sample data add-on.
 
 2. Unzip the archive.
 
