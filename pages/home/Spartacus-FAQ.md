@@ -1,7 +1,9 @@
 ---
-title: Questions related to Spartacus as a product
+title: Spartacus FAQ
 permalink: /Spartacus-FAQ/
 ---
+
+# Questions related to Spartacus as a product
 
 ### What is SAP Commerce Cloud (Project Spartacus)? (referred to as just “Spartacus”)
 
