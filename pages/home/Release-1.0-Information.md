@@ -5,7 +5,7 @@ permalink: /Release-1.0-Information/
 
 *aka the P.O.'s soapbox*
 
-*Last updated June 1, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated June 11, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what we expect to be included in the first release of Spartacus libraries and what is planned post-release.
 
@@ -19,17 +19,17 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
 
 
 
-### Release 1.0.0 - aiming for Q2 2019 / Third Week of June
+### Release 1.0.0 - aiming for Q2 2019 / End of June
 
 As of this writing
 
-- Spartacus is currently in 'alpha' status - this means we are still adding features
-- We plan to go to 'beta' in early June, exact date to be determined, probably by June 7; when we move to beta, it means that we are no longer adding features or making architectural changes that will cause upgrade issues
-- The first release (1.0) is planned for the third week of June, a few weeks after the release of SAP Commerce Cloud 1905
-- To be able to use all functionality in Spartacus 1.0, SAP Commerce Cloud 1905 is required; most of Spartacus can work with 1811 and previous releases, with no guarantees the farther back you go. Specifically, the following features require 1905:
+- Spartacus is currently in 'beta' status - this means we are no longer adding features or making architectural changes that will cause upgrade issues; we're fixing bugs and doing testing
+- The first release (1.0) is planned for the end of June, a few weeks after the release of SAP Commerce Cloud 1905
+- To be able to use all functionality in Spartacus 1.0, Release 1905 of SAP Commerce Cloud is required; most of Spartacus can work with 1811 and previous releases, with no guarantees the farther back you go. Specifically, the following features require 1905:
   - SmartEdit support
   - Any usage of  new CmsFlexComponents or SiteContextComponent (although you can use other components such as JspComponent)
   - Forgot password / reset
+  - Various bug fixes to OCC APIs that help Spartacus work better
 - We usually release new libraries every 2 weeks (hosted on npmjs.com)
 
 
@@ -42,7 +42,7 @@ Customer-facing storefront features:
 
 | Page/Area                  | Notes                                                        |
 | -------------------------- | ------------------------------------------------------------ |
-| Header                     | Displays language and currency selection, shortcut links to storefinder, help and sample information pages, logo, search box, cart icon, category bar, and breadcrumbs |
+| Header                     | Displays language and currency selection, shortcut links to help and other sample information pages, logo, search box, cart icon, category bar, and breadcrumbs |
 | Footer                     | Displays company links and copyright notice                  |
 | Home                       | Driven by CMS page layout and slots                          |
 | Search                     | Search box in header displays search and product suggestions; search results include facets provided by backend |
