@@ -65,29 +65,29 @@ Deep merging works only for objects, arrays are overwritten without merging.
 
 Some example of configuration merging:
 
-- simple merge:
+- Simple merge:
 
-Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
+    Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
 
-Chunk 2: `{ site: { base-site: 'electronics' } }`
+    Chunk 2: `{ site: { base-site: 'electronics' } }`
 
-Merged: `{ site: { occ-prefix: 'rest-api', base-site: 'electronics' } }`
+    Merged: `{ site: { occ-prefix: 'rest-api', base-site: 'electronics' } }`
 
-- merge with overwrite:
+- Merge with overwrite:
 
-Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
+    Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
 
-Chunk 2: `{ site: { base-site: 'electronics', occ-prefix: 'aaa' } }`
+    Chunk 2: `{ site: { base-site: 'electronics', occ-prefix: 'aaa' } }`
 
-Merged: `{ site: { occ-prefix: 'aaa', base-site: 'electronics' } }`
+    Merged: `{ site: { occ-prefix: 'aaa', base-site: 'electronics' } }`
 
-- array overwrite:
+- Array overwrite:
 
-Chunk 1: `{ config-values: ['a', 'b' ] }`
+    Chunk 1: `{ config-values: ['a', 'b' ] }`
 
-Chunk 2: `{ config-values: ['c'] }`
+    Chunk 2: `{ config-values: ['c'] }`
 
-Merged: `{ config-values: ['c'] }`
+    Merged: `{ config-values: ['c'] }`
 
 ### Order of provided configuration chunks
 
@@ -117,29 +117,28 @@ However, below are the best practices explaining how to implement feature module
 
 1. Define an abstract class for your part of the configuration.
 
-We recommend using an abstract class instead of an interface to not only provide typings but also an injection token, that will simplify configuration
-usage inside your module (and in some advanced scenarios, could facilitate separate configuration for your module).
+    We recommend using an abstract class instead of an interface to not only provide typings but also an injection token, that will simplify configuration usage inside your module (and in some advanced scenarios, could facilitate separate configuration for your module).
 
-By convention, all Spartacus storefront modules are using `config` folder for this purpose, e.g. `my-module/config/my-module-config.ts`
+    By convention, all Spartacus storefront modules are using `config` folder for this purpose, e.g. `my-module/config/my-module-config.ts`
 
 2. Define defaults
 
-Export default configuration, preferably as a const typed plain object value.  
-By convention, all spartacus modules are using `config` folder for this purpose, e.g. `my-module/config/default-my-module-config.ts`
+    Export default configuration, preferably as a const typed plain object value.  
+
+    By convention, all spartacus modules are using `config` folder for this purpose, e.g. `my-module/config/default-my-module-config.ts`
 
 3. Provide default to configuration
 
-In you feature module import `ConfigModule.withConfig(),` and pass default config there, e.g. `ConfigModule.withConfig(defaultMyModuleConfig),`
+    In you feature module import `ConfigModule.withConfig(),` and pass default config there, e.g. `ConfigModule.withConfig(defaultMyModuleConfig),`
 
 4. Provide global configuration using your typed abstract class
 
-This step is not technically needed, because you can always inject global config. However, it is recommended because defines proper config encapsulation,
-allows for easy injection and provides type safety for your module.
+    This step is not technically needed, because you can always inject global config. However, it is recommended because defines proper config encapsulation, allows for easy injection and provides type safety for your module. The following is an example:
 
-e.g. `{ provide: MyModuleConfig, useExisting: Config }`
+    ```typescript
+    { provide: MyModuleConfig, useExisting: Config }
+    ```
 
 5. Add interface to storefrontConfiguration type
 
-If you are developing core storefront feature, to make your configuration options available to the customer
-to use with `B2cStorefrontModule.withConfig()`, import and include your new type to global `StorefrontModuleConfig` type in  
-`projects/storefrontlib/src/lib/storefront-config.ts`.
+    If you are developing core storefront feature, to make your configuration options available to the customer to use with `B2cStorefrontModule.withConfig()`, import and include your new type to global `StorefrontModuleConfig` type in `projects/storefrontlib/src/lib/storefront-config.ts`.
