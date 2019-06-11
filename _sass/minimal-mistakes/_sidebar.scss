@@ -58,19 +58,19 @@
   li {
     font-family: $sans-serif;
     font-size: $type-size-6;
-    line-height: 1.5;
+    line-height: 0.9;
   }
 
   li li li {
     font-family: $sans-serif;
     font-size: 100%;
-    line-height: 1.5;
+    line-height: 0.9;
     margin-left: 1em;
   }
 
   img {
     width: 100%;
-    
+
     &.emoji {
       width: 20px;
       height: 20px;
@@ -320,4 +320,3 @@
     margin-right: initial;
   }
 }
-
