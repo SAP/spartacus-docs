@@ -58,13 +58,15 @@
   li {
     font-family: $sans-serif;
     font-size: $type-size-6;
-    line-height: 0.9;
+    line-height: 0.99;
+    padding-bottom: 3px;
   }
 
   li li li {
     font-family: $sans-serif;
     font-size: 100%;
-    line-height: 0.9;
+    line-height: 0.99;
+    padding-bottom: 3px;
     margin-left: 1em;
   }
 
