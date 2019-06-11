@@ -131,11 +131,13 @@
     /* extend grid elements to the right */
 
     @include breakpoint($large) {
-      margin-right: -1 * $right-sidebar-width-narrow;
+      margin-right: -1 * 1;
+//      margin-right: -1 * $right-sidebar-width-narrow;
     }
 
     @include breakpoint($x-large) {
-      margin-right: -1 * $right-sidebar-width;
+      margin-right: -1 * 1;
+//      margin-right: -1 * $right-sidebar-width;
     }
   }
 }
