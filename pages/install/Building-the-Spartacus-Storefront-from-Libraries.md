@@ -151,7 +151,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
      ConfigModule.withConfigFactory(defaultCmsContentConfig)
    ```
   
-   Don't forget to add a comma to the module entry before `StorefrontModule`.
+   Don't forget to add a comma to the module entry before `B2cStorefrontModule`.
 
 4. Save the file. 
 
