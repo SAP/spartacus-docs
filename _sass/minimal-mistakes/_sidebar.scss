@@ -18,7 +18,7 @@
 
   @include breakpoint($large) {
     float: left;
-    width: calc(#{$right-sidebar-width-narrow} - 1em);
+    width: calc(#{$right-sidebar-width-narrow} - 2em);
     opacity: 0.75;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
@@ -59,14 +59,14 @@
     font-family: $sans-serif;
     font-size: $type-size-6;
     line-height: 1.1;
-    padding-bottom: 6px;
+    padding-bottom: 5px;
   }
 
   li li li {
     font-family: $sans-serif;
     font-size: 100%;
     line-height: 1.1;
-    padding-bottom: 6px;
+    padding-bottom: 5px;
     margin-left: 1em;
   }
 
