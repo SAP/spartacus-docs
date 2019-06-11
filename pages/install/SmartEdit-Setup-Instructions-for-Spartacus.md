@@ -21,7 +21,6 @@ Pre-requisites:
    hybris/bin/modules/smartedit/smarteditaddon/acceleratoraddon/web/webroot/_ui/shared/common/js/webApplicationInjector.js
    ```
 
-
 3. In the root folder of your Angular app, edit the file `angular.json`.
 
    In the section` architect > build > option > assets`, add `src/webApplicationInjector.js`.
@@ -48,7 +47,9 @@ Pre-requisites:
 
 4. In  `src/index.html` file, in the `HEAD` section, add the following line:
 
-   ```<script id="smartedit-injector" src="webApplicationInjector.js" data-smartedit-allow-origin="localhost:9002"></script>```
+   ```html
+   <script id="smartedit-injector" src="webApplicationInjector.js" data-smartedit-allow-origin="localhost:9002"></script>
+   ```
 
    Replace `localhost:9002` with the domain of your server.
 
@@ -76,6 +77,8 @@ Pre-requisites:
    
 7. Start the Angular app in SSL mode. Doing so will avoid an "unsafe scripting" message from the browser.
 
-   `yarn start --ssl`
+   ```
+   yarn start --ssl
+   ```
 
 Note: If you start the app without SSL mode, the two references to `https://localhost:4200` must be changed to `http://localhost:4200`.
