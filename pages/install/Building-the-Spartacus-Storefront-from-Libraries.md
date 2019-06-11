@@ -3,11 +3,9 @@ title: Building the Spartacus Storefront from Libraries
 permalink: /Building-the-Spartacus-Storefront-from-Libraries/
 ---
 
-The following instructions describe how to build a storefront application using published Spartacus libraries, which currently use Angular 7. 
+The following instructions describe how to build a storefront application using published Spartacus **1.0 Beta** libraries, which use Angular **8**. (Beta libraries were released June 10, 2019.)
 
-Note: The 1.0 Beta libraries that use Angular 8 are not yet officially released but are available for use, though are untested. Setup differences are described at the end of this document.
-
-To build the Spartacus project from source, see [Contributor Setup]({{ site.baseurl }}{% link pages/contributing/Contributor-Setup.md %}).
+If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link pages/contributing/Contributor-Setup.md %}).
 
 ## Prerequisites
 
@@ -17,15 +15,15 @@ Before carrying out the procedures below, ensure the following front end and bac
 
 Your Angular development environment should include the following:
 
-- [Angular CLI](https://angular.io/): v8.0.0 or later, < v9.0.0
+- [Angular CLI](https://angular.io/): **v8.0.0** or later, < v9.0.0
 - node.js: v10 or later, < v12
 - yarn: v1.15 or later
 
-### Installing the Prerequisite Development Tools
+### Installing or Updating the Prerequisite Development Tools
 
 There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS but also works on Linux and Windows 10 (through the Linux subsystem feature). 
 
-Install [Homebrew](https://brew.sh), and then run the following commands:
+To install the prerequisite development tools, install [Homebrew](https://brew.sh), and then run the following commands:
 
 ```
 brew install yarn
@@ -33,7 +31,10 @@ brew install node@10
 brew install angular-cli
 ```
 
+To update existing installations, use `brew upgrade` instead of `brew install`.
+
 Note: 
+
 - If you have a later version of node.js installed in addition v10, you can set v10 to be used with the following command:
 `brew link --force --overwrite node@10`
 - Installing Homebrew and the prerequisites is beyond the scope of this document. You can also install the prerequisites using their individual installers.
@@ -77,9 +78,9 @@ The dependencies in this procedure are required by the Spartacus storefront.
 2. Add the following dependencies to the end of the `dependencies` section of `package.json`. 
 
    ```json
-   "@angular/pwa": "^0.800.0",
+   "@angular/pwa": "^0.800.2",
    "@angular/service-worker": "~8.0.0",
-   "@ng-bootstrap/ng-bootstrap": "^4.0.1",
+   "@ng-bootstrap/ng-bootstrap": "4.1.0",
    "@ng-select/ng-select": "^2.13.2",
    "@ngrx/effects": "~7.4.0",
    "@ngrx/router-store": "~7.4.0",
@@ -87,16 +88,14 @@ The dependencies in this procedure are required by the Spartacus storefront.
    "bootstrap": "^4.2.1",
    "i18next": "^15.0.6",
    "i18next-xhr-backend": "^2.0.1",
-   "ngrx-store-localstorage": "^7.0.0",
-   "rxjs": "^6.4.0",
    
-   "@spartacus/core": "~0.1.0-alpha.1",
-   "@spartacus/styles": "~0.1.0-alpha.1",
-   "@spartacus/assets": "~0.1.0-alpha.1",
-   "@spartacus/storefront": "~0.1.0-alpha.1",
+   "@spartacus/core": "~0.1.0-beta.0",
+   "@spartacus/styles": "~0.1.0-beta.0",
+   "@spartacus/storefront": "~0.1.0-beta.0",
+   "@spartacus/assets": "~0.1.0-beta.3"
    ```
-
-   Note: Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.8.26"` so you would need to add a comma after `.26"`.
+   
+   Note: Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
 
 
 3. From the terminal window, within `mystore`, install the dependencies by running the following command:
@@ -107,7 +106,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 **Note:** 
 
-(1) If Spartacus libraries are in beta, change `alpha` to `beta`. The `~` instructs yarn to use the latest minor version (x.y), whereas the `^` instructs yarn to use the latest patch version (x.y.z). However, because Spartacus libraries have `-alpha.1`, yarn will only install the latest alpha releases (it won't automatically use beta versions).
+(1) The `~` instructs yarn to use the latest minor version (x.y), whereas the `^` instructs yarn to use the latest patch version (x.y.z). Note that because Spartacus libraries have `-beta.#`, yarn will only install the latest beta releases (it won't automatically use RC or later versions).
 
 (2) If you are updating an existing app, and changing dependencies, it's recommended that you delete the `node_modules` folder before running the install command.
 
@@ -122,13 +121,15 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
    ```typescript
    import { ConfigModule } from '@spartacus/core';
    import { translations } from '@spartacus/assets';
-   import { StorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
+   import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
    ```
 
-3. Add the following lines to the `NgModule/imports` section, below existing `BrowserModule` and `AppRoutingModule` statements, but before the last `],` (closing square bracket):
+   Note: For beta, `B2cStorefrontModule` is used instead of `StorefrontModule`.
+
+3. Add the following lines to the `NgModule/imports` section, below the existing `BrowserModule` statement, but before the last `],` (closing square bracket):
   
    ```typescript
-   StorefrontModule.withConfig({
+   B2cStorefrontModule.withConfig({
        backend: {
          occ: {
            baseUrl: 'https://localhost:9002',
@@ -164,7 +165,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
    
    import { ConfigModule } from '@spartacus/core';
    import { translations } from '@spartacus/assets';
-   import { StorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
+   import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
    
    @NgModule({
      declarations: [
@@ -172,7 +173,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
      ],
      imports: [
        BrowserModule,
-       StorefrontModule.withConfig({
+       B2cStorefrontModule.withConfig({
            backend: {
              occ: {
                baseUrl: 'https://localhost:9002',
@@ -201,13 +202,13 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
 
 **Note:** Some of the statements in the example above were generated by Angular when you first created the app.
 
-### Import Statements
+#### About the Import Statements
 
 The import statements import either modules or default data needed by Spartacus.
 
-### StorefrontModule Settings
+### About the B2cStorefrontModule Settings
 
-These settings are described in more detail in the Spartacus documentation. The following is a brief summary:
+The B2cStorefrontModule settings are described in more detail in the Spartacus documentation. The following is a brief summary in case you want to change them.
 
 - `backend.occ` (`baseUrl`, `prefix`): When combined, the `baseUrl` and `prefix` parameters form the basis for all OCC REST API calls to your SAP Commerce Cloud server. The value of `https://localhost:9002` is valid if you have installed SAP Commerce Cloud on a local machine. The value of `rest/v2` is the default OCC REST API path. Change these values depending on the URL of your SAP Commerce Cloud server, and your prefix configuration.
 
@@ -215,11 +216,11 @@ These settings are described in more detail in the Spartacus documentation. The 
 
 - `authentication` (`client_id`, `client_secret`): The `client_id` and `client_secret` parameters define the ID and password to use when communicating with SAP Commerce Cloud using OCC REST API calls. The values `mobile_android` and `secret` correspond to examples in this [help document](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1811/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html?q=Configuring%20OAuth%20Clients). Change the ID and secret to the settings for your server.
 
-- `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server.
+- `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the spartacussampledataaddon (described later in this document), you would change this setting to `electronics-spa`.
 
-- `i18n` (`resources`): This parameter configures Spartacus to use default translation data provided with Spartacus.
+- `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
 
-### ConfigModule Statement
+#### About the ConfigModule Statement
 
 The `ConfigModule.withConfigFactory(defaultCmsContentConfig)` paramater configures Spartacus to use default CMS (content) data provided with Spartacus.
 
@@ -255,7 +256,7 @@ This section describes how to validate your back end installation, and then star
 
 ### Validating the SAP Commerce Cloud Backend
 
-**Note:** The Chrome browser is highly recommended for the following steps. Other browsers may not work properly.
+**Note:** The Chrome browser is recommended and used in the following example, but other browsers can be used as long as they recognize and allow you to continue even though a site is using a self-signed certificate.
 
 1. Use a web browser to access the OCC endpoint of your backend.
 
@@ -274,15 +275,15 @@ This section describes how to validate your back end installation, and then star
 To start your Spartacus storefront, enter the following command from `mystore` in your terminal window:
 
    ```bash
-   yarn start
+yarn start
    ```
 
    When the app server is properly started, point your browser to http://localhost:4200.
 
-To start your Spartacus storefront securely, enter the following command:
+Or, to start your Spartacus storefront securely, enter the following command:
 
    ```bash
-   yarn start --ssl
+yarn start --ssl
    ```
 
 Then point your browser to  https://localhost:4200.
@@ -307,67 +308,28 @@ If you are using the `electronics` sample store that is included with SAP Commer
 
 7. Save your changes.
 
-
-----
-----
 ----
 
 
-## Instructions for using the Unreleased Spartacus Beta with Angular 8
-
-(last updated June 7, 2019)
-
-The Spartacus 1.0 Beta Release will be made available the week of June 10, 2019. The 1.0 Beta release will use Angular 8. Untested "incremental" releases of Spartacus libraries are available to use now if you wish.
-
-The following instructions describe the differences in the setup instructions if you want to upgrade to Angular 8 and use the untested use-at-your-own-risk incremental libraries. 
-
-### Minimum requirements for unreleased 1.0 Beta
-
-- [Angular CLI](https://angular.io/): **v8.0** or later
-- node.js: **v10.9** or later, < v12
-- yarn: same
 
 
-### Differences in Dependencies
 
-The following is the complete list of dependencies we are using for the unrelease 1.0 beta that uses Angular 8. These dependencies are added to `mystore/package.json`.
+## Instructions for using Incremental Unreleased Spartacus Libraries
 
-The dependencies for the Spartacus Core, Styles and Storefront libraries point to the unreleased incremental 1.0 beta release. (The Spartacus Assets library is not yet available as an incremental release.)
+(last updated June 10, 2019)
+
+Spartacus libraries are usually released every two weeks. We test the libraries before releasing.
+
+If you wish, you can use incremental but unreleased Spartacus libraries. These libraries are essentially what's been merged to our develop branch but not part of an official release.
+
+**Note: Incremental libraries are not yet tested. We may not answer questions in the Spartacus help chat about incremental releases. Use at your own risk.**
+
+To use the incremental libraries, substitute the following in your `package.json` file.
 
 ```json
-"@angular/pwa": "^0.800.2",
-"@angular/service-worker": "~8.0.0",
-"@ng-bootstrap/ng-bootstrap": "4.1.0",
-"@ng-select/ng-select": "^2.13.2",
-"@ngrx/effects": "~7.4.0",
-"@ngrx/router-store": "~7.4.0",
-"@ngrx/store": "~7.4.0",
-"bootstrap": "^4.2.1",
-"i18next": "^15.0.6",
-"i18next-xhr-backend": "^2.0.1",
-"rxjs": "^6.4.0",
-
 "@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds",
 "@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds",
 "@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds",
-"@spartacus/assets": "~0.1.0-alpha.1"
 ```
 
-
-### Import Declarations and Storefront Configuration Settings
-
-In `src/ap/app.module.ts`, use `B2cStorefrontModule` instead of `StorefrontModule`, as shown:
-
-In the imports list at the top:
-
-```typescript
-import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
-```
-
-In the `NgModule/imports` section:
-
-```typescript
-  B2cStorefrontModule.withConfig({
-    backend: {
-      ...
-```
+The Spartacus Assets library is not yet available as an incremental release.
