@@ -17,9 +17,9 @@ Pre-requisites:
 
    This file to copy can be found in your SAP Commerce Cloud installation, in the following folder:
 
- 
- 
- ```hybris/bin/modules/smartedit/smarteditaddon/acceleratoraddon/web/webroot/_ui/shared/common/js/webApplicationInjector.js```
+    ```
+   hybris/bin/modules/smartedit/smarteditaddon/acceleratoraddon/web/webroot/_ui/shared/common/js/webApplicationInjector.js
+    ```
 
 3. In the root folder of your Angular app, edit the file `angular.json`.
 
