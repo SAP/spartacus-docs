@@ -43,7 +43,8 @@ Pre-requisites:
          "src/assets",
          "src/webApplicationInjector.js"
    		],
-   ...```
+      ...
+   ```
 
 4. In  `src/index.html` file, in the `HEAD` section, add the following line:
 
