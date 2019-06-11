@@ -4,8 +4,6 @@
 
 .masthead {
   position: relative;
-  background-image: image('logo-blue_64x64.png');
-  background-repeat: no-repeat;
   border-bottom: 1px solid $border-color;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
@@ -46,6 +44,8 @@
 }
 
 .site-title {
+  background-image: image('logo-blue_64x64.png');
+  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
