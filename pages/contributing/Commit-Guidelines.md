@@ -11,7 +11,7 @@ If you are on Windows, set the Git `core.autocrlf` configuration property to "fa
 
 When you are ready to merge your pull request, select GitHub's `Squash and merge` option, as shown in the following image:
 
-![Squash and Merge Button](assets/Squash_and_merge_button.png)
+![Squash and Merge Button]({{ site.baseurl }}/assets/images/Squash_and_merge_button.png)
 
 For information on `Squash and merge`, see [GitHub Help](https://help.github.com/articles/about-pull-request-merges/).
 
@@ -25,7 +25,7 @@ The commit message consists of a header, a body, and optionally, a footer. Each 
 
 When you click `Squash and merge`, two text fields appear. The first is for entering the header, and the second is for entering the body and footer, as shown in the following screenshot:
 
-![Text fields for entering commit message](assets/Squash_merge_header_body_footer.png)
+![Text fields for entering commit message]({{ site.baseurl }}/assets/images/Squash_merge_header_body_footer.png)
 
 The following is an example of a header you might enter:
 
