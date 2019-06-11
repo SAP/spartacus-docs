@@ -1,11 +1,7 @@
 # main links
 main:
-  - title: Home
-    url: /
-  - title: Installing Spartacus
-    url: /Setup-and-Installation/
-  - title: "Spartacus Source"
-    url: https://github.com/SAP/cloud-commerce-spartacus-storefront
+  - title: Version 1.0 Beta
+    url: /Release-1.0-Information/
  
 # sidebar menu
 docs:
