@@ -15,8 +15,6 @@ docs:
         url: /Release-1.0-Information/
       - title: Roadmap after Spartacus 1.0
         url: /Roadmap-after-Spartacus-1.0/
-      - title: Setup and Installation
-        url: /Setup-and-Installation/  
 
   - title: Getting Started with Spartacus Libraries
     children:
