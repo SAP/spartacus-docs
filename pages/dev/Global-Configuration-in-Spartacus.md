@@ -38,7 +38,7 @@ should be implemented using other methods, either by putting that information in
 ideally as an observable stream (to easily react to changes).
 General advice would be, that any value that can change in time, should be a part of app state rather than part of the app configuration.
 
-## Default values
+## Default Values
 
 Each module usually provides adefault configuration that is needed for basic functionality. There is no special way to
 provide default configuration, it is provided in the same way as any other configuration.
