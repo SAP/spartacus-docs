@@ -68,7 +68,7 @@ docs:
         url: /HTTP-Error-Handling/
       - title: "Configurable State Persistence and Rehydration"
         url: /Configurable-State-Persistence-and-Rehydration/
-      - title: "Server-Side-Rendering-in-Spartacus"
+      - title: "Server-Side Rendering in Spartacus"
         url: /Server-Side-Rendering-in-Spartacus/
         subchildren:
           - title: "Server–Side Rendering Coding Guidelines"
