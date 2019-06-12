@@ -72,7 +72,7 @@ In order to provide a stable set of variables, variables will be mainly used for
 
 The following snippet shows an example of a CSS variable:
 
-```CSS
+```css
 :root {
     --cx-g-color-primary: red;
 }
