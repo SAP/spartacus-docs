@@ -8,7 +8,7 @@ Every checkout page is based on CMS pages, slots and components. Thanks to this 
 ## Routing and configuration
 
 In checkout you often have links from on step to another. That is the reason for registering each checkout page as semantic page in storefront config.
-Here is our default route configuration for checkout (you don't have to write this, it is already in library):
+Below is our default route configuration for checkout (you don't have to write this, it is already in library):
 
 ```typescript
 B2cStorefrontModule.withConfig({
@@ -75,15 +75,16 @@ B2cStorefrontModule.withConfig({
 
 ### Configuration specification
 
-- Id of the step should be an unique value. You could use it when you would need to find specific step in configuration.
-- Name is used in `CheckoutProgress` component which shows steps already completed. We use that name as a translation key.
-- RouteName attribute specifies semantic page for this particular step.
-- The last attribute `type` is used by checkout guards (more about that in Protecting routes section).
-- Order in which you define the steps in array is used in navigation buttons. Example: You are on delivery-mode step. Based on the config, delivery mode component back button points to previous step `shippingAddress` and the next button points to `paymentDetails`. If you change order of steps in configuration buttons will automatically reflect those changes and link to correct pages.
+- **id** - should be an unique value. You could use it when you would need to find specific step in configuration.
+- **name** - used in `CheckoutProgress` component which shows steps already completed. We use that name as a translation key.
+- **routeName** - this attribute specifies semantic page for this particular step.
+- **type** - used by checkout guards (more about that in [Protecting routes](#protecting-routes) section).
+
+Order in which you define the steps in array is used in navigation buttons. Example: You are on delivery-mode step. Based on the config, delivery mode component back button points to previous step `shippingAddress` and the next button points to `paymentDetails`. If you change order of steps in configuration buttons will automatically reflect those changes and link to correct pages.
 
 ## Components
 
-Every checkout component is CMS component (in default checkout all of them are CMSFlexComponents). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
+Every checkout component is CMS component (in default checkout all of them are [CMSFlexComponents](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/master/pages/dev/Customizing-CMS-Components.md#placeholder-components)). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
 
 ## Protecting routes
 
@@ -108,7 +109,7 @@ Order in guards is important (first redirect is used). Most of the time you shou
 
 ### CheckoutGuard
 
-Special `CheckoutGuard` is responsible for redirects to correct step. Default implementation redirects every checkout request to first step. You can replace it with your own guard (e.g. redirect user to first step that is not set).
+Special `CheckoutGuard` is responsible for redirects to correct step. Default implementation redirects every checkout request to first step. You can replace it with your own guard (e.g. redirect user to first step that is not set). Custom example available in [Express Checkout Guard](#express-checkout) section.
 
 ### How each guard knows where to redirect
 
@@ -123,7 +124,7 @@ On each checkout step you can have multiple components and because of that `type
 
 In default checkout we use modified `MultiStepCheckoutOrderSummaryPageTemplate`. Apart from `BodyContent` and `SideContent` we added `TopContent` and `BottomContent` for 100% section above and below `BodyContent` and `SideContent` page slots.
 
-For default checkout flow we created impex file with all pages, slots, components and relations configured. You can download it here. In the future we plan to distribute it as a hybris extension for spartacus.
+For default checkout flow we created impex file with all pages, slots, components and relations configured. It is available as part of `spartacussampledataaddon`.
 
 ## Extensibility
 
@@ -359,7 +360,7 @@ export class ExpressCheckoutGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
     // check express query param
     if (route.queryParams.express) {
-      // To avoid long example here is only steps instead of rela code
+      // To avoid long example here is only steps instead of real code
       // 1. fetch default delivery address, payment method and delivery mode
       // 2. set in order those defaults
       // 3. watch for order details and return review order url
