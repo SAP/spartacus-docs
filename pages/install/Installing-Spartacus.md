@@ -11,6 +11,7 @@ If you are building the Spartacus project from source, see [Contributor Setup]({
 
 The following topics may also be of assistance while you are getting set up:
 
+- [Recommended development environment]({{ site.baseurl }}{% link pages/install/Recommended-development-environment.md %})
 - [Compatibility Notes]({{ site.baseurl }}{% link pages/install/Compatibility-Notes.md %})
 - [Configuring the Base URL]({{ site.baseurl }}{% link pages/dev/Site-Context.md %})
 - [Installing SAP Commerce Cloud]({{ site.baseurl }}{% link pages/install/Installing-SAP-Commerce-Cloud.md %})
