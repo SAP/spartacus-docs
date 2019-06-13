@@ -1,14 +1,14 @@
 ---
-title: Checkout Extensibility
-permalink: /Checkout-Extensibility/
+title: Extending Checkout (DRAFT)
+permalink: /Extending-Checkout/
 ---
 
-## Idea
+## Overview
 
 One of the principle we try to follow with spartacus is to be CMS driven. We tried to follow the same idea while working on checkout feature.
 Every checkout page is based on CMS pages, slots and components. Thanks to this you can easily change content of each page, add new components, make single step checkout or create very sophisticated multi step checkout flow. Only minimal amount of configuration is required in storefront application.
 
-## Routing and configuration
+## Routing and Configuration
 
 In checkout you often have links from on step to another. That is the reason for registering each checkout page as semantic page in storefront config.
 Below is our default route configuration for checkout (you don't have to write this, it is already in library):
@@ -76,20 +76,20 @@ B2cStorefrontModule.withConfig({
 })
 ```
 
-### Configuration specification
+### Configuration Specification
 
 - **id** - should be an unique value. You could use it when you would need to find specific step in configuration.
 - **name** - used in `CheckoutProgress` component which shows steps already completed. We use that name as a translation key.
 - **routeName** - this attribute specifies semantic page for this particular step.
-- **type** - used by checkout guards (more about that in [Protecting routes](#protecting-routes) section).
+- **type** - used by checkout guards. For more information, see [Protecting Routes]({{ site.baseurl }}#protecting-routes) section).
 
 Order in which you define the steps in array is used in navigation buttons. Example: You are on delivery-mode step. Based on the config, delivery mode component back button points to previous step `shippingAddress` and the next button points to `paymentDetails`. If you change order of steps in configuration buttons will automatically reflect those changes and link to correct pages.
 
 ## Components
 
-Every checkout component is CMS component (in default checkout all of them are [CMSFlexComponents](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/master/pages/dev/Customizing-CMS-Components.md#placeholder-components)). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
+Every checkout component is a CMS component (in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/Customizing-CMS-Components/#placeholder-components). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
 
-## Protecting routes
+## Protecting Routes
 
 Across spartacus codebase we try to remove page guards and replace them with component guards. The same rule applies in checkout. You protect routes by applying guards in cms component mapping.
 Component guards have the same API as page guards. As part of the checkout we expose following guards: `ShippingAddressSetGuard`, `DeliveryModeSetGuard`, `PaymentDetailsSetGuard` and `CheckoutGuard`.
@@ -112,9 +112,9 @@ Order in guards is important (first redirect is used). Most of the time you shou
 
 ### CheckoutGuard
 
-Special `CheckoutGuard` is responsible for redirects to correct step. Default implementation redirects every checkout request to first step. You can replace it with your own guard (e.g. redirect user to first step that is not set). Custom example available in [Express Checkout Guard](#express-checkout) section.
+Special `CheckoutGuard` is responsible for redirects to correct step. Default implementation redirects every checkout request to first step. You can replace it with your own guard (e.g. redirect user to first step that is not set). A custom example is provided in the [Express Checkout Guard]({{ site.baseurl }}#express-checkout) section.
 
-### How each guard knows where to redirect
+### How Each Guard Knows Where to Redirect
 
 In checkout configuration in each step you specify `type` attribute with type of data you set on this step. Guards look for first step that contains specific `type` and redirects to this page.
 
@@ -123,7 +123,7 @@ Example:
 `ShippingAddressSetGuard` will search checkout config for first step with `type` containing `CheckoutStepType.shippingAddress`. Then it will read the step route and redirects to that page.
 On each checkout step you can have multiple components and because of that `type` property is an array.
 
-## CMS catalog content and default template
+## CMS Catalog Content and Default Template
 
 In default checkout we use modified `MultiStepCheckoutOrderSummaryPageTemplate`. Apart from `BodyContent` and `SideContent` we added `TopContent` and `BottomContent` for 100% section above and below `BodyContent` and `SideContent` page slots.
 
@@ -133,7 +133,7 @@ For default checkout flow we created impex file with all pages, slots, component
 
 Below you can find common checkout changes you might want to implement in your application. Apart from these checkout specific extensibility options you can also extend checkout components and services like any other from spartacus library.
 
-### Changing steps order
+### Changing Steps Order
 
 I would like to change order of 2 steps. After shipping address customer should set payment details and after that delivery mode. In default config we ask first for delivery method and then for payment details. Let's change that order.
 
@@ -199,7 +199,7 @@ In storefront config you have to change checkout config and change guards in CMS
 export class AppModule {}
 ```
 
-### Introducing another checkout step
+### Introducing Another Checkout Step
 
 Another use case you might need in checkout is to add a new step.
 
@@ -259,7 +259,7 @@ Apart from that change you have to set page, slots and components in CMS.
 export class AppModule {}
 ```
 
-### Combining checkout steps
+### Combining Checkout Steps
 
 Combining steps is also very similar to other examples.
 For most cases you will follow similar checklist:
@@ -326,7 +326,7 @@ In this example I also created new component which is very similar to DeliveryMo
 
 You can go very far with combining steps (example: creating single step checkout).
 
-### Express checkout
+### Express Checkout
 
 In my store I would like to provide express checkout for users who previously ordered something.
 Clicking **Express checkout** button would use for order default address, default payment method and fastest shipping method.
