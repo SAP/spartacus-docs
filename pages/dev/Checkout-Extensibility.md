@@ -1,4 +1,7 @@
-# Checkout extensibility
+---
+title: Checkout Extensibility
+permalink: /Checkout-Extensibility/
+---
 
 ## Idea
 
