@@ -112,7 +112,7 @@ Order in guards is important (first redirect is used). Most of the time you shou
 
 ### CheckoutGuard
 
-Special `CheckoutGuard` is responsible for redirects to correct step. Default implementation redirects every checkout request to first step. You can replace it with your own guard (e.g. redirect user to first step that is not set). A custom example is provided in the [Express Checkout Guard]({{ site.baseurl }}#express-checkout) section.
+Special `CheckoutGuard` is responsible for redirects to correct step. Default implementation redirects every checkout request to first step. You can replace it with your own guard (e.g. redirect user to first step that is not set). A custom example is provided in the [Express Checkout Guard](#express-checkout) section.
 
 ### How Each Guard Knows Where to Redirect
 
