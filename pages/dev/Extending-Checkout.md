@@ -81,7 +81,7 @@ B2cStorefrontModule.withConfig({
 - **id** - should be an unique value. You could use it when you would need to find specific step in configuration.
 - **name** - used in `CheckoutProgress` component which shows steps already completed. We use that name as a translation key.
 - **routeName** - this attribute specifies semantic page for this particular step.
-- **type** - used by checkout guards. For more information, see [Protecting Routes]({{ site.baseurl }}#protecting-routes) section).
+- **type** - used by checkout guards. For more information, see [Protecting Routes](#protecting-routes).
 
 Order in which you define the steps in array is used in navigation buttons. Example: You are on delivery-mode step. Based on the config, delivery mode component back button points to previous step `shippingAddress` and the next button points to `paymentDetails`. If you change order of steps in configuration buttons will automatically reflect those changes and link to correct pages.
 
