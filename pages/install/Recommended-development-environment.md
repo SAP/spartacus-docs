@@ -277,6 +277,6 @@ If you switched from using `npm` to `yarn`, it's wise to delete `package-lock.js
 package-lock.json
 ```
 
-## final steps
+## Final Steps
 
 Finally, you may need to run `yarn install` to install dependencies added to `package.json`.

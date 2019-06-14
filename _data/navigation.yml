@@ -25,6 +25,8 @@ docs:
             url: /Compatibility-Notes/
           - title: "Working with Older Versions of SAP Commerce Cloud"
             url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
+      - title: "Recommended Development Environment"
+        url: /Recommended-Development-Environment/      
       - title: "Building the Spartacus Storefront from Libraries"
         url: /Building-the-Spartacus-Storefront-from-Libraries/
       - title: "SmartEdit Setup Instructions for Spartacus"
