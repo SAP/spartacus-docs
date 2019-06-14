@@ -56,6 +56,19 @@ docs:
         url: /Extending-Checkout/
       - title: "Configurable Routing"
         url: /Configurable-Routing/
+        subchildren:
+          - title: "Adding and Customizing Routes"
+            url: /Adding-and-Customizing-Routes/
+          - title: "Route Configuration"
+            url: /Route-Configuration/
+          - title: "Configurable Router Links"
+            url: /Configurable-Router-Links/
+          - title: "Disabling Standard Routes"
+            url: /Disabling-Standard-Routes/
+          - title: "Additional Route Parameters"
+            url: /Additional-Route-Parameters/
+          - title: "Route Aliases"
+            url: /Route-Aliases/
       - title: "Site Context (Configuring the Base URL)"
         url: /Site-Context/
       - title: "SEO Capabilities"
