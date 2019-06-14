@@ -52,6 +52,8 @@ docs:
         subchildren:
           - title: "Customizing-CMS-Components"
             url: /Customizing-CMS-Components/
+      - title: "Extending Checkout"
+        url: /Extending-Checkout/
       - title: "Configurable Routing"
         url: /Configurable-Routing/
       - title: "Site Context (Configuring the Base URL)"
