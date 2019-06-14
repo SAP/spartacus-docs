@@ -1,19 +1,7 @@
 ---
-title: Recommended development environment
-permalink: /Recommended-development-environment/
+title: Recommended Development Environment (DRAFT)
+permalink: /Recommended-Development-Environment/
 ---
-
-# Table of contents
-
-- [CLI tools](#cli-tools)
-- [Editor](#editor)
-  - [VSCode settings](#vscode-settings)
-  - [VSCode extensions](#vscode-extensions)
-- [Project setup](#project-setup)
-  - [Code formatting](#code-formatting)
-  - [Linting](#linting)
-- [git ignore](#git-ignore)
-- [final steps](#final-steps)
 
 ## CLI tools
 
