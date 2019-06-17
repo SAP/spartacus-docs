@@ -1,6 +1,5 @@
 ---
 title: Recommended Development Environment (DRAFT)
-permalink: /Recommended-Development-Environment/
 ---
 
 ## CLI tools

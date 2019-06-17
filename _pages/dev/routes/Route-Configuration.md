@@ -1,6 +1,5 @@
 ---
 title: Route Configuration (DRAFT)
-permalink: /Route-Configuration/
 ---
 
 ## Config

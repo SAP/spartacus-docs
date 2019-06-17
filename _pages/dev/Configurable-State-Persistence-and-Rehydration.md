@@ -1,6 +1,5 @@
 ---
 title: Configurable State Persistence and Rehydration (DRAFT)
-permalink: /Configurable-State-Persistence-and-Rehydration/
 ---
 
 ## Storage Synchronization

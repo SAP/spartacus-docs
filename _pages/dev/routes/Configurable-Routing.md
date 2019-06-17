@@ -1,6 +1,5 @@
 ---
 title: Configurable Routing (DRAFT)
-permalink: /Configurable-Routing/
 ---
 
 ## Introduction

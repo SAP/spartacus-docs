@@ -1,6 +1,5 @@
 ---
 title: Extending Checkout (DRAFT)
-permalink: /Extending-Checkout/
 ---
 
 ## Overview

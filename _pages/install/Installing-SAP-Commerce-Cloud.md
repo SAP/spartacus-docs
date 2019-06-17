@@ -1,6 +1,5 @@
 ---
 title: Installing SAP Commerce Cloud for use with Spartacus
-permalink: /Installing-SAP-Commerce-Cloud/
 ---
 
 The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use by a Spartacus storefront. SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs. 

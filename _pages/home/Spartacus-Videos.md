@@ -1,6 +1,5 @@
 ---
 title: Spartacus Videos
-permalink: /Spartacus-Videos/
 
 ---
 

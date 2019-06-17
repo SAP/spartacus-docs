@@ -1,6 +1,5 @@
 ---
 title: Roadmap after Spartacus 1.0
-permalink: /Roadmap-after-Spartacus-1.0/
 ---
 
 *aka the P.O.'s soapbox*

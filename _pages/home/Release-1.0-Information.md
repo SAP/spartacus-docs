@@ -1,6 +1,5 @@
 ---
 title: Release 1.0 Information
-permalink: /Release-1.0-Information/
 ---
 
 *aka the P.O.'s soapbox*

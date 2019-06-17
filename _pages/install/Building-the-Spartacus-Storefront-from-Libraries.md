@@ -1,6 +1,5 @@
 ---
 title: Building the Spartacus Storefront from Libraries
-permalink: /Building-the-Spartacus-Storefront-from-Libraries/
 ---
 
 The following instructions describe how to build a storefront application using published Spartacus **1.0 Beta** libraries, which use Angular **8**. (Beta libraries were released June 14, 2019.)

@@ -1,6 +1,5 @@
 ---
 title: Compatibility Notes
-permalink: /Compatibility-Notes/
 ---
 
 ## March 27, 2019

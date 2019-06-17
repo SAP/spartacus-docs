@@ -1,6 +1,5 @@
 ---
 title: Disabling Standard Routes (DRAFT)
-permalink: /Disabling-Standard-Routes/
 ---
 
 To disable a route (i.e. to remove it from Angular's router config and avoid generating paths to this route) it suffices to set one of those things in the `routesConfig`:

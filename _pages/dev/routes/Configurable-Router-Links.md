@@ -1,6 +1,5 @@
 ---
 title: Configurable Router Links (DRAFT)
-permalink: /Configurable-Router-Links/
 ---
 
 While the [route configuration]({{ site.baseurl }}{% link _pages/dev/routes/Route-Configuration.md %}) allows the application to listen to different routes, the links to those routes must take the route configuration into account as well.

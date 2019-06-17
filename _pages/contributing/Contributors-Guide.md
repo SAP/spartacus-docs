@@ -1,6 +1,5 @@
 ---
 title: Contributor's Guide
-permalink: /Contributors-Guide/
 ---
 
 To help maintain a high degree of quality and consistency throughout the Spartacus project, we encourage all contributors to follow our guidelines and best practices:

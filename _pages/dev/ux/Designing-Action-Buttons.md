@@ -1,6 +1,5 @@
 ---
 title: Designing Action Buttons
-permalink: /Designing-Action-Buttons/
 ---
 
 This section details the context in which different action buttons should be used in SPArtacus.

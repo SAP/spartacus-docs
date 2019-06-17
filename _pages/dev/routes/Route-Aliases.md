@@ -1,6 +1,5 @@
 ---
 title: Route Aliases (DRAFT)
-permalink: /Route-Aliases/
 ---
 
 Many route aliases can be configured in `paths` array. For example:

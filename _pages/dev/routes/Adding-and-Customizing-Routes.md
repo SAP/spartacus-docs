@@ -1,6 +1,5 @@
 ---
 title: Adding and Customizing Routes (DRAFT)
-permalink: /Adding-and-Customizing-Routes/
 ---
 
 ## Page Types and Page Labels
