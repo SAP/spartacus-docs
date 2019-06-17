@@ -63,7 +63,7 @@ Global theming is organized with variables, so that theming isn't hardcoded. For
 - SASS variables
 - CSS custom properties (CSS variables)
 
-Spartacus is using CSS variables for theming. CSS variables have the advantage of being runtime configurable. Moreover, they can piers through the so-called shadow-dom (web components). This means that the theming variables can be changed without re-building the application and components, with make the components better reusable. Additionally, CSS variables are intherited and can be used more flexible than SASS variable.
+Spartacus is using CSS variables for theming. CSS variables have the advantage of being runtime configurable. Moreover, they can pierce through the so-called shadow-dom (web components). This means that the theming variables can be changed without re-building the application and components, with make the components better reusable. Additionally, CSS variables are intherited and can be used more flexible than SASS variable.
 
 Theming variables contribute to the so-called contract that Spartacus provides to customers. This contract is intended to be stable and should change to often. Only with major releases, Spartacus could introduce a new set of variables, although this is not considered best practice.
 
