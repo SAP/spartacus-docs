@@ -133,7 +133,8 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
        backend: {
          occ: {
            baseUrl: 'https://localhost:9002',
-           prefix: '/rest/v2/'
+           prefix: '/rest/v2/',
+           legacy: false
          }
        },
        authentication: {
@@ -177,7 +178,8 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
            backend: {
              occ: {
                baseUrl: 'https://localhost:9002',
-               prefix: '/rest/v2/'
+               prefix: '/rest/v2/',
+               legacy: false
              }
            },
            authentication: {
@@ -210,7 +212,7 @@ The import statements import either modules or default data needed by Spartacus.
 
 The B2cStorefrontModule settings are described in more detail in the Spartacus documentation. The following is a brief summary in case you want to change them.
 
-- `backend.occ` (`baseUrl`, `prefix`): When combined, the `baseUrl` and `prefix` parameters form the basis for all OCC REST API calls to your SAP Commerce Cloud server. The value of `https://localhost:9002` is valid if you have installed SAP Commerce Cloud on a local machine. The value of `rest/v2` is the default OCC REST API path. Change these values depending on the URL of your SAP Commerce Cloud server, and your prefix configuration.
+- `backend.occ` (`baseUrl`, `prefix`, `legacy`): When combined, the `baseUrl`, `prefix`, and `legacy` parameters form the basis for all OCC REST API calls to your SAP Commerce Cloud server. The value of `https://localhost:9002` is valid if you have installed SAP Commerce Cloud on a local machine. The value of `rest/v2` is the default OCC REST API path. The value of `false` is the default for anyone using 19.05 and above, however you can change it to `true` if you are using 18.11 and below. Change these values depending on the URL of your SAP Commerce Cloud server, and your prefix configuration.
 
   **Note:** Your server is properly configured if you can display the Open API documentation (for example, `https://localhost:9002/rest/v2/swagger-ui.html`)
 

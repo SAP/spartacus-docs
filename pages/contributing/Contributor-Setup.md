@@ -166,7 +166,8 @@ To configure the storefront, use the `withConfig` method on the B2cStorefrontMod
       backend: {
         occ: {
           baseUrl: environment.occBaseUrl,
-          prefix: '/rest/v2/'
+          prefix: '/rest/v2/',
+          legacy: false
         }
       }
       authentication: {
@@ -192,7 +193,8 @@ For example, if you only need to override the `baseUrl` and the `client_secret`,
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: environment.occBaseUrl
+          baseUrl: environment.occBaseUrl,
+          legacy: true
         }
       },
       authentication: {
@@ -205,3 +207,5 @@ For example, if you only need to override the `baseUrl` and the `client_secret`,
 })
 export class AppModule {}
 ```
+
+Note: The `legacy` has a default value of false if it is not included. This means that the cms components is using a `GET` request for anyone using `19.05 and above`. Overriding `legacy` to true will make sure you will be using the `POST` request instead. This is recommended for anyone using `18.11 and below`. 
