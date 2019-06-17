@@ -13,11 +13,7 @@ Before carrying out the procedures below, ensure the following front end and bac
 
 ## Front-End Development Requirements
 
-Your Angular development environment should include the following:
-
-- [Angular CLI](https://angular.io/): **v8.0.0** or later, < v9.0.0
-- node.js: v10 or later, < v12
-- yarn: v1.15 or later
+{% include docs/frontend_requirements.html %}
 
 ### Installing or Updating the Prerequisite Development Tools
 
