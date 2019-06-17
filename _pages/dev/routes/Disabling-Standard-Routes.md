@@ -26,7 +26,7 @@ ConfigModule.withConfig({
 })
 ```
 
-Then [configurable router links]({{ site.baseurl }}{% link pages/dev/routes/Configurable-Router-Links.md %}) will output:
+Then [configurable router links]({{ site.baseurl }}{% link _pages/dev/routes/Configurable-Router-Links.md %}) will output:
 
 ```html
 <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>

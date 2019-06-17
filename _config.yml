@@ -286,16 +286,12 @@ defaults:
       path: ""
     values:
       layout: "home"
-    # author_profile: true
   - scope:
       path: ""
-      type: install
-    values:
-      sidebar:
-        nav: "install"
-  - scope:
-      path: ""
- #    type: docs
     values:
       sidebar:
         nav: "docs"
+  - scope: 
+      path: "_pages"
+    values:
+      permalink: /:basename/        

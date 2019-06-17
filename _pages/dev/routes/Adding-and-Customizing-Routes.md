@@ -13,7 +13,7 @@ Spartacus reflects that by defining a few Angular `Routes`:
 - route with `:categoryCode` param and route with `:brandCode` param - for Category Pages
 - wildcard `**` route - for all other, Content Pages
 
-The URLs of product, category and brand pages can be [configured only in Spartacus]({{ site.baseurl }}{% link pages/dev/routes/Route-Configuration.md %}). Content Pages have a configurable URL in the CMS, called *page label*.
+The URLs of product, category and brand pages can be [configured only in Spartacus]({{ site.baseurl }}{% link _pages/dev/routes/Route-Configuration.md %}). Content Pages have a configurable URL in the CMS, called *page label*.
 
 
 ## How to add Content Page route
@@ -32,7 +32,7 @@ routing: {
 }
 ```
 
-**Note:** The optional `paramsMapping` config can be used for properties that have a different name than the route parameter (i.e. to map from `product.code` to `:productCode`). For more information, see [Configurable Router Links]({{ site.baseurl }}{% link pages/dev/routes/Configurable-Router-Links.md %}).
+**Note:** The optional `paramsMapping` config can be used for properties that have a different name than the route parameter (i.e. to map from `product.code` to `:productCode`). For more information, see [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/Configurable-Router-Links.md %}).
 
 ## How to customize the Category Page route
 

@@ -1,6 +1,5 @@
 ---
 title: Contributing to the Spartacus Storefront
-permalink: /Contributing-to-the-Spartacus-Storefront/
 ---
 
 Thank you for your interest in the Spartacus storefront! We welcome contributions in all forms.
@@ -171,7 +170,7 @@ A contribution will be considered for inclusion in Spartacus if it meets the fol
 * The contribution truly improves the storefront
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link pages/contributing/Contributors-Guide.md %}).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/Contributors-Guide.md %}).
 
 ### Contribution Process
 
@@ -181,7 +180,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Build and run the storefront from the library development workspace. 
 
-    For more information, see [Contributor Setup]({{ site.baseurl }}{% link pages/contributing/Contributor-Setup.md %}).
+    For more information, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/Contributor-Setup.md %}).
 
 1. Work on the change in your fork (either on the `develop` branch or on a feature branch).
 
@@ -189,7 +188,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
     That you should also use the squash and merge feature when additional changes are required after code review.
 
-1. In the commit message, please follow the conventions described in [Committing Code to Spartacus]({{ site.baseurl }}{% link pages/contributing/Commit-Guidelines.md %}).
+1. In the commit message, please follow the conventions described in [Committing Code to Spartacus]({{ site.baseurl }}{% link _pages/contributing/Commit-Guidelines.md %}).
 
     By following the guidelines, your work will be accurately captured in the release changelog.
 

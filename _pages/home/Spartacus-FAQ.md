@@ -1,6 +1,5 @@
 ---
 title: Spartacus FAQ
-permalink: /Spartacus-FAQ/
 ---
 
 

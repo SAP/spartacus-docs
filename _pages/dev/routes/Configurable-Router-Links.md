@@ -3,7 +3,7 @@ title: Configurable Router Links (DRAFT)
 permalink: /Configurable-Router-Links/
 ---
 
-While the [route configuration]({{ site.baseurl }}{% link pages/dev/routes/Route-Configuration.md %}) allows the application to listen to different routes, the links to those routes must take the route configuration into account as well.
+While the [route configuration]({{ site.baseurl }}{% link _pages/dev/routes/Route-Configuration.md %}) allows the application to listen to different routes, the links to those routes must take the route configuration into account as well.
 
 Configured router links can be automatically generated in HTML templates using `cxUrl` pipe. It allows to transform **the name of the route** and **the params object** into the configured path
 

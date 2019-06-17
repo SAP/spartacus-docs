@@ -20,7 +20,7 @@ ConfigModule.withConfig({
 })
 ```
 
-Then a [configurable router link]({{ site.baseurl }}{% link pages/dev/routes/Configurable-Router-Links.md %}) will use **the first configured path alias** from the `paths` array **that can satisfy its params** with given `params` object. So it's good to order aliases from those that require the most specific parametes to those having less parameters. For example:
+Then a [configurable router link]({{ site.baseurl }}{% link _pages/dev/routes/Configurable-Router-Links.md %}) will use **the first configured path alias** from the `paths` array **that can satisfy its params** with given `params` object. So it's good to order aliases from those that require the most specific parametes to those having less parameters. For example:
 
 When config is:
 

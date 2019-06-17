@@ -15,12 +15,12 @@ This is where configurable routes come in to play: every route in Spartacus is c
 
 For more information, see the following:
 
-- [Adding and Customizing Routes]({{ site.baseurl }}{% link pages/dev/routes/Adding-and-Customizing-Routes.md %})
-- [Route Configuration]({{ site.baseurl }}{% link pages/dev/routes/Route-Configuration.md %})
-- [Configurable Router Links]({{ site.baseurl }}{% link pages/dev/routes/Configurable-Router-Links.md %})
-- [Disabling Standard Routes]({{ site.baseurl }}{% link pages/dev/routes/Disabling-Standard-Routes.md %})
-- [Additional Route Parameters]({{ site.baseurl }}{% link pages/dev/routes/Additional-Route-Parameters.md %})
-- [Route Aliases]({{ site.baseurl }}{% link pages/dev/routes/Route-Aliases.md %})
+- [Adding and Customizing Routes]({{ site.baseurl }}{% link _pages/dev/routes/Adding-and-Customizing-Routes.md %})
+- [Route Configuration]({{ site.baseurl }}{% link _pages/dev/routes/Route-Configuration.md %})
+- [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/Configurable-Router-Links.md %})
+- [Disabling Standard Routes]({{ site.baseurl }}{% link _pages/dev/routes/Disabling-Standard-Routes.md %})
+- [Additional Route Parameters]({{ site.baseurl }}{% link _pages/dev/routes/Additional-Route-Parameters.md %})
+- [Route Aliases]({{ site.baseurl }}{% link _pages/dev/routes/Route-Aliases.md %})
 
 ## Limitations
 

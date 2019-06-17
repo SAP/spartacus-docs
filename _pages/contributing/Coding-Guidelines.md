@@ -1,6 +1,5 @@
 ---
 title: Coding Guidelines
-permalink: /Coding-Guidelines/
 ---
 
 To keep the Spartacus code readable and maintainable, please follow our coding guidelines, even if you find them violated somewhere. If a file is consistently not following the guidelines, and adhering to the guidelines would make the code worse, then follow the local style.
@@ -104,7 +103,7 @@ We are currently planning to add a one-layer "facade" between `ngrx/store` and `
 
 Do not break server-side rendering (SSR).
 
-For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link pages/dev/Server-Side-Rendering-Coding-Guidelines.md %}).
+For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/Server-Side-Rendering-Coding-Guidelines.md %}).
 
 ### Protected and Private Methods
 
