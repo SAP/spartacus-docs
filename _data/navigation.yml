@@ -86,7 +86,7 @@ docs:
       - title: "Configurable State Persistence and Rehydration"
         url: /Configurable-State-Persistence-and-Rehydration/
       - title: "Nothing"
-        url: /Nothing/
+        url: /nothing/
       - title: "Server-Side Rendering in Spartacus"
         url: /Server-Side-Rendering-in-Spartacus/
         subchildren:
