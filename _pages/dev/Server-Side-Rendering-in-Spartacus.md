@@ -1,5 +1,5 @@
 ---
-title: Server-Side Rendering in Spartacus
+title: Server-Side Rendering in Spartacus (DRAFT)
 ---
 
 ## Installation Steps (Shell app)
