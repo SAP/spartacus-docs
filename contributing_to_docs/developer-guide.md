@@ -25,6 +25,7 @@ Whether you are creating new documentation, or updating an existing topic, the s
 5. Merge your pull request.
 
    If you merged your updates to the `develop` branch, they will be merged to the `master` branch (by the writer) on the next lib release day.
+   
    If you merged your updates to the `master` branch, they will trigger Jekyll to rebuild the GitHub pages site. Your changes will show up after a few minutes (you may need to empty your cache to see the updates).  
 
 ## Updating the Sidebar
