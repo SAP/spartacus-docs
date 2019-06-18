@@ -103,7 +103,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
     ``` 
 
-- **Curly Braces:** When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
+- **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
     If your code examples include curly braces, you can escape them with the `{% raw %}` and `{% endraw %}` tags. 
 
