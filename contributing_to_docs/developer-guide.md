@@ -75,7 +75,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     To quote from the Jekyll help: *"One major benefit of using the `link` tag is link validation. If the link doesn’t exist, Jekyll won’t build your site. This is a good thing, as it will alert you to a broken link so you can fix it (rather than allowing you to build and deploy a site with broken links)."*
 
-    There are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page. 
+    Note, there are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page. 
     
     If you need to link to an external site, use the following format:
 
@@ -107,9 +107,9 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
-    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of our "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
+    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
-- **Includes:** If a certain block of text occurs repeatedly in our documentation, we can use the `include` tag to reference an HTML file that acts as the single source for this text block. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
+- **Includes:** If a certain block of text occurs repeatedly in the documentation, we can use the `include` tag to reference a single source HTML file. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
 
     ```markdown
     {% include docs/frontend_requirements.html %}
