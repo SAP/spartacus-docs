@@ -1,3 +1,3 @@
-# Contributing to Documentation Guide for Developers
+# Developers: Contributing to Documentation
 
 Testing testing...
