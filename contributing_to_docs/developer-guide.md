@@ -109,10 +109,12 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
-- **Includes:** If a certain block of text occurs repeatedly in the documentation, we can use the `include` tag to reference a single source HTML file. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
+- **Includes:** If a certain block of text occurs repeatedly in the documentation, we can use the `include` tag to reference a single source HTML file. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed, as follows:
 
     ```markdown
     {% include docs/frontend_requirements.html %}
     ```
 
-    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are in HTML, rather than markdown. To see an example, take a look at [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) of the "Front-End Development Requirements" section in "Building the Spartacus Storefront from Libraries".
+    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are in HTML, rather than markdown. 
+    
+    To see an example, take a look at [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) of the "Front-End Development Requirements" section in "Building the Spartacus Storefront from Libraries".
