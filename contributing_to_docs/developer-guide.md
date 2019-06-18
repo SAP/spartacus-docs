@@ -14,13 +14,24 @@ Whether you are creating a new doc, or updating an existing doc, the steps are t
 
 3. Make your changes...
 
-    - File names: 
-    - Page titles: ... therefore, no need to add a heading 1 (single #) at the top of the page
-    - Links: 
-    - Curly Braces:
-    - Includes: 
     
 4. Create a pull request.
 
     **Note:** If your doc update is meant to be published with the next release of Spartacus libraries, send your pull request to the `develop` branch (by default, PRs are sent to the `develop` branch). If you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
+
+## Documentation Conventions
+
+Please adhere to the following conventions to ensure your changes will build successfully when they are merged:
+
+
+- File names: 
+
+- Page titles: ... therefore, no need to add a heading 1 (single #) at the top of the page
+
+- Links: 
+
+- Curly Braces:
+
+- Includes: 
+
 
