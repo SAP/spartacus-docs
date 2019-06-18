@@ -4,7 +4,7 @@ title: Building the Spartacus Storefront from Libraries
 
 The following instructions describe how to build a storefront application using published Spartacus **1.0 Beta** libraries, which use Angular **8**. (Beta libraries were released June 14, 2019.)
 
-If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/Contributor-Setup.md %}).
+If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample 
 
 Release 1905 is recommended, but it will work with 1811 and 1808, with reduced functionality.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/Installing-SAP-Commerce-Cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
+For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
 
 ## Creating a New Angular App
 

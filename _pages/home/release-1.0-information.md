@@ -95,4 +95,4 @@ We don't plan to introduce a new major release for at least six months (end of 2
 
 ### What's Coming after 1.0
 
-See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/Roadmap-after-Spartacus-1.0.md %}).
+See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/roadmap-after-spartacus-1.0.md %}).

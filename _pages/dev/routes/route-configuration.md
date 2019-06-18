@@ -59,7 +59,7 @@ ConfigModule.withConfig({
 
 ### Why `paths` is an array
 
-It's to support [route aliases]({{ site.baseurl }}{% link _pages/dev/routes/Route-Aliases.md %}).
+It's to support [route aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %}).
 
 ## Angular's `Routes`
 
