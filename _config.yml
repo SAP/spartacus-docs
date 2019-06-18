@@ -158,6 +158,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _docs
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -295,3 +296,7 @@ defaults:
       path: "_pages"
     values:
       permalink: /:basename/        
+  - scope: 
+      path: "_docs"
+    values:
+      permalink: /:basename/              
