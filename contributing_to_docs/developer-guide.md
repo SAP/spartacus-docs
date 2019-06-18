@@ -37,9 +37,9 @@ New topics must be explicitly added to `_data/navigation.yml` for them to appear
 Please adhere to the following conventions to ensure your changes will build successfully when they are merged:
 
 
-- Filenames: Use lower-case names for all documentation files. Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
+- **Filenames:** Use lower-case names for all documentation files. Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
 
-- Page titles: The page title is included at the top of your documentation file, and appears between two rows of three dashes (called front matter), as follows:
+- **Page titles:** The page title is included at the top of your documentation file, and appears between two rows of three dashes (called front matter), as follows:
 
     ```markdown
     ---
@@ -51,7 +51,7 @@ Please adhere to the following conventions to ensure your changes will build suc
     
     The page titles is independent of the filename. You can change the title any time, but avoid changing the filename as much as possible.
 
-- Links: To link to another page within the Spartacus documentation, use the `link` tag, as follows:
+- **Links:** To link to another page within the Spartacus documentation, use the `link` tag, as follows:
 
     ```liquid
     [link text]({{ site.baseurl }}{% link path/from/route/filename.md %})
@@ -93,13 +93,13 @@ Please adhere to the following conventions to ensure your changes will build suc
     [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
     ``` 
 
-- Curly Braces: When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
+- **Curly Braces:** When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
     If your code examples include curly braces, you can escape them with the `{% raw %}` and `{% endraw %}` tags. 
 
     See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of our "Internationalization (i18n)" topic for numerous examples of the `raw` tag being used both inline and to escape entire codeblocks.
 
-- Includes: If a certain block of text occurs repeatedly in our documentation, we can use the `include` tag to reference an HTML file that acts as the single source for this text block. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
+- **Includes:** If a certain block of text occurs repeatedly in our documentation, we can use the `include` tag to reference an HTML file that acts as the single source for this text block. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
 
     ```markdown
     {% include docs/frontend_requirements.html %}
