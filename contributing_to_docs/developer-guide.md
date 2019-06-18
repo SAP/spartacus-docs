@@ -10,4 +10,4 @@ Whether you are creating a new doc, or updating an existing doc, the steps are t
 
    **Tip:** If you have a related issue in the Spartacus repository, it is a good idea to add a comment in that issue with the link to this new issue (and vice versa). The normal GitHub shortcuts (# or GH-xx) won't work, so use the full URL. GitHub can still track if the issue is open, merged, closed, etc.
 
-2. 
+2. Create a new branch in the documentation repo, using the issue number of the issue you created in the previous step. The branch naming convention is `doc/GH-issue-number`. If you new issue number is #42, for example, then you name your new branch `doc/GH-42`.
