@@ -105,9 +105,9 @@ Please adhere to the following conventions to ensure that your changes build suc
 
 - **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
-    If your code examples include curly braces, you can escape them with the `{% raw %}` and `{% endraw %}` tags. 
+    If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
-    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of our "Internationalization (i18n)" topic for numerous examples of the `raw` tag being used both inline and to escape entire codeblocks.
+    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of our "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
 - **Includes:** If a certain block of text occurs repeatedly in our documentation, we can use the `include` tag to reference an HTML file that acts as the single source for this text block. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
 
