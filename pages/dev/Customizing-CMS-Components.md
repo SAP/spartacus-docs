@@ -27,7 +27,7 @@ You can provide a CMS component configuration to the `ConfigModule`, or directly
 ConfigModule.withConfig({
   cmsComponents: {
     BannerComponent: {
-        selector: 'custom-banner';
+        component: CustomBannerComponent;
     }
   }
 });
@@ -36,26 +36,6 @@ ConfigModule.withConfig({
 It's important to note that with this setup, the components must be loaded up front (using so-called `entryComponents`), and it does not allow for lazy loading.
 
 Both of these related downsides will be improved in a future release. With that in mind, a change in this API is expected.
-
-### Web Components as CMS Components
-
-Web components have a lot of benefits, and as soon as some of the fundamentals of Angular are ready for this, Spartacus will most likely begin to use them. Some preparation has already been made to allow for loading web components, but the current recommendation is to use Angular components.
-
-To configure a web component as a CMS component, the configuration must consist of the path to the JS file (web component implementation) and its tag name, separated by a hash symbol (`#`). The following is an example:
-
-```typescript
-ConfigModule.withConfig({
-  cmsComponents: {
-    BannerComponent: {
-        selector: 'path/to/banner/component/file.js#custom-banner';
-    }
-  }
-});
-```
-
-One JS file can contain more that one web component implementation, used as different CmsComponents.
-
-This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope of this documentation.
 
 ### Accessing CMS Data in Custom Components
 
