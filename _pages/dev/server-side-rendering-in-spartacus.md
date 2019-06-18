@@ -232,7 +232,7 @@ environment = {
 1. Rebuild your libs (`yarn build:core:lib`)
 1. Build your shell app (`yarn build`)
 1. Build your shell app in ssr mode (`yarn build:ssr`)
-1. start ssr server (`yarn start:ssr`)
+1. start ssr server (`yarn serve:ssr`)
 
 ### Service workers
 
