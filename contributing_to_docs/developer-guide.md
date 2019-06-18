@@ -1,8 +1,10 @@
 # Developers: Contributing to Documentation
 
-All documentation resides in this repository. If you plan to contribute, please clone this repository before continuing with the steps below.
+All documentation for Spartacus resides in the `_pages` folder of this repository.
 
-## Making Updates to the Doc Repo
+If probably goes without saying that you need to clone this repo before continuing with the steps below.
+
+## Making Updates to the Documentation Repository
 
 Whether you are creating a new doc, or updating an existing doc, the steps are the same.
 
@@ -12,12 +14,18 @@ Whether you are creating a new doc, or updating an existing doc, the steps are t
 
 2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you created in the doc repo. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
 
-3. Make your changes...
+3. Update existing documentation or create new topics, as required.
+
+   See the [Documentation Conventions](#documentation-conventions) section below for important details that can help you provide error-free documentation.
 
     
 4. Create a pull request.
 
     **Note:** If your doc update is meant to be published with the next release of Spartacus libraries, send your pull request to the `develop` branch (by default, PRs are sent to the `develop` branch). If you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
+
+## Updating the Sidebar
+
+
 
 ## Documentation Conventions
 
@@ -30,7 +38,7 @@ Please adhere to the following conventions to ensure your changes will build suc
 
 - Links: 
 
-- Curly Braces:
+- Curly Braces: ... include link/example of source to i18n.md
 
 - Includes: 
 
