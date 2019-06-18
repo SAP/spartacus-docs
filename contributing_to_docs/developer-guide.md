@@ -65,13 +65,26 @@ Please adhere to the following conventions to ensure your changes will build suc
 
     To quote from the Jekyll help: *"One major benefit of using the `link` tag is link validation. If the link doesn’t exist, Jekyll won’t build your site. This is a good thing, as it will alert you to a broken link so you can fix it (rather than allowing you to build and deploy a site with broken links)."*
 
-    If you need to link to an external site, use the normal method for creating links in markdown:
+    However, there are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page. 
+    
+    If you need to link to an external site, use the following format:
 
     ```markdown
     [link text](http://web.address.com)
     ```
 
-    Then If you want to link to another section on the same page, the normal markdown method 
+    If you want to link to another section on the same page within the documentation site, use the following format:
+
+    ```markdown
+    [link text](#title-of-section)
+    ```
+
+    The title of the section must be in lower-case, and connected by dashes.
+
+    If you want to link to a section on another page within the documentation site, use the following format:
+
+    ```markdown
+    [link text]() 
 
 - Curly Braces: ... include link/example of source to i18n.md
 
