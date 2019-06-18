@@ -15,11 +15,11 @@ Run the `build.sh` script located in the root of the project. It will check most
 
 We use Visual Studio Code and require the use of the Prettier VS Code plugin.
 
-For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/Development-Tools-for-Spartacus.md %}).
+For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
 
 ## Code is Styled
 
-For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/Coding-Guidelines.md %}).
+For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
 
 ### Code Linting
 
@@ -29,7 +29,7 @@ Use the `TSLint` plugin in VS Code.
 yarn lint
 ```
 
-For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/Development-Tools-for-Spartacus.md %}).
+For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
 
 ### Code Styling with Prettier
 

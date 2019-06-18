@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //from:
 BrowserModule,
 //to
-BrowserModule.withServerTransition(),
+BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
 ```
 
 ### src/index.html
