@@ -20,13 +20,13 @@ There are two types of components that can be configured: angular components, an
 
 ### Custom Angular CMS Components
 
-You can provide a CMS component configuration to the `ConfigModule`, or directly to the `B2cStorefrontModule`. The following configuration shows how to configure a custom Angular component for the `BannerComponent`:
+You can provide a CMS component configuration to the `ConfigModule`, or directly to the `B2cStorefrontModule`. The following configuration shows how to configure a custom Angular component for the CMS `BannerComponent`:
 
 ```typescript
 ConfigModule.withConfig({
   cmsComponents: {
     BannerComponent: {
-        selector: 'custom-banner';
+      component: CustomBannerComponent;
     }
   }
 });
@@ -46,7 +46,7 @@ To configure a web component as a CMS component, the configuration must consist 
 ConfigModule.withConfig({
   cmsComponents: {
     BannerComponent: {
-        selector: 'path/to/banner/component/file.js#custom-banner';
+      component: 'path/to/banner/component/file.js#custom-banner';
     }
   }
 });
@@ -112,7 +112,7 @@ ConfigModule.withConfig({
 });
 ```
 
-# Placeholder Components
+## Placeholder Components
 
 For Angular or web components that do not need any data from CMS (for example, login), you can use the CMS component of type `CMSFlexComponent` as a placeholder. This CMS component contains the special `flexType` attribute. Spartacus use the `flexType` attribute in its CMS mapping instead of the original component type.
 
