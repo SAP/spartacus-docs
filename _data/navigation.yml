@@ -51,13 +51,13 @@ docs:
             url: /icon-library/
           - title: "Page Layout"
             url: /page-layout/
-          - title: "Customizing and Extending Spartacus Features"
-            url: /customizing-and-extending/
-            subchildren:
-              - title: "Customizing CMS Components"
-                url: /customizing-cms-components/
-              - title: "Searchbox Component"
-                url: /searchbox-component/  
+      - title: "Customizing and Extending Spartacus Features"
+        url: /customizing-and-extending/
+        subchildren:
+          - title: "Customizing CMS Components"
+            url: /customizing-cms-components/
+          - title: "Searchbox Component"
+            url: /searchbox-component/  
       - title: "Extending Checkout"
         url: /extending-checkout/
       - title: "Configurable Routing"
