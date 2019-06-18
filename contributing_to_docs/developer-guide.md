@@ -1,6 +1,10 @@
 # Developers: Contributing to Documentation
 
-All documentation for Spartacus resides in the `_pages` folder of this repository. The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
+All documentation for Spartacus resides in the `_pages` folder of this repository. 
+
+The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. 
+
+Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
 
 ## Making Updates to the Documentation Repository
 
