@@ -47,7 +47,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
 
-- **Page titles:** The page title is included at the top of your documentation file, and appears between two rows of three dashes (called front matter), as follows:
+- **Page titles:** The page title is included at the top of your documentation file, and appears between two rows of three dashes, as follows:
 
     ```markdown
     ---
@@ -55,6 +55,8 @@ Please adhere to the following conventions to ensure that your changes build suc
     ---
     ```
 
+    This section is referred to in Jekyll as the "front matter".
+    
     The page title takes the place of the level-1 header that normally appears in a markdown file, so there is no need to include leve1-1 headers (denoted by the single hashtag #) at the top of the page.
     
     The page titles is independent of the filename. You can change the title any time, but avoid changing the filename as much as possible.
