@@ -1,6 +1,6 @@
 # Developers: Contributing to Documentation
 
-All documentation for Spartacus resides in the `_pages` folder of this repository. 
+All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository. 
 
 The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. 
 
@@ -22,7 +22,9 @@ Whether you are creating new documentation, or updating an existing topic, the s
 
 4. Create a pull request.
 
-   If your doc update should be published with the next release of the Spartacus libraries, send your pull request to the `develop` branch. If, on the other hand, you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
+   If your doc update should be published with the next release of the Spartacus libraries, send your pull request to the `develop` branch. 
+   
+   If, on the other hand, you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
 
    The PR requires a minimum of one approver. It is always a good idea to let the writer check the PR, whenever possible.
 
@@ -34,14 +36,16 @@ Whether you are creating new documentation, or updating an existing topic, the s
 
 ## Updating the Sidebar
 
-New topics must be explicitly added to `_data/navigation.yml` for them to appear in the sidebar. Please consult with a writer or the product owner before modifying this file. Of course, your writer can always make updates to this file your behalf.
+New topics must be explicitly added to `_data/navigation.yml` for them to appear in the sidebar. Please consult with a writer or the product owner before modifying this file. Of course, your writer can always make updates to this file on your behalf.
 
 ## Documentation Conventions
 
-Please adhere to the following conventions to ensure your changes will build successfully when they are merged:
+Please adhere to the following conventions to ensure that your changes build successfully when they are merged:
 
 
-- **Filenames:** Use lower-case names for all documentation files. Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
+- **Filenames:** Use lower-case names for all documentation files. 
+
+    Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
 
 - **Page titles:** The page title is included at the top of your documentation file, and appears between two rows of three dashes (called front matter), as follows:
 
