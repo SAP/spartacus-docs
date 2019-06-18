@@ -16,8 +16,8 @@ Add the following dependencies to package.json:
 Add the following *dev* dependencies to package.json:
 
 ```json
- "ts-loader": "^5.3.2”
- "webpack-cli": "^3.3.2”
+ "ts-loader": "^5.3.2"
+ "webpack-cli": "^3.3.2"
 ```
 
 Update the following files:
@@ -30,7 +30,7 @@ platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(e
 //to
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
-});```
+});
 ```
 
 ### src/app/app.module.ts
