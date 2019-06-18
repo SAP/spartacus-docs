@@ -54,7 +54,7 @@ docs:
           - title: "Customizing and Extending Spartacus Features"
             url: /customizing-and-extending/
             subchildren:
-              - title: "Customizing-CMS-Components"
+              - title: "Customizing CMS Components"
                 url: /customizing-cms-components/
               - title: "Searchbox Component"
                 url: /searchbox-component/  
