@@ -1,6 +1,6 @@
 # Developers: Contributing to Documentation
 
-All documentation for Spartacus resides in the `_pages` folder of this repository. The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
+All documentation for Spartacus resides in the `_pages` folder of this repository. The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
 
 ## Making Updates to the Documentation Repository
 
@@ -25,23 +25,53 @@ Whether you are creating new documentation, or updating an existing topic, the s
 5. Merge your pull request.
 
    If you merged your updates to the `develop` branch, they will be merged to the `master` branch (by the writer) on the next lib release day.
-   
-   If you merged your updates to the `master` branch, they will trigger Jekyll to rebuild the GitHub pages site. Your changes will show up after a few minutes (you may need to empty your cache to see the updates).  
+
+   If you merged your updates to the `master` branch, they will automatically trigger Jekyll to rebuild the GitHub pages site. Your changes will show up after a few minutes (you may need to empty your cache to see the updates).  
 
 ## Updating the Sidebar
 
-
+New topics must be explicitly added to `_data/navigation.yml` for them to appear in the sidebar. Please consult with a writer or the product owner before modifying this file. Of course, your writer can always make updates to this file your behalf.
 
 ## Documentation Conventions
 
 Please adhere to the following conventions to ensure your changes will build successfully when they are merged:
 
 
-- File names: 
+- Filenames: Use lower-case names for all documentation files. Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
 
-- Page titles: ... therefore, no need to add a heading 1 (single #) at the top of the page
+- Page titles: The page title is included at the top of your documentation file, and appears between two rows of three dashes (called front matter), as follows:
 
-- Links: 
+    ```markdown
+    ---
+    title: Hello Spartacus!
+    ---
+    ```
+
+    The page title takes the place of the level-1 header that normally appears in a markdown file, so there is no need to include leve1-1 headers (denoted by the single hashtag #) at the top of the page.
+    
+    The page titles is independent of the filename. You can change the title any time, but avoid changing the filename as much as possible.
+
+- Links: To link to another page within the Spartacus documentation, use the `link` tag, as follows:
+
+    ```liquid
+    [link text]({{ site.baseurl }}{% link path/from/route/filename.md %})
+    ```
+
+    The following is an example:
+
+    ```liquid
+    [Adding and Customizing Routes]({{ site.baseurl }}{% link _pages/dev/routes/adding-and-customizing-routes.md %})
+    ```
+
+    To quote from the Jekyll help: *"One major benefit of using the `link` tag is link validation. If the link doesn’t exist, Jekyll won’t build your site. This is a good thing, as it will alert you to a broken link so you can fix it (rather than allowing you to build and deploy a site with broken links)."*
+
+    If you need to link to an external site, use the normal method for creating links in markdown:
+
+    ```markdown
+    [link text](http://web.address.com)
+    ```
+
+    Then If you want to link to another section on the same page, the normal markdown method 
 
 - Curly Braces: ... include link/example of source to i18n.md
 
