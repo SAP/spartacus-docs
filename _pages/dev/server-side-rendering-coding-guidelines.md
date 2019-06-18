@@ -30,4 +30,4 @@ We recommend using transfer state functionality. The application runs XHR reques
 
 Use a cache that is transferred from the server to the client.
 
-For more information, see [Configurable State Persistence and Rehydration]({{ site.baseurl }}{% link _pages/dev/Configurable-State-Persistence-and-Rehydration.md %}).
+For more information, see [Configurable State Persistence and Rehydration]({{ site.baseurl }}{% link _pages/dev/configurable-state-persistence-and-rehydration.md %}).
