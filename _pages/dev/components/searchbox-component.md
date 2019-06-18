@@ -10,7 +10,7 @@ The Searchbox component is by default configured in the CMS, as part of a page t
 
 The CMS searchbox component is mapped to a JS component using is configured with the following mapping:
 
-```
+```typescript
 <CmsConfig>{
     cmsComponents: {
         SearchBoxComponent: {
