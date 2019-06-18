@@ -10,14 +10,15 @@ Add the following dependencies to package.json:
 
 ```json
 "@angular/platform-server": "~8.0.0",
+"@nguniversal/module-map-ngfactory-loader": "^7.1.1",
 "@nguniversal/express-engine": "^7.1.1"
 ```
 
 Add the following *dev* dependencies to package.json:
 
 ```json
- "ts-loader": "^5.3.2”
- "webpack-cli": "^3.3.2”
+ "ts-loader": "^5.3.2"
+ "webpack-cli": "^3.3.2"
 ```
 
 Update the following files:
@@ -30,7 +31,7 @@ platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(e
 //to
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
-});```
+});
 ```
 
 ### src/app/app.module.ts
@@ -51,6 +52,8 @@ Add the following meta attribute and replace OCC_BASE_URL with the URL of your b
 ```
 
 Add the following configuration to your existing angular.json (under projects.storefrontapp.architect):
+
+* replace `storefrontapp` with the name of your angular application
 
 ```json
 "server": {
@@ -90,7 +93,7 @@ export { AppServerModule } from './app/app.server.module';
 ```
 
 
-### src/app/app.server.module
+### src/app/app.server.module.ts
 
 ```typescript
 import { NgModule } from "@angular/core";
