@@ -84,10 +84,25 @@ Please adhere to the following conventions to ensure your changes will build suc
     If you want to link to a section on another page within the documentation site, use the following format:
 
     ```markdown
-    [link text]() 
+    [link text]({{ site.baseurl }}/permalink/#title-of-section)
+    ```
 
-- Curly Braces: ... include link/example of source to i18n.md
+    The title of the section must be in lower-case, and connected by dashes. The following is an example:
 
-- Includes: 
+    ```markdown
+    [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
+    ``` 
 
+- Curly Braces: When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
+    If your code examples include curly braces, you can escape them with the `{% raw %}` and `{% endraw %}` tags. 
+
+    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of our "Internationalization (i18n)" topic for numerous examples of the `raw` tag being used both inline and to escape entire codeblocks.
+
+- Includes: If a certain block of text occurs repeatedly in our documentation, we can use the `include` tag to reference an HTML file that acts as the single source for this text block. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed as follows:
+
+    ```markdown
+    {% include docs/frontend_requirements.html %}
+    ```
+
+    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are in HTML, rather than markdown. To see an example, take a look at [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) of the "Front-End Development Requirements" section in "Building the Spartacus Storefront from Libraries".
