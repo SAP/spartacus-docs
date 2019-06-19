@@ -16,11 +16,11 @@ Before carrying out the procedures below, ensure the following front end and bac
 
 ### Installing or Updating the Prerequisite Development Tools
 
-There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS but also works on Linux and Windows 10 (through the Linux subsystem feature). 
+There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS but also works on Linux and Windows 10 (through the Linux subsystem feature).
 
 To install the prerequisite development tools, install [Homebrew](https://brew.sh), and then run the following commands:
 
-```
+```bash
 brew install yarn
 brew install node@10
 brew install angular-cli
@@ -28,10 +28,10 @@ brew install angular-cli
 
 To update existing installations, use `brew upgrade` instead of `brew install`.
 
-Note: 
+Note:
 
 - If you have a later version of node.js installed in addition v10, you can set v10 to be used with the following command:
-`brew link --force --overwrite node@10`
+  `brew link --force --overwrite node@10`
 - Installing Homebrew and the prerequisites is beyond the scope of this document. You can also install the prerequisites using their individual installers.
 
 ## Back End Server Requirements
@@ -58,11 +58,11 @@ The following procedure describes how to create a new Angular application with t
 
    The `mystore` folder and the new app are created.
 
-4.  Access the newly created `mystore` folder with the following command:
+3. Access the newly created `mystore` folder with the following command:
 
-     ```bash
-     cd mystore
-     ```
+   ```bash
+   cd mystore
+   ```
 
 ## Adding Peer Dependencies to the Storefront
 
@@ -70,7 +70,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 1. Open `mystore/package.json` using a text editor.
 
-2. Add the following dependencies to the end of the `dependencies` section of `package.json`. 
+2. Add the following dependencies to the end of the `dependencies` section of `package.json`.
 
    ```json
    "@angular/pwa": "^0.800.2",
@@ -83,15 +83,14 @@ The dependencies in this procedure are required by the Spartacus storefront.
    "bootstrap": "^4.2.1",
    "i18next": "^15.0.6",
    "i18next-xhr-backend": "^2.0.1",
-   
+
    "@spartacus/core": "~0.1.0-beta.0",
    "@spartacus/styles": "~0.1.0-beta.0",
    "@spartacus/storefront": "~0.1.0-beta.0",
    "@spartacus/assets": "~0.1.0-beta.3"
    ```
-   
-   Note: Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
 
+   Note: Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
 
 3. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
@@ -99,7 +98,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
    yarn install
    ```
 
-**Note:** 
+**Note:**
 
 (1) The `~` instructs yarn to use the latest minor version (x.y), whereas the `^` instructs yarn to use the latest patch version (x.y.z). Note that because Spartacus libraries have `-beta.#`, yarn will only install the latest beta releases (it won't automatically use RC or later versions).
 
@@ -114,92 +113,96 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
 2. Add the following lines to the top of the file, below existing import statements.
 
    ```typescript
-   import { ConfigModule } from '@spartacus/core';
-   import { translations } from '@spartacus/assets';
-   import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
+   import { ConfigModule } from "@spartacus/core";
+   import { translations } from "@spartacus/assets";
+   import {
+     B2cStorefrontModule,
+     defaultCmsContentConfig
+   } from "@spartacus/storefront";
    ```
 
    Note: For beta, `B2cStorefrontModule` is used instead of `StorefrontModule`.
 
 3. Add the following lines to the `NgModule/imports` section, below the existing `BrowserModule` statement, but before the last `],` (closing square bracket):
-  
+
    ```typescript
    B2cStorefrontModule.withConfig({
-       backend: {
-         occ: {
-           baseUrl: 'https://localhost:9002',
-           prefix: '/rest/v2/',
-           legacy: false
-         }
-       },
-       authentication: {
-         client_id: 'mobile_android',
-         client_secret: 'secret'
-       },
-       site: {
-         baseSite: 'electronics'
-       },
-       i18n: {
-         resources: translations,
-         fallbackLang: 'en'
+     backend: {
+       occ: {
+         baseUrl: "https://localhost:9002",
+         prefix: "/rest/v2/",
+         legacy: false
        }
-     }),
-     ConfigModule.withConfigFactory(defaultCmsContentConfig)
+     },
+     authentication: {
+       client_id: "mobile_android",
+       client_secret: "secret"
+     },
+     site: {
+       baseSite: "electronics"
+     },
+     i18n: {
+       resources: translations,
+       fallbackLang: "en"
+     }
+   }),
+     ConfigModule.withConfigFactory(defaultCmsContentConfig);
    ```
-  
+
    Don't forget to add a comma to the module entry before `B2cStorefrontModule`.
 
-4. Save the file. 
+4. Save the file.
 
-    The final version of  `mystore/src/app/app.module.ts` should look like this:
+   The final version of `mystore/src/app/app.module.ts` should look like this:
 
    ```typescript
-   import { BrowserModule } from '@angular/platform-browser';
-   import { NgModule } from '@angular/core';
-   
-   import { AppComponent } from './app.component';
-   
-   import { ConfigModule } from '@spartacus/core';
-   import { translations } from '@spartacus/assets';
-   import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
-   
+   import { BrowserModule } from "@angular/platform-browser";
+   import { NgModule } from "@angular/core";
+
+   import { AppComponent } from "./app.component";
+
+   import { ConfigModule } from "@spartacus/core";
+   import { translations } from "@spartacus/assets";
+   import {
+     B2cStorefrontModule,
+     defaultCmsContentConfig
+   } from "@spartacus/storefront";
+
    @NgModule({
-     declarations: [
-       AppComponent
-     ],
+     declarations: [AppComponent],
      imports: [
        BrowserModule,
        B2cStorefrontModule.withConfig({
-           backend: {
-             occ: {
-               baseUrl: 'https://localhost:9002',
-               prefix: '/rest/v2/',
-               legacy: false
-             }
-           },
-           authentication: {
-             client_id: 'mobile_android',
-             client_secret: 'secret'
-           },
-           site: {
-             baseSite: 'electronics'
-           },
-           i18n: {
-             resources: translations,
-             fallbackLang: 'en'
+         backend: {
+           occ: {
+             baseUrl: "https://localhost:9002",
+             prefix: "/rest/v2/",
+             legacy: false
            }
-         }),
-         ConfigModule.withConfigFactory(defaultCmsContentConfig)
-       ],
+         },
+         authentication: {
+           client_id: "mobile_android",
+           client_secret: "secret"
+         },
+         site: {
+           baseSite: "electronics"
+         },
+         i18n: {
+           resources: translations,
+           fallbackLang: "en"
+         }
+       }),
+       ConfigModule.withConfigFactory(defaultCmsContentConfig)
+     ],
      providers: [],
-     bootstrap: [AppComponent],
+     bootstrap: [AppComponent]
    })
-   export class AppModule { }
+   export class AppModule {}
    ```
 
 **Note:** Some of the statements in the example above were generated by Angular when you first created the app.
 
-#### About the Import Statements
+### About the Import Statements
 
 The import statements import either modules or default data needed by Spartacus.
 
@@ -233,8 +236,6 @@ This procedure adds the storefront component `cx-storefront` to `app.component.h
    <cx-storefront>Loading...</cx-storefront>
    ```
 
-
-
 ## Adding Default Styling
 
 This procedure adds the default Spartacus styling to your storefront. Without it, your storefront app will not display properly.
@@ -262,28 +263,27 @@ This section describes how to validate your back end installation, and then star
    For example, with a back end instance running from `https://localhost:9002`, you would access:
    https://localhost:9002/rest/v2/electronics/cms/pages
 
-
 2. Accept the security exception in your browser, if you are running a development instance with a self-signed HTTPS certificate.
 
-    When the request works, you see an XML response in your browser.
+   When the request works, you see an XML response in your browser.
 
 ### Starting the Storefront Application
 
 To start your Spartacus storefront, enter the following command from `mystore` in your terminal window:
 
-   ```bash
+```bash
 yarn start
-   ```
+```
 
-   When the app server is properly started, point your browser to http://localhost:4200.
+When the app server is properly started, point your browser to http://localhost:4200.
 
 Or, to start your Spartacus storefront securely, enter the following command:
 
-   ```bash
+```bash
 yarn start --ssl
-   ```
+```
 
-Then point your browser to  https://localhost:4200.
+Then point your browser to https://localhost:4200.
 
 ## Changing the Logo
 
@@ -295,7 +295,7 @@ If you are using the `electronics` sample store that is included with SAP Commer
 
 3. Search for the term `SiteLogoComponent` in the **Search** box in the top-center panel.
 
-      You can modify the component directly in the **Online Catalog**, or you can modify it in the **Staged Catalog** and then perform a sync.
+   You can modify the component directly in the **Online Catalog**, or you can modify it in the **Staged Catalog** and then perform a sync.
 
 4. Open the **Administration** tab of the `SiteLogoComponent`, and remove the **Media** value.
 
@@ -305,11 +305,7 @@ If you are using the `electronics` sample store that is included with SAP Commer
 
 7. Save your changes.
 
-----
-
-
-
-
+---
 
 ## Instructions for using Incremental Unreleased Spartacus Libraries
 
