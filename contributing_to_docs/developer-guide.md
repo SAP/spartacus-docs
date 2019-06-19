@@ -63,12 +63,10 @@ Please adhere to the following conventions to ensure that your changes build suc
 
 - **Links:** To link to another page within the Spartacus documentation, use the `link` tag, as follows:
 
-    {% raw %}
     ```liquid
-    [link text]({{ site.baseurl }}{% link path/from/root/to/filename.md %})
+    <!-- [link text]({{ site.baseurl }}{% link path/from/root/to/filename.md %}) -->
     ```
-    {% endraw %}
-
+    
     The following is an example:
 
     ```liquid
