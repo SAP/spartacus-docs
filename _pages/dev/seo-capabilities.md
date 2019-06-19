@@ -16,7 +16,7 @@ The SEO implementation in Spartacus includes the following:
   - Image Resolver
   - Robots Tag
 
-## Stateful URLS
+## Stateful URLs
 
 Spartacus provides a URL with a stateful address for every piece of the storefront. This makes it easier for users to navigate the storefront, and also allows web crawlers to index each and every page. As a result, more pages can be shared through social media, bots, and search indexes.
 
