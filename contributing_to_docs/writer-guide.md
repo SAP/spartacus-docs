@@ -24,11 +24,9 @@ You may want to ask a developer on your team for help with configuring VS Code t
 
 All documentation in the Spartacus documentation repository is written in Markdown. Files written in Markdown have a `.md` file extension.
 
-Markdown does not use tags, but it does use a specific syntax for formatting the text.
+Markdown does not use tags, but it does use a specific syntax to format text.
 
-To get started with writing documentation in Markdown, check out this Markdown "cheat sheets": https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-This cheat sheet explains in depth most of the formatting and syntax you are likely to need, but the following also include some details not covered by the first one:
+To get started with writing documentation in Markdown, check out the following guide: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet. And while this page explains most of the formatting and syntax you are likely to need, the following pages include additional details:
 
 - https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
 
