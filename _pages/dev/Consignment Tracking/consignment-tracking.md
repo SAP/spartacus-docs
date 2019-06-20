@@ -13,7 +13,8 @@ A pop-up page displays to show the consignment tracking information, if any.
 (placeholder for screenshot)
 
 In this page, customers can:
+ - View the current consignment status, along with the date.
+ - View the estimated delivery date.
  - View the name of the carrier for delivering this consignment
  - View the tracking number of the consignment. 
- - View the current consignment status, along with the date.
  - View the logistic events of the consignment, including the time of the event, the package location, and corresponding status. 
