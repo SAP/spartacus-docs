@@ -129,8 +129,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
    B2cStorefrontModule.withConfig({
      backend: {
        occ: {
-         baseUrl: "https://localhost:9002",
-         prefix: "/rest/v2/",
+         baseUrl: "https://[backend-host]:[backend-port]",
          legacy: false
        }
      },
@@ -175,8 +174,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
        B2cStorefrontModule.withConfig({
          backend: {
            occ: {
-             baseUrl: "https://localhost:9002",
-             prefix: "/rest/v2/",
+             baseUrl: "https://[backend-host]:[backend-port]",
              legacy: false
            }
          },
@@ -185,7 +183,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
            client_secret: "secret"
          },
          site: {
-           baseSite: "electronics"
+           baseSite: "electronics-spa"
          },
          i18n: {
            resources: translations,
