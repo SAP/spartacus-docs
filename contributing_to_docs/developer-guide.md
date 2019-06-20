@@ -103,6 +103,18 @@ Please adhere to the following conventions to ensure that your changes build suc
     [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
     ``` 
 
+- **Images:** Images reside in the `/assets/images/` folder. The format for including an image in your topic is the following:
+
+    ```markdown
+    ![alt text]({{ site.baseurl }}/path/to/image.png)
+    ```
+
+    The following is an example from the [Designing Action Buttons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/designing-action-buttons/) page:
+
+    ```markdown
+    ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
+    ```
+
 - **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
