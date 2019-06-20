@@ -26,7 +26,7 @@ All documentation in the Spartacus documentation repository is written in Markdo
 
 Markdown does not use tags, but it does use a specific syntax to format text.
 
-To get started with writing documentation in Markdown, check out the following guide: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet. And while this page explains most of the formatting and syntax you are likely to need, the following pages include additional details:
+To get started with writing documentation in Markdown, check out the following guide: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet. And while this page explains most of the formatting and syntax you are likely to need, the following pages can be useful as well:
 
 - https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
 
