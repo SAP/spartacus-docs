@@ -10,8 +10,17 @@ The following sections are intended to help you get up-and-running with everythi
 
 Visual Studio Code (VS Code) is an open-source code editing tool that is highly recommended for anyone who wishes to contribute to the Spartacus project. You can download it for free here: https://code.visualstudio.com
 
-VS Code has a built-in interfaces for committing code and running commands, as well as for navigating the files in the repository, not to mention primarily being a text editor for your documents that also allows you to preview how your [markdown](#working-with-markdown) pages will render.
+VS Code has built-in interfaces for committing code and running commands, for navigating directories on your computer, and of course for editing text previewing how your [markdown](#working-with-markdown) pages will render.
 
+VS Code is the same tool your developers are using to contribute code to the Spartacus project, and you can use VS Code to build and try out your own Spartacus application, when it comes to testing the docs you are writing ;-)
+
+To be able to make updates to the documentation repository, you first need to configure VS Code to communicate with Git, which is a separately installed component. The following page has information about commonly used components in VS Code: https://code.visualstudio.com/docs/setup/additional-components
+
+This page has information about how to install Git for your operating system: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+And in general, if you want to know more about Git, this guide is very useful: https://git-scm.com/book/en/v2
+
+Feel free to ask a developer on your team for help with configuring VS Code to work with Git.
 
 ## Working with Markdown
 
