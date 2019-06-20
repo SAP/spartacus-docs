@@ -18,9 +18,9 @@ To be able to make updates to the documentation repository, you first need to co
 
 This page has information about how to install Git for your operating system: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-And in general, if you want to know more about Git, this guide is very useful: https://git-scm.com/book/en/v2
+You may want to ask a developer on your team for help with configuring VS Code to work with Git.
 
-Feel free to ask a developer on your team for help with configuring VS Code to work with Git.
+If you want to know more about Git in general, this guide is very useful: https://git-scm.com/book/en/v2
 
 ## Working with Markdown
 
@@ -39,3 +39,4 @@ Feel free to ask a developer on your team for help with configuring VS Code to w
 - Working with GitHub Issues
 - Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch, and verifies it locally (http://localhost:4000/) **before** merging to `develop` or `master`.
 - Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
+- Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
