@@ -6,6 +6,9 @@ Customers apply coupons to their orders during checkout. Coupons are applied by 
 
 The following screenshot shows the **WINTER19** coupon successfully applied to a cart, giving a $10 discount on the order:
 
+
+(a placeholder for screenshot)
+
 Once a coupon is applied to the current cart, the coupon code and discount amount are also viewable in the checkout step pages, the order confirmation page, and the order details page.
 
 Note the following when using coupons:
