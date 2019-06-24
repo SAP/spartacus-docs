@@ -91,7 +91,9 @@ You can host, or we can. SAP Commerce Cloud in the public cloud includes support
 
 ### What about SEO? I heard that single page storefronts result in lower SEO ranking and make it difficult to share pages on social media. Is this an issue with Spartacus? 
 
-Not an issue. No storefront would work with SEO. Spartacus is indeed a “SPA” (Single-Page Application), which benefits performance and flexibility while only loading one page. In order to support SEO, Spartacus also supports Server-Side Rendering (SSR), which builds entire pages on the server side before providing to the client. SSR provides web crawlers with access to individual pages for search indexing purposes. SSR also allows users to share a link to a page on things like social media, and Spartacus also allows configuration of social media meta tags. Usage of SSR has the added benefit of greatly speeding up first time-to-view. Your server must also support SSR; this support will be added to Cloud Commerce v2 Q2-Q3 2019. 
+Not an issue. No storefront would work with SEO. Spartacus is indeed a “SPA” (Single-Page Application), which benefits performance and flexibility while only loading one page. In order to support SEO, Spartacus also supports Server-Side Rendering (SSR), which builds entire pages on the server side before providing to the client. SSR provides web crawlers with access to individual pages for search indexing purposes. SSR also allows users to share a link to a page on things like social media, and Spartacus also allows configuration of social media meta tags. Usage of SSR has the added benefit of greatly speeding up first time-to-view. 
+
+Your server must also support SSR functionality. Support for SSR will be added to SAP Commerce Cloud hosting services Q3 2019. 
 
 ### Does Spartacus scale? How? 
 
@@ -111,7 +113,7 @@ No they are different. SAP Cloud Platform Extension Factory is the key extensibi
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services? 
 
-Yes. Support for contextual journey tracking will be added to Spartacus, scheduled for end of Q2 2019. 
+Yes. Support for contextual journey tracking will be added to Spartacus, scheduled for Q3 2019. 
 
 ------
 
