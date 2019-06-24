@@ -2,7 +2,7 @@
 title: Applying Coupon (DRAFT)
 ---
 
-Customers apply coupons to their orders in the cart page. Coupons are applied by entering coupon code in the **Coupon** field and then clicking the **Apply** button. The coupon is represented by a box with the coupon code below the **Coupon** field, and the applied coupon codes are displayed in the **Order Summary** section. Customers can remove the coupon by clicking **Remove** in the coupon box.
+Customers apply coupons to their orders in the cart page. Coupons are applied by entering coupon codes in the **Coupon** field and then clicking the **Apply** button. The coupons are represented by a box with the coupon codes below the **Coupon** field, and the applied coupon codes are displayed in the **Order Summary** section. Customers can remove the coupons by clicking **Remove** in the coupon box.
 
 The following screenshot shows the **WINTER19** coupon successfully applied to a cart, giving a $10 discount on the order:
 
