@@ -10,7 +10,7 @@ In the order details page, if the order is in **Shipped** status, a **Track Pack
 
 A pop-up page displays to show the consignment tracking information, if any.
 
-(placeholder for screenshot)
+![track package details]({{ site.baseurl }}/assets/images/tracking-package-details.PNG)
 
 In this page, customers can:
  - View the current consignment status, along with the date.
