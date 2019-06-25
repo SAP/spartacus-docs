@@ -4,13 +4,13 @@ title: Personalization Setup Instructions for Spartacus (DRAFT)
 
 For the following steps, the Electronics sample site is used along with the Spartacus Sample Data Addon.
 
-## Backend Extension Requirements
+## Back End Extension Requirements
 
-Make sure all the required personalization extensions and adding are installed into your SAP Commerce Cloud instance. For more information, see the [Personalization installation instructions](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/6a0dae49ef2c4fe3b475084079cb7360.html) for your release.
+Make sure all the required personalization extensions and AddOns are installed in your SAP Commerce Cloud instance. For more information, see the [Personalization installation instructions](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/6a0dae49ef2c4fe3b475084079cb7360.html) for your release.
 
-## Backend CORS Settings
+## Back End CORS Settings
 
-As described in [this help document](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html), add `occ-personalization-id` and `occ-personalization-time` to the following settings:
+As described in [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/e970070f997041c7b3f3e77fcb762744.html), add `occ-personalization-id` and `occ-personalization-time` to the following settings:
 
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
@@ -23,11 +23,11 @@ If the setting already exists, add the new values to the end, including a space 
 origin content-type accept authorization occ-personalization-id occ-personalization-time
 ```
 
-Note: You can edit these settings using the HAC, but you can also add these parameters to `local.properties` in the `hybris/config` folder or in ycommercewebservices'  `project.properties` file.
+**Note:** You can edit these settings using HAC, but you can also add these parameters to `local.properties` in the `hybris/config` folder or in the `project.properties` file of ycommercewebservices.
 
-## Personalization configuration in Backoffice
+## Personalization Configuration in Backoffice
 
-1. In Backoffice, go to Personalization > Configuration > Personalization Configuration.
+1. In Backoffice, go to `Personalization > Configuration > Personalization Configuration`.
 
 2. Select **Electronics Site**.
 
@@ -42,7 +42,7 @@ Note: You can edit these settings using the HAC, but you can also add these para
 
 ## Enabling Personalization in Spartacus
 
-In `app.module.ts`, add the following to the settings in the section `StorefrontModule.withConfig`:
+In `app.module.ts`, add the following to the settings in the `StorefrontModule.withConfig` section:
 
 ```
 personalization: {
@@ -52,3 +52,9 @@ personalization: {
 
 ## Testing Personalization
 
+To test your own configurations, you can try out the steps in the following Personalization tutorials:
+
+- [Add a Personalization to a Page](https://enable.cx.sap.com/media/Add+a+Personalization+to+a+Page+-+SAP+Commerce+Cloud/1_0nu4ayiu)
+- [Create Personalized Search Results](https://enable.cx.sap.com/media/Create+Personalized+Search+Results+-+SAP+Commerce+Cloud/1_5dhey09h)
+
+For more information, see [Peronalization](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/2aee3397ba474c0ba959e43f0fc5d3d4.html) in the SAP Help Portal.
