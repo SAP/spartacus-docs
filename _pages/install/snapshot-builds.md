@@ -1,16 +1,16 @@
-# Snapshot builds
+# Snapshot Builds (DRAFT)
 
 Snapshot builds are a way for Spartacus users to have access to library fixes or features that have not yet been officially released in our npm libraries.
 
-Snapshot builds are published in the following github repositories:
+Snapshot builds are published in the following GitHub repositories:
 
 * [Core](https://github.com/SAP/cloud-commerce-spartacus-storefront-core-builds)
 * [Styles](https://github.com/SAP/cloud-commerce-spartacus-storefront-styles-builds)
 * [Storefront](https://github.com/SAP/cloud-commerce-spartacus-storefront-storefront-builds)
 
-Each commit represents a Snapshot. We create a snapshot every time a change is merged to develop. A github release with the source code is created per snapshot.
+Each commit represents a snapshot. We create a snapshot every time a change is merged to the `develop` branch. A GitHub release with the source code is created for every snapshot.
 
-To import a snapshot build in your shell app, just update the library dependency in your package.json, as follows:
+To import a snapshot build in your shell app, update the library dependency in your `package.json`, as follows:
 
 ```json
 {
@@ -22,9 +22,9 @@ To import a snapshot build in your shell app, just update the library dependency
 }
  ```
 
-This will allow you to import the latest (most recent) snapshot from github.
+This allows you to import the latest (most recent) snapshot from GitHub.
 
-If you want to import a specific snapshot, append the suffix of the github repo and the git tag of the release in your dependency version, as follows:
+If you want to import a specific snapshot, append the suffix of the GitHub repository and the git tag of the release in your dependency version, as follows:
 
 ```json
 {
@@ -35,4 +35,3 @@ If you want to import a specific snapshot, append the suffix of the github repo 
   }
 }
  ```
-
