@@ -35,6 +35,8 @@ docs:
         url: /building-the-spartacus-storefront-from-libraries/
       - title: "SmartEdit Setup Instructions for Spartacus"
         url: /smartEdit-setup-instructions-for-spartacus/
+      - title: "Personalization Setup Instructions for Spartacus"
+        url: /personalization-setup-instructions-for-spartacus/
 
   - title: Storefront Development Guide
     children:
