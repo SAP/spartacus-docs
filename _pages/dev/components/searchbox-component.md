@@ -2,7 +2,7 @@
 title: Searchbox Component (DRAFT)
 ---
 
-The searchbox component is concerned with searching the product catalog using a typeahead search. The end-user can use the searchbox component to search through the product catalog, without leaving the page. Search results are fetch as you type, and persist once you navigate to a product detail page or listing page. 
+The searchbox component is concerned with searching the product catalog using a typeahead search. The end-user can use the searchbox component to search through the product catalog without leaving the page. Search results are fetch as you type, and persist once you navigate to a product detail page or listing page. 
 The backend returns both product items as well as product suggestions. 
 
 ## Component mapping
@@ -10,7 +10,7 @@ The Searchbox component is by default configured in the CMS, as part of a page t
 
 The CMS searchbox component is mapped to a JS component using is configured with the following mapping:
 
-```
+```typescript
 <CmsConfig>{
     cmsComponents: {
         SearchBoxComponent: {

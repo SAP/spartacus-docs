@@ -1,7 +1,7 @@
 # main links
 main:
   - title: Version 1.0 Beta
-    url: /Release-1.0-Information/
+    url: /release-1.0-information/
  
 # sidebar menu
 docs:
@@ -29,10 +29,14 @@ docs:
             url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
       - title: "Recommended Development Environment"
         url: /recommended-development-environment/      
+      - title: "Snapshot Builds"
+        url: /snapshot-builds/
       - title: "Building the Spartacus Storefront from Libraries"
         url: /building-the-spartacus-storefront-from-libraries/
       - title: "SmartEdit Setup Instructions for Spartacus"
         url: /smartEdit-setup-instructions-for-spartacus/
+      - title: "Personalization Setup Instructions for Spartacus"
+        url: /personalization-setup-instructions-for-spartacus/
 
   - title: Storefront Development Guide
     children:
@@ -51,8 +55,13 @@ docs:
             url: /icon-library/
           - title: "Page Layout"
             url: /page-layout/
-      - title: "Customizing-CMS-Components"
-        url: /customizing-cms-components/
+      - title: "Customizing and Extending Spartacus Features"
+        url: /customizing-and-extending/
+        subchildren:
+          - title: "Customizing CMS Components"
+            url: /customizing-cms-components/
+          - title: "Searchbox Component"
+            url: /searchbox-component/  
       - title: "Extending Checkout"
         url: /extending-checkout/
       - title: "Configurable Routing"
