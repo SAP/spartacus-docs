@@ -73,11 +73,11 @@ The following snippet shows an example of a CSS variable:
 
 ```css
 :root {
-    --cx-g-color-primary: red;
+  --cx-color-primary: red;
 }
 
 cx-link {
-    color: var(--cx-g-color-primary);
+  color: var(--cx-color-primary);
 }
 ```
 
@@ -102,11 +102,11 @@ The follpowing snippet provides an example of a component style, using placehold
 ```scss
 %cx-link {
   a {
-    display: var(--cx-display, inline);
-    padding: var(--cx-padding, 0);
-    margin: var(--cx-margin, 0);
+    display: inline;
+    padding: 0;
+    margin: 0;
     color: currentColor;
-    display: var(--cx-display);
+    display: block;
   }
 }
 ```
