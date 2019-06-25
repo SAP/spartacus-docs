@@ -15,6 +15,6 @@ Note the following when using coupons:
 
 - The **Apply** button is disabled if the customer does not input anything in the **Coupon** field.
 - If the coupon code is invalid, an error message will display after clicking **Apply**.
-- After a coupon is applied to the cart, the cart total will be recalculated, and the applied coupon is viewable in the **Order Summary** section. The applied coupon list displays below the **Coupon** field.
+- After a coupon is applied to the cart, the cart total will be recalculated, and the applied coupon is viewable in the **Order Summary** section. The applied coupon list displays below the **Coupon** field， with the coupons displaying in alphabetical order.
 - After a coupon is removed from the cart, the cart total will be recalculated, and this coupon will neither display in the **Order Summary** section, or below the **Coupon** field. 
 - A link is viewable at the bottom of the **Order Summary** section, which indicates the number of coupons that have been applied, or encourages the customer to use coupons when no coupon has been applied. Clicking the link directs the customer to the coupon input box, allowing him or her to either manage the applied coupons or enter new coupons.
