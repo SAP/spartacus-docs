@@ -141,6 +141,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
        },
        i18n: {
          resources: translations,
+         chunks: translationChunksConfig,
          fallbackLang: 'en'
        }
      }),
@@ -186,6 +187,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
            },
            i18n: {
              resources: translations,
+             chunks: translationChunksConfig,
              fallbackLang: 'en'
            }
          }),
