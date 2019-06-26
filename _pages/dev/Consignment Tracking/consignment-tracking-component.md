@@ -15,4 +15,4 @@ No special configuration in Spartacus.
 Consignment is managed using Backoffice. See help.sap.com for more information…
 
 ## Extending
-<Introduces the extensibility of consignment tracking feature>
+Introduces the extensibility of consignment tracking feature
