@@ -12,7 +12,7 @@ In the order details page, if the consignment is in **Shipped** status, a **Trac
 
 ## Configuring
 No special configuration in Spartacus.
-Consignment s are managed using Backoffice. See help.sap.com for more information…
+Consignment is managed using Backoffice. See help.sap.com for more information…
 
 ## Extending
 <Introduces the extensibility of consignment tracking feature>
