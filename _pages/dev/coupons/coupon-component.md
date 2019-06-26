@@ -13,5 +13,5 @@ No special configuration in Spartacus.
 Coupons are managed using Backoffice. See help.sap.com for more information…
 
 ## Extending
-<introduces the extensibility of applying coupon feature>
+Introduces the extensibility of applying coupon feature.
 
