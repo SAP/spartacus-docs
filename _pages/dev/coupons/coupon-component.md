@@ -7,6 +7,11 @@ Customers apply coupons to their orders in the cart page. Coupons are applied by
 
 ## Requirements
 The coupon component requires the following extensions to work:
+- couponbackoffice Extension 
+- couponfacades Extension 
+- couponwebservices Extension 
+
+See https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a3fab07560c94b8e9e5d8824c0d88580.html for more information.
 
 ## Configuring
 No special configuration needed.
