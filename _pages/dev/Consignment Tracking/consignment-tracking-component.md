@@ -8,11 +8,18 @@ Customers can view consignment tracking information to know the real-time status
 In the order details page, if the consignment is in **Shipped** status, a **Track Package** button will be viewable for each consignment. Click the button to get the tracking information of the selected consignment.
 
 ## Requirements
-<in other words, indicate which extensions are needed in SAP Commerce for the consignment tracking feature to work in Spartacus, and provide links to help.sap.com with more information about the relevant coupon extensions>
+The consignment tracking feature requires the following extensions to work:
+ - consignmenttrackingoccaddon AddOn
+ - consignmenttrackingfacades  Extension
+ - consignmenttrackingservices Extension
+ - consignmenttrackingmock Extension
+ - consignmenttrackingbackoffice Extension
+
+ See https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/6eafde9f14e243d6a53e0bfbfd6996bc.html for more information. 
+
 
 ## Configuring
-No special configuration in Spartacus.
-Consignment is managed using Backoffice. See help.sap.com for more information…
+No special configuration needed.
 
 ## Extending
-Introduces the extensibility of consignment tracking feature
+No special extensibility available for this feature.

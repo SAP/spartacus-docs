@@ -6,12 +6,12 @@ title: Coupon Component (DRAFT)
 Customers apply coupons to their orders in the cart page. Coupons are applied by entering coupon codes in the **Coupon** field and then clicking the **Apply** button. The coupons are represented by a box with the coupon codes below the **Coupon** field, and the applied coupon codes are displayed in the **Order Summary** section. 
 
 ## Requirements
-<indicates which extensions are needed in SAP Commerce for the coupon feature to work in Spartacus, and provide links to help.sap.com with more information about the relevant coupon extensions>
+The coupon component requires the following extensions to work:
 
 ## Configuring
-No special configuration in Spartacus.
-Coupons are managed using Backoffice. See help.sap.com for more information…
+No special configuration needed.
+Coupons are managed using Backoffice. See https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html for more information.
 
 ## Extending
-Introduces the extensibility of applying coupon feature. 
+No special extensibility available for this feature. 
 
