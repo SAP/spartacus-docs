@@ -10,11 +10,17 @@ Note that, after merging to the `master` branch, it can sometimes take a few min
 
 Whether you are creating new documentation, or updating an existing topic, the steps are the same.
 
+One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release, while the `master` branch contains the "live", published documentation. When creating a new doc branch, or when creating a PR, it is important to think about whether your updates will be published with the next lib release (use the `develop` branch) or whether your updates will be published right away (use the `master` branch).
+
 1. Create a new issue (ticket) in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
 2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
+
+    If your doc update should be published with the next release of the Spartacus libraries, create your new doc branch from the `develop` branch.
+    
+    If, on the other hand, your doc update should be published as soon as it is merged, create your new doc branch from the `master` branch.
 
 3. Create new documentation or update existing topics in the `_pages` folder.
 
@@ -24,7 +30,7 @@ Whether you are creating new documentation, or updating an existing topic, the s
 
    If your doc update should be published with the next release of the Spartacus libraries, send your pull request to the `develop` branch. 
    
-   If, on the other hand, you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
+   If, on the other hand, your doc update should be published as soon as it is merged, then send your pull request to the `master` branch.
 
    The PR requires a minimum of one approver. It is always a good idea to let the writer check the PR, whenever possible.
 
