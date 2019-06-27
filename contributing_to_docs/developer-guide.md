@@ -10,7 +10,7 @@ Note that, after merging to the `master` branch, it can sometimes take a few min
 
 Whether you are creating new documentation, or updating an existing topic, the steps are the same.
 
-One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release, while the `master` branch contains the "live", published documentation. When creating a new doc branch, or when creating a PR, it is important to think about whether your updates will be published with the next lib release (use the `develop` branch) or whether your updates will be published right away (use the `master` branch).
+One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation. When creating a new doc branch, or when creating a PR, it is important to think about whether your updates will be published with the next release of the Spartacus libraries (use the `develop` branch), or whether your updates will be published as soon as they are merged (use the `master` branch).
 
 1. Create a new issue (ticket) in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
