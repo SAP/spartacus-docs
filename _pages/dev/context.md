@@ -49,7 +49,7 @@ The definition for `language` is provided below:
 #### Values
 
 `values` will take a list of potential values that can be used by the application.
-The purpose of having a list is to allow for the ability to switch between values when required.
+This property provides the capability of switching between values when required.
 
 In the case above, the languages available are `en (English), de (German), ja (Japanese), and zh (Chinese)`.
 
@@ -66,7 +66,7 @@ In the case above, the default language is `en (English)`.
 #### Persistence
 
 `persistence` determines when the context attributes are applied.
-When `route` is used, these arguments will be used throughout the entire application.
+When `route` is used, these arguments will appear throughout the entire application.
 
 In the case above, the value is set to `route` and therefore it is applied site-wide.
 
