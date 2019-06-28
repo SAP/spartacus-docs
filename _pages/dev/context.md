@@ -61,13 +61,11 @@ In the case above, the default language is `en (English)`.
 
 **Note**: The `default` must be in the list of `values` provided.
 
-
 #### Persistence
 
 `persistence` determines when the context attributes will be applied.
 When `route` is used, these arguments will be used throughout the entire application.
 In the case above, the value is set to `route` and therefore it is applied site-wide.
-
 
 #### urlEncodingParameters
 
