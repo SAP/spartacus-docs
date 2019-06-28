@@ -1,13 +1,12 @@
 ---
-title: Context Configuration
+title: Context Configuration (DRAFT)
 ---
 
-`context` allows for the configuration of the application by appending attribute values to the base URL.
-
-**Ex**: Assume a `language` attribute is being used and its value is set to English.
-When the website is now loaded, the site URL will contain this property and the translations provided will be in English.
-
+The `context` parameter allows for the configuration of the application by appending attribute values to the Storefront URL.
 In addition to this, it provides the flexibility of being able to change these values dynamically.
+
+**Ex**: Assume a `language` attribute is used and its value is set to English.
+When the application is loaded, the Storefront URL will contain this property and the translations provided will be in English.
 
 `context` can be found in the `app.module.ts` and looks as such:
 
@@ -29,11 +28,12 @@ In addition to this, it provides the flexibility of being able to change these v
  ...
 ```
 
-For a better understanding of how this works, every property will be explained.
+For a better understanding of how these properties work, each one will be explained.
 
 ### Parameters
 
 The `parameters` property will take a list of attributes and their defined values.
+
 The definition for `language` is provided below:
 
 ```typescript
@@ -48,10 +48,10 @@ The definition for `language` is provided below:
 
 #### Values
 
-`values` will take a list of potential values that can be used.
+`values` will take a list of potential values that can be used by the application.
+The purpose of having a list is to allow for the ability to switch between values when required.
 
 In the case above, the languages available are `en (English), de (German), ja (Japanese), and zh (Chinese)`.
-Storing this list allows for the ability to easily switch between languages when required.
 
 **Note**: If there is no `default` value provided, the default value will be the first argument in the list which is `en (English)` in this case.
 
@@ -65,16 +65,17 @@ In the case above, the default language is `en (English)`.
 
 #### Persistence
 
-`persistence` determines when the context attributes will be applied.
+`persistence` determines when the context attributes are applied.
 When `route` is used, these arguments will be used throughout the entire application.
+
 In the case above, the value is set to `route` and therefore it is applied site-wide.
 
 #### urlEncodingParameters
 
-`urlEncodingParamters` will take a list of arguments that will be used to produce the context. The context is then appended to the application's 
+`urlEncodingParameters` will take a list of arguments that will be used to produce the context. The context is then appended to the Storefront
 URL.
 
-Assume that the Storefront URL is `localhost:4200`.
+Assume that the Storefront URL is `https://localhost:4200`.
 
 Assume the configuration is as follows:
 
@@ -106,4 +107,4 @@ Assume the configuration is as follows:
  ...
 ```
 
-The result of this will be `localhost:4200/electronics-spa/en/USD`.
+The result of this will be `https://localhost:4200/electronics-spa/en/USD`.
