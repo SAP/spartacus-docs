@@ -36,7 +36,12 @@ It's important to note that with this setup, the components must be loaded up fr
 
 Both of these related downsides will be improved in a future release. With that in mind, a change in this API is expected.
 
-### Web Components as CMS Components (experimental support)
+### Accessing CMS Data in CMS Components
+
+The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
+
+
+### Using Web Components as CMS Components (experimental support)
 
 ##### **Warning:** This feature is experimental!
 ##### Some functionalities may not work as expected and API may mature or change in a future. 
@@ -59,9 +64,7 @@ One JS file can contain more that one web component implementation, used as diff
 
 This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope of this documentation.
 
-#### Accessing CMS Data in Web Components
-
-The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
+#### Accessing API and CMS Data
 
 Web components do not have access to the application DI system, regardless of whether they are built in Angular or not. They are isolated from the core application and can only interact with inputs and outputs. Therefore, they cannot access `CmsComponentData`, and would also suffer from not being able to reuse any of the services provided by Spartacus.
 
