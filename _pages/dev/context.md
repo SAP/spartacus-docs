@@ -48,15 +48,17 @@ The definition for `language` is provided below:
 
 #### Values
 
-`values` will take a list of languages that are available.
-In the case above, the languages available are `English, German, Japanese, and Chinese`.
+`values` will take a list of potential values that can be used.
+
+In the case above, the languages available are `en (English), de (German), ja (Japanese), and zh (Chinese)`.
 Storing this list allows for the ability to easily switch between languages when required.
 
 **Note**: If there is no `default` value provided, the default value will be the first argument in the list which is `en (English)` in this case.
 
 #### Default
 
-`default` selects the language for the application when it is first loaded.
+`default` selects the specific option for the application when it is first loaded.
+
 In the case above, the default language is `en (English)`.
 
 **Note**: The `default` must be in the list of `values` provided.
