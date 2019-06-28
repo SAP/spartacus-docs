@@ -54,11 +54,17 @@ To get started with writing documentation in Markdown, check out the following g
 
 Whether you are creating new documentation, or updating an existing topic, the steps are the same.
 
+One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation. When creating a new doc branch, or when creating a PR, it is important to think about whether your updates will be published with the next release of the Spartacus libraries (use the `develop` branch), or whether your updates will be published as soon as they are merged (use the `master` branch).
+
 1. Create a new issue (ticket) in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
 2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
+
+    If your doc update should be published with the next release of the Spartacus libraries, create your new doc branch from the `develop` branch.
+
+    If, on the other hand, your doc update should be published as soon as it is merged, create your new doc branch from the `master` branch.
 
 3. Create new documentation or update existing topics in the `_pages` folder.
 
@@ -67,8 +73,8 @@ Whether you are creating new documentation, or updating an existing topic, the s
 4. Create a pull request.
 
    If your doc update should be published with the next release of the Spartacus libraries, send your pull request to the `develop` branch. 
-   
-   If, on the other hand, you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
+  
+   If, on the other hand, your doc update should be published as soon as it is merged, then send your pull request to the `master` branch.
 
    The PR requires a minimum of one approver. It is always a good idea to let the writer check the PR, whenever possible.
 
@@ -100,9 +106,9 @@ Please adhere to the following conventions to ensure that your changes build suc
     ```
 
     This section is referred to in Jekyll as the "front matter".
-    
+  
     The page title takes the place of the level-1 header that normally appears in a markdown file, so there is no need to include leve1-1 headers (denoted by the single hashtag #) at the top of the page.
-    
+  
     The page titles is independent of the filename. You can change the title any time, but avoid changing the filename as much as possible.
 
 - **Links:** To link to another page within the Spartacus documentation, use the `link` tag, as follows:
@@ -119,8 +125,8 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     To quote from the Jekyll help: *"One major benefit of using the `link` tag is link validation. If the link doesn’t exist, Jekyll won’t build your site. This is a good thing, as it will alert you to a broken link so you can fix it (rather than allowing you to build and deploy a site with broken links)."*
 
-    Note, there are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page. 
-    
+    Note, there are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page.
+  
     If you need to link to an external site, use the following format:
 
     ```markdown

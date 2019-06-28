@@ -1,7 +1,7 @@
 # main links
 main:
   - title: Version 1.0 Beta
-    url: /Release-1.0-Information/
+    url: /release-1.0-information/
  
 # sidebar menu
 docs:
@@ -28,13 +28,15 @@ docs:
           - title: "Working with Older Versions of SAP Commerce Cloud"
             url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
       - title: "Recommended Development Environment"
+        url: /recommended-development-environment/      
       - title: "Snapshot Builds"
         url: /snapshot-builds/
-        url: /recommended-development-environment/      
       - title: "Building the Spartacus Storefront from Libraries"
         url: /building-the-spartacus-storefront-from-libraries/
       - title: "SmartEdit Setup Instructions for Spartacus"
         url: /smartEdit-setup-instructions-for-spartacus/
+      - title: "Personalization Setup Instructions for Spartacus"
+        url: /personalization-setup-instructions-for-spartacus/
 
   - title: Storefront Development Guide
     children:

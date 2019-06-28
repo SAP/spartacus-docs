@@ -1,4 +1,6 @@
-# Snapshot Builds (DRAFT)
+---
+title: Snapshot Builds
+---
 
 Snapshot builds are a way for Spartacus users to have access to library fixes or features that have not yet been officially released in our npm libraries.
 
