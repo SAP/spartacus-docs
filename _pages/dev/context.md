@@ -71,9 +71,10 @@ In the case above, the value is set to `route` and therefore it is applied site-
 
 #### urlEncodingParameters
 
-`urlEncodingParamters` will take a list of arguments that will be used to produce the context. The context is then appended to the application's base URL.
+`urlEncodingParamters` will take a list of arguments that will be used to produce the context. The context is then appended to the application's 
+URL.
 
-Assume that the base URL is `localhost:4200`.
+Assume that the Storefront URL is `localhost:4200`.
 
 Assume the configuration is as follows:
 
