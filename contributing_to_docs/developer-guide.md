@@ -2,25 +2,27 @@
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
-The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site.
+The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuild the site.
 
-Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
+Note that, after merging to the `master` branch, it can sometimes take a few minutes for changes to appear on the site.
 
 ## Making Updates to the Documentation Repository
 
 Whether you are creating new documentation, or updating an existing topic, the steps are the same.
 
-One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation. When creating a new doc branch, or when creating a PR, it is important to think about whether your updates will be published with the next release of the Spartacus libraries (use the `develop` branch), or whether your updates will be published as soon as they are merged (use the `master` branch).
+One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation.
 
-1. Create a new issue (ticket) in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
+**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
+
+1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
 2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
 
-    If your doc update should be published with the next release of the Spartacus libraries, create your new doc branch from the `develop` branch.
+    Always create your new `doc` branch from the `develop` branch.
   
-    If, on the other hand, your doc update should be published as soon as it is merged, create your new doc branch from the `master` branch.
+    The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can create your new `doc` branch from the `master` branch.
 
 3. Create new documentation or update existing topics in the `_pages` folder.
 
@@ -28,17 +30,17 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 4. Create a pull request.
 
-   If your doc update should be published with the next release of the Spartacus libraries, send your pull request to the `develop` branch. 
+   Always send your pull request to the `develop` branch.
   
-   If, on the other hand, your doc update should be published as soon as it is merged, then send your pull request to the `master` branch.
+   The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can send your pull request to the `master` branch.
 
-   The PR requires a minimum of one approver. It is always a good idea to let the writer check the PR, whenever possible.
+   The PR requires a minimum of one approver. Always include a writer as one of the approvers.
 
 5. Merge your pull request.
 
-   If you merged your updates to the `develop` branch, they will be merged to the `master` branch (by the writer) on the next lib release day.
+   If you merged your updates to the `develop` branch, the updates will be staged until the next release of the Spartacus libraries, at which point they will be published by the documentation release master.
 
-   If you merged your updates to the `master` branch, they will automatically trigger Jekyll to rebuild the GitHub pages site. Your changes will show up after a few minutes (you may need to empty your cache to see the updates).  
+   If you merged your updates to the `master` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).  
 
 ## Updating the Sidebar
 
