@@ -61,7 +61,7 @@ docs:
                 - title: 'Customizing CMS Components'
                   url: /customizing-cms-components/
                 - title: 'Banner Component'
-                  url: /banner-components/
+                  url: /banner-component/
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
           - title: 'Extending Checkout'
