@@ -50,7 +50,6 @@ Carry out the following steps before you build and launch.
 
    ```typescript
    export const environment = {
-     production: false,
      occBaseUrl: "https://custom-backend-url"
    };
    ```
@@ -102,7 +101,6 @@ yarn build:core:lib
 
    ```typescript
    export const environment = {
-     production: true,
      occBaseUrl: "https://custom-backend-url"
    };
    ```
