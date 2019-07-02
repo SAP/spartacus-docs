@@ -16,7 +16,7 @@ With this setup, CMS components can be customized in the following ways:
 
 ## Configuring Custom Components
 
-There are two types of components that can be configured: angular components, and web components.
+There are two types of components that can be configured: angular components, and web components (experimental support).
 
 ### Custom Angular CMS Components
 
@@ -36,9 +36,35 @@ It's important to note that with this setup, the components must be loaded up fr
 
 Both of these related downsides will be improved in a future release. With that in mind, a change in this API is expected.
 
-### Accessing CMS Data in Custom Components
+### Accessing CMS Data in CMS Components
 
 The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
+
+
+### Using Web Components as CMS Components (experimental support)
+
+##### **Warning:** This feature is experimental!
+##### Some functionalities may not work as expected and API may mature or change in a future. 
+
+Web components have a lot of benefits, and as soon as some of the fundamentals of Angular are ready for this, Spartacus will most likely begin to use them. Some preparation has already been made to allow for loading web components, but the current recommendation is to use Angular components.
+
+To configure a web component as a CMS component, the configuration must consist of the path to the JS file (web component implementation) and its tag name, separated by a hash symbol (`#`). The following is an example:
+
+```typescript
+ConfigModule.withConfig({
+  cmsComponents: {
+    BannerComponent: {
+        selector: 'path/to/banner/component/file.js#custom-banner';
+    }
+  }
+});
+```
+
+One JS file can contain more that one web component implementation, used as different CmsComponents.
+
+This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope of this documentation.
+
+#### Accessing API and CMS Data
 
 Web components do not have access to the application DI system, regardless of whether they are built in Angular or not. They are isolated from the core application and can only interact with inputs and outputs. Therefore, they cannot access `CmsComponentData`, and would also suffer from not being able to reuse any of the services provided by Spartacus.
 
