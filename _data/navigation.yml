@@ -81,6 +81,8 @@ docs:
             url: /route-aliases/
       - title: "Site Context (Configuring the Base URL)"
         url: /site-context/
+      - title: "Context Configuration"
+        url: /context-configuration/
       - title: "SEO Capabilities"
         url: /seo-capabilities/
       - title: "Internationalization (i18n)"
