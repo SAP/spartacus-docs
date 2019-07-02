@@ -101,7 +101,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 **Note:** 
 
-(1) Using `~` instructs yarn to use the latest minor version (x.y), whereas using `^` instructs yarn to use the latest patch version (x.y.z). Note that because Spartacus libraries have `-beta.#`, yarn will only install the latest beta releases (it won't automatically use RC or later versions).
+(1) Using `~` instructs yarn to use the latest minor version (x.y), whereas using `^` instructs yarn to use the latest patch version (x.y.z).
 
 (2) If you are updating an existing app, and changing dependencies, it's recommended that you delete the `node_modules` folder before running the install command.
 
