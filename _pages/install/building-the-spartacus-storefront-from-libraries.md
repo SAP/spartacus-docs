@@ -136,8 +136,12 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
          client_id: 'mobile_android',
          client_secret: 'secret'
        },
-       site: {
-         baseSite: 'electronics'
+       context: {
+         parameters: {
+           baseSite: { 
+             default: 'electronics'
+           }         
+         }
        },
        i18n: {
          resources: translations,
