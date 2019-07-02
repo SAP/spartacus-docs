@@ -16,7 +16,7 @@ With this setup, CMS components can be customized in the following ways:
 
 ## Configuring Custom Components
 
-There are two types of components that can be configured: angular components, and web components (experimental support).
+There are two types of components that can be configured: angular components, and web components (for which we currently provide experimental support).
 
 ### Custom Angular CMS Components
 
@@ -41,10 +41,9 @@ Both of these related downsides will be improved in a future release. With that 
 The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
 
 
-### Using Web Components as CMS Components (experimental support)
+### Using Web Components as CMS Components (Experimental Support)
 
-##### **Warning:** This feature is experimental!
-##### Some functionalities may not work as expected and API may mature or change in a future. 
+**Warning:** This feature is experimental. Some functionality may not work as expected, and the API may mature or change in the future.
 
 Web components have a lot of benefits, and as soon as some of the fundamentals of Angular are ready for this, Spartacus will most likely begin to use them. Some preparation has already been made to allow for loading web components, but the current recommendation is to use Angular components.
 
@@ -62,7 +61,7 @@ ConfigModule.withConfig({
 
 One JS file can contain more that one web component implementation, used as different CmsComponents.
 
-This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope of this documentation.
+This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope for this documentation.
 
 #### Accessing API and CMS Data
 
