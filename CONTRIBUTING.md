@@ -47,7 +47,7 @@ You don't have to be a programmer to help us determine the specifics of a bug. A
 
 ----
 
-## Contributing Code
+## Contributing Documentation
 
 We welcome contributions to the Spartacus documentation. Before you start your first contribution, here are some things you should know:
 
