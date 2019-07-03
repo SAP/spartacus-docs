@@ -22,7 +22,7 @@ To make Spartacus work with SmartEdit, we need implement the SmartEdit contract 
 
 ##### 2.1. Get `cmsTicketId` (also called `previewToken`)
 
-When Spartacus is launched in SmartEdit, SmartEdit sends a request to Spa which has `cmsTicketId` as the parameter.
+When Spartacus is launched in SmartEdit, SmartEdit sends a request to Spartacus with `cmsTicketId` as the parameter.
 
 ```typescript
 e.g. https://localhost:4200/cx-preview?cmsTicketId=6477500489900224fda62f41-167a-40fe-9ecc-39019a64ebb9
@@ -52,6 +52,8 @@ e.g. https://localhost:9002/rest/v2/electronics-spa/cms/pages?fields=DEFAULT&lan
 #### 3. HTML Markup Contract
 
 The HTML markup contract stipulates that every CMS component and every content slot must be wrapped in an HTML tag and include specific elements.
+
+##### 3.1 `properties` in CMS items received from backend
 
 Sending CMS requests with `cmsTicketId`, there will be `properties` field in the response JSON data. `properties` contains groups of dynamic attribute required for the containing CMS items. For example, `properties` in CMS page may have these data:
 
@@ -105,11 +107,11 @@ In the page source, you will see this:
 <cx-link data-smartedit-catalog-version-uuid="electronics-spaContentCatalog/Staged" data-smartedit-component-type="CMSLinkComponent" data-smartedit-component-id="HelpLink" class="smartEditComponent" data-smartedit-component-uuid="eyJpdGVtSWQiOiJIZWxwTGluayIsImNhdGFsb2dJZCI6ImVsZWN0cm9uaWNzLXNwYUNvbnRlbnRDYXRhbG9nIiwiY2F0YWxvZ1ZlcnNpb24iOiJTdGFnZWQifQ==" data-smart-edit-component-process-status="removeComponent" data-smartedit-element-uuid="8505cd4a-11b3-4fc8-b278-6f8ff74e50b3" style="position: relative;">
 ```
 
-##### `DynamicAttributeService`
+##### 3.2 `DynamicAttributeService`
 
 In Spartacus, we have `DynamicAttributeService`. It can add dynamic attributes to DOM. These attributes are extracted from the `properties` of CMS items received from backend.
 
-There can by many different groups of properties, one of them is `smaredit`. But EC allows addons to create different groups. For example, personalization may add `script` group etc.
+**Note:** There can by many different groups of properties, one of them is `smaredit`. But EC allows addons to create different groups. For example, personalization may add `script` group etc.
 
 To add SmartEdit HTML Markup contract to Slot, we have this function:
 ```typescript
@@ -121,3 +123,16 @@ private addSmartEditContract(slot: ContentSlotData): void {
     );
 }
 ```
+
+#### 4. Rerendering Components and Content Slots After Editing
+
+After the user makes changes to components or content slots, the user will want to see the changes reflected on the page. SmartEdit optimizes this by rerendering only the changed content.
+
+For frontend-rendered pages, the storefront rerenders the pages and not SmartEdit. In this case, Spartacus implements the renderComponent function in the `window.smartedit namespace` as shown in the following code excerpt:
+
+```typescript
+window.smartedit.renderComponent = function(componentId, componentType, parentId) { ... };
+```
+If `parentId` does not exist, the CMS item is a slot, then `renderComponent` actually refresh the whole CMS page. If `parentId` exists, the CMS item is component. Only this CMS component is refreshed.
+
+### The SmartEdit Contract consists of the following
