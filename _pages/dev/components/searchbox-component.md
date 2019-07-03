@@ -50,7 +50,7 @@ The `SearchBoxComponentService` uses the `SearchboxService`, which is a facade o
 
 The component styles are provided by the `%cx-searchbox` placeholder selector in the styles library. The searchbox style is available in the default sparta theme.
 
-## Known limitations
+## Known Limitations
 
 - The search configuration in SAP Commerce allows for a redirect configuration. This configuration is not yet implemented in Spartacus.
 - The searchbox only searches products and product suggestions. There is no search for categories, pages, or other content types.
