@@ -112,7 +112,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Commit and push your changes using the [squash and merge](https://help.github.com/articles/about-pull-request-merges/) feature in GitHub.
 
-    That you should also use the squash and merge feature when additional changes are required after code review.
+    You should also use the squash and merge feature when additional changes are required after code review.
 
 1. If your change fixes an issue reported in GitHub, add the following line to the commit message:
 
@@ -125,7 +125,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Create a pull request so that we can review your change.
 1. Follow the link posted by the CLA assistant to your pull request and accept it, as described above.
-1. Wait for our code review and approval, possibly enhancing your change on request.
+1. Wait for our review and approval, possibly enhancing your change on request.
     
     Note: This may take time, depending on the required effort for reviewing, testing, and clarification. Spartacus writers are also working their regular duties.
 
