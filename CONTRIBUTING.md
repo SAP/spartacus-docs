@@ -60,7 +60,7 @@ We welcome contributions to the Spartacus documentation. Before you start your f
 
 1. Contributions must be compliant with the project code style, quality, and standards. We also follow them :-) 
 
-    The `Contribution Content Guidelines` section below gives more details on the coding guidelines.
+    The `Contribution Content Guidelines` section below gives more details on the content guidelines.
 
 1. Not all contributions will be accepted.
     * The documentation you are submitting must fit the overall vision and direction of Spartacus and really improve it.
@@ -74,7 +74,7 @@ This applies to all contributors, including those contributing on behalf of a co
 
 #### Company Contributors
 
-If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
+If employees of a company contribute documentation, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
 A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
 
@@ -96,7 +96,7 @@ A contribution will be considered for inclusion in the Spartacus documentation i
 * The contribution truly improves the documentation
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/contributors-guide/).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/tree/master/contributing_to_docs).
 
 ### Contribution Process
 
