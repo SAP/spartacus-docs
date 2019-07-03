@@ -40,7 +40,6 @@ Both of these related downsides will be improved in a future release. With that 
 
 The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
 
-
 ### Using Web Components as CMS Components (Experimental Support)
 
 **Warning:** This feature is experimental. Some functionality may not work as expected, and the API may mature or change in the future.
@@ -124,3 +123,55 @@ For Angular or web components that do not need any data from CMS (for example, l
 In the same manner, the `uid` attribute of `JspIncludeComponent` is used in the CMS mapping instead of the original component type.
 
 **Note:** It is recommended to use `CMSFlexComponent` instead of `JspIncludeComponent`, because the `uid` attribute in `JspIncludeComponent` must be unique, which means you cannot have two instances of the same `JspIncludeComponent`.
+
+## Handling Nested CMS Components
+
+The CMS allows the creation of nested components inside so-called container components. An example of such component is the `TabPanelContainer` that is used in the product details page to display the tabs. In this case, the container contains the different tab components.
+
+Spartacus supports the dynamic rendering of nested components. This can be achieved by iterating over the list of child components and using the `cxComponentWrapper` directive to dynamically load each component. The list of child components is returned by the component container in the `components` field. Using the list of uids it's possible to fetch their conent using the `CmsService`'s `getComponentData` method.
+
+The following example demontrate how the tabs are rendered in the product details page:
+
+```typescript
+// tab-paragraph-container.component.ts
+
+/*...*/
+
+constructor(
+  public componentData: CmsComponentData<CMSTabParagraphContainer>,
+  private cmsService: CmsService
+) {}
+
+components$: Observable<any[]> = this.componentData.data$.pipe(
+  switchMap(data =>
+    combineLatest(
+      data.components.split(' ').map(component =>
+        this.cmsService.getComponentData<any>(component).pipe(
+          map(tab => {
+            return {
+              ...tab,
+              title: `CMSTabParagraphContainer.tabs.${tab.uid}`, //Custom mapping to pass additional data to the HTML. If not required the map can be omitted.
+            };
+          })
+        )
+      )
+    )
+  )
+);
+```
+
+In container component HTML file
+
+```html
+<!-- tab-paragraph-container.component.html -->
+
+<ng-container *ngFor="let component of (components$ | async)">
+  <h3>
+    {{ component.title | cxTranslate }}
+  </h3>
+  <div>
+    <!-- Renders the child component-->
+    <ng-template [cxComponentWrapper]="component"> </ng-template>
+  </div>
+</ng-container>
+```
