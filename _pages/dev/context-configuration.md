@@ -12,67 +12,41 @@ When the application is loaded, the Storefront URL will contain this property an
 
 ```typescript
   context: {
-      parameters: {
-        baseSite: {
-          values: [
-            'electronics-spa',
-            'electronics',
-            'apparel-de',
-            'apparel-uk',
-          ],
-          persistence: 'route',
-        },
-      },
-    urlEncodingParameters: ['baseSite', 'language', 'currency'],
+    baseSite: [
+      'electronics-spa',
+      'electronics',
+      'apparel-de',
+      'apparel-uk',
+    ],
+    urlParameters: ['baseSite', 'language', 'currency'],
   },
  ...
 ```
 
 For a better understanding of how these properties work, each one will be explained.
 
-### Parameters
+### Context Parameters
 
-The `parameters` property will take a list of attributes and their defined values.
+The context parameters take a list of attributes and their defined values.
 
 The definition for `language` is provided below:
 
 ```typescript
- parameters: {
-        [language]: {
-          values: ['en', 'de', 'ja', 'zh'],
-          default: 'en',
-          persistence: 'route',
-        },
-        ...
+ context: {
+   language: ['en', 'de', 'ja', 'zh'],
+   ...
 ```
 
-#### Values
-
-`values` will take a list of potential values that can be used by the application.
+Values are list of potential values that can be used by the application.
 This property provides the capability of switching between values when required.
 
 In the case above, the languages available are `en (English), de (German), ja (Japanese), and zh (Chinese)`.
 
-**Note**: If there is no `default` value provided, the default value will be the first argument in the list which is `en (English)` in this case.
+**Note**: The default value will be the first argument in the list which is `en (English)` in this case.
 
-#### Default
+#### urlParameters
 
-`default` selects the specific option for the application when it is first loaded.
-
-In the case above, the default language is `en (English)`.
-
-**Note**: The `default` must be in the list of `values` provided.
-
-#### Persistence
-
-`persistence` determines when the context attributes are applied.
-When `route` is used, these arguments will appear throughout the entire application.
-
-In the case above, the value is set to `route` and therefore it is applied site-wide.
-
-#### urlEncodingParameters
-
-`urlEncodingParameters` will take a list of arguments that will be used to produce the context. The context is then appended to the Storefront
+`urlParameters` will take a list of arguments that will be used to produce the context. The context is then appended to the Storefront
 URL.
 
 Assume that the Storefront URL is `https://localhost:4200`.
@@ -81,28 +55,17 @@ Assume the configuration is as follows:
 
 ```typescript
   context: {
-      parameters: {
-        baseSite: {
-          values: [
-            'electronics-spa', //Selected by default as it is the first argument in the list
-            'electronics',
-          ],
-          persistence: 'route',
-        },
-        language: {
-          values: [
-            'en'
-          ],
-          persistence: 'route',
-        },
-        currency: {
-          values: [
-            'USD'
-          ],
-          persistence: 'route',
-        },
-      },
-    urlEncodingParameters: ['baseSite', 'language', 'currency'],
+    baseSite: [
+      'electronics-spa', //Selected by default as it is the first argument in the list
+      'electronics',
+    ],
+    language: [
+      'en'
+    ],
+    currency: [
+      'USD'
+    ],
+    urlParameters: ['baseSite', 'language', 'currency'],
   },
  ...
 ```

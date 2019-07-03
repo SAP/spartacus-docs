@@ -54,21 +54,15 @@ Carry out the following steps before you build and launch.
    };
    ```
 
-3. In your `app.module.ts` file, update the `values` and `default` of the `BASE_SITE` parameter to point to the base site(s) that you have configured in your back end.
+3. In your `app.module.ts` file, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
 
    The following is an example:
 
    ```typescript
    context: {
-       urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
-       parameters: {
-         BASE_SITE: {
-           values: ['electronics-spa', 'apparel-de', 'apparel-uk'],
-           default: 'electronics-spa',
-           persistence: 'route',
-         },
-       },
-     },
+     urlParameters: ['baseSite', 'language', 'currency'],
+     baseSite: ['electronics-spa', 'apparel-de', 'apparel-uk'],
+   },
    ```
 
 ## Launching the Storefront
@@ -105,21 +99,15 @@ yarn build:core:lib
    };
    ```
 
-3. In your `app.module.ts` file, update the `values` and `default` of the `BASE_SITE` parameter to point to the base site(s) that you have configured in your back end.
+3. In your `app.module.ts` file, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
 
    The following is an example:
 
    ```typescript
    context: {
-       urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
-       parameters: {
-         BASE_SITE: {
-           values: ['electronics-spa', 'apparel-de', 'apparel-uk'],
-           default: 'electronics-spa',
-           persistence: 'route',
-         },
-       },
-     },
+     urlParameters: ['baseSite', 'language', 'currency'],
+     baseSite: ['electronics-spa', 'apparel-de', 'apparel-uk'],
+   },
    ```
 
 ## Launching the Storefront
