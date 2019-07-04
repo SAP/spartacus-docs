@@ -136,3 +136,4 @@ window.smartedit.renderComponent = function(componentId, componentType, parentId
 If `parentId` does not exist, the CMS item is a slot, then `renderComponent` actually refresh the whole CMS page. If `parentId` exists, the CMS item is component. Only this CMS component is refreshed.
 
 ### The SmartEdit Contract consists of the following
+![Screen Shot 2019-07-03 at 12 58 37 PM](https://user-images.githubusercontent.com/44440575/60667524-b47d2100-9e37-11e9-93e9-af3ed665d768.png)
