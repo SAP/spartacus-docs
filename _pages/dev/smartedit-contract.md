@@ -146,3 +146,6 @@ UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);default
 ```
 
 When open category or product pages in SmartEdit, you will find that not only the CMS pages are loaded, the default preview product/category is also loaded.
+
+In SmartEdit, product with code 575 is opened in the product details page:
+![Screen Shot 2019-07-04 at 8 51 30 AM](https://user-images.githubusercontent.com/44440575/60668058-0d998480-9e39-11e9-98a7-b75422a44c77.png)
