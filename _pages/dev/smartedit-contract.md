@@ -135,4 +135,14 @@ window.smartedit.renderComponent = function(componentId, componentType, parentId
 ```
 If `parentId` does not exist, the CMS item is a slot, then `renderComponent` actually refresh the whole CMS page. If `parentId` exists, the CMS item is component. Only this CMS component is refreshed.
 
-### The SmartEdit Contract consists of the following
+
+### Default Preview Category/Product
+
+Each site has `defaultPreviewCategory`, `defaultPreviewProduct` and `defaultPreviewCatalog`. For example:
+
+```typescript
+UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV);defaultPreviewCatalog(id)
+;$spaSiteUid;575;2053367;$productCatalog
+```
+
+When open category or product pages in SmartEdit, you will find that not only the CMS pages are loaded, the default preview product/category is also loaded.
