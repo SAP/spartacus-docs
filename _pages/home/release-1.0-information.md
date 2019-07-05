@@ -16,7 +16,7 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
 
 
 
-### Release 1.0.0 - available July 4, 20o19
+### Release 1.0.0 - available July 4, 2019
 
 - When we say "released", we mean that we produce tested Spartacus libraries from develop branch
 - We usually release new libraries every 2 weeks (hosted on npmjs.com)
