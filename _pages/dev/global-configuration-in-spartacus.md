@@ -31,7 +31,7 @@ Works the same as their counterparts (`ConfigModule.withConfig`, `provideConfig`
 
 ### Limitations
 
-Some operations like the object spread operator (`...`) or `Object.assign` for objects passed into the `ConfigModule.withConfig` (or `provideConfig`) are not supported in the AOT compilation due to a known Angular's issue (see [Angular issue](https://github.com/angular/angular/issues/28078) and [StackOverflow explanation](https://stackoverflow.com/questions/50141412/when-using-aot-changes-to-objects-passed-to-forroot-are-discarded-when-injected)). However, those object operations are supported for factory functions in AOT, so you can safely use   `ConfigModule.withConfigFactory` / `provideConfigFactory` if you need decomposing and merging configs.
+Some operations like the object spread operator (`...`) or `Object.assign` for objects passed into the `ConfigModule.withConfig` (or `provideConfig`) are not supported in the AOT compilation due to a known Angular's issue (see [Angular issue](https://github.com/angular/angular/issues/28078) and [StackOverflow explanation](https://stackoverflow.com/questions/50141412/when-using-aot-changes-to-objects-passed-to-forroot-are-discarded-when-injected)). However, those object operations are supported for factory functions in AOT, so as an alternative you can safely use   `ConfigModule.withConfigFactory` / `provideConfigFactory` when you need decomposing and merging objects.
 
 ## Modifying configuration at runtime (after app started)
 
