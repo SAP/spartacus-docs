@@ -14,7 +14,6 @@ Spartacus reflects that by defining a few Angular `Routes`:
 
 The URLs of product, category and brand pages can be [configured only in Spartacus]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}). Content Pages have a configurable URL in the CMS, called *page label*.
 
-
 ## How to add Content Page route
 
 To add new route, no development is required, it suffices to add in the CMS a new Content Page with *page label* starting with slash i.e. `/contact-us`. The Spartacus' wildcard `**` route with match it out of the box.
@@ -164,3 +163,40 @@ routing: {
     }
 }
 ```
+
+## Expected CMS page labels of Content Pages
+
+By default Spartacus expects some page labels to be configured in the CMS:
+
+```plain
+homepage
+search
+
+/login
+/logout
+/login/register
+/login/forgot-password
+/login/reset-password
+/terms-and-conditions
+
+/cart
+/checkout
+/checkout/shipping-address
+/checkout/delivery-mode
+/checkout/payment-details
+/checkout/review-order
+/order-confirmation
+
+/my-account/order
+/my-account/orders
+
+/not-found
+```
+
+*Note: For almost all Content Pages, Spartacus treats the URL as the CMS page label. However, there are few exceptions - when URL is mapped to a custom CMS page label:*
+
+| Spartacus URL                                              | CMS page label      |
+| ---------------------------------------------------------- | ------------------- |
+| `/`                                                        | `homepage`          |
+| `/search/:query` (configurable in Spartacus)               | `search`            |
+| `/my-account/order/:orderCode` (configurable in Spartacus) | `/my-account/order` |
