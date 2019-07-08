@@ -1,14 +1,18 @@
 ---
-title: Searchbox Component (DRAFT)
+title: Searchbox Component
 ---
 
-The searchbox component is concerned with searching the product catalog using a typeahead search. The end-user can use the searchbox component to search through the product catalog without leaving the page. Search results are fetch as you type, and persist once you navigate to a product detail page or listing page. 
-The backend returns both product items as well as product suggestions. 
+The searchbox component allows you to search the product catalog using typeahead search (also known as autocomplete or autosuggest search).
 
-## Component mapping
-The Searchbox component is by default configured in the CMS, as part of a page template. The CMS structure allows for maximum flexiblity to define the position and and behaviour of the searchbox. While this allows for maximum flexibility, it is not required for most customers as most storefronts will have the searchbox in the header of the page.
+The searchbox component allows you to search through the product catalog without leaving the page. Search results are fetch-as-you-type, and persist once you navigate to a product details page or a listing page.
 
-The CMS searchbox component is mapped to a JS component using is configured with the following mapping:
+The back end returns product items as well as product suggestions.
+
+## Component Mapping
+
+By default, the searchbox component is configured in the CMS as part of a page template. The CMS structure allows you to define the position and behavior of the searchbox with complete flexibility. However, this flexibility is not required for most customers, because in most storefronts, the searchbox is in the header of the page.
+
+The CMS searchbox component is mapped to a JS component as follows:
 
 ```typescript
 <CmsConfig>{
@@ -20,10 +24,11 @@ The CMS searchbox component is mapped to a JS component using is configured with
 }
 ```
 
-You can use the component mapping to configure an alernative searchbox implementation. 
+You can use the component mapping to configure an alternative searchbox implementation.
 
 ## Component Configuration
-The CMS component data provides several configuration properties that can be used to influence the behaviour of the searchbox. The `CmsSearchBoxComponent` component typing can be used for type safety. Whenever the searchbox is given by the CMS structure, the configuration will be given with the CMS component data. However, if the searchbox is used without CMS data, the default values are used. 
+
+The CMS component data provides several configuration properties that can be used to influence the behavior of the searchbox. You can use the `CmsSearchBoxComponent` component-typing for type safety. Whenever the searchbox is provided by the CMS structure, the configuration is provided with the CMS component data. However, if the searchbox is used without CMS data, the default values are used, as follows:
 
 | config                 | default |
 | ---------------------- | ------- |
@@ -34,16 +39,18 @@ The CMS component data provides several configuration properties that can be use
 | `displayProductImages` | true    |
 
 ### Component Logic
-In order to keep the component clean, a component specific service (`SearchBoxComponentService`) is used for the search behaviour. This avoids lengthy component logic, but allows for more flexibility when you like to customize the logic. 
 
-This service is responsible for executing the search for products and suggestions, unless the search is configured to not search for products and suggestions at all. 
+To keep the component clean, a component-specific `SearchBoxComponentService` is used for the search behavior. This avoids lengthy component logic, but allows for more flexibility when you want to customize the logic.
 
-The `SearchBoxComponentService` uses the `SearchboxService`, which is facade on top of the state management layer. 
+This service is responsible for executing the search for products and suggestions, unless the search is configured to not search for products and suggestions at all.
 
-## Component styling
+The `SearchBoxComponentService` uses the `SearchboxService`, which is a facade on top of the state management layer. 
+
+## Component Styling
+
 The component styles are provided by the `%cx-searchbox` placeholder selector in the styles library. The searchbox style is available in the default sparta theme.
 
-## Known limitations
-- The search configuration in SAP Commerce allows for a redict configuration. This configuration is not yet implemented in Spartacus.
-- The seachbox only search products and prdouct suggestions. There's no search for categories, pages or other content types. 
-  
+## Known Limitations
+
+- The search configuration in SAP Commerce allows for a redirect configuration. This configuration is not yet implemented in Spartacus.
+- The searchbox only searches products and product suggestions. There is no search for categories, pages, or other content types.

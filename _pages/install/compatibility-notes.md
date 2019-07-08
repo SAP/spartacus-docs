@@ -2,6 +2,11 @@
 title: Compatibility Notes
 ---
 
+## **NOTE**: 
+
+It is very important to use `yarn` instead of `npm` for installations. It will give a warning when using both. Please do not mix and match both package managers as they may cause conflicts.
+
+
 ## March 27, 2019
 
 Libraries: spartacus/

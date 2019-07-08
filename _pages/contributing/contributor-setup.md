@@ -50,26 +50,19 @@ Carry out the following steps before you build and launch.
 
    ```typescript
    export const environment = {
-     production: false,
      occBaseUrl: "https://custom-backend-url"
    };
    ```
 
-3. In your `app.module.ts` file, update the `values` and `defaultValue` of the `BASE_SITE` parameter to point to the base site(s) that you have configured in your back end.
+3. In your `app.module.ts` file, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
 
    The following is an example:
 
    ```typescript
-   siteContext: {
-       urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
-       parameters: {
-         BASE_SITE: {
-           values: ['electronics-spa', 'apparel-de', 'apparel-uk'],
-           defaultValue: 'electronics-spa',
-           persistence: 'route',
-         },
-       },
-     },
+   context: {
+     urlParameters: ['baseSite', 'language', 'currency'],
+     baseSite: ['electronics-spa', 'apparel-de', 'apparel-uk'],
+   },
    ```
 
 ## Launching the Storefront
@@ -102,26 +95,19 @@ yarn build:core:lib
 
    ```typescript
    export const environment = {
-     production: true,
      occBaseUrl: "https://custom-backend-url"
    };
    ```
 
-3. In your `app.module.ts` file, update the `values` and `defaultValue` of the `BASE_SITE` parameter to point to the base site(s) that you have configured in your back end.
+3. In your `app.module.ts` file, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
 
    The following is an example:
 
    ```typescript
-   siteContext: {
-       urlEncodingParameters: ['BASE_SITE', 'LANGUAGE', 'CURRENCY'],
-       parameters: {
-         BASE_SITE: {
-           values: ['electronics-spa', 'apparel-de', 'apparel-uk'],
-           defaultValue: 'electronics-spa',
-           persistence: 'route',
-         },
-       },
-     },
+   context: {
+     urlParameters: ['baseSite', 'language', 'currency'],
+     baseSite: ['electronics-spa', 'apparel-de', 'apparel-uk'],
+   },
    ```
 
 ## Launching the Storefront
