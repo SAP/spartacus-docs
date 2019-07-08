@@ -166,10 +166,9 @@ routing: {
 
 ## Expected CMS page labels of Content Pages
 
-By default Spartacus expects some page labels to be configured in the CMS:
+Spartacus expects the page label `homepage` to be configured in the CMS. For B2C Storefront recipe the list of expected CMS page labels by default is longer:
 
 ```plain
-homepage
 search
 
 /login
@@ -193,10 +192,9 @@ search
 /not-found
 ```
 
-*Note: For almost all Content Pages, Spartacus treats the URL as the CMS page label. However, there are few exceptions - when URL is mapped to a custom CMS page label:*
+*Note: For almost all Content Pages, Spartacus treats the URL as the CMS page label. So changing the config of route in Spartacus requires a change of page label in the CMS. However, there are few exceptions - when configurable Spartacus' URL is mapped to a fixed CMS page label:*
 
-| Spartacus URL                                              | CMS page label      |
+| Spartacus URL (configurable)                               | Fixed CMS page label      |
 | ---------------------------------------------------------- | ------------------- |
-| `/`                                                        | `homepage`          |
-| `/search/:query` (configurable in Spartacus)               | `search`            |
-| `/my-account/order/:orderCode` (configurable in Spartacus) | `/my-account/order` |
+| `/search/:query` (configurable cxRoute `search`)             | `search`            |
+| `/my-account/order/:orderCode` (configurable cxRoute `orderDetails`)| `/my-account/order` |
