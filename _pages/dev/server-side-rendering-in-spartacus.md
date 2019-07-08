@@ -30,7 +30,7 @@ platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(e
 //to
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
-});```
+});
 ```
 
 ### src/app/app.module.ts
