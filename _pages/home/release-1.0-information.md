@@ -2,11 +2,9 @@
 title: Release 1.0 Information
 ---
 
-*aka the P.O.'s soapbox*
+*Last updated July 4, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-*Last updated June 11, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
-
-This document describes what we expect to be included in the first release of Spartacus libraries and what is planned post-release.
+This document describes what is included in Release 1.0 of Spartacus libraries.
 
 If you have any questions, use the 'help' channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTRiNTFkMDJlZjRmYTBlY2QzZTM3YWNlYzJkYmEwZDY2MjM0MmIyYzdhYmQwZDMwZjg2YTAwOGFjNDBhZDYyNzE). Feedback welcome!
 
@@ -18,24 +16,19 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
 
 
 
-### Release 1.0.0 - aiming for Q2 2019 / End of June
+### Release 1.0.0 - available July 4, 2019
 
-As of this writing
-
-- Spartacus is currently in 'beta' status - this means we are no longer adding features or making architectural changes that will cause upgrade issues; we're fixing bugs and doing testing
-- The first release (1.0) is planned for the end of June, a few weeks after the release of SAP Commerce Cloud 1905
+- When we say "released", we mean that we produce tested Spartacus libraries from develop branch
+- We usually release new libraries every 2 weeks (hosted on npmjs.com)
 - To be able to use all functionality in Spartacus 1.0, Release 1905 of SAP Commerce Cloud is required; most of Spartacus can work with 1811 and previous releases, with no guarantees the farther back you go. Specifically, the following features require 1905:
   - SmartEdit support
   - Any usage of  new CmsFlexComponents or SiteContextComponent (although you can use other components such as JspComponent)
   - Forgot password / reset
   - Various bug fixes to OCC APIs that help Spartacus work better
-- We usually release new libraries every 2 weeks (hosted on npmjs.com)
 
 
 
-### High-level list of features to be included in 1.0
-
-*Note: Items with a \* are planned but not yet complete and released, as of date of update of this document.*
+### High-level list of features in 1.0
 
 Customer-facing storefront features:
 
@@ -53,8 +46,8 @@ Customer-facing storefront features:
 | Checkout                   | Typical four-step checkout allowing customer to enter shipping and payment details, choose shipping method, and then review before submitting order; new shipping addresses and payment methods are saved automatically; customers can choose from saved shipping addresses and payment methods; confirmation displayed after successful order submission; can replace entire checkout process or is extendable on a step-by-step basis |
 | Order History              | Displays list of orders and details for a specific order; orders are listed by consignment |
 | Address Management         | Displays list of saved shipping addresses; customers can add new shipping addresses, edit and delete shipping addresses, and make set a shipping address as the default |
-| Payment  Method Management | Displays list of saved payment methods; customers can delete payment methods, and make a payment method the default |
-| Account Settings           | Displays and allows customers to edit their name, email address, password and consent preferences*; also allows the customer to request account closure |
+| Payment Method Management | Displays list of saved payment methods; customers can delete payment methods, and make a payment method the default |
+| Account Settings           | Displays and allows customers to edit their name, email address, password and consent preferences; also allows the customer to request account closure |
 | Add to Home                | Allows the customer to add the storefront web app to their device Home or Launch screen, as if the storefront were a native app (search for "PWA Add to Home" for more information) |
 
 Architectural and foundational features:
@@ -73,7 +66,7 @@ Architectural and foundational features:
 | SEO                              | Stateful URLs for every part of the storefront; search engine indexing supported by way of SSR; configurable routing; page meta resolvers including title, description, image (og:image), and robots |
 | Cache-first networking           | Caching of shell app, with more to come in subsequent releases |
 | Localization                     | All front-end texts localizable (texts that are part of the storefront code only; some texts come from backend CMS components, translated in backend) |
-| Cloud Platform Extension Factory | Connectivity supported\                                      |
+| Cloud Platform Extension Factory | Connectivity supported                                      |
 | Builds with CCv2                 | JavaScript appiclications such as Spartacus-based storefronts can be built alongside SAP Commerce using Commerce Cloud v2 |
 
 
@@ -82,14 +75,14 @@ Architectural and foundational features:
 
 Spartacus is following semantic versioning (Major.Minor.Patch).
 
-- A new patch release (1.2.**3** > 1.2.**4** for example) means we added fixes or small improvements but no new features.
+- A new patch release (1.2.**3** > 1.2.**4** for example) means we added fixes or improvements but no new features.
 - A new minor release (1.**2**.4 > 1.**3**.0 for example)  means we added a new feature and possibly fixes and improvements.
 
 For both patch and minor releases, upgrading to the new libraries should not cause any compatibility problems with your storefront app. If anything, a new feature might have to be turned off because you don't wish to use it. We hope you will upgrade frequently.
 
 - A new major release (**1**.3.2 > **2**.0.0 for example) means that, besides adding new features and improvements, we made changes that will likely cause compatibility issues. Your app likely needs updating when moving to a new major release. These effects, reasons, and benefits will be documented.
 
-We don't plan to introduce a new major release for at least six months (end of 2019) if not later, unless an issue is found that makes it necessary to move to a major release . The release of Angular Ivy (after Angular 8) is one factor in our eventual decision to do so.
+We don't plan to introduce a new major release that frequently, unless an issue is found that makes it necessary to move to a major release . The upcoming Angular "Ivy" (after Angular 8) is one factor in our eventual decision to do so.
 
 
 
