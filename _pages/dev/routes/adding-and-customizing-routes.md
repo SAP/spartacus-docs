@@ -192,9 +192,11 @@ search
 /not-found
 ```
 
-*Note: For almost all Content Pages, Spartacus treats the URL as the CMS page label. So changing the config of route in Spartacus requires a change of page label in the CMS. However, there are few exceptions - when configurable Spartacus' URL is mapped to a fixed CMS page label:*
+### Fixed CMS page labels
 
-| Spartacus URL (configurable)                               | Fixed CMS page label      |
-| ---------------------------------------------------------- | ------------------- |
-| `/search/:query` (configurable cxRoute `search`)             | `search`            |
-| `/my-account/order/:orderCode` (configurable cxRoute `orderDetails`)| `/my-account/order` |
+For almost all Content Pages, Spartacus treats the URL as the CMS page label. It means that changing the config of route in Spartacus requires also a change of the page label in the CMS. However, there are few exceptions - when the configurable Spartacus' URL is mapped to a fixed CMS page label:
+
+| Spartacus URL (configurable)                                         | Fixed CMS page label |
+| -------------------------------------------------------------------- | -------------------- |
+| `/search/:query` (configurable cxRoute `search`)                     | `search`             |
+| `/my-account/order/:orderCode` (configurable cxRoute `orderDetails`) | `/my-account/order`  |
