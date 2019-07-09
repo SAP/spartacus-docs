@@ -72,17 +72,20 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 `MiniCartSlot` in `electronicsContentCatalog` contains 2 components: `OrderComponent` and `MiniCart`. 
 ![Screen Shot 2019-07-09 at 4 08 24 PM](https://user-images.githubusercontent.com/44440575/60919474-d1fd2100-a263-11e9-8f7a-885df84e2b98.png)
+
 In Spartacus, `OrderComponent` is not used any more, so we remove it from `MiniCartSlot`.
 
 7. Add `SiteLinks` slot and CMSlink components into it
 In Spartacus header, we add a new Slot `SiteLinks`, which now contains `HelpLink`, `ContactUsLink` and `SaleLink`. Since this slot is added in header, we need add it into each template.
+
 ![Screen Shot 2019-07-09 at 4 10 56 PM](https://user-images.githubusercontent.com/44440575/60919595-2b655000-a264-11e9-9667-8699220390ae.png)
 
 8. Some new CMS pages are created
 Spartacus needs some new pages. So, these CMS page are created in this addon: `sale`, `help`, `contactUs`, `forgotPassword`, `resetPassword` and `register`. Content Slots and CMS components contained in these pages are also created.
 
 9. Make "Not Found" page contain more content
-![Screen Shot 2019-07-09 at 4 20 11 PM](https://user-images.githubusercontent.com/44440575/60920126-7338a700-a265-11e9-9e8d-1775f5cff654.png)
+![Screen Shot 2019-07-09 at 4 25 08 PM](https://user-images.githubusercontent.com/44440575/60920445-35884e00-a266-11e9-8ba5-c1f2042d695c.png)
+
 Now, this page not only contains a banner image, it also has some links and text.
 
-10. 
+10.  
