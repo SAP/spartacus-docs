@@ -25,4 +25,5 @@ For more information, see the following:
 
 - Translation of routes in many languages is not currently supported
 - Configuration of lazy-loaded routes is not currently supported
-- Routing based on hash ([Angular's `HashLocationStrategy`](https://angular.io/guide/router#appendix-locationstrategy-and-browser-url-styles)) is not supported.
+- Routing based on hash ([Angular's `HashLocationStrategy`](https://angular.io/guide/router#appendix-locationstrategy-and-browser-url-styles)) is not supported
+- [Secondary routes (and named router outlets)](https://angular.io/guide/router#secondary-routes) are not currently supported
