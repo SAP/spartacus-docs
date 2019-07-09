@@ -109,6 +109,25 @@ For more information, see the [Server–Side Rendering Coding Guidelines]({{ sit
 
 If a method needs to be extendible, declare it as a `protected` method. Keep in mind, however, that all methods that are `protected` are a part of our public API. If you update a `protected` method, you must be careful not to introduce breaking changes as much as possible. If a method does not need to be extendible, declare it as `private` instead. For example, if you are creating helper methods in a service for code readability, it is probably better to declare these methods as `private`, unless it is essential for these methods to be extendible by customers.
 
+### DOM Manipulation
+
+Angular provides many ways to interact and manipulate DOM elements.
+
+An easy way to do this is by using `ElementRef` from `@angular/core`. This is **not** the correct approach.
+
+According to the official Angular documentation on ElementRef:
+
+> Use this API as the last resort when direct access to DOM is needed. Use templating and data-binding provided by Angular instead. Alternatively you can take a look at `Renderer2` which provides API that can safely be used even when direct access to native elements is not supported.
+
+If an alternative to ElementRef is needed, use `Renderer2`.
+
+```typescript
+    // ElementRef
+    this.element.nativeElement.style.color = 'yellow';
+
+    // Renderer2
+    this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
+  ```
 ### Services
 
 The information below will outline the best practices when creating a `service`.
