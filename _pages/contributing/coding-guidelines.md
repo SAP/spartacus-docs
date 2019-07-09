@@ -128,3 +128,21 @@ If an alternative to ElementRef is needed, use `Renderer2`.
     // Renderer2
     this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
   ```
+### Services
+
+The information below will outline the best practices when creating a `service`.
+
+Exports
+
+- A service **must** be exported to allow it to be in the `public api` of the library.
+
+Method Modifiers
+
+- `Public` methods should be used if it is expected to be accessible through the public api.
+- `Protected` methods should be used if it is expected to be overridden or extended.
+- `Private` methods should be used if it is expected to only be used by the service.
+
+Constructor Arguments
+
+- Constructor arguments should be **atleast** protected.
+- Constructor arguments should be limited. Create a new service if many injections are required.

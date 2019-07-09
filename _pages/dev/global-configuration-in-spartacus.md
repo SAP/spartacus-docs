@@ -27,8 +27,22 @@ importing ConfigModule, or when we want to implement module with providers and p
 
 ### ConfigModule.withConfigFactory / provideConfigFactory
 
-Works the same as their counterparts (`ConfigModule.withConfig`, `provideConfig`), but use factory instead of plain object to contribute configuration. Useful when we need
-to do some config generation or composition.
+Works the same as their counterparts (`ConfigModule.withConfig`, `provideConfig`), but use factory instead of plain object to contribute configuration. Useful when we need to do some config generation or composition.
+
+### Limitations
+
+It may be handy to decompose and merge some objects before providing them to the config. For example, one may want to use default translations, but customize only a few:
+
+```typescript
+i18n: {
+    resources: {
+        ...translations,
+        ...customTranslations
+    }
+}
+```
+
+Unfortunately, the objects transformed with the object spread operator and passed to `ConfigModule.withConfig` (or `provideConfig`) disappear  in the AOT compilation due to a known Angular's issue (see [Angular issue](https://github.com/angular/angular/issues/28078) and [StackOverflow explanation](https://stackoverflow.com/questions/50141412/when-using-aot-changes-to-objects-passed-to-forroot-are-discarded-when-injected)). As a working alternative, `ConfigModule.withConfigFactory` / `provideConfigFactory` can be used.
 
 ## Modifying configuration at runtime (after app started)
 
