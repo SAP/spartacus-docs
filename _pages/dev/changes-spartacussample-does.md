@@ -37,13 +37,16 @@ This addon has `SpaSampleAddOnSampleDataImportService`, which extends `DefaultAd
 Since we sychronize `electronicsContentCatalog:Staged` to `electronics-spaContentCatalog:Staged`, so the initial data in `electronics-spaContentCatalog` the same as `electronicsContentCatalog`. But, to make Spartacus work better, it has some different CMS data. Changes are made on the `electronics-spaContentCatalog`, which include:
 
 **1.** Remove unused Pages, Content Slots and CMS Components
+
 Unlike our legacy storefront, Spartacus doesn't have some pages, e.g. quickOrderPage. The page and contained Content Slots and CMS Components are removed from the `electronics-spaContentCatalog`. You can check this file `resource/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/cleaning.impex` for the CMS data cleaning.
 
 **2.** Replace `JspIncludeComponent` with `CMSFlexComponent`
+
 `JspIncludeComponent` allows inclusion of JSP code given the path of JSP file which then gets inserted. It does not make sense to have this type of components in our Angular based application. So, we create a new type of component called `CMSFlexComponent` (in SAP Commerce 1905). It allows you to get selector and include code from our libraries into the Content Slot.
 **Note:** For backwards compatibility, Spartacus supports both types of CMS components.
 
 **3.** Add data into enum `CmsSiteContext`
+
 Enum `CmsSiteContext` was created in SAP Commerce 1905. It is a dynamic enumeration that contains available site context. For Spartacus, we have 2 site contexts: language and currency.
 
 ```typescript
@@ -53,9 +56,11 @@ INSERT_UPDATE CmsSiteContext;code[unique=true];name[lang=$language]
 ```
 
 **4.** Replace the homepage preview image
+
 The Spartacus homepage looks different from our legacy storefront. So, it should have a different preview image.
 
 **5.** Add `SiteContext` slot to each template, and add `LanguageComponent` and `CurrencyComponent` into this slot
+
 In Spartacus header, we add a new slot `SiteContext`, which contains 2 new components.
 
 ```typescript
@@ -77,11 +82,13 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 In Spartacus, `OrderComponent` is not used any more, so we remove it from `MiniCartSlot`.
 
 **7.** Add `SiteLinks` slot and CMSlink components into it
+
 In Spartacus header, we add a new Slot `SiteLinks`, which now contains `HelpLink`, `ContactUsLink` and `SaleLink`. Since this slot is added in header, we need add it into each template.
 
   ![Screen Shot 2019-07-09 at 4 10 56 PM](https://user-images.githubusercontent.com/44440575/60919595-2b655000-a264-11e9-9667-8699220390ae.png)
 
 **8.** Some new CMS pages are created
+
 Spartacus needs some new pages. So, these CMS page are created in this addon: `sale`, `help`, `contactUs`, `forgotPassword`, `resetPassword` and `register`. Content Slots and CMS components contained in these pages are also created.
 
 **9.** Make "Not Found" page contain more content
@@ -91,12 +98,15 @@ Spartacus needs some new pages. So, these CMS page are created in this addon: `s
 Now, this page not only contains a banner image, it also has some links and text.
 
 **10.**  Add `SignOutLink` in `My account`
+
 In `electronicContentCatalog`, `MyAccountNavNode` doesn't have the child for `SignOut`. We add `SignOutNavNode` as one child of `MyAccountNavNode`; and add `SignOutLink` into that child node.
 
 **11.** Spartacus breadcrumb
+
 In `electronicContentCatalog`, `breadcrumbComponent` is in `NavigationBarSlot`. In Spartacus, we move this component from `NavigationBarSlot` to `BottomHeaderSlot`. `BottomHeaderSlot` is a slot added in each template. In Spartacus, we don't want `homepage` and `SLRCamerasCategoryPage` have breadcrumb, so we clear the `BottomHeaderSlot` only for `homepage` and `SLRCamerasCategoryPage`.
 
 **12.** Update page labels to make them start with '/'
+
 In Spartacus, we use "page label" as the configurable URL for content pages. So, page labels should start with '/'. For example, we do the following update for each content page:
 
 ```typescript
@@ -112,8 +122,10 @@ INSERT_UPDATE SearchBoxComponent;uid;minCharactersBeforeRequest;maxProducts;maxS
 ```
 
 **14.** CMS changes related to checkout
+
 Please read this doc for the [extending checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/extending-checkout/).
 
 
 **15.** To make "product details" page CMS driven, add more Content Slots and CMS components in it
+
 In `ProductDetails` template, we add one more slot `ProductSummarySlot`, which contains CMS components `ProductIntroComponent`, `ProductImagesComponent`, `ProductSummaryComponent`, `VariantSelector`, `AddToCart`.
