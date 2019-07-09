@@ -85,6 +85,7 @@ In Spartacus header, we add a new Slot `SiteLinks`, which now contains `HelpLink
 Spartacus needs some new pages. So, these CMS page are created in this addon: `sale`, `help`, `contactUs`, `forgotPassword`, `resetPassword` and `register`. Content Slots and CMS components contained in these pages are also created.
 
 9. Make "Not Found" page contain more content
+
   ![Screen Shot 2019-07-09 at 4 25 08 PM](https://user-images.githubusercontent.com/44440575/60920445-35884e00-a266-11e9-8ba5-c1f2042d695c.png)
 
 Now, this page not only contains a banner image, it also has some links and text.
