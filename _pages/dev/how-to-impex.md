@@ -25,7 +25,7 @@ Note:
 
 ### ContentSlotNames
 
-Step 2 - Each PageTemplates can have multiple content slot names, where we can state a list of valid components for the slot.
+Step 2 - Each PageTemplates can have multiple content slot names which helps with the positioning, where we can state a list of valid components for the slot.
 There exists standard set of slots, such as SiteLogo, HeaderLinks MiniCart and NavigationBar, and a number of specific slots for each template.
 
 ```
@@ -33,6 +33,7 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ```
 
 - Below the `INSERT_UPDATE`, we can see a number of content slot name available for the specific PageTemplate as specified in the statement `default='CategoryPage'`.
+- `validComponentType` or `comTypeGroup` defined the valid components for the slot.
 
 ### ContentSlotForTemplate
 
