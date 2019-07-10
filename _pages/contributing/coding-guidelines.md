@@ -93,12 +93,6 @@ To know if your end-to-end test belongs to the `smoke` folder or the `regression
 
 If you answered "no" to these questions, then the test belongs in the `regression` folder.
 
-### Layers in Spartacus
-
-`occ -> ngrx/store -> component`
-
-We are currently planning to add a one-layer "facade" between `ngrx/store` and `component`. Work on the ProductModule is done, as is a part of the work on the CmsModule. We will add facades to all feature modules soon.
-
 ### Server-Side Rendering
 
 Do not break server-side rendering (SSR).
@@ -122,12 +116,13 @@ According to the official Angular documentation on ElementRef:
 If an alternative to ElementRef is needed, use `Renderer2`.
 
 ```typescript
-    // ElementRef
-    this.element.nativeElement.style.color = 'yellow';
+// ElementRef
+this.element.nativeElement.style.color = 'yellow';
 
-    // Renderer2
-    this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
-  ```
+// Renderer2
+this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
+```
+
 ### Services
 
 The information below will outline the best practices when creating a `service`.
