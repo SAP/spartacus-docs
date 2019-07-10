@@ -50,7 +50,7 @@ If you are missing any of the recommended extensions, please install them.
 
 ## Spartacus-Specific Guidelines
 
-### NGRX
+### NGRX in 'Core'
 
 We use the NGRX store to manage the global application state in our features. Using NGRX has apparent advantages for performance, better testability, and ease of troubleshooting (with time travel and such).
 
@@ -58,6 +58,14 @@ We use the NGRX store to manage the global application state in our features. Us
 - Use one common store for the whole app.
 
 **Note**: Using the store does not mean that we need to cache everything. Caching should be used with intent, and where it makes sense. In general, CMS data is a good candidate for caching, while application data is not.
+
+If a feature that use NGRX logic is meant to be called from UI components, facade service functions should be implemented ton expose features and encapsulate the NGRX code within the core lib.
+
+### NGRX in UI Components
+
+The complexity of NGRX is encapsulated in the core lib. Facade services are availbe from the core lib. The facade services expose the core lib features, but they hide the NGRX logic within their implemenation.
+
+Built in Spartacus UI components should not contain NGRX logic. Instead, the UI components should call facade service functions.
 
 ### Site Context
 
