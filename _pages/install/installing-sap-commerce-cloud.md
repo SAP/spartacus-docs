@@ -173,13 +173,77 @@ The name of the new storefront base site is **electronics-spa**.
 
    Note: As the Spartacus sample data copies data from the Electronics store, the `electronicsstore` extension is required. Additionally, the time to initialize is longer as SAP Commerce Cloud is building both Electronics and Electronics for Spartacus.
 
+   The minimum extensions required to run Spartacus are listed below:
+
+    ```
+    extName 'acceleratorfacades'
+    extName 'acceleratorcms'
+    extName 'acceleratorservices'
+    extName 'acceleratorstorefrontcommons'
+    extName 'acceleratorwebservicesaddon'
+    extName 'adaptivesearchbackoffice'
+    extName 'adaptivesearchsamplesaddon'
+    extName 'adaptivesearchsolr'
+    extName 'addonsupport'
+    extName 'backoffice'
+    extName 'basecommerce'
+    extName 'basecommercebackoffice'
+    extName 'captchaaddon'
+    extName 'cms2'
+    extName 'cms2lib'
+    extName 'cmsbackoffice'
+    extName 'cmsfacades'
+    extName 'cmsoccaddon'
+    extName 'cmssmartedit'
+    extName 'cmssmarteditwebservices'
+    extName 'cmswebservices'
+    extName 'commercefacades'
+    extName 'commerceservices'
+    extName 'commerceservicesbackoffice'
+    extName 'commercewebservicescommons'
+    extName 'commercewebservicesdata'
+    extName 'customerreview'
+    extName 'customersupportbackoffice'
+    extName 'droolsruleengineservices'
+    extName 'electronicsstore'
+    extName 'oauth2'
+    extName 'payment'
+    extName 'permissionswebservices'
+    extName 'platformbackoffice'
+    extName 'previewwebservices'
+    extName 'promotionenginebackoffice'
+    extName 'promotionenginesamplesaddon'
+    extName 'promotionengineservices'
+    extName 'promotions'
+    extName 'rulebuilderbackoffice'
+    extName 'ruleenginebackoffice'
+    extName 'ruleengineservices'
+    extName 'smartedit'
+    extName 'smarteditaddon'
+    extName 'smarteditwebservices'
+    extName 'solrfacetsearch'
+    extName 'solrserver'
+    extName 'spacceleratorsamplesaddon'
+    extName 'springintegrationlibs'
+    extName 'ticketsystem'
+    extName 'webservicescommons'
+    extName 'wishlist'
+    extName 'yacceleratorcore'
+    extName 'yacceleratorfacades'
+    extName 'yacceleratorfulfilmentprocess'
+    extName 'yacceleratorinitialdata'
+    extName 'yacceleratorstorefront'
+    extName 'yaddon'
+    extName 'ycommercewebservices'
+    extName 'ycommercewebservicestest'
+    ```
 
 5. In `addons { forStoreFronts('yacceleratorstorefront')`, add `spartacussampledataaddon` to the `names` list. Example:
 
    ```
     addons {
         forStoreFronts('yacceleratorstorefront') {
-            names('spartacussampledataaddon', 'captchaaddon', ...
+            names('spartacussampledataaddon',         'captchaaddon', ...
    
    ```
 
