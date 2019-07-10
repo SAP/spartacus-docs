@@ -17,7 +17,8 @@ docs:
             url: /roadmap-after-spartacus-1.0/
           - title: 'Spartacus Videos'
             url: /spartacus-videos/
-
+          - title: 'Add to home PWA'
+            url: /add-to-home/
     - title: Getting Started with Spartacus Libraries
       children:
           - title: 'Installing SAP Commerce Cloud for use with Spartacus'
