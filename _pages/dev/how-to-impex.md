@@ -9,22 +9,15 @@ More information can be found here.
 
 ## How to create PageTemplates
 
-You would need to first create a PageTemplate using the following fields below:
+Step 1 - You would need to first create a PageTemplate, which define the layout for pages using the following fields below:
 
 ```
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
-;;CategoryTemplate;Category Template;category/productPage;CategoryPage
 ```
-- Below the `INSERT_UPDATE` statement is a sample data we created for a page template. In this case, we created a page template of CategoryTemplate.
+
 - `frontendTemplateName` is used to define the JSP that shuold be used to render the page for pages with multiple layouts.
 - `RestrictedPageTypes` is used to restrict templates to page types.
 
-Finaly, you would need to add a velocity template that are in the CMS Cockpit as these give a better layout for editing pages.
-
-```
-UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];velocityTemplate[translator=de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator]
-;;CategoryPageTemplate;$jarResourceCms/structure-view/structure_categoryPageTemplate.vm
-```
 
 Note: 
 - FileLoaderValueTranslator loads a file into a string property.
@@ -32,24 +25,29 @@ Note:
 
 ### ContentSlotNames
 
-Each PageTemplates can have multiple content slot names, where we can state a list of valid components for the slot.
-There exists standard set of slots, such as SiteLogo, HeaderLinks MiniCart and NAvigationBar, and a number of specific slots for each template.
+Step 2 - Each PageTemplates can have multiple content slot names, where we can state a list of valid components for the slot.
+There exists standard set of slots, such as SiteLogo, HeaderLinks MiniCart and NavigationBar, and a number of specific slots for each template.
 
 ```
-# Error Page Template
 INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='CategoryPage'];validComponentTypes(code);compTypeGroup(code)
-;SiteLogo;;;logo
-;HeaderLinks;;;headerlinks
-;SearchBox;;;searchbox
-;MiniCart;;;minicart
-;NavigationBar;;;navigation
-;MiddleContent;;CMSParagraphComponent,SimpleResponsiveBannerComponent
-;BottomContent;;;wide
-;SideContent;;;narrow
-;Footer;;;footer
-;TopHeaderSlot;;;wide
-;BottomHeaderSlot;;;wide
-;PlaceholderContentSlot;;;
 ```
 
 - Below the `INSERT_UPDATE`, we can see a number of content slot name available for the specific PageTemplate as specified in the statement `default='CategoryPage'`.
+
+### ContentSlotForTemplate
+
+Step 3 - We need to bind the content slots to page templates as it defines the relationship between team.
+
+```
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='ProductDetailsPageTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+```
+
+### Create pages using the template
+
+Step 4 - Finally, pages are created using the template
+
+```
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];previewImage(code, $contentCV)[default='ContentPageModel__function_preview']
+```
+
+- `masterTemplate`: By specifying the page template you have created, you can create a `page`.
