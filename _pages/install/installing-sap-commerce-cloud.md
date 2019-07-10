@@ -243,7 +243,7 @@ The name of the new storefront base site is **electronics-spa**.
    ```
     addons {
         forStoreFronts('yacceleratorstorefront') {
-            names('spartacussampledataaddon',         'captchaaddon', ...
+            names('spartacussampledataaddon', 'captchaaddon', ...
    
    ```
 
