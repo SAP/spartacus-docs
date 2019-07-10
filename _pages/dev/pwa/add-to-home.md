@@ -1,8 +1,8 @@
 ---
-title: Add to home for PWA (Draft)
+title: Add to Home Screen for PWA (Draft)
 ---
 
-The add to home feature will allow Spartacus to display a banner prompt to allow users
+The Add to Home Screen feature allows Spartacus to display a banner prompt to allow users
 to install the progressive Spartacus app to their mobile or desktop devices.
 
 By default, default PWA configuration for Spartacus is the following:
