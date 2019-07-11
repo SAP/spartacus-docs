@@ -1,5 +1,5 @@
 ---
-title: Site Context (Configuring the Base URL)
+title: Configuring the Base URL
 ---
 
 You can configure the base URL with a special HTML `meta` tag, instead of hard coding it in the `withConfig` method of the B2cStorefrontModule. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
