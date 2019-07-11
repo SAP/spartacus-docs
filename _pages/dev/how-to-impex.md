@@ -18,7 +18,6 @@ INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;fronten
 - `frontendTemplateName` is used to define the JSP that shuold be used to render the page for pages with multiple layouts.
 - `restrictedPageTypes` is used to restrict templates to page types.
 
-
 ### ContentSlotNames
 
 Step 2 - Each PageTemplates can have multiple content slot names which helps with the positioning, where we can state a list of valid components for the slot.
