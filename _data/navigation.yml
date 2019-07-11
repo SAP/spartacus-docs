@@ -85,6 +85,8 @@ docs:
             url: /site-context/
           - title: 'Context Configuration'
             url: /context-configuration/
+          - title: 'Add to Home Screen for PWA'
+            url: /add-to-home/
           - title: 'SEO Capabilities'
             url: /seo-capabilities/
           - title: 'Internationalization (i18n)'
