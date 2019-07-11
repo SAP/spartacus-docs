@@ -16,12 +16,8 @@ INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;fronten
 ```
 
 - `frontendTemplateName` is used to define the JSP that shuold be used to render the page for pages with multiple layouts.
-- `RestrictedPageTypes` is used to restrict templates to page types.
+- `restrictedPageTypes` is used to restrict templates to page types.
 
-
-Note: 
-- FileLoaderValueTranslator loads a file into a string property.
-- As you can see, all items are comma-separated value.
 
 ### ContentSlotNames
 
@@ -33,7 +29,7 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
 ```
 
 - Below the `INSERT_UPDATE`, we can see a number of content slot name available for the specific PageTemplate as specified in the statement `default='CategoryPage'`.
-- `validComponentType` or `comTypeGroup` defined the valid components for the slot.
+- `validComponentType` or `compTypeGroup` defined the valid components for the slot.
 
 ### ContentSlotForTemplate
 
