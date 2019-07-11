@@ -213,17 +213,19 @@ Instead of including the admin password in every install command as required for
 
 The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there's no need to include `-A local_property:initialpassword.admin=nimda`.
 
-# Possible issues
+# Possible Issues
 
-## Failure at the payment step in checkout
+## Failure at the Payment Step in Checkout
 
-- If you get the following error message
+You may encounter the following error message:
 
-`Http failure response for https://electornics.local:9002/acceleratorservices/sop-mock/process: 0 Unknown Error`
+```
+Http failure response for https://electornics.local:9002/acceleratorservices/sop-mock/process: 0 Unknown Error
+```
 
-This issue is caused by a wrong cofiguration for the `website.electronics.http` & `https` properties.
+This issue is caused by incorrect configuration of the `website.electronics.http` and `https` properties.
 
-Make sure these properties are set to :
+Make sure these properties are set to:
 
 `website.electronics.http`: &nbsp; `http://localhost:9001/yacceleratorstorefront`
 
