@@ -225,6 +225,6 @@ This issue is caused by a wrong cofiguration for the `website.electronics.http` 
 
 Make sure these properties are set to :
 
-`website.electronics.http`: &nbsp; &nbsp; `http://localhost:9001/yacceleratorstorefront`
+`website.electronics.http`: &nbsp; `http://localhost:9001/yacceleratorstorefront`
 
-`website.electronics.https`: &nbsp; &nbsp; `https://localhost:9002/yacceleratorstorefront`
+`website.electronics.https`: &nbsp; `https://localhost:9002/yacceleratorstorefront`
