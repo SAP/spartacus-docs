@@ -2,10 +2,9 @@
 title: Compatibility Notes
 ---
 
-## **NOTE**: 
+## **NOTE**:
 
 It is very important to use `yarn` instead of `npm` for installations. It will give a warning when using both. Please do not mix and match both package managers as they may cause conflicts.
-
 
 ## March 27, 2019
 
@@ -56,3 +55,7 @@ Libraries: spartacus/
 ### SmartEdit
 
 Support for SmartEdit has been added in this release. Full functionality of this feature nonetheless requires extensions that will be released in SAP Commerce Cloud 1905.
+
+### Variants & Multi-Dimensional Products
+
+Spartacus does not support product Variants or Multi-Dimensional products yet. There may be some of these products in the sample data, but support for these types of products is not implemented yet in the storefront.
