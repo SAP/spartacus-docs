@@ -215,7 +215,6 @@ The next time you run the recipe install command, the settings inside `custom.pr
 
 **Note** If you wish the config to be present without reinstalling the property can be added to `local.properties`.
 
-
 # Possible Issues
 
 ## Failure at the Payment Step in Checkout
