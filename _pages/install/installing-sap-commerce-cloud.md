@@ -199,21 +199,21 @@ Instead of including the admin password in every install command as required for
 
 The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there's no need to include `-A local_property:initialpassword.admin=nimda`.
 
-# Supporting Regions in Billing Address (optional)
+# Supporting Regions in the Billing Address
 
-A specific configuration must be entered in case the payment provider requires the `regions` field as part of the billing address data.
+A specific configuration can be entered if the payment provider requires the `regions` field as part of the billing address data.
 
-Spartacus will automatically pick up on the configuration and display the regions field in the form. 
+Spartacus automatically picks up on the configuration and displays the `regions` field in the form.
 
-1. If you do not have a `custom.properties` file. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
+1. If you do not have a `custom.properties` file, create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
 
-2. Add the key `mockup.payment.label.billTo.region` with value `billTo_state`.
+2. Add the `mockup.payment.label.billTo.region` key with the value `billTo_state`.
 
 3. Save the file.
 
 The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties`.
 
-**Note** If you wish the config to be present without reinstalling the property can be added to `local.properties`.
+**Note** If you wish the config to be present without reinstalling, the property can be added to `local.properties`.
 
 # Possible Issues
 
