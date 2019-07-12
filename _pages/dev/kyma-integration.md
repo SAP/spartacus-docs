@@ -23,7 +23,7 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
                                  ;client4kyma           ;hybris        ;openid   ;openid       ;password,client_credentials  ;ROLE_CLIENT  ;secret         ;http://MY_APPLICATION/     ;scope                  ;ec
 ```
 
-**NOTE**: these values are for the testing envirnoment, please don't use them in production!
+**NOTE**: these values are for the testing environment, please don't use them in production!
 
 ## Spartacus configuration
 
@@ -55,4 +55,4 @@ Note that `kyma_client_id` and `kyma_client_secret` values have to match the bac
 
 ## Getting the open id token
 
-After configuring the kyma integration, one can obtain the open ID token that's being used for communication with kyma by calling `getOpenIdToken` method from `KymaService` facade. Note that this token will be available only after a successful authentication (i.e. a user logs in or registers).
+After configuring the kyma integration, one can obtain the open ID token (that's being used for communicating with kyma) by calling `getOpenIdToken()` method from `KymaService` facade. Note that this token will be available only after a successful authentication (i.e. a user logs in or registers).
