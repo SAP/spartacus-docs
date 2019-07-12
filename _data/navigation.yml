@@ -93,6 +93,8 @@ docs:
             url: /i18n/
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
+          - title: 'Kyma integration'
+            url: /kyma-integration/
           - title: 'HTTP Error Handling'
             url: /http-error-handling/
           - title: 'Configurable State Persistence and Rehydration'
