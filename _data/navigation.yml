@@ -93,7 +93,7 @@ docs:
             url: /i18n/
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
-          - title: 'Kyma integration'
+          - title: 'Kyma Integration'
             url: /kyma-integration/
           - title: 'HTTP Error Handling'
             url: /http-error-handling/

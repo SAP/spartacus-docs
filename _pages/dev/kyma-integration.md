@@ -1,10 +1,10 @@
 ---
-title: Kyma integration
+title: Kyma Integration (DRAFT)
 ---
 
 ## Prerequisites
 
-If your Spartacus application is running on commerce cloud, these configs should already be in place:
+If your Spartacus application is running on Commerce Cloud, these configs should already be in place:
 
 `local.properties`:
 
@@ -15,7 +15,7 @@ oauth2.client4kyma.keystore.password=nimda123
 oauth2.algorithm=RS256
 ```
 
-Add a new OAuth client using this impex:
+Add a new OAuth client using the following impex:
 
 ```impex
 ### Kyma OAuth client
@@ -23,11 +23,11 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
                                  ;client4kyma           ;hybris        ;openid   ;openid       ;password,client_credentials  ;ROLE_CLIENT  ;secret         ;http://MY_APPLICATION/     ;scope                  ;ec
 ```
 
-**NOTE**: these values are for the testing environment, please don't use them in production!
+**NOTE**: these values are for the testing environment. Do not use them in production.
 
-## Spartacus configuration
+## Spartacus Configuration
 
-The kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core` and enable `kyma_enabled: true` flag in `authentication` configuration:
+The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core` and enable `kyma_enabled: true` flag in `authentication` configuration:
 
 ```ts
 import { KymaModule } from '@spartacus/core';
@@ -51,8 +51,8 @@ import { KymaModule } from '@spartacus/core';
 export class AppModule {}
 ```
 
-Note that `kyma_client_id` and `kyma_client_secret` values have to match the backend configuration mentioned [above](#prerequisites).
+Note that `kyma_client_id` and `kyma_client_secret` values have to match the back end configuration mentioned [above](#prerequisites).
 
-## Getting the open id token
+## Getting the Open ID Token
 
-After configuring the kyma integration, one can obtain the open ID token (that's being used for communicating with kyma) by calling `getOpenIdToken()` method from `KymaService` facade. Note that this token will be available only after a successful authentication (i.e. a user logs in or registers).
+After configuring the Kyma integration, you can obtain the open ID token (that's being used for communicating with kyma) by calling `getOpenIdToken()` method from `KymaService` facade. Note that this token will be available only after a successful authentication (i.e. a user logs in or registers).
