@@ -81,8 +81,8 @@ docs:
                   url: /additional-route-parameters/
                 - title: 'Route Aliases'
                   url: /route-aliases/
-          - title: 'Site Context (Configuring the Base URL)'
-            url: /site-context/
+          - title: 'Configuring the Base URL'
+            url: /configuring-base-url/
           - title: 'Context Configuration'
             url: /context-configuration/
           - title: 'Add to Home Screen for PWA'
