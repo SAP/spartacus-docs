@@ -28,6 +28,8 @@ export function getReducers(): ActionReducerMap<CartsState> {
 To `loaderReducer` you have to provide unique identifier. In case above it is `CART_DATA` variable.
 This identifier will also be used in actions to connect each action to specific state tree.
 
+For keeping simple state (one property), you don't have to provide reducer. Loader success action will set `value` with passed payload.
+
 ## Defining state interface
 
 To correctly set type definitions on your state use `LoaderState` interface.
@@ -54,7 +56,7 @@ export interface CartState {
 
 ## Creating Actions
 
-To manipulate meta data for loading states `loading`, `success` or `error`, actions created should extend loaders actions. It is very important to extend those actions.
+To manipulate meta data for loading states `loading`, `success` or `error`, actions created should extend loaders actions. It is very important to extend those actions or make sure to set proper meta on action (preferably using provided meta helpers).
 In case all of your actions implements standard `Action`, loader flags won't work correctly.
 
 Example below will describe it the best:
