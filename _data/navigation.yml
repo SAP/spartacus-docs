@@ -91,6 +91,11 @@ docs:
             url: /seo-capabilities/
           - title: 'Internationalization (i18n)'
             url: /i18n/
+          - title: 'State Management'
+            url: /state-management/
+            subchildren:
+                - title: "Loader Meta Reducer"
+                  url: /loader-meta-reducer/  
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
           - title: 'HTTP Error Handling'
