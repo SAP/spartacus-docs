@@ -11,7 +11,9 @@ The steps described in this document are:
 1. Set up SAP Commerce Cloud
 2. Configure OCC credentials
 3. Configure CORS (optional to start but required for checkout)
-4. Install the Spartacus sample data addon (optional)
+4. Install the Spartacus sample data AddOn (optional)
+
+    **Note:** If you are working with the default implementation of Spartacus, it is recommended that you install the Spartacus sample data AddOn. By default, there is a tight relation between the `B2cStorefrontModule` and the Spartacus sample data. However, when you start your own project, you will have your own sample data, and at that point, you should use the `StorefrontModule` (rather than the `B2cStorefrontModule`) when you create your own pages, templates and components. If you are using your own sample data, you do not need to install the Spartacus sample data.
 
 At the end of this document, an alternate method for setting the SAP Commerce Cloud admin password is provided.
 
@@ -132,7 +134,7 @@ For more information, [this help document](https://help.sap.com/viewer/9d346683b
 
 
 
-# Installing the Spartacus sample data addon (optional)
+# Installing the Spartacus Sample Data AddOn (optional)
 
 The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
 
