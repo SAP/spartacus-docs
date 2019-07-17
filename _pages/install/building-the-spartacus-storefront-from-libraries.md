@@ -137,7 +137,10 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
          client_secret: 'secret'
        },
        context: {
-         baseSite: ['electronics']
+        urlParameters: ['baseSite', 'language', 'currency'],
+        baseSite: [
+          'electronics'
+        ],
        },
        i18n: {
          resources: translations,
@@ -183,7 +186,10 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
              client_secret: 'secret'
            },
            context: {
-             baseSite: ['electronics']
+             urlParameters: ['baseSite', 'language', 'currency'],
+             baseSite: [
+               'electronics'
+             ],
            },
            i18n: {
              resources: translations,
@@ -215,7 +221,7 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 
 - `authentication` (`client_id`, `client_secret`): The `client_id` and `client_secret` parameters define the ID and password to use when communicating with SAP Commerce Cloud using OCC REST API calls. The values `mobile_android` and `secret` correspond to examples in this [help document](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1811/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html?q=Configuring%20OAuth%20Clients). Change the ID and secret to the settings for your server.
 
-- `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the spartacussampledataaddon (described later in this document), you would change this setting to `electronics-spa`.
+- `site` (`urlParameters`, `baseSite`): `urlParameters` has different values depending on what you want it to show in the url as parameters, but this is optional as you can remove this field if you do not want anything to be on the url as parameters. The value of `baseSite` for urlParameters will display in the url current current catalog. It also allows the value of `language` and `currency` to be shown. The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the spartacussampledataaddon (described later in this document), you would change this setting to `electronics-spa`. If you have both add-ons, you can specify both `electronics` and `electronics-spa`.
 
 - `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
 
