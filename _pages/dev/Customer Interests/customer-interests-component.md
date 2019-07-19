@@ -14,9 +14,9 @@ The customer interests component requires the following extensions to work:
 See https://help.sap.com/ for more information.
 
 ## Configuring
-No special configuration needed.
+No special configuration needed. (if there's any, create a new topic and add a link here.)
 
 
 ## Extending
-No special extensibility available for this feature. 
+No special extensibility available for this feature. (if there's any, create a new topic and add a link here.)
 
