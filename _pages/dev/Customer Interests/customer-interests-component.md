@@ -9,7 +9,7 @@ The customer interests component provides a page under user account for customer
 The customer interests component requires the following extensions to work:
 - 
 - 
--  
+-  h
 
 See https://help.sap.com/ for more information.
 
