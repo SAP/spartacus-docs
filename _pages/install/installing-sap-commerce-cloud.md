@@ -28,7 +28,7 @@ For more information concerning installation of SAP Commerce Cloud using recipes
 3. Set up the recipe using the following command:
 
    ```
-   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=nimda
+   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
    If you are using Windows, change `./install.sh` to `install.bat`.
@@ -38,7 +38,7 @@ For more information concerning installation of SAP Commerce Cloud using recipes
 4. Initialize the system using the following command:
 
    ```
-   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=nimda initialize
+   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
 
    Initialization of the out-of-the-box b2c_acc_plus recipe can take about 30 minutes. Sample data for this recipe includes Electronics and Apparel sample stores.
@@ -46,7 +46,7 @@ For more information concerning installation of SAP Commerce Cloud using recipes
 5. Start SAP Commerce Cloud with the following command:
 
    ```
-   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=nimda start
+   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
    ```
 
 6. Verify that the system is working.
@@ -117,7 +117,7 @@ To configure CORS settings for OCC REST APIs, adding the following to your SAP C
 ```
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
 For more information, [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
@@ -179,7 +179,7 @@ The name of the new storefront base site is **electronics-spa**.
 Install the new recipe according to the instructions at the top of this document, but substituting the new recipe name. For example, to perform the first step:
 
 ```
-./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=nimda
+./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
 
 ```
 
@@ -191,13 +191,29 @@ Instead of including the admin password in every install command as required for
 
 1. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
 
-2. Add the following line: `initialpassword.admin=nimda`
+2. Add the following line: `initialpassword.admin=Y0urFav0r!tePassw0rd`
 
-   Change `nimda` to the password you'd like to use. The use of `nimda` is by convention of older releases.
+   Change `Y0urFav0r!tePassw0rd` to the password you'd like to use.
 
 3. Save the file.
 
-The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there's no need to include `-A local_property:initialpassword.admin=nimda`.
+The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there's no need to include `-A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
+
+# Supporting Regions in the Billing Address
+
+A specific configuration can be entered if the payment provider requires the `regions` field as part of the billing address data.
+
+Spartacus automatically picks up on the configuration and displays the `regions` field in the form.
+
+1. If you do not have a `custom.properties` file, create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
+
+2. Add the `mockup.payment.label.billTo.region` key with the value `billTo_state`.
+
+3. Save the file.
+
+The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties`.
+
+**Note** If you wish the config to be present without reinstalling, the property can be added to `local.properties`.
 
 # Possible Issues
 
