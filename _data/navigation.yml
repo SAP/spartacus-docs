@@ -98,6 +98,8 @@ docs:
                   url: /loader-meta-reducer/  
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
+          - title: 'Kyma Integration'
+            url: /kyma-integration/
           - title: 'HTTP Error Handling'
             url: /http-error-handling/
           - title: 'Configurable State Persistence and Rehydration'
