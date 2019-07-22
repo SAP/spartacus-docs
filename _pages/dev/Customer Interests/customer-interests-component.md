@@ -3,7 +3,7 @@ title: Customer Interests Component (DRAFT)
 ---
 
 ## Intro
-The customer interests component provides a page under user account for customers to view, as well as managing registered product interests，such as rmeoving product interests, and updating the notification receiving channels. 
+The customer interests component provides a page under user account for customers to view, as well as managing registered product interests, such as removing product interests, and updating the notification receiving channels. 
 
 ## Requirements
 The customer interests component requires the following extensions to work:
