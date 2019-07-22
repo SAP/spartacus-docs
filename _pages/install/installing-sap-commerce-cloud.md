@@ -117,7 +117,7 @@ To configure CORS settings for OCC REST APIs, adding the following to your SAP C
 ```
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
 For more information, [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
