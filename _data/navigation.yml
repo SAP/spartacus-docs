@@ -132,6 +132,8 @@ docs:
                   url: /contributor-setup/
                 - title: 'Coding Guidelines'
                   url: /coding-guidelines/
+                - title: "Maintaining Public APIs"
+                  url: /breaking-changes/
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'
