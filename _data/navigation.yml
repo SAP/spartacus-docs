@@ -60,8 +60,8 @@ docs:
             subchildren:
                 - title: 'Customizing CMS Components'
                   url: /customizing-cms-components/
-                - title: 'Create Page and Components'
-                  url: /create-page-and-components/
+                - title: 'Creating New Pages and Components'
+                  url: /creating-pages-and-components/
                 - title: 'Banner Component'
                   url: /banner-component/
                 - title: 'Searchbox Component'

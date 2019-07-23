@@ -1,4 +1,6 @@
-# Creating a new Page and Components
+---
+title: Creating New Pages and Components (DRAFT)
+---
 
 The Spartacus storefront is based on Javascript, and accordingly, it is composed of a large number of fine-grained Javascript components. The components have an equivalent in the CMS and there is mapping to the Angular component.
 
@@ -8,13 +10,13 @@ Spartacus receives the page with the list of slots and component and can use it 
 
 *Note* if you want to replace an existing component please refer to [Configuring Custom Components](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#configuring-custom-components)
 
-## New Page
+## Creating a New Page
 
 To create a new page in Spartacus it is first necessary to create the appropriate page in the CMS. Please refer to the `Experience Management` section of the `SAP Help Portal` for a more details on how to do this.
 
-Once the page exists in CMS Spartacus will pick it up automatically without any configuration. The url of the page in Spartacus will match the CMS label. 
+Once the page exists in CMS Spartacus will pick it up automatically without any configuration. The url of the page in Spartacus will match the CMS label.
 
-## New Component
+## Creating a New Component
 
 In the case a new component has been created in the backend this new component needs to be mapped to a new Angular component.
 
@@ -45,7 +47,7 @@ imports: [
 
 The following logic will inject use the `WishlistComponent` wherever it is placed in the CMS. For more details on using CMS components see [Customizing CMS Components](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components).
 
-## Static Page
+## Static Pages
 
 Another way to create a custom page with custom components is to create it statically.
 
