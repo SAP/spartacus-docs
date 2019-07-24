@@ -1,69 +1,68 @@
 ---
-title: PWA setup (Draft)
+title: Adding PWA Support to Spartacus
 ---
 
-This guide describes how to add Progressive Web Application support to the Spartacus app.
+You can add Progressive Web Application (PWA) support to the Spartacus app. Spartacus supports the latest major version of `@angular/pwa`.
 
-Spartacus supports the latest major version of `@angular/pwa`.
+## Setting up PWA in Spartacus
 
-## Steps
+1. Add the Angular PWA dependency to your shell app, as follows:
 
-Add the Angular PWA dependency to your shell app
+    ```bash
+    ng add @angular/pwa
+    ```
 
-```bash
-ng add @angular/pwa
-```
+    **Note:** If you have more than one project in your workspace, use the `--project` flag to add PWA to your main project.
 
-> _Note #1:_ If you have more than one project in your workspace, use the --project flag to add PWA to your main project.
->
-> _Note #2:_ If you already have the _@angular/pwa_ dependency, you'll have to do the following:
->
-> - Remove it from package.json
-> - Run _yarn_ to remove the dependencies from your app
-> - Reinstall them again using _ng_
+    **Note:** If you already have the `@angular/pwa` dependency, do the following:
 
-Adding the dependency using _ng_ will also trigger the angular PWA schematic, which will do some additional tasks for you:
+    - remove the `@angular/pwa` dependency from `package.json`
+    - run `yarn` to remove the dependencies from your app
+    - reinstall the dependencies again using `ng`.
 
-- Create default PWA configuration files
-- Create icons
-- Update angular.json file to include PWA related resources in your build
-- Update project files for PWA readiness
+    Adding the dependency using `ng` also triggers the angular PWA schematic, which automatically does the following:
 
-Update your `ngsw-config.json`, as follows:
+    - creates default PWA configuration files
+    - creates icons
+    - updates the `angular.json` file to include PWA related resources in your build
+    - updates project files for PWA readiness.
 
-```json
-{
-  "index": "/index.html",
-  "assetGroups": [
+2. Update your `ngsw-config.json`, as follows:
+
+    ```json
     {
-      "name": "app",
-      "installMode": "prefetch",
-      "resources": {
-        "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js"]
-      }
+      "index": "/index.html",
+      "assetGroups": [
+        {
+          "name": "app",
+          "installMode": "prefetch",
+          "resources": {
+            "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js"]
+          }
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
-Build your app in prod mode
+3. Build your app in `prod` mode, as follows:
 
-```bash
-ng build --prod
-```
+    ```bash
+    ng build --prod
+    ```
 
-The build will generate the required files to register your service worker and serve your app in PWA mode.
+    The build generates the required files to register your service worker and serve your app in PWA mode.
 
-> _Note:_ Our PWA module assumes a _production===true_ flag, which is set using our _environment.production_ file. This setting needs to be set manually by customers.
+    **Note:** The Spartacus PWA module assumes a `production===true` flag, which is set using the `environment.production` file. This setting needs to be set manually by customers.
 
-Finally, deploy and serve your app using an HTTP server.
+4. Deploy and serve your app using an HTTP server.
 
-> For testing purposes, we recommend to install [http-server](https://www.npmjs.com/package/http-server) as a dev dependency and serve the app using `http-server ./dist/your-app`
->
-> Double check that the service worker is running and add-to-homescreen feature works.
+    For testing purposes, we recommend that you install [http-server](https://www.npmjs.com/package/http-server) as a dev dependency, and that you serve the app using `http-server ./dist/your-app`
 
-## Caveats
+    Double-check that the service worker is running and that the Add to Home Screen feature works. For more information, see [Adding the Spartacus App to the Home Screen]({{ site.baseurl }}{% link _pages/dev/pwa/add-to-home-pwa.md %}).
 
-- The default ng server ([webpack devserver](https://webpack.js.org/configuration/dev-server/)) does not provide support for service workers. Therefore, you must use a separate HTTP server to support PWA.
 
-- PWA is only supported in secure mode. Therefore, the http server of your choice will need to serve Spartacus in Secure (HTTPS) mode.
+## Limitations
+
+- The default `ng` server ([webpack devserver](https://webpack.js.org/configuration/dev-server/)) does not provide support for service workers. You must use a separate HTTP server to support PWA.
+
+- PWA is only supported in secure mode, so the HTTP server of your choice needs to serve Spartacus in secure (HTTPS) mode.

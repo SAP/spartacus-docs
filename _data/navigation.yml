@@ -87,10 +87,13 @@ docs:
             url: /configuring-base-url/
           - title: 'Context Configuration'
             url: /context-configuration/
-          - title: 'PWA setup'
-            url: /pwa-setup/
-          - title: 'Add to Home Screen for PWA'
-            url: /add-to-home/
+          - title: 'PWA'
+            url: /pwa-home/
+            subchildren:
+                - title: "Adding PWA Support to Spartacus"
+                  url: /pwa-setup/
+                - title: 'Adding the Spartacus App to the Home Screen'
+                  url: /add-to-home-pwa/
           - title: 'SEO Capabilities'
             url: /seo-capabilities/
           - title: 'Internationalization (i18n)'
