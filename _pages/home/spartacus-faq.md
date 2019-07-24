@@ -27,7 +27,7 @@ Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is r
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus? 
 
-SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808, but due to API improvements since then, some features will not work. For example, SmartEdit will only work with release 1905. These differences will be described in the Spartacus documentation. 
+SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7. 
 
 ### Does Spartacus integrate with any other SAP products? 
 
