@@ -1,5 +1,5 @@
 ---
-title: Maintaining Public APIs (DRAFT)
+title: Maintaining Public APIs
 ---
 
 ## Keeping Public APIs Minimal
