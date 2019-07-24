@@ -8,16 +8,16 @@ It is a challenge to maintain stability in large APIs. If you are making changes
 
 ## Avoiding Breaking Changes
 
-Spartacus releases follow semantic versioning, which means breaking changes are only included in major releases. When working on new features or bug fixes, try to avoid introducing breaking changes as much as possible. A breaking change may be introduced by any of the following actions:
+Spartacus releases follow semantic versioning, which means breaking changes are only included in major releases. Breaking changes will not be included in minor or patch releases. A breaking change may be introduced by any of the following actions:
 
-- Changing the selector of the `component`, `directive`, or `pipe`.
+- Changing the selector of a `component`, `directive`, or `pipe`.
 - Removing or changing the name of exported classes, functions, constants, interfaces or types in `public_api.ts`. Note that `index.ts` barrels can also bubble up exports to `public_api.ts`.
 - Changing or removing interface properties.
 - Adding new, required properties to interfaces and types. However, you can add optional properties with `?`.
 - Changing or removing `public` or `protected` class members.
-- Changing or removing existing `public` or `protected` function parameters. Note that changing the order can also introduce a breaking change.
+- Changing or removing existing `public` or `protected` function parameters. Note that changing the order also introduces a breaking change.
 - Adding new, required parameters to `public` functions. However, you can add optional parameters to `public` functions.
-- Changing access levels on classes, functions or interfaces to a more restrictive access level. In other words, changing `public` to `protected` or `private`, or changing `protected` to `private` can introduce a breaking change.
+- Changing access levels on classes, functions or interfaces to a more restrictive access level. In other words, changing `public` to `protected` or `private`, or changing `protected` to `private` introduces a breaking change.
 - Changing function behavior where the function returns different results. In other words, when changing function behavior, the function should return the same results for the same provided input as it did before the change.
 - Changing assertions in unit tests or end-to-end tests.
 - Removing anything from Angular modules, such as imports, providers, declarations, entryComponents, or exports.
