@@ -87,6 +87,8 @@ docs:
             url: /configuring-base-url/
           - title: 'Context Configuration'
             url: /context-configuration/
+          - title: 'PWA setup'
+            url: /pwa-setup/
           - title: 'Add to Home Screen for PWA'
             url: /add-to-home/
           - title: 'SEO Capabilities'
