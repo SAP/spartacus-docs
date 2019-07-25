@@ -141,6 +141,8 @@ docs:
                   url: /coding-guidelines/
                 - title: "Maintaining Public APIs"
                   url: /breaking-changes/
+                - title: 'Continuous integration'
+                  url: /continuous-integration/
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'

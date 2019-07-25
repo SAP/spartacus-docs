@@ -21,20 +21,13 @@ For each template or section, the slots can be configured in a specific order. T
 ```typescript
 const defaultLayoutConfig: LayoutConfig = {
   header: {
-    slots: [
-      'TopHeaderSlot',
-      'NavigationSlot'
-    ]
+    slots: ["TopHeaderSlot", "NavigationSlot"]
   },
   footer: {
-    slots: ['FooterSlot']
+    slots: ["FooterSlot"]
   },
   LandingPageTemplate: {
-    slots: [
-      'Section1',
-      'Section2A',
-      'Section2B'
-    ]
+    slots: ["Section1", "Section2A", "Section2B"]
   }
 };
 ```
@@ -75,12 +68,14 @@ Outlets contain a context which is an object containing various attributes that 
 The following example demonstrates how to use the context to get the list of components within a slot:
 
 {% raw %}
+
 ```html
 <ng-template cxOutletRef="Section1" let-model>
   "Section1" position
   <pre>{{ model.components$ | async | json }}</pre>
 </ng-template>
 ```
+
 {% endraw %}
 
 ### Outlet Position
@@ -116,15 +111,8 @@ Adaptive design in the UI layer can lead to an improved experience for the end u
 ```typescript
 const defaultLayoutConfig: LayoutConfig = {
   header: {
-    slots: [
-      'FirstSlot',
-      'SecondSlot',
-      'LastSlot'
-      ],
-    xs: [
-      'LastSlot',
-      'FirstSlot'
-      ]
+    slots: ["FirstSlot", "SecondSlot", "LastSlot"],
+    xs: ["LastSlot", "FirstSlot"]
   }
 };
 ```
