@@ -1,5 +1,5 @@
 ---
-title: Maintaining Public APIs (DRAFT)
+title: Maintaining Public APIs
 ---
 
 ## Keeping Public APIs Minimal
@@ -8,23 +8,24 @@ It is a challenge to maintain stability in large APIs. If you are making changes
 
 ## Avoiding Breaking Changes
 
-We try to following semantic versioning, which means keeping breaking changes for major releases. When working on new features or bug fixes, the following list of guidelines can help you to avoid introducing breaking changes:
+Spartacus releases follow semantic versioning, which means breaking changes are only included in major releases. Breaking changes will not be included in minor or patch releases. A breaking change may be introduced by any of the following actions:
 
-- Do not change the selector of the `component` or `directive` or `pipe`.
-- Do not change or remove exported classes, functions, constants, interfaces or types in `public_api.ts`. Note that `index.ts` barrels can also bubble up exports to `public_api.ts`.
-- Do not change or remove interface properties.
-- Do not add new, required properties to interfaces and types (only optional with '?')
-- Do not change or remove `public` or `protected` class members
-- Do not change or remove existing `public` or `protected` function parameters (also do not change the order)
-- Do not add new, required parameters to public functions (only optional)
-- Do not change function behavior. After a change, the function should return the same output for the same provided input, and should dispatch the same side effects. Bug fixes might require different function behavior for edge cases.
-- Do not change or remove unit tests. You can change internal implementation details, but assertions should not be changed.
-- Do not remove anything from Angular modules, such as imports, providers, declarations, exports, and so on.
-- Do not remove or update existing values, or change the order for exported enums. Only add new values.
-- Do not change the default value for new functions parameters. The default value should match the function behavior from before the change.
-- Do not make any changes to the class constructor. Any change to the class constructor is considered a breaking change (`super` calls needs to be updated in classes extending ours).
-- Do not change the initial values of an exported class's fields, or change them to readonly.
-- Do not change or remove translations.
-- Do not remove or change default configs.
-
-If you have any other general rule regarding breaking changes, feel free to add it.
+- Changing the selector of a `component`, `directive`, or `pipe`.
+- Removing or changing the name of exported classes, functions, constants, interfaces or types in `public_api.ts`. Note that `index.ts` barrels can also bubble up exports to `public_api.ts`.
+- Changing or removing interface properties.
+- Adding new, required properties to interfaces and types. However, you can add optional properties with `?`.
+- Changing or removing `public` or `protected` class members.
+- Changing or removing existing `public` or `protected` function parameters. Note that changing the order also introduces a breaking change.
+- Adding new, required parameters to `public` functions. However, you can add optional parameters to `public` functions.
+- Changing access levels on classes, functions or interfaces to a more restrictive access level. In other words, changing `public` to `protected` or `private`, or changing `protected` to `private` introduces a breaking change.
+- Changing function behavior where the function returns different results. In other words, when changing function behavior, the function should return the same results for the same provided input as it did before the change.
+- Changing assertions in unit tests or end-to-end tests.
+- Removing anything from Angular modules, such as imports, providers, declarations, entryComponents, or exports.
+- Removing or updating existing values, or changing the order for exported enums. However, you can add new values.
+- Changing the default value for function parameters. The default value should match the function behavior from before the change.
+- Making any changes to the class constructor signature. Note that `super` calls need to be updated in classes extending ours.
+- Changing the initial values of an exported class's `public` or `protected` fields, or changing them to read-only.
+- Changing or removing translation keys or values.
+- Changing default configurations.
+- Changing any CSS or SCSS attributes, classes or selectors.
+- Changing anything that affects the rendering of the existing DOM.
