@@ -2,12 +2,31 @@
 title: Disabling Standard Routes (DRAFT)
 ---
 
-To disable a route (i.e. to remove it from Angular's router config and avoid generating paths to this route) it suffices to set one of those things in the `routesConfig`:
+## Disabling Spartacus' Angular Route
 
-- set `null` for this route's name
+Standard Angular routes of Spartacus (i.e. Product Details Page) can be disabled by config, which can be useful i.e. when you want to provide custom routes instead.
+
+```typescript
+ConfigModule.withConfig({
+  routing: {
+    routes: {
+      product: {
+        disabled: true,
+        paths: /* ... */
+      }
+    }
+  }
+})
+```
+
+Then the configuration of `paths` will be used only to [generate router links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
+
+## Disabling generation of semantic router links
+
+You can also disable by config generating router links for a specific page. For example:
+
+- set `null` for this route's name; or
 - set `null` or `[]` for route's paths
-
-For example:
 
 ```typescript
 ConfigModule.withConfig({
@@ -25,14 +44,4 @@ ConfigModule.withConfig({
 })
 ```
 
-Then [configurable router links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}) will output:
-
-```html
-<a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>
-```
-
-result
-
-```html
-<a [routerLink]="['/']"></a>
-```
+Then the standard Spartacus' route won't be matched and configurable router links to this page will output `/`.
