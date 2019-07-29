@@ -62,6 +62,8 @@ docs:
                   url: /customizing-cms-components/
                 - title: 'Creating New Pages and Components'
                   url: /creating-pages-and-components/
+                - title: 'Product Details Page'
+                  url: /product-details-page/
                 - title: 'Banner Component'
                   url: /banner-component/
                 - title: 'Searchbox Component'
