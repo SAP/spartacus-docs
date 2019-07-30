@@ -8,6 +8,7 @@ Snapshot builds are published in the following GitHub repositories:
 
 * [Core](https://github.com/SAP/cloud-commerce-spartacus-storefront-core-builds)
 * [Styles](https://github.com/SAP/cloud-commerce-spartacus-storefront-styles-builds)
+* [Assets](https://github.com/SAP/cloud-commerce-spartacus-storefront-assets-builds)
 * [Storefront](https://github.com/SAP/cloud-commerce-spartacus-storefront-storefront-builds)
 
 Each commit represents a snapshot. We create a snapshot every time a change is merged to the `develop` branch. A GitHub release with the source code is created for every snapshot.
@@ -19,6 +20,7 @@ To import a snapshot build in your shell app, update the library dependency in y
   "dependencies" : {
     "@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds",
     "@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds",
+    "@spartacus/assets": "SAP/cloud-commerce-spartacus-storefront-assets-builds",
     "@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds"
     }
 }
@@ -33,6 +35,7 @@ If you want to import a specific snapshot, append the suffix of the GitHub repos
   "dependencies" : {
     "@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds#core-0.1.0+abcde23f",
     "@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds#styles-0.1.0+abcde23f",
+    "@spartacus/assets": "SAP/cloud-commerce-spartacus-storefront-assets-builds#styles-0.1.0+abcde23f",
     "@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds#storefront-0.1.0+abcde23f"
   }
 }
