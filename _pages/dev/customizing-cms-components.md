@@ -96,7 +96,7 @@ ConfigModule.withConfig({
 });
 ```
 
-## Guarding components
+## Guarding Components
 
 It's often a case that some routes should be accessible only in certain conditions (i.e. Personal Details page should be opened only for signed-in user). For this purpose we can use Angular [Route Guards](https://angular.io/guide/router#milestone-5-route-guards) to perform some logic before entering a route (i.e fetch data from backend or check if user is authenticated) and decide whether it can be opened or we should redirect to other page.
 
