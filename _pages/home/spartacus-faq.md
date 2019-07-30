@@ -55,7 +55,7 @@ Spartacus is a complete paradigm shift from the Accelerators in terms of technol
 
 ### How long does it take to get a Spartacus-based storefront up and running? 
 
-Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [these step-by-step instructions](https://github.com/SAP/cloud-commerce-spartacus-storefront/wiki/Setup-and-Installation). 
+Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 ### Is there a demo of a Spartacus-based storefront available? 
 
@@ -63,7 +63,7 @@ Try out our continuous-integration server [here](https://sap.github.io/cloud-com
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available? 
 
-Documentation is available from the Spartacus GitHub [Wiki](https://github.com/SAP/cloud-commerce-spartacus-storefront/wiki). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
+Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
 
 ### Can I customize Spartacus? 
 
