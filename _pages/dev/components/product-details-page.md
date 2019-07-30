@@ -43,7 +43,7 @@ CMSTabParagraphContainer: {
 
 NEW_TAB_ID is the id of the new tab and the string associated to it is the title that will be displayed.
 
-## Configuring the page
+## Configuring the Page
 
 Since the Product Details Page is driven by CMS it can be configured using SmartEdit or Backoffice. This can be used to add new components, remove existing one or reoder the components/slots.
 
