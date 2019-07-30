@@ -2,9 +2,9 @@
 title: Disabling Standard Routes (DRAFT)
 ---
 
-## Disabling Spartacus' Angular Route
+## Disabling Spartacus's Angular Route
 
-Standard Angular routes of Spartacus (i.e. Product Details Page) can be disabled by config, which can be useful i.e. when you want to provide custom routes instead.
+Standard Angular routes of Spartacus (for example, the Product Details Page) can be disabled by config, which can be useful, for example, when you want to provide custom routes instead.
 
 ```typescript
 ConfigModule.withConfig({
@@ -21,7 +21,7 @@ ConfigModule.withConfig({
 
 Then the configuration of `paths` will be used only to [generate router links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
 
-## Disabling generation of semantic router links
+## Disabling Generation of Semantic Router Links
 
 You can also disable by config generating router links for a specific page. For example:
 
