@@ -116,7 +116,7 @@ docs:
             subchildren:
                 - title: 'Server–Side Rendering Coding Guidelines'
                   url: /server-side-rendering-coding-guidelines/
-                - title: 'How to Debug Server–Side Rendered Storefront'
+                - title: 'How to Debug a Server–Side Rendered Storefront'
                   url: /how-to-debug-server-side-rendered-storefront/
           - title: 'User Experience Guidelines'
             url: /user-experience-guidelines/
