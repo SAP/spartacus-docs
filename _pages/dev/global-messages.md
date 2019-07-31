@@ -1,9 +1,10 @@
 ---
-title: Global messages
+title: Global Messages (DRAFT)
 ---
 
 # Model
 Global messages have predefined types in model:
+
 ```typescript
 enum GlobalMessageType {
   MSG_TYPE_CONFIRMATION = '[GlobalMessage] Confirmation',
@@ -12,7 +13,7 @@ enum GlobalMessageType {
 }
 ```
 
-# Configuration model
+# Configuration Model
 The model is used in the configuration for setting the time after which the message should disappear.
 Omitting the type in the configuration causes that such messages will not disappear.
 
@@ -31,13 +32,16 @@ abstract class GlobalMessageConfig {
 ```
 
 # Configuration
+
 We used the default configuration setting the timeout:
+
 * confirmation: 3s
 * info: 3s
 * error: 7s
 
 
 To maintain consistency of the configuration keys with the enum you should provide customized config by factory:
+
 ```typescript
 function yourGlobalMessageConfigFactory(): GlobalMessageConfig {
   return {
