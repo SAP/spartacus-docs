@@ -109,6 +109,8 @@ docs:
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
             url: /kyma-integration/
+          - title: 'Global messages'
+            url: /global-message/
           - title: 'HTTP Error Handling'
             url: /http-error-handling/
           - title: 'Configurable State Persistence and Rehydration'
