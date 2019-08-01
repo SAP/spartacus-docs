@@ -145,7 +145,6 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
          fallbackLang: 'en'
        }
      }),
-     ConfigModule.withConfigFactory(defaultCmsContentConfig)
    ```
   
    Don't forget to add a comma to the module entry before `B2cStorefrontModule`.
@@ -191,7 +190,6 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
              fallbackLang: 'en'
            }
          }),
-         ConfigModule.withConfigFactory(defaultCmsContentConfig)
        ],
      providers: [],
      bootstrap: [AppComponent],
@@ -218,10 +216,6 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 - `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the spartacussampledataaddon (described later in this document), you would change this setting to `electronics-spa`.
 
 - `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
-
-#### About the ConfigModule Statement
-
-The `ConfigModule.withConfigFactory(defaultCmsContentConfig)` paramater configures Spartacus to use default CMS (content) data provided with Spartacus.
 
 ## Adding the Storefront to `app.component.html`
 
