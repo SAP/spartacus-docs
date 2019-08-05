@@ -41,7 +41,7 @@ To avoid breaking customer's code and have a flexibility to improve functionalit
 Feature flags allows to:
 1. Differentiate features based on feature level, which corresponds to minor version number
 2. Differentiate features based on explicit feature flag
-   -  Explicit feature flags can be linked to feature level, which effectively means they are enabled by default for this level 
+   -  Explicit feature flags can be linked to feature level, which means they are enabled by default for this particular level 
 
 
 ### Deciding if you need a feature flag
@@ -50,13 +50,13 @@ We try to avoid creating new feature flags if they are not needed, to keep our c
 Please follow this guideline to decide, which feature flag you should use (if any):
 
 1. If possible, try to avoid using feature flags 
-   - Implement feature as a separate module, that could be imported optionally by customer
-   - If your functionality already has separate config, check if what will be more convenient: 
-       - creating new option in module configuration (for general features, where there is an actual value in making them toggleable)
-       - using feature flag (especially, when the only reason for a flag is the backward compatibility)
+   - Implement feature as a separate module, that could be imported optionally by a customer
+   - If your functionality already has separate config, check what will be more convenient: 
+       - creating new option in module configuration (for general features, where there is an actual value in making them toggleable)?
+       - using feature flag (especially, when the only reason for a flag is the backward compatibility)?
 2. If possible, try to avoid creating explicit feature flag
-    - Try to enable features for specific feature levels, i.e. major releases
-3. If you want to create the explicit feature flag make sure it's justified, for example: feature is important enough to be explicitly disabled or enabled.
+    - Try to enable features for specific feature levels, i.e. for minor releases
+3. If you want to create the explicit feature flag make sure it's justified, e.g.: feature is important enough to be explicitly disabled or enabled.
 
 ### Detecting feature level
 
@@ -64,7 +64,7 @@ Please follow this guideline to decide, which feature flag you should use (if an
 
     ```typescript
     if (isFeatureLevel(this.config, '1.1')) {
-      // code that is meant to be executed for feature level 1.1
+      // code that is meant to be executed for feature level 1.1 and above
     }
     ```
      
@@ -80,7 +80,7 @@ Please follow this guideline to decide, which feature flag you should use (if an
       readonly isSomeNewFeatureEnabled = this.featureConfig.isLevel('1.1');
     ```
 
-3. If you want to conditionally show show components in templates you can use `cxFeatureLevel` directive:
+3. If you want to conditionally show a component in a template you can use `cxFeatureLevel` directive:
 
     ```typescript
     <newComponent *cxFeatureLevel="'1.1'"></newComponent>
@@ -88,7 +88,7 @@ Please follow this guideline to decide, which feature flag you should use (if an
 
 ### Explicit feature flags
 
-1. Explicit feature flags are simple string identifiers, available out of the box. You can check their status similarly to checking feature level.
+1. Explicit feature flags are simple string identifiers. You can check their status similarly to checking feature level.
 
     You can use simple utility function (that consumes global config):
     
@@ -131,10 +131,11 @@ To achieve that, just add your flag to `FeatureToggles` interface in `feature-to
 3. Linking feature flag to feature level
 
     By linking your feature flag to feature level, you'll get your flag enabled by default for this and all above levels.
-    To achieve that, provide default value for a feature flag as a string representing feature level. You can add this config to your general module configuration:
+    To achieve that, provide default value for a feature flag as a string representing feature level. You can add this config to your module configuration:
     
     ```typescript
         ConfigModule.withConfig({
+          // ...
           features: {
             consignmentTracking: '1.1',
           },
