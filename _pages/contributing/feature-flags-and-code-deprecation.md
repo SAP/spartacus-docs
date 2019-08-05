@@ -5,7 +5,7 @@ title: Feature flags and code deprecation
 ## Code deprecation
 
 For a complex and rapidly evolving libraries maintaining backward compatibility while improving existing features can be challenging. 
-Code deprecation allows to properly mark obsolete code and by warning users, helps them in transitioning for better alternatives.   
+Code deprecation allows to properly mark obsolete code and by warning users, helps them in transitioning to better alternatives.   
 
 ### @deprecated JSDoc annotation
 
@@ -13,7 +13,6 @@ To mark function, class, method or property as deprecated, use `@deprecated` mar
 
 ```typescript
 /**
-* @deprecated since 1.0.2
 * @deprecated since 1.0.2
 * Use better alternative instead
 */
@@ -23,7 +22,7 @@ Depending on actual deprecation policy, such a code will become a candidate to r
 
 ### Marking deprecated logic
 
-Often, to accommodate backward compatibility, some indirectly related code need to contain additional logic that can be removed when removing deprecated functionality.
+Often, to accommodate backward compatibility, some indirectly related code need to contain additional logic that should be removed together with deprecated functionality.
 When such a removal is not obvious enough, the best way to make sure that obsolete code will be removed is to mark it with proper TODO comment, preferably linked 
 to a ticket/issue with additional details. 
 Such a ticket should be properly labelled (example label: 'deprecated-1.x') to make it easy to reference it in future as a candidate for removal.
