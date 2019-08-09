@@ -1,38 +1,33 @@
 ---
-title: What changes spartacussample does
+title: Spartacussampledataaddon AddOn (DRAFT)
 ---
 
-Spartacussampledataaddon is... 
+The `spartacussampledataaddon` AddOn creates a new site that shares the same product catalog with the `electronics` site, but has a new content catalog, as shown in the following diagram:
 
-A new site is created in this addon. This new site shares the same product catalog with site `electronics`, but has new content catalog.
+![spartacussampledataaddon]({{ site.baseurl }}/assets/images/spartacussampledataaddon.png)
 
-![Screen Shot 2019-07-09 at 2 47 17 PM](https://user-images.githubusercontent.com/44440575/60915025-cce6a480-a258-11e9-800d-7e98e2275d48.png)
+To download and install the `spartacussampledataaddon` AddOn, see [Installing SAP Commerce Cloud for use with Spartacus
+]({{ site.baseurl }}/installing-sap-commerce-cloud/#installing-the-spartacus-sample-data-addon). The impex file paths in this document are to the `spartacussampledataaddon` AddOn that has been installed with SAP Commerce Cloud.
 
-## It contains the following
+The `spartacussampledataaddon` AddOn does the following:
 
-- It creates a new `site` called **`electronics-spa`**
+- Creates a new `site` called `electronics-spa`. See the `resource/spartacussampledataaddon/import/stores/site.impex` file for details.
 
-  Check this impex file `resource/spartacussampledataaddon/import/stores/site.impex` for details.
+- Creates a new `ContentCatalog` and its `catalogVersions` (Staged and Online). See the `resource/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/catalog.impex` file for details.
 
-- It creates a new `ContentCatalog` and its `catalogVersions` (Staged and Online)
+- Creates a `CatalogVersionSyncJob` that can sync `electronicContentCatalog:staged` to `spaContentCatalog:staged`. See the `resource/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/sync.impex` file for details.
 
-  Check this impex file `resource/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/catalog.impex` for details.
+The `spartacussampledataaddon` AddOn includes the `SpaSampleAddOnSampleDataImportService`, which extends `DefaultAddonSampleDataImportService`. It overrides the default `importContentCatalog` function, so during system initialization/update, the `importContentCatalog` function does the following:
 
-- It creates `CatalogVersionSyncJob` which can sync `electronicContentCatalog:staged` to `spaContentCatalog:staged`
+- creates new catalog
+- synchronizes `electronicsContentCatalog:Staged` to `electronics-spaContentCatalog:Staged`
+- performs some cleaning
+- imports the content catalog from impex
+- synchronizes `spaContentCatalog:staged` to `online`
+- gives permission to the cmsmanager to do the synchronization
+- imports email data
 
-  Check this impex file `resource/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/sync.impex` for details.
-
-This addon has `SpaSampleAddOnSampleDataImportService`, which extends `DefaultAddonSampleDataImportService`. It overrides the default funciton `importContentCatalog`. So, during system initialization/update, function `importContentCatalog` will do the following things:
-
-1. create new catalog
-2. sync electronicsContentCatalog:Staged->electronics-spaContentCatalog:Staged
-3. perform some cleaning
-4. import content catalog from impex
-5. synchronize spaContentCatalog:staged->online
-6. give permission to cmsmanager to do the sync
-7. import email data
-
-## CMS changes specific for Spartacus project
+## CMS changes specific to the Spartacus project
 
 Since we sychronize `electronicsContentCatalog:Staged` to `electronics-spaContentCatalog:Staged`, so the initial data in `electronics-spaContentCatalog` the same as `electronicsContentCatalog`. But, to make Spartacus work better, it has some different CMS data. Changes are made on the `electronics-spaContentCatalog`, which include:
 

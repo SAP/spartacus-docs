@@ -37,6 +37,8 @@ docs:
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: 'Personalization Setup Instructions for Spartacus'
             url: /personalization-setup-instructions-for-spartacus/
+          - title: "Spartacussampledataaddon AddOn"
+            url: /spartacussampledataaddon/  
 
     - title: Storefront Development Guide
       children:
