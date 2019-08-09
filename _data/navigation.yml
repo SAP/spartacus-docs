@@ -60,6 +60,10 @@ docs:
             subchildren:
                 - title: 'Customizing CMS Components'
                   url: /customizing-cms-components/
+                - title: 'Creating New Pages and Components'
+                  url: /creating-pages-and-components/
+                - title: 'Product Details Page'
+                  url: /product-details-page/
                 - title: 'Banner Component'
                   url: /banner-component/
                 - title: 'Searchbox Component'
@@ -81,16 +85,32 @@ docs:
                   url: /additional-route-parameters/
                 - title: 'Route Aliases'
                   url: /route-aliases/
-          - title: 'Site Context (Configuring the Base URL)'
-            url: /site-context/
+          - title: 'Configuring the Base URL'
+            url: /configuring-base-url/
           - title: 'Context Configuration'
             url: /context-configuration/
+          - title: 'PWA'
+            url: /pwa-home/
+            subchildren:
+                - title: "Adding PWA Support to Spartacus"
+                  url: /pwa-setup/
+                - title: 'Adding the Spartacus App to the Home Screen'
+                  url: /add-to-home-pwa/
           - title: 'SEO Capabilities'
             url: /seo-capabilities/
           - title: 'Internationalization (i18n)'
             url: /i18n/
+          - title: 'State Management'
+            url: /state-management/
+            subchildren:
+                - title: "Loader Meta Reducer"
+                  url: /loader-meta-reducer/  
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
+          - title: 'Kyma Integration'
+            url: /kyma-integration/
+          - title: 'Global Messages'
+            url: /global-messages/
           - title: 'HTTP Error Handling'
             url: /http-error-handling/
           - title: 'Configurable State Persistence and Rehydration'
@@ -100,6 +120,8 @@ docs:
             subchildren:
                 - title: 'Server–Side Rendering Coding Guidelines'
                   url: /server-side-rendering-coding-guidelines/
+                - title: 'How to Debug a Server–Side Rendered Storefront'
+                  url: /how-to-debug-server-side-rendered-storefront/
           - title: 'User Experience Guidelines'
             url: /user-experience-guidelines/
             subchildren:
@@ -123,6 +145,8 @@ docs:
                   url: /contributor-setup/
                 - title: 'Coding Guidelines'
                   url: /coding-guidelines/
+                - title: "Maintaining Public APIs"
+                  url: /breaking-changes/
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'

@@ -50,7 +50,7 @@ If you are missing any of the recommended extensions, please install them.
 
 ## Spartacus-Specific Guidelines
 
-### NGRX
+### NGRX in 'Core'
 
 We use the NGRX store to manage the global application state in our features. Using NGRX has apparent advantages for performance, better testability, and ease of troubleshooting (with time travel and such).
 
@@ -58,6 +58,14 @@ We use the NGRX store to manage the global application state in our features. Us
 - Use one common store for the whole app.
 
 **Note**: Using the store does not mean that we need to cache everything. Caching should be used with intent, and where it makes sense. In general, CMS data is a good candidate for caching, while application data is not.
+
+If a feature that use NGRX logic is meant to be called from UI components, facade service functions should be implemented ton expose features and encapsulate the NGRX code within the core lib.
+
+### NGRX in UI Components
+
+The complexity of NGRX is encapsulated in the core lib. Facade services are availbe from the core lib. The facade services expose the core lib features, but they hide the NGRX logic within their implemenation.
+
+Built in Spartacus UI components should not contain NGRX logic. Instead, the UI components should call facade service functions.
 
 ### Site Context
 
@@ -93,12 +101,6 @@ To know if your end-to-end test belongs to the `smoke` folder or the `regression
 
 If you answered "no" to these questions, then the test belongs in the `regression` folder.
 
-### Layers in Spartacus
-
-`occ -> ngrx/store -> component`
-
-We are currently planning to add a one-layer "facade" between `ngrx/store` and `component`. Work on the ProductModule is done, as is a part of the work on the CmsModule. We will add facades to all feature modules soon.
-
 ### Server-Side Rendering
 
 Do not break server-side rendering (SSR).
@@ -108,3 +110,42 @@ For more information, see the [Server–Side Rendering Coding Guidelines]({{ sit
 ### Protected and Private Methods
 
 If a method needs to be extendible, declare it as a `protected` method. Keep in mind, however, that all methods that are `protected` are a part of our public API. If you update a `protected` method, you must be careful not to introduce breaking changes as much as possible. If a method does not need to be extendible, declare it as `private` instead. For example, if you are creating helper methods in a service for code readability, it is probably better to declare these methods as `private`, unless it is essential for these methods to be extendible by customers.
+
+### DOM Manipulation
+
+Angular provides many ways to interact and manipulate DOM elements.
+
+An easy way to do this is by using `ElementRef` from `@angular/core`. This is **not** the correct approach.
+
+According to the official Angular documentation on ElementRef:
+
+> Use this API as the last resort when direct access to DOM is needed. Use templating and data-binding provided by Angular instead. Alternatively you can take a look at `Renderer2` which provides API that can safely be used even when direct access to native elements is not supported.
+
+If an alternative to ElementRef is needed, use `Renderer2`.
+
+```typescript
+// ElementRef
+this.element.nativeElement.style.color = 'yellow';
+
+// Renderer2
+this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
+```
+
+### Services
+
+The information below will outline the best practices when creating a `service`.
+
+Exports
+
+- A service **must** be exported to allow it to be in the `public api` of the library.
+
+Method Modifiers
+
+- `Public` methods should be used if it is expected to be accessible through the public api.
+- `Protected` methods should be used if it is expected to be overridden or extended.
+- `Private` methods should be used if it is expected to only be used by the service.
+
+Constructor Arguments
+
+- Constructor arguments should be **atleast** protected.
+- Constructor arguments should be limited. Create a new service if many injections are required.
