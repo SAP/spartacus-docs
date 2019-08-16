@@ -112,7 +112,15 @@ export class CustomProductNormalizer implements Converter<Occ.Product, CustomPro
 
 ## Endpoint Configuration
 
-REST endpoints provided by OCC are often configurable. Most endpoints have an optional field parameter that dictates the response data that is returned. While this configuration can also be driven by a (JAVA Spring) back end configuration, doing this at runtime in the front end gives more flexibility and limits customizations in the back end.
+REST endpoints provided by OCC are often configurable. All endpoints have an optional field parameter that dictates the response data that is returned. While this configuration can also be driven by a (JAVA Spring) back end configuration, doing this at runtime in the front end gives more flexibility and limits customizations in the back end.
+
+**Note** Until 2.0 this feature is off by default. The following configuration is required to enable it:
+
+```typescript
+features: {
+  configurableOccEndpoints: true
+}
+```
 
 For this reason, OCC modules in Spartacus allow for endpoint configuration. The following code snippet shows a custom configuration for the product detail endpoint:
 
@@ -129,3 +137,5 @@ backend: {
 ```
 
 The OCC configuration is used in the `OccEndpointsService`. The service looks up the configuration and applies parameters to the endpoint if needed.
+
+*Note*: The enpoints are typesafe, therefore the list of available endpoints is visible when adding the configuration.
