@@ -16,6 +16,7 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 - [Upgradability and Versioning](https://enable.cx.sap.com/media/Upgradability+and+Versioning+-+SAP+Commerce+Cloud/1_8fhwky5k) (4:32)
 - [Search Indexing Support](https://enable.cx.sap.com/media/Search+Indexing+Support+-+SAP+Commerce+Cloud/1_erxdtpn6) (2:46)
 - [SEO Features](https://enable.cx.sap.com/media/SEO+Features+-+SAP+Commerce+Cloud/1_wim5rixu) (3:43)
+- [Styling with Global Variables](https://enable.cx.sap.com/media/PREVIEW+-+Styling+with+Global+Variables+-+SAP+Commerce+Cloud/1_hb4jz06o)
 - [How Spartacus Uses Backend Catalog and CMS Data](https://enable.cx.sap.com/media/How+Spartacus+Uses+Backend+Catalog+and+CMS+Data+-+SAP+Commerce+Cloud/1_8mmwx8ck) (10:05)
 
 #### Spartacus Extensibility Live Coding Series
