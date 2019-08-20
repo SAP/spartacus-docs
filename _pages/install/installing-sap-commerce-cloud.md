@@ -122,7 +122,7 @@ corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST D
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
-For more information, [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
+For more information, see [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
 
 # Installing the Spartacus sample data addon
 

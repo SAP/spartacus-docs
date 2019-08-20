@@ -121,7 +121,7 @@ Yes. Support for contextual journey tracking will be added to Spartacus, schedul
 
 ### How much will Spartacus cost? 
 
-Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/LICENSE.txt).  
+Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/master/LICENSE).  
 
 ### Do I need to sign a contract to obtain a license? 
 

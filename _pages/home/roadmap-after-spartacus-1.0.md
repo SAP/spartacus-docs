@@ -41,7 +41,7 @@ The order shown generally reflects the order of prioritization. For example, gue
 - [Captcha](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac8663086691014ab34b77436f85412.html)
 - [Variant](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/8c143a2d8669101485208999541c383b.html) support, as seen in Apparel store (not the same as B2B multi-dimensional support, as seen in Powertools store) 
 - [Anonymous consent](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a9f387f70d484c19971aca001dc71bc5.html), to allow experience tracking
-- Experience tracking for [Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) (CDS) and merchandisingaddon component ([documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/0f6e285439bb4652ae4c6456285095a4.html)
+- Experience tracking for [Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) (CDS) and the **merchandisingaddon** extension ([documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/0f6e285439bb4652ae4c6456285095a4.html))
 - [Coupon support](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons) and additional [customer coupons feature](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/7f8304a85bf24db0bfc5cf3b057ae322.html)
 - [Consignment tracking](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ab305c4f84b64554932b8431020a39ad.html), aka click-to-see-delivery-status
 - Save items for later from cart, similar to [Selective Cart](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/58837af020d346df84773bd2ea75fd69.html)
@@ -114,7 +114,7 @@ The approach for 2020 is to implement more features related to PWA and to fill g
 - Offline awareness
 - [Configurable products](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/478f616a46f84d668f8cd42c0259cdf0.html)
 - [Configurable bundles](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b6eec0286691014a041e59dc69dc185.html)
-- Self-service customer support request submission ([Customer Service Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
+- Self-service customer support request submission ([Customer Service Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/aa039c46e5eb4c7da752afc0e05947e5.html))
 - Completion of Accessibility features
 - Credit-card auto-detect
 - Other features related to PWA as definedin Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
