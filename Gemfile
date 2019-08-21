@@ -8,6 +8,8 @@ gem "jekyll"
 
 gem "minimal-mistakes-jekyll"
 
+gem 'jemoji'
+
 group :jekyll_plugins do
     gem "jekyll-feed"
     gem "jekyll-seo-tag"
