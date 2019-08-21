@@ -58,7 +58,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 **Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
 
-1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
+1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
@@ -167,7 +167,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
     ```
 
-- **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
+- **Curly Braces:** When a Jekyll build is run, double curly braces (such as {% raw %}`{{` and `}}`){% endraw %} are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
