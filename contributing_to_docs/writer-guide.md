@@ -34,8 +34,11 @@ To get started with writing documentation in Markdown, check out the following g
 
 ## Working with Jekyll
 
+Jekyll is the software we use for generating the Spartacus documentation site.
 
-**Note:** You must always run the Jekyll build in your branch before you merge
+Writers must install Jekyll on their local machines to ensure that updates to the documentation are free from errors that could prevent the site from working properly. But don't worry, installing Jekyll is easy. And checking for errors is build right into the workflow that is described in [Working with GitHub](#working-with-github).
+
+
 
 
 ## Working with GitHub
@@ -44,7 +47,7 @@ To get started with writing documentation in Markdown, check out the following g
 - Need to be get write access to repos
 - Need to clone the docs repo
 - Working with GitHub Issues
-- Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch, and verifies it locally (http://localhost:4000/) **before** merging to `develop` or `master`.
+- Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch (`bundle exec jekyll serve`), and verifies it locally (`http://localhost:4000/`) **before** merging to `develop` or `master`.
 - Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
 - Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
 - Mention GitHub Desktop and Sourcetree as other tools that may be of interest, but that are beyond the scope of this document (ask your team for recommendations, suggestions -- note that neither of these tools are necessary)
