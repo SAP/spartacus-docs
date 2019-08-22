@@ -36,8 +36,13 @@ To get started with writing documentation in Markdown, check out the following g
 
 Jekyll is the software we use for generating the Spartacus documentation site.
 
-Writers must install Jekyll on their local machines to ensure that updates to the documentation are free from errors that could prevent the site from working properly. But don't worry, installing Jekyll is easy. And checking for errors is build right into the workflow that is described in [Working with GitHub](#working-with-github).
+Writers must install Jekyll on their local machines to ensure that updates to the documentation are free from errors that could prevent the site from working properly.
 
+To get up-and-running with Jekyll, install a full [Ruby development environment](https://jekyllrb.com/docs/installation/). The steps for installing Ruby also include steps for installing Jekyll.
+
+To learn more about Ruby, see this [Intro to Ruby](https://jekyllrb.com/docs/ruby-101/).
+
+### Useful Links
 
 
 
