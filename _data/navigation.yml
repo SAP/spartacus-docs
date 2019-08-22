@@ -107,6 +107,8 @@ docs:
             subchildren:
                 - title: "Loader Meta Reducer"
                   url: /loader-meta-reducer/  
+          - title: "SmartEdit Contract in Spartacus"
+            url: /smartedit-contract/        
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
