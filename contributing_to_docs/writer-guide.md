@@ -77,9 +77,9 @@ The following steps describe how to clone the Spartacus documentation repository
     git clone https://github.com/SAP/cloud-commerce-spartacus-storefront-docs.git
     ```
 
-4. Press **Enter**. 
+4. Press **Enter**.
 
-    Your local clone of the Spartacus documentation repository will be created.
+    A new `cloud-commerce-spartacus-storefront-docs` directory is created, and a local clone of the Spartacus documentation repository is copied to this directory.
 
 ### Working with GitHub Issues
 
