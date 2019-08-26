@@ -47,12 +47,45 @@ Although you don't need to become an expert in Jekyll to contribute to the Spart
 - [Jekyll Quickstart](https://jekyllrb.com/docs/)
 - [Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
 
-    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up on your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `cloud-commerce-spartacus-storefront-docs` repository for any part of the tutorial! :smile:
+    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `cloud-commerce-spartacus-storefront-docs` repository for any part of the tutorial! :smile:
 
 ## Working with GitHub
 
-- Need GitHub ID
-- Need to be get write access to repos
+### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
+
+Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write access to the Spartacus repositories. You cannot use your SAP Enterprise GitHub ID. You must either use a GitHub account that you have already created, or if you don't already have one, you must create a new GitHub account. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
+
+Once you have a GitHub ID, you then need write-access to the Spartacus repositories. Send your request for access to the Scrum Master of team Gladiators, either through Slack or email.
+
+### Cloning the Documentation Repository
+
+When you clone a repository, you are making a copy of the repository (all the files and folders of the repository) on your local machine. You then make changes to the files locally, and upload them to the master repository hosted in GitHub. All the steps for working in GitHub (as relates to Spartacus documentation) are detailed further below.
+
+The following steps describe how to clone the Spartacus documentation repository onto your local machine.
+
+1. Open a shell app on your computer.
+
+    For example, if you are on a Mac, you can use the `Terminal` application. On Windows, you can use the `Command Prompt`, for example. Or, on any computer, you can use the integrated terminal that is included in VS Code. For more information on using the VS Code terminal, see the relevant [VS Code documentation](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
+2. Within the shell app of your choice, navigate to the directory on your local machine where you would like to copy the repository.
+
+    You do not need to create a new folder. The clone operation takes care of this.
+
+3. In your shell app, enter the following command:
+
+    ```bash
+    git clone https://github.com/SAP/cloud-commerce-spartacus-storefront-docs.git
+    ```
+
+4. Press **Enter**. 
+
+    Your local clone of the Spartacus documentation repository will be created.
+
+### Working with GitHub Issues
+
+
+
+
 - Need to clone the docs repo
 - Working with GitHub Issues
 - Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch (`bundle exec jekyll serve`), and verifies it locally (`http://localhost:4000/`) **before** merging to `develop` or `master`.
