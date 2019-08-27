@@ -87,6 +87,18 @@ GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is
 
 All open issues related to the Spartacus documentation repository can very viewed here: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
+You can create a new issue by clicking the green **New issue** button on the right of the Issues page, above the list of open issues. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the page for creating new issues in the Spartacus documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new.
+
+When you are creating a new issue, it is also good to assign it to a project. The Spartacus teams use projects for tracking work, similar to working with a Jira board. You may wish to create a new project for tracking your work, which would allow you to keep it separate from the work of other writers, but for now, there is only one project in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1. **Note:** You can also access all projects for a particular repo by clicking on the **Projects** tab at the top of any page in GitHub.
+
+You can search for issues and pull requests using the search bar on the **Issues** page. You can search by simply using keywords, or you can fine-tune your search with filters that help you search for issues and pull requests with specific properties. For more information, see [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests) in GitHub help.
+
+Labels are a way of organizing issues, but for the most part, labels are rarely used in the Spartacus documentation repo.
+
+### Creating a New Issue
+
+
+
 
 - Need to clone the docs repo
 - Working with GitHub Issues
