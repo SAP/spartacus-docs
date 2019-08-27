@@ -83,7 +83,9 @@ The following steps describe how to clone the Spartacus documentation repository
 
 ### Working with GitHub Issues
 
+GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus team uses the terms "issues" and "ticket" interchangeably, probably as a left over from years of working in Jira :smile:
 
+All open issues related to the Spartacus documentation repository can very viewed here: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
 
 - Need to clone the docs repo
