@@ -11,6 +11,7 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 
 - [Spartacus in 60 Seconds](https://enable.cx.sap.com/media/Spartacus+in+60+Seconds+-+SAP+Commerce+Cloud/1_hwaie89l) (1:22)
 - [Introduction to Spartacus](https://enable.cx.sap.com/media/Introduction+to+Spartacus+-+SAP+Commerce+Cloud/1_6dln57h9) (10:49)
+- [Introducing Spartacus Release 1.0 for the Open Source Community](https://enable.cx.sap.com/media/t/1_b0ngf1lw)
 - [Customer Facing Features in Spartacus 1.0](https://enable.cx.sap.com/media/Customer-Facing+Features+in+Spartacus+1.0+-+SAP+Commerce+Cloud/1_j14t7kvz) (6:56)
 - [Creating your First Spartacus Storefront](https://enable.cx.sap.com/media/Creating+Your+First+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_unu0rtl1) (11:46)
 - [Upgradability and Versioning](https://enable.cx.sap.com/media/Upgradability+and+Versioning+-+SAP+Commerce+Cloud/1_8fhwky5k) (4:32)
