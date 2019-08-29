@@ -118,6 +118,8 @@ The following are useful links from the GitHub Help documentation:
 - [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests)
 - [About project boards](https://help.github.com/en/articles/about-project-boards)
 
+------------------
+
 - Need to clone the docs repo
 - Working with GitHub Issues
 - Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch (`bundle exec jekyll serve`), and verifies it locally (`http://localhost:4000/`) **before** merging to `develop` or `master`.
