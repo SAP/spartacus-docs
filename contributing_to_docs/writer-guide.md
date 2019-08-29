@@ -83,22 +83,30 @@ The following steps describe how to clone the Spartacus documentation repository
 
 ### Working with GitHub Issues
 
-GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus team uses the terms "issue" and "ticket" interchangeably.
+GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus tribe uses the terms "issue" and "ticket" interchangeably.
 
 All open issues related to the Spartacus documentation repository can very viewed under the [Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) tab, which you can access at the top of any page in the repository.
 
-You can create a new issue by clicking the green [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the **New issue** page.
+You can create a new issue by clicking the green [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark this page.
 
-When you are creating a new issue, it is also good to assign it to a project. The Spartacus teams use projects for tracking work, similar to working with a Jira board. You may wish to create a new project for tracking your work, which would allow you to keep it separate from the work of other writers, but for now, there is only one project in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1. **Note:** You can also access all projects for a particular repo by clicking on the **Projects** tab at the top of any page in GitHub.
+When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1. When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects) tab at the top of any page in GitHub.
 
-You can search for issues and pull requests using the search bar on the **Issues** page. You can search by simply using keywords, or you can fine-tune your search with filters that help you search for issues and pull requests with specific properties. For more information, see [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests) in GitHub help.
+#### Creating a New Issue
 
-Labels are a way of organizing issues, but for the most part, labels are rarely used in the Spartacus documentation repo.
+The following steps guide you through creating a new issue in GitHub:
 
-### Creating a New Issue
+1. Open the new issue page: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
+
+2. Provide a title in the **Title** field, and a description of the work to be done in the text box below the title field (where it says, "Leave a comment").
 
 
+#### Further Links
 
+The following are useful links from the GitHub Help documentation:
+
+- [About issues](https://help.github.com/en/articles/about-issues)
+- [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests)
+- [About project boards](https://help.github.com/en/articles/about-project-boards)
 
 - Need to clone the docs repo
 - Working with GitHub Issues
