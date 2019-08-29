@@ -99,6 +99,10 @@ The following steps guide you through creating a new issue in GitHub:
 
 2. Provide a title in the **Title** field, and a description of the work to be done in the text box below the title field (where it says, "Leave a comment").
 
+3. In the column on the right, click on **Projects** and assign the issue to a project.
+
+4. (Optional) In the column on the right, click on **Assignees** and assign the ticket to the person who will work on it.
+
 
 #### Further Links
 
