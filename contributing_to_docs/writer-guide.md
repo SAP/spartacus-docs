@@ -101,6 +101,8 @@ The following steps guide you through creating a new issue in GitHub:
 
 3. In the column on the right, click on **Projects** and assign the issue to a project.
 
+    For now, the only project is the [Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1) project.
+
 4. (Optional) In the column on the right, click on **Assignees** and assign the ticket to the person who will work on it.
 
 
