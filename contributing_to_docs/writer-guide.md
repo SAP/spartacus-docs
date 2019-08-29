@@ -83,11 +83,11 @@ The following steps describe how to clone the Spartacus documentation repository
 
 ### Working with GitHub Issues
 
-GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus team uses the terms "issues" and "ticket" interchangeably, probably as a left over from years of working in Jira :smile:
+GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus team uses the terms "issue" and "ticket" interchangeably.
 
-All open issues related to the Spartacus documentation repository can very viewed here: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
+All open issues related to the Spartacus documentation repository can very viewed under the [Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) tab, which you can access at the top of any page in the repository.
 
-You can create a new issue by clicking the green **New issue** button on the right of the Issues page, above the list of open issues. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the page for creating new issues in the Spartacus documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new.
+You can create a new issue by clicking the green [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the **New issue** page.
 
 When you are creating a new issue, it is also good to assign it to a project. The Spartacus teams use projects for tracking work, similar to working with a Jira board. You may wish to create a new project for tracking your work, which would allow you to keep it separate from the work of other writers, but for now, there is only one project in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1. **Note:** You can also access all projects for a particular repo by clicking on the **Projects** tab at the top of any page in GitHub.
 
