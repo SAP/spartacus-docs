@@ -9,17 +9,16 @@ when customers build their own customizations on top of specific behaviors or DO
 ## Feature levels
 
 To maintain strict backward compatibility, spartacus uses concept of configurable feature levels, that helps to maintain predictable behavior while improving existing components.
-By default, each minor version will have all new improvements enabled. To force strict compatibility with previous version, configure feature level as in below example:
+By default, feature level is set to latest major version (i.e. 1.0). To make use of new behaviors and improvements introduced in minor version (i.e. 1.3), configure feature level as below:
 
 ```typescript
 {
   features: {
-    level: '1.0'
+    level: '1.3'
   }
 }
 ``` 
 
-Thanks to this, you can use 1.3.x release that will work in strict compatibility with '1.0.x' releases. 
 Each consecutive feature level contains all of the features from previous one.
 
 ## Feature flags
