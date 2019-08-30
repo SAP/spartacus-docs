@@ -13,8 +13,8 @@ docs:
             url: /spartacus-faq/
           - title: 'Release Information'
             url: /release-information/
-          - title: Roadmap after Spartacus 1.0
-            url: /roadmap-after-spartacus-1.0/
+          - title: "Spartacus Roadmap"
+            url: /spartacus-roadmap/
           - title: 'Spartacus Videos'
             url: /spartacus-videos/
 
