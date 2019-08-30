@@ -106,7 +106,7 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 
 
 
-### What's Coming 
+### What's Coming
 
-See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/roadmap-after-spartacus-1.0.md %}).
+See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
 
