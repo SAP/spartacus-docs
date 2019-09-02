@@ -6,18 +6,18 @@ As long as we are in the scope of SPA, Spartacus performs only 'inside' navigati
 
 However many Customers may want to migrate step-by-step (route-by-route) from the old storefront system (i.e. Hybris accelerator) to the modern Spartacus SPA (Single Page Application), which means temporarily using different systems to drive parts of the storefronts at the same time. 
 
-Thanks to *external routes* feature of Spartacus, you can load page from backend for configurable URL patterns and migrate your routes step by step.
+Thanks to *external routes* feature of Spartacus, some routes can be loaded from backend or even redirected to a different domain.
 
-## How to use Spartacus and other storefronts systems at the same domain
+## How to use Spartacus and other storefront systems at the same domain
 
-The URL patterns need to be defined to distinguish the storefront systems. Then they should be applied in 3 places: *backend server*, *Spartacus* configuration and *Angular service worker* (when PWA is enabled), because of the following reasons:
+The URL patterns need to be defined to distinguish the storefront systems. Those patterns should be applied in 3 places: *backend server*, *Spartacus* configuration and *Angular service worker* (when PWA is enabled), because of the following reasons:
 
 1. When accessing a deep link, the *backend server* should:
     - serve Spartacus; **or**
     - serve other storefront's page
-2. When navigating to Angular's `routerLink`, *Spartacus* should:
+2. When navigating by the Angular's `routerLink`, *Spartacus* should:
     - activate a SPA route; **or**
-    - full (re)load page
+    - full (re)load a page
 3. When full (re)loading page, *Angular service worker* should:
     - intercept navigation request and return cached `index.html` of SPA; **or**
     - bypass the cache - to let the backend serve the response
@@ -77,11 +77,11 @@ Here are two examples:
 
 ## Configuration of Angular service worker (when PWA is enabled)
 
-To bypass the cache of the service worker and let the backend serve the response after full page (re)load, you need to define property `navigationUrls` of your service worker's config `ngsw-config.json` and specify the URL patterns for internal routes (similar to config of Spartacus). It uses the same glob-like syntax as the Spartacus configuration of internal routes, so you can **almost** copy-paste it. 
+To bypass the cache of the service worker and let the backend serve the response after full page (re)load, you need to define property `navigationUrls` of your service worker's config `ngsw-config.json` and specify the URL patterns for internal routes (similar to config of Spartacus). It uses the same glob-like syntax as Spartacus, so you can **almost** copy-paste it. 
 
-**Almost**, because those patterns take into account also the URL part with the site context, i.e. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context-configuration.md %}).
+**Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context-configuration.md %}).
 
-Here are two opposite examples (assuming that URL starts with configured 3 segments of the site context):
+Here are two examples (assuming that URL starts with configured 3 segments of the site context):
 
 1. Let only the *homepage*, *cart* and *product details pages* be rendered in SPA, but all other URLs should be loaded from the backend:
 
@@ -123,7 +123,7 @@ Here are two opposite examples (assuming that URL starts with configured 3 segme
 
 ## How to redirect to a different domain
 
-It may happen that a part of the storefront is hosted on a different domain. By [configuring URL patterns of internal routes of Spartacus](#configuration-of-spartacus) and extending the `ExternalRoutesGuard` we can redirect to a different domain instead of (re)load the page. For example:
+It may happen that a part of the storefront is hosted on a different domain. By configuring URL patterns just like explained in above sections and additionaly by extending the `ExternalRoutesGuard`, we can redirect to a different domain instead of (re)loading the page. Here is how to do it:
 
 Provide in your app.module the internal routes config and the custom guard implementation:
 
