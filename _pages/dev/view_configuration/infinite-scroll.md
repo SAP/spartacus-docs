@@ -1,6 +1,12 @@
 ---
-title: Infinite Scroll Configuration (DRAFT)
+title: Infinite Scroll (DRAFT)
 ---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.2 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 `Infinite Scroll` is a toggleable feature applied to the product list page that allows users to automatically retrieve products as they scroll down a page.
 
