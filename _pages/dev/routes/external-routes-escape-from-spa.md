@@ -28,15 +28,13 @@ The configuration of URL patterns for backend server depends on the used backend
 
 ### Configuration of Spartacus
 
-1. import the optional module `ExternalRoutesModule.forRoot()` from `@spartacus/core` in your app.module.
+Provide the configuration with URL patterns for internal routes, i.e. by importing `ConfigModule.withConfig()`. 
 
-2. provide configuration with URL patterns for internal routes, i.e. by importing `ConfigModule.withConfig()`. 
-
-    > The URL patterns use a limited glob format:
-    >   * `**` matches 0 or more path segments
-    >   * `*` matches 0 or more characters excluding `/`
-    >   * `?` matches exactly one character excluding `/` 
-    >   * The `!` prefix marks the pattern as being negative, meaning that only URLs that don't match the pattern will be included
+> The URL patterns use a limited glob format:
+>   * `**` matches 0 or more path segments
+>   * `*` matches 0 or more characters excluding `/`
+>   * `?` matches exactly one character excluding `/` 
+>   * The `!` prefix marks the pattern as being negative, meaning that only URLs that don't match the pattern will be included
 
 Here are two examples:
 
@@ -157,4 +155,4 @@ export class CustomExternalRoutesGuard extends ExternalRoutesGuard {
 
 ## Advanced cases
 
-For advanced custom cases, like multiple external routes hosted on multiple domains, you can extend the logic of the method `ExternalRoutesService.getRoutes()` to prepend custom Angular `Routes` with custom `UrlMatcher`s and custom guards.
+For advanced custom cases, like multiple external routes hosted on multiple domains, you can extend the logic of the method `ExternalRoutesService.getRoutes()` to prepend custom Angular `Routes` with custom `UrlMatcher`s and guards (i.e. each `Route` can redirect to a different domain).
