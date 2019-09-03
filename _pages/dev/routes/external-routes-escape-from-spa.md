@@ -123,14 +123,14 @@ Here are two examples (assuming that URL starts with configured 3 segments of th
 
 ## How to redirect to a different domain
 
-It may happen that a part of the storefront is hosted on a different domain. By configuring URL patterns just like explained in above sections and additionaly by extending the `ExternalRoutesGuard`, we can redirect to a different domain instead of (re)loading the page. Here is how to do it:
+It may happen that a part of the storefront is hosted on a different domain. Then we would like to redirect to a different domain instead of (re)loading the page, by extending the logic of `ExternalRoutesGuard`. Here is how to:
 
-Provide in your app.module the internal routes config and the custom guard implementation:
+Please provide in your app.module the internal routes config and the custom guard implementation:
 
 ```typescript
 imports: [
   ConfigModule.withConfig({
-    routing: { internal: [...] }
+    routing: { internal: [ /*...*/ ] }
   })
 ],
 providers: [
@@ -157,4 +157,4 @@ export class CustomExternalRoutesGuard extends ExternalRoutesGuard {
 
 ## Advanced cases
 
-For advanced custom cases (like multiple external routes hosted on multiple domains), you can extend the logic of the method `ExternalRoutesService.getRoutes()`.
+For advanced custom cases, like multiple external routes hosted on multiple domains, you can extend the logic of the method `ExternalRoutesService.getRoutes()` to prepend custom Angular `Routes` with custom `UrlMatcher`s and custom guards.
