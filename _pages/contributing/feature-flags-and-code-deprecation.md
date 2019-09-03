@@ -1,10 +1,10 @@
 ---
-title: Feature flags and code deprecation
+title: Feature Flags and Code Deprecation (DRAFT)
 ---
 
 ## Code deprecation
 
-For a complex and rapidly evolving libraries maintaining backward compatibility while improving existing features can be challenging. 
+For complex and rapidly evolving libraries, maintaining backward compatibility while improving existing features can be challenging. 
 Code deprecation allows to properly mark obsolete code and by warning users, helps them in transitioning to better alternatives.   
 
 ### @deprecated JSDoc annotation

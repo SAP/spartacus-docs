@@ -1,10 +1,8 @@
 ---
-title: Configuring feature flags
+title: Configuring Feature Flags (DRAFT)
 ---
 
-Each minor version of spartacus libraries comes with new features, often those features will be improvements to exiting components.
-Usually those features are anticipated by users, but in some cases could be considered as breaking changes, especially 
-when customers build their own customizations on top of specific behaviors or DOM structure.
+Each minor version of the Spartacus libraries includes new features, which are often improvements to exiting components. These features are usually expected by users, but in some cases, these could be considered breaking changes, especially when customers build their own customizations on top of specific behaviors or the DOM structure.
 
 ## Feature levels
 
