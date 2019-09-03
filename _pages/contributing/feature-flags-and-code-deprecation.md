@@ -2,6 +2,8 @@
 title: Feature Flags and Code Deprecation (DRAFT)
 ---
 
+**Note:** This feature is introduced with version 1.1 of the Spartacus libraries.
+
 ## Code deprecation
 
 For complex and rapidly evolving libraries, maintaining backward compatibility while improving existing features can be challenging. 

@@ -1,6 +1,7 @@
 ---
 title: Configuring Feature Flags (DRAFT)
 ---
+**Note:** This feature is introduced with version 1.1 of the Spartacus libraries.
 
 Each minor version of the Spartacus libraries includes new features, which are often improvements to exiting components. These features are usually expected by users, but in some cases, these could be considered breaking changes, especially when customers build their own customizations on top of specific behaviors or the DOM structure.
 
