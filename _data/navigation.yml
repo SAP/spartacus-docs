@@ -33,6 +33,8 @@ docs:
             url: /snapshot-builds/
           - title: 'Building the Spartacus Storefront from Libraries'
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Configuring Feature Flags"
+            url: /configuring-feature-flags/
           - title: 'SmartEdit Setup Instructions for Spartacus'
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: 'Personalization Setup Instructions for Spartacus'
@@ -151,6 +153,8 @@ docs:
                   url: /coding-guidelines/
                 - title: "Maintaining Public APIs"
                   url: /breaking-changes/
+                - title: "Feature Flags and Code Deprecation"
+                  url: /feature-flags-and-code-deprecation/  
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'
