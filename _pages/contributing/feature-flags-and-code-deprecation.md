@@ -2,7 +2,11 @@
 title: Feature Flags and Code Deprecation (DRAFT)
 ---
 
-**Note:** This feature is introduced with version 1.1 of the Spartacus libraries.
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.1 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 ## Code deprecation
 
