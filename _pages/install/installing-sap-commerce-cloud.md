@@ -108,7 +108,9 @@ To configure SAP Commerce Cloud to accept OCC REST API calls:
 
 **You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
-# Configuring CORS (optional to start but required for checkout)
+# Configuring CORS
+
+**Note:** This step is optional to start, but required for checkout.
 
 CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality such as checkout and consent management may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
@@ -120,9 +122,11 @@ corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST D
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
-For more information, [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
+For more information, see [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
 
-# Installing the Spartacus sample data addon (optional)
+# Installing the Spartacus sample data addon
+
+**Note:** This step is optional.
 
 The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
 

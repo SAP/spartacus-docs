@@ -34,17 +34,95 @@ To get started with writing documentation in Markdown, check out the following g
 
 ## Working with Jekyll
 
+Jekyll is the software we use for generating the Spartacus documentation site.
 
-**Note:** You must always run the Jekyll build in your branch before you merge
+**Note:** Writers must install Jekyll on their local machines. With Jekyll installed, you can build the documentation website on your local machine, and this ensures that updates to the documentation are free from errors that could prevent the site from working properly.
 
+To get up-and-running with Jekyll, read this [intro to Ruby](https://jekyllrb.com/docs/ruby-101/), and then install a full [Ruby development environment](https://jekyllrb.com/docs/installation/). The steps for installing Ruby also include steps for installing Jekyll.
+
+### Useful Links
+
+Although you don't need to become an expert in Jekyll to contribute to the Spartacus documentation, the following links may nonetheless be of interest:
+
+- [Jekyll Quickstart](https://jekyllrb.com/docs/)
+- [Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
+
+    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `cloud-commerce-spartacus-storefront-docs` repository for any part of the tutorial! :smile:
 
 ## Working with GitHub
 
-- Need GitHub ID
-- Need to be get write access to repos
+### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
+
+Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write access to the Spartacus repositories. You cannot use your SAP Enterprise GitHub ID. You must either use a GitHub account that you have already created, or if you don't already have one, you must create a new GitHub account. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
+
+Once you have a GitHub ID, you then need write-access to the Spartacus repositories. Send your request for access to the Scrum Master of team Gladiators, either through Slack or email.
+
+### Cloning the Documentation Repository
+
+When you clone a repository, you are making a copy of the repository (all the files and folders of the repository) on your local machine. You then make changes to the files locally, and upload them to the master repository hosted in GitHub. All the steps for working in GitHub (as relates to Spartacus documentation) are detailed further below.
+
+The following steps describe how to clone the Spartacus documentation repository onto your local machine.
+
+1. Open a shell app on your computer.
+
+    For example, if you are on a Mac, you can use the `Terminal` application. On Windows, you can use the `Command Prompt`, for example. Or, on any computer, you can use the integrated terminal that is included in VS Code. For more information on using the VS Code terminal, see the relevant [VS Code documentation](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
+2. Within the shell app of your choice, navigate to the directory on your local machine where you would like to copy the repository.
+
+    You do not need to create a new folder. The clone operation takes care of this.
+
+3. In your shell app, enter the following command:
+
+    ```bash
+    git clone https://github.com/SAP/cloud-commerce-spartacus-storefront-docs.git
+    ```
+
+4. Press **Enter**.
+
+    A new `cloud-commerce-spartacus-storefront-docs` directory is created, and a local clone of the Spartacus documentation repository is copied to this directory.
+
+### Working with GitHub Issues
+
+GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus tribe uses the terms "issue" and "ticket" interchangeably.
+
+All open issues related to the Spartacus documentation repository can very viewed under the [Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) tab, which you can access at the top of any page in the repository.
+
+You can create a new issue by clicking the green [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark this page.
+
+When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1. When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects) tab at the top of any page in GitHub.
+
+#### Creating a New Issue
+
+The following steps guide you through creating a new issue in GitHub:
+
+1. Open the new issue page: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
+
+2. Provide a title in the **Title** field.
+
+3. In the comment box below the **Title** field, add a description of the work to be done.
+
+4. In the column on the right, click on **Projects** and assign the issue to a project.
+
+    For now, the only project is the [Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1) project.
+
+5. If you know who will start work on this issue, click on **Assignees** (above **Projects**) and assign the issue to that person.
+
+6. Click **Submit new issue**.
+
+
+#### Further Links
+
+The following are useful links from the GitHub Help documentation:
+
+- [About issues](https://help.github.com/en/articles/about-issues)
+- [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests)
+- [About project boards](https://help.github.com/en/articles/about-project-boards)
+
+------------------
+
 - Need to clone the docs repo
 - Working with GitHub Issues
-- Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch, and verifies it locally (http://localhost:4000/) **before** merging to `develop` or `master`.
+- Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch (`bundle exec jekyll serve`), and verifies it locally (`http://localhost:4000/`) **before** merging to `develop` or `master`.
 - Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
 - Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
 - Mention GitHub Desktop and Sourcetree as other tools that may be of interest, but that are beyond the scope of this document (ask your team for recommendations, suggestions -- note that neither of these tools are necessary)
@@ -58,7 +136,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 **Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
 
-1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
+1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
@@ -167,7 +245,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
     ```
 
-- **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
+- **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}` ) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
