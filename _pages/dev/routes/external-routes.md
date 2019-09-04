@@ -2,6 +2,12 @@
 title: External Routes (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.2 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 As long as we are in the scope of SPA, Spartacus performs only 'inside' navigations due to usage of Angular's `routerLink` directive, which  by design doesn't load pages from backend. 
 
 However many Customers may want to migrate step-by-step (route-by-route) from the old storefront system (i.e. Hybris accelerator) to the modern Spartacus SPA (Single Page Application), which means temporarily using different systems to drive parts of the storefronts at the same time. 
@@ -117,7 +123,7 @@ Here are two examples (assuming that URL starts with configured 3 segments of th
     ]
     ```
 
-*For more, see the official documentation of Angular service worker config: https://angular.io/guide/service-worker-config#navigationurls*
+For more, see the official documentation of the Angular [service worker configuration](https://angular.io/guide/service-worker-config#navigationurls).
 
 ## How to redirect to a different domain
 
