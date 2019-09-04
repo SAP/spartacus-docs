@@ -2,6 +2,12 @@
 title: Express Checkout (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.2 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 ## Overview
 
 Express checkout allows the user to skip all steps and sees the review summary page instantly after click "Go to checkout".
