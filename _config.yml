@@ -295,3 +295,7 @@ defaults:
       path: "_pages"
     values:
       permalink: /:basename/                  
+
+version_note_part1: This feature is introduced with version
+version_note_part2: of the Spartacus libraries.
+product_name: Spartacus Storefront

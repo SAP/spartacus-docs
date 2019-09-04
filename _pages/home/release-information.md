@@ -1,10 +1,10 @@
 ---
-title: Release 1.0 Information
+title: Release 1.1 Information
 ---
 
-*Last updated July 4, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated August 29, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-This document describes what is included in Release 1.0 of Spartacus libraries.
+This document describes what is included in Release 1.1 of Spartacus libraries.
 
 If you have any questions, use the 'help' channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTRiNTFkMDJlZjRmYTBlY2QzZTM3YWNlYzJkYmEwZDY2MjM0MmIyYzdhYmQwZDMwZjg2YTAwOGFjNDBhZDYyNzE). Feedback welcome!
 
@@ -16,11 +16,14 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
 
 
 
-### Release 1.0.0 - available July 4, 2019
+### Overview
 
-- When we say "released", we mean that we produce tested Spartacus libraries from develop branch
-- We usually release new libraries every 2 weeks (hosted on npmjs.com)
-- To be able to use all functionality in Spartacus 1.0, Release 1905 of SAP Commerce Cloud is required; most of Spartacus can work with 1811 and previous releases, with no guarantees the farther back you go. Specifically, the following features require 1905:
+- When we say "released", we mean that we make new, official, tested Spartacus libraries available to the public (hosted on npmjs.com)
+- We usually release new libraries every 2 weeks 
+- A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
+- It’s important to note that if you choose not to use the new features, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
+- To use the new libraries, set your @spartacus libraries in package.json to “~1.#.0" (replace # with the release number). Then run `yarn upgrade` (although deleting your node_modules and doing yarn install is usually cleaner).
+- To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is strongly recommended as it usually contains bug fixes that affect Spartacus. Most of Spartacus can work with 1811, with no guarantees the farther back you go. Specifically, the following features require 1905:
   - SmartEdit support
   - Any usage of  new CmsFlexComponents or SiteContextComponent (although you can use other components such as JspComponent)
   - Forgot password / reset
@@ -28,7 +31,24 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
 
 
 
-### High-level list of features in 1.0
+### Release 1.1 Highlights
+
+*Released August 29, 2019*
+
+Release notes: https://github.com/SAP/cloud-commerce-spartacus-storefront/releases
+
+- Feature Flags (meant to allow setting feature level of releases for backwards compatibility)
+  - [Documentation for development](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/contributing/feature-flags-and-code-deprecation.md)
+  - [Documentation for consumption](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/install/configuring-feature-flags.md)
+- [Configurable Endpoints](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/connecting-to-other-systems/#endpoint-configuration)
+- [Change to registration and login flow: must log in after registering](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/2799#issuecomment-525679882)
+- Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
+
+
+
+### Release 1.0 Highlights
+
+*Released July 4, 2019*
 
 Customer-facing storefront features:
 
@@ -78,7 +98,7 @@ Spartacus is following semantic versioning (Major.Minor.Patch).
 - A new patch release (1.2.**3** > 1.2.**4** for example) means we added fixes or improvements but no new features.
 - A new minor release (1.**2**.4 > 1.**3**.0 for example)  means we added a new feature and possibly fixes and improvements.
 
-For both patch and minor releases, upgrading to the new libraries should not cause any compatibility problems with your storefront app. If anything, a new feature might have to be turned off because you don't wish to use it. We hope you will upgrade frequently.
+For both patch and minor releases, upgrading to the new libraries should not cause any compatibility problems with your storefront app. (If it does, report a bug.) All new features and fixes are implemented in a compatible way. For example, all new features are disabled by default using feature flags. We hope you will upgrade frequently.
 
 - A new major release (**1**.3.2 > **2**.0.0 for example) means that, besides adding new features and improvements, we made changes that will likely cause compatibility issues. Your app likely needs updating when moving to a new major release. These effects, reasons, and benefits will be documented.
 
@@ -86,6 +106,7 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 
 
 
-### What's Coming after 1.0
+### What's Coming
 
-See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/roadmap-after-spartacus-1.0.md %}).
+See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
+

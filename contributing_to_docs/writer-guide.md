@@ -97,7 +97,17 @@ The following steps guide you through creating a new issue in GitHub:
 
 1. Open the new issue page: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
 
-2. Provide a title in the **Title** field, and a description of the work to be done in the text box below the title field (where it says, "Leave a comment").
+2. Provide a title in the **Title** field.
+
+3. In the comment box below the **Title** field, add a description of the work to be done.
+
+4. In the column on the right, click on **Projects** and assign the issue to a project.
+
+    For now, the only project is the [Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1) project.
+
+5. If you know who will start work on this issue, click on **Assignees** (above **Projects**) and assign the issue to that person.
+
+6. Click **Submit new issue**.
 
 
 #### Further Links
@@ -107,6 +117,8 @@ The following are useful links from the GitHub Help documentation:
 - [About issues](https://help.github.com/en/articles/about-issues)
 - [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests)
 - [About project boards](https://help.github.com/en/articles/about-project-boards)
+
+------------------
 
 - Need to clone the docs repo
 - Working with GitHub Issues
