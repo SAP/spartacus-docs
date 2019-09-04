@@ -1,7 +1,7 @@
 # main links
 main:
-    - title: Version 1.0
-      url: /release-1.0-information/
+    - title: Version 1.1
+      url: /release-information/
 
 # sidebar menu
 docs:
@@ -11,10 +11,10 @@ docs:
             url: /
           - title: 'Spartacus FAQ'
             url: /spartacus-faq/
-          - title: 'Release 1.0 Information'
-            url: /release-1.0-information/
-          - title: Roadmap after Spartacus 1.0
-            url: /roadmap-after-spartacus-1.0/
+          - title: 'Release Information'
+            url: /release-information/
+          - title: "Spartacus Roadmap"
+            url: /spartacus-roadmap/
           - title: 'Spartacus Videos'
             url: /spartacus-videos/
 
@@ -33,6 +33,8 @@ docs:
             url: /snapshot-builds/
           - title: 'Building the Spartacus Storefront from Libraries'
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Configuring Feature Flags"
+            url: /configuring-feature-flags/
           - title: 'SmartEdit Setup Instructions for Spartacus'
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: 'Personalization Setup Instructions for Spartacus'
@@ -109,6 +111,8 @@ docs:
             subchildren:
                 - title: "Loader Meta Reducer"
                   url: /loader-meta-reducer/  
+          - title: "SmartEdit Contract in Spartacus"
+            url: /smartedit-contract/        
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
@@ -151,6 +155,8 @@ docs:
                   url: /coding-guidelines/
                 - title: "Maintaining Public APIs"
                   url: /breaking-changes/
+                - title: "Feature Flags and Code Deprecation"
+                  url: /feature-flags-and-code-deprecation/  
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'

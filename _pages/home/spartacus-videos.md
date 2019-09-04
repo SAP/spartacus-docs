@@ -11,12 +11,16 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 
 - [Spartacus in 60 Seconds](https://enable.cx.sap.com/media/Spartacus+in+60+Seconds+-+SAP+Commerce+Cloud/1_hwaie89l) (1:22)
 - [Introduction to Spartacus](https://enable.cx.sap.com/media/Introduction+to+Spartacus+-+SAP+Commerce+Cloud/1_6dln57h9) (10:49)
+- [Introducing Spartacus Release 1.0 for the Open Source Community](https://enable.cx.sap.com/media/t/1_b0ngf1lw) (53:24)
 - [Customer Facing Features in Spartacus 1.0](https://enable.cx.sap.com/media/Customer-Facing+Features+in+Spartacus+1.0+-+SAP+Commerce+Cloud/1_j14t7kvz) (6:56)
 - [Creating your First Spartacus Storefront](https://enable.cx.sap.com/media/Creating+Your+First+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_unu0rtl1) (11:46)
 - [Upgradability and Versioning](https://enable.cx.sap.com/media/Upgradability+and+Versioning+-+SAP+Commerce+Cloud/1_8fhwky5k) (4:32)
 - [Search Indexing Support](https://enable.cx.sap.com/media/Search+Indexing+Support+-+SAP+Commerce+Cloud/1_erxdtpn6) (2:46)
 - [SEO Features](https://enable.cx.sap.com/media/SEO+Features+-+SAP+Commerce+Cloud/1_wim5rixu) (3:43)
-- [Styling with Global Variables](https://enable.cx.sap.com/media/PREVIEW+-+Styling+with+Global+Variables+-+SAP+Commerce+Cloud/1_hb4jz06o)
+- [Styling with Global Variables](https://enable.cx.sap.com/media/Styling+with+Global+Variables+-+SAP+Commerce+Cloud/1_eae1fztm) (4:19)
+- [Styling with Precise Selectors](https://enable.cx.sap.com/media/Styling+With+Precise+Selectors+-+SAP+Commerce+Cloud/1_ldqmajwd) (4:02)
+- [Introduction to Extendability with Outlets](https://enable.cx.sap.com/media/Introduction+to+Extendability+with+Outlets+-+SAP+Commerce+Cloud/1_wy2eg32x) (8:33)
+- [Configurable Routing](https://enable.cx.sap.com/media/Configurable+Routing+-+SAP+Commerce+Cloud/1_879ub3el) (10:38)
 - [How Spartacus Uses Backend Catalog and CMS Data](https://enable.cx.sap.com/media/How+Spartacus+Uses+Backend+Catalog+and+CMS+Data+-+SAP+Commerce+Cloud/1_8mmwx8ck) (10:05)
 
 #### Spartacus Extensibility Live Coding Series
