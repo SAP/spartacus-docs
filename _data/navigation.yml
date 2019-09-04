@@ -74,6 +74,8 @@ docs:
                   url: /searchbox-component/
           - title: 'Extending Checkout'
             url: /extending-checkout/
+          - title: 'Express Checkout'
+            url: /express-checkout/
           - title: 'Configurable Routing'
             url: /configurable-routing/
             subchildren:
