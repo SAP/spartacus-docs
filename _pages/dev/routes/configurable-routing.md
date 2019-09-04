@@ -20,7 +20,7 @@ For more information, see the following:
 - [Disabling Standard Routes]({{ site.baseurl }}{% link _pages/dev/routes/disabling-standard-routes.md %})
 - [Additional Route Parameters]({{ site.baseurl }}{% link _pages/dev/routes/additional-route-parameters.md %})
 - [Route Aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %})
-- [External routes (escape from SPA)]({{ site.baseurl }}{% link _pages/dev/routes/external-routes-escape-from-spa.md %})
+- [External Routes]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %})
 
 ## Limitations
 

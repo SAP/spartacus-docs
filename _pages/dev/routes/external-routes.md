@@ -1,5 +1,5 @@
 ---
-title: External routes (escape from SPA)
+title: External Routes (DRAFT)
 ---
 
 As long as we are in the scope of SPA, Spartacus performs only 'inside' navigations due to usage of Angular's `routerLink` directive, which  by design doesn't load pages from backend. 

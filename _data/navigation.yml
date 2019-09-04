@@ -87,8 +87,8 @@ docs:
                   url: /additional-route-parameters/
                 - title: 'Route Aliases'
                   url: /route-aliases/
-                - title: 'External Routes (escape from SPA)'
-                  url: /external-routes-escape-from-spa/
+                - title: 'External Routes'
+                  url: /external-routes/
           - title: 'Configuring the Base URL'
             url: /configuring-base-url/
           - title: 'Context Configuration'
