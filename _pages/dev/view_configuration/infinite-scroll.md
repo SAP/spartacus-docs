@@ -8,6 +8,8 @@ title: Infinite Scroll (DRAFT)
 
 {% include docs/feature_version.html content=version_note %}
 
+Infinite scroll is a web-design technique that loads content continuously as the user scrolls down the page, eliminating the need for pagination.
+
 `Infinite Scroll` is a toggleable feature applied to the product list page that allows users to automatically retrieve products as they scroll down a page.
 
 The `default configuration` for Infinite Scroll is to have it deactivated. As a result of this, pagination is used in all Spartacus installations unless these settings are overriden.
