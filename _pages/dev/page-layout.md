@@ -1,5 +1,5 @@
 ---
-title: Page Layout
+title: Page Layout (DRAFT)
 ---
 
 Spartacus is based on a Single Page Application design pattern, but there are still pages that are rendered in the storefront. The concept of a "page" is key to the web and cannot be avoided: pages are identified by URLs, indexed by search engines, shared through social media, stored in browser history, and so on. Pages are fundamental to end users, and to the content creation process as well.
@@ -8,7 +8,7 @@ Spartacus is based on a Single Page Application design pattern, but there are st
 
 Pages in CMS are constructed with slots and components. A page contains slots, and slots contain components. To organize common slots and components, Spartacus supports page templates. A page template contains layout and components that can be used globally, such as header and footer sections.
 
-The CMS provides the page structure, but it does not provide a clear layout definition. The page structure only provides an ordered list of components per slot, but the slots themselves do not have meta info on how they should be rendered in the layout. 
+The CMS provides the page structure, but it does not provide a clear layout definition. The page structure only provides an ordered list of components per slot, but the slots themselves do not have meta info on how they should be rendered in the layout.
 
 To provide layout information to the view logic, Spartacus uses a `LayoutConfig` configuration object to render the page slots in a given order. Additionally, you can use CSS rules to provide a specific layout.
 
@@ -40,6 +40,64 @@ const defaultLayoutConfig: LayoutConfig = {
 ```
 
 **Note**: To simplify the initial setup for projects, if the page layout configuration is incomplete, all page slots are rendered on the page. In addition, a warning is printed to the console, along with information about the available page slots that could be configured.
+
+## Using Outlets to Override Page Templates
+
+When page templates, slots or components are rendered dynamically rendered in Spartacus, outlets get added for each slot. Outlets can be use to replace part of a page template in Spartacus. The outlets for the slots are easy to find as their label corresponds to name of the element being wrapped.
+
+The following is an example of how to replace the `ProductAddToCartComponent` using an outlet:
+
+```html
+<ng-template cxOutletRef="ProductAddToCartComponent">
+  <div>Custom Title</div>
+  <custom-add-to-cart></custom-add-to-cart>
+</ng-template>
+```
+
+### Outlet Context
+
+Outlets contain a context which is an object containing various attributes that can be used within the outlet. The context is different per outlet based on the element it contains.
+
+#### Page Template
+
+- `templateName$`: Name of the template. (Observable)
+- `slots$`: Slots in the template. (Observable)
+- `sections$`: Sections in the template. (Observable)
+
+#### Slot
+
+- `components$`: List of components in the slot. (Observable)
+
+#### Component
+
+- `component`: The component data as returned by the backend.
+
+The following example demonstrates how to use the context to get the list of components within a slot:
+
+{% raw %}
+```html
+<ng-template cxOutletRef="Section1" let-model>
+  "Section1" position
+  <pre>{{ model.components$ | async | json }}</pre>
+</ng-template>
+```
+{% endraw %}
+
+### Outlet Position
+
+In addition to context the outlets have another attribute for positioning, `cxOutletPos`. This attibute allows the code from the outlet to be injected `before`, `after` or `replace` the reference. If no value is specified the code will be replaced.
+
+This following example demonstate addidng a label before the `ProductDetailsPageTemplate`:
+
+```html
+<ng-template cxOutletRef="ProductDetailsPageTemplate" cxOutletPos="before">
+  <div class="before-pdp">
+    Campaign UI for Canon
+  </div>
+</ng-template>
+```
+
+**Note**: Some slots have the same name therefore, their outlets have the same label. This can lead to code being injected in unwanted parts of the site. This is a known issue and the team is working on fixing it.
 
 ## CSS Layout Rules
 

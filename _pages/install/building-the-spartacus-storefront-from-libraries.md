@@ -84,10 +84,10 @@ The dependencies in this procedure are required by the Spartacus storefront.
    "i18next": "^15.0.6",
    "i18next-xhr-backend": "^2.0.1",
    
-   "@spartacus/core": "~0.1.0-beta.0",
-   "@spartacus/styles": "~0.1.0-beta.0",
-   "@spartacus/storefront": "~0.1.0-beta.0",
-   "@spartacus/assets": "~0.1.0-beta.3"
+   "@spartacus/core": "~1.0.0",
+   "@spartacus/styles": "~1.0.0",
+   "@spartacus/storefront": "~1.0.0",
+   "@spartacus/assets": "~1.0.0"
    ```
    
    Note: Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
@@ -101,7 +101,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 **Note:** 
 
-(1) The `~` instructs yarn to use the latest minor version (x.y), whereas the `^` instructs yarn to use the latest patch version (x.y.z). Note that because Spartacus libraries have `-beta.#`, yarn will only install the latest beta releases (it won't automatically use RC or later versions).
+(1) Using `~` instructs yarn to use the latest patch version (x.y.**z**), whereas using `^` instructs yarn to use the latest minor version (x.**y**.0).
 
 (2) If you are updating an existing app, and changing dependencies, it's recommended that you delete the `node_modules` folder before running the install command.
 
@@ -115,7 +115,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
 
    ```typescript
    import { ConfigModule } from '@spartacus/core';
-   import { translations } from '@spartacus/assets';
+   import { translations, translationChunksConfig } from '@spartacus/assets';
    import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
    ```
 
@@ -136,15 +136,15 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
          client_id: 'mobile_android',
          client_secret: 'secret'
        },
-       site: {
-         baseSite: 'electronics'
+       context: {
+         baseSite: ['electronics']
        },
        i18n: {
          resources: translations,
+         chunks: translationChunksConfig,
          fallbackLang: 'en'
        }
      }),
-     ConfigModule.withConfigFactory(defaultCmsContentConfig)
    ```
   
    Don't forget to add a comma to the module entry before `B2cStorefrontModule`.
@@ -181,15 +181,15 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
              client_id: 'mobile_android',
              client_secret: 'secret'
            },
-           site: {
-             baseSite: 'electronics'
+           context: {
+             baseSite: ['electronics']
            },
            i18n: {
              resources: translations,
+             chunks: translationChunksConfig,
              fallbackLang: 'en'
            }
          }),
-         ConfigModule.withConfigFactory(defaultCmsContentConfig)
        ],
      providers: [],
      bootstrap: [AppComponent],
@@ -216,10 +216,6 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 - `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the spartacussampledataaddon (described later in this document), you would change this setting to `electronics-spa`.
 
 - `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
-
-#### About the ConfigModule Statement
-
-The `ConfigModule.withConfigFactory(defaultCmsContentConfig)` paramater configures Spartacus to use default CMS (content) data provided with Spartacus.
 
 ## Adding the Storefront to `app.component.html`
 

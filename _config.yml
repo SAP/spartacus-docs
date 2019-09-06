@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : # "Site Title"
+title                    : "Spartacus Documentation"
 title_separator          : "-"
-name                     : "Your Name"
+name                     : # "Your Name"
 description              : "SAP Spartacus JavaScript Storefront Documentation."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -295,3 +295,7 @@ defaults:
       path: "_pages"
     values:
       permalink: /:basename/                  
+
+version_note_part1: This feature is introduced with version
+version_note_part2: of the Spartacus libraries.
+product_name: Spartacus Storefront

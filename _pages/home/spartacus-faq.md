@@ -27,7 +27,7 @@ Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is r
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus? 
 
-SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808, but due to API improvements since then, some features will not work. For example, SmartEdit will only work with release 1905. These differences will be described in the Spartacus documentation. 
+SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7. 
 
 ### Does Spartacus integrate with any other SAP products? 
 
@@ -55,7 +55,7 @@ Spartacus is a complete paradigm shift from the Accelerators in terms of technol
 
 ### How long does it take to get a Spartacus-based storefront up and running? 
 
-Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [these step-by-step instructions](https://github.com/SAP/cloud-commerce-spartacus-storefront/wiki/Setup-and-Installation). 
+Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 ### Is there a demo of a Spartacus-based storefront available? 
 
@@ -63,7 +63,7 @@ Try out our continuous-integration server [here](https://sap.github.io/cloud-com
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available? 
 
-Documentation is available from the Spartacus GitHub [Wiki](https://github.com/SAP/cloud-commerce-spartacus-storefront/wiki). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
+Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
 
 ### Can I customize Spartacus? 
 
@@ -91,7 +91,9 @@ You can host, or we can. SAP Commerce Cloud in the public cloud includes support
 
 ### What about SEO? I heard that single page storefronts result in lower SEO ranking and make it difficult to share pages on social media. Is this an issue with Spartacus? 
 
-Not an issue. No storefront would work with SEO. Spartacus is indeed a “SPA” (Single-Page Application), which benefits performance and flexibility while only loading one page. In order to support SEO, Spartacus also supports Server-Side Rendering (SSR), which builds entire pages on the server side before providing to the client. SSR provides web crawlers with access to individual pages for search indexing purposes. SSR also allows users to share a link to a page on things like social media, and Spartacus also allows configuration of social media meta tags. Usage of SSR has the added benefit of greatly speeding up first time-to-view. Your server must also support SSR; this support will be added to Cloud Commerce v2 Q2-Q3 2019. 
+Not an issue. No storefront would work with SEO. Spartacus is indeed a “SPA” (Single-Page Application), which benefits performance and flexibility while only loading one page. In order to support SEO, Spartacus also supports Server-Side Rendering (SSR), which builds entire pages on the server side before providing to the client. SSR provides web crawlers with access to individual pages for search indexing purposes. SSR also allows users to share a link to a page on things like social media, and Spartacus also allows configuration of social media meta tags. Usage of SSR has the added benefit of greatly speeding up first time-to-view. 
+
+Your server must also support SSR functionality. Support for SSR will be added to SAP Commerce Cloud hosting services Q3 2019. 
 
 ### Does Spartacus scale? How? 
 
@@ -111,7 +113,7 @@ No they are different. SAP Cloud Platform Extension Factory is the key extensibi
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services? 
 
-Yes. Support for contextual journey tracking will be added to Spartacus, scheduled for end of Q2 2019. 
+Yes. Support for contextual journey tracking will be added to Spartacus, scheduled for Q3 2019. 
 
 ------
 
@@ -119,7 +121,7 @@ Yes. Support for contextual journey tracking will be added to Spartacus, schedul
 
 ### How much will Spartacus cost? 
 
-Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/LICENSE.txt).  
+Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/master/LICENSE).  
 
 ### Do I need to sign a contract to obtain a license? 
 

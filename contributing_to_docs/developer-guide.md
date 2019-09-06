@@ -1,20 +1,28 @@
 # Developers: Contributing to Documentation
 
-All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository. 
+All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
-The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. 
+The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuild the site.
 
-Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
+Note that, after merging to the `master` branch, it can sometimes take a few minutes for changes to appear on the site.
 
 ## Making Updates to the Documentation Repository
 
 Whether you are creating new documentation, or updating an existing topic, the steps are the same.
 
-1. Create a new issue (ticket) in the documentation repo: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
+One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation.
+
+**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
+
+1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
 2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
+
+    Always create your new `doc` branch from the `develop` branch.
+  
+    The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can create your new `doc` branch from the `master` branch.
 
 3. Create new documentation or update existing topics in the `_pages` folder.
 
@@ -22,17 +30,17 @@ Whether you are creating new documentation, or updating an existing topic, the s
 
 4. Create a pull request.
 
-   If your doc update should be published with the next release of the Spartacus libraries, send your pull request to the `develop` branch. 
-   
-   If, on the other hand, you want your doc update to be published as soon as it is merged, then send your pull request to the `master` branch.
+   Always send your pull request to the `develop` branch.
+  
+   The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can send your pull request to the `master` branch.
 
-   The PR requires a minimum of one approver. It is always a good idea to let the writer check the PR, whenever possible.
+   The PR requires a minimum of one approver. Always include a writer as one of the approvers.
 
 5. Merge your pull request.
 
-   If you merged your updates to the `develop` branch, they will be merged to the `master` branch (by the writer) on the next lib release day.
+   If you merged your updates to the `develop` branch, the updates will be staged until the next release of the Spartacus libraries, at which point they will be published by the documentation release master.
 
-   If you merged your updates to the `master` branch, they will automatically trigger Jekyll to rebuild the GitHub pages site. Your changes will show up after a few minutes (you may need to empty your cache to see the updates).  
+   If you merged your updates to the `master` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).  
 
 ## Updating the Sidebar
 
@@ -41,7 +49,6 @@ New topics must be explicitly added to `_data/navigation.yml` for them to appear
 ## Documentation Conventions
 
 Please adhere to the following conventions to ensure that your changes build successfully when they are merged:
-
 
 - **Filenames:** Use lower-case names for all documentation files. 
 
@@ -56,9 +63,9 @@ Please adhere to the following conventions to ensure that your changes build suc
     ```
 
     This section is referred to in Jekyll as the "front matter".
-    
+  
     The page title takes the place of the level-1 header that normally appears in a markdown file, so there is no need to include leve1-1 headers (denoted by the single hashtag #) at the top of the page.
-    
+  
     The page titles is independent of the filename. You can change the title any time, but avoid changing the filename as much as possible.
 
 - **Links:** To link to another page within the Spartacus documentation, use the `link` tag, as follows:
@@ -75,8 +82,8 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     To quote from the Jekyll help: *"One major benefit of using the `link` tag is link validation. If the link doesn’t exist, Jekyll won’t build your site. This is a good thing, as it will alert you to a broken link so you can fix it (rather than allowing you to build and deploy a site with broken links)."*
 
-    Note, there are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page. 
-    
+    Note, there are a few types of links that are not handled by the `link` tag: links to external sites, and links to sections within a page.
+  
     If you need to link to an external site, use the following format:
 
     ```markdown
@@ -102,6 +109,18 @@ Please adhere to the following conventions to ensure that your changes build suc
     ```markdown
     [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
     ``` 
+
+- **Images:** Images reside in the `/assets/images/` folder. The format for including an image in your topic is the following:
+
+    ```markdown
+    ![alt text]({{ site.baseurl }}/path/to/image.png)
+    ```
+
+    The following is an example from the [Designing Action Buttons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/designing-action-buttons/) page:
+
+    ```markdown
+    ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
+    ```
 
 - **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
