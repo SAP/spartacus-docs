@@ -1,5 +1,5 @@
 ---
-title: Infinite Scroll (DRAFT)
+title: Infinite Scroll
 ---
 
 {% capture version_note %}
@@ -8,13 +8,11 @@ title: Infinite Scroll (DRAFT)
 
 {% include docs/feature_version.html content=version_note %}
 
-Infinite scroll is a web-design technique that loads content continuously as the user scrolls down the page, eliminating the need for pagination.
+Infinite scroll is a web-design technique that loads content continuously as the user scrolls down the page, removing the need for pagination.
 
-`Infinite Scroll` is a toggleable feature applied to the product list page that allows users to automatically retrieve products as they scroll down a page.
+When infinite scroll is enabled in Spartacus, it applies to the product search page, as well as the category pages in both the list and grid views. When infinite scroll is disabled, Spartacus uses pagination instead. By default, infinite scroll is disabled in Spartacus.
 
-The `default configuration` for Infinite Scroll is to have it deactivated. As a result of this, pagination is used in all Spartacus installations unless these settings are overriden.
-
-The default configuration can be overriden in `app.module.ts` and will look as such:
+You can enable infinite scroll with the following settings in `app.module.ts`:
 
 ```typescript
     view: {
@@ -27,30 +25,12 @@ The default configuration can be overriden in `app.module.ts` and will look as s
     ...
 ```
 
-The `view` container holds all configurations that affect the display of the Spartacus storefront.
-The inner `infiniteScroll` container is responsible for the configuration of this feature.
+The `view` container contains all of the configurations that affect the display of the Spartacus storefront, including the `infiniteScroll` container. The `infiniteScroll` container contains all of the configurations that affect the infinite scroll feature.
 
-#### active
+Use the `active` property to enable and disable infinite scroll. Infinite scroll is enabled when `active` is set to `true`. If the value for `active` is empty, or set to `false`, all other `infiniteScroll` settings are ignored, and Spartacus uses pagination instead.
 
-The `active` property will determine whether Infinite Scroll will be used in the application.
-Infinite Scroll is only active when this property's value is set to true.
+Use the `productLimit` property to control the number of products a user can scroll through before they are prompted to load more items. For example, if the value for `productLimit` is set to `50`, then a **Show More** button appears after the user has scrolled through 50 items. When the user presses the **Show More** button, the user can scroll through another 50 items before the button appears again. 
 
-**Note**: If it is empty or set to false, the application will ignore all the settings related to Infinite Scroll and will instead use pagination.
+By limiting the number of products that are shown, you can prevent users from experiencing degraded browser performance, which could occur when displaying very large lists of products. Note that if the value for `productLimit` is empty, or set to `0`, then the `productLimit` property is disabled.
 
-#### productLimit
-
-`productLimit` provides a limit to the number of products a user is able to scroll through before they are prompted to allow the process of scrolling for more products.
-
-**Ex**: If the value for this property is set to 50, then a user will be able to scroll until they reach 50 products. At this point, they will be prompted to continue scrolling by pressing a button labeled "Show More'.
-
-This is to prevent an excessive load on a user's browser that can be caused by displaying very large lists.
-
-**Note**: If this value is empty or set to 0, then the productLimit is disabled.
-
-#### showMoreButton
-
-`showMoreButton` allows for users to experience the scroll effect with more control by having a "Show More" button appear at the end of their current product list.
-
-**Ex**: Assume when first navigating to the product list, 10 products are displayed. Once a user has scrolled to the bottom of this list, they will be prompted with a button labeled "Show More'. When this button is pressed, the next 10 products are added to the list. This process will be repeated until there are no more products to display.
-
-**Note**: If this property is set to false, then `true` Infinite Scroll will be active and no buttons will be displayed to retrieve more products. If it is set to true, then a button will appear at the end of every list and productLimit is ignored.
+Use the `showMoreButton` property to explicitly set a display limit of 10 products before the **Show More** button appears. For example, if the `showMoreButton` property is set to `true`, a user sees a **Show More** button after scrolling through 10 items. When the user presses **Show More**, 10 more items are loaded, and this process is repeated until there are no more products to display. Note that if the value for `showMoreButton` is set to `false`, then a **Show More** button only appears when a user has viewed the number of products specified by the `productLimit` property. If the value for `showMoreButton` is set to `true`, then the value for `productLimit` is ignored.
