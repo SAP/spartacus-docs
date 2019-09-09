@@ -10,7 +10,8 @@ Every checkout page is based on CMS pages, slots and components. Thanks to this 
 ## Routing and Configuration
 
 In checkout you often have links from on step to another. That is the reason for registering each checkout page as semantic page in storefront config.
-Below is our default route configuration for checkout (you don't have to write this, it is already in library):
+
+Below is the default route configuration for checkout that ships with the Spartacus libraries:
 
 ```typescript
 B2cStorefrontModule.withConfig({
@@ -86,7 +87,7 @@ Order in which you define the steps in array is used in navigation buttons. Exam
 
 ## Components
 
-Every checkout component is a CMS component (in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/Customizing-CMS-Components/#placeholder-components). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
+Every checkout component is a CMS component (in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#placeholder-components). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
 
 ## Protecting Routes
 
