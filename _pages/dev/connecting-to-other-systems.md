@@ -114,11 +114,11 @@ export class CustomProductNormalizer implements Converter<Occ.Product, CustomPro
 
 REST endpoints provided by OCC are often configurable. All endpoints have an optional field parameter that dictates the response data that is returned. While this configuration can also be driven by a (JAVA Spring) back end configuration, doing this at runtime in the front end gives more flexibility and limits customizations in the back end.
 
-**Note** Until 2.0 this feature is off by default. The following configuration is required to enable it:
+**Note** This feature requires a feature level of **1.1 or higher**. The following configuration is required to enable it:
 
 ```typescript
 features: {
-  configurableOccEndpoints: true
+  level: 1.1
 }
 ```
 
