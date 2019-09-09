@@ -2,6 +2,12 @@
 title: Consignment Tracking
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.2 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 ## Overview
 
 Customers can view consignment tracking information to know the real-time status of their packages.
