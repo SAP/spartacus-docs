@@ -87,7 +87,7 @@ Architectural and foundational features:
 | Cache-first networking           | Caching of shell app, with more to come in subsequent releases |
 | Localization                     | All front-end texts localizable (texts that are part of the storefront code only; some texts come from backend CMS components, translated in backend) |
 | Cloud Platform Extension Factory | Connectivity supported                                      |
-| Builds with CCv2                 | JavaScript appiclications such as Spartacus-based storefronts can be built alongside SAP Commerce using Commerce Cloud v2 |
+| Builds with CCv2                 | JavaScript applications such as Spartacus-based storefronts can be built alongside SAP Commerce using Commerce Cloud v2 |
 
 
 

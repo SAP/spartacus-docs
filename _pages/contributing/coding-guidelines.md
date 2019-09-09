@@ -63,7 +63,7 @@ If a feature that use NGRX logic is meant to be called from UI components, facad
 
 ### NGRX in UI Components
 
-The complexity of NGRX is encapsulated in the core lib. Facade services are availbe from the core lib. The facade services expose the core lib features, but they hide the NGRX logic within their implemenation.
+The complexity of NGRX is encapsulated in the core lib. Facade services are available from the core lib. The facade services expose the core lib features, but they hide the NGRX logic within their implementation.
 
 Built in Spartacus UI components should not contain NGRX logic. Instead, the UI components should call facade service functions.
 
@@ -147,5 +147,5 @@ Method Modifiers
 
 Constructor Arguments
 
-- Constructor arguments should be **atleast** protected.
+- Constructor arguments should be **at least** protected.
 - Constructor arguments should be limited. Create a new service if many injections are required.

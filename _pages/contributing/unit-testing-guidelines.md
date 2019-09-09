@@ -139,7 +139,7 @@ service
 expect(result).toBeFalsy();
 ```
 
-In the above, the assertion will be true even if the 'hasPage' function is never called (or does nothing). Instead, initialiaze the result variable to a value that will fail the assertions. This way, we can be sure the action we are testing performed some processing.
+In the above, the assertion will be true even if the 'hasPage' function is never called (or does nothing). Instead, initialize the result variable to a value that will fail the assertions. This way, we can be sure the action we are testing performed some processing.
 
 In the example below, the value _true_ will fail the assertion unless the process is called and provides the expected falsy result.
 

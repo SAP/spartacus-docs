@@ -76,7 +76,7 @@ In the group `smartedit`, there is `classes`. It is the required SmartEdit contr
 ...
 ```
 
-CMS slots and components also contain the `properties`. We need add these attributes to component/slot tags. The following is an exmpple of "HelpLink" component.
+CMS slots and components also contain the `properties`. We need add these attributes to component/slot tags. The following is an example of "HelpLink" component.
 
 ```typescript
 {

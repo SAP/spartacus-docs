@@ -79,7 +79,7 @@ ConfigModule.withConfig(<IconConfig>{
 ### SVG based icons
 In order to construct the SVG icon, the component will create an `xlink` to the SVG symbol. If a `url` is given for the icon type, the symbol will be constructed using the url and symbol configuration. The above setup, will produce links to `./assets/sprite.svg#info` and `./assets/sprite.svg#warning`.
 
-**Note**: to generate a font sprite for font awesome, you can use https://github.com/Minecrell/fontawesome-svg-sprite-generator. This is a convenient library to automically generate a sprite with the icons that you use in the storefront. Optionally, the icons can have a custom icon name. 
+**Note**: to generate a font sprite for font awesome, you can use https://github.com/Minecrell/fontawesome-svg-sprite-generator. This is a convenient library to automatically generate a sprite with the icons that you use in the storefront. Optionally, the icons can have a custom icon name. 
 
 ### Font based icons
 To support font based icons the component simply adds the icon symbol to the list of style classes, for example 

@@ -63,11 +63,11 @@ Global theming is organized with variables, so that theming isn't hardcoded. For
 - SASS variables
 - CSS custom properties (CSS variables)
 
-Spartacus is using CSS variables for theming. CSS variables have the advantage of being runtime configurable. Moreover, they can pierce through the so-called shadow-dom (web components). Additionally, CSS variables are intherited and offer more flexibility than SASS variable.
+Spartacus is using CSS variables for theming. CSS variables have the advantage of being runtime configurable. Moreover, they can pierce through the so-called shadow-dom (web components). Additionally, CSS variables are inherited and offer more flexibility than SASS variable.
 
 Theming variables contribute to the so-called contract that Spartacus provides to customers. This contract is intended to be stable and should rarely change. Only with major releases, Spartacus could introduce a new set of variables, although this is not considered best practice.
 
-In order to provide a stable set of variables, variables will be mainly used for color-schemes and font definitions. It can be considerd as a set of global theming definition.
+In order to provide a stable set of variables, variables will be mainly used for color-schemes and font definitions. It can be considered as a set of global theming definition.
 
 The following snippet shows an example of a CSS variable:
 
@@ -85,19 +85,19 @@ The CSS variables can be customised on the root of the document or for specific 
 
 ## Component Styles
 
-Spartacus consists of a large number of components that can be used by customers to build their storefront experience. While commerce becomes a comodity, styling is by default opiniated. Not only the colors and fonts, but also the real estate of components as well as backgrounds, lines, etc.
+Spartacus consists of a large number of components that can be used by customers to build their storefront experience. While commerce becomes a commodity, styling is by default opinionated. Not only the colors and fonts, but also the real estate of components as well as backgrounds, lines, etc.
 
 Whatever Spartacus delivers, it will _not_ represent the customers brand/corporate identity. To this reason, Spartacus intends to be highly flexible, so that component styles can be skipped entirely or extended by customers.
 
-Since Spartacus components are built and distributed in libraries, component styles cannot be used. These styles would be pre-processed and baked into the component library. This means that the CSS rules would not be optional, nor would they be easily customizabe.
+Since Spartacus components are built and distributed in libraries, component styles cannot be used. These styles would be pre-processed and baked into the component library. This means that the CSS rules would not be optional, nor would they be easily customizable.
 
-Instead, component styles have been delivered optionally in the styles library. Customers can use those styles, extend them or competely skip them and build the CSS rules from skratch. The `contract` between the style library and the component library is done through the (unique) component selector.
+Instead, component styles have been delivered optionally in the styles library. Customers can use those styles, extend them or completely skip them and build the CSS rules from scratch. The `contract` between the style library and the component library is done through the (unique) component selector.
 
 ### Placeholder selectors
 
-To make the css rules provided in the style library completely optional, the styles are wrapped in so-called _placeholder_ selectors. Placeholder selectors are a sass technique that start with a percentage, for example `%cx-mini-cart`. Placeholder selectors are not added to the final CSS, they need to be explicetly extended to end up in the final CSS.
+To make the css rules provided in the style library completely optional, the styles are wrapped in so-called _placeholder_ selectors. Placeholder selectors are a sass technique that start with a percentage, for example `%cx-mini-cart`. Placeholder selectors are not added to the final CSS, they need to be explicitly extended to end up in the final CSS.
 
-The follpowing snippet provides an example of a component style, using placeholder selector.
+The following snippet provides an example of a component style, using placeholder selector.
 
 ```scss
 %cx-link {

@@ -138,4 +138,4 @@ backend: {
 
 The OCC configuration is used in the `OccEndpointsService`. The service looks up the configuration and applies parameters to the endpoint if needed.
 
-*Note*: The enpoints are typesafe, therefore the list of available endpoints is visible when adding the configuration.
+*Note*: The endpoints are typesafe, therefore the list of available endpoints is visible when adding the configuration.

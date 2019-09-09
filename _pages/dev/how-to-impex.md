@@ -15,7 +15,7 @@ Step 1 - You would need to first create a PageTemplate, which define the layout 
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
 ```
 
-- `frontendTemplateName` is used to define the JSP that shuold be used to render the page for pages with multiple layouts.
+- `frontendTemplateName` is used to define the JSP that should be used to render the page for pages with multiple layouts.
 - `restrictedPageTypes` is used to restrict templates to page types.
 
 ### ContentSlotNames

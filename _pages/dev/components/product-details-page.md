@@ -45,7 +45,7 @@ NEW_TAB_ID is the id of the new tab and the string associated to it is the title
 
 ## Configuring the Page
 
-Since the Product Details Page is driven by CMS it can be configured using SmartEdit or Backoffice. This can be used to add new components, remove existing one or reoder the components/slots.
+Since the Product Details Page is driven by CMS it can be configured using SmartEdit or Backoffice. This can be used to add new components, remove existing one or reorder the components/slots.
 
 For Spartacus configurations, the components listed in the section above can be mapped to new custom components using the method described [Customizing CMS Components](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#custom-angular-cms-components).
 

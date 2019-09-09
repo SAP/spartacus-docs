@@ -43,7 +43,7 @@ During the startup of the application, Spartacus checks for data stored in eithe
 
 ### Specifying the storage key names
 
-If one wants to change the default key name(s) for the `localStorage` and `sessionStorage` (which have the default of `spartacus-local-data` and `spartacus-session-data`, respectively), they could do it by specifing `localStorageKeyName` or `sessionStorageKeyName` properties in the config:
+If one wants to change the default key name(s) for the `localStorage` and `sessionStorage` (which have the default of `spartacus-local-data` and `spartacus-session-data`, respectively), they could do it by specifying `localStorageKeyName` or `sessionStorageKeyName` properties in the config:
 
 ```ts
 export function authStoreConfigFactory(): StateConfig {

@@ -98,7 +98,7 @@ ConfigModule.withConfig({
 
 ## Guarding Components
 
-It's often a case that some routes should be accessible only in certain conditions (i.e. Personal Details page should be opened only for signed-in user). For this purpose we can use Angular [Route Guards](https://angular.io/guide/router#milestone-5-route-guards) to perform some logic before entering a route (i.e fetch data from backend or check if user is authenticated) and decide whether it can be opened or we should redirect to other page.
+It's often a case that some routes should be accessible only in certain conditions (i.e. Personal Details page should be opened only for signed-in user). For this purpose we can use Angular [Route Guards](https://angular.io/guide/router#milestone-5-route-guards) to perform some logic before entering a route (i.e fetch data from backend or check if user is authenticated) and decide whether it can be opened or we should redirect to another page.
 
 The pages' content is often CMS-driven, so in Spartacus comes up with *configuring guards per CMS component*. Just after loading CMS components for a page from backend, all Guards of those components are executed. It allows for redirecting to other page if at least one guard decides so (i.e. due to missing authentication).
 
@@ -150,9 +150,9 @@ In the same manner, the `uid` attribute of `JspIncludeComponent` is used in the 
 
 The CMS allows the creation of nested components inside so-called container components. An example of such component is the `TabPanelContainer` that is used in the product details page to display the tabs. In this case, the container contains the different tab components.
 
-Spartacus supports the dynamic rendering of nested components. This can be achieved by iterating over the list of child components and using the `cxComponentWrapper` directive to dynamically load each component. The list of child components is returned by the component container in the `components` field. Using the list of uids it's possible to fetch their conent using the `CmsService`'s `getComponentData` method.
+Spartacus supports the dynamic rendering of nested components. This can be achieved by iterating over the list of child components and using the `cxComponentWrapper` directive to dynamically load each component. The list of child components is returned by the component container in the `components` field. Using the list of uids it's possible to fetch their content using the `CmsService`'s `getComponentData` method.
 
-The following example demontrate how the tabs are rendered in the product details page:
+The following example demonstrate how the tabs are rendered in the product details page:
 
 ```typescript
 // tab-paragraph-container.component.ts
