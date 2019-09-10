@@ -4,14 +4,13 @@ title: Extending Checkout (DRAFT)
 
 ## Overview
 
-One of the principle we try to follow with spartacus is to be CMS driven. We tried to follow the same idea while working on checkout feature.
-Every checkout page is based on CMS pages, slots and components. Thanks to this you can easily change content of each page, add new components, make single step checkout or create very sophisticated multi step checkout flow. Only minimal amount of configuration is required in storefront application.
+The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
 ## Routing and Configuration
 
-In checkout you often have links from on step to another. That is the reason for registering each checkout page as semantic page in storefront config.
+In the checkout, you often have links from on step to another, which is the reason for registering each checkout page as a semantic page in the storefront configuration.
 
-Below is the default route configuration for checkout that ships with the Spartacus libraries:
+The following is the default route configuration for checkout that ships with the Spartacus libraries:
 
 ```typescript
 B2cStorefrontModule.withConfig({
@@ -37,11 +36,13 @@ B2cStorefrontModule.withConfig({
 }),
 ```
 
-The config above is for our default 4 steps checkout. You might notice that for 4 steps we defined 5 semantic pages. We have additional general route `checkout` which we link to from every component that should redirect to checkout. From this page you get redirected to correct checkout step.
+Although the default checkout has four steps, the default configuration defines five semantic pages. This additional page has a general `checkout` route that is linked to from every component that should redirect to the checkout. From this general checkout page, Spartacus redirects you the correct checkout step.
 
-If you want to link to checkout you always point to this page, no matter your checkout setup. On this page in case of multi step checkout you would use your `CheckoutGuard` (more about this in next section). The guard will take care of redirecting to correct checkout step. In case you would want to create single step checkout I would recommend to set all components on this route and remove that guard from component configuration.
+If you want to link to the checkout, always point to this general checkout page, regardless of how your checkout is set up. For example, with a multi-step checkout, you can use your `CheckoutGuard` to take care of redirecting to the correct checkout step. With a single-step checkout, you can set all components on this `checkout` route and remove the `CheckoutGuard` from the component configuration.
 
-Apart from route config there is one other configuration for checkout. In this configuration you define responsibility of each step, route to page and order of steps. Below you can see default configuration (included in library).
+For more information about the `CheckoutGuard`, see the [CheckoutGuard](#checkoutguard) section below.
+
+Aside from the route configuration, you can also configure the checkout by defining the responsibility of each step, the route to the page, and the order of the steps. The following is the default configuration:
 
 ```typescript
 B2cStorefrontModule.withConfig({
@@ -76,39 +77,43 @@ B2cStorefrontModule.withConfig({
 })
 ```
 
-### Configuration Specification
+The attributes in the `steps` array are used as follows:
 
-- **id** - should be an unique value. You could use it when you would need to find specific step in configuration.
-- **name** - used in `CheckoutProgress` component which shows steps already completed. We use that name as a translation key.
-- **routeName** - this attribute specifies semantic page for this particular step.
-- **type** - used by checkout guards. For more information, see [Protecting Routes](#protecting-routes).
+- The `id` attribute should have a unique value. You can use `id` when you need to identify a specific step in the configuration.
+- The `name` attribute is used in the `CheckoutProgress` component to indicate which checkout steps have been completed. The `name` is also used as a translation key.
+- The `routeName` attribute specifies the semantic page for each step.
+- The `type` attribute is used by the checkout guards. For more information, see [Protecting Routes](#protecting-routes).
 
-Order in which you define the steps in array is used in navigation buttons. Example: You are on delivery-mode step. Based on the config, delivery mode component back button points to previous step `shippingAddress` and the next button points to `paymentDetails`. If you change order of steps in configuration buttons will automatically reflect those changes and link to correct pages.
+Also, the order of the steps in the `steps` array determines which steps are previous and next for the navigation buttons in the checkout flow. For example, based on the default configuration, the **Back** button for the delivery mode component points to the previous `shippingAddress` step, while the **Next** button points to the `paymentDetails` step. If you change the order of the steps in the configuration, the navigation buttons automatically update to link to the correct pages.
 
 ## Components
 
-Every checkout component is a CMS component (in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#placeholder-components). You can do with them everything you can do with any other CMS component. Comparing to other CMS components these ones have more guards defined in configuration.
+Every checkout component is a CMS component. Furthermore, in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#placeholder-components). Compared to other CMS components, these components have more guards defined in the configuration, but are otherwise identical to regular CMS components.
 
 ## Protecting Routes
 
-Across spartacus codebase we try to remove page guards and replace them with component guards. The same rule applies in checkout. You protect routes by applying guards in cms component mapping.
-Component guards have the same API as page guards. As part of the checkout we expose following guards: `ShippingAddressSetGuard`, `DeliveryModeSetGuard`, `PaymentDetailsSetGuard` and `CheckoutGuard`.
+The checkout uses component guards instead of page guards. You protect routes by applying guards in the CMS component mapping.
 
-### Example
+Component guards have the same API as page guards. Spartacus exposes the following guards as part of the checkout:
 
-You want to restrict access to order review only when shipping address, delivery mode and payment details are correctly set. In that case for your review order component you set guards to `guards: [ShippingAddressSetGuard, DeliveryModeSetGuard, PaymentDetailsSetGuard]`. If you access review order page  we start by checking guards for every component on that page. Only if every guard returns `true` we display the page. In case that some guard returns `false` or redirect url we redirect to provided url.
+- `ShippingAddressSetGuard`
+- `DeliveryModeSetGuard`
+- `PaymentDetailsSetGuard`
+- `CheckoutGuard`
 
-Example behavior:
+As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the shipping address, delivery mode and payment details were correctly set, you would set guards for the review order component to `guards: [ShippingAddressSetGuard, DeliveryModeSetGuard, PaymentDetailsSetGuard]`. Then, when you try to access the Review Order page, Spartacus first checks the guards for every component on that page, and only displays the page if every guard returns `true`. If one of the guard returns `false` or a redirect URL, Spartacus redirects to the provided URL.
 
-- user sets the shipping address
-- comes back to shop after few days (browser autosuggest review-order page from previous order)
-- user follows suggestion
-- `ShippingAddressSetGuard` returns `true`
-- `DeliveryModeSetGuard` returns `checkout/delivery-mode` redirect
-- `PaymentDetailsSetGuard` return `checkout/payment-details` redirect
-- users is redirected to delivery mode selection page
+The following is an example scenario:
 
-Order in guards is important (first redirect is used). Most of the time you should define guards in the same order as user sets the data in checkout flow.
+1. A user sets the shipping address.
+2. The user comes back to shop after a few days, and the browser auto-suggests the Review Order page from a previous order.
+3. The user follows the suggestion.
+4. The `ShippingAddressSetGuard` returns `true`.
+5. The `DeliveryModeSetGuard` returns `checkout/delivery-mode` redirect.
+6. The `PaymentDetailsSetGuard` returns `checkout/payment-details` redirect.
+7. The user is redirected to the Delivery Mode selection page.
+
+The order of the guards is important, as the first redirect is used. In general, you should define guards in the same order as the checkout flow.
 
 ### CheckoutGuard
 
