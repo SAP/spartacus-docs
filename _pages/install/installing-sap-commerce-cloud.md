@@ -128,7 +128,7 @@ For more information, see [this help document](https://help.sap.com/viewer/9d346
 
 **Note:** This step is optional.
 
-The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
+The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content. For more details about these changes, see [Spartacussampledataaddon AddOn]({{ site.baseurl }}{% link _pages/dev/spartacussampledataaddon.md %}).
 
 The name of the new storefront base site is **electronics-spa**.
 
