@@ -41,7 +41,7 @@ features: {
 }
 (This will enable all features configured <=1.2 in `app.module.ts`.)
 ```
-Or you can mix both feature level and feature flags:
+Or you can mix feature level and feature flags:
 ```
 features: {
    level: ‘1.1’,
