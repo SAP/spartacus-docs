@@ -13,7 +13,7 @@ The steps described in this document are:
 3. Configure CORS (optional to start but required for checkout)
 4. Install the Spartacus sample data AddOn (optional)
 
-    **Note:** If you are working with the default implementation of Spartacus, it is recommended that you install the Spartacus sample data AddOn. By default, there is a tight relation between the `B2cStorefrontModule` and the Spartacus sample data. However, when you start your own project, you will have your own sample data, and at that point, you should use the `StorefrontModule` (rather than the `B2cStorefrontModule`) when you create your own pages, templates and components. If you are using your own sample data, you do not need to install the Spartacus sample data.
+    **Note:** The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. In this case, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good start for your project.
 
 At the end of this document, an alternate method for setting the SAP Commerce Cloud admin password is provided.
 
