@@ -45,7 +45,7 @@ Or you can mix both feature level and feature flags:
 ```
 features: {
    level: ‘1.1’,
-   consignmentTracking: false,
+   consignmentTracking: true,
  }
 ```
 
