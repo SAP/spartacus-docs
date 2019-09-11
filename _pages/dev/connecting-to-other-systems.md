@@ -64,9 +64,63 @@ In order to provide optional conversion, the convertors are so-called multi-prov
 
 Convertors are optional. Whenever the back end model is equal to the UI model, or in the case of simple conversion, the adapter could easily take care of this.
 
+#### Providing Converter
+
+Converters in Spartacus use specific injector tokens that can be used to also provide custom converters.
+
+For example the product normalizer uses the `PRODUCT_NORMALIZER` token and can be used as follows:
+
+```ts
+  providers: [
+    {
+      provide: PRODUCT_NORMALIZER,
+      useClass: CustomProductNormalizer,
+      multi: true
+    }
+  ]
+```
+
+## Extend UI Model
+
+When using a custom converter, it is possible to extend the UI model in order to provide type safety in the UI layer.
+
+Spartacus provides a set of types that are used to provide type safety in the UI layer. These types can be extended in order to add new fields provided by a custom system.
+
+The following example demonstrates how to add the target extra field to the `Product` model.
+
+```ts
+import { Product } from '@spartacus/core';
+
+export interface CustomProduct extends Product {
+  target?: string;
+}
+```
+
+This type can be used in custom converters and in a custom converter.
+
+```ts
+import { Injectable } from '@angular/core';
+import { Converter, Occ } from '@spartacus/core';
+
+@Injectable()
+export class CustomProductNormalizer implements Converter<Occ.Product, CustomProduct> {
+  convert(source: any, target: any): CustomProduct {
+    /*...*/
+  }
+}
+```
+
 ## Endpoint Configuration
 
-REST endpoints provided by OCC are often configurable. Most endpoints have an optional field parameter that dictates the response data that is returned. While this configuration can also be driven by a (JAVA Spring) back end configuration, doing this at runtime in the front end gives more flexibility and limits customizations in the back end.
+REST endpoints provided by OCC are often configurable. All endpoints have an optional field parameter that dictates the response data that is returned. While this configuration can also be driven by a (JAVA Spring) back end configuration, doing this at runtime in the front end gives more flexibility and limits customizations in the back end.
+
+**Note** This feature requires a feature level of **1.1 or higher**. The following configuration is required to enable it:
+
+```typescript
+features: {
+  level: 1.1
+}
+```
 
 For this reason, OCC modules in Spartacus allow for endpoint configuration. The following code snippet shows a custom configuration for the product detail endpoint:
 
@@ -83,3 +137,5 @@ backend: {
 ```
 
 The OCC configuration is used in the `OccEndpointsService`. The service looks up the configuration and applies parameters to the endpoint if needed.
+
+*Note*: The enpoints are typesafe, therefore the list of available endpoints is visible when adding the configuration.

@@ -15,7 +15,7 @@ Spartacus is an open-source JavaScript web application hosted [here](https://git
 
 ### When will Spartacus be available? 
 
-Release 1.0 was published July 4, 2019. You can download and use Spartacus libraries right now.  
+You can download and use Spartacus libraries right now. Until the beta release in early May 2019, you can expect to see new features added and architectural changes that cause compatibility issues. The first launch (1.0.0) is planned for end of May 2019, alongside SAP Commerce Cloud 1905. 
 
 ### Does Spartacus require SAP Commerce Cloud?  
 
@@ -27,7 +27,7 @@ Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is r
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus? 
 
-SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808, but due to API improvements since then, some features will not work. For example, SmartEdit will only work with release 1905. These differences will be described in the Spartacus documentation. 
+SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7. 
 
 ### Does Spartacus integrate with any other SAP products? 
 
@@ -39,7 +39,7 @@ Accelerators templates (link) were introduced in SAP Commerce v4.4 to provide a 
 
 ### Are there features that are missing in Spartacus that exist in the SAP Commerce Cloud Accelerators? 
 
-With the 1.0 release, Spartacus does not have feature parity when compared with all the Accelerators available in SAP Commerce Cloud. The focus to start is to achieve feature parity with the B2C accelerator. Feature parity with B2B, China and Industry accelerators will come in the future. Feature parity will be documented. 
+At the 1.0 release, Spartacus will not have feature parity when compared with all the Accelerators available in SAP Commerce Cloud. The focus to start is to achieve feature parity with the B2C accelerator. Feature parity with B2B, China and Industry accelerators will come in the future. Feature parity will be documented. 
 
 ### Can I run Spartacus and an Accelerator storefront at the same time? 
 
@@ -55,15 +55,15 @@ Spartacus is a complete paradigm shift from the Accelerators in terms of technol
 
 ### How long does it take to get a Spartacus-based storefront up and running? 
 
-Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [these step-by-step instructions](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/building-the-spartacus-storefront-from-libraries). 
+Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 ### Is there a demo of a Spartacus-based storefront available? 
 
-Try out our continuous-integration server [here](https://spartacus.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/). This server is public a Commerce Cloud instance.
+Try out our continuous-integration server [here](https://sap.github.io/cloud-commerce-spartacus-storefront). As of this writing (April 19, 2019), note that the backend server used by this sample site is not up to date with latest 1905, due to the imminent release of 1905 late May. The server will be updated shortly after release.  
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available? 
 
-Documentation is available from the Spartacus GitHub [Wiki](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/). We are starting a collection of [helpful how-to videos](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/spartacus-videos). Official training via SAP Education is not planned for launch but may be made available in the future.  
+Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
 
 ### Can I customize Spartacus? 
 
@@ -101,7 +101,7 @@ Spartacus storefronts are JavaScript web applications that communicate to the ba
 
 ### How do I get support when I run into issues with Spartacus? 
 
-Spartacus is currently provided "as-is" with no official lines of support. To get help from the Spartacus community, post a question in the Help chat of the Slack workspace. You can also post a question to Stack Overflow with the 'spartacus' tag, but the Slack workspace is experiencing the most developer discussion at the moment. 
+Spartacus is provided "as-is" with no official lines of support. To get help from the Spartacus community, post a question in the Help chat of the Slack workspace. You can also post a question to Stack Overflow with the 'spartacus' tag, but the Slack workspace is experiencing the most developer discussion at the moment. 
 
 ### Is it possible to contribute to this open source project? How? 
 
@@ -121,7 +121,7 @@ Yes. Support for contextual journey tracking will be added to Spartacus, schedul
 
 ### How much will Spartacus cost? 
 
-Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/LICENSE.txt).  
+Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/master/LICENSE).  
 
 ### Do I need to sign a contract to obtain a license? 
 

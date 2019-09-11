@@ -1,7 +1,7 @@
 # main links
 main:
-    - title: Version 1.0
-      url: /release-1.0-information/
+    - title: Version 1.1
+      url: /release-information/
 
 # sidebar menu
 docs:
@@ -11,10 +11,10 @@ docs:
             url: /
           - title: 'Spartacus FAQ'
             url: /spartacus-faq/
-          - title: 'Release 1.0 Information'
-            url: /release-1.0-information/
-          - title: Roadmap after Spartacus 1.0
-            url: /roadmap-after-spartacus-1.0/
+          - title: 'Release Information'
+            url: /release-information/
+          - title: "Spartacus Roadmap"
+            url: /spartacus-roadmap/
           - title: 'Spartacus Videos'
             url: /spartacus-videos/
 
@@ -33,10 +33,14 @@ docs:
             url: /snapshot-builds/
           - title: 'Building the Spartacus Storefront from Libraries'
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Configuring Feature Flags"
+            url: /configuring-feature-flags/
           - title: 'SmartEdit Setup Instructions for Spartacus'
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: 'Personalization Setup Instructions for Spartacus'
             url: /personalization-setup-instructions-for-spartacus/
+          - title: "Spartacussampledataaddon AddOn"
+            url: /spartacussampledataaddon/  
 
     - title: Storefront Development Guide
       children:
@@ -60,6 +64,10 @@ docs:
             subchildren:
                 - title: 'Customizing CMS Components'
                   url: /customizing-cms-components/
+                - title: 'Creating New Pages and Components'
+                  url: /creating-pages-and-components/
+                - title: 'Product Details Page'
+                  url: /product-details-page/
                 - title: 'Banner Component'
                   url: /banner-component/
                 - title: 'Searchbox Component'
@@ -85,12 +93,30 @@ docs:
             url: /configuring-base-url/
           - title: 'Context Configuration'
             url: /context-configuration/
+          - title: 'PWA'
+            url: /pwa-home/
+            subchildren:
+                - title: "Adding PWA Support to Spartacus"
+                  url: /pwa-setup/
+                - title: 'Adding the Spartacus App to the Home Screen'
+                  url: /add-to-home-pwa/
           - title: 'SEO Capabilities'
             url: /seo-capabilities/
           - title: 'Internationalization (i18n)'
             url: /i18n/
+          - title: 'State Management'
+            url: /state-management/
+            subchildren:
+                - title: "Loader Meta Reducer"
+                  url: /loader-meta-reducer/  
+          - title: "SmartEdit Contract in Spartacus"
+            url: /smartedit-contract/        
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
+          - title: 'Kyma Integration'
+            url: /kyma-integration/
+          - title: 'Global Messages'
+            url: /global-messages/
           - title: 'HTTP Error Handling'
             url: /http-error-handling/
           - title: 'Configurable State Persistence and Rehydration'
@@ -100,6 +126,8 @@ docs:
             subchildren:
                 - title: 'Server–Side Rendering Coding Guidelines'
                   url: /server-side-rendering-coding-guidelines/
+                - title: 'How to Debug a Server–Side Rendered Storefront'
+                  url: /how-to-debug-server-side-rendered-storefront/
           - title: 'User Experience Guidelines'
             url: /user-experience-guidelines/
             subchildren:
@@ -123,6 +151,10 @@ docs:
                   url: /contributor-setup/
                 - title: 'Coding Guidelines'
                   url: /coding-guidelines/
+                - title: "Maintaining Public APIs"
+                  url: /breaking-changes/
+                - title: "Feature Flags and Code Deprecation"
+                  url: /feature-flags-and-code-deprecation/  
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'

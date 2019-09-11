@@ -96,6 +96,28 @@ ConfigModule.withConfig({
 });
 ```
 
+## Guarding Components
+
+It's often a case that some routes should be accessible only in certain conditions (i.e. Personal Details page should be opened only for signed-in user). For this purpose we can use Angular [Route Guards](https://angular.io/guide/router#milestone-5-route-guards) to perform some logic before entering a route (i.e fetch data from backend or check if user is authenticated) and decide whether it can be opened or we should redirect to other page.
+
+The pages' content is often CMS-driven, so in Spartacus comes up with *configuring guards per CMS component*. Just after loading CMS components for a page from backend, all Guards of those components are executed. It allows for redirecting to other page if at least one guard decides so (i.e. due to missing authentication).
+
+*Note: When many components at the same page have the same guard (i.e. AuthGuard), it will be executed only once.*
+
+Below there's an example how to configure guards for CMS component:
+
+```typescript
+ConfigModule.withConfig({
+  cmsComponents: {
+    CheckoutProgress: {
+      component: CheckoutProgressComponent,
+      guards: [AuthGuard, CartNotEmptyGuard],
+    },
+  }
+});
+```
+
+
 ## Controlling Server Side Rendering (SSR)
 
 You might not want to render all CMS components in the server. The following are some examples of when not to render a CMS component in the server:

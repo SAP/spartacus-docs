@@ -12,7 +12,7 @@ Pre-requisites:
 
 ### Configuring SmartEdit to work with a Spartacus storefront
 
-1. Build your Angular app, adding Spartacus libraries as normal. Make sure it's working before continuing. (See setup instructions [here](https://github.com/SAP/cloud-commerce-spartacus-storefront/wiki/Setup-and-Installation).)
+1. Build your Angular app, adding Spartacus libraries as normal. Make sure it's working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 2. Copy the SmartEdit file `webApplicationInjector.js` to the folder `src` of your Angular app.
 

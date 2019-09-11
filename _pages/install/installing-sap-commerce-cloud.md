@@ -2,7 +2,7 @@
 title: Installing SAP Commerce Cloud for use with Spartacus
 ---
 
-The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use by a Spartacus storefront. SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs. 
+The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use by a Spartacus storefront. SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
 This example uses the `b2c_acc_plus` recipe included in SAP Commerce Cloud as an example, but you can use you own sample data or recipe as long as it includes cmsoccaddon and ycommercewebservices.
 
@@ -16,10 +16,6 @@ The steps described in this document are:
     **Note:** If you are working with the default implementation of Spartacus, it is recommended that you install the Spartacus sample data AddOn. By default, there is a tight relation between the `B2cStorefrontModule` and the Spartacus sample data. However, when you start your own project, you will have your own sample data, and at that point, you should use the `StorefrontModule` (rather than the `B2cStorefrontModule`) when you create your own pages, templates and components. If you are using your own sample data, you do not need to install the Spartacus sample data.
 
 At the end of this document, an alternate method for setting the SAP Commerce Cloud admin password is provided.
-
-
-
-
 
 # Setting up SAP Commerce Cloud
 
@@ -60,10 +56,6 @@ For more information concerning installation of SAP Commerce Cloud using recipes
    - Display the Admin Console: https://localhost:9002
    - Display Backoffice: https://localhost:9002/backoffice
    - Display the Accelerator Electronics storefront: https://localhost:9002/yacceleratorstorefront/?site=electronics
-
-
-
-
 
 # Configuring OCC credentials
 
@@ -118,25 +110,27 @@ To configure SAP Commerce Cloud to accept OCC REST API calls:
 
 **You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
-# Configuring CORS (optional to start but required for checkout)
+# Configuring CORS
 
-CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality such as checkout may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
+**Note:** This step is optional to start, but required for checkout.
+
+CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality such as checkout and consent management may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
 To configure CORS settings for OCC REST APIs, adding the following to your SAP Commerce Cloud configuration. (These settings can be added using the Admin Console as well.)
 
 ```
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
-For more information, [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
+For more information, see [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
 
+# Installing the Spartacus Sample Data Addon
 
+**Note:** This step is optional.
 
-# Installing the Spartacus Sample Data AddOn (optional)
-
-The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content.
+The [Spartacus Sample Data Addon]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) makes a copy of the Electronics storefront with changes that better suit the design of the out-of-the-box Spartacus style and content. For more details about these changes, see [Spartacussampledataaddon AddOn]({{ site.baseurl }}{% link _pages/dev/spartacussampledataaddon.md %}).
 
 The name of the new storefront base site is **electronics-spa**.
 
@@ -146,7 +140,7 @@ The name of the new storefront base site is **electronics-spa**.
 
 2. Unzip the archive.
 
-3. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`. 
+3. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`.
 
    The `spartacussampledataaddon` folder can be stored anywhere in the `modules` folder. The `b2c-accelerator` folder is chosen as it contains other B2C sample data.
 
@@ -170,11 +164,10 @@ The name of the new storefront base site is **electronics-spa**.
    extName 'electronicsstore'
    extName 'apparelstore'
    extName 'spartacussampledataaddon'
-   
+
    ```
 
    Note: As the Spartacus sample data copies data from the Electronics store, the `electronicsstore` extension is required. Additionally, the time to initialize is longer as SAP Commerce Cloud is building both Electronics and Electronics for Spartacus.
-
 
 5. In `addons { forStoreFronts('yacceleratorstorefront')`, add `spartacussampledataaddon` to the `names` list. Example:
 
@@ -182,7 +175,7 @@ The name of the new storefront base site is **electronics-spa**.
     addons {
         forStoreFronts('yacceleratorstorefront') {
             names('spartacussampledataaddon', 'captchaaddon', ...
-   
+
    ```
 
 6. Save the file.
@@ -198,10 +191,7 @@ Install the new recipe according to the instructions at the top of this document
 
 When setting up your Spartacus storefront, set the base site in `app.module.ts` to **electronics-spa** (Electronics for Spartacus).
 
-
-
-
-# Alternate method for setting the SAP Commerce Cloud admin password 
+# Alternate method for setting the SAP Commerce Cloud admin password
 
 Instead of including the admin password in every install command as required for release 1905, you can create a configuration file that is used each time.
 
@@ -214,3 +204,37 @@ Instead of including the admin password in every install command as required for
 3. Save the file.
 
 The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there's no need to include `-A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
+
+# Supporting Regions in the Billing Address
+
+A specific configuration can be entered if the payment provider requires the `regions` field as part of the billing address data.
+
+Spartacus automatically picks up on the configuration and displays the `regions` field in the form.
+
+1. If you do not have a `custom.properties` file, create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
+
+2. Add the `mockup.payment.label.billTo.region` key with the value `billTo_state`.
+
+3. Save the file.
+
+The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties`.
+
+**Note** If you wish the config to be present without reinstalling, the property can be added to `local.properties`.
+
+# Possible Issues
+
+## Failure at the Payment Step in Checkout
+
+You may encounter the following error message:
+
+```
+Http failure response for https://electornics.local:9002/acceleratorservices/sop-mock/process: 0 Unknown Error
+```
+
+This issue is caused by incorrect configuration of the `website.electronics.http` and `https` properties.
+
+Make sure these properties are set to:
+
+`website.electronics.http`: &nbsp; `http://localhost:9001/yacceleratorstorefront`
+
+`website.electronics.https`: &nbsp; `https://localhost:9002/yacceleratorstorefront`
