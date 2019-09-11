@@ -34,7 +34,7 @@ features: {
    consignmentTracking: true
 }
 ```
-or feature level: 
+or set feature level: 
 ```
 features: {
    level: ‘1.2’(>=1.2)
