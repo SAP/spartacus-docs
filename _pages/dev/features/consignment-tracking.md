@@ -28,7 +28,20 @@ For more information, see [Consignment Tracking Architecture](https://help.sap.c
 
 ## Enabling Consignment Tracking
 
-You can enable and disable consignment tracking with feature flags (and feature levels?). To enable the consignment tracking, set the feature flag (and feature level?) in [some file] as follows... (Please modify or replace this text as appropriate :)
+You can enable and disable consignment tracking with feature flags and feature levels. To enable the consignment tracking, set the feature flag
+features: 
+```
+{
+   consignmentTracking: true
+}
+```
+or feature level features: 
+```
+{
+   level: ‘1.2’(>=1.2)
+} 
+```
+This will enable all features configured <=1.2 in [app.module.ts].
 
 ## Configuring
 
