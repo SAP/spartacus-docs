@@ -63,13 +63,25 @@ The following procedure describes how to create a new Angular application with t
      ```bash
      cd mystore
      ```
-    
-## Angular Schematics for Storefront
 
-Spartacus now supports schematic. For a quick and easy configuration process please go to the section: [Project setup using schematics](#project-setup-using-schematics).
+## Quick project setup using schematics
+
+Schematics is easy and convenient way to quickly set up your application. 
+Currently, Spartacus support single command for fast project scaffold:
+
+   ```bash
+    ng add @spartacus/schematics
+   ```
+
+Command comes with set of parameters, such as **baseUrl** or **baseSite**. Usage example:
+   ```bash
+    ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
+   ```
+
+For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
 
-## Adding Peer Dependencies to the Storefront
+## Adding Peer Dependencies to the Storefront manually
 
 The dependencies in this procedure are required by the Spartacus storefront.
 
@@ -331,30 +343,5 @@ To use the incremental libraries, substitute the following in your `package.json
 ```
 
 The Spartacus Assets library is not yet available as an incremental release.
-
-
-
-## Project setup using schematics
-
-Schematics is easy and convenient way to quickly set up your application. 
-Currently, Spartacus support single command for fast project scaffold:
-You can choose between two options of instalation:
-
-1. Single command with default behavior:
-   ```bash
-    ng add @spartacus/schematics
-   ```
-2. Combination of commands: 
-   ```bash
-    yarn add @spartacus/schematics && ng generate @spartacus/schematics:add-spartacus
-   ```
-   
-Command comes with set of parameters, such as **featureLevel** or **overwriteAppComponent**. Usage example:
-   ```bash
-    ng add @spartacus/schematics --featureLevel 1.2 --overwriteAppComponent false
-   ```
-
-For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
-
 
 
