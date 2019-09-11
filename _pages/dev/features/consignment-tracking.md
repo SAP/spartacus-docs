@@ -40,8 +40,8 @@ or feature level features:
 features: {
    level: ‘1.2’(>=1.2)
 }
+(This will enable all features configured <=1.2 in `app.module.ts`.)
 ```
-This will enable all features configured <=1.2 in `app.module.ts`.
 
 ## Configuring
 
