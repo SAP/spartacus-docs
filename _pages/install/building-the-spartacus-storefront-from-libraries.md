@@ -160,7 +160,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
    import { AppComponent } from './app.component';
    
    import { ConfigModule } from '@spartacus/core';
-   import { translations } from '@spartacus/assets';
+   import { translations, translationChunksConfig } from '@spartacus/assets';
    import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
    
    @NgModule({
