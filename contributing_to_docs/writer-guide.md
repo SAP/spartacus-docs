@@ -61,7 +61,7 @@ The following sections are intended to help you get up-and-running with those as
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
-Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write- access to the Spartacus repositories. 
+Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write-access to the Spartacus repositories. 
 
 The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this for contributing to Spartacus. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. 
 
