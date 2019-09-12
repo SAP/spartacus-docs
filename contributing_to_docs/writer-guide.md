@@ -59,7 +59,7 @@ The following sections are intended to help you get up-and-running with those as
 
 - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
 - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
-- [Working with GitHub Issues](working-with-github-issues)
+- [Working with GitHub Issues](#working-with-github-issues)
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
