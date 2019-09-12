@@ -55,7 +55,7 @@ If you are new to GitHub, I recommend having a look at Jonathan McGlone's [Creat
 
 > Git, GitHub, and GitHub Pages are all very closely related. Imagine Git as the workflow to get things done and GitHub and GitHub Pages as places to store the work you finish. Projects that use Git are stored publicly in GitHub and GitHub Pages, so in a very generalized way, Git is what you do locally on your own computer and GitHub is the place where all this gets stored publicly on a server.
 
-The following sections are intended to help you get up-and-running with GitHub aspects of the Spartacus project:
+The following sections are intended to help you get up-and-running with those aspects of GitHub that you need to contribute to the Spartacus project:
 
 - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
 - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
