@@ -18,7 +18,14 @@ See https://help.sap.com/ for more information.
 
 ## Enabling Customer Interests
 
-You can enable and disable customer interests with feature flags and feature levels. To enable customer interests, set the feature flag features:
+You can enable and disable customer interests with feature flags and feature levels. To enable customer interests, set the feature flag as follows:
+
+```
+```
+Or set feature level:
+
+```
+```
 
 ## Configuring
 

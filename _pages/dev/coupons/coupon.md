@@ -17,7 +17,14 @@ See https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a3fa
 
 ## Enabling Coupon Feature
 
-You can enable and disable the coupon feature with feature flags and feature levels. To enable the coupon feature, set the feature flag features:
+You can enable and disable the coupon feature with feature flags and feature levels. To enable customer interests, set the feature flag as follows:
+
+```
+```
+Or set feature level:
+
+```
+```
 
 ## Configuring
 
