@@ -9,9 +9,10 @@ The customer interests feature provides a page under user account for customers 
 ## Requirements
 
 The customer interests feature requires the following extensions to work:
+
 - 
 - 
--  
+- 
 
 See https://help.sap.com/ for more information.
 
