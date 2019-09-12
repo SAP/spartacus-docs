@@ -63,7 +63,7 @@ The following sections are intended to help you get up-and-running with those as
 
 Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write-access to the Spartacus repositories. 
 
-The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this for contributing to Spartacus. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. 
+The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this to contributing to the Spartacus project. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. 
 
 If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
 
@@ -71,13 +71,13 @@ Once you have a GitHub ID, you then need write-access to the Spartacus repositor
 
 ### Cloning the Documentation Repository
 
-When you clone a repository, you are making a copy of the repository (all the files and folders of the repository) on your local machine. You then make changes to the files locally, and upload them to the master repository hosted in GitHub. All the steps for working in GitHub (as relates to Spartacus documentation) are detailed further below.
+When you clone a repository, you are making a copy of the repository (that is, all the files and folders of the repository) on your local machine. You then make changes to the files locally, and upload them to the master repository hosted in GitHub. All the steps for working in GitHub (as relates to Spartacus documentation) are detailed further below.
 
 The following steps describe how to clone the Spartacus documentation repository onto your local machine.
 
 1. Open a shell app on your computer.
 
-    For example, if you are on a Mac, you can use the `Terminal` application. On Windows, you can use the `Command Prompt`, for example. Or, on any computer, you can use the integrated terminal that is included in VS Code. For more information on using the VS Code terminal, see the relevant [VS Code documentation](https://code.visualstudio.com/docs/editor/integrated-terminal).
+    For example, if you are on a Mac, you can use the `Terminal` application. On Windows, you can use the `Command Prompt`, for example. Or, on any computer, you can use the integrated terminal that is included in VS Code. For more information on using the VS Code integrated terminal, see the [VS Code documentation](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
 2. Within the shell app of your choice, navigate to the directory on your local machine where you would like to copy the repository.
 
@@ -97,9 +97,9 @@ The following steps describe how to clone the Spartacus documentation repository
 
 GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus tribe uses the terms "issue" and "ticket" interchangeably.
 
-All open issues related to the Spartacus documentation repository can very viewed under the [Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) tab, which you can access at the top of any page in the repository.
+All open issues related to the Spartacus documentation repository can very viewed under the [Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) tab, which you can access at the top of any page in this repository, including the page you are currently reading.
 
-You can create a new issue by clicking the green [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark this page.
+You can create a new issue by clicking the green [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the **New issue** page.
 
 When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1. When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects) tab at the top of any page in GitHub.
 
