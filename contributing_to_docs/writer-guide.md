@@ -47,7 +47,7 @@ Although you don't need to become an expert in Jekyll to contribute to the Spart
 - [Jekyll Quickstart](https://jekyllrb.com/docs/)
 - [Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
 
-    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `cloud-commerce-spartacus-storefront-docs` repository for any part of the tutorial! :smile:
+    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `cloud-commerce-spartacus-storefront-docs` repository for any part of the tutorial! :wink:
 
 ## Working with GitHub
 
