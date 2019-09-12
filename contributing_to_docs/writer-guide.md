@@ -61,7 +61,11 @@ The following sections are intended to help you get up-and-running with those as
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
-Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write access to the Spartacus repositories. You cannot use your SAP Enterprise GitHub ID. You must either use a GitHub account that you have already created, or if you don't already have one, you must create a new GitHub account. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
+Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write- access to the Spartacus repositories. 
+
+The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this for contributing to Spartacus. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. 
+
+If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
 
 Once you have a GitHub ID, you then need write-access to the Spartacus repositories. Send your request for access to the Scrum Master of team Gladiators, either through Slack or email.
 
