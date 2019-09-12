@@ -53,7 +53,7 @@ Although you don't need to become an expert in Jekyll to contribute to the Spart
 
 If you are new to GitHub, I recommend having a look at Jonathan McGlone's [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/). Without following the tutorials, you can learn a lot by simply reading the introductions to each section. The following is his description of Git, GitHub, and GitHub Pages:
 
-"Git, GitHub, and GitHub Pages are all very closely related. Imagine Git as the workflow to get things done and GitHub and GitHub Pages as places to store the work you finish. Projects that use Git are stored publicly in GitHub and GitHub Pages, so in a very generalized way, Git is what you do locally on your own computer and GitHub is the place where all this gets stored publicly on a server."
+> Git, GitHub, and GitHub Pages are all very closely related. Imagine Git as the workflow to get things done and GitHub and GitHub Pages as places to store the work you finish. Projects that use Git are stored publicly in GitHub and GitHub Pages, so in a very generalized way, Git is what you do locally on your own computer and GitHub is the place where all this gets stored publicly on a server.
 
 The following sections are intended to help you get up-and-running with GitHub aspects of the Spartacus project:
 
