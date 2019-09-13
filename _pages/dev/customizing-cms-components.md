@@ -52,7 +52,19 @@ To configure a web component as a CMS component, the configuration must consist 
 ConfigModule.withConfig({
   cmsComponents: {
     BannerComponent: {
-        selector: 'path/to/banner/component/file.js#custom-banner';
+        component: 'path/to/banner/component/file.js#custom-banner'
+    }
+  }
+});
+```
+
+If you prefer to load web component implementation script eagerly, you can manually include it in your index.html file using usual `script` tag, and skip it from mapping configuration:
+
+```typescript
+ConfigModule.withConfig({
+  cmsComponents: {
+    BannerComponent: {
+        component: '#custom-banner'
     }
   }
 });
@@ -61,6 +73,7 @@ ConfigModule.withConfig({
 One JS file can contain more that one web component implementation, used as different CmsComponents.
 
 This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope for this documentation.
+
 
 #### Accessing API and CMS Data
 
