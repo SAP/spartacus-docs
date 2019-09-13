@@ -64,7 +64,24 @@ The following procedure describes how to create a new Angular application with t
      cd mystore
      ```
 
-## Adding Peer Dependencies to the Storefront
+## Quick project setup using schematics
+
+Schematics is easy and convenient way to quickly set up your application. 
+Currently, Spartacus support single command for fast project scaffold:
+
+   ```bash
+    ng add @spartacus/schematics
+   ```
+
+Command comes with set of parameters, such as **baseUrl** or **baseSite**. Usage example:
+   ```bash
+    ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
+   ```
+
+For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
+
+
+## Adding Peer Dependencies to the Storefront manually
 
 The dependencies in this procedure are required by the Spartacus storefront.
 
@@ -326,3 +343,5 @@ To use the incremental libraries, substitute the following in your `package.json
 ```
 
 The Spartacus Assets library is not yet available as an incremental release.
+
+
