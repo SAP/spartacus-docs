@@ -58,7 +58,7 @@ ConfigModule.withConfig({
 });
 ```
 
-If you prefer to load web component implementation script eagerly, you can manually include it in your index html using usual `script` tag, and skip it from mapping configuration:
+If you prefer to load web component implementation script eagerly, you can manually include it in your index.html file using usual `script` tag, and skip it from mapping configuration:
 
 ```typescript
 ConfigModule.withConfig({
