@@ -17,14 +17,17 @@ See https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a3fa
 
 ## Enabling Coupon Feature
 
-You can enable and disable the coupon feature with feature flags and feature levels. To enable customer interests, set the feature flag as follows:
+Coupon has a `coupon` feature flag that allows you to enable or disable the feature, as follows:
 
+```typescript
+features: {
+   coupon: true
+}
 ```
-```
-Or set feature level:
 
-```
-```
+The coupon feature is enabled automatically for feature level 1.2 and above.
+
+For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
 
 ## Configuring
 

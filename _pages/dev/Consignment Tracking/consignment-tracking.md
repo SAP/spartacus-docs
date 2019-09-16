@@ -21,27 +21,17 @@ The consignment tracking feature requires the following extensions to work:
 
 ## Enabling Consignment Tracking
 
-You can enable and disable consignment tracking with feature flags and feature levels. To enable the consignment tracking feature, set the feature flag as follows: 
-```
+Consignment tracking has a `consignmentTracking` feature flag that allows you to enable or disable the feature, as follows:
+
+```typescript
 features: {
    consignmentTracking: true
 }
 ```
-Or set feature level: 
-```
-features: {
-   level: ‘1.2’(>=1.2)
-}
-```
-This will enable all features configured <=1.2 in `app.module.ts`.
 
-Or you can mix feature level and feature flags:
-```
-features: {
-   level: ‘1.1’,
-   consignmentTracking: true,
- }
-```
+Consignment tracking is enabled automatically for feature level 1.2 and above.
+
+For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
 
 
 ## Configuring

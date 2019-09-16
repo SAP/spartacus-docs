@@ -19,14 +19,18 @@ See https://help.sap.com/ for more information.
 
 ## Enabling Notification Preference
 
-You can enable and disable notification preference with feature flags and feature levels. To enable customer interests, set the feature flag as follows:
+Customer interests has a `notificationPreference` feature flag that allows you to enable or disable the feature, as follows:
 
+```typescript
+features: {
+   notificationPreference: true
+}
 ```
-```
-Or set feature level:
 
-```
-```
+The notification preference feature is enabled automatically for feature level 1.2 and above.
+
+For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
+
 
 ## Configuring
 
