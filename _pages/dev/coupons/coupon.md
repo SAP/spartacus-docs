@@ -13,7 +13,7 @@ The coupon feature requires the following extensions to work:
 - couponfacades Extension 
 - couponwebservices Extension 
 
-See https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a3fab07560c94b8e9e5d8824c0d88580.html for more information.
+For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a3fab07560c94b8e9e5d8824c0d88580.html) in the SAP Help Portal.
 
 ## Enabling Coupon Feature
 

@@ -15,7 +15,8 @@ The notification preference feature requires the following extensions to work:
 - 
 - 
 
-See https://help.sap.com/ for more information.
+For more information, see [Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/b090364cfbe94c6da1b69af62f585d79.html) in the SAP Help Portal.
+
 
 ## Enabling Notification Preference
 

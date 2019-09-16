@@ -14,7 +14,7 @@ The customer interests feature requires the following extensions to work:
 - 
 - 
 
-See https://help.sap.com/ for more information.
+For more information, see [Customer Interests Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/f096456e586c44a29bd833a88536855a.html) in the SAP Help Portal.
 
 ## Enabling Customer Interests
 
