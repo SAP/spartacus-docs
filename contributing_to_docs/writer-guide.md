@@ -162,7 +162,7 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
 1. Stage your work.
 
-    This step allows you to more formally decide which work will actually be included in your commit. If you have worked on multiple files, you can choose to stage only certain files, if you do not wish to commit the work you have done in the other files. Or you can stage work progressively as you go within a single file. At any time, you can also unstage your work, and nothing is "undone" if you do so. You must stage your work before you commit it, though if you attempt to commit unstaged work, editors such as VS Code offer options to "automatically stage all your changes and commit them directly", to which you can answer "Yes", "Cancel", "Never", and "Always".
+    This step allows you to more formally decide which work will actually be included in your commit. If you have worked on multiple files, you can choose to stage only certain files, if you do not wish to commit the work you have done in the other files. Or you can stage work progressively as you go within a single file. At any time, you can also unstage your work, and no work is lost if you do so. You must stage your work before you commit it, though if you attempt to commit unstaged work, editors such as VS Code offer options to "automatically stage all your changes and commit them directly", to which you can answer "Yes", "Cancel", "Never", and "Always".
 
 1. Write a commit message and commit your work.
 
