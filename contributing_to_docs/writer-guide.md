@@ -158,7 +158,7 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
 1. Save your work.
 
-    When you save your work, you are ready for the next step in the workflow, which is to stage your work. At this point, although the work you have done is saved in your editor, if you happen to switch branches, any work that you have not committed is lost.
+    You should always save your work (who doesn't know that?), but in fact, this step only saves your work in your editor. There are further steps you need to do for your work to be "saved" in GitHub. Also note that, although the work you have done up to this point is saved in your editor, if you happen to switch branches, any work that you have not committed will be lost. We'll come to committing your work in a moment.
 
 1. Stage your work.
 
