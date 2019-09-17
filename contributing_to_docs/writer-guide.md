@@ -61,9 +61,9 @@ The following sections are intended to help you get up-and-running with those as
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
-Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write-access to the Spartacus repositories. 
+Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write-access to the Spartacus repositories.
 
-The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this to contributing to the Spartacus project. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID. 
+The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this to contributing to the Spartacus project. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID.
 
 If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
 
@@ -168,9 +168,11 @@ When you are working with branches, the workflow proceeds as follows:
 
 1. Push your work with the command `git push`.
 
-    The first time you push your work with this command, Git returns an error, but also includes the necessary command to proceed 
-    
-    provides a response with a `remote` copy of your branch is set up, and the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far). The first time that you push your updates, Git also offers to create a pull request (which you can do by clicking the provided link). Until your pull request is merged, you can continue pushing updates to it.
+    The work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far). The first time that you push your updates, Git also offers to create a pull request (which you can do by clicking the provided link). Until your pull request is merged, you can continue pushing updates to it.
+
+1. Merge your work.
+
+    This is done with a pull request to the `develop` branch. Normally, you will have set up a pull request (PR) the first time that you pushed work from your branch. Someone needs to review your work and approve it. When the work is approved, you will be able to merge your work. When your work is merged, GitHub's web interface often offers the option to delete your branch. To avoid the repository getting cluttered with branches that are no longer needed, it is a good idea to delete your branch after your work has been merged.
 
 ------------------
 
@@ -205,6 +207,19 @@ There are various (free) tools that you can use to update the documentation, suc
 1. Create new documentation or update existing topics in the `_pages` folder.
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
+
+1. Push your work with the command `git push`.
+
+    The first time you push your work with this command, Git returns an error similar to the following:
+    
+    ```bash
+    fatal: The current branch doc/GH-123 has no upstream branch.
+    To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin doc/GH-123
+    ```
+
+    In your shell app, copy-paste the command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to
 
 1. Create a pull request.
 
