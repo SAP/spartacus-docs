@@ -168,7 +168,7 @@ When you are working with branches, the workflow proceeds as follows:
 
 1. Push your work with the command `git push`.
 
-    The first time you push your work with this command, Git returns an error, but also includes the necessary command to proceed 
+    The first time you push your work with this command, Git returns an error, but also includes the necessary command to proceed
     
     provides a response with a `remote` copy of your branch is set up, and the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far). The first time that you push your updates, Git also offers to create a pull request (which you can do by clicking the provided link). Until your pull request is merged, you can continue pushing updates to it.
 
