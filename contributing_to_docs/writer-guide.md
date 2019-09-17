@@ -154,7 +154,7 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
 1. Create a new branch.
 
-    Your new branch starts off as a copy of the `develop` branch, with the only difference being that you give it a new name, based on the relevant GitHub ticket. For example, if the relevant ticket number is `#123`, then you would name your new branch `doc/GH-123`. You can create a new branch and switch to it in a single command: `git checkout -b doc/GH-xxx`. For example, if your GitHub issue number is `#123`, then the command would be: `git checkout -b doc/GH-123`
+    Your new branch starts off as a copy of the `develop` branch, with the only difference being that you give it a different name, based on the relevant GitHub ticket. For example, if the relevant ticket number is `#123`, then you would name your new branch `doc/GH-123`. You can create a new branch and switch to it in a single command: `git checkout -b [branch-name]`. So, continuing with our example, if your GitHub issue number is `#123`, then the command for creating the new `doc/GH-123` branch is: `git checkout -b doc/GH-123`
 
 1. Save your work.
 
