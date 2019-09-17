@@ -101,7 +101,7 @@ All open issues related to the Spartacus documentation repository can very viewe
 
 You can create a new issue by clicking the green **New issue** button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) page.
 
-When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: the [Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1) project. When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects) tab at the top of any page in GitHub.
+When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects) tab at the top of any page in GitHub.
 
 #### Creating a New Issue
 
@@ -124,16 +124,56 @@ The following steps guide you through creating a new issue in GitHub:
 
 #### Further Links
 
-The following are useful links from the GitHub Help documentation:
+To learn more about GitHub Issues, check out the following links from the GitHub Help documentation:
 
 - [About issues](https://help.github.com/en/articles/about-issues)
 - [Searching issues and pull requests](https://help.github.com/en/articles/searching-issues-and-pull-requests)
 - [About project boards](https://help.github.com/en/articles/about-project-boards)
 
+### Working with Branches
+
+Everything in GitHub lives in a branch. The documentation that is published on the Spartacus help site resides in the `master` branch. At any given time, the work that is waiting to be published with the next release of the Spartacus libraries is staged in the `develop` branch. And any work that is done to update the documentation (such as creating a new topic, updating an existing topic, or just fixing a typo) is done on an individual branch that is named according to the relevant ticket (that is, the relevant GitHub issue).
+
+When you create a branch, it is like you are making your own personal copy of the entire project, where you can experiment and make changes as much as you like, without risk of affecting the main `master` and `develop` branches. And when your work is complete, and has been tested by running a Jekyll build from your branch, you can then merge your work back into one of the main branches. Aside from emergency fixes, you always create new branches off the `develop` branch, and you always merge back to the `develop` branch. The `develop` branch is the pre-publishing or staging branch. When updates to the Spartacus libraries are released (which happens more or less every sprint), the documentation release master merges the `develop` branch into the `master` branch, at which point the Spartacus help site is automatically updated with all the changes that were staged in the `develop` branch.
+
+As mentioned earlier, you create a new branch when you want to create a new topic, update an existing topic, or even just fix a typo. Of course, you can combine work in a single branch, such as fixing a typo in one topic while making updates to a different topic, but you should always create separate branches for work that will be released at different times. To give an example, your team might be working on Feature A and Feature B at the same time, but Feature A will be released before Feature B. In this case, you need separate branches for the documentation for Feature A and for Feature B, so that you can release Feature A documentation at the same time that Feature A is released, and later, you can release Feature B documentation along with the release of Feature B. If you were to put the documentation for both features in a single branch, when it comes time to release Feature A, you would be forced to publish the documentation for Feature B as well the documentation for Feature A, even though Feature B is not ready for release. If you are in doubt about whether you should combine your work in one branch, or create separate branches for different tasks, it is safer to dedicate specific tasks to specific branches.
+
+When you are working with branches, the workflow proceeds as follows:
+
+1. Go to the branch that you want to use as your starting point. Aside from emergency fixes, you always start from the `develop` branch.
+
+    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So in this case, no matter which branch you are currently on, you can check out the `develop` branch with the following command: `git checkout develop`.
+
+1. Make sure you have all the latest updates on the `develop` branch by "pulling the latest changes".
+
+    When you check out the `develop` branch, you are switching to the "local" copy of the branch that is on your computer. However, there is also a "remote" version of the same branch, which is the online version that everyone sees and sends their updates to. If other people have made changes to the remote version of the `develop` branch since the last time you updated it, you won't have those updates until you download them. You update the branch with following command: `git pull`.
+
+1. Create a new branch.
+
+    Your new branch starts off as a copy of the `develop` branch, with the only difference being that you give it a different name, based on the relevant GitHub ticket. If the relevant ticket number is `GH-123` (often also displayed as `#123`), then you would name your new branch `doc/GH-123`. You can create a new branch and switch to it in a single command: `git checkout -b doc/GH-xxx`. For example, if your GitHub issue number is `#123`, then the command would be: `git checkout -b doc/GH-123`
+
+1. Save your work.
+
+    When you save your work, you are ready for the next step in the workflow, which is to stage your work. At this point, although the work you have done is saved in your editor, if you happen to switch branches, any work that you have not committed is lost.
+
+1. Stage your work.
+
+    This step allows you to more formally decide which work will actually be included in your commit. If you have worked on multiple files, you can choose to stage only certain files, if you do not wish to commit the work you have done in the other files. Or you can stage work progressively as you go within a single file. At any time, you can also unstage your work, and nothing is "undone" if you do so. You must stage your work before you commit it, though if you attempt to commit unstaged work, editors such as VS Code offer options to "automatically stage all your changes and commit them directly", to which you can answer "Yes", "Cancel", "Never", and "Always".
+
+1. Write a commit message and commit your work.
+
+    The more meaningful your commit message, the easier it is to track down a commit later on, if you want to undo a commit, or see when a certain change was introduced. There is a 50 character limit to the message, so it needs to be brief, but it can be as simple as referring to the section you have updated, or that you fixed a broken link, or a typo. So try to be specific when possible.
+
+    When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to `push` your work, which is the next step.
+
+1. Push your work with the command `git push`.
+
+    The first time you push your work with this command, Git returns an error, but also includes the necessary command to proceed 
+    
+    provides a response with a `remote` copy of your branch is set up, and the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far). The first time that you push your updates, Git also offers to create a pull request (which you can do by clicking the provided link). Until your pull request is merged, you can continue pushing updates to it.
+
 ------------------
 
-- Need to clone the docs repo
-- Working with GitHub Issues
 - Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch (`bundle exec jekyll serve`), and verifies it locally (`http://localhost:4000/`) **before** merging to `develop` or `master`.
 - Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
 - Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
@@ -148,21 +188,25 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 **Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
 
+There are various (free) tools that you can use to update the documentation, such as GitHub Desktop and Sourcetree. However, I found the simplest way of working with GitHub was to use Git commands in the terminal of VS Code. Accordingly, the following steps describe how to update the documentation in Spartacus using the integrated terminal in VS Code.
+
 1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
 
-   **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
+1. Checkout the `develop` branch. [command]
 
-2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
+1. Pull the latest from the `develop` branch [command]
+
+1. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
 
     Always create your new `doc` branch from the `develop` branch.
   
     The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can create your new `doc` branch from the `master` branch.
 
-3. Create new documentation or update existing topics in the `_pages` folder.
+1. Create new documentation or update existing topics in the `_pages` folder.
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
 
-4. Create a pull request.
+1. Create a pull request.
 
    Always send your pull request to the `develop` branch.
   
@@ -170,7 +214,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
    The PR requires a minimum of one approver. Always include a writer as one of the approvers.
 
-5. Merge your pull request.
+1. Merge your pull request.
 
    If you merged your updates to the `develop` branch, the updates will be staged until the next release of the Spartacus libraries, at which point they will be published by the documentation release master.
 
