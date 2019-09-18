@@ -146,7 +146,7 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
 1. Go to the branch that you want to use as your starting point. Aside from emergency fixes, you always start from the `develop` branch.
 
-    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So in this case, no matter which branch you are currently on, you can check out the `develop` branch with the following command: `git checkout develop`.
+    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So in this case, no matter which branch you are currently on, you can check out the `develop` branch with the following command: `git checkout develop`. --> re-explain this command as simply how to switch branches, since the command will leave off the step in the section below. And since we are talking about switching branches, mention here (rather than later) that you need to commit your updates before switching branches (and that committing itself is explained in a future step in this procedure).
 
 1. Make sure you have all the latest updates on the `develop` branch by pulling the latest changes.
 
@@ -192,15 +192,13 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
 ## Making Updates to the Documentation Repository
 
-Whether you are creating new documentation, or updating an existing topic, the steps are the same.
+Whether you are creating new documentation or updating an existing topic, the steps are the same.
 
-One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation.
+The following workflow describes how to make updates to the documentation repository using Git commands and various features of VS Code. You are free to choose different tools, but your workflow should generally follow the approach described here.
 
-**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
+1. Create a new GitHub issue in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
 
-There are various (free) tools that you can use to update the documentation, such as GitHub Desktop and Sourcetree. However, I found the simplest way of working with GitHub was to use Git commands in the terminal of VS Code. Accordingly, the following steps describe how to update the documentation in Spartacus using the integrated terminal in VS Code.
-
-1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
+    For more information, see [Working with GitHub Issues](#working-with-gitHub-issues) above. 
 
 1. Checkout the `develop` branch. [command]
 
@@ -215,6 +213,8 @@ There are various (free) tools that you can use to update the documentation, suc
 1. Create new documentation or update existing topics in the `_pages` folder.
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
+
+1. Run the Jekyll build: `bundle exec jekyll serve`
 
 1. Push your work with the command `git push`.
 
