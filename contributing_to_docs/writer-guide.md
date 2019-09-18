@@ -140,7 +140,7 @@ As mentioned earlier, you create a new branch when you want to create a new topi
 
 In general, and especially if you are working on several tasks at the same time, the easiest way to manage your work is to dedicate each task to its own branch.
 
-#### Workflow
+#### Workflow and Branch Lifecycle
 
 The following workflow provides an in-depth explanation of what's involved at each step when working with branches:
 
@@ -176,7 +176,11 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
 1. Merge your work.
 
-    This is done with a pull request to the `develop` branch. Normally, you will have set up a pull request (PR) the first time that you pushed work from your branch. Someone needs to review your work and approve it. When the work is approved, you will be able to merge your work. When your work is merged, GitHub's web interface often offers the option to delete your branch. To avoid the repository getting cluttered with branches that are no longer needed, it is a good idea to delete your branch after your work has been merged.
+    This is done with a pull request to the `develop` branch. Normally, you will have set up a pull request (PR) the first time that you pushed work from your branch. Someone needs to review your work and approve it. When the work is approved, you will be able to merge your work. When your work is merged, GitHub's web interface often offers the option to delete your branch. 
+
+1. Delete your branch.
+
+    To avoid the repository getting cluttered with branches that are no longer needed, it is a good idea to delete your branch after your work has been merged. If you have not deleted your branch from the GitHub web interface when you merged your pull request, you can always delete your branch with the following command: `git branch -D [branch_name] && git push --delete origin [branch_name]`. Working with our previous example, if you have a branch named `doc/GH-123`, then the command would be: `git branch -D doc/GH-123 && git push --delete origin doc/GH-123`
 
 ------------------
 
