@@ -170,7 +170,7 @@ The following workflow provides an in-depth explanation of what's involved at ea
 
     When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to `push` your work, which is the next step.
 
-1. Push your work with the command `git push`.
+1. Push your work with the `git push` command.
 
     The work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far). The first time that you push your updates, Git also offers to create a pull request (which you can do by clicking the provided link). Until your pull request is merged, you can continue pushing updates to it.
 
