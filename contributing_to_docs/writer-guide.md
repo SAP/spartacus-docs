@@ -196,11 +196,18 @@ Whether you are creating new documentation or updating an existing topic, the st
 
 The following workflow describes how to make updates to the documentation repository using Git commands and various features of VS Code. You are free to choose different tools, but your workflow should generally follow the approach described here.
 
-1. Create a new GitHub issue in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
+1. Create a new GitHub issue in the documentation repository that describes the work you plan to do.
 
-    For more information, see [Working with GitHub Issues](#working-with-gitHub-issues) above. 
+    For more information, see the [Working with GitHub Issues](#working-with-gitHub-issues) section, above.
 
-1. Checkout the `develop` branch. [command]
+1. 
+
+
+1. In VS Code, open the Terminal window and Check out the `develop` branch with 
+
+    Go to the branch that you want to use as your starting point. Aside from emergency fixes, you always start from the `develop` branch.
+
+    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So in this case, no matter which branch you are currently on, you can check out the `develop` branch with the following command: `git checkout develop`. --> re-explain this command as simply how to switch branches, since the command will leave off the step in the section below. And since we are talking about switching branches, mention here (rather than later) that you need to commit your updates before switching branches (and that committing itself is explained in a future step in this procedure).
 
 1. Pull the latest from the `develop` branch [command]
 
