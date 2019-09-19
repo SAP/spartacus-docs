@@ -203,7 +203,7 @@ The following workflow describes how to make updates to the documentation reposi
 1. In VS Code, open your local copy of the Spartacus documentation repository as follows:
 
     1. Click **File --> New Window**.
-    1. Click the **Explorer** button ![explorer button]({{ site.baseurl }}/contributing_to_docs/images/explorer_button.png) in the top left of the app window.
+    1. Click the **Explorer** button ![explorer button](/contributing_to_docs/images/explorer_button.png) in the top left of the app window.
 
 
 1. In VS Code, open the Terminal window and Check out the `develop` branch with 
