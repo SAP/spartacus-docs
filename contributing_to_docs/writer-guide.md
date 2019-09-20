@@ -288,7 +288,7 @@ The following workflow describes how to make updates to the documentation reposi
 
     1. Above the **Message** text field, click the **Commit** button, which appears as a `✓` checkmark symbol.
 
-        checkmarks in mac... ✓✔︎
+        
 
 
 1. Push your work with the command `git push`.
