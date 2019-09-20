@@ -77,7 +77,7 @@ The following steps describe how to clone the Spartacus documentation repository
 
 1. Open a shell app on your computer.
 
-    For example, if you are on a Mac, you can use the `Terminal` application. On Windows, you can use the `Command Prompt`, for example. Or, on any computer, you can use the integrated terminal that is included in VS Code. For more information on using the VS Code integrated terminal, see the [VS Code documentation](https://code.visualstudio.com/docs/editor/integrated-terminal).
+    For example, if you are on a Mac, you can use the **Terminal** application. On Windows, you can use the **Command Prompt**, for example. Or, on any computer, you can use the integrated terminal that is included in VS Code. For more information on using the VS Code integrated terminal, see the [VS Code documentation](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
 2. Within the shell app of your choice, navigate to the directory on your local machine where you would like to copy the repository.
 
@@ -203,30 +203,64 @@ The following workflow describes how to make updates to the documentation reposi
 1. In VS Code, open your local copy of the Spartacus documentation repository as follows:
 
     1. Click **File —> New Window**.
-    1. Click the **Explorer** icon in the top left of the app window (just above the **Search** icon), then click **Open Folder** in the **Explorer** panel that appears.
+    1. Click the **Explorer** button in the **Activity Bar** of the app window (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
     1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder (this is the folder that contains your clone of the Spartacus documentation repository) and click **Open**.
-    1. If you don't already have a Terminal window open, in the menu, click **Terminal —> New Terminal**.
+
+    For a general overview of the VS Code interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
+    
+1. If you don't already have a terminal window open in VS Code, in the menu, click **Terminal —> New Terminal**.
+
+    **Note:** The terminal should open at the root of your repository, but if for some reason the directory that is shown in your terminal prompt is not `cloud-commerce-spartacus-storefront-docs`, then switch to this directory before continuing.
+
+1. In the terminal, switch to the `develop` branch with the following command:
+
+    ```bash
+    git checkout develop
+    ```
+
+    When you want to create a new branch, you always start by switching to the branch that you want to use as your starting point. Aside from emergency fixes, you always start from the `develop` branch.
+
+    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So no matter which branch you are currently on, you can switch to (that is, check out) a different branch with the command `git checkout [branch name]`.
+
+1. Get the latest updates from the `develop` branch with the following command:
+
+    ```bash
+    git pull
+    ```
+
+    When you check out the `develop` branch, you are switching to the local copy of the branch that is on your computer. However, there is also a remote version of the same branch, which is the online version that everyone sees and sends their updates to. If other people have made changes to the remote version of the `develop` branch since the last time you updated your copy, you won't have those updates until you download them. For any branch, you can update it at any time with the `git pull` command.
 
 
-1. In VS Code, open the Terminal window and Check out the `develop` branch with 
+1. Create a new branch and switch to it with the following command:
 
-    Go to the branch that you want to use as your starting point. Aside from emergency fixes, you always start from the `develop` branch.
+    ```bash
+    git checkout -b [branch-name]
+    ```
 
-    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So in this case, no matter which branch you are currently on, you can check out the `develop` branch with the following command: `git checkout develop`. --> re-explain this command as simply how to switch branches, since the command will leave off the step in the section below. And since we are talking about switching branches, mention here (rather than later) that you need to commit your updates before switching branches (and that committing itself is explained in a future step in this procedure).
+    The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the first step of this workflow. For example, if your new GitHub issue number is `#42`, then you would name your new branch `doc/GH-42`. The command for creating a branch for issue `#42` and switching to it is the following:
 
-1. Pull the latest from the `develop` branch [command]
+    ```bash
+    git checkout -b doc/GH-42
+    ```
 
-1. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
+    Your new branch starts off as a copy of the `develop` branch, with the only difference being that you give it a different name, based on the relevant GitHub ticket. You can create a branch from any other branch by switching to the branch you want to copy, and then creating a new branch from there. But unless you have a special reason to do otherwise, it is recommended to always create new branches from the `develop` branch.
 
-    Always create your new `doc` branch from the `develop` branch.
-  
-    The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can create your new `doc` branch from the `master` branch.
-
-1. Create new documentation or update existing topics in the `_pages` folder.
+1. Create new documentation or update existing topics in the `_pages` folder, which you can navigate to in the **Explore** panel.
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
 
-1. Run the Jekyll build: `bundle exec jekyll serve`
+1. From the VS Code terminal, run the Jekyll build with the following command:
+
+    ```bash
+    bundle exec jekyll serve
+    ```
+
+    This command builds the entire documentation site from your local branch. Also, while this command is running, it rebuilds the site every time you save your work. Running the build is very important because you can find out if there are any build errors in your branch (and then fix them) before you merge your work back to the `develop` branch (build errors can prevent the doc site from working properly!). Another benefit of running this command is that, every time you save, you can see exactly what your updates will look like on the doc site by previewing it at `http://localhost:4000/`. This site runs from your current branch. If `bundle exec jekyll serve` is running and you decide to switch to a different branch, the site automatically updates to display the contents of the branch you switched to.
+
+    **Tip:** You can have multiple terminal windows open simultaneously. This lets you run the `bundle exec jekyll serve` command in one window, while allowing you to input Git commands in the other window. To open an additional terminal window, click the **Split Terminal**
+
+
+    On the topic of saving your changes, if you ever need to switch branches before you complete your work, you must also commit your changes; saving is not enough. If you switch branches without committing your updates, your changes will be lost. How to commit your changes is explained later in this workflow.
 
 1. Push your work with the command `git push`.
 
@@ -247,13 +281,13 @@ The following workflow describes how to make updates to the documentation reposi
   
    The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can send your pull request to the `master` branch.
 
-   The PR requires a minimum of one approver. Always include a writer as one of the approvers.
+   The PR requires a minimum of one approver. Always include a senior writer as one of the approvers.
 
 1. Merge your pull request.
 
    If you merged your updates to the `develop` branch, the updates will be staged until the next release of the Spartacus libraries, at which point they will be published by the documentation release master.
 
-   If you merged your updates to the `master` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).  
+   If you merged your updates to the `master` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).
 
 ## Updating the Sidebar
 
