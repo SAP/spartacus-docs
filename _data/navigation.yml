@@ -76,6 +76,8 @@ docs:
             url: /extending-checkout/
           - title: 'Express Checkout'
             url: /express-checkout/
+          - title: "Guest Checkout"
+            url: /guest-checkout/  
           - title: 'Configurable Routing'
             url: /configurable-routing/
             subchildren:
