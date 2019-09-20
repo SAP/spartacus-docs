@@ -286,7 +286,7 @@ The following workflow describes how to make updates to the documentation reposi
 
     1. In the **Message** text field at the top of the **Source Control** panel, enter a commit message.
 
-    1. Above the **Message** text field, click the **Commit** button, which appears as a `✓` checkmark symbol.
+    1. Above the **Message** text field, click the **Commit** button, which appears as a ✓ checkmark symbol.
 
         
 
