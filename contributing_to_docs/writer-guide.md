@@ -140,52 +140,11 @@ As mentioned earlier, you create a new branch when you want to create a new topi
 
 In general, and especially if you are working on several tasks at the same time, the easiest way to manage your work is to dedicate each task to its own branch.
 
-#### Workflow and Branch Lifecycle
 
-The following workflow provides an in-depth explanation of what's involved at each step when working with branches:
-
-1. Go to the branch that you want to use as your starting point. Aside from emergency fixes, you always start from the `develop` branch.
-
-    In Git terminology, you "check out" a branch when you want to switch from one branch to another. So in this case, no matter which branch you are currently on, you can check out the `develop` branch with the following command: `git checkout develop`. --> re-explain this command as simply how to switch branches, since the command will leave off the step in the section below. And since we are talking about switching branches, mention here (rather than later) that you need to commit your updates before switching branches (and that committing itself is explained in a future step in this procedure).
-
-1. Make sure you have all the latest updates on the `develop` branch by pulling the latest changes.
-
-    When you check out the `develop` branch, you are switching to the local copy of the branch that is on your computer. However, there is also a remote version of the same branch, which is the online version that everyone sees and sends their updates to. If other people have made changes to the remote version of the `develop` branch since the last time you updated your copy, you won't have those updates until you download them. You update the branch with the following command: `git pull`.
-
-1. Create a new branch.
-
-    Your new branch starts off as a copy of the `develop` branch, with the only difference being that you give it a different name, based on the relevant GitHub ticket. For example, if the relevant ticket number is `#123`, then you would name your new branch `doc/GH-123`. You can create a new branch and switch to it in a single command: `git checkout -b [branch-name]`. So, continuing with our example, if your GitHub issue number is `#123`, then the command for creating the new `doc/GH-123` branch is: `git checkout -b doc/GH-123`
-
-1. Save your work.
-
-    You should always save your work (who doesn't know that?), but in fact, this step only saves your work in your editor. There are further steps you need to do for your work to be "saved" in GitHub. Also note that, although the work you have done up to this point is saved in your editor, if you happen to switch branches, any work that you have not committed will be lost. We'll come to committing your work in a moment.
-
-1. Stage your work.
-
-    This step allows you to more formally decide which work will actually be included in your commit. If you have worked on multiple files, you can choose to stage only certain files, if you do not wish to commit the work you have done in the other files. Or you can stage work progressively as you go within a single file. At any time, you can also unstage your work, and no work is lost if you do so. You must stage your work before you commit it, though if you attempt to commit unstaged work, editors such as VS Code offer options to "automatically stage all your changes and commit them directly", to which you can answer "Yes", "Cancel", "Never", and "Always".
-
-1. Write a commit message and commit your work.
-
-    The more meaningful your commit message, the easier it is to track down a commit later on, if you want to undo a commit, or see when a certain change was introduced. There is a 50 character limit to the message, so it needs to be brief, but it can be as simple as referring to the section you have updated, or that you fixed a broken link, or a typo. So try to be specific when possible.
-
-    When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to `push` your work, which is the next step.
-
-1. Push your work with the `git push` command.
-
-    The work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far). The first time that you push your updates, Git also offers to create a pull request (which you can do by clicking the provided link). Until your pull request is merged, you can continue pushing updates to it.
-
-1. Merge your work.
-
-    This is done with a pull request to the `develop` branch. Normally, you will have set up a pull request (PR) the first time that you pushed work from your branch. Someone needs to review your work and approve it. When the work is approved, you will be able to merge your work. When your work is merged, GitHub's web interface often offers the option to delete your branch. 
-
-1. Delete your branch.
-
-    To avoid the repository getting cluttered with branches that are no longer needed, it is a good idea to delete your branch after your work has been merged. If you have not deleted your branch from the GitHub web interface when you merged your pull request, you can always delete your branch with the following command: `git branch -D [branch_name] && git push --delete origin [branch_name]`. Working with our previous example, if you have a branch named `doc/GH-123`, then the command would be: `git branch -D doc/GH-123 && git push --delete origin doc/GH-123`
 
 ------------------
 
-- Procedure for adding/updating content must include a step where the writer runs a Jekyll build in their branch (`bundle exec jekyll serve`), and verifies it locally (`http://localhost:4000/`) **before** merging to `develop` or `master`.
-- Every merge to the `master` branch automatically triggers Jekyll to rebuilt the site. Note that, after merging to the `master` branch, it can sometimes take a few minutes for your changes to appear.
+
 - Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
 - Mention GitHub Desktop and Sourcetree as other tools that may be of interest, but that are beyond the scope of this document (ask your team for recommendations, suggestions -- note that neither of these tools are necessary)
 - If you want to know more about Git in general, this guide is very useful: https://git-scm.com/book/en/v2
@@ -248,7 +207,7 @@ The following workflow describes how to make updates to the documentation reposi
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
 
-1. From the VS Code terminal, run the Jekyll build with the following command:
+1. In the terminal, run the Jekyll build with the following command:
 
     ```bash
     bundle exec jekyll serve
@@ -278,7 +237,7 @@ The following workflow describes how to make updates to the documentation reposi
 
     The more meaningful your commit message, the easier it is to track down a commit later on. For example, if you want to undo a commit, or see when a certain change was introduced, a meaningful commit message makes this much easier. There is a 50 character limit to the message, so it needs to be brief, but the message can be as simple as referring to the section you have updated, or that you fixed a broken link, or even just a typo. So try to be specific when possible.
 
-    When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to `push` your work, which is described in the next step of this workflow.
+    When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to push your work, which is described in the next step of this workflow.
 
     The following steps describe how to commit your work:
 
@@ -288,35 +247,56 @@ The following workflow describes how to make updates to the documentation reposi
 
     1. Above the **Message** text field, click the **Commit** button, which appears as a ✓ checkmark symbol.
 
-        
+        You have now committed your work and are ready to push it.
 
+1. In the terminal, push your work with the following command:
 
-1. Push your work with the command `git push`.
-
-    The first time you push your work with this command, Git returns an error similar to the following:
-    
     ```bash
-    fatal: The current branch doc/GH-123 has no upstream branch.
-    To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin doc/GH-123
+    git push
     ```
 
-    In your shell app, copy-paste the command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to
+    The first time you push your work with this command, Git returns an error similar to the following:
+
+    ```bash
+    fatal: The current branch doc/GH-42 has no upstream branch.
+    To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin doc/GH-42
+    ```
+
+    In your shell app, copy-paste the command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to. You only have to do this the first time you push a commit. After that, you only ever need the `git push` command to push your updates.
+
+    When you push your commit, the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far).
 
 1. Create a pull request.
 
-   Always send your pull request to the `develop` branch.
-  
-   The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can send your pull request to the `master` branch.
+    The first time that you push a commit, Git returns a response in the terminal that includes a link to create a pull request (PR). Open this link and create a pull request. The steps are quite similar to creating a GitHub issue.
 
-   The PR requires a minimum of one approver. Always include a senior writer as one of the approvers.
+    Until your pull request is merged, you can continue pushing updates to it, so it is a good idea to create a PR when you push your first commit.
+  
+    **Note:** The pull request requires a minimum of one approver. Always include a senior writer as one of the approvers.
 
 1. Merge your pull request.
 
-   If you merged your updates to the `develop` branch, the updates will be staged until the next release of the Spartacus libraries, at which point they will be published by the documentation release master.
+   When your pull request has been approved, and all checks are green on the pull request page in GitHub, click the **Squash and merge** button. The page refreshes to display a header field with a proposed merge message, and a body field that includes a list of your commit messages. Edit these fields if you wish, then click the **Confirm squash and merge** button.
+  
+   Your work is now merged... Congratulations!
+  
+   **Tip:** If you add a line at the bottom of the body, such as "Closes GH-xxx" or "Fixes GH-xxx", where `xxx` is the number of your GitHub issue, when your PR is merged, the GitHub issue #xxx is closed automatically. You can use this to close the ticket that you opened in the first step of this workflow. If you don't add this line, you can always close your issue manually, later on.
 
-   If you merged your updates to the `master` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).
+1. Delete your branch.
+
+    On the pull request page in GitHub, as soon as your PR is merged, you see the option to delete the original branch. To avoid the repository getting cluttered with branches that are no longer needed, it is a good idea to delete your branch after your work has been merged. If you have not deleted your branch from the PR page after you merged your pull request, you can always delete your branch with the following command:
+  
+    ```bash
+    git branch -D [branch_name] && git push --delete origin [branch_name]
+    ```
+  
+    For example, if you just merged work from branch `doc/GH-42`, then the command to delete is the following: 
+  
+    ```bash
+    git branch -D doc/GH-42 && git push --delete origin doc/GH-42
+    ```
 
 ## Updating the Sidebar
 
