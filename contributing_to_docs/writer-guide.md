@@ -207,7 +207,7 @@ The following workflow describes how to make updates to the documentation reposi
     1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder (this is the folder that contains your clone of the Spartacus documentation repository) and click **Open**.
 
     For a general overview of the VS Code interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
-    
+
 1. If you don't already have a terminal window open in VS Code, in the menu, click **Terminal —> New Terminal**.
 
     **Note:** The terminal should open at the root of your repository, but if for some reason the directory that is shown in your terminal prompt is not `cloud-commerce-spartacus-storefront-docs`, then switch to this directory before continuing.
@@ -229,7 +229,6 @@ The following workflow describes how to make updates to the documentation reposi
     ```
 
     When you check out the `develop` branch, you are switching to the local copy of the branch that is on your computer. However, there is also a remote version of the same branch, which is the online version that everyone sees and sends their updates to. If other people have made changes to the remote version of the `develop` branch since the last time you updated your copy, you won't have those updates until you download them. For any branch, you can update it at any time with the `git pull` command.
-
 
 1. Create a new branch and switch to it with the following command:
 
@@ -255,12 +254,42 @@ The following workflow describes how to make updates to the documentation reposi
     bundle exec jekyll serve
     ```
 
-    This command builds the entire documentation site from your local branch. Also, while this command is running, it rebuilds the site every time you save your work. Running the build is very important because you can find out if there are any build errors in your branch (and then fix them) before you merge your work back to the `develop` branch (build errors can prevent the doc site from working properly!). Another benefit of running this command is that, every time you save, you can see exactly what your updates will look like on the doc site by previewing it at `http://localhost:4000/`. This site runs from your current branch. If `bundle exec jekyll serve` is running and you decide to switch to a different branch, the site automatically updates to display the contents of the branch you switched to.
+    This command builds the entire documentation site from your local branch. Also, while this command is running, it rebuilds the site every time you save your work. Running the build is very important because you can find out if there are any build errors in your branch (and then fix them) before you merge your work back to the `develop` branch. You can also preview your work at `http://localhost:4000/`. This site runs from your current branch and updates automatically every time you save your work — as long as this command is running. Note that if `bundle exec jekyll serve` is running and you decide to switch to a different branch, the site automatically updates to display the contents of the branch you switched to.
 
-    **Tip:** You can have multiple terminal windows open simultaneously. This lets you run the `bundle exec jekyll serve` command in one window, while allowing you to input Git commands in the other window. To open an additional terminal window, click the **Split Terminal**
+    **Tip:** You can have multiple terminal windows open simultaneously. This lets you leave the `bundle exec jekyll serve` command running in one window, while allowing you to input Git commands in another. To open an additional terminal window, click the **Split Terminal** button that is in the top-right of the terminal window, in between the `+` button and the trash can button (that is, between the **New Terminal** and **Kill Terminal** buttons). To close additional terminal windows, use the **Kill Terminal** button.
 
+    **Note:** When you save your changes, you must also commit them before switching to a different branch. If you happen to switch branches without committing your work, all updates since your last commit will be lost. How to commit your changes is explained later in this workflow.
 
-    On the topic of saving your changes, if you ever need to switch branches before you complete your work, you must also commit your changes; saving is not enough. If you switch branches without committing your updates, your changes will be lost. How to commit your changes is explained later in this workflow.
+1. Stage your work.
+
+    This step is a precursor to committing your work. Often it can be done right before you are ready to commit. Staging your commit allows you to formally decide which work is actually included in the commit. For example, if you have worked on multiple files, and if you do not wish to commit the work you have done in all of the files, you can choose to stage only certain files. You can also stage work progressively as you go within a single file. At any time before you commit, you can also unstage your work, and none of your edits are undone if you do so. You must stage your work before you commit it, though if you attempt to commit unstaged work, editors such as VS Code offer options to "automatically stage all your changes and commit them directly", to which you can answer "Yes", "Cancel", "Never", and "Always". If you choose "Always", you are essentially choosing to stage and commit in a single step every time your commit, and there is nothing wrong with that.
+
+    The following steps describe how to stage your work:
+
+    1. In the **Activity Bar**, click the **Source Control** button.
+
+       If you have saved any changes, this button displays a badge with the number of files that can be potentially staged for your commit.
+
+    1. In the **Source Control** panel, next to each file that is listed under **Changes**, click the **Stage Changes** button, which appears as a `+` symbol. Alternatively, next to the **Changes** label, you can click the **Stage All Changes** button, which also appears as a `+` symbol. Note, these buttons only show up when you hover over a file, or over the **Changes** label itself.
+
+    At this point, your changes are staged and you are ready to commit your work.
+
+1. Write a commit message and commit your work.
+
+    The more meaningful your commit message, the easier it is to track down a commit later on. For example, if you want to undo a commit, or see when a certain change was introduced, a meaningful commit message makes this much easier. There is a 50 character limit to the message, so it needs to be brief, but the message can be as simple as referring to the section you have updated, or that you fixed a broken link, or even just a typo. So try to be specific when possible.
+
+    When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to `push` your work, which is described in the next step of this workflow.
+
+    The following steps describe how to commit your work:
+
+    1. In the **Activity Bar**, click the **Source Control** button.
+
+    1. In the **Message** text field at the top of the **Source Control** panel, enter a commit message.
+
+    1. Above the **Message** text field, click the **Commit** button, which appears as a `✓` checkmark symbol.
+
+        checkmarks in mac... ✓✔︎
+
 
 1. Push your work with the command `git push`.
 
