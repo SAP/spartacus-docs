@@ -12,18 +12,23 @@ Spartacus supports Guest Checkout which gives the ability to guests to checkout 
 
 ## Enabling the Feature
 
-This feature is disabled by default but can be enabled by setting the `guestCheckout` feature flag to true. The following configuration shows how to enable this feature:
+This feature is disabled by default but can be enabled by setting the `guest` flag to true in the `checkout` configuration. The following configuration shows how to enable this feature:
 
 (in app.module.ts)
 ```ts
 B2cStorefrontModule.withConfig({
   [...]
-  features: {
-    [...]
-    guestCheckout: true
+  checkout: {
+    guest: true
   }
 })
 ```
+
+### Using Guest Checkout Alongside Express Checkout
+
+For details on Express Checkout please refer to [Express Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/express-checkout/).
+
+Spartacus supports both Guest Checkout and Express Checkout to be enabled at the same time. If this is the case, Guest Checkout will not be affected by the Express Checkout configurations. Therefore, Express Checkout features will only be available to registered users.
 
 ## Extensibility
 
