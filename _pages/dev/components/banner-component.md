@@ -14,7 +14,7 @@ There are multipe banner component types in the CMS:
 
 There is also a `RotatingImagesComponent` which renders a one or multiple `BannerComponents` in a carousel.
 
-The different types have been created for historical reasons, there's not much of a point to distinquish them anymore; there's only component implementation in Spartacus for banners. Sparatacus always renders banners using adaptive and responsive features to render the most optimal image for the given device.
+The different types have been created for historical reasons, there's not much of a point to distinguish them anymore; there's only component implementation in Spartacus for banners. Sparatacus always renders banners using adaptive and responsive features to render the most optimal image for the given device.
 
 The CMS Banner component is mapped to the Spartacus implementation as follows:
 
@@ -36,7 +36,7 @@ You can use this component mapping to configure an alternative banner implementa
 
 ## Adaptive vs responsive images
 
-The banner component supports both _responsive_ images as well as _adaptive_ images. Responsive images are simply driven by the CSS rules, which allow to reuse the same images cross different devices and screen sizes. Adaptive images can be used simultaneouly, and are driven by the images provided by the backend. The backend provides different medias by media formats. The `cx-media` components adds the different formats in a so-called `srcset`, so that the browser decides when to use which image.
+The banner component supports both _responsive_ images as well as _adaptive_ images. Responsive images are simply driven by the CSS rules, which allow to reuse the same images cross different devices and screen sizes. Adaptive images can be used simultaneously, and are driven by the images provided by the backend. The backend provides different medias by media formats. The `cx-media` components adds the different formats in a so-called `srcset`, so that the browser decides when to use which image.
 
 ## Component Data
 
@@ -46,7 +46,7 @@ The banner component renders the following properties:
 | ---------- | ------------------------------------------------------------------------------------------------------------------- |
 | `urlLink`  |                                                                                                                     |
 | `external` | If set to true, the URL will not use the Angular routerLink, but an ordinary href instead.                          |
-| `media`    | The media contains different media per format, so that an optimzed media can be used for the given space and usage. |
+| `media`    | The media contains different media per format, so that an optimized media can be used for the given space and usage. |
 | `headline` | The headline is rendered as paragraph tag before the media.                                                         |
 | `content`  | The content is rendered in a paragraph tag below the media.                                                         |
 

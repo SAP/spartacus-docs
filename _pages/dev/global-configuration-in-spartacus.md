@@ -53,7 +53,7 @@ General advice would be, that any value that can change in time, should be a par
 
 ## Default Values
 
-Each module usually provides adefault configuration that is needed for basic functionality. There is no special way to
+Each module usually provides a default configuration that is needed for basic functionality. There is no special way to
 provide default configuration, it is provided in the same way as any other configuration.
 By default configuration we mean any configuration that is provided inside related module - usually it contains reasonable defaults or configuration that
 is required for a module to operate.

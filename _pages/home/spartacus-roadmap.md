@@ -107,7 +107,7 @@ B2B features are based on B2B Accelerator [Powertools store](https://help.sap.co
 - Self-service customer support ([Customer Service Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/aa039c46e5eb4c7da752afc0e05947e5.html))
 - Completion of Accessibility features
 - Credit-card auto-detect
-- Other features related to PWA as definedin Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+- Other features related to PWA as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
 - Spartacus for China (similar to [Accelerator for China](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8b258c36866910148298d20518a62a16.html)
 - Country-specific address forms
 

@@ -59,4 +59,4 @@ In the above example:
 ## **NOTE**:
 
 It is advised to additionally test your application when selectively enabling features. While we try to use feature flags for separate features, 
-we can't guarantee that all functionalites will work for all possible combinations of feature flags and feature levels. 
+we can't guarantee that all functionalities will work for all possible combinations of feature flags and feature levels. 

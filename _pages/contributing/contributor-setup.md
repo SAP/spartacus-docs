@@ -67,7 +67,7 @@ Carry out the following steps before you build and launch.
 
 ## Launching the Storefront
 
-Lauch the storefront with the following command:
+Launch the storefront with the following command:
 
 ```bash
 yarn start
@@ -77,7 +77,7 @@ This is the most convenient way for a developer to run the storefront. It allows
 
 # Building and Running in Production Mode
 
-Building in production mode has more retrictive rules about what kind of code is allowed, but it also allows you to generate a build that is optimized for production. Use this mode as your development cycle nears completion.
+Building in production mode has more restrictive rules about what kind of code is allowed, but it also allows you to generate a build that is optimized for production. Use this mode as your development cycle nears completion.
 
 ## Building the @spartacus/storefront Library
 

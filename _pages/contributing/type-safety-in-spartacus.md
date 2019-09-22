@@ -76,7 +76,7 @@ loadComponent<T extends CmsComponent>(
   }
 ```
 
-For more information about advanced types in TypeSript, see the official [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/advanced-types.html).
+For more information about advanced types in TypeScript, see the official [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/advanced-types.html).
 
 ## Exceptions
 
