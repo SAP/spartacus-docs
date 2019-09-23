@@ -81,6 +81,8 @@ docs:
             url: /extending-checkout/
           - title: 'Express Checkout'
             url: /express-checkout/
+          - title: "Guest Checkout"
+            url: /guest-checkout/  
           - title: 'Configurable Routing'
             url: /configurable-routing/
             subchildren:
@@ -98,6 +100,8 @@ docs:
                   url: /route-aliases/
                 - title: 'External Routes'
                   url: /external-routes/
+                - title: 'Early Login'
+                  url: /early-login/
           - title: 'Configuring the Base URL'
             url: /configuring-base-url/
           - title: 'Context Configuration'
