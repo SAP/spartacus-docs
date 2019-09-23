@@ -121,7 +121,6 @@ The following steps guide you through creating a new issue in GitHub:
 
 6. Click **Submit new issue**.
 
-
 #### Further Links
 
 To learn more about GitHub Issues, check out the following links from the GitHub Help documentation:
@@ -142,15 +141,10 @@ In general, and especially if you are working on several tasks at the same time,
 
 ## Further Reading About Git
 
-The following resources are highly recommended! 
+The following resources are highly recommended!
 
 - [Learn git concepts, not commands](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
 - [Pro Git](https://git-scm.com/book/en/v2)
-
-
-- Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
-- Mention GitHub Desktop and Sourcetree as other tools that may be of interest, but that are beyond the scope of this document (ask your team for recommendations, suggestions -- note that neither of these tools are necessary)
-- If you want to know more about Git in general, this guide is very useful: https://git-scm.com/book/en/v2
 
 ## Making Updates to the Documentation Repository
 
@@ -309,8 +303,7 @@ New topics must be explicitly added to `_data/navigation.yml` for them to appear
 
 Please adhere to the following conventions to ensure that your changes build successfully when they are merged:
 
-
-- **Filenames:** Use lower-case names for all documentation files. 
+- **Filenames:** Use lower-case names for all documentation files.
 
     Avoid changing the filename where possible, because links and permalinks need to be udpated every time the filename is changed. Having said that, page titles are independent of filenames, and can be changed any time.
 
@@ -368,7 +361,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     ```markdown
     [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
-    ``` 
+    ```
 
 - **Images:** Images reside in the `/assets/images/` folder. The format for including an image in your topic is the following:
 
@@ -384,7 +377,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
 - **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}` ) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!
 
-    If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
+    If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags.
 
     See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
@@ -395,5 +388,5 @@ Please adhere to the following conventions to ensure that your changes build suc
     ```
 
     If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/master/_includes/docs/frontend_requirements.html).
-    
+
     To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
