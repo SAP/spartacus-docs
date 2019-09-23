@@ -140,9 +140,12 @@ As mentioned earlier, you create a new branch when you want to create a new topi
 
 In general, and especially if you are working on several tasks at the same time, the easiest way to manage your work is to dedicate each task to its own branch.
 
+## Further Reading About Git
 
+The following resources are highly recommended! 
 
-------------------
+- [Learn git concepts, not commands](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
+- [Pro Git](https://git-scm.com/book/en/v2)
 
 
 - Include this "Learn git concepts, not commands" resource https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc
