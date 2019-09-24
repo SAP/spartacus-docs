@@ -1,10 +1,12 @@
 ---
-title: Release 1.1 Information
+title: Release Information for 1.0-1.2
 ---
 
-*Last updated August 29, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated September 24, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-This document describes what is included in Release 1.1 of Spartacus libraries.
+This document describes what is included in Release 1.2 of Spartacus libraries.
+
+Note: Release 1.2-next.0 was published September 24, 2019. The releases labelled 'next' are pre-release versions of the next minor release. Release 1.2.0 is expected to be published end of September.
 
 If you have any questions, use the 'help' channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
@@ -21,6 +23,7 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
 - When we say "released", we mean that we make new, official, tested Spartacus libraries available to the public (hosted on npmjs.com)
 - We usually release new libraries every 2 weeks 
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
+- We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - It’s important to note that if you choose not to use the new features, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
 - To use the new libraries, set your @spartacus libraries in package.json to “~1.#.0" (replace # with the release number). Then run `yarn upgrade` (although deleting your node_modules and doing yarn install is usually cleaner).
 - To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is strongly recommended as it usually contains bug fixes that affect Spartacus. Most of Spartacus can work with 1811, with no guarantees the farther back you go. Specifically, the following features require 1905:
@@ -28,6 +31,67 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
   - Any usage of  new CmsFlexComponents or SiteContextComponent (although you can use other components such as JspComponent)
   - Forgot password / reset
   - Various bug fixes to OCC APIs that help Spartacus work better
+
+### Release 1.2-next.0 Highlights (1.2 Pre-Release)
+
+*Released September 24, 2019*
+
+Note: This release is labelled 'next'. It's pre-release, which allows you to try out new features and give us feedback, especially to report bugs. We plan to do the official release of 1.2.0 by end of September.
+
+What's New?
+- Storefinder (docs to come)
+- [Guest Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/guest-checkout)
+- [Express Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/express-checkout)
+- [Infinite Scroll](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/infinite-scroll)
+- Routing Migration (docs to come)
+- [Early Login](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/early-login)
+- [Consignment Tracking](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/consignment-tracking)
+- Angular updated to 8.2.5; ngrx to 8.3.0; other dependency updates
+
+To use 1.20-next.0 (see sample files in our [Slack announcement](https://spartacus-storefront.slack.com/archives/CE72A1YJJ/p1569279517009600)):
+
+- Update your dependencies  (see sample file in our [Slack announcement](https://spartacus-storefront.slack.com/archives/CE72A1YJJ/p1569279517009600)); it is recommended that you delete `node_modules` and start fresh
+  
+- To use 1.2 features, add these to `B2cStorefrontModule.withConfig({`
+    ```
+    features: {
+        level: '1.2',
+        consignmentTracking: true,
+      },
+    ```
+  
+- To enable guest or express checkout, add these to `B2cStorefrontModule.withConfig({`
+      ```
+      checkout: {
+        express: true,
+        guest: true
+      },
+      ```
+  
+- To use infinite scroll, add these to `B2cStorefrontModule.withConfig({`
+  
+   ```
+       view: {
+        infiniteScroll: {
+          active: true,
+          productLimit: 500,
+          showMoreButton: false,
+         },
+       },
+  ```
+  
+- To see ‘early login’ in action, after this line:
+  `ConfigModule.withConfigFactory(defaultCmsContentConfig)`
+  add
+  `ConfigModule.withConfig({routing: { protected: true, } })`
+  
+- To enable consignment tracking, add this to `features`
+  ```
+  features: {
+     consignmentTracking: true
+  }
+  ```
+
 
 
 
@@ -109,4 +173,5 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 ### What's Coming
 
 See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
+
 
