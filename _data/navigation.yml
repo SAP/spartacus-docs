@@ -48,6 +48,11 @@ docs:
             url: /storefront-development-faq/
           - title: 'Global Configuration in Spartacus'
             url: /global-configuration-in-spartacus/
+          - title: "Spartacus Features"
+            url: /spartacus-features/
+            subchildren:
+                - title: "Consignment Tracking"
+                  url: /consignment-tracking/
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
@@ -74,6 +79,10 @@ docs:
                   url: /searchbox-component/
           - title: 'Extending Checkout'
             url: /extending-checkout/
+          - title: 'Express Checkout'
+            url: /express-checkout/
+          - title: "Guest Checkout"
+            url: /guest-checkout/  
           - title: 'Configurable Routing'
             url: /configurable-routing/
             subchildren:
@@ -89,6 +98,10 @@ docs:
                   url: /additional-route-parameters/
                 - title: 'Route Aliases'
                   url: /route-aliases/
+                - title: 'External Routes'
+                  url: /external-routes/
+                - title: 'Early Login'
+                  url: /early-login/
           - title: 'Configuring the Base URL'
             url: /configuring-base-url/
           - title: 'Context Configuration'
@@ -128,6 +141,11 @@ docs:
                   url: /server-side-rendering-coding-guidelines/
                 - title: 'How to Debug a Server–Side Rendered Storefront'
                   url: /how-to-debug-server-side-rendered-storefront/
+          - title: "View Configuration"
+            url: /view-configuration/
+            subchildren:
+                - title: "Infinite Scroll"
+                  url: /infinite-scroll/        
           - title: 'User Experience Guidelines'
             url: /user-experience-guidelines/
             subchildren:
