@@ -68,14 +68,7 @@ The following procedure describes how to create a new Angular application with t
 
 The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
 
-#### Prerequisites:
-   ```bash
-    npm install -g @angular-devkit/schematics-cli
-   ```
-
-#### Setup:
-
-Currently, Spartacus support command which allows for full application scaffold with features like *PWA* or *SSR*:
+Spartacus support command which allows for full application scaffold with features like *PWA* or *SSR*:
 
    ```bash
     ng add @spartacus/schematics --pwa --ssr
@@ -92,7 +85,7 @@ For a full list of available parameters please visit Spartacus schematics [docum
 
 
 ## Setting up Storefront manually
-Although we recommend using Schematics, there might be situations where you want to build your application ground up manually.
+Although we recommend using Schematics, there might be situations when you want to build your application from scratch.
 
 The dependencies in this procedure are required by the Spartacus storefront.
 
