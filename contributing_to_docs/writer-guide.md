@@ -1,3 +1,5 @@
+---
+---
 # Writers: Contributing to Documentation
 
 The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll.
@@ -375,7 +377,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
     ```
 
-- **Curly Braces:** When a Jekyll build is run, double curly braces `&#123;&#123;` and &#125;&#125; are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!
+- **Curly Braces:** {% raw %}When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!{% endraw %}
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags.
 
