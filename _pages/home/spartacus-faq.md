@@ -15,7 +15,7 @@ Spartacus is an open-source JavaScript web application hosted [here](https://git
 
 ### When will Spartacus be available?
 
-You can download and use Spartacus libraries right now. Until the beta release in early May 2019, you can expect to see new features added and architectural changes that cause compatibility issues. The first launch (1.0.0) is planned for end of May 2019, alongside SAP Commerce Cloud 1905. 
+You can download and use Spartacus libraries right now. Until the beta release in early May 2019, you can expect to see new features added and architectural changes that cause compatibility issues. The first launch (1.0.0) is planned for end of May 2019, alongside SAP Commerce Cloud 1905.
 
 ### Does Spartacus require SAP Commerce Cloud?
 
@@ -23,11 +23,11 @@ Spartacus is designed to work with SAP Commerce Cloud platform only. Spartacus r
 
 ### How does Spartacus integrate with SAP Commerce Cloud?
 
-Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is run in a headless fashion.  The Spartacus storefront makes the necessary calls to SAP Commerce Cloud via the RESTful APIs that are part of the Omni-Commerce Connect extensions (link). This decoupling allows you to separate front-end and back-end development, permitting independent update cycles. 
+Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is run in a headless fashion.  The Spartacus storefront makes the necessary calls to SAP Commerce Cloud via the RESTful APIs that are part of the Omni-Commerce Connect extensions (link). This decoupling allows you to separate front-end and back-end development, permitting independent update cycles.
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus?
 
-SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7. 
+SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7.
 
 ### Does Spartacus integrate with any other SAP products?
 
@@ -35,7 +35,7 @@ Spartacus libraries will be integrated with SAP Cloud Platform Extension Factory
 
 ### Which browsers does Spartacus support?
 
-Spartacus runs on modern browsers, such as Chrome, Firefox, Safari, and Edge. Spartacus also runs on any browser that supports the same standards as these browsers. Spartacus does not support IE11 because IE11 does not support CSS variables.
+Spartacus runs on the following browsers: Chrome, Firefox, Safari, and Edge. Spartacus also runs on any browser that supports the same, modern standards as these browsers. Spartacus does not support IE11 because IE11 does not support CSS variables.
 
 On mobile platforms, Spartacus supports Chrome and Safari.
 
