@@ -1,4 +1,6 @@
-# Developers: Contributing to Documentation
+---
+title: Contributing to Documentation Guide for Developers
+---
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
@@ -122,7 +124,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
     ```
 
-- **Curly Braces:** When a Jekyll build is run, double curly braces (such as `{{` and `}}`) are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
+- **Curly Braces:** When a Jekyll build is run, double curly braces `{% raw %}`(such as `{{` and `}}`)`{% endraw %}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed! 
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
