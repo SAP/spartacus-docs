@@ -18,7 +18,7 @@ For more information, see [Customer Interests Architecture](https://help.sap.com
 
 ## Enabling Customer Interests
 
-Customer interests has a `customerInterests` feature flag that allows you to enable or disable the feature, as follows:
+The customer interests feature has a `customerInterests` feature flag that allows you to enable or disable the feature, as follows:
 
 ```typescript
 features: {
@@ -26,7 +26,7 @@ features: {
 }
 ```
 
-The customer interests feature is enabled automatically for feature level 1.2 and above.
+This feature is enabled automatically for feature level 1.2 and above.
 
 For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
 

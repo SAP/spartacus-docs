@@ -17,7 +17,7 @@ For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d34
 
 ## Enabling Coupon Feature
 
-Coupon has a `coupon` feature flag that allows you to enable or disable the feature, as follows:
+The coupon feature has a `coupon` feature flag that allows you to enable or disable the feature, as follows:
 
 ```typescript
 features: {
@@ -25,7 +25,7 @@ features: {
 }
 ```
 
-The coupon feature is enabled automatically for feature level 1.2 and above.
+This feature is enabled automatically for feature level 1.2 and above.
 
 For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
 

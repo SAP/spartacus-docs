@@ -20,7 +20,7 @@ For more information, see [Notification Architecture](https://help.sap.com/viewe
 
 ## Enabling Notification Preference
 
-Customer interests has a `notificationPreference` feature flag that allows you to enable or disable the feature, as follows:
+The notification preference feature has a `notificationPreference` feature flag that allows you to enable or disable the feature, as follows:
 
 ```typescript
 features: {
@@ -28,7 +28,7 @@ features: {
 }
 ```
 
-The notification preference feature is enabled automatically for feature level 1.2 and above.
+This feature is enabled automatically for feature level 1.2 and above.
 
 For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
 
