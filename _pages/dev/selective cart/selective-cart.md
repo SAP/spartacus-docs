@@ -18,11 +18,11 @@ For more information, see [Customer Interests Architecture](https://help.sap.com
 
 ## Enabling Selective Cart
 
-The selective cart feature has a `customerInterests` feature flag that allows you to enable or disable the feature, as follows:
+The selective cart feature has a `selectiveCart` feature flag that allows you to enable or disable the feature, as follows:
 
 ```typescript
 features: {
-   customerInterests: true
+   selectiveCart: true
 }
 ```
 
