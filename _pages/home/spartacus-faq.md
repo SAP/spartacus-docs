@@ -35,9 +35,12 @@ Spartacus libraries will be integrated with SAP Cloud Platform Extension Factory
 
 ### Which browsers does Spartacus support?
 
-Spartacus runs on the following browsers: Chrome, Firefox, Safari, and Edge. Spartacus also runs on any browser that supports the same, modern standards as these browsers. Spartacus does not support IE11 because IE11 does not support CSS variables.
+Spartacus runs on the following browsers: Chrome, Firefox, Safari, and Edge. Spartacus also runs on any browser that supports the same, modern standards as these browsers. Spartacus does not support IE11 because IE11 is missing certain modern browser features, such as support for CSS variables.
 
-On mobile platforms, Spartacus supports Chrome and Safari.
+Spartacus supports browsers on mobile and tablet platforms as follows:
+
+- On iOS-based devices, Spartacus is tested with Safari and Chrome. Although other browsers are not tested, Spartacus should work with any iOS browser, because all iOS browsers use the Webkit-based iOS browser engine.
+- On Android-based devices, Spartacus is tested with Chrome, which is based on Chromium and the Blink layout engine. Any Android browser that uses the same engine will likely work with Spartacus. Other browsers using different browser engines are not tested, but those browsers that use Webkit should work as well.
 
 ### How does Spartacus compare to the SAP Commerce Cloud Accelerators?
 
