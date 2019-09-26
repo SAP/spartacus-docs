@@ -32,9 +32,7 @@ This configuration requires a user to be logged in to access any CMS-driven rout
 
 ## Configuring Public Routes
 
-The public pages can be configured individually by setting explicitly `protected: false` for the individual route's config. *Note: values `true` and `undefined` will be ignored for individual routes.*
-
-Example below:
+Public pages can be configured individually by explicitly setting `protected: false` for the individual route's configuration. The following is an example:
 
 ```typescript
 ConfigModule.withConfig({
@@ -44,13 +42,15 @@ ConfigModule.withConfig({
         help: {
             paths: ['help'],
             protected: false // make this public
-        }
+        },
         register: {
-            protected: true // make it protected = overwrite default config `protected: false`
+            protected: true // make this specific route protected = overwrite default config `protected: false`
         }
     }
 })
 ```
+
+**Note:** If the the global `protected` configuration is set to `false`, all values for individual routes are ignored. In other words, you cannot protect individual routes when the global `protected` configuration is set to `false`.
 
 ## Protecting Individual Routes
 
