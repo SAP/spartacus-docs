@@ -2,7 +2,7 @@
 title: Spartacus Roadmap
 ---
 
-*Last updated September 26, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated September 27, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what what is planned for Spartacus for end of 2019 and into 2020.
 
