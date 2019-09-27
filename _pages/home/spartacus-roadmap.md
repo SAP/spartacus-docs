@@ -21,15 +21,15 @@ If you have any questions, use the 'feedback' channel of our [Slack workspace](h
 
 # Overview
 
-We plan to release updates to the Spartacus libraries every 2 weeks. Each release will contain bug fixes as well as improvements to user experience and performance. 
+We plan to release updates to the Spartacus libraries every two weeks. Each release contains bug fixes as well as improvements to user experience and performance.
 
-When new features are available for release, normally we will publish a pre-release "next" version of libraries in order to get feedback, then release the final new minor version a few weeks later. For example, we plan to publish a pre-release 1.3 "next" mid-October and then 1.3.0 end of October.
+When new features are available for release, normally we will publish a pre-release "next" version of the libraries, in order to get feedback, and then we will release the final, new, minor version a few weeks later. For example, we plan to publish a pre-release 1.3 "next" in mid-October, and then 1.3.0 at the end of October.
 
-The order shown generally reflects the order of prioritization. For example, ASM and variants are high on the list as we are aimig to release those features in Q4 2019.
+The order of features shown in the roadmap below generally reflects the order of prioritization. For example, ASM and variants are high on the list because we are aiming to release those features in Q4 2019.
 
 Some of the links provided point to SAP Commerce Cloud Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
 
-B2B features are based on B2B Accelerator [Powertools store](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/417df297eb39466288dd904e8acc426f.html). Most B2B support depends on new APIs that are scheduled for release in SAP Commerce during Q2 2020.
+B2B features are based on the B2B Accelerator [Powertools store](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/417df297eb39466288dd904e8acc426f.html). Most B2B support depends on new APIs that are scheduled for release in SAP Commerce during Q2 2020.
 
 
 
@@ -47,7 +47,7 @@ B2B features are based on B2B Accelerator [Powertools store](https://help.sap.co
 
 # Planned for End of November 2019 / 1.4
 
-- [Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/8c143a2d8669101485208999541c383b.html) support, as seen in Apparel store (not the same as B2B multi-dimensional support, as seen in Powertools store)
+- [Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/8c143a2d8669101485208999541c383b.html) support, as seen in the Apparel store (not the same as B2B multi-dimensional support, as seen in the Powertools store)
 
   - Spartacus version of Apparel sample data (like Electronics-Spa)
 
@@ -65,7 +65,7 @@ B2B features are based on B2B Accelerator [Powertools store](https://help.sap.co
 
 # Planned for Early January 2020 / 1.5
 
-Due to end-of-year holidays, likely we will release a 1.5-next with new features third week of December, with the final 1.5 release occuring early-to-mid January.
+Due to end-of-year holidays, we will likely release a 1.5-next with new features in the third week of December, with the final 1.5 release occurring early-to-mid January.
 
 - [B2B Commerce Org](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company) <sup>(1)</sup> (aka My Company management: units, users, budgets, cost centers, purchase threshholds, user groups, approvals, account summary) 
   
@@ -108,7 +108,7 @@ Due to end-of-year holidays, likely we will release a 1.5-next with new features
 - Agnostic UI-framework (can swap out Bootstrap)
 - Schema.org support
 
-The release of a new major of Spartacus means that the code contains breaking changes. 
+The release of a new major version of Spartacus means that the code contains breaking changes. 
 
   
 
@@ -156,5 +156,6 @@ The release of a new major of Spartacus means that the code contains breaking ch
 
 #### Notes
 
-(1): The feature requires new OCC REST APIs that are planned for next SAP Commerce release, scheduled for May 2020. These features may be available sooner to customers using SAP Commerce Cloud hosting services, through Cloud Extension Packs (CEPs).
+(1): The feature requires new OCC REST APIs that are planned for the next SAP Commerce release, scheduled for May 2020. These features may be available sooner to customers using SAP Commerce Cloud hosting services, through Cloud Extension Packs (CEPs).
+
 (2): The feature requires new OCC REST APIs, not yet planned.
