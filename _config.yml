@@ -182,6 +182,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - contributing_to_docs
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
 keep_files:
@@ -279,6 +280,7 @@ compress_html:
   ignore:
     envs: development
 
+github: [metadata]
 
 # Defaults
 defaults:

@@ -19,4 +19,5 @@ group :jekyll_plugins do
     gem "jekyll-paginate"
     gem "jekyll-include-cache"
     gem "jekyll-algolia"
+    gem "github-pages"
   end

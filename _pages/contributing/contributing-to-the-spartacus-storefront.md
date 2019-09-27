@@ -14,7 +14,7 @@ Note: This is a living document. Like the Spartacus code, this document will be 
 
 An easy way to start is by helping others who may have questions or need support. Look for such requests here:
 
-* Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTRiNTFkMDJlZjRmYTBlY2QzZTM3YWNlYzJkYmEwZDY2MjM0MmIyYzdhYmQwZDMwZjg2YTAwOGFjNDBhZDYyNzE)
+* Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU)
 * [Stack Overflow posts tagged with 'spartacus'](https://stackoverflow.com/questions/tagged/spartacus)
 
 ----
