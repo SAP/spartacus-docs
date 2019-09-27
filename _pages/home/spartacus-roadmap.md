@@ -21,7 +21,7 @@ If you have any questions, use the 'feedback' channel of our [Slack workspace](h
 
 # Overview
 
-We plan to release updates to the Spartacus libraries every two weeks. Each release contains bug fixes as well as improvements to user experience and performance.
+We plan to release updates to the Spartacus libraries every two weeks. Each release will contain bug fixes as well as improvements to user experience and performance.
 
 When new features are available for release, normally we will publish a pre-release "next" version of the libraries, in order to get feedback, and then we will release the final, new, minor version a few weeks later. For example, we plan to publish a pre-release 1.3 "next" in mid-October, and then 1.3.0 at the end of October.
 
