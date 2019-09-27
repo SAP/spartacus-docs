@@ -64,16 +64,19 @@ The following procedure describes how to create a new Angular application with t
      cd mystore
      ```
 
-## Quick project setup using schematics
+## Project setup
 
-Schematics is easy and convenient way to quickly set up your application. 
-Currently, Spartacus support single command for fast project scaffold:
+The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
+
+Spartacus support command which allows for full application scaffold with features like *PWA* or *SSR*:
 
    ```bash
-    ng add @spartacus/schematics
+    ng add @spartacus/schematics --pwa --ssr
    ```
 
-Command comes with set of parameters, such as **baseUrl** or **baseSite**. Usage example:
+**Note**: `--pwa` and `--ssr` are optional and can be used separately.
+
+Command comes with set of configuration parameters, such as **baseUrl** or **baseSite**. Usage example:
    ```bash
     ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
    ```
@@ -81,7 +84,8 @@ Command comes with set of parameters, such as **baseUrl** or **baseSite**. Usage
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
 
-## Adding Peer Dependencies to the Storefront manually
+## Setting up Storefront manually
+Although we recommend using Schematics, there might be situations when you want to build your application from scratch.
 
 The dependencies in this procedure are required by the Spartacus storefront.
 
@@ -122,7 +126,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 (2) If you are updating an existing app, and changing dependencies, it's recommended that you delete the `node_modules` folder before running the install command.
 
-## Adding Import Declarations and Storefront Configuration Settings
+### Adding Import Declarations and Storefront Configuration Settings
 
 To use Spartacus, your new Angular app needs to import Spartacus libraries.
 
@@ -234,7 +238,7 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 
 - `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
 
-## Adding the Storefront to `app.component.html`
+### Adding the Storefront to `app.component.html`
 
 This procedure adds the storefront component `cx-storefront` to `app.component.html`. Doing so will display your storefront app in your browser.
 
@@ -248,7 +252,7 @@ This procedure adds the storefront component `cx-storefront` to `app.component.h
 
 
 
-## Adding Default Styling
+### Adding Default Styling
 
 This procedure adds the default Spartacus styling to your storefront. Without it, your storefront app will not display properly.
 
@@ -264,7 +268,7 @@ This procedure adds the default Spartacus styling to your storefront. Without it
 
 This section describes how to validate your back end installation, and then start the application with the storefront enabled.
 
-### Validating the SAP Commerce Cloud Backend
+## Validating the SAP Commerce Cloud Backend
 
 **Note:** The Chrome browser is recommended and used in the following example, but other browsers can be used as long as they recognize and allow you to continue even though a site is using a self-signed certificate.
 
