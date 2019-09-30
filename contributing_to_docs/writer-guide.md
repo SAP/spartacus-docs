@@ -1,5 +1,3 @@
----
----
 # Writers: Contributing to Documentation
 
 The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll.
