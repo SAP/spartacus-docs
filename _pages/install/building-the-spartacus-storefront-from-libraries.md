@@ -38,7 +38,7 @@ Note:
 
 Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator Electronics storefront in particular.
 
-Release 1905 is recommended, but it will work with 1811 and 1808, with reduced functionality.
+Release 1905 (latest patch) is recommended.
 
 For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
 
@@ -64,7 +64,7 @@ The following procedure describes how to create a new Angular application with t
      cd mystore
      ```
 
-## Project setup
+## Project Setup
 
 The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
 
@@ -84,7 +84,7 @@ Command comes with set of configuration parameters, such as **baseUrl** or **bas
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
 
-## Setting up Storefront manually
+## Setting up a Storefront Manually
 Although we recommend using Schematics, there might be situations when you want to build your application from scratch.
 
 The dependencies in this procedure are required by the Spartacus storefront.
@@ -93,25 +93,26 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 2. Add the following dependencies to the end of the `dependencies` section of `package.json`. 
 
-   ```json
-   "@angular/pwa": "^0.800.2",
-   "@angular/service-worker": "~8.0.0",
-   "@ng-bootstrap/ng-bootstrap": "4.1.0",
-   "@ng-select/ng-select": "^2.13.2",
-   "@ngrx/effects": "~8.0.0",
-   "@ngrx/router-store": "~8.0.0",
-   "@ngrx/store": "~8.0.0",
+    ```json
+   "@angular/pwa": "^0.803.2",
+   "@angular/service-worker": "~8.2.5",
+   "@ng-bootstrap/ng-bootstrap": "5.1.0",
+   "@ng-select/ng-select": "^3.0.7",
+   "@ngrx/effects": "~8.3.0",
+   "@ngrx/router-store": "~8.3.0",
+   "@ngrx/store": "~8.3.0",
+   "ngx-infinite-scroll": "^8.0.0",
    "bootstrap": "^4.2.1",
    "i18next": "^15.0.6",
    "i18next-xhr-backend": "^2.0.1",
-   
-   "@spartacus/core": "~1.0.0",
-   "@spartacus/styles": "~1.0.0",
-   "@spartacus/storefront": "~1.0.0",
-   "@spartacus/assets": "~1.0.0"
+
+    "@spartacus/core": "~1.2.0",
+    "@spartacus/styles": "~1.2.0",
+    "@spartacus/storefront": "~1.2.0",
+    "@spartacus/assets": "~1.2.0"
    ```
-   
-   Note: Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
+
+    **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
 
 
 3. From the terminal window, within `mystore`, install the dependencies by running the following command:
@@ -139,8 +140,6 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
    import { translations, translationChunksConfig } from '@spartacus/assets';
    import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
    ```
-
-   Note: For beta, `B2cStorefrontModule` is used instead of `StorefrontModule`.
 
 3. Add the following lines to the `NgModule/imports` section, below the existing `BrowserModule` statement, but before the last `],` (closing square bracket):
   
