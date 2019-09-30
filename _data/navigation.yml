@@ -53,6 +53,8 @@ docs:
             subchildren:
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
+                - title: "Storefinder"
+                  url: /storefinder/  
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
