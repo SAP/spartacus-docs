@@ -2,11 +2,9 @@
 title: Release Information for 1.0-1.2
 ---
 
-*Last updated September 24, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated September 30, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what is included in Release 1.2 of Spartacus libraries.
-
-Note: Release 1.2-next.0 was published September 24, 2019. The releases labelled 'next' are pre-release versions of the next minor release. Release 1.2.0 is expected to be published end of September.
 
 If you have any questions, use the 'help' channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
@@ -31,12 +29,12 @@ If you have any questions, use the 'help' channel of our [Slack workspace](https
   - Any usage of  new CmsFlexComponents or SiteContextComponent (although you can use other components such as JspComponent)
   - Forgot password / reset
   - Various bug fixes to OCC APIs that help Spartacus work better
+  
+  
 
-### Release 1.2-next.0 Highlights (1.2 Pre-Release)
+### Release 1.2 Highlights
 
-*Released September 24, 2019*
-
-Note: This release is labelled 'next'. It's pre-release, which allows you to try out new features and give us feedback, especially to report bugs. We plan to do the official release of 1.2.0 by end of September.
+*Release 1.2 published September 30, 2019*
 
 What's New?
 - Storefinder (docs to come)
@@ -48,10 +46,8 @@ What's New?
 - [Consignment Tracking](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/consignment-tracking)
 - Angular updated to 8.2.5; ngrx to 8.3.0; other dependency updates
 
-To use 1.20-next.0 (see sample files in our [Slack announcement](https://spartacus-storefront.slack.com/archives/CE72A1YJJ/p1569279517009600)):
+To update to 1.2.0, you must change your libraries in `package.json` and and dependencies inside `app.module.ts`. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
-- Update your dependencies  (see sample file in our [Slack announcement](https://spartacus-storefront.slack.com/archives/CE72A1YJJ/p1569279517009600)); it is recommended that you delete `node_modules` and start fresh
-  
 - To use 1.2 features, add these to `B2cStorefrontModule.withConfig({`
     ```
     features: {
@@ -59,15 +55,16 @@ To use 1.20-next.0 (see sample files in our [Slack announcement](https://spartac
         consignmentTracking: true,
       },
     ```
-  
+    
 - To enable guest or express checkout, add these to `B2cStorefrontModule.withConfig({`
-      ```
-      checkout: {
-        express: true,
-        guest: true
-      },
-      ```
   
+    ```
+    checkout: {
+      express: true,
+      guest: true
+    },
+    ```
+    
 - To use infinite scroll, add these to `B2cStorefrontModule.withConfig({`
   
    ```
@@ -173,5 +170,6 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 ### What's Coming
 
 See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
+
 
 
