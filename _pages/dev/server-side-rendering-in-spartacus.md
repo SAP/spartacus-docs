@@ -10,7 +10,8 @@ Add the following dependencies to package.json:
 
 ```json
 "@angular/platform-server": "~8.0.0",
-"@nguniversal/express-engine": "^7.1.1"
+"@nguniversal/express-engine": "^7.1.1",
+"@nguniversal/module-map-ngfactory-loader": "^7.1.1"
 ```
 
 Add the following *dev* dependencies to package.json:
@@ -35,12 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### src/app/app.module.ts
 
-```typescript
-//from:
-BrowserModule,
-//to
-BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
-```
+Add the following lines to `app.module.ts`:
+
+  ```typescript
+   import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+   //from:
+   BrowserModule,
+   //to
+   BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
+   BrowserTransferStateModule
+   ```
 
 ### src/index.html
 
