@@ -1,5 +1,5 @@
 ---
-title: Storefinder (DRAFT)
+title: Store Locator (DRAFT)
 ---
 
 {% capture version_note %}
@@ -26,7 +26,7 @@ Last option is using search bar, customer needs to put his location (full addres
 
 ## Configuration
 
-Storefinder has a following configuration in `default-store-finder-config.ts`
+Store Locator has a following configuration in `default-store-finder-config.ts`
 
 ```typescript
   googleMaps: {
@@ -42,9 +42,9 @@ Storefinder has a following configuration in `default-store-finder-config.ts`
 - `scale (number)` - initial zoom at which to display the map
 - `selectedMarkerScale (number)` - zoom at which to display selected location on a map
 
-## Enabling Storefinder
+## Enabling Store Locator
 
-Storefinder is enabled as default. It can be disabled by turning off "Find a store" header link and Storefinder page in a backend.
+Store Locator is enabled as default. It can be disabled by turning off "Find a store" header link and Store Locator page in a backend.
 
 To do that the following impex script can be imported:
 
@@ -53,9 +53,9 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];visible
 ;;StoreFinderLink;false
 ```
 
-Additionally go to backoffice, select from left sidebar `WCMS` -> `Pages`. Find a page with id: `storeFinderPage` and change page status from `Active` to `Deleted`. That is all, now if customer try to reach directly storefinder url, the 404 error will appear.
+Additionally go to backoffice, select from left sidebar `WCMS` -> `Pages`. Find a page with id: `storeFinderPage` and change page status from `Active` to `Deleted`. That is all, now if customer try to reach directly Store Locator url, the 404 error will appear.
 
-Also there is possibility (but optional) to disable storefinder feature totally in storefront application.
+Also there is possibility (but optional) to disable Store Locator feature totally in storefront application.
 
 Just go to `projects\storefrontlib\src\cms-components\cms-lib.module.ts` and remove `StoreFinderModule` from imports.
 
