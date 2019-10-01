@@ -143,7 +143,7 @@ In general, and especially if you are working on several tasks at the same time,
 
 ### Further Reading About Git
 
-Although this page that you are reading tries to introduce some Git concepts, the following resources are highly recommended:
+Although this writers' guide tries to introduce some Git concepts, the following resources are highly recommended:
 
 - [Learn git concepts, not commands](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
 - [Pro Git](https://git-scm.com/book/en/v2)
