@@ -242,7 +242,7 @@ The following workflow describes how to make updates to the documentation reposi
 
     When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to push your work, which is described in the next step of this workflow.
 
-    If you need to switch branches but you are not ready to commit your work, you also have the option to stash your work. For more information, see the [Stashing changes](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc#stashing-changes) section of *Learn git concepts, not commands*.
+    **Note:** If you need to switch branches but you are not ready to commit your work, you also have the option to stash your work. For more information, see the [Stashing changes](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc#stashing-changes) section of *Learn git concepts, not commands*.
 
     The following steps describe how to commit your work:
 
@@ -269,7 +269,7 @@ The following workflow describes how to make updates to the documentation reposi
     git push --set-upstream origin doc/GH-42
     ```
 
-    In your shell app, copy-paste the command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to. You only have to do this the first time you push a commit. After that, you only ever need the `git push` command to push your updates.
+    In your shell app, copy-paste the `git push --set-upstream origin [branch-name]` command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to. You only have to do this the first time you push a commit. After that, you only ever need the `git push` command to push your updates.
 
     When you push your commit, the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far).
 
