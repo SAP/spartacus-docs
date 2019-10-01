@@ -6,14 +6,15 @@ title: Server-Side Rendering in Spartacus (DRAFT)
 
 The following steps can be performed to run your Spartacus shell app that includes the Spartacus libraries in SSR mode.
 
-Add the following dependencies to package.json:
+Add the following dependencies to `package.json`:
 
 ```json
 "@angular/platform-server": "~8.0.0",
-"@nguniversal/express-engine": "^7.1.1"
+"@nguniversal/express-engine": "^7.1.1",
+"@nguniversal/module-map-ngfactory-loader": "^7.1.1"
 ```
 
-Add the following *dev* dependencies to package.json:
+Add the following developer dependencies to `package.json`:
 
 ```json
  "ts-loader": "^5.3.2”
@@ -35,11 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### src/app/app.module.ts
 
+Add the following lines to `app.module.ts`:
+
 ```typescript
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 //from:
 BrowserModule,
 //to
 BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
+BrowserTransferStateModule
 ```
 
 ### src/index.html
