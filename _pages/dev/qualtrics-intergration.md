@@ -2,7 +2,7 @@
 title: Qualtrics Integration (DRAFT)
 ---
 
-Qualtrics is integratable to Spartacus. We allow user to set-up their qualtrics seamlessly and to facilate the usage on a Single-Page Application (SPA).
+Qualtrics is integratable to Spartacus. Users can set-up their qualtrics seamlessly and we facilate the usage on a Single-Page Application (SPA).
 
 ## How to enable Qualtrics
 
@@ -21,3 +21,6 @@ B2cStorefrontModule.withConfig({
 ```
 
 ## Using Qualtrics to enable surveys
+
+[...]
+continuation...
