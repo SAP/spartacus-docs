@@ -55,7 +55,7 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];visible
 
 Additionally go to backoffice, select from left sidebar `WCMS` -> `Pages`. Find a page with id: `storeFinderPage` and change page status from `Active` to `Deleted`. That is all, now if customer try to reach directly storefinder url, the 404 error will appear.
 
-Also there is possibility to disable storefinder feature totally in storefront application.
+Also there is possibility (but optional) to disable storefinder feature totally in storefront application.
 
 Just go to `projects\storefrontlib\src\cms-components\cms-lib.module.ts` and remove `StoreFinderModule` from imports.
 
