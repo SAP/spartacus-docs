@@ -10,7 +10,7 @@ title: Store Locator (DRAFT)
 
 ## Overview
 
-Customers are able to view all physical stores on the map, and find the nearest ones based on their current location.
+Customers can view all physical stores on the map, and find the nearest ones based on their current location.
 
 There are following ways to navigate store list:
 
