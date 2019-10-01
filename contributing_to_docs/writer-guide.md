@@ -162,7 +162,9 @@ The following workflow describes how to make updates to the documentation reposi
 
     1. In the menu, click **File —> New Window**.
     1. In the **Activity Bar**, in the upper-left of the app window, click the **Explorer** button (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
-    1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder (this is the folder that contains your clone of the Spartacus documentation repository) and click **Open**.
+    1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder and click **Open**.
+    
+        The `cloud-commerce-spartacus-storefront-docs` folder is the folder that contains your clone of the Spartacus documentation repository. For more information, see [Cloning the Documentation Repository](#cloning-the-documentation-repository).
 
     For a general overview of the VS Code user interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
 
