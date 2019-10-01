@@ -31,7 +31,9 @@ Spartacus libraries will be integrated with SAP Cloud Platform Extension Factory
 
 ### Which browsers does Spartacus support?
 
-Spartacus runs on the following browsers: Chrome, Firefox, Safari, and Edge. Spartacus also runs on any browser that supports the same, modern standards as these browsers. Spartacus does not support IE11 because IE11 is missing certain modern browser features, such as support for CSS variables.
+Spartacus is built using the Angular framework, which has its own [browser support](https://angular.io/guide/browser-support) page. Note that Spartacus only provides library code, so the application that you build with the Spartacus libraries can affect which browsers are supported. For example, your application settings will dictate the supported version of JavaScript and the CSS build (PostCSS). You can also use certain polyfills to add missing browser features.
+
+On the desktop, Spartacus supports Chrome with automated tests, and in general, Spartacus supports evergreen browsers. By default, Spartacus does not support IE11 because IE11 is missing certain modern browser features, such as support for CSS variables.
 
 Spartacus supports browsers on mobile and tablet platforms as follows:
 
