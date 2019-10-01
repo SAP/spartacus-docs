@@ -238,9 +238,11 @@ The following workflow describes how to make updates to the documentation reposi
 
 1. Write a commit message and commit your work.
 
-    The more meaningful your commit message, the easier it is to track down a commit later on. For example, if you want to undo a commit, or see when a certain change was introduced, a meaningful commit message makes this much easier. There is a 50 character limit to the message, so it needs to be brief, but the message can be as simple as referring to the section you have updated, or that you fixed a broken link, or even just a typo. So try to be specific when possible.
+    The more meaningful your commit message, the easier it is to track down a commit later on. For example, if you want to undo a commit, or see when a certain change was introduced, a meaningful commit message makes this much easier. There is a 50 character limit to the message, so it needs to be brief, but the message can be as simple as referring to the section you have updated, or that you fixed a broken link, or even just a typo. Despite the 50 character limit on commit messages, try to be specific when possible.
 
     When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to push your work, which is described in the next step of this workflow.
+
+    If you need to switch branches but you are not ready to commit your work, you also have the option to stash your work. For more information, see the [Stashing changes](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc#stashing-changes) section of *Learn git concepts, not commands*.
 
     The following steps describe how to commit your work:
 
