@@ -297,7 +297,7 @@ The following workflow describes how to make updates to the documentation reposi
     git branch -D [branch_name] && git push --delete origin [branch_name]
     ```
   
-    For example, if you just merged work from branch `doc/GH-42`, then the command to delete is the following: 
+    For example, if you just merged work from branch `doc/GH-42`, then the command to delete the branch is the following: 
   
     ```bash
     git branch -D doc/GH-42 && git push --delete origin doc/GH-42
