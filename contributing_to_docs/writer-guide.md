@@ -161,10 +161,10 @@ The following workflow describes how to make updates to the documentation reposi
 1. In VS Code, open your local copy of the Spartacus documentation repository as follows:
 
     1. Click **File —> New Window**.
-    1. Click the **Explorer** button in the **Activity Bar** of the app window (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
+    1. Click the **Explorer** button in the **Activity Bar** in the upper-left of the app window, just above the **Search** button, then click **Open Folder** in the **Explorer** panel that appears.
     1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder (this is the folder that contains your clone of the Spartacus documentation repository) and click **Open**.
 
-    For a general overview of the VS Code interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
+    For a general overview of the VS Code user interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
 
 1. If you don't already have a terminal window open in VS Code, in the menu, click **Terminal —> New Terminal**.
 
@@ -206,13 +206,15 @@ The following workflow describes how to make updates to the documentation reposi
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
 
-1. In the terminal, run the Jekyll build with the following command:
+1. When you have finished making your updates, run the Jekyll build from the terminal with the following command:
 
     ```bash
     bundle exec jekyll serve
     ```
 
     This command builds the entire documentation site from your local branch. Also, while this command is running, it rebuilds the site every time you save your work. Running the build is very important because you can find out if there are any build errors in your branch (and then fix them) before you merge your work back to the `develop` branch. You can also preview your work at `http://localhost:4000/`. This site runs from your current branch and updates automatically every time you save your work — as long as this command is running. Note that if `bundle exec jekyll serve` is running and you decide to switch to a different branch, the site automatically updates to display the contents of the branch you switched to.
+
+    **Note:** You do not have to wait until you are finished making your updates to run this command. In fact, you can leave it running all the time.
 
     **Tip:** You can have multiple terminal windows open simultaneously. This lets you leave the `bundle exec jekyll serve` command running in one window, while allowing you to input Git commands in another. To open an additional terminal window, click the **Split Terminal** button that is in the top-right of the terminal window, in between the `+` button and the trash can button (that is, between the **New Terminal** and **Kill Terminal** buttons). To close additional terminal windows, use the **Kill Terminal** button.
 
