@@ -156,12 +156,12 @@ The following workflow describes how to make updates to the documentation reposi
 
 1. Create a new GitHub issue in the documentation repository that describes the work you plan to do.
 
-    For more information, see the [Working with GitHub Issues](#working-with-gitHub-issues) section, above.
+    For more information, see [Working with GitHub Issues](#working-with-gitHub-issues).
 
 1. In VS Code, open your local copy of the Spartacus documentation repository as follows:
 
-    1. Click **File —> New Window**.
-    1. Click the **Explorer** button in the **Activity Bar** in the upper-left of the app window, just above the **Search** button, then click **Open Folder** in the **Explorer** panel that appears.
+    1. In the menu, click **File —> New Window**.
+    1. In the **Activity Bar**, in the upper-left of the app window, click the **Explorer** button (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
     1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder (this is the folder that contains your clone of the Spartacus documentation repository) and click **Open**.
 
     For a general overview of the VS Code user interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
