@@ -271,11 +271,11 @@ The following workflow describes how to make updates to the documentation reposi
 
     In your shell app, copy-paste the `git push --set-upstream origin [branch-name]` command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to. You only have to do this the first time you push a commit. After that, you only ever need the `git push` command to push your updates.
 
-    When you push your commit, the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far).
+    When you push your commit, the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, they can see all the work that you have pushed to the remote branch so far).
 
 1. Create a pull request.
 
-    The first time that you push a commit, Git returns a response in the terminal that includes a link to create a pull request (PR). Open this link and create a pull request. The steps are quite similar to creating a GitHub issue.
+    The first time that you successfully push a commit, Git returns a response in the terminal that includes a link to create a pull request (PR). Open this link and create a pull request. The steps are quite similar to creating a GitHub issue.
 
     Until your pull request is merged, you can continue pushing updates to it, so it is a good idea to create a PR when you push your first commit.
   
@@ -287,7 +287,7 @@ The following workflow describes how to make updates to the documentation reposi
   
    Your work is now merged... Congratulations!
   
-   **Tip:** If you add a line at the bottom of the body, such as "Closes GH-xxx" or "Fixes GH-xxx", where `xxx` is the number of your GitHub issue, when your PR is merged, the GitHub issue #xxx is closed automatically. You can use this to close the ticket that you opened in the first step of this workflow. If you don't add this line, you can always close your issue manually, later on.
+   **Tip:** After you click **Squash and merge**, if you add a line at the bottom of the body, such as "Closes GH-xxx" or "Fixes GH-xxx", where `xxx` is the number of your GitHub issue, when your PR is merged, the GitHub issue #xxx is closed automatically. You can use this to close the ticket that you opened in the first step of this workflow. If you don't add this line, you can always close your issue manually, later on.
 
 1. Delete your branch.
 
