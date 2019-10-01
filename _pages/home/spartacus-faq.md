@@ -13,10 +13,6 @@ title: Spartacus FAQ
 
 Spartacus is an open-source JavaScript web application hosted [here](https://github.com/SAP/cloud-commerce-spartacus-storefront) that allows you to quickly create your own branded JavaScript-based storefront for SAP Commerce Cloud. Spartacus is written using Angular and published as libraries. The recommended approach to using JavaScript is to build your own JavaScript web app and import the libraries. Without modification, the storefront works out of the box, but Spartacus has been designed to be upgradable, customizable, and extendable, to suit all your branding and functionality requirements.
 
-### When will Spartacus be available?
-
-You can download and use Spartacus libraries right now. Until the beta release in early May 2019, you can expect to see new features added and architectural changes that cause compatibility issues. The first launch (1.0.0) is planned for end of May 2019, alongside SAP Commerce Cloud 1905.
-
 ### Does Spartacus require SAP Commerce Cloud?
 
 Spartacus is designed to work with SAP Commerce Cloud platform only. Spartacus relies on SAP Commerce Cloud APIs and CMS content to function. However, if you’re using SAP Commerce Cloud, you are not required to use Spartacus. You can create your own JavaScript web application or you can use Accelerator templates.  
@@ -27,7 +23,7 @@ Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is r
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus?
 
-SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that will be included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7.
+SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that are included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then, and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7.
 
 ### Does Spartacus integrate with any other SAP products?
 
@@ -56,7 +52,7 @@ Yes. Spartacus-based storefronts are decoupled from SAP Commerce Cloud, so you c
 
 ### Does this mean the Accelerators will be deprecated?
 
-Eventually, but that is many years out. Our goal is to move all customers to Spartacus, or at least JavaScript-based storefronts. All current development efforts are focused on improving Spartacus. For the moment, Accelerator templates are receiving critical and blocker bug or security fixes only. At the very least, Accelerator templates won’t be deprecated until Spartacus achieves feature parity. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article “Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution” for more information on this topic. 
+Eventually. We will announce deprecation and removal plans at a later date. Our goal is to move all customers to Spartacus, or at least JavaScript-based storefronts. All current development efforts are focused on improving Spartacus. For the moment, Accelerator templates are receiving critical and blocker bug or security fixes only. At the very least, Accelerator templates won’t be deprecated until Spartacus achieves feature parity. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article “Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution” for more information on this topic. 
 
 ### If I’m currently using an SAP Commerce Cloud Accelerator, how do I migrate to a Spartacus-based storefront?
 
@@ -68,7 +64,7 @@ Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configur
 
 ### Is there a demo of a Spartacus-based storefront available?
 
-Try out our continuous-integration server [here](https://sap.github.io/cloud-commerce-spartacus-storefront). As of this writing (April 19, 2019), note that the backend server used by this sample site is not up to date with latest 1905, due to the imminent release of 1905 late May. The server will be updated shortly after release.  
+Try out our continuous-integration server [here](https://sap.github.io/cloud-commerce-spartacus-storefront).
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available?
 
@@ -78,13 +74,13 @@ Documentation is available from the Spartacus GitHub Pages [documentation site](
 
 Spartacus is a set of libraries that contain core libraries, components and styling. You can choose which versions of the libraries you would like to use in your application, and these can be used to fully configure and customize your storefront. However, customization is not done in the same way as with Accelerator; you never customize Spartacus code directly – rather, you overwride or replace styling and code. This approach allows ease of upgradability. 
 
-### What is the release cycle for Spartacus? How do I update?
+### What is the release cycle for Spartacus?
 
-Spartacus releases are independent of the release cycle of SAP Commerce Cloud. Generally, new Spartacus libraries will be released every 2 weeks. For the next six months at least, changes will include new features or fixes only, with no changes that affect compatibility with existing applications. (Spartacus follows semantic versioning 2.0.) On the development side, you are in total control of whether to accept library updates. Note that some features in Spartacus may be delayed or not available if updates to platform OCC APIs are required. A new major release (1.2.3 > 2.0.0 for example, where changes affect ease of upgradability) will be announced ahead of time and will likely not happen until end of 2019 or early 2020. 
+Spartacus releases are independent of the release cycle of SAP Commerce Cloud. Generally, new Spartacus libraries will be released every 2 weeks.
 
 ### What technologies does Spartacus use?
 
-Spartacus uses a combination of languages, technologies and libraries, including Angular, TypeScript, RxJS, NgRx, SASS, and Bootstrap. The final output is pure JavaScript. Angular is currently used as our development framework, though the goal is to allow usage of other frameworks. Please see the documentation (link) for the correct versions required. 
+Spartacus uses a combination of languages, technologies and libraries, including Angular, TypeScript, RxJS, NgRx, SASS, and Bootstrap. The final output is pure JavaScript. Angular is currently used as our development framework, though the goal is to allow usage of other frameworks. Please see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for the correct versions required.
 
 ### Does Spartacus implement Responsive Design?
 
@@ -106,7 +102,7 @@ Your server must also support SSR functionality. Support for SSR will be added t
 
 ### Does Spartacus scale? How?
 
-Spartacus storefronts are JavaScript web applications that communicate to the backend through REST APIs. This means that Spartacus storefronts (or any JavaScript-based storefronts) are decoupled from the backend SAP Commerce Cloud instance; so its nodes can be scaled separately. Other scaling considerations such as a Content Delivery Network (CDN) can also be leveraged to help decrease load. Additionally, with PWA cache-first networking capabilities, you will have the option to cache resources locally on the user’s device. Finally, lazy loading can be used to determine if/when to load portions of your components.
+Spartacus storefronts are JavaScript web applications that communicate to the back end through REST APIs. This means that Spartacus storefronts (or any JavaScript-based storefronts) are decoupled from the back end SAP Commerce Cloud instance; so its nodes can be scaled separately. Other scaling considerations such as a Content Delivery Network (CDN) can also be leveraged to help decrease load. Additionally, with PWA cache-first networking capabilities, you will have the option to cache resources locally on the user’s device.
 
 ### How do I get support when I run into issues with Spartacus?
 
