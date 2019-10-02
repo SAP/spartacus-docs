@@ -58,6 +58,8 @@ The following sections are intended to help you get up-and-running with those as
 - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
 - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
 - [Working with GitHub Issues](#working-with-github-issues)
+- [Working with Branches](#working-with-branches)
+- [Further Reading About Git](#further-reading-about-git)
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
@@ -139,9 +141,9 @@ As mentioned earlier, you create a new branch when you want to create a new topi
 
 In general, and especially if you are working on several tasks at the same time, the easiest way to manage your work is to dedicate each task to its own branch.
 
-## Further Reading About Git
+### Further Reading About Git
 
-The following resources are highly recommended!
+Although this writers' guide tries to introduce some Git concepts, the following resources are highly recommended:
 
 - [Learn git concepts, not commands](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc)
 - [Pro Git](https://git-scm.com/book/en/v2)
@@ -154,15 +156,17 @@ The following workflow describes how to make updates to the documentation reposi
 
 1. Create a new GitHub issue in the documentation repository that describes the work you plan to do.
 
-    For more information, see the [Working with GitHub Issues](#working-with-gitHub-issues) section, above.
+    For more information, see [Working with GitHub Issues](#working-with-gitHub-issues).
 
 1. In VS Code, open your local copy of the Spartacus documentation repository as follows:
 
-    1. Click **File —> New Window**.
-    1. Click the **Explorer** button in the **Activity Bar** of the app window (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
-    1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder (this is the folder that contains your clone of the Spartacus documentation repository) and click **Open**.
+    1. In the menu, click **File —> New Window**.
+    1. In the **Activity Bar**, in the upper-left of the app window, click the **Explorer** button (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
+    1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder and click **Open**.
+    
+        The `cloud-commerce-spartacus-storefront-docs` folder is the folder that contains your clone of the Spartacus documentation repository. For more information, see [Cloning the Documentation Repository](#cloning-the-documentation-repository).
 
-    For a general overview of the VS Code interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
+    For a general overview of the VS Code user interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
 
 1. If you don't already have a terminal window open in VS Code, in the menu, click **Terminal —> New Terminal**.
 
@@ -204,13 +208,15 @@ The following workflow describes how to make updates to the documentation reposi
 
    There are a number of conventions that need to be followed for your documentation to render properly in GitHub Pages. For more information, see the [Documentation Conventions](#documentation-conventions) section below.
 
-1. In the terminal, run the Jekyll build with the following command:
+1. When you have finished making your updates, run the Jekyll build from the terminal with the following command:
 
     ```bash
     bundle exec jekyll serve
     ```
 
     This command builds the entire documentation site from your local branch. Also, while this command is running, it rebuilds the site every time you save your work. Running the build is very important because you can find out if there are any build errors in your branch (and then fix them) before you merge your work back to the `develop` branch. You can also preview your work at `http://localhost:4000/`. This site runs from your current branch and updates automatically every time you save your work — as long as this command is running. Note that if `bundle exec jekyll serve` is running and you decide to switch to a different branch, the site automatically updates to display the contents of the branch you switched to.
+
+    **Note:** You do not have to wait until you are finished making your updates to run this command. In fact, you can leave it running all the time.
 
     **Tip:** You can have multiple terminal windows open simultaneously. This lets you leave the `bundle exec jekyll serve` command running in one window, while allowing you to input Git commands in another. To open an additional terminal window, click the **Split Terminal** button that is in the top-right of the terminal window, in between the `+` button and the trash can button (that is, between the **New Terminal** and **Kill Terminal** buttons). To close additional terminal windows, use the **Kill Terminal** button.
 
@@ -232,9 +238,11 @@ The following workflow describes how to make updates to the documentation reposi
 
 1. Write a commit message and commit your work.
 
-    The more meaningful your commit message, the easier it is to track down a commit later on. For example, if you want to undo a commit, or see when a certain change was introduced, a meaningful commit message makes this much easier. There is a 50 character limit to the message, so it needs to be brief, but the message can be as simple as referring to the section you have updated, or that you fixed a broken link, or even just a typo. So try to be specific when possible.
+    The more meaningful your commit message, the easier it is to track down a commit later on. For example, if you want to undo a commit, or see when a certain change was introduced, a meaningful commit message makes this much easier. There is a 50 character limit to the message, so it needs to be brief, but the message can be as simple as referring to the section you have updated, or that you fixed a broken link, or even just a typo. Despite the 50 character limit on commit messages, try to be specific when possible.
 
     When you commit your work, it is "saved" in the local copy of your branch, and it is then safe to switch to other branches. You can make commits to your branch as often as you like. At this point, other people still can't see the work you have done. For that, you need to push your work, which is described in the next step of this workflow.
+
+    **Note:** If you need to switch branches but you are not ready to commit your work, you also have the option to stash your work. For more information, see the [Stashing changes](https://dev.to/unseenwizzard/learn-git-concepts-not-commands-4gjc#stashing-changes) section of *Learn git concepts, not commands*.
 
     The following steps describe how to commit your work:
 
@@ -261,13 +269,13 @@ The following workflow describes how to make updates to the documentation reposi
     git push --set-upstream origin doc/GH-42
     ```
 
-    In your shell app, copy-paste the command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to. You only have to do this the first time you push a commit. After that, you only ever need the `git push` command to push your updates.
+    In your shell app, copy-paste the `git push --set-upstream origin [branch-name]` command from the error message and hit **Enter**. This command pushes your work, and simultaneously sets up the remote copy of your branch that you are pushing to. You only have to do this the first time you push a commit. After that, you only ever need the `git push` command to push your updates.
 
-    When you push your commit, the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, all the work that you have pushed so far).
+    When you push your commit, the work on your local branch is uploaded (pushed) to the remote branch. Now, anyone who tries to access this branch can see the work you have done (that is, they can see all the work that you have pushed to the remote branch so far).
 
 1. Create a pull request.
 
-    The first time that you push a commit, Git returns a response in the terminal that includes a link to create a pull request (PR). Open this link and create a pull request. The steps are quite similar to creating a GitHub issue.
+    The first time that you successfully push a commit, Git returns a response in the terminal that includes a link to create a pull request (PR). Open this link and create a pull request. The steps are quite similar to creating a GitHub issue.
 
     Until your pull request is merged, you can continue pushing updates to it, so it is a good idea to create a PR when you push your first commit.
   
@@ -279,7 +287,7 @@ The following workflow describes how to make updates to the documentation reposi
   
    Your work is now merged... Congratulations!
   
-   **Tip:** If you add a line at the bottom of the body, such as "Closes GH-xxx" or "Fixes GH-xxx", where `xxx` is the number of your GitHub issue, when your PR is merged, the GitHub issue #xxx is closed automatically. You can use this to close the ticket that you opened in the first step of this workflow. If you don't add this line, you can always close your issue manually, later on.
+   **Tip:** After you click **Squash and merge**, if you add a line at the bottom of the body, such as "Closes GH-xxx" or "Fixes GH-xxx", where `xxx` is the number of your GitHub issue, when your PR is merged, the GitHub issue #xxx is closed automatically. You can use this to close the ticket that you opened in the first step of this workflow. If you don't add this line, you can always close your issue manually, later on.
 
 1. Delete your branch.
 
@@ -289,7 +297,7 @@ The following workflow describes how to make updates to the documentation reposi
     git branch -D [branch_name] && git push --delete origin [branch_name]
     ```
   
-    For example, if you just merged work from branch `doc/GH-42`, then the command to delete is the following: 
+    For example, if you just merged work from branch `doc/GH-42`, then the command to delete the branch is the following: 
   
     ```bash
     git branch -D doc/GH-42 && git push --delete origin doc/GH-42
