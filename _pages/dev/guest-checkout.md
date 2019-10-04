@@ -1,5 +1,5 @@
 ---
-title: Guest Checkout (DRAFT)
+title: Guest Checkout
 ---
 
 {% capture version_note %}
@@ -8,13 +8,12 @@ title: Guest Checkout (DRAFT)
 
 {% include docs/feature_version.html content=version_note %}
 
-Spartacus supports Guest Checkout which gives the ability to guests to checkout without creating an account. After making a purchase, a guest user has the possibility to create an account with the email he provided. This account will retain the order history of the guest as well as the informations that were preivously entered.
+Spartacus supports guest checkout, which is a feature that allows users to check out without creating an account. After making a purchase, a guest user has the option to create an account with the email address they provided during checkout. If an account is created at this point, the account retains the order history of the user, as well as the personal details that were entered during the guest checkout process.
 
-## Enabling the Feature
+## Enabling Guest Checkout
 
-This feature is disabled by default but can be enabled by setting the `guest` flag to true in the `checkout` configuration. The following configuration shows how to enable this feature:
+Guest checkout is disabled by default, but can be enabled in `app.module.ts` by setting the `guest` flag to `true` in the `checkout` configuration. You can enable guest checkout, as shown in the following example:
 
-(in app.module.ts)
 ```ts
 B2cStorefrontModule.withConfig({
   [...]
@@ -24,12 +23,12 @@ B2cStorefrontModule.withConfig({
 })
 ```
 
-### Using Guest Checkout Alongside Express Checkout
+## Using Guest Checkout With Express Checkout
 
-For details on Express Checkout please refer to [Express Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/express-checkout/).
+Spartacus allows you to enable guest checkout and express checkout at the same time. When both features are enabled, guest checkout is not affected by any configurations for express checkout because express checkout is only available to registered users who are signed in.
 
-Spartacus supports both Guest Checkout and Express Checkout to be enabled at the same time. If this is the case, Guest Checkout will not be affected by the Express Checkout configurations. Therefore, Express Checkout features will only be available to registered users.
+For more information on express checkout, see [Express Checkout]({% link _pages/dev/express-checkout.md %}).
 
-## Extensibility
+## Extending Guest Checkout
 
-The Guest Checkout feature leverages the existing pages and components from the regular checkout. Therefore, the extensibility described in [Extending-Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/extending-checkout/) will be supported.
+Guest checkout leverages the existing pages and components from the standard checkout, so you can extend guest checkout in the same way that you can extend the standard checkout feature. For more information, see [Extending Checkout]({% link _pages/dev/extending-checkout.md %}).
