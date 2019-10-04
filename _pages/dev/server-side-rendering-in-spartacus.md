@@ -2,16 +2,24 @@
 title: Server-Side Rendering in Spartacus (DRAFT)
 ---
 
-## Installation Steps (Shell app)
+## Installation steps using Angular Schematics ( Recommended)
+
+The easiest way to add SSR support in your application is to use schematics. This way you don't need to add anything manually, all files will be created and modified automatically.
+
+```bash
+ng add @spartacus/schematics --ssr
+```
+
+## Installation steps (Manual)
 
 The following steps can be performed to run your Spartacus shell app that includes the Spartacus libraries in SSR mode.
 
 Add the following dependencies to `package.json`:
 
 ```json
-"@angular/platform-server": "~8.0.0",
-"@nguniversal/express-engine": "^7.1.1",
-"@nguniversal/module-map-ngfactory-loader": "^7.1.1"
+"@angular/platform-server": "~8.2.7",
+"@nguniversal/express-engine": "^8.1.1",
+"@nguniversal/module-map-ngfactory-loader": "^8.1.1"
 ```
 
 Add the following developer dependencies to `package.json`:
@@ -31,7 +39,7 @@ platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(e
 //to
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
-});```
+});
 ```
 
 ### src/app/app.module.ts
@@ -55,7 +63,7 @@ Add the following meta attribute and replace OCC_BASE_URL with the URL of your b
  <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
 ```
 
-Add the following configuration to your existing angular.json (under projects.storefrontapp.architect):
+Add the following configuration to your existing angular.json (under projects.<your-project-name>.architect):
 
 ```json
 "server": {
@@ -91,7 +99,17 @@ Add the following files to your existing shell app:
 ### src/main.server.ts
 
 ```typescript
+import { enableProdMode } from '@angular/core';
+
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
 export { AppServerModule } from './app/app.server.module';
+export { ngExpressEngine } from '@nguniversal/express-engine';
+export { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 ```
 
 
@@ -128,110 +146,116 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: { server: './server.ts' },
-  resolve: { extensions: ['.js', '.ts'] },
-  target: 'node',
   mode: 'none',
+  entry: {
+    server: './server.ts'
+  },
+  target: 'node',
+  resolve: { extensions: ['.ts', '.js'] },
+  optimization: {
+    minimize: false
+  },
   // this makes sure we include node_modules and other 3rd party libraries
   externals: [/node_modules/],
   output: {
+    // Puts the output at the root of the dist folder
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
   },
   module: {
-    rules: [{ test: /\.ts$/, loader: 'ts-loader' }]
+    noParse: /polyfills-.*\.js/,
+    rules: [
+      { test: /\.ts$/, loader: 'ts-loader' },
+      {
+        // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+        // Removing this will cause deprecation warnings to appear.
+        test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
+        parser: { system: true },
+      },
+    ]
   },
   plugins: [
-    // Temporary Fix for issue: https://github.com/angular/angular/issues/11580
-    // for 'WARNING Critical dependency: the request of a dependency is an expression'
     new webpack.ContextReplacementPlugin(
+      // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?angular(\\|\/)core(.+)?/,
       path.join(__dirname, 'src'), // location of your src
       {} // a map of your routes
     ),
     new webpack.ContextReplacementPlugin(
+      // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?express(\\|\/)(.+)?/,
       path.join(__dirname, 'src'),
       {}
     )
   ]
 };
+
 ```
 
 ### server.ts
 
 ```typescript
-// These are important and needed before anything else
-import "zone.js/dist/zone-node";
-import "reflect-metadata";
+import 'zone.js/dist/zone-node';
 
-import { enableProdMode } from "@angular/core";
-
-import * as express from "express";
-import { join } from "path";
-
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
+import * as express from 'express';
+import { join } from 'path';
 
 // Express server
 const app = express();
 
-const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), "dist");
+const PORT = process.env.PORT || 4200;
+const DIST_FOLDER = join(process.cwd(), 'dist/<your-project-name>');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {
   AppServerModuleNgFactory,
-  LAZY_MODULE_MAP
-} = require("./dist/server/main");
-
-// Express Engine
-import { ngExpressEngine } from "@nguniversal/express-engine";
-// Import module map for lazy loading
-import { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
+  LAZY_MODULE_MAP,
+  ngExpressEngine,
+  provideModuleMap,
+} = require('./dist/<your-project-name>-server/main');
 
 app.engine(
-  "html",
+  'html',
   ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
-    providers: [provideModuleMap(LAZY_MODULE_MAP)]
+    providers: [provideModuleMap(LAZY_MODULE_MAP)],
   })
 );
 
-app.set("view engine", "html");
-app.set("views", join(DIST_FOLDER, "storefrontapp"));
+app.set('view engine', 'html');
+app.set('views', DIST_FOLDER);
 
-// TODO: implement data requests securely
-app.get("/api/*", (req, res) => {
-  res.status(404).send("data requests are not supported");
-});
-
-// Server static files from /browser
-app.get("*.*", express.static(join(DIST_FOLDER, "storefrontapp")));
+app.get(
+  '*.*',
+  express.static(DIST_FOLDER, {
+    maxAge: '1y',
+  })
+);
 
 // All regular routes use the Universal engine
-app.get("*", (req, res) => {
-  res.render("index", { req });
+app.get('*', (req, res) => {
+  res.render('index', { req });
 });
 
 // Start up the Node server
 app.listen(PORT, () => {
   console.log(`Node server listening on http://localhost:${PORT}`);
 });
+
 ```
 
-* In the file above, replace `storefrontapp` for the name of your application.
+* In the file above, replace `<your-project-name>` for the name of your application.
 
 * Add the following scripts to your package.json
 
 ```json
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
-    "build:client-and-server-bundles": "ng build --prod && ng run storefrontapp:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run <your-project-name>:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
 ```
 
-* On the `build:client-and-server-bundles` script, replace `storefrontapp` with the name of your angular application
+* On the `build:client-and-server-bundles` script, replace `<your-project-name>` with the name of your angular application
 
 * Build the SSR version of your spartacus shell app using the following commands:
 
