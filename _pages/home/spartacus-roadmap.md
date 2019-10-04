@@ -95,9 +95,10 @@ Due to end-of-year holidays, we will likely release a 1.5-next with new features
 
 # Future Outlook: Q2 2020 and Later
 
-### New Major Release Planned / Angular 9 (Ivy) Support
+### New Major Release Planned (2.0)
 
-- Angular Ivy (smaller, simpler and faster)
+- Support for Angular Ivy (new Angular compilation and rendering pipeline)
+  - Smaller, simpler and faster
   - Better support for web components
   - Better performance on mobile devices
   - Less memory used
