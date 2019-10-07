@@ -119,3 +119,31 @@ The `visibility` attribute of AssistedServiceComponent in the CMS dictates wethe
 In order to support ASM, and potentially other features in the future, the facade services can't simply use the "current" special userId when calling various actions. There needs to be some logic applied to determine the correct OCC userId to pass down to actions that will trigger a backend call.
 
 The logic is required for ASM support, but there are also other rules considered to determine the occ userId (like if there is an authenticated user or not), so ASM is not the only reason why facade services should rely on the new logic to determine which userId to use.
+
+Therefore, the logig to determine the correct OCC userid givent the context is centralized in the `AuthService` function `getOccUserId()`.
+
+Before this function ans ASM were available, one of the mos common way the occ userId was determined is by using the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
+
+```typescript
+  load(): void {
+    this.store.dispatch(new UserActions.LoadUserDetails(OCC_USER_ID_CURRENT));
+  }
+```
+
+Now that Spartacus supports ASM, the correct way to determine the occ userId is to call AuthService.getOccUserId(). If we fix the previous example, it becomes:
+
+```typescript
+
+  load(): void {
+    this.authService
+      .getOccUserId()
+      .pipe(take(1))
+      .subscribe(occUserId =>
+        this.store.dispatch(new UserActions.LoadUserDetails(occUserId))
+      )
+      .unsubscribe();
+  }
+
+```
+
+Bottom line, if `OCC_USER_ID_CURRENT` is used directly in a service, it should likely be replaced by a call to `getOccUserId()`.
