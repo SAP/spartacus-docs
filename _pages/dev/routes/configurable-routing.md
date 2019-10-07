@@ -21,6 +21,7 @@ For more information, see the following:
 - [Additional Route Parameters]({{ site.baseurl }}{% link _pages/dev/routes/additional-route-parameters.md %})
 - [Route Aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %})
 - [External Routes]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %})
+- [Early Login]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %})
 
 ## Limitations
 
