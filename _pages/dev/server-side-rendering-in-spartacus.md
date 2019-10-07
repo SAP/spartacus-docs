@@ -2,7 +2,7 @@
 title: Server-Side Rendering in Spartacus (DRAFT)
 ---
 
-## Installation steps using Angular Schematics ( Recommended)
+## Installation steps using Angular Schematics (Recommended)
 
 The easiest way to add SSR support in your application is to use schematics. This way you don't need to add anything manually, all files will be created and modified automatically.
 
@@ -10,7 +10,7 @@ The easiest way to add SSR support in your application is to use schematics. Thi
 ng add @spartacus/schematics --ssr
 ```
 
-## Installation steps (Manual)
+## Installation Steps (Manual)
 
 The following steps can be performed to run your Spartacus shell app that includes the Spartacus libraries in SSR mode.
 
