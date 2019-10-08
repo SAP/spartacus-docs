@@ -71,17 +71,17 @@ The most straignforward way obtain the ASM CMS component is if you initialize yo
 
 ## Option 2: Manual import in impex console.
 
-If you are not starting from scratch with the latest sample data, you can import this impex to create the AssistedServiceComponent in the CMS and link it to the TopHeaderSlot (change the name of content catalog if needed):
+If you are not starting from scratch with the latest sample data, you can import this impex to create the AsmComponent in the CMS and link it to the TopHeaderSlot (change the name or version of the content catalog as needed):
 
 ```
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-;;AssistedServiceComponent;Assisted Service Component;AssistedServiceComponent;AssistedServiceComponent
+;;AsmComponent;asm flex component;AsmComponent;AsmComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)[mode=append]
-;;TopHeaderSlot;true;AssistedServiceComponent
+;;TopHeaderSlot;true;AsmComponent
 
 ```
 
@@ -110,9 +110,9 @@ For example, with the sample store you can invoke the ASM UI on the home page wi
 https://{hostname}/electronics-spa/en/USD/?asm=true
 ```
 
-# Enable/Disable the ASM UI in Spartacus
+# Enabling/Disabling the ASM UI in Spartacus
 
-The `visibility` attribute of AssistedServiceComponent in the CMS dictates wether the ASM UI is supported or not in the storefront. When AssistedServiceComponent is not visible, it will be completely omitted in the page data returned by OCC to be rendered by Spartacus.
+The `visibility` attribute of AsmComponent in the CMS dictates wether the ASM UI is supported or not in the storefront. When AsmComponent is not visible, it will be completely omitted in the page data returned by OCC to be rendered by Spartacus.
 
 # Spartacus ASM aware development guidelines
 
@@ -147,3 +147,11 @@ Now that Spartacus supports ASM, the correct way to determine the occ userId is 
 ```
 
 Bottom line, if `OCC_USER_ID_CURRENT` is used directly in a service, it should likely be replaced by a call to `getOccUserId()`.
+
+## Configuring
+
+No special configuration is required.
+
+## Extending
+
+No special extensibility is available for this feature.
