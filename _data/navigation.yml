@@ -9,14 +9,14 @@ docs:
       children:
           - title: 'About Spartacus'
             url: /
-          - title: 'Spartacus FAQ'
-            url: /spartacus-faq/
           - title: 'Release Information'
             url: /release-information/
-          - title: "Spartacus Roadmap"
-            url: /spartacus-roadmap/
           - title: 'Spartacus Videos'
-            url: /spartacus-videos/
+            url: /spartacus-videos/ 
+          - title: "Spartacus Roadmap"
+            url: /spartacus-roadmap/   
+          - title: 'Spartacus FAQ'
+            url: /spartacus-faq/
 
     - title: Getting Started with Spartacus Libraries
       children:
