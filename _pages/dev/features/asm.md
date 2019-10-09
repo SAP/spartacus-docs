@@ -1,5 +1,5 @@
 ---
-title: ASM
+title: Assisted Service Module (DRAFT)
 ---
 
 ## Overview
@@ -14,18 +14,18 @@ For more information on to setup and configure ASM on your SAP Commerce Cloud, r
 
 Here are a few setup steps that are important and/or specific to get ASM working with Spartacus:
 
-### ASM backend requirment
+### ASM Back End Requirements
 
-ASM in spartacus requires SAP Commerce Cloud version 1905.5. Version 1905.5 is required to enable cors in `assistedservicewebservices` endpoints.
+ASM in Spartacus requires SAP Commerce Cloud version 1905.5. Version 1905.5 is required to enable CORS in `assistedservicewebservices` endpoints.
 
-The ASM feature in spartacus requires the following extensions:
+The ASM feature in Spartacus requires the following extensions:
 
 - assistedservicewebservices Extension
 - assistedservicestorefront AddOn
 
-### Grant asagentgroup cms premissions
+### Granting asagentgroup CMS Permissions
 
-The user group `asagentgroup` needs specific rights to read cms data from OCC.
+The user group `asagentgroup` needs specific rights to read CMS data from OCC.
 
 #### Option 1: Initialize from scratch with 1905.5
 
@@ -65,8 +65,6 @@ UserGroup;asagentgroup;;;;;;;;
 ;;;;CMSItem;+;-;-;-;-;
 
 $END_USERRIGHTS;;;;;
-
-
 ```
 
 ### Required CMS Data
@@ -109,7 +107,7 @@ corsfilter.assistedservicewebservices.allowedOrigins=*
 
 Bear in mind this wildcard configuration is flexible for development environments but it is unsecure. A more restrictive configuration is required for production use.
 
-## Invoke the Asm UI in the storefront.
+## Invoke the ASM UI in the storefront
 
 To invoke the ASM UI in the storefront, add the `?asm=true` suffix to the url.
 For example, with the sample store, you can invoke the ASM UI on the home page with this url
@@ -118,9 +116,9 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 https://{hostname}/electronics-spa/en/USD/?asm=true
 ```
 
-## Enabling/Disabling the ASM UI in Spartacus
+## Enabling the ASM UI in Spartacus
 
-Wether you initialized with the latest Spartacus sample data or manually imported the impex above to import the AsmComponent, the Asm UI will be enabled by default.
+Whether you initialized with the latest Spartacus sample data or manually imported the impex above to import the AsmComponent, the ASM UI will be enabled by default.
 
 The `visibility` attribute of AsmComponent in the CMS dictates wether the ASM UI is enabled or not in the storefront. When AsmComponent is not visible, it will be disabled and completely omitted in the page data returned by OCC to be rendered by Spartacus.
 
@@ -160,7 +158,7 @@ Therefore, the logic to determine the correct OCC userid givent the context is c
 
 ## Configuring
 
-No special configuration is required in Spartacus.
+No special configuration is required for this feature.
 
 ## Extending
 
