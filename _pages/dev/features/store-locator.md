@@ -1,5 +1,5 @@
 ---
-title: Store Locator (DRAFT)
+title: Store Locator
 ---
 
 {% capture version_note %}
@@ -10,17 +10,13 @@ title: Store Locator (DRAFT)
 
 ## Overview
 
-Customers can view all physical stores on the map, and find the nearest ones based on their current location.
+The Spartacus store locator feature helps customers find brick-and-mortar retail locations. Customers can view a list of all stores, they can search for stores based on their location, or they can search for stores based on a postal code, a town, or an address that the customer provides.
 
-There are following ways to navigate store list:
+If the customer chooses to **Use My Location** and allows their device to access their location, a list of the nearest stores is displayed, sorted by distance in kilometers. By selecting any store in the list, the customer can view store details, such as address, phone number, opening hours, and features.
 
-- use my location
-- view all stores
-- find a store
+If the customer chooses to **View All Stores**, a list of all the countries is displayed, with the number of stores in each country shown in parentheses. When the customer selects a country, a list of all the stores in the selected country is displayed, along with the address for each store location. Customers also have the option to **Get Directions**, which opens Google Maps in a separate browser window with directions from the customer's location to the selected store.
 
-If customer click "use my location" and allow device to get location coordinates, list with nearest locations display sorted by distance in kilometers. Each of stores in a list is clickable and contains the details like: location address, phone number, opening hours and features.
 
-Alternative way to find a store is "view all stores" option, which displays grid with countries and if customer select his preference all stores from such country will appear.
 
 Last option is using search bar, customer needs to put his location (full address, city or zip-code) into search input, next click a "find a store" button. Backend server automatically resolve his coordinates based on text provided and return list of nearest stores.
 
