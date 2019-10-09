@@ -51,6 +51,8 @@ docs:
           - title: "Spartacus Features"
             url: /spartacus-features/
             subchildren:
+                - title: "Assisted Service Module"
+                  url: /asm/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Store Locator"
