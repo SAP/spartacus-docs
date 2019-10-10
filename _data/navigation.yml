@@ -57,6 +57,8 @@ docs:
                   url: /consignment-tracking/
                 - title: "Store Locator"
                   url: /store-locator/  
+          - title: "Security Best Practices"
+            url: /security-best-practices/  
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
