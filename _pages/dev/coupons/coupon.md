@@ -4,7 +4,7 @@ title: Coupon (DRAFT)
 
 ## Intro
 
-Customers apply coupons in the cart page to get discounts and/or rewards for their orders. Coupons are applied by entering coupon codes in the **Coupon** field. The applied coupon codes will then display in the **Order Summary** section. 
+When a coupon promotion has been created, customers redeem coupons that are applicable to the promotion during checkout to get discounts and/or rewards for their orders. 
 
 ## Requirements
 
