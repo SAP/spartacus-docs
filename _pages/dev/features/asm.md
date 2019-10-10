@@ -2,6 +2,10 @@
 title: Assisted Service Module (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
 ## Overview
 
 Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the storefront. For more information, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html)
