@@ -4,7 +4,7 @@ title: Coupon (DRAFT)
 
 ## Intro
 
-When a coupon promotion has been created, customers redeem coupons that are applicable to the promotion during checkout to get discounts and/or rewards for their orders. 
+When a coupon promotion has been created, customers apply coupons that are applicable to the promotion during checkout to get discounts and/or rewards for their orders. 
 
 ## Requirements
 
@@ -17,7 +17,7 @@ For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d34
 
 ## Enabling Coupon Feature
 
-The coupon feature has corresponding cms-component data in backend that allows you to enable or disable the feature.
+The coupon feature has corresponding cms-component data in the backend that allows you to enable or disable the feature.
 
 
 ## Configuring
