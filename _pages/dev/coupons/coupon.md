@@ -24,7 +24,7 @@ The coupon feature has corresponding cms-component data in the backend that allo
 
 No special configuration needed.
 
-Coupons are managed using Backoffice. See https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html for more information.
+Coupons are managed using Backoffice. See [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) for more information.
 
 ## Extending
 
