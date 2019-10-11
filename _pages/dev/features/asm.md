@@ -10,7 +10,7 @@ title: Assisted Service Module (DRAFT)
 
 Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the storefront. For more information, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html)
 
-Spartacus now supports the ASM functionality that allows customer emulation by sales support agents throug the Spartacus storefront.
+Spartacus now supports the ASM functionality that allows customer emulation by sales support agents through the Spartacus storefront.
 
 ## Requirements
 
@@ -109,7 +109,7 @@ For development purposes, the value can be a wildcard:
 corsfilter.assistedservicewebservices.allowedOrigins=*
 ```
 
-Bear in mind this wildcard configuration is flexible for development environments but it is unsecure. A more restrictive configuration is required for production use.
+Bear in mind this wildcard configuration is flexible for development environments but it is unsecured. A more restrictive configuration is required for production use.
 
 ## Invoke the ASM UI in the storefront
 
@@ -130,7 +130,7 @@ An "invisible" AsmComponent will therefore not display even if invoked with `?as
 
 ## Spartacus ASM aware development guidelines
 
-Before ASM was released, the occ userId used for an athenticated user was the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
+Before ASM was released, the occ userId used for an authenticated user was the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
 
 ```typescript
   load(): void {
@@ -157,7 +157,7 @@ The rule of thumb is, if `OCC_USER_ID_CURRENT` is used directly in a service, it
 
 In order to support ASM, and potentially other features in the future, the facade services can't simply use the "current" special userId when calling various actions. There needs to be some logic applied to determine the correct OCC userId to pass down to actions that will trigger a backend call.
 
-Therefore, the logic to determine the correct OCC userid givent the context is centralized in the `AuthService` function `getOccUserId()`.
+Therefore, the logic to determine the correct OCC userid given the context is centralized in the `AuthService` function `getOccUserId()`.
 
 ## Configuring
 
