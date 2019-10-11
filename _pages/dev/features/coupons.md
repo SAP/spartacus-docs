@@ -4,7 +4,7 @@ title: Coupons (DRAFT)
 
 ## Intro
 
-When a coupon promotion has been created, customers apply coupons that are applicable to the promotion during checkout to get discounts and/or rewards for their orders. 
+When a coupon promotion has been created, customers apply the applicable coupon to activate the promotion during checkout to get discounts and/or rewards for their orders. 
 
 ## Requirements
 
