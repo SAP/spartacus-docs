@@ -10,7 +10,7 @@ title: Assisted Service Module (DRAFT)
 
 Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the storefront. For more information, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html)
 
-Spartacus now supports the ASM functionality that allows customer emulation by sales support agents throug the Spartacus storefront. 
+Spartacus now supports the ASM functionality that allows customer emulation by sales support agents throug the Spartacus storefront.
 
 ## Requirements
 
@@ -148,8 +148,7 @@ Now that Spartacus supports ASM, the correct way to determine the occ userId is 
       .pipe(take(1))
       .subscribe(occUserId =>
         this.store.dispatch(new UserActions.LoadUserDetails(occUserId))
-      )
-      .unsubscribe();
+      );
   }
 
 ```
