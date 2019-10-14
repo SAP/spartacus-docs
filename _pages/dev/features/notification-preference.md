@@ -4,7 +4,7 @@ title: Notification Preference (DRAFT)
 
 ## Intro
 
-The notification preference feature provides a page under user account for customers to set preferred notification channels by activating and deactivating the corresponding switches. 
+The notification preference feature provides a page under user account for customers to set preferred channels for receiving notifications by activating and deactivating the corresponding switches. 
 
 
 ## Requirements
