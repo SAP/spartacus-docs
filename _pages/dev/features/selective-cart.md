@@ -14,7 +14,7 @@ The selective cart feature requires the following extensions to work:
 - 
 - 
 
-For more information, see [Customer Interests Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/f096456e586c44a29bd833a88536855a.html) in the SAP Help Portal.
+For more information, see [Selective Cart Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/923b6bd803734e168a6b2e7c1087caec.html) in the SAP Help Portal.
 
 ## Enabling Selective Cart
 
