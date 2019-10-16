@@ -12,3 +12,5 @@ To help maintain a high degree of quality and consistency throughout the Spartac
 - [Committing Code to Spartacus]({{ site.baseurl }}{% link _pages/contributing/commit-guidelines.md %})
 - [Type Safety in Spartacus]({{ site.baseurl }}{% link _pages/contributing/type-safety-in-spartacus.md %})
 - [Definition Of Done]({{ site.baseurl }}{% link _pages/contributing/definition-of-done.md %})
+
+If you have any questions, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
