@@ -2,10 +2,10 @@
 title: Spartacus FAQ
 ---
 
+If you have any questions not answered in this FAQ, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
 - [Questions Related to Spartacus as a Product](#questions-related-to-spartacus-as-a-product)
 - [Questions Related to Commercialization](#questions-related-to-commercialization)
-
 
 ## Questions Related to Spartacus as a Product
 
