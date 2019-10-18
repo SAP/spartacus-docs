@@ -36,7 +36,7 @@ Some items have notes, for example (1) or (2)
   
 ## Planned for 1.3 (End of October 2019)
   
-### Archictecture and Development Features
+### Architecture and Development Features
 
 - Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
 - Schematics (for automatically setting up a Spartacus apps)
