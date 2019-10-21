@@ -86,3 +86,7 @@ Spartacus offers some configuration options that are encapsulated in `anonymousC
 ### Changing UI Labels
 
 In order to customize any UI message on the banner or in the dialog, you can refer to [our i18n guide](_pages/dev/i18n.md) on how to override the existing translation keys.
+
+## Extending Anonymous Consent
+
+No special extensibility is available for this feature.
