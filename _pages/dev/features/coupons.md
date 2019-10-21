@@ -2,6 +2,10 @@
 title: Coupons (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
 ## Intro
 
 When a coupon promotion has been created, customers apply the applicable coupon to activate the promotion during checkout to get discounts and/or rewards for their orders. 
