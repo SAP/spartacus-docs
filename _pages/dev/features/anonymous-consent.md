@@ -1,4 +1,10 @@
-# Anonymous Consents
+---
+title: Anonymous Consent (DRAFT)
+---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{% endcapture %}
 
 ## Overview
 
@@ -8,18 +14,18 @@ Anonymous Consent Management gives anonymous users control over the tracking of 
 
 ### Back End Requirements
 
-As anonymous consents use a custom header `x-anonymous-consents`, this needs to be configured on the back end by adding it to the following properties:
+As anonymous consent uses a custom header `x-anonymous-consents`, this needs to be configured on the back end by adding it to the following properties:
 
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
 - `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
 - `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
 
-#### Consent data
+#### Consent Data
 
-Besides having consents defined on the back end, they need to be marked as _exposed_, which can be done by just executing an impex file similar to this:
+Besides having consent defined on the back end, they need to be marked as _exposed_, which can be done by just executing an impex file similar to this:
 
-```impex
+```sql
 $siteUid=electronics-spa
 
 INSERT_UPDATE ConsentTemplate;id[unique=true];name;description;version[unique=true];baseSite(uid)[unique=true,default=$siteUid];exposed
@@ -28,13 +34,13 @@ INSERT_UPDATE ConsentTemplate;id[unique=true];name;description;version[unique=tr
 ;STORE_USER_INFORMATION;"I approve to this sample STORE USER INFORMATION consent";"This is a sample store user information consent description that will need to be updated or replaced.";0;;true
 ```
 
-Notice that the last column named _exposed_ is set to _true_ for the consents that shold be exposed to the anonymous users.
+Notice that the last column named _exposed_ is set to _true_ for the consents that should be exposed to the anonymous users.
 
-### CMS components
+### CMS Components
 
-At this moment, only the anonymous consents banner is being driven by CMS. To have this CMS component, an impex similar to this can be used:
+At this moment, only the anonymous consent banner is being driven by CMS. To have this CMS component, an impex similar to this can be used:
 
-```impex
+```sql
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 
@@ -45,11 +51,11 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 ;;FooterSlot;FooterNavigationComponent,AnonymousConsentManagementBannerComponent
 ```
 
-Having this CMS component alone doesn't enable the anonymous consents feature. Please see [Spartacus configuration](#Spartacus-configuration) section.
+Having this CMS component alone doesn't enable the anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
 
-### Spartacus configuration
+### Enabling Anonymous Consent
 
-To enable anonymous consents in Spartacus, you need to enable the `anonymousConsents` feature in your `app.module.ts`, i.e.:
+To enable anonymous consent in Spartacus, you need to enable the `anonymousConsents` feature in your `app.module.ts`, i.e.:
 
 ```typescript
 B2cStorefrontModule.withConfig({
@@ -62,9 +68,9 @@ features: {
 }
 ```
 
-_Note_ that feature level _1.3_ is _not_ required for anonymous consents. However, using _1.3_ version of Spartacus enables the new UI for the consents managment page, that uses accordions and toggles instead of checkboxes.
+_Note_ that feature level _1.3_ is _not_ required for anonymous consents. However, using _1.3_ version of Spartacus enables the new UI for the consents management page, that uses accordions and toggles instead of checkboxes.
 
-## Configuration options
+## Configuring Anonymous Consent
 
 Spartacus offers some configuration options that are encapsulated in `anonymousConsents` configuration object. The following options are available:
 
@@ -75,6 +81,6 @@ Spartacus offers some configuration options that are encapsulated in `anonymousC
 - `consentManagementPage.showAnonymousConsents` - specify whether to show anonymous consents on the registered consent management page. By default, this is set to `true`, and setting it to `false` will hide all consents from consents management page that have `exposed` property set to `true`. In case you don't want to hide all anonymous consents from the consents management page, refer to `consentManagementPage.hideConsents` below.
 - `consentManagementPage.hideConsents` - an array of consent template IDs that should be hidden on the consents management page. By default, this array is empty, and adding consent template IDs to it will hide them from the consents management page.
 
-### Change UI labels
+### Changing UI Labels
 
 In order to customize any UI message on the banner or in the dialog, you can refer to [our i18n guide](_pages/dev/i18n.md) on how to override the existing translation keys.
