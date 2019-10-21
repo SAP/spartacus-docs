@@ -37,7 +37,7 @@ If you have any questions, use the help channel of our [Slack workspace](https:/
 *Release 1.2 published September 30, 2019*
 
 What's New?
-- Storefinder (docs to come)
+- [Storefinder](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/store-locator)
 - [Guest Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/guest-checkout)
 - [Express Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/express-checkout)
 - [Infinite Scroll](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/infinite-scroll)
