@@ -6,6 +6,8 @@ title: Anonymous Consent (DRAFT)
 {{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
 {% endcapture %}
 
+{% include docs/feature_version.html content=version_note %}
+
 ## Overview
 
 Anonymous Consent Management gives anonymous users control over the tracking of their data. Anonymous users can grant or decline their consent for applications that collect and process personal data. For more, refer to the [Anonymous Consent Management on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a9f387f70d484c19971aca001dc71bc5.html?q=anonymous%20consent)
