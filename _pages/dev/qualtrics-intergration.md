@@ -4,31 +4,13 @@ title: Qualtrics Integration (DRAFT)
 
 Qualtrics is integratable to Spartacus. Users can set-up their qualtrics seamlessly and we facilate the usage on a Single-Page Application (SPA).
 
-## How to enable Qualtrics
+# Important Note
 
-To enable Qualtrics, you simply need to append a qualtrics config to the app.module.ts
+By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks will be monitored in terms of the interaction with the survey by default.
 
-- `projectId` property: Allows you to enable qualtrics with the given projectId from your provided Qualtrics Application code.
+## Using Qualtrics to enable surveys
 
-```ts
-B2cStorefrontModule.withConfig({
-  [...]
-  qualtrics: {
-    projectId: 'placeholder123'
-  }
-})
-```
-
-After setting up qualtrics in Spartacus, you need to create a CMXFlexComponent.
-Make sure the component is uid and flexType are called QualtricsComponent as shown below.
-Spartacus will render this component on a given page to enable Qualtrics.
-
-```ts
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-;;QualtricsComponent;A Qualtrics Component;QualtricsComponent
-```
-
-**Note**: It is important to note that it is a must to insert the QualtricsComponent to a page. Please make sure, you add the component to a content slot of a page, which gets removed once you navigate elsewhere. For example, if you want Qualtrics enabled in the 'Product Details Page', then it would be best to put the CMSFlexComponent to the UpSellingSlot, or if you want it in the 'Product Listing Page', then you would need to put it in ProductLeftRefinements slot.
+Please familiarize yourself with Qualtrics using the following link https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback/.
 
 ## Where to find the projectId from your Qualtrics portal?
 
@@ -40,17 +22,39 @@ Step 3: Click the dropdown 'Manage Project' and select Project ID's
 
 Step 4: Copy paste the project id to the app.modules.ts as shown above.
 
-## Using Qualtrics to enable surveys
+## How to enable Qualtrics in Spartacus
 
-Please familiarize yourself with Qualtrics using the following link https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback/.
+To enable Qualtrics, you simply need to append a qualtrics config to the app.module.ts
+
+- `projectId` property: Allows you to enable qualtrics with the given projectId from your provided Qualtrics deployment code.
+
+```ts
+B2cStorefrontModule.withConfig({
+  [...]
+  qualtrics: {
+    projectId: 'placeholder123'
+  }
+})
+```
+
+After setting up qualtrics in Spartacus, you need to create a CMXFlexComponent.
+Make sure the component uid and flexType are called QualtricsComponent as shown below.
+Spartacus will render this component on the given page to enable Qualtrics.
+
+```ts
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;QualtricsComponent;A Qualtrics Component;QualtricsComponent
+```
+
+**Note**: It is important to note that it is a must to insert the QualtricsComponent to a page. Please make sure, you add the component to a content slot of a page, which gets removed once you navigate elsewhere. For example, if you want Qualtrics enabled in the 'Product Details Page', then it would be best to put the CMSFlexComponent to the UpSellingSlot, or if you want it in the 'Product Listing Page', then you would need to put it in ProductLeftRefinements slot.
 
 ## Enable Qualtrics to work with page data in Spartacus
 
-You can add your custom logic to listen to a data stream in order to wait for a specific page data.
+You can add your custom logic to listen to a data stream in order to enable Qualtrics.
 
 You are able to extend the `QualtricsLoaderService` in order to enable qualtrics. This is configurable and you are able to add as many data stream you need to listen to.
 
-For example, an example of extended the `QualtricsLoaderService`,
+An example of extending the `QualtricsLoaderService` shows that we want to only enable Qualtrics when the cart has only one entry, therefore we know the page data has already been loaded.
 
 ```ts
 import { Injectable } from "@angular/core";
