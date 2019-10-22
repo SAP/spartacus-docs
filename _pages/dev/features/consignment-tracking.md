@@ -24,7 +24,7 @@ The consignment tracking feature requires the following extensions:
 - consignmenttrackingmock Extension
 - consignmenttrackingbackoffice Extension
 
-For more information, see [Consignment Tracking Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/6eafde9f14e243d6a53e0bfbfd6996bc.html) in the SAP Help Portal.
+For more information, see [Consignment Tracking Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/6eafde9f14e243d6a53e0bfbfd6996bc.html) in the SAP Help Portal.
 
 ## Enabling Consignment Tracking
 
