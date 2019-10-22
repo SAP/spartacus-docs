@@ -2,7 +2,14 @@
 title: Qualtrics Integration (DRAFT)
 ---
 
-Qualtrics integration to Spartacus enables users to set-up their qualtrics seamlessly while we facilate the usage on a Single-Page Application (SPA).
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+
+Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA).
 
 # Important Note
 
@@ -14,19 +21,19 @@ Please familiarize yourself with Qualtrics using the following link https://www.
 
 ## Where to find the projectId from your Qualtrics portal?
 
-Step 1: Click the project from which you want to use for enablement
+Step 1: Click the project from which you want to use for enablement.
 
-Step 2: Click settings
+Step 2: Click settings.
 
-Step 3: Click the dropdown 'Manage Project' and select Project ID's
+Step 3: Click the dropdown 'Manage Project' and select Project IDs.
 
-Step 4: Copy paste the project id to the app.modules.ts as shown above.
+Step 4: Copy paste the project id to the `app.modules.ts` as shown above.
 
-## How to enable Qualtrics in Spartacus
+## Enabling Qualtrics in Spartacus
 
-To enable Qualtrics, you simply need to append a qualtrics config to the app.module.ts
+To enable Qualtrics, you simply need to append a Qualtrics config to the app.module.ts
 
-- `projectId` property: Allows you to enable qualtrics with the given projectId from your provided Qualtrics deployment code.
+- `projectId` property: Allows you to enable Qualtrics with the given projectId from your provided Qualtrics deployment code.
 
 ```ts
 B2cStorefrontModule.withConfig({
@@ -37,7 +44,7 @@ B2cStorefrontModule.withConfig({
 })
 ```
 
-After setting up qualtrics in Spartacus, you need to create a CMXFlexComponent.
+After setting up Qualtrics in Spartacus, you need to create a CMXFlexComponent.
 Make sure the component uid and flexType are called QualtricsComponent as shown below.
 Spartacus will render this component on the given page to enable Qualtrics.
 
@@ -52,7 +59,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 You can add your custom logic to listen to a data stream in order to enable Qualtrics.
 
-You are able to extend the `QualtricsLoaderService` in order to enable qualtrics. This is configurable and you are able to add as many data stream you need to listen to.
+You are able to extend the `QualtricsLoaderService` in order to enable Qualtrics. This is configurable and you are able to add as many data stream you need to listen to.
 
 An example of extending the `QualtricsLoaderService` shows that we want to only enable Qualtrics when the cart has only one entry, therefore we know the page data has already been loaded.
 

@@ -130,6 +130,8 @@ docs:
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
             url: /kyma-integration/
+          - title: "Qualtrics Integration"
+            url: /qualtrics-integration/  
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
