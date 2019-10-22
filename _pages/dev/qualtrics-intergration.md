@@ -6,7 +6,7 @@ Qualtrics is integratable to Spartacus. Users can set-up their qualtrics seamles
 
 # Important Note
 
-By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks will be monitored in terms of the interaction with the survey by default.
+By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
 
 ## Using Qualtrics to enable surveys
 
