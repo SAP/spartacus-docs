@@ -4,7 +4,7 @@ title: Installing SAP Commerce Cloud for use with Spartacus
 
 The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use by a Spartacus storefront. SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
-This example uses the `b2c_acc_plus` recipe included in SAP Commerce Cloud as an example, but you can use you own sample data or recipe as long as it includes cmsoccaddon and ycommercewebservices.
+This example uses the `b2c_acc_plus` recipe included in SAP Commerce Cloud as an example, but you can use you own sample data or recipe as long as it includes `cmsoccaddon` and `ycommercewebservices`.
 
 The steps described in this document are:
 
