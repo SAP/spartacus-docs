@@ -53,6 +53,8 @@ docs:
           - title: "Spartacus Features"
             url: /spartacus-features/
             subchildren:
+                - title: "Anonymous Consent"
+                  url: /anonymous-consent/
                 - title: "Assisted Service Module"
                   url: /asm/
                 - title: "Consignment Tracking"
@@ -138,6 +140,8 @@ docs:
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
             url: /kyma-integration/
+          - title: "Qualtrics Integration"
+            url: /qualtrics-integration/  
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
