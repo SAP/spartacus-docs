@@ -1,5 +1,7 @@
 # main links
 main:
+    - title: Spartacus Slack
+      url: https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU
     - title: Version 1.2
       url: /release-information/
 
@@ -51,10 +53,14 @@ docs:
           - title: "Spartacus Features"
             url: /spartacus-features/
             subchildren:
+                - title: "Anonymous Consent"
+                  url: /anonymous-consent/
                 - title: "Assisted Service Module"
                   url: /asm/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
+                - title: "Coupons"
+                  url: /coupons/  
                 - title: "Store Locator"
                   url: /store-locator/  
           - title: "Security Best Practices"
@@ -134,6 +140,8 @@ docs:
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
             url: /kyma-integration/
+          - title: "Qualtrics Integration"
+            url: /qualtrics-integration/  
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
