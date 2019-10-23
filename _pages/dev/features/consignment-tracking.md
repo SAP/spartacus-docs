@@ -20,9 +20,7 @@ The consignment tracking feature requires the following extensions:
 
 - consignmenttrackingoccaddon AddOn
 
-For more information, see [Consignment Tracking Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/6eafde9f14e243d6a53e0bfbfd6996bc.html) in the SAP Help Portal.
-
-Note that a mock carrier is designed for testing purposes. Install the `consignmenttrackingmock` Extension as needed. For more information about this extensions, see [consignmenttrackingmock Extension](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/965bf5b729b646ac9a3f33cbebfd0a20.html) in the SAP Help Portal.
+Note that a mock carrier is designed for testing purposes. Install the `consignmenttrackingmock` Extension as needed. For more information about this extension, see [consignmenttrackingmock Extension](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/965bf5b729b646ac9a3f33cbebfd0a20.html) in the SAP Help Portal.
 
 ## Enabling Consignment Tracking
 
