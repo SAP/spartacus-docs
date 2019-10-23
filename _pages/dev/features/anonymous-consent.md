@@ -6,6 +6,8 @@ title: Anonymous Consent (DRAFT)
 {{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
 {% endcapture %}
 
+{% include docs/feature_version.html content=version_note %}
+
 ## Overview
 
 Anonymous Consent Management gives anonymous users control over the tracking of their data. Anonymous users can grant or decline their consent for applications that collect and process personal data. For more, refer to the [Anonymous Consent Management on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a9f387f70d484c19971aca001dc71bc5.html?q=anonymous%20consent)
@@ -38,20 +40,37 @@ Notice that the last column named _exposed_ is set to _true_ for the consents th
 
 ### CMS Components
 
-At this moment, only the anonymous consent banner is being driven by CMS. To have this CMS component, an impex similar to this can be used:
+The anonymous consent banner, and the link in the footer that opens the anonymous consent dialog, are driven by CMS. To have these CMS components, an ImpEx similar to this can be used:
 
 ```sql
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-;;AnonymousConsentManagementBannerComponent;Anonymous Consent Management Banner Component;AnonymousConsentManagementBannerComponent;AnonymousConsentManagementBannerComponent
-
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;FooterSlot;FooterNavigationComponent,AnonymousConsentManagementBannerComponent
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef;restrictions(uid,$contentCV)
+;;AnonymousConsentManagementBannerComponent;Anonymous Consent Management Banner Component;AnonymousConsentManagementBannerComponent;AnonymousConsentManagementBannerComponent;anonymousUserRestriction
+;;AnonymousConsentOpenDialogComponent;Anonymous Consent Open Dialog Component;AnonymousConsentOpenDialogComponent;AnonymousConsentOpenDialogComponent;anonymousUserRestriction
 ```
 
-Having this CMS component alone doesn't enable the anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
+Having these CMS component alone doesn't enable the anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
+
+Previously, the `footer-navigation.component.html` was tightly coupled with notice message, which is now a CMSParagraphComponent that should also be added like this:
+
+```sql
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;
+;;NoticeTextParagraph;Notice Text Paragraph;NoticeTextParagraph;
+
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent
+```
+
+Along with the CMSParagraphComponent you should also update the localized properties files with a sample text such as this example:
+
+```properties
+CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2019 SAP SE or an SAP affiliate company. All rights reserved.</div>"
+```
 
 ### Enabling Anonymous Consent
 
@@ -84,3 +103,7 @@ Spartacus offers some configuration options that are encapsulated in `anonymousC
 ### Changing UI Labels
 
 In order to customize any UI message on the banner or in the dialog, you can refer to [our i18n guide](_pages/dev/i18n.md) on how to override the existing translation keys.
+
+## Extending Anonymous Consent
+
+No special extensibility is available for this feature.
