@@ -40,20 +40,37 @@ Notice that the last column named _exposed_ is set to _true_ for the consents th
 
 ### CMS Components
 
-At this moment, only the anonymous consent banner is being driven by CMS. To have this CMS component, an impex similar to this can be used:
+Anonymous consents banner and the link in the footer that opens the anonymous consents dialog are being driven by CMS. To have these CMS component, an impex similar to this can be used:
 
 ```sql
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-;;AnonymousConsentManagementBannerComponent;Anonymous Consent Management Banner Component;AnonymousConsentManagementBannerComponent;AnonymousConsentManagementBannerComponent
-
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;FooterSlot;FooterNavigationComponent,AnonymousConsentManagementBannerComponent
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef;restrictions(uid,$contentCV)
+;;AnonymousConsentManagementBannerComponent;Anonymous Consent Management Banner Component;AnonymousConsentManagementBannerComponent;AnonymousConsentManagementBannerComponent;anonymousUserRestriction
+;;AnonymousConsentOpenDialogComponent;Anonymous Consent Open Dialog Component;AnonymousConsentOpenDialogComponent;AnonymousConsentOpenDialogComponent;anonymousUserRestriction
 ```
 
-Having this CMS component alone doesn't enable the anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
+Having these CMS component alone doesn't enable the anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
+
+Previously, the `footer-navigation.component.html` was tightly coupled with notice message, which is now a CMSParagraphComponent that should also be added like this:
+
+```sql
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;
+;;NoticeTextParagraph;Notice Text Paragraph;NoticeTextParagraph;
+
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent
+```
+
+Along with the CMSParagraphComponent you should also update the localized properties files with a sample text such as this example:
+
+```properties
+CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2019 SAP SE or an SAP affiliate company. All rights reserved.</div>"
+```
 
 ### Enabling Anonymous Consent
 
