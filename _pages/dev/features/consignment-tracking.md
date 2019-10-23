@@ -16,7 +16,7 @@ On the order details page, if the consignment shows its status as **Shipped**, a
 
 ## Requirements
 
-The consignment tracking feature requires the following extensions:
+The consignment tracking feature requires the following extension to work:
 
 - consignmenttrackingoccaddon AddOn
 

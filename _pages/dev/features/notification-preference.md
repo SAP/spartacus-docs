@@ -9,7 +9,7 @@ The notification preference feature provides a page under user account for custo
 
 ## Requirements
 
-The notification preference feature requires the following extensions to work:
+The notification preference feature requires the following extension to work:
 
 - notificationoccaddon AddOn
 
