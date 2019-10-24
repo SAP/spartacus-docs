@@ -51,7 +51,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 ;;AnonymousConsentOpenDialogComponent;Anonymous Consent Open Dialog Component;AnonymousConsentOpenDialogComponent;AnonymousConsentOpenDialogComponent;anonymousUserRestriction
 ```
 
-Having these CMS component alone is not enough to enable the whole anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
+Having these CMS components alone is not enough to enable the whole anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
 
 ### Footer notice
 
@@ -74,7 +74,7 @@ Along with the `NoticeTextParagraph` CMS component you should also update the lo
 CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2019 SAP SE or an SAP affiliate company. All rights reserved.</div>"
 ```
 
-After changing the _\*.properties_ files, don't forget to run `ant build` and the `ant initialize` commands.
+After changing the `*.properties` files, don't forget to run `ant build` and the `ant initialize` commands.
 
 _Warning_: to preserve backwards compatibility, the notice will still be displayed if the Anonymous Consent feature is disabled. However, if you add the CMS `NoticeTextParagraph` component (and have the Anonymous Consent feature disabled), you will see duplicated notice, like shown on the screen shot below:
 
