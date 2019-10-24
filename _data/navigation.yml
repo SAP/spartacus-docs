@@ -61,6 +61,8 @@ docs:
                   url: /consignment-tracking/
                 - title: "Coupons"
                   url: /coupons/  
+                - title: "Notification Preferences"  
+                  url: /notification-preferences/
                 - title: "Store Locator"
                   url: /store-locator/  
           - title: "Security Best Practices"

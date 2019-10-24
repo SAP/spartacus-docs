@@ -8,4 +8,5 @@ This is a landing page for grouping together Spartacus Features topics. The Spar
 - [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
 - [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
 - [Coupons]({{ site.baseurl }}{% link _pages/dev/features/coupons.md %})
+- [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
 - [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %})
