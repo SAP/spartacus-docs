@@ -68,7 +68,7 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 ;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent
 ```
 
-Along with the `CMSParagraphComponent` you should also update the localized properties files with a sample text such as this example:
+Along with the `NoticeTextParagraph` CMS component you should also update the localized properties files with a sample text such as this example:
 
 ```properties
 CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2019 SAP SE or an SAP affiliate company. All rights reserved.</div>"
@@ -79,6 +79,8 @@ After changing the _\*.properties_ files, don't forget to run `ant build` and th
 _Warning_: to preserve backwards compatibility, the notice will still be displayed if the Anonymous Consent feature is disabled. However, if you add the CMS `NoticeTextParagraph` component (and have the Anonymous Consent feature disabled), you will see duplicated notice, like shown on the screen shot below:
 
 ![duplicated notice]({{ site.baseurl }}/assets/images/footer-duplicate-notice.png)
+
+In this case, you can either enable Anonymous Consent feature or remove the `NoticeTextParagraph` CMS component.
 
 ### Enabling Anonymous Consent
 
