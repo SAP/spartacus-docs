@@ -40,7 +40,7 @@ Notice that the last column named _exposed_ is set to _true_ for the consents th
 
 ### CMS Components
 
-Anonymous consents banner and the link in the footer that opens the anonymous consents dialog are being driven by CMS. To have these CMS component, an impex similar to this can be used:
+The anonymous consent banner, and the link in the footer that opens the anonymous consent dialog, are driven by CMS. To have these CMS components, an ImpEx similar to this can be used:
 
 ```sql
 $contentCatalog=electronics-spaContentCatalog
