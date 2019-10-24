@@ -17,7 +17,7 @@ At the end of this document, an alternate method for setting the SAP Commerce Cl
 
 ## Setting up SAP Commerce Cloud
 
-For more information concerning installation of SAP Commerce Cloud using recipes, see [this help document](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1905/en-US/8c46c266866910149666a0fe4caeee4e.html?q=Installing%20SAP%20Commerce%20Using%20Installer%20Recipes).
+For more information concerning installation of SAP Commerce Cloud using recipes, see [this help document](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1905/en-US/8c46c266866910149666a0fe4caeee4e.html).
 
 1. Unzip the SAP Commerce Cloud zip archive.
 

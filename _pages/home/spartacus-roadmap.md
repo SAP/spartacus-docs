@@ -25,7 +25,7 @@ The order of features shown in the roadmap below generally reflects the order of
 
 Some of the links provided point to SAP Commerce Cloud Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
 
-B2B features are based on the B2B Accelerator [Powertools store](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/417df297eb39466288dd904e8acc426f.html). Most B2B support depends on new APIs that are scheduled for release in SAP Commerce during Q2 2020.
+B2B features are based on the B2B Accelerator [Powertools store](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/417df297eb39466288dd904e8acc426f.html). Most B2B support depends on new APIs that are scheduled for release in SAP Commerce during Q2 2020.
   
 ## Notes
 
@@ -44,9 +44,9 @@ Some items have notes, for example (1) or (2)
   
 ### Core Storefront Features
 
-- [Assisted Service Module (ASM) customer emulation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html)
-- [Anonymous consent](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a9f387f70d484c19971aca001dc71bc5.html)
-- [Coupons](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
+- [Assisted Service Module (ASM) customer emulation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
+- [Anonymous consent](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
+- [Coupons](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
   
 ## Planned for 1.4 (End of November 2019)
   
@@ -57,15 +57,15 @@ Some items have notes, for example (1) or (2)
   
 ### Core Storefront Features
 
-- [Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/8c143a2d8669101485208999541c383b.html) support, as seen in the Apparel store (not the same as B2B multi-dimensional support, as seen in the Powertools store)
+- [Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html) support, as seen in the Apparel store (not the same as B2B multi-dimensional support, as seen in the Powertools store)
   - Spartacus version of Apparel sample data (like Electronics-Spa)
 - Favorites Wishlist (dedicated wishlist for bookmarking favorite products, does not add to cart)
-- [Self-service cancellations](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/22e69b8fc4884d5eb58c39b97b3322fb.html) and [returns](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/2b6fea0f5f61481f86af205c7c7e9b61.html) <sup>(1)</sup>
+- [Self-service cancellations](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/22e69b8fc4884d5eb58c39b97b3322fb.html) and [returns](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/2b6fea0f5f61481f86af205c7c7e9b61.html) <sup>(1)</sup>
 - Improvements to Applied Promotions (per entry in cart)
 - [Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) (CDS) and the associated Merchandising Component
 - Accessibility (keyboarding)
-- [Selective Cart](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/58837af020d346df84773bd2ea75fd69.html) (save items in cart for later)
-- [Back-in-stock notifications](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/2ad0f5f1bbcc47dfbba4f5cd7c6394c1.html)
+- [Selective Cart](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/58837af020d346df84773bd2ea75fd69.html) (save items in cart for later)
+- [Back-in-stock notifications](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/2ad0f5f1bbcc47dfbba4f5cd7c6394c1.html)
   
 ### B2B Storefront Features
 
@@ -77,8 +77,8 @@ Due to end-of-year holidays, we will likely release a 1.5-next with new features
   
 ### B2B Storefront Features
   
-- [B2B Commerce Org](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company) <sup>(1)</sup> (aka My Company management: units, users, budgets, cost centers, purchase threshholds, user groups, approvals, account summary) 
-- [B2B Checkout](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac2500f8669101493e69e1392b970fd.html) - check out by account, input purchase order, select cost center, shipping address restricted by cost center chosen, approval process 
+- [B2B Commerce Org](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company) <sup>(1)</sup> (aka My Company management: units, users, budgets, cost centers, purchase threshholds, user groups, approvals, account summary) 
+- [B2B Checkout](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html) - check out by account, input purchase order, select cost center, shipping address restricted by cost center chosen, approval process 
   
 ## Planned for 2.0 (End of March 2020)
   
@@ -104,14 +104,14 @@ Some features may be released in a 1.x release depending on timing.
   
 ### Core Storefront Features
 
-- [Customer coupons and management](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/7f8304a85bf24db0bfc5cf3b057ae322.html)
+- [Customer coupons and management](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/7f8304a85bf24db0bfc5cf3b057ae322.html)
 - Buy it again
 - Accessibility features
   
 ### B2B Storefront Features
 
-- [B2B Quick order](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/caf95981aa174660b3faf839a9dddbef.html)
-- [B2B Scheduled replenishment](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) <sup>(1)</sup>
+- [B2B Quick order](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
+- [B2B Scheduled replenishment](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) <sup>(1)</sup>
   
 ## Future Outlook
   
@@ -131,13 +131,13 @@ The items in this section are on our future roadmap but not necessarily in Q2 20
   
 ### Core Storefront Features
 
-- [Buy online pickup in store](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
-- [Captcha](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac8663086691014ab34b77436f85412.html) <sup>(1)</sup>
+- [Buy online pickup in store](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
+- [Captcha](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html) <sup>(1)</sup>
 - Potential Promotions <sup>(1)</sup>
-- [Assisted Service Module customer list](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html)
-- [Assisted Service Module customer 360° view](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html) <sup>(1)</sup>
+- [Assisted Service Module customer list](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
+- [Assisted Service Module customer 360° view](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html) <sup>(1)</sup>
 - Single-sign on integration with [SAP Customer Data Data from GIGYA](https://developers.gigya.com/display/GD/SAP+Commerce+Cloud)
-- Self-service customer support ([Customer Service Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/aa039c46e5eb4c7da752afc0e05947e5.html))
+- Self-service customer support ([Customer Service Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html))
 - Forms user experience improvements
 - Accessibility features
 - Wishlists+
@@ -149,17 +149,17 @@ The items in this section are on our future roadmap but not necessarily in Q2 20
   - Offline awareness
   - Other features related to PWA as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
 - Phone number as ID
-- [Configurable products](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/478f616a46f84d668f8cd42c0259cdf0.html)
+- [Configurable products](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/478f616a46f84d668f8cd42c0259cdf0.html)
 - Credit-card auto-detect
-- [Configurable bundles](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b6eec0286691014a041e59dc69dc185.html) <sup>(2)</sup>
-- Spartacus for China (similar to [Accelerator for China](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8b258c36866910148298d20518a62a16.html)
+- [Configurable bundles](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html) <sup>(2)</sup>
+- Spartacus for China (similar to [Accelerator for China](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8b258c36866910148298d20518a62a16.html)
   
 ### B2B Storefront Features
 
-- [B2B Order Form Builder](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac1a3d586691014911dd58c04389cc3.html)
-- [B2B Saved Carts](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/4d094e78a5494963b2d66148167f0553.html)
-- [B2B Future Stock](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac331e086691014bfdb96ba9faf7c86.html) <sup>(1)</sup>, [Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac35e1d866910148876ef95adde0c60.html) <sup>(1)</sup>, Bulk Price List <sup>(1)</sup>
-- [B2B Product Import and Export Cart](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) <sup>(1)</sup>  (using CSV files)
+- [B2B Order Form Builder](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
+- [B2B Saved Carts](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
+- [B2B Future Stock](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) <sup>(1)</sup>, [Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) <sup>(1)</sup>, Bulk Price List <sup>(1)</sup>
+- [B2B Product Import and Export Cart](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) <sup>(1)</sup>  (using CSV files)
 - B2B Multi-Dimensional product support  <sup>(2)</sup>
 - Re-order <sup>(1)</sup>
-- [B2B Commerce Quotes](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/a795b4722f6942c091ef716c66ddb37d.html) <sup>(2)</sup> and integrations with other quotation management systems  
+- [B2B Commerce Quotes](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html) <sup>(2)</sup> and integrations with other quotation management systems  
