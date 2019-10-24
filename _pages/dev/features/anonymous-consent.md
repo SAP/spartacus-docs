@@ -25,7 +25,7 @@ As anonymous consent uses a custom header `x-anonymous-consents`, this needs to 
 
 #### Consent Data
 
-Besides having consent defined on the back end, they need to be marked as _exposed_, which can be done by just executing an impex file similar to this:
+Besides having consent defined on the back end, they need to be marked as _exposed_, which can be done by executing an impex file similar to this:
 
 ```sql
 $siteUid=electronics-spa
@@ -51,9 +51,11 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 ;;AnonymousConsentOpenDialogComponent;Anonymous Consent Open Dialog Component;AnonymousConsentOpenDialogComponent;AnonymousConsentOpenDialogComponent;anonymousUserRestriction
 ```
 
-Having these CMS component alone doesn't enable the anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
+Having these CMS component alone is not enough to enable the whole anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
 
-Previously, the `footer-navigation.component.html` was tightly coupled with notice message, which is now a CMSParagraphComponent that should also be added like this:
+### Footer notice
+
+Previously, the `footer-navigation.component.html` was tightly coupled with the footer notice message, which is now a `CMSParagraphComponent` that should also be added like this:
 
 ```sql
 $contentCatalog=electronics-spaContentCatalog
@@ -66,11 +68,19 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 ;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent
 ```
 
-Along with the CMSParagraphComponent you should also update the localized properties files with a sample text such as this example:
+Along with the `NoticeTextParagraph` CMS component you should also update the localized properties files with a sample text such as this example:
 
 ```properties
 CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2019 SAP SE or an SAP affiliate company. All rights reserved.</div>"
 ```
+
+After changing the _\*.properties_ files, don't forget to run `ant build` and the `ant initialize` commands.
+
+_Warning_: to preserve backwards compatibility, the notice will still be displayed if the Anonymous Consent feature is disabled. However, if you add the CMS `NoticeTextParagraph` component (and have the Anonymous Consent feature disabled), you will see duplicated notice, like shown on the screen shot below:
+
+![duplicated notice]({{ site.baseurl }}/assets/images/footer-duplicate-notice.png)
+
+In this case, you can either enable Anonymous Consent feature or remove the `NoticeTextParagraph` CMS component.
 
 ### Enabling Anonymous Consent
 
@@ -80,20 +90,18 @@ To enable anonymous consent in Spartacus, you need to enable the `anonymousConse
 B2cStorefrontModule.withConfig({
 ...
 features: {
-  level: '1.3',
+  ...
   anonymousConsents: true,
+  ...
 },
 ...
 }
 ```
 
-_Note_ that feature level _1.3_ is _not_ required for anonymous consents. However, using _1.3_ version of Spartacus enables the new UI for the consents management page, that uses accordions and toggles instead of checkboxes.
-
 ## Configuring Anonymous Consent
 
 Spartacus offers some configuration options that are encapsulated in `anonymousConsents` configuration object. The following options are available:
 
-- `footerLink` - set to _false_ if the footer link shouldn't be rendered. By default it's set to _true_
 - `registerConsent` - specify a consent template ID that should be rendered on the registration page. By default, `MARKETING_NEWSLETTER` is being rendered.
 - `showLegalDescriptionInDialog` - set to _false_ if the legal description shouldn't be visible on the anonymous consents dialog. By default, this has _true_ value.
 - `requiredConsents` - specify an array of consent template IDs that are going to be required for the end users. These consents are given by default, and users can't toggle them. By default, this array is empty.
