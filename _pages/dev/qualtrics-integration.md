@@ -45,7 +45,7 @@ B2cStorefrontModule.withConfig({
 })
 ```
 
-Moreover, after acquiring the deployment code from your Qualtrics platform, please create a file under the assets folder and name it `qualtricsIntegration.js`. You need to copy paste everything within the <script></script> and place it into the `qualtricsIntegration.js` file. Modify one piece of statement, where it calls the `.start()` function, where it is encapsulated in a `try` statement, to `.go()`. It is a crucial step in enabling Qualtrics in Spatacus.
+Moreover, after acquiring the deployment code from your Qualtrics platform, please create a file under the assets folder and name it `qualtricsIntegration.js`. You need to copy paste everything within the <script></script> and place it into the `qualtricsIntegration.js` file. Do not include the <script></script> tag in the file. Make sure only the contents within the tag is there. Modify one piece of statement, where it calls the `.start()` function, where it is encapsulated in a `try` statement, to `.go()`. It is a crucial step in enabling Qualtrics in Spatacus.
 
 After setting up Qualtrics in Spartacus, you need to create a CMXFlexComponent.
 Make sure the component uid and flexType are called QualtricsComponent as shown below.
