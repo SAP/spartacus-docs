@@ -14,7 +14,7 @@ Qualtrics integration to Spartacus enables users to set-up their Qualtrics seaml
 
 By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
 
-Visitors to your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
+Visitors in your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
 
 ## Using Qualtrics to enable surveys
 
