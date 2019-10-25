@@ -56,7 +56,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 ;;QualtricsComponent;A Qualtrics Component;QualtricsComponent
 ```
 
-**Note**: It is important to note that it is a must to insert the QualtricsComponent to a page. Please make sure, you add the component to a content slot of a page, which gets removed once you navigate elsewhere. For example, if you want Qualtrics enabled in the 'Product Details Page', then it would be best to put the CMSFlexComponent to the UpSellingSlot, or if you want it in the 'Product Listing Page', then you would need to put it in ProductLeftRefinements slot.
+**Note**: It is important to note that it is a must to insert the QualtricsComponent to a page. Please make sure, you add the component to a content slot of a page, which gets removed once you navigate elsewhere, but it should only exist for one page at a time. For example, if you want Qualtrics enabled in the 'Product Details Page', then it would be best to put the CMSFlexComponent to the UpSellingSlot, or if you want it in the 'Product Listing Page', then you would need to put it in ProductLeftRefinements slot. You should not have two or more QualtricsComponent existing in a page.
 
 ## Enable Qualtrics to work with page data in Spartacus
 
