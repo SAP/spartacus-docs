@@ -8,12 +8,13 @@ title: Qualtrics Integration (DRAFT)
 
 {% include docs/feature_version.html content=version_note %}
 
-
 Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA).
 
-# Important Note
+## Important Note
 
 By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
+
+Visitors in your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
 
 ## Using Qualtrics to enable surveys
 
@@ -44,6 +45,8 @@ B2cStorefrontModule.withConfig({
 })
 ```
 
+Moreover, after acquiring the deployment code from your Qualtrics platform, please create a file under the assets folder and name it `qualtricsIntegration.js`. You need to copy paste everything within the `<script></script>` and place it into the `qualtricsIntegration.js` file. Do not include the `<script></script>` tag in the file. Make sure only the contents within the tag is there. Modify one piece of statement, where it calls the `.start()` function, where it is encapsulated in a `try` statement, to `.go()`. It is a crucial step in enabling Qualtrics in Spartacus.
+
 After setting up Qualtrics in Spartacus, you need to create a CMXFlexComponent.
 Make sure the component uid and flexType are called QualtricsComponent as shown below.
 Spartacus will render this component on the given page to enable Qualtrics.
@@ -53,7 +56,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 ;;QualtricsComponent;A Qualtrics Component;QualtricsComponent
 ```
 
-**Note**: It is important to note that it is a must to insert the QualtricsComponent to a page. Please make sure, you add the component to a content slot of a page, which gets removed once you navigate elsewhere. For example, if you want Qualtrics enabled in the 'Product Details Page', then it would be best to put the CMSFlexComponent to the UpSellingSlot, or if you want it in the 'Product Listing Page', then you would need to put it in ProductLeftRefinements slot.
+**Note**: It is important to note that it is a must to insert the QualtricsComponent to a page. Please make sure, you add the component to a content slot of a page, which gets removed once you navigate elsewhere, but it should only exist for one page at a time. For example, if you want Qualtrics enabled in the 'Product Details Page', then it would be best to put the CMSFlexComponent to the UpSellingSlot, or if you want it in the 'Product Listing Page', then you would need to put it in ProductLeftRefinements slot. You should not have two or more QualtricsComponent existing in a page.
 
 ## Enable Qualtrics to work with page data in Spartacus
 
