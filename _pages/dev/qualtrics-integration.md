@@ -8,12 +8,13 @@ title: Qualtrics Integration (DRAFT)
 
 {% include docs/feature_version.html content=version_note %}
 
-
 Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA).
 
 # Important Note
 
 By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
+
+Visitors to your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
 
 ## Using Qualtrics to enable surveys
 
@@ -43,6 +44,8 @@ B2cStorefrontModule.withConfig({
   }
 })
 ```
+
+Moreover, after acquiring the deployment code from your Qualtrics platform, please create a file under the assets folder and name it `qualtricsIntegration.js`. You need to copy paste everything within the <script></script> and place it into the `qualtricsIntegration.js` file. Modify one piece of statement, where it calls the `.start()` function, where it is encapsulated in a `try` statement, to `.go()`. It is a crucial step in enabling Qualtrics in Spatacus.
 
 After setting up Qualtrics in Spartacus, you need to create a CMXFlexComponent.
 Make sure the component uid and flexType are called QualtricsComponent as shown below.
