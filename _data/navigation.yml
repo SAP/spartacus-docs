@@ -141,7 +141,9 @@ docs:
           - title: 'Kyma Integration'
             url: /kyma-integration/
           - title: "Qualtrics Integration"
-            url: /qualtrics-integration/  
+            url: /qualtrics-integration/
+          - title: "Yotpo Integration"
+            url: /yotpo-integration/    
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
