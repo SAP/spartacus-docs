@@ -169,7 +169,7 @@ The following steps describe how to install the Spartacus Sample Data AddOn.
 
    Note: As the Spartacus sample data copies data from the Electronics store, the `electronicsstore` extension is required. Additionally, the time to initialize is longer as SAP Commerce Cloud is building both Electronics and Electronics for Spartacus.
 
-5. In `addons { forStoreFronts('yacceleratorstorefront')`, add `spartacussampledataaddon` to the `names` list. Example:
+5. In `addons { forStoreFronts('yacceleratorstorefront')`, add `'spartacussampledataaddon'` to the `names` list. Example:
 
    ```ts
     addons {
