@@ -2,7 +2,13 @@
 title: Structured Dta
 ---
 
-Structured Data provides a data structure for the web that makes the web content more understandable for web crawlers. With only HTML structure, a web page provides insufficient understanding of the content itself. An `img` element, for example, doesn't provide information whether it represents a product or person. Without more detail, crawlers like Google, Pinterest, Twitter, etc. have a hard time to understand the content. This is where _Structured Data_ kicks in. With structured data you povide various data sets to the page to make the content better understandable by web crawlers. The dta sets should be aligned with standard schema's, which are provided by the schema.org community.
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+Structured Data provides a data structure for the web that makes the web content more understandable for web crawlers. With only HTML structure, a web page provides insufficient understanding of the content itself. An `img` element, for example, doesn't provide information whether it represents a product or person. Without more detail, crawlers like Google, Pinterest, Twitter, etc. have a hard time to understand the content. This is where _Structured Data_ kicks in. With structured data you povide various data sets to the page to make the content better understandable by web crawlers. The data sets should be aligned with standard schema's, which are provided by the schema.org community.
 
 Structured Data has been introduced in Spartacus with version 1.3.
 
