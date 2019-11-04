@@ -117,11 +117,11 @@ Some items have notes, for example (1) or (2)
 #### Core/B2C Storefront Features
 
 - Accessibility (keyboarding)
-  - Full Keyboard Support
-  - Consistent Navigation
-  - Tabbing/Reading Order
-  - Group Skipping
-  - Focus Visible
+  - Full Keyboard Support (WCAG 2.0, 2.1.1, Level A, Keyboard; WCAG 2.0, 2.1.2, Level A, No Keyboard Trap)
+  - Consistent Navigation (WCAG 2.0, 3.2.3, Level AA, Consistent Navigation)
+  - Tabbing/Reading Order (WCAG 2.0, 2.4.3, Level A, Focus Order)
+  - Group Skipping (WCAG 2.0, 2.4.1, Level A, Bypass Blocks)
+  - Focus Visible (WCAG 2.0, 2.4.7, Level AA, Focus Visible)
 
 
 
