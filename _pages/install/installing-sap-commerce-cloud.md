@@ -119,7 +119,7 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 
 The following procedure describes how to configure SAP Commerce Cloud to accept OCC REST API calls.
 
-1. Display the Admin Console: https://localhost:9002.
+1. Display the Hybris Administration Console: https://localhost:9002.
 
 2. Hover your mouse over the **Console** tab, then click **Impex Import**.
 
@@ -167,7 +167,7 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
 
 CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality such as checkout and consent management may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
-To configure CORS settings for OCC REST APIs, adding the following to your SAP Commerce Cloud configuration. (These settings can be added using the Admin Console as well.)
+To configure CORS settings for OCC REST APIs, adding the following to your SAP Commerce Cloud configuration. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, then click **Configuration**.
 
 ```
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
@@ -175,74 +175,7 @@ corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST D
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
-For more information, see [this help document](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html).
-
-## Installing the Spartacus Sample Data Addon
-
-The [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}) makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront. If you are trying out Spartacus for the first time using the default sample data, installing the Spartacus Sample Data Addon is required.
-
-After installing the Spartacus Sample Data Addon, the name of the new storefront base site is **electronics-spa**.
-
-**Note:** Installing the Spartacus Sample Data Addon is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your project.
-
-The following steps describe how to install the Spartacus Sample Data AddOn.
-
-### Step 1: Download and install the Spartacus sample data addon
-
-1. [Download]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) the Spartacus sample data add-on.
-
-2. Unzip the archive.
-
-3. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`.
-
-   The `spartacussampledataaddon` folder can be stored anywhere in the `modules` folder. The `b2c-accelerator` folder is chosen as it contains other B2C sample data.
-
-### Step 2: Create a new Spartacus-specific recipe
-
-1. In the `installer/recipes` folder, duplicate the `b2c_acc_plus` folder.
-
-2. Rename the copy of the `b2c_acc_plus` folder to `b2c_for_spartacus`.
-
-3. In `b2c_for_spartacus`, open `build.gradle` with a text editor.
-
-4. In the list of extensions, add the following:
-
-   ```java
-   extName 'spartacussampledataaddon'
-   ```
-
-   You can put the new entry anywhere in the list of extensions, but it's usually added near electronicsstore. Example:
-
-   ```java
-   extName 'electronicsstore'
-   extName 'apparelstore'
-   extName 'spartacussampledataaddon'
-
-   ```
-
-   Note: As the Spartacus sample data copies data from the Electronics store, the `electronicsstore` extension is required. Additionally, the time to initialize is longer as SAP Commerce Cloud is building both Electronics and Electronics for Spartacus.
-
-5. In `addons { forStoreFronts('yacceleratorstorefront')`, add `'spartacussampledataaddon'` to the `names` list. Example:
-
-   ```ts
-    addons {
-        forStoreFronts('yacceleratorstorefront') {
-            names('spartacussampledataaddon', 'captchaaddon', ...
-
-   ```
-
-6. Save the file.
-
-### Step 3: Set up SAP Commerce Cloud
-
-Install the new recipe according to the instructions at the top of this document, but substituting the new recipe name. For example, to perform the first step:
-
-```bash
-./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
-
-```
-
-When setting up your Spartacus storefront, set the base site in `app.module.ts` to **electronics-spa** (Electronics for Spartacus).
+For more information, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
 ## Alternate Method for Setting the SAP Commerce Cloud Admin Password
 
@@ -266,13 +199,17 @@ Spartacus automatically picks up on the configuration and displays the `regions`
 
 1. If you do not have a `custom.properties` file, create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce Cloud folder.
 
-2. Add the `mockup.payment.label.billTo.region` key with the value `billTo_state`.
+2. Add the following line to your `custom.properties` file:
+
+    ```
+    mockup.payment.label.billTo.region=billTo_state
+    ```
 
 3. Save the file.
 
 The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties`.
 
-**Note** If you wish the config to be present without reinstalling, the property can be added to `local.properties`.
+**Note:** If you wish this configuration to be present without reinstalling, you can add the property to your `local.properties` file.
 
 ## Possible Issues
 
@@ -281,13 +218,9 @@ The next time you run the recipe install command, the settings inside `custom.pr
 You may encounter the following error message:
 
 ```
-Http failure response for https://electornics.local:9002/acceleratorservices/sop-mock/process: 0 Unknown Error
+POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 
-This issue is caused by incorrect configuration of the `website.electronics.http` and `https` properties.
+This issue is caused by an incorrect configuration of the `sop.post.url` property.
 
-Make sure these properties are set to:
-
-`website.electronics.http`: &nbsp; `http://localhost:9001/yacceleratorstorefront`
-
-`website.electronics.https`: &nbsp; `https://localhost:9002/yacceleratorstorefront`
+Make sure this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
