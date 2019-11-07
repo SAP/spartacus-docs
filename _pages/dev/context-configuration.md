@@ -45,7 +45,7 @@ For example, if your storefront URL is `https://localhost:4200`, then it becomes
  ...
 ```
 
-**Note:** You can change the structure of the context in the URL by changing the order of the elements in the `urlParameters` property. For example, if you change the `urlParameters` property to `urlParameters: ['currency'. 'language', 'baseSite']`, then the URL becomes `https://localhost:4200/USD/en/electronics-spa/`.
+**Note:** You can change the structure of the context in the URL by changing the order of the elements in the `urlParameters` property. For example, if you change the `urlParameters` property to `urlParameters: ['currency', 'language', 'baseSite']`, then the URL becomes `https://localhost:4200/USD/en/electronics-spa/`.
 
 ## Enabling Context in the Storefront URL
 
