@@ -126,12 +126,12 @@ docs:
                 - title: 'Adding the Spartacus App to the Home Screen'
                   url: /add-to-home-pwa/
           - title: 'SEO'
-            url: /seo
+            url: /seo/
             subchildren:
-                - title: 'SEO capabilities'
-                  url: /seo/seo-capabilities/
+                - title: 'SEO Capabilities'
+                  url: /seo-capabilities/
                 - title: 'Structured Data (schema.org)'
-                  url: /seo/structured-data/
+                  url: /structured-data/
           - title: 'Internationalization (i18n)'
             url: /i18n/
           - title: 'State Management'

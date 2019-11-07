@@ -45,7 +45,7 @@ For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ 
 
 ## Structured Data (schema.org)
 
-Structured Data provides a data structure for the web that makes the web content more understandable for web crawlers. Spartacus support various schema's natively. More information on this topic can be found at [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+Structured Data provides a data structure for the web that makes web content more understandable for web crawlers. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 ## Html Tags
 
