@@ -14,9 +14,9 @@ docs:
           - title: 'Release Information'
             url: /release-information/
           - title: 'Spartacus Videos'
-            url: /spartacus-videos/ 
-          - title: "Spartacus Roadmap"
-            url: /spartacus-roadmap/   
+            url: /spartacus-videos/
+          - title: 'Spartacus Roadmap'
+            url: /spartacus-roadmap/
           - title: 'Spartacus FAQ'
             url: /spartacus-faq/
 
@@ -35,14 +35,14 @@ docs:
             url: /snapshot-builds/
           - title: 'Building the Spartacus Storefront from Libraries'
             url: /building-the-spartacus-storefront-from-libraries/
-          - title: "Configuring Feature Flags"
+          - title: 'Configuring Feature Flags'
             url: /configuring-feature-flags/
           - title: 'SmartEdit Setup Instructions for Spartacus'
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: 'Personalization Setup Instructions for Spartacus'
             url: /personalization-setup-instructions-for-spartacus/
-          - title: "Spartacussampledataaddon AddOn"
-            url: /spartacussampledataaddon/  
+          - title: 'Spartacussampledataaddon AddOn'
+            url: /spartacussampledataaddon/
 
     - title: Storefront Development Guide
       children:
@@ -50,21 +50,21 @@ docs:
             url: /storefront-development-faq/
           - title: 'Global Configuration in Spartacus'
             url: /global-configuration-in-spartacus/
-          - title: "Spartacus Features"
+          - title: 'Spartacus Features'
             url: /spartacus-features/
             subchildren:
-                - title: "Anonymous Consent"
+                - title: 'Anonymous Consent'
                   url: /anonymous-consent/
-                - title: "Assisted Service Module"
+                - title: 'Assisted Service Module'
                   url: /asm/
-                - title: "Consignment Tracking"
+                - title: 'Consignment Tracking'
                   url: /consignment-tracking/
-                - title: "Coupons"
-                  url: /coupons/  
-                - title: "Store Locator"
-                  url: /store-locator/  
-          - title: "Security Best Practices"
-            url: /security-best-practices/  
+                - title: 'Coupons'
+                  url: /coupons/
+                - title: 'Store Locator'
+                  url: /store-locator/
+          - title: 'Security Best Practices'
+            url: /security-best-practices/
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
@@ -93,8 +93,8 @@ docs:
             url: /extending-checkout/
           - title: 'Express Checkout'
             url: /express-checkout/
-          - title: "Guest Checkout"
-            url: /guest-checkout/  
+          - title: 'Guest Checkout'
+            url: /guest-checkout/
           - title: 'Configurable Routing'
             url: /configurable-routing/
             subchildren:
@@ -121,29 +121,34 @@ docs:
           - title: 'PWA'
             url: /pwa-home/
             subchildren:
-                - title: "Adding PWA Support to Spartacus"
+                - title: 'Adding PWA Support to Spartacus'
                   url: /pwa-setup/
                 - title: 'Adding the Spartacus App to the Home Screen'
                   url: /add-to-home-pwa/
-          - title: 'SEO Capabilities'
-            url: /seo-capabilities/
+          - title: 'SEO'
+            url: /seo/
+            subchildren:
+                - title: 'SEO Capabilities'
+                  url: /seo-capabilities/
+                - title: 'Structured Data (schema.org)'
+                  url: /structured-data/
           - title: 'Internationalization (i18n)'
             url: /i18n/
           - title: 'State Management'
             url: /state-management/
             subchildren:
-                - title: "Loader Meta Reducer"
-                  url: /loader-meta-reducer/  
-          - title: "SmartEdit Contract in Spartacus"
-            url: /smartedit-contract/        
+                - title: 'Loader Meta Reducer'
+                  url: /loader-meta-reducer/
+          - title: 'SmartEdit Contract in Spartacus'
+            url: /smartedit-contract/
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
             url: /kyma-integration/
-          - title: "Qualtrics Integration"
+          - title: 'Qualtrics Integration'
             url: /qualtrics-integration/
-          - title: "Yotpo Integration"
-            url: /yotpo-integration/    
+          - title: 'Yotpo Integration'
+            url: /yotpo-integration/
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
@@ -157,11 +162,11 @@ docs:
                   url: /server-side-rendering-coding-guidelines/
                 - title: 'How to Debug a Server–Side Rendered Storefront'
                   url: /how-to-debug-server-side-rendered-storefront/
-          - title: "View Configuration"
+          - title: 'View Configuration'
             url: /view-configuration/
             subchildren:
-                - title: "Infinite Scroll"
-                  url: /infinite-scroll/        
+                - title: 'Infinite Scroll'
+                  url: /infinite-scroll/
           - title: 'User Experience Guidelines'
             url: /user-experience-guidelines/
             subchildren:
@@ -185,10 +190,10 @@ docs:
                   url: /contributor-setup/
                 - title: 'Coding Guidelines'
                   url: /coding-guidelines/
-                - title: "Maintaining Public APIs"
+                - title: 'Maintaining Public APIs'
                   url: /breaking-changes/
-                - title: "Feature Flags and Code Deprecation"
-                  url: /feature-flags-and-code-deprecation/  
+                - title: 'Feature Flags and Code Deprecation'
+                  url: /feature-flags-and-code-deprecation/
                 - title: 'Committing Code to Spartacus'
                   url: /commit-guidelines/
                 - title: 'Type Safety in Spartacus'
