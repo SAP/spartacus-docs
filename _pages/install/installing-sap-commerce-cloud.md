@@ -119,7 +119,7 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 
 The following procedure describes how to configure SAP Commerce Cloud to accept OCC REST API calls.
 
-1. Display the Hybris Administration Console: https://localhost:9002.
+1. Open the Hybris Administration Console in a web browser at the following address: `https://localhost:9002`.
 
 2. Hover your mouse over the **Console** tab, then click **Impex Import**.
 
@@ -131,12 +131,12 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
                                    ;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
    ```
 
-   When you import this sample (which is the same as the sample from the SAP Commerce Cloud documentation), you add the following client ID and password:
+   When you import this sample (which is the same as the sample that is provided in the SAP Commerce Cloud documentation), you add the following client ID and password:
 
-   - client ID: `mobile_android`
-   - password (or secret): `secret`
+    - client ID: `mobile_android`
+    - password (or secret): `secret`
 
-   **Note:** This client ID and password are just samples. You would use something different for your production environments.
+   **Note:** The values for client ID and password are just samples. You would use different values for your production environments.
 
 4. Click the **Import content** button.
 
@@ -165,15 +165,17 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
 
 **Note:** This step is optional to start Spartacus, but required for checkout.
 
-CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality such as checkout and consent management may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
+CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
-To configure CORS settings for OCC REST APIs, adding the following to your SAP Commerce Cloud configuration. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, then click **Configuration**.
+To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce Cloud configuration:
 
 ```
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
+
+You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings, as shown above.
 
 For more information, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
