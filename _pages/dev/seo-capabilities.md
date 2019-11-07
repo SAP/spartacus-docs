@@ -71,7 +71,7 @@ HTML5 supports a variety of meta tag properties, such as `description`. These me
 
 To support the potential multitude of meta tags, Spartacus uses a small framework to customize and extend the meta tags per page.
 
-Spartacus ships with `pageMetaResolvers` that resolve the page meta data for a specific page. Some of the meta data might be driven by CMS data, but most meta tags are computed based on product content, category content, search results, and so on.
+Spartacus ships with `PageMetaResolvers` that resolve the page meta data for a specific page. Some of the meta data might be driven by CMS data, but most meta tags are computed based on product content, category content, search results, and so on.
 
 The page meta data is updated dynamically during navigation, but can be delivered statically using SSR.
 
