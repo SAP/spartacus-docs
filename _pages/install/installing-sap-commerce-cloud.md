@@ -2,77 +2,128 @@
 title: Installing SAP Commerce Cloud for use with Spartacus
 ---
 
-The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use by a Spartacus storefront. SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
+The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
-This example uses the `b2c_acc_plus` recipe included in SAP Commerce Cloud as an example, but you can use you own sample data or recipe as long as it includes `cmsoccaddon` and `ycommercewebservices`.
+The installation procedure includes steps for creating and using a `b2c_for_spartacus` recipe that makes use of the Spartacus Sample Data Addon, but you can use you own sample data or recipe as long as it includes the `cmsoccaddon` and `ycommercewebservices` extensions.
 
-The steps described in this document are:
+The Spartacus Sample Data Addon makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront. If you are trying out Spartacus for the first time using the default sample data, installing the Spartacus Sample Data Addon is required.
 
-1. Set up SAP Commerce Cloud
-2. Configure OCC credentials
-3. Configure CORS (optional to start but required for checkout)
-4. Install the Spartacus Sample Data AddOn
+However, installing the Spartacus Sample Data Addon is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your project.
 
-At the end of this document, an alternate method for setting the SAP Commerce Cloud admin password is provided.
+For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
 
-## Setting up SAP Commerce Cloud
+Installing and configuring SAP Commerce Cloud for use with Spartacus involves the following procedures:
 
-For more information concerning installation of SAP Commerce Cloud using recipes, see [this help document](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1905/en-US/8c46c266866910149666a0fe4caeee4e.html).
+1. [Setting up SAP Commerce Cloud](#setting-up-sap-commerce-cloud)
+2. [Configuring OCC credentials](#configuring-occ-credentials)
+3. [Configuring CORS](#configuring-cors)
+
+## Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon
+
+Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1905/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
 
 1. Unzip the SAP Commerce Cloud zip archive.
 
    Note: The name of the zip archive for release 1905 starts with `CXCOMM1905#...`. This folder will be referred to as `CXCOMM*` for the rest of these instructions.
 
-2. Open a terminal or command prompt window inside the `CXCOMM*\installer` folder.
+1. [Download]({{ site.baseurl }}/assets/other/spartacussampledataaddon.zip) the Spartacus Sample Data AddOn.
 
-3. Set up the recipe using the following command:
+1. Unzip the `spartacussampledataaddon.zip` archive.
+
+1. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`.
+
+   The `spartacussampledataaddon` folder can be stored anywhere in the `modules` folder. The `b2c-accelerator` folder is chosen as it contains other B2C sample data.
+
+1. In the `installer/recipes` folder, duplicate the `b2c_acc_plus` folder.
+
+1. Rename the copy of the `b2c_acc_plus` folder to `b2c_for_spartacus`.
+
+1. In `b2c_for_spartacus`, open `build.gradle` with a text editor.
+
+1. In the list of extensions, add the following:
+
+   ```java
+   extName 'spartacussampledataaddon'
+   ```
+
+   You can put the new entry anywhere in the list of extensions, but it's usually added near `electronicsstore`. The following is an example:
+
+   ```java
+   extName 'electronicsstore'
+   extName 'apparelstore'
+   extName 'spartacussampledataaddon'
+
+   ```
+
+   **Note:** The Spartacus Sample Data AddOn copies data from the `Electronics` store, so the `electronicsstore` extension is required. Additionally, the time to initialize is longer because SAP Commerce Cloud builds both the `Electronics` and `Electronics for Spartacus` stores.
+
+1. In the `addons { forStoreFronts('yacceleratorstorefront')` section of the `build.gradle` file, add `'spartacussampledataaddon'` to the `names` list. The following is an example:
+
+   ```ts
+    addons {
+        forStoreFronts('yacceleratorstorefront') {
+            names('spartacussampledataaddon', 'captchaaddon', ...
+
+   ```
+
+1. Save the file.
+
+1. Open a terminal or command prompt window inside the `CXCOMM*\installer` folder.
+
+1. Set up the recipe using the following command:
 
    ```bash
-   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
+   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
    If you are using Windows, change `./install.sh` to `install.bat`.
 
-   Note: Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`.
+   **Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Cloud Admin Password](#alternate-method-for-setting-the-sap-commerce-cloud-admin-password) procedure below for information on setting a password in the `custom.properties` file.
 
-4. Initialize the system using the following command:
-
-   ```bash
-   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
-   ```
-
-   Initialization of the out-of-the-box b2c_acc_plus recipe can take about 30 minutes. Sample data for this recipe includes Electronics and Apparel sample stores.
-
-5. Start SAP Commerce Cloud with the following command:
+1. Initialize the system using the following command:
 
    ```bash
-   ./install.sh -r b2c_acc_plus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
 
-6. Verify that the system is working.
+   Initialization of the b2c_for_spartacus recipe can take about 30 minutes. Sample data for this recipe includes `Electronics`, `Apparel`, and `Electronics for Spartacus` sample stores.
+
+1. Start SAP Commerce Cloud with the following command:
+
+   ```bash
+   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+   ```
+
+1. Verify that the system is working.
 
    - Display the Admin Console: https://localhost:9002
    - Display Backoffice: https://localhost:9002/backoffice
    - Display the Accelerator Electronics storefront: https://localhost:9002/yacceleratorstorefront/?site=electronics
 
+**Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `electronics-spa`. The following is an example:
+
+```ts
+context: {
+  baseSite: ['electronics-spa']
+},
+```  
+
 ## Configuring OCC Credentials
 
-Out-of-the-box, SAP Commerce Cloud will reply to OCC REST API calls that do not require authentication. For example, you can do the following:
+By default, SAP Commerce Cloud replies to OCC REST API calls that do not require authentication. For example, you can do the following:
 
 - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
-- Display information about the Electronics base store: https://localhost:9002/rest/v2/electronics/basestores/electronics
+- Display information about the `Electronics` base store: https://localhost:9002/rest/v2/electronics/basestores/electronics
 
-To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. Your Spartacus storefront sends this client ID and password when communicating with the backend when required.
+To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end. For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
 
-Note: For more information about OCC configuration, see [this help document](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff).
-
-To configure SAP Commerce Cloud to accept OCC REST API calls:
+The following procedure describes how to configure SAP Commerce Cloud to accept OCC REST API calls.
 
 1. Display the Admin Console: https://localhost:9002.
 
-2. Point to the Console tab, then click Impex Import.
+2. Hover your mouse over the **Console** tab, then click **Impex Import**.
 
-3. Copy-paste the following code into the Import Content field.
+3. Copy-paste the following code into the **Import content** field.
 
    ```sql
    INSERT_UPDATE OAuthClientDetails;clientId[unique=true]    ;resourceIds       ;scope        ;authorizedGrantTypes                                            ;authorities             ;clientSecret    ;registeredRedirectUri
@@ -80,22 +131,24 @@ To configure SAP Commerce Cloud to accept OCC REST API calls:
                                    ;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
    ```
 
-   The above sample and the sample from SAP Commerce Cloud documentation add the following client ID and password:
+   When you import this sample (which is the same as the sample from the SAP Commerce Cloud documentation), you add the following client ID and password:
 
-   - client ID: mobile_android
-   - password (or secret): secret
+   - client ID: `mobile_android`
+   - password (or secret): `secret`
 
-   This client ID and password is what you add to your Spartacus storefront configuration. Note that these are just samples; you would use something different for your production environments.
+   **Note:** This client ID and password are just samples. You would use something different for your production environments.
 
-4. Click the Import Content button.
+4. Click the **Import content** button.
 
-5. You can verify that it's working using the following curl command:
+   You have now added a client ID and password to your Spartacus storefront configuration.
+
+5. You can verify that the OAuth client has been successfully defined by entering the following curl command in a terminal or command prompt window:
 
    ```bash
    curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
    ```
 
-   The curl command sends a POST request for an access token, using the client ID and password added to the backend. The command should return something similar to the following:
+   The curl command sends a POST request for an access token, using the client ID and password that you added to the back end. The command should return something similar to the following:
 
    ```bash
    {
@@ -110,7 +163,7 @@ To configure SAP Commerce Cloud to accept OCC REST API calls:
 
 ## Configuring CORS
 
-**Note:** This step is optional to start, but required for checkout.
+**Note:** This step is optional to start Spartacus, but required for checkout.
 
 CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality such as checkout and consent management may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
@@ -126,7 +179,7 @@ For more information, see [this help document](https://help.sap.com/viewer/9d346
 
 ## Installing the Spartacus Sample Data Addon
 
-The [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/dev/spartacussampledataaddon.md %}) makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront. If you are trying out Spartacus for the first time using the default sample data, installing the Spartacus Sample Data Addon is required.
+The [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}) makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront. If you are trying out Spartacus for the first time using the default sample data, installing the Spartacus Sample Data Addon is required.
 
 After installing the Spartacus Sample Data Addon, the name of the new storefront base site is **electronics-spa**.
 
