@@ -89,6 +89,8 @@ docs:
                   url: /banner-component/
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
+                - title: 'Carousel Component'
+                  url: /carousel-component/
           - title: 'Extending Checkout'
             url: /extending-checkout/
           - title: 'Express Checkout'
