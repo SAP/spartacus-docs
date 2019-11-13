@@ -3,7 +3,7 @@ title: Customer Coupons (DRAFT)
 ---
 ## Overview
 
-The customer coupons feature provides a range of features for promotion campaign, such as allowing customers to claim a coupon using the coupon's campaign URL, turning on status notifications for a coupon, and viewing possessed customer coupon in the **My Coupon** section and apply usable coupons during checkout. 
+The customer coupons feature provides a range of features for a promotion campaign, such as allowing customers to claim a coupon using the coupon's campaign URL, turning on status notifications for a coupon, and viewing possessed customer coupons in the **My Coupon** section and applying usable coupons during checkout. 
 
 ## Requirements
 
