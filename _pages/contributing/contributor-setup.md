@@ -110,7 +110,7 @@ yarn build:core:lib
    },
    ```
 
-   **Note**: Base site and its context can be also [detected automatically]({{ site.baseurl }}{% link _pages/dev/context-configuration.md#automatic-context-configuration %}) based on URL patterns defined in the CMS.
+   **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
 
 ## Launching the Storefront
 

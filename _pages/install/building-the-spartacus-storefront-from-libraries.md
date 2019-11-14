@@ -235,7 +235,7 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 
 - `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the `spartacussampledataaddon` (described later in this document), you would change this setting to `electronics-spa`.
 
-  **Note**: Base site and its context can be also [detected automatically]({{ site.baseurl }}{% link _pages/dev/context-configuration.md#automatic-context-configuration %}) based on URL patterns defined in the CMS.
+   **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
 
 - `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
 
