@@ -11,7 +11,7 @@ Every site in CMS has it's own so-called *context* including:
 
 The *context* can be defined statically in the Spartacus configuration at the property `context`. But it's recommended to leave out this property, so Spartacus can self-recognize by the URL, based on the sites' URL patterns defined in the CMS.
 
-## Static context configuration
+## Static Context Configuration
 
 You can configure your application by defining `context` properties, such as base site, language, and currency. When you append the values of these properties to the storefront URL, the storefront is configured based on these values.
 
@@ -73,7 +73,7 @@ To include the context in the URL, add the `urlParameters` property to the `cont
   },
 ```
 
-## Automatic context configuration
+## Automatic Context Configuration (DRAFT)
 
 By leaving out the configuration's property `context.baseSite`, we enable the automatic configuration of context. This means that before the initialization of the application, Spartacus will get the list of base sites from backend, compare the current URL with sites' URL patterns and then recognize the current base site and its languages, currencies and url encoding attributes.
 
@@ -125,13 +125,13 @@ Notes:
 
 For more, see the official docs of the [Angular Service Worker configuration](https://angular.io/guide/service-worker-config#datagroups).
 
-### Important notes
+## Important notes
 
-#### Base site encoded in the URL should be called 'storefront'
+### Base site encoded in the URL should be called 'storefront'
 
 For the base site encoded in the URL parameters Spartacus uses the name `baseSite`, but in the CMS this parameter is called `storefront`. So in CMS you should still use `storefront`, but Spartacus will implicitly map it from `storefront` to `baseSite`. Other parameters like `language` or `currency` are left as-is.
 
-#### URL patterns should be written in Java language
+### URL patterns should be written in Java language
 
 Due to historical reasons the regular expressions with URL patterns defined in the CMS are written in the Java language. However they are evaluated on the frontend side using JavaScript. So in the CMS you should still use Java regexps, but they will be implicitly converted from Java to Javascript in Spartacus only by replacing modifiers like `(?i)` (for case-insensitivity) to `/i`. 
 
@@ -142,13 +142,13 @@ For more, please see:
 - [Comparison of regular expression engines (language features) - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_regular_expression_engines#Language_features)
 - the implementation of the Spartacus' service `JavaRegExpConverter`.
 
-#### Empty URL patterns to inactivate a site
+### Empty URL patterns to inactivate a site
 
 The backend endpoint returns the list of all base sites, without any information whether the site is active (regardless the options defined in the CMS: `active`, `activeFrom`, `activeTo`). **So to inactivate a base site, its URL patterns have to be emptied.**
 
 An alternative low-level workaround is setting restrictions for calls to database in backend, to filter only `active` sites.
 
-### Local development
+## Local development
 
 When Spartacus deduces the site from the URL, it's often the case that the url is not simply `localhost:4200` (the default URL for the `ng serve`), but for example `electronics.localhost:4200`. Then you need to remember about a few things:
 
