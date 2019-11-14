@@ -22,7 +22,7 @@ Here are a few setup steps that are important and/or specific to get ASM working
 
 ### ASM Back End Requirements
 
-ASM in Spartacus requires SAP Commerce Cloud version 1905.5. Version 1905.5 is required to enable CORS in `assistedservicewebservices` endpoints.
+ASM in Spartacus requires SAP Commerce Cloud version 1905.5 or higher. The minimum version of 1905.5 is required to enable CORS in `assistedservicewebservices` endpoints.
 
 The ASM feature in Spartacus requires the following extensions:
 
@@ -33,9 +33,9 @@ The ASM feature in Spartacus requires the following extensions:
 
 The user group `asagentgroup` needs specific rights to read CMS data from OCC.
 
-#### Option 1: Initialize from scratch with 1905.5
+#### Option 1: Initialize from scratch with 1905.5 or higher
 
-If you start from scratch and initialize your SAP Commerce Cloud system with version 1905.5, `asagentgroup` will get the required permissions to use cms data via Spartacus and OCC. There is no additional step to do.
+If you start from scratch and initialize your SAP Commerce Cloud system with version 1905.5 or higher, `asagentgroup` will get the required permissions to use cms data via Spartacus and OCC. There is no additional step to do.
 
 #### Option 2: Manual import in impex console.
 
@@ -73,30 +73,6 @@ UserGroup;asagentgroup;;;;;;;;
 $END_USERRIGHTS;;;;;
 ```
 
-### Required CMS Data
-
-The ASM angular component is layed out by the CMS and requires a corresponding CMS entry to be displayed in spartacus.
-
-#### Option 1: Initialize with the latest Spartacus sample data
-
-The most straignforward way obtain the ASM CMS component is if you initialize your store with the latest spartacus sample data extension: [spartacussampledataaddon](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/assets/other/spartacussampledataaddon.zip).
-
-#### Option 2: Manual import in impex console.
-
-If you are not starting from scratch with the latest Spartacus sample data, you can import this impex to create the AsmComponent in the CMS and link it to the TopHeaderSlot. You may need to change the name or version of the content catalog to fit your project:
-
-```
-$contentCatalog=electronics-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
-
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-;;AsmComponent;asm flex component;AsmComponent;AsmComponent
-
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)[mode=append]
-;;TopHeaderSlot;true;AsmComponent
-
-```
-
 ### CORS Configuration
 
 The `assistedservicewebservices` extension requires CORS configuration, which is possible since SAP Commerce Cloud version 1905.5. In your `local.properties` file, you need to customize the "allowed origins" property for `assistedservicewebservices`, which is shown here with its default value:
@@ -121,14 +97,6 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 ```
 https://{hostname}/electronics-spa/en/USD/?asm=true
 ```
-
-## Enabling the ASM UI in Spartacus
-
-Whether you initialized with the latest Spartacus sample data or manually imported the impex above to import the AsmComponent, the ASM UI will be enabled by default.
-
-The `visibility` attribute of AsmComponent in the CMS dictates wether the ASM UI is enabled or not in the storefront. When AsmComponent is not visible, it will be disabled and completely omitted in the page data returned by OCC to be rendered by Spartacus.
-
-An "invisible" AsmComponent will therefore not display even if invoked with `?asm=true`.
 
 ## Spartacus ASM aware development guidelines
 
