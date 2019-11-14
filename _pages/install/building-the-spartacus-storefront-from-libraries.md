@@ -6,9 +6,7 @@ The following instructions describe how to build a storefront application using 
 
 If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
-## Prerequisites
-
-Before carrying out the procedures below, ensure the following front end and back end requirements are in place.
+**Note:** Before carrying out the procedures below, ensure the front end and back end requirements are in place.
 
 ## Front-End Development Requirements
 
