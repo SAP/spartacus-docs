@@ -152,7 +152,33 @@ Therefore, the logic to determine the correct OCC userid given the context is ce
 
 ## Configuring
 
-No special configuration is required for this feature.
+A few aspects of the asm behaviors can be configures through spartacus.
+
+### asm.agentSessionTimer.startingDelayInSeconds
+
+The start time for the customer support agent session timer can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like so:
+
+```
+asm: {
+  agentSessionTimer: {
+    startingDelayInSeconds: 600,
+  },
+},
+```
+
+The default value id 600 seconds (10 minutes).
+
+### asm.customeSearch.maxResults
+
+The number of results in the asm customer search can be customized in spartacus via the property `asm.customeSearch.maxResults`. You define it like this:
+
+```
+asm: {
+  customeSearch: {
+    maxResults: 20,
+  },
+},
+```
 
 ## Extending
 
