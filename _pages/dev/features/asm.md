@@ -75,7 +75,28 @@ $END_USERRIGHTS;;;;;
 
 ### CORS Configuration
 
-The `assistedservicewebservices` extension requires CORS configuration, which is possible since SAP Commerce Cloud version 1905.5. In your `local.properties` file, you need to customize the "allowed origins" property for `assistedservicewebservices`, which is shown here with its default value:
+The `assistedservicewebservices` extension requires CORS configuration, which is possible since SAP Commerce Cloud version 1905.5.  
+The cors configurations for `assistedservicewebservices` have default values specified in the `project.properties` file of the `assistedservicewebservices`. At the time of writing these lines, the default values are:
+
+```
+corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
+corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization
+```
+
+#### Customizing cors configuration
+
+Cors configurations are customized by overriding the defaults via your `local.properties` file.
+
+Since configurations are _overridden_ in local.properties, if you want to add a configuration element, you need to add all the defaults in addition to the new element. For example, to add 'my-new-header' in the allowed header list in addition to the default ones, you need to add this in local.properties:
+
+```
+corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
+```
+
+#### allowedOrigins
+
+You need to customize the `allowedOrigins` property for `assistedservicewebservices`, which is shown here with its default value:
 
 ```
 corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
