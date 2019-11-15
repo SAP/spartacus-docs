@@ -75,6 +75,12 @@ To include the context in the URL, add the `urlParameters` property to the `cont
 
 ## Automatic Context Configuration (DRAFT)
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 By leaving out the configuration's property `context.baseSite`, we enable the automatic configuration of context. This means that before the initialization of the application, Spartacus will get the list of base sites from backend, compare the current URL with sites' URL patterns and then recognize the current base site and its languages, currencies and url encoding attributes.
 
 ### Mitigation of the blocking backend call
