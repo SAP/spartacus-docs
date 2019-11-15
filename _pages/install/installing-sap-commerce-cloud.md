@@ -55,7 +55,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    ```
 
-   **Note:** The Spartacus Sample Data AddOn copies data from the `Electronics` store, so the `electronicsstore` extension is required. Additionally, the time to initialize is longer because SAP Commerce Cloud builds the `Electronics` and `Apparel` stores, as well as the `Electronics for Spartacus` store.
+   **Note:** The Spartacus Sample Data AddOn copies data from the `Electronics` store, so the `electronicsstore` extension is required. Additionally, the time to initialize is longer because SAP Commerce Cloud builds the `Electronics` and `Apparel` stores, as well as the `Electronics for Spartacus` store. If you do not need to install the `Apparel` store, you can speed up initialization by removing `extName 'apparelstore'` from the `build.gradle` file.
 
 1. In the `addons { forStoreFronts('yacceleratorstorefront')` section of the `build.gradle` file, add `'spartacussampledataaddon'` to the `names` list. The following is an example:
 
