@@ -110,6 +110,8 @@ yarn build:core:lib
    },
    ```
 
+   **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
+
 ## Launching the Storefront
 
 Launch the server with ng serve, as follows:
