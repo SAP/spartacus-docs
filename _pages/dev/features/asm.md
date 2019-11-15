@@ -94,6 +94,9 @@ Since configurations are _overridden_ in local.properties, if you want to add a 
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
 ```
 
+To customize `allowedMethods` and `allowedHeaders` you should add to the default values.
+To customize `allowedOrigins`, you will need to override the value with one that is relevant for your environment.
+
 #### allowedOrigins
 
 You need to customize the `allowedOrigins` property for `assistedservicewebservices`, which is shown here with its default value:
@@ -156,28 +159,32 @@ A few aspects of the asm behaviors can be configures through spartacus.
 
 ### asm.agentSessionTimer.startingDelayInSeconds
 
-The start time for the customer support agent session timer can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like so:
+The start time for the customer support agent session timer can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like so ( using the `B2cStorefrontModule` as an example ):
 
 ```
-asm: {
-  agentSessionTimer: {
-    startingDelayInSeconds: 600,
+B2cStorefrontModule.withConfig({
+  asm: {
+    agentSessionTimer: {
+      startingDelayInSeconds: 600,
+    },
   },
-},
+})
 ```
 
 The default value id 600 seconds (10 minutes).
 
 ### asm.customeSearch.maxResults
 
-The number of results in the asm customer search can be customized in spartacus via the property `asm.customeSearch.maxResults`. You define it like this:
+The number of results in the asm customer search can be customized in spartacus via the property `asm.customeSearch.maxResults`. You define it like this ( using the `B2cStorefrontModule` as an example ):
 
 ```
-asm: {
-  customeSearch: {
-    maxResults: 20,
+B2cStorefrontModule.withConfig({
+  asm: {
+    customeSearch: {
+      maxResults: 20,
+    },
   },
-},
+})
 ```
 
 ## Extending
