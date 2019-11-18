@@ -86,9 +86,9 @@ corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept 
 
 #### Customizing cors configuration
 
-Cors configurations are customized by overriding the defaults via your `local.properties` file.
+Cors configurations are customized by overriding the default configuration via your `local.properties` file.
 
-Since configurations are _overridden_ in local.properties, if you want to add a configuration element, you need to add all the defaults in addition to the new element. For example, to add 'my-new-header' in the allowed header list in addition to the default ones, you need to add this in local.properties:
+Since configurations are _overridden_ in local.properties, if you want to add a configuration element without losing the default value, you need to add all the defaults in addition to the new element. For example, to add 'my-new-header' in the allowed header list in addition to the default ones, you need to add this in local.properties:
 
 ```
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
@@ -99,13 +99,13 @@ To customize `allowedOrigins`, you will need to override the value with one that
 
 #### allowedOrigins
 
-You need to customize the `allowedOrigins` property for `assistedservicewebservices`, which is shown here with its default value:
+You need to customize the `allowedOrigins` property for `assistedservicewebservices` with host names that are relevant to your environment. As mentioned above, this is done by adding the propery yout `local.properties` with a new value:
 
 ```
-corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
+corsfilter.assistedservicewebservices.allowedOrigins=https://my-new-host:4200
 ```
 
-For development purposes, the value can be a wildcard:
+For development purposes only, the value can be a wildcard:
 
 ```
 corsfilter.assistedservicewebservices.allowedOrigins=*
@@ -116,7 +116,7 @@ Bear in mind this wildcard configuration is flexible for development environment
 ## Invoke the ASM UI in the storefront
 
 To invoke the ASM UI in the storefront, add the `?asm=true` suffix to the url.
-For example, with the sample store, you can invoke the ASM UI on the home page with this url
+For example, with the sample store, you can invoke the ASM UI on the home page with this url.
 
 ```
 https://{hostname}/electronics-spa/en/USD/?asm=true
@@ -155,11 +155,11 @@ Therefore, the logic to determine the correct OCC userid given the context is ce
 
 ## Configuring
 
-A few aspects of the asm behaviors can be configures through spartacus.
+Some ASM behaviors can be configures through spartacus.
 
 ### asm.agentSessionTimer.startingDelayInSeconds
 
-The start time for the customer support agent session timer can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like so ( using the `B2cStorefrontModule` as an example ):
+The start time for the customer support agent session timer has a default value of 600 seconds (10 minutes). This can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like so ( using the `B2cStorefrontModule` as an example ):
 
 ```
 B2cStorefrontModule.withConfig({
@@ -170,8 +170,6 @@ B2cStorefrontModule.withConfig({
   },
 })
 ```
-
-The default value id 600 seconds (10 minutes).
 
 ### asm.customeSearch.maxResults
 
