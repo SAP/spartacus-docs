@@ -1,10 +1,10 @@
 ---
-title: Release Information for 1.0-1.2
+title: Release Information for Versions 1.0-1.3 of Spartacus Libraries
 ---
 
-*Last updated September 30, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated November 18, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-This document describes what is included in Release 1.2 of Spartacus libraries.
+This document describes what is included in the latest releases of Spartacus libraries.
 
 If you have any questions, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
@@ -14,11 +14,12 @@ If you have any questions, use the help channel of our [Slack workspace](https:/
 
 *This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
+*The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 
 ### Overview
 
-- When we say "released", we mean that we make new, official, tested Spartacus libraries available to the public (hosted on npmjs.com)
+- Libraries that are "released" are new, official, tested Spartacus libraries available to the public (hosted on npmjs.com)
 - We usually release new libraries every 2 weeks 
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
@@ -30,11 +31,46 @@ If you have any questions, use the help channel of our [Slack workspace](https:/
   - Forgot password / reset
   - Various bug fixes to OCC APIs that help Spartacus work better
   
+
+  
+
+Note: Schematics (for automatically setting up a Spartacus apps) is current available in pre-release form only. See the [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/projects/schematics/README.md) for Schematics.
+
+  
+
+### Release 1.3 Highlights
+
+*Release 1.3 libraries published November 18, 2019*
+
+What's New?
+
+#### Architecture and Development Features
+- Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
+  [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
+- Qualtrics intercept integration and example
+  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/qualtrics-integration)
+#### Core/B2C Storefront Features
+- Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce 1905)
+  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/asm) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
+- Anonymous consent 
+  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/anonymous-consent) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
+- Coupons (requires October patch release of SAP Commerce 1905)
+  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/coupons) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
+
+
+#### B2B Storefront Features
+- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
+  
+
+
+
+  
+
   
 
 ### Release 1.2 Highlights
 
-*Release 1.2 published September 30, 2019*
+**Release 1.2 libraries published September 30, 2019*
 
 What's New?
 
@@ -95,7 +131,7 @@ To update to 1.2.0, you must change your libraries in `package.json` and and dep
 
 ### Release 1.1 Highlights
 
-*Released August 29, 2019*
+*Release 1.1 libraries published August 29, 2019*
 
 Release notes: https://github.com/SAP/cloud-commerce-spartacus-storefront/releases
 
@@ -110,7 +146,7 @@ Release notes: https://github.com/SAP/cloud-commerce-spartacus-storefront/releas
 
 ### Release 1.0 Highlights
 
-*Released July 4, 2019*
+*Release 1.0 libraries published July 4, 2019*
 
 Customer-facing storefront features:
 
@@ -171,6 +207,7 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 ### What's Coming
 
 See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
+
 
 
 
