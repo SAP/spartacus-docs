@@ -2,7 +2,7 @@
 title: Spartacus Roadmap
 ---
 
-*Last updated October 31, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated November 18, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what what is planned for Spartacus for end of 2019 and into 2020.
 
@@ -15,7 +15,7 @@ If you have any questions, use the feedback channel of our [Slack workspace](htt
 
 *This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
-*The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented.*
+*The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
   
 
@@ -23,7 +23,7 @@ If you have any questions, use the feedback channel of our [Slack workspace](htt
 
 We plan to publish new Spartacus libraries every two weeks. Each release may contain bug fixes, improvements to user experience, and new features.
 
-When new features are available for release, normally we will publish a pre-release "next" version of the libraries, in order to get feedback. We release the final, new, minor version a few weeks later. For example, we have published a few pre-release 1.3 "next" libraries in October, and then 1.3.0 will be released early November.
+When new features are available for release, normally we will publish a pre-release "next" version of the libraries, in order to get feedback. We release the final, new, minor version a few weeks later. For example, we will publish a few pre-release 1.4 "next" libraries in November, and then 1.4.0 will be released early December.
 
 Some of the links provided point to SAP Commerce Cloud Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
 
@@ -37,36 +37,6 @@ Some items have notes, for example (1) or (2)
 - (2): The feature requires new OCC REST APIs, not yet planned.
 
   
-
-### Planned for 1.3 - November 2019
-
-*Scheduled  for ~November 12*
-
-  
-
-#### Architecture and Development Features
-- Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
-- Qualtrics intercept integration and example
-  [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/b5574a6617c809d8fdba74227c3098175863b01c/_pages/dev/qualtrics-integration.md)
-- Schematics (for automatically setting up a Spartacus apps)
-[Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/projects/schematics/README.md)
-
-  
-
-#### Core/B2C Storefront Features
-- Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce 1905)
-  [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/ace472e6a2fd88b7a2794649fcdf372b7997618c/_pages/dev/features/asm.md) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
-- Anonymous consent 
-  [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/415c312aa25232251a445b3122369812fa9d5952/_pages/dev/features/anonymous-consent.md) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
-- Coupons (requires October patch release of SAP Commerce 1905)
-  [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/ace472e6a2fd88b7a2794649fcdf372b7997618c/_pages/dev/features/coupons.md) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
-
-  
-
-#### B2B Storefront Features
-
-- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
-
   
 
 ## Planned for 1.4 – December 2019
@@ -80,7 +50,6 @@ Some items have notes, for example (1) or (2)
 - Token revocation (requires November patch release of SAP Commerce 1905)
 - Multi-cart handling (internal service)
 - Custom Component Schematics
-
   
 
 #### Core/B2C Storefront Features
@@ -104,8 +73,6 @@ Some items have notes, for example (1) or (2)
 
 ## Planned for 1.5 - January 2020
 
-*Exact dates to be determined*
-
   
 
 #### Architecture and Development Features
@@ -127,8 +94,6 @@ Some items have notes, for example (1) or (2)
 
 ## Planned for 1.6 - February 2020
 
-*Exact dates to be determined*
-
   
 
 #### Core/B2C Storefront Features
@@ -146,9 +111,9 @@ Some items have notes, for example (1) or (2)
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html)
 
 
-  
 
-  
+
+
 
 ## Planned for 2.0 - March 2020
 
@@ -261,4 +226,5 @@ mobile notifications
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) 
 - B2B Commerce Quotes 
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html) <sup>(2)</sup> and integrations with other quotation management systems  
+
 
