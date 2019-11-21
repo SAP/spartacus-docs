@@ -1,79 +1,6 @@
 ---
-title: Context Configuration
+title: Automatic Context Configuration
 ---
-
-Every site in CMS has it's own so-called *context* including:
-
-- base site ID,
-- allowed languages and default language,
-- allowed currencies and default currency.
-- configuration of persistence of above attributes in the URL
-
-The *context* can be defined statically in the Spartacus configuration at the property `context`. But it's recommended to leave out this property, so Spartacus can self-recognize by the URL, based on the sites' URL patterns defined in the CMS.
-
-## Static Context Configuration
-
-You can configure your application by defining `context` properties, such as base site, language, and currency. When you append the values of these properties to the storefront URL, the storefront is configured based on these values.
-
-For example, when you access `https://localhost:4200/electronics-spa/en/USD/`, the application loads the `electronics-spa` base site, sets the site language to English (`en`), and sets the currency to US dollars (`USD`).
-
-The `context` properties also set the default values for the language and currency drop-down lists, which you can use to change the context of the storefront dynamically.
-
-### Context Properties
-
-The `context` properties are located in `app.module.ts`.
-
-The `baseSite`, `language`, and `currency` properties are arrays that take the first element in the array as the default value.
-
-For example, the `language` property is defined as follows:
-
-```typescript
- context: {
-   language: ['en', 'de', 'ja', 'zh'],
-   ...
-```
-
-In this case, the first element is `en`, so English is set as the default language for the application. The other elements in the array indicate the potential values that can be used by the application.
-
-The `urlParameters` property takes the values of the other `context` properties to create the structure of the context that is appended to the storefront URL.
-
-For example, if your storefront URL is `https://localhost:4200`, then it becomes `https://localhost:4200/electronics-spa/en/USD/` with the following `context` configuration:
-
-```typescript
-  context: {
-    baseSite: [
-      'electronics-spa', //Selected by default because it is the first element in the list
-      'electronics',
-    ],
-    language: [
-      'en'
-    ],
-    currency: [
-      'USD'
-    ],
-    urlParameters: ['baseSite', 'language', 'currency']
-  },
- ...
-```
-
-**Note:** You can change the structure of the context in the URL by changing the order of the elements in the `urlParameters` property. For example, if you change the `urlParameters` property to `urlParameters: ['currency', 'language', 'baseSite']`, then the URL becomes `https://localhost:4200/USD/en/electronics-spa/`.
-
-### Enabling Context in the Storefront URL
-
-By default, context does not appear in the Spartacus storefront URL.
-
-You may wish to have context appear in the storefront URL as a way of optimizing SEO, or for maintaining URL compatibility with a previous storefront. For example, you might want search bots to classify different versions of a storefront based on the language and currency in the URL. Or you may be migrating to Spartacus from another storefront that includes context in the storefront URL, and you wish to maintain previously established page rankings.
-
-To include the context in the URL, add the `urlParameters` property to the `context` property in `app.modules.ts`. The following is an example:
-
-```ts
-  context: {
-    baseSite: ['electronics-spa'],
-    urlParameters: ['baseSite', 'language', 'currency']
-  },
-```
-
-## Automatic Context Configuration (DRAFT)
 
 {% capture version_note %}
 {{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
@@ -81,13 +8,15 @@ To include the context in the URL, add the `urlParameters` property to the `cont
 
 {% include docs/feature_version.html content=version_note %}
 
-By leaving out the configuration's property `context.baseSite`, we enable the automatic configuration of context. This means that before the initialization of the application, Spartacus will get the list of base sites from backend, compare the current URL with sites' URL patterns and then recognize the current base site and its languages, currencies and url encoding attributes.
+Every site that is defined in the CMS has its own context, which includes a base site ID, language properties, and currency properties. The context also defines how these attributes are persisted in the URL. You can allow Spartacus to automatically determine the context based on the URL patterns of your sites, as defined in the CMS. You can enable automatic context configuration by simply not defining the `context.baseSite` property in `app.module.ts`.
 
-### Mitigation of the blocking backend call
+Before the application is initialized, Spartacus gets a list of the base sites from the back end, compares the current URL with the URL patterns of the sites that are defined in the CMS, and then identifies the current base site, along with its languages, currencies, and URL encoding attributes.
+
+## Mitigation of the Blocking Back End Call
 
 The initial call to backend for base sites is blocking the user experience. To mitigate it, we can cache the context using SSR or PWA.
 
-#### Caching site context with Server side rendering
+### Caching site context with Server side rendering
 
 The site can be self-recognized during the Server side rendering and transferred to the browser with the Angular's `TransferState` mechanism. To avoid making call for base sites on the server side on every page request, the pages can be cached by a reverse proxy.
 
@@ -100,7 +29,7 @@ import { NgExpressEngineDecorator } from '@spartacus/core';
 export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 ```
 
-#### Caching the backend response with base sites in PWA
+### Caching the backend response with base sites in PWA
 
 When using PWA, the backend response with base sites can be cached by the Angular Service Worker, by adding a config to the array `dataGroups` in your service worker configuration (commonly named `ngsw-config.json`):
 ```json

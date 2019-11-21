@@ -118,6 +118,11 @@ docs:
             url: /configuring-base-url/
           - title: 'Context Configuration'
             url: /context-configuration/
+            subchildren:
+                - title: 'Automatic Context Configuration'
+                  url: /automatic-context-configuration/
+                - title: 'Static Context Configuration'
+                  url: /static-context-configuration/
           - title: 'PWA'
             url: /pwa-home/
             subchildren:
