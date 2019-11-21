@@ -82,9 +82,12 @@ This command includes configuration parameters, such as **baseUrl** or **baseSit
    ```
 
 After the project is set up using schematics:
+
 1. inspect the `src\app\app.module.ts` file for any changes you want to make for your setup. For example, you might want to change the `baseUrl` to point to your server and the `basesite` to corresond with the WCMS site. You likely also want to specify the compatibility version by changing `features.level`, as the default might not be the latest version.
+
 2. Replace the contents of `mystore/src/app/app.component.html` with
 `<cx-storefront>Loading...</cx-storefront>`
+
 3. Run `yarn start`.
 
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
