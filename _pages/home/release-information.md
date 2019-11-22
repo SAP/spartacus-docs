@@ -47,6 +47,8 @@ What's New?
 #### Architecture and Development Features
 - Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
   [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
+- Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)
+[Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/structured-data)
 - Qualtrics intercept integration and example
   [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/qualtrics-integration)
 #### Core/B2C Storefront Features
