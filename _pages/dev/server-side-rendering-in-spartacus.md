@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### src/app/app.module.ts
 
-Replace following lines in `app.module.ts`:
+Replace the following lines in `app.module.ts`:
 
 ```typescript
 //from:
@@ -65,9 +65,9 @@ Add the following meta attribute and replace OCC_BASE_URL with the URL of your b
 
 ### angular.json
 
-Add the following configuration to your existing angular.json (under projects.<your-project-name>.architect).
+Add the following configuration to your existing `angular.json` (under `projects.<your-project-name>.architect`).
 
-Remember to replace string "<your-project-name>" with your project name.
+In the following example, remember to replace the string "<your-project-name>" with your project name (such as `mystore`, for example).
 
 ```json
 "server": {
@@ -212,7 +212,7 @@ module.exports = {
 
 ### server.ts
 
-Remember to replace string "<your-project-name>" with your project name.
+In the following example, remember to replace the string "<your-project-name>" with your project name (such as `mystore`, for example).
 
 ```typescript
 import 'zone.js/dist/zone-node';
@@ -264,9 +264,9 @@ app.listen(PORT, () => {
 
 ```
 
-* In the file above, replace `<your-project-name>` for the name of your application.
+* In the file above, replace `<your-project-name>` with the name of your application.
 
-* Add the following scripts to your package.json replace `<your-project-name>`.
+* Add the following scripts to your package.json. Remember to replace `<your-project-name>` with your project name (such as `mystore`, for example).
 
 ```json
 "compile:server": "webpack --config webpack.server.config.js --progress --colors",
