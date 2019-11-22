@@ -20,9 +20,7 @@ The initial call to the back end for base sites can be slow, which affects the u
 
 The site can be identified during server-side rendering, and transferred to the browser using Angular's `TransferState` mechanism. To avoid making calls for base sites on the server side with every page request, the pages can be cached by reverse proxy.
 
-To enable identification of the site on the server side, you need to provide the current request URL to Spartacus. 
-
-The simplest way to achieve it is to use Spartacus' decorator over the `ngExpressEngine` (which under the hood provides the Spartacus' injection token `SERVER_REQUEST_URL`), i.e. in your file `main.server.ts`:
+To allow the site to be identified on the server side, you need to provide the current request URL to Spartacus. You can do this by using the Spartacus decorator over the `ngExpressEngine`, which provides Spartacus's `SERVER_REQUEST_URL` injection token, under the hood. You can configure this in `main.server.ts`, as follows:
 
 ```typescript
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
@@ -31,7 +29,7 @@ import { NgExpressEngineDecorator } from '@spartacus/core';
 export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 ```
 
-### Caching the backend response with base sites in PWA
+### Caching the Back End Response with Base Sites in PWA
 
 When using PWA, the backend response with base sites can be cached by the Angular Service Worker, by adding a config to the array `dataGroups` in your service worker configuration (commonly named `ngsw-config.json`):
 ```json
