@@ -12,15 +12,17 @@ Every site that is defined in the CMS has its own context, which includes a base
 
 Before the application is initialized, Spartacus gets a list of the base sites from the back end, compares the current URL with the URL patterns of the sites that are defined in the CMS, and then identifies the current base site, along with its languages, currencies, and URL encoding attributes.
 
-## Mitigation of the Blocking Back End Call
+## Mitigating the Initial Back End Call
 
-The initial call to backend for base sites is blocking the user experience. To mitigate it, we can cache the context using SSR or PWA.
+The initial call to the back end for base sites can be slow, which affects the user experience. To address this, you can choose to cache the context using server-side rendering (SSR) or progressive web application (PWA) techniques.
 
-### Caching site context with Server side rendering
+### Caching the Site Context with Server-Side Rendering
 
-The site can be self-recognized during the Server side rendering and transferred to the browser with the Angular's `TransferState` mechanism. To avoid making call for base sites on the server side on every page request, the pages can be cached by a reverse proxy.
+The site can be identified during server-side rendering, and transferred to the browser using Angular's `TransferState` mechanism. To avoid making calls for base sites on the server side with every page request, the pages can be cached by reverse proxy.
 
-To enable self-recognizing of the site on the server side, you need to provide the current request URL to Spartacus. The simplest way to achieve it is to use Spartacus' decorator over the `ngExpressEngine` (which under the hood provides the Spartacus' injection token `SERVER_REQUEST_URL`), i.e. in your file `main.server.ts`:
+To enable identification of the site on the server side, you need to provide the current request URL to Spartacus. 
+
+The simplest way to achieve it is to use Spartacus' decorator over the `ngExpressEngine` (which under the hood provides the Spartacus' injection token `SERVER_REQUEST_URL`), i.e. in your file `main.server.ts`:
 
 ```typescript
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
