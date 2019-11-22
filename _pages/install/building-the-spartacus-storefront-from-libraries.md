@@ -76,10 +76,19 @@ Spartacus support command which allows for full application scaffold with featur
 
 **Note**: `--pwa` and `--ssr` are optional and can be used separately.
 
-Command comes with set of configuration parameters, such as **baseUrl** or **baseSite**. Usage example:
+This command includes configuration parameters, such as **baseUrl** or **baseSite**. Usage example:
    ```bash
     ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
    ```
+
+After the project is set up using schematics:
+
+1. Inspect the `src\app\app.module.ts` file for any changes you want to make for your setup. For example, you might want to change the `baseUrl` to point to your server and the `basesite` to corresond with the WCMS site. You likely also want to specify the compatibility version by changing `features.level`, as the default might not be the latest version.
+
+2. Replace the contents of `mystore/src/app/app.component.html` with
+`<cx-storefront>Loading...</cx-storefront>`
+
+3. Run `yarn start`.
 
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
@@ -106,10 +115,10 @@ The dependencies in this procedure are required by the Spartacus storefront.
    "i18next": "^15.0.6",
    "i18next-xhr-backend": "^2.0.1",
 
-   "@spartacus/core": "~1.2.0",
-   "@spartacus/styles": "~1.2.0",
-   "@spartacus/storefront": "~1.2.0",
-   "@spartacus/assets": "~1.2.0"
+    "@spartacus/core": "~1.3.0",
+    "@spartacus/styles": "~1.3.0",
+    "@spartacus/storefront": "~1.3.0",
+    "@spartacus/assets": "~1.3.0"
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
