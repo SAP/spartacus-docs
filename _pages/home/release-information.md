@@ -61,7 +61,7 @@ What's New?
 
 
 #### B2B Storefront Features
-- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
+- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon). Note: B2B Spartacus not yet available (B2B My Company and Checkout planned for Q1 2020). Powertools out-of-the-box sample data itself is now “Spartacus-ified” so that it displays properly when you point Spartacus to it. It’s what we’re using to do our development. However My Company and Checkout not yet supported; you’ll see a few errors related to API calls that we are part of the updated b2boccaddon API release in Q1.
   
 
 
