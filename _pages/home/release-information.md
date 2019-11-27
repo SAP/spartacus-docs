@@ -47,6 +47,8 @@ What's New?
 #### Architecture and Development Features
 - Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
   [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
+- Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)
+[Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/structured-data)
 - Qualtrics intercept integration and example
   [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/qualtrics-integration)
 #### Core/B2C Storefront Features
@@ -59,7 +61,7 @@ What's New?
 
 
 #### B2B Storefront Features
-- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
+- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon). Note: B2B Spartacus not yet available (B2B My Company and Checkout planned for Q1 2020). Powertools out-of-the-box sample data itself is now “Spartacus-ified” so that it displays properly when you point Spartacus to it. It’s what we’re using to do our development. However My Company and Checkout not yet supported; you’ll see a few errors related to API calls that we are part of the updated b2boccaddon API release in Q1.
   
 
 

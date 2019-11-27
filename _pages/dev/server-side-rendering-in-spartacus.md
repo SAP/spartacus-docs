@@ -19,14 +19,15 @@ Add the following dependencies to `package.json`:
 ```json
 "@angular/platform-server": "~8.2.7",
 "@nguniversal/express-engine": "^8.1.1",
-"@nguniversal/module-map-ngfactory-loader": "^8.1.1"
+"@nguniversal/module-map-ngfactory-loader": "^8.1.1",
+"express": "^4.15.2"
 ```
 
 Add the following developer dependencies to `package.json`:
 
 ```json
- "ts-loader": "^5.3.2”
- "webpack-cli": "^3.3.2”
+"ts-loader": "^5.3.2",
+"webpack-cli": "^3.3.2"
 ```
 
 Update the following files:
@@ -38,21 +39,20 @@ Update the following files:
 platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(err));
 //to
 document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
 });
 ```
 
 ### src/app/app.module.ts
 
-Add the following lines to `app.module.ts`:
+Replace the following lines in `app.module.ts`:
 
 ```typescript
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 //from:
 BrowserModule,
 //to
 BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
-BrowserTransferStateModule
 ```
 
 ### src/index.html
@@ -63,17 +63,28 @@ Add the following meta attribute and replace OCC_BASE_URL with the URL of your b
  <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
 ```
 
-Add the following configuration to your existing angular.json (under projects.<your-project-name>.architect):
+### angular.json
+
+Add the following configuration to your existing `angular.json` (under `projects.<your-project-name>.architect`).
+
+In the following example, remember to replace the string "<your-project-name>" with your project name (such as `mystore`, for example).
 
 ```json
 "server": {
   "builder": "@angular-devkit/build-angular:server",
   "options": {
-    "outputPath": "dist/server",
+    "outputPath": "dist/<your-project-name>-server",
     "main": "src/main.server.ts",
-    "tsConfig": "tsconfig.server.json"
+    "tsConfig": "tsconfig.server.json",
+    "fileReplacements": [
+      {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.prod.ts"
+      }
+    ]
   }
 }
+
 ```
 
 Add the following files to your existing shell app:
@@ -89,7 +100,11 @@ Add the following files to your existing shell app:
     "module": "commonjs",
     "types": []
   },
-  "exclude": ["test.ts", "e2e/src/app.e2e-spec.ts", "**/*.spec.ts"],
+  "exclude": [
+    "test.ts",
+    "e2e/src/app.e2e-spec.ts",
+    "**/*.spec.ts"
+  ],
   "angularCompilerOptions": {
     "entryModule": "src/app/app.server.module#AppServerModule"
   }
@@ -108,8 +123,10 @@ if (environment.production) {
 }
 
 export { AppServerModule } from './app/app.server.module';
-export { ngExpressEngine } from '@nguniversal/express-engine';
 export { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { ngExpressEngine as engine } from '@nguniversal/express-engine';
+import { NgExpressEngineDecorator } from '@spartacus/core';
+export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 ```
 
 
@@ -148,15 +165,17 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'none',
   entry: {
+    // This is our Express server for Dynamic universal
     server: './server.ts'
+  },
+  externals: {
+    './dist/server/main': 'require("./server/main")'
   },
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
   optimization: {
     minimize: false
   },
-  // this makes sure we include node_modules and other 3rd party libraries
-  externals: [/node_modules/],
   output: {
     // Puts the output at the root of the dist folder
     path: path.join(__dirname, 'dist'),
@@ -189,10 +208,11 @@ module.exports = {
     )
   ]
 };
-
 ```
 
 ### server.ts
+
+In the following example, remember to replace the string "<your-project-name>" with your project name (such as `mystore`, for example).
 
 ```typescript
 import 'zone.js/dist/zone-node';
@@ -244,15 +264,15 @@ app.listen(PORT, () => {
 
 ```
 
-* In the file above, replace `<your-project-name>` for the name of your application.
+* In the file above, replace `<your-project-name>` with the name of your application.
 
-* Add the following scripts to your package.json
+* Add the following scripts to your package.json. Remember to replace `<your-project-name>` with your project name (such as `mystore`, for example).
 
 ```json
-    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
-    "serve:ssr": "node dist/server.js",
-    "build:client-and-server-bundles": "ng build --prod && ng run <your-project-name>:server",
-    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
+"compile:server": "webpack --config webpack.server.config.js --progress --colors",
+"serve:ssr": "node dist/server",
+"build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+"build:client-and-server-bundles": "ng build --prod && ng run <your-project-name>:server"
 ```
 
 * On the `build:client-and-server-bundles` script, replace `<your-project-name>` with the name of your angular application
