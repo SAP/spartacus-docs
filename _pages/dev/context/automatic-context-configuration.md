@@ -18,9 +18,9 @@ The initial call to the back end for base sites can be slow, which affects the u
 
 ### Caching the Site Context with Server-Side Rendering
 
-The site can be identified during server-side rendering, and transferred to the browser using Angular's `TransferState` mechanism. To avoid making calls for base sites on the server side with every page request, the pages can be cached by reverse proxy.
+The site can be identified during server-side rendering, and the context can be transferred to the browser using the Angular `TransferState` mechanism. To avoid making calls to the server side with every page request, the pages can be cached by reverse proxy.
 
-To allow the site to be identified on the server side, you need to provide the current request URL to Spartacus. You can do this by using the Spartacus decorator over the `ngExpressEngine`, which provides Spartacus's `SERVER_REQUEST_URL` injection token, under the hood. You can configure this in `main.server.ts`, as follows:
+To allow the site to be identified on the server side, you need to provide the current request URL to Spartacus. You can do this by using the Spartacus decorator over the `ngExpressEngine`. The `ngExpressEngine` provides the `SERVER_REQUEST_URL` injection token to Spartacus under the hood. You can configure this in `main.server.ts`, as follows:
 
 ```typescript
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
@@ -31,7 +31,8 @@ export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 
 ### Caching the Back End Response with Base Sites in PWA
 
-When using PWA, the backend response with base sites can be cached by the Angular Service Worker, by adding a config to the array `dataGroups` in your service worker configuration (commonly named `ngsw-config.json`):
+When using PWA, the back end response with base sites can be cached by the Angular service worker, by adding a configuration to the `dataGroups` array in your service worker configuration. The following is an example from `ngsw-config.json`:
+
 ```json
 {
   // ...
@@ -44,7 +45,7 @@ When using PWA, the backend response with base sites can be cached by the Angula
       ],
       "cacheConfig": {
         "maxSize": 1,
-        "maxAge": "1d", // 1 day; should be custom
+        "maxAge": "1d", // Set to 1 day. Customize this value according to your needs.
         "strategy": "performance"
       }
     }
@@ -52,21 +53,21 @@ When using PWA, the backend response with base sites can be cached by the Angula
 }
 ```
 
-Notes:
+In the example above, the `maxAge` shows a value of one day. Customize this value according to your needs.
 
-- the `maxAge` of the cache should be custom
-- parenthesis need escaping with double backslash `\\`
-- if you customize the endpoint url in your application, you also need to reflect it in the `urls` in the above config
+Note that you need to escape parentheses with double backslashes `\\`, as seen in the `urls` configuration above. Also note that if you customize the endpoint URL in your application, you need to reflect this in the `urls` configuration.
 
-For more, see the official docs of the [Angular Service Worker configuration](https://angular.io/guide/service-worker-config#datagroups).
+For more information, see the official [Angular service worker configuration](https://angular.io/guide/service-worker-config#datagroups) documentation.
 
-## Important notes
+## Important Notes
 
-### Base site encoded in the URL should be called 'storefront'
+### Base Sites and Storefronts
 
-For the base site encoded in the URL parameters Spartacus uses the name `baseSite`, but in the CMS this parameter is called `storefront`. So in CMS you should still use `storefront`, but Spartacus will implicitly map it from `storefront` to `baseSite`. Other parameters like `language` or `currency` are left as-is.
+When the base site is encoded in the URL parameters, Spartacus refers to the `baseSite` parameter, while the CMS refers to this parameter as a `storefront`. You should continue to use the `storefront` parameter name in the CMS, because Spartacus implicitly maps `storefront` to `baseSite`. Other parameters, such as `language` and `currency`, are not touched.
 
-### URL patterns should be written in Java language
+### Writing URL Patterns in Java
+
+For historical reasons, regular expressions with URL patterns that are defined in the CMS are written in Java. However, these regular expressions are evaluated on the front end using JavaScript. You should continue to use Java regex in the CMS, and they will be implicitly converted to JavaScript in Spartacus. For example, for case-insensitivity, modifiers such as `(?i)` are mapped to `/i`.
 
 Due to historical reasons the regular expressions with URL patterns defined in the CMS are written in the Java language. However they are evaluated on the frontend side using JavaScript. So in the CMS you should still use Java regexps, but they will be implicitly converted from Java to Javascript in Spartacus only by replacing modifiers like `(?i)` (for case-insensitivity) to `/i`. 
 
@@ -77,7 +78,7 @@ For more, please see:
 - [Comparison of regular expression engines (language features) - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_regular_expression_engines#Language_features)
 - the implementation of the Spartacus' service `JavaRegExpConverter`.
 
-### Empty URL patterns to inactivate a site
+### Empty URL patterns to disable a site
 
 The backend endpoint returns the list of all base sites, without any information whether the site is active (regardless the options defined in the CMS: `active`, `activeFrom`, `activeTo`). **So to inactivate a base site, its URL patterns have to be emptied.**
 
