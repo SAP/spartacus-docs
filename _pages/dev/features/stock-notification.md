@@ -18,17 +18,7 @@ For more information, see [Stock Notification Architecture](https://help.sap.com
 
 ## Enabling Stock Notification
 
-The stock notification feature has a `stockNotification` feature flag that allows you to enable or disable the feature, as follows:
-
-```typescript
-features: {
-   stockNotification: true
-}
-```
-
-This feature is enabled automatically for feature level 1.2 and above.
-
-For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
+The stock notification feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
 
 
 ## Configuring
