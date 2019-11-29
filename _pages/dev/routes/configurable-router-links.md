@@ -229,8 +229,10 @@ result:
 
 ### Predefined parameters mapping
 
+The routes of some storefront already have predefined `paramsMapping`. They can be found in `default-routing-config.ts`.
+
 ```typescript
-// default-storefront-routes-config.ts
+// default-routing-config.ts
 
 product: {
     paramsMapping: { productCode: 'code' }

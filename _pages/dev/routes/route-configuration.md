@@ -15,8 +15,10 @@ ConfigModule.withConfig({
 
 ### Predefined config
 
+The routing in Spartacus is intended to run without any configuration by default, thanks to the predefined configuration, which can be found in `default-routing-config.ts`.
+
 ```typescript
-// default-storefront-routes-config.ts
+// default-routing-config.ts
 product: { 
     paths: ['product/:productCode'],
     /* ... */
