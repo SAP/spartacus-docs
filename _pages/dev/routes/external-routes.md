@@ -85,7 +85,7 @@ To bypass the cache of the service worker and let the backend serve the response
 
 **Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context-configuration.md %}).
 
-Here are two examples (assuming that URL starts with configured 3 segments of the site context):
+Here are two examples (assuming that URL starts with configured three segments of the site context):
 
 1. Let only the *homepage*, *cart* and *product details pages* be rendered in SPA, but all other URLs should be loaded from the backend:
 
