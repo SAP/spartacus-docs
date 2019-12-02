@@ -20,6 +20,7 @@ For more information, see [Stock Notification Architecture](https://help.sap.com
 
 The stock notification feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
 
+Note that this feature works only when the notification preference feature and the customer interests feature are already working. 
 
 ## Configuring
 
