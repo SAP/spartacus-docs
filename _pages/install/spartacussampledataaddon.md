@@ -2,7 +2,7 @@
 title: Spartacussampledataaddon AddOn
 ---
 
-The `spartacussampledataaddon` AddOn creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs modified specifically for Spartacus requirements.
+The `spartacussampledataaddon` AddOn creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs that have been modified specifically for Spartacus requirements.
 
 The following diagram demonstrates how the `Electronics-Spa` base site is created. The process is similar for all sample stores.
 
@@ -74,7 +74,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 **6. Update `MiniCartSlot`**
 
 `MiniCartSlot` in `electronicsContentCatalog` contains 2 components: `OrderComponent` and `MiniCart`. 
-  ![Screen Shot 2019-07-09 at 4 08 24 PM](https://user-images.githubusercontent.com/44440575/60919474-d1fd2100-a263-11e9-8f7a-885df84e2b98.png)
+  ![Mini Cart Slot]({{ site.baseurl }}/assets/images/mini-cart-slot.png)
 
 In Spartacus, `OrderComponent` is not used any more, so it was removed from `MiniCartSlot`.
 
@@ -82,7 +82,7 @@ In Spartacus, `OrderComponent` is not used any more, so it was removed from `Min
 
 In the Spartacus header, we added a new `SiteLinks` slot, which now contains `HelpLink`, `ContactUsLink` and `SaleLink`. Since this slot is added in the header, we need to add it into each template.
 
-  ![Screen Shot 2019-07-09 at 4 10 56 PM](https://user-images.githubusercontent.com/44440575/60919595-2b655000-a264-11e9-9667-8699220390ae.png)
+  ![Site Links Slots]({{ site.baseurl }}/assets/images/site-links-slot.png)
 
 **8. Some new CMS pages are created**
 
@@ -90,7 +90,7 @@ Spartacus needs some new pages. The following CMS pages are created in this AddO
 
 **9. Make "Not Found" page contain more content**
 
-  ![Screen Shot 2019-07-09 at 4 25 08 PM](https://user-images.githubusercontent.com/44440575/60920445-35884e00-a266-11e9-8ba5-c1f2042d695c.png)
+  !["Not Found" Page]({{ site.baseurl }}/assets/images/page-not-found.png)
 
 Now this page not only contains a banner image, it also has some links and text.
 
