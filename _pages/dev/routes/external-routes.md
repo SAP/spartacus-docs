@@ -83,7 +83,7 @@ Here are two examples:
 
 To bypass the cache of the service worker and let the backend serve the response after full page (re)load, you need to define property `navigationUrls` of your service worker's config `ngsw-config.json` and specify the URL patterns for internal routes (similar to config of Spartacus). It uses the same glob-like syntax as Spartacus, so you can **almost** copy-paste it. 
 
-**Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context-configuration.md %}).
+**Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %}).
 
 Here are two examples (assuming that URL starts with configured three segments of the site context):
 
