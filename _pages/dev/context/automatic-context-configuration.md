@@ -18,7 +18,7 @@ The initial call to the back end for base sites can be slow, which affects the u
 
 ### Caching the Site Context with Server-Side Rendering
 
-The site can be identified during server-side rendering, and the context can be transferred to the browser using the Angular `TransferState` mechanism. To avoid making calls to the server side with every page request, the pages can be cached by reverse proxy.
+The site can be identified during server-side rendering, and the context can be transferred to the browser using the Angular `TransferState` mechanism. To avoid making calls for base sites on the server side with every page request, the pages can be cached using a reverse proxy.
 
 To allow the site to be identified on the server side, you need to provide the current request URL to Spartacus. You can do this by using the Spartacus decorator of the `ngExpressEngine`, which provides the `SERVER_REQUEST_URL` injection token under the hood. You can configure this in `main.server.ts`, as follows:
 
