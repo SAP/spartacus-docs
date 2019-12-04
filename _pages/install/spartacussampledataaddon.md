@@ -47,7 +47,7 @@ The `JspIncludeComponent` allows you to include JSP code when you provide the pa
 
 The `CmsSiteContext` enum was created in SAP Commerce 1905. It is a dynamic enumeration that contains the available site context. Spartacus has two site contexts: language and currency. The following is an example from `resources/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/catalog.impex`:
 
-```typescript
+```sql
 INSERT_UPDATE CmsSiteContext;code[unique=true];name[lang=$language]
 ;LANGUAGE;"language"
 ;CURRENCY;"currency"
@@ -59,9 +59,9 @@ The Spartacus homepage looks different from the legacy Accelerator storefront, s
 
 ### Adding a SiteContext Slot with New Components to Each Template
 
-A new `SiteContext` slot has been added to the header in each template in Spartacus, and two new components, the `LanguageComponent` and `CurrencyComponent`, have been added into this `SiteContext` slot. The following is an example from `resources/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/cms-responsive-content.impex`:
+A new `SiteContext` slot has been added to the header in every template in Spartacus, and two new components, the `LanguageComponent` and `CurrencyComponent`, have been added into this `SiteContext` slot. The following is an example from `resources/spartacussampledataaddon/import/contentCatalogs/electronicsContentCatalog/cms-responsive-content.impex`:
 
-```typescript
+```sql
 INSERT_UPDATE CMSSiteContextComponent;$contentCV[unique=true];uid[unique=true];name;context(code);&componentRef
 ;;LanguageComponent;Site Languages;LANGUAGE;LanguageComponent
 ;;CurrencyComponent;Site Currencies;CURRENCY;CurrencyComponent
@@ -74,60 +74,68 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 ### Updating the MiniCartSlot
 
-The `MiniCartSlot` in the `electronicsContentCatalog` contains two components: the `OrderComponent` and the `MiniCart`.
+The `MiniCartSlot` in the `electronicsContentCatalog` contains two components: the `OrderComponent` and the `MiniCart`. In Spartacus, the `OrderComponent` is not used anymore, so it was removed from the `MiniCartSlot`. The following image shows the `MiniCart` component in the `MiniCartSlot`:
 
 ![Mini Cart Slot]({{ site.baseurl }}/assets/images/mini-cart-slot.png)
 
-In Spartacus, the `OrderComponent` is not used anymore, so it was removed from the `MiniCartSlot`.
+### Adding CMSlink Components to a New SiteLinks Slot
 
-**7. Add `SiteLinks` slot and CMSlink components into it**
+The Spartacus header now contains `HelpLink`, `ContactUsLink` and `SaleLink` CMSlink components, which have been added to a new `SiteLinks` slot. Because this slot has been added in the header, the new `SiteLinks` slot has been added to every template. The following image shows the newly added CMSlink components:
 
-In the Spartacus header, we added a new `SiteLinks` slot, which now contains `HelpLink`, `ContactUsLink` and `SaleLink`. Since this slot is added in the header, we need to add it into each template.
+![Site Links Slots]({{ site.baseurl }}/assets/images/site-links-slot.png)
 
-  ![Site Links Slots]({{ site.baseurl }}/assets/images/site-links-slot.png)
+### Creating New CMS Pages
 
-**8. Some new CMS pages are created**
+The following new CMS pages have been created with the `spartacussampledataaddon` AddOn:
 
-Spartacus needs some new pages. The following CMS pages are created in this AddOn: `sale`, `help`, `contactUs`, `forgotPassword`, `resetPassword` and `register`. Content Slots and CMS components contained in these pages are also created.
+- `sale`
+- `help`
+- `contactUs`
+- `forgotPassword`
+- `resetPassword`
+- `register`
 
-**9. Make "Not Found" page contain more content**
+The `spartacussampledataaddon` AddOn also creates the necessary content slots and CMS components that are contained in these new pages.
 
-  !["Not Found" Page]({{ site.baseurl }}/assets/images/page-not-found.png)
+### Adding More Content to the "Not Found" Page
 
-Now this page not only contains a banner image, it also has some links and text.
+Along with a banner image, the "Not Found" page now also includes links and text, as shown in the following image:
 
-**10. Add `SignOutLink` in `My account`**
+!["Not Found" Page]({{ site.baseurl }}/assets/images/page-not-found.png)
 
-In the default content catalogs, `MyAccountNavNode` doesn't have the child for `SignOut`. We added `SignOutNavNode` as one child of `MyAccountNavNode`; and added `SignOutLink` into that child node.
+### Adding a SignOutLink in My Account
 
-**11. Spartacus breadcrumb**
+In the default content catalogs, the `MyAccountNavNode` does not have a child node for `SignOut`. To fix this in Spartacus, the `spartacussampledataaddon` AddOn adds a `SignOutNavNode` as a child of the `MyAccountNavNode`, and adds a `SignOutLink` to the `SignOutNavNode`.
 
-In the default content catalogs, `breadcrumbComponent` is in `NavigationBarSlot`. In Spartacus, we moved this component from `NavigationBarSlot` to `BottomHeaderSlot`. The `BottomHeaderSlot` is a slot added in each template. In Spartacus, we don't want `homepage` and `SLRCamerasCategoryPage` to have a breadcrumb, so we clear the `BottomHeaderSlot` only for `homepage` and `SLRCamerasCategoryPage`.
+### Updating the Breadcrumb in Spartacus
 
-**12. Update page labels to make them start with '/'**
+In the default content catalogs, the `breadcrumbComponent` is located in the `NavigationBarSlot`. The `spartacussampledataaddon` AddOn moves this component from the `NavigationBarSlot` to the `BottomHeaderSlot`, and the `BottomHeaderSlot` is also added to every template. However, to avoid having a breadcrumb for the `homepage` and `SLRCamerasCategoryPage`, the `BottomHeaderSlot` is removed from the `homepage` and `SLRCamerasCategoryPage` templates.
 
-In Spartacus, we use "page label" as the configurable URL for content pages. So, page labels should start with '/'. For example, we do the following update for each content page:
+### Updating Page Labels to Start with a Forward Slash
 
-```typescript
+In Spartacus, page labels are used as the configurable URL for content pages, so these page labels need to start with a `/` forward slash. The following is an example of the update that the `spartacussampledataaddon` AddOn makes to every content page:
+
+```sql
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label
 ;;login;/login
 ```
 
-**13. Reconfigure searchbox component configuration**
+### Adjusting the Searchbox Component Configuration
 
-```typescript
+The `spartacussampledataaddon` AddOn adjusts the searchbox component configuration as follows:
+
+```sql
 INSERT_UPDATE SearchBoxComponent;uid;minCharactersBeforeRequest;maxProducts;maxSuggestions;waitTimeBeforeRequest;$contentCV[unique=true]
 ;SearchBox;0;5;5;0
 ```
 
-**14. CMS changes related to checkout**
+### Making CMS Changes Related to Checkout
 
-Please read this document for the [extending checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/extending-checkout/).
+The `spartacussampledataaddon` AddOn makes a number of CMS changes that are related to checkout. For more information, see [Extending Checkout]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
 
+### Making the Product Details Page CMS-Driven
 
-**15. To make "product details" page CMS driven, add more Content Slots and CMS components in it**
-
-In the `ProductDetails` template, we added one more `ProductSummarySlot` slot, which contains the following CMS components:
+The `spartacussampledataaddon` AddOn makes the `ProductDetails` template CMS-driven by adding another `ProductSummarySlot` slot, which contains the following CMS components:
 
 - `ProductIntroComponent`
 - `ProductImagesComponent`
