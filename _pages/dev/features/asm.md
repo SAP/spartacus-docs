@@ -122,9 +122,154 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 https://{hostname}/electronics-spa/en/USD/?asm=true
 ```
 
-## Spartacus ASM aware development guidelines
+## Update custom services to support ASM.
 
-Before ASM was released, the occ userId used for an authenticated user was the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
+If you use a custom service that extends one of these classes:
+
+- UserService
+- UserAddressService
+- UserConsentService
+- UserOrderService
+- UserPaymentService
+
+You need to update their constructor in order to support ASM in your storefront.
+
+If during customer emulation the storefront displays the error message: `Cannot find user with propertyValue 'current'`, it is very likely that you use custom services that need to be updated to support ASM.
+
+The update consists of adding a dependency to AuthService in the constructor and pass it down to super(). The constructors that don't have AuthService are now deprecated.
+
+Beyond the constructor update, you may need to update your custom functions to support ASM as well. See the section called `How to write ASM compatible code` for details.
+
+### Update UserService Subclasses
+
+#### Custom service
+
+```typescript
+export class CustomUserService extends UserService {
+  constructor(store: Store<StateWithUser | StateWithProcess<void>>) {
+    super(store);
+  }
+}
+```
+
+#### Custom service updated to support ASM.
+
+```typescript
+export class CustomUserService extends UserService {
+  constructor(
+    store: Store<StateWithUser | StateWithProcess<void>>,
+    authService: AuthService
+  ) {
+    super(store, authService);
+  }
+}
+```
+
+### Update UserAddressService Subclasses
+
+#### Custom service
+
+```typescript
+export class CustomUserAddressService extends UserAddressService {
+  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
+    super(store);
+  }
+}
+```
+
+#### Custom service updated to support ASM.
+
+```typescript
+export class CustomUserAddressService extends UserAddressService {
+  constructor(
+    protected store: Store<StateWithUser | StateWithProcess<void>>,
+    protected authService: AuthService
+  ) {
+    super(store, authService);
+  }
+}
+```
+
+### Update UserConsentService Subclasses
+
+#### Custom service
+
+```typescript
+export class CustomUserConsentService extends UserConsentService {
+  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
+    super(store);
+  }
+}
+```
+
+#### Custom service updated to support ASM.
+
+```typescript
+export class CustomUserConsentService extends UserConsentService {
+  constructor(
+    protected store: Store<StateWithUser | StateWithProcess<void>>,
+    protected authService: AuthService
+  ) {
+    super(store, authService);
+  }
+}
+```
+
+### Update UserOrderService Subclasses
+
+#### Custom service
+
+```typescript
+export class CustomUserOrderService extends UserOrderService {
+  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
+    super(store);
+  }
+}
+```
+
+#### Custom service updated to support ASM.
+
+```typescript
+export class CustomUserOrderService extends UserOrderService {
+  constructor(
+    protected store: Store<StateWithUser | StateWithProcess<void>>,
+    protected authService: AuthService
+  ) {
+    super(store, authService);
+  }
+}
+```
+
+### Update UserPaymentService Subclasses
+
+#### Custom service
+
+```typescript
+export class CustomUserPaymentService extends UserPaymentService {
+  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
+    super(store);
+  }
+}
+```
+
+#### Custom service updated to support ASM.
+
+```typescript
+export class CustomUserPaymentService extends UserPaymentService {
+  constructor(
+    protected store: Store<StateWithUser | StateWithProcess<void>>,
+    protected authService: AuthService
+  ) {
+    super(store, authService);
+  }
+}
+```
+
+## How to write ASM compatible code.
+
+Writing ASM compatible code is all about using the function `getOccUserId()` from the `AuthService` to determine the userId used in occ calls.
+
+Before ASM was released, the occ userId in requests on the behalf of an authenticated user was the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
 
 ```typescript
   load(): void {
@@ -132,7 +277,7 @@ Before ASM was released, the occ userId used for an authenticated user was the s
   }
 ```
 
-Now that Spartacus supports ASM, the correct way to determine the occ userId is to call AuthService.getOccUserId(). If we fix the previous example, it becomes:
+Now that Spartacus supports ASM, the correct way to determine the occ userId is to call AuthService.getOccUserId(). When we update the previous example, we get:
 
 ```typescript
 
@@ -165,10 +310,10 @@ The start time for the customer support agent session timer has a default value 
 B2cStorefrontModule.withConfig({
   asm: {
     agentSessionTimer: {
-      startingDelayInSeconds: 600,
-    },
-  },
-})
+      startingDelayInSeconds: 600
+    }
+  }
+});
 ```
 
 ### asm.customeSearch.maxResults
@@ -179,10 +324,10 @@ The number of results in the asm customer search can be customized in spartacus 
 B2cStorefrontModule.withConfig({
   asm: {
     customeSearch: {
-      maxResults: 20,
-    },
-  },
-})
+      maxResults: 20
+    }
+  }
+});
 ```
 
 ## Extending
