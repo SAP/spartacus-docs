@@ -267,7 +267,7 @@ export class CustomUserPaymentService extends UserPaymentService {
 
 ## How to write ASM compatible code.
 
-Writing ASM compatible code is all about using the function `getOccUserId()` from the `AuthService` to determine the userId used in occ calls.
+Writing ASM compatible code is all about using the function `getOccUserId()` from the `AuthService` to determine the userId used in occ calls. This is typically done in a service that dispatches and action containing the userId in the payload.
 
 Before ASM was released, the occ userId in requests on the behalf of an authenticated user was the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
 
