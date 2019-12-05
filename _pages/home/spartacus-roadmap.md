@@ -88,12 +88,17 @@ Some items have notes, for example **(1)** or **(2)**
 ## Planned for Rest of Q1 2020
 
 *Exact dates to be determined*
-
-A new major (2.0) is planned for mid-Q1 2020, primarily due to support for Angular 9 and the new Ivy rendering engine. The release of a new major version of Spartacus means that the code contains breaking changes. Some features may be released earlier depending on timing.
-
   
 
 #### Archictecture and Development Features
+  
+A new major (2.0) is planned for mid-Q1 2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine. The release of a new major version of Spartacus means that the code contains breaking changes. Some features may be released earlier depending on timing.
+
+For upgrading to Spartacus 2.0, we’re working on a transition that will easy as possible. Typically we expect the update process to span as little as one hour, to at most one day, if being done by an experienced Angular developer.
+  
+There will be an update command (on top of Angular’s update command) that should take care of most changes automatically, including low-level changes. However, the exception might be if code has been extended or replaced by customers. Not all updates will be taken care of automatically, so we will be looking for feedback as release candidates are published.
+  
+Note: One low-level area to avoid at the moment is the Cart, as it is going through a refactor for 2.0 release.
 
 - Move to Angular 9 (aiming for February 2020)
   - Schematics update for supporting migration
