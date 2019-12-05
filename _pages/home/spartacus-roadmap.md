@@ -54,7 +54,7 @@ Some items have notes, for example **(1)** or **(2)**
 
 #### Core/B2C Storefront Features
 
-- Variants support, as seen in the Apparel store 
+- Product Variants support, as seen in the Apparel store 
   (not the same as B2B multi-dimensional support, as seen in the Powertools store) 
   [SAP Commerce Documentation](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html)
 - Apparel sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
@@ -184,8 +184,8 @@ The items in this section are on our future roadmap - not necessarily in Q2 2020
 - PWA Features as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist) such as 
 mobile notifications
 - Credit-card auto-detect
-- Configurable products
-  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/478f616a46f84d668f8cd42c0259cdf0.html)
+- Variant Configuration and Pricing
+  [SAP Commerce Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/528b7395bc314999a01e3560f2bdc069.html)
 - Spartacus for China (similar to [Accelerator for China](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8b258c36866910148298d20518a62a16.html))
 - Multi-Dimensional product support for B2C/Core <sup>(2)</sup>
 - Assisted Service Module customer 360° view <sup>(2)</sup>
