@@ -44,18 +44,16 @@ The store locator is enabled by default.
 
 ### Disabling the Store Locator
 
-You can disable the store locator by removing `StoreFinderModule` from the imports in `projects\storefrontlib\src\cms-components\cms-lib.module.ts`.
-
-You can also disable the store locator by removing the **Find a Store** link in the header, and by deleting the **StoreFinder Page** in Backoffice, as described in the following procedure:
+You can disable the store locator by removing the **Find a Store** link in the header, and by deleting the **StoreFinder Page** in Backoffice, as described in the following procedure:
 
 1. Import the following impex:
 
-    ```
-    INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];visible
-    ;;StoreFinderLink;false
-    ```
+   ```
+   INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];visible
+   ;;StoreFinderLink;false
+   ```
 
-    This removes the **Find a Store** link from the header.
+   This removes the **Find a Store** link from the header.
 
 1. Log in to Backoffice as an administrator.
 
@@ -69,11 +67,9 @@ You can also disable the store locator by removing the **Find a Store** link in 
 
 1. Click **Save**.
 
-    You have now disabled the store locator.
-    
-    After you have disabled the store locator, if a customer tries to directly access the store locator URL, Spartacus returns a 404 error.
+   You have now disabled the store locator.
 
-
+   After you have disabled the store locator, if a customer tries to directly access the store locator URL, Spartacus returns a 404 error.
 
 ## Further Reading
 
