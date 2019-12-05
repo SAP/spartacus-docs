@@ -46,16 +46,15 @@ The store locator is enabled by default.
 
 You can disable the store locator by removing the **Find a Store** link in the header, and by deleting the **StoreFinder Page** in Backoffice, as described in the following procedure:
 
-1. Import the following impex:
+1. Log in to Backoffice as an administrator.
 
-   ```
-   INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];visible
-   ;;StoreFinderLink;false
-   ```
+1. In the left sidebar of Backoffice, select **WCMS ––> Component**.
+
+1. Use the advanced search to find component with ID: `StoreFinderLink`
+
+1. Select the one in the appropriate catalog and set its visibility to: false.
 
    This removes the **Find a Store** link from the header.
-
-1. Log in to Backoffice as an administrator.
 
 1. In the left sidebar of Backoffice, select **WCMS ––> Page**.
 
