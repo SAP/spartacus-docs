@@ -184,16 +184,11 @@ The items in this section are on our future roadmap - not necessarily in Q2 2020
 - PWA Features as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist) such as 
 mobile notifications
 - Credit-card auto-detect
-- Variant Configuration and Pricing
-  [SAP Commerce Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/528b7395bc314999a01e3560f2bdc069.html)
 - Spartacus for China (similar to [Accelerator for China](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8b258c36866910148298d20518a62a16.html))
-- Multi-Dimensional product support for B2C/Core <sup>(2)</sup>
 - Assisted Service Module customer 360° view <sup>(2)</sup>
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html) 
 - Self-service customer support through the Customer Service Module <sup>(2)</sup>
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
-- Configurable bundles <sup>(2)</sup>
-  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
 
   
 
@@ -216,8 +211,12 @@ mobile notifications
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
 - B2B Product Import and Export Cart<sup>(1)</sup> (from/to files)
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) 
+- Variant Configuration and Pricing
+  [SAP Commerce Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/528b7395bc314999a01e3560f2bdc069.html)
 - B2B Commerce Quotes<sup>(2)</sup>
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html) 
+- Configurable bundles <sup>(2)</sup>
+  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
 
 
 
