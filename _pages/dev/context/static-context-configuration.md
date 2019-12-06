@@ -1,5 +1,5 @@
 ---
-title: Static Context Configuration
+title: Static Multi-Site Configuration
 ---
 
 You can configure your application by defining `context` properties, such as base site, language, and currency. When you append the values of these properties to the storefront URL, the storefront is configured based on these values.

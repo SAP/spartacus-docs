@@ -116,12 +116,12 @@ docs:
                   url: /early-login/
           - title: 'Configuring the Base URL'
             url: /configuring-base-url/
-          - title: 'Context Configuration'
+          - title: 'Multi-Site Configuration'
             url: /context-configuration/
             subchildren:
-                - title: 'Automatic Context Configuration'
+                - title: 'Automatic Multi-Site Configuration'
                   url: /automatic-context-configuration/
-                - title: 'Static Context Configuration'
+                - title: 'Static Multi-Site Configuration'
                   url: /static-context-configuration/
           - title: 'PWA'
             url: /pwa-home/

@@ -1,5 +1,5 @@
 ---
-title: Automatic Context Configuration
+title: Automatic Multi-Site Configuration
 ---
 
 {% capture version_note %}
