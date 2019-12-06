@@ -168,7 +168,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
         fallbackLang: 'en'
       },
       features: {
-        level: '1.2'
+        level: '1.3'
       }
     }),
    ```
@@ -209,7 +209,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
            fallbackLang: 'en'
          },
          features: {
-           level: '1.2'
+           level: '1.3'
          }
        }),
      ],
