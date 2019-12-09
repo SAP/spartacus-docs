@@ -89,3 +89,100 @@ When Spartacus identifies the site from the URL, it is often the case that the U
 
   - `ng serve --host electronics.localhost`
   - `ng serve --disable-host-check`
+
+## How to add custom context
+
+The site context persisted in the URL might be something different than a simply an isocode of currency or language. For example it can be a formatted language (using uppercase letters, or with underscores instead of dashes). Then a custom service `SiteContext<T>` can be implemented. It needs to be registered in `ContextServiceMap` and reflected in the config of `context` and `context.urlParameters`.
+
+Here is an example code of a custom site context that is simply the language isocode, but formatted uppercase.
+
+The implementation of custom context service:
+
+```typescript
+export function languageToCustom(lang: string): string {
+  return lang && lang.toUpperCase();
+}
+
+export function custom2Language(country: string): string {
+  return country && country.toLowerCase();
+}
+
+@Injectable({ providedIn: 'root' })
+export class CustomContextService implements SiteContext<string> {
+  constructor(protected langService: LanguageService) {}
+
+  getActive(): Observable<string> {
+    return this.langService.getActive().pipe(map(languageToCustom));
+  }
+
+  setActive(country: string): void {
+    this.langService.setActive(custom2Language(country));
+  }
+
+  getAll(): Observable<string[]> {
+    return this.langService
+      .getAll()
+      .pipe(
+        map(languages => languages.map(lang => languageToCustom(lang.isocode)))
+      );
+  }
+}
+```
+
+If you are using automatic site configuration, additionally you need to:
+
+1. add in CMS (backoffice) the _URL encoding attribute_ named `custom`
+2. extend the dynamic Spartacus configuration of `context` to contain the key `custom`:
+
+    ```typescript
+    @Injectable()
+    export class CustomOccConfigLoaderService extends OccConfigLoaderService {
+      protected getConfigChunks(
+        externalConfig: OccLoadedConfig
+      ): (I18nConfig | SiteContextConfig)[] {
+        // calculate config chunks
+        const chunks = super.getConfigChunks(externalConfig);
+
+        // take the chunk with SiteContextConfig (which is the first one in the array)
+        const contextConfig = (chunks[0] as SiteContextConfig).context;
+
+        // define possible values of custom context deriving from languages' iso codes
+        contextConfig.custom = contextConfig[LANGUAGE_CONTEXT_ID].map(
+          languageToCustom
+        );
+
+        return chunks;
+      }
+    }
+    ```
+
+Finally you need to provide the `ContextServiceMap` containing the custom context service, i.e. in your app module (if you implemented custom `OccConfigLoaderService`, it also needs being provided):
+
+```typescript
+export function serviceMapFactory() {
+  return {
+    [LANGUAGE_CONTEXT_ID]: LanguageService,
+    [CURRENCY_CONTEXT_ID]: CurrencyService,
+    [BASE_SITE_CONTEXT_ID]: BaseSiteService,
+    custom: CustomContextService,
+  };
+}
+
+@NgModule({
+  /* ... */
+  providers: [
+    {
+      provide: ContextServiceMap,
+      useFactory: serviceMapFactory,
+    },
+    {
+      provide: OccConfigLoaderService,
+      useClass: CustomOccConfigLoaderService,
+    },
+  ],
+/*...*/
+```
+
+Then you should be able to see your URL with language uppercase (i.e. `www.site.com/EN`), but use standard languages in your application with lowercase.
+
+Above technique can be applied to implement any custom site context.
