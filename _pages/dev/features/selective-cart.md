@@ -18,17 +18,7 @@ For more information, see [Selective Cart Architecture](https://help.sap.com/vie
 
 ## Enabling Selective Cart
 
-The selective cart feature has a `selectiveCart` feature flag that allows you to enable or disable the feature, as follows:
-
-```typescript
-features: {
-   selectiveCart: true
-}
-```
-
-This feature is enabled automatically for feature level 1.2 and above.
-
-For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
+The selective cart feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
 
 
 ## Configuring
