@@ -23,10 +23,10 @@ The selective cart feature has corresponding CMS-component data in the back end 
 
 ## Configuring
 
-No special configuration needed. (if there's any, create a new topic and add a link here.)
+No special configuration needed. 
 
 
 ## Extending
 
-No special extensibility available for this feature. (if there's any, create a new topic and add a link here.)
+No special extensibility available for this feature. 
 
