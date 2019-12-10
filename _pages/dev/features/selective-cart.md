@@ -2,7 +2,7 @@
 title: Selective Cart (DRAFT)
 ---
 
-## Intro
+## Overview
 
 The selective cart feature allows customers to select what items in the cart for checking out, while leaving other items remain in the cart for future considerations, thus improving shopping experience and increasing conversion rate.
 
