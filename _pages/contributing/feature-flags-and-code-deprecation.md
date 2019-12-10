@@ -140,11 +140,27 @@ To achieve that, just add your flag to `FeatureToggles` interface in `feature-to
     To achieve that, provide default value for a feature flag as a string representing feature level. You can add this config to your module configuration:
     
     ```typescript
-        ConfigModule.withConfig({
-          // ...
-          features: {
-            consignmentTracking: '1.1',
-          },
-        })
+    ConfigModule.withConfig({
+      // ...
+      features: {
+        consignmentTracking: '1.1',
+      },
+    })
     ```
     In above example, consignment tracking feature will be enabled by default, if feature level is at least '1.1'.
+    
+    Note: For latest possible level of features, you can use latest (`*`) flag:
+    
+    ```typescript
+    features: {
+      level: '*'
+    }
+    ```
+
+4. Disabling feature for certain feature level.
+    
+    There might be situations where you want to disable certain feature. Negation functionality might be handy here:
+    
+    ```typescript
+    <newComponent *cxFeatureLevel="'!1.1'"></newComponent>
+    ```
