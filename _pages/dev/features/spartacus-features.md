@@ -9,3 +9,4 @@ This is a landing page for grouping together Spartacus Features topics. The Spar
 - [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
 - [Coupons]({{ site.baseurl }}{% link _pages/dev/features/coupons.md %})
 - [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %})
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %})

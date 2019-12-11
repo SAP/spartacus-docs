@@ -63,6 +63,8 @@ docs:
                   url: /coupons/
                 - title: 'Store Locator'
                   url: /store-locator/
+                - title: "Token Revocation"
+                  url: /token-revocation/  
           - title: 'Security Best Practices'
             url: /security-best-practices/
           - title: 'Styling and Page Layout'
