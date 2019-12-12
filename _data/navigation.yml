@@ -63,6 +63,8 @@ docs:
                   url: /coupons/
                 - title: "Customer Interests"
                   url: /customer-interests/
+                - title: "Notification Preferences"
+                  url: /notification-preferences/  
                 - title: "Stock Notification"
                   url: /stock-notification/  
                 - title: 'Store Locator'
