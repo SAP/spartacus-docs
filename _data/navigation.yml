@@ -62,7 +62,9 @@ docs:
                 - title: 'Coupons'
                   url: /coupons/
                 - title: "Customer Interests"
-                  url: /customer-interests/  
+                  url: /customer-interests/
+                - title: "Stock Notification"
+                  url: /stock-notification/  
                 - title: 'Store Locator'
                   url: /store-locator/
                 - title: "Token Revocation"
