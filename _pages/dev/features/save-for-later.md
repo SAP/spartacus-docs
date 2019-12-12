@@ -16,7 +16,7 @@ For more information, see [Selective Cart Architecture](https://help.sap.com/vie
 
 ## Enabling Save for Later
 
-The save for later feature has corresponding CMS-component data stored in the `spartarcussampledataaddon` AddOn that allows you to enable or disable the feature..
+The save for later feature has corresponding CMS-component data stored in the `spartarcussampledataaddon` AddOn that allows you to enable or disable the feature.
 
 
 ## Configuring
