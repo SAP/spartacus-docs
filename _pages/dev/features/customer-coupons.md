@@ -9,9 +9,7 @@ The customer coupons feature provides a range of features for a promotion campai
 
 The customer coupon feature requires the following extensions to work:
 
--  
--  
--  
+-  customercouponoccaddon AddOn
 
 For more information, see [Customer Coupon Architecture](https://help.sap.com/viewer/DRAFT/4e9e1795f3e04125b3e0206dfefbf3a9/1905/en-US/97d91d0c7c3449e6ba4412d721535d6a.html) in the SAP Help Portal.
 
