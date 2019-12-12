@@ -15,7 +15,7 @@ For more information, see [Customer Coupon Architecture](https://help.sap.com/vi
 
 ## Enabling Customer Coupons
 
-The customer coupon feature has corresponding CMS-component data stored in the `spartarcussampledataaddon` AddOn that allows you to enable or disable the feature.
+The customer coupon feature has corresponding CMS-component data in the `spartarcussampledataaddon` AddOn that allows you to enable or disable the feature.
 
 
 ## Configuring
