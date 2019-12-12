@@ -16,7 +16,7 @@ Due to technical limitation at the moment it is only possible for a user to have
 
 The wish list feature is enabled by default in Spartacus.
 
-Since the feature is CMS driven, the only way to disable it is through the backend. To do so the following changes should be made to the Spartacussampledataaddon or your custom addon:
+Since the feature is CMS driven, the only way to disable it is through the CMS. To do so the following changes should be made to the Spartacussampledataaddon or your custom addon:
 
 1. Remove the WishListLink
    `;;WishListLink;Wish List Link;/my-account/wishlist;WishListLink;WishListLink;;loggedInUser`
