@@ -16,7 +16,7 @@ For more information, see [Selective Cart Architecture](https://help.sap.com/vie
 
 ## Enabling Save for Later
 
-The save for later feature has corresponding CMS-component data that allows you to enable or disable the feature. This configuration is provided in the `B2cStorefrontModule`.
+The save for later feature has corresponding CMS-component data that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
 
 Besides, you need to configure the `saveForLater` feature flag in order to enable or disable the feature, as follows:
 
