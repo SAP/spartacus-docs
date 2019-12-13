@@ -13,6 +13,9 @@ docs:
             url: /
           - title: 'Release Information'
             url: /release-information/
+            subchildren:
+                - title: "Pre-Release Information"
+                  url: /pre-release-information/
           - title: 'Spartacus Videos'
             url: /spartacus-videos/
           - title: 'Spartacus Roadmap'
