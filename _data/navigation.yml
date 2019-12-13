@@ -70,7 +70,9 @@ docs:
                 - title: 'Store Locator'
                   url: /store-locator/
                 - title: "Token Revocation"
-                  url: /token-revocation/  
+                  url: /token-revocation/
+                - title: "Wish List"
+                  url: /wish-list/  
           - title: 'Security Best Practices'
             url: /security-best-practices/
           - title: 'Styling and Page Layout'
