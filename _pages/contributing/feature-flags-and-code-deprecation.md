@@ -134,11 +134,11 @@ To achieve that, just add your flag to `FeatureToggles` interface in `feature-to
     
     In this way you can also add description to the flag or even deprecation annotation, if needed. 
 
-3. Linking feature flag to feature level
+3. Linking the feature flag to the feature level.
 
-    By linking your feature flag to feature level, you'll get your flag enabled by default for this and all above levels.
+    By linking your feature flag to the feature level, you'll get your flag enabled by default for this and all above levels.
     To achieve that, provide default value for a feature flag as a string representing feature level. You can add this config to your module configuration:
-    
+  
     ```typescript
     ConfigModule.withConfig({
       // ...
@@ -147,20 +147,21 @@ To achieve that, just add your flag to `FeatureToggles` interface in `feature-to
       },
     })
     ```
-    In above example, consignment tracking feature will be enabled by default, if feature level is at least '1.1'.
-    
-    Note: For latest possible level of features, you can use latest (`*`) flag:
-    
+
+    In the above example, the consignment tracking feature is enabled by default if the feature level is set to at least `'1.1'`.
+  
+    **Note:** If you want your feature level to always be set to the most recent version, you can use the latest flag (`'*'`), as follows:
+
     ```typescript
     features: {
       level: '*'
     }
     ```
 
-4. Disabling feature for certain feature level.
-    
-    There might be situations where you want to disable certain feature. Negation functionality might be handy here:
-    
+4. Negation functionality: disabling a feature for a specific feature level.
+
+    You can disable a feature for a specific feature level by including an exclamation mark (`!`) before the version number. The following is an example:
+
     ```typescript
     <newComponent *cxFeatureLevel="'!1.1'"></newComponent>
     ```
