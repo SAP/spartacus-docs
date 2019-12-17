@@ -1,3 +1,5 @@
 ---
 title: Merchandising Carousels
 ---
+
+**Note** 
