@@ -61,6 +61,8 @@ docs:
                   url: /consignment-tracking/
                 - title: 'Coupons'
                   url: /coupons/
+                - title: 'Context-Driven Merchandising Carousels'
+                  url: /cds-merchandising-carousels/
                 - title: "Customer Interests"
                   url: /customer-interests/
                 - title: "Notification Preferences"

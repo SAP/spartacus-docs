@@ -1,5 +1,5 @@
 ---
-title: Merchandising Carousels
+title: Context-Driven Merchandising Carousels
 ---
 
 **Note:** This feature is part of the Context-Driven Merchandising module introduced in Spartacus version 1.5.
