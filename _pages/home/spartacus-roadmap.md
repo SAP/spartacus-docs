@@ -2,7 +2,7 @@
 title: Spartacus Roadmap
 ---
 
-*Last updated December 3, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated December 18, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what what is planned for Spartacus for end of 2019 and into 2020.
 
@@ -39,66 +39,66 @@ Some items have notes, for example **(1)** or **(2)**
   
   
 
-## Planned for 1.4 – December 2019
+## Planned for 1.4 – Early January 2020
 
-*Scheduled for approximately third week of December 2019*
-
-  
+*Final release scheduled for early January 2020, with pre-release 'next' libraries published in December 2019*
 
 #### Architecture and Development Features
 - Performance improvements when loading product data
 - Token revocation (requires November patch release of SAP Commerce 1905)
 - Multi-cart handling (internal service)
-- Custom component schematics
-  
+- Schematics library release, includes custom component schematics
+
+#### Core/B2C Storefront Features
+- Wishlist (dedicated wishlist for bookmarking products)
+- Cancellations and Returns<sup>(1)</sup>
+  SAP Commerce Documentation: [Cancellations](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/22e69b8fc4884d5eb58c39b97b3322fb.html) [Returns](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/2b6fea0f5f61481f86af205c7c7e9b61.html) 
+- Back-in-stock notifications
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/2ad0f5f1bbcc47dfbba4f5cd7c6394c1.html)
+
+
+
+
+## Planned for 1.5 - Late January 2020
+
 
 #### Core/B2C Storefront Features
 
 - Product Variants support, as seen in the Apparel store 
   (not the same as B2B multi-dimensional support, as seen in the Powertools store) 
-  [SAP Commerce Documentation](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html)
-- Apparel sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
-- Wishlist (dedicated wishlist for bookmarking products)
-- Self-service Cancellations and Returns<sup>(1)</sup>
-  SAP Commerce Documentation: [Cancellations](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/22e69b8fc4884d5eb58c39b97b3322fb.html) [Returns](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/2b6fea0f5f61481f86af205c7c7e9b61.html) 
-- Improvements to Applied Promotions (per entry in cart)
-- Selective Cart (save items in cart for later)
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/58837af020d346df84773bd2ea75fd69.html) 
-- Back-in-stock notifications
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/2ad0f5f1bbcc47dfbba4f5cd7c6394c1.html)
+  [SAP Commerce Documentation](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html) + Apparel sample data modified to work with Spartacus (requires latest spartacussampledataaddon)
+  
 - Context-Driven Services (CDS) and the associated Merchandising Component
   [SAP Commerce Documentation](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) 
+  
+- Improvements to Applied Promotions (per entry in cart)
+
+- Selective Cart (save items in cart for later)
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/58837af020d346df84773bd2ea75fd69.html) 
+  
+- Customer Coupons
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/7f8304a85bf24db0bfc5cf3b057ae322.html)
+  
+- Accessibility Keyboarding: Group Skipping (WCAG 2.0, 2.4.1, Level A, Bypass Blocks)
+
+
 
   
 
-## Planned for 1.5 - January 2020
+## Planned for Rest of Q1 2020
 
+*Exact dates to be determined*
 
+A new major (2.0) is planned for mid-Q1 2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine. The Accessibility features will also be part of the 2.0 release. The release of a new major version of Spartacus means that the code contains breaking changes.
 
 #### Keyboarding-Related Accessibility Features
 
 - Full Keyboard Support (WCAG 2.0, 2.1.1, Level A, Keyboard; WCAG 2.0, 2.1.2, Level A, No Keyboard Trap)
 - Consistent Navigation (WCAG 2.0, 3.2.3, Level AA, Consistent Navigation)
 - Tabbing/Reading Order (WCAG 2.0, 2.4.3, Level A, Focus Order)
-- Group Skipping (WCAG 2.0, 2.4.1, Level A, Bypass Blocks)
 - Focus Visible (WCAG 2.0, 2.4.7, Level AA, Focus Visible)
 
-
-
-## Planned for Rest of Q1 2020
-
-*Exact dates to be determined*
-  
-
-#### Archictecture and Development Features
-  
-A new major (2.0) is planned for mid-Q1 2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine. The release of a new major version of Spartacus means that the code contains breaking changes. Some features may be released earlier depending on timing.
-
-For upgrading to Spartacus 2.0, we’re working on a transition that will easy as possible. Typically we expect the update process to span as little as one hour, to at most one day, if being done by an experienced Angular developer.
-  
-There will be an update command (on top of Angular’s update command) that should take care of most changes automatically, including low-level changes. However, the exception might be if code has been extended or replaced by customers. Not all updates will be taken care of automatically, so we will be looking for feedback as release candidates are published.
-  
-Note: One low-level area to avoid at the moment is the Cart, as it is going through a refactor for 2.0 release.
+#### Move to Angular 9 / Ivy
 
 - Move to Angular 9 (aiming for February 2020)
   - Schematics update for supporting migration
@@ -111,31 +111,24 @@ Note: One low-level area to avoid at the moment is the Cart, as it is going thro
 
 Stretch for 2.0 release:
 - Extensibility Improvements (Sproutlets)
-
 - Session Management (for better handling of authentication)
-
 - Fetch Multiple CMS
-
 - Directionality (for right-to-left display support)
-
 - Performance improvements: Incremental loading of CMS data, the ability to fetch multiple CMS components at once, lazy loading, and above-the-folder UI loading
-
 - Removal of ng Bootstrap
-
 - Angular I18N support
 
-  
+#### Upgrading to 2.0 Notes ####
 
-  
+For upgrading to Spartacus 2.0, we’re working on a transition that will easy as possible. Typically we expect the update process to span as little as one hour, to at most one day, if being done by an experienced Angular developer.
 
-#### Core/B2C Storefront Features
+There will be an update command (on top of Angular’s update command) that should take care of most changes automatically, including low-level changes. However, the exception might be if code has been extended or replaced by customers. Not all updates will be taken care of automatically, so we will be looking for feedback as release candidates are published.
 
-- Buy it again (add to cart from existing order)
+Note: One low-level area to avoid at the moment is the Cart, as it is going through a refactor for 2.0 release.
 
+ 
 
-  
-
-  
+## Planned for Q2 2020
 
 #### B2B Storefront MVP
 
@@ -143,14 +136,36 @@ Stretch for 2.0 release:
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company)
 - B2B Checkout (check out by account, enter purchase order, select cost center, shipping address restricted by cost center chosen, subject to approval process)
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html)
+  
+
+B2B Stretch for Q2 2020:
+
+- B2B Quick Order
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
+- B2B Scheduled replenishment<sup>(1)</sup>
+  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) 
+- B2B Saved Carts
+  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/4d094e78a5494963b2d66148167f0553.html?q=saved%20carts)
+- B2B Future Stock<sup>(1)</sup>
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
+- Inventory Display<sup>(1)</sup>
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) 
+- Bulk Price List
+- Re-order <sup>(1)</sup>
 
 
+#### Core/B2C Storefront Features
+
+- Buy it again (add to cart from existing order)
+- Captcha <sup>(1)</sup>
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html) 
+- Potential Promotions <sup>(1)</sup>
 
   
 
-## Future Outlook
+## Future Outlook - Q3 2020 and Later
 
-The items in this section are on our future roadmap - not necessarily in Q2 2020 or another specific quarter, but order of priority indicates what we'll tackle first.
+The items in this section are on our future roadmap - not necessarily in Q3 2020 or another specific quarter, but order of priority indicates what we'll tackle first.
 
   
 
@@ -171,13 +186,8 @@ The items in this section are on our future roadmap - not necessarily in Q2 2020
 
 - Buy online pickup in store
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
-- Captcha <sup>(1)</sup>
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html) 
-- Potential Promotions <sup>(1)</sup>
 - Assisted Service Module customer list
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
-- Customer Coupons
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/7f8304a85bf24db0bfc5cf3b057ae322.html)
 - Accessibility features
 - Payments Request API ([W3 Documentation](https://www.w3.org/TR/payment-request/))
 - Credentials API
@@ -195,18 +205,6 @@ mobile notifications
 #### B2B Storefront Features
 
 - Multi-Dimensional Products support
-- B2B Quick Order
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
-- B2B Scheduled replenishment<sup>(1)</sup>
-  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) 
-- B2B Saved Carts
-  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/4d094e78a5494963b2d66148167f0553.html?q=saved%20carts)
-- B2B Future Stock<sup>(1)</sup>
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
-- Inventory Display<sup>(1)</sup>
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) 
-- Bulk Price List
-- Re-order <sup>(1)</sup>
 - B2B Order Form Builder
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
 - B2B Product Import and Export Cart<sup>(1)</sup> (from/to files)
@@ -217,6 +215,7 @@ mobile notifications
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html) 
 - Configurable bundles <sup>(2)</sup>
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
+
 
 
 
