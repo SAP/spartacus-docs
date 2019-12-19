@@ -51,6 +51,8 @@ docs:
       children:
           - title: 'Storefront Development FAQ'
             url: /storefront-development-faq/
+          - title: 'Spartacus Public APIs'
+            url: /spartacus-public-apis/  
           - title: 'Global Configuration in Spartacus'
             url: /global-configuration-in-spartacus/
           - title: 'Spartacus Features'
