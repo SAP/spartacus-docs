@@ -90,7 +90,7 @@ When Spartacus identifies the site from the URL, it is often the case that the U
   - `ng serve --host electronics.localhost`
   - `ng serve --disable-host-check`
 
-## How to add custom context
+## How to add custom context (DRAFT)
 
 The site context persisted in the URL might be something different than a simply an isocode of currency or language. For example it can be a formatted language (using uppercase letters, or with underscores instead of dashes). Then a custom service `SiteContext<T>` can be implemented. It needs to be registered in `ContextServiceMap` and reflected in the config of `context` and `context.urlParameters`.
 
@@ -131,8 +131,8 @@ export class CustomContextService implements SiteContext<string> {
 
 If you are using automatic site configuration, additionally you need to:
 
-1. add in CMS (backoffice) the _URL encoding attribute_ named `custom`
-2. extend the dynamic Spartacus configuration of `context` to contain the key `custom`:
+1. Add in CMS (Backoffice) the _URL encoding attribute_ named `custom`.
+2. Extend the dynamic Spartacus configuration of `context` to contain the key `custom`:
 
     ```typescript
     @Injectable()
