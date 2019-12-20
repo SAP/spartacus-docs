@@ -2,6 +2,12 @@
 title: Notification Preferences (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 ## Intro
 
 The notification preferences feature provides a page under user account for customers to set preferred channels for receiving notifications by activating and deactivating the corresponding switches. 

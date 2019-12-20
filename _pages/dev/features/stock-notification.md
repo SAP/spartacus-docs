@@ -2,6 +2,12 @@
 title: Stock Notification (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 ## Intro
 
 The stock notification feature allows customers to register product interests for receiving back-in-stock notifications, so that customers can buy interested products in time. 

@@ -6,6 +6,8 @@ title: Wish List (DRAFT)
 {{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
 {% endcapture %}
 
+{% include docs/feature_version.html content=version_note %}
+
 The Wish List feature lets users save (or bookmark) products for later viewing.
 
 ## Limitations
