@@ -25,6 +25,20 @@ By default, feature level is set to latest major version (i.e. 1.0). To make use
 
 Each consecutive feature level contains all of the features from previous one.
 
+If you want your feature level to always be set to the most recent version, you can use the latest flag (`'*'`), as follows:
+
+```typescript
+features: {
+  level: '*'
+}
+```
+
+You can also disable a feature for a specific feature level by including an exclamation mark (`!`) before the version number. The following is an example:
+
+```typescript
+<newComponent *cxFeatureLevel="'!1.1'"></newComponent>
+```
+
 ## Feature flags
 
 Some important features can be selectively toggled using specific feature flags:
@@ -49,14 +63,14 @@ You can mix both feature level and feature flags:
     feature2: true
   }
 }
-``` 
- 
+```
+
 In the above example:
-   - feature level is set to `1.1`.
-   - If `feature1` is a part of `1.1` feature level, with feature flag you can selectively disable that feature while keeping '1.1' feature set.  
-   - If `feature2` is a part of `1.5` feature level, you can still enable it while keeping `1.1` feature set.
+
+    - feature level is set to `1.1`.
+    - If `feature1` is a part of `1.1` feature level, with feature flag you can selectively disable that feature while keeping '1.1' feature set.  
+    - If `feature2` is a part of `1.5` feature level, you can still enable it while keeping `1.1` feature set.
     
 ## **NOTE**:
 
-It is advised to additionally test your application when selectively enabling features. While we try to use feature flags for separate features, 
-we can't guarantee that all functionalites will work for all possible combinations of feature flags and feature levels. 
+It is advised to additionally test your application when selectively enabling features. While we try to use feature flags for separate features, we can't guarantee that all functionalities will work for all possible combinations of feature flags and feature levels.

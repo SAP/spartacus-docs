@@ -66,10 +66,18 @@ docs:
                   url: /consignment-tracking/
                 - title: 'Coupons'
                   url: /coupons/
+                - title: "Customer Interests"
+                  url: /customer-interests/
+                - title: "Notification Preferences"
+                  url: /notification-preferences/  
+                - title: "Stock Notification"
+                  url: /stock-notification/  
                 - title: 'Store Locator'
                   url: /store-locator/
                 - title: "Token Revocation"
-                  url: /token-revocation/  
+                  url: /token-revocation/
+                - title: "Wish List"
+                  url: /wish-list/  
           - title: 'Security Best Practices'
             url: /security-best-practices/
           - title: 'Styling and Page Layout'
