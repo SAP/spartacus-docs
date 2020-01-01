@@ -6,6 +6,30 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 If you have any questions, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
+## 1.5.0-NEXT.0
+
+Hello everyone!
+
+New pre-release NEXT libraries for 1.5 are now available, containing new features.
+
+**Note:** As of this time, 1.4.0 is still in RC phase. We plan to release 1.4.0 final in the next few weeks.
+
+Release 1.5.0-NEXT.0 contains the following features:
+
+- Support for Context Driven Services (CDS) with merchandising carousel. For more information on this feature, see the following:
+
+    - [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES) on the SAP Help Portal.
+    - [Integrating Context-Driven Services](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/feature/DOC-479/_pages/dev/cds-integration.md)
+    - [Context-Driven Merchandising Carousels](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/doc/GH-468/_pages/dev/features/cds-merchandising-carousels.md)
+
+- Improvements to Applied Promotions. Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
+
+- Bug fixes. This first NEXT release for 1.5 includes all bug fixes applied to 1.4.0-RC as well.
+
+For release notes, see [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
+
+More features to come for 1.5... Stay tuned!
+
 ## 1.4.0-RC.0
 
 Hello everyone! We’re proud to announce publication of the first 1.4 Release Candidate for our Spartacus libraries.
