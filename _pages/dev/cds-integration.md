@@ -1,18 +1,19 @@
-# Spartacus CDS
+# Spartacus Context-Driven Services
 
-Spartacus Storefront is a package that you can include in your application, which allows you to add storefront features that support [Context Driven Serices (CDS)](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US).
+Spartacus Storefront is a package that you can include in your application to add storefront features that support [Context Driven Serices](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US).
 
-## Using Spartacus CDS
+## Using Spartacus Context-Driven Services
 
-- Include the `CdsModule` in your `app.module.ts`
-- Configure your `environment.ts`
-  - Provide your storefront url in `occBaseUrl` e.g. `https://<YOUR_STOREFRONT_ORIGIN>`
-  - Provide the cds specific configuration. The `default-cds-config.ts` provides a good example. You will need to provide your CDS tenant in `tenant` and update the environemnt (stage, eu or us) in the `baseUrl` to the CDS environment your tenant is provisioned in.
-- Configure `data-smartedit-allow-origin` in your storefrontapp `index.html` e.g. `<YOUR_STOREFRONT_ORIGIN>`
+To start using Spartacus Context-Driven Services, follow these steps:
+1. Include the `CdsModule` in your `app.module.ts` file.
+2. Configure your `environment.ts` file.
+  - Provide your storefront URL in `occBaseUrl`. For example, `https://<YOUR_STOREFRONT_ORIGIN>`.
+  - Provide the configuration specific to Context-Driven Services. The `default-cds-config.ts` file serves as a good example. Provide your Context-Driven Services tenant in the `tenant` line and update the environment in the `baseUrl` line to the Context-Driven Services environment your tenant is provisioned in. The available environments are `stage`, `eu`, and `us`.
+3. Configure `data-smartedit-allow-origin` in your `index.html` storefrontapp. For example, `<YOUR_STOREFRONT_ORIGIN>`.
 
-## CDS Module
+## Context-Driven Services Module
 
-To enable the cds module in spartacus, add it to the list of imports in your root module, and create a CDSConfig by calling the 'withConfig' method. The following is an example:
+To enable the Context-Diven Services module in Spartacus, add it to the list of imports in your root module, and create a CDSConfig by calling the 'withConfig' method. See the following example for referene:
 
 ```ts
 @NgModule({
@@ -34,27 +35,23 @@ To enable the cds module in spartacus, add it to the list of imports in your roo
     ...
 ```
 
-## Merchandising
+## Context-Driven Merchandising
 
 ### CMS Component
 
-By using the b2c_acc_plus recipe in your EC storefront, and configuring Merchandising according to [Context-Driven Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/5c53aa7a578e48f186817211b4c87e72.html), then Merchandising is ready to work with Spartacus out of the box.
+Once you use the `b2c_acc_plus` recipe in your SAP Commerce storefront and configure Merchandising according to the instructions in [Context-Driven Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/5c53aa7a578e48f186817211b4c87e72.html), Merchandising is ready to work with Spartacus out of the box.
 
-To add a SAP Context-Driven Merchandising Carousel to a page following the steps: -
+To add a Context-Driven Merchandising carousel to a page, follow these steps:
 
-- Launch Smartedit.
-- Edit the page you wish to add a merchandising carousel to.
-- Click on the '+ Component' button in Smartedit.
-- You should see the 'SAP Context-Driven Merchandising Carousel' component, If you do not see if, please use the search box.
-- Drag and drop the component onto a content slot on the page.
-  - If the component doesn't drop when using 'Basic Edit' mode, then please switch to 'Advanced Edit' mode using the drop down in Smartedit.
-- Fill in the fields of the configuration window that will be displayed, including selecting a configured strategy from the 'Strategy' drop down box.
-- Click the 'Save' button.
-- The rendered merchandising carousel should now be visible in the page you're editing.
+1. Launch SmartEdit.
+2. Edit the page you want to add a merchandising carousel to.
+3. Click the **+ Component** button in SmartEdit. You should see the **SAP Context-Driven Merchandising Carousel** component. If you do not see it, use the search box.
+4. Drag and drop the component onto a content slot on the page. If the component does not drop in the 'Basic Edit' mode, switch to the 'Advanced Edit' mode using the dropdown in SmartEdit.
+- Fill in the fields of the configuration window that appears. Select a configured strategy from the **Strategy** dropdown menu.
+6. Click **Save** for the Merchandising carousel to appear on the page you are editing.
 
-OR
 
-If you know your strategyId and want to add the merchandising carousel yourself, then the following impex example will help you do this.
+If you know your `strategyId` and want to add the Merchandising carousel yourself, use the following impex example.
 
 ```
 # Homepage carousel
@@ -85,13 +82,13 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 ;;SLRCamerasBottomHeaderSlot;SLRCategoryPageE2EMerchandisingCarousel
 ```
 
-**Note:** The above snippet are examples of places where you create and place the carousel in a slot. You can place the CMS component at any slot if it allows it.
+**Note:** The above snippet includes examples of locations where you can create and place the carousel in a slot. You can place the CMS component in any slot if it allows it.
 
-## Profiletag
+## Profile Tag
 
 ### CMS Component
 
-To enable profiletag, a CMSFlexComponent named 'ProfileTagComponent' will need to be created in the catalog. This component will then need to be placed into the footer. The following impex accomplishes this:
+To enable Profile Tag, you need to create a CMSFlexComponent called `ProfileTagComponent` in the catalog, and place it in the footer. To accomplish this, use the following impex.
 
 ```
 $contentCatalog=electronics-spaContentCatalog
@@ -103,11 +100,11 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 ;;FooterSlot;ProfileTagComponent
 ```
 
-This will create the component in the 'Staged' catalog. To publish, run a sync, or replace 'staged' with 'Online'
+This will create the component in the 'Staged' catalog. To publish it, run a sync, or replace 'Staged' with 'Online'.
 
 ### Configuration
 
-Profiletag has the following configuration interface:
+Profile Tag has the following configuration interface:
 
 ```
 interface ProfileTagConfig {
@@ -118,22 +115,22 @@ interface ProfileTagConfig {
 }
 ```
 
-The `javascriptUrl` is the url of the profiletag version you would like to use. `http://tag.static.us.context.cloud.sap/js/profile-tag.js` will use the latest version.
+The `javascriptUrl` is the URL of the Profile Tag version you wish to use. `http://tag.static.us.context.cloud.sap/js/profile-tag.js` will use the latest version.
 
-The `configUrl` is the url from the Profiletag-UI of the configuration you created.
+The `configUrl` is the URL of the configuration you created in the Profile Tag UI.
 
-`allowInsecureCookies` is optional and specifies whether profiletag should set insecure cookies. The default value is false. For example, if running on http, setting this to true is requried. In production this should always be set to false.
+The `allowInsecureCookies` parameter is optional and specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, setting this parameter to true is requried. In production, it should always be set to false.
 
-The `gtmId` is optional and is used for profiletag integration with google-tag-manager. For more information, please refer to the profiletag documentation.
+The `gtmId` is optional and is used for Profile Tag integration with Google Tag Manager. For more information, refer to the Profile Tag documentation.
 
 ## Backend Requirements
 
 ### Headers
 
-The custom headers `x-profile-tag-debug` and `x-consent-reference` need to be added to.
+Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to:
 
 - `corsfilter.ycommercewebservices.allowedHeaders`
-- `corsfilter.assistedservicewebservices.allowedHeaders` if ASM is being used
+- `corsfilter.assistedservicewebservices.allowedHeaders` if ASM is used
 
 ### Consent
 
