@@ -119,7 +119,7 @@ interface ProfileTagConfig {
 - `javascriptUrl`: This is the URL of the Profile Tag version you wish to use. `http://tag.static.us.context.cloud.sap/js/profile-tag.js` will use the latest version.
 - `configUrl`: This is the URL of the configuration you created in the Profile Tag UI.
 - `allowInsecureCookies`: This is an optional parameter that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, setting this parameter to true is requried. In production, it should always be set to false.
-- `gtmId`: This is an optional parameter used for Profile Tag integration with Google Tag Manager. For more information, refer to the Profile Tag documentation.
+- `gtmId`: This is an optional parameter used for Profile Tag integration with Google Tag Manager. For more information, refer to the [Profile Tag](https://help.sap.com/viewer/8a676837bd4245f69cc8a2fbdae2b945/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) documentation.
 
 ## Backend Requirements
 
@@ -144,42 +144,29 @@ INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=en];description[lang=$la
 Follow these steps to run the Context-Driven Services Shell Application:
 
 1. Run the following command to execute the library builds:
-
 ```
 yarn build:core:lib:cds
 ```
-
 2. Run the following command to start the shell:
-
 ```
 yarn start:cds
 ```
-
 3. Run the following command to perform unit tests:
-
 ```
 yarn test:cds
 ```
-
 When you run these commands, the browser opens, and you can see the progress of the tests with detailed information, including whether the tests pass.
-
 4. Run the following command to perform end-to-end tests. You can do this either manually or automatically. 
-
 - Manually:
-
 ```
 yarn start:cds
 yarn e2e:cy:cds:run:vendor
 ```
-
 **Note:** To run the end-to-end test in the headless mode, make sure you have your Spartacus instance running before executing the end-to-end command.
-
 - Automatically:
-
 ```
 yarn e2e:cy:cds:start-open
 ```
-
 **Note:** When using this command, you do not need to separately start a Spartacus instance as it is already done as part of the command. To run the Cypress end-to-end tests for Context-Driven Services integration, select `merchandising-carousel.e2e-spec.ts` in the Cypress user interface.
 
 ## Other Commands for Context-Driven Services
