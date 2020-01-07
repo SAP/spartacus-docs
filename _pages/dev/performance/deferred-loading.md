@@ -43,7 +43,7 @@ An optional `intersectionMargin` can be specified to control the so-called "boun
 
 ## Component Loading Strategy
 
-The deferred loading strategy can be customized per CMS component, using the CMS component configuration. This is required for some components that are structured in page slots outside the initial view port, but which are moved into the viewport by component-specific CSS rules: as long as the component is not rendered, the CSS rules that move the component in the viewport are not applied. The consent banner component is a component that follows this pattern. The following example shows the configuration for the consent banner component, with its `INSTANT` loading strategy:
+The deferred loading strategy can be customized per CMS component, using the CMS component configuration. This is required for some components that are structured in page slots outside the initial viewport, but which are moved into the viewport by component-specific CSS rules: as long as the component is not rendered, the CSS rules that move the component in the viewport are not applied. The consent banner component is a component that follows this pattern. The following example shows the configuration for the consent banner component, with its `INSTANT` loading strategy:
 
 ```typescript
 ConfigModule.withConfig(<CmsConfig>{
