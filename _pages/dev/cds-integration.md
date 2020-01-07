@@ -51,7 +51,7 @@ To add a Context-Driven Merchandising carousel to a page, follow these steps:
 6. Click **Save** for the Merchandising carousel to appear on the page you are editing.
 
 
-If you know your `strategyId` and want to add the Merchandising carousel yourself, use the following impex example.
+If you know your `strategyId` and want to add the Merchandising carousel yourself, use the following ImpEx example.
 
 ```
 # Homepage carousel
@@ -88,7 +88,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ### CMS Component
 
-To enable Profile Tag, create a CMSFlexComponent called `ProfileTagComponent` in the catalog, and place it in the footer. To accomplish this, use the following impex.
+To enable Profile Tag, create a CMSFlexComponent called `ProfileTagComponent` in the catalog, and place it in the footer. To accomplish this, use the following ImpEx.
 
 ```
 $contentCatalog=electronics-spaContentCatalog
@@ -115,7 +115,7 @@ interface ProfileTagConfig {
 }
 ```
 
-Paremeters:
+**Parameters:**
 - `javascriptUrl`: This is the URL of the Profile Tag version you wish to use. `http://tag.static.us.context.cloud.sap/js/profile-tag.js` will use the latest version.
 - `configUrl`: This is the URL of the configuration you created in the Profile Tag UI.
 - `allowInsecureCookies`: This is an optional parameter that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, setting this parameter to true is requried. In production, it should always be set to false.
