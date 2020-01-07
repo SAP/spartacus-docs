@@ -1,6 +1,6 @@
 # Spartacus Context-Driven Services
 
-Spartacus Storefront is a package that you can include in your application to add storefront features that support [Context Driven Serices](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US).
+Spartacus Storefront is a package that you can include in your application to add storefront features that support [Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US).
 
 ## Using Spartacus Context-Driven Services
 
