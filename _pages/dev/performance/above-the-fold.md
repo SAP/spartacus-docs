@@ -1,6 +1,12 @@
 ---
-title: Above the fold Loading
+title: Above-the-Fold Loading (DRAFT)
 ---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 Above the fold loading is a technique to prioritize creation of components which are above the fold. Above the fold is traditionally known as the upper half of a news paper where the most important stories are located. This transfers to the web as all components which are placed at the top of the page, where the experience starts.
 

@@ -80,6 +80,13 @@ docs:
                   url: /wish-list/  
           - title: 'Security Best Practices'
             url: /security-best-practices/
+          - title: "Performance Optimizations"
+            url: /performance/
+            subchildren:
+                - title: "Deferred Loading"
+                  url: /deferred-loading/
+                - title: "Above-the-Fold Loading"
+                  url: /above-the-fold/  
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:

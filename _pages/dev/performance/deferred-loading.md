@@ -1,6 +1,12 @@
 ---
-title: Deferred Loading
+title: Deferred Loading (DRAFT)
 ---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 Deferred Loading is a technique to postpone rendering of CMS Components. Components which are outside the user's visible area (the *viewport*), will not be rendered in advance. This technique is introduced to improve the initial rendering of the complete page. This does not only saves the creating of components but also defers further loading of component specific data.
 
