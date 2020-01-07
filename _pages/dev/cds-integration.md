@@ -13,7 +13,7 @@ To start using Spartacus Context-Driven Services, follow these steps:
 
 ## Context-Driven Services Module
 
-To enable the Context-Diven Services module in Spartacus, add it to the list of imports in your root module, and create a CDSConfig by calling the 'withConfig' method. See the following example for referene:
+To enable the Context-Diven Services module in Spartacus, add it to the list of imports in your root module, and create a CDSConfig by calling the `withConfig` method. See the following example for referene:
 
 ```ts
 @NgModule({
@@ -44,10 +44,10 @@ Once you use the `b2c_acc_plus` recipe in your SAP Commerce storefront and confi
 To add a Context-Driven Merchandising carousel to a page, follow these steps:
 
 1. Launch SmartEdit.
-2. Edit the page you want to add a merchandising carousel to.
+2. Edit the page you want to add a Merchandising carousel to.
 3. Click the **+ Component** button in SmartEdit. You should see the **SAP Context-Driven Merchandising Carousel** component. If you do not see it, use the search box.
 4. Drag and drop the component onto a content slot on the page. If the component does not drop in the 'Basic Edit' mode, switch to the 'Advanced Edit' mode using the dropdown in SmartEdit.
-- Fill in the fields of the configuration window that appears. Select a configured strategy from the **Strategy** dropdown menu.
+5. Fill in the fields of the configuration window that appears. Select a configured strategy from the **Strategy** dropdown menu.
 6. Click **Save** for the Merchandising carousel to appear on the page you are editing.
 
 
@@ -88,7 +88,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ### CMS Component
 
-To enable Profile Tag, you need to create a CMSFlexComponent called `ProfileTagComponent` in the catalog, and place it in the footer. To accomplish this, use the following impex.
+To enable Profile Tag, create a CMSFlexComponent called `ProfileTagComponent` in the catalog, and place it in the footer. To accomplish this, use the following impex.
 
 ```
 $contentCatalog=electronics-spaContentCatalog
@@ -115,13 +115,11 @@ interface ProfileTagConfig {
 }
 ```
 
-The `javascriptUrl` is the URL of the Profile Tag version you wish to use. `http://tag.static.us.context.cloud.sap/js/profile-tag.js` will use the latest version.
-
-The `configUrl` is the URL of the configuration you created in the Profile Tag UI.
-
-The `allowInsecureCookies` parameter is optional and specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, setting this parameter to true is requried. In production, it should always be set to false.
-
-The `gtmId` is optional and is used for Profile Tag integration with Google Tag Manager. For more information, refer to the Profile Tag documentation.
+Paremeters:
+- `javascriptUrl`: This is the URL of the Profile Tag version you wish to use. `http://tag.static.us.context.cloud.sap/js/profile-tag.js` will use the latest version.
+- `configUrl`: This is the URL of the configuration you created in the Profile Tag UI.
+- `allowInsecureCookies`: This is an optional parameter that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, setting this parameter to true is requried. In production, it should always be set to false.
+- `gtmId`: This is an optional parameter used for Profile Tag integration with Google Tag Manager. For more information, refer to the Profile Tag documentation.
 
 ## Backend Requirements
 
@@ -134,66 +132,53 @@ Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to:
 
 ### Consent
 
-In order for CDS events do be sent, a consent with the ID Profile must be defined in the backend. Here is an example impex which accomplishes this:
+For the events do be sent, you must define the ID Profile in the backend. To accomplish this, use the following ImpEx:
 
 ```
 INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=en];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,default=exampleUid];exposed
 ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behaviour so that our website can dynamically present you with a personalised browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
 ```
 
-## CDS shell app
+## Context-Driven Services Shell Application
 
-### The Library Builds
+Follow these steps to run the Context-Driven Services Shell Application:
 
-Run the following command to ensure the library builds
+1. Run the following command to execute the library builds:
 
 ```
 yarn build:core:lib:cds
 ```
-
-### The Shell Starts
-
-Run the following command to ensure the shell starts
+2. Run the following command to start the shell:
 
 ```
 yarn start:cds
 ```
-
-### Unit Tests are Passing
-
-The unit tests need to be passing.
-
-Run the following commands to perform unit tests:
+3. Run the following command to perform unit tests:
 
 ```
 yarn test:cds
 ```
+When you run these commands, the browser opens, and you can see the progress of the tests with detailed information, including whether the tests pass.
 
-When you run these commands, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
+4. Run the following command to perform end-to-end tests. You can do this either manually or automatically. 
 
-### End-To-End Tests is Passing
-
-Need to ensure that this feature is foolproof.
-
-Run the following command to perform end-to-end tests:
-
-- Manually
+- Manually:
 
 ```
 yarn start:cds
 yarn e2e:cy:cds:run:vendor
 ```
 
-Note: Make sure you have your spartacus instance running before running the e2e command, which will run the e2e test in headless mode.
+**Note:** To run the end-to-end test in the headless mode, make sure you have your Spartacus instance running before executing the end-to-end command.
 
-- Automatically
+- Automatically:
 
 ```
 yarn e2e:cy:cds:start-open
 ```
 
-**Note**: A spartacus instance does not need to be running as it will start one for you from production mode, and you would need to choose the `merchandising-carousel.e2e-spec.ts` to view the test running in cypress user interface.
+**Note:** A Spartacus instance does not need to be running as it will start one for you from production mode, and you would need to choose the `merchandising-carousel.e2e-spec.ts` to view the test running in cypress user interface.
 
-## Other commands for cds
+## Other Commands for Context-Driven Services
 
-All other CDS commands can be found in `package.json` and have `:cds` as part of their name.
+All other Context-Driven Services commands can be found in `package.json` and have `:cds` as part of their name.
