@@ -126,9 +126,9 @@ interface ProfileTagConfig {
 ### Headers
 
 Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to:
-
 - `corsfilter.ycommercewebservices.allowedHeaders`
-- `corsfilter.assistedservicewebservices.allowedHeaders` if ASM is used
+- `corsfilter.assistedservicewebservices.allowedHeaders` if ASM is used.
+For more information, see [Configuring CORS](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/installing-sap-commerce-cloud/#configuring-cors).
 
 ### Consent
 
@@ -148,16 +148,19 @@ Follow these steps to run the Context-Driven Services Shell Application:
 ```
 yarn build:core:lib:cds
 ```
+
 2. Run the following command to start the shell:
 
 ```
 yarn start:cds
 ```
+
 3. Run the following command to perform unit tests:
 
 ```
 yarn test:cds
 ```
+
 When you run these commands, the browser opens, and you can see the progress of the tests with detailed information, including whether the tests pass.
 
 4. Run the following command to perform end-to-end tests. You can do this either manually or automatically. 
@@ -177,7 +180,7 @@ yarn e2e:cy:cds:run:vendor
 yarn e2e:cy:cds:start-open
 ```
 
-**Note:** A Spartacus instance does not need to be running as it will start one for you from production mode, and you would need to choose the `merchandising-carousel.e2e-spec.ts` to view the test running in cypress user interface.
+**Note:** When using this command, you do not need to separately start a Spartacus instance as it is already done as part of the command. To run the Cypress end-to-end tests for Context-Driven Services integration, select `merchandising-carousel.e2e-spec.ts` in the Cypress user interface.
 
 ## Other Commands for Context-Driven Services
 
