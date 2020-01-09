@@ -46,7 +46,14 @@ docs:
             url: /personalization-setup-instructions-for-spartacus/
           - title: 'Spartacussampledataaddon AddOn'
             url: /spartacussampledataaddon/
-
+          - title: "Integrations"
+            url: /integrations/  
+            subchildren:
+                - title: 'Kyma Integration'
+                  url: /kyma-integration/
+                - title: 'Qualtrics Integration'
+                  url: /qualtrics-integration/
+                
     - title: Storefront Development Guide
       children:
           - title: 'Storefront Development FAQ'
@@ -170,12 +177,6 @@ docs:
             url: /smartedit-contract/
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
-          - title: 'Kyma Integration'
-            url: /kyma-integration/
-          - title: 'Qualtrics Integration'
-            url: /qualtrics-integration/
-          - title: 'Yotpo Integration'
-            url: /yotpo-integration/
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
