@@ -135,7 +135,8 @@ For more information, see [Configuring CORS](https://sap.github.io/cloud-commerc
 For the events to be sent, you must define a consent template with an ID of `PROFILE` in the backend. To accomplish this, use the following ImpEx:
 
 ```
-INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=en];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,default=exampleUid];exposed
+$lang=en
+INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=$lang];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,default=electronics-spa];exposed
 ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behaviour so that our website can dynamically present you with a personalised browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
 ```
 
