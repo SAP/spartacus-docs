@@ -62,7 +62,7 @@ By default, when page slots are loaded on the page, there is no minimum height a
 
 Given that content can be added at runtime, it is not possible to implement a (hard-coded) minimum height for page slots or components – it all depends on what the business will add at runtime.
 
-While this lack of minimum height could be filled up by so-called "ghost design" CSS rules, there will always be a gap between the ghost design and the actual content.
+While this lack of minimum height could be filled up by so-called "ghost design" CSS rules, there will always be a gap between the ghost design and the actual content. Furthermore, ghost design rules require an implementation effort that might not be available.
 
 To make it possible to defer the loading of below-the-fold content, Spartacus marks page slots that are below the page fold while page slots above the fold are being loaded. All page slots are marked with an `is-pending` class as long as all the inner components are not loaded. Additionally, the page fold slot has a `page-fold` class. With these two classes, Spartacus can apply various CSS rules to control deferred loading of below-the-fold content.
 
