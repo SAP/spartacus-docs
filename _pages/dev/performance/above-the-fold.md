@@ -14,11 +14,11 @@ Above-the-fold loading requires the following important ingredients:
 
 1. Deferred loading, which is a technique that postpones the creation of components that are "below the fold". For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).
 2. The notion of the "page fold". The page fold is not static, and differs from device to device, from screen to screen, and even changes depending on the size of the browser.
-3. A couple of CSS rules to control the page fold.
+3. A couple of CSS rules that initially move components below the page fold.
 
 ## Page Fold Configuration
 
-The page fold is configurable for each page template and breakpoint. The page fold configuration is only an indication to speed up the initial creation of page slots that are above the fold. All page slots are eventually rendered if they are above the fold. You designate the page fold by assigning a page slot to the `pageFold` parameter. This page slot, and all page slots above it, are "above the fold". These page slots are prioritized ahead of page slots that are "below the fold".
+The page fold is configurable for each page template and breakpoint. The page fold configuration is only an indication to speed up the initial creation of page slots that are above the fold. All page slots are eventually rendered if they happen to be above the fold. You designate the page fold by assigning a page slot to the `pageFold` parameter. This page slot, and all previous, sibling page slots, are "above the fold". These page slots are prioritized ahead of page slots that are "below the fold".
 
 The page fold is part of the `LayoutConfig` configuration. The page fold indicates the last page slot that should be rendered above the fold.
 
@@ -54,9 +54,11 @@ ProductDetailsPageTemplate: {
 }
 ```
 
+For more information on page layout configuration, see [Configuring the Layout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/page-layout/#configuring-the-layout).
+
 ## CSS Configuration
 
-By default, when page slots are loaded on the page, there is no minimum height available for the page slots or components. All page slots initially have no height, which brings them all into the viewport. This prevents the deferred loading technique from working, because it depends on content not being in the viewport.
+By default, when page slots are loaded on the page, there is no minimum height available for the page slots or components. The actual height is only added when components are loaded, and the associated CSS rules are applied to the components. The page slots adjust their height automatically when components are loaded. Therefore, page slots do not have an initial height, which is why they initially end up in the viewport. This prevents the deferred loading technique from working, because it depends on content not being in the viewport.
 
 Given that content can be added at runtime, it is not possible to implement a (hard-coded) minimum height for page slots or components – it all depends on what the business will add at runtime.
 

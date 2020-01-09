@@ -8,7 +8,7 @@ title: Deferred Loading
 
 {% include docs/feature_version.html content=version_note %}
 
-Deferred loading is a technique that is used to postpone the rendering of CMS components. Any component that is outside the viewport (that is, the area that is visible to the user) is not rendered in advance. This improves the initial rendering of the complete page. Deferred loading not only defers the creation of components, it also defers the loading of component-specific data.
+Deferred loading is a technique that is used to postpone the rendering of CMS components. Any component that is outside the viewport (that is, the area that is visible to the user) is not rendered in advance. This improves the initial rendering of the complete page. Deferred loading not only defers the creation of components, it also defers the loading of any component-specific data, such as media or back end calls.
 
 The following examples illustrate how deferred loading improves the page load:
 
@@ -70,4 +70,4 @@ There are a number of related techniques to be aware of:
 
 - Above-the-fold loading: Deferred loading is tightly coupled to so-called "above-the-fold loading". For more information, see [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %}).
 
-- Native lazy loading of images: Deferred loading is not related to the native lazy loading of images that has recently been implemented in Chrome. This new API is not yet fully supported, but could be used in combination with deferred loading for CMS components.
+- Native lazy loading of images: Deferred loading is not related to the native lazy loading of images that has recently been implemented in some browsers. This new API is not yet fully supported, but could be used in combination with deferred loading for CMS components.
