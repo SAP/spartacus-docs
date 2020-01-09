@@ -13,6 +13,9 @@ docs:
             url: /
           - title: 'Release Information'
             url: /release-information/
+            subchildren:
+                - title: "Pre-Release Information"
+                  url: /pre-release-information/
           - title: 'Spartacus Videos'
             url: /spartacus-videos/
           - title: 'Spartacus Roadmap'
@@ -43,11 +46,20 @@ docs:
             url: /personalization-setup-instructions-for-spartacus/
           - title: 'Spartacussampledataaddon AddOn'
             url: /spartacussampledataaddon/
-
+          - title: "Integrations"
+            url: /integrations/  
+            subchildren:
+                - title: 'Kyma Integration'
+                  url: /kyma-integration/
+                - title: 'Qualtrics Integration'
+                  url: /qualtrics-integration/
+                
     - title: Storefront Development Guide
       children:
           - title: 'Storefront Development FAQ'
             url: /storefront-development-faq/
+          - title: 'Spartacus API'
+            url: /spartacus-api/
           - title: 'Global Configuration in Spartacus'
             url: /global-configuration-in-spartacus/
           - title: 'Spartacus Features'
@@ -61,10 +73,27 @@ docs:
                   url: /consignment-tracking/
                 - title: 'Coupons'
                   url: /coupons/
+                - title: "Customer Interests"
+                  url: /customer-interests/
+                - title: "Notification Preferences"
+                  url: /notification-preferences/  
+                - title: "Stock Notification"
+                  url: /stock-notification/  
                 - title: 'Store Locator'
                   url: /store-locator/
+                - title: "Token Revocation"
+                  url: /token-revocation/
+                - title: "Wish List"
+                  url: /wish-list/  
           - title: 'Security Best Practices'
             url: /security-best-practices/
+          - title: "Performance Optimizations"
+            url: /performance/
+            subchildren:
+                - title: "Deferred Loading"
+                  url: /deferred-loading/
+                - title: "Above-the-Fold Loading"
+                  url: /above-the-fold/  
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
@@ -116,8 +145,13 @@ docs:
                   url: /early-login/
           - title: 'Configuring the Base URL'
             url: /configuring-base-url/
-          - title: 'Context Configuration'
+          - title: 'Multi-Site Configuration'
             url: /context-configuration/
+            subchildren:
+                - title: 'Automatic Multi-Site Configuration'
+                  url: /automatic-context-configuration/
+                - title: 'Static Multi-Site Configuration'
+                  url: /static-context-configuration/
           - title: 'PWA'
             url: /pwa-home/
             subchildren:
@@ -143,12 +177,6 @@ docs:
             url: /smartedit-contract/
           - title: 'Connecting to Other Systems'
             url: /connecting-to-other-systems/
-          - title: 'Kyma Integration'
-            url: /kyma-integration/
-          - title: 'Qualtrics Integration'
-            url: /qualtrics-integration/
-          - title: 'Yotpo Integration'
-            url: /yotpo-integration/
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
