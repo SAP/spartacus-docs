@@ -132,7 +132,7 @@ For more information, see [Configuring CORS](https://sap.github.io/cloud-commerc
 
 ### Consent
 
-For the events do be sent, you must define the ID Profile in the backend. To accomplish this, use the following ImpEx:
+For the events to be sent, you must define a consent template with an ID of `PROFILE` in the backend. To accomplish this, use the following ImpEx:
 
 ```
 INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=en];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,default=exampleUid];exposed
