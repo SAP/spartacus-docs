@@ -25,6 +25,7 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 - [Introduction to Extendability with Outlets](https://enable.cx.sap.com/media/Introduction+to+Extendability+with+Outlets+-+SAP+Commerce+Cloud/1_wy2eg32x) (8:33)
 - [Configurable Routing](https://enable.cx.sap.com/media/Configurable+Routing+-+SAP+Commerce+Cloud/1_879ub3el) (10:38)
 - [How Spartacus Uses Backend Catalog and CMS Data](https://enable.cx.sap.com/media/How+Spartacus+Uses+Backend+Catalog+and+CMS+Data+-+SAP+Commerce+Cloud/1_8mmwx8ck) (10:05)
+- [Infinite Scroll](https://enable.cx.sap.com/media/Infinite+Scroll+-+SAP+Commerce+Cloud/1_crd2801x) (4:57)
 
 ## Spartacus Extensibility Live Coding Series
 
