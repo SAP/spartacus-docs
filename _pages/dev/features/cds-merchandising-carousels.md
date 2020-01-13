@@ -21,6 +21,7 @@ For comprehensive information on Context-Driven Merchandising, see [Context-Driv
 ## Enabling Context-Driven Merchandising Carousels
 
 Context-Driven Merchandising carousels are part of the Spartacus Context-Driven Services module. To enable the carousels, include the Context-Driven Services module in your root module with the following configuration:
+
 ```ts
 CdsModule.forRoot({
   cds: {
