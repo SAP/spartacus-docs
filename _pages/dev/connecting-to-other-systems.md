@@ -56,7 +56,7 @@ Convertors are used to convert data from the back end to the UI, and vice versa.
 - **Normalize** is the conversion from back-end models to UI models
 - **Serialize** is the conversion of UI models to back-end models, in the case of submitting data to the back end.
 
-To provide optional conversion, the convertors are so-called "multi-providers", which allows Spartacus to provide specific convertors. A good example is the optional normalizer that is used for the additional data required by SmartEdit integrations. This integration requires some additional attributes on the final DOM. Spartacus provides an optional convertor that normalizes additional data from the back-end source to the UI model.
+To provide optional conversion, the convertors are so-called "multi-providers", which allows Spartacus to provide specific convertors. A good example of an optional normalizer is the one that is used for the additional data required by SmartEdit integrations. This integration requires some additional attributes on the final DOM. Spartacus provides an optional convertor that normalizes additional data from the back-end source to the UI model.
 
 Convertors are optional: when no convertor is found for the given domain, the source data is returned. Furthermore, whenever the back-end model is equal to the UI model, or in the case of a simple conversion, the adapter can easily take care of this.
 
@@ -124,11 +124,11 @@ backend: {
 }
 ```
 
-The OCC configuration is used in the `OccEndpointsService`. The service looks up the configuration, and applies parameters to the endpoint if needed.
+The OCC configuration is used in the `OccEndpointsService`. The service looks up the configuration, and applies parameters to the endpoint, if needed.
 
 **Note:** The endpoints are type safe. As a result, the list of available endpoints is visible when adding the configuration.
 
-**Note:** This feature requires a feature level of **1.1 or higher**. The following configuration is required to enable it:
+**Note:** This feature requires a feature level of 1.1 or higher. The following configuration is required to enable it:
 
 ```typescript
 features: {
