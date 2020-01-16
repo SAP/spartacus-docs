@@ -2,13 +2,13 @@
 title: Connecting to Other Systems
 ---
 
-The system landscape of a Commerce Cloud solution is made up of various systems, which are typically orchestrated on various application layers, including the front end. The Spartacus component UIs connect to SAP Commerce Cloud APIs by default, but the underlying framework can be used to work with other systems as well. This is done by so-called "connectors", which can be added to connect to other systems.
+The system landscape of a Commerce Cloud solution is made up of various systems, which are typically orchestrated on various application layers, including the front end. Spartacus connects to SAP Commerce Cloud APIs by default, but the underlying framework can be used to work with other systems as well. This is done by so-called "connectors", which can be added to connect to other systems.
 
 ## Component Data Binding
 
 Spartacus delivers view logic that binds to (complex) commerce data and logic in the Commerce Cloud back end. Angular provides standards for data binding, and relies on reactive programming as the best-practice, standard pattern for data binding. The following best practices are used for data binding in Spartacus:
 
-- UI components bind to observable data from the back end, using the standard Angular `async`.
+- UI components bind to observable data from the back end, using the standard Angular `async` pipe.
 - UI components do not store response data from observables locally, which means destroy logic can be avoided. RxJS pipeable logic can be applied to implement any logic when data is observed.
 - Back-end data is stored in a central data store, provided by a state management system. Spartacus uses NgRx.
 - The complexity of the state management system is hidden by a facade layer to provide a simple API to component developers.
@@ -29,7 +29,7 @@ Although this is a fairly complex setup, you do not need to worry about most lay
 
 The connector logic sits between the in-memory data store and the back end. A specific connector is used for each domain to offload the connection to a back-end system. For example, the product connector takes care of loading the product details.
 
-To provide optimal flexibility, there are three entities involved in connecting to a back-end system: a connector, an adapter, and a converter.
+To provide optimal flexibility, there are three entities involved in connecting to a back-end system: a connector, an adapter, and a converter. Note, however, that not all entities are necessarily involved when you work with a third-party system.
 
 This is a common pattern across different frameworks and technology stacks, although different names are used (for example, populator or serializer instead of convertor).
 
@@ -37,7 +37,7 @@ A fine-grained setup helps to separate concerns, and simplifies further customiz
 
 ### Connector
 
-The connector orchestrates the connection to a source system. The connector layer could be considered over-engineered, because there are occasions where standard data is provided, even in the case of switching to an alternative system. An example of this is when structured CMS data is loaded: Spartacus can be set up to add static CMS data without relying on a back end at all, or as a fall-back in case the CMS does not provide sufficient data.
+The connector orchestrates the connection to a source system. The connector layer could be considered over-engineered, because there are occasions where standard data is provided, even in the case of switching to an alternative system. A real example use-case of the connector is when structured CMS data is loaded: Spartacus can be set up to add static CMS data without relying on a back end at all, or as a fall-back in case the CMS does not provide sufficient data.
 
 The main task of the connector is to delegate the loading and conversion of back-end data to the adapter.
 
