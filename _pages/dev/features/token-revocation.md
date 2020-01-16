@@ -34,7 +34,7 @@ Spartacus 1.4.0+ can still be used with backends with a version lower than 1905.
 
 Under the hood, a backend that does not support token revocation will return an http 302 redirect response on a token revocation request. The backend's behaviour on a request to a non-existing authorization-related endpoint is to return a 302 redirect code pointing to the `login.jsp` page.
 
-## Enabling Consignment Tracking
+## Enabling Token Revocation
 
 Token revocation in Spartacus is always enabled in v1.4.0+.
 
