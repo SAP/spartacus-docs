@@ -49,7 +49,7 @@ The endpoints used in OCC adapters can be configured, so that the customization 
 
 For more information on OCC endpoint configuration, see [Configuring Endpoints](#configuring-endpoints), below.
 
-### Convertor Logic
+### Convertor
 
 Convertors are used to convert data from the back end to the UI, and vice versa. Spartacus uses the following to distinguish the two flows:
 
