@@ -18,13 +18,7 @@ For more information, see [Order Cancel Service ](https://help.sap.com/viewer/9d
 
 The Cancellations and Returns feature in Spartacus requires SAP Commerce Cloud version 2005.0 or newer. The minimum version of 2005.0 is required because earlier versions do not include the endpoints related to this feature.
 
-Some OMS extensions you should consider including in the back end are the following:
-
-- warehousing
-- warehousingbackoffice
-- ordermanagementaddon
-
-Although these extensions are optional, without the `warehousing` and `warehousingbackoffice` extensions, a return cannot be cancelled, and without the `ordermanagementaddon` extension, a consignment cannot be created.
+You should also consider installing Order Management in the back end. For more information, see [Installing Order Management](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b44994b86691014b7b7e63c4bd30592.html) on the SAP Help Portal.
 
 ## Enabling Cancellations and Returns in Spartacus
 
