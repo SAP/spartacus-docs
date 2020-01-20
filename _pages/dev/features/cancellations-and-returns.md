@@ -39,7 +39,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];visible
 ;;AccountOrderDetailsActionsComponent;true
 ```
 
-It will make these action buttons displayed in order details page:
+It will make cancel/return action buttons displayed in order details page, for example:
 ![Screen Shot 2020-01-20 at 1 36 47 PM](https://user-images.githubusercontent.com/44440575/72750271-62f57300-3b8a-11ea-9ce5-4232071ac466.png)
 
 2; Make the order history page contain tabs (All Orders and All Returns)
