@@ -19,8 +19,8 @@ Release 1.5.0-NEXT.0 contains the following features:
 - Support for Context Driven Services (CDS) with merchandising carousel. For more information on this feature, see the following:
 
     - [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES) on the SAP Help Portal.
-    - [Integrating Context-Driven Services in Spartacus](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/feature/DOC-479/_pages/dev/cds-integration.md)
-    - [Context-Driven Merchandising Carousels](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/doc/GH-468/_pages/dev/features/cds-merchandising-carousels.md)
+    - [Integrating Context-Driven Services in Spartacus](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/doc/GH-488/_pages/dev/cds-integration.md)
+    - [Context-Driven Merchandising Carousels](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/doc/GH-488/_pages/dev/features/cds-merchandising-carousels.md)
 
 - Improvements to Applied Promotions. Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
 
