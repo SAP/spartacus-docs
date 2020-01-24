@@ -2,6 +2,12 @@
 title: Selective Cart
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.5 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 ## Overview
 
 The Selective Cart feature allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
