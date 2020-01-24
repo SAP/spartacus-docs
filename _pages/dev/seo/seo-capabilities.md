@@ -6,15 +6,16 @@ Search engine optimization (SEO) is an important element of the Spartacus storef
 
 The SEO implementation in Spartacus includes the following:
 
-- Stateful URLs
-- Configurable URLs
-- Indexable Pages
-- HTML Tags
-  - Page Meta Resolvers
-  - Title Resolver
-  - Description Resolver
-  - Image Resolver
-  - Robots Tag
+-   Stateful URLs
+-   Configurable URLs
+-   Indexable Pages
+-   Structured Data (schema.org)
+-   HTML Tags
+    -   Page Meta Resolvers
+    -   Title Resolver
+    -   Description Resolver
+    -   Image Resolver
+    -   Robots Tag
 
 ## Stateful URLs
 
@@ -42,6 +43,10 @@ SSR is provided by Spartacus, and is planned to be a default deployment option i
 
 For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/server-side-rendering-coding-guidelines.md %}) and [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr).
 
+## Structured Data (schema.org)
+
+Structured Data provides a data structure for the web that makes web content more understandable for web crawlers. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+
 ## Html Tags
 
 HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing the meta tags, and evaluating their values on a regular basis, you can improve the ranking, click-through-rate, and usability of a page. For example, the `title` tag is used by browsers to display the page's title in tabs, in the browser history, and in bookmarks. All of this can affect SEO and the user experience.
@@ -50,8 +55,8 @@ The `PageMeta` model is a set of attributes that can be resolved by so-called pa
 
 ```typescript
 export interface PageMeta {
-  title?: string;
-  description?: string;
+    title?: string;
+    description?: string;
 }
 ```
 
@@ -66,7 +71,7 @@ HTML5 supports a variety of meta tag properties, such as `description`. These me
 
 To support the potential multitude of meta tags, Spartacus uses a small framework to customize and extend the meta tags per page.
 
-Spartacus ships with `pageMetaResolvers` that resolve the page meta data for a specific page. Some of the meta data might be driven by CMS data, but most meta tags are computed based on product content, category content, search results, and so on.
+Spartacus ships with `PageMetaResolvers` that resolve the page meta data for a specific page. Some of the meta data might be driven by CMS data, but most meta tags are computed based on product content, category content, search results, and so on.
 
 The page meta data is updated dynamically during navigation, but can be delivered statically using SSR.
 
@@ -74,9 +79,9 @@ The page meta data is updated dynamically during navigation, but can be delivere
 
 Adding an HTML `title` tag to your page has the following advantages:
 
-- the page can be uniquely addressed in the browser (that is, through the browser history, bookmarks, tabs, and so on)
-- the page title increases the ranking of the page in search engines
-- the page title identifies content in search engines
+-   the page can be uniquely addressed in the browser (that is, through the browser history, bookmarks, tabs, and so on)
+-   the page title increases the ranking of the page in search engines
+-   the page title identifies content in search engines
 
 Spartacus provides a special resolver for pages that require a specific heading. The page title for a search engine result page (SERP) is not necessarily the same as the page heading shown in the UI. Let's look at the product title as an example. To achieve good results in the SERP, a product details page would typically disclose the product title, category, and brand, as follows:
 

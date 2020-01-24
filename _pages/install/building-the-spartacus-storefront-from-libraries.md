@@ -76,10 +76,19 @@ Spartacus support command which allows for full application scaffold with featur
 
 **Note**: `--pwa` and `--ssr` are optional and can be used separately.
 
-Command comes with set of configuration parameters, such as **baseUrl** or **baseSite**. Usage example:
+This command includes configuration parameters, such as **baseUrl** or **baseSite**. Usage example:
    ```bash
     ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
    ```
+
+After the project is set up using schematics:
+
+1. Inspect the `src\app\app.module.ts` file for any changes you want to make for your setup. For example, you might want to change the `baseUrl` to point to your server and the `basesite` to corresond with the WCMS site. You likely also want to specify the compatibility version by changing `features.level`, as the default might not be the latest version.
+
+2. Replace the contents of `mystore/src/app/app.component.html` with
+`<cx-storefront>Loading...</cx-storefront>`
+
+3. Run `yarn start`.
 
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
@@ -106,10 +115,10 @@ The dependencies in this procedure are required by the Spartacus storefront.
    "i18next": "^15.0.6",
    "i18next-xhr-backend": "^2.0.1",
 
-    "@spartacus/core": "~1.2.0",
-    "@spartacus/styles": "~1.2.0",
-    "@spartacus/storefront": "~1.2.0",
-    "@spartacus/assets": "~1.2.0"
+    "@spartacus/core": "~1.3.0",
+    "@spartacus/styles": "~1.3.0",
+    "@spartacus/storefront": "~1.3.0",
+    "@spartacus/assets": "~1.3.0"
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
@@ -136,35 +145,32 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
 2. Add the following lines to the top of the file, below existing import statements.
 
    ```typescript
-   import { ConfigModule } from '@spartacus/core';
-   import { translations, translationChunksConfig } from '@spartacus/assets';
-   import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
+    import { translations, translationChunksConfig } from '@spartacus/assets';
+    import { B2cStorefrontModule } from '@spartacus/storefront';
    ```
 
 3. Add the following lines to the `NgModule/imports` section, below the existing `BrowserModule` statement, but before the last `],` (closing square bracket):
   
    ```typescript
-   B2cStorefrontModule.withConfig({
-       backend: {
-         occ: {
-           baseUrl: 'https://localhost:9002',
-           prefix: '/rest/v2/',
-           legacy: false
-         }
-       },
-       authentication: {
-         client_id: 'mobile_android',
-         client_secret: 'secret'
-       },
-       context: {
-         baseSite: ['electronics']
-       },
-       i18n: {
-         resources: translations,
-         chunks: translationChunksConfig,
-         fallbackLang: 'en'
-       }
-     }),
+    B2cStorefrontModule.withConfig({
+      backend: {
+        occ: {
+          baseUrl: 'https://localhost:9002',
+          prefix: '/rest/v2/'
+        }
+      },
+      context: {
+        baseSite: ['electronics-spa']
+      },
+      i18n: {
+        resources: translations,
+        chunks: translationChunksConfig,
+        fallbackLang: 'en'
+      },
+      features: {
+        level: '1.3'
+      }
+    }),
    ```
   
    Don't forget to add a comma to the module entry before `B2cStorefrontModule`.
@@ -178,10 +184,8 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
    import { NgModule } from '@angular/core';
    
    import { AppComponent } from './app.component';
-   
-   import { ConfigModule } from '@spartacus/core';
    import { translations, translationChunksConfig } from '@spartacus/assets';
-   import { B2cStorefrontModule, defaultCmsContentConfig } from '@spartacus/storefront';
+   import { B2cStorefrontModule } from '@spartacus/storefront';
    
    @NgModule({
      declarations: [
@@ -190,29 +194,27 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
      imports: [
        BrowserModule,
        B2cStorefrontModule.withConfig({
-           backend: {
-             occ: {
-               baseUrl: 'https://localhost:9002',
-               prefix: '/rest/v2/',
-               legacy: false
-             }
-           },
-           authentication: {
-             client_id: 'mobile_android',
-             client_secret: 'secret'
-           },
-           context: {
-             baseSite: ['electronics']
-           },
-           i18n: {
-             resources: translations,
-             chunks: translationChunksConfig,
-             fallbackLang: 'en'
+         backend: {
+           occ: {
+             baseUrl: 'https://localhost:9002',
+             prefix: '/rest/v2/'
            }
-         }),
-       ],
+         },
+         context: {
+           baseSite: ['electronics-spa']
+         },
+         i18n: {
+           resources: translations,
+           chunks: translationChunksConfig,
+           fallbackLang: 'en'
+         },
+         features: {
+           level: '1.3'
+         }
+       }),
+     ],
      providers: [],
-     bootstrap: [AppComponent],
+     bootstrap: [AppComponent]
    })
    export class AppModule { }
    ```
@@ -231,11 +233,13 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 
   **Note:** Your server is properly configured if you can display the Open API documentation (for example, `https://localhost:9002/rest/v2/swagger-ui.html`)
 
-- `authentication` (`client_id`, `client_secret`): The `client_id` and `client_secret` parameters define the ID and password to use when communicating with SAP Commerce Cloud using OCC REST API calls. The values `mobile_android` and `secret` correspond to examples in this [help document](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1811/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html?q=Configuring%20OAuth%20Clients). Change the ID and secret to the settings for your server.
+- `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the `spartacussampledataaddon` (described later in this document), you would use `electronics-spa` base site value.
 
-- `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the spartacussampledataaddon (described later in this document), you would change this setting to `electronics-spa`.
+   **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
 
 - `i18n` (`resources`, `fallbackLang`): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn't exist.
+
+- `features`: Configure feature level available in an app. Value corresponds to minor (feature) release version number: '1.0', '1.1', etc. Each subsequent level contains all of the features from previous one.
 
 ### Adding the Storefront to `app.component.html`
 

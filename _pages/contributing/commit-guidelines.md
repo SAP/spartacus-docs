@@ -35,7 +35,7 @@ feat: introduce new facade signature and generic ngrx store state for fine-grain
 The following is an example of the corresponding body and footer. The footer begins with `BREAKING CHANGE`. Note that the body and footer are separated by a blank line:
 
 ```
-The product, language and currency facades have been refactored. A generic reducer has been introduced for all enities that require fine-grained load, success and error state.
+The product, language and currency facades have been refactored. A generic reducer has been introduced for all entities that require fine-grained load, success and error state.
 
 BREAKING CHANGE:
 
@@ -106,9 +106,18 @@ The following are some guidelines for writing the body:
 
 ### Footer
 
-The footer contains information about breaking changes, should there be any. If your issue contains a breaking change, start the footer with `BREAKING CHANGE:` followed by a space or an empty line, and then a description of the breaking change.
+If your issue contains a breaking change, start the footer with `BREAKING CHANGE:` followed by a space or an empty line, and then a description of the breaking change. You can indicate one or more breaking changes in the footer with the following keywords:
 
-The footer is also where you can automatically close your issue with a keyword. For information on the format, and a list of the available keywords, see [GitHub Help](https://help.github.com/articles/closing-issues-using-keywords/).
+- `BREAKING CHANGE`
+- `BREAKING CHANGES`
+
+If your issue contains a deprecation, you use a similar approach to breaking changes, with the following keywords:
+
+- `DEPRECATION`
+- `DEPRECATED`
+- `DEPRECATIONS`
+
+The footer is also where you can automatically close your issue with a keyword (such as `closes` or `fixes`). For information on the format, and a list of the available keywords, see [GitHub Help](https://help.github.com/articles/closing-issues-using-keywords/).
 
 ### Reverting a Commit
 

@@ -76,13 +76,17 @@ When applicable, write end-to-end tests to ensure that your new or updated featu
 
 All newly written end-to-end tests must be reviewed, updated, and/or re-used.
 
-Run the following command to perform end-to-end tests:
+Run the following commands to perform end-to-end tests:
 
-```
-yarn e2e
+```yarn
+yarn e2e:cy:run # smoke tests
+yarn e2e:cy:run:mobile # mobile tests
+yarn e2e:cy:run:regression # regression tests
 ```
 
-Note: the objective of end-to-end tests is to make sure your feature works. For example, if you are implementing a simple login screen with two buttons (such as the `Login` and `Cancel` buttons), you could write the following tests:
+**Note:** Before running the end-to-end tests, make sure to install dependencies in `projects/storefrontapp-e2e-cypress`, and ensure the application is running.
+
+The objective of end-to-end tests is to make sure your feature works. For example, if you are implementing a simple login screen with two buttons (such as the `Login` and `Cancel` buttons), you could write the following tests:
 
 - Log in with valid credentials
 
@@ -90,7 +94,7 @@ Note: the objective of end-to-end tests is to make sure your feature works. For 
 
 - Fill in the input fields, then click on the `Cancel` button.
 
-Note: E2E tests can currently only be run with SAP. We're working on exposing E2E tests to contributors.
+**Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
 
 ## Test Coverage is Adequate
 
