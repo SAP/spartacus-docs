@@ -6,6 +6,21 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 If you have any questions, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
+## 1.5.0-NEXT.2
+
+Hello everyone!
+
+New pre-release NEXT libraries for 1.5 are now available, containing new features.
+
+**Note:** We are finalizing the `1.4.0` final release, which will be available by next week.
+
+The `1.5.0-NEXT.1` release contains the following features:
+
+- [Customer Coupons](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/develop/_pages/dev/features/customer-coupons.md)
+- [Selective Cart](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/develop/_pages/dev/features/selective-cart.md)
+- Variants Scope
+- Some bug fixes
+
 ## 1.5.0-NEXT.0
 
 Hello everyone!
