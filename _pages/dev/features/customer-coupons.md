@@ -9,7 +9,7 @@ The Customer Coupons feature provides a range of functionality for promotion cam
 
 The Customer Coupons feature requires the **customercouponoccaddon** AddOn to work.
 
-For more information, see [Customer Coupon Architecture](https://help.sap.com/viewer/DRAFT/4e9e1795f3e04125b3e0206dfefbf3a9/1905/en-US/97d91d0c7c3449e6ba4412d721535d6a.html) in the SAP Help Portal.
+For more information, see [Customer Coupon Architecture](https://help.sap.com/viewer/DRAFT/4e9e1795f3e04125b3e0206dfefbf3a9/1905/en-US/97d91d0c7c3449e6ba4412d721535d6a.html) on the SAP Help Portal.
 
 ## Enabling Customer Coupons
 
@@ -19,7 +19,7 @@ The Customer Coupons feature has corresponding CMS-component data that allows yo
 
 No special configuration is needed.
 
-Customer coupons are managed using Backoffice. See [Customer Coupon Management](https://help.sap.com/viewer/DRAFT/4e9e1795f3e04125b3e0206dfefbf3a9/1905/en-US/b307666c232146058353c1f6e8a058fd.html) for more information.
+Customer coupons are managed using Backoffice. For more information, see [Customer Coupon Management](https://help.sap.com/viewer/DRAFT/4e9e1795f3e04125b3e0206dfefbf3a9/1905/en-US/b307666c232146058353c1f6e8a058fd.html) on the SAP Help Portal.
 
 ## Extending
 
