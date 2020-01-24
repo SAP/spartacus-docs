@@ -9,6 +9,7 @@ This is a landing page for grouping together Spartacus Features topics. The Spar
 - [Cancellations and Returns]({{ site.baseurl }}{% link _pages/dev/features/cancellations-and-returns.md %})
 - [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
 - [Coupons]({{ site.baseurl }}{% link _pages/dev/features/coupons.md %})
+- [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})
 - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
 - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
 - [Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})

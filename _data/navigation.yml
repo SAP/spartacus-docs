@@ -75,6 +75,8 @@ docs:
                   url: /consignment-tracking/
                 - title: 'Coupons'
                   url: /coupons/
+                - title: "Customer Coupons"
+                  url: /customer-coupons/                
                 - title: "Customer Interests"
                   url: /customer-interests/
                 - title: "Notification Preferences"
