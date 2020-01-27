@@ -182,12 +182,12 @@ docs:
           - title: 'SmartEdit Contract in Spartacus'
             url: /smartedit-contract/
           - title: 'Customizing Backend Communication'
-          url: /customizing-backend-communication/
-          subchildren:
-              - title: 'Using Loading Scopes'
-                url: /using-loading-scopes/
-              - title: 'Connecting to Other Systems'
-                url: /connecting-to-other-systems/
+            url: /customizing-backend-communication/
+            subchildren:
+                - title: 'Using Loading Scopes'
+                  url: /using-loading-scopes/
+                - title: 'Connecting to Other Systems'
+                  url: /connecting-to-other-systems/
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
