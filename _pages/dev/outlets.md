@@ -1,12 +1,12 @@
 # Outlets
 
-Outlets have been added to Spartacus as a mechanism to customize the standard UI provided by Spartacus. “Outlets” let you plug custom UI into the standard Spartacus DOM. This is particular helpful if the UI is not driven by a CMS components or if you like to change a granular piece in the UI.
+Outlets have been added to Spartacus as a mechanism to customize the standard UI provided by Spartacus.“Outlets let you plug custom UI into the standard Spartacus DOM. This is particular helpful if the UI is not driven by a CMS components or if you like to change a granular piece in the UI.
 
-Outlets are _referenced_ by a name, and are either provided in the Spartacus code or driven by content. In the latter case, the outlets are driven by the customer CMS setup.
+Outlets use a string reference to a _named_ outlet. The outlet names are either hardcoded in Spartacus or driven by content. In the latter case, the outlets are driven by the customer CMS setup.
 
 ## Template driven outlets
 
-The basic syntax for adding UI is based on an a `TemplateRef` which can be added by the `ng-template` component. The `cxOutletRef` is used to add a reference to an outlet.
+The basic syntax for adding UI is based on an a `TemplateRef` which can be added by the `ng-template` component. The `cxOutletRef` is used to add a reference to an outlet. The `cxOutletRef` directive is exported from the `OutletRefModule`, if you like to use the directive in your application, make sure that you import this module.
 
 ```html
 <ng-template cxOutletRef="header">
@@ -28,7 +28,7 @@ The following snippet shows an example where the UI is added before the standard
 
 While the usage of ng-template is conveniet, it is limited when there is no template ref available. There are scenario's where we like to add a component dynamically outside the UI, in typescript.
 
-Instead of using an template, you can add a component factory to an outlet reference. With this technique you can dynamically load a component and bring it inot the UI. A good example of this is the `AsmLoaderModule`, which loads the ASM experience dynamically in the `cx-storefront` outlet reference, only if needed.
+Instead of using an template, you can add a component factory to an outlet reference. With this technique you can dynamically load a component and bring it inot the UI. An actual example of this is the `AsmLoaderModule`, which loads the ASM experience dynamically in the `cx-storefront` outlet reference, only if needed.
 
 The following code snippet shows an example if adding UI dynamically by passing in a component factory.
 
