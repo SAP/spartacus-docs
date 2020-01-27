@@ -37,11 +37,15 @@ const factory = this.componentFactoryResolver.resolveComponentFactory(MyComponen
 this.outletService.add('cx-storefront', factory, OutletPosition.BEFORE);
 ```
 
+**Note**: Component driven outlets have been added in release 1.3, prior to 1.3 only template content could be added to outlets.
+
 ## Stacked Outlets
 
 You can use an outlet reference multiple times. When the same outlet references is used multiple times, the different outlets are stacked. This means that all UI for a given outlet reference is appended to the given outlet Outlet reference.
 
 An exception to stacked outlets is when the (default) `OutletPosition.REPLACE` is used. The outlet will only be replaced once.
+
+**Note**: Stackable outlets have been added in release 1.4.
 
 ## Outlet Context
 
@@ -87,6 +91,8 @@ There are a number of outlet references which are explicitely added to Spartacus
     -   `navigation`– wraps all page-slots for the navigation section
     -   `cx-footer` – wraps the `<header>` to allow for customisations of the header.
     -   `footer` – wraps all page-slots for the footer section
+
+**Note**: cx-storefront, cx-header and cx-footer have been added in release 1.3.
 
 ## Specific sections on the Product Detail Page.
 
