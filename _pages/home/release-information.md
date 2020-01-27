@@ -1,48 +1,61 @@
 ---
-title: Release Information for Versions 1.0-1.3 of Spartacus Libraries
+title: Release Information for Versions 1.0-1.4 of Spartacus Libraries
 ---
 
-*Last updated November 18, 2019 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated January 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what is included in the latest releases of Spartacus libraries.
 
 If you have any questions, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
-
-
-
+  
+  
+  
 ### *Disclaimer - Forward-Looking Statements*
 
 *This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
-
-
+   
+   
+    
 ### Overview
 
 - Libraries that are "released" are new, official, tested Spartacus libraries available to the public (hosted on npmjs.com)
 - We usually release new libraries every 2 weeks 
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
-- It’s important to note that if you choose not to use the new features, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
+- If you choose not to use a new feature, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
 - To use the new libraries, set your @spartacus libraries in package.json to “~1.#.0" (replace # with the release number). Then run `yarn upgrade` (although deleting your node_modules and doing yarn install is usually cleaner).
-- To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is strongly recommended as it usually contains bug fixes that affect Spartacus. Most of Spartacus can work with 1811, with no guarantees the farther back you go. Specifically, the following features require 1905:
-  - SmartEdit support
-  - Any usage of  new CmsFlexComponents or SiteContextComponent (although you can use other components such as JspComponent)
-  - Forgot password / reset
-  - Various bug fixes to OCC APIs that help Spartacus work better
+- To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is strongly recommended as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5). 
   
-
+    
   
+### Release 1.4 Highlights
 
-Note: Schematics (for automatically setting up a Spartacus apps) is current available in pre-release form only. See the [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/projects/schematics/README.md) for Schematics.
-
+*Release 1.4 libraries published January 27, 2020*
   
+What's new?
 
+- [Wish List](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/wish-list/)
+- [Stock Notification](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/stock-notification/)
+- Back-in-Stock Notification
+  [Notification Preferences](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/notification-preferences/)
+  [Customer Interests](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customer-interests/)
+- [Token Revocation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/token-revocation/) (supports backend improvement added to 1905.6).
+- Stackable outlets. For more information, see [GitHub Issue 3462](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/3462)
+- Performance improvements for loading product data.  For more information, see [GitHub Issue 3666](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/3666)
+- Deferred and Above-the-Fold Loading. For more information, see [GitHub Issue 5823](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/5823)
+- CMS component data loading optimization. For more information, see [GitHub Issue 5845](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/5845)
+- Updates to cart handling to support future features. For more information, see [GitHub Issue 4432](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/4432)
+
+**Note:** The Cancellations and Returns feature is also part of 1.4. However, this feature requires updates to OCC REST APIs that are not yet released. The updated APIs are scheduled to be part of the May 2020 release (Release 2005) of SAP Commerce Cloud. Please see official SAP Commerce Cloud release announcements for more information.
+    
+  
 ### Release 1.3 Highlights
 
 *Release 1.3 libraries published November 18, 2019*
 
-What's New?
+What's new?
 
 #### Architecture and Development Features
 - Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
@@ -63,18 +76,13 @@ What's New?
 #### B2B Storefront Features
 - Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon). Note: B2B Spartacus not yet available (B2B My Company and Checkout planned for Q1 2020). Powertools out-of-the-box sample data itself is now “Spartacus-ified” so that it displays properly when you point Spartacus to it. It’s what we’re using to do our development. However My Company and Checkout not yet supported; you’ll see a few errors related to API calls that we are part of the updated b2boccaddon API release in Q1.
   
-
-
-
   
-
   
-
 ### Release 1.2 Highlights
 
 **Release 1.2 libraries published September 30, 2019*
 
-What's New?
+What's new?
 
 - [Store Locator](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/store-locator)
 - [Guest Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/guest-checkout)
