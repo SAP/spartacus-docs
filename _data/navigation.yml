@@ -46,6 +46,13 @@ docs:
             url: /personalization-setup-instructions-for-spartacus/
           - title: 'Spartacussampledataaddon AddOn'
             url: /spartacussampledataaddon/
+          - title: "Integrations"
+            url: /integrations/
+            subchildren:
+                - title: 'Kyma Integration'
+                  url: /kyma-integration/
+                - title: 'Qualtrics Integration'
+                  url: /qualtrics-integration/
 
     - title: Storefront Development Guide
       children:
@@ -62,14 +69,20 @@ docs:
                   url: /anonymous-consent/
                 - title: 'Assisted Service Module'
                   url: /asm/
+                - title: "Cancellations and Returns"
+                  url: /cancellations-and-returns/
                 - title: 'Consignment Tracking'
                   url: /consignment-tracking/
                 - title: 'Coupons'
                   url: /coupons/
+                - title: "Customer Coupons"
+                  url: /customer-coupons/
                 - title: "Customer Interests"
                   url: /customer-interests/
                 - title: "Notification Preferences"
-                  url: /notification-preferences/  
+                  url: /notification-preferences/
+                - title: "Selective Cart"
+                  url: /selective-cart/
                 - title: "Stock Notification"
                   url: /stock-notification/  
                 - title: 'Store Locator'
@@ -80,6 +93,13 @@ docs:
                   url: /wish-list/  
           - title: 'Security Best Practices'
             url: /security-best-practices/
+          - title: "Performance Optimizations"
+            url: /performance/
+            subchildren:
+                - title: "Deferred Loading"
+                  url: /deferred-loading/
+                - title: "Above-the-Fold Loading"
+                  url: /above-the-fold/
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
@@ -168,12 +188,6 @@ docs:
                 url: /using-loading-scopes/
               - title: 'Connecting to Other Systems'
                 url: /connecting-to-other-systems/
-          - title: 'Kyma Integration'
-            url: /kyma-integration/
-          - title: 'Qualtrics Integration'
-            url: /qualtrics-integration/
-          - title: 'Yotpo Integration'
-            url: /yotpo-integration/
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
