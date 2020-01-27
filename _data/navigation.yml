@@ -161,8 +161,13 @@ docs:
                   url: /loader-meta-reducer/
           - title: 'SmartEdit Contract in Spartacus'
             url: /smartedit-contract/
-          - title: 'Connecting to Other Systems'
-            url: /connecting-to-other-systems/
+          - title: 'Customizing Backend Communication'
+          url: /customizing-backend-communication/
+          subchildren:
+              - title: 'Using Loading Scopes'
+                url: /using-loading-scopes/
+              - title: 'Connecting to Other Systems'
+                url: /connecting-to-other-systems/
           - title: 'Kyma Integration'
             url: /kyma-integration/
           - title: 'Qualtrics Integration'
