@@ -93,15 +93,6 @@ You can carry out all of the following steps after you have set up your Spartacu
     - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
     - **gtmId:** This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see [Profile Tag](https://help.sap.com/viewer/8a676837bd4245f69cc8a2fbdae2b945/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) on the SAP Help Portal.
 
-1. Configure your `environment.ts` file by providing your `occBaseUrl`. The following example shows the `occBaseUrl` set to a locally-installed back end:
-
-    ```ts
-    export const environment = {
-      production: false,
-      occBaseUrl: 'https://localhost:9002',
-    };
-    ```
-
 ## Profile Tag
 
 To enable Profile Tag, create a CMSFlexComponent called `ProfileTagComponent` in the catalog, and place it in the footer. You can do this by importing the following ImpEx:
