@@ -184,6 +184,8 @@ If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.ba
 
 ## Context-Driven Services Shell Application
 
+**Note:** The Context-Driven Services Shell Application is for developers who are contributing to the Spartacus library sources. In other words, it is only available if you have cloned the Spartacus library sources and are working with a contributor set-up of Spartacus. For more information, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %})
+
 The following steps describe how to run the Context-Driven Services Shell Application:
 
 1. Run the following command to execute the library builds:
