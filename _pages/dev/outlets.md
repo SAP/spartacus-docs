@@ -2,7 +2,7 @@
 title: Outlets
 ---
 
-Outlets allow you to customize the standard UI that is provided by Spartacus. Outlets let you plug custom UIinto the standard Spartacus DOM. This is particularly helpful if the UI is not driven by CMS components, or if you wish to change a granular piece in the UI.
+Outlets allow you to customize the standard UI that is provided by Spartacus by letting you plug custom UIinto the standard Spartacus DOM. This is particularly helpful if the UI is not driven by CMS components, or if you wish to change a granular piece in the UI.
 
 Outlets use a string to reference a named outlet. The outlet names are either hard-coded in Spartacus, or driven by content. In the latter case, the outlets are driven by the customer's CMS setup.
 
@@ -34,7 +34,7 @@ Alternatively, you can use `OutletPosition.BEFORE` or `OutletPosition.AFTER`.
 
 While the usage of `ng-template` is convenient, it is limited when no `TemplateRef` is available. Also, there may be scenarios where you wish to add a component dynamically, outside the UI, using typescript.
 
-Instead of using a template, you can add a component factory to an outlet reference. With this technique, you can dynamically load a component and bring it into the UI. An actual example of this is the `AsmLoaderModule`, which loads the ASM experience dynamically in the `cx-storefront` outlet reference, and only when needed.
+Instead of using a template, you can add a component factory to an outlet reference. With this technique, you can dynamically load a component and bring it into the UI. An actual example of this is the `AsmLoaderModule`, which loads the ASM experience dynamically in the `cx-storefront` outlet reference, but only when needed.
 
 The following is an example of adding UI dynamically by passing in a component factory:
 
@@ -43,7 +43,7 @@ const factory = this.componentFactoryResolver.resolveComponentFactory(MyComponen
 this.outletService.add('cx-storefront', factory, OutletPosition.BEFORE);
 ```
 
-**Note**: The component-driven outlets feature is introduced with version 1.3 of the Spartacus libraries. Prior to version 1.3, only template content can be added to outlets.
+**Note**: The component-driven outlets feature is introduced with version 1.3 of the Spartacus libraries. If you are using an earlier version, only template content can be added to outlets.
 
 ## Stacked Outlets
 
@@ -53,7 +53,7 @@ The Stacked Outlets feature is introduced with version 1.4 {{ site.version_note_
 
 {% include docs/feature_version.html content=version_note %}
 
-You can use an outlet reference multiple times. When the same outlet reference is used multiple times, the different outlets are stacked. This means that all UI for a given outlet reference is appended to the given outlet reference.
+You can use an outlet reference multiple times. When this happens, the different outlets are stacked. This means that all UI for a given outlet reference is appended to the given outlet reference.
 
 An exception to stacked outlets is when the (default) `OutletPosition.REPLACE` is used. The outlet is only replaced once.
 
@@ -73,42 +73,39 @@ Whenever an outlet is created, the given context of the UI is injected into the 
 
 There are two categories of outlet references, as follows:
 
-- Data-driven (CMS-driven) outlet references
+- Data-driven (that is, CMS-driven) outlet references
 - Software-driven outlet references
 
-### CMS outlet refrences
+### CMS Outlet References
 
-The data driven outlets are given by the CMS structure. THere are 3 types:
+Data-driven outlets are provided by the CMS structure. There are three types, as follows:
 
--   CMS Page layout name  
-    Each page layout is available as an outlet reference.
--   CMS page slot positions  
-    Each slot position can be used as an outlet reference. While positions can be reused cross diferenet page templates, the outlet UI is not limited by a specific page. Every occurence of the position refernece ...
--   CMS Component type  
-    Each component type is available as an outlet. While component type driven outlets can be used, it is generally considered best practice to leverage [Customizing CMS Components](customizing-cms-components.md) for introducing custom component UI.
+- **CMS Page layout name:** Each page layout is available as an outlet reference.
+- **CMS page slot positions:** Each slot position can be used as an outlet reference. While positions can be reused across different page templates, the outlet UI is not limited by a specific page.
+- **CMS Component type:** Each component type is available as an outlet. While component type-driven outlets can be used, it is generally considered best practice to leverage [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/customizing-cms-components.md %}) for introducing custom component UI.
 
-### Software driven outlet references
+### Software-Driven Outlet References
 
-There are a number of outlet references which are explicitely added to Spartacus.
+There are a number of outlet references that are explicitly added to Spartacus. The following are the hard-coded sections:
 
--   hard coded sections:
-    -   `cx-storefront`  
-        There's no outlet available for the overall storefront experience or for adding UI to the header and footer. This can be useful when we like to introduce additional UI to the storefront, either because of replacing or adding before or after.
-    -   `cx-header` – wraps the `<header>` to allow for customisations of the header.
-    -   `header` – wraps all page-slots for the header section
-    -   `navigation`– wraps all page-slots for the navigation section
-    -   `cx-footer` – wraps the `<header>` to allow for customisations of the header.
-    -   `footer` – wraps all page-slots for the footer section
+- **cx-storefront:** There is no outlet available for the overall storefront experience, or for adding UI to the header and footer. The `cx-storefront` can be useful when you wish to introduce additional UI to the storefront, either to replace UI, or to add it before or after.
+- **cx-header:** The `cx-header` wraps the `<header>` to allow for customizations of the header.
+- **header:** The `header` wraps all page slots for the header section.
+- **navigation:** The `navigation` wraps all page slots for the navigation section.
+- **cx-footer:** The `cx-footer` wraps the `<footer>` to allow for customizations of the footer.
+- **footer:** The `footer` wraps all page slots for the footer section.
 
-**Note**: cx-storefront, cx-header and cx-footer have been added in release 1.3.
+**Note**: The `cx-storefront`, `cx-header`, and `cx-footer` outlet references are introduced with version 1.3 of the Spartacus libraries.
 
-## Specific sections on the Product Detail Page.
+## Specific Sections on the Product Details Page
 
--   `PDP.INTRO` – wraps the introduction of the PDP
--   `PDP.PRICE` – wraps the price on the PDP
--   `PDP.SHARE` – wraps the share on the PDP
--   `PDP.SUMMARY` – wraps the summary on the PDP
+There are a number of outlet references that wrap specific sections of the Product Details page, as follows:
 
-## Deferred loading
+- The `PDP.INTRO` wraps the introduction of the PDP.
+- The `PDP.PRICE` wraps the price on the PDP.
+- The `PDP.SHARE` wraps the share on the PDP.
+- The `PDP.SUMMARY` wraps the summary on the PDP.
 
-Outlets are driven deferred loading of the Spartacus UI, a technique that is used to postpone the initial rendering of CMS components. Any component that is outside the viewport is not rendered in advance. For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).
+## Deferred Loading
+
+Outlets are driven by deferred loading of the Spartacus UI, which is a technique that is used to postpone the initial rendering of CMS components. Any component that is outside the viewport is not rendered in advance. For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).
