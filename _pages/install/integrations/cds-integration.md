@@ -174,7 +174,7 @@ If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.ba
 
 5. Fill in the fields of the configuration window that appears.
 
-   For the **Number to Display** field, specify the maximum number of products the carousel can retrieve from Merchandising. If the number of products exceeds the size of the carousel, the user will need to use scrolling arrows to see all products.
+   For the **Number to Display** field, specify the number of products you wish to display in the carousel. If the number of products exceeds the size of the carousel, the user will need to use scrolling arrows to see all products.
 
    For the **Scroll Type** field, the only available scroll type is **one**. This enables the user to scroll the products one by one upon clicking the scrolling arrow.
 
