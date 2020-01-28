@@ -37,13 +37,12 @@ If you have any questions, use the help channel of our [Slack workspace](https:/
 What's new?
 
 - [Wish List]({{ site.baseurl }}{% link _pages/dev/features/wish-list.md %})
-- [Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})
-- Back-in-Stock Notification
+- [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
-- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6).
-- [Stacked Outlets](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/docs/GH-505/_pages/dev/outlets.md#stacked-outlets).
-- [Using Loading Scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/3666) for more information.
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6)
+- [Stacked Outlets](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/outlets/#stacked-outlets)
+- [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
 - [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %})
 - CMS component data loading optimization. For more information, see [GitHub Issue 5845](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/5845)

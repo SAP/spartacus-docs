@@ -2,6 +2,12 @@
 title: Using Loading Scopes (DRAFT)
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 Product data payload is usually huge and required in multiple places, like the Product Detail Page, items in Product Carousels, etc. 
 Not all places need complete product payload, breaking product payload into pieces (called scopes), allows to specify which part of the payload is actually needed in a specific case.
 
