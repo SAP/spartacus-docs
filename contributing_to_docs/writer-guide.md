@@ -4,7 +4,7 @@ The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spart
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
-The following sections are intended to help you get up-and-running with everything you need to start contributing to the Spartacus documentation repository.
+The following sections are intended to help you get up and running with everything you need to start contributing to the Spartacus documentation repository.
 
 ## Working with Visual Studio Code
 
