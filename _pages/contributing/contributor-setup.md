@@ -6,7 +6,7 @@ To contribute to the Spartacus project, the first steps are to clone the Spartac
 
 This guide shows how to build and run both in development mode and in production mode.
 
-# Prerequisites
+## Prerequisites
 
 Before carrying out the procedures below, please ensure the following front end and back end requirements are in place.
 
@@ -18,9 +18,9 @@ Before carrying out the procedures below, please ensure the following front end 
 
 The Spartacus JavaScript Storefront uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator electronics storefront in particular.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
+For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}).
 
-Note: The latest release of SAP Commerce Cloud is recommended.
+**Note:** The latest release of SAP Commerce Cloud is recommended.
 
 # Cloning the Sources
 
@@ -67,7 +67,7 @@ Carry out the following steps before you build and launch.
 
 ## Launching the Storefront
 
-Lauch the storefront with the following command:
+Launch the storefront with the following command:
 
 ```bash
 yarn start
@@ -77,7 +77,7 @@ This is the most convenient way for a developer to run the storefront. It allows
 
 # Building and Running in Production Mode
 
-Building in production mode has more retrictive rules about what kind of code is allowed, but it also allows you to generate a build that is optimized for production. Use this mode as your development cycle nears completion.
+Building in production mode has more restrictive rules about what kind of code is allowed, but it also allows you to generate a build that is optimized for production. Use this mode as your development cycle nears completion.
 
 ## Building the @spartacus/storefront Library
 
