@@ -15,7 +15,7 @@ SVG sprites are considered best practice because they have the following advanta
 - **Spriting:** SVG icons can be combined in a single sprite file. The sprite can be created specifically for the storefront so that an optimized file is created.
 - **Animations:** Spartacus does not use animations in its icons, but the format allows for animations to be added.
 
-Spartacus is shipped as a library, so there is no straightforward approach to loading SVG files. Libraries are installed in the `node_modules` folder, and using SVG-based icons would require an import from an application location, such as the `/assets` folder. This is why Spartacus is configured by default to use a font-based setup for icons. This is not necessarily the best practice for production, because most standard font icon sets cover more icons than are needed for a storefront.
+Spartacus is shipped as a library, so there is no straightforward approach to loading SVG files. Libraries are installed in the `node_modules` folder, and using SVG-based icons would require an import from an application location, such as the `/assets` folder. For this reason, Spartacus is configured by default to use a font-based setup for icons. This default configuration uses Font Awesome icons, which are added to the `IconModule` directly with the `fontawesomeIconConfig`. Note, this is not necessarily the best practice for production, because most standard font icon sets cover more icons than are needed for a storefront.
 
 ### Icon Component
 
@@ -51,6 +51,7 @@ Icons are configured in Spartacus using the `ConfigModule`. In the configuration
 
 ```typescript
 ConfigModule.withConfig(<IconConfig>{
+  icon: {
     symbols: {
       CART: 'fas fa-shopping-cart',
       SEARCH: 'glyphicon glyphicon-search',
@@ -69,6 +70,7 @@ ConfigModule.withConfig(<IconConfig>{
         types: [ICON_TYPE.INFO,ICON_TYPE.WARNING],
       },
     ]
+  }
 });
 ```
 
