@@ -2,7 +2,7 @@
 title: Spartacus FAQ
 ---
 
-If you have any questions not answered in this FAQ, use the help channel of our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+If you have technical questions not answered in this FAQ, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
 - [Questions Related to Spartacus as a Product](#questions-related-to-spartacus-as-a-product)
 - [Questions Related to Commercialization](#questions-related-to-commercialization)
@@ -108,7 +108,7 @@ Spartacus storefronts are JavaScript web applications that communicate to the ba
 
 ### How do I get support when I run into issues with Spartacus?
 
-Spartacus is provided "as-is" with no official lines of support. To get help from the Spartacus community, post a question in the Help chat of the Slack workspace. You can also post a question to Stack Overflow with the 'spartacus' tag, but the Slack workspace is experiencing the most developer discussion at the moment. 
+Spartacus is provided "as-is" with no official lines of support. To get help from the Spartacus community, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). 
 
 ### Is it possible to contribute to this open source project? How?
 
@@ -116,7 +116,7 @@ Yes. We welcome feedback, ideas, requests, and especially code contributions. If
 
 ### Is Spartacus the same as SAP Cloud Platform Extension Factory (Kyma)?
 
-No they are different. SAP Cloud Platform Extension Factory is the key extensibility layer for the SAP C/4HANA suite. It leverages the concepts and innovations from [project "Kyma"Field] to use scalable microservices. Spartacus storefronts can easily access these API-based services so that you can quickly add new functionality to your storefront.
+No they are different. SAP Cloud Platform Extension Factory is the key extensibility layer for the SAP C/4HANA suite. It leverages the concepts and innovations from [project "Kyma" Field] to use scalable microservices. Spartacus storefronts can easily access these API-based services so that you can quickly add new functionality to your storefront.
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
