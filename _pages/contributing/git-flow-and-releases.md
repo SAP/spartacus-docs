@@ -2,6 +2,15 @@
 title: Git flow and release process
 ---
 
+## Library versions compatibility
+
+In this document we always refer to version as a single instance. However spartacus project is not a single library, but a set of libraries.
+
+To make it easier to know which version of one library is compatible with another library we keep version synchronized across all packages.
+That means when we want to release version `1.5.0` we release all libraries under this version (even if some libraries doesn't have any changes since the last release).
+
+Thanks to that you can be confident that if you install all packages with the same version everything will work correctly together. Different versions of libraries might work well together, but we don't test those configurations and can't promise correct behavior.
+
 ## Version support
 
 For versioning we follow semver. (TODO put link here). Apart from `stable` versions we make use of `next` and `rc` releases.
@@ -12,10 +21,14 @@ Our assumptions about versions:
 - `rc` version means that we finished development of all new features for that version (there won't be any major changes in this features and public API) and community can start testing those. These release might contain few bugs that will be fixed before stable release. When there won't be any more bugs and community stops reporting issues for that version we proceed with `stable` release.
 - `next` versions are released when we finish some particular feature so community can test them instantly. This versions can have a lot of bugs. Features and public API might be still a subject for big changes. If you want to test new features as soon as possible this is the versions for you (versions available under `next` tag on `npmjs.org`).
 
+### Support policy
+
 There is always at least one `stable` or `rc` version supported.
 
 Once version `x.y` is released it will be actively maintained until new `stable` or `rc` for `x.z` version will be released.
 On that moment `x.z` version will be the actively maintained version and work on next version begins.
+
+Eg. We just released `1.5.0-rc.0` version. From that moment `1.5.x` version will be actively maintained until we release `1.6.0-rc.0` which would switch active support to `1.6.x` version.
 
 For important security issues or critical bug fixes there might be additional patch for versions no longer actively maintained.
 
@@ -56,13 +69,23 @@ Other branches convention:
 - cherry pick commit with the fix from `develop` branch
 - create PR and merge `feature/GH-xxxx-maintenance` into maintenance branch
 
-## Release process
+## Release schedule
 
-TODO - document when we can release (what needs to be finished), steps to do before release, how to ensure quality of the release
+Currently we don't have scheduled releases. Product owner or team decides when is a good time to release a new version.
+
+Terms we currently use that are misleading:
+
+- feature freeze - describes moment when we completed all features for new minor/major release (means that we want to release `rc` very soon, but still needs to fix some bugs)
+- code freeze - describes moment when you should stop committing code (that is not needed with our flow, because we can always cut release/maintenance branch and keep committing)
+
+Replacements for those terms:
+
+- feature freeze -> new maintenance branch and release new `rc` - first RC can be buggy, that's the point of RC
+- code freeze -> create new release branch - don't block main development/maintenance branch ever (don't need to bother developers with these details, because our flow supports concurrent work on these branches and releasing another version).
 
 ## Release steps
 
-You can use following checklist for your release github issue to avoid mistakes during release
+You can use following checklist for your release github issue to avoid mistakes during release (first part can be delegated to QA engineers - first 7 points)
 
 - [ ] validate that every merged ticket was tested (nothing should be left in QA column, exceptions - ticket marked as `not-blocking-release`)
 - [ ] for new minors/RC create maintenance branch e.g. `release/1.5.x`
@@ -95,5 +118,5 @@ For Windows:
 - [ ] check tags on npm (`next` should always point to the highest version, `latest` to highest stable version)
 - [ ] check if everything builds from npm packages (spartacus installation script)
 - [ ] merge release branch into develop branch (for next releases) or into maintenance branch (for any other release)
-- [ ] announce on tribe channel
+- [ ] announce new release
 - [ ] create tickets to non-blocking release problems found during the release process
