@@ -1,7 +1,9 @@
 # main links
 main:
-    - title: Spartacus Slack
+    - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU
+    - title: Support
+      url: https://stackoverflow.com/questions/tagged/spartacus-storefront
     - title: Version 2.0
       url: /release-information/
 
