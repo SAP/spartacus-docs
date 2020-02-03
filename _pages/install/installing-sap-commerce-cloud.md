@@ -180,9 +180,17 @@ corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST D
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
 ```
 
-You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings, as shown above.
+You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
-For more information, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
+There are a number of Spartacus features that require additional CORS settings. For more information, see the following:
+
+- [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %})
+- [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
+- [Personalization Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
+
+**Note:** If you are using version 1.3 or newer of the Spartacus libraries, add the CORS settings for anonymous consent, or disable the anonymous consent feature. Otherwise the Spartacus storefront will not display properly (for example, you might see a blank page when loading the Home page).
+
+For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
 ## Alternate Method for Setting the SAP Commerce Cloud Admin Password
 
