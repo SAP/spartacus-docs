@@ -71,7 +71,7 @@ If you are creating a new GitHub account, you can associate it with any email ad
 
 When you have finished setting up a personal GitHub account, you must then join the SAP GitHub Organization and link your GitHub account to your SAP-internal account. All the steps for this are described in [Self-Service for Joining an SAP GitHub Organization](https://github.wdf.sap.corp/OSPO/guidelines/blob/master/publishing/github-self-registration.md). Note, VPN is required to access this link if you are outside of the `SAP Corporate` network.
 
-Once you have linked your GitHub account to your SAP-internal account, you can then request write access to the Spartacus documentation repository. To do so, send your GitHub ID to one of the Spartacus administrators, either through Slack or email, and you will be contacted as soon as write access has been granted.
+Once you have joined the SAP GitHub Organization and linked your GitHub account to your SAP-internal account, you can then request write access to the Spartacus documentation repository. To do so, send your GitHub ID to one of the Spartacus administrators, either through Slack or email, and you will be contacted as soon as write access has been granted.
 
 ### Cloning the Documentation Repository
 
