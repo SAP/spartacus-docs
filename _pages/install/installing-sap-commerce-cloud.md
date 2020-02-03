@@ -186,6 +186,7 @@ There are a number of Spartacus features that require additional CORS settings. 
 
 - [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %})
 - [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
+- [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
 - [Personalization Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
 
 **Note:** If you are using version 1.3 or newer of the Spartacus libraries, add the CORS settings for anonymous consent, or disable the anonymous consent feature. Otherwise the Spartacus storefront will not display properly (for example, you might see a blank page when loading the Home page).
