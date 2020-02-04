@@ -51,7 +51,7 @@ You can carry out all of the following steps after you have set up your Spartacu
 1. Install the Context-Driven Services library by running the following command from within the root directory of your storefront app: 
 
     ```bash
-    npm i @spartacus/cds@1.0.0-next.0
+    npm i @spartacus/cds
     ```
 
 1. Import the Context-Driven Services module by adding the following line below the existing import statements at the top of `app.module.ts`:
