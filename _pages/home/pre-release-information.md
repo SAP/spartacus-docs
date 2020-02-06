@@ -6,6 +6,12 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
 
+## 1.5.0-RC.0
+
+The `1.5.0-RC.0` Spartacus libraries have been released. We expect to deliver the final 1.5 release in a few weeks.
+
+For a list of bug fixes, see the [release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
+
 ## 1.5.0-NEXT.2
 
 The `1.5.0-NEXT.2` release contains the following features:
@@ -29,6 +35,6 @@ Release 1.5.0-NEXT.0 contains the following features:
 
 - Improvements to Applied Promotions. Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
 
-- Bug fixes 
+- Bug fixes
 
 For release notes, see [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
