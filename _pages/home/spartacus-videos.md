@@ -35,3 +35,7 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 - [Part 3: Speech to Search Example](https://enable.cx.sap.com/media/Speech-to-search+-+Spartacus+Extensibility+Live+Coding+Part+3+-+SAP+Commerce+Cloud/1_4wov6bb0) (6:15) (Technical: Advanced)
 - [Part 4:Component Context](https://enable.cx.sap.com/media/Component+Context+-+Spartacus+Extensibility+Live+Coding+Part+4+-+SAP+Commerce+Cloud/1_0zy91r1g) (6:13) (Technical: Advanced)
 - [Part 5: Web Components](https://enable.cx.sap.com/media/Web+Components+-+Spartacus+Extensibility+Live+Coding+Part+5+-+SAP+Commerce+Cloud/1_kwff10lp) (7:04)  (Technical: Advanced)
+
+## Sparta-Town
+
+Recordings for all Sparta-Town information sessions can be found on our [Spartacus Project YouTube channel](https://www.youtube.com/channel/UCU5tdPG8xICkKfQFedSxpOA).
