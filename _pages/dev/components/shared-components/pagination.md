@@ -2,17 +2,17 @@
 title: Pagination
 ---
 
-(version note: the pagination component is not new, but we've make it more mature and configurable in version 2.0).
+**Note:** Improvements to this feature are introduced with version 2.0 of the Spartacus libraries.
 
-The pagination component is a low level component which is used in various components, such in the Product List, Order History, Storefinder and various others. It is used to navigate through page results.
+The pagination component is a low-level component that is used to navigate through page results. It is used in various other components, such in the Product List, Order History, and Storefinder components, among others.
 
-Customers will have different requirements for pagination experience, specifically regarding the precise navigation options being used. The pagination component is highly flexible by using configuration or custom styles.
+Customers have different pagination requirements, especially with regards to the precise navigation options that are used. The pagination component is highly flexible and can be customized either through configuration or by using custom styles.
 
-For the Product List specifically the pagiation can be replaced by [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %}).
+For the Product List in particular, the pagination component can be replaced by the infinite scroll feature. For more information, see [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %}).
 
 ## Pagination Structure
 
-The pagination component exists of anchor links. The anchor links can use as actual links (`href`) or action links (`onclick` events). The actual anchor links being rendered depend on the number of total pages as well as the configuration applied. If the full structure is used, the following pagination navigation would be available:
+The pagination component is comprised of anchor links. The anchor links can use as actual links (`href`) or action links (`onclick` events). The actual anchor links being rendered depend on the number of total pages as well as the configuration applied. If the full structure is used, the following pagination navigation would be available:
 
 `« ‹ 1 ... 5 (6) 7 ... 11 › »`
 
