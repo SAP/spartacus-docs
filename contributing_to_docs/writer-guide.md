@@ -38,7 +38,11 @@ Jekyll is the software we use for generating the Spartacus documentation site.
 
 **Note:** Writers must install Jekyll on their local machines. With Jekyll installed, you can build the documentation website on your local machine, and this ensures that updates to the documentation are free from errors that could prevent the site from working properly.
 
-To get up-and-running with Jekyll, read this [intro to Ruby](https://jekyllrb.com/docs/ruby-101/), and then install a full [Ruby development environment](https://jekyllrb.com/docs/installation/). The steps for installing Ruby also include steps for installing Jekyll.
+To get up and running with Jekyll, read this [intro to Ruby](https://jekyllrb.com/docs/ruby-101/), and then install a full [Ruby development environment](https://jekyllrb.com/docs/installation/). The steps for installing Ruby also include steps for installing Jekyll. 
+
+If you are on a Mac, run all the necessary commands for installing Ruby and Jekyll from the home directory (`~`) in Terminal. By default, this is the directory that Terminal opens in (unless you have changed the default).
+
+If you are on Windows, run all the necessary commands for installing Ruby and Jekyll from your user directory in a command prompt (for example, `Users\your_username`). By default, when you open a command prompt from the Start menu, this is the directory that the command prompt opens in (unless you have changed the default).
 
 ### Useful Links
 
@@ -53,7 +57,7 @@ Although you don't need to become an expert in Jekyll to contribute to the Spart
 
 If you are new to GitHub, have a look at Jonathan McGlone's [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/). Without following the tutorials, you can learn a lot by simply reading the introductions to each section.
 
-The following sections are intended to help you get up-and-running with those aspects of GitHub that you need to contribute to the Spartacus project:
+The following sections are intended to help you get up and running with those aspects of GitHub that you need to contribute to the Spartacus project:
 
 - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
 - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
@@ -74,6 +78,8 @@ When you have finished setting up a personal GitHub account, you must then join 
 Once you have joined the SAP GitHub Organization and linked your GitHub account to your SAP-internal account, you can then request write access to the Spartacus documentation repository. To do so, send your GitHub ID to one of the Spartacus administrators, either through Slack or email, and you will be contacted as soon as write access has been granted.
 
 ### Cloning the Documentation Repository
+
+**Note:** Do not begin this step until you have installed Jekyll and have verified that it is running. To do so, please ensure that you have successfully completed all the steps in the [Jekyll Quickstart Guide](https://jekyllrb.com/docs/) before cloning the Spartacus documentation repository.
 
 Before you can contribute to Spartacus documentation, you must clone the Spartacus documentation repository.
 
