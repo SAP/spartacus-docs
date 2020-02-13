@@ -12,9 +12,11 @@ For the Product List in particular, the pagination component can be replaced by 
 
 ## Pagination Structure
 
-The pagination component is comprised of anchor links. The anchor links can use as actual links (`href`) or action links (`onclick` events). The actual anchor links being rendered depend on the number of total pages as well as the configuration applied. If the full structure is used, the following pagination navigation would be available:
+The pagination component is comprised of anchor links. The anchor links can be used as `href` links, or as action links (such as `onclick` events). The type of anchor links that are rendered depends on the number of total pages, as well as the configuration that is applied. If you apply the full structure, the following pagination navigation is available: 
 
-`« ‹ 1 ... 5 (6) 7 ... 11 › »`
+```blank
+« ‹ 1 ... 5 (6) 7 ... 11 › »
+```
 
 This contains the follow navigation links:
 
