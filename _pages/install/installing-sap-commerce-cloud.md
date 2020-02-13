@@ -168,15 +168,13 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
 
 ## Configuring CORS
 
-**Note:** This step is optional to start Spartacus, but required for checkout.
-
 CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
 You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
 To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce Cloud configuration:
 
-```blank
+```sql
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
@@ -184,7 +182,7 @@ corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept author
 
 **Note:** If you are using version 1.3 or newer of the Spartacus libraries, you must also add the CORS settings for anonymous consent, or disable the anonymous consent feature. Otherwise the Spartacus storefront will not display properly (for example, you might see a blank page when loading the Home page). Add the `x-anonymous-consents` custom header to `corsfilter.ycommercewebservices.allowedHeaders`, as follows:
 
-```blank
+```sql
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
