@@ -4,7 +4,7 @@ title: Cybersource Integration
 
 The following document describes how to integrate Spartacus with CyberSource payment subscription in a PCI compliant scenario (no card information sent through Hybris).
 
-On a Vanilla installation of Spartacus, the checkout process uses the accelerator's [Mocked configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html) mechanism for payments. The structure and behavior of the accelerator's mocked payment is very similar to Cybersource in terms of functionality (Silent Post Order, field mappings for payment details, etcetera).
+On a Vanilla installation of Spartacus, the checkout process uses the accelerator's [Mocked configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html) mechanism for payments. The structure and behavior of the accelerator's mocked payment is very similar to Cybersource in terms of functionality (Uses Silent Post Order, does the field mappings for payment details, etcetera).
 
 Once Cybersource is up and running as a payment gateway in your CX backend, you can follow these steps for Cybersource integration on the Spartacus side:
 
@@ -34,7 +34,7 @@ export class CybersourceCheckoutPaymentAdapter
     // Cybersource-based logic to create payment details
   }
 
-  // Other methods to get endpoints, map payment fields, etc.
+  // Add other methods to get endpoints, map payment fields, etc. as needed
 }
 ```
 
