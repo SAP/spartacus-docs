@@ -4,18 +4,28 @@ title: Cybersource Integration
 
 The following document describes how to integrate Spartacus with CyberSource payment subscription in a PCI compliant scenario (no card information sent through Hybris).
 
-On a Vanilla installation of Spartacus, the checkout process uses the accelerator's [Mocked configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html) mechanism for payments. The structure and behavior of the accelerator's mocked payment is very similar to Cybersource.
+On a Vanilla installation of Spartacus, the checkout process uses the accelerator's [Mocked configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html) mechanism for payments. The structure and behavior of the accelerator's mocked payment is very similar to Cybersource in terms of functionality (Silent Post Order, field mappings for payment details, etcetera).
 
-Once Cybersource is properly configured in your CX backend, you will have to do the following on the Spartacus side:
+Once Cybersource is up and running as a payment gateway in your CX backend, you can follow these steps for Cybersource integration on the Spartacus side:
 
-### CheckoutPaymentAdapter
+### Provide a custom implementation for CheckoutPaymentAdapter
 
-Create a custom implementation of _CheckoutPaymentAdapter_, which will encapsulate the new checkout logic for Cybersource and will override the default mock implementation from Spartacus.
+Payment information functionality is encapsulated in a _Payment Adapter_. For Cybersource integration, create a custom implementation for the _CheckoutPaymentAdapter_ interface. This instance will encapsulate the new checkout logic for Cybersource and will override the default mock implementation from Spartacus.
 
 ```ts
+import {
+  PaymentDetails,
+  CheckoutPaymentAdapter,
+  CardType
+} from "@spartacus/core";
+import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
+
 @Injectable()
 export class CybersourceCheckoutPaymentAdapter
   implements CheckoutPaymentAdapter {
+  constructor() {}
+
   public create(
     userId: string,
     cartId: string,
@@ -28,13 +38,15 @@ export class CybersourceCheckoutPaymentAdapter
 }
 ```
 
-You can refer to _OccCheckoutPaymentAdapter_ class as a reference, since all of the payment logic for the mocked payment mechanism (including payment provider HTTP endpoints, field names and mappings, etc.) is there.
+_Notes:_
 
-_Note_: If you need to set and reuse existing payments the way Spartacus does it out of the box, extend this class instead and override the create() method.
+- You can refer to _OccCheckoutPaymentAdapter_ class as a reference, since all of the payment logic for the mocked payment mechanism (including payment provider HTTP endpoints, field names and mappings, etc.) is there.
+
+- If you need to set and reuse existing payments the way Spartacus does it out of the box, extend the class above instead and override the create() method.
 
 ### CustomPaymentModule
 
-Provide (export) your custom payment adapter in a module and include your module in your main application.
+Provide (export) your custom payment adapter in a module and include your module in your main application. With this, Spartacus will use your custom payment adapter instead of the default one (provided for OCC).
 
 ```ts
 import { NgModule } from "@angular/core";
@@ -52,4 +64,8 @@ import { CybersourceCheckoutPaymentAdapter } from "./checkout.adapter";
 export class CybersourceCheckoutModule {}
 ```
 
-_Note_ If your checkout process has been heavily customized, you might also have to override other members of Spartacus, including the checkout process steps and orchestration. More information about this [here](#extending-checkout).
+_Note:_
+
+If your checkout process has been heavily customized, you might also have to override other members of Spartacus, including the checkout process steps and orchestration.
+
+More information about extending the checkotu process [here](#extending-checkout).
