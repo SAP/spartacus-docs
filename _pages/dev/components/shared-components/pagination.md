@@ -12,62 +12,54 @@ For the Product List in particular, the pagination component can be replaced by 
 
 ## Pagination Structure
 
-The pagination component is comprised of anchor links. The anchor links can be used as `href` links, or as action links (such as `onclick` events). The type of anchor links that are rendered depends on the number of total pages, as well as the configuration that is applied. If you apply the full structure, the following pagination navigation is available: 
+The pagination component is comprised of anchor links. The anchor links can be used as `href` links, or as action links (such as `onclick` events). The type of anchor links that are rendered depends on the number of total pages, as well as the configuration that is applied. If you apply the full structure, the following pagination navigation is available:
 
-```blank
-« ‹ 1 ... 5 (6) 7 ... 11 › »
-```
+`« ‹ 1 ... 5 (6) 7 ... 11 › »`
 
-This contains the follow navigation links:
+The example above contains the follow navigation links:
 
--   start (`«`)
--   previous (`‹`)
--   first (`1`)
--   gap (`...`)
--   page range with the current centered whenever possible
--   gap (`...`)
--   last
--   next (`›`)
--   end (`»`)
+- start: `«`
+- previous: `‹`
+- first: `1`
+- gap: `...`
+- page range, with the current page centered whenever possible: `5 (6) 7`
+- gap: `...`
+- last: `11`
+- next: `›`
+- end: `»`
 
-Spartacus only uses a page range of 3 and a start/end link.
+Spartacus uses a navigation structure with start and end links, and a page range of three pages.
 
 ## Pagination Configuration
 
-The pagination component is highly configurable, to allow for maximum reusability of the component in various components.
-You can specify partial configurations using the `PaginationConfig`, which contains a typed `pagination` property (using `PaginationOptions`).
+You can configure various options for the pagination component, which provides a lot of flexibility, and allows you to reuse it across the application.
 
-Althought the pagiation component is feature rich, the default configuration used in Spartacus is based on a very clean. The configuration is set to have maximum 3 visible pages, surround by an optional `start` and `end` link. The results in the following pagination:
+Although the pagination component provides numerous configuration options, the default configuration in Spartacus only uses a limited feature set: the page range, surrounded by a start link and an end link. This appears as follows:
 
 `« 1 2 3 »`
 
-This full blown pagination component is driven by the following options:
+The pagination component offers the following options:
 
--   `addStart`  
-    A link to skip to the start of the pages, defaults to false.
--   `addPrevious`  
-    A link to the previous page, defaults to false.
--   addFirst
--   `addDots`  
-    A gap with dots to indicate hidden pages, defaults to false.
--   `rangeCount`  
-    The range of direct accessible pages in the pagination, defaults to 3
--   `addNext`  
-    A link to the previous page, defaults to false.
--   `addEnd`  
-    A link to skip to the end of the pages, defaults to false.
+- `addStart` adds a link to skip to the start of the pages. The default is set to false.
+- `addPrevious` adds a link to the previous page. The default is set to false.
+- `addFirst` adds a link to the first page. The default is set to false.
+- `addDots` adds a gap with dots to indicate hidden pages. The default is set to false.
+- `rangeCount` sets the range of pages that are directly accessible in the pagination. The default is set to `3`.
+- `addLast` adds a link to the last page. The default is set to false.
+- `addNext` adds a link to the previous page. The default is set to false.
+- `addEnd` adds a link to skip to the end of the pages. The default is set to false.
 
-In addition, the position of the navigation links can be specified, to separate them from the pages. While this can be achieved with pure CSS rules, we care about accessibiliy and lik to provide the actual requried DOM.
+In addition, the position of the navigation links can be specified, which allows you to separate them from the pages. While this can be achieved with pure CSS rules, we care about accessibility and lik to provide the actual required DOM.
 
-The labels used in the navigations are all configurable as well.
+The labels used in the navigation are all configurable as well.
 
 ## Pagination Styling
 
-The pagination component selector is `cx-pagination` and exists of anchor links.
+The pagination component selector is `cx-pagination`, and is comprised of anchor links.
 
 ### Selectors
 
-Each navigation option in the pagination component is rendered as an anchor link with a specfic CSS selector (class):
+Each navigation option in the pagination component is rendered as an anchor link with a specific CSS selector (class), as follows:
 
 -   `a.start`
 -   `a.previous`
@@ -79,11 +71,11 @@ Each navigation option in the pagination component is rendered as an anchor link
 -   `a.next`
 -   `a.end`
 
-### Hide specific navigation
+### Hiding Navigation in a Specific Instance of the Navigation Component
 
-The pagination component is highly configurable as shown in the previous section. Those configuration options are howver globally applied to all instances of the pagination component. If you need to hide navigation options for specific instances, you can apply CSS rules to hide navigation options.
+The pagination component is highly configurable as shown in the previous section. Those configuration options are however globally applied to all instances of the pagination component. If you need to hide navigation options for specific instances, you can apply CSS rules to hide navigation options.
 
-The code snippet below shows a global configuration for the pagination with a first and last page and a gap with dots in between. The CSS snippet below however shows how these options are surpressed for the storefinder search results.
+The code snippet below shows a global configuration for the pagination with a first and last page and a gap with dots in between. The CSS snippet below however shows how these options are suppressed for the storefinder search results.
 
 ```typescript
 ConfigModule.withConfig({
