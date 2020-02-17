@@ -4,9 +4,9 @@ title: Pagination Component
 
 **Note:** Improvements to this feature are introduced with version 2.0 of the Spartacus libraries.
 
-The pagination component is a low-level component that is used to navigate through page results. It is used in various other components, such in the Product List, Order History, and Storefinder components, among others.
+The pagination component is a low-level component that is used to navigate through page results. It is used in various other components, including the Product List, Order History, and Store Finder components.
 
-Customers have different pagination requirements, especially with regards to the precise navigation options that are used. The pagination component is highly flexible and can be customized either through configuration or by using custom styles.
+Each customer has different pagination requirements, especially with regards to the precise navigation options that you use. The pagination component is very flexible and can be adjusted to meet your needs, either through configuration, or by using custom styles.
 
 For the Product List in particular, the pagination component can be replaced by the infinite scroll feature. For more information, see [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %}).
 
@@ -28,17 +28,15 @@ The example above contains the follow navigation links:
 - next: `›`
 - end: `»`
 
-Spartacus uses a navigation structure with start and end links, and a page range of three pages.
-
 ## Pagination Configuration
 
-You can configure various options for the pagination component, which provides a lot of flexibility, and allows you to reuse it across the application.
+You can configure various options for the pagination component, which allows you to reuse the component across the application.
 
-Although the pagination component provides numerous configuration options, the default configuration in Spartacus only uses a limited feature set: the page range, surrounded by a start link and an end link. This appears as follows:
+Despite this large number of options, the default configuration in Spartacus uses only a limited feature set: a start link, the page range, and an end link. This appears as follows:
 
 `« 1 2 3 »`
 
-The pagination component offers the following options:
+The following list provides a description of each option that is available in the pagination component:
 
 - `addStart` adds a link to skip to the start of the pages. The default is set to false.
 - `addPrevious` adds a link to the previous page. The default is set to false.
@@ -49,9 +47,9 @@ The pagination component offers the following options:
 - `addNext` adds a link to the previous page. The default is set to false.
 - `addEnd` adds a link to skip to the end of the pages. The default is set to false.
 
-In addition, the position of the navigation links can be specified, which allows you to separate them from the pages. While this can be achieved with pure CSS rules, we care about accessibility and lik to provide the actual required DOM.
+In addition, the position of the navigation links can be specified, which allows you to separate them from the pages. Although you can achieve this entirely with CSS rules, when considering accessibility, a preferred approach is to provide the actual, required DOM.
 
-The labels used in the navigation are all configurable as well.
+All of the labels that are used in the navigation can be configured as well.
 
 ## Pagination Styling
 
@@ -61,21 +59,21 @@ The pagination component selector is `cx-pagination`, and is comprised of anchor
 
 Each navigation option in the pagination component is rendered as an anchor link with a specific CSS selector (class), as follows:
 
--   `a.start`
--   `a.previous`
--   `a.first`
--   `a.gap`
--   `a.page`
--   `a.page.current`
--   `a.last`
--   `a.next`
--   `a.end`
+- a.start
+- a.previous
+- a.first
+- a.gap
+- a.page
+- a.page.current
+- a.last
+- a.next
+- a.end
 
 ### Hiding Navigation in a Specific Instance of the Navigation Component
 
-The pagination component is highly configurable as shown in the previous section. Those configuration options are however globally applied to all instances of the pagination component. If you need to hide navigation options for specific instances, you can apply CSS rules to hide navigation options.
+Although the pagination component is very flexible, the configuration options that have been described so far are applied globally to all instances of the pagination component. If you need to hide navigation options for a specific instance, you can apply CSS rules to hide the navigation options for that instance.
 
-The code snippet below shows a global configuration for the pagination with a first and last page and a gap with dots in between. The CSS snippet below however shows how these options are suppressed for the storefinder search results.
+The following example shows a global configuration for the pagination, with a first page, a last page, and a gap with dots in between:
 
 ```typescript
 ConfigModule.withConfig({
@@ -86,6 +84,8 @@ ConfigModule.withConfig({
     }
 });
 ```
+
+You can then use CSS rules to suppress these options for a specific instance, such as the store finder search results. The following is an example:
 
 ```scss
 cx-store-finder-search-result {
