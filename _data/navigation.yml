@@ -49,13 +49,15 @@ docs:
           - title: 'Spartacussampledataaddon AddOn'
             url: /spartacussampledataaddon/
           - title: "Integrations"
-            url: /integrations/  
+            url: /integrations/
             subchildren:
+                - title: 'CyberSource Integration'
+                  url: /cybersource-integration/
                 - title: 'Kyma Integration'
                   url: /kyma-integration/
                 - title: 'Qualtrics Integration'
                   url: /qualtrics-integration/
-                
+
     - title: Storefront Development Guide
       children:
           - title: 'Storefront Development FAQ'
