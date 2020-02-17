@@ -1,5 +1,5 @@
 ---
-title: CyberSource Integration
+title: Payment Integration for CyberSource
 ---
 
 You can integrate Spartacus with a CyberSource payment subscription in a PCI-compliant scenario, where no card information is sent through SAP Commerce Cloud.
