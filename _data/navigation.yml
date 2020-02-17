@@ -51,7 +51,7 @@ docs:
           - title: "Integrations"
             url: /integrations/
             subchildren:
-                - title: 'CyberSource Integration'
+                - title: 'Payment Integration with CyberSource Example'
                   url: /cybersource-integration/
                 - title: 'Kyma Integration'
                   url: /kyma-integration/
