@@ -51,7 +51,7 @@ docs:
           - title: "Integrations"
             url: /integrations/
             subchildren:
-                - title: 'Cybersource Integration'
+                - title: 'CyberSource Integration'
                   url: /cybersource-integration/
                 - title: 'Kyma Integration'
                   url: /kyma-integration/

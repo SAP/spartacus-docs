@@ -1,16 +1,18 @@
 ---
-title: Cybersource Integration
+title: CyberSource Integration
 ---
 
-The following document describes how to integrate Spartacus with CyberSource payment subscription in a PCI compliant scenario (no card information sent through Hybris).
+You can integrate Spartacus with a CyberSource payment subscription in a PCI-compliant scenario, where no card information is sent through SAP Commerce Cloud.
 
-On a Vanilla installation of Spartacus, the checkout process uses the accelerator's [Mocked configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html) mechanism for payments. The structure and behavior of the accelerator's mocked payment is very similar to Cybersource in terms of functionality (Uses Silent Post Order, does the field mappings for payment details, etcetera).
+On a default installation of Spartacus, the checkout process uses the Accelerator mocked configuration mechanism for payments. The structure and behavior of the mocked payment is very similar to CyberSource in terms of functionality, in that it uses Silent Post Order, it does the field mappings for payment details, and so on.
 
-Once Cybersource is up and running as a payment gateway in your CX backend, you can follow these steps for Cybersource integration on the Spartacus side:
+For more information, see [Mocked Configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html).
 
-### Provide a custom implementation for CheckoutPaymentAdapter
+Once CyberSource is up and running as a payment gateway in your Commerce Cloud backend, refer to the information in the following sections to integrate CyberSource with Spartacus.
 
-Payment information functionality is encapsulated in a _Payment Adapter_. For Cybersource integration, create a custom implementation for the _CheckoutPaymentAdapter_ interface. This instance will encapsulate the new checkout logic for Cybersource and will override the default mock implementation from Spartacus.
+## Providing a Custom Implementation for the CheckoutPaymentAdapter
+
+Payment information functionality is encapsulated in a "Payment Adapter". For CyberSource integration, create a custom implementation for the `CheckoutPaymentAdapter` interface. This instance encapsulates the new checkout logic for CyberSource and overrides the default mock implementation from Spartacus. The following is an example:
 
 ```ts
 import {
@@ -34,19 +36,17 @@ export class CybersourceCheckoutPaymentAdapter
     // Cybersource-based logic to create payment details
   }
 
-  // Add other methods to get endpoints, map payment fields, etc. as needed
+  // Add other methods to get endpoints, map payment fields, and so on, as needed.
 }
 ```
 
-_Notes:_
+**Note:** You can refer to the `OccCheckoutPaymentAdapter` class as a reference, since all of the payment logic for the mocked payment mechanism is there, including payment provider HTTP endpoints, field names and mappings, and so on.
 
-- You can refer to _OccCheckoutPaymentAdapter_ class as a reference, since all of the payment logic for the mocked payment mechanism (including payment provider HTTP endpoints, field names and mappings, etc.) is there.
+**Note:** If you need to set and reuse existing payments the way Spartacus does by default, extend the class above instead, and override the `create()` method.
 
-- If you need to set and reuse existing payments the way Spartacus does it out of the box, extend the class above instead and override the create() method.
+## Setting up a Custom Payment Module
 
-### CustomPaymentModule
-
-Provide (export) your custom payment adapter in a module and include your module in your main application. With this, Spartacus will use your custom payment adapter instead of the default one (provided for OCC).
+Export your custom payment adapter in a module, and include the module in your main application. With this, Spartacus uses your custom payment adapter instead of the default one that is provided for OCC. The following is an example:
 
 ```ts
 import { NgModule } from "@angular/core";
@@ -64,8 +64,6 @@ import { CybersourceCheckoutPaymentAdapter } from "./checkout.adapter";
 export class CybersourceCheckoutModule {}
 ```
 
-_Note:_
+**Note:** If your checkout process has been heavily customized, you might also have to override other members of Spartacus, including the checkout process steps and orchestration.
 
-If your checkout process has been heavily customized, you might also have to override other members of Spartacus, including the checkout process steps and orchestration.
-
-More information about extending the checkotu process [here](#extending-checkout).
+For more information, see [Extending Checkout]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
