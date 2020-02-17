@@ -1,5 +1,5 @@
 ---
-title: Pagination
+title: Pagination Component
 ---
 
 **Note:** Improvements to this feature are introduced with version 2.0 of the Spartacus libraries.

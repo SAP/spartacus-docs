@@ -120,6 +120,8 @@ docs:
                   url: /product-details-page/
                 - title: 'Banner Component'
                   url: /banner-component/
+                - title: 'Pagination Component'
+                  url: /pagination/  
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
           - title: 'Extending Checkout'
