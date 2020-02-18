@@ -4,7 +4,19 @@ The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spart
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
-The following sections are intended to help you get up-and-running with everything you need to start contributing to the Spartacus documentation repository.
+The following sections are intended to help you get up and running with everything you need to start contributing to the Spartacus documentation repository.
+
+## Working with Markdown
+
+All documentation in the Spartacus documentation repository is written in Markdown. Files written in Markdown have a `.md` file extension.
+
+Markdown does not use tags, but it does use a specific syntax to format text.
+
+To get started with writing documentation in Markdown, check out the following guide: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet. And while this page explains most of the formatting and syntax you are likely to need, the following pages can be useful as well:
+
+- https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
+
+- https://www.markdownguide.org/cheat-sheet/
 
 ## Working with Visual Studio Code
 
@@ -20,25 +32,17 @@ You may want to ask a developer on your team for help with configuring VS Code t
 
 [Making Updates to the Documentation Repository](#making-updates-to-the-documentation-repository) explains how to add and update documentation in the documentation repository using VS Code, but of course you can learn a lot more about working with VS Code by checking out the first few sections of the VS Code documentation: https://code.visualstudio.com/docs
 
-## Working with Markdown
-
-All documentation in the Spartacus documentation repository is written in Markdown. Files written in Markdown have a `.md` file extension.
-
-Markdown does not use tags, but it does use a specific syntax to format text.
-
-To get started with writing documentation in Markdown, check out the following guide: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet. And while this page explains most of the formatting and syntax you are likely to need, the following pages can be useful as well:
-
-- https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
-
-- https://www.markdownguide.org/cheat-sheet/
-
 ## Working with Jekyll
 
 Jekyll is the software we use for generating the Spartacus documentation site.
 
 **Note:** Writers must install Jekyll on their local machines. With Jekyll installed, you can build the documentation website on your local machine, and this ensures that updates to the documentation are free from errors that could prevent the site from working properly.
 
-To get up-and-running with Jekyll, read this [intro to Ruby](https://jekyllrb.com/docs/ruby-101/), and then install a full [Ruby development environment](https://jekyllrb.com/docs/installation/). The steps for installing Ruby also include steps for installing Jekyll.
+To get up and running with Jekyll, read this [intro to Ruby](https://jekyllrb.com/docs/ruby-101/), and then install a full [Ruby development environment](https://jekyllrb.com/docs/installation/). The steps for installing Ruby also include steps for installing Jekyll. 
+
+If you are on a Mac, run all the necessary commands for installing Ruby and Jekyll from the home directory (`~`) in Terminal. By default, this is the directory that Terminal opens in (unless you have changed the default).
+
+If you are on Windows, run all the necessary commands for installing Ruby and Jekyll from your user directory in a command prompt (for example, `Users\your_username`). By default, when you open a command prompt from the Start menu, this is the directory that the command prompt opens in (unless you have changed the default).
 
 ### Useful Links
 
@@ -51,9 +55,9 @@ Although you don't need to become an expert in Jekyll to contribute to the Spart
 
 ## Working with GitHub
 
-If you are new to GitHub, I recommend having a look at Jonathan McGlone's [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/). Without following the tutorials, you can learn a lot by simply reading the introductions to each section.
+If you are new to GitHub, have a look at Jonathan McGlone's [Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/). Without following the tutorials, you can learn a lot by simply reading the introductions to each section.
 
-The following sections are intended to help you get up-and-running with those aspects of GitHub that you need to contribute to the Spartacus project:
+The following sections are intended to help you get up and running with those aspects of GitHub that you need to contribute to the Spartacus project:
 
 - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
 - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
@@ -65,13 +69,19 @@ The following sections are intended to help you get up-and-running with those as
 
 Before being able to contribute to the Spartacus documentation, you first need a GitHub ID, as well as write-access to the Spartacus repositories.
 
-The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this to contributing to the Spartacus project. If not, you must create a new GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID.
+The GitHub ID is the username of your GitHub account. If you already have a personal GitHub account, you can use this to contribute to the Spartacus project. If not, you must create a new, personal GitHub account. Note that you cannot use your SAP Enterprise GitHub ID for working with Spartacus. Also be aware, your personal GitHub ID cannot include your SAP D-/I-/C-number, nor can it include "sap" as part of the ID.
 
 If you are creating a new GitHub account, you can associate it with any email address that you want: it can be your SAP email address, or it can be a personal email address. This is the email address where you will receive notifications about your activities related to GitHub.
 
-Once you have a GitHub ID, you then need write-access to the Spartacus repositories. Send your request for access to the Scrum Master of team Gladiators, either through Slack or email.
+When you have finished setting up a personal GitHub account, you must then join the SAP GitHub Organization and link your GitHub account to your SAP-internal account. You must also set up your GitHub account to use two-factor authentication. All the steps for this are described in [Self-Service for Joining an SAP GitHub Organization](https://github.wdf.sap.corp/OSPO/guidelines/blob/master/publishing/github-self-registration.md). Note, VPN is required to access this link if you are outside of the `SAP Corporate` network.
+
+Once you have joined the SAP GitHub Organization and linked your GitHub account to your SAP-internal account, you can then request write access to the Spartacus documentation repository. To do so, send your GitHub ID to one of the Spartacus administrators, either through Slack or email, and you will be contacted as soon as write access has been granted.
 
 ### Cloning the Documentation Repository
+
+**Note:** Do not begin this step until you have installed Jekyll and have verified that it is running. To do so, please ensure that you have successfully completed all the steps in the [Jekyll Quickstart Guide](https://jekyllrb.com/docs/) before cloning the Spartacus documentation repository.
+
+Before you can contribute to Spartacus documentation, you must clone the Spartacus documentation repository.
 
 When you clone a repository, you are making a copy of the repository (that is, all the files and folders of the repository) on your local machine. You then make changes to the files locally, and upload them to the master repository hosted in GitHub. All the steps for working in GitHub (as relates to Spartacus documentation) are detailed further below.
 

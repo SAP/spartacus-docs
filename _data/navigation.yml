@@ -1,8 +1,10 @@
 # main links
 main:
-    - title: Spartacus Slack
+    - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU
-    - title: Version 1.3
+    - title: Support
+      url: https://stackoverflow.com/questions/tagged/spartacus-storefront
+    - title: Version 1.4
       url: /release-information/
 
 # sidebar menu
@@ -47,13 +49,17 @@ docs:
           - title: 'Spartacussampledataaddon AddOn'
             url: /spartacussampledataaddon/
           - title: "Integrations"
-            url: /integrations/  
+            url: /integrations/
             subchildren:
+                - title: 'Context-Driven Services Integration'
+                  url: /cds-integration/              
+                - title: 'Payment Integration with CyberSource Example'
+                  url: /cybersource-integration/
                 - title: 'Kyma Integration'
                   url: /kyma-integration/
                 - title: 'Qualtrics Integration'
                   url: /qualtrics-integration/
-                
+
     - title: Storefront Development Guide
       children:
           - title: 'Storefront Development FAQ'
@@ -75,10 +81,14 @@ docs:
                   url: /consignment-tracking/
                 - title: 'Coupons'
                   url: /coupons/
+                - title: "Customer Coupons"
+                  url: /customer-coupons/                
                 - title: "Customer Interests"
                   url: /customer-interests/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
+                - title: "Selective Cart"
+                  url: /selective-cart/
                 - title: "Skip Links"
                   url: /skip-links/  
                 - title: "Stock Notification"
@@ -98,6 +108,8 @@ docs:
                   url: /deferred-loading/
                 - title: "Above-the-Fold Loading"
                   url: /above-the-fold/  
+          - title: "Outlets"
+            url: /outlets/        
           - title: 'Styling and Page Layout'
             url: /styling-and-page-layout/
             subchildren:
@@ -179,8 +191,13 @@ docs:
                   url: /loader-meta-reducer/
           - title: 'SmartEdit Contract in Spartacus'
             url: /smartedit-contract/
-          - title: 'Connecting to Other Systems'
-            url: /connecting-to-other-systems/
+          - title: "Customizing Back End Communication"
+            url: /customizing-backend-communication/
+            subchildren:
+                - title: "Using Loading Scopes"
+                  url: /loading-scopes/
+                - title: 'Connecting to Other Systems'
+                  url: /connecting-to-other-systems/  
           - title: 'Global Messages'
             url: /global-messages/
           - title: 'HTTP Error Handling'
