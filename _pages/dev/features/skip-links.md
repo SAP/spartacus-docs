@@ -1,5 +1,5 @@
 ---
-title: Skip Links (DRAFT)
+title: Skip Links
 ---
 
 ## Overview
@@ -26,7 +26,7 @@ The `SkipLinkConfig` is how Spartacus configures skip links.
 
 ### Example Configuration
 
-```
+```ts
 const exampleSkipLinkConfig: SkipLinkConfig = {
   skipLinks: [
     {
@@ -47,9 +47,10 @@ const exampleSkipLinkConfig: SkipLinkConfig = {
 ```
 
 ### Adding Configuration to Storefront
+
 Skip links can be configured by adding the configuration to the `skipLinks` setting in a Config Module.
 
-```
+```ts
 ExampleConfigModule.withConfig(<CmsConfig>{
   ...
   skipLinks: exampleSkipLinkConfig
@@ -57,7 +58,7 @@ ExampleConfigModule.withConfig(<CmsConfig>{
 });
 ```
 
-Note: To deactivate all skip lnks, pass an empty array to the `skipLinks` setting (ie. `skipLinks: []`).
+Note: To deactivate all skip links, pass an empty array to the `skipLinks` setting (ie. `skipLinks: []`).
 
 ## Default Skip Link Configuration
 
