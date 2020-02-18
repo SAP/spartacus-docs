@@ -53,7 +53,7 @@ docs:
             subchildren:
                 - title: 'Context-Driven Services Integration'
                   url: /cds-integration/              
-                - title: 'CyberSource Integration'
+                - title: 'Payment Integration with CyberSource Example'
                   url: /cybersource-integration/
                 - title: 'Kyma Integration'
                   url: /kyma-integration/
