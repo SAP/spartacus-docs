@@ -13,7 +13,7 @@ docs:
       children:
           - title: "About Spartacus"
             url: /
-          - title: "Release Information +"
+          - title: "Release Information ➢"
             url: /release-information/
             subchildren:
                 - title: "Pre-Release Information"
@@ -27,7 +27,7 @@ docs:
 
     - title: Getting Started with Spartacus Libraries
       children:
-          - title: "Installing SAP Commerce Cloud for use with Spartacus +"
+          - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
             subchildren:
                 - title: "Compatibility Notes"
@@ -48,7 +48,7 @@ docs:
             url: /personalization-setup-instructions-for-spartacus/
           - title: "Spartacussampledataaddon AddOn"
             url: /spartacussampledataaddon/
-          - title: "Integrations +"
+          - title: "Integrations ➢"
             url: /integrations/
             subchildren:
                 - title: "Payment Integration with CyberSource Example"
@@ -66,7 +66,7 @@ docs:
             url: /spartacus-api/
           - title: "Global Configuration in Spartacus"
             url: /global-configuration-in-spartacus/
-          - title: "Spartacus Features +"
+          - title: "Spartacus Features ➢"
             url: /spartacus-features/
             subchildren:
                 - title: "Anonymous Consent"
@@ -93,7 +93,7 @@ docs:
                   url: /wish-list/  
           - title: "Security Best Practices"
             url: /security-best-practices/
-          - title: "Performance Optimizations +"
+          - title: "Performance Optimizations ➢"
             url: /performance/
             subchildren:
                 - title: "Deferred Loading"
@@ -102,7 +102,7 @@ docs:
                   url: /above-the-fold/  
           - title: "Outlets"
             url: /outlets/        
-          - title: "Styling and Page Layout +"
+          - title: "Styling and Page Layout ➢"
             url: /styling-and-page-layout/
             subchildren:
                 - title: "Global Variables"
@@ -113,7 +113,7 @@ docs:
                   url: /icon-library/
                 - title: "Page Layout"
                   url: /page-layout/
-          - title: "Customizing and Extending Spartacus Features +"
+          - title: "Customizing and Extending Spartacus Features ➢"
             url: /customizing-and-extending/
             subchildren:
                 - title: "Customizing CMS Components"
@@ -134,7 +134,7 @@ docs:
             url: /express-checkout/
           - title: "Guest Checkout"
             url: /guest-checkout/
-          - title: "Configurable Routing +"
+          - title: "Configurable Routing ➢"
             url: /configurable-routing/
             subchildren:
                 - title: "Adding and Customizing Routes"
@@ -155,21 +155,21 @@ docs:
                   url: /early-login/
           - title: "Configuring the Base URL"
             url: /configuring-base-url/
-          - title: "Multi-Site Configuration +"
+          - title: "Multi-Site Configuration ➢"
             url: /context-configuration/
             subchildren:
                 - title: "Automatic Multi-Site Configuration"
                   url: /automatic-context-configuration/
                 - title: "Static Multi-Site Configuration"
                   url: /static-context-configuration/
-          - title: "PWA +"
+          - title: "PWA ➢"
             url: /pwa-home/
             subchildren:
                 - title: "Adding PWA Support to Spartacus"
                   url: /pwa-setup/
                 - title: "Adding the Spartacus App to the Home Screen"
                   url: /add-to-home-pwa/
-          - title: "SEO +"
+          - title: "SEO ➢"
             url: /seo/
             subchildren:
                 - title: "SEO Capabilities"
@@ -178,14 +178,14 @@ docs:
                   url: /structured-data/
           - title: "Internationalization (i18n)"
             url: /i18n/
-          - title: "State Management +"
+          - title: "State Management ➢"
             url: /state-management/
             subchildren:
                 - title: "Loader Meta Reducer"
                   url: /loader-meta-reducer/
           - title: "SmartEdit Contract in Spartacus"
             url: /smartedit-contract/
-          - title: "Customizing Back End Communication +"
+          - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
                 - title: "Using Loading Scopes"
@@ -198,19 +198,19 @@ docs:
             url: /http-error-handling/
           - title: "Configurable State Persistence and Rehydration"
             url: /configurable-state-persistence-and-rehydration/
-          - title: "Server-Side Rendering in Spartacus +"
+          - title: "Server-Side Rendering in Spartacus ➢"
             url: /server-side-rendering-in-spartacus/
             subchildren:
                 - title: "Server–Side Rendering Coding Guidelines"
                   url: /server-side-rendering-coding-guidelines/
                 - title: "How to Debug a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
-          - title: "View Configuration +"
+          - title: "View Configuration ➢"
             url: /view-configuration/
             subchildren:
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
-          - title: "User Experience Guidelines +"
+          - title: "User Experience Guidelines ➢"
             url: /user-experience-guidelines/
             subchildren:
                 - title: "Designing Action Buttons"
@@ -222,7 +222,7 @@ docs:
 
     - title: Contributing to Spartacus
       children:
-          - title: "Contributor's Guide +"
+          - title: "Contributor's Guide ➢"
             url: /contributors-guide/
             subchildren:
                 - title: "Contributing to the Spartacus Storefront"
