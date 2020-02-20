@@ -95,6 +95,8 @@ docs:
                   url: /store-locator/
                 - title: "Token Revocation"
                   url: /token-revocation/
+                - title: "Variants"
+                  url: /variants/  
                 - title: "Wish List"
                   url: /wish-list/  
           - title: 'Security Best Practices'
