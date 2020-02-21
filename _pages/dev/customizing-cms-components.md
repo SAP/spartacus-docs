@@ -1,5 +1,5 @@
 ---
-title: Customizing CMS Components (DRAFT)
+title: Customizing CMS Components
 ---
 
 The Spartacus storefront is based on JavaScript, and accordingly, it is composed of a large number of fine-grained JavaScript components. However, there is a special kind of component to render CMS content. CMS components are dynamically added at runtime. The CMS component type, given by the back end, is mapped to an equivalent JS component. The mapping is provided in a configuration that can be customized. This allows you to configure a custom component to render a specific CMS component.
@@ -159,7 +159,7 @@ In the same manner, the `uid` attribute of `JspIncludeComponent` is used in the 
 
 **Note:** It is recommended to use `CMSFlexComponent` instead of `JspIncludeComponent`, because the `uid` attribute in `JspIncludeComponent` must be unique, which means you cannot have two instances of the same `JspIncludeComponent`.
 
-## Handling Nested CMS Components
+## Handling Nested CMS Components (DRAFT)
 
 The CMS allows the creation of nested components inside so-called container components. An example of such component is the `TabPanelContainer` that is used in the product details page to display the tabs. In this case, the container contains the different tab components.
 
