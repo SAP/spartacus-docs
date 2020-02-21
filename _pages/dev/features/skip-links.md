@@ -2,17 +2,21 @@
 title: Skip Links
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.4 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 ## Overview
 
-Skip Links allow users to quickly navigate to important areas of a page via the keyboard.
+Skip Links allow users to quickly navigate to important areas of a page using the keyboard.
 
-## Usage
+Skip links are activated by pressing the tab key when a page is loaded, and before any other user interaction takes place. When a user presses the tab key, a button appears at the top of the page, with the label "Skip to _section_". Each time the user presses the tab key, the text updates to indicate the next available location to skip to. The user can then select a section to skip to by pressing the return key. When all sections have been skipped through, pressing the tab key again closes the skip link button. Users can navigate forward and backward through the available skip links by using the tab key and shift+tab key combination, respectively.
 
-Skip links are activated by pressing the `tab` key on page load and before any other user-interaction. They appear as a button with "Skip to `section`" text to indicate the content that the user will navigate to upon pressing the `return` key. The user can navigate through skip links with the `tab` and `shift+tab` keys respectively.
+With skip links, users can access important content on a page without needing to tab through every element on a page to reach the specific element they wish to interact with.
 
-With Skip Links, the user can access important content on the page without needing to press the `tab` key as many times to navigate to the exact element they want to interact with.
-
-### Skip Link Config
+### Configuring Skip Links
 
 The `SkipLinkConfig` is how Spartacus configures skip links.
 
