@@ -86,9 +86,11 @@ docs:
                 - title: "Customer Interests"
                   url: /customer-interests/
                 - title: "Notification Preferences"
-                  url: /notification-preferences/ 
+                  url: /notification-preferences/
                 - title: "Selective Cart"
                   url: /selective-cart/
+                - title: "Skip Links"
+                  url: /skip-links/  
                 - title: "Stock Notification"
                   url: /stock-notification/  
                 - title: "Store Locator"
