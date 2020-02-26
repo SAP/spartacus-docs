@@ -17,4 +17,5 @@ This is a landing page for grouping together Spartacus Features topics. The Spar
 - [Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})
 - [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %})
 - [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %})
+- [Variants]({{ site.baseurl }}{% link _pages/dev/features/variants.md %})
 - [Wish List]({{ site.baseurl }}{% link _pages/dev/features/wish-list.md %})
