@@ -8,14 +8,22 @@ title: Variants
 
 {% include docs/feature_version.html content=version_note %}
 
-The Variants feature make use of backend product variants support. Once enabled and product is set to has variants, product details page contain component with variants selection (eg. style, size) and individual varaints can be ordered.
+## Overview
 
-## Limitations
-Due to technical dependencies at the moment only hybris generation 1 varaints are supported.
+Variants are products that differ in some aspect from one another, but are based on the same basic model. An example for variants is color and size for t-shirts. When the variants feature is enabled in Spartacus, and products have been configured in SAP Commerce Cloud, then customers can select products in the storefront with the variant (or variants) of their choice.
 
-## Basic information
-Assuming backend is configured for spartacus (see [Spartacussampledataaddon AddOn]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %})) variants functionality is enabled by default once you map it as any other cms component:
-```
+**Note:** This feature does not currently support multi-dimensional product variants.
+
+For more information, see the following:
+
+- [Styles and Size Variants in the SAP Commerce Product Cockpit](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8af06a1b8669101483c085453d75849e.html)
+- [Modeling Product Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html)
+
+## Enabling Variants
+
+You enable variants by configuring a CMS component. The following is an example from `product-variants.module.ts`:
+
+```ts
 ConfigModule.withConfig(<CmsConfig>{
       cmsComponents: {
         ProductVariantSelectorComponent: {
@@ -25,25 +33,25 @@ ConfigModule.withConfig(<CmsConfig>{
       },
     }),
 ```
-Therefore product with varaints should have `ProductVariantSelectorComponent` cms component present in the `/page` response and should be rendered on the page:
-![Variants example PDP]({{ site.baseurl }}/assets/images/variants-example.png)
 
-You can also find variant elements in other places:
-- product list page (see `VariantStyleIconsComponent` and grid/list item components):
-   ![Variants example PLP]({{ site.baseurl }}/assets/images/variants-example-plp.png)
-- cart item (see `CartItemComponent`)
-- account pages (order history, order page, wishlist, cancel & returns, etc...)
+Products with variants need to have the `ProductVariantSelectorComponent` CMS component present in the `/page` response, and they need to be rendered on the page.
 
-## Default variant types
-By default, with sampledata addon three variant types are available:
-- style (apparel)
-- size (apparel)
-- color (electronics)
+You can find variant elements in locations such as the following:
 
-## Adding custom variant type
-In order to have custom variant type, product model as well as the component's template needs to be extended so the below steps needs to be performed:
-- put your desired `VariantType` into `product.model.ts`:
-   ```
+- Product Details pages
+- Product List pages (for example, see the `VariantStyleIconsComponent`, and grid or list item components)
+- Cart items (for example, see the `CartItemComponent`)
+- Account pages, such as Order History, Order Page, Wish List, Cancellations and Returns, and so on.
+
+By default, the `spartacussampledataaddon` AddOn includes style and size variants in the `apparel-spa` storefront, and a color variant in the `electronics-spa` storefront.
+
+## Adding a Custom Variant Type
+
+To create a custom variant type, you need to extend both the product model and the component template, as follows:
+
+1. Add the new `VariantType` in `product.model.ts`. The following is an example:
+
+   ```ts
    export enum VariantType {
       SIZE = 'ApparelSizeVariantProduct',
       STYLE = 'ApparelStyleVariantProduct',
@@ -51,18 +59,37 @@ In order to have custom variant type, product model as well as the component's t
       MY_CUSTOM_VARIANT = 'MyCustomVariant', // new variant type
    }
    ```
-   Of courese it should be added on the backend as well.
-- Add a new component for custom variant. See `product-variant-selector.component.html` to see how it was done for the default varaint types.
 
-## Note on variant guard
-`ProductVariantGuard` has been introduced in order to do "behind the scenes" redirects for products with variants:
-- if selected variant is purchasable (not a base product) and in stock - don't do any redirects - just display the PDP;
-- if selected variant is not purchasable (base product) or it has no stock - find the "nearest" product variant with stock and redirect to it.
+2. Add a new component for the new variant.
 
-See the actual guard code for the details.
+   You can see how this has been done for the default variant types in Spartacus by looking at the following source files:
 
-## SEO related customizations
-In context of variants several topics should be considered for SEO. This is because potentially lot of similar pages can be present for the same product (same product but different sizes for example). It's a business decision how to deal with it. For a minimal and safe, yet extendable setup we decided to change robots.txt to `FOLOW, NOINDEX` for non purchasable products. See `ProductPageMetaResolver` for details.
+   - `product-size-selector.component.html`
+   - `product-style-selector.component.html`
+   - `product-color-selector.component.html`
 
-## Disabling variants
-Since the feature is CMS driven, it can be disabled through the CMS. Just mark it as inactive or remove it completly from the page template. Of course the mentioned mapping in the app module also should be removed.
+3. Add the new variant type in the back end.
+
+   For more information, see [Styles and Size Variants in the SAP Commerce Product Cockpit](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8af06a1b8669101483c085453d75849e.html).
+
+## About the Variant Guard
+
+The `ProductVariantGuard` allows Spartacus to perform a redirect for products with variants under the following conditions:
+
+- When a selected variant cannot be purchased (because it is the base product), or it is not in stock, the `ProductVariantGuard` finds the "nearest" product variant with stock, and redirects to it.
+
+- When a selected variant can be purchased (because it is not the base product), and it is in stock, no redirects are performed, and the Product Details page for the selected variant is displayed.
+
+## SEO Customizations
+
+When it comes to variants, there is the potential to have a lot of similar product pages, for example, in the case of a base product that has many sizes and colors.
+
+There is no single way to address this issue. To provide a minimal, safe, and extendable setup in Spartacus, the `robots.txt` is set to `FOLLOW, NOINDEX` for products that cannot be purchased.
+
+For more details, see `ProductPageMetaResolver` in the source code.
+
+## Disabling Variants
+
+The variants feature is CMS-driven, so it can be disabled through the CMS by marking the component as inactive, or by removing the component completely from the page template.
+
+In the app module, the configuration for the variants feature should also be removed.
