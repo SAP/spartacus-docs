@@ -3,10 +3,11 @@ title: Spartacus Roadmap
 ---
 
 This document describes what what is planned for Spartacus for Q1 2020 and later.
-- For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md &}).
-- For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md &}).
 
 *Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+
+- For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md &}).
+- For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md &}).
 
 Contents:
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
