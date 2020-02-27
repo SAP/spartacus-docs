@@ -4,9 +4,8 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-For release highlights, see [https://sap.github.io/cloud-commerce-spartacus-storefront-docs/release-information/].
-
-For development release notes, see [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
+- For an oveview of what was included in a specific release, see [Release Information](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/release-information).
+- For development release notes, see [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
 
 ### Release 1.5 and earlier
 
