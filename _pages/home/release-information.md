@@ -36,25 +36,25 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
    
 *Release 1.5 libraries published February 26, 2020*
 
-- **[Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})** (CDS)   
+- [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}) (CDS)   
 CDS provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the CDS feature itself, see the [CDS documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
-- **[Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})**  
+- [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
 Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
 
-- **[Selective Cart]({{ site.baseurl }}{% link _pages/dev/features/selective-cart.md %})**  
+- [Selective Cart]({{ site.baseurl }}{% link _pages/dev/features/selective-cart.md %})  
 Increase conversion and buyer convenience with Selective Cart. Also known as "Save for Later", Selective Cart allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
 
-- **[Variants]({{ site.baseurl }}{% link _pages/dev/features/variants.md %})** (as seen in the Apparel store)  
+- [Variants]({{ site.baseurl }}{% link _pages/dev/features/variants.md %}) (as seen in the Apparel store)  
 Organize and logically display product variants like color and size, making it easier for customers to discover the particular style they want.
 
-- **Applied Promotions**  
+- Applied Promotions  
 Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
 
-- **[Skip Links]({{ site.baseurl }}{% link _pages/dev/features/skip-links.md %})**  
+- [Skip Links]({{ site.baseurl }}{% link _pages/dev/features/skip-links.md %})  
 The Skip Links features allows users to quickly navigate to important areas of a page using the keyboard. This feature is the first of several Accessibility feature improvements planned for Spartacus.
 
-- **Bug fixes** as describe in the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases)
+- Bug fixes as described in the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases)
    
    
    
