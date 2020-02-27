@@ -11,7 +11,7 @@ This document describes what what is planned for Spartacus for Q1 2020 and later
 Contents:
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [General Release Information](#general-release-information)
-- [Planned for Rest of Q1 2020](#planned-for-Rest-of-q1-2020)
+- [Planned for Rest of Q1 2020](#planned-for-rest-of-q1-2020)
 - [Planned for Q2 2020](#planned-for-q2-2020)
 - [Future Outlook](#future-outlook)
 
