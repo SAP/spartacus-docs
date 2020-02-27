@@ -7,11 +7,11 @@ This document describes what what is planned for Spartacus for Q1 2020 and later
 *Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
-[Disclaimer - Forward-Looking Statements](#Disclaimer - Forward-Looking Statements)
-[General Release Information](#General Release Information)
-[Planned for Rest of Q1 2020](#Planned for Rest of Q1 2020)
-[Planned for Q2 2020](#Planned for Q2 2020)
-[Future Outlook](#Future Outlook)
+- [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
+- [General Release Information](#general-release-information)
+- [Planned for Rest of Q1 2020](#planned-for-Rest-of-q1-2020)
+- [Planned for Q2 2020](#planned-for-q2-2020)
+- [Future Outlook](#future-outlook)
 
 
 
@@ -88,24 +88,24 @@ Note: One low-level area to avoid at the moment is the Cart, as it is going thro
 
 #### B2B Storefront MVP
 
-- **B2B Commerce Org** (SAP Commerce Cloud 2005 required)
+- **B2B Commerce Org** (SAP Commerce Cloud 2005 required)   
   (also known as My Company management of units, users, budgets, cost centers, purchase threshholds, user groups, approvals) 
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company)
-- **B2B Checkout** (check out by account, enter purchase order, select cost center, shipping address restricted by cost center chosen, subject to approval process)
+- **B2B Checkout** (check out by account, enter purchase order, select cost center, shipping address restricted by cost center chosen, subject to approval process)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html)
   
 
 B2B Stretch for Q2 2020 and into Q3:
 
-- **B2B Quick Order**
+- **B2B Quick Order**  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
-- **B2B Scheduled Replenishment** (SAP Commerce Cloud 2005 required)
+- **B2B Scheduled Replenishment** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) 
-- **B2B Saved Carts**
+- **B2B Saved Carts**  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/4d094e78a5494963b2d66148167f0553.html?q=saved%20carts)
-- **B2B Future Stock** (SAP Commerce Cloud 2005 required)
+- **B2B Future Stock** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
-- **Inventory Display** (SAP Commerce Cloud 2005 required)
+- **Inventory Display** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) 
 - **Bulk Price List**
 - **Re-order** (SAP Commerce Cloud 2005 required)
@@ -114,7 +114,7 @@ B2B Stretch for Q2 2020 and into Q3:
 
 #### Core/B2C Storefront Features
 
-- **Buy online pickup in store**
+- **Buy online pickup in store**  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
   
 
@@ -133,7 +133,7 @@ The items in this section are on our future roadmap - not necessarily for any sp
   [SAP Documentation](https://developers.gigya.com/display/GD/SAP+Commerce+Cloud)
   
 #### Core/B2C Storefront Features
-- Assisted Service Module customer list
+- Assisted Service Module customer list  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - New Accessibility features
 - Buy it again (add to cart from existing order)
@@ -142,7 +142,7 @@ The items in this section are on our future roadmap - not necessarily for any sp
   
 #### B2B Storefront Features
 
-- B2B features not yet implemented, such as B2B Order Form Builder
+- B2B features not yet implemented, such as B2B Order Form Builder  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
 - Variant Configuration and Pricing
   [SAP Commerce Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/528b7395bc314999a01e3560f2bdc069.html)
@@ -153,22 +153,22 @@ The items in this section are on our future roadmap - not necessarily for any sp
 
 The following features are in our roadmap but currently not planned for a specific quarter.
 - Support for other SAP Commerce Cloud Services
-- Captcha <sup>(1)</sup>
+- Captcha <sup>(1)</sup>  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html) 
 - Potential Promotions <sup>(1)</sup>
-- Assisted Service Module customer 360° view <sup>(2)</sup>
+- Assisted Service Module customer 360° view <sup>(2)</sup>  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html) 
-- Self-service customer support through the Customer Service Module <sup>(2)</sup>
+- Self-service customer support through the Customer Service Module <sup>(2)</sup>  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
-- Configurable bundles <sup>(2)</sup>
+- Configurable bundles <sup>(2)</sup>  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
 - Payments Request API ([W3 Documentation](https://www.w3.org/TR/payment-request/))
 - Credentials API
 - Other PWA Features as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist) such as mobile notifications
 - Dynamic Forms
-- B2B Product Import and Export Cart<sup>(1)</sup> (from/to files)
+- B2B Product Import and Export Cart<sup>(1)</sup> (from/to files)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) 
-- B2B Commerce Quotes<sup>(2)</sup>
+- B2B Commerce Quotes<sup>(2)</sup>  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
 - Angular I18N support
 - Directionality (for right-to-left display support)
