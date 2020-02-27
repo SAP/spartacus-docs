@@ -51,7 +51,9 @@ docs:
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
-                - title: "Payment Integration with CyberSource Example"
+                - title: 'Context-Driven Services Integration'
+                  url: /cds-integration/              
+                - title: 'Payment Integration with CyberSource Example'
                   url: /cybersource-integration/
                 - title: "Kyma Integration"
                   url: /kyma-integration/
@@ -79,16 +81,24 @@ docs:
                   url: /consignment-tracking/
                 - title: "Coupons"
                   url: /coupons/
+                - title: "Customer Coupons"
+                  url: /customer-coupons/                
                 - title: "Customer Interests"
                   url: /customer-interests/
                 - title: "Notification Preferences"
-                  url: /notification-preferences/  
+                  url: /notification-preferences/
+                - title: "Selective Cart"
+                  url: /selective-cart/
+                - title: "Skip Links"
+                  url: /skip-links/  
                 - title: "Stock Notification"
                   url: /stock-notification/  
                 - title: "Store Locator"
                   url: /store-locator/
                 - title: "Token Revocation"
                   url: /token-revocation/
+                - title: "Variants"
+                  url: /variants/  
                 - title: "Wish List"
                   url: /wish-list/  
           - title: "Security Best Practices"

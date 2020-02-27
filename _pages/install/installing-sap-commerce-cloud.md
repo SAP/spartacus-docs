@@ -191,6 +191,7 @@ For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/d
 There are a number of other Spartacus features that also require additional CORS settings. For more information, see the following:
 
 - [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
+- [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
 - [Personalization Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
 
 For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
