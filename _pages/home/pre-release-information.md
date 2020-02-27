@@ -11,7 +11,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 ### Release 2.0
 
-No pre-release libraries available yet.
+No pre-release libraries are available yet.
 
 ### Release 1.5 and earlier
 
