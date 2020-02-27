@@ -5,16 +5,16 @@ title: Release Information for Versions 1.0-1.5 of Spartacus Libraries
 *Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
-[Introduction](#Introduction)
-[Release 1.5](#Release 1.5)
-[Release 1.4](#Release 1.4)
-[Release 1.3](#Release 1.3)
-[Release 1.2](#Release 1.2)
-[Release 1.1](#Release 1.5)
-[Release 1.0](#Release 1.0)
-[About Spartacus Releases](#About Spartacus Releases)
-[How Spartacus is Versioned](#How Spartacus is Versioned)
-[Future Releases](#Future Releases)
+- [Introduction](#introduction)
+- [Release 1.5](#release-15)
+- [Release 1.4](#release-14)
+- [Release 1.3](#release-13)
+- [Release 1.2](#release-12)
+- [Release 1.1](#release-15)
+- [Release 1.0](#release-10)
+- [About Spartacus Releases](#about-spartacus-releases)
+- [How Spartacus is Versioned](#how-spartacus-is-versioned)
+- [Future Releases](#future-releases)
   
   
   
@@ -36,19 +36,25 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
    
 *Release 1.5 libraries published February 26, 2020*
 
-- **[Context Driven Services](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/cds-integration)** (CDS)
-  CDS provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the CDS feature itself, see the [CDS documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
-- **[Customer Coupons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customer-coupons)**
-  Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
-- **[Selective Cart](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/selective-cart/)**
-  Increase conversion and buyer convenience with Selective Cart. Also known as "Save for Later", Selective Cart allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
-- **[Variants](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/variants/)** (as seen in the Apparel store)
-  Organize and logically display product variants like color and size, making it easier for customers to discover the particular style they want.
-- **Applied Promotions**
-  Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
-- **[Skip Links](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/skip-links/)**
-  The Skip Links features allows users to quickly navigate to important areas of a page using the keyboard. This feature is the first of several Accessibility feature improvements planned for Spartacus.
-- **Bug fixes** as describd in the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases)
+- **[Context Driven Services](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/cds-integration)** (CDS)   
+CDS provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the CDS feature itself, see the [CDS documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+
+- **[Customer Coupons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customer-coupons)**  
+Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
+
+- **[Selective Cart](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/selective-cart/)**  
+Increase conversion and buyer convenience with Selective Cart. Also known as "Save for Later", Selective Cart allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
+
+- **[Variants](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/variants/)** (as seen in the Apparel store)  
+Organize and logically display product variants like color and size, making it easier for customers to discover the particular style they want.
+
+- **Applied Promotions**  
+Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
+
+- **[Skip Links](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/skip-links/)**  
+The Skip Links features allows users to quickly navigate to important areas of a page using the keyboard. This feature is the first of several Accessibility feature improvements planned for Spartacus.
+
+- **Bug fixes** as describe in the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases)
    
    
    
@@ -59,7 +65,7 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
 What's new?
 
 - [Wish List]({{ site.baseurl }}{% link _pages/dev/features/wish-list.md %})
-- [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})
+- [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})  
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
 - [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6)
@@ -80,23 +86,29 @@ What's new?
 What's new?
 
 #### Architecture and Development Features
-- Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)
+- Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)  
   [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
-- Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)
+
+- Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)  
 [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/structured-data)
-- Qualtrics intercept integration and example
-  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/qualtrics-integration)
+
+- Qualtrics intercept integration and example  
+[Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/qualtrics-integration)
 #### Core/B2C Storefront Features
-- Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce 1905)
+
+- Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce 1905)  
   [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/asm) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
-- Anonymous consent 
+
+- Anonymous consent  
   [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/anonymous-consent) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
-- Coupons (requires October patch release of SAP Commerce 1905)
+  
+- Coupons (requires October patch release of SAP Commerce 1905)  
   [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/coupons) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
 
 
 #### B2B Storefront Features
-- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon). Note: B2B Spartacus not yet available (B2B My Company and Checkout planned for Q1 2020). Powertools out-of-the-box sample data itself is now “Spartacus-ified” so that it displays properly when you point Spartacus to it. It’s what we’re using to do our development. However My Company and Checkout not yet supported; you’ll see a few errors related to API calls that we are part of the updated b2boccaddon API release in Q1.
+- Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon).  
+Note: B2B Spartacus not yet available (B2B My Company and Checkout planned for Q1 2020). Powertools out-of-the-box sample data itself is now “Spartacus-ified” so that it displays properly when you point Spartacus to it. It’s what we’re using to do our development. However My Company and Checkout not yet supported; you’ll see a few errors related to API calls that we are part of the updated b2boccaddon API release in Q1.
   
   
   
@@ -110,7 +122,7 @@ What's new?
 - [Guest Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/guest-checkout)
 - [Express Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/express-checkout)
 - [Infinite Scroll](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/infinite-scroll)
-- Routing Migration (docs to come)
+- Routing Migration
 - [Early Login](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/early-login)
 - [Consignment Tracking](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/consignment-tracking)
 - Angular updated to 8.2.5; ngrx to 8.3.0; other dependency updates
@@ -167,7 +179,7 @@ To update to 1.2.0, you must change your libraries in `package.json` and and dep
 
 Release notes: https://github.com/SAP/cloud-commerce-spartacus-storefront/releases
 
-- Feature Flags (meant to allow setting feature level of releases for backwards compatibility)
+- Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
   - [Documentation for development](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/contributing/feature-flags-and-code-deprecation.md)
   - [Documentation for consumption](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/install/configuring-feature-flags.md)
 - [Configurable Endpoints](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/connecting-to-other-systems/#endpoint-configuration)
