@@ -7,11 +7,13 @@ This document describes what is included in the latest pre-release of Spartacus 
 - For an oveview of what was included in a specific release, see [Release Information](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/release-information).
 - For development release notes, see [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
 
+### Release 2.0
+
+No pre-release libraries available yet.
+
 ### Release 1.5 and earlier
 
-As release 1.5 of our libraries was published February 26, 2020, there are no pre-release libraries available at this time. 
-
-We're currently working on 2.0 release. We'll be publishing pre-release libraries for 2.0 soon.
+Pre-release libraries no longer published for these versions, as the final release of these libraries was published.
 
 ### Questions?
 
