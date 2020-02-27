@@ -1,8 +1,8 @@
 ---
-title: Release Information for Versions 1.0-1.4 of Spartacus Libraries
+title: Release Information for Versions 1.0-1.5 of Spartacus Libraries
 ---
 
-*Last updated January 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what is included in the latest releases of Spartacus libraries.
 
@@ -24,10 +24,30 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
 - To use the new libraries, set your @spartacus libraries in package.json to “~1.#.0" (replace # with the release number). Then run `yarn upgrade` (although deleting your node_modules and doing yarn install is usually cleaner).
-- To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is strongly recommended as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5). 
+- To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5 and Save for Later features requires 1905.11). 
   
-    
+   
   
+### Release 1.5 Highlights
+   
+*Release 1.5 libraries published February 26, 2020*
+
+- [Context Driven Services](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/cds-integration) (CDS)
+CDS provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the CDS feature itself, see the [CDS documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+- [Customer Coupons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customer-coupons)
+Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
+- [Selective Cart](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/selective-cart/)
+Increase conversion and buyer convenience with Selective Cart. Also known as "Save for Later", Selective Cart allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
+- [Variants](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/variants/) (as seen in the Apparel store)
+Organize and logically display product variants like color and size, making it easier for customers to discover the particular style they want.
+- Applied Promotions
+Promotions now appear in all required locations (in the **Added-to-Cart** modal for example), not just in the cart. Per-product promotions now also appear in the product entry. This work also includes refactoring to accommodate future support for potential promotions.
+- [Skip Links](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/skip-links/)
+The Skip Links features allows users to quickly navigate to important areas of a page using the keyboard. This feature is the first of several Accessibility feature improvements planned for Spartacus.
+- Bug fixes as describd in the release notes
+   
+   
+   
 ### Release 1.4 Highlights
 
 *Release 1.4 libraries published January 27, 2020*
