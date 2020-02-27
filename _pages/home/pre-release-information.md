@@ -6,7 +6,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 For release highlights, see [https://sap.github.io/cloud-commerce-spartacus-storefront-docs/release-information/].
 
-For development release notes, see [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
+For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
 
 ### Release 1.5 and earlier
 
