@@ -6,7 +6,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 *Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-- For an overview of what's included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}].
+- For an overview of what's included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
 
 ### Release 2.0
