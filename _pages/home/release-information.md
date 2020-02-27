@@ -4,10 +4,10 @@ title: Release Information for Versions 1.0-1.5 of Spartacus Libraries
 
 This document describes what is included in all Spartacus 1.x libraries since 1.0.
 
+*Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+
 - For information on specific code changes for a particular release, see [Development Release Notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
-
-*Last updated February 27, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 - [Introduction](#introduction)
