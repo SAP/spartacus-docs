@@ -38,14 +38,14 @@ Despite this large number of options, the default configuration in Spartacus use
 
 The following list provides a description of each option that is available in the pagination component:
 
-- `addStart` adds a link to skip to the start of the pages. The default is set to false.
+- `addStart` adds a link to skip to the start of the pages. The default is set to true.
 - `addPrevious` adds a link to the previous page. The default is set to false.
 - `addFirst` adds a link to the first page. The default is set to false.
 - `addDots` adds a gap with dots to indicate hidden pages. The default is set to false.
 - `rangeCount` sets the range of pages that are directly accessible in the pagination. The default is set to `3`.
 - `addLast` adds a link to the last page. The default is set to false.
 - `addNext` adds a link to the previous page. The default is set to false.
-- `addEnd` adds a link to skip to the end of the pages. The default is set to false.
+- `addEnd` adds a link to skip to the end of the pages. The default is set to true.
 
 In addition, the position of the navigation links can be specified, which allows you to separate them from the pages. Although you can achieve this entirely with CSS rules, when considering accessibility, a preferred approach is to provide the actual, required DOM.
 
