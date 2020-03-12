@@ -4,7 +4,7 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-*Last updated March 2nd, 2020 by Matthew Burton, Scrum Master and Technical Writer, Spartacus*
+*Last updated March 12th, 2020 by Matthew Burton, Scrum Master and Technical Writer, Spartacus*
 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
