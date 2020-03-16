@@ -115,3 +115,9 @@ In order to customize any UI message on the banner or in the dialog, you can ref
 ## Extending Anonymous Consent
 
 No special extensibility is available for this feature.
+
+## Known Limitations
+
+Any user who registers are considered a new user. Therefore, anyone who logs in within the same session will have their anonymous consents transfered to registered consents. You need to either refresh or close the page in order to not be in the same session, thus no longer considered a new user.
+
+More information on the progress of this limitation can be found in [the Spartacus Repository](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6467)
