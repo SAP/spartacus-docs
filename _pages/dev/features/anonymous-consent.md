@@ -118,6 +118,6 @@ No special extensibility is available for this feature.
 
 ## Known Limitations
 
-Any user who registers are considered a new user. Therefore, anyone who logs in within the same session will have their anonymous consents transfered to registered consents. You need to either refresh or close the page in order to not be in the same session, thus no longer considered a new user.
+Any user who registers is considered a new user. A user who logs in during the same session will have their anonymous consents transferred to registered consents. To no longer be considered a new user, the user then needs to refresh the page or close the page to end the current session.
 
-More information on the progress of this limitation can be found in [the Spartacus Repository](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6467)
+More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6467).
