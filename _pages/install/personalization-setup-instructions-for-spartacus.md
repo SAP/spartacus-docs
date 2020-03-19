@@ -58,3 +58,127 @@ To test your own configurations, you can try out the steps in the following Pers
 - [Create Personalized Search Results](https://enable.cx.sap.com/media/Create+Personalized+Search+Results+-+SAP+Commerce+Cloud/1_5dhey09h)
 
 For more information, see [Peronalization](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/2aee3397ba474c0ba959e43f0fc5d3d4.html) in the SAP Help Portal.
+
+## Setup Personalization Context For Spartacus (optional step)
+The personalization context contains information about personalization details like segments and actions which influence displayed content. Such information can be used by reporting tools.
+
+Sample personalization context : 
+```
+{
+  "actions": [
+    {
+      "action_code": "actionCanonLoverSpa",
+      "action_type": "CxCmsActionResult",
+      "variation_code": "canonLoverSpa",
+      "variation_name": "canonLoverSpa"
+      "customization_code": "CategoryLoversSpa"
+      "customization_name":"CategoryLoversSpa"
+    },
+    {
+      "action_code": "canonLoverSearchProfileActionSpa",
+      "action_type": "CxSearchProfileActionResult",
+      "variation_code": "canonLoverSpa",
+      "variation_name": "canonLoverSpa"
+      "customization_code": "CategoryLoversSpa"
+      "customization_name":"CategoryLoversSpa"
+    }
+  ],
+  "segments": [
+    "USER_ANONYMOUS",
+    "CanonLover"
+    "CATEGORY brand_10"
+  ]
+}
+```
+#### Back End 
+1. The personalizationaddon extension.
+
+    The personalizationaddon is needed to expose the personalization context on the storefront. 
+    It should be added to localextension.xml
+    ```
+    ...
+    <extension name="personalizationaddon" />
+    ...
+    ```
+
+2. The PersonalizationScriptComponent
+
+    The personalizationaddon contains the PersonalizationScriptComponent, which should be inserted into PlaceholderContentSlot. 
+    You can run the impex below to add PersonalizationScriptComponent to your content catalog. 
+    Remember to set **$contentCatalog** parameter to the proper content catalog value.
+    
+   ```
+   $contentCatalog = electronics-spaContentCatalog
+   $stageContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+     
+     
+   # -----------------------------------------------------------------------
+   # Component needed for personalization context visible in storefront
+   # -----------------------------------------------------------------------
+     
+   INSERT_UPDATE PersonalizationScriptComponent; $stageContentCV[unique = true]; uid[unique = true]             ; name                  ;
+                                               ;                          ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
+     
+   INSERT_UPDATE ContentSlot; $stageContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $stageContentCV)[mode = append]
+                            ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
+     
+     
+     
+     
+     
+   $onlineContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+     
+     
+   # -----------------------------------------------------------------------
+   # Component needed for personalization context visible in storefront
+   # -----------------------------------------------------------------------
+     
+   INSERT_UPDATE PersonalizationScriptComponent; $onlineContentCV[unique = true]; uid[unique = true]             ; name                  ;
+                                               ;                          ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
+     
+   INSERT_UPDATE ContentSlot; $onlineContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $onlineContentCV)[mode = append]
+                            ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
+   
+    ```
+
+#### Frontend - Spartacus 
+
+Spartacus contains **PersonalizationContextService**, which enables access to personalization context. 
+If you would like to use information from personalization context, you can subscribe to it and get PersonalizationContext object.
+```
+export interface PersonalizationContext {
+  actions: PersonalizationAction[];
+  segments: string[];
+}
+ 
+export interface PersonalizationAction {
+  action_name: string;
+  action_type: string;
+  customization_name?: string;
+  customization_code?: string;
+  variation_name?: string;
+  variation_code?: string;
+}
+```
+Below you can find a sample test service, which displays personalization context in the console. 
+```
+import { Injectable } from '@angular/core';
+import {PersonalizationContextService} from "./personalization-context.service";
+  
+@Injectable({
+  providedIn: 'root',
+})
+export class PersonalizationTestService {
+  constructor(
+    protected service : PersonalizationContextService
+  ) {
+  
+    this.service.getPersonalizationContext().subscribe(evt => console.log(evt));
+  
+  }
+  
+  getServiceName(): String {
+    return 'PersonalizationTestService';
+  }
+}
+```
