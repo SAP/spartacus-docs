@@ -77,11 +77,11 @@ The following example shows a global configuration for the pagination, with a fi
 
 ```typescript
 ConfigModule.withConfig({
-    pagination: {
-        addFirst: true,
-        addLast: true,
-        addDots: true
-    }
+  pagination: {
+    addFirst: true,
+    addLast: true,
+    addDots: true
+  }
 });
 ```
 
@@ -89,12 +89,37 @@ You can then use CSS rules to suppress these options for a specific instance, su
 
 ```scss
 cx-store-finder-search-result {
-    cx-pagination {
-        a.gap,
-        a.first,
-        a.last {
-            display: none;
-        }
+  cx-pagination {
+    a.gap,
+    a.first,
+    a.last {
+      display: none;
     }
+  }
 }
+```
+
+## Component Usage
+
+The pagination component can be used by any UI that requires to navigate a list of things. The pagination component will emit an onclick event to the `viewPageEvent` output, which you can use to take further action.
+
+The following code snippet shows the simple usage of pagination with action links.
+
+```html
+<cx-pagination
+  [pagination]="pagination"
+  (viewPageEvent)="doPaginationYourself($event)"
+></cx-pagination>
+```
+
+Alternatively, you can pass in a pageRoute and optional `queryParam` to generate specific anchor links. The `queryParam` is often used to generate the pagination parameter. When `defaultPage` is passed in, the queryParam will be removed when the current page equals to the default page. This cleans up the URL nicely.
+
+The following code snippet shows the simple usage of pagination with action links.
+
+```html
+<cx-pagination
+  [pagination]="model"
+  queryParam="currentPage"
+  [defaultPage]="0"
+></cx-pagination>
 ```
