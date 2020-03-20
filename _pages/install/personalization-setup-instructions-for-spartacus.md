@@ -72,22 +72,22 @@ Sample personalization context :
       "action_code": "actionCanonLoverSpa",
       "action_type": "CxCmsActionResult",
       "variation_code": "canonLoverSpa",
-      "variation_name": "canonLoverSpa"
-      "customization_code": "CategoryLoversSpa"
+      "variation_name": "canonLoverSpa",
+      "customization_code": "CategoryLoversSpa",
       "customization_name": "CategoryLoversSpa"
     },
     {
       "action_code": "canonLoverSearchProfileActionSpa",
       "action_type": "CxSearchProfileActionResult",
       "variation_code": "canonLoverSpa",
-      "variation_name": "canonLoverSpa"
-      "customization_code": "CategoryLoversSpa"
+      "variation_name": "canonLoverSpa",
+      "customization_code": "CategoryLoversSpa",
       "customization_name":"CategoryLoversSpa"
     }
   ],
   "segments": [
     "USER_ANONYMOUS",
-    "CanonLover"
+    "CanonLover",
     "CATEGORY brand_10"
   ]
 }
