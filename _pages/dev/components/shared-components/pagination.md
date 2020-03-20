@@ -101,9 +101,9 @@ cx-store-finder-search-result {
 
 ## Component Usage
 
-The pagination component can be used by any UI that requires to navigate a list of things. The pagination component will emit an onclick event to the `viewPageEvent` output, which you can use to take further action.
+The pagination component can be used by any UI that needs to navigate a list of things. The pagination component emits an onclick event to the `viewPageEvent` output, which you can use to take further action.
 
-The following code snippet shows the simple usage of pagination with action links.
+The following code snippet shows a simple example of pagination with action links.
 
 ```html
 <cx-pagination
@@ -112,9 +112,9 @@ The following code snippet shows the simple usage of pagination with action link
 ></cx-pagination>
 ```
 
-Alternatively, you can pass in a pageRoute and optional `queryParam` to generate specific anchor links. The `queryParam` is often used to generate the pagination parameter. When `defaultPage` is passed in, the queryParam will be removed when the current page equals to the default page. This cleans up the URL nicely.
+Alternatively, you can pass in a `pageRoute` and optional `queryParam` to generate specific anchor links. The `queryParam` is often used to generate the pagination parameter. When `defaultPage` is passed in, the `queryParam` is removed when the current page is equal to the default page. This cleans up the URL nicely.
 
-The following code snippet shows the simple usage of pagination with action links.
+The following code snippet shows a simple example of pagination with anchor links.
 
 ```html
 <cx-pagination
