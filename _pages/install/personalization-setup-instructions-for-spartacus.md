@@ -19,7 +19,7 @@ If a setting doesn't exist, create it.
 
 If the setting already exists, add the new values to the end, including a space before. For example, `allowedHeaders` might look like this:
 
-```
+```sql
 origin content-type accept authorization occ-personalization-id occ-personalization-time
 ```
 
@@ -59,11 +59,13 @@ To test your own configurations, you can try out the steps in the following Pers
 
 For more information, see [Peronalization](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/2aee3397ba474c0ba959e43f0fc5d3d4.html) in the SAP Help Portal.
 
-## Setup Personalization Context For Spartacus (optional step)
+## Setting Up Personalization Context For Spartacus (Optional)
+
 The personalization context contains information about personalization details like segments and actions which influence displayed content. Such information can be used by reporting tools.
 
-Sample personalization context : 
-```
+Sample personalization context :
+
+```json
 {
   "actions": [
     {
@@ -72,7 +74,7 @@ Sample personalization context :
       "variation_code": "canonLoverSpa",
       "variation_name": "canonLoverSpa"
       "customization_code": "CategoryLoversSpa"
-      "customization_name":"CategoryLoversSpa"
+      "customization_name": "CategoryLoversSpa"
     },
     {
       "action_code": "canonLoverSearchProfileActionSpa",
@@ -90,12 +92,15 @@ Sample personalization context :
   ]
 }
 ```
-#### Back End 
-1. The personalizationaddon extension.
 
-    The personalizationaddon is needed to expose the personalization context on the storefront. 
-    It should be added to localextension.xml
-    ```
+### Back End
+
+1. The `personalizationaddon` extension.
+
+    The `personalizationaddon` is needed to expose the personalization context on the storefront.
+    It should be added to `localextension.xml`.
+
+    ```java
     ...
     <extension name="personalizationaddon" />
     ...
@@ -106,19 +111,18 @@ Sample personalization context :
     The personalizationaddon contains the PersonalizationScriptComponent, which should be inserted into PlaceholderContentSlot. 
     You can run the impex below to add PersonalizationScriptComponent to your content catalog. 
     Remember to set **$contentCatalog** parameter to the proper content catalog value.
-    
-   ```
+  
+   ```sql
    $contentCatalog = electronics-spaContentCatalog
    $stageContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
-     
-     
+  
    # -----------------------------------------------------------------------
    # Component needed for personalization context visible in storefront
    # -----------------------------------------------------------------------
-     
+  
    INSERT_UPDATE PersonalizationScriptComponent; $stageContentCV[unique = true]; uid[unique = true]             ; name                  ;
                                                ;                          ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
-     
+  
    INSERT_UPDATE ContentSlot; $stageContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $stageContentCV)[mode = append]
                             ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
      
@@ -141,16 +145,17 @@ Sample personalization context :
    
     ```
 
-#### Frontend - Spartacus 
+### Frontend - Spartacus
 
 Spartacus contains **PersonalizationContextService**, which enables access to personalization context. 
 If you would like to use information from personalization context, you can subscribe to it and get PersonalizationContext object.
-```
+
+```ts
 export interface PersonalizationContext {
   actions: PersonalizationAction[];
   segments: string[];
 }
- 
+
 export interface PersonalizationAction {
   action_name: string;
   action_type: string;
@@ -160,8 +165,10 @@ export interface PersonalizationAction {
   variation_code?: string;
 }
 ```
+
 Below you can find a sample test service, which displays personalization context in the console. 
-```
+
+```ts
 import { Injectable } from '@angular/core';
 import {PersonalizationContextService} from "./personalization-context.service";
   
