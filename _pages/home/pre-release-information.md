@@ -4,10 +4,44 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-*Last updated March 12th, 2020 by Matthew Burton, Scrum Master and Technical Writer, Spartacus*
+*Last updated March 23rd, 2020 by Matthew Burton, Scrum Master and Senior Technical Writer, Spartacus*
 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
+
+## Release 2.0.0-next.2 - March 23rd, 2020
+
+### Deprecation
+
+We continue to work on removing deprecated code as part of the 2.0 release. This work is ongoing, and more deprecated code will be removed in future pre-releases of 2.0.
+
+For more information about changes in our public API, including all breaking changes, see [Updating to Spartacus 2.0](https://github.com/SAP/spartacus/blob/release/2.0.0-next.2/docs/migration/2_0.md).
+
+### Migrating with Schematics
+
+To improve the experience of migrating to version 2.0, we are working on migration schematics for Spartacus. Before you run the migration, please be sure to update to version 9 of Angular in your project.
+
+You can run the migration with the following command:
+
+```bash
+ng update @spartacus/schematics@next
+```
+
+**Note:** The migration schematics are still a work in progress, so you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
+
+### Accessibility
+
+We continue to work on accessibility in Spartacus. Aside from a number of improvements and bug fixes, a new `cxFocus` directive is now available. Documentation for this feature is still to come.
+
+### Event System
+
+The core for the event system is now included in the `@spartacus/core` library. Documentation for the event system is still to come.
+
+### Ngrx 9
+
+The ngrx dependency in Spartacus has been updated to version 9. Along with this update, the Angular libraries were also updated to the latest patch.
+
+For a list of all the changes in release `2.0.0-next.2` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases) on GitHub.
 
 ## Release 2.0.0-next.1 - March 12th, 2020
 
