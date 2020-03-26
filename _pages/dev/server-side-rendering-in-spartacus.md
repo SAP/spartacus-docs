@@ -326,3 +326,131 @@ If the backend server (endpoint) is either not valid or can't be reached, you’
 `TypeError: You provided 'undefined' where a stream was expected. You can provide an Observable, Promise, Array, or Iterable.`
 
 Make sure the backend endpoint is properly configured and reachable
+
+# Deploy to Firebase using Google Cloud Functions for SSR.
+
+Firebase offers an interesting solution to host your Spartacus static files and also offer the possibility to do SSR by using Google Cloud Functions.
+
+To be able to deploy to Firebase you need to install the 
+[Firebase Tools](https://github.com/firebase/firebase-tools) globally and then login into your firebase account
+
+```
+yarn global add firebase-tools
+firebase login
+```
+
+In your Storefront Project initialize a Firebase project by running `firebase init`. You can choose to use an existing Firebase Project or create a new one. Make sure you select `Functions` and `Hosting` from the available features needed.
+
+When asked for the public folder, make sure you type `dist/mystore/browser`.
+
+This will add several files in your project, most important is `firebase.json` and a folder `functions`. It's recommended that you move the functions folder into `src/functions` for consistency. 
+
+Here are some recommended  changes to the default generated files:
+
+`firebase.json` - notice that we are ignoring the deployment of `index.html` for the static hosting and we delegate the to `spartacusUniversal` function.
+
+```json
+{
+  "hosting": {
+    "site": "spartacus-ssr-lambda",
+    "public": "dist/mystore/browser",
+    "ignore": ["index.html", "firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**/**",
+        "function": "spartacusUniversal"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(css|js|jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "**/ngsw-worker.js",
+        "headers": [
+          {
+            "key": "Service-Worker-Allowed",
+            "value": "/"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "source": "src/functions",
+    "ignore": ["cp-server.js", "**/node_modules/**"]
+  }
+}
+
+```
+
+
+`src/functions/index.js` -  we recommend the biggest Cloud Functions with 2GB Ram (it's also the fastest). Make sure you choose your own path here to the server file `/dist/mystore/server/main.js`
+
+```javascript
+const functions = require("firebase-functions");
+const universal = require(process.cwd() + "/dist/mystore/server/main.js").app();
+exports.spartacusUniversal = functions
+  .runWith({
+    memory: "2GB"
+  })
+  .https.onRequest(universal);
+```
+
+`src/functions/cp-server.js` - this is a small build file need to copy the essential files from the main SSR build
+ 
+ ```javascript
+ const fs = require("fs");
+const { promisify } = require("util");
+const readFileAsync = promisify(fs.readFile);
+const writeFileAsync = promisify(fs.writeFile);
+(async () => {
+  const mainRoot = "dist/mystore/server";
+  fs.mkdirSync(`functions/${mainRoot}`, { recursive: true });
+  writeFileAsync(
+    `functions/${mainRoot}/main.js`,
+    await readFileAsync(`${mainRoot}/main.js`)
+  );
+
+  const indexRoot = "dist/mystore/browser";
+  fs.mkdirSync(`functions/${indexRoot}`, { recursive: true });
+  writeFileAsync(
+    `functions/${indexRoot}/index.html`,
+    await readFileAsync(`${indexRoot}/index.html`)
+  );
+})();
+
+ ```
+
+`package.json` - add the necessary build scripts for the firebase step
+ ```json
+ {
+  "scripts": {
+    // ...
+    "build:ssr-firebase": "yarn build:ssr && node ./src/functions/cp-server.js",
+    // ...
+  },
+}
+```
+
+With all those into place, we can now deploy the Storefront to Firebase and have SSR with Google Cloud Functions
+
+```bash
+yarn build:ssr
+yarn build:ssr-firebase
+firebase deploy 
+```
+
+## Known issues
+
+At this moment you need to use `us-central1` , see [documentation](https://firebase.google.com/docs/hosting/functions).
