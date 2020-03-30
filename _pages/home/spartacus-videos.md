@@ -20,6 +20,7 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 - [SAP Commerce Cloud (Project "Spartacus") The Real Headless Storefront In Your Hands](https://enable.cx.sap.com/media/1_uwdtoyuh) (55:53) (November 2019) - Release History 1.0-1.2, demo of what's coming in 1.3, and overview of latest roadmap
 
 ## Short Videos Focusing on Specific Topics
+
 - [Creating your First Spartacus Storefront](https://enable.cx.sap.com/media/Creating+Your+First+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_unu0rtl1) (11:46) (Technical: Beginner)
 - [Upgradability and Versioning](https://enable.cx.sap.com/media/Upgradability+and+Versioning+-+SAP+Commerce+Cloud/1_8fhwky5k) (4:32) (Technical: Beginner)
 - [Search Indexing Support](https://enable.cx.sap.com/media/Search+Indexing+Support+-+SAP+Commerce+Cloud/1_erxdtpn6) (2:46) (Technical: Beginner)
