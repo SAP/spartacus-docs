@@ -2,7 +2,7 @@
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
-The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuild the site.
+The [Spartacus documentation website](https://sap.github.io/spartacus-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuild the site.
 
 Note that, after merging to the `master` branch, it can sometimes take a few minutes for changes to appear on the site.
 
@@ -14,7 +14,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 **Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
 
-1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues
+1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/spartacus-docs/issues
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
@@ -116,7 +116,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![alt text]({{ site.baseurl }}/path/to/image.png)
     ```
 
-    The following is an example from the [Designing Action Buttons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/designing-action-buttons/) page:
+    The following is an example from the [Designing Action Buttons](https://sap.github.io/spartacus-docs/designing-action-buttons/) page:
 
     ```markdown
     ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
@@ -126,7 +126,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
-    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
+    See [the source](https://raw.githubusercontent.com/SAP/spartacus-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
 - **Includes:** If a certain block of text occurs repeatedly in the documentation, we can use the `include` tag to reference a single source HTML file. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed, as follows:
 
@@ -134,6 +134,6 @@ Please adhere to the following conventions to ensure that your changes build suc
     {% include docs/frontend_requirements.html %}
     ```
 
-    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/master/_includes/docs/frontend_requirements.html).
+    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/spartacus-docs/blob/master/_includes/docs/frontend_requirements.html).
     
-    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
+    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/spartacus-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
