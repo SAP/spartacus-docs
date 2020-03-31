@@ -4,7 +4,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU
     - title: Support
       url: https://stackoverflow.com/questions/tagged/spartacus-storefront
-    - title: Version 1.5
+    - title: Version 1.5.x
       url: /release-information/
 
 # sidebar menu
