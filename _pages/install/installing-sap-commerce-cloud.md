@@ -6,13 +6,13 @@ The following instructions describe how to install and configure SAP Commerce Cl
 
 The installation procedure includes steps for creating and using a `b2c_for_spartacus` recipe that makes use of the Spartacus Sample Data Addon, but you can use you own sample data or recipe as long as it includes the `cmsoccaddon` and `ycommercewebservices` extensions.
 
-The Spartacus Sample Data Addon makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront. If you are trying out Spartacus for the first time using the default sample data, installing the Spartacus Sample Data Addon is required.
+**Note:** If you are trying out Spartacus for the first time and intend to use the default sample data, you must install the Spartacus Sample Data Addon. The Spartacus Sample Data Addon makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront.
 
-However, installing the Spartacus Sample Data Addon is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your project.
+However, installing the Spartacus Sample Data Addon is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your custom project.
 
 For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
 
-Installing and configuring SAP Commerce Cloud for use with Spartacus involves the following procedures:
+To install and configuring SAP Commerce Cloud for use with Spartacus, you must complete the following procedures:
 
 1. [Setting up SAP Commerce Cloud](#setting-up-sap-commerce-cloud)
 2. [Configuring OCC credentials](#configuring-occ-credentials)
@@ -177,18 +177,12 @@ To configure CORS settings for OCC REST APIs, add the following to your SAP Comm
 ```sql
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match
-```
-
-**Note:** If you are using version 1.3 or newer of the Spartacus libraries, you must also add the CORS settings for anonymous consent, or disable the anonymous consent feature. Otherwise the Spartacus storefront will not display properly (for example, you might see a blank page when loading the Home page). Add the `x-anonymous-consents` custom header to `corsfilter.ycommercewebservices.allowedHeaders`, as follows:
-
-```sql
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
-For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
+**Note:** The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
-There are a number of other Spartacus features that also require additional CORS settings. For more information, see the following:
+There are a number of other Spartacus features that also require additional CORS settings. These features are not enabled by default, so you do not need to add these settings if you do not plan to enable these features. If you do intend to enable any of the following features, see the relevant documentation for more information:
 
 - [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
 - [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
