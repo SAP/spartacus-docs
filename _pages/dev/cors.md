@@ -28,16 +28,18 @@ If you use custom methods in your project, you should add the methods to this li
 
 The allowed headers describe the HTTP headers that are allowed for cross-origin requests. If these header are not allowed cross-origin, Spartacus will not get a response for a specific request. Most of the headers are standard headers, but there are a few feature specific headers that you might need. The list below provides an overview of all the headers that could be used.
 
-| Header               | description                                                                                                                                                                       |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `origin`             | The Origin request header indicates where a request originates from. This is send with each cross-orinin request by the browser and must therefor be configured for all requests. |
-| `content-type`       | The Content-Type header is used to indicate the media type of the resource. It is not requried for all APIs but is often used regardless.                                         |
-| `accept`             | The accept request header indicates the formats that can be read by the browser. It is send in a few occassions in Spartacus.                                                     |
-| authorization        | The authorization request header is used during authentication. Unless there's no login process, this must be configured.                                                         |
-| cache-control        | cache-control headers are used for various API requests.                                                                                                                          |
-| x-anonymous-consents | The `x-anonymous-consents` is required by the anonymous consent feature. If anonymous consent is not used, this configuration can be omitted.                                     |
-| x-profile-tag-debug  | The `x-profile-tag-debug` header is required by CDS. It is used to instruct CDS to produce a trace through. If you don't use CDS, it's fine to leave this one out.                |
-| x-consent-reference  | The `x-consent-reference` header is required by CDS. If you don't use CDS, it's fine to leave this one out.                                                                       |
+| Header                   | description                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `origin`                 | The Origin request header indicates where a request originates from. This is send with each cross-orinin request by the browser and must therefor be configured for all requests.                                                                                                                                                                       |
+| `content-type`           | The Content-Type header is used to indicate the media type of the resource. It is not requried for all APIs but is often used regardless.                                                                                                                                                                                                               |
+| `accept`                 | The accept request header indicates the formats that can be read by the browser. It is send in a few occassions in Spartacus.                                                                                                                                                                                                                           |
+| authorization            | The authorization request header is used during authentication. Unless there's no login process, this must be configured.                                                                                                                                                                                                                               |
+| cache-control            | cache-control headers are used for various API requests.                                                                                                                                                                                                                                                                                                |
+| x-anonymous-consents     | The `x-anonymous-consents` is required by the anonymous consent feature. If anonymous consent is not used, this configuration can be omitted.                                                                                                                                                                                                           |
+| occ-personalization-id   | The `occ-personalization-id` is required by the anonymous consent feature. If you don't use personalisation the personalisation feature it's fine to leave this one out. See [the personalisation documentation](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html) for more information.   |
+| occ-personalization-time | The `occ-personalization-time` is required by the anonymous consent feature. If you don't use personalisation the personalisation feature it's fine to leave this one out. See [the personalisation documentation](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html) for more information. |
+| x-profile-tag-debug      | The `x-profile-tag-debug` header is required by CDS. It is used to instruct CDS to produce a trace through. If you don't use CDS, it's fine to leave this one out.                                                                                                                                                                                      |
+| x-consent-reference      | The `x-consent-reference` header is required by CDS. If you don't use CDS, it's fine to leave this one out.                                                                                                                                                                                                                                             |
 
 ### exposedHeaders
 
@@ -80,7 +82,7 @@ For each installation, the following is important:
 },
 {
 	"key": "corsfilter.ycommercewebservices.allowedHeaders",
-	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference"
+	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
 },
 {
 	"key": "corsfilter.ycommercewebservices.exposedHeaders",
@@ -105,7 +107,7 @@ In case you use the Assisted Service Module(AMS), you must add the same headers:
 },
 {
 	"key": "corsfilter.assistedservicewebservices.allowedHeaders",
-	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference"
+	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
 },
 {
 	"key": "corsfilter.assistedservicewebservices.exposedHeaders",
@@ -124,7 +126,7 @@ If you install the cors filter configuration by properties, the following proper
 ```
 corsfilter.ycommercewebservices.allowedOrigins=*
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
 corsfilter.ycommercewebservices.allowCredentials=true
 ```
@@ -134,7 +136,7 @@ In case you use the Assisted Service Module(AMS), you must add the same headers:
 ```
 corsfilter.assistedservicewebservices.allowedOrigins=*
 corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
 corsfilter.assistedservicewebservices.allowCredentials=true
 ```
@@ -147,7 +149,7 @@ You can use the following ImpEx script if you want to install the cors filter co
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=ycommercewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
-;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
 ;exposedHeaders;x-anonymous-consents
 ```
@@ -158,7 +160,7 @@ In case you use the Assisted Service Module(AMS), you must run a similar install
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
-;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
 ;exposedHeaders;x-anonymous-consents
 ```
