@@ -14,7 +14,7 @@ There are various CORS headers that come into play to specify whether the origin
 
 ### allowedOrigins
 
-In development the allowed origins are often configured with a `*`, meaning every client is allowed. In production this should be more precise, to avoid abuse of the API.
+In development the allowed origins are often configured with a `*`, which basically whitelists all clients regardless of their domain. In a production environment, this should contain the different domains are allowed to interact with the backend API.
 
 ### allowedMethods
 
@@ -36,8 +36,8 @@ The allowed headers describe the HTTP headers that are allowed for cross-origin 
 | authorization        | The authorization request header is used during authentication. Unless there's no login process, this must be configured.                                                         |
 | cache-control        | cache-control headers are used for various API requests.                                                                                                                          |
 | x-anonymous-consents | The `x-anonymous-consents` is required by the anonymous consent feature. If anonymous consent is not used, this configuration can be omitted.                                     |
-| x-profile-tag-debug  | The `x-profile-tag-debug` header is required by CDS. If you don't use CDS, it's fine to leave this one out.                                                                       |
-| x-consent-reference  | The `x-profile-tag-debug` header is required by CDS. If you don't use CDS, it's fine to leave this one out.                                                                       |
+| x-profile-tag-debug  | The `x-profile-tag-debug` header is required by CDS. It is used to instruct CDS to produce a trace through. If you don't use CDS, it's fine to leave this one out.                |
+| x-consent-reference  | The `x-consent-reference` header is required by CDS. If you don't use CDS, it's fine to leave this one out.                                                                       |
 
 ### exposedHeaders
 
