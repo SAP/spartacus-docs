@@ -6,7 +6,7 @@ While CORS is a standard mechanism on the web, it's considered rather complicate
 
 CORS is a standard mechanism on the web to enable cross-domain requests from a web application to a server on a different domain. Browsers block Cross-Origin requests (or simply put: _cross-domain requests_), whenever the required HTTP headers are not available on the response.
 
-The response headers are dictated by the server, which is why the server must be setup to generate the right headers. In the SAP commerce backend, those headers are configurable in a generic fashion, using a CorsFilter. Project properties can be used to configure this for each node, or an installation script (ImpEx) can be used to install to each node. See for more information on the setup in the section below.
+The response headers are dictated by the server, which is why the server must be setup to generate the right headers. In the SAP commerce backend, those headers are [configurable in a generic fashion](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/b27d995150a74be08869e60e3fbc7395.html?q=authorization%20CORS), using a CorsFilter. Project properties can be used to configure this for each node, or an installation script (ImpEx) can be used to install to each node. See for more information on the setup in the section below.
 
 ## CORS Headers
 
@@ -69,7 +69,29 @@ For each installation, the following is important:
 - OCC is installed by a template extension with the name `ycommercewebservices`, you can however rename thie exentension web applicaton path, or generate a custom extension out of this. In the below exampes we assume the name is `ycommercewebservices`, but you should replace this if you have a custom name.
 - Most configurations apply to OCC only, but in case you use other APIs (i.e. Assisted Service Module), you also need to configure CORS for these APIs as well.
 
-###
+### Project Properties file
+
+If you install the cors filter configuration by properties, the following properties must be added:
+
+```
+corsfilter.ycommercewebservices.allowedOrigins=*
+corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
+corsfilter.ycommercewebservices.allowCredentials=true
+```
+
+In case you use the Assisted Service Module(AMS), you must add the same headers:
+
+```
+corsfilter.assistedservicewebservices.allowedOrigins=*
+corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
+corsfilter.assistedservicewebservices.allowCredentials=true
+```
+
+### Commerce Cloud Manifest Configuration
 
 ```json
 {
@@ -117,28 +139,6 @@ In case you use the Assisted Service Module(AMS), you must add the same headers:
 	"key": "corsfilter.assistedservicewebservices.allowCredentials",
 	"value": "true"
 }
-```
-
-### Project Properties file
-
-If you install the cors filter configuration by properties, the following properties must be added:
-
-```
-corsfilter.ycommercewebservices.allowedOrigins=*
-corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
-corsfilter.ycommercewebservices.allowCredentials=true
-```
-
-In case you use the Assisted Service Module(AMS), you must add the same headers:
-
-```
-corsfilter.assistedservicewebservices.allowedOrigins=*
-corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
-corsfilter.assistedservicewebservices.allowCredentials=true
 ```
 
 ### Impex
