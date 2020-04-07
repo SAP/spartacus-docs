@@ -42,7 +42,7 @@ The simplest way to build and run from the source code is to work in development
 
 Carry out the following steps before you build and launch.
 
-1. Configure your back end URL in the `projects/storefrontapp/environments/environment.ts` file.
+1. Configure your back end URL in the `projects/storefrontapp/src/environments/environment.ts` file.
 
    The `environment.ts` file contains properties that are applied when the app is run in development mode.
 
