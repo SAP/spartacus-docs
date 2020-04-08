@@ -1,77 +1,77 @@
-# Cross-Origin Resource Sharing (CORS)
+---
+title: Cross-Origin Resource Sharing (CORS)
+---
 
-While CORS is a standard mechanism on the web, it's considered rather complicated and blocks new Spartacus developer often during their first setup. This is why we spend an article on explaing _how_ CORS affects Spartacus, and _what_ is required to enable the right CORS setup.
+CORS is a standard mechanism on the web that enables cross-domain requests from web applications to reach servers on different domains. Cross-origin requests could also be thought of as "cross-domain requests". Browsers block cross-origin requests whenever the required HTTP headers are not available in the response.
 
-## What is CORS?
-
-CORS is a standard mechanism on the web to enable cross-domain requests from a web application to a server on a different domain. Browsers block Cross-Origin requests (or simply put: _cross-domain requests_), whenever the required HTTP headers are not available on the response.
-
-The response headers are dictated by the server, which is why the server must be setup to generate the right headers. In the SAP commerce backend, those headers are [configurable in a generic fashion](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/b27d995150a74be08869e60e3fbc7395.html?q=authorization%20CORS), using a CorsFilter. Project properties can be used to configure this for each node, or an installation script (ImpEx) can be used to install to each node. See for more information on the setup in the section below.
+The response headers are dictated by the server, which is why the server must be set up to generate the correct headers. In the SAP Commerce Cloud back end, these headers can be [configured in a generic fashion](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/1905/en-US/b27d995150a74be08869e60e3fbc7395.html?q=authorization%20CORS) by using a CorsFilter. Project properties can be used to configure this for each node, or an ImpEx installation script can be used to install to each node.
 
 ## CORS Headers
 
-There are various CORS headers that come into play to specify whether the origin is allowed with or without certain methods, headers, cookies, etc. Each of the configurations and it's use in spartacus is discussed in the following sections.
+You can use various CORS headers to specify whether the origin is allowed, with or without certain methods, headers, cookies, and so on. The following sections describe each of the configurations as they are related to Spartacus.
 
 ### allowedOrigins
 
-In development the allowed origins are often configured with a `*`, which basically whitelists all clients regardless of their domain. In a production environment, this should contain the different domains are allowed to interact with the backend API.
+In development, the allowed origins are often configured with an asterisk (`*`), which whitelists all clients, regardless of their domain. In a production environment, this should contain the different domains that are allowed to interact with the back end API.
 
 ### allowedMethods
 
-The allowed headers must include all the HTTP methods that can be used. For Spartacus, the following headers should be configured:
+The allowed headers must include all the HTTP methods that are allowed to be used. For Spartacus, the following methods should be configured:
 
-`GET HEAD OPTIONS PATCH PUT POST DELETE`
+```
+GET HEAD OPTIONS PATCH PUT POST DELETE
+```
 
-If you use custom methods in your project, you should add the methods to this list.
+If you use custom methods in your project, you should add these methods to this list.
 
 ### allowedHeaders
 
-The allowed headers describe the HTTP headers that are allowed for cross-origin requests. If these header are not allowed cross-origin, Spartacus will not get a response for a specific request. Most of the headers are standard headers, but there are a few feature specific headers that you might need. The list below provides an overview of all the headers that could be used.
+The allowed headers setting indicates the HTTP headers that are allowed for cross-origin requests. If these header are not allowed cross-origin, Spartacus will not get a response for a specific request. Most of the headers are standard headers, but there are a few headers that you might need that are feature specific. The following list provides an overview of all the headers that can be used.
 
-| Header                   | description                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `origin`                 | The Origin request header indicates where a request originates from. This is send with each cross-orinin request by the browser and must therefor be configured for all requests.                                                                                                                                                                       |
-| `content-type`           | The Content-Type header is used to indicate the media type of the resource. It is not requried for all APIs but is often used regardless.                                                                                                                                                                                                               |
-| `accept`                 | The accept request header indicates the formats that can be read by the browser. It is send in a few occassions in Spartacus.                                                                                                                                                                                                                           |
-| authorization            | The authorization request header is used during authentication. Unless there's no login process, this must be configured.                                                                                                                                                                                                                               |
-| cache-control            | cache-control headers are used for various API requests.                                                                                                                                                                                                                                                                                                |
-| x-anonymous-consents     | The `x-anonymous-consents` is required by the anonymous consent feature. If anonymous consent is not used, this configuration can be omitted.                                                                                                                                                                                                           |
-| occ-personalization-id   | The `occ-personalization-id` is required by the anonymous consent feature. If you don't use personalisation the personalisation feature it's fine to leave this one out. See [the personalisation documentation](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html) for more information.   |
-| occ-personalization-time | The `occ-personalization-time` is required by the anonymous consent feature. If you don't use personalisation the personalisation feature it's fine to leave this one out. See [the personalisation documentation](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html) for more information. |
-| x-profile-tag-debug      | The `x-profile-tag-debug` header is required by CDS. It is used to instruct CDS to produce a trace through. If you don't use CDS, it's fine to leave this one out.                                                                                                                                                                                      |
-| x-consent-reference      | The `x-consent-reference` header is required by CDS. If you don't use CDS, it's fine to leave this one out.                                                                                                                                                                                                                                             |
+| Header | Description |
+| - |  |
+| origin | The `origin` request header indicates where a request originates from. This is sent by the browser with each cross-origin request, and must therefore be configured for all requests. |
+| content-type | The `content-type` header is used to indicate the media type of the resource. It is not required for all APIs, but it is often used nonetheless. |
+| accept | The `accept` request header indicates the formats that can be read by the browser. It is sent pn a few occasions in Spartacus. |
+| authorization | The `authorization` request header is used during authentication. Unless there is no login process, this must be configured. |
+| cache-control | The `cache-control` headers are used for various API requests. |
+| x-anonymous-consents | The `x-anonymous-consents` header is required by the anonymous consent feature. If anonymous consent is not used, this configuration can be omitted. However, it is important to note that if you do not include this header, you must disable the anonymous consent feature. Otherwise, you might encounter problems with your storefront not displaying properly. |
+| occ-personalization-id | The `occ-personalization-id` header is required by the personalization feature. If you do not use the personalization feature, this header can be omitted. For more information, see [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html) on the SAP Help Portal. |
+| occ-personalization-time | The `occ-personalization-time` header is required by the personalization feature. If you do not use the personalization feature, this header can be omitted. For more information, see [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1905/en-US/e970070f997041c7b3f3e77fcb762744.html) on the SAP Help Portal. |
+| x-profile-tag-debug | The `x-profile-tag-debug` header is required by Context-Driven Services. It is used to instruct CDS to produce a trace. If you do not use CDS, this header can be omitted. For more information, see [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US?task=discover_task) on the SAP Help Portal. |
+| x-consent-reference | The `x-consent-reference` header is required by Context-Driven Services. If you do not use CDS, this header can be omitted. For more information, see [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US?task=discover_task) on the SAP Help Portal. |
 
 ### exposedHeaders
 
-Only CDS requires to expose a custom header, namely the `x-anonymous-consents` header.
+Only Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
 
 ### allowCredentials
 
-Request credentials are concerned with cookies, authorization headers or TLS client certificates. These are not allowed in cross-origin requests by default, which is why a request is blocked when the configuration isn't applied.
+Request credentials are concerned with cookies, authorization headers, or TLS client certificates. These are not allowed in cross-origin requests by default, which is why a request is blocked when the configuration is not applied.
 
-Spartacus has not been sending cookies in version 1, but since version 2, cookies will be send for each and every occ request. This has also been patched to 1.4 and 1.5.
+Spartacus did not send cookies in version 1.x of the Spartacus libraries, but since version 2.0, cookies will be sent for each and every OCC request. This has also been patched to versions 1.4 and 1.5 of the Spartacus libraries.
 
-Sending cookies is required to gain _session infinity_, also know as sticky sessions. Session infinity means that the same server behind an API endpoint is used for all sub-sequential request for the same session. Although the Commerce API is stateless, there are occassions where multiple parallel calls could fail (i.e. add to cart vs get cart). Moreover, the backend will gain performance improvements if requests for the same session aer served by the same server.
+Sending cookies is required to gain "session infinity", which is also know as "sticky sessions". Session infinity means that the same server behind an API endpoint is used for all subsequent requests for the same session. Although the Commerce API is stateless, there are occasions when multiple parallel calls could fail (for example, add to cart vs get cart). Moreover, the back end will gain performance improvements if requests for the same session are served by the same server.
 
-To this reason, CCv2, exposes a response cookie (`ROUTE`), that indicates the processing server that was used to process the API request. Whenever the client will add this cookie into the next request, the request will be handled by the same server.
+For this reason, CCv2 exposes a response cookie (`ROUTE`) that indicates the processing server that was used to process the API request. Whenever the client adds this cookie into the next request, the request is handled by the same server.
 
-## Setup
+## Setting Up CORS
 
-The various CORS configurations that are required for the backend can be installed in various ways:
+The various CORS configurations that are required by the back end can be installed in the following ways:
 
-- use configuration properties to install them during a deployment
-- use the Commerce Cloud manifest file to install them during a deployment
-- use ImpEx script to install them at runtime
-- use backoffice to configure them manually at runtime
+- using configuration properties to install them during a deployment
+- using the Commerce Cloud manifest file to install them during a deployment
+- using an ImpEx script to install them at runtime
+- using Backoffice to configure them manually at runtime
 
-For each installation, the following is important:
+For each installation, it is important to note the following:
 
-- OCC is installed by a template extension with the name `ycommercewebservices`, you can however rename thie exentension web applicaton path, or generate a custom extension out of this. In the below exampes we assume the name is `ycommercewebservices`, but you should replace this if you have a custom name.
-- Most configurations apply to OCC only, but in case you use other APIs (i.e. Assisted Service Module), you also need to configure CORS for these APIs as well.
+- OCC is installed by a template extension with the name `ycommercewebservices`. However, you can rename the extension web application path, or generate a custom extension out of this. In the examples in the next sections, we assume the name is `ycommercewebservices`, but you should replace this if you have a custom name.
+- Most configurations apply to OCC only, but in case you use other APIs (such as the Assisted Service Module), you also need to configure CORS for these APIs as well.
 
-### Project Properties file
+### Project Properties File
 
-If you install the cors filter configuration by properties, the following properties must be added:
+If you install the CORS filter configuration by properties, the following properties must be added:
 
 ```
 corsfilter.ycommercewebservices.allowedOrigins=*
@@ -81,7 +81,7 @@ corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
 corsfilter.ycommercewebservices.allowCredentials=true
 ```
 
-In case you use the Assisted Service Module(AMS), you must add the same headers:
+If you are using the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
 ```
 corsfilter.assistedservicewebservices.allowedOrigins=*
@@ -92,6 +92,8 @@ corsfilter.assistedservicewebservices.allowCredentials=true
 ```
 
 ### Commerce Cloud Manifest Configuration
+
+If you install the CORS filter configuration using the Commerce Cloud manifest file, add the following headers to the manifest file:
 
 ```json
 {
@@ -116,7 +118,7 @@ corsfilter.assistedservicewebservices.allowCredentials=true
 }
 ```
 
-In case you use the Assisted Service Module(AMS), you must add the same headers:
+If you use the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
 ```json
 {
@@ -143,9 +145,9 @@ In case you use the Assisted Service Module(AMS), you must add the same headers:
 
 ### Impex
 
-You can use the following ImpEx script if you want to install the cors filter configuration during initialisation, update or manually using the hac.
+You can use the following ImpEx script if you want to install the CORS filter configuration during initialization, during an update, or manually with the Hybris Admin Console.
 
-```impex
+```
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=ycommercewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
@@ -154,9 +156,9 @@ INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=y
 ;exposedHeaders;x-anonymous-consents
 ```
 
-In case you use the Assisted Service Module(AMS), you must run a similar installation:
+If you are using the Assisted Service Module (ASM), you must also run the following script:
 
-```impex
+```
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
