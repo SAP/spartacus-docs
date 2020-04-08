@@ -51,7 +51,9 @@ Request credentials are concerned with cookies, authorization headers, or TLS cl
 
 Spartacus did not send cookies in version 1.x of the Spartacus libraries, but since version 2.0, cookies will be sent for each and every OCC request. This has also been patched to versions 1.4 and 1.5 of the Spartacus libraries.
 
-Sending cookies is required to gain "session infinity", which is also know as "sticky sessions". Session infinity means that the same server behind an API endpoint is used for all subsequent requests for the same session. Although the Commerce API is stateless, there are occasions when multiple parallel calls could fail (for example, add to cart vs get cart). Moreover, the back end will gain performance improvements if requests for the same session are served by the same server.
+Sending cookies is required to gain "session infinity", which is also know as "sticky sessions". Session infinity means that the same server behind an API endpoint is used for all subsequent requests for the same session. Although the Commerce API is stateless, there are occasions when multiple parallel or sequential calls could fail. For example, an “add to cart” request followed by a “load cart” request could fail, because the first request could end up at server 1, whereas the second request, immediately following after, could end up at server 2. The servers might not be fast enough to send around cache invalidation, which is why the second response might fail to catch the added item. 
+
+An added advantage of session infinity is that the back end will gain performance improvements if requests for the same session are served by the same server.
 
 For this reason, CCv2 exposes a response cookie (`ROUTE`) that indicates the processing server that was used to process the API request. Whenever the client adds this cookie into the next request, the request is handled by the same server.
 
