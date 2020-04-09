@@ -4,12 +4,20 @@ title: Spartacussampledataaddon AddOn
 
 The `spartacussampledataaddon` AddOn creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs that have been modified specifically for Spartacus requirements.
 
+You can download the Spartacus Sample Data AddOn from the [Spartacus Releases page](https://github.com/SAP/spartacus/releases).
+
+The Spartacus Sample Data AddOn is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledataaddon.zip` in the **Assets** section of the most recent release of the `storefront` library. 
+
+Of course, previous versions are also available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
+
+For more information about installing the `spartacussampledataaddon` AddOn, see [Installing SAP Commerce Cloud for use with Spartacus
+]({{ site.baseurl }}/installing-sap-commerce-cloud/#setting-up-sap-commerce-cloud-with-the-spartacus-sample-data-addon).
+
 The following diagram demonstrates how the `Electronics-Spa` base site is created. The process is similar for all sample stores.
 
 ![spartacussampledataaddon]({{ site.baseurl }}/assets/images/spartacussampledataaddon.png)
 
-To download and install the `spartacussampledataaddon` AddOn, see [Installing SAP Commerce Cloud for use with Spartacus
-]({{ site.baseurl }}/installing-sap-commerce-cloud/#installing-the-spartacus-sample-data-addon). The impex file paths in this document are to the `spartacussampledataaddon` AddOn that has been installed with SAP Commerce Cloud.
+**Note:** The ImpEx file paths in the following sections are to a `spartacussampledataaddon` AddOn that has been installed with SAP Commerce Cloud.
 
 The `spartacussampledataaddon` AddOn does the following:
 
