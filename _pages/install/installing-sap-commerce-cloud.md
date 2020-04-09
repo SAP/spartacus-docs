@@ -26,11 +26,11 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    Note: The name of the zip archive for release 1905 starts with `CXCOMM1905#...`. This folder will be referred to as `CXCOMM*` for the rest of these instructions.
 
-1. [Download](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases) the Spartacus Sample Data AddOn.
+1. [Download](https://github.com/SAP/spartacus/releases) the Spartacus Sample Data AddOn.
 
     The Spartacus Sample Data AddOn is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledataaddon.zip` in the **Assets** section of the most recent release of the `storefront` library.
   
-    For example, to download the Spartacus Sample Data AddOn for the `1.4.0-next.1` release, you access the **Assets** section of the `@spartacus/storefront@1.4.0-next.1` library [here](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases/tag/storefront-1.4.0-next.1).
+    Of course, previous versions are also available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
 
 
 1. Unzip the `spartacussampledataaddon.zip` archive.
