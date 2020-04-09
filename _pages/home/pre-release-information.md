@@ -4,10 +4,48 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-*Last updated March 23rd, 2020 by Matthew Burton, Scrum Master and Senior Technical Writer, Spartacus*
+*Last updated April 9th, 2020 by Matthew Burton, Scrum Master and Senior Technical Writer, Spartacus*
 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
-- For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases).
+- For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/spartacus/releases).
+
+## Release 2.0.0-next.4 - April 9th, 2020
+
+Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.4` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+
+### Support for Session Infinity
+
+Sending cookies to each OCC request has been implemented, using the `withCredentials` flag in the HTTP client. This requires a new OCC configuration, which (currently) defaults to false. An additional CORS configuration is required to ensure that a decoupled storefront is allowed to pass cookies into the request.
+
+### Assisted Service Module
+
+A new, generic service to dynamically render dialog and other non-CMS-driven components. This mechanism is now used for the ASM user interface. Customer coupons have been made ASM-friendly.
+
+### Schematics Migrations
+
+In our schematics, the SSR migration to 2.0 is now working. Also, `@angular/localize` has been added into the schematics for adding Spartacus, SSR, and upgrading to 2.0.
+
+### Dependency Upgrades
+
+Angular and Spartacus dependencies have been updated across all Spartacus libraries. In terms of third-party dependencies, ng-bootstrap, ng-select, and ngx-infinite-scroll have been updated to their latest stable versions.
+
+### Accessibility and Forms
+
+It was necessary to remove `disabled` attributes from the submit buttons on forms. These attributes provided a way of submitting empty forms, because previously, we did not need to guard them from empty submissions. The fix is provided with a newly introduced `FormErrorsComponent`. This fix has been implemented in all of the forms across the entire application.
+
+### Event Service
+
+The cart's "add entry" event has been implemented, along with minor service improvements.
+
+## Release 2.0.0-next.3 - April 1st, 2020
+
+Highlights for this release include the following:
+
+- Calydon is set as the base theme.
+- More deprecated code has been removed.
+- Improvements have been made to the current product service.
+
+For a list of all the changes in release `2.0.0-next.3` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## Release 2.0.0-next.2 - March 23rd, 2020
 
@@ -41,7 +79,7 @@ The core for the event system is now included in the `@spartacus/core` library. 
 
 The ngrx dependency in Spartacus has been updated to version 9. Along with this update, the Angular libraries were also updated to the latest patch.
 
-For a list of all the changes in release `2.0.0-next.2` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases) on GitHub.
+For a list of all the changes in release `2.0.0-next.2` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## Release 2.0.0-next.1 - March 12th, 2020
 
@@ -49,7 +87,7 @@ For a list of all the changes in release `2.0.0-next.2` of the Spartacus librari
 
 We are working on removing deprecated code as part of the 2.0 release. So far, a few classes and functions have been removed from the public API of our libraries, and for some classes, deprecated constructors have been removed. This work is ongoing, and more deprecated code will be removed in future pre-releases of 2.0.
 
-For more information about changes in our public API, see [Updating to Spartacus 2.0](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/release/2.0.0-next.1/docs/migration/2_0.md).
+For more information about changes in our public API, see [Updating to Spartacus 2.0](https://github.com/SAP/spartacus/blob/release/2.0.0-next.1/docs/migration/2_0.md).
 
 ### Migrating with Schematics
 
@@ -73,7 +111,7 @@ The previous pre-release, `2.0.0-next.0`, only supported client-side rendering. 
 
 We continue to work on accessibility in Spartacus.
 
-For a list of all the changes in release `2.0.0-next.1` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases) on GitHub.
+For a list of all the changes in release `2.0.0-next.1` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## Release 2.0.0-next.0 - March 2nd, 2020
 
@@ -93,13 +131,13 @@ Additionally, new end-to-end tests were added for the tab and auxiliary keys. Th
 
 ### Component Refactoring
 
-The [pagination component](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/v2-develop/_pages/dev/components/shared-components/pagination.md) and the item counter component were refactored, and are now simpler, while also being more extendable and easier to use.
+The [pagination component](https://github.com/SAP/spartacus-docs/blob/v2-develop/_pages/dev/components/shared-components/pagination.md) and the item counter component were refactored, and are now simpler, while also being more extendable and easier to use.
 
 ### Schematics Updated to Angular 9
 
 Schematics were updated to allow you to add Spartacus to applications generated with version 9 of the Angular CLI. Note, however, that the SSR and PWA options have not yet been updated, and might not fully work as intended.
 
-For a list of all the changes in release `2.0.0-next.0` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases) on GitHub.
+For a list of all the changes in release `2.0.0-next.0` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## Release 1.5 and earlier
 
