@@ -1,5 +1,5 @@
 ---
-title: Calydon Theme
+title: Deprecation of Calydon Theme
 ---
 
 The nature of the changes done in order to set the calydon-theme as the base-theme were the following:
