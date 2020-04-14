@@ -6,7 +6,7 @@ You can integrate Spartacus with a CyberSource payment subscription in a PCI-com
 
 On a default installation of Spartacus, the checkout process uses the Accelerator mocked configuration mechanism for payments. The structure and behavior of the mocked payment is very similar to CyberSource in terms of functionality, in that it uses Silent Post Order, it does the field mappings for payment details, and so on.
 
-For more information, see [Mocked Configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ae2fd11866910148aebc156c3e1a877.html).
+For more information, see [Mocked Configuration](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae2fd11866910148aebc156c3e1a877.html).
 
 Once CyberSource is up and running as a payment gateway in your Commerce Cloud backend, refer to the information in the following sections to integrate CyberSource with Spartacus.
 
