@@ -20,7 +20,7 @@ To install and configuring SAP Commerce Cloud for use with Spartacus, you must c
 
 ## Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon
 
-Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1905/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
+Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
 
 1. Unzip the SAP Commerce Cloud zip archive.
 
