@@ -63,7 +63,7 @@ export class MultiCartStatePersistenceService {
       // For more custom solutions you might use anything here.
       context$: this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID]),
       // We point to our read callback.
-      // It will be called on every context change.
+      // We will restore the value on every context change. If `context$` was not given, the `onRead` callback will be invoked only once, on the application start.
       onRead: (state) => this.onRead(state),
     });
   }
