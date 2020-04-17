@@ -8,30 +8,11 @@ In version 2.0 we introduced new mechanism to persist state of the application. 
 
 Heart of the new feature is the `StatePersistenceService` and specifically its `syncWithStorage` method. First let's go through all the options that you can pass to this function:
 
-- `key` is used to distinguish one feature state persistence from another one. Example: to store active cart id I would use `cart` key and for user session data `session`.
+- `key` is used to distinguish one feature from another one in storage. Example: to store active cart id I would use `cart` key and for user session data `session`.
 - `state$` observable which should emit a value every time you want to save this new value to the persistent storage. Example: to persist active cart id every time active cart id changes this observable should emit with new value.
 - `context$` observable describes valid context for particular state. Example: active cart id is valid only on the one base site. On different base sites we want to use different carts. So in that case for `context$` we would use observable emitting base site every time it changes.
 - `storageType` specifies storage type that should be used. By default it is local storage, but you can change that for example to session storage.
 - `onRead` callback is invoked every time context changes. In case of the cart every time we change base site this callback would be called with value read from storage for that particular context. It might dispatch `undefined` value when there wasn't anything saved in storage.
-
-## Flow of the state synchronization
-
-1. I setup my own state persistence service with:
-
-- `key`: `"cart"`
-- `state$` : pointing to active cart id selector
-- `context$`: `this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID])` - so cart is valid only on the same base site
-- `onRead`: function dispatching `ClearCart` action and then `SetActiveCartId` when id was read from storage
-
-1. I enter `electronics` base site for the first time
-1. `onRead` callback was invoked with `undefined`, because we didn't have anything under `spartacus⚿electronics⚿cart` key in local storage. In our implementation of `onRead` we only clear the cart state, by dispatching `ClearCart` action.
-1. We add something to the cart.
-1. In the background cart is created for us and active cart id selector emitted new value.
-1. Now in local storage we have saved active cart id under `spartacus⚿electronics⚿cart` key.
-1. I switched from `electronics` to `apparel` site where I previously added few things to the cart.
-1. `onRead` action was dispatched with active cart id for that site read from `spartacus⚿apparel⚿cart` key in storage. We cleared state and set active cart id. `ActiveCartService` picked that id and loaded cart created in some previous session.
-1. I go back to `electronics` site.
-1. The same thing happens. `onRead` is invoked with cart id from electronics and we clear `apparel` ngrx state and load correct cart.
 
 ## How to implement complete state persistence for feature
 
@@ -62,7 +43,7 @@ export class MultiCartStatePersistenceService {
       // If the persisted value doesn't depend on any context, you can skip the `context$` parameter
       // For more custom solutions you might use anything here.
       context$: this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID]),
-      // We point to our read callback.
+      // We point to our read callback, that will be called with the value restored from persisted storage.
       // We will restore the value on every context change. If `context$` was not given, the `onRead` callback will be invoked only once, on the application start.
       onRead: (state) => this.onRead(state),
     });
@@ -141,3 +122,22 @@ export class CartModule {
 
 That's the whole implementation needed to enable state persistence for particular feature.
 It's not that simple as storageSync, but gives a lot more control with context and dedicated onRead callback.
+
+## Flow of the state synchronization
+
+1. I setup my own state persistence service with:
+
+   - `key`: `"cart"`
+   - `state$` : pointing to active cart id selector
+   - `context$`: `this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID])` - so cart is valid only on the same base site
+   - `onRead`: function dispatching `ClearCart` action and then `SetActiveCartId` when id was read from storage
+
+1. I enter `electronics` base site for the first time
+1. `onRead` callback was invoked with `undefined`, because we didn't have anything under `spartacus⚿electronics⚿cart` key in local storage. In our implementation of `onRead` we only clear the cart state, by dispatching `ClearCart` action.
+1. We add something to the cart.
+1. In the background cart is created for us and active cart id selector emitted new value.
+1. Now in local storage we have saved active cart id under `spartacus⚿electronics⚿cart` key.
+1. I switched from `electronics` to `apparel` site where I previously added few things to the cart.
+1. `onRead` callback was invoked with active cart id for that site read from `spartacus⚿apparel⚿cart` key in storage. In our implementation of `onRead` we clear the state and set active cart id. Then `ActiveCartService` will pick that id and load the cart created in some previous session.
+1. I go back to `electronics` site.
+1. The same thing happens. `onRead` is invoked with cart id from electronics and we clear `apparel` ngrx state and load correct cart.
