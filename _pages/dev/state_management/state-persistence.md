@@ -31,7 +31,7 @@ Heart of the new feature is the `StatePersistenceService` and specifically its `
 1. I switched from `electronics` to `apparel` site where I previously added few things to the cart.
 1. `onRead` action was dispatched with active cart id for that site read from `spartacus⚿apparel⚿cart` key in storage. We cleared state and set active cart id. `ActiveCartService` picked that id and loaded cart created in some previous session.
 1. I go back to `electronics` site.
-1. The same thing happens. `onRead` is invoked with cart from electronics and we cleared `apparel` ngrx state and loaded correct cart.
+1. The same thing happens. `onRead` is invoked with cart id from electronics and we clear `apparel` ngrx state and load correct cart.
 
 ## How to implement complete state persistence for feature
 
