@@ -24,7 +24,7 @@ Heart of the new feature is the `StatePersistenceService` and specifically its `
 - `onRead`: function dispatching `ClearCart` action and then `SetActiveCartId` when id was read from storage
 
 1. I enter `electronics` base site for the first time
-1. `onRead` was dispatched with `undefined`, because we didn't have anything under `spartacus⚿electronics⚿cart` key in local storage. Because of that we cleared cart state.
+1. `onRead` callback was invoked with `undefined`, because we didn't have anything under `spartacus⚿electronics⚿cart` key in local storage. In our implementation of `onRead` we only clear the cart state, by dispatching `ClearCart` action.
 1. We add something to the cart.
 1. In the background cart is created for us and active cart id selector emitted new value.
 1. Now in local storage we have saved active cart id under `spartacus⚿electronics⚿cart` key.
