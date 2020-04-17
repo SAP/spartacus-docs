@@ -4,7 +4,7 @@ The version 2.0 of Spartacus arrives with many new features and fixes. At the sa
 So some additional work on your side may be required to fix the issues that come up after you upgrade the version of Spartacus from 1.x to 2.0.
 
 However we did our best to minimize the amount of time you spend on it, by providing automated script. We've prepared schematics that we believe will make your upgrade process smoother. Just run the following command in the workspace of your Angular application and observe the results:
-```bash
+```shell
 $ ng update @spartacus/schematics
 ```
 
