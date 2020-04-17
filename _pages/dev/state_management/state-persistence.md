@@ -107,7 +107,7 @@ export function cartStatePersistenceFactory(
   configInit: ConfigInitializerService
 ) {
   const result = () =>
-    // With async configuration we want to want for stable configuration.
+    // With async configuration we want to wait for stable configuration.
     // We have dependency on base site which is part of context config.
     configInit.getStableConfig('context').then(() => {
       // Initialize state persistence mechanism.
