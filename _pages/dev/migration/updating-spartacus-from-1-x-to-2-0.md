@@ -14,4 +14,4 @@ The results should be:
 
 If something is not working or not clear regarding some class, search for it in our technical documentation of breaking changes. If you can't find something there, please reach us out in the public Spartacus slack channel (TODO: add a link) (you can help us improve our docs, if you find anything missing).
 
-For upgrading manually CSS styles to the latest official _Calydon_ theme of Spartacus, please see the https://sap.github.io/cloud-commerce-spartacus-storefront-docs/deprecation-guide/css
+For upgrading manually CSS styles to the latest official _Calydon_ theme of Spartacus, please see the https://sap.github.io/spartacus-docs/updating-to-version-2/css
