@@ -59,7 +59,7 @@ export class MultiCartStatePersistenceService {
       state$: this.getCartState(),
       // Cart is only valid on one base site, so we used base site as a context value.
       // For common cases (language/currency/base site) `SiteContextParamsService.getValues` might come handy.
-      // To have behavior similar to storageSync you might use just `of('')`.
+      // If the persisted value doesn't depend on any context, you can skip the `context$` parameter
       // For more custom solutions you might use anything here.
       context$: this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID]),
       // We point to our read callback.
