@@ -9,7 +9,7 @@ In version 2.0 we introduced new mechanism to persist state of the application. 
 Heart of the new feature is the `StatePersistenceService` and specifically its `syncWithStorage` method. First let's go through all the options that you can pass to this function:
 
 - `key` is used to distinguish one feature state persistence from another one. Example: to store active cart id I would use `cart` key and for user session data `session`.
-- `state$` observable which should emit every time you want to save new value to persistent storage. Example: to persist active cart id every time active cart id changes this observable should emit with new value.
+- `state$` observable which should emit a value every time you want to save this new value to the persistent storage. Example: to persist active cart id every time active cart id changes this observable should emit with new value.
 - `context$` observable describes valid context for particular state. Example: active cart id is valid only on the one base site. On different base sites we want to use different carts. So in that case for `context$` we would use observable emitting base site every time it changes.
 - `storageType` specifies storage type that should be used. By default it is local storage, but you can change that for example to session storage.
 - `onRead` callback is invoked every time context changes. In case of the cart every time we change base site this callback would be called with value read from storage for that particular context. It might dispatch `undefined` value when there wasn't anything saved in storage.
