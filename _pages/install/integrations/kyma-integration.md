@@ -27,7 +27,7 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 ## Spartacus Configuration
 
-The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core` and enable `kyma_enabled: true` flag in `authentication` configuration:
+The Kyma integration is turned off by default. To enable it, just import `KymaModule` from `@spartacus/core`:
 
 ```ts
 import { KymaModule } from '@spartacus/core';
@@ -36,12 +36,6 @@ import { KymaModule } from '@spartacus/core';
   imports: [
     ...
     B2cStorefrontModule.withConfig({
-      ...
-      authentication: {
-        kyma_enabled: true,
-        kyma_client_id: 'client4kyma',
-        kyma_client_secret: 'secret',
-      },
       ...
     }),
     KymaModule,
