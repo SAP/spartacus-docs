@@ -4,7 +4,7 @@ title: Kyma Integration (DRAFT)
 
 ## Prerequisites
 
-If your Spartacus application is running on Commerce Cloud, these configs should already be in place:
+If your Spartacus application is running on Commerce Cloud, the following configs should already be in place:
 
 `local.properties`:
 
