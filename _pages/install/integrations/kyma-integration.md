@@ -37,6 +37,11 @@ import { KymaModule } from '@spartacus/core';
     ...
     B2cStorefrontModule.withConfig({
       ...
+      authentication: {
+        kyma_client_id: 'client4kyma',
+        kyma_client_secret: 'secret',
+      },
+      ...
     }),
     KymaModule,
   ],
