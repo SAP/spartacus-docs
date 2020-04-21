@@ -105,7 +105,7 @@ B2B Stretch for Q2 2020 and into Q3:
 - **B2B Scheduled Replenishment** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) 
 - **B2B Saved Carts**  
-  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/4d094e78a5494963b2d66148167f0553.html?q=saved%20carts)
+  [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html?q=saved%20carts)
 - **B2B Future Stock** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
 - **Inventory Display** (SAP Commerce Cloud 2005 required)  
@@ -148,7 +148,7 @@ The items in this section are on our future roadmap - not necessarily for any sp
 - B2B features not yet implemented, such as B2B Order Form Builder  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
 - Variant Configuration and Pricing
-  [SAP Commerce Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/528b7395bc314999a01e3560f2bdc069.html)
+  [SAP Commerce Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/528b7395bc314999a01e3560f2bdc069.html)
   
   
   

@@ -43,8 +43,8 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
    
 *Release 1.5 libraries published February 26, 2020*
 
-- [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}) (CDS)   
-CDS provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the CDS feature itself, see the [CDS documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+- [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
+Context-Driven Services provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Context-Driven Services feature itself, see the [Context-Driven Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
 Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.

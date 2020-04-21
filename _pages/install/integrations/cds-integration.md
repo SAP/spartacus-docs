@@ -85,13 +85,13 @@ You can carry out all of the following steps after you have set up your Spartacu
     ```
     The following is a summary of the parameters of the `CdsModule`:
 
-    - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/49cbe38e90db448eae460907a97d177b/SHIP/en-US).
+    - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
     - **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment.
     - **strategyProducts:** Set this value as shown in the example.
-    - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/8a676837bd4245f69cc8a2fbdae2b945/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
-    - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/8a676837bd4245f69cc8a2fbdae2b945/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
+    - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
+    - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
     - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
-    - **gtmId:** This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see [Profile Tag](https://help.sap.com/viewer/8a676837bd4245f69cc8a2fbdae2b945/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) on the SAP Help Portal.
+    - **gtmId:** This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see [Profile Tag](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) on the SAP Help Portal.
 
 ## Profile Tag
 

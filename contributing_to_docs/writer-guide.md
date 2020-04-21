@@ -1,6 +1,6 @@
 # Writers: Contributing to Documentation
 
-The [Spartacus documentation website](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/) is hosted in GitHub Pages and is powered by Jekyll.
+The [Spartacus documentation website](https://sap.github.io/spartacus-docs/) is hosted in GitHub Pages and is powered by Jekyll.
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
@@ -51,7 +51,7 @@ Although you don't need to become an expert in Jekyll to contribute to the Spart
 - [Jekyll Quickstart](https://jekyllrb.com/docs/)
 - [Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
 
-    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `cloud-commerce-spartacus-storefront-docs` repository for any part of the tutorial! :wink:
+    **Note:** If you decide to follow the steps in the tutorial, be aware that this tutorial guides you through setting up your own (test) site. Accordingly, remember to create your own test folder for setting up the site and following the tutorial steps. Do not point to the `spartacus-docs` repository for any part of the tutorial! :wink:
 
 ## Working with GitHub
 
@@ -98,28 +98,28 @@ The following steps describe how to clone the Spartacus documentation repository
 3. In your shell app, enter the following command:
 
     ```bash
-    git clone https://github.com/SAP/cloud-commerce-spartacus-storefront-docs.git
+    git clone git@github.com:SAP/spartacus-docs.git
     ```
 
 4. Press **Enter**.
 
-    A new `cloud-commerce-spartacus-storefront-docs` directory is created, and a local clone of the Spartacus documentation repository is copied to this directory.
+    A new `spartacus-docs` directory is created, and a local clone of the Spartacus documentation repository is copied to this directory.
 
 ### Working with GitHub Issues
 
 GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus tribe uses the terms "issue" and "ticket" interchangeably.
 
-All open issues related to the Spartacus documentation repository can be viewed under the [Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) tab, which you can access at the top of any page in the repository, including the page you are currently reading.
+All open issues related to the Spartacus documentation repository can be viewed under the [Issues](https://github.com/SAP/spartacus-docs/issues) tab, which you can access at the top of any page in the repository, including the page you are currently reading.
 
-You can create a new issue by clicking the green **New issue** button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the [New issue](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new) page.
+You can create a new issue by clicking the green **New issue** button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the [New issue](https://github.com/SAP/spartacus-docs/issues/new) page.
 
-When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects) tab at the top of any page in GitHub.
+When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/spartacus-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/spartacus-docs/projects) tab at the top of any page in GitHub.
 
 #### Creating a New Issue
 
 The following steps guide you through creating a new issue in GitHub:
 
-1. Open the new issue page: https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues/new
+1. Open the new issue page: https://github.com/SAP/spartacus-docs/issues/new
 
 2. Provide a title in the **Title** field.
 
@@ -127,7 +127,7 @@ The following steps guide you through creating a new issue in GitHub:
 
 4. In the column on the right, click on **Projects** and assign the issue to a project.
 
-    For now, the only project is the [Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/projects/1) project.
+    For now, the only project is the [Spartacus Documentation](https://github.com/SAP/spartacus-docs/projects/1) project.
 
 5. If you know who will start work on this issue, click on **Assignees** (above **Projects**) and assign the issue to that person.
 
@@ -172,15 +172,15 @@ The following workflow describes how to make updates to the documentation reposi
 
     1. In the menu, click **File —> New Window**.
     1. In the **Activity Bar**, in the upper-left of the app window, click the **Explorer** button (just above the **Search** button), then click **Open Folder** in the **Explorer** panel that appears.
-    1. Navigate to your `cloud-commerce-spartacus-storefront-docs` folder and click **Open**.
+    1. Navigate to your `spartacus-docs` folder and click **Open**.
     
-        The `cloud-commerce-spartacus-storefront-docs` folder is the folder that contains your clone of the Spartacus documentation repository. For more information, see [Cloning the Documentation Repository](#cloning-the-documentation-repository).
+        The `spartacus-docs` folder is the folder that contains your clone of the Spartacus documentation repository. For more information, see [Cloning the Documentation Repository](#cloning-the-documentation-repository).
 
     For a general overview of the VS Code user interface, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface).
 
 1. If you don't already have a terminal window open in VS Code, in the menu, click **Terminal —> New Terminal**.
 
-    **Note:** The terminal should open at the root of your repository, but if for some reason the directory that is shown in your terminal prompt is not `cloud-commerce-spartacus-storefront-docs`, then switch to this directory before continuing.
+    **Note:** The terminal should open at the root of your repository, but if for some reason the directory that is shown in your terminal prompt is not `spartacus-docs`, then switch to this directory before continuing.
 
 1. In the terminal, switch to the `develop` branch with the following command:
 
@@ -387,7 +387,7 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![alt text]({{ site.baseurl }}/path/to/image.png)
     ```
 
-    The following is an example from the [Designing Action Buttons](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/designing-action-buttons/) page:
+    The following is an example from the [Designing Action Buttons](https://sap.github.io/spartacus-docs/designing-action-buttons/) page:
 
     ```markdown
     ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
@@ -397,7 +397,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags.
 
-    See [the source](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
+    See [the source](https://raw.githubusercontent.com/SAP/spartacus-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
 - **Includes:** If a certain block of text occurs repeatedly in the documentation, we can use the `include` tag to reference a single source HTML file. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed, as follows:
 
@@ -405,6 +405,6 @@ Please adhere to the following conventions to ensure that your changes build suc
     {% include docs/frontend_requirements.html %}
     ```
 
-    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/master/_includes/docs/frontend_requirements.html).
+    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/spartacus-docs/blob/master/_includes/docs/frontend_requirements.html).
 
-    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/cloud-commerce-spartacus-storefront-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
+    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/spartacus-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
