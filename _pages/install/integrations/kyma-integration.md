@@ -27,7 +27,7 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 ## Spartacus Configuration
 
-The Kyma integration is turned off by default. To enable it, just import `KymaModule` from `@spartacus/core`:
+The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core`, as follows:
 
 ```ts
 import { KymaModule } from '@spartacus/core';
