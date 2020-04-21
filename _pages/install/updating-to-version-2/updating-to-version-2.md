@@ -1,7 +1,9 @@
-# Updating to version 2.0
-
+---
+title: Updating to version 2.0
+---
 
 ## Prerequisite - updating Angular to version 9
+
 Spartacus in version 2.0 supports **Angular 9**. So please  make sure to **update Angular first** and then Spartacus.
 
 More info how to update Angular can be found here https://update.angular.io/
@@ -12,11 +14,13 @@ The version 2.0 of Spartacus arrives with many new features and fixes. At the sa
 So some additional work on your side may be required to fix the issues that come up after you upgrade the version of Spartacus from 1.x to 2.0.
 
 However we did our best to minimize the amount of time you spend on it, by providing automated script. We've prepared schematics that we believe will make your upgrade process smoother. Just run the following command in the workspace of your Angular application and observe the results:
+
 ```shell
 $ ng update @spartacus/schematics
 ```
 
 The results should be:
+
 - Heads-up code comments `// TODO:Spartacus - ...` will be injected in your codebase whenever you are using a reference to Spartacus' item (i.e. class or function) that has changed its behavior in 2.0 or changed its the API (i.e. added a required parameter or removed one), or was replaced with a different class or function. If you need more information for that item, please search for it in our technical documentation page that describes all breaking changes (TODO: link to technical docs)
 - All calls of `super(...)` in constructors of classes extending from Spartacus' ones will be automatically fixed (new required parameters added; removed parameters dropped)
 
