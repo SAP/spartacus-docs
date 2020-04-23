@@ -21,7 +21,7 @@ To update to version 2.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics
 ```
 
-When the script has finished running, inspect your code for comments that begin with `//TODO:Spartacus - ...`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md).
+When the script has finished running, inspect your code for comments that begin with `//TODO:Spartacus`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md).
 
 For more information about schematics, see the schematics project [README](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
