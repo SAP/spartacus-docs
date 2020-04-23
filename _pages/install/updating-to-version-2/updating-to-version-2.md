@@ -1,29 +1,26 @@
 ---
-title: Updating to version 2.0
+title: Updating to Version 2.0
 ---
 
-## Prerequisite - updating Angular to version 9
+## Prerequisites
 
-Spartacus in version 2.0 supports **Angular 9**. So please  make sure to **update Angular first** and then Spartacus.
-
-More info how to update Angular can be found here https://update.angular.io/
+Spartacus 2.0 requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
 
 ## Updating Spartacus
 
-The version 2.0 of Spartacus arrives with many new features and fixes. At the same time, as it's a major release, **some changes can be potentially breaking to your application**.
-So some additional work on your side may be required to fix the issues that come up after you upgrade the version of Spartacus from 1.x to 2.0.
+Spartacus 2.0 includes many new features and fixes. Since this update is a major release, some of the updates may also be breaking changes for your application. In this case, additional work on your side may be required to fix issues that result from upgrading from 1.x to 2.0. 
 
-However we did our best to minimize the amount of time you spend on it, by providing automated script. We've prepared schematics that we believe will make your upgrade process smoother. Just run the following command in the workspace of your Angular application and observe the results:
+To help with updating to version 2.0, Spartacus provides a script that will do the following:
+
+- Automatically fix all calls of `super(...)` in constructors of classes that extend the default Spartacus classes. New, required parameters are added, and dropped parameters are removed.
+- Inject code comments into your codebase whenever you use a reference to a Spartacus class or function that has changed its behavior in version 2.0, or where your class or function has been replaced by a different class or function, or where the API has changed (for example, where a required parameter has been added or removed). 
+
+To update to version 2.0 of Spartacus, run the following command in the workspace of your Angular application:
 
 ```shell
-$ ng update @spartacus/schematics
+ng update @spartacus/schematics
 ```
 
-The results should be:
+When the script has finished running, inspect your code for comments that begin with `//TODO:Spartacus - ...`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md).
 
-- Heads-up code comments `// TODO:Spartacus - ...` will be injected in your codebase whenever you are using a reference to Spartacus' item (i.e. class or function) that has changed its behavior in 2.0 or changed its the API (i.e. added a required parameter or removed one), or was replaced with a different class or function. If you need more information for that item, please search for it in our technical documentation page that describes all breaking changes (TODO: link to technical docs)
-- All calls of `super(...)` in constructors of classes extending from Spartacus' ones will be automatically fixed (new required parameters added; removed parameters dropped)
-
-If something is not working or not clear regarding some class, search for it in our technical documentation of breaking changes (TODO: add link here again). If you can't find something there, please reach us out in the public Spartacus slack channel (TODO: add a link) (you can help us improve our docs, if you find anything missing).
-
-For upgrading manually CSS styles to the latest official _Calydon_ theme of Spartacus, please see the page https://sap.github.io/spartacus-docs/updating-to-version-2/css
+To manually upgrade CSS styles to the latest _Calydon_ theme in Spartacus, see [Deprecation of Calydon Theme](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/install/migration/calydon.md).
