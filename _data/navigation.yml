@@ -18,6 +18,8 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
+                - title: "Updating to Version 2.0"
+                  url: /updating-to-version-2/  
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
@@ -36,12 +38,12 @@ docs:
                   url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
           - title: "Cross-Origin Resource Sharing (CORS)"
             url: /cors/        
+          - title: "Building the Spartacus Storefront from Libraries"
+            url: /building-the-spartacus-storefront-from-libraries/
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
           - title: "Snapshot Builds"
             url: /snapshot-builds/
-          - title: "Building the Spartacus Storefront from Libraries"
-            url: /building-the-spartacus-storefront-from-libraries/
           - title: "Configuring Feature Flags"
             url: /configuring-feature-flags/
           - title: "SmartEdit Setup Instructions for Spartacus"
