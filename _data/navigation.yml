@@ -18,6 +18,8 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
+                - title: "Updating to Version 2.0"
+                  url: /updating-to-version-2/  
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
