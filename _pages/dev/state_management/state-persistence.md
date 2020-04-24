@@ -1,8 +1,14 @@
 ---
-title: State persistence
+title: State Persistence
 ---
 
-In version 2.0 we introduced new mechanism to persist state of the application. Previously we only had very simple and declarative mechanism called storageSync where you could provide store properties keys to persist and those persisted keys were used on application start to set initial state in the store.
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+In Spartacus version 2.0, we introduced new mechanism to persist state of the application. Previously we only had very simple and declarative mechanism called storageSync where you could provide store properties keys to persist and those persisted keys were used on application start to set initial state in the store.
 
 ## API
 

@@ -193,6 +193,8 @@ docs:
             subchildren:
                 - title: "Loader Meta Reducer"
                   url: /loader-meta-reducer/
+                - title: "State Persistence"
+                  url: /state-persistence/  
           - title: "SmartEdit Contract in Spartacus"
             url: /smartedit-contract/
           - title: "Customizing Back End Communication ➢"
