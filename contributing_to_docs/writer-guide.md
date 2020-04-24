@@ -98,7 +98,7 @@ The following steps describe how to clone the Spartacus documentation repository
 3. In your shell app, enter the following command:
 
     ```bash
-    git clone git@github.com:SAP/spartacus-docs.git
+    git clone https://github.com/SAP/spartacus-docs.git
     ```
 
 4. Press **Enter**.
