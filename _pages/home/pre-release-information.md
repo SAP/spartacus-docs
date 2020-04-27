@@ -9,6 +9,56 @@ This document describes what is included in the latest pre-release of Spartacus 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/spartacus/releases).
 
+## Release 2.0.0-RC - April 28th, 2020
+
+The first release candidate (RC) has been released for 2.0.
+
+Summary of features:
+- Angular 9, ngrx 9
+- Schematics updated
+- Accessibility Keyboarding features
+- Many components refactored
+- Lazy loading foundation
+- Events sytem with 1 event
+- New facet navigation makes extending facets easier
+- Deprecated code removed
+
+## Release 2.0.0-next.7 - April 23rd, 2020
+
+Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.7` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+
+### New Facet Navigation
+
+Facet navigation was refactored to address a number of shortcomings and bugs. See https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6581.
+
+### PageSlotComponent now requires new parameter `CmsConfig` and `ChangeDetectorRef` (breaking change)
+
+See https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/7054.
+
+### Storefinder Radius Fixed and made Configurable
+
+The radius parameter was hard-coded, so 'use my location' did not work. See https://github.com/SAP/spartacus/issues/6275.
+
+### Action Link Styles Standardized
+
+See https://github.com/SAP/spartacus/pull/7257
+
+## Release 2.0.0-next.6 (includes -next.5) - April 16th, 2020
+
+Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.6` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+
+### CmsPageGuard more easily extensibile
+
+Some dependencies of the CmsPageGuard were not public before, so the guard was not easily customizable. See https://github.com/SAP/spartacus/pull/6852 for more information.
+
+### Language ISO values now use hyphens instead of underscores (breaking change)
+
+Language ISO value used in html lang attribute uses now hyphens instead of underscores. For example, you will see `<html lang="es-MX">` instead of `<html lang="es_MX">`. https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6802
+
+### REST Prefix
+
+In the upcoming release of 2005 of SAP Commerce Cloud, the default OCC REST API changes from REST to OCC. Spartacus already used a setting to configure this prefix but it was not used everywhere. Such fixes include https://github.com/SAP/spartacus/pull/7235.
+
 ## Release 2.0.0-next.4 - April 9th, 2020
 
 Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.4` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
