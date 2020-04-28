@@ -24,8 +24,8 @@ Summary of major changes from 1.x to 2.0:
 - Schematics updated
 - Accessibility Keyboarding features
 - Many components refactored
-- Lazy loading foundation
-- Events system with one event
+- Lazy loading of CMS components
+- Events system with AddCartEntry event
 - New facet navigation makes extending facets easier
 - Deprecated code removed
 
