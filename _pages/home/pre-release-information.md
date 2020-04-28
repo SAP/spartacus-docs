@@ -16,7 +16,7 @@ The first release candidate (RC) has been released for 2.0.
 Release 2.0 is a new major version and contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
 - [Updating to version 2.0](https://github.com/SAP/spartacus-docs/blob/v2-develop/_pages/home/updating-to-version-2/updating-to-version-2.md) (automated update using schematics)
 - [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md)
-- [Changes to Spartacus theme](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/calydon.md)
+- [Breaking Changes to Styles in 2.0](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/css-breaking-changes-in-version-2.md)
 
 Summary of major changes from 1.x to 2.0:
 
@@ -24,8 +24,8 @@ Summary of major changes from 1.x to 2.0:
 - Schematics updated
 - Accessibility Keyboarding features
 - Many components refactored
-- Lazy loading foundation
-- Events system with one event
+- Lazy loading of CMS components
+- Events system with AddCartEntry event
 - New facet navigation makes extending facets easier
 - Deprecated code removed
 
