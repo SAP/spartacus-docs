@@ -28,7 +28,7 @@ To enable Context-Driven Services in Spartacus, you need to configure both the C
 
 The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.
 
-1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.ycommercewebservices.allowedHeaders`. 
+1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.ycommercewebservices.allowedHeaders`.
 
     If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
 
@@ -48,7 +48,7 @@ The following steps describe how to add custom headers to your CORS settings, as
 
 You can carry out all of the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
-1. Install the Context-Driven Services library by running the following command from within the root directory of your storefront app: 
+1. Install the Context-Driven Services library by running the following command from within the root directory of your storefront app:
 
     ```bash
     npm i @spartacus/cds
@@ -60,7 +60,7 @@ You can carry out all of the following steps after you have set up your Spartacu
     import { CdsModule } from '@spartacus/cds';
     ```
 
-1. Add the `CdsModule` to `app.module.ts`. 
+1. Add the `CdsModule` to `app.module.ts`.
 
     The following is an example:
 
@@ -74,6 +74,9 @@ You can carry out all of the following steps after you have set up your Spartacu
             endpoints: {
               strategyProducts: '/strategy/${tenant}/strategies/${strategyId}/products',
             },
+            merchandising: {
+              defaultCarouselViewportThreshold: 80,
+            }
             profileTag: {
               javascriptUrl: 'https://tag.static.us.context.cloud.sap/js/profile-tag.js',
               configUrl:
@@ -88,6 +91,7 @@ You can carry out all of the following steps after you have set up your Spartacu
     - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
     - **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment.
     - **strategyProducts:** Set this value as shown in the example.
+    - **defaultCarouselViewportThreshold:** Commerce Cloud 1905.14 and 2005 introduced the ability to configure what percentage of the merchandising carousel needs to be in the viewport for carousel view events to be sent to CDS. If you are using a previous version of Commerce Cloud then you can use this setting to provide this functionality, however it will be applied to all carousels in the storefront, not on an individual carousel basis. If no value is provided then a default of 80% is used (i.e. 80% of the carousel needs to be in the viewport for view events to trigger).
     - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
     - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
     - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
@@ -180,6 +184,8 @@ If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.ba
 
    For the **Strategy** field, select a configured Merchandising strategy to be used in the carousel.
 
+   For the **Viewport Percentage** field enter the percentage of the carousel that needs to be in the viewport for carousel view events to be sent to CDS. NOTE: This configuration option is only available in Commerce Cloud versions 1905.14 and 2005 or later. If you are using an older version of Commerce Cloud see the [description of the **defaultCarouselViewportThreshold** Spartacus configuration](#configuring-spartacus-for-context-driven-services)
+
 6. Click **Save** for the Merchandising carousel to appear on the page you are editing.
 
 ## Context-Driven Services Shell Application
@@ -191,7 +197,7 @@ The following steps describe how to run the Context-Driven Services Shell Applic
 1. Run the following command to execute the library builds:
 
     ```bash
-    yarn build:core:lib:cds 
+    yarn build:core:lib:cds
     ```
 
 2. Run the following command to start the shell:
