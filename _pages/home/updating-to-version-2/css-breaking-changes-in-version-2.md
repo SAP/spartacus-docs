@@ -1,5 +1,5 @@
 ---
-title: Deprecation of Calydon Theme
+title: Breaking Changes to Styles in 2.0
 ---
 
 The nature of the changes done in order to set the calydon-theme as the base-theme were the following:
