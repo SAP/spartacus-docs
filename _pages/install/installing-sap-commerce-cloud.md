@@ -26,25 +26,25 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    Note: The name of the zip archive for release 1905 starts with `CXCOMM1905#...`. This folder will be referred to as `CXCOMM*` for the rest of these instructions.
 
-1. [Download](https://github.com/SAP/spartacus/releases) the Spartacus Sample Data AddOn.
+2. [Download](https://github.com/SAP/spartacus/releases) the Spartacus Sample Data AddOn.
 
    The Spartacus Sample Data AddOn is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledataaddon.zip` in the **Assets** section of the most recent release of the `storefront` library.
 
    Of course, previous versions are also available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
 
-1) Unzip the `spartacussampledataaddon.zip` archive.
+3. Unzip the `spartacussampledataaddon.zip` archive.
 
-1) Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`.
+4. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`.
 
    The `spartacussampledataaddon` folder can be stored anywhere in the `modules` folder. The `b2c-accelerator` folder is chosen as it contains other B2C sample data.
 
-1) In the `installer/recipes` folder, duplicate the `b2c_acc_plus` folder.
+5. In the `installer/recipes` folder, duplicate the `b2c_acc_plus` folder.
 
-1) Rename the copy of the `b2c_acc_plus` folder to `b2c_for_spartacus`.
+6. Rename the copy of the `b2c_acc_plus` folder to `b2c_for_spartacus`.
 
-1) In `b2c_for_spartacus`, open `build.gradle` with a text editor.
+7. In `b2c_for_spartacus`, open `build.gradle` with a text editor.
 
-1) In the list of extensions, add the following:
+8. In the list of extensions, add the following:
 
    ```java
    extName 'spartacussampledataaddon'
@@ -61,7 +61,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    **Note:** The Spartacus Sample Data AddOn copies data from the `Electronics` store, so the `electronicsstore` extension is required. Additionally, the time to initialize is longer because SAP Commerce Cloud builds the `Electronics` and `Apparel` stores, as well as the `Electronics for Spartacus` store. If you do not need to install the `Apparel` store, you can speed up initialization by removing `extName 'apparelstore'` from the `build.gradle` file.
 
-1) In the `addons { forStoreFronts('yacceleratorstorefront')` section of the `build.gradle` file, add `'spartacussampledataaddon'` to the `names` list. The following is an example:
+9. In the `addons { forStoreFronts('yacceleratorstorefront')` section of the `build.gradle` file, add `'spartacussampledataaddon'` to the `names` list. The following is an example:
 
    ```ts
     addons {
@@ -70,39 +70,39 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    ```
 
-1) Save the file.
+10. Save the file.
 
-1) Open a terminal or command prompt window inside the `CXCOMM*\installer` folder.
+11. Open a terminal or command prompt window inside the `CXCOMM*\installer` folder.
 
-1) Set up the recipe using the following command:
+12. Set up the recipe using the following command:
 
-   ```bash
-   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
-   ```
+```bash
+./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
+```
 
-   If you are using Windows, change `./install.sh` to `install.bat`.
+If you are using Windows, change `./install.sh` to `install.bat`.
 
-   **Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Cloud Admin Password](#alternate-method-for-setting-the-sap-commerce-cloud-admin-password) procedure below for information on setting a password in the `custom.properties` file.
+**Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Cloud Admin Password](#alternate-method-for-setting-the-sap-commerce-cloud-admin-password) procedure below for information on setting a password in the `custom.properties` file.
 
-1) Initialize the system using the following command:
+13. Initialize the system using the following command:
 
-   ```bash
-   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
-   ```
+```bash
+./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
+```
 
-   Initialization of the b2c_for_spartacus recipe can take about 30 minutes. Sample data for this recipe includes `Electronics`, `Apparel`, and `Electronics for Spartacus` sample stores.
+Initialization of the b2c_for_spartacus recipe can take about 30 minutes. Sample data for this recipe includes `Electronics`, `Apparel`, and `Electronics for Spartacus` sample stores.
 
-1) Start SAP Commerce Cloud with the following command:
+14. Start SAP Commerce Cloud with the following command:
 
-   ```bash
-   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
-   ```
+```bash
+./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+```
 
-1) Verify that the system is working.
+15. Verify that the system is working.
 
-   - Display the Admin Console: https://localhost:9002
-   - Display Backoffice: https://localhost:9002/backoffice
-   - Display the Accelerator Electronics storefront: https://localhost:9002/yacceleratorstorefront/?site=electronics
+- Display the Admin Console: https://localhost:9002
+- Display Backoffice: https://localhost:9002/backoffice
+- Display the Accelerator Electronics storefront: https://localhost:9002/yacceleratorstorefront/?site=electronics
 
 **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `electronics-spa`. The following is an example:
 
