@@ -19,11 +19,17 @@ If a setting doesn't exist, create it.
 
 If the setting already exists, add the new values to the end, including a space before. For example, `allowedHeaders` might look like this:
 
+The settings is for the release **1905 and below** of SAP Commerce Cloud.
+
 ```sql
 origin content-type accept authorization occ-personalization-id occ-personalization-time
 ```
 
 **Note:** You can edit these settings using HAC, but you can also add these parameters to `local.properties` in the `hybris/config` folder or in the `project.properties` file of ycommercewebservices.
+
+For SAP Commerce Cloud with release version **2005 and adove**, refer to the settings below:
+
+- `corsfilter.commercewebservices.allowedHeaders`
 
 ## Personalization Configuration in Backoffice
 
@@ -35,10 +41,10 @@ origin content-type accept authorization occ-personalization-id occ-personalizat
 
 4. In the Commerce Web Services tab, set **Personalization for Commerce Web Services** to **True**.
 
-  To test that the configuration is working:
+To test that the configuration is working:
 
-  - Send an OCC REST API call to your site. You should see `Occ-Personalization-Id` in the response header. 
-  - Send the call again but with `Occ-Personalization-Id: yourid` in the header,  and you should also see `Occ-Personalization-Time`.
+- Send an OCC REST API call to your site. You should see `Occ-Personalization-Id` in the response header.
+- Send the call again but with `Occ-Personalization-Id: yourid` in the header, and you should also see `Occ-Personalization-Time`.
 
 ## Enabling Personalization in Spartacus
 
@@ -82,14 +88,10 @@ Sample personalization context :
       "variation_code": "canonLoverSpa",
       "variation_name": "canonLoverSpa",
       "customization_code": "CategoryLoversSpa",
-      "customization_name":"CategoryLoversSpa"
+      "customization_name": "CategoryLoversSpa"
     }
   ],
-  "segments": [
-    "USER_ANONYMOUS",
-    "CanonLover",
-    "CATEGORY brand_10"
-  ]
+  "segments": ["USER_ANONYMOUS", "CanonLover", "CATEGORY brand_10"]
 }
 ```
 
@@ -97,95 +99,91 @@ Sample personalization context :
 
 1. The `personalizationaddon` extension.
 
-    The `personalizationaddon` is needed to expose the personalization context on the storefront.
-    It should be added to `localextension.xml`.
+   The `personalizationaddon` is needed to expose the personalization context on the storefront.
+   It should be added to `localextension.xml`.
 
-    ```java
-    ...
-    <extension name="personalizationaddon" />
-    ...
-    ```
+   ```java
+   ...
+   <extension name="personalizationaddon" />
+   ...
+   ```
 
 2. The PersonalizationScriptComponent
 
-    The personalizationaddon contains the PersonalizationScriptComponent, which should be inserted into PlaceholderContentSlot. 
-    You can run the impex below to add PersonalizationScriptComponent to your content catalog. 
-    Remember to set **$contentCatalog** parameter to the proper content catalog value.
-  
+   The personalizationaddon contains the PersonalizationScriptComponent, which should be inserted into PlaceholderContentSlot.
+   You can run the impex below to add PersonalizationScriptComponent to your content catalog.
+   Remember to set **\$contentCatalog** parameter to the proper content catalog value.
+
    ```sql
    $contentCatalog = electronics-spaContentCatalog
    $stageContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
-  
+
    # -----------------------------------------------------------------------
    # Component needed for personalization context visible in storefront
    # -----------------------------------------------------------------------
-  
+
    INSERT_UPDATE PersonalizationScriptComponent; $stageContentCV[unique = true]; uid[unique = true]             ; name                  ;
                                                ;                          ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
-  
+
    INSERT_UPDATE ContentSlot; $stageContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $stageContentCV)[mode = append]
                             ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
-     
-     
-     
-     
-     
-   $onlineContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
-     
-     
-   # -----------------------------------------------------------------------
-   # Component needed for personalization context visible in storefront
-   # -----------------------------------------------------------------------
-     
-   INSERT_UPDATE PersonalizationScriptComponent; $onlineContentCV[unique = true]; uid[unique = true]             ; name                  ;
-                                               ;                          ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
-     
-   INSERT_UPDATE ContentSlot; $onlineContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $onlineContentCV)[mode = append]
-                            ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
-   
-    ```
+   ```
+
+$onlineContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+# -----------------------------------------------------------------------
+
+# Component needed for personalization context visible in storefront
+
+# -----------------------------------------------------------------------
+
+INSERT_UPDATE PersonalizationScriptComponent; \$onlineContentCV[unique = true]; uid[unique = true] ; name ;
+; ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
+
+INSERT_UPDATE ContentSlot; $onlineContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $onlineContentCV)[mode = append]
+; ; PlaceholderContentSlot ; true ; PersonalizationScriptComponent
+
+````
 
 ### Frontend - Spartacus
 
-Spartacus contains **PersonalizationContextService**, which enables access to personalization context. 
+Spartacus contains **PersonalizationContextService**, which enables access to personalization context.
 If you would like to use information from personalization context, you can subscribe to it and get PersonalizationContext object.
 
 ```ts
 export interface PersonalizationContext {
-  actions: PersonalizationAction[];
-  segments: string[];
+actions: PersonalizationAction[];
+segments: string[];
 }
 
 export interface PersonalizationAction {
-  action_name: string;
-  action_type: string;
-  customization_name?: string;
-  customization_code?: string;
-  variation_name?: string;
-  variation_code?: string;
+action_name: string;
+action_type: string;
+customization_name?: string;
+customization_code?: string;
+variation_name?: string;
+variation_code?: string;
 }
-```
+````
 
-Below you can find a sample test service, which displays personalization context in the console. 
+Below you can find a sample test service, which displays personalization context in the console.
 
 ```ts
-import { Injectable } from '@angular/core';
-import {PersonalizationContextService} from "./personalization-context.service";
-  
+import { Injectable } from "@angular/core";
+import { PersonalizationContextService } from "./personalization-context.service";
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class PersonalizationTestService {
-  constructor(
-    protected service : PersonalizationContextService
-  ) {
-  
-    this.service.getPersonalizationContext().subscribe(evt => console.log(evt));
-  
+  constructor(protected service: PersonalizationContextService) {
+    this.service
+      .getPersonalizationContext()
+      .subscribe((evt) => console.log(evt));
   }
-  
+
   getServiceName(): String {
-    return 'PersonalizationTestService';
+    return "PersonalizationTestService";
   }
 }
 ```

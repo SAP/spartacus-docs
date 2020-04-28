@@ -28,70 +28,73 @@ To enable Context-Driven Services in Spartacus, you need to configure both the C
 
 The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.
 
-1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.ycommercewebservices.allowedHeaders`. 
+1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.ycommercewebservices.allowedHeaders`.
 
-    If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
+   If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
 
-    For more information, see [Configuring CORS](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/installing-sap-commerce-cloud/#configuring-cors).
+   For more information, see [Configuring CORS](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/installing-sap-commerce-cloud/#configuring-cors).
+
+   **Note** When referring to to the settings above, it is only for release version **1905 and below**, however when using **2005 and above** of the SAP Commerce Cloud, use `corsfilter.commercewebservices.allowedHeaders`.
 
 2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.
 
-    You can define the consent template by importing the following ImpEx:
+   You can define the consent template by importing the following ImpEx:
 
-    ```sql
-    $lang=en
-    INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=$lang];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,    default=electronics-spa];exposed
-    ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
-    ```
+   ```sql
+   $lang=en
+   INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=$lang];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,    default=electronics-spa];exposed
+   ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
+   ```
 
 ### Configuring Spartacus for Context-Driven Services
 
 You can carry out all of the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
-1. Install the Context-Driven Services library by running the following command from within the root directory of your storefront app: 
+1. Install the Context-Driven Services library by running the following command from within the root directory of your storefront app:
 
-    ```bash
-    npm i @spartacus/cds
-    ```
+   ```bash
+   npm i @spartacus/cds
+   ```
 
 1. Import the Context-Driven Services module by adding the following line below the existing import statements at the top of `app.module.ts`:
 
-    ```ts
-    import { CdsModule } from '@spartacus/cds';
-    ```
+   ```ts
+   import { CdsModule } from "@spartacus/cds";
+   ```
 
-1. Add the `CdsModule` to `app.module.ts`. 
+1. Add the `CdsModule` to `app.module.ts`.
 
-    The following is an example:
+   The following is an example:
 
-    ```ts
-    @NgModule({
-      imports: [
-        CdsModule.forRoot({
-          cds: {
-            tenant: 'my-tenant',
-            baseUrl: 'https://api.us.context.cloud.sap',
-            endpoints: {
-              strategyProducts: '/strategy/${tenant}/strategies/${strategyId}/products',
-            },
-            profileTag: {
-              javascriptUrl: 'https://tag.static.us.context.cloud.sap/js/profile-tag.js',
-              configUrl:
-                'https://tag.static.stage.context.cloud.sap/config/my-config123',
-            },
-          },
-        }),
-        ...
-    ```
-    The following is a summary of the parameters of the `CdsModule`:
+   ```ts
+   @NgModule({
+     imports: [
+       CdsModule.forRoot({
+         cds: {
+           tenant: 'my-tenant',
+           baseUrl: 'https://api.us.context.cloud.sap',
+           endpoints: {
+             strategyProducts: '/strategy/${tenant}/strategies/${strategyId}/products',
+           },
+           profileTag: {
+             javascriptUrl: 'https://tag.static.us.context.cloud.sap/js/profile-tag.js',
+             configUrl:
+               'https://tag.static.stage.context.cloud.sap/config/my-config123',
+           },
+         },
+       }),
+       ...
+   ```
 
-    - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
-    - **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment.
-    - **strategyProducts:** Set this value as shown in the example.
-    - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
-    - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
-    - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
-    - **gtmId:** This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see [Profile Tag](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) on the SAP Help Portal.
+   The following is a summary of the parameters of the `CdsModule`:
+
+   - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
+   - **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment.
+   - **strategyProducts:** Set this value as shown in the example.
+   - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
+   - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
+   - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
+   - **gtmId:** This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see [Profile Tag](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) on the SAP Help Portal.
 
 ## Profile Tag
 
@@ -190,42 +193,42 @@ The following steps describe how to run the Context-Driven Services Shell Applic
 
 1. Run the following command to execute the library builds:
 
-    ```bash
-    yarn build:core:lib:cds 
-    ```
+   ```bash
+   yarn build:core:lib:cds
+   ```
 
 2. Run the following command to start the shell:
 
-    ```bash
-    yarn start:cds
-    ```
+   ```bash
+   yarn start:cds
+   ```
 
 3. Run the following command to perform unit tests:
 
-    ```bash
-    yarn test:cds
-    ```
+   ```bash
+   yarn test:cds
+   ```
 
-    When you run these commands, the browser opens, and you can see the progress of the tests with detailed information, including whether the tests pass.
+   When you run these commands, the browser opens, and you can see the progress of the tests with detailed information, including whether the tests pass.
 
 4. Run the following command to perform end-to-end tests. You can do this either manually or automatically.
 
-    To run the tests manually, run the following commands:
+   To run the tests manually, run the following commands:
 
-    ```bash
-    yarn start:cds
-    yarn e2e:cy:cds:run:vendor
-    ```
+   ```bash
+   yarn start:cds
+   yarn e2e:cy:cds:run:vendor
+   ```
 
-    **Note:** To run the end-to-end test in headless mode, make sure you have your Spartacus instance running before executing the end-to-end command.
+   **Note:** To run the end-to-end test in headless mode, make sure you have your Spartacus instance running before executing the end-to-end command.
 
-    To run the tests automatically, run the following command:
+   To run the tests automatically, run the following command:
 
-    ```bash
-    yarn e2e:cy:cds:start-open
-    ```
+   ```bash
+   yarn e2e:cy:cds:start-open
+   ```
 
-    **Note:** When using this command, you do not need to separately start a Spartacus instance; it is already done as part of the command. To run the Cypress end-to-end tests for Context-Driven Services in Spartacus, select `merchandising-carousel.e2e-spec.ts` in the Cypress user interface.
+   **Note:** When using this command, you do not need to separately start a Spartacus instance; it is already done as part of the command. To run the Cypress end-to-end tests for Context-Driven Services in Spartacus, select `merchandising-carousel.e2e-spec.ts` in the Cypress user interface.
 
 ## Other Commands for Context-Driven Services
 
