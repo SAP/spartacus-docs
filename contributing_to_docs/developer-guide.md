@@ -14,7 +14,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 **Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
 
-1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/spartacus-docs/issues
+1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/spartacus-docs/issues/new
 
    **Tip:** If you have a related issue in the Spartacus repository, it is recommended that, in each ticket, you add a link to the other ticket. The normal GitHub shortcuts for linking to other tickets (#xx or GH-xx) do not work across different repositories, so use the full URL of the ticket. Even across different repositories, GitHub still tracks if the issue is open, merged, closed, etc.
 
