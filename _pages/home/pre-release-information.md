@@ -13,7 +13,12 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 The first release candidate (RC) has been released for 2.0.
 
-Summary of features:
+Release 2.0 is a new major version and contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
+- [Updating to version 2.0](https://github.com/SAP/spartacus-docs/blob/v2-develop/_pages/home/updating-to-version-2/updating-to-version-2.md) (automated update using schematics)
+- [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md)
+- [Changes to Spartacus theme](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/calydon.md)
+
+Summary of major changes from 1.x to 2.0:
 
 - Angular 9, ngrx 9
 - Schematics updated
@@ -23,6 +28,8 @@ Summary of features:
 - Events system with one event
 - New facet navigation makes extending facets easier
 - Deprecated code removed
+
+For a list of all changes for 2.0 RC and previous 'next' releases of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## Release 2.0.0-next.7 - April 23rd, 2020
 
