@@ -29,4 +29,5 @@ Introduction
 This document describes what is included in the latest releases of Spartacus libraries.
 
 If you have technical questions, you can get in touch with us on Stack Overflow. For non-technical questions, you can reach us on our Slack workspace. Feedback welcome!
+
 - [Telco Checkout]
