@@ -1,5 +1,7 @@
 # main links
 main:
+    - title: Doc Archive
+      url: /docs-archive/
     - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU
     - title: Support
@@ -26,6 +28,8 @@ docs:
             url: /spartacus-roadmap/
           - title: "Spartacus FAQ"
             url: /spartacus-faq/
+          - title: "Documentation Archive"
+            url: /docs-archive/  
 
     - title: Getting Started with Spartacus Libraries
       children:
