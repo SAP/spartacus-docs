@@ -164,6 +164,75 @@ routing: {
 }
 ```
 
+
+## Advanced: How to avoid static URL segments in the Product Page URL
+
+Angular (and so Spartacus) by default allows for configuring string patterns to match routes against URLs, i.e. `/product/:productCode`, where `product` is a static URL segment and `:productCode` is a dynamic parameter.
+
+However if you want to have URL segments with mixed static and dynamic parts, i.e. `/macbook-p` (where `mackbook` is a dynamic product code and `-p` is a static part to determine it's a Product page type), you'll need to implement an `UrlMatcher` of Angular's format. For example:
+
+```typescript
+/**
+ * Matches pattern `/:productCode-p`
+ * @param segments
+ */
+export function customProductUrlMatcher(
+  segments: UrlSegment[]
+): UrlMatchResult | null {
+  // check if URL ends with `-p`
+  if (segments.length === 1 && segments[0].path.endsWith('-p')) {
+    // remove last two characters (which are `-p`) and treat the rest as a product code
+    const productCode = segments[0].path.slice(0, -2); 
+    return {
+      consumed: segments,
+      posParams: { productCode: new UrlSegment(productCode, {}) },
+    };
+  }
+  return null;
+}
+```
+
+Then pass it to the configuration of the product route, i.e. in your app.module:
+
+```typescript
+ConfigModule.withConfig({
+  routing: {
+    routes: {
+      product: {
+        matchers: [customProductUrlMatcher],
+        paths: [':customProductCode'],
+      },
+    },
+  },
+}),
+```
+
+Moreover, to produce links of the shape `/:productCode-p`, you'll need to create `customProductCode` attribute (made from the original product code and the string `-p`) and pass it to the product route configuration (as in the snippet above. Such an attribute can be created i.e. in the custom `PRODUCT_NORMALIZER` of following implementation:
+
+```typescript
+@Injectable()
+export class CustomProductNormalizer
+  implements Converter<Occ.Product, Product> {
+  convert(source: Occ.Product, target?: Product): Product {
+    target['customProductCode'] = source.code + '-p';
+    return target;
+  }
+}
+```
+
+Then we need to provide it for the `PRODUCT_NORMALZIER` token, i.e. in the app.module:
+
+```typescript
+providers: [
+  {
+    provide: PRODUCT_NORMALIZER,
+    useClass: CustomProductNormalizer,
+    multi: true,
+  },
+],
+```
+
+ 
 ## Expected CMS page labels of Content Pages
 
 Spartacus expects the page label `homepage` to be configured in the CMS. For B2C Storefront recipe the list of expected CMS page labels by default is longer:
