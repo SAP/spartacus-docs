@@ -172,7 +172,7 @@ https://enable.cx.sap.com/media/Custom+Angular+URL+Matchers+in+Spartacus+Storefr
 
 **Text version:**
 
-Angular (and so Spartacus) by default allows for configuring string patterns to match routes against URLs, i.e. `/product/:productCode`, where `product` is a static URL segment and `:productCode` is a dynamic parameter.
+Angular (and so Spartacus) by default allows for configuring string patterns to match routes against URLs, i.e. `/product/:productCode`, where `product` is a static URL segment (to determine it's a Product page type) and `:productCode` is a dynamic parameter.
 
 However if you want to have URL segments with mixed static and dynamic parts, i.e. `/macbook-p` (where `mackbook` is a dynamic product code and `-p` is a static part to determine it's a Product page type), you'll need to implement a custom Angular `UrlMatcher`. For example:
 
