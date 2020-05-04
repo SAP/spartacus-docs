@@ -197,7 +197,7 @@ export function customProductUrlMatcher(
 }
 ```
 
-Then pass it to the configuration of the product route, i.e. in your app.module:
+Then pass it to the Spartacus configuration of the product route, i.e. in your app.module:
 
 ```typescript
 ConfigModule.withConfig({
