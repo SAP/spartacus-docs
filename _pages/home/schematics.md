@@ -1,6 +1,8 @@
 # Getting Started
 
-Spartacus schematics allows you to install Spartacus libraries in your project
+This page is intended for customers. If you are looking for a developers guide on how to work with schematics, visit this [page](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md).
+
+Spartacus schematics allow you to install Spartacus libraries in your project.
 
 ## Adding Spartacus libraries to your Angular project
 
