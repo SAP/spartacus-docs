@@ -10,27 +10,47 @@ title: Qualtrics Integration (DRAFT)
 
 Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA).
 
-## Important Note
+The integration is based on a JavaScript API that intercepts events in the storefront. The API is called `QSI` (_Qualtrics Site Intercept_) and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple _deployment code_ for your Qualtrics project that you can integrated in Spartacus.
 
-By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
+## Projects
+Qualtrics typically recommends a single project per given application or page. The Qualtrics JavaScript API however is note equiped to handle multiple projects. The APIs `QSI.API.unload` and `QSI.API.run` have the side effect of applying across all projects at once
 
-Visitors in your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
+who are not instrumented with a project. The API will unload and run _all_ projects. Given that Spartacus is a Single Page Application, it is recommended to use a single Qualtrics project in the Spartacus.
+
+That being said, you can technically integrate multiple projects in Spartacus. But it will likely have side effects. 
+
+With Spartacus being a Single Page application, 
+The `QSI` API does not provide 
+Since Spartacus is a single page application, there's no clear 
+Multiple projects should work, but as you noticed, some of our client-side APIs (such as QSI.API.unload) do have the unfortunate side effect of applying across all projects at once. We have talked about improving our client-side API to take in an intercept or project ID to restrict the function, but that's not in our immediate roadmap.
+
+## Qualtrics
+
+## Integration Options
+
+There are various ways to integrate the Qualtrics deployment script:
+1. Dynamic integration through a CMS component integration
+2. Static integration in the `index.html`
+3. Custom integration by leveraging the `QualtricsLoaderService`.
 
 ## Using Qualtrics to enable surveys
 
 Please familiarize yourself with Qualtrics using the following link https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback/.
 
-## Where to find the projectId from your Qualtrics portal?
+## Prerequisites
 
-Step 1: Click the project from which you want to use for enablement.
+One project = one site
 
-Step 2: Click settings.
 
-Step 3: Click the dropdown 'Manage Project' and select Project IDs.
 
-Step 4: Copy paste the project id to the `app.modules.ts` as shown above.
+The different integration approaches are outlined below.   
 
-## Enabling Qualtrics in Spartacus
+### Static integration
+The deployment code can be added to the `index.html` of your Spartacus application. As discussed in the [Qualtrics documentation](https://www.qualtrics.com/support/website-app-feedback/common-use-cases/single-page-application/), this should be stored in the header or footer. 
+
+## Limitations
+- multi-site
+
 
 To enable Qualtrics, you simply need to append a Qualtrics config to the app.module.ts
 
@@ -95,3 +115,11 @@ export class DemoQualtricsLoaderService extends QualtricsLoaderService {
   }
 }
 ```
+
+
+
+## Important Note
+
+By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
+
+Visitors in your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
