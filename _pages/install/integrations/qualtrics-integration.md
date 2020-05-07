@@ -8,7 +8,7 @@ title: Qualtrics Integration
 
 {% include docs/feature_version.html content=version_note %}
 
-Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA). For more information on Qualtrics you can read [the documenation](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback). This documentation is only related to the integratino in Spartacus.
+Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA). For more information on Qualtrics you can read [the documenation](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback). This documentation is only related to the integration in Spartacus.
 
 The integration is based on a JavaScript API that intercepts events in the storefront. The API is called `QSI` (_Qualtrics Site Intercept_) and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple _deployment code_ for your Qualtrics project that you can integrated in Spartacus.
 
