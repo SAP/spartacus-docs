@@ -8,11 +8,11 @@ title: Qualtrics Integration
 
 {% include docs/feature_version.html content=version_note %}
 
-Qualtrics integration to Spartacus enables users to set-up their Qualtrics seamlessly while we facilitate the usage on a Single-Page Application (SPA). For more information on Qualtrics you can read [the documentation](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback). This documentation is only related to the integration in Spartacus.
+The Qualtrics integration in Spartacus enables you to set-up Qualtrics seamlessly in a Single-Page Application. For more information on Qualtrics you can read [the documentation](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback).
 
 The integration is based on a JavaScript API that intercepts events in the storefront. The API is called `QSI` (_Qualtrics Site Intercept_) and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple _deployment code_ for your Qualtrics project that you can integrated in Spartacus.
 
-## Projects
+## Qualtrics projects
 
 Qualtrics recommends a single project per given application or page. Given that Spartacus runs as a Single Page Application, it is recommended to use a single Qualtrics project in Spartacus. This might be unfortunate, but the Qualtrics JavaScript API is simply not equipped to handle multiple projects; the `QSI.API.unload` and `QSI.API.run` APIs have the side effect of applying across all projects at once. In case you need to run multiple projects side by side, you should be prepared for side effects coming from calling the `unload` API.
 
@@ -79,7 +79,7 @@ ConfigModule.withConfig({
 
 The deployment code can be added to the `index.html` of your Spartacus application. As discussed in the [Qualtrics documentation](https://www.qualtrics.com/support/website-app-feedback/common-use-cases/single-page-application/), this should be stored in the header or footer.
 
-The disadvantage of this approach is that all users will always load the qualtrics integration, even if it's not used on the page that the user visits.
+While the static integration is the documented integration approach by Qualtrics, it is not necessarily the best practice for Spartacus. The disadvantage of this approach is that the Qualtrics API is always loaded, even if it's not used on the page that the user visits. Additionally, the static integration starts loading right away before the Spartacus application has been bootstrapped, let alone any dependent data being available. This might block you from using the static integration.
 
 ### Approach 3: Custom integration by using the `QualtricsLoaderService`,
 
