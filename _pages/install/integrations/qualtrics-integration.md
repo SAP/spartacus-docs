@@ -26,7 +26,7 @@ Although the Qualtrics deployment script has the notion of a project ID, this is
 
 For each Qualtrics project, there is a deployment code for client-side integration. The deployment code contains a `script` tag and a DIV with the project code. The integration with Spartacus only requires the script content, without the script element. It is recommended that you save the deployment code in a file in your project asset folder (for example, in `assets/qualtrics.js`).
 
-The deployment code takes care of loading the qualtrics API. The deployment script loads the qualtrics API based on the window load event. If you load the integration dynamically (which is our default approach), this event does not happen because we are in a single-page application experience. In this case, you need to adjust the script so that it calls the `go()` method instead of the `start()` method.
+The deployment code takes care of loading the qualtrics API. The deployment script loads the qualtrics API based on the window load event. If you load the integration dynamically (which is our default strategy), this event does not happen because we are in a single-page application experience. In this case, you need to adjust the script so that it calls the `go()` method instead of the `start()` method.
 
 The following is an example of how your deployment code should look after making this change:
 
@@ -46,15 +46,15 @@ The following is an example of how your deployment code should look after making
   } catch
 ```
 
-## Integration Approaches
+## Integration Strategies
 
 There are various ways to integrate the Qualtrics deployment code in Spartacus:
 
-- dynamic integration using a CMS component (this is the default approach)
+- dynamic integration using a CMS component (this is the default strategy)
 - static integration in `index.html`
 - custom integration by using the `QualtricsLoaderService`
 
-The different approaches are discussed in the following sections.
+The different strategies are discussed in the following sections.
 
 ### Dynamic Integration Using a CMS Component
 
@@ -79,17 +79,19 @@ ConfigModule.withConfig({
 } as QualtricsConfig);
 ```
 
+The configuration is limited for multi-site applications, where each site requires a separate Qualtrics project.
+
 ### Static Integration
 
 The deployment code can be added to the `index.html` of your Spartacus application. This should be stored in the header or footer, as discussed in the [Qualtrics documentation](https://www.qualtrics.com/support/website-app-feedback/common-use-cases/single-page-application/).
 
-Static integration is the approach that is documented by Qualtrics, but it is not necessarily the best practice for Spartacus. The disadvantage of the static integration approach is that the Qualtrics API is always loaded, even if it is not used on a page that the user visits. Additionally, the static integration starts loading immediately, before the Spartacus application has been bootstrapped, and before any dependent data is available. This might block you from using the static integration.
+Static integration is the strategy that is documented by Qualtrics, but it is not necessarily the best practice for Spartacus. The disadvantage of the static integration strategy is that the Qualtrics API is always loaded, even if it is not used on a page that the user visits. Additionally, the static integration starts loading immediately, before the Spartacus application has been bootstrapped, and before any dependent data is available. This might block you from using the static integration.
 
 ### Custom Integration with the QualtricsLoaderService
 
 You can also integrate the Qualtrics deployment code dynamically by leveraging the `QualtricsLoaderService`. This service can be used to add the deployment script. The rest of the integration is still taken care of automatically, but you can further customize the integration if you wish.
 
-There are different scenarios for creating a custom integration. For example, you could load alternative deployment codes for each site. The current integration is limited to a single deployment script for each application. If you run Spartacus for multiple sites, this approach might be limited.
+There are different scenarios for creating a custom integration. For example, you could load alternative deployment codes for each site.
 
 ## Loading Additional Data Before Loading Qualtrics
 
