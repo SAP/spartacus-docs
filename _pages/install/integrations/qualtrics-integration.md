@@ -10,7 +10,9 @@ title: Qualtrics Integration
 
 The Qualtrics integration in Spartacus allows you to set up Qualtrics to work seamlessly in a single-page application. This integration is based on a JavaScript API that intercepts events in the storefront. The API is called Qualtrics Site Intercept (QSI), and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple deployment code for your Qualtrics project, which you can integrate in Spartacus.
 
-**Note:** When using Qualtrics, it is important to be aware that users will be tracked while interacting with the survey, in terms of page views, impressions, and clicks. Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled to view surveys.
+**Note:** When using Qualtrics, it is important to be aware that users will be tracked while interacting with the survey, in terms of page views, impressions, and clicks. The consent management feature in Commerce can be configured to create specific consent. Additionally, the [SAP Qualtrics Integration Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/8a849c5254db460e8eea4d7b9af39bff.html) provides a standard integratoin to integrate consent into Qualtrics.
+
+Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled to view surveys.
 
 For more information about Qualtrics, see [Getting Started with Website Feedback](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback) in the Qualtrics documentation.
 
