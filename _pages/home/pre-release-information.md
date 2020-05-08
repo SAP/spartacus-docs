@@ -124,7 +124,11 @@ You can run the migration with the following command:
 ng update @spartacus/schematics
 ```
 
-> If you want to try out our pre-release, make sure to append `--next` flag.
+If you want to try out the pre-release libraries, append the `--next` flag, as follows:
+
+```shell
+ng update @spartacus/schematics --next
+```
 
 **Note:** The migration schematics are still a work in progress, so you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
 
@@ -160,7 +164,11 @@ You can run the migration with the following command:
 ng update @spartacus/schematics
 ```
 
-> If you want to try out our pre-release, make sure to append `--next` flag.
+If you want to try out the pre-release libraries, append the `--next` flag, as follows:
+
+```shell
+ng update @spartacus/schematics --next
+```
 
 **Note:** This is our first attempt with the 2.0 migration schematics, so if you are trying it out, you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
 
