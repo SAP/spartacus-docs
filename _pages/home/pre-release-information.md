@@ -4,7 +4,7 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-*Last updated April 28th, 2020 by Bill Marcotte, Product Owner, Spartacus*
+_Last updated April 28th, 2020 by Bill Marcotte, Product Owner, Spartacus_
 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/spartacus/releases).
@@ -14,6 +14,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 The first release candidate (RC) has been released for 2.0.
 
 Release 2.0 is a new major version and contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
+
 - [Updating to version 2.0](https://github.com/SAP/spartacus-docs/blob/v2-develop/_pages/home/updating-to-version-2/updating-to-version-2.md) (automated update using schematics)
 - [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md)
 - [Changes to Styles in 2.0](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/css-changes-in-version-2.md)
@@ -119,9 +120,11 @@ To improve the experience of migrating to version 2.0, we are working on migrati
 
 You can run the migration with the following command:
 
-```bash
-ng update @spartacus/schematics@next
+```shell
+ng update @spartacus/schematics
 ```
+
+> If you want to try out our pre-release, make sure to append `--next` flag.
 
 **Note:** The migration schematics are still a work in progress, so you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
 
@@ -153,15 +156,17 @@ To improve the experience of migrating to version 2.0, we are working on migrati
 
 You can run the migration with the following command:
 
-```bash
-ng update @spartacus/schematics@next
+```shell
+ng update @spartacus/schematics
 ```
+
+> If you want to try out our pre-release, make sure to append `--next` flag.
 
 **Note:** This is our first attempt with the 2.0 migration schematics, so if you are trying it out, you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
 
 ### Schematics SSR Update
 
-You can now install Spartacus with SSR in an Angular 9 app. 
+You can now install Spartacus with SSR in an Angular 9 app.
 
 The previous pre-release, `2.0.0-next.0`, only supported client-side rendering. In the `2.0.0-next.1` release, you can use schematics to install support for SSR and PWA.
 
@@ -204,5 +209,3 @@ Pre-release libraries no longer published for these versions, as the final relea
 ## Questions
 
 If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
-
-
