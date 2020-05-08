@@ -8,21 +8,25 @@ title: Qualtrics Integration
 
 {% include docs/feature_version.html content=version_note %}
 
-The Qualtrics integration in Spartacus enables you to set-up Qualtrics seamlessly in a Single-Page Application. For more information on Qualtrics you can read [the documentation](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback).
+The Qualtrics integration in Spartacus allows you to set up Qualtrics to work seamlessly in a single-page application. This integration is based on a JavaScript API that intercepts events in the storefront. The API is called Qualtrics Site Intercept (QSI), and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple deployment code for your Qualtrics project, which you can integrate in Spartacus.
 
-The integration is based on a JavaScript API that intercepts events in the storefront. The API is called `QSI` (_Qualtrics Site Intercept_) and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple _deployment code_ for your Qualtrics project that you can integrated in Spartacus.
+**Note:** When using Qualtrics, it is important to be aware that users will be tracked while interacting with the survey, in terms of page views, impressions, and clicks. Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled to view surveys.
 
-## Qualtrics projects
+For more information about Qualtrics, see [Getting Started with Website Feedback](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback) in the Qualtrics documentation.
 
-Qualtrics recommends a single project per given application or page. Given that Spartacus runs as a Single Page Application, it is recommended to use a single Qualtrics project in Spartacus. This might be unfortunate, but the Qualtrics JavaScript API is simply not equipped to handle multiple projects; the `QSI.API.unload` and `QSI.API.run` APIs have the side effect of applying across all projects at once. In case you need to run multiple projects side by side, you should be prepared for side effects coming from calling the `unload` API.
+## Qualtrics Projects
 
-Although the Qualtrics deployment script has the notion of the project ID, this is no longer needed. The Spartacus integration therefor only depends on the _deployment code_ provided per Qualtrics project.
+Qualtrics recommends a single project for each application or page. Since Spartacus runs as a single-page application, it is recommended to use a single Qualtrics project in Spartacus. This might not be ideal, but the Qualtrics JavaScript API is not equipped to handle multiple projects. For example, the `QSI.API.unload` and `QSI.API.run` APIs have the side effect of applying across all projects at once. If you need to run multiple projects side by side, you should be prepared for side effects that will result from calling the `unload` API.
 
-## Deployment code
+Although the Qualtrics deployment script has the notion of a project ID, this is no longer needed. The Spartacus integration therefore only depends on the deployment code that is provided for each Qualtrics project.
 
-Each Qualtrics project is prepared with a deployment code for a client-side integration. The deployment code contains a `script` tag and a DIV with the project code. The integration with Spartacus only requires the script content, without the script element. It is recommended to save the deployment code in a file in your project asset folder (i.e. `assets/qualtrics.js`).
+## Deployment Code
 
-The deployment code will take care of loading the qualtrics API (QSI). The deployment script loads the qualtrics API based on the window load event. In case you load the integration dynamically (which is our default approach), this event is not happening, as we're in a Single Page Application experience. In this case you need to amend the script so that it will call the `go()` method instead of the `start()` method. You deployment code should look like this after the change
+For each Qualtrics project, there is a deployment code for client-side integration. The deployment code contains a `script` tag and a DIV with the project code. The integration with Spartacus only requires the script content, without the script element. It is recommended that you save the deployment code in a file in your project asset folder (for example, in `assets/qualtrics.js`).
+
+The deployment code takes care of loading the qualtrics API. The deployment script loads the qualtrics API based on the window load event. If you load the integration dynamically (which is our default approach), this event does not happen because we are in a single-page application experience. In this case, you need to adjust the script so that it calls the `go()` method instead of the `start()` method.
+
+The following is an example of how your deployment code should look after making this change:
 
 ```javascript
 (function () {
@@ -40,32 +44,30 @@ The deployment code will take care of loading the qualtrics API (QSI). The deplo
   } catch
 ```
 
-After saving the deployment code, you must modify one piece of statement. The script calls the `.start()` function, where it is encapsulated in a `try` statement, to `.go()`. It is a crucial step in enabling Qualtrics in Spartacus.
-
-## Integration approaches
+## Integration Approaches
 
 There are various ways to integrate the Qualtrics deployment code in Spartacus:
 
-1. Dynamic integration through CMS component
-2. Static integration in `index.html`
-3. Custom integration by using the `QualtricsLoaderService`
+- dynamic integration using a CMS component (this is the default approach)
+- static integration in `index.html`
+- custom integration by using the `QualtricsLoaderService`
 
-The different approaches are discussed below.
+The different approaches are discussed in the following sections.
 
-### Approach 1 (default): Dynamic integration through CMS component
+### Dynamic Integration Using a CMS Component
 
-The default integration is based on the use of a CMS component. The advantage of using a CMS component, is that the integration is lazily loaded. For example, if the component is loaded on a specific page (i.e. cart page), the integration and the required QSI API are only loaded for users who enter this page.
+The default integration is based on the use of a CMS component. The advantage of using a CMS component is that the integration uses lazy loading. For example, if the component is loaded on a specific page (such as the cart page), the integration and the required QSI API are only loaded for users who enter this page.
 
-The Qualtrics CMS component is mapped to a component with type `QualtricsComponent`. The following snippet provides an import script (ImpEx) to install the component in the CMS of SAP Commerce Cloud. Additionally, you must add the component to a global (i.e. footer) or specific page slot.
+The Qualtrics CMS component is mapped to a component with type `QualtricsComponent`. The following snippet provides an import script (ImpEx) to install the component in the CMS of SAP Commerce Cloud. Additionally, you must add the component to a global slot (such as the footer), or to a specific page slot.
 
 ```ts
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
 ;;QualtricsComponent;A Qualtrics Component;QualtricsComponent
 ```
 
-In case the component is loaded on a recurring page (i.e. the Product Detail Page), the `QualtricsLoaderService` avoids reloading the deployment script and API.
+If the component is loaded on a recurring page (such as the Product Details Page), the `QualtricsLoaderService` avoids reloading the deployment script and API.
 
-The Qualtrics integration will add the deployment code from the script you've captured from the Qualtrics platform. You must configure Spartacus with a reference to this file path, using the `ConfigModule`:
+The Qualtrics integration adds the deployment code from the script you have captured from the Qualtrics platform. You must configure Spartacus with a reference to this file path, using the `ConfigModule`. The following is an example:
 
 ```typescript
 ConfigModule.withConfig({
@@ -75,25 +77,25 @@ ConfigModule.withConfig({
 } as QualtricsConfig);
 ```
 
-### Approach 2: Static integration
+### Static Integration
 
-The deployment code can be added to the `index.html` of your Spartacus application. As discussed in the [Qualtrics documentation](https://www.qualtrics.com/support/website-app-feedback/common-use-cases/single-page-application/), this should be stored in the header or footer.
+The deployment code can be added to the `index.html` of your Spartacus application. This should be stored in the header or footer, as discussed in the [Qualtrics documentation](https://www.qualtrics.com/support/website-app-feedback/common-use-cases/single-page-application/).
 
-While the static integration is the documented integration approach by Qualtrics, it is not necessarily the best practice for Spartacus. The disadvantage of this approach is that the Qualtrics API is always loaded, even if it's not used on the page that the user visits. Additionally, the static integration starts loading right away before the Spartacus application has been bootstrapped, let alone any dependent data being available. This might block you from using the static integration.
+Static integration is the approach that is documented by Qualtrics, but it is not necessarily the best practice for Spartacus. The disadvantage of the static integration approach is that the Qualtrics API is always loaded, even if it is not used on a page that the user visits. Additionally, the static integration starts loading immediately, before the Spartacus application has been bootstrapped, and before any dependent data is available. This might block you from using the static integration.
 
-### Approach 3: Custom integration by using the `QualtricsLoaderService`,
+### Custom Integration with the QualtricsLoaderService
 
-You can also integrate the qualtrics deployment code dynamically by leveraging the `QualtricsLoaderService`. This service can be used to add the deployment script. The rest of the integration would still be taken care of automatically, although you can further customize the integration if you like to.
+You can also integrate the Qualtrics deployment code dynamically by leveraging the `QualtricsLoaderService`. This service can be used to add the deployment script. The rest of the integration is still taken care of automatically, but you can further customize the integration if you wish.
 
-There are different scenario's for creating custom integration. One scenario would be to load alternative deployment code per site. The current integration is limited to a single deployment script per application. In case you run Spartacus for multiple sites, this might be limited.
+There are different scenarios for creating a custom integration. For example, you could load alternative deployment codes for each site. The current integration is limited to a single deployment script for each application. If you run Spartacus for multiple sites, this approach might be limited.
 
-## Load additional data before loading Qualtrics
+## Loading Additional Data Before Loading Qualtrics
 
-Data is loaded asynchronous in Spartacus. If your Qualtrics logic depends on specific data, such as cart data, you would need to further customize the `QualtricsLoaderService`. The service provides a hook (`isDataLoaded()`) to load additional data.
+Data is loaded asynchronously in Spartacus. If your Qualtrics logic depends on specific data (for example, cart data), you need to further customize the `QualtricsLoaderService`. The service provides the `isDataLoaded()` hook to load additional data.
 
-The `isDataLoaded()` is taken into account before loading the deployment code. This method can return an observable stream, which means you can pre-load any data that you require.
+The `isDataLoaded()` is taken into account before loading the deployment code. This method can return an observable stream, which means you can preload any data that you require.
 
-The example below demonstrates loading of cart data before the deployment script is loaded.
+The following example demonstrates the loading of cart data before the deployment script is loaded:
 
 ```ts
 import { Injectable } from "@angular/core";
@@ -119,9 +121,3 @@ export class DemoQualtricsLoaderService extends QualtricsLoaderService {
   }
 }
 ```
-
-## Important Note
-
-By utilizing Qualtrics, you should know that users will be tracked in terms of page views, impressions, and clicks while interacting with the survey.
-
-Visitors in your website with Qualtrics enabled must have their Ad-Blocker disabled to view surveys.
