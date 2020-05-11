@@ -42,14 +42,16 @@ Dynamic import should be defined as an arrow function like in the example below:
 ConfigModule.withConfig({
   cmsComponents: {
     BannerComponent: {
-      component: () => import();
+      component: () =>
+        import('./lazy-baner/lazy-baner.component').then(
+          (m) => m.LazyBanerComponent
+        ),
     }
   }
 });
 ```
 
 Please take note, that resolving chunks for code splitting is done at build time and depends on a way how code is imported. If there is at least one static import available in the main chunk, code will be bundled statically and separate chunk won't be generated.
-
 
 ### Accessing CMS Data in CMS Components
 
