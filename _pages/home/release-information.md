@@ -247,7 +247,7 @@ Architectural and foundational features:
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
-- To use the new libraries, set your @spartacus libraries in package.json to “~1.#.0" (replace # with the release number). Then, delete your node_modules and do `yarn install`.
+- To use the new libraries, set your @spartacus libraries in package.json to “~1.#.0" (replace # with the release number). Then run `yarn upgrade` (although deleting your node_modules and doing yarn install is usually cleaner).
 - To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5 and Save for Later features requires 1905.11). 
   
   
