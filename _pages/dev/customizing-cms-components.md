@@ -32,9 +32,24 @@ ConfigModule.withConfig({
 });
 ```
 
-It's important to note that with this setup, the components must be loaded up front (using so-called `entryComponents`), and it does not allow for lazy loading.
+### Lazy-loaded CMS Components (code splitting) 
 
-Both of these related downsides will be improved in a future release. With that in mind, a change in this API is expected.
+It's possible to use dynamic imports in CMS mapping, thus achieve lazy-loaded cms components and code splitting.
+
+Dynamic import should be defined as an arrow function like in the example below:
+
+```typescript
+ConfigModule.withConfig({
+  cmsComponents: {
+    BannerComponent: {
+      component: () => import();
+    }
+  }
+});
+```
+
+Please take note, that resolving chunks for code splitting is done at build time and depends on a way how code is imported. If there is at least one static import available in the main chunk, code will be bundled statically and separate chunk won't be generated.
+
 
 ### Accessing CMS Data in CMS Components
 
