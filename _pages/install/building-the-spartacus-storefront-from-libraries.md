@@ -40,7 +40,7 @@ Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample 
 
 Release 1905 (latest patch) is recommended.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
+For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/spartacus/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
 
 ## Creating a New Angular App
 
@@ -90,7 +90,7 @@ After the project is set up using schematics:
 
 3. Run `yarn start`.
 
-For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
+For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
 
 ## Setting up a Storefront Manually
@@ -344,9 +344,9 @@ If you wish, you can use incremental but unreleased Spartacus libraries. These l
 To use the incremental libraries, substitute the following in your `package.json` file.
 
 ```json
-"@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds",
-"@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds",
-"@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds",
+"@spartacus/core": "SAP/spartacus-core-builds",
+"@spartacus/styles": "SAP/spartacus-styles-builds",
+"@spartacus/storefront": "SAP/spartacus-storefront-builds",
 ```
 
 The Spartacus Assets library is not yet available as an incremental release.
