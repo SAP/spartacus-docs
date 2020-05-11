@@ -17,7 +17,7 @@ Contents:
 - [Release 1.4](#release-14)
 - [Release 1.3](#release-13)
 - [Release 1.2](#release-12)
-- [Release 1.1](#release-15)
+- [Release 1.1](#release-11)
 - [Release 1.0](#release-10)
 - [About Spartacus Releases](#about-spartacus-releases)
 - [How Spartacus is Versioned](#how-spartacus-is-versioned)
