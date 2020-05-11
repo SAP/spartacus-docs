@@ -10,7 +10,7 @@ title: Anonymous Consent (DRAFT)
 
 ## Overview
 
-Anonymous Consent Management gives anonymous users control over the tracking of their data. Anonymous users can grant or decline their consent for applications that collect and process personal data. For more, refer to the [Anonymous Consent Management on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a9f387f70d484c19971aca001dc71bc5.html?q=anonymous%20consent)
+Anonymous Consent Management gives anonymous users control over the tracking of their data. Anonymous users can grant or decline their consent for applications that collect and process personal data. For more, refer to the [Anonymous Consent Management on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html?q=anonymous%20consent)
 
 ## Requirements
 
@@ -115,3 +115,9 @@ In order to customize any UI message on the banner or in the dialog, you can ref
 ## Extending Anonymous Consent
 
 No special extensibility is available for this feature.
+
+## Known Limitations
+
+Any user who registers is considered a new user. A user who logs in during the same session will have their anonymous consents transferred to registered consents. To no longer be considered a new user, the user then needs to refresh the page or close the page to end the current session.
+
+More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6467).

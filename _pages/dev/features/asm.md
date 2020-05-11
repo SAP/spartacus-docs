@@ -10,13 +10,13 @@ title: Assisted Service Module (DRAFT)
 
 ## Overview
 
-Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the storefront. For more information, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html)
+Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the storefront. For more information, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 
 Spartacus now supports the ASM functionality that allows customer emulation by sales support agents through the Spartacus storefront.
 
 ## Requirements
 
-For more information on to setup and configure ASM on your SAP Commerce Cloud, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b571515866910148fc18b9e59d3e084.html).
+For more information on to setup and configure ASM on your SAP Commerce Cloud, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html).
 
 Here are a few setup steps that are important and/or specific to get ASM working with Spartacus:
 
