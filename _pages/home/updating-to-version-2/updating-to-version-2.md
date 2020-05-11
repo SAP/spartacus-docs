@@ -8,7 +8,7 @@ Spartacus 2.0 requires Angular version 9. You must update Angular before updatin
 
 ## Updating Spartacus
 
-Spartacus 2.0 includes many new features and fixes. Since this update is a major release, some of the updates may also be breaking changes for your application. In this case, additional work on your side may be required to fix issues that result from upgrading from 1.x to 2.0. 
+Spartacus 2.0 includes many new features and fixes. Since this update is a major release, some of the updates may also be breaking changes for your application. In this case, additional work on your side may be required to fix issues that result from upgrading from 1.x to 2.0.
 
 To help with updating to version 2.0, Spartacus provides a script that will do the following:
 
@@ -20,6 +20,8 @@ To update to version 2.0 of Spartacus, run the following command in the workspac
 ```shell
 ng update @spartacus/schematics
 ```
+
+> NOTE: in case you don't have `@spartacus/schematics` installed, you'll get the following error: `Package '@spartacus/schematics' is not a dependency.`. Before you can use the update schematics, you need to add `@spartacus/schematics` to your `package.json` (make sure that the version matches the other spartacus libraries) and install it using your package manager (npm or yarn).
 
 When the script has finished running, inspect your code for comments that begin with `//TODO:Spartacus`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md).
 
