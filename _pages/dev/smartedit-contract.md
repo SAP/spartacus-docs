@@ -16,7 +16,7 @@ To make Spartacus work with SmartEdit, we need implement the SmartEdit contract 
 
 #### 1. The webApplicationInjector.js file that must be included in each page
 
-[SmartEdit Setup Instructions for Spartacus](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/smartEdit-setup-instructions-for-spartacus/) has the details of how to include this js file into your app.
+[SmartEdit Setup Instructions for Spartacus](https://sap.github.io/spartacus-docs/smartEdit-setup-instructions-for-spartacus/) has the details of how to include this js file into your app.
 
 #### 2. A preview ticket API mechanism
 

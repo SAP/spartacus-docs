@@ -96,4 +96,4 @@ No special extensibility is available for this feature.
 
 Any user who registers is considered a new user. A user who logs in during the same session will have their anonymous consents transferred to registered consents. To no longer be considered a new user, the user then needs to refresh the page or close the page to end the current session.
 
-More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6467).
+More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/spartacus/issues/6467).

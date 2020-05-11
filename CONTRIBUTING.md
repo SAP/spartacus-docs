@@ -19,7 +19,7 @@ An easy way to start is by helping others who may have questions or need support
 
 ## Reporting Issues
 
-Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) for tracking user stories and bugs.
+Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP/spartacus-docs/issues) for tracking user stories and bugs.
 
 ### How We Process Issues
 
@@ -96,7 +96,7 @@ A contribution will be considered for inclusion in the Spartacus documentation i
 * The contribution truly improves the documentation
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/tree/master/contributing_to_docs).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/master/contributing_to_docs).
 
 ### Contribution Process
 
@@ -106,7 +106,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Build and run the documentation from the documentation development workspace. 
 
-    For more information, see the [Contributing to Documentation guides](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/tree/master/contributing_to_docs).
+    For more information, see the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/master/contributing_to_docs).
 
 1. Work on the change in your fork (either on the `develop` branch or on a `doc` branch).
 
@@ -116,12 +116,12 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. If your change fixes an issue reported in GitHub, add the following line to the commit message:
 
-     ```Fixes https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/(issueNumber)```
+     ```Fixes https://github.com/SAP/spartacus/issues/(issueNumber)```
 
     * Do not add a colon after "Fixes", as this prevents automatic closing.
     * When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
 
-        ```Closes https://github.com/SAP/cloud-commerce-spartacus-storefront/pull/(pullRequestNumber)```
+        ```Closes https://github.com/SAP/spartacus/pull/(pullRequestNumber)```
 
 1. Create a pull request so that we can review your change.
 1. Follow the link posted by the CLA assistant to your pull request and accept it, as described above.
