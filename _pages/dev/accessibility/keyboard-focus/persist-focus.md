@@ -1,4 +1,6 @@
----title: Persist Focus---
+---
+title: Persist Focus
+---
 
 The `cxFocus` directive provides persistence of the focused state. This is useful when a group of focusable elements got refocused or even recreated. That happens often when the DOM is constructed with an `*ngIf` or `*ngFor`. Whenever the data is changed, the focus is naturally lost. To overcome this issue, the persisted focus is introduced. 
 

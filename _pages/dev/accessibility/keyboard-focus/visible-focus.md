@@ -1,4 +1,6 @@
----title: Visible Focus---
+---
+title: Visible Focus
+---
 
 One of the main requirements for accessibility is a clear visual indication of _focused_ elements in the UI. The clear focus indication helps sighted keyboard users with orientation on the storefront. 
 

@@ -1,4 +1,6 @@
----title: Auto Focus---
+---
+title: Auto Focus
+---
 
 The `cxFocus` directive provides Auto Focus capabilities for a _single page_ experience. The native htmnl5 `autofocus` attribute falls short in a Single Page Application experience, since this attribute is only applied when a page is loaded in the browser. In a Single Page Application pages are dynamically being build, and elements with an autofocus attribute are not focused automatically. Moreover, there are scenario's where the focus of an element should be driven dyncamilly. For example when a dialog is opened or a group of element is "unlocked".
 

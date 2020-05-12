@@ -1,4 +1,6 @@
----title: Lock Focus---
+---
+title: Lock Focus
+---
 
 The `cxFocus` directive provides locking of focusable elements of a host element. The focusable elements will receive a `tabindex` of `-1`, so that the default tabbing in the browser is temporarily disabled.
 

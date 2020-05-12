@@ -1,4 +1,6 @@
----title: Keyboard Focus---
+---
+title: Keyboard Focus
+---
 
 The `cxFocus` directive is added in Spartacus to handle keyboard specific features in Spartacus. These features are mainly put in place for sigthed users,but are actually valueable for any keyboard users. 
 

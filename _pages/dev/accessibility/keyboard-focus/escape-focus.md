@@ -1,4 +1,6 @@
----title: Escape focus---
+---
+title: Escape focus
+---
 
 The `cxFocus` directive provides a feature to focus the host element when the `ESC` key is captured. This is useful for dialogs as well as larger parts of the UI that should _trap_ the focus. 
 
