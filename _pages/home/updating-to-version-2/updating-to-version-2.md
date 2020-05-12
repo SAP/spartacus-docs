@@ -4,9 +4,9 @@ title: Updating to Version 2.0
 
 ## Prerequisites
 
-First you need to upgrade all your @spartacus libs to the lates 1.5.x release. For more details, see (https://sap.github.io/spartacus-docs/release-information/#about-spartacus-releases)
+First you need to upgrade all your @spartacus libs to the latest 1.5.x release. For more details, see (https://sap.github.io/spartacus-docs/release-information/#about-spartacus-releases)
 
-Make sure you also also have the @spartacus/schematics updaed to the lates 1.5.x version. If you don't have the @spartacus/schemnatics in your package.json, you need to add it. @spartacus/schematics is required in further steps. To add it, edit your `package.json` file. In the `devDependencies` section, add @spartacus/schematics with the same version as your other @spartacus/_ dependencies. For example, if your @spartacus/_ dependencies are on version "^1.5.4", the add the entry `"@spartacus/schematics": "^1.5.4",` in `devDependencies`. After, run `yarn install`.
+Make sure you also also have the @spartacus/schematics updated to the latest 1.5.x version. If you don't have the @spartacus/schematics in your package.json, you need to add it. @spartacus/schematics is required in further steps. To add it, edit your `package.json` file. In the `devDependencies` section, add @spartacus/schematics with the same version as your other @spartacus/* dependencies. For example, if your @spartacus/* dependencies are on version "^1.5.4", the add the entry `"@spartacus/schematics": "^1.5.4",` in `devDependencies`. After, run `yarn install`.
 
 Spartacus 2.0 requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
 
