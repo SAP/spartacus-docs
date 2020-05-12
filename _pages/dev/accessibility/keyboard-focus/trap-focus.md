@@ -1,5 +1,5 @@
 ---
-title: Auto Focus
+title: Trap Focus
 ---
 
 The `cxFocus` directive provides functionality to trap the focus of a group of focusable elements. Trap focus (AKA focus-trap) is often required in dialogs, such as modals. As long as the dialog is open, the focus should not leave the dialog when the user keeps tabbing through the focusable elements. Typically, when the focus leaves the last element, the focus should move to the first element. And visa versa, when `SHIFT + TAB` is used, when the first element is focused, the last element should be focused.
