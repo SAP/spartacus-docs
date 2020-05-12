@@ -10,6 +10,7 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 
 - For information on specific code changes for a particular release, see [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
+- For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
 
 Contents:
 - [Introduction](#introduction)
@@ -21,6 +22,7 @@ Contents:
 - [Release 1.0](#release-10)
 - [About Spartacus Releases](#about-spartacus-releases)
 - [How Spartacus is Versioned](#how-spartacus-is-versioned)
+- [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version)
 - [Future Releases](#future-releases)
   
   
@@ -247,10 +249,7 @@ Architectural and foundational features:
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
-- To use the new libraries, set your @spartacus libraries in `package.json` to “~1.#.0" (replace # with the release number). Then delete your `node_modules` folder and run `yarn install`.
 - To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5 and Save for Later features requires 1905.11). 
-  
-  
   
 ### How Spartacus is Versioned
 
@@ -265,8 +264,17 @@ For both patch and minor releases, upgrading to the new libraries should not cau
 
 We don't plan to introduce a new major release that frequently, unless an issue is found that makes it necessary to move to a major release . The upcoming Angular "Ivy" (after Angular 8) is one factor in our eventual decision to do so.
   
-  
-  
+### Upgrading Spartacus Libraries to a New Minor Version
+
+To upgrade your Spartacus libraries to a new minor version, set your @spartacus libraries in `package.json` to “~1.#.0" (replace `#` with the release number you wish to upgrade to). Then delete your `node_modules` folder and run `yarn install`.
+
+You can upgrade your Spartacus libraries to a new minor version, as follows:
+
+1. In `package.json`, set your `@spartacus` libraries to `“~1.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. Delete your `node_modules` folder.
+1. Run `yarn install`.
+
+
 ### Future Releases
 
 See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
