@@ -10,9 +10,19 @@ title: Wish List (DRAFT)
 
 The Wish List feature lets users save (or bookmark) products for later viewing.
 
+## Usage
+
+Products can be added to the wish list from the product details page. If the user is not signed in he be notified that he must login before adding a product to the wish list.
+
+Once a user has added items to the wish list he can view the content of his wish list via the "Wish list" option in the "My Account" menu.
+
+## Customization
+
+The wish list feature consists of two components. Both the `AddToWishListComponent` and `WishListService` are CMS driven therefore they can be configured in SmartEdit. They can also be customized in Spartacus using the [Spartacus CMS component mapping]{{ site.baseurl }}{% link _pages/dev/customizing-cms-components.md %}).
+
 ## Limitations
 
-Due to technical limitation at the moment it is only possible for a user to have a single wish list. In addition the each wish list is tied to a user therefore it is not possbile to share it. Finally, for the time being it is not possible to add an out of stock product to the wish list.
+Due to technical limitation at the moment it is only possible for a user to have a single wish list. In addition the each wish list is tied to a user therefore it is not possible to share it. Finally, for the time being it is not possible to add an out of stock product to the wish list.
 
 ## Disabling Wish List in Spartacus
 
