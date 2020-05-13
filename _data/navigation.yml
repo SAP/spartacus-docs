@@ -232,8 +232,10 @@ docs:
 
     - title: Telco & Utilities Storefront Development Guide
       children:
-          - title: "Release Information"
-            url: /telco-release-information/
+        - title: "About Telco & Utilities Storefront"
+          url: /about-telco/
+        - title: "Release Information"
+          url: /telco-release-information/
             
     - title: Contributing to Spartacus
       children:
