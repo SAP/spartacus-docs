@@ -4,11 +4,11 @@ title: Updating to Version 2.0
 
 ## Prerequisites
 
-First you need to upgrade all your @spartacus libs to the latest 1.5.x release. For more details, see (https://sap.github.io/spartacus-docs/release-information/#about-spartacus-releases)
-
-Make sure you also also have the @spartacus/schematics updated to the latest 1.5.x version. If you don't have the @spartacus/schematics in your package.json, you need to add it. @spartacus/schematics is required in further steps. To add it, edit your `package.json` file. In the `devDependencies` section, add @spartacus/schematics with the same version as your other @spartacus/* dependencies. For example, if your @spartacus/* dependencies are on version "^1.5.4", the add the entry `"@spartacus/schematics": "^1.5.4",` in `devDependencies`. After, run `yarn install`.
-
 Spartacus 2.0 requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
+
+You must also upgrade all of your `@spartacus` libraries to the latest 1.5.x release before you begin upgrading to Spartacus 2.0. For more information, see [Upgrading Spartacus Libraries to a New Minor Version](https://sap.github.io/spartacus-docs/release-information/#upgrading-spartacus-libraries-to-a-new-minor-version).
+
+**Note:** Your `@spartacus` libraries must include the `@spartacus/schematics` library. If you do not have the `@spartacus/schematics` library, add it to your `package.json` file in the `devDependencies` section, and set it to the same version as your other `@spartacus` libraries. Then run `yarn install`.
 
 ## Updating Spartacus
 
@@ -25,16 +25,10 @@ To update to version 2.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics
 ```
 
-**NOTE:** If you do not have `@spartacus/schematics` installed, you will get the following error:
-
-```
-Package '@spartacus/schematics' is not a dependency.
-```
-
-For more info, please refer to the [Prerequisites section](#Prerequisites) about adding the Spartacus Schematics to your application.
+**Note:** If you do not have `@spartacus/schematics` installed, you will get the following error: `Package '@spartacus/schematics' is not a dependency.` For more information, see [Prerequisites](#prerequisites).
 
 When the script has finished running, inspect your code for comments that begin with `//TODO:Spartacus`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md).
 
 For more information about schematics, see the schematics project [README](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
-Various releases of Spartacus 1.x have contributed to the styling in Spartacus, which was grouped into a specific theme called "Calydon". This theme is no longer used in version 2.0 because the various styles have been merged into the standard styling. If you do use (some of) the styling from Spartacus, you might need to update your styles. For more information about the deprecated styles from Spartacus version 1.x, see [Deprecation of Calydon Theme](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/calydon.md).
+Various releases of Spartacus 1.x have contributed to the styling in Spartacus, which was grouped into a specific theme called "Calydon". This theme is no longer used in version 2.0 because the various styles have been merged into the standard styling. If you do use some (or all) of the styling from Spartacus, you might need to update your styles. For more information about the deprecated styles from Spartacus version 1.x, see [Changes to Styles in 2.0](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/css-changes-in-version-2.md).
