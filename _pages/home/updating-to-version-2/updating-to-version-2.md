@@ -25,7 +25,13 @@ To update to version 2.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics
 ```
 
-> NOTE: in case you don't have `@spartacus/schematics` installed, you'll get the following error: `Package '@spartacus/schematics' is not a dependency.`. For more info, please refer to the [Prerequisites section](#Prerequisites) about adding the Spartacus Schematics to your application.
+**NOTE:** If you do not have `@spartacus/schematics` installed, you will get the following error:
+
+```
+Package '@spartacus/schematics' is not a dependency.
+```
+
+For more info, please refer to the [Prerequisites section](#Prerequisites) about adding the Spartacus Schematics to your application.
 
 When the script has finished running, inspect your code for comments that begin with `//TODO:Spartacus`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md).
 
