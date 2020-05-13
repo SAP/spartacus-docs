@@ -230,6 +230,13 @@ docs:
                 - title: "Writing Notification Banners"
                   url: /writing-notification-banners/
 
+    - title: Telco & Utilities Storefront Development Guide
+      children:
+        - title: "About Telco & Utilities Storefront"
+          url: /about-telco/
+        - title: "Release Information"
+          url: /telco-release-information/
+            
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
