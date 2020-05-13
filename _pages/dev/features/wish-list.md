@@ -12,7 +12,7 @@ The Wish List feature lets users save (or bookmark) products for later viewing.
 
 ## Usage
 
-Products can be added to the wish list from the product details page. If the user is not signed in he be notified that he must login before adding a product to the wish list.
+Products can be added to the wish list from the product details page. If the user is not signed in the add to wish list option will instead say he must login before adding a product to the wish list.
 
 Once a user has added items to the wish list he can view the content of his wish list via the "Wish list" option in the "My Account" menu.
 
