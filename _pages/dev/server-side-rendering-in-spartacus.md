@@ -164,6 +164,8 @@ import { ModuleMapLoaderModule } from "@nguniversal/module-map-ngfactory-loader"
 export class AppServerModule {}
 ```
 
+More information about caching and TransferState [here](#automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
+
 ### webpack.server.config.js
 
 ```javascript
