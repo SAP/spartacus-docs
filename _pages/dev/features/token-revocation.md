@@ -10,7 +10,7 @@ title: Token Revocation (DRAFT)
 
 ## Overview
 
-When a user signs out of the storefront, Spartacus 1.4.0+ will request the revocation of the user authentication token so the OCC session is terminated. This is a security improvement.
+When a user signs out of the storefront, Spartacus requests the revocation of the user authentication token so the OCC session is terminated. This is a security improvement.
 
 Here is what to expect:
 
