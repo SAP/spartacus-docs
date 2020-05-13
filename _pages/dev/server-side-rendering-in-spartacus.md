@@ -1,14 +1,18 @@
 ---
-title: Server-Side Rendering in Spartacus (DRAFT)
+title: Server-Side Rendering
 ---
+
+Server side rendering allows you to render static versions of Spartacus pages on the server side, which speeds up response times, assists with SEO and allows the application to render quickly. Once angular bootstraps, clients can have the full experience.
 
 ## Installation steps using Angular Schematics (Recommended)
 
-The easiest way to add SSR support in your application is to use schematics. This way you don't need to add anything manually, all files will be created and modified automatically.
+The recommended way to add SSR support in your Spartacus application is to use schematics. This way you don't need to add anything manually. All required files and modifications will be done automatically.
 
 ```bash
 ng add @spartacus/schematics --ssr
 ```
+
+The steps executed by Schematics are described in the next section.
 
 ## Installation Steps (Manual)
 
@@ -17,9 +21,9 @@ The following steps can be performed to run your Spartacus shell app that includ
 Add the following dependencies to `package.json`:
 
 ```json
-"@angular/platform-server": "~8.2.7",
+"@angular/platform-server": "~8.2.14",
 "@nguniversal/express-engine": "^8.1.1",
-"@nguniversal/module-map-ngfactory-loader": "^8.1.1",
+"@nguniversal/module-map-ngfactory-loader": "^8.2.6",
 "express": "^4.15.2"
 ```
 
@@ -30,17 +34,25 @@ Add the following developer dependencies to `package.json`:
 "webpack-cli": "^3.3.2"
 ```
 
-Update the following files:
+also, for convenience, add the following scripts to `package.json`:
+
+```json
+"compile:server": "webpack --config webpack.server.config.js --progress --colors",
+"serve:ssr": "node dist/server",
+"build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+"build:client-and-server-bundles": "ng build --prod && ng run spartacus:server"
+```
+
+Next, update the following files:
 
 ### src/main.ts
 
 ```typescript
 //from
-platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule);
 //to
-document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+document.addEventListener("DOMContentLoaded", () => {
+  platformBrowserDynamic().bootstrapModule(AppModule);
 });
 ```
 
@@ -60,7 +72,7 @@ BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
 Add the following meta attribute and replace OCC_BASE_URL with the URL of your backend instance:
 
 ```html
- <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
+<meta name="occ-backend-base-url" content="OCC_BASE_URL" />
 ```
 
 ### angular.json
@@ -100,11 +112,7 @@ Add the following files to your existing shell app:
     "module": "commonjs",
     "types": []
   },
-  "exclude": [
-    "test.ts",
-    "e2e/src/app.e2e-spec.ts",
-    "**/*.spec.ts"
-  ],
+  "exclude": ["test.ts", "e2e/src/app.e2e-spec.ts", "**/*.spec.ts"],
   "angularCompilerOptions": {
     "entryModule": "src/app/app.server.module#AppServerModule"
   }
@@ -114,21 +122,20 @@ Add the following files to your existing shell app:
 ### src/main.server.ts
 
 ```typescript
-import { enableProdMode } from '@angular/core';
+import { enableProdMode } from "@angular/core";
 
-import { environment } from './environments/environment';
+import { environment } from "./environments/environment";
 
 if (environment.production) {
   enableProdMode();
 }
 
-export { AppServerModule } from './app/app.server.module';
-export { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/core';
+export { AppServerModule } from "./app/app.server.module";
+export { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
+import { ngExpressEngine as engine } from "@nguniversal/express-engine";
+import { NgExpressEngineDecorator } from "@spartacus/core";
 export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 ```
-
 
 ### src/app/app.server.module
 
@@ -136,11 +143,12 @@ export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 import { NgModule } from "@angular/core";
 import {
   ServerModule,
-  ServerTransferStateModule
+  ServerTransferStateModule,
 } from "@angular/platform-server";
 
 import { AppModule } from "./app.module";
 import { AppComponent } from "./app.component";
+import { ModuleMapLoaderModule } from "@nguniversal/module-map-ngfactory-loader";
 
 @NgModule({
   imports: [
@@ -148,10 +156,10 @@ import { AppComponent } from "./app.component";
     // by the ServerModule from @angular/platform-server.
     AppModule,
     ServerModule,
-    ServerTransferStateModule
-    // ModuleMapLoaderModule // <-- *Important* to have lazy-loaded routes work
+    ModuleMapLoaderModule,
+    ServerTransferStateModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppServerModule {}
 ```
@@ -159,54 +167,54 @@ export class AppServerModule {}
 ### webpack.server.config.js
 
 ```javascript
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  mode: 'none',
+  mode: "none",
   entry: {
     // This is our Express server for Dynamic universal
-    server: './server.ts'
+    server: "./server.ts",
   },
   externals: {
-    './dist/server/main': 'require("./server/main")'
+    "./dist/server/main": 'require("./server/main")',
   },
-  target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  target: "node",
+  resolve: { extensions: [".ts", ".js"] },
   optimization: {
-    minimize: false
+    minimize: false,
   },
   output: {
     // Puts the output at the root of the dist folder
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    path: path.join(__dirname, "dist"),
+    filename: "[name].js",
   },
   module: {
     noParse: /polyfills-.*\.js/,
     rules: [
-      { test: /\.ts$/, loader: 'ts-loader' },
+      { test: /\.ts$/, loader: "ts-loader" },
       {
         // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
         // Removing this will cause deprecation warnings to appear.
         test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
         parser: { system: true },
       },
-    ]
+    ],
   },
   plugins: [
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?angular(\\|\/)core(.+)?/,
-      path.join(__dirname, 'src'), // location of your src
+      path.join(__dirname, "src"), // location of your src
       {} // a map of your routes
     ),
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
       /(.+)?express(\\|\/)(.+)?/,
-      path.join(__dirname, 'src'),
+      path.join(__dirname, "src"),
       {}
-    )
-  ]
+    ),
+  ],
 };
 ```
 
@@ -215,16 +223,16 @@ module.exports = {
 In the following example, remember to replace the string "<your-project-name>" with your project name (such as `mystore`, for example).
 
 ```typescript
-import 'zone.js/dist/zone-node';
+import "zone.js/dist/zone-node";
 
-import * as express from 'express';
-import { join } from 'path';
+import * as express from "express";
+import { join } from "path";
 
 // Express server
 const app = express();
 
 const PORT = process.env.PORT || 4200;
-const DIST_FOLDER = join(process.cwd(), 'dist/<your-project-name>');
+const DIST_FOLDER = join(process.cwd(), "dist/<your-project-name>");
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {
@@ -232,41 +240,40 @@ const {
   LAZY_MODULE_MAP,
   ngExpressEngine,
   provideModuleMap,
-} = require('./dist/<your-project-name>-server/main');
+} = require("./dist/<your-project-name>-server/main");
 
 app.engine(
-  'html',
+  "html",
   ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
     providers: [provideModuleMap(LAZY_MODULE_MAP)],
   })
 );
 
-app.set('view engine', 'html');
-app.set('views', DIST_FOLDER);
+app.set("view engine", "html");
+app.set("views", DIST_FOLDER);
 
 app.get(
-  '*.*',
+  "*.*",
   express.static(DIST_FOLDER, {
-    maxAge: '1y',
+    maxAge: "1y",
   })
 );
 
 // All regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render('index', { req });
+app.get("*", (req, res) => {
+  res.render("index", { req });
 });
 
 // Start up the Node server
 app.listen(PORT, () => {
   console.log(`Node server listening on http://localhost:${PORT}`);
 });
-
 ```
 
-* In the file above, replace `<your-project-name>` with the name of your application.
+- In the file above, replace `<your-project-name>` with the name of your application.
 
-* Add the following scripts to your package.json. Remember to replace `<your-project-name>` with your project name (such as `mystore`, for example).
+- Add the following scripts to your package.json. Remember to replace `<your-project-name>` with your project name (such as `mystore`, for example).
 
 ```json
 "compile:server": "webpack --config webpack.server.config.js --progress --colors",
@@ -275,9 +282,9 @@ app.listen(PORT, () => {
 "build:client-and-server-bundles": "ng build --prod && ng run <your-project-name>:server"
 ```
 
-* On the `build:client-and-server-bundles` script, replace `<your-project-name>` with the name of your angular application
+- On the `build:client-and-server-bundles` script, replace `<your-project-name>` with the name of your angular application
 
-* Build the SSR version of your spartacus shell app using the following commands:
+- Build the SSR version of your spartacus shell app using the following commands:
 
 `npm run build:ssr && npm run serve:ssr`
 
@@ -289,21 +296,21 @@ The following steps can be performed to run Spartacus in SSR mode using the Spar
 
 ```json
 environment = {
-  occBaseUrl: 'https://[your_endpoint]',
+  occBaseUrl: 'https://[your_occ_endpoint]',
 };
 ```
 
-1. Turn PWA off (steps below)
-1. Rebuild your libs (`yarn build:core:lib`)
-1. Build your shell app (`yarn build`)
-1. Build your shell app in ssr mode (`yarn build:ssr`)
-1. start ssr server (`yarn start:ssr`)
+1. Turn PWA off (makes SSR debugging easier, steps below)
+1. Rebuild your local SPA libs (`yarn build:core:lib`)
+1. Build your local SPA shell app (`yarn build --prod`)
+1. Build your shell app, ssr version (`yarn build:ssr`)
+1. start SPA with ssr server (`yarn start:ssr`)
 
-### Service workers
+### PWA/Service workers
 
-As soon as a service worker is installed, Spartacus version served is the cached version of the index.html + js files. Therefore, SSR is completely skipped.
+As soon as Spartacus is installed in PWA mode, a service worker is installed, and it serves a cached version of index.html + js files. Therefore, SSR is completely skipped.
 
-1. Check that there are no service workers registered in your app and remove them, if any
+1. To run the app in SSR mode only, check that there are no service workers registered in your app and remove them, if any.
 1. In your app module configuration, turn PWA off, as follows:
 
 ```json
@@ -318,11 +325,3 @@ StorefrontModule.withConfig({
       },
 };
 ```
-
-## Known issues
-
-If the backend server (endpoint) is either not valid or can't be reached, you’ll get the following error:
-
-`TypeError: You provided 'undefined' where a stream was expected. You can provide an Observable, Promise, Array, or Iterable.`
-
-Make sure the backend endpoint is properly configured and reachable
