@@ -236,6 +236,8 @@ docs:
           url: /about-telco/
         - title: "Release Information"
           url: /telco-release-information/
+        - title: "Telco & Utilities Checkout"
+          url: /telco-checkout/  
             
     - title: Contributing to Spartacus
       children:
