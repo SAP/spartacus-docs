@@ -22,7 +22,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
     Always create your new `doc` branch from the `develop` branch.
   
-    The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can create your new `doc` branch from the `master` branch.
+    The one exception is if you have an update that is not tied to a particular release, and can be published as soon as it is merged. In this case, you can create your new `doc` branch from the `master` branch.
 
 3. Create new documentation or update existing topics in the `_pages` folder.
 
