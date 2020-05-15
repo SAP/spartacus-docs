@@ -1,5 +1,5 @@
 ---
-title: Wish List (DRAFT)
+title: Wish List
 ---
 
 {% capture version_note %}
@@ -8,36 +8,54 @@ title: Wish List (DRAFT)
 
 {% include docs/feature_version.html content=version_note %}
 
-The Wish List feature lets users save (or bookmark) products for later viewing.
+The Wish List feature lets you save products for later viewing.
 
 ## Usage
 
-Products can be added to the wish list from the product details page. If the user is not signed in the add to wish list option will instead say he must login before adding a product to the wish list.
+You can add products to a wish list from the product details page. If you are not signed in, the "Add to Wish List" option will indicate that you need to be logged in before you can add a product to the wish list.
 
-Once a user has added items to the wish list he can view the content of his wish list via the "Wish list" option in the "My Account" menu.
+Once you have added items to the wish list, you can view the contents of your wish list through the **Wish list** option in the **My Account** menu.
 
-## Customization
+## Customizing
 
-The wish list feature consists of two components. Both the `AddToWishListComponent` and `WishListService` are CMS driven therefore they can be configured in SmartEdit. They can also be customized in Spartacus using the [Spartacus CMS component mapping]{{ site.baseurl }}{% link _pages/dev/customizing-cms-components.md %}).
+The wish list feature consists of the `AddToWishListComponent` and the `WishListService` component. Both of these components are CMS driven and can be configured in SmartEdit. You can also customize these components in Spartacus using CMS component mapping. For more information, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/customizing-cms-components.md %}).
 
 ## Limitations
 
-Due to technical limitation at the moment it is only possible for a user to have a single wish list. In addition the each wish list is tied to a user therefore it is not possible to share it. Finally, for the time being it is not possible to add an out of stock product to the wish list.
+A user cannot have more than one wish list. Furthermore, each wish list is tied to a specific user, so a wish list cannot be shared with other users. Finally, it is not possible to add a product to a wish list if that product is out of stock.
 
-## Disabling Wish List in Spartacus
+## Disabling the Wish List Feature
 
 The wish list feature is enabled by default in Spartacus.
 
-Since the feature is CMS driven, the only way to disable it is through the CMS. To do so the following changes should be made to the Spartacussampledataaddon or your custom addon:
+The only way to disable wish lists is through the CMS. You can disable wish lists by making changes to the `spartacussampledataaddon` AddOn, or to your custom AddOn, as follows:
 
-1. Remove the WishListLink
-   `;;WishListLink;Wish List Link;/my-account/wishlist;WishListLink;WishListLink;;loggedInUser`
-2. Remove the link from the SiteLinksSlot
-   `;;SiteLinksSlot;Slot contains some links;true;OrdersLink,WishListLink,StoreFinderLink,ContactUsLink,HelpLink` (Remove `WishListLink`)
-3. Remove the WishListNavNode
-   `;WishListNavNode;;Wish List;MyAccountNavNode;;WishListNavNode`
-4. Remove the WishListNavNodeEntry
-   `;WishListNavNodeEntry;;WishListNavNodeEntry;WishListNavNode;WishListLink;`
-5. Remove all references of `WishListPage`, `BodyContentSlot-wishList`, `WishListComponent` and `AddToWishListComponent`
+1. Remove the `WishListLink` by removing the following line from the relevant `cms-responsive-content.impex` files:
 
-These steps can also be done in Backoffice.
+   ```plaintext
+   ;;WishListLink;Wish List Link;/my-account/wishlist;WishListLink;WishListLink;;loggedInUser
+   ```
+
+   **Note:** There is a `cms-responsive-content.impex` file for each base site.
+
+1. Remove the link from the `SiteLinksSlot` by removing `WishListLink` from the following line in the relevant `cms-responsive-content.impex` files:
+
+   ```plaintext
+   ;;SiteLinksSlot;Slot contains some links;true;OrdersLink,WishListLink,StoreFinderLink,ContactUsLink,HelpLink
+   ```
+
+1. Remove the `WishListNavNode` by removing the following line from the relevant `cms-responsive-content.impex` files:
+
+   ```plaintext
+   ;WishListNavNode;;Wish List;MyAccountNavNode;;WishListNavNode
+   ```
+
+1. Remove the `WishListNavNodeEntry` by removing the following line from the relevant `cms-responsive-content.impex` files:
+
+   ```plaintext
+   ;WishListNavNodeEntry;;WishListNavNodeEntry;WishListNavNode;WishListLink;
+   ```
+
+1. Remove all references of `WishListPage`, `BodyContentSlot-wishList`, `WishListComponent` and `AddToWishListComponent`.
+
+You can also do these steps in Backoffice.
