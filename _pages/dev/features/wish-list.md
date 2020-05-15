@@ -24,7 +24,7 @@ The wish list feature consists of the `AddToWishListComponent` and the `WishList
 
 A user cannot have more than one wish list. Furthermore, each wish list is tied to a specific user, so a wish list cannot be shared with other users. Finally, it is not possible to add a product to a wish list if that product is out of stock.
 
-## Disabling the Wish List Feature
+## Disabling Wish Lists
 
 The wish list feature is enabled by default in Spartacus.
 
