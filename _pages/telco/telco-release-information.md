@@ -1,5 +1,5 @@
 ---
-title: Telco and Utilities (TUA) Pre-Release Information
+title: Telco & Utilities (TUA) Pre-Release Information
 ---
 
 This document describes what is included in the latest pre-release of Telco & Utilities Spartacus libraries, such as `next` and `rc` libraries.
@@ -8,9 +8,9 @@ This document describes what is included in the latest pre-release of Telco & Ut
 
 ## Release 0.1.0-next.1 - May 18, 2020
 
-This is the very first pre-release for the telco and utilities accelerator Spartacus storefront.   TUA Spartacus storefront requires Telco and Utilities release 2003 (latest patch) with Spartacus 1.4 libraries.
+This is the very first pre-release for the Telco & Utilities Spartacus storefront.   TUA Spartacus storefront requires Telco and Utilities release 2003 (latest patch) with Spartacus 1.4 libraries.
 
-With this pre-release the following telco storefront features are included:
+With this pre-release the following Telco storefront features are included:
 
 - Login
 - Customer Registration
