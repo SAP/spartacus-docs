@@ -1,5 +1,5 @@
 ---
-title: Events
+title: Event Service
 ---
 
 To increase conversion, we'd like to analyze user's journey in the storefront and improve the experience by tweaking CMS data, banners, styles etc. Tools helping to gather and analyze those data could be tag managers, i.e. Google Tag Manager, Adobe Launch or CDS. Those tools need to be fed with a stream of events. Spartacus meets this need by providing the Event Service.
