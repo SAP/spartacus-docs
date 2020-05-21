@@ -43,7 +43,8 @@ The allowed headers setting indicates the HTTP headers that are allowed for cros
 
 ### exposedHeaders
 
-Only Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
+Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
+Personalization feature requires the `occ-personalization-id` and the `occ-personalization-time` headers.
 
 ### allowCredentials
 
@@ -79,7 +80,7 @@ If you install the CORS filter configuration by properties, the following proper
 corsfilter.ycommercewebservices.allowedOrigins=*
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
+corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
 corsfilter.ycommercewebservices.allowCredentials=true
 ```
 
@@ -89,7 +90,7 @@ If you are using the Assisted Service Module (ASM), you must also add the same h
 corsfilter.assistedservicewebservices.allowedOrigins=*
 corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
+corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
 corsfilter.assistedservicewebservices.allowCredentials=true
 ```
 
@@ -112,7 +113,7 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 },
 {
 	"key": "corsfilter.ycommercewebservices.exposedHeaders",
-	"value": "x-anonymous-consents"
+	"value": "x-anonymous-consents occ-personalization-id occ-personalization-time"
 }
 {
 	"key": "corsfilter.ycommercewebservices.allowCredentials",
@@ -137,7 +138,7 @@ If you use the Assisted Service Module (ASM), you must also add the same headers
 },
 {
 	"key": "corsfilter.assistedservicewebservices.exposedHeaders",
-	"value": "x-anonymous-consents"
+	"value": "x-anonymous-consents occ-personalization-id occ-personalization-time"
 }
 {
 	"key": "corsfilter.assistedservicewebservices.allowCredentials",
@@ -155,7 +156,7 @@ INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=y
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
 ;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
-;exposedHeaders;x-anonymous-consents
+;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```
 
 If you are using the Assisted Service Module (ASM), you must also run the following script:
@@ -166,5 +167,5 @@ INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=a
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
 ;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
-;exposedHeaders;x-anonymous-consents
+;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```

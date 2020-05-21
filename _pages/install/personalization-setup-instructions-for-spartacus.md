@@ -42,7 +42,7 @@ origin content-type accept authorization occ-personalization-id occ-personalizat
 
 ## Enabling Personalization in Spartacus
 
-In `app.module.ts`, add the following to the settings in the `StorefrontModule.withConfig` section:
+In `app.module.ts`, add the following to the settings in the `B2cStorefrontModule.withConfig` section:
 
 ```
 personalization: {
