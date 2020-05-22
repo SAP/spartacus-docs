@@ -4,6 +4,10 @@ title: Schematics
 
 Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
 
+## Prerequisites
+
+Make sure that you are using angular CLI version >= 9.1.
+
 ## Adding Spartacus Libraries to Your Angular Project
 
 You can add Spartacus libraries to your Angular project by running the following command from your project root:
