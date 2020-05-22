@@ -39,6 +39,8 @@ docs:
             url: /cors/        
           - title: "Building the Spartacus Storefront from Libraries"
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Schematics"
+            url: /schematics/  
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
           - title: "Snapshot Builds"
