@@ -1,16 +1,18 @@
-# Getting Started
+---
+title: Schematics
+---
 
-This page is intended for customers. If you are looking for a developers guide on how to work with schematics, visit this [page](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md).
+Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about various options and commands for use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
 
-Spartacus schematics allow you to install Spartacus libraries in your project.
+## Adding Spartacus Libraries to Your Angular Project
 
-## Adding Spartacus libraries to your Angular project
+You can add Spartacus libraries to your Angular project by running the following command from your project root:
 
-Run the following command from your project root:
+```bash
+ng add @spartacus/schematics
+```
 
-`ng add @spartacus/schematics`
-
-### Available options
+The following is a description of the various options you can use with the `ng add @spartacus/schematics` command:
 
 - `baseUrl`: Base url of your CX OCC backend
 - `baseSite`: Name of your base site
