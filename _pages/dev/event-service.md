@@ -98,6 +98,8 @@ Examples of candidates to avoid for event sources are the following Observables 
 - Observables created by the operators `of()` and `from()` from RxJs
 - anything that emits a value simply because a subscription was made.
 
+A pure RxJs `Subject` is a good candidate for the event source.
+
 ### Avoiding Memory Leaks and Unregistering Event Sources
 
 To avoid memory leaks, every event source Observable should be unregistered from the `EventService` when it is no longer needed. To unregister an event source, you can call the "tear down" function that is returned by the `register()` method. The following is an example:
