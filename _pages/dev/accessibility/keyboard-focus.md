@@ -25,7 +25,7 @@ The various features can be used with a single directive. The following is an ex
 
 ```html
 <div [cxFocus]="{ 
-    autofocus: 'input[submit:true]', 
+    autofocus: 'input[submit:true]',
     lock: true,
     trap: true }"
 ></div>
