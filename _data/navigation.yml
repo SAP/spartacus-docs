@@ -177,6 +177,8 @@ docs:
                   url: /automatic-context-configuration/
                 - title: "Static Multi-Site Configuration"
                   url: /static-context-configuration/
+          - title: "Event Service"
+            url: /event-service/
           - title: "PWA ➢"
             url: /pwa-home/
             subchildren:
