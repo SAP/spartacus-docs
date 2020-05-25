@@ -45,7 +45,7 @@ A configurable group of persisted, focusable elements can be used to distinguish
 </div>
 ```
 
-### Auto Focus by the HTML5 'autofocus' Attribute
+### Auto Focus by the HTML5 autofocus Attribute
 
 If the inner DOM contains an element with the HTML5 `autofocus` attribute, this element is focused by default. The following is an example:
 
