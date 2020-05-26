@@ -44,7 +44,7 @@ ConfigModule.withConfig({
     BannerComponent: {
       component: () =>
         import('./lazy-banner/lazy-banner.component').then(
-          (m) => m.LazyBanerComponent
+          (m) => m.LazyBannerComponent
         ),
     }
   }
