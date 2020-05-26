@@ -195,6 +195,21 @@ docs:
                   url: /structured-data/
           - title: "Internationalization (i18n)"
             url: /i18n/
+          - title: "Keyboard Focus ➢"
+            url: /keyboard-focus/
+            subchildren:
+                - title: "Visible Focus"
+                  url: /visible-focus/
+                - title: "Persist Focus"
+                  url: /persist-focus/
+                - title: "Escape Focus"
+                  url: /escape-focus/
+                - title: "Auto Focus"
+                  url: /auto-focus/
+                - title: "Trap Focus"
+                  url: /trap-focus/
+                - title: "Lock Focus"
+                  url: /lock-focus/          
           - title: "State Management ➢"
             url: /state-management/
             subchildren:
