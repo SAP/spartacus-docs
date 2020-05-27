@@ -31,12 +31,10 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     eventmachine (1.2.7)
-    eventmachine (1.2.7-x64-mingw32)
     execjs (2.7.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.11.1)
-    ffi (1.11.1-x64-mingw32)
+    ffi (1.12.2)
     filesize (0.2.0)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
@@ -267,12 +265,10 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     verbal_expressions (0.1.5)
-    wdm (0.1.1)
     zeitwerk (2.3.0)
 
 PLATFORMS
   ruby
-  x64-mingw32
 
 DEPENDENCIES
   github-pages
@@ -286,7 +282,6 @@ DEPENDENCIES
   jemoji
   minimal-mistakes-jekyll
   nokogiri (~> 1.10.8)
-  wdm (>= 0.1.0)
 
 BUNDLED WITH
    2.1.4
