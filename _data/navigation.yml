@@ -231,7 +231,7 @@ docs:
                   url: /main-actions-with-form-pages/
                 - title: "Writing Notification Banners"
                   url: /writing-notification-banners/
-            
+    
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
