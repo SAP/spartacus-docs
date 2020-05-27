@@ -30,6 +30,10 @@ docs:
           - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
             subchildren:
+                - title: "Installing SAP Commerce Cloud 2005"
+                  url: /installing-sap-commerce-cloud-2005/
+                - title: "Installing SAP Commerce Cloud 1905"
+                  url: /installing-sap-commerce-cloud-1905/
                 - title: "Compatibility Notes"
                   url: /compatibility-notes/
                 - title: "Working with Older Versions of SAP Commerce Cloud"

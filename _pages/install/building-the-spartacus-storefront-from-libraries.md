@@ -40,7 +40,7 @@ Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample 
 
 Release 1905 (latest patch) is recommended.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/spartacus/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
+For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}). If you are not using the latest version of SAP Commerce Cloud, see [Working with Older Versions of SAP Commerce Cloud](https://github.com/SAP/spartacus/tree/develop/docs/archived_installation_docs) for installation instructions appropriate to your version.
 
 ## Creating a New Angular App
 
