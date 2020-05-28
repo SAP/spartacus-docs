@@ -83,6 +83,8 @@ docs:
             subchildren:
                 - title: "Anonymous Consent"
                   url: /anonymous-consent/
+                - title: "Applied Promotions"
+                  url: /applied-promotions/
                 - title: "Assisted Service Module"
                   url: /asm/
                 - title: "Cancellations and Returns"
@@ -97,8 +99,6 @@ docs:
                   url: /customer-interests/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
-                - title: "Promotions"
-                  url: /promotions/  
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"
