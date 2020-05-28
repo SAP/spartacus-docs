@@ -10,42 +10,40 @@ title: Promotions
 
 ## Overview
 
-There are 3 types of "discount info" that one can show in Spartacus:
+In Spartacus, you can display information about the following types of promotions:
 
-- Discount that applied to the cart total - Order promotions
-Example: Save $20 because you spent more than $200
-- Discount you got per item - Product promotions
-Example: SKU 123 is $10 off today
-- All discounts in total
-Total amount the customer saved - all discounts combined.
-
+- Cart promotions, which offer a discount on the entire cart - for example, a percentage or fixed discount on the entire order.
+- Product promotions, which offer a discount on specific products or a specific category of products.
+- Total promotions, which combine all promotions to display the total amount the customer has saved.
 
 ## Enabling Promotions
 
-Promotions for the specific product / order can be enabled from the backoffice, in the Promotion Rules section. After publishing the promotion rule, `Display in the storefront` check should be checked.
+You can enable promotions using Backoffice. For more information, see the following on the SAP Help Portal:
+
+- [Rule Builder](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/109559e50e8340459e8d25921541f297.html)
+- [Creating a Promotion Rule](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/3f8f896e506d4e0bbe19e978ae775577.html)
+- [Publishing a Promotion Rule](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/15cdf4e5e27040398d67669506ac931f.html)
 
 ## Displaying Promotions
 
-In order to obtain the available promotions, `PromotionService` is used.
-To get the order and product promotions, methods `getOrderPromotions` and `getProductPromotion` should be used, respectively.
+In Spartacus, the `PromotionService` is used to obtain available promotions. The `getOrderPromotions` method retrieves order promotions, and the `getProductPromotion` method retrieves product promotions.
 
-You can find promotions elements in locations such as the following:
-- Add-to-cart modal window,
-- Cart Details page,
-- Review submit,
-- Checkout confirmation,
-- Order history,
+Promotions elements are available in the following:
 
-In order to show the existing order promotions, the following template can be used:
+- the add-to-cart modal
+- the cart details page
+- Review submit
+- the checkout confirmation page
+- the order history page
+
+You can use the following template to display existing order promotions:
+
 ```html
 <ng-container *ngIf="orderPromotions$ | async as orderPromotions">
     <cx-promotions [promotions]="orderPromotions"></cx-promotions>
 </ng-container>
 ```
-In that way, when there are no promotions available, one will not show the empty element in the DOM.
 
-`PromotionsComponent` is capable of displaying either product or order promotions.
+With this template, if there are no promotions available, then no empty promotions elements are shown in the DOM.
 
-
-
-
+The `PromotionsComponent` can display either product promotions or order promotions.
