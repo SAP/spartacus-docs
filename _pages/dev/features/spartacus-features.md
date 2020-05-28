@@ -5,6 +5,7 @@ title: Spartacus Features
 This is a landing page for grouping together Spartacus Features topics. The Spartacus Features topics include the following:
 
 - [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %})
+- [Applied Promotions]({{ site.baseurl }}{% link _pages/dev/features/applied-promotions.md %})
 - [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
 - [Cancellations and Returns]({{ site.baseurl }}{% link _pages/dev/features/cancellations-and-returns.md %})
 - [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
