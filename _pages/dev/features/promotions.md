@@ -1,5 +1,5 @@
 ---
-title: Promotions
+title: Applied Promotions
 ---
 
 {% capture version_note %}
@@ -10,29 +10,29 @@ title: Promotions
 
 ## Overview
 
-In Spartacus, you can display information about the following types of promotions:
+In Spartacus, you can display information about the following types of applied promotions:
 
 - Cart promotions, which offer a discount on the entire cart - for example, a percentage or fixed discount on the entire order.
 - Product promotions, which offer a discount on specific products or a specific category of products.
 - Total promotions, which combine all promotions to display the total amount the customer has saved.
 
-## Enabling Promotions
+## Enabling Applied Promotions
 
-You can enable promotions using Backoffice. For more information, see the following on the SAP Help Portal:
+You can enable applied promotions using Backoffice. For more information, see the following on the SAP Help Portal:
 
 - [Rule Builder](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/109559e50e8340459e8d25921541f297.html)
 - [Creating a Promotion Rule](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/3f8f896e506d4e0bbe19e978ae775577.html)
 - [Publishing a Promotion Rule](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/15cdf4e5e27040398d67669506ac931f.html)
 
-## Displaying Promotions
+## Displaying Applied Promotions
 
 In Spartacus, the `PromotionService` is used to obtain available promotions. The `getOrderPromotions` method retrieves order promotions, and the `getProductPromotion` method retrieves product promotions.
 
-Promotions elements are available in the following:
+Applied promotions elements are available in the following:
 
 - the add-to-cart modal
 - the cart details page
-- Review submit
+- the review submit component
 - the checkout confirmation page
 - the order history page
 
