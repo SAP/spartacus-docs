@@ -180,9 +180,7 @@ corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST D
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
-**Note:** When using the release version **2005 and above** of SAP Commerce Cloud, use the settings `corsfilter.commercewebservices.allowedHeaders` instead of `corsfilter.ycommercewebservices.allowedHeaders`. Please use the latter when using a version below **2005**.
-
-The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
+**Note:** The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 There are a number of other Spartacus features that also require additional CORS settings. These features are not enabled by default, so you do not need to add these settings if you do not plan to enable these features. If you do intend to enable any of the following features, see the relevant documentation for more information:
 

@@ -15,9 +15,9 @@ As described in [Configure Personalization for Commerce Web Services](https://he
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
 
-If a setting doesn't exist, create it.
+**Note:** These settings are for SAP Commerce Cloud version 1905 or older. For SAP Commerce Cloud version 2005 or newer, use the `corsfilter.commercewebservices.allowedHeaders` setting instead.
 
-The settings is for the release **1905 and below** of SAP Commerce Cloud.
+If a setting doesn't exist, create it.
 
 If the setting already exists, add the new values to the end, including a space before. For example, `allowedHeaders` might look like this:
 
@@ -26,10 +26,6 @@ origin content-type accept authorization occ-personalization-id occ-personalizat
 ```
 
 **Note:** You can edit these settings using HAC, but you can also add these parameters to `local.properties` in the `hybris/config` folder or in the `project.properties` file of ycommercewebservices.
-
-For SAP Commerce Cloud with release version **2005 and adove**, refer to the settings below:
-
-- `corsfilter.commercewebservices.allowedHeaders`
 
 ## Personalization Configuration in Backoffice
 
