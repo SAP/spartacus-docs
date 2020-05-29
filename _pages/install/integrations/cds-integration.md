@@ -32,6 +32,8 @@ The following steps describe how to add custom headers to your CORS settings, as
 
     If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
 
+    **Note:** The `corsfilter.ycommercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 1905 or older. For SAP Commerce Cloud version 2005 or newer, use `corsfilter.commercewebservices.allowedHeaders` instead.
+
     For more information, see [Configuring CORS](https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud/#configuring-cors).
 
 2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.

@@ -15,6 +15,8 @@ As described in [Configure Personalization for Commerce Web Services](https://he
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
 
+**Note:** These settings are for SAP Commerce Cloud version 1905 or older. For SAP Commerce Cloud version 2005 or newer, use the `corsfilter.commercewebservices.allowedHeaders` setting instead.
+
 If a setting doesn't exist, create it.
 
 If the setting already exists, add the new values to the end, including a space before. For example, `allowedHeaders` might look like this:
