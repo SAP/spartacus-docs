@@ -44,6 +44,7 @@ The allowed headers setting indicates the HTTP headers that are allowed for cros
 ### exposedHeaders
 
 Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
+
 Personalization requires the `occ-personalization-id` and the `occ-personalization-time` headers to be exposed.
 
 ### allowCredentials
