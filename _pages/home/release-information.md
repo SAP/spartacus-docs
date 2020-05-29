@@ -53,6 +53,7 @@ The following is a summary of the major changes from 1.x to 2.0:
 - [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus.md %})
 - [Lazy loading of CMS components](https://sap.github.io/spartacus-docs/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
 - [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %})
+- [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %})
 - [Custom Angular URL Matching](https://sap.github.io/spartacus-docs/adding-and-customizing-routes/#avoiding-static-url-segments-in-the-product-page-url-advanced)
 - Many components refactored
 - New facet navigation makes extending facets easier
