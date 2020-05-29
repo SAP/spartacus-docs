@@ -28,11 +28,11 @@ To enable Context-Driven Services in Spartacus, you need to configure both the C
 
 The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.
 
-1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.ycommercewebservices.allowedHeaders`.
+1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.commercewebservices.allowedHeaders`.
 
     If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
 
-    **Note:** The `corsfilter.ycommercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 1905 or older. For SAP Commerce Cloud version 2005 or newer, use `corsfilter.commercewebservices.allowedHeaders` instead.
+    **Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
 
     For more information, see [Configuring CORS](https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud/#configuring-cors).
 

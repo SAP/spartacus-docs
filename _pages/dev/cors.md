@@ -80,10 +80,12 @@ If you install the CORS filter configuration by properties, the following proper
 ```plaintext
 corsfilter.ycommercewebservices.allowedOrigins=*
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
 corsfilter.ycommercewebservices.allowCredentials=true
 ```
+
+**Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
 
 If you are using the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
@@ -109,7 +111,7 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 	"value": "GET HEAD OPTIONS PATCH PUT POST DELETE"
 },
 {
-	"key": "corsfilter.ycommercewebservices.allowedHeaders",
+	"key": "corsfilter.commercewebservices.allowedHeaders",
 	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
 },
 {
@@ -121,6 +123,7 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 	"value": "true"
 }
 ```
+**Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
 
 If you use the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
