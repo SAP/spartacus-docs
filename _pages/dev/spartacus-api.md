@@ -2,7 +2,7 @@
 title: Spartacus API
 ---
 
-The Spartacus API is maintained in the `cloud-commerce-spartacus-storefront` repository, and is updated with every minor release of the Spartacus libraries.
+The Spartacus API is maintained in the `spartacus` repository, and is updated with every minor release of the Spartacus libraries.
 
 You can view the current Spartacus API here: [https://sap.github.io/spartacus/](https://sap.github.io/spartacus/)
 

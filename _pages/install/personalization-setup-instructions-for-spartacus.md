@@ -48,7 +48,7 @@ For SAP Commerce Cloud with release version **2005 and adove**, refer to the set
 
 ## Enabling Personalization in Spartacus
 
-In `app.module.ts`, add the following to the settings in the `StorefrontModule.withConfig` section:
+In `app.module.ts`, add the following to the settings in the `B2cStorefrontModule.withConfig` section:
 
 ```
 personalization: {
