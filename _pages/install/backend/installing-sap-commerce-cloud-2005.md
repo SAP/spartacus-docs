@@ -11,20 +11,19 @@ The installation procedure includes steps for creating and using a `cx-for-spa` 
 To install and configuring SAP Commerce Cloud for use with Spartacus, you must complete the following procedures:
 
 1. [Setting up SAP Commerce Cloud](#setting-up-sap-commerce-cloud)
-2. [Configuring OCC credentials](#configuring-occ-credentials)
-3. [Configuring CORS](#configuring-cors)
+2. [Importing default system and OCC credentials](#importing-default-system-and-occ-credentials)
 
 
 ## Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon
 
 Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
 
+
+### Step 1: Initial setup
+
 1. Unzip the SAP Commerce Cloud zip archive.
 
    Note: The name of the zip archive starts with `CXCOMM1905#...`. This folder will be referred to as `CXCOMM*` for the rest of these instructions.
-
-
-### Step 1: Initial setup
 
 1. [Download](https://github.com/SAP/spartacus/releases) the Spartacus Sample Data AddOn.
 
@@ -38,7 +37,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 1. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/custom` (you likely have to create this folder).
 
 
-### Step 2: Create the `cx-for-spa` recipe
+### Step 2: Copy and update the default cx recipe
 
 1. In the `installer/recipes` folder, duplicate the `cx` folder.
 
@@ -63,7 +62,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 1. Save the file.
 
 
-### Step 3: Add your custom configuration file with admin password
+### Step 3: Add the sample custom.properties file
 
 **Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. The following procedure uses the `custom.properties` file. An example file is provided with other required configuration settings.
 
@@ -71,12 +70,17 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Move this file to `../installer/customconfig`. The file must be named `custom.properties`.
 
-1. Inspect the file's default settings using a text editor. Some changes you will want to make include:
+1. Inspect the file's default settings using a text editor. 
+
+   The default settings are designed to work with a local installation.
+   Some changes you may want to make include:
   
    - Setting `initialpassword.admin` (default is `nimda`).
    - Changing CORS settings as described below and in the Spartacus dcoumentation.
    - Setting `sop.post.url` to the proper location (payments may not otherwise work).
    - Changing `task.polling.interval.min`, so when testing certain features, processing is faster.
+   
+   **Warning**: The sample custom properties file supplied here is for evaluation purposes only, for setting up your server quickly. In particular, the CORS settings are permissive to prevent issues with trying out Spartacus. It is strongly recommended that a professional SAP Commerce Cloud administrator review these settings for production servers.
 
 ### Step 4: Build and initialize the recipe
 
@@ -124,7 +128,7 @@ To import the default system and OCC credentials:
 
 1. Point to the **Console** tab, then click **Impex Import**.
 
-###For default system credentials: 
+### For default system credentials: 
 
 1. [Download](https://github.com/SAP/spartacus/releases) the default credentials impex file.
    
@@ -176,21 +180,20 @@ You can now start Spartacus. After you have configured SAP Commerce Cloud to acc
 
 ## Notes
 
-### What's included in the custom properties file
+### What's included in the sample custom properties file
 
-Note: The sample custom properties file supplied in this document is for evaluation purposes only, for setting up your server quickly. It is strongly recommended that a professional SAP Commerce Cloud administrator review these settings for production servers.
+**Warning**: The sample custom properties file supplied in this document is for evaluation purposes only, for setting up your server quickly. In particular, the CORS settings are permissive to prevent issues with trying out Spartacus. It is strongly recommended that a professional SAP Commerce Cloud administrator review these settings for production servers.
 
-Some of the entires in the sample custom properties file include:
+The following sample custom properties are included in the file and are meant for development or evaluation purposes:
+
 |initialpassword.admin|Admin password so you can access the console and Backoffice|
-|sop.post.url|Defines where to send payment creation requests|
-|website*|Various URL settings required for Spartacus and Accelerator to work|
-|media*|Defines where media files should be fetched from|
-|corsfilter*|Defines various CORS settings required for Spartacus functionality to work (see more information below)|
+|occ.rewrite.overlapping.paths.enabled|Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts|
+|sop.post.url|Defines where to send mock payment creation requests, so you can check out|
+|corsfilter*|Defines various CORS settings required for Spartacus functionality to work (see more information below) - note that the settings are permissive and should be changed to match your site configuration|
 |mockup.payment.label.billTo*|Defines extra state and phone number fields for payment, used by Spartacus|
-|yacceleratorordermanagement.fraud.*|Increases the raud score limits so you can make large purchase using sample stores|
-|task.polling.interval.min|Sets the task polling interval to 0|
-|occ.rewrite.overlapping.paths.enabled|Defines if B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts|
-|build.parallel|Speeds up initialization|
+|yacceleratorordermanagement.fraud*|Increases the fraud score limits so you mock purchases are not cancelled|
+|task.polling.interval.min|Defines how long the system waits to kick off a new task - smaller values speed up order processing|
+|build.parallel|Speeds up initialization if your system has multiple cores|
 
 ### About OCC Credentials
 
