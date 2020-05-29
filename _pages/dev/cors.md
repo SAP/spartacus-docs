@@ -18,7 +18,7 @@ In development, the allowed origins are often configured with an asterisk (`*`),
 
 The allowed headers must include all the HTTP methods that are allowed to be used. For Spartacus, the following methods should be configured:
 
-```
+```plaintext
 GET HEAD OPTIONS PATCH PUT POST DELETE
 ```
 
@@ -44,7 +44,7 @@ The allowed headers setting indicates the HTTP headers that are allowed for cros
 ### exposedHeaders
 
 Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
-Personalization feature requires the `occ-personalization-id` and the `occ-personalization-time` headers.
+Personalization requires the `occ-personalization-id` and the `occ-personalization-time` headers to be exposed.
 
 ### allowCredentials
 
@@ -76,7 +76,7 @@ For each installation, it is important to note the following:
 
 If you install the CORS filter configuration by properties, the following properties must be added:
 
-```
+```plaintext
 corsfilter.ycommercewebservices.allowedOrigins=*
 corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
@@ -86,7 +86,7 @@ corsfilter.ycommercewebservices.allowCredentials=true
 
 If you are using the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
-```
+```plaintext
 corsfilter.assistedservicewebservices.allowedOrigins=*
 corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
@@ -150,7 +150,7 @@ If you use the Assisted Service Module (ASM), you must also add the same headers
 
 You can use the following ImpEx script if you want to install the CORS filter configuration during initialization, during an update, or manually with the Hybris Admin Console.
 
-```
+```plaintext
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=ycommercewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
@@ -161,7 +161,7 @@ INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=y
 
 If you are using the Assisted Service Module (ASM), you must also run the following script:
 
-```
+```plaintext
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
