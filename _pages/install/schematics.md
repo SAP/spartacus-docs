@@ -32,7 +32,7 @@ The following is a description of the various options you can use with the `ng a
 The following is an example that sets the `baseUrl`, `baseSite`, `currency`, `language`, and also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,cad --language=en,rs
+ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,cad --language=en,rs --ssr
 ```
 
 ### Additional Commands
