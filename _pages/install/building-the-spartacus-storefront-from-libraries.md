@@ -2,9 +2,7 @@
 title: Building the Spartacus Storefront using 2.x Libraries
 ---
 
-The following instructions describe how to build a storefront application using published Spartacus 1.x libraries.
-
-If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+The following instructions describe how to build a storefront application using published Spartacus 2.x libraries. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 ## Prerequisites
 
@@ -16,7 +14,7 @@ Before carrying out the procedures below, ensure the following front end and bac
 
 ## Back End Server Requirements
 
-Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator Electronics storefront in particular. Release 2005 is recommended although Spartacus works with 1905 as well; the difference is in the APIs available (such as cancel/returns and B2B My Company). No matter the version, the latest patch is required, as important fixes as often added that affect Spartacus.
+Spartacus uses SAP Commerce Cloud for its back end, and makes use of the sample data. Release 2005 is recommended, although Spartacus works with 1905 as well; the difference is in the APIs available (such as cancellations and returns and the Commerce Organization feature). No matter the version, the latest patch is required, as important fixes as often added that affect Spartacus.
 
 For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}). 
 
@@ -50,7 +48,7 @@ For a full list of available parameters please visit Spartacus schematics [docum
 
 ### Setting up the project using schematics ###
 
-Until 2.0 is released and is designated the "latest" Spartacus library, use this command:
+Until 2.0 is officially released and is designated the "latest" Spartacus library, use this command:
 
 ```bash
 ng add @spartacus/schematics@rc
@@ -58,37 +56,49 @@ ng add @spartacus/schematics@rc
 
 After 2.0 is released, you can omit the `@rc` at the end of the command. By default the latest libraries will be installed.
 
-To verify what versions of Spartacus libraries were installed, inspect the file package.json and look for `@spartacus`
+To verify what versions of Spartacus libraries were installed, inspect the file package.json and look for `@spartacus`.
 
 ### After the project is set up using schematics ###
 
 Inspect the `src\app\app.module.ts` file for any changes you want to make for your setup. 
 
 For example, check:
-- `baseUrl` to point to your server
-- `features.level` to specify the compatibility version 
-- `prefix` to specify `/rest/` (default for release 1905) or `/occ/` (default for release 2005)
+- `baseUrl`: Points to your SAP Commerce Cloud server
+- `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2005
+- `features.level`: Defines the compatibility level
 
-You may also want to specify base site configuration information to correspond with your WCMS sites:
+You may also want to specify base site configuration information to correspond with the WCMS sites included with the Spartacus Sample Data Addon. To do so, add the following `context` section within the `B2cStorefrontModule.withConfig` section, for example after `features`:
+
 ```json
+features: {
+  level: '2.0'
+},
 context: {
-urlParameters: ['baseSite', 'language', 'currency'],
-baseSite: ['electronics-spa','apparel-uk-spa'],
-currency: ['USD', 'GBP',]
+  urlParameters: ['baseSite', 'language', 'currency'],
+  baseSite: ['electronics-spa','apparel-uk-spa'],
+  currency: ['USD', 'GBP',]
 },
 ```
 
 ### Starting your Spartacus app ###  
 
-Run `yarn start`.
+Start your app with the following command:
+
+```
+yarn start
+```
 
 To display your storefront, assuming everything is installed locally:
 
 1. Browse to `https://localhost:9002/rest/v2/electronics/cms/pages` and accept the privacy certificate.
 
-   (This step is necessary because your app will make calls to localhost:9002, but your browser will block the calls due to privacy settings.)
+   (This step is necessary because your browser will block calls to app will make calls to localhost:9002 due to privacy settings.)
    
-2. Browse to `http://localhost:4200`.
+2. Browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data Addon, the Spartacus storefront for Electronics should appear.
+
+You can display the Apparel storefront through this URL:
+
+`http://localhost:4200/apparel-uk-spa/en-GBP`
 
 
 Congratulations! You've built your first Spartacus storefront.
