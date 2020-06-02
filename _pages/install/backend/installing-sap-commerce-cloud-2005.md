@@ -8,11 +8,11 @@ The following instructions describe how to install and configure SAP Commerce Cl
 
 ## Important disclaimers ##
 
-- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These passwords have to be enabled for certain functionality to work out of the box. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information.
+- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill ordres with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information. 
 
-- Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file contains the default password `nimba`.
+- Starting with release 1905, SAP Commerce Cloud releases ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contain the default password `nimba`; we strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
 
-- The sample custom properties file and OCC credentials supplied here are for evaluation purposes only. Besides a default password, for example, the CORS settings are permissive to prevent access issues. It is strongly recommended that a professional SAP Commerce Cloud administrator review these settings for production servers.
+- The sample custom properties file and OCC credentials supplied here are for evaluation purposes only. Aside from a default password, for example, the CORS settings are permissive to prevent access issues. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as they should not be used for production servers.
   
   
 ## Installation and configuration instructions ##
@@ -28,11 +28,48 @@ Summary:
 ### Step 1: Download, unzip, and create the new recipe ###
 
 1. Download and unzip the following files:
-   - SAP Commerce Cloud (release 2005 recommended) from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP COMMERCE). 
+   - SAP Commerce Cloud (release 2005 recommended) from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE). 
    - Spartacus Sample Data AddOn from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). The zip file itself, `spartacussampledataaddon.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library.
    
 1. Move the file `custom.properties` from `spartacussampledataaddon/resources/customconfig` to `installer/customconfig`. 
    It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
+   
+   Note: If this file is available, create a file named `custom.properties` inside the `spartacussampledataaddon/resources/customconfig` folder, and then add the following to the file:
+   
+   ```
+   initialpassword.admin=nimda
+sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process
+occ.rewrite.overlapping.paths.enabled=true
+
+corsfilter.default.allowedOrigins=*
+corsfilter.acceleratorservices.allowedOrigins=*
+corsfilter.permissionswebservices.allowedOrigins=*
+
+corsfilter.ycommercewebservices.allowedOrigins=*
+corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
+
+corsfilter.commercewebservices.allowedOrigins=*
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents
+
+corsfilter.assistedservicewebservices.allowedOrigins=*
+corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
+
+mockup.payment.label.billTo.region=billTo_state
+mockup.payment.label.billTo.phoneNumber=billTo_phoneNumber
+
+yacceleratorordermanagement.fraud.scoreLimit=500000
+yacceleratorordermanagement.fraud.scoreTolerance=500000
+yacceleratorordermanagement.fraud.scoreLimitExternal=500000
+yacceleratorordermanagement.fraud.scoreToleranceExternal=500000
+task.polling.interval.min=0
+
+smarteditaddon.dynamicattribute.enabled=true
+
+build.parallel=true
+```
 
 1. In `hybris/bin/modules`:
    - Create the folder `custom`.
@@ -45,10 +82,13 @@ Summary:
 1. In the new `cx-for-spa` folder:
    - Open `build.gradle` with a text editor.
    - Uncomment the following lines:
+     
      In the list of extensions:
      `//  extName 'spartacussampledataaddon'`
+     
      In the section `addons forStoreFronts('yacceleratorstorefront,yb2bacceleratorstorefront') {`:   
      `// 'spartacussampledataaddon',`
+     
    - Save and close the file.
   
   
@@ -57,16 +97,20 @@ Summary:
 1. Open a terminal or command prompt window inside the `installer` folder.
 
 1. Set up the recipe using the following command: 
+   
    `./install.sh -r cx-for-spa`
    
    If you are using Windows, change `./install.sh` to `install.bat`.
 
 1. Initialize the system using the following command: 
+   
    `./install.sh -r cx-for-spa initialize`
 
 1. Start SAP Commerce Cloud using the following command: 
+   
    `./install.sh -r cx-for-spa start`
-   (With `spartacussampledataaddon` and the full `cx` recipe, startup may take approximately 30 minutes, depending on your system.)
+   
+   (Using `spartacussampledataaddon` and the full `cx` recipe, startup may take approximately 30 minutes, depending on your system.)
 
 1. Verify that SAP Commerce Cloud is working. To do this, you can:
    - Display the Admin Console: https://localhost:9002
@@ -83,6 +127,7 @@ Summary:
 Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials. 
 
 1. Open the Hybris Administration Console for your local SAP Commerce Cloud, in a web browser at the following address: 
+   
    `https://localhost:9002`
 
 1. Point to the **Console** tab, then click **Impex Import**.
@@ -119,7 +164,7 @@ The curl command sends a POST request for an access token, using the client ID a
 
 If you are using SAP Commerce Cloud 2005, you may need to enable users and passwords for certain functionality to work.
 
-See (this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information.
+See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information.
   
   
 ### All done!
@@ -132,38 +177,42 @@ You can now start Spartacus. After you have configured SAP Commerce Cloud to acc
 ### General ###
 
 - Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
+- The default cx recipe is used to create the recipe for Spartacus. Among other extensions, the cx recipe uses the Order Management Services feature (OMS). If you make an order, OMS doesn't ship the order, so orders remain in processing. To ship the order, a Warehouse Agent must confirm order shipment. For more information, see the [OMS documentation](https://help.sap.com/viewer/9442091906534fbf837f9f3155ea7b4f/latest/en-US/8b48bef286691014a289a06b5d3b9cfe.html).
 
 ### Spartacus Sample Data AddOn ###
-- The Spartacus Sample Data AddOn contains both sample data modifications used by Spartacus. The addon makes a copy of the electronics and apparel sample stores, if present. If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data Addon is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like `commercewebservices`.
-- The Spartacus Sample Data AddOn copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your `build.gradle` file.
+- The Spartacus Sample Data AddOn contains both sample data modifications used by Spartacus. The addon makes a copy of the Electronics and Apparel sample stores, if present (and Powertools in a future release). If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data Addon is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like `commercewebservices`.
+- The Spartacus Sample Data AddOn copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe's `build.gradle` file.
 - Previous versions of the Spartacus Sample Data Addon are available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
 - For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
 
 ### Sample configuration properties ###
--  The settings in `config.properties` are designed to work with a local installation. Some changes you may want to make include:
-   - Setting `initialpassword.admin` (default is `nimda`).
-   - Changing CORS settings as described below and in the Spartacus documentation.
-   - Setting `sop.post.url` to the proper location (payments may not otherwise work).
-   - Changing `task.polling.interval.min`, so when testing certain features, processing is faster.
-- The following sample custom properties are included in the file and are meant for development or evaluation purposes:
-  |initialpassword.admin|Admin password so you can access the console and Backoffice|
-  |occ.rewrite.overlapping.paths.enabled|Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts|
-  |sop.post.url|Defines where to send mock payment creation requests, so you can check out|
-  |corsfilter*|Defines various CORS settings required for Spartacus functionality to work (see more information below) - note that the settings are permissive and should be changed to match your site configuration|
-  |mockup.payment.label.billTo*|Defines extra state and phone number fields for payment, used by Spartacus|
-  |yacceleratorordermanagement.fraud*|Increases the fraud score limits so you mock purchases are not cancelled|
-  |task.polling.interval.min|Defines how long the system waits to kick off a new task - smaller values speed up order processing|
-  |build.parallel|Speeds up initialization if your system has multiple cores|
+The sample custom properties file is meant for development and evaluation purposes only. 
+Please be careful to at least review the following properties:
+   - The admin password (`initialpassword.admin`) (default is `nimda`).
+   - CORS settings as described further in this document, and in the Spartacus documentation.
+
+The following table summarizes the settings included in this file:
+
+|initialpassword.admin|Admin password so you can access the console and Backoffice|
+|occ.rewrite.overlapping.paths.enabled|Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts|
+|sop.post.url|Defines where to send mock payment creation requests, so you can check out|
+|corsfilter*|Defines various CORS settings required for Spartacus functionality to work (see more information below) - note that the settings are permissive and should be changed to match your site configuration|
+|mockup.payment.label.billTo*|Defines extra state and phone number fields for payment, used by Spartacus|
+|yacceleratorordermanagement.fraud*|Increases the fraud score limits so you mock purchases are not cancelled|
+|task.polling.interval.min|Defines how long the system waits to kick off a new task - smaller values speed up order processing|
+|build.parallel|Speeds up initialization if your system has multiple cores|
 
 ### Sample OCC credentials ###
-- By default, SAP Commerce Cloud replies to OCC REST API calls that do not require authentication. For example, you can do the following:
+- By default, SAP Commerce Cloud successfully replies to OCC REST API calls that do not require authentication. For example, you can do the following:
   - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
   - Display information about the `Electronics` base store: https://localhost:9002/rest/v2/electronics/basestores/electronics
-  To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end. 
+
+To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end. 
 - When you import the OCC credentials impex, you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
 - For more information on this topic, see [this help topic](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html).
 
 ### CORS Settings
+- CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as the sample properties should not be used for production servers.
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 - You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 - For information on Spartacus and CORS settings, see [this help topic]({{ site.baseurl }}{% link _pages/dev/cors.md %}).
