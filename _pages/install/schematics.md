@@ -38,7 +38,7 @@ ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.mo
 Similarly, the following is an example that generates an application ready to be used with the _apparel_ store and sets the `baseUrl`, `baseSite`, `currency`, `language`, and also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=en,rs --ssr
+ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
 ```
 
 ### Additional Commands
