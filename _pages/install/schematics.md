@@ -29,10 +29,16 @@ The following is a description of the various options you can use with the `ng a
 - `pwa` includes progressive web application (PWA) features when building the application.
 - `ssr` includes the server-side rendering (SSR) configuration.
 
-The following is an example that sets the `baseUrl`, `baseSite`, `currency`, `language`, and also enables server-side rendering:
+The following is an example that generates an application ready to be used with the _electronics_ store and sets the `baseUrl` and the `baseSite`, and also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,cad --language=en,rs --ssr
+ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=electronics-spa --ssr
+```
+
+Similarly, the following is an example that generates an application ready to be used with the _apparel_ store and sets the `baseUrl`, `baseSite`, `currency`, `language`, and also enables server-side rendering:
+
+```shell
+ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=en,rs --ssr
 ```
 
 ### Additional Commands
