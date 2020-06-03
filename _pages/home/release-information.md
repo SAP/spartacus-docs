@@ -86,6 +86,8 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 You can upgrade your Spartacus libraries to a new minor version, as follows:
 
 1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+
+    If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
 
