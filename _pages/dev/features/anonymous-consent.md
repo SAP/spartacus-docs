@@ -29,6 +29,8 @@ If you are using SAP Commerce Cloud 1905 or older, add the `x-anonymous-consents
 - `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
 - `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
 
+**Note:** If you are using Spartacus 2.0 with SAP Commerce Cloud 1905, you may experience some caching issues on the consent management page. The fix has been back-ported to Spartacus version 1905.15.
+
 #### Consent Data
 
 Besides having consent defined on the back end, they need to be marked as _exposed_, which can be done by executing an impex file similar to this:
