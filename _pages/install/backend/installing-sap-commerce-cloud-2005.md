@@ -38,38 +38,30 @@ Summary:
    
    ```
    initialpassword.admin=nimda
-sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process
-occ.rewrite.overlapping.paths.enabled=true
-
-corsfilter.default.allowedOrigins=*
-corsfilter.acceleratorservices.allowedOrigins=*
-corsfilter.permissionswebservices.allowedOrigins=*
-
-corsfilter.ycommercewebservices.allowedOrigins=*
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
-
-corsfilter.commercewebservices.allowedOrigins=*
-corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents
-
-corsfilter.assistedservicewebservices.allowedOrigins=*
-corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
-
-mockup.payment.label.billTo.region=billTo_state
-mockup.payment.label.billTo.phoneNumber=billTo_phoneNumber
-
-yacceleratorordermanagement.fraud.scoreLimit=500000
-yacceleratorordermanagement.fraud.scoreTolerance=500000
-yacceleratorordermanagement.fraud.scoreLimitExternal=500000
-yacceleratorordermanagement.fraud.scoreToleranceExternal=500000
-task.polling.interval.min=0
-
-smarteditaddon.dynamicattribute.enabled=true
-
-build.parallel=true
-```
+   sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process
+   occ.rewrite.overlapping.paths.enabled=true
+   corsfilter.default.allowedOrigins=*
+   corsfilter.acceleratorservices.allowedOrigins=*
+   corsfilter.permissionswebservices.allowedOrigins=*
+   corsfilter.ycommercewebservices.allowedOrigins=*
+   corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+   corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
+   corsfilter.commercewebservices.allowedOrigins=*
+   corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+   corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents
+   corsfilter.assistedservicewebservices.allowedOrigins=*
+   corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+   corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
+   mockup.payment.label.billTo.region=billTo_state
+   mockup.payment.label.billTo.phoneNumber=billTo_phoneNumber
+   yacceleratorordermanagement.fraud.scoreLimit=500000
+   yacceleratorordermanagement.fraud.scoreTolerance=500000
+   yacceleratorordermanagement.fraud.scoreLimitExternal=500000
+   yacceleratorordermanagement.fraud.scoreToleranceExternal=500000
+   task.polling.interval.min=0
+   smarteditaddon.dynamicattribute.enabled=true
+   build.parallel=true
+   ```
 
 1. In `hybris/bin/modules`:
    - Create the folder `custom`.
@@ -193,14 +185,16 @@ Please be careful to at least review the following properties:
 
 The following table summarizes the settings included in this file:
 
-|initialpassword.admin|Admin password so you can access the console and Backoffice|
-|occ.rewrite.overlapping.paths.enabled|Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts|
-|sop.post.url|Defines where to send mock payment creation requests, so you can check out|
-|corsfilter*|Defines various CORS settings required for Spartacus functionality to work (see more information below) - note that the settings are permissive and should be changed to match your site configuration|
-|mockup.payment.label.billTo*|Defines extra state and phone number fields for payment, used by Spartacus|
-|yacceleratorordermanagement.fraud*|Increases the fraud score limits so you mock purchases are not cancelled|
-|task.polling.interval.min|Defines how long the system waits to kick off a new task - smaller values speed up order processing|
-|build.parallel|Speeds up initialization if your system has multiple cores|
+| Setting | Description |
+| --- | --- |
+| initialpassword.admin | Admin password so you can access the console and Backoffice |
+| occ.rewrite.overlapping.paths.enabled | Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts |
+| sop.post.url | Defines where to send mock payment creation requests, so you can check out |
+| corsfilter* | Defines various CORS settings required for Spartacus functionality to work (see more information below) - note that the settings are permissive and should be changed to match your site configuration |
+| mockup.payment.label.billTo* | Defines extra state and phone number fields for payment, used by Spartacus |
+| yacceleratorordermanagement.fraud* | Increases the fraud score limits so you mock purchases are not cancelled |
+| task.polling.interval.min | Defines how long the system waits to kick off a new task - smaller values speed up order processing |
+| build.parallel | Speeds up initialization if your system has multiple cores |
 
 ### Sample OCC credentials ###
 - By default, SAP Commerce Cloud successfully replies to OCC REST API calls that do not require authentication. For example, you can do the following:
