@@ -83,7 +83,7 @@ Start your app with the following command:
 yarn start
 ```
 
-Your app will be complied and then started.
+Your app will be compiled and then started.
 
 To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data Addon, the Spartacus storefront for Electronics should appear.
 

@@ -34,7 +34,7 @@ Summary:
 1. Move the file `custom.properties` from `spartacussampledataaddon/resources/customconfig` to `installer/customconfig`. 
    It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
    
-   Note: If this file is available, create a file named `custom.properties` inside the `spartacussampledataaddon/resources/customconfig` folder, and then add the following to the file:
+   Note: If this file is not available, create a file named `custom.properties` inside the `spartacussampledataaddon/resources/customconfig` folder, and then add the following to the file:
    
    ```
    initialpassword.admin=nimda
