@@ -10,9 +10,12 @@ Make sure all the required personalization extensions and AddOns are installed i
 
 ## Back End CORS Settings
 
-As described in [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/e970070f997041c7b3f3e77fcb762744.html), add `occ-personalization-id` and `occ-personalization-time` to the `corsfilter.commercewebservices.allowedHeaders` setting.
+As described in [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/e970070f997041c7b3f3e77fcb762744.html), add `occ-personalization-id` and `occ-personalization-time` to the following settings:
 
-**Note:** This setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use the following settings instead:
+- `corsfilter.commercewebservices.allowedHeaders`
+- `corsfilter.commercewebservices.exposedHeaders`
+
+**Note:** These settings are for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use the following settings instead:
 
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
