@@ -48,37 +48,32 @@ For a full list of available parameters please visit Spartacus schematics [docum
 
 ### Setting up the project using schematics ###
 
-Until 2.0 is officially released and is designated the "latest" Spartacus library, use this command:
+To install the latest release of Spartacus 2.0 using schematics:
 
 ```bash
-ng add @spartacus/schematics@rc
+ng add @spartacus/schematics
 ```
 
-After 2.0 is released, you can omit the `@rc` at the end of the command. By default the latest libraries will be installed.
+To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command. 
 
-To verify what versions of Spartacus libraries were installed, inspect the file package.json and look for `@spartacus`.
+To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
 
-### After the project is set up using schematics ###
+### Check app.module.ts for base URL and other settings ###
 
-Inspect the `src\app\app.module.ts` file for any changes you want to make for your setup. 
+Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
 
 For example, check:
 - `baseUrl`: Points to your SAP Commerce Cloud server
 - `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2005
 - `features.level`: Defines the compatibility level
-
-You may also want to specify base site configuration information to correspond with the WCMS sites included with the Spartacus Sample Data Addon. To do so, add the following `context` section within the `B2cStorefrontModule.withConfig` section, for example after `features`:
-
-```json
-features: {
-  level: '2.0'
-},
-context: {
-  urlParameters: ['baseSite', 'language', 'currency'],
-  baseSite: ['electronics-spa','apparel-uk-spa'],
-  currency: ['USD', 'GBP',]
-},
-```
+- `context`: Defines the site context such as base site, language, and currency. For example, to see the base site in the URL and add Apparel store support, change `context` to the following:
+   ```
+   context: {
+     urlParameters: ['baseSite', 'language', 'currency'],
+     baseSite: ['electronics-spa','apparel-uk-spa'],
+     currency: ['USD', 'GBP',]
+   },
+   ```
 
 ### Starting your Spartacus app ###  
 
@@ -88,18 +83,13 @@ Start your app with the following command:
 yarn start
 ```
 
-To display your storefront, assuming everything is installed locally:
+Your app will be complied and then started.
 
-1. Browse to `https://localhost:9002/rest/v2/electronics/cms/pages` and accept the privacy certificate.
+To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data Addon, the Spartacus storefront for Electronics should appear.
 
-   (This step is necessary because your browser will block calls to app will make calls to localhost:9002 due to privacy settings.)
-   
-2. Browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data Addon, the Spartacus storefront for Electronics should appear.
+Note: If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/rest/v2/electronics/cms/pages`, and then accept the privacy certificate. This step is necessary because your browser will block calls to app will make calls to localhost:9002 due to security settings. To see the browser message, right-click in your browser, select Inspect, then click Console.
 
-You can display the Apparel storefront through this URL:
-
-`http://localhost:4200/apparel-uk-spa/en-GBP`
-
+You can display the Apparel storefront through this URL: `http://localhost:4200/apparel-uk-spa/en-GBP`
 
 Congratulations! You've built your first Spartacus storefront.
 
