@@ -19,6 +19,7 @@ Anonymous Consent Management gives anonymous users control over the tracking of 
 Anonymous consent uses an `x-anonymous-consents` custom header, which needs to be configured in the back end by adding it to certain properties. If you are using SAP Commerce Cloud 2005 or newer, add the `x-anonymous-consents` header to the following properties:
 
 - `corsfilter.commercewebservices.allowedHeaders`
+- `corsfilter.commercewebservices.exposedHeaders`
 - `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
 - `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
 
