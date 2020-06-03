@@ -2,18 +2,9 @@
 title: Release Information for Versions 2.0 of Spartacus Libraries
 ---
 
-*Last updated May 28, 2020 by Matthew Burton, Senior Technical Writer, Spartacus*
+**Final 2.0 released June 3, 2020!**
 
-This document describes what is included in all Spartacus 2.x libraries since 2.0.
-
-For release information about Spartacus 1.x, see [Release Information for Versions 1.0-1.5 of Spartacus Libraries](https://sap.github.io/spartacus-docs-v1/release-information/) in our version 1.x documentation archive.
-
-**Note: Spartacus 2.x requires Angular 9. For more information, see [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/updating-to-version-2.md %}).**
-
-
-- For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
-- For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
-- For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
+*Last updated June 3, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
@@ -26,9 +17,16 @@ Contents:
   
 ## Introduction
 
-This document describes what is included in the latest releases of Spartacus libraries.
+This document describes what is included in all Spartacus 2.x libraries since 2.0.
 
-If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+For release information about Spartacus 1.x, see [Release Information for Versions 1.0-1.5 of Spartacus Libraries](https://sap.github.io/spartacus-docs-v1/release-information/) in our version 1.x documentation archive.
+
+**Note: Spartacus 2.x requires Angular 9. For more information, see [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/updating-to-version-2.md %}).**
+
+- For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
+- For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
+- For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
+- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
   
 **Disclaimer - Forward-Looking Statements**
 
@@ -38,37 +36,37 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 ## Release 2.0
 
-*Release 2.0 libraries to be published June 2, 2020*
+*Release 2.0.0 libraries published June 3, 2020*
 
-Release 2.0 is a new, major version, and contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
+As Release 2.0 is a new major version, it contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
 
 - [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/updating-to-version-2.md %}) (automated update using schematics)
 - [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md)
 - [Changes to Styles in 2.0](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/css-changes-in-version-2.md)
 
-The following is a summary of the major changes from 1.x to 2.0:
+The following is a summary of the major changes introduced in 2.0:
 
-- Angular 9, ngrx 9
+- Framework updated to Angular 9, including related dependencies such as ngrx 9
 - [Schematics updated]({{ site.baseurl }}{% link _pages/install/schematics.md %})
 - [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus.md %})
 - [Lazy loading of CMS components](https://sap.github.io/spartacus-docs/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
-- [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %})
+- [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}), with Add to Cart event
 - [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %})
 - [Custom Angular URL Matching](https://sap.github.io/spartacus-docs/adding-and-customizing-routes/#avoiding-static-url-segments-in-the-product-page-url-advanced)
 - Many components refactored
 - New facet navigation makes extending facets easier
 - Deprecated code removed
 
-For a list of all changes for 2.0 RC and previous 'next' releases of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+For a detailed list of all changes for 2.0 and previous 'next' releases of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## About Spartacus Releases
 
 - Libraries that are "released" are new, official, tested Spartacus libraries available to the public (hosted on npmjs.com)
-- We usually release new libraries every 2 weeks
+- We usually publish new libraries every 2 weeks
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
-- If you choose not to use a new feature, you should have no problems upgrading to a new 1.# with features flag set to a previous 1.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development.
-- To be able to use all functionality in Spartacus 1.\*, release 1905 of SAP Commerce Cloud is required. The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5 and Save for Later features requires 1905.11). 
+- If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development in order to take advantage of bug fixes and new features.
+- To be able to use all functionality in Spartacus 2.\*, release 2005 of SAP Commerce Cloud is required. The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5 and Save for Later features requires 1905.11). However, Spartacus 2.\* also works and is tested with release 1905; Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available.
   
 ## How Spartacus is Versioned
 
@@ -81,7 +79,7 @@ For both patch and minor releases, upgrading to the new libraries should not cau
 
 - A new major release (**1**.3.2 > **2**.0.0 for example) means that, besides adding new features and improvements, we made changes that will likely cause compatibility issues. Your app likely needs updating when moving to a new major release. These effects, reasons, and benefits will be documented.
 
-We don't plan to introduce a new major release that frequently, unless an issue is found that makes it necessary to move to a major release . The upcoming Angular "Ivy" (after Angular 8) is one factor in our eventual decision to do so.
+We don't plan to introduce a new major release that frequently, unless an issue is found that makes it necessary to move to a major release . For example, a new major release of the Angular framework is one factor in our decision to move to a new major for Spartacus.
   
 ## Upgrading Spartacus Libraries to a New Minor Version
 
@@ -89,7 +87,7 @@ You can upgrade your Spartacus libraries to a new minor version, as follows:
 
 1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-    If you are upgrading from 1.x to the latest 1.5 release, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
+    If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
 
