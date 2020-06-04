@@ -80,8 +80,6 @@ cmsComponents: {
 }
 ```
 
-**Note:** Accessing child routes through deep links to nested routes is not yet supported. You have to first open the parent route and then navigate to the child route using the router link.
-
 **Note:** Child routes for the Product and Category Pages are not supported.
 
 ## Configuring the Category Name in the Product Page Route (Advanced)
