@@ -1,5 +1,5 @@
 ---
-title: Configuring Feature Flags (DRAFT)
+title: Configuring Feature Flags
 ---
 
 {% capture version_note %}

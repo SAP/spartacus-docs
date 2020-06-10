@@ -1,5 +1,5 @@
 ---
-title: Product Details Page (DRAFT)
+title: Product Details Page
 ---
 
 The purpose of this page is to explain the specific CMS structure of the Product Details Page (PDP) and explain the different mechanisms to configure the page.

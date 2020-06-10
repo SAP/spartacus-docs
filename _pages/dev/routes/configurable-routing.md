@@ -1,5 +1,5 @@
 ---
-title: Configurable Routing (DRAFT)
+title: Configurable Routing
 ---
 
 ## Introduction

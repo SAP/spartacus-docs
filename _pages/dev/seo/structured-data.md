@@ -1,5 +1,5 @@
 ---
-title: Structured Data (DRAFT)
+title: Structured Data
 ---
 
 {% capture version_note %}

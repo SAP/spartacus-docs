@@ -1,5 +1,5 @@
 ---
-title: External Routes (DRAFT)
+title: External Routes
 ---
 
 {% capture version_note %}

@@ -176,7 +176,7 @@ In the same manner, the `uid` attribute of `JspIncludeComponent` is used in the 
 
 **Note:** It is recommended to use `CMSFlexComponent` instead of `JspIncludeComponent`, because the `uid` attribute in `JspIncludeComponent` must be unique, which means you cannot have two instances of the same `JspIncludeComponent`.
 
-## Handling Nested CMS Components (DRAFT)
+## Handling Nested CMS Components
 
 The CMS allows the creation of nested components inside so-called container components. An example of such component is the `TabPanelContainer` that is used in the product details page to display the tabs. In this case, the container contains the different tab components.
 

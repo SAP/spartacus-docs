@@ -1,5 +1,5 @@
 ---
-title: Anonymous Consent (DRAFT)
+title: Anonymous Consent
 ---
 
 {% capture version_note %}
