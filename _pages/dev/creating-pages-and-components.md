@@ -1,5 +1,5 @@
 ---
-title: Creating New Pages and Components (DRAFT)
+title: Creating New Pages and Components
 ---
 
 The Spartacus storefront is based on Javascript, and accordingly, it is composed of a large number of fine-grained Javascript components. The components have an equivalent in the CMS and there is mapping to the Angular component.

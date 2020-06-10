@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce Cloud 2005 for use with Spartacus (DRAFT)
+title: Installing SAP Commerce Cloud 2005 for use with Spartacus
 ---
 
 The following instructions describe how to install and configure SAP Commerce Cloud release 2005 for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
@@ -8,7 +8,7 @@ The following instructions describe how to install and configure SAP Commerce Cl
 
 ## Important disclaimers ##
 
-- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill ordres with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information. 
+- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill ordres with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information and for a sample impex that enables such users. 
 
 - Starting with release 1905, SAP Commerce Cloud releases ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contain the default password `nimba`; we strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
 
@@ -29,39 +29,13 @@ Summary:
 
 1. Download and unzip the following files:
    - SAP Commerce Cloud (release 2005 recommended) from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE). 
-   - Spartacus Sample Data AddOn from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). The zip file itself, `spartacussampledataaddon.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library.
+   - Spartacus Sample Data AddOn from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). 
+     - The zip file itself, `spartacussampledataaddon.2005.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library. 
+     - [Direct link to spartacussampledataaddon.2005.zip](https://github.com/SAP/spartacus/releases/download/storefront-2.0.0/spartacussampledataaddon.2005.zip) (newer versions of the sample data may be released in later releases)
    
 1. Move the file `custom.properties` from `spartacussampledataaddon/resources/customconfig` to `installer/customconfig`. 
    It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
-   
-   Note: If this file is not available, create a file named `custom.properties` inside the `spartacussampledataaddon/resources/customconfig` folder, and then add the following to the file:
-   
-   ```
-   initialpassword.admin=nimda
-   sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process
-   occ.rewrite.overlapping.paths.enabled=true
-   corsfilter.default.allowedOrigins=*
-   corsfilter.acceleratorservices.allowedOrigins=*
-   corsfilter.permissionswebservices.allowedOrigins=*
-   corsfilter.ycommercewebservices.allowedOrigins=*
-   corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-   corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
-   corsfilter.commercewebservices.allowedOrigins=*
-   corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-   corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents
-   corsfilter.assistedservicewebservices.allowedOrigins=*
-   corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-   corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
-   mockup.payment.label.billTo.region=billTo_state
-   mockup.payment.label.billTo.phoneNumber=billTo_phoneNumber
-   yacceleratorordermanagement.fraud.scoreLimit=500000
-   yacceleratorordermanagement.fraud.scoreTolerance=500000
-   yacceleratorordermanagement.fraud.scoreLimitExternal=500000
-   yacceleratorordermanagement.fraud.scoreToleranceExternal=500000
-   task.polling.interval.min=0
-   smarteditaddon.dynamicattribute.enabled=true
-   build.parallel=true
-   ```
+   The contents of this file are listed at the end of this document for reference.
 
 1. In `hybris/bin/modules`:
    - Create the folder `custom`.
@@ -215,3 +189,34 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 ## Troubleshooting ##
 - If SAP Commerce Cloud installer doesn't work, make sure there are no spaces in the path to the SAP Commerce Cloud folder.
 - If Spartacus starts or partially starts, check all CORS settings. For more information, see [this help topic]({{ site.baseurl }}{% link _pages/dev/cors.md %}).
+
+## config.properties file ##
+
+To use these settings, create a file named `custom.properties` inside the `spartacussampledataaddon/resources/customconfig` folder, and then add the following to the file:
+   
+   ```
+   initialpassword.admin=nimda
+   sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process
+   occ.rewrite.overlapping.paths.enabled=true
+   corsfilter.default.allowedOrigins=*
+   corsfilter.acceleratorservices.allowedOrigins=*
+   corsfilter.permissionswebservices.allowedOrigins=*
+   corsfilter.ycommercewebservices.allowedOrigins=*
+   corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+   corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
+   corsfilter.commercewebservices.allowedOrigins=*
+   corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+   corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents
+   corsfilter.assistedservicewebservices.allowedOrigins=*
+   corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
+   corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
+   mockup.payment.label.billTo.region=billTo_state
+   mockup.payment.label.billTo.phoneNumber=billTo_phoneNumber
+   yacceleratorordermanagement.fraud.scoreLimit=500000
+   yacceleratorordermanagement.fraud.scoreTolerance=500000
+   yacceleratorordermanagement.fraud.scoreLimitExternal=500000
+   yacceleratorordermanagement.fraud.scoreToleranceExternal=500000
+   task.polling.interval.min=0
+   smarteditaddon.dynamicattribute.enabled=true
+   build.parallel=true
+   ```

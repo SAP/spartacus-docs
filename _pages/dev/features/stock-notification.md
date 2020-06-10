@@ -1,5 +1,5 @@
 ---
-title: Stock Notification (DRAFT)
+title: Stock Notification
 ---
 
 {% capture version_note %}

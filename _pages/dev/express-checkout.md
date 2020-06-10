@@ -1,5 +1,5 @@
 ---
-title: Express Checkout (DRAFT)
+title: Express Checkout
 ---
 
 {% capture version_note %}

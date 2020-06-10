@@ -1,5 +1,5 @@
 ---
-title: Adding and Customizing Routes (DRAFT)
+title: Adding and Customizing Routes
 ---
 
 ## Page Types and Page Labels

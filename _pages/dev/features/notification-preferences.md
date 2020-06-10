@@ -1,5 +1,5 @@
 ---
-title: Notification Preferences (DRAFT)
+title: Notification Preferences
 ---
 
 {% capture version_note %}

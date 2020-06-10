@@ -1,5 +1,5 @@
 ---
-title: Personalization Setup Instructions for Spartacus (DRAFT)
+title: Personalization Setup Instructions for Spartacus
 ---
 
 For the following steps, the Electronics sample site is used along with the Spartacus Sample Data Addon.
