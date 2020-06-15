@@ -1,5 +1,5 @@
 ---
-title: Personalization Setup Instructions for Spartacus (DRAFT)
+title: Personalization Setup Instructions for Spartacus
 ---
 
 For the following steps, the Electronics sample site is used along with the Spartacus Sample Data Addon.
@@ -11,6 +11,11 @@ Make sure all the required personalization extensions and AddOns are installed i
 ## Back End CORS Settings
 
 As described in [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/e970070f997041c7b3f3e77fcb762744.html), add `occ-personalization-id` and `occ-personalization-time` to the following settings:
+
+- `corsfilter.commercewebservices.allowedHeaders`
+- `corsfilter.commercewebservices.exposedHeaders`
+
+**Note:** These settings are for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use the following settings instead:
 
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
@@ -42,7 +47,7 @@ origin content-type accept authorization occ-personalization-id occ-personalizat
 
 ## Enabling Personalization in Spartacus
 
-In `app.module.ts`, add the following to the settings in the `StorefrontModule.withConfig` section:
+In `app.module.ts`, add the following to the settings in the `B2cStorefrontModule.withConfig` section:
 
 ```
 personalization: {

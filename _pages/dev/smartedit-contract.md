@@ -1,5 +1,5 @@
 ---
-title: SmartEdit Contract in Spartacus (DRAFT)
+title: SmartEdit Contract in Spartacus
 ---
 
 The following sections describe how the SmartEdit Contract is implemented in Spartacus.

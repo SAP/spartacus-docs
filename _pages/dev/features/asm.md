@@ -1,5 +1,5 @@
 ---
-title: Assisted Service Module (DRAFT)
+title: Assisted Service Module
 ---
 
 {% capture version_note %}

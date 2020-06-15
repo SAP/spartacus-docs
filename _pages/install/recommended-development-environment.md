@@ -1,5 +1,5 @@
 ---
-title: Recommended Development Environment (DRAFT)
+title: Recommended Development Environment
 ---
 
 ## CLI tools

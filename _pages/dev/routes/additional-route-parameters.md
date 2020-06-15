@@ -1,5 +1,5 @@
 ---
-title: Additional Route Parameters (DRAFT)
+title: Additional Route Parameters
 ---
 
 Additional route parameters can be configured to make the URL more specific, which can be useful for SEO.

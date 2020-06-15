@@ -1,5 +1,5 @@
 ---
-title: Using Loading Scopes (DRAFT)
+title: Using Loading Scopes
 ---
 
 {% capture version_note %}
