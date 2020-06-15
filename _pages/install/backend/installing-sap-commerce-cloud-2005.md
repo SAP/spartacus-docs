@@ -33,13 +33,14 @@ Summary:
      - The zip file itself, `spartacussampledataaddon.2005.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library. 
      - [Direct link to spartacussampledataaddon.2005.zip](https://github.com/SAP/spartacus/releases/download/storefront-2.0.0/spartacussampledataaddon.2005.zip) (newer versions of the sample data may be released in later releases)
    
-1. Move the file `custom.properties` from `spartacussampledataaddon/resources/customconfig` to `installer/customconfig`. 
+1. Move the file `custom.properties` from `spartacussampledataaddon/resources/installer/customconfig` to `installer/customconfig`.
+
    It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
    The contents of this file are listed at the end of this document for reference.
 
-1. In `hybris/bin/modules`:
+1. In `hybris/bin`:
    - Create the folder `custom`.
-   - Move the entire `spartacussampledataaddon` folder to `hybris/bin/modules/custom`.
+   - Move the entire `spartacussampledataaddon` folder to `hybris/bin/custom`.
    
 1. In the `installer/recipes` folder:
    - Duplicate the `cx` folder.
