@@ -8,7 +8,7 @@ This document provides a high level overview of the CSS architecture of Spartacu
 
 Spartacus is provided as a set of standard components, distributed in so-called _npm libraries_. Libraries are used to ensure both extensibility and upgradability at the same time.
 
-To deliver full flexiblity for styling, all CSS rules are provided in a separate library (`@spartacus/styles`). This make the styles completely optional, configurable and extendible. Customers can extend or replace the standard styles as well as implement their own style rules.
+To deliver full flexibility for styling, all CSS rules are provided in a separate library (`@spartacus/styles`). This make the styles completely optional, configurable and extendible. Customers can extend or replace the standard styles as well as implement their own style rules.
 
 Additionally, an existing UI framework such as Bootstrap can be used in Spartacus without making it a hardcoded dependency.
 
@@ -28,7 +28,7 @@ The table below shows an example of some potential releases.
 | 1.0.0   | sparta                    | standard theme for 1.0.0 release                                                                                |
 | 1.0.1   | sparta                    | _patch_ release with a sparta theme fix                                                                         |
 | 1.1.0   | sparta, coconut-beta-1    | new features for sparta and new beta release for new coconut theme                                              |
-| 2.0.0   | cocunut (default), sparta | New major version could promote a new theme as the default. The sparta style could become deprecated over time. |
+| 2.0.0   | coconut (default), sparta | New major version could promote a new theme as the default. The sparta style could become deprecated over time. |
 
 ## CSS Technology
 
@@ -36,11 +36,11 @@ Spartacus is developed with a combination of CSS techniques:
 
 - [SASS](https://github.com/sass/node-sass) is used as the pre-processing language, like most of todays UI frameworks do
 - [CSS custom properties](https://www.w3schools.com/css/css3_variables.asp) are used for global theming
-- [CSS post processing](https://postcss.org/) is intended to be used to polyfil any of required syntax for older browsers.
+- [CSS post processing](https://postcss.org/) is intended to be used to polyfill any of required syntax for older browsers.
 
 ### View encapsulation
 
-View encapsulation ensures isolation of styles in single DOM. View encapsulation can be used to ensure that the component style rules from one component do not interfere with other components. View encapsulation is standardized in a web component architecture and provided by the so-called `shadow-dom`. For applications that do not leverage the shadow-dom there are a few alternatives avaiable:
+View encapsulation ensures isolation of styles in single DOM. View encapsulation can be used to ensure that the component style rules from one component do not interfere with other components. View encapsulation is standardized in a web component architecture and provided by the so-called `shadow-dom`. For applications that do not leverage the shadow-dom there are a few alternatives available:
 
 - **Emulated encapsulation**  
   Angular provides _emulated_ view encapsulation by adding a (random) component ID to the generated CSS, so that the CSS rules are tightly coupled ot the component and will not interfere with other components.
@@ -63,11 +63,11 @@ Global theming is organized with variables, so that theming isn't hardcoded. For
 - SASS variables
 - CSS custom properties (CSS variables)
 
-Spartacus is using CSS variables for theming. CSS variables have the advantage of being runtime configurable. Moreover, they can pierce through the so-called shadow-dom (web components). Additionally, CSS variables are intherited and offer more flexibility than SASS variable.
+Spartacus is using CSS variables for theming. CSS variables have the advantage of being runtime configurable. Moreover, they can pierce through the so-called shadow-dom (web components). Additionally, CSS variables are inherited and offer more flexibility than SASS variable.
 
 Theming variables contribute to the so-called contract that Spartacus provides to customers. This contract is intended to be stable and should rarely change. Only with major releases, Spartacus could introduce a new set of variables, although this is not considered best practice.
 
-In order to provide a stable set of variables, variables will be mainly used for color-schemes and font definitions. It can be considerd as a set of global theming definition.
+In order to provide a stable set of variables, variables will be mainly used for color-schemes and font definitions. It can be considered as a set of global theming definition.
 
 The following snippet shows an example of a CSS variable:
 
@@ -81,23 +81,23 @@ cx-link {
 }
 ```
 
-The CSS variables can be customised on the root of the document or for specific selectors.
+The CSS variables can be customized on the root of the document or for specific selectors.
 
 ## Component Styles
 
-Spartacus consists of a large number of components that can be used by customers to build their storefront experience. While commerce becomes a comodity, styling is by default opiniated. Not only the colors and fonts, but also the real estate of components as well as backgrounds, lines, etc.
+Spartacus consists of a large number of components that can be used by customers to build their storefront experience. While commerce becomes a commodity, styling is by default opinionated. Not only the colors and fonts, but also the real estate of components as well as backgrounds, lines, etc.
 
 Whatever Spartacus delivers, it will _not_ represent the customers brand/corporate identity. To this reason, Spartacus intends to be highly flexible, so that component styles can be skipped entirely or extended by customers.
 
-Since Spartacus components are built and distributed in libraries, component styles cannot be used. These styles would be pre-processed and baked into the component library. This means that the CSS rules would not be optional, nor would they be easily customizabe.
+Since Spartacus components are built and distributed in libraries, component styles cannot be used. These styles would be pre-processed and baked into the component library. This means that the CSS rules would not be optional, nor would they be easily customizable.
 
-Instead, component styles have been delivered optionally in the styles library. Customers can use those styles, extend them or competely skip them and build the CSS rules from skratch. The `contract` between the style library and the component library is done through the (unique) component selector.
+Instead, component styles have been delivered optionally in the styles library. Customers can use those styles, extend them or completely skip them and build the CSS rules from scratch. The `contract` between the style library and the component library is done through the (unique) component selector.
 
 ### Placeholder selectors
 
-To make the css rules provided in the style library completely optional, the styles are wrapped in so-called _placeholder_ selectors. Placeholder selectors are a sass technique that start with a percentage, for example `%cx-mini-cart`. Placeholder selectors are not added to the final CSS, they need to be explicetly extended to end up in the final CSS.
+To make the css rules provided in the style library completely optional, the styles are wrapped in so-called _placeholder_ selectors. Placeholder selectors are a sass technique that start with a percentage, for example `%cx-mini-cart`. Placeholder selectors are not added to the final CSS, they need to be explicitly extended to end up in the final CSS.
 
-The follpowing snippet provides an example of a component style, using placeholder selector.
+The following snippet provides an example of a component style, using placeholder selector.
 
 ```scss
 %cx-link {
