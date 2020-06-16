@@ -12,23 +12,45 @@ To deliver full flexibility for styling, all CSS rules are provided in a separat
 
 Additionally, an existing UI framework such as Bootstrap can be used in Spartacus without making it a hardcoded dependency.
 
-### Style Library Versioning
+### Versioning
 
-Spartacus libraries support Semantic Versioning, which means that no breaking changes are allowed during a major version. Uncontrolled style changes in Spartacus would have a bad effect on customers, as unexpected styling could appear without notice.
+Spartacus libraries support Semantic Versioning, which means that breaking changes are not allowed during the lifetime of a major version. This is also true for the style library. A new style rule, or adjusted rule will influence the storefront experience. Customers who trust on the semantic version scheme, should not be surprised with new styles during the lifetime of a stable release.
 
-To provide a stable style release for a major version of the library, the style library is shipped with the same semantic versioning scheme as the `core` and `component` libraries. Customers can rely on a major version of the style library, so that only new features and bugs can be expected in minor and patch releases.
-This means that the style rules for a major version cannot get any changes other then new (optional) styles (for example for a new component) or to patch a bug.
+At the same time, Spartacus evolves during from minor to minor version. To allow for gradual changes in the style layer, new or adjusted style rules are added for a specific version. Customer would need to explicitly "opt-in" a specific minor version to leverage the latest styles.
 
-In order to continuously improve the styles during a major release, new styles might be isolated in special theme. This theme could be shipped already during the major release. This allows to demonstrate and use right away, without interfering with existing users.
+The following code snippet illustrates an additional style for version 2.2:
 
-The table below shows an example of some potential releases.
+```scss
+cx-mini-cart {
+  @include forVersion(2.1) {
+    background: blue;
+  }
+  @include forVersion(2.2) {
+    background: blue;
+  }
+}
+```
 
-| Version | Theme                     | Note                                                                                                            |
-| ------- | ------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| 1.0.0   | sparta                    | standard theme for 1.0.0 release                                                                                |
-| 1.0.1   | sparta                    | _patch_ release with a sparta theme fix                                                                         |
-| 1.1.0   | sparta, coconut-beta-1    | new features for sparta and new beta release for new coconut theme                                              |
-| 2.0.0   | coconut (default), sparta | New major version could promote a new theme as the default. The sparta style could become deprecated over time. |
+If you use any `2.x` Spartacus release, you would not get the styles added through the mixin `forVersion`. Only if you explicitly request for a `minorVersion` of 1 or higher, you will have those rules applied. The versioning cumulates all the previous changes, which means that you'll receive all changes in minor releases until the version. The following snippet illustrates opting-in of all style rules until minor version 2.
+
+```scss
+// add this in styles.scss, before importing the library styles
+$minorVersion: 2;
+```
+
+Alternatively, you can use a special flag to always receive the latest styles. This can be useful for development, demos or proof of concepts.
+
+```scss
+// add this in styles.scss, before importing the library styles
+$useLatestStyles: true;
+```
+
+The minor version driven styles are typically being merged to the next major release.
+
+#### Versioning of styles in version 1.x
+
+In version 1.0, style versioning was managed with an optional _theme_. The `Calydon` theme was used to add new style rules into the style layer.
+The new versioning technique describe in the previous section makes the former theme based versioning obsolete. The calydon theme is therefor no longer used and supported in Spartacus 2.0.
 
 ## CSS Technology
 
@@ -56,7 +78,7 @@ None of the above techniques work for spartacus:
 
 Instead, the fine-grained component selectors are used to encapsulate the styling. You can read more on this in the section regarding component styling.
 
-## Gobal Theming
+## Global Theming
 
 Global theming is organized with variables, so that theming isn't hardcoded. For variables there are 2 common approach that can be applied:
 
