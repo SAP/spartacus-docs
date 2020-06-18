@@ -60,7 +60,7 @@ The first B2B features will arrive soon after release 2.0 of the Spartacus libra
 The first release of B2B Spartacus will include:
 
 - **B2B Commerce Org**  
-  (also known as My Company management of units, users, budgets, cost centers, purchase threshholds, user groups, approvals) 
+  (also known as My Company management of units, users, budgets, cost centers, purchase thresholds, user groups, approvals) 
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company)
 - Updates to Order Details to include B2B-specific information, such as approval table and cost center
 - Image Zoom on Product Details page
@@ -123,7 +123,7 @@ The items in this section are on our future roadmap - not necessarily yet planne
 #### Archictecture and Development Features
 
 - Performance improvements through further implementation of lazy loading and with CMS
-- Completion of Events framework and the implemention of additional events
+- Completion of Events framework and the implementation of additional events
 - Extensibility improvements
   
 #### Core/B2C Storefront Features
