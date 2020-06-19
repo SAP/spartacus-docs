@@ -14,7 +14,7 @@ Additionally, an existing UI framework, such as Bootstrap, can be used in Sparta
 
 ### Versioning
 
-Spartacus libraries support semantic versioning, which means that breaking changes are not allowed during the life cycle of a major version. This is also true for the style library. A new style rule, or an adjusted rule, will influence the existing storefront experience. Customers who follow the semantic version scheme should not be surprised by the appearance of new styles during the life cycle of a stable release.
+Spartacus libraries support semantic versioning, which means that breaking changes are not allowed during the life cycle of a major version. This is also true for the style library. A new style rule, or an adjusted rule, that would lead to a difference in the UI experience, is considered a breaking change. Spartacus libraries are released with the assumption that customers are relying on the semantic versioning scheme, so breaking changes, such as implicit changes to the style library, will not be made during the life cycle of a major release.
 
 At the same time, it is likely that Spartacus will evolve from one minor version to the next. To allow for gradual changes in the style layer, new or adjusted style rules are added for a specific version, but these changes are not added in the style build process unless you explicitly opt in to receive these changes. You need to set a single variable to leverage the latest breaking styles changes. Note that non-breaking changes are added regardless.
 
@@ -26,7 +26,7 @@ cx-mini-cart {
     background: blue;
   }
   @include forVersion(2.2) {
-    background: blue;
+    background: deepskyblue;
   }
 }
 ```
