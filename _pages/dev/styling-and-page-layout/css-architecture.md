@@ -138,4 +138,4 @@ Skipping specific component styles might be beneficial if you need to create sty
 
 ## Page layout styles
 
-Global theming and component styles are most important to render components on the page, however the overall layout that orchestrates components on a page is another important style layer. This layer is detailed in [Page Layout]({{ site.baseurl }}{% link _pages/dev/page-layout.md %}).
+Global theming and component styles are most important to render components on the page, however the overall layout that orchestrates components on a page is another important style layer. This layer is detailed in [Page Layout]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/page-layout.md %}).
