@@ -237,7 +237,10 @@ docs:
         - title: "Release Information"
           url: /telco-release-information/
         - title: "Telco & Utilities Checkout"
-          url: /telco-checkout/  
+          url: /telco-checkout/ 
+          title: "Spartacus TUA FAQs"
+          url: /spartacus-tua-faqs/ 
+
             
     - title: Contributing to Spartacus
       children:
