@@ -28,7 +28,7 @@ The following are examples of HTML attributes and elements that should be avoide
 - `<p (click)="foo($event)"></p>`
 - `<li role="checkbox" (keyup)="bar($event)"></li>`
 
-## CSS styles
+## CSS Styles
 
 There is not a lot in CSS that can break accessibility. However, you should be careful about the following CSS properties:
 
