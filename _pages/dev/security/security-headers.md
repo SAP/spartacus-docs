@@ -20,7 +20,7 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 
 **TODO**
 
-- Verify if this is added in ccv2 by default (might already be there). Quite likely already already on ingress controller (only if needed).
+- @Michael Verify if this is added in ccv2 by default (likely already on ingress controller)
 
 ## HTTP Public Key Pinning (HPKP)
 
@@ -28,7 +28,7 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 
 CCv2 doesn't support this header deliberately. It adds too much pressure on syncing certificates cross multiple (changing) layers in the hosting setup. Moreover, HPKP is deprecated and not implemented in a stable manner cross browsers for HPKP.
 
-Spartacus does not insist on the suage of HPKP.
+Spartacus does not insist on the usage of HPKP.
 
 ## X-Frame-Options
 
@@ -55,7 +55,7 @@ X-XSS-Protection: 0
 **TODO**
 
 - Validate if the `X-XSS-Protection` header is turned off for Spartacus
-- Consider doing this globally
+- Consider doing this globally.
 
 ## X-Content-Type-Options
 
@@ -73,8 +73,7 @@ X-Content-Type-Options: nosniff
 
 **TODO**:
 
-- add `X-Content-Type-Options` for compliance reasons and avoid noicy audits
-- where?
+- add `X-Content-Type-Options` for compliance reasons and avoid noisy audits
 
 ## Content Security Policy (CSP)
 
@@ -98,7 +97,7 @@ While most of the policy can be added with a meta tag in the `index.html`, the `
 **TODO**:
 
 - Discuss adding CSP in security headers
-  - allow for flexiblity
+  - allow for flexibility
   - allow for injection of environment URLs
   - consider using `OCC_BACKEND_BASE_URL_VALUE` to dynamically add the backend API base URL in the policy
   - distinguish dev, qa and prod
@@ -137,4 +136,4 @@ Spartacus does not add any confidential in public storefront URLs. Having rich r
 
 The Feature-Policy header allows developers to selectively enable and disable use of various browser features and APIs.
 
-Spartacus encourage the use of modern browser APIs and doens't want to limit the applicaton. This header is therefor not added.
+Spartacus encourage the use of modern browser APIs and doesn't want to limit the application. This header is therefor not added.
