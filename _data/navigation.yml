@@ -232,8 +232,8 @@ docs:
 
     - title: Telco & Utilities Storefront Development Guide
       children:
-        - title: "About Telco & Utilities Storefront"
-          url: /about-telco/
+        - title: "About Spartacus for TUA"
+          url: /about-spartacus-for-tua/
         - title: "Release Information"
           url: /telco-release-information/
         - title: "Telco & Utilities Checkout"
