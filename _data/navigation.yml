@@ -236,11 +236,10 @@ docs:
           url: /about-spartacus-for-tua/
         - title: "Release Information for TUA"
           url: /telco-release-information/
-        - title: "Telco & Utilities Checkout"
-          url: /telco-checkout/ 
-          title: "Spartacus TUA FAQs"
-          url: /spartacus-tua-faqs/ 
-
+        - title: "Spartacus Roadmap for TUA"
+          url: /spartacus-roadmap-for-tua/
+        - title: "Spartacus TUA FAQs"
+          url: /spartacus-tua-faqs/         
             
     - title: Contributing to Spartacus
       children:
