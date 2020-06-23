@@ -235,7 +235,7 @@ docs:
         - title: "About Spartacus for TUA"
           url: /about-spartacus-for-tua/
         - title: "Release Information for TUA"
-          url: /release-information-for-tua/
+          url: /telco-release-information/
         - title: "Telco & Utilities Checkout"
           url: /telco-checkout/ 
           title: "Spartacus TUA FAQs"
