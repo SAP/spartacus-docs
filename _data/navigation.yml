@@ -234,7 +234,7 @@ docs:
       children:
         - title: "About Spartacus for TUA"
           url: /about-spartacus-for-tua/
-        - title: "Release Information"
+        - title: "Release Information for TUA"
           url: /telco-release-information/
         - title: "Telco & Utilities Checkout"
           url: /telco-checkout/ 
