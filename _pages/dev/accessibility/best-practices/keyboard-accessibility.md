@@ -33,5 +33,5 @@ The following are examples of HTML attributes and elements that should be avoide
 There is not a lot in CSS that can break accessibility. However, you should be careful about the following CSS properties:
 
 - **order:** The `order` property changes the visual order of elements, even though the DOM order stays the same. The DOM order is used in keyboarding, so if you change the order using the `order` property, the tabbing order that is seen by the user will not correct.
-- **display/opacity:** If an element has a `display: none` property, it is excluded from tabbing. However, elements with an `opacity: 0` property can still be accessed with the keyboard (there are other properties that do not exclude elements from being accessible).
+- **display/opacity:** If an element has a `display: none` property, it is excluded from tabbing. However, elements with an `opacity: 0` property can still be accessed with the keyboard. There are other properties that do not exclude elements from being accessible. For more information, see [Writing CSS with Accessibility in Mind](https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939#81ec).
 - **outline:** If you change the `outline` property, it may break accessibility in Spartacus, because the default visual focus in Spartacus depends on the `outline` property.
