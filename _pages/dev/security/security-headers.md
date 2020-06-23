@@ -1,32 +1,80 @@
-**TODO**: WIP, first headers added, more to come.
-
----
+**TODO**: WIP, discussion with security team and ccv2 ongoing.
 
 HTTP security headers are a important part of website security. They protect your storefront against potential attacks, such as XSS, code injection, clickjacking, etc.
 
 This document describes various security headers that are in place or should be added by customers when they deploy a Spartacus based Storefront in production.
 
-[Owasp](https://owasp.org/www-project-secure-headers/) gives a good overview of the various headers that can be applied.
+[Owasp](https://owasp.org/www-project-secure-headers/) gives a good overview of the various headers that can be applied. We've used the headers outlined by Owasp and reflect the recommended headers for Spartacus.
 
-## Prevent clickjacking
+## HTTP Strict-Transport-Security
 
-To prevent third-party application to host the Spartacus storefront in an iframe, it is important add a header to instruct the browser to not render a web page response in case it's being loaded in an iframe. This could result in _clickjacking_, which is a known security vulnerability.
+The HSTS security header forces the web browser to access the storefront by https only. This contributes to protocol downgrading and cookie hijacking.
 
-To mitigate the risk against _clickjacking_, it is recommended to use the `Content-Security-Policy` instead, specifically using the `frame-ancestors` directive. This directive allows to specify a configuration for the domains that you would allow to host the storefront in an iframe. (see also the section on CSP).
+This is a pretty basic header that should be applied by default to Spartacus applications.
 
-Alternatively, the well known `X-Frame-Options` header would be used to mitigate clickjacking. However, this header can only be configured with `DENY` or `SAMEORIGIN`. This is too limited for Spartacus as a default strategy, since the Spartacus storefront runs in an iframe in SmartEdit. SmartEdit loads Spartacus in an iframe and actually uses _Clickjacking_ technique deliberately to support inline content managing.
+The following snippets shows an example header config:
 
-**Note**: The `Content-Security-Policy: frame-ancestors` is not supported in older browsers such as IE11. If you need to support IE11, it is recommended to plan for an alternative security strategy.
+```
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+```
 
-## MIME sniffing vulnerabilities
+**TODO**
 
-To prevent users from uploading a malicious file to the backend API, the `X-Content-Type-Options` header can be added to mitigate this behavior. This header is not related to the Spartacus implementation and is therefor not part of the implementation, nor the related deployments. Moreover, there are currently no APIs in use that allow for uploading files.
+- Verify if this is added in ccv2 by default (might already be there). Quite likely already already on ingress controller (only if needed).
 
-If you do leverage an API that allows to upload files, it is recommended to add the `X-Content-Type-Options`. This will prevent users to upload a file with a malicious mime type.
+## HTTP Public Key Pinning (HPKP)
+
+`HPKP` is a (deprecated) mechanism that can be added through http headers. The mechanism would forces the same headers cross various layers, including APIs.
+
+CCv2 doesn't support this header deliberately. It adds too much pressure on syncing certificates cross multiple (changing) layers in the hosting setup. Moreover, HPKP is deprecated and not implemented in a stable manner cross browsers for HPKP.
+
+Spartacus does not insist on the suage of HPKP.
+
+## X-Frame-Options
+
+The `X-Frame-Options` header is a well-known header that can be used to mitigate clickjacking. This header can only be 2 values, `DENY` or `SAMEORIGIN`. This is too limited for Spartacus as a default strategy to prevent clickjacking, since the Spartacus storefront runs in an iframe in SmartEdit. SmartEdit loads Spartacus in an iframe and actually uses _Clickjacking_ technique deliberately to support inline content managing.
+
+The `Content-Security-Policy: frame-ancestors` offers more sophisticated approach to tackle clickjacking, so that SmartEdit can be used while still being able to protect from clickjacking. The CSP is detailed further below.
+
+The `Content-Security-Policy: frame-ancestors` is not supported in older browsers such as IE11. Customers who need to support IE11, the `X-Frame-Options` could be used as an alternative policy to evaluate. (Keep in mind however that this will block SmartEdit on the same deployed environment).
+
+Since audits will likely report the lack of `X-Frame-Options` even if the more modern CSP is in place, it is recommended to add this header regardless.
+
+**TODO**
+
+- Add `X-Frame-Options` header as a backup for the `frame-ancestors`. Must be added by ccv2 for both ssr and static index.html
+
+## X-XSS-Protection
+
+It's generally recommended to not use the `X-XSS-Protection` security header, as it can "introduce additional security issues on the client side" (https://owasp.org/).
+
+```
+X-XSS-Protection: 0
+```
+
+**TODO**
+
+- Validate if the `X-XSS-Protection` header is turned off for Spartacus
+- Consider doing this globally
+
+## X-Content-Type-Options
+
+To prevent users from uploading a malicious file to the backend API (AKA _MIME sniffing vulnerabilities_), the `X-Content-Type-Options` header can be added. This header is not relevant to Spartacus application resources, but could be a risk for backend APIs if they allow to upload files.
+
+There are currently no public APIs in use that allow for uploading files. This could however change (i.e. b2b basket upload).
+
+Since audits likely report the lack of `X-Content-Type-Options`, it is recommended to add this header regardless.
+
+Example:
+
+```
+X-Content-Type-Options: nosniff
+```
 
 **TODO**:
 
-- ensure that OCC API doesn't have any upload APIs.
+- add `X-Content-Type-Options` for compliance reasons and avoid noicy audits
+- where?
 
 ## Content Security Policy (CSP)
 
@@ -34,19 +82,59 @@ CSP prevents a wide range of attacks, including cross-site scripting and other c
 
 The policy should include the following directives:
 
-- The `frame-ancestors` directive is used to allow the storefront to be loaded in SmartEdit.
-- the `script-src` directive can be used to prevent scripts being loaded from unknown locations. This does not only include spartacus static resources, but also third-party JS files for integrations such as SmartEdit, Qualtrics, etc.
+- the `frame-ancestors` directive to allow the storefront to be loaded in SmartEdit frame.
+- the `script-src` directive to prevent scripts being loaded from unknown locations. This does not only include spartacus static resources, but also third-party JS files for integrations such as SmartEdit, Qualtrics, etc.
+  - The `script-src` directive should not have `unsafe-inline` or `unsafe-eval` to prevent XSS.
+    **Note**: some areas in Spartacus (or 3rd parties) might not work after applying this one.
+- (optional) the `object-src` directive to avoid any insecure execution (i.e. flash, java, etc.).
+- (optional) the `default-src` to limit to use https only
 
-The policy must be applied to both SSR rendered pages as well as the static `index.html`. The policy can be added in the `index.html` source file in the application. This is the most flexible way, as the Cloud Portal does not allow for configurable http headers.
+Further restrictions regarding images, fonts or other static resources are not added by default. Customers can extend the policy to meet there security requirements.
+
+The policy must be applied to both SSR rendered pages as well as the static `index.html`.
+
+While most of the policy can be added with a meta tag in the `index.html`, the `frame-ancestors` directive must be ignored when contained in a policy declared via a meta element.
 
 **TODO**:
 
-- Discuss: consider using `OCC_BACKEND_BASE_URL_VALUE` to dynamically add the backend API base URL in the policy
-- Consider a default policy or example
+- Discuss adding CSP in security headers
+  - allow for flexiblity
+  - allow for injection of environment URLs
+  - consider using `OCC_BACKEND_BASE_URL_VALUE` to dynamically add the backend API base URL in the policy
+  - distinguish dev, qa and prod
+- Consider a default (templated) policy  
+  Consider a template per environment
+- Consider combining html meta tag driven policy vs headers
+
+Meta tag example
 
 ```html
 <meta
   http-equiv="Content-Security-Policy"
-  content="default-src 'self'; img-src https://*; child-src 'none';"
+  content="script-src 'myshop.com'; img-src https://*; child-src 'none';"
 />
 ```
+
+## X-Permitted-Cross-Domain-Policies
+
+The `X-Permitted-Cross-Domain-Policies` is used to grant permissions to handle data cross domains by rich clients such as Adobe Flash or Acrobat.
+
+This is not relevant to the standard Spartacus application, and is therefor not enabled.
+
+## Referrer-Policy
+
+The `Referrer-Policy` HTTP header can be used to avoid any confidential information in the referrer URL.
+
+Spartacus does not add any confidential in public storefront URLs. Having rich referrers is recommended for a public storefront in general. This is why the `Referrer-Policy` is not enabled for Spartacus.
+
+## Expect-CT
+
+**TODO**
+
+- @Michael Rieder – investigate if we need this.
+
+## Feature-Policy
+
+The Feature-Policy header allows developers to selectively enable and disable use of various browser features and APIs.
+
+Spartacus encourage the use of modern browser APIs and doens't want to limit the applicaton. This header is therefor not added.
