@@ -22,6 +22,8 @@ docs:
                   url: /pre-release-information/
                 - title: "Updating to Version 2.0"
                   url: /updating-to-version-2/  
+                - title: "Technical Changes in Spartacus 2.0"
+                  url: /technical-changes-version-2/  
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
