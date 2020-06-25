@@ -47,7 +47,7 @@ The following steps define the required configuration:
 6. Import the following impex file. This impex makes changes to `electronics-spaContentCatalog` to enable SAP Customer Data Cloud integration in Spartacus.
 
     ```sql
-        # -----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     # [y] hybris Platform
     #
     # Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
@@ -67,16 +67,9 @@ The following steps define the required configuration:
     $jarResourceCms=$config-jarResourceCmsValue
 
     # Create PageTemplates
-
     INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
     # Templates without a frontendTemplateName
     ;;GigyaLoginPageTemplate;Gigya Login Page Template;;ContentPage;false;
-
-
-    # Create Content Slots
-    ##INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
-    ##;;BodyContent;Body Content Slot;true
-    ##;;BottomContent;Bottom Content Slot;true
 
 
     # GIGYA Login Page Template
@@ -103,8 +96,6 @@ The following steps define the required configuration:
     ;;Footer-GigyaLoginPage;Footer;;FooterSlot;true
     ;;TopHeaderSlot-GigyaLoginPage;TopHeaderSlot;;TopHeaderSlot;true
     ;;BottomHeaderSlot-GigyaLoginPage;BottomHeaderSlot;;BottomHeaderSlot;true
-    ##;;BodyContent-GigyaLoginPage;BodyContent;;BodyContent;true
-    ##;;BottomContent-GigyaLoginPage;BottomContent;;BottomContent;true
     ;;PlaceholderContentSlot-GigyaLoginPage;PlaceholderContentSlot;;PlaceholderContentSlot;true
     ;;HomepageLink-GigyaLoginPage;HomepageNavLink;;HomepageNavLinkSlot;true
 
@@ -114,6 +105,15 @@ The following steps define the required configuration:
     ;;login;Gigya Login Page;GigyaLoginPageTemplate;login
     ;;gigya-profile;Gigya profile page;AccountPageTemplate;/my-account/gigya-profile
     ;;checkout-login;Gigya Checkout Login Page;GigyaLoginPageTemplate;checkout-login
+
+
+    # Remove existing profile management pages like password reset, update profile, update email and consent management page
+    REMOVE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false'];
+    ;;update-profile;Update Profile Page;AccountPageTemplate;update-profile
+    ;;update-email;Update Email Page;AccountPageTemplate;update-email
+    ;;updatePassword;Update Forgotten Password Page;AccountPageTemplate;updatePassword
+    ;;consents;Consent Management Page;AccountPageTemplate;consents
+
 
     #### Gigya Login Page
     # ContentSlot
@@ -234,9 +234,37 @@ The following steps define the required configuration:
 
 Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries](https://sap.github.io/spartacus-docs/building-the-spartacus-storefront-from-libraries/).
 
-1. Edit the environment.ts file to enable the gigya feature by setting the value of **gigya** to **true**.
+1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application.
 
-2. Update the gigya.feature.ts file with the information of your Customer Data Cloud site:
+    ```bash
+    npm i @spartacus/gigya
+    ```
+
+2. Import the `GigyaModule` by adding the following below the existing import statements at the top of `app.module.ts`:
+
+    ```ts
+    import { GigyaModule } from '@spartacus/gigya';
+    ```
+
+3. Add the `GigyaModule` to `app.module.ts`.
+    The following is an example:
+
+    ```ts
+    @NgModule({
+      imports: [
+        GigyaModule.forRoot({
+            gigya: [
+                {
+                    baseSite: 'electronics-spa',
+                    javascriptUrl: 'https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>',
+                    sessionExpiration: 120,
+                },
+            ],
+        }),
+        ...
+    ```
+
+    The following is the summary of the parameters of the `GigyaModule`:
 
     • **baseSite** – This refers to the CMS Site to which the Customer Data Cloud Site configuration should be applied to. The same should be configured in the SAP Commerce Cloud Backoffice as well.
 
@@ -244,4 +272,4 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
     • **sessionExpiration** – This is the time in seconds that defines the session expiry of SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both Customer Data Cloud session and SAP Commerce token live for the same time.
 
-3. Build and start the storefrontapp to verify your changes.
+4. Build and start the storefrontapp to verify your changes.
