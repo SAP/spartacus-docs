@@ -54,85 +54,83 @@ The anonymous consents feature is now part of the core features, and the `anonym
 
 ### Changes in PaymentMethodComponent
 
-Component is now more similar to other checkout components. Behavior is more aligned with `ShippingAddressComponent`.
-Changes in public API:
+The `PaymentMethodComponent` is now more similar to other checkout components, and the behavior is more aligned with the `ShippingAddressComponent`. The changes to the public API are as follows:
 
-- `setPaymentDetails` no longer have third parameter. It should be used only for creating new payment details.
-- `createCard` method now have third parameter for selected payment details. Parameters are also now typed.
-- `selectPaymentMethod` have different behavior now. It dispatches `CheckoutPaymentService` method for selecting payment. Previously it only modified local component state.
-- `getCardContent` was removed and replaced with observable `cards$` emitting all payment details cards along with the payment details for each one.
-- `selectedPayment` variable was replaced with observable `selectedMethod$`
-- `allowRouting` variable renamed to `shouldRedirect`
-- `deliveryAddress`, `checkoutStepUrlNext`, `checkoutStepUrlPrevious` are now protected variables (previously private)
-- `next` method removed. Use `goNext` instead.
-- `back` method removed. Use `goPrevious` instead.
-- `paymentMethodSelected` method removed. Use `selectPaymentMethod` instead.
+- `setPaymentDetails` no longer has a third parameter. It should be used only for creating new payment details.
+- `createCard` method now has a third parameter for selected payment details. Parameters are also now typed.
+- `selectPaymentMethod` has different behavior now. It dispatches the `CheckoutPaymentService` method for selecting the payment. Previously, it only modified the local component state.
+- `getCardContent` was removed and replaced with the `cards$` observable, which emits all payment details cards, along with the payment details for each one.
+- `selectedPayment` variable was replaced with the `selectedMethod$` observable.
+- `allowRouting` variable renamed to `shouldRedirect`.
+- `deliveryAddress`, `checkoutStepUrlNext`, and `checkoutStepUrlPrevious` are now protected variables. Previously, the were private.
+- `next` method has been removed. Use `goNext` instead.
+- `back` method has been removed. Use `goPrevious` instead.
+- `paymentMethodSelected` method has been removed. Use `selectPaymentMethod` instead.
 
 ### Changes in DeliveryModeComponent
 
-We didn't changed public API of this component, but behavior is now also more aligned with other checkout components. Each change immediately triggers update in API. Default value is also set on API during component initialization. Thanks to that order summary is updated after every delivery mode change. On clicking next button we set delivery mode one more time with the last selected value and only after update on the API you get redirected to the next step. Once we set delivery mode in order summary component you will see "shipping" instead of "estimated shipping".
+The public API of this component has not been changed, but the behavior is now more aligned with other checkout components. Each change immediately triggers an update in the API. The default value is also set on the API during component initialization. As a result, the order summary is updated after every delivery mode change. On clicking the "next" button, the delivery mode is set one more time with the last selected value, and you get redirected to the next step only after an update has occurred on the API . When the delivery mode is set in the order summary component, you will see "shipping" instead of "estimated shipping".
 
 ### Removal of cmsPageLoadOnce feature flag
 
-`cmsPageLoadOnce` feature flag has been removed. The same behavior is now achievable by configuring `routing.loadStrategy` as `RouteLoadStrategy.ONCE`.  
+The `cmsPageLoadOnce` feature flag has been removed. The same behavior is now achievable by configuring `routing.loadStrategy` as `RouteLoadStrategy.ONCE`.  
 
 ### Products endpoint configuration
 
-The `backend.occ.endpoints.product_scopes` configuration key was merged into `backend.occ.endpoints.product` key.
+The `backend.occ.endpoints.product_scopes` configuration key was merged into the `backend.occ.endpoints.product` key.
 
 ### Launched in Smart Edit detection
 
-Method `isLaunchInSmartEdit` was removed from `CmsService`. Instead use new method `isLaunchedInSmartEdit` from `SmartEditService`.
+The `isLaunchInSmartEdit` method was removed from `CmsService`. Instead, use the new `isLaunchedInSmartEdit` method from `SmartEditService`.
 
 ### DynamicAttributeService
 
-Method `addDynamicAttributes` now has a different parameter order. Parameter `cmsRenderingContext` is now the last parameter and it has a type.
+The `addDynamicAttributes` method now has a different parameter order. The `cmsRenderingContext` parameter is now the last parameter and it has a type.
 
 ### CmsActions and CmsSelectors
 
-`CmsActions` now have only parameter: `payload`. Other parameters are now part of `payload`.
+The `CmsActions` now have only parameter: `payload`. Other parameters are now part of `payload`.
 
-`getComponentState`, `getComponentEntities`, `componentStateSelectorFactory` and `componentSelectorFactory` were removed from `CmsSelectors`. Use cms selector factories instead.
+The `getComponentState`, `getComponentEntities`, `componentStateSelectorFactory` and `componentSelectorFactory` were removed from `CmsSelectors`. Use CMS selector factories instead.
 
 ### Default OCC prefix
 
-Default value for `backend.occ.prefix` configuration key is now `/occ/v2/`. This is the default value for 2005 release.
+The default value for the `backend.occ.prefix` configuration key is now `/occ/v2/`. This is the default value for the 2005 release of SAP Commerce.
 
 ### Cart components changes
 
-Methods `removeEntry` and `updateEntry` were removed from `AddedToCartDialogComponent` component. It's logic is now contained in `getQuantityControl` method.
+The `removeEntry` and `updateEntry` methods were removed from the `AddedToCartDialogComponent` component. Its logic is now contained in the `getQuantityControl` method.
 
-Methods `updateItem` and `isSaveForLaterEnabled` were removed from `CartItemComponent` component. Outputs `remove` and `update` were also removed. Input `isReadOnly` renamed to `readonly`. Inputs `cartIsLoading`, `parent` and `potentialProductPromotions` were removed. New input `quantityControl` added to this component.
+The `updateItem` and `isSaveForLaterEnabled` methods were removed from the `CartItemComponent` component. The `remove` and `update` outputs were also removed. The `isReadOnly` input is renamed to `readonly`. The `cartIsLoading`, `parent` and `potentialProductPromotions` inputs were removed. The new `quantityControl`  input was added to this component.
 
-Methods `ngOnInit`, `isSaveForLaterEnabled`, `updateEntry` and `getPotentialProductPromotionsForItem` were removed from `CartItemListComponent` component. Input `potentialProductPromotions` was removed.
+The `ngOnInit`, `isSaveForLaterEnabled`, `updateEntry` and `getPotentialProductPromotionsForItem` methods were removed from the `CartItemListComponent` component. The `potentialProductPromotions` input was removed.
 
 ### Skip link changes
 
-`SkipLinkComponent` methods `blur`, `tabNext` and `tabPrev` were removed.
+The `SkipLinkComponent` methods `blur`, `tabNext` and `tabPrev` were removed.
 
-Skip link default configuration was simplified. Previously by default there were skip links for top header, bottom header, facets, product list and footer. Now it's only header, main content and footer.
+The skip link default configuration was simplified. Previously, by default, there were skip links for the top header, bottom header, facets, product list, and footer. Now there are default skip links only for the header, main content, and footer.
 
 ### Product list component service
 
-Method `clearSearchResults` was removed from `ProductListComponentService`. The method was not needed in `ProductListComponent` anymore since the data
-will refresh on currency change. Instead you can use `clearResults` in `ProductSearchService`.
+The `clearSearchResults` method was removed from the `ProductListComponentService`. The method was not needed in the `ProductListComponent` anymore since the data will refresh on currency change. Instead, you can use `clearResults` in `ProductSearchService`.
 
 ### Context change action not dispatched on the initial setting of the value
 
-Before 2.0, the `LanguageChange` NgRx action was dispatched on setting the initial value (same for `CurrencyChange`). Moreover, the language (and currency) sometimes was initialized multiple times by the competing sources of truth (i.e. routing, session storage, default config), which caused fake multiple language change actions in some circumstances (combinations of configuration and user journey).
+Before 2.0, the `LanguageChange` NgRx action was dispatched on setting the initial value (as was also the case for `CurrencyChange`). Moreover, the language (and currency) sometimes was initialized multiple times by the competing sources of truth (for example, routing, session storage, default config), which caused fake multiple language change actions in some circumstances (combinations of configuration and user journey).
 
-Now the language change action is not dispatched on application start (same for currency). The language is initialized only once, using one source of truth (the first matched condition wins):
+Now the language change action is not dispatched on application start (and the same is true for currency). The language is initialized only once, using one source of truth. The first matched condition wins, according to the following order of priority:
 
-1. If SSR transferred state is present, take value from there. OR
-1. If param was configured to be persisted from URL, take value from there. (When the value is not present in the  current URL, the URL is updated using default configured value and then we use this value.) OR
-1. If value can be retrieved from session storage, take value from there OR
-1. Otherwise take the static default value from config
+1. If the SSR transferred state is present, take the value from there. If not, proceed to the next condition.
+1. If the param was configured to be persisted from the URL, take the value from there. If not, proceed to the next condition. (When the value is not present in the current URL, the URL is updated using the default configured value and then we use this value.)
+1. If the value can be retrieved from session storage, take the value from there. If not, proceed to the next condition.
+1. Take the static default value from the config.
 
-The same priorities hold for currency. However, for base site have only 1, 2 and 4 apply (there is no session storage as source).
+The same order of priority holds for currency. For base sites, however, only the first, second and fourth conditions apply, because there is no session storage as source.
 
 ### WebComponentHandler is not provided by default
 
-To enable Web Components support for cms component you have to provide it in your app:
+To enable Web Components support for CMS components, you have to provide the support in your app. The following is an example:
 
 ```ts
     {
@@ -148,7 +146,7 @@ To enable Web Components support for cms component you have to provide it in you
 - `CheckoutPaymentService` no longer uses `CartDataService`. This service usage was replaced with corresponding methods from `ActiveCartService` (and `AuthService`). These services needs to be provided for `CheckoutPaymentService`.
 - `CheckoutDeliveryService` no longer uses `CartDataService`. This service usage was replaced with corresponding methods from `ActiveCartService` (and `AuthService`). These services needs to be provided for `CheckoutDeliveryService`.
 - `CheckoutGuard` no longer uses `CheckoutConfig`. This config usage was replaced with corresponding methods from `CheckoutConfigService`, `ExpressCheckoutService`, `ActiveCartService`. These services needs to be provided for `CheckoutGuard`.
-- `AddressBookComponentService` uses now `CheckoutDeliveryService`. This service needs to be provided for `AddressBookComponentService`.
+- `AddressBookComponentService` now uses `CheckoutDeliveryService`. This service needs to be provided for `AddressBookComponentService`.
 - `PromotionService` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. This service needs to be provided for `PromotionService`.
 - `CheckoutLoginComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. This service needs to be provided for `CheckoutLoginComponent`.
 - `CheckoutDetailsService` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. This service needs to be provided for `CheckoutDetailsService`.
@@ -163,107 +161,107 @@ To enable Web Components support for cms component you have to provide it in you
 - `CheckoutProgressMobileTopComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. This service needs to be provided for `CheckoutProgressMobileTopComponent`.
 - `PaymentMethodComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. This service needs to be provided for `PaymentMethodComponent`.
 - `CheckoutAuthGuard` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. This service needs to be provided for `CheckoutAuthGuard`.
-- `CartPageLayoutHandler` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. `ActiveCartService` and `SelectiveCartService` needs to be provided in `CartPageLayoutHandler`.
+- `CartPageLayoutHandler` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. `ActiveCartService` and `SelectiveCartService` need to be provided in `CartPageLayoutHandler`.
 - `SpartacusEventService` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService.` This service needs to be provided for `SpartacusEventService`.
-- `ClientAuthenticationTokenService` uses now `OccEndpointsService`. This service needs to be provided for `ClientAuthenticationTokenService`.
-- `UserAuthenticationTokenService` uses now `OccEndpointsService`. This service needs to be provided for `UserAuthenticationTokenService`.
+- `ClientAuthenticationTokenService` now uses `OccEndpointsService`. This service needs to be provided for `ClientAuthenticationTokenService`.
+- `UserAuthenticationTokenService` now uses `OccEndpointsService`. This service needs to be provided for `UserAuthenticationTokenService`.
 - `OccCartEntryAdapter` no longer uses `FeatureConfigService`. This service usage no longer uses the legacy methods: `legacyAdd`, `legacyRemove`, and `legacyUpdate`, and needs to be provided for `OccCartEntryAdapter`.
 - `OccCartAdapter` no longer uses `FeatureConfigService`. This service usage no longer uses the legacy methods: `legacyLoadAll`, `legacyLoad`, and `legacyCreate`, and needs to be provided for `OccCartAdapter`.
 - `OccUserOrderAdapter` no longer uses `FeatureConfigService`. This service usage no longer uses the legacy methods: `legacyLoad` and `legacyLoadHistory`, and needs to be provided for `OccUserOrderAdapter`.
-- `UserConsentService` uses now `AuthService`. This service needs to be provided for `UserConsentService`.
-- `UserOrderService` uses now `AuthService`. This service needs to be provided for `UserOrderService`.
-- `UserPaymentService` uses now `AuthService`. This service needs to be provided for `UserPaymentService`.
-- `UserService` uses now `AuthService`. This service needs to be provided for `UserService`.
-- `AddedToCartDialogComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. Also `PromotionService` is now required parameter. These services needs to be provided for `AddedToCartDialogComponent`. `FormBuilder` no longer needs to be provided for this component.
-- `CartDetailsComponent` no longer uses `CartService` and `FeatureConfigService`. This service usage was replaced with corresponding methods from `ActiveCartService`. `PromotionService`, `SelectiveCartService`, `AuthService` and  `RoutingService` are now required parameters. These services needs to be provided for `CartDetailsComponent`. The deprecated method `isSaveForLaterEnabled()` was removed.
-- `ReviewSubmitComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. `CheckoutConfigService` and `PromotionService` are now required parameters. These services needs to be provided for `ReviewSubmitComponent`.
+- `UserConsentService` now uses `AuthService`. This service needs to be provided for `UserConsentService`.
+- `UserOrderService` now uses `AuthService`. This service needs to be provided for `UserOrderService`.
+- `UserPaymentService` now uses `AuthService`. This service needs to be provided for `UserPaymentService`.
+- `UserService` now uses `AuthService`. This service needs to be provided for `UserService`.
+- `AddedToCartDialogComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. Also `PromotionService` is now a required parameter. These services need to be provided for `AddedToCartDialogComponent`. `FormBuilder` no longer needs to be provided for this component.
+- `CartDetailsComponent` no longer uses `CartService` and `FeatureConfigService`. This service usage was replaced with corresponding methods from `ActiveCartService`. `PromotionService`, `SelectiveCartService`, `AuthService` and  `RoutingService` are now required parameters. These services need to be provided for `CartDetailsComponent`. The deprecated method `isSaveForLaterEnabled()` was removed.
+- `ReviewSubmitComponent` no longer uses `CartService`. This service usage was replaced with corresponding methods from `ActiveCartService`. `CheckoutConfigService` and `PromotionService` are now required parameters. These services need to be provided for `ReviewSubmitComponent`.
 - `OrderDetailItemsComponent` now requires `PromotionService`. This service needs to be provided for `OrderDetailItemsComponent`.
 - `OrderConfirmationItemsComponent` now requires `PromotionService`. This service needs to be provided for `OrderConfirmationItemsComponent`.
-- `CartVoucherService` now requires new parameter `ActiveCartService`. This service needs to be provided for `CartVoucherService`.
-- `CartCouponComponent` no longer uses `AuthService`, `FeatureConfigService` and `CartService`. `CartService` service usage was replaced with corresponding methods from `ActiveCartService`. Also `CustomerCouponService` is now required parameter. These services needs to be provided for `CartCouponComponent`.
-- `LogoutGuard` no longer uses `FeatureConfigService` as it was used previously to determine the feature flag.
-- `LoginFormComponent` requires new parameters now: `WindowRef`, `ActivatedRoute` and `CheckoutConfigService`.
+- `CartVoucherService` now requires the new `ActiveCartService` parameter. This service needs to be provided for `CartVoucherService`.
+- `CartCouponComponent` no longer uses `AuthService`, `FeatureConfigService` and `CartService`. `CartService` service usage was replaced with corresponding methods from `ActiveCartService`. Also, `CustomerCouponService` is now a required parameter. These services need to be provided for `CartCouponComponent`.
+- `LogoutGuard` no longer uses `FeatureConfigService`, which was used previously to determine the feature flag.
+- `LoginFormComponent` now requires the following new parameters: `WindowRef`, `ActivatedRoute` and `CheckoutConfigService`.
 - `RegisterComponent` no longer uses `FeatureConfigService`, `AuthService` and `AuthRedirectService`. Also `RoutingService`, `AnonymousConsentsService` and `AnonymousConsentsConfig` are now required parameters.
-- `StarRatingComponent` now requires new parameter `Renderer2`. This service needs to be provided for `StarRatingComponent`.
+- `StarRatingComponent` now requires the new `Renderer2` parameter. This service needs to be provided for `StarRatingComponent`.
 - `ProductService` now requires `ProductLoadingService`.
 - `ProductCarouselComponent` no longer requires `FeatureConfigService`.
 - `CurrentProductService` no longer requires `FeatureConfigService`.
 - `ProductPageMetaResolver` no longer requires `FeatureConfigService`.
-- `ProductListComponent` now requires new parameter `ViewConfig`. This config needs to be provided for `ProductListComponent`. Method `viewPage` was removed.
-- `ProductScrollComponent` The deprecated method `isSamePage` is removed with 2.0.
-- `ConfigurableRoutesService` no longer uses `UrlMatcherFactoryService`, but its counterpart `UrlMatcherService`.
-- `ExternalRoutesService` no longer uses `UrlMatcherFactoryService`, but its counterpart `UrlMatcherService`.
-- `OutletDirective` now requires new parameters `DeferLoaderService` and `OutletRendererService`. This services needs to be provided for `OutletDirective`.
-- `ConsentManagementComponent` now requires parameters `AnonymousConsentsConfig`, `AnonymousConsentsService` and `AuthService`.
-- `ConsentManagementComponent` no longer uses `isLevel13` and `isAnonymousConsentsEnabled` properties.
-- `ConsentManagementFormComponent` no longer uses `isLevel13` and `isAnonymousConsentsEnabled` properties.
-- `AnonymousConsentDialogComponent` no longer uses `isLevel13` property.
-- `PlaceOrderComponent` requires new parameter now: `FormBuilder`.
-- `CustomerCouponService` now requires new parameter `AuthService`. This service needs to be provided for `CustomerCouponService`.
-- `UserInterestsService` now requires new parameter `AuthService`. This service needs to be provided for `UserInterestsService`.
-- `UserNotificationPreferenceService` now requires new parameter `AuthService`. This service needs to be provided for `UserNotificationPreferenceService`.
-- `UserAddressService` now requires new parameter `AuthService`. This service needs to be provided for `UserAddressService`.
-- `ProductReviewsComponent` now requires new parameter `ChangeDetectorRef`. This service needs to be provided for `ProductReviewsComponent`.
-- `SearchBoxComponent` now requires new parameter `WindowRef`. This service needs to be provided for `SearchBoxComponent`.
-- `AddressBookComponent` now requires new parameters `TranslationService`, `UserAddressService` and `CheckoutDeliveryService`. These services need to be provided for `AddressBookComponent`
+- `ProductListComponent` now requires the new `ViewConfig` parameter. This config needs to be provided for `ProductListComponent`. The `viewPage` method was removed.
+- `isSamePage` is removed from the `ProductScrollComponent` because it is a deprecated method.
+- `ConfigurableRoutesService` no longer uses `UrlMatcherFactoryService`, but instead uses its counterpart, `UrlMatcherService`.
+- `ExternalRoutesService` no longer uses `UrlMatcherFactoryService`, but instead uses its counterpart, `UrlMatcherService`.
+- `OutletDirective` now requires new `DeferLoaderService` and `OutletRendererService` parameters. These services needs to be provided for `OutletDirective`.
+- `ConsentManagementComponent` now requires the `AnonymousConsentsConfig`, `AnonymousConsentsService` and `AuthService` parameters.
+- `ConsentManagementComponent` no longer uses the `isLevel13` and `isAnonymousConsentsEnabled` properties.
+- `ConsentManagementFormComponent` no longer uses the `isLevel13` and `isAnonymousConsentsEnabled` properties.
+- `AnonymousConsentDialogComponent` no longer uses the `isLevel13` property.
+- `PlaceOrderComponent` now requires the new `FormBuilder` parameter.
+- `CustomerCouponService` now requires the new `AuthService` parameter. This service needs to be provided for `CustomerCouponService`.
+- `UserInterestsService` now requires the new `AuthService` parameter. This service needs to be provided for `UserInterestsService`.
+- `UserNotificationPreferenceService` now requires the new `AuthService` parameter. This service needs to be provided for `UserNotificationPreferenceService`.
+- `UserAddressService` now requires the new `AuthService` parameter. This service needs to be provided for `UserAddressService`.
+- `ProductReviewsComponent` now requires the new `ChangeDetectorRef` parameter. This service needs to be provided for `ProductReviewsComponent`.
+- `SearchBoxComponent` now requires the new `WindowRef` parameter. This service needs to be provided for `SearchBoxComponent`.
+- `AddressBookComponent` now requires new `TranslationService`, `UserAddressService` and `CheckoutDeliveryService` parameters. These services need to be provided for `AddressBookComponent`.
 - `CartItemListComponent` no longer requires `FormBuilder`, `FeatureConfigService` and  `CartService`. `CartService` was replaced with corresponding methods from `ActiveCartService`. The deprecated method `isSaveForLaterEnabled()` was removed.
 - `CartItemComponent` no longer uses `FeatureConfigService`. The deprecated method `isSaveForLaterEnabled()` was removed.
-- `PaymentFormComponent` requires new parameter now: `UserAddressService`.
-- `ComponentWrapperDirective` no longer uses `CmsService` param.
-- `DynamicAttributeService` requires a new parameter now: `SmartEditService`.
-- `NavigationUIComponent` no longer uses `allowAlignToRight` property.
-- `StoreFinderSearchResultComponent` now requires new parameter `StoreFinderConfig`. This service needs to be provided for `StoreFinderSearchResultComponent`.
-- `PageSlotComponent` now requires new parameter `CmsComponentsService` and `ChangeDetectorRef`. The `CmsComponentsService` is used to read the configurable _page fold_ from the layout configuration. The `ChangeDetectorRef` is needed to update the slot pending state asynchronously.
-- `TabParagraphContainerComponent` now requires new parameter `WindowRef`. This service needs to be provided for `TabParagraphContainerComponent`.
-- `SelectiveCartService` requires new parameter now: `CartConfigService`.
+- `PaymentFormComponent` now requires the new `UserAddressService` parameter.
+- `ComponentWrapperDirective` no longer uses the `CmsService` param.
+- `DynamicAttributeService` requires the new `SmartEditService` parameter.
+- `NavigationUIComponent` no longer uses the `allowAlignToRight` property.
+- `StoreFinderSearchResultComponent` now requires the new `StoreFinderConfig` parameter. This service needs to be provided for `StoreFinderSearchResultComponent`.
+- `PageSlotComponent` now requires the new `CmsComponentsService` and `ChangeDetectorRef` parameters. The `CmsComponentsService` is used to read the configurable _page fold_ from the layout configuration. The `ChangeDetectorRef` is needed to update the slot pending state asynchronously.
+- `TabParagraphContainerComponent` now requires the new `WindowRef` parameter. This service needs to be provided for `TabParagraphContainerComponent`.
+- `SelectiveCartService` now requires the new `CartConfigService` parameter.
 - `QualtricsLoaderService` now requires Angular's core `RendererFactory2` and no longer uses the `QualtricsConfig`. The service has been refactored for better extensibility and reuse.
-- `QualtricsComponent` now requires the `QualtricsConfig` to load the global qualtrics deployments script. This was a dependency in the `QualtricsLoaderService` in 1.x. Also, the component no longer uses 'qualtricsEnabled$' property.
-- `AmendOrderActionsComponent` requires now new parameter: `RoutingService`.
-- `FooterNavigationComponent` no longer requires `AnonymousConsentsConfig` parameter.
+- `QualtricsComponent` now requires the `QualtricsConfig` to load the global qualtrics deployments script. This was a dependency in the `QualtricsLoaderService` in 1.x. Also, the component no longer uses the `qualtricsEnabled$` property.
+- `AmendOrderActionsComponent` now requires the new `RoutingService` parameter.
+- `FooterNavigationComponent` no longer requires the `AnonymousConsentsConfig` parameter.
 - `ProductFacetNavigationComponent` no longer requires `ModalService`, `ActivatedRoute` and `ProductListComponentService`. It now requires `BreakpointService`.
-- `StoreFinderGridComponent` no longer requires `RoutingService`. Methods `viewStore` and `prepareRouteUrl` were removed.
-- `SkipLinkService` requires new parameter: `KeyboardFocusService`.
-- `StorefrontComponent` requires new parameters: `ElementRef` and `KeyboardFocusService`.
+- `StoreFinderGridComponent` no longer requires `RoutingService`. The `viewStore` and `prepareRouteUrl` methods were removed.
+- `SkipLinkService` requires the new `KeyboardFocusService` parameter.
+- `StorefrontComponent` requires the new `ElementRef` and `KeyboardFocusService` parameters.
 - `AutoFocusDirective`, `AutoFocusDirectiveModule`, `OnlyNumberDirective`, `OnlyNumberDirectiveModule` and `FormUtils` were removed.
 - `authentication.kyma_enabled` configuration option has been removed. Kyma is now enabled by importing `KymaModule`.
-- `features.anonymousConsents` configuration option has been removed. This feature is now part of the core set of features, and it's enabled by default.
+- `features.anonymousConsents` configuration option has been removed. This feature is now part of the core set of features, and it is enabled by default.
 
 ### State utility changes
 
-- `LoaderState`, `ProcessesLoaderState`, `EntityState`, `EntityLoaderState`, `EntityProcessesLoaderState` were moved under `StateUtils` namespace.
+- `LoaderState`, `ProcessesLoaderState`, `EntityState`, `EntityLoaderState`, `EntityProcessesLoaderState` were moved under the `StateUtils` namespace.
 - `StateLoaderActions`, `StateProcessesLoaderActions`, `StateEntityActions`, `StateEntityLoaderActions`, `StateEntityProcessesLoaderActions` were removed. All actions are now accessible from `StateUtils`.
 - `StateLoaderSelectors`, `StateProcessesLoaderSelectors`, `StateEntitySelectors`, `StateEntityLoaderSelectors`, `StateEntityProcessesLoaderSelectors` were removed. All selectors are now accessible from `StateUtils`.
-- `loaderReducer`, `processesLoaderReducer`, `entityReducer`, `entityLoaderReducer`, `entityProcessesLoaderReducer`, `initialEntityState`, `initialLoaderState`, `initialProcessesState`, `getStateSlice` were moved under `StateUtils` namespace.
+- `loaderReducer`, `processesLoaderReducer`, `entityReducer`, `entityLoaderReducer`, `entityProcessesLoaderReducer`, `initialEntityState`, `initialLoaderState`, `initialProcessesState`, `getStateSlice` were moved under the `StateUtils` namespace.
 - `ofLoaderLoad`, `ofLoaderFail`, `ofLoaderSuccess` methods were removed and are no longer available.
 - `entityStateSelector` was renamed to `entityLoaderStateSelector`.
 - `EntityResetAction` was renamed to `EntityLoaderResetAction`.
   
 ### Automated migrations of page meta resolvers
 
-The implementation of page meta data resolvers has been changed with 2.0. Previously, each meta resolver implementation has been responsible to resolve all page data, by implementing the abstract `resolve` method from the abstract `PageMetaResolver`. To allow for more flexibility and simplify customizations, the individual implementations no longer implement the resolve method. Only a specific *resolver* is required, such as the `PageTitleResolver`. The `PageMetaService` will invoke the specific resolvers when available. This is done by the registered `resolverMethods`. You can further extend the list of `resolverMethods` without changing the implementation of `PageMetaService.resolve`.
+The implementation of page meta data resolvers has been changed with 2.0. Previously, each meta resolver implementation had been responsible for resolving all page data, by implementing the abstract `resolve` method from the abstract `PageMetaResolver`. To allow for more flexibility and to simplify customizations, the individual implementations no longer implement the `resolve` method. Only a specific *resolver* is required, such as the `PageTitleResolver`. The `PageMetaService` will invoke the specific resolvers when available. This is done by the registered `resolverMethods`. You can further extend the list of `resolverMethods` without changing the implementation of `PageMetaService.resolve`.
 
-These changes have been introduced under a feature flag in version 1.3, and are standardized in 2.0. The `FeatureConfigService` was used for this feature flag, and has been dropped from all constructors with version 2.0. This change will be migrated automatically.
+These changes were introduced under a feature flag in version 1.3, and are standardized in 2.0. The `FeatureConfigService` was used for this feature flag, and has been dropped from all constructors with version 2.0. This change will be migrated automatically.
 
-The individual changes for 2.0 per class are:
+The individual changes per class for 2.0 are the following:
 
 - `PageMetaService`  
   The `resolverMethods` access modifier changed from *public* to *protected*. The `resolve` method will invoke individual resolvers by iterating over the `resolverMethods`.
 - `ContentPageMetaResolver`  
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as individual resolve methods (`resolveTitle` and `resolveBreadcrumbs`) are invoked by the `PageMetaService` directly. The individual resolvers no longer receive arguments, but use the local `cms$` observable to resolve the required data.
+  The deprecated method `resolve` is removed in 2.0. This method is no longer supported because individual resolve methods (`resolveTitle` and `resolveBreadcrumbs`) are invoked by the `PageMetaService` directly. The individual resolvers no longer receive arguments, but use the local `cms$` observable to resolve the required data.
 - `ProductPageMetaResolver`  
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as individual resolve methods (`resolveHeading`, `resolveTitle`, `resolveDescription`, `resolveBreadcrumbs`, `resolveImage` and `resolveRobots`) are invoked by the `PageMetaService` directly. The individual resolvers no longer receive arguments, but use the local `product$` observable to resolve the required data.
+  The deprecated method `resolve` is removed in 2.0. This method is no longer supported because individual resolve methods (`resolveHeading`, `resolveTitle`, `resolveDescription`, `resolveBreadcrumbs`, `resolveImage` and `resolveRobots`) are invoked by the `PageMetaService` directly. The individual resolvers no longer receive arguments, but use the local `product$` observable to resolve the required data.
 - `CategoryPageMetaResolver`
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as individual resolve methods (`resolveTitle` and `resolveBreadcrumbs`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveBreadcrumbs`) no longer receive arguments, but use the local `searchPage$` observable to resolve the required data.
+  The deprecated method `resolve` is removed in 2.0. This method is no longer supported because individual resolve methods (`resolveTitle` and `resolveBreadcrumbs`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveBreadcrumbs`) no longer receive arguments, but use the local `searchPage$` observable to resolve the required data.
 - `SearchPageMetaResolver`
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as the individual resolve method (`resolveTitle`) is invoked by the `PageMetaService` directly. The individual resolver (`resolveTitle`) no longer receive arguments, but use the local `query$` observable to resolve the required data.
+  The deprecated method `resolve` is removed in 2.0. This method is no longer supported because the individual resolve method (`resolveTitle`) is invoked by the `PageMetaService` directly. The individual resolver (`resolveTitle`) no longer receives arguments, but uses the local `query$` observable to resolve the required data.
 - `CartPageMetaResolver`  
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as individual resolve methods (`resolveTitle`, `resolveRobots`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveRobots`) no longer receive arguments, but use the local `cms$` observable to resolve the required data.
+  The deprecated method `resolve` is removed in 2.0. This method is no longer supported because individual resolve methods (`resolveTitle`, `resolveRobots`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveRobots`) no longer receive arguments, but use the local `cms$` observable to resolve the required data.
 - `CheckoutPageMetaResolver`  
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as individual resolve methods (`resolveTitle`, `resolveRobots`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveRobots`) no longer receive arguments, but use the local `cart$` observable to resolve the required data.
+  The deprecated method `resolve` is removed in 2.0. This method is no longer supported because individual resolve methods (`resolveTitle`, `resolveRobots`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveRobots`) no longer receive arguments, but use the local `cart$` observable to resolve the required data.
 - `CouponSearchPageResolver` ~~`FindProductPageMetaResolver`~~  
-  The ~~`FindProductPageMetaResolver`~~ was introduced with in version 1.5, and has been renamed to `CouponSearchPageResolver` in version 2.0.
+  The ~~`FindProductPageMetaResolver`~~ was introduced in version 1.5, and has been renamed to `CouponSearchPageResolver` in version 2.0.
   
-  The deprecated method `resolve` is removed with 2.0. This method is no longer supported as individual resolve methods (`resolveTitle`, `resolveBreadcrumbs`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveBreadcrumbs`) no longer receive arguments, but use the local `total$` observable to resolve the required data.
+  The deprecated `resolve` method is removed in 2.0. This method is no longer supported because individual resolve methods (`resolveTitle`, `resolveBreadcrumbs`) are invoked by the `PageMetaService` directly. The individual resolvers (`resolveTitle`, `resolveBreadcrumbs`) no longer receive arguments, but use the local `total$` observable to resolve the required data.
 
   The `score` method was refactored heavily to better cope with synchronize router state. This resulted in a change in the constructor which should be migrated automatically.
   
