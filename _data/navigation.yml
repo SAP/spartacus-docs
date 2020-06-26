@@ -245,7 +245,8 @@ docs:
           subchildren:
                 - title: "Installation Guide for TUA"
                   url: /installation-guide-for-tua/                               
-                                
+                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus"
+                  url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/                                              
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
