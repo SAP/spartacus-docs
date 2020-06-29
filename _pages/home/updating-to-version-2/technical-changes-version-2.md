@@ -270,48 +270,54 @@ The individual changes per class for 2.0 are the following:
 ### Pagination Component
 
 The reusable `PaginationComponent` has been completely refactored for 2.0. The pagination component had various flaws in version 1 and the implementation wasn't great either. The new version is fully configurable and easily extensible as the *build* logic is solely delegated to the new `PaginationBuilder`.
-The default configuration is more concise and shows maximum 3 pages with a start and end link.
+The default configuration is more concise and shows a maximum of three pages with a start and end link.
 
-The HTML and companied CSS is refactored as well. A clean DOM exists of only anchor links, nothing more. The availability and order of pagination links is driven by the configuration. The component is fully accessible and prepared for directionality as well.
+The HTML and accompanying CSS is refactored as well. A clean DOM consists of only anchor links, nothing more. The availability and order of pagination links is driven by the configuration. The component is fully accessible and prepared for directionality as well.
 
-Using anchor links is the preferred action for pagination links, but action links (using `click` events) are still supported and used in various areas in Spartacus. The product listing page however is using anchor links.
+Using anchor links is the preferred action for pagination links, but action links (using `click` events) are still supported and used in various areas in Spartacus. The product listing page, however, is using anchor links.
 
-The component is fully [documented](https://sap.github.io/spartacus-docs/pagination/).
+For more information, see [Pagination Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/pagination.md %}).
 
 If you have used the pagination component directly, you should refactor the implementation, as the inputs have changed.
 
 ### Payment Form Component
 
-The method `isContinueButtonDisabled()` has been removed as the submission button is no longer disabled by default.
+The method `isContinueButtonDisabled()` because been removed as the submission button is no longer disabled by default.
 
 ### Address Card Component
 
 The component `AddressCardComponent` has been completely removed and is replaced by `CardComponent`. Use `CardComponent` instead.
 
-### Storage sync mechanism change in multi cart
+### Storage sync mechanism change in multi-cart
 
-Storage synchronization mechanism previously used to persist active cart id had some limitations that caused bugs on multi site stores (issue: [https://github.com/SAP/spartacus/issues/6215](https://github.com/SAP/spartacus/issues/6215)).
-Default storage sync configuration was removed from `MultiCartStoreModule`. Instead state persistence mechanism have been added for multi cart to provide the same behavior and to support multi site stores. It is build on top of `StatePersistenceService`. This is a new and recommended way to synchronize state to browser storage. Head to docs (TODO: add link to state persistence doc when it will be published) for more information.
+The storage synchronization mechanism previously used to persist the active cart id had some limitations that caused bugs on multi-site stores (issue: [https://github.com/SAP/spartacus/issues/6215](https://github.com/SAP/spartacus/issues/6215)).
+
+The default storage sync configuration was removed from `MultiCartStoreModule`. Instead, a state persistence mechanism has been added for multi-cart to provide the same behavior and to support multi-site stores. It is build on top of `StatePersistenceService`. This is a new and recommended way to synchronize state to browser storage. For more information, see [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %}).
 
 ### Cart state and selectors removed
 
-We are replacing old `cart` store feature (`CART_DATA`, `StateWithCart`, `CartsState`, `CART_FEATURE`, `CartState`) along with it's selectors (`CartSelectors`) with new cart state available in previous version under `multi-cart`. We recommend working with `ActiveCartService` and `MultiCartService` which uses under the hood new `cart` store feature. It allows us to support more carts (eg. wishlist, saved carts).
+We are replacing the old `cart` store feature (`CART_DATA`, `StateWithCart`, `CartsState`, `CART_FEATURE`, `CartState`), along with its selectors (`CartSelectors`), with a new cart state that was available in previous versions under `multi-cart`. We recommend working with `ActiveCartService` and `MultiCartService`, which use the new `cart` store feature under the hood. This allows us to support more carts (for example, wishlist, saved carts, and so on).
 
 ### Typed payloads in NgRx actions
 
-To avoid one type of bugs (missing parameters) when dispatching NgRx actions we added types to their payload. We want to be sure that we always have all required parameters. Additionally with types creating new actions is easier, as you get better editor support when specifying payload.
+To avoid one type of bug (missing parameters) when dispatching NgRx actions, we added types to their payload. We want to be sure that we always have all required parameters. Additionally, creating new actions is easier with types, as you get better editor support when specifying the payload.
 
-List of actions with changed payload type: `CartAddEntry`, `CartAddEntrySuccess`, `CartRemoveEntry`, `CartRemoveEntrySuccess`, `CartUpdateEntry`, `CartUpdateEntrySuccess`, `AddEmailToCartSuccess`, `MergeCartSuccess`, `CartAddEntryFail`, `CartRemoveEntryFail`, `CartUpdateEntryFail`, `CartRemoveVoucherFail`, `CartRemoveVoucherSuccess`, `CartAddVoucherFail`, `CartAddVoucherSuccess`, `CreateCart`, `CreateCartFail`, `CreateCartSuccess`, `LoadCart`, `LoadCartFail`, `LoadCartSuccess`, `LoadWishList`, `LoadWishListSuccess`, `AddEmailToCart`, `AddEmailToCartFail`, `MergeCart`, `DeleteCartFail`, `ClearCheckoutDeliveryModeFail`.
+The following is a list of actions with changed payload type: `CartAddEntry`, `CartAddEntrySuccess`, `CartRemoveEntry`, `CartRemoveEntrySuccess`, `CartUpdateEntry`, `CartUpdateEntrySuccess`, `AddEmailToCartSuccess`, `MergeCartSuccess`, `CartAddEntryFail`, `CartRemoveEntryFail`, `CartUpdateEntryFail`, `CartRemoveVoucherFail`, `CartRemoveVoucherSuccess`, `CartAddVoucherFail`, `CartAddVoucherSuccess`, `CreateCart`, `CreateCartFail`, `CreateCartSuccess`, `LoadCart`, `LoadCartFail`, `LoadCartSuccess`, `LoadWishList`, `LoadWishListSuccess`, `AddEmailToCart`, `AddEmailToCartFail`, `MergeCart`, `DeleteCartFail`, `ClearCheckoutDeliveryModeFail`.
 
-Removed actions: `CreateMultiCart`, `CreateMultiCartFail`, `CreateMultiCartSuccess`, `LoadMultiCart`, `LoadMultiCartFail`, `LoadMultiCartSuccess`, `AddEmailToMultiCart`, `AddEmailToMultiCartSuccess`, `AddEmailToMultiCartFail`, `MergeMultiCart`, `MergeMultiCartSuccess`, `ResetMultiCartDetails`, `ClearCart`, `RemoveTempCart`, `ClearExpiredCoupons`.
+The following are removed actions: `CreateMultiCart`, `CreateMultiCartFail`, `CreateMultiCartSuccess`, `LoadMultiCart`, `LoadMultiCartFail`, `LoadMultiCartSuccess`, `AddEmailToMultiCart`, `AddEmailToMultiCartSuccess`, `AddEmailToMultiCartFail`, `MergeMultiCart`, `MergeMultiCartSuccess`, `ResetMultiCartDetails`, `ClearCart`, `RemoveTempCart`, `ClearExpiredCoupons`.
 
-Renamed actions: `ClearMultiCartState` -> `ClearCartState`
+The following are renamed actions: `ClearMultiCartState` -> `ClearCartState`
 
-New actions:
+The following are new actions:
 
-- `LoadWishListFail` - for consistency in wishlist it now have dedicated fail action. It will be dispatched in wishlist effects instead of `LoadCartFail` action.
-- `DeleteCartSuccess` - for consistency in delete cart effect. It will be dispatched after DeleteCart action will successfully delete cart in backend.
-- `SetActiveCartId` - to set active cart id from state persistence service.
+- `LoadWishListFail`  
+    A dedicated `LoadWishListFail` action was added to maintain consistency in the wishlist. It is dispatched in the wishlist effects instead of the `LoadCartFail` action.
+
+- `DeleteCartSuccess`  
+    The `DeleteCartSuccess` action was added to maintain consistency in the delete cart effect. It will be dispatched after DeleteCart action will successfully delete cart in backend.
+
+- `SetActiveCartId`  
+    The `SetActiveCartId` action was added to set the active cart id from the state persistence service.
 
 ### Services changes
 
@@ -319,15 +325,15 @@ New actions:
 
 ## New Deprecations
 
-- `ADD_VOUCHER_PROCESS_ID` const, `CartResetAddVoucher` action - we plan to migrate from add voucher process to cart voucher events
-- `CartProcessesIncrement` and `CartProcessesDecrement` - instead extend EntityProcesses in actions
-- `CartVoucherService` methods: `getAddVoucherResultError`, `getAddVoucherResultSuccess`, `getAddVoucherResultLoading` and `resetAddVoucherProcessingState`. Those methods will be replaced with event listeners.
+- `ADD_VOUCHER_PROCESS_ID` const, `CartResetAddVoucher` action: we plan to migrate from the add voucher process to cart voucher events
+- `CartProcessesIncrement` and `CartProcessesDecrement`: instead, extend EntityProcesses in actions
+- `CartVoucherService` methods: `getAddVoucherResultError`, `getAddVoucherResultSuccess`, `getAddVoucherResultLoading` and `resetAddVoucherProcessingState`. These methods are replaced with event listeners.
 
 ## Forms Changes
 
 ### Naming convention
 
-From 2.0, FormGroups will be named accordingly to components they are used in, eg. FormGroup in `loginComponent` will be named `loginForm`.
+From 2.0, `FormGroups` will be named according to the components they are used in. For example, `FormGroup` in `loginComponent` will be named `loginForm`.
 
 ### New FormGroup list
 
@@ -349,23 +355,23 @@ From 2.0, FormGroups will be named accordingly to components they are used in, e
 | `CheckoutLoginComponent` | `form` | `checkoutLoginForm` |
 | `LoginFormComponent` | `form` | `loginForm` |
 
-### Files removal
+### File removals
 
-Due to changes in forms and form-related functionalities, `form-utils` file was removed completely - its functionalities are handled by `FormErrorsComponent`. Also due to aforementioned changes, `BillingAddressFormComponent` was removed and its functionalities were moved to `PaymentFormComponent`. The same with his module - instead of `BillingAddressFormModule` use `PaymentFormModule`.
+Due to changes in forms and form-related functionalities, the `form-utils` file was removed completely, and its functionalities are now handled by `FormErrorsComponent`. Also due to the aforementioned changes, `BillingAddressFormComponent` was removed and its functionalities were moved to `PaymentFormComponent`. The same is true for the module: instead of `BillingAddressFormModule`, use `PaymentFormModule`.
 
 ## How to Use FormErrorsComponent
 
 ### Preface
 
-This component was created with easy usage in mind. The only thing you have to do is pass a form control to it as an attribute `[control]` and the component will handle everything for you - rendering icon, message, showing/hiding validation error, etc.
+This component was created with easy usage in mind. The only thing you have to do is pass a form control to it as an attribute `[control]` and the component will handle everything for you, such as icon rendering, message, showing/hiding validation error, and so on.
 
 ### Useful information
 
-- You can use `FormErrors` component in any place you want, you don't have to place it right after a related control element - eg. you can place it in a custom popup
-- `FormErrors` component uses translation keys from `common` chunk
-- Each translation is mapped to specific validation error names, eg. `cxPasswordsMustMatch`
-- Controls' visuals (red border) is fully handled by CSS - it takes advantage of `ng-...` form CSS classes (valid, dirty, touched)
-- `FormErrors` visibility is also relaying on similar CSS classes (`.control-valid`, `.control-dirty`, `.control-touched`) - thanks to this, you can use it in any place you want
+- You can use the `FormErrors` component in any place you want, so you do not have to place it right after a related control element. For example, you can place it in a custom popup.
+- The `FormErrors` component uses translation keys from the `common` chunk.
+- Each translation is mapped to specific validation error names, such as `cxPasswordsMustMatch`, for example.
+- The visuals of the controls (red border) are fully handled by CSS. They take advantage of the `ng-...` form CSS classes (valid, dirty, touched).
+- `FormErrors` visibility is also relying on similar CSS classes (`.control-valid`, `.control-dirty`, `.control-touched`). As a result, you can use it in any place you want.
 
 ### Example
 
@@ -411,12 +417,13 @@ This component was created with easy usage in mind. The only thing you have to d
 
 ## Store Finder Changes
 
-Parameter `radius` of `googleMaps?` parameter in `StoreFinderConfig` is now configurable.
+In `StoreFinderConfig`, the `radius` parameter of the `googleMaps?` parameter is now configurable.
 
 ## Save for Later Configuration
 
-Feature flag `saveForLater` was removed.
-Instead use cart configuration to enable/disable saveForLater feature.
+The `saveForLater` feature flag was removed.
+
+Instead, use cart configuration to enable/disable saveForLater feature. The following is an example:
 
 ``` ts
 cart: {
@@ -428,29 +435,30 @@ cart: {
 
 ## Translations Updates
 
-New translations added, small stylistic changes in `loginForm.dontHaveAccount`, `productList.appliedFilter`, `productFacetNavigation.appliedFilter` default values and new translation group `formErrors` added to `common` chunk.
+New translations have been added: small stylistic changes in the default values of `loginForm.dontHaveAccount`, `productList.appliedFilter`, and `productFacetNavigation.appliedFilter`, and a new `formErrors` translation group was added to the `common` chunk.
 
 ## CDS Library Breaking Changes
 
-- Enum `ProfileTagEventNames.LOADED` value removed.
+- Enum `ProfileTagEventNames.LOADED` value was removed.
 - `ProfileTagEventService.addTracker` now returns `Observable<string>` instead of `Observable<Event>`.
 
 ## Peer Dependencies
 
-We updated peerDependencies for every library to correctly list all dependencies if you don't use storefront library. Previously we only maintained that list for `@spartacus/storefront`.
-Now you will see during any library installation which other packages you have to install in the project.
+We updated peer dependencies for every library to correctly list all dependencies if you don't use the storefront library. Previously, we only maintained this list for `@spartacus/storefront`.
+
+Now, during any library installation, you will see which other packages you have to install in the project.
 
 ## Deprecated Since 1.5
 
 |  API  | Replacement |  Notes  |
 |-------|-------------|---------|
-| WishlistEffects, CartEffects, CartVoucherEffects, CartEntryEffects, effects | Create your own effects in separate class and take into account default behavior from effects | We didn't plan to export effects in the first place. Cart effects in public API were a mistake. If you extended this class, you should move your effects to separate class and keep in mind that default effects will be working. |
-| getReducers, reducerToken, reducerProvider, clearCartState, metaReducers, clearMultiCartState, multiCartMetaReducers, multiCartReducerToken, getMultiCartReducers, multiCartReducerProvider | Extend cart behavior in higher level (facade) or use custom actions for your specific use case | We didn't plan to export reducers and utilities for reducers in the first place. Cart reducers in public API were a mistake. Any changes to reducers should be handled in different layer (facade) or separate store module. Keep in mind that default reducer behavior will be working under the hood.|
-| `CartDetailsComponent.getAllPromotionsForCart` method removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information you should use this service. |
-| `OrderDetailItemsComponent.getConsignmentProducts` method removed | Use `OrderConsignedEntriesComponent` instead | This functionality has been extracted into separate component. |
-| `CartItemComponent.potentialProductPromotions` input removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information you should use this service. |
-| `CartItemListComponent.potentialProductPromotions` input removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information you should use this service. |
-| `CartItemListComponent.getPotentialProductPromotionsForItem` method removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information you should use this service. |
+| WishlistEffects, CartEffects, CartVoucherEffects, CartEntryEffects, effects | Create your own effects in a separate class and take into account the default behavior from effects | We didn't plan to export effects in the first place. Cart effects in the public API were a mistake. If you extended this class, you should move your effects to a separate class and keep in mind that default effects will be working. |
+| getReducers, reducerToken, reducerProvider, clearCartState, metaReducers, clearMultiCartState, multiCartMetaReducers, multiCartReducerToken, getMultiCartReducers, multiCartReducerProvider | Extend cart behavior in higher level (facade) or use custom actions for your specific use case | We didn't plan to export reducers and utilities for reducers in the first place. Cart reducers in the public API were a mistake. Any changes to reducers should be handled in a different layer (facade) or separate store module. Keep in mind that default reducer behavior will be working under the hood.|
+| `CartDetailsComponent.getAllPromotionsForCart` method removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information, you should use this service. |
+| `OrderDetailItemsComponent.getConsignmentProducts` method removed | Use `OrderConsignedEntriesComponent` instead | This functionality has been extracted into a separate component. |
+| `CartItemComponent.potentialProductPromotions` input removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information, you should use this service. |
+| `CartItemListComponent.potentialProductPromotions` input removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information, you should use this service. |
+| `CartItemListComponent.getPotentialProductPromotionsForItem` method removed | Use `PromotionService` | `PromotionService` is now the main promotion data source. Whenever you need promotions information, you should use this service. |
 | `ProductImagesComponent.isThumbsEmpty` property removed | Use `thumbs$` observable instead | - |
 | `KymaServices` const removed | Use `OpenIdAuthenticationTokenService` directly | - |
 
@@ -458,27 +466,27 @@ Now you will see during any library installation which other packages you have t
 
 | API                               | Replacement | Notes                                                                          |
 | --------------------------------- | ----------- | ------------------------------------------------------------------------------ |
-| config `i18n.backend.crossDomain` | -           | it's not needed anymore since using Angular HttpClient for loading i18n assets |
-| `CartService` removed | Use `ActiveCartService` instead | `ActiveCartService` have exactly the same name, arguments and return type for most of the methods from `CartService`. One function was renamed - `getLoaded` changed to `isStable` to better describe function behavior. Two methods are not present in `ActiveCartService`. Method `getCartMergeComplete` was removed on purpose. Cart merging is an implementation detail of OCC and we don't consider that information useful. Instead you can rely on `isStable` method that will correctly present state of the cart. During cart merge it will emit `false` values. Rule of thumb is to only dispatch cart modifications (eg. addEntry, addEmail) when `isStable` emits `true`. Method `addVoucher` is also not available in `ActiveCartService`. Instead use `CartVoucherService.addVoucher` method. |
-| `CartDataService` removed | Use methods from `ActiveCartService` and `AuthService` | Our libraries are generally moving towards reactive programming and observables. `CartDataService` used completely different patterns and it was hard to follow if data there was already updated or represented previous cart state. Replacements for `CartDataService` properties: `userId` -> replace usage with `AuthService.getOccUserId()`, `cart` -> replace usage with `ActiveCartService.getActive()`, `cartId` -> replace usage with `ActiveCartService.getActiveCartId()`, `isGuestCart` -> replace usage with `ActiveCartService.isGuestCart()`. Property `hasCart` doesn't have direct replacement. Instead you can look into `ActiveCartService.getActive()` method output to see if it emitted empty object (which means that there is no cart). |
-| `ProductService` and `CurrentProductService` use product scopes | - | In some cases current product won't return full product model. You should use scopes to optimize backend calls related to product data. |
+| config `i18n.backend.crossDomain` | -           | It is not needed anymore since using Angular HttpClient for loading i18n assets |
+| `CartService` removed | Use `ActiveCartService` instead | `ActiveCartService` has exactly the same name, arguments and return type for most of the methods from `CartService`. One function was renamed: `getLoaded` is changed to `isStable` to better describe function behavior. Two methods are not present in `ActiveCartService`. The `getCartMergeComplete` method was removed on purpose. Cart merging is an implementation detail of OCC and we don't consider that information useful. Instead, you can rely on the `isStable` method that will correctly present the state of the cart. During cart merge, it will emit `false` values. A rule of thumb is to only dispatch cart modifications (for example, `addEntry`, `addEmail`) when `isStable` emits `true`. The `addVoucher` method is also not available in `ActiveCartService`. Instead, use the `CartVoucherService.addVoucher` method. |
+| `CartDataService` removed | Use methods from `ActiveCartService` and `AuthService` | Our libraries are generally moving towards reactive programming and observables. `CartDataService` used completely different patterns and it was hard to follow if existing data was already updated, or represented a previous cart state. The following are replacements for `CartDataService` properties: `userId` -> replace usage with `AuthService.getOccUserId()`; `cart` -> replace usage with `ActiveCartService.getActive()`; `cartId` -> replace usage with `ActiveCartService.getActiveCartId()`; `isGuestCart` -> replace usage with `ActiveCartService.isGuestCart()`. The `hasCart` property doesn't have a direct replacement. Instead, you can look into the `ActiveCartService.getActive()` method output to see if it emitted an empty object (which means that there is no cart). |
+| `ProductService` and `CurrentProductService` use product scopes | - | In some cases, the current product won't return the full product model. You should use scopes to optimize back end calls related to product data. |
 | `withCredentialsInterceptorProvider` | It is provided by default in `OccModule` | - |
 
 ## Deprecated Since 1.3
 
 |  API  | Replacement |  Notes  |
 |-------|-------------|---------|
-| PageMetaResolver.resolve() | Use individual resolvers | The caller `PageMetaService` service is improved to expect all individual resolvers instead, so that the code is easier extensible. |
-| `initSiteContextRoutesHandler`, `siteContextParamsProviders` | - | the constants were not meant to be exported in public API |
-| `inititializeContext`, `contextServiceProviders` | - | the constants were not meant to be exported in public API |
+| PageMetaResolver.resolve() | Use individual resolvers | The caller `PageMetaService` service is improved to expect all individual resolvers instead, so that the code is more easily extensible. |
+| `initSiteContextRoutesHandler`, `siteContextParamsProviders` | - | The constants were not meant to be exported in the public API. |
+| `inititializeContext`, `contextServiceProviders` | - | The constants were not meant to be exported in the public API. |
 
 ## Deprecated Since 1.2
 
 |  API  | Replacement |  Notes  |
 |-------|-------------|---------|
-| CheckoutActions.ClearCheckoutDeliveryModeSuccess() | CheckoutActions.ClearCheckoutDeliveryModeSuccess(payload) | The `ClearCheckoutDeliveryModeSuccess` action requires payload. `CheckoutActions.ClearCheckoutDeliveryModeSuccess(payload: { userId: string; cartId: string })` |
-| `ANONYMOUS_USERID` | `OCC_USER_ID_ANONYMOUS` | OCC constants are now available under `OCC` prefix to make it more clear that these variables are related to `OCC`.
-| AddressBookComponentService.addUserAddress(userAddressService: UserAddressService) | AddressBookComponentService(userAddressService, checkoutDeliveryService) | The constructor now uses also CheckoutDeliveryService. `AddressBookComponentService(userAddressService: UserAddressService, checkoutDeliveryService: CheckoutDeliveryService)` |
+| CheckoutActions.ClearCheckoutDeliveryModeSuccess() | CheckoutActions.ClearCheckoutDeliveryModeSuccess(payload) | The `ClearCheckoutDeliveryModeSuccess` action requires a payload. `CheckoutActions.ClearCheckoutDeliveryModeSuccess(payload: { userId: string; cartId: string })` |
+| `ANONYMOUS_USERID` | `OCC_USER_ID_ANONYMOUS` | OCC constants are now available under the `OCC` prefix to make it more clear that these variables are related to `OCC`.
+| AddressBookComponentService.addUserAddress(userAddressService: UserAddressService) | AddressBookComponentService(userAddressService, checkoutDeliveryService) | The constructor now also uses the `CheckoutDeliveryService`. `AddressBookComponentService(userAddressService: UserAddressService, checkoutDeliveryService: CheckoutDeliveryService)` |
 | CheckoutGuard(router: Router, config: CheckoutConfig, routingConfigService: RoutingConfigService) | CheckoutGuard(router, routingConfigService, checkoutConfigService, expressCheckoutService, cartService) | The constructor now uses new dependencies. `CheckoutGuard(router: Router, routingConfigService: RoutingConfigService, checkoutConfigService: CheckoutConfigService, expressCheckoutService: ExpressCheckoutService, cartService: ActiveCartService)` |
 
 ## Deprecated Since 1.1
@@ -494,19 +502,19 @@ Now you will see during any library installation which other packages you have t
 
 Support for declared variables dropped:
 
-- `cards` This variable will no longer be in use. Use cards$ observable instead.
+- `cards` This variable will no longer be in use. Use the `cards$` observable instead.
 - `goTo` This variable will no longer be in use. Avoid using it.
-- `setAddress` This variable will no longer be in use. Use selectAddress(address: Address) instead.
+- `setAddress` This variable will no longer be in use. Use `selectAddress(address: Address)` instead.
 - `setAddressSub` This variable will no longer be in use. Avoid using it.
-- `selectedAddressSub` This variable will no longer be in use. Use selectedAddress$ observable instead.
-- `checkoutStepUrlNext` This variable will no longer be in use. Use CheckoutConfigService.getNextCheckoutStepUrl(this.activatedRoute) instead.
-- `checkoutStepUrlPrevious` This variable will no longer be in use. Use CheckoutConfigService.getPreviousCheckoutStepUrl(this.activatedRoute) instead.
-- `selectedAddress` This variable will no longer be in use. Use selectedAddress$ observable instead.
+- `selectedAddressSub` This variable will no longer be in use. Use the `selectedAddress$` observable instead.
+- `checkoutStepUrlNext` This variable will no longer be in use. Use `CheckoutConfigService.getNextCheckoutStepUrl(this.activatedRoute)` instead.
+- `checkoutStepUrlPrevious` This variable will no longer be in use. Use `CheckoutConfigService.getPreviousCheckoutStepUrl(this.activatedRoute)` instead.
+- `selectedAddress` This variable will no longer be in use. Use `selectedAddress$` observable instead.
 
 Support for functions dropped:
 
-- `addressSelected` This method will no longer be in use. Use selectAddress(address: Address) instead.
-- `back` This method will no longer be in use. Use goPrevious() instead.
-- `next` This method will no longer be in use. Use goNext() instead.
-- `addNewAddress` This method will no longer be in use. Use addAddress(address: Address) instead.
+- `addressSelected` This method will no longer be in use. Use `selectAddress(address: Address)` instead.
+- `back` This method will no longer be in use. Use `goPrevious()` instead.
+- `next` This method will no longer be in use. Use `goNext()` instead.
+- `addNewAddress` This method will no longer be in use. Use `addAddress(address: Address)` instead.
 - `ngOnDestroy` This method will no longer be in use. Remove.
