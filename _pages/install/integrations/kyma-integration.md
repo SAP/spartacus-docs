@@ -1,5 +1,5 @@
 ---
-title: Kyma Integration (DRAFT)
+title: Kyma Integration
 ---
 
 ## Prerequisites

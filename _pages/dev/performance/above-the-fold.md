@@ -54,7 +54,7 @@ ProductDetailsPageTemplate: {
 }
 ```
 
-For more information on page layout configuration, see [Configuring the Layout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/page-layout/#configuring-the-layout).
+For more information on page layout configuration, see [Configuring the Layout](https://sap.github.io/spartacus-docs/page-layout/#configuring-the-layout).
 
 ## CSS Configuration
 

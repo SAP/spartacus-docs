@@ -1,5 +1,5 @@
 ---
-title: Yotpo Integration (DRAFT)
+title: Yotpo Integration
 ---
 You can integrate Spartacus with [Yotpo](https://www.yotpo.com) to import customer reviews from Yotpo for use in the storefront as well as submitting new reviews to the Yotpo service. The following instructions explain how you can import the Yotpo module and add the Yotpo widget to your storefront.
 
