@@ -57,6 +57,22 @@ The following is a summary of the major changes introduced in 2.0:
 - New facet navigation makes extending facets easier
 - Deprecated code removed
 
+### Notes for deployment of Spartacus 2.0 storefronts via SAP Commerce cloud hosting service.
+
+Spartacus 2.0 uses Angular 9, which changes certain file locations. As of this writing (July 2020), to use Spartacus 2.0 with SAP Commerce Cloud in the Public Cloud hosting services, you must make the following changes to your Angular application for it to build properly. (For more information, see https://github.com/SAP/spartacus/issues/7993.) This will be fixed in a future release of SAP Commerce Cloud in the Public Cloud.
+
+Changes in `angular.json`:
+- `"outputPath": "dist/app-name/browser"` to 
+  `"outputPath": "dist/app-name"`
+- `"outputPath": "dist/app-name/server"` to 
+  `"outputPath": "dist/app-name-server"`
+
+Change in `server.ts`:
+- `const distFolder = join(process.cwd(), 'dist/app-name/browser');` to
+  `const distFolder = join(process.cwd(), 'dist/app-name');`
+
+### For more information on changes
+
 For a detailed list of all changes for 2.0 and previous 'next' releases of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
 ## About Spartacus Releases
