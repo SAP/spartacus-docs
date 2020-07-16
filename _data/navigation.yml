@@ -246,7 +246,7 @@ docs:
                 - title: "Installation Guide for TUA"
                   url: /installation-guide-for-tua/
         - title: "Spartacus Features for TUA ➢"
-            url: /spartacus-features-for-tua/                               
+          url: /spartacus-features-for-tua/                               
                                 
     - title: Contributing to Spartacus
       children:
