@@ -234,7 +234,10 @@ docs:
       children:
         - title: "About Spartacus for TUA"
           url: /about-spartacus-for-tua/
-        - title: "Release Information for TUA"
+        - title: "Release Information for TUA ➢"
+          subchildren:
+                - title: "Pre-Release Information"
+                  url: /tua-pre-release-information/
           url: /telco-release-information/
         - title: "Spartacus Roadmap for TUA"
           url: /spartacus-roadmap-for-tua/
