@@ -2,11 +2,12 @@
 title: Spartacus Roadmap
 ---
 
-*Last updated June 18, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated July 20, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-This document describes what what is planned for Spartacus for Q2 2020 and later.
+This document describes what what is planned for Spartacus for Q3 2020 and later.
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
+- For information on the future of SAP Commerce Cloud, see the [Roadmap](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=general&title=Roadmap).
 
 Contents:
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
@@ -28,7 +29,7 @@ Contents:
   
 ### General Release Information
 
-We plan to publish new Spartacus libraries every two weeks. Each release may contain bug fixes, improvements to user experience, and new features.
+We usually publish new Spartacus libraries every week. Each release may contain bug fixes, improvements, and new features.
 
 When new features are available for release, normally we will publish a pre-release "next" version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later. 
 
@@ -44,42 +45,26 @@ For non-technical questions and roadmap feedback, you can reach us on our [Slack
   
   
   
-### Planned for Q2 2020
-
-Important: As this is a roadmap, version numbers and dates listed below can change; this page will be updated as it happens.
-
-#### Version 2.0: Move to Angular 9, Accessibility Keyboarding
-
-Version 2.0 released June 3, 2020! For details, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
-
+### Planned for Q3 2020
 
 #### Version 2.1: B2B My Company
 
-The first B2B features will arrive soon after release 2.0 of the Spartacus libraries as version 2.1. We're planning to publish pre-release libraries end of June 2020/early July and then the final libraries in July.
+Pre-release scheduled for end of July, release scheduled for mid-August
 
-The first release of B2B Spartacus will include:
+Release 2.1 will be the first release supporting B2B features.
 
 - **B2B Commerce Org**  
   (also known as My Company management of units, users, budgets, cost centers, purchase thresholds, user groups, approvals) 
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html?q=commerce%20org%20my%20company)
-- Updates to Order Details to include B2B-specific information, such as approval table and cost center
-- Image Zoom on Product Details page
+- **Updates to Order Details** to include B2B-specific information, such as approval table and cost center
 - Lazy loading for modules, starting with B2B My Company
-- New events for Event Service
-- Stretch for the first B2B release:
-  - Basic multi-dimensional product support (not including order grid)
-  
-Note that B2B Spartacus will require SAP Commerce Cloud 2005, as the Spartacus functionality will be implemented based on the non-conflicting B2B endpoints introduced in 2005. 
+- **Image Zoom** on Product Details page (will be released in an incubator library)
 
-  
-### Planned for Q3 2020
+Spartacus B2B features will require SAP Commerce Cloud 2005 - the Spartacus functionality will be implemented based on the non-conflicting B2B endpoints introduced in 2005. 
 
-#### 2.2 (Stretch release for early August)
+#### 3.0
 
-- **Buy online pickup in store**  
-  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
-
-#### 3.0 (planned for end of August / early September)
+Pre-release scheduled for end of August, release scheduled for mid-September
 
 - **Angular 10**
 - **Session Management**
@@ -89,19 +74,23 @@ Note that B2B Spartacus will require SAP Commerce Cloud 2005, as the Spartacus f
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) 
 - **B2B Re-order**
 
-Stretch Features for 3.0:
+Features to be included in a 3.x minor release, after 3.0 is released:
 
 - **B2B Quick Order**  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
 - **B2B Saved Carts**  
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html?q=saved%20carts)
-- **Inventory Display** (SAP Commerce Cloud 2005 required)  
+- **B2B Inventory Display** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) 
-- **Bulk Price List**
-- **Order Grid for Multi-Dimensional Products**
+- **B2B Multi-dimensional product support** and **Order Grid**
+- **B2B Bulk Price List**
 - **Accessibility Screen Reader support**
+- **New events** for Event Service
+- **Buy online pickup in store**  
+  [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
 
-#### Other Features and Integrations planned for Summer 2020
+
+#### Other Features and Integrations planned for Q3 2020
 
 - **Customer Data Cloud (Gigya) Login and Registration Support**
   For reference: [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/4fc06a3539a940e6b707c0c543d44053.html)
@@ -148,11 +137,11 @@ The items in this section are on our future roadmap - not necessarily yet planne
    
 #### B2B Storefront Features
 
-- B2B Product Import and Export Cart (\*) (from/to files)  
+- **B2B Product Import and Export Cart** (\*) (from/to files)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) 
-- B2B Order Form Builder  
+- **B2B Order Form Builder**
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
-- B2B Commerce Quotes (\*)
+- **B2B Commerce Quotes** (\*)
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
 - **B2B Future Stock** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
