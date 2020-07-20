@@ -5,11 +5,13 @@ title: Spartacus Roadmap
 *Last updated July 20, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 This document describes what what is planned for Spartacus for Q3 2020 and later.
+
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information on the future of SAP Commerce Cloud, see the [Roadmap](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=general&title=Roadmap).
 
 Contents:
+
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [General Release Information](#general-release-information)
 - [Planned for Q2 2020](#planned-for-q2-2020)
@@ -17,33 +19,25 @@ Contents:
 - [Features Planned for Q4 2020 and Later](#features-planned-for-q4-2020-and-later)
 - [Future Outlook](#future-outlook)
 
-
-
 ### Disclaimer - Forward-Looking Statements
 
 *This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
   
-  
-  
 ### General Release Information
 
 We usually publish new Spartacus libraries every week. Each release may contain bug fixes, improvements, and new features.
 
-When new features are available for release, normally we will publish a pre-release "next" version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later. 
+When new features are available for release, normally we will publish a pre-release "next" version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
 
 Some of the links provided in the following lists point to SAP Commerce Cloud Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
   
-  
-  
 #### Questions?
 
-If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). 
+If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
-  
-  
   
 ### Planned for Q3 2020
 
@@ -60,7 +54,7 @@ Release 2.1 will be the first release supporting B2B features.
 - Lazy loading for modules, starting with B2B My Company
 - **Image Zoom** on Product Details page (will be released in an incubator library)
 
-Spartacus B2B features will require SAP Commerce Cloud 2005 - the Spartacus functionality will be implemented based on the non-conflicting B2B endpoints introduced in 2005. 
+Spartacus B2B features will require SAP Commerce Cloud 2005 - the Spartacus functionality will be implemented based on the non-conflicting B2B endpoints introduced in 2005.
 
 #### 3.0
 
@@ -116,6 +110,7 @@ The items in this section are on our future roadmap - not necessarily yet planne
 - Extensibility improvements
   
 #### Core/B2C Storefront Features
+
 - Assisted Service Module customer list and other ASM improvements
   [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - Captcha (\*)
@@ -134,7 +129,7 @@ The items in this section are on our future roadmap - not necessarily yet planne
 - Other PWA Features as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist) such as mobile notifications
 - Angular I18N support
 - Directionality (for right-to-left display support)
-   
+  
 #### B2B Storefront Features
 
 - **B2B Product Import and Export Cart** (\*) (from/to files)  
@@ -145,6 +140,5 @@ The items in this section are on our future roadmap - not necessarily yet planne
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
 - **B2B Future Stock** (SAP Commerce Cloud 2005 required)  
   [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
-
 
 Some items listed above have **(\*)** because the feature requires new OCC REST APIs, no date set yet.
