@@ -4,7 +4,7 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus
+Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus
 
 ## Release 1.0.0-next.2 - July 24, 2020
 
