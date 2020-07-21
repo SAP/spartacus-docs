@@ -247,7 +247,11 @@ docs:
                   url: /installation-guide-for-tua/
         - title: "Spartacus Features for TUA ➢"
           url: /spartacus-features-for-tua/                               
-                                
+          subchildren:
+                - title: "Configurable Guided Selling Journey in SPA"
+                  url: /Configurable-Guided-Selling-Journey-in-SPA/
+
+        
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
