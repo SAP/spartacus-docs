@@ -152,3 +152,9 @@ In SmartEdit, product with code 2053367 is opened in the product details page:
 
 Same for the category page, category 575 is opened in the product list page:
 ![Screen Shot 2019-07-04 at 8 52 02 AM](https://user-images.githubusercontent.com/44440575/60668153-46d1f480-9e39-11e9-885c-d12cc6a62020.png)
+
+### WCMS Cockpit Preview URL and Spartacus Context
+
+The WCMS Cockpit Preview URL must match the default context for your Spartacus web site. 
+
+For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL (set in Backoffice) must match the default context uses, or errors will occur using SmartEdit. The default context installed by Spartacus Schematics is `https://localhost:4200/en/USD`.
