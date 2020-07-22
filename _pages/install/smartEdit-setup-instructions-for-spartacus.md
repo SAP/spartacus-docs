@@ -2,15 +2,17 @@
 title: SmartEdit Setup Instructions for Spartacus
 ---
 
-Pre-requisites:
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.0 {{ site.version_note_part2 }}
+{% endcapture %}
 
-- SAP Commerce Cloud 1905 (released May 29, 2019)
-  - with `spartacussampledataaddon` installed
-- Spartacus libraries, releases **0.1.0 alpha.4** or later, latest recommended
+{% include docs/feature_version.html content=version_note %}
 
+## Prerequisites
 
+For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer) with `spartacussampledataaddon` installed.
 
-### Configuring SmartEdit to work with a Spartacus storefront
+## Configuring SmartEdit to work with a Spartacus storefront
 
 1. Build your Angular app, adding Spartacus libraries as normal. Make sure it's working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
