@@ -2,7 +2,7 @@
 title: Pre-Release Information
 ---
 
-This document describes the contents of the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
+This document describes the contents of the pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
 _Last updated May 18, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
