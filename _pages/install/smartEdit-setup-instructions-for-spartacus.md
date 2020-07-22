@@ -59,7 +59,7 @@ Pre-requisites:
 5. Ensure that the WCMS Cockpit Preview URL is set correctly.
 
    - In Backoffice, in WCMS > Website > *your site*, click the WCMS Properties tab.
-   - Set the WCMS Cockpit Preview URL to your Spartacus web site. For this example, it should point to `https://localhost:4200`.
+   - Set the WCMS Cockpit Preview URL to match your Spartacus web site. For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL must match the default context uses, or errors will occur using SmartEdit. The default context installed by Spartacus Schematics is `https://localhost:4200/en/USD`.
    
 6. Ensure that the Spartacus site is whitelisted in Smartedit. There are many ways to do this; see the SmartEdit documentation for more information.
 
