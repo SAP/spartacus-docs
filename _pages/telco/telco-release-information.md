@@ -48,15 +48,15 @@ With this release, the following storefront features are included:
 - TUA-specific functionality including:
   - Product Offering Search (Free Text, Facets, and Menu)
   - Product Offering Prices: Support of One-Time Charges, Recurring Charges, and Usage Charges. For more information, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html).
-  - Simple Product Offerings (SPOs). For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html).
+  - Simple Product Offerings (SPOs). For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html) in the TUA Help portal.
     - Product Offering Details page
     - Product Offering Listing page
-  - Configurable Guided Selling 
+  - Configurable Guided Selling. For more information, see For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html) in the TUA Help portal.
     - Bundled Product Offerings
     - Purchase Wizard
-  - Cart: New cart display and structure for TUA as prices are displayed differently from the core commerce
-  - Checkout: New checkout display and structure for TUA
-  - Order: New order display and structure for TUA
+  - Cart: New cart display and structure for TUA as prices are displayed differently from the core commerce. For more information, see [Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/525a0a7eafbb4d3ab988872a21e0e3b3.html) in the TUA Help portal.
+  - Checkout: New checkout display and structure for TUA. For more information, see [Order](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2365910e452d4850a6b7b5d2b8583db9.html) in the TUA Help portal.
+  - Order: New order display and structure for TUA. For more information, see [Order](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html) in the TUA Help portal.
 
    
 ### About Spartacus Releases
@@ -90,4 +90,4 @@ You can upgrade your Spartacus libraries to a new minor version, as follows:
 
 ### Future Releases
 
-For more information, see the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}). 
+For more information, see the [separate roadmap document]({{ site.baseurl }}{% link _pages/telco/spartacus-roadmap-for-tua.md %}). 
