@@ -4,14 +4,14 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated July 21, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
+_Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
-## Release 0.1.0-next.2 - July 21st, 2020
+## Release 0.1.0-next.2 - July 24th, 2020
 
 Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release.
 
-- Product Offering Pricing improvements. For more information, see [Pricing in TUA Help Portal](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html).
-- Guided selling for complex Bundled Product Offerings.
+- Product Offering Pricing improvements. For more information, see [Pricing in TUA Help Portal](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html) in the TUA Help portal.
+- Guided selling for complex Bundled Product Offerings. For more information, see [Configurable Guided Selling for BPOs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/464d4b03d91442e9ac95f69808895a39.html) in the TUA Help portal.
 - Redesigned for Spartacus.
 
 ## Questions
