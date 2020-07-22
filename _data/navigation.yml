@@ -240,8 +240,11 @@ docs:
           url: /spartacus-roadmap-for-tua/
         - title: "Spartacus TUA FAQs"
           url: /spartacus-tua-faqs/
-        - title: "Documentation Archive"
-          url: /tua-documentation-arhieve/    
+        - title: "Documentation Archive ➢"
+          url: /tua-documentation-arhieve/
+          subchildren:
+                - title: "Pre-Release Notes 1.0.0-next.1"
+                  url: /tua-pre-release-notes-next1/    
         - title: "Getting Started with Spartacus for TUA ➢"
           url: /getting-started-with-spartacus-for-tua/ 
           subchildren:
