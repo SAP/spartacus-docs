@@ -239,7 +239,9 @@ docs:
         - title: "Spartacus Roadmap for TUA"
           url: /spartacus-roadmap-for-tua/
         - title: "Spartacus TUA FAQs"
-          url: /spartacus-tua-faqs/    
+          url: /spartacus-tua-faqs/
+        - title: "Documentation Archive"
+          url: /tua-documentation-arhieve/    
         - title: "Getting Started with Spartacus for TUA ➢"
           url: /getting-started-with-spartacus-for-tua/ 
           subchildren:
