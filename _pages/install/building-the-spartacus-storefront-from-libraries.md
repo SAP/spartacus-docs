@@ -58,6 +58,15 @@ To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` 
 
 To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
 
+### Install dependencies ###  
+
+Install dependencies needed by your Spartacus app with the following command:
+
+```
+yarn install
+```
+
+
 ### Check app.module.ts for base URL and other settings ###
 
 Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
