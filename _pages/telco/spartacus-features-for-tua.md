@@ -4,10 +4,10 @@ title: Spartacus Features for TUA
 
 This is a landing page for grouping together Spartacus features for TUA. The Spartacus features for TUA include the following:
 
-- Product Offering Search
-- Product Offering Prices
-- [Simple Product Offerings (SPOs)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html)
+- [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %})
+- [Product Offering Prices]({{ site.baseurl }}{% link _pages/telco/product-offering-prices.md %})
+- [Simple Product Offering (SPOs)]({{ site.baseurl }}{% link _pages/telco/simple-product-offerings-spo.md %})
 - Configurable Guided Selling Journey
-- Cart
-- Checkout
-- Order
+- [Cart]({{ site.baseurl }}{% link _pages/telco/cart.md %})
+- [Checkout]({{ site.baseurl }}{% link _pages/telco/checkout.md %})
+- [Order]({{ site.baseurl }}{% link _pages/telco/order.md %})
