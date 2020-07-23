@@ -1,10 +1,10 @@
 ---
-title: Installing SAP Commerce Cloud with Telco and Utilities Accelerator for use with Spartacus
+title: Installing SAP Commerce Cloud with TUA for use with Spartacus
 ---
 
 The following instructions describe how to install and configure SAP Commerce Cloud (release 1905) with Telco and Utilities Accelerator (release 2003, last patch) for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud with TUA is installed on your local computer, so `localhost` is used in the browser URLs.
 
-The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the Spartacus TUA Sample Data (`b2ctelcospastore`), but you can use you own sample data or recipe as long as it includes the `cmsoccaddon`, `ycommercewebservices` extensions and TUA module.
+The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the Spartacus TUA Sample Data (`b2ctelcospastore`), but you can use you own sample data or recipe as long as it includes the `cmsoccaddon`, `ycommercewebservices`, `acceleratorwebservicesaddon` extensions and TUA module.
 
 **Note:** If you are trying out Spartacus for the first time and intend to use the default sample data, you must use the Spartacus TUA Sample Data store extension (should be part of your list of extensions). The Spartacus TUA Sample Data is a set of data (product offerings and content) for the telco industry.
 
@@ -33,11 +33,11 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the `b2ctelcospastore.zip` archive.
 
-1. Move the `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/ b2c-telco-accelerator`.
+1. Move the `b2ctelcospastore` folder to `sap-commerce-folder>/hybris/bin/modules/ b2c-telco-accelerator`.
 
    The `b2ctelcospastore` folder can be stored anywhere in the `modules` folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
-1. In the `<sap-commerce-folder>/installer/recipes` folder, duplicate the `b2c_telco` folder.
+1. In the `sap-commerce-folder>/installer/recipes` folder, duplicate the `b2c_telco` folder.
 
 1. Rename the copy of the `b2c_telco` folder to `b2c_telco_spa`.
 
@@ -181,15 +181,14 @@ Some of the steps in this procedure are derived from the documentation for insta
    }
    ```
 
-1. Open a terminal or command prompt window inside the `<sap-commerce-folder>/installer` folder.
+1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
-1. Set up the recipe using the following command:
-Windows:
+1. Set up the recipe using the following commands for Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
-Unix:
+For Unix:
 
    ```bash
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
@@ -197,15 +196,14 @@ Unix:
 
    
 
-   **Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `<sap-commerce-folder>\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Cloud Admin Password](#alternate-method-for-setting-the-sap-commerce-cloud-admin-password) procedure below for information on setting a password in the `custom.properties` file.
+   **Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `sap-commerce-folder>\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Cloud Admin Password](#alternate-method-for-setting-the-sap-commerce-cloud-admin-password) procedure below for information on setting a password in the `custom.properties` file.
 
-1. Initialize the system using the following command. From the `<sap-commerce-folder>/installer` folder run the following commands:
-Windows:
+1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands for Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
-Unix:
+For Unix:
 
    ```bash
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
@@ -213,13 +211,12 @@ Unix:
 
    Initialization of the b2c_telco_spa recipe can take about 20 minutes. Sample data for this recipe includes telco specific data and content.
 
-1. Start SAP Commerce Cloud with the following command. From the `<sap-commerce-folder>/installer` folder run the following commands:
-Windows:
+1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder run the following commands for Windows:
 
    ```bash
    install.bat -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
    ```
-Unix:
+For Unix:
 
    ```bash
    ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
@@ -373,5 +370,5 @@ This issue is caused by an incorrect configuration of the `sop.post.url` propert
 Make sure this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
 
 **Note:** Please make sure that you have the website properties properly set for your `telcospa` base site to point to your environment. For your **localhost** environment they should have the following values: 
-`website.telcospa.http=http://localhost:9001/yacceleratorstorefront`
-`website.telcospa.https= https://localhost:9002/yacceleratorstorefront`
+`website.telcospa.http=http://localhost:9001`
+`website.telcospa.https=https://localhost:9002`
