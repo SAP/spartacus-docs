@@ -171,13 +171,14 @@ export class AppModule {
     "bootstrap": "^4.2.1",
     "i18next": "^15.0.6",
     "i18next-xhr-backend": "^2.0.1",
+    "material-design-icons": "^3.0.1",
     
-    "@spartacus/core": "~1.4.0",
-    "@spartacus/styles": "~1.4.0",
-    "@spartacus/storefront": "~1.4.0",
-    "@spartacus/assets": "~1.4.0",
-    "@spartacus/styles": "~1.3.0",
-    "@spartacus/tua-spa": "~0.1.0-next.1",   
+    "@spartacus/core": "~1.5.0",
+    "@spartacus/styles": "~1.5.0",
+    "@spartacus/storefront": "~1.5.0",
+    "@spartacus/assets": "~1.5.0",
+    "@spartacus/styles": "~1.5.0",
+    "@spartacus/tua-spa": "~0.1.0-next.2",
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you need to add a comma after `0.9.1"`.
@@ -186,6 +187,7 @@ export class AppModule {
 
     ```bash
    @import '~@spartacus/styles/index';
+   @import '~@spartacus/tua-spa/storefrontstyles/index';
     ```
 6. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
@@ -230,7 +232,7 @@ This section describes how to validate your back-end installation and start the 
 
 2. Accept the security exception in your browser if you are running a development instance with a self-signed HTTPS certificate.
 
-    When the request works, you see an XML response in your browser.
+    When the request works, you will see an XML response in your browser.
 
 ### Starting the Storefront Application
 
