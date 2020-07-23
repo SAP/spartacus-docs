@@ -242,9 +242,7 @@ docs:
           url: /spartacus-tua-faqs/    
         - title: "Getting Started with Spartacus for TUA ➢"
           url: /getting-started-with-spartacus-for-tua/ 
-          subchildren:
-                - title: "Installation Guide for TUA"
-                  url: /installation-guide-for-tua/                               
+          subchildren:                                          
                 - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus"
                   url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/                                              
     - title: Contributing to Spartacus
