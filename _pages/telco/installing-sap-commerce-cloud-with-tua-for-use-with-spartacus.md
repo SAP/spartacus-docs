@@ -133,51 +133,51 @@ Some of the steps in this procedure are derived from the documentation for insta
 	  }
     }
 
-    task setup () {
-	doLast {
+   task setup () {
+	      doLast {
 		
-		pl.setup()
+		            pl.setup()
 
-		copy {
-			from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
-			into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-		}
-		copy {
-			from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
-			into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-			exclude "**/*.txt"
-		}
-	  }
-    }
+		            copy {
+			               from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
+			               into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+		            }
+		            copy {
+			               from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
+			               into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+			               exclude "**/*.txt"
+		            }
+	      }
+   }
 
-    task buildSystem(dependsOn: setup) {
-    doLast {
-        pl.build()
-    }
+   task buildSystem(dependsOn: setup) {
+         doLast {
+            pl.build()
+         }
    }
 
    task initialize (dependsOn: buildSystem) {
-	doLast {
-		pl.initialize()
-	}
+	      doLast {
+		         pl.initialize()
+	      }
    }
 
    task start () {
-	doLast {
-		pl.start()
-	}
+	      doLast {
+		         pl.start()
+	      }
    }
 
    task startInBackground () {
-	doLast {
-		pl.startInBackground()
+	      doLast {
+		         pl.startInBackground()
 	}
    }
 
    task stopInBackground {
-	doLast {
-		pl.stopInBackground()
-	}
+	      doLast {
+		         pl.stopInBackground()
+	      }
    }
    ```
 
