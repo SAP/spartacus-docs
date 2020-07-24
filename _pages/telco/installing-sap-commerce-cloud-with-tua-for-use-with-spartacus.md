@@ -228,13 +228,13 @@ For Unix:
    - Access Backoffice: https://localhost:9002/backoffice
    
 
-**Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `telcospa`. The following is an example:
+   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `telcospa`. The following is an example:
 
-```ts
-context: {
-  baseSite: ['telcospa']
-},
-```  
+   ```ts
+   context: {
+   baseSite: ['telcospa']
+   },
+   ```  
 
 ## Configuring OCC Credentials
 
