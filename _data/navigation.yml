@@ -249,6 +249,8 @@ docs:
           subchildren:
                 - title: "Installation Guide for TUA"
                   url: /installation-guide-for-tua/
+                - title: "Building the TUA Storefront from libraries"
+                  url: /building-the-tua-storefront-from-libraries/
         - title: "Spartacus Features for TUA ➢"
           url: /spartacus-features-for-tua/                               
                                 
