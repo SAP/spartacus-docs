@@ -2,9 +2,9 @@
 title: Spartacus Roadmap for TUA
 ---
 
-*Last updated June 21, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated June 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
-This document describes what what is planned for Spartacus for Q2 2020 and later.
+This document describes what is planned for Spartacus for Q2 2020 and later.
 
 - For an overview of what was included in a specific release, see Release Information document.
 - For information about features published in pre-release libraries, see Pre-Release Information.  
@@ -43,22 +43,15 @@ Feedback is welcome!
 
 The first Spartacus for TUA major release (1.0) is planned for early Q3 2020. This release of the TUA Spartacus storefront requires Telco & Utilities Accelerator, release 2003 (latest patch) supported by SAP Commerce Cloud 1905, with Angular 8 and Spartacus 1.4 libraries. At a high level, this release includes the overall storefront, the ability to support simple product offerings and bundled product offerings, pricing (one-time charges, recurring charges, and usage charges), and configurable guided selling.  
 
-#### Core B2C TUA Storefront Features 
+#### Core B2C TUA Storefront Features/MVP 
 
 - Product Offering Search (Free Text, Facets, Menu). For more information, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html).
 - Product Offering Prices (One-Time Charges, Recurring Charges and Usage Charges). For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html).
+- Simple Product Offerings (SPOs). For more information, see [Create Simple Product Offering or Bundled Product Offering Prices](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/48680f49f884453f8596488073046631.html).
 - Bundled Product Offerings (BPOs). For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html).
 - Configurable Guided Selling. For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html).
 
-Cart, Checkout, and Order/MVP: The cart, checkout process, and order display and structure for TUA, differs from core commerce as product offering prices are displayed different and include one-time charges, recurring charges, and usage charges. 
-
-<!-- provide links --> 
-
-- TUA Shopping Cart. For more information, see [Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/525a0a7eafbb4d3ab988872a21e0e3b3.html).
-- Checkout in TUA. For more information, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html).
-- Order in TUA. For more information, see [Order](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html).
-
-For additional details, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}). 
+For more information on how pricing works for One Time Charges, Recurring Charges, and Usage Charges, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/48680f49f884453f8596488073046631.html).
 
 ### Features planned for the second half of 2020
 
@@ -80,14 +73,14 @@ TUA help Documentation. For more information, see in the TUA Help portal.
 - Upgrade
 - Cross-selling (Add-Ons)
 
-For more information, see [Eligibility Policies Evaluation](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/7a0412703ebd4cd3b5bd0d882c72c202.html).
+For more information, see [Eligibility Policies Evaluation](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/7a0412703ebd4cd3b5bd0d882c72c202.html) and [Eligibility Policy in Action](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/341e50fcd20149d68735656c5c1b1fff.html).
 
 #### Journey Management
 
 - Journey Coordinator. For more information, see [Journey Coordinator](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html).
 - Checkist Actions. For more information, see [Checklist Actions](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/9fead1b7969b425fa1c15fb985324b42.html).
 
-A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine.  TUA support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of Spartacus means that the code contains breaking changes. (TBD) <!--What do do about TBD>-->
+A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine.  TUA support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of Spartacus means that the code contains breaking changes - to be determined.
 
 #### Move to Angular 9 / Ivy
 
