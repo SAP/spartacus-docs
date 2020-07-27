@@ -27,11 +27,11 @@ With this pre-release the following telco storefront features are included:
 - My Account standard commerce features
 - APIs supporting offer to fulfill including TM Forum APIs and OCC rest APIs
 
-## Release 0.1.0-next.2 - TBD
+## Release 0.1.0-next.2 - To Be Determined
 
 Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. 
 
-- Product Offering Pricing improvements
+- Product Offering Prices (One-Time Charges, Recurring Charges and Usage Charges)
   - See [https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html)
 - Guided selling for complex Bundled Product Offerings
   - Redesigned for Spartacus
