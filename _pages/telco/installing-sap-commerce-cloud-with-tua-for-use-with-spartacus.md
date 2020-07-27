@@ -288,7 +288,7 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
    }
    ```
 
-**You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+**You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-tua-storefront-from-libraries.md %}) for more information.
 
 ## Configuring CORS
 
