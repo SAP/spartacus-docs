@@ -242,12 +242,6 @@ docs:
           url: /spartacus-tua-faqs/    
         - title: "Getting Started with Spartacus for TUA ➢"
           url: /getting-started-with-spartacus-for-tua/ 
-          subchildren:
-                - title: "Installation Guide for TUA"
-                  url: /installation-guide-for-tua/
-        - title: "Spartacus Features for TUA ➢"
-          url: /spartacus-features-for-tua/                               
-                                
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
