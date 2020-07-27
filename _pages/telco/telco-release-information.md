@@ -15,12 +15,11 @@ With this pre-release the following telco storefront features are included:
 - Login
 - Customer Registration
 - Search
-- Support of Simple Product Offerings (SPOs)
-  - See [https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/315410098c024e50adf4c43373761936.html?q=product%20offerings](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/315410098c024e50adf4c43373761936.html?q=product offerings)
+- Support of Simple Product Offerings (SPOs). For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html)
 - Product Offering Details Page
 - Product Offering Listing Page
 - Product Offering Pricing
-  - See [https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html)
+  - See [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html)
 - Add Product Offering to Cart
 - Checkout
 - Order Placement 
@@ -31,8 +30,7 @@ With this pre-release the following telco storefront features are included:
 
 Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. 
 
-- Product Offering Prices (One-Time Charges, Recurring Charges and Usage Charges)
-  - See [Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html)
+- Product Offering Prices (One-Time Charges, Recurring Charges, and Usage Charges). For more information, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html).
 - Guided selling for complex Bundled Product Offerings
   - Redesigned for Spartacus
 
