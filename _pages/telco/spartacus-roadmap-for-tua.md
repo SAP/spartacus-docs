@@ -51,7 +51,7 @@ The first Spartacus for TUA major release (1.0) is planned for early Q3 2020. Th
 - Bundled Product Offerings (BPOs). For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html).
 - Configurable Guided Selling. For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html).
 
-For more information on how pricing works for One Time Charges, Recurring Charges, and Usage Charges, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/48680f49f884453f8596488073046631.html).
+For more information on how pricing works for One Time Charges, Recurring Charges, and Usage Charges, see [Create Simple Product Offering or Bundled Product Offering Prices](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/48680f49f884453f8596488073046631.html).
 
 ### Features planned for the second half of 2020
 
@@ -59,7 +59,7 @@ The items in this section are on our future roadmap - not necessarily for any sp
 
 #### My Subscriptions
 
-TUA help Documentation. For more information, see in the TUA Help portal.
+TUA help Documentation. For more information, see in the [TUA Help portal](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
 
 - View list of My Subscriptions - subscribed offerings. For more information, see [View List of my Subscriptions](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/f488da777e9b49c3882eed1b95efd215.html).
 - View Consumption Details. For more information, see [View Consumption Details](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html).
