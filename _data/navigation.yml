@@ -234,7 +234,11 @@ docs:
       children:
         - title: "About Spartacus for TUA"
           url: /about-spartacus-for-tua/
-        - title: "Release Information for TUA"
+        - title: "Release Information for TUA ➢"
+          url: /telco-release-information/
+          subchildren:
+                - title: "Pre-Release Information"
+                  url: /tua-pre-release-information/
           url: /telco-release-information/
         - title: "Spartacus Roadmap for TUA"
           url: /spartacus-roadmap-for-tua/
@@ -242,14 +246,7 @@ docs:
           url: /spartacus-tua-faqs/    
         - title: "Getting Started with Spartacus for TUA ➢"
           url: /getting-started-with-spartacus-for-tua/ 
-          subchildren:
-              - title: "Installation Guide for TUA"
-                url: /installation-guide-for-tua/
-              - title: "Building the Spartacus Storefront for TUA from Libraries"
-                url: /building-the-tua-storefront-from-libraries/
-        - title: "Spartacus Features for TUA ➢"
-          url: /spartacus-features-for-tua/                               
-                                
+
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
