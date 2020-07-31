@@ -251,8 +251,20 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/                    
             subchildren:
+                - title: "Product Offering Search"
+                  url: /product-offering-search/
+                - title: "Product Offering Prices"
+                  url: /product-offering-prices/
+                - title: "Simple Product Offerings (SPOs)"
+                  url: /simple-product-offerings-spo/    
                 - title: "Configurable Guided Selling Journey in SPA"
                   url: /configurable-guided-selling-journey-in-spa/
+                - title: "Cart"
+                  url: /cart/
+                - title: "Checkout"
+                  url: /checkout/
+                - title: "Order"
+                  url: /order/      
                              
                                 
     - title: Contributing to Spartacus
