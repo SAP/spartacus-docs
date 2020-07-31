@@ -8,8 +8,8 @@ Spartacus schematics allow you to install Spartacus libraries in your project. T
 
 Before using Spartacus schematics, ensure that the following requirements are met:
 
-- Your Angular CLI is on version 9.1 or higher
-- Your application is using Angular 9 or higher
+- Your Angular CLI is on version 9.1 or higher, < 10.0.
+- Your application is using Angular 9 or higher, < 10.0.
 - Your Node version is less than or equal to version 13.
 
 ## Adding Spartacus Libraries to Your Angular Project
