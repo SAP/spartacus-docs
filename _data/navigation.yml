@@ -247,7 +247,13 @@ docs:
                 - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus."
                   url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/
                 - title: "Building the TUA Storefront from libraries"
-                  url: /building-the-tua-storefront-from-libraries/                               
+                  url: /building-the-tua-storefront-from-libraries/    
+          - title: "Spartacus Features for TUA ➢"
+            url: /spartacus-features-for-tua/                    
+            subchildren:
+                - title: "Configurable Guided Selling Journey in SPA"
+                  url: /configurable-guided-selling-journey-in-spa/
+                             
                                 
     - title: Contributing to Spartacus
       children:
