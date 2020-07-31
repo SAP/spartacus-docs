@@ -10,7 +10,14 @@ title: Order
 
 ## Overview
 
+The order display and structure for TUA differs from core commerce as product offering prices are displayed different and include one-time charges, recurring charges, and usage charges.
+
 The Order Review page allows users to browse through their orders and see price details of the cart and cart item of the selected order, the Order Summary page displays the final price of the order after discounts and other charges before proceeding to checkout, and the Order Confirmation page displays the detailed information of the placed order. 
+
+## Order Confirmation Components 
+
+- `TmaOrderConfirmationItemsComponent` extends `OrderConfirmationItemsComponent` display Pay on Checkout and other prices of the Product Offering in the Order History Page. Information displayed is the same as for `TmaCartItemComponent`.
+- `TmaOrderConfirmationTotalsComponent` extends `OrderConfirmationTotalsComponent` to display Subtotal, Delivery cost, and Pay on Checkout Total price on the Order Confirmation Page. Information displayed is the same as for `TmaOrderSummaryComponent`, and the only difference is that the Delivery Cost is always displayed.
 
 ## Further Reading
 
