@@ -6,7 +6,7 @@ The following sections describe how the SmartEdit Contract is implemented in Spa
 
 For information on setting up SmartEdit in Spartacus, see [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}).
 
-For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1808/en-US/622cebcb444b42e18de2147775430b9d.html#loio622cebcb444b42e18de2147775430b9d).
+For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
 
 ## SmartEdit contract implementation
 
@@ -35,7 +35,7 @@ INSERT_UPDATE SmartEditConfiguration;key[unique=true];value
 ;storefrontPreviewRoute;"""my-custom-preview"""
 ```
 
-`cmsTicketId` is generated in backend. It contains many information required by SmartEdit, such as `site-id` or `catalogVersion`. For the details, pleae read "Preview API" section in [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1808/en-US/622cebcb444b42e18de2147775430b9d.html#loio622cebcb444b42e18de2147775430b9d).
+`cmsTicketId` is generated in backend. It contains many information required by SmartEdit, such as `site-id` or `catalogVersion`. For the details, pleae read "Preview API" section in [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
 
 Spartacus gets `cmsTicketId` from the request sent from SmartEdit.
 
