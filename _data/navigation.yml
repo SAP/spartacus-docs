@@ -232,12 +232,12 @@ docs:
 
     - title: Telco & Utilities Storefront Development Guide
       children:
-        - title: "About Telco & Utilities Storefront"
-          url: /about-telco/
-        - title: "Release Information"
-          url: /telco-release-information/
-        - title: "Telco & Utilities Checkout"
-          url: /telco-checkout/  
+          - title: "About Telco & Utilities Storefront"
+            url: /about-telco/
+          - title: "Release Information"
+            url: /telco-release-information/
+          - title: "Telco & Utilities Checkout"
+            url: /telco-checkout/  
             
     - title: Contributing to Spartacus
       children:
