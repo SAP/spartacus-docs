@@ -237,23 +237,23 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application.
 
     ```bash
-    npm i @spartacus/gigya
+    npm i @spartacus/cdc
     ```
 
-2. Import the `GigyaModule` by adding the following below the existing import statements at the top of `app.module.ts`:
+2. Import the `CdcModule` by adding the following below the existing import statements at the top of `app.module.ts`:
 
     ```ts
-    import { GigyaModule } from '@spartacus/gigya';
+    import { CdcModule } from '@spartacus/cdc';
     ```
 
-3. Add the `GigyaModule` to `app.module.ts`.
+3. Add the `CdcModule` to `app.module.ts`.
     The following is an example:
 
     ```ts
     @NgModule({
       imports: [
-        GigyaModule.forRoot({
-            gigya: [
+        CdcModule.forRoot({
+            cdc: [
                 {
                     baseSite: 'electronics-spa',
                     javascriptUrl: 'https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>',
@@ -264,7 +264,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
         ...
     ```
 
-    The following is the summary of the parameters of the `GigyaModule`:
+    The following is the summary of the parameters of the `CdcModule`:
 
     • **baseSite** – This refers to the CMS Site to which the Customer Data Cloud Site configuration should be applied to. The same should be configured in the SAP Commerce Cloud Backoffice as well.
 
