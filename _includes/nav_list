@@ -64,7 +64,7 @@
                           <li><a href="{{ subchild_url }}" class="{{ active }}">{{ subchild.title }}</a></li>
                     
                          {% endfor %}
-                     {% endif %}
+                       {% endif %}
 
                      {% if child.url == page.url %}
 
