@@ -12,6 +12,7 @@ main:
 # sidebar menu
 docs:
     - title: Home
+      url: /home/
       children:
           - title: "About Spartacus"
             url: /
@@ -36,6 +37,7 @@ docs:
             url: /docs-archive/  
 
     - title: Getting Started with Spartacus Libraries
+      url: /getting-started/
       children:
           - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
@@ -75,6 +77,7 @@ docs:
                   url: /qualtrics-integration/
 
     - title: Storefront Development Guide
+      url: /dev-guide/
       children:
           - title: "Storefront Development FAQ"
             url: /storefront-development-faq/
@@ -273,6 +276,7 @@ docs:
                   url: /writing-notification-banners/
 
     - title: Contributing to Spartacus
+      url: /contributing/
       children:
           - title: "Contributor's Guide ➢"
             url: /contributors-guide/
