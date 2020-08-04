@@ -62,13 +62,16 @@ docs:
             url: /integrations/
             subchildren:
                 - title: 'Context-Driven Services Integration'
-                  url: /cds-integration/              
+                  url: /cds-integration/  
                 - title: 'Payment Integration with CyberSource Example'
                   url: /cybersource-integration/
                 - title: "Kyma Integration"
                   url: /kyma-integration/
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
+                - title: "SAP Customer Data Cloud Integration"
+                  url: /cdc-integration/              
+
 
     - title: Storefront Development Guide
       children:

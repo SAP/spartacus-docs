@@ -2,49 +2,55 @@
 title: SAP Customer Data Cloud Integration
 ---
 
-TODO - ADD NOTE FROM WHICH VERSION THIS FEATURE IS AVAILABLE
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.1 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 ## Overview
 
-The integration with SAP Customer Data Cloud provides the capabilities to enable customized registration and login options, and to manage user profile and consent.
+SAP Customer Data Cloud allows you to enable customized registration and login, and also manage user profile and consent.
 
-For more information see, [SAP Customer Data Cloud Integration](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/2005/en-US) and [SAP Customer Data Cloud](https://developers.gigya.com/) documentation on SAP Help Portal.
+For more information see, [SAP Customer Data Cloud Integration](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US) and [SAP Customer Data Cloud](https://developers.gigya.com/) on the SAP Help Portal.
 
 ## Requirements
 
-To integrate SAP Customer Data Cloud with Spartacus you must have either of the following:
+To integrate SAP Customer Data Cloud with Spartacus, you must have either of the following:
 
-* SAP Commerce Cloud 1905 along with the latest version of Commerce Cloud Extension Pack
-* SAP Commerce Cloud 2005 along with SAP Commerce Cloud, Integration Extension Pack
+- SAP Commerce Cloud 2005, along with SAP Commerce Cloud, Integration Extension Pack
+- SAP Commerce Cloud 1905, along with the latest version of Commerce Cloud Extension Pack
 
 ## Enabling SAP Customer Data Cloud Integration in Spartacus
 
 To enable SAP Customer Data Cloud Integration in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
 
-### Configuring the Backend for SAP Customer Data Cloud Integration
+### Configuring the Back End for SAP Customer Data Cloud Integration
 
-The following steps define the required configuration:
+The following steps describe how to configure the Commerce Cloud back end for integration with SAP Customer Data Cloud.
 
-1. Follow steps defined to install [SAP Commerce Cloud for use with Spartacus](https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud/).
+1. Follow the steps for [Installing SAP Commerce Cloud for use with Spartacus](https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud/).
 
-2. Enable the SAP Customer Data Cloud extensions for B2C according to the [implementation guide](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/2005/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html).
+2. Enable the SAP Customer Data Cloud extensions for B2C according to [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html) on the SAP Help Portal.
 
-3. Build and update the system so that the new functionality provided by SAP Customer Data Cloud integration extension is available.
+3. Build and update the system so that the new functionality provided by the SAP Customer Data Cloud integration extension is available.
 
-4. Update the ‘mobile_android’ OAuth client (created in step 1) to support **custom** authorization grant type, and remove refresh_token grant type. The following impex can be used to update the grant types:
+4. Update the `mobile_android` OAuth client (created in step 1) to support the `custom` authorization grant type, and remove the `refresh_token` grant type. The following ImpEx can be used to update the grant types:
 
-    ```sql
+    ```plaintext
     INSERT_UPDATE OAuthClientDetails ; clientId[unique = true] ; resourceIds ; scope ; authorizedGrantTypes                                  ; authorities ; clientSecret ; registeredRedirectUri                                     
                                      ; mobile_android          ; hybris      ; basic ; authorization_code,password,client_credentials,custom ; ROLE_CLIENT ; secret       ; http://localhost:9001/authorizationserver/oauth2_callback ;  
     ```
 
-    **Note:** Refresh tokens are not supported to ensure that the token from Commerce Cloud and the SAP Customer Data Cloud login session are maintained for the same duration of time.
+    **Note:** Refresh tokens are not supported. This ensures that the token from Commerce Cloud and the SAP Customer Data Cloud login session are maintained for the same duration of time.
 
-5. Define SAP Customer Data Cloud Site configuration and link it to the `electronics-spa` site. Additionally, you can also define other configurations like Field Mapping, and Consent Templates for the integration according to the [implementation guide](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/2005/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html).
+5. Define the SAP Customer Data Cloud Site configuration and link it to the `electronics-spa` site. You can also define other configurations for the integration, such as Field Mapping and Consent Templates, according to [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html).
 
-    **Note:**The various session management configurations are not supported with Spartacus Storefront.
+    **Note:** The various session management configurations are not supported with Spartacus Storefront.
 
-6. Import the following impex file. This impex makes changes to `electronics-spaContentCatalog` to enable SAP Customer Data Cloud integration in Spartacus.
+6. Import the following ImpEx file.
+
+    This ImpEx makes changes to `electronics-spaContentCatalog` that enable the SAP Customer Data Cloud integration in Spartacus.
 
     ```sql
     # -----------------------------------------------------------------------
@@ -234,13 +240,13 @@ The following steps define the required configuration:
 
 Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries](https://sap.github.io/spartacus-docs/building-the-spartacus-storefront-from-libraries/).
 
-1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application.
+1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application:
 
     ```bash
     npm i @spartacus/cdc
     ```
 
-2. Import the `CdcModule` by adding the following below the existing import statements at the top of `app.module.ts`:
+2. Import the `CdcModule` by adding the following line below the existing import statements at the top of `app.module.ts`:
 
     ```ts
     import { CdcModule } from '@spartacus/cdc';
@@ -264,12 +270,12 @@ Perform the following steps after you have set up your Spartacus Storefront. For
         ...
     ```
 
-    The following is the summary of the parameters of the `CdcModule`:
+    The following is a summary of the parameters of the `CdcModule`:
 
-    • **baseSite** – This refers to the CMS Site to which the Customer Data Cloud Site configuration should be applied to. The same should be configured in the SAP Commerce Cloud Backoffice as well.
+    - **baseSite** refers to the CMS Site that the Customer Data Cloud Site configuration should be applied to. The same should be configured in SAP Commerce Cloud Backoffice as well.
 
-    • **javascriptUrl** – Specify the URL of the Web SDK that you wish to load. This is constructed using the value of the Site API Key, and the data center where the Customer Data Cloud site is created. For example, `https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>`
+    - **javascriptUrl** specifies the URL of the Web SDK that you wish to load. This is constructed using the value of the Site API Key, and the data center where the Customer Data Cloud site is created. For example, `https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>`
 
-    • **sessionExpiration** – This is the time in seconds that defines the session expiry of SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both Customer Data Cloud session and SAP Commerce token live for the same time.
+    - **sessionExpiration** is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce token live for the same time.
 
-4. Build and start the storefrontapp to verify your changes.
+4. Build and start the storefront app to verify your changes.
