@@ -45,7 +45,6 @@
                 <ul>
                   {% for subchild in child.subchildren %}
                     {% if subchild.url == page.url %}
-                      {% if child.subchildren[0] %}
                         {% for subchild in child.subchildren %}
 
                           {% comment %} internal/external URL check {% endcomment %}
@@ -65,7 +64,6 @@
                           <li><a href="{{ subchild_url }}" class="{{ active }}">{{ subchild.title }}</a></li>
                     
                          {% endfor %}
-                       {% endif %}
                      {% endif %}
 
                      {% if child.url == page.url %}
