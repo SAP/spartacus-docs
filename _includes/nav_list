@@ -17,7 +17,7 @@
                             {% for subchild in child.subchildren %}
                                 {% if subchild.url == page.url %}
                                     {% for child in nav.children %}
-                                        <li><a href="{{ child.url }}" class="{{ active }}">{{ child.title }}</a>
+                                        <li><a href="{{ child.url }}">{{ child.title }}</a>
                                             {% if child.subchildren[0] %}
                                                 <ul>
                                                     {% for subchild in child.subchildren %}
