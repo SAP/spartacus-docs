@@ -237,7 +237,7 @@ docs:
           - title: "Release Information for TUA ➢"
             url: /telco-release-information/
             subchildren:
-                - title: "Pre-Release Information"
+                - title: "Pre-Release Information for TUA"
                   url: /tua-pre-release-notes-next1/
           - title: "Spartacus Roadmap for TUA"
             url: /spartacus-roadmap-for-tua/
@@ -246,7 +246,7 @@ docs:
             subchildren:
                 - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus."
                   url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/
-                - title: "Building the TUA Storefront from libraries"
+                - title: "Building the TUA Storefront from Libraries"
                   url: /building-the-tua-storefront-from-libraries/                               
                                 
     - title: Contributing to Spartacus
