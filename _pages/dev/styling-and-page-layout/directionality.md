@@ -8,19 +8,19 @@ title: Directionality
 
 {% include docs/feature_version.html content=version_note %}
 
-Spartacus supports bi-directional text and layout from version 2.1 onwards. The Left to Right (ltr) orientation has been extended with Right to Left (rtl) direction.
+The directionality feature provides support for bidirectional text and layout. You can configure Spartacus to use a left-to-right (LTR) orientation, or a right-to-left (RTL) orientation.
 
-Directionality is driven by language. Most languages are ltr oriented, well known examples of rtl direction are Arabic and Hebrew.
+Directionality is driven by language. Many languages are read from left to right, but well known examples, such as Arabic and Hebrew, are read from right to left.
 
-The direction in Spartacus reflects the active language, so that directionality works in a multi-directional experience. If your storefront contains both ltr and rtl languages, the active language is used to detect the direction automatically.
+In Spartacus, the direction of the UI reflects the active language, so that directionality can work in a multi-directional experience. If your storefront contains both LTR and RTL languages, the active language is used to detect the direction automatically.
 
-## Breaking changes
+## Breaking Changes
 
-The changes made to the DOM and CSS are considered a breaking change. Therefor, directionality can only be enabled by using the 2.1 feature flag and 2.1 CSS version.
+The changes made to the DOM and CSS are considered breaking changes, so the directionality feature can only be used if you enable it with the 2.1 feature flag and the 2.1 CSS version.
 
-## Direction Configuration
+## Configuring Directionality
 
-Directionality is [configurable](https://sap.github.io/spartacus-docs/global-configuration-in-spartacus/) with the properties from the `DirectionConfig` interface. The default configuration contains the following properties:
+You can configure directionality with the properties from the `DirectionConfig` interface. The default configuration contains the following properties:
 
 ```typescript
 const defaultDirectionConfig: DirectionConfig = {
@@ -32,9 +32,9 @@ const defaultDirectionConfig: DirectionConfig = {
 };
 ```
 
-With the default configuration, all languages are mapped to ltr direction, expect for Hebrew (he) and Arabic (ar). Additional rtl languages can be added with configuration.
+With the default configuration, all languages are mapped to the LTR direction, except for Hebrew (he) and Arabic (ar). Additional RTL languages can be added with configuration.
 
-The default configuration will be fine for most projects, but if you implement a rtl oriented storefront, you could consider to change the default direction and introduce some explicit ltr languages.
+The default configuration should be suitable for most projects, but if you implement a storefront with an RTL orientation, you might consider changing the default direction to RTL and introducing some explicit LTR languages. The following is an example:
 
 ```typescript
 ConfigModule.withConfig({
@@ -45,9 +45,11 @@ ConfigModule.withConfig({
 } as DirectionConfig),
 ```
 
-## Implementation details
+For more information on configuration, see [Global Configuration in Spartacus]({{ site.baseurl }}{% link _pages/dev/global-configuration-in-spartacus.md %})
 
-The directionality implementation is based on the the html5 "dir" attribute, that is added to the `html` element:
+## Implementing Directionality
+
+The implementation for directionality is based on the the HTML5 `dir` attribute that is added to the `html` element, as follows:
 
 ```html
 <html dir="ltr">
@@ -55,13 +57,11 @@ The directionality implementation is based on the the html5 "dir" attribute, tha
 </html>
 ```
 
-The dir attribute can be added to multiple elements, but in Spartacus is only one direction begin added to the `html` element.
+The `dir` attribute can be added to multiple elements, but in Spartacus, only one direction is added, and that is to the `html` element. The HTML `dir` attribute then cascades the direction to all descendent elements, as well as to the CSS.
 
-The HTML dir attribute cascades the direction to all descendent elements, as well as to the CSS.
+The actual text and layout direction is driven by CSS. Modern CSS patterns and techniques are designed to work in a bidirectional setup. A good example is Flexbox, which uses logical locations for the layout, such as "start" and "end". Spatial locations, such as "left" and "right", should be avoided because they do not support bidirectional layouts.
 
-The actual text and layout direction is driven by CSS. Modern CSS patterns and techniques are designed to work in a bi-directional setup. A good example is Flexbox, which uses logical locations for the layout, such as "start" and "end". Physical locations, such as "left" and "right" should be avoided as they do not support bi-directional layouts.
-
-To control margins and paddings, the style layer is build with [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties). Instead of writing physical oriented margins and padding, logical properties allow to write css rules that depend on the direction. The following shows an example of such properties:
+To control margins and padding, the style layer is build with logical properties. Instead of writing spatially-oriented margins and padding, logical properties allow you to write CSS rules that depend on the direction. The following shows an example of such properties:
 
 ```css
 .sample-1 {
@@ -74,11 +74,13 @@ To control margins and paddings, the style layer is build with [logical properti
 }
 ```
 
+For more information on logical properties, see [CSS Logical Properties and Values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) in the MDN Web Docs.
+
 ## Icons
 
-Icons require special attention for rtl languages. While most icons are universal regardless of the direction, some icons actually must be flipped. Those icons that _express an direction_ are typically candidate to be flipped. A good example are icons to navigate through a carousel of products. As soon as the direction flips, these icons should flip simultaneously.
+Icons require special attention for RTL languages. While most icons are universal, regardless of the direction, some icons actually must be flipped. Those icons that _express a direction_ would typically require flipping. A good example is icons for navigating through a carousel of products. As soon as the direction flips, these icons should flip as well.
 
-A configuration is added to introduce a list of icon types that should be flipped for a certain direction. The default configuration takes care of flipping those icons that should be flipped:
+You can provide a list of icon types that should be flipped for a certain direction by using the `flipDirection` configuration. The default configuration takes care of flipping those icons that should be flipped, as follows:
 
 ```typescript
 export const defaultIconConfig: IconConfig = {
@@ -91,6 +93,6 @@ export const defaultIconConfig: IconConfig = {
 };
 ```
 
-The `flipDirection` configuration can be extended to match any non-spartacus icons.
+The `flipDirection` configuration can be extended to match any non-Spartacus icons.
 
 The flip direction is mapped to an icon CSS class (`flip-at-ltr` and `flip-at-rtl`). A CSS flip rule is added for all icons that should be flipped.
