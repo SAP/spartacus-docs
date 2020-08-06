@@ -53,24 +53,24 @@ Icons are configured in Spartacus using the `ConfigModule`. In the configuration
 ConfigModule.withConfig(<IconConfig>{
   icon: {
     symbols: {
-      CART: 'fas fa-shopping-cart',
-      SEARCH: 'glyphicon glyphicon-search',
-      VISA: 'fab fa-cc-visa',
-      INFO: 'info',
-      WARNING: 'warning'
+      CART: "fas fa-shopping-cart",
+      SEARCH: "glyphicon glyphicon-search",
+      VISA: "fab fa-cc-visa",
+      INFO: "info",
+      WARNING: "warning",
     },
     resources: [
       {
         type: IconResourceType.LINK,
-        url: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+        url: "https://use.fontawesome.com/releases/v5.8.1/css/all.css",
       },
       {
         type: IconResourceType.SVG,
-        url: './assets/sprite.svg',
-        types: [ICON_TYPE.INFO,ICON_TYPE.WARNING],
+        url: "./assets/sprite.svg",
+        types: [ICON_TYPE.INFO, ICON_TYPE.WARNING],
       },
-    ]
-  }
+    ],
+  },
 });
 ```
 
@@ -93,3 +93,7 @@ To support font-based icons, the component simply adds the icon symbol to the li
 ```
 
 To load the font-related CSS file, a resource can be added for a specific icon type, or for all types (by leaving out types entirely). When a resource is added, the CSS file is linked to the DOM dynamically. Spartacus ensures that the font is only loaded once.
+
+## Directionality
+
+Since version 2.1, Right to Left (rtl) direction has been introduced as an alternative direction. Most icons are designed for ltr and do not change for rtl direction. Some icons, however, should flip in rtl mode. For more information, see [Directionality]({{ site.baseurl }}/styling-and-page-layout/#icons)).
