@@ -45,7 +45,7 @@ ConfigModule.withConfig({
 } as DirectionConfig),
 ```
 
-For more information on configuration, see [Global Configuration in Spartacus]({{ site.baseurl }}{% link _pages/dev/global-configuration-in-spartacus.md %})
+For more information on configuration, see [Global Configuration in Spartacus]({{ site.baseurl }}{% link _pages/dev/global-configuration-in-spartacus.md %}).
 
 ## Implementing Directionality
 
