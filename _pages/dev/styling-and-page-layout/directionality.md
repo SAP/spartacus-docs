@@ -96,5 +96,3 @@ export const defaultIconConfig: IconConfig = {
 The `flipDirection` configuration can be extended to match any non-Spartacus icons.
 
 The flip direction is mapped to an icon CSS class (`flip-at-ltr` and `flip-at-rtl`). A CSS flip rule is added for all icons that should be flipped.
-
-
