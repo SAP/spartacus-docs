@@ -69,22 +69,6 @@ We welcome contributions to the Spartacus documentation. Before you start your f
 
 Due to legal reasons, contributors will be asked to accept a DCO before they submit the first pull request to this projects. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
-### Company Contributors
-
-If employees of a company contribute documentation, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
-
-A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
-
-Submit the form to us through one of the following methods:
-
-* Email to [opensource@sap.com](mailto:opensource@sap.com) and [spartacus@sap.com](mailto:spartacus@sap.com)
-* Fax to +49 6227 78-45813
-* Mail to:
-
-Industry Standards & Open Source Team
-Dietmar-Hopp-Allee 16
-69190 Walldorf, Germany
-
 ### Contribution Content Guidelines
 
 A contribution will be considered for inclusion in the Spartacus documentation if it meets the following criteria:
