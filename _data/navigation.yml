@@ -136,14 +136,14 @@ docs:
             subchildren:
                 - title: "CSS Architecture"
                   url: /css-architecture/
-                - title: "Directionality"
-                  url: /directionality/
                 - title: "Global Variables"
                   url: /global-variables/
                 - title: "Icon Library"
                   url: /icon-library/
                 - title: "Page Layout"
                   url: /page-layout/
+                - title: "Directionality"
+                  url: /directionality/
           - title: "Customizing and Extending Spartacus Features ➢"
             url: /customizing-and-extending/
             subchildren:

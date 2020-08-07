@@ -10,13 +10,13 @@ title: Directionality
 
 The directionality feature provides support for bidirectional text and layout. You can configure Spartacus to use a left-to-right (LTR) orientation, or a right-to-left (RTL) orientation.
 
-Directionality is driven by language. Many languages are read from left to right, but well known examples, such as Arabic and Hebrew, are read from right to left.
+Directionality is driven by language. Many languages are read from left to right, but some languages, such as Arabic and Hebrew, are read from right to left.
 
-In Spartacus, the direction of the UI reflects the active language, so that directionality can work in a multi-directional experience. If your storefront contains both LTR and RTL languages, the active language is used to detect the direction automatically.
+In Spartacus, the direction of the UI reflects the active language, so that directionality can work in a bidirectional experience. If your storefront contains both LTR and RTL languages, the active language is used to detect the direction automatically.
 
 ## Breaking Changes
 
-The changes made to the DOM and CSS are considered breaking changes, so the directionality feature can only be used if you enable it with the 2.1 feature flag and the 2.1 CSS version.
+The changes made to the DOM and CSS are considered breaking changes, so the directionality feature can only be used if you enable it with the 2.1 feature flag and the 2.1 CSS version. For more information about the CSS version, see [Versioning](https://sap.github.io/spartacus-docs/css-architecture/#versioning) in CSS Architecture.
 
 ## Configuring Directionality
 
@@ -47,7 +47,7 @@ ConfigModule.withConfig({
 
 For more information on configuration, see [Global Configuration in Spartacus]({{ site.baseurl }}{% link _pages/dev/global-configuration-in-spartacus.md %}).
 
-## Implementing Directionality
+## Implementation Details
 
 The implementation for directionality is based on the the HTML5 `dir` attribute that is added to the `html` element, as follows:
 
