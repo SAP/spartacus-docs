@@ -88,7 +88,7 @@ There are no frontend requirements and dependencies for this feature.
 
 For more information, see [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help portal.
 
-### Supported Backed Functionality
+### Supported Backend Functionality
 
 Customer Product Inventory feature involves mapping between subscriptions and users, covering the customer and billing account. It holds the data around a customer and their subscriptions. For more information, see TUA [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) and [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help Portal.
 
@@ -100,18 +100,31 @@ Customer Product Inventory feature involves mapping between subscriptions and us
 
 ## Configuring and Enabling Customer Product Inventory
 
-In progress.
+The client application has a list of following newly developed components and existing Spartacus components that were updated. 
 
-### Components
+|              Component              	|                                                    Description                                                   	|
+|------------------------------------	|----------------------------------------------------------------------------------------------------------------- |
+| TmaSubscriptionBaseListComponent    	|     Displays all subscription bases Ids of the user                                                                  	|
+| TmaUsageConsumptionGridComponent    	|     Displays all subscription bases Ids of the user                                                                  	|
+| TmaUsageConsumptionGridComponent    	|     Displays all subscription bases Ids of the user.                                                                 	|
+| TmaCartItemOneTimeChargeComponent   	|     Displays usage consumption for subscriptionBase Ids in pie chart format where percentage used is also displayed. 	|
+| TmaCartItemRecurringChargeComponent 	|     Displays one time charges for cart entry                                                                         	|
+| TmaCartItemRecurringChargeComponent 	|     Displays recurring charges for cart entry                                                                        	|
+| TmaCartItemRecurringChargeComponent 	|     Displays recurring charges for cart entry
 
-In progress.
+### Configuring and Enabling Customer Product Inventory Components From the BackOffice
 
-### Sample Data
+|              Angular Component              |                                                    Backoffice Component                                                   |
+|-------------------------------------|----------------------------------------------------------------------------------------------------------------- |
+| TmaUsageConsumptionGridComponent    |     TmaUsageConsumptionGridComponent                                                                  |
+| TmaUsageConsumptionGridComponent   |     AccountUsageConsumptionPieChartComponent                                                                  |
+| TmaSubscriptionBaseListComponent    |     TmaSubscriptionBaseListComponent
 
-In progress.
+**Note:** A Product Manager can set the visibility of the backoffice component as per the requirement. For example, if there is a requirement to not do display the `TmaUsageConsumptionGridComponent` component in the SPA Storefront, then the Prodcut Manager can set the visibility of the `TmaUsageConsumptionGridComponent` componen to False. This enables the Product Manager to control the visibility of the components in the SPA Storefront.
 
 ## Further Reading
 
 Consult the TUA Help Portal for more information on the following topics:
 
+- [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html)
 - [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html)
