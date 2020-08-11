@@ -9,7 +9,7 @@ title: Customer Product Inventory (CPI)
 - [Overview](#overview)
 - [Key Personas](#key-personas)
 - [Navigation Flow](#navigation-flow)
-- [Business Use Cases](#business-use-cases)
+- [Feature Use Cases](#feature-use-cases)
   - [Viewing All Subscriptions](#viewing-all-subscriptions)
   - [Viewing Details of Subscribed Products in a Tile Format](#viewing-details-of-subscribed-products-in-a-tile-format)
   - [Viewing the Usage Consumption of a Subscribed Product in Pie Charts](#viewing-the-usage-consumption-of-a-subscribed-product-in-pie-charts)
@@ -37,7 +37,7 @@ From the **Account** menu drop-down, click **Subscriptions**. The `My Subscripti
 
 <p align="center"><img src="/assets/images/telco/navigation-flow.png"></p>
 
-## Business Use Cases
+## Feature Use Cases
 
 ### Viewing All Subscriptions
 
@@ -50,15 +50,15 @@ From the **Account** menu drop-down, click **Subscriptions**. All subscriptions 
 1. From the **Account** menu drop-down, click **Subscriptions**. All subscriptions are displayed.
 2. Click the header that shows the subscriber ID. For example, **1040123111111**. The subscribed products are displayed in a tile format.
 
-**Note:** The subscriptions owner will see all subscription information, including contract information and pricing details. However, the subscriptions beneficiary will see limited subscriptions information. For example, no contract information and Pricing Details will be displayed. For more information on the backend configuration, see [Configuring and Enabling Customer Product Inventory](#configuring-and-enabling-customer-product-inventory).
+**Note:** The subscriptions owner will see all subscription information, including contract information and pricing details. However, the subscriptions beneficiary will see limited subscriptions information. For example, no contract duration and pricing details will be displayed. For more information on the backend configuration, see [Configuring and Enabling Customer Product Inventory](#configuring-and-enabling-customer-product-inventory).
 
-**Subscriptions Beneficiary:**
-
-<p align="center"><img src="/assets/images/telco/subscription-beneficiary.png"></p>
-
-**Subscriptions Owner:**
+**Subscriptions Owner**
 
 <p align="center"><img src="/assets/images/telco/subscription-owner.png"></p>
+
+**Subscriptions Beneficiary**
+
+<p align="center"><img src="/assets/images/telco/subscription-beneficiary.png"></p>
 
 ### Viewing the Usage Consumption of a Subscribed Product in Pie Charts
 
@@ -82,7 +82,7 @@ From the **Account** menu drop-down, click **Subscriptions**. All subscriptions 
 
 ### Frontend Requirements and Dependencies
 
-There are no frontend requirements and dependencies for this feature.
+There are no specific frontend requirements and dependencies for this feature.
 
 ### Backend Requirements and Dependencies
 
@@ -100,7 +100,7 @@ Customer Product Inventory feature involves mapping between subscriptions and us
 
 ## Configuring and Enabling Customer Product Inventory
 
-The client application has a list of following newly developed components and existing Spartacus components that were updated. 
+The following new and and existing Spatacus components were updated:
 
 |              Component              	|                                                    Description                                                   	|
 |------------------------------------	|----------------------------------------------------------------------------------------------------------------- |
@@ -114,13 +114,13 @@ The client application has a list of following newly developed components and ex
 
 ### Configuring and Enabling Customer Product Inventory Components From the BackOffice
 
+A Product Manager can set the visibility of the Backoffice components as per the requirement. For example, if there is a requirement to not do display the `TmaUsageConsumptionGridComponent` component in the SPA Storefront, then the Prodcut Manager can set the visibility of the `TmaUsageConsumptionGridComponent` component to false. This enables the Product Manager to control the visibility of the components in the SPA Storefront.
+
 |              Angular Component              |                                                    Backoffice Component                                                   |
 |-------------------------------------|----------------------------------------------------------------------------------------------------------------- |
 | TmaUsageConsumptionGridComponent    |     TmaUsageConsumptionGridComponent                                                                  |
 | TmaUsageConsumptionGridComponent   |     AccountUsageConsumptionPieChartComponent                                                                  |
 | TmaSubscriptionBaseListComponent    |     TmaSubscriptionBaseListComponent
-
-**Note:** A Product Manager can set the visibility of the backoffice component as per the requirement. For example, if there is a requirement to not do display the `TmaUsageConsumptionGridComponent` component in the SPA Storefront, then the Prodcut Manager can set the visibility of the `TmaUsageConsumptionGridComponent` componen to False. This enables the Product Manager to control the visibility of the components in the SPA Storefront.
 
 ## Further Reading
 
