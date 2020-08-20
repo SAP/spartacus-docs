@@ -214,12 +214,12 @@ For Unix:
 1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder run the following commands for Windows:
 
    ```bash
-   install.bat -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+   install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
    ```
 For Unix:
 
    ```bash
-   ./install.sh -r b2c_for_spartacus -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+   ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
    ```
 
 1. Verify that the system is working.
