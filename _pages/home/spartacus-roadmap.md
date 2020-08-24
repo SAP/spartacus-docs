@@ -10,10 +10,10 @@ Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Planned for Q2 2020](#planned-for-q2-2020)
-- [Planned for Q3 2020](#planned-for-q3-2020)
-- [Features Planned for Q4 2020 and Later](#features-planned-for-q4-2020-and-later)
-- [Future Outlook](#future-outlook)
+- [Features Planned for Version 2.1 - End of August](#features-planned-for-version-21---end-of-august)
+- [Features Planned for Version 3.0 / September](#features-planned-for-version-30--september)
+- [Features Planned for the Rest of Q4 2020 and into Q1 2021](#features-planned-for-the-rest-of-q4-2020-and-into-q1-2021)
+- [Future Outlook / Features Planned for 2021 and Later](#future-outlook--features-planned-for-2021-and-later)
   
   
 ### Disclaimer - Forward-Looking Statements
