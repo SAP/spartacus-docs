@@ -10,9 +10,9 @@ Before upgrading your Spartacus libraries to version 2.0, you must address the f
 
 - Your `@spartacus` libraries must include the `@spartacus/schematics` library. If you do not have the `@spartacus/schematics` library, add it to your `package.json` file in the `devDependencies` section, and set it to the same version as your other `@spartacus` libraries. Then run `yarn install`.
 
-- Spartacus 2.0 also requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
+- Spartacus 2.0 requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
 
-- If you are using `@nguniversal/express-engine` for Server Side Rendering implementation, you must also update it to version 9 with `ng update @nguniversal/express-engine@^9.1` before updating Spartacus.     
+- If you are using `@nguniversal/express-engine` for your server-side rendering implementation, you must update it to version 9 before updating Spartacus. To update `@nguniversal/express-engine` to version 9, use the following command : `ng update @nguniversal/express-engine@^9.1`
 
 ## Updating Spartacus
 
