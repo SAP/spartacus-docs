@@ -12,7 +12,7 @@ Before upgrading your Spartacus libraries to version 2.0, you must address the f
 
 - Spartacus 2.0 also requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
 
-- If you are using `@nguniversal/express-engine` to implement Server Side Rendering, you must also update it to version 9 with `ng update @nguniversal/express-engine@^9.1` before updating Spartacus.     
+- If you are using `@nguniversal/express-engine` for Server Side Rendering implementation, you must also update it to version 9 with `ng update @nguniversal/express-engine@^9.1` before updating Spartacus.     
 
 ## Updating Spartacus
 
