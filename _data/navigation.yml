@@ -241,6 +241,8 @@ docs:
                   url: /tua-pre-release-notes-next1/
           - title: "Spartacus Roadmap for TUA"
             url: /spartacus-roadmap-for-tua/
+          - title: "Spartacus TUA FAQs"
+            url: /spartacus-tua-faqs/          
           - title: "Getting Started with Spartacus for TUA ➢"
             url: /getting-started-with-spartacus-for-tua/ 
             subchildren:
@@ -254,7 +256,9 @@ docs:
                 - title: "Customer Product Inventory (CPI)"
                   url: /customer-product-inventory/
                 - title: "Journey Management - MSISDN (Virtual Mobile Number)"
-                  url: /journey-management-msisdn/                    
+                  url: /journey-management-msisdn/  
+                - title: "New Appointment"
+                  url: /journey-management-appointment/                  
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
