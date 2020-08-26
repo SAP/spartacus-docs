@@ -69,11 +69,11 @@ The business use case includes the following steps:
 
 ### Frontend Requirements and Dependencies
 
-Content development in progress.
+In progress.
 
 ### Backend Requirements and Dependencies
 
-Content development in progress.
+In progress.
 
 ### Supported Backed Functionality
 
@@ -91,22 +91,23 @@ Content development in progress.
 
 ## Configuring and Enabling the Appointment Reference
 
-Content development in progress.
+In progress.
 
 ### Components
 
 | Component Name                          | Status | Description                                                                                     |
 | --------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
-| TmaAppointmentDisplayComponent          | New    | Displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
-| TmaJourneyChecklistAppointmentComponent | New    | Displays the available time slots to the customer                               |
+| TmaAppointmentDisplayComponent          | New    | the component displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
+| TmaJourneyChecklistAppointmentComponent | New    | the component displays the available time slots to the customer                               |
 | TmaJourneyChecklistStepComponent        | New    | A stepper component that renders the checklist components                                        |
 
 ### Sample Data
 
-Content development in progress.
+In progress.
 
 ## Further Reading
 
 Consult the TUA Help Portal for more information on the following topics:
 
-- Content development in progress.
+- [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
+- [Customer Inventory and Cart](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/6d4fed0352f04fb8ba10846024854ea6.html).
