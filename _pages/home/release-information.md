@@ -9,6 +9,7 @@ title: Release Information for Versions 2.0 of Spartacus Libraries
 Contents:
 
 - [Introduction](#introduction)
+- [Release 2.1](#release-21)
 - [Release 2.0](#release-20)
 - [About Spartacus Releases](#about-spartacus-releases)
 - [How Spartacus is Versioned](#how-spartacus-is-versioned)
@@ -33,6 +34,15 @@ For release information about Spartacus 1.x, see [Release Information for Versio
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+  
+  
+## Release 2.1
+
+*Release 2.1.0 libraries published August 27, 2020*
+
+- **Directionality**: Provides support for bidirectional text and layout. You can configure Spartacus to use a left-to-right (LTR) orientation, or a right-to-left (RTL) orientation. The 2.1 feature is for core functionality; that Spartacus updates to CSS will be completed in the 3.0. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+- **Style Library Versioning**: Allows the core Spartacus development team to introduce  gradual changes in the style layer while maintaining backwards compatibility. New or adjusted style rules are added for a specific version, but these changes are not added in the style build process unless you explicitly opt in to receive these changes. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/css-architecture.md %}).
+  
   
 ## Release 2.0
 
