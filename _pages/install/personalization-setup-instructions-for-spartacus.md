@@ -6,7 +6,7 @@ For the following steps, the Electronics sample site is used along with the Spar
 
 ## Back End Extension Requirements
 
-Make sure all the required personalization extensions and AddOns are installed in your SAP Commerce Cloud instance. For more information, see the [Personalization installation instructions](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/6a0dae49ef2c4fe3b475084079cb7360.html) for your release.
+Make sure all the required personalization extensions and AddOns are installed in your SAP Commerce Cloud instance. For more information, see the [Personalization installation instructions](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/6a0dae49ef2c4fe3b475084079cb7360.html) for your release.
 
 ## Back End CORS Settings
 
