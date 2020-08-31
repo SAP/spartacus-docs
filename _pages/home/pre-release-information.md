@@ -9,11 +9,13 @@ _Last updated August 17, 2020 by Bill Marcotte, Senior Product Manager, Spartacu
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}). For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
 
 
-## 2.1 Pre-Release Libraries - August 12
+## 2.1 Pre-Release Libraries
 
-- **Style Library Versioning**: Allows the core Spartacus development team to introduce  gradual changes in the style layer while maintaining backwards compatibility. New or adjusted style rules are added for a specific version, but these changes are not added in the style build process unless you explicitly opt in to receive these changes. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/css-architecture.md %}).
-- **Directionality**: Provides support for bidirectional text and layout. You can configure Spartacus to use a left-to-right (LTR) orientation, or a right-to-left (RTL) orientation. The 2.1 feature is for core functionality; that Spartacus updates to CSS will be completed in the 3.0. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
-- The first pre-release of the **Customer Data Cloud** (CDC, previously known as Gigya) integration library was also published. This new library provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %}).
+Release 2.1 has been published! See [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}) for more information on release 2.1.
+
+## Customer Data Cloud Pre-Release
+
+The **Customer Data Cloud** (CDC, previously known as Gigya) integration library remains in pre-release and will likely be final alongside the 3.0 release. This new library provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %}).
 
 
 ## Pre-Release Libraries for 2.0 and earlier
