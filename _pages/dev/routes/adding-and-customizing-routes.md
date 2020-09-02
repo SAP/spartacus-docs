@@ -20,11 +20,15 @@ Content pages have a configurable URL in the CMS, called a page label. However, 
 
 ## Adding a Content Page Route
 
-To add new route, no development is required, it suffices to add in the CMS a new Content Page with *page label* starting with slash i.e. `/contact-us`. The Spartacus' wildcard `**` route with match it out of the box.
+To add a new route, you simply add a new Content page in the CMS, and give it a page label that begins with a slash, such as `/contact-us`. The Spartacus wildcard route (`**`) matches it without any configuration.
 
-## Customizing the Product Page Route
+## Customizing a Product or Category Page Route
 
-Product Page route can be configured only in Spartacus. It has to contain the `:productCode` param to identify the product. But for SEO you may want to also include more parameters that can be accessed in the product entity, i.e. product name, in `ConfigModule`:
+You can only configure Product and Category page routes in Spartacus.
+
+Product page routes must contain the `:productCode` parameter to identify the product. Category page routes must contain the `:categoryCode` or `:brandCode` parameter to identify the category.
+
+For SEO, you may want to include more parameters in your route. The following is an example `ConfigModule` that adds a product name to the Product page route:
 
 ```typescript
 routing: {
@@ -34,15 +38,13 @@ routing: {
 }
 ```
 
-**Note:** The optional `paramsMapping` config can be used for properties that have a different name than the route parameter (i.e. to map from `product.code` to `:productCode`). For more information, see [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
-
-## Customizing the Category Page Route
-
-Similar to Product Page.
+**Note:** The optional `paramsMapping` configuration can be used for properties that have a different name than the route parameter. For example, you may wish to map from `product.code` to `:productCode`. For more information, see [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
 
 ## Adding a Content Page with Dynamic Parameters
 
-Angular routes can contain dynamic *route parameters* that are consumed in the logic of Angular components. Although The SAP Commerce Cloud CMS doesn't support *page labels* with dynamic params, you can have dynamic params for Content Pages in Spartacus. You need to define your custom Angular `Route` with `path` and explicitly assign the CMS *page label*, for example in your `app.module.ts`:
+Angular routes can contain dynamic route parameters that are consumed by the logic of your Angular components. Although the SAP Commerce CMS does not support page labels with dynamic parameters, you can have dynamic parameters for Content pages in Spartacus.
+
+In `app.module.ts`, you define the URL path for your custom Angular `Route` with the `path` property, and you explicitly assign the CMS page label using the `data` property. The following is an example:
 
 ```typescript
 import { PageLayoutComponent, CmsPageGuard } from `@spartacus/storefront`;
@@ -52,13 +54,13 @@ import { PageLayoutComponent, CmsPageGuard } from `@spartacus/storefront`;
 imports: [
     RouterModule.forChild([
         {
-            // path with dynamic param:
+            // path with a dynamic parameter:
             path: 'order/:orderCode',
 
-            // page label without param, starting with slash:
+            // page label without a parameter, starting with slash:
             data: { pageLabel: '/order' },
 
-            // those are needed to display slots and components from CMS:
+            // the following are needed to display slots and components from the CMS:
             component: PageLayoutComponent,
             canActivate: [CmsPageGuard]
         }
@@ -68,7 +70,9 @@ imports: [
 
 ## Adding Angular Child Routes for a Content Page
 
-Angular can display components for child routes inside nested `<router-outlet>`. Although the SAP Commerce Cloud CMS doesn't support child pages, in Spartacus you can have child routes. You need to configure child routes for your CMS component, for example in `ConfigModule`:
+Angular can display components for child routes inside a nested `<router-outlet>`. Although the SAP Commerce CMS does not support child pages, in Spartacus you can have child routes.
+
+For example, you can configure child routes for your CMS component in the `ConfigModule`, as follows:
 
 ```typescript
 cmsComponents: {
@@ -84,60 +88,66 @@ cmsComponents: {
 }
 ```
 
-**Note:** Child routes for the Product and Category Pages are not supported.
+**Note:** Child routes for the Product and Category pages are not supported.
 
 ## Configuring the Category Name in the Product Page Route (Advanced)
 
-Only the first-level properties of the product entity (i.e. `code` or `name`) can be used to build URL. Unfortunately, product categories is not the case (the field `categories` is an array of objects). So you need to map `categories` array's elements to the first-level properties of the product entity. You can perform such a mapping for example in the `PRODUCT_NORMALIZER`. Here is how to do it:
+Only the first-level properties of the product entity, such as `code` or `name`, can be used to build a URL. Unfortunately, something like product categories is not a first-level property because the `categories` field is an array of objects. To be able to include product categories in the URL, you need to map the elements of the `categories` array to the first-level properties of the product entity.
 
-Provide `PRODUCT_NORMALIZER` i.e. in your app.module:
+The following procedure describes how to create this mapping in the `PRODUCT_NORMALIZER`.
 
-```typescript
-providers: [
-    {
-      provide: PRODUCT_NORMALIZER,
-      useClass: MyProductCategoriesNormalizer,
-      multi: true,
-    },
-]
-```
+1. Provide a `PRODUCT_NORMALIZER`.
 
-... and add your implementation with mapping ...
+    You can provide it in your app.module, as shown in the following example:
 
-```typescript
-@Injectable()
-export class MyProductCategoriesNormalizer
-  implements Converter<Occ.Product, Product> {
-  convert(source: Occ.Product, target?: any): any {
-    if (source.categories && source.categories.length) {
-      target.category = source.categories[0].name; //
+    ```typescript
+    providers: [
+        {
+          provide: PRODUCT_NORMALIZER,
+          useClass: MyProductCategoriesNormalizer,
+          multi: true,
+        },
+    ]
+    ```
+
+2. Add your implementation with the mapping, as shown in the following example:
+
+    ```typescript
+    @Injectable()
+    export class MyProductCategoriesNormalizer
+      implements Converter<Occ.Product, Product> {
+      convert(source: Occ.Product, target?: any): any {
+        if (source.categories && source.categories.length) {
+          target.category = source.categories[0].name; //
+        }
+        return target;
+      }
     }
-    return target;
-  }
-}
-```
+    ```
 
-... then the `category` field is available in your product entity. So you can configure the Product Page route in `ConfigModule` to contain `:category` param:
+    Now the `category` field is available in your product entity.
 
-```typescript
-routing: {
-    routes: {
-        product: { paths: ['product/:category/:name/:productCode'] }
-    }
-}
-```
+3. Configure the Product page route in your `ConfigModule` to contain the `:category` parameter, as shown in the following example:
 
-**Note:** It is a known issue that product entities returned by the OCC product search endpoint do not contain categories, so you may want to also generate URLs from product entities that do not include categories. Then you also need to configure the second, less-specific route alias. The following is an example:
-
-```typescript
-routing: {
-    routes: {
-        product: {
-            paths: ['product/:category/:name/:productCode', 'product/:name/:productCode'] 
+    ```typescript
+    routing: {
+        routes: {
+            product: { paths: ['product/:category/:name/    :productCode'] }
         }
     }
-}
-```
+    ```
+
+    **Note:** It is a known issue that product entities returned by the OCC product search endpoint do not contain categories, so you may want to also generate URLs from product entities that do not include categories. In this case, you also need to configure the second, less specific route alias. The following is an example:
+
+    ```typescript
+    routing: {
+        routes: {
+            product: {
+                paths: ['product/:category/:name/:productCode',     'product/:name/:productCode'] 
+            }
+        }
+    }
+    ```
 
 ## Backwards Compatibility with Accelerators
 
