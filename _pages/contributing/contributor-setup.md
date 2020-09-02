@@ -131,12 +131,12 @@ yarn start:prod
 2. Launch the SSR server as follows:
 
    ```bash
-   yarn start:ssr
+   yarn serve:ssr
    ```
 
 The app will be served with the production build, without using the webpack dev server. As a result, PWA and the features related to service workers will be fully functional.
 
-# Additional Storefront Configuration
+## Additional Storefront Configuration
 
 In both development mode and production mode, the Spartacus storefront has default values for all of its configurations. However, you may need to override these values.
 
