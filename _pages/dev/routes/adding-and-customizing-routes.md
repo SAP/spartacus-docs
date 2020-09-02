@@ -2,17 +2,21 @@
 title: Adding and Customizing Routes
 ---
 
+Spartacus includes default routes for accessing different views within your storefront app, but you can also add or customize any route that you want in Spartacus.
+
 ## Page Types and Page Labels
 
-The CMS in SAP Commerce Cloud comes with the concept of three special page types: Product Page, Category Page, Catalog Page (Catalog is not supported for now) and one common type Content Page used for all other pages, i.e. login, order history or faq.
+The CMS in SAP Commerce includes the following special page types: Product, Category, and Catalog. There is also a generic Content page type, which is used for all other kinds of pages, such as the login, order history, and FAQ pages.
 
-Spartacus reflects that by defining a few Angular `Routes`:
+**Note:** The Catalog page type is currently not supported in Spartacus.
 
-- route with `:productCode` param - for Product Pages
-- route with `:categoryCode` param and route with `:brandCode` param - for Category Pages
-- wildcard `**` route - for all other, Content Pages
+Spartacus defines the following Angular `Routes` by default:
 
-The URLs of product, category and brand pages can be [configured only in Spartacus]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}). Content Pages have a configurable URL in the CMS, called *page label*.
+- Routes that contain the `:productCode` parameter are for Product pages
+- Routes that contain the `:categoryCode` parameter or the `:brandCode` parameter are for Category pages
+- Routes that contain the `**` wildcard are for Content pages (that is, all pages that are not Product or Category pages)
+
+Content pages have a configurable URL in the CMS, called a page label. However, the URLs for product, category, and brand pages can only be configured in Spartacus. For more information, see [Route Configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}).
 
 ## Adding a Content Page Route
 
