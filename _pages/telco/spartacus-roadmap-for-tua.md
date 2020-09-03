@@ -80,7 +80,7 @@ For more information, see [Eligibility Policies Evaluation](https://help.sap.com
 - Journey Coordinator. For more information, see [Journey Coordinator](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html).
 - Checkist Actions. For more information, see [Checklist Actions](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/9fead1b7969b425fa1c15fb985324b42.html).
 
-A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine.  TUA support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of Spartacus means that the code contains breaking changes - to be determined.
+A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine. TUA support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of Spartacus means that the code contains breaking changes.
 
 #### Move to Angular 9/Ivy
 
