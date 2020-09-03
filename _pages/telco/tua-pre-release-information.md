@@ -16,9 +16,9 @@ Aside from continued work on removing deprecated code, bug fixes, and code refac
 
 _Last updated May 18, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
-This is the very first pre-release of the Telco & Utilities Accelerator (TUA) Spartacus storefront. TUA Spartacus storefront requires Telco & Utilities release 2003 (latest patch), with Spartacus 1.4 libraries.
+This is the very first pre-release of the TUA Spartacus storefront. TUA Spartacus storefront requires Telco & Utilities release 2003 (latest patch), with Spartacus 1.4 libraries.
 
-With this pre-release, the following Telco storefront features are included:
+With this pre-release, the following TUA storefront features are included:
 - Login
 - Customer Registration
 - Search

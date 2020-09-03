@@ -232,23 +232,23 @@ docs:
 
     - title: Telco & Utilities Storefront Development Guide
       children:
-          - title: "About Spartacus for TUA"
+          - title: "About telco and utilities accelerator for project 'Spartacus'"
             url: /about-spartacus-for-tua/
-          - title: "Release Information for TUA ➢"
+          - title: "Release Information for TUA Spartacus ➢"
             url: /telco-release-information/
             subchildren:
                 - title: "Pre-Release Information"
                   url: /tua-pre-release-notes-next1/
-          - title: "Spartacus Roadmap for TUA"
+          - title: "Roadmap for TUA Spartacus"
             url: /spartacus-roadmap-for-tua/
-          - title: "Getting Started with Spartacus for TUA ➢"
+          - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-spartacus-for-tua/ 
             subchildren:
-                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus."
+                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
                   url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/
-                - title: "Building the TUA Storefront from libraries"
-                  url: /building-the-tua-storefront-from-libraries/                               
-                                
+                - title: "Building the TUA Spartacus Storefront from libraries"
+                  url: /building-the-tua-storefront-from-libraries/                           
+  
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"

@@ -1,8 +1,8 @@
 ---
-title: Building the Spartacus TUA Storefront from Libraries
+title: Building the TUA Spartacus Storefront from Libraries
 ---
 
-The following instructions describe how to build a Telco & Utilities storefront application using published Spartacus 1.x libraries.
+The following instructions describe how to build a TUA storefront application using published Spartacus 1.x libraries.
 
 **Note:** If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
@@ -36,7 +36,7 @@ To update existing installations, use `brew upgrade` instead of `brew install`.
 
 ## Back-End Server Requirements
 
-Spartacus for TUA uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back-end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
+TUA Spartacus uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back-end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
 
 - SAP Commerce version: Release 1905 (latest patch is recommended).
 - TUA version: Release 2003 (latest patch) is required.
@@ -80,76 +80,77 @@ The dependencies in this procedure are required by the Spartacus storefront.
 
 1. Inspect the `mystore/src/app/app.module.ts` file for any changes you want to make for your setup. For example, you might want to change the `baseUrl` to point to your server and the `basesite` to corresond with the WCMS site. You likely also want to specify the compatibility version by changing `features.level`, as the default might not be the latest version.
 
-To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
+      To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
 
-```typescript
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {ConfigModule} from '@spartacus/core';
-import {AppComponent} from './app.component';
-import {translationChunksConfig, translations} from '@spartacus/assets';
-import {TmaAuthModule, TmaB2cStorefrontModule, TmaProductSummaryModule, tmaTranslations, TmfModule} from '@spartacus/tua-spa';
+      ```typescript
+      import {BrowserModule} from '@angular/platform-browser';
+      import {NgModule} from '@angular/core';
+      import {ConfigModule} from '@spartacus/core';
+      import {AppComponent} from './app.component';
+      import {translationChunksConfig, translations} from '@spartacus/assets';
+      import {TmaAuthModule, TmaB2cStorefrontModule, TmaProductSummaryModule, tmaTranslations, TmfModule} from '@spartacus/tua-spa';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    TmaAuthModule,
-    TmfModule.forRoot(),
-    TmaB2cStorefrontModule.withConfig({
-      backend: {
-        tmf: {
-          baseUrl: 'https://localhost:9002',
-          prefix: '/b2ctelcotmfwebservices/v2/',
-        },
-        occ: {
-          baseUrl: 'https://localhost:9002',
-          prefix: '/rest/v2/',
-          endpoints: {
-            product_scopes: {
-              details:
-                'products/${productCode}?fields=averageRating,stock(DEFAULT),description,availableForPickup,code,url,price(DEFAULT),numberOfReviews,manufacturer,categories(FULL),priceRange,multidimensional,configuratorType,configurable,tags,images(FULL),productOfferingPrice(FULL),productSpecification,validFor',
+      @NgModule({
+        declarations: [
+          AppComponent
+        ],
+        imports: [
+          BrowserModule,
+          TmaAuthModule,
+          TmfModule.forRoot(),
+          TmaB2cStorefrontModule.withConfig({
+            backend: {
+              tmf: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/b2ctelcotmfwebservices/v2/',
+              },
+              occ: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/rest/v2/',
+                endpoints: {
+                  product_scopes: {
+                    details:
+                      'products/${productCode}?fields=averageRating,stock(DEFAULT),description,availableForPickup,code,url,price(DEFAULT),numberOfReviews,manufacturer,categories(FULL),priceRange,multidimensional,configuratorType,configurable,tags,images(FULL),productOfferingPrice(FULL),productSpecification,validFor',
+                  },
+                  productSearch:
+                    'products/search?fields=products(code,name,summary,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions,productSpecification),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch',
+                },
+              }
             },
-            productSearch:
-              'products/search?fields=products(code,name,summary,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions,productSpecification),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch',
-          },
-        }
-      },
-      routing: {
-        routes: {
-          product: {
-            paths: ['product/:productCode/:name', 'product/:productCode'],
-          }
-        }
-      },
-      context: {
-        urlParameters: ['baseSite', 'language', 'currency'],
-        baseSite: ['telcospa']
-      },
-      i18n: {
-        resources: translations,
-        chunks: translationChunksConfig,
-        fallbackLang: 'en'
-      },
-      features: {
-        level: '1.4'
+            routing: {
+              routes: {
+                product: {
+                  paths: ['product/:productCode/:name', 'product/:productCode'],
+                }
+              }
+            },
+            context: {
+              urlParameters: ['baseSite', 'language', 'currency'],
+              baseSite: ['telcospa']
+            },
+            i18n: {
+              resources: translations,
+              chunks: translationChunksConfig,
+              fallbackLang: 'en'
+            },
+            features: {
+              level: '1.4'
+            }
+          }),
+          ConfigModule.withConfig({
+            i18n: {
+              resources: tmaTranslations
+            }
+          }),
+          TmaProductSummaryModule,
+        ],
+        providers: [],
+        bootstrap: [AppComponent]
+      })
+      export class AppModule {
       }
-    }),
-    ConfigModule.withConfig({
-      i18n: {
-        resources: tmaTranslations
-      }
-    }),
-    TmaProductSummaryModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule {
-}
-```
+      ```
+
 2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
 
    ```html
