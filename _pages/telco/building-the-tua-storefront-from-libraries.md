@@ -1,5 +1,5 @@
 ---
-title: Building the Spartacus TUA Storefront from Libraries
+title: Building the TUA Spartacus Storefront from Libraries
 ---
 
 The following instructions describe how to build a Telco & Utilities storefront application using published Spartacus 1.x libraries.
@@ -36,7 +36,7 @@ To update existing installations, use `brew upgrade` instead of `brew install`.
 
 ## Back-End Server Requirements
 
-Spartacus for TUA uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back-end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
+TUA Spartacus uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back-end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
 
 - SAP Commerce version: Release 1905 (latest patch is recommended).
 - TUA version: Release 2003 (latest patch) is required.
