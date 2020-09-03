@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce Cloud with TUA for use with Spartacus
+title: Installing SAP Commerce Cloud for use with TUA Spartacus
 ---
 
 The following instructions describe how to install and configure SAP Commerce Cloud (release 1905) with Telco and Utilities Accelerator (release 2003, latest patch) for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud with TUA is installed on your local computer, so `localhost` is used in the browser URLs.
@@ -11,13 +11,13 @@ The installation procedure includes steps for creating and using a `b2c_telco_sp
 However, installing the TUA Spartacus Sample Data is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `TmaB2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `TmaB2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your custom project.
 
 
-To install and configure SAP Commerce Cloud with TUA for use with Spartacus, you must complete the following procedures:
+To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must complete the following procedures:
 
 1. [Setting up SAP Commerce Cloud](#setting-up-sap-commerce-cloud)
 2. [Configuring OCC credentials](#configuring-occ-credentials)
 3. [Configuring CORS](#configuring-cors)
 
-## Setting Up SAP Commerce Cloud with TUA using the Spartacus TUA Sample Data Store Extension
+## Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension
 
 Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
 
@@ -25,9 +25,9 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    Note: Use last patches for SAP Commerce Cloud version 1905 and TUA version 2003.
 
-1. [Download](https://github.com/SAP/spartacus/releases) the Spartacus TUA Sample Data Store Extension.
+1. [Download](https://github.com/SAP/spartacus/releases) the TUA Spartacus Sample Data Store Extension.
 
-    The Spartacus TUA Sample Data Store Extension is the extension provided in the following zip file: `b2ctelcospastore.zip`.
+    The TUA Spartacus Sample Data Store Extension is the extension provided in the following zip file: `b2ctelcospastore.zip`.
   
     
 
