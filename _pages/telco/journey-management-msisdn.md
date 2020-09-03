@@ -16,7 +16,7 @@ title: Journey Management - MSISDN
 
 ## Overview
 
-The `Journey Management - MSISDN (Mobile Station International Subscriber Directory Number)` feature enables the customers browsing the TUA for SPA Storefront to select an MSISDN, before adding the selected product offering or a service plan to the cart.
+The `Journey Management - MSISDN (Mobile Station International Subscriber Directory Number)` feature enables the customers browsing the telco and utilities accelerator for project "Spartacus" (TUA Spartacus) storefront to select an MSISDN, before adding the selected product offering or a service plan to the cart.
 
 `MSISDN` is a number used to identify a mobile phone number internationally from the available MSISDNs. This number includes a country code and a National Destination Code, which identifies the subscriber's operator.
 
@@ -76,11 +76,11 @@ In progress.
 
 The checklist policy must be configured to display the MSISDNs screen, for the customer to select the desired MSISDN.
 
-### Supported Backend Functionality
+### Supported Back End Functionality
 
 - [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [TUA Data Model for Entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [TUA Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Telco & Utilities Accelerator Data Model for Entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Telco & Utilities Accelerator Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
 
 |  Entity Exposed for Journey Checklist            	 |TMF and OCC API                          |Description                         |
 |----------------|-------------------------------|-----------------------------|
@@ -111,6 +111,6 @@ In progress.
 
 ## Further Reading
 
-Consult the TUA Help Portal for more information on the following topics:
+Consult the Telco & Utilities Accelerator Help Portal for more information on the following topics:
 
 - [Standardization of the Names of the Service Plans](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2007/en-US/1efef20cf9ab42b59f1bdb9004e67477.html)

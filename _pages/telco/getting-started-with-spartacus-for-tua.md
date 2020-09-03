@@ -1,8 +1,0 @@
----
-title: Getting Started with TUA Spartacus
----
-
-Welcome to the SAP Commerce for TUA Spartacus. TUA is a ready-to-use web framework, designed to maximize average revenue per user through cost effective, streamlined process. The TUA provides all the functionality and business tools that are required to build an omnichannel e-Commerce solution, supporting the unique and individual needs of subscription-based businesses, including telecommunications, utilities, and media. 
-
-- [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-cloud-with-tua-for-use-with-spartacus.md %})
-- [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %})

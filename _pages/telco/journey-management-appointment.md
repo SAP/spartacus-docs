@@ -16,7 +16,7 @@ title: Journey Management - Appointment Reference
 
 ## Overview
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA for SPA Storefront to browse the content of a product offering, and select a suitable appointment for arranging onsite service support, before purchasing the product offering.
+The `Journey Management - Appointment Reference` feature enables customers browsing the telco and utilities accelerator for project "Spartacus" (TUA Spartacus) storefront to browse the content of a product offering, and select a suitable appointment for arranging onsite service support, before purchasing the product offering.
 
 **Note:** The `Journey Management - Appointment Reference` feature applies to only those product or service offerings for which a checklist policy is configured at the backend by the Product Manager.
 
@@ -104,11 +104,11 @@ Using yarn:
 
 In progress.
 
-### Supported Backed Functionality
+### Supported Back End Functionality
 
 - [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [TUA Data Model for entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [TUA Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Telco & Utilities Accelerator Data Model for entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Telco & Utilities Accelerator Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
 
 | Entity   Exposed 	| TMF & OCC APIs 	| Remark 	| Request or Response 	|
 |-	|-	|-	|-	|
@@ -136,7 +136,7 @@ In progress.
 
 ## Further Reading
 
-Consult the TUA Help Portal for more information on the following topics:
+Consult the Telco & Utilities Accelerator Help Portal for more information on the following topics:
 
 - [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
 - [Customer Inventory and Cart](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/6d4fed0352f04fb8ba10846024854ea6.html).
