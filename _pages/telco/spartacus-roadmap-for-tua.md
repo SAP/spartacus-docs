@@ -1,5 +1,5 @@
 ---
-title: Spartacus Roadmap for TUA
+title: Roadmap for TUA Spartacus
 ---
 
 *Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
@@ -41,7 +41,7 @@ Feedback is welcome!
 
 ### Planned for Rest of Q3 2020
 
-The first Spartacus for TUA major release (1.0) is planned for early Q3 2020. This release of the TUA Spartacus storefront requires Telco & Utilities Accelerator, release 2003 (latest patch) supported by SAP Commerce Cloud 1905, with Angular 8 and Spartacus 1.4 libraries. At a high level, this release includes the overall storefront, the ability to support simple product offerings and bundled product offerings, pricing (one-time charges, recurring charges, and usage charges), and configurable guided selling.  
+The first TUA Spartacus major release (1.0) is planned for early Q3 2020. This release of the TUA Spartacus storefront requires Telco & Utilities Accelerator, release 2003 (latest patch) supported by SAP Commerce Cloud 1905, with Angular 8 and Spartacus 1.4 libraries. At a high level, this release includes the overall storefront, the ability to support simple product offerings and bundled product offerings, pricing (one-time charges, recurring charges, and usage charges), and configurable guided selling.  
 
 #### Core B2C TUA Storefront Features/MVP 
 
