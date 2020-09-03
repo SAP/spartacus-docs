@@ -333,5 +333,5 @@ If you are involved in Spartacus internal development, or wish to submit a pull 
 1. Start Spartacus with the SSR server by running the following command:
 
     ```bash
-    yarn start:ssr
+    yarn serve:ssr
     ```
