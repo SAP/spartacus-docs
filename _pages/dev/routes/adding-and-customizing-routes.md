@@ -151,9 +151,9 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
 
 ## Backwards Compatibility with Accelerators
 
-The SAP Commerce Cloud Accelerators used routes `**/p/:productCode` and `**/c/:categoryCode` for Product and Category Page. For backwards compatibility, Spartacus also matches those routes, by simply numbering parameters.
+The SAP Commerce Accelerators use `**/p/:productCode` and `**/c/:categoryCode` as routes for the Product and Category pages, respectively. For backwards compatibility, Spartacus also matches these routes by numbering parameters.
 
-So for example URL `/some-catalogue/some-category/p/1234` will be recognized with parameters:
+For example, the URL `/some-catalogue/some-category/p/1234` is recognized with the following the parameters:
 
 ```typescript
 {
@@ -163,7 +163,7 @@ So for example URL `/some-catalogue/some-category/p/1234` will be recognized wit
 }
 ```
 
-If you want to have more semantic names of parameters, you can configure a route alias. For example in `ConfigModule`:
+To give your parameters more semantic names, you can configure a route alias in the `ConfigModule`, as shown in the following example:
 
 ```typescript
 routing: {
@@ -246,9 +246,9 @@ providers: [
 ],
 ```
 
-## Expected CMS page labels of Content Pages
+## Expected CMS Page Labels for Content Pages
 
-Spartacus expects the page label `homepage` to be configured in the CMS. For B2C Storefront recipe the list of expected CMS page labels by default is longer:
+Spartacus expects the `homepage` page label to be configured in the CMS. For the B2C storefront recipe, the default list of expected CMS page labels is longer, as shown in the following example:
 
 ```plaintext
 search
@@ -274,9 +274,9 @@ search
 /not-found
 ```
 
-### Fixed CMS page labels
+### Fixed CMS Page Labels
 
-For almost all Content Pages, Spartacus treats the URL as the CMS page label. It means that changing the config of route in Spartacus requires also a change of the page label in the CMS. However, there are few exceptions - when the configurable Spartacus' URL is mapped to a fixed CMS page label:
+For almost all Content Pages, Spartacus treats the URL as the CMS page label. This means that changing the configuration of the route in Spartacus also requires changing the page label in the CMS. However, as shown in the following table, there are a few exceptions, such as when a configurable URL for Spartacus is mapped to a fixed CMS page label.
 
 | Spartacus URL (configurable)                                         | Fixed CMS page label |
 | -------------------------------------------------------------------- | -------------------- |
