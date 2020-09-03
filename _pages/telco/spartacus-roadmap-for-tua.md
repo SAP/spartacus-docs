@@ -4,7 +4,7 @@ title: Roadmap for TUA Spartacus
 
 *Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
-This document describes what is planned for Spartacus for Q2 2020 and later.
+This document describes what is planned for TUA Spartacus for Q2 2020 and later.
 
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 - For information about features published in pre-release libraries, see [Pre-release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).  
@@ -59,7 +59,7 @@ The items in this section are on our future roadmap - not necessarily for any sp
 
 #### My Subscriptions
 
-TUA help Documentation. For more information, see in the [TUA Help portal](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
+For more information on the following topics, click the links of the corresponding topics to view the [TUA Help portal](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
 
 - View list of My Subscriptions - subscribed offerings. For more information, see [View List of my Subscriptions](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/f488da777e9b49c3882eed1b95efd215.html).
 - View Consumption Details. For more information, see [View Consumption Details](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html).
@@ -82,13 +82,13 @@ For more information, see [Eligibility Policies Evaluation](https://help.sap.com
 
 A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine.  TUA support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of Spartacus means that the code contains breaking changes - to be determined.
 
-#### Move to Angular 9 / Ivy
+#### Move to Angular 9/Ivy
 
 - Move to Angular 9 
     - Schematics update for supporting migration
-    - 3rd party dependencies updates
+    - Third party dependencies updates
 - Angular Ivy support (new compilation and rendering pipeline)
-    - Smaller, simpler and faster
+    - Smaller, simpler, and faster
     - Better performance on mobile devices
     - Less memory used
     - Tree shaking for smaller packages
@@ -105,7 +105,7 @@ Additional retention scenarios based on contract terms.
 
 ### Future Outlook
 
-The following features are in our roadmap, but currently not planned for a specific quarter.
+The following features are in roadmap, but currently not planned for a specific quarter.
 
 B2C Self-Care and Assurance supporting:
 
@@ -116,7 +116,7 @@ B2C Self-Care and Assurance supporting:
 
 ### B2C Functionality
 
-The following features are in our roadmap, but currently not planned for a specific quarter:
+The following features are in roadmap, but currently not planned for a specific quarter:
 
 - Fixed Bundled Product Offerings
 - Retention Process Flows
