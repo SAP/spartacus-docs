@@ -255,9 +255,9 @@ docs:
             subchildren:
                 - title: "Customer Product Inventory (CPI)"
                   url: /customer-product-inventory/
-                - title: "Journey Management - MSISDN (Virtual Mobile Number)"
+                - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/  
-                - title: "New Appointment"
+                - title: "Journey Management - Appointment Reference"
                   url: /journey-management-appointment/                  
     - title: Contributing to Spartacus
       children:
