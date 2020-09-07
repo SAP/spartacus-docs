@@ -11,12 +11,12 @@ title: Journey Management - Appointment Reference
 - [Business Use Case](#business-use-case)
 - [Navigation Flow](#navigation-flow)
 - [Requirements and Dependencies](#requirements-and-dependencies)
-- [Configuring and Enabling New Appointment](#configuring-and-enabling-new-appointment)
+- [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference)
 - [Further Reading](#further-reading)
 
 ## Overview
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA for SPA Storefront to browse the content of a product offering, and select a suitable appointment for arranging onsite service support, before purchasing the product offering.
+The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the content of a product offering and select a suitable appointment before purchasing the product offering.
 
 **Note:** The `Journey Management - Appointment Reference` feature applies to only those product or service offerings for which a checklist policy is configured at the backend by the Product Manager.
 
@@ -27,17 +27,17 @@ The `Journey Management - Appointment Reference` feature enables the customers b
 
 ## Business Use Case
 
-A customer wants to purchase a product offering. Before adding the product offering to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager. The customer is required to select a `call to schedule` option, or a suitable appointment from the available appointments.
+A customer wants to purchase a product offering. Before adding the product offering to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager. The customer can select a `call to schedule` option to arrange a call back to schedule an appointment, or a suitable a suitable appointment from the available time slots (appointments).
 
 The business use case includes the following steps:
 
-1. The customer searches and selects a product offering; for example, Fiberlink 100, and clicks **Add to Cart** to add the product offering to the cart.
+1. A customer searches and selects a product offering; for example, Fiberlink 100, and clicks **Add to Cart** to add the product offering to the cart.
 2. The `Select a suitable time for an appointment` screen is displayed, based on the checklist actions configured at the backend by Product Manager. The `Select a suitable time for an appointment` screen displays:
-    - **Call to Schedule:** The customer can select this option if a call back is required to schedule an appointment.
-    - **Select a Suitable Appointment:** The customer can select a suitable appointment from the available appointments.
-3. The selected product offering with the appointment is added to the cart.
-4. The customer can edit the appointment before proceeding to checkout the product offering. 
-5. The customer can view view the appointment and the order details from the `Order Details` page or the `Order History` page.
+    - **Call to Schedule:** A customer can select this option if a call back is required to schedule a suitable appointment.
+    - **Select a Suitable Appointment:** A customer can select a suitable appointment from the available time slots (appointments).
+3. The selected product offering with the appointment is added and displayed on the cart.
+4. A customer can choose to edit the appointment before proceeding to checkout the product offering. 
+5. A customer can view the appointment and the order details from **Account >** `Order History` page.
 
 ## Navigation Flow
 
@@ -49,11 +49,11 @@ The business use case includes the following steps:
 
     <p align="center"><img src="/assets/images/telco/1Product_Offering.png"></p>
 
-3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager.
-
-    **Note:** The `Please Call to Schedule` option is preselected.
+3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager.   
 
 4. Click a suitable appointment from the available appointments.
+
+    **Note:** The `Please Call to Schedule` option is preselected.
 
     <p align="center"><img src="/assets/images/telco/2Select_Suitable_Appointment.png"></p>
 
@@ -72,13 +72,15 @@ The business use case includes the following steps:
     **Notes:** 
     - The earlier selected appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
     - Top five available time slots are displayed with the default `Please call to Schedule` option.
-    - For each cart entry, you can book only one time slot, or choose the default option `Call to Schedule'.
+    - For each cart entry, you can book only one time slot, or choose the default `Call to Schedule` option.
 
 8. Select a suitable appointment and click **Update**. The cart page displays the new appointment.
 
     <p align="center"><img src="/assets/images/telco/6Updated_Appointment.png"></p>
 
 9. Click **Proceed to Checkout** to buy the product offering.
+
+10. Click **Account > Order History** in the `Product Display` page to check the appointment.
 
 ## Requirements and Dependencies
 
@@ -100,9 +102,9 @@ Using yarn:
      $ yarn add ngx-spinner
      ```
 
-### Backend Requirements and Dependencies
+<!--### Backend Requirements and Dependencies
 
-In progress.
+In progress.-->
 
 ### Supported Backed Functionality
 
@@ -128,7 +130,7 @@ To configure and enable the appointment reference, follow the steps:
 4. In the **PROPERTIES** tab:
     - In the **Checklist action type**, select `Appointment`.
     - In the **Product Specification Characteristic**, select either the staged or online catalog.
-5. In the **Product Offering** field, select the product offering for configuring appointment.
+5. In the **Product Offering**, select the product offering for configuring the appointment.
 
 When the product offering is successfully configured for the Appointment Reference feature, the `Select a suitable time for an appointment` screen is displayed after adding the product offering to the cart.
 
@@ -146,7 +148,7 @@ In progress.-->
 
 ## Further Reading
 
-Consult the TUA Help Portal for more information on the following topics:
+For further reading, see the following topics in the TUA Help portal.
 
 - [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
 - [Customer Inventory and Cart](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/6d4fed0352f04fb8ba10846024854ea6.html).
