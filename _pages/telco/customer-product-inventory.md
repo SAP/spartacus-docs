@@ -20,7 +20,7 @@ title: Customer Product Inventory (CPI)
 
 ## Overview
 
-The Customer Product Inventory feature enables the logged in customers browsing the Telco & Utilities Spartacus (TUA) Storefront to view their subscriptions-related information and subscribed products, as imported in the Telco & Utilities Accelerator from the external systems.
+The Customer Product Inventory feature enables logged in customers who are browsing the telco and utilities accelerator for project "Spartacus" (TUA Spartacus) storefront to view their subscriptions-related information and subscribed products, as imported in the Telco & Utilities Accelerator from external systems.
 
 ## Key Personas
 
@@ -29,7 +29,7 @@ The Customer Product Inventory feature enables the logged in customers browsing 
 
 ## Navigation Flow
 
-From the **Account** menu drop-down, click **Subscriptions**. The `My Subscriptions` screen is displayed. The subcriptions show:
+From the **Account** menu drop-down, click **Subscriptions**. The `My Subscriptions` screen is displayed. The subscriptions show:
 
 - Subscription ID. For example, 1040123111111.
 - Number of subscribed offerings. For example, 2.

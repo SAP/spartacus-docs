@@ -1,21 +1,21 @@
 ---
-title: Spartacus Roadmap for TUA
+title: Roadmap for TUA Spartacus
 ---
 
 *Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
-This document describes what is planned for Spartacus for Q2 2020 and later.
+This document describes what is planned for TUA Spartacus for Q2 2020 and later.
 
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 - For information about features published in pre-release libraries, see [Pre-release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).  
 
-Contents: 
+Contents:
+
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [General Release Information](#general-release-information)
 - [Planned for Rest of Q3 2020](#planned-for-rest-of-q3-2020)
 - [Features planned for the second half of 2020](#features-planned-for-the-second-half-of-2020)
 - [Future Outlook](#future-outlook)
-
 
 ### Disclaimer - Forward-Looking Statements
 
@@ -29,7 +29,7 @@ We plan to publish new Spartacus libraries every two weeks. Each release may con
 
 When new features are available for release, normally we will publish a pre-release “next” version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
 
-**Note:** Links provided in the following sections point to SAP Commerce Cloud Telco & Utilities Accelerator Help portal, to give an idea of what the feature is about. These links are for context-only.  While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
+**Note:** Links provided in the following sections point to SAP Commerce Telco & Utilities Accelerator Help portal, to give an idea of what the feature is about. These links are for context-only.  While we strive for feature parity, the TUA Spartacus implementation of features may not work exactly as in Accelerator.
 
 #### Questions?
 
@@ -41,7 +41,7 @@ Feedback is welcome!
 
 ### Planned for Rest of Q3 2020
 
-The first Spartacus for TUA major release (1.0) is planned for early Q3 2020. This release of the TUA Spartacus storefront requires Telco & Utilities Accelerator, release 2003 (latest patch) supported by SAP Commerce Cloud 1905, with Angular 8 and Spartacus 1.4 libraries. At a high level, this release includes the overall storefront, the ability to support simple product offerings and bundled product offerings, pricing (one-time charges, recurring charges, and usage charges), and configurable guided selling.  
+The first TUA Spartacus major release (1.0) is planned for early Q3 2020. This release of the TUA Spartacus storefront requires Telco & Utilities Accelerator, release 2003 (latest patch) supported by SAP Commerce 1905, with Angular 8 and Spartacus 1.4 libraries. At a high level, this release includes the overall storefront, the ability to support simple product offerings and bundled product offerings, pricing (one-time charges, recurring charges, and usage charges), and configurable guided selling.  
 
 #### Core B2C TUA Storefront Features/MVP 
 
@@ -59,7 +59,7 @@ The items in this section are on our future roadmap - not necessarily for any sp
 
 #### My Subscriptions
 
-TUA help Documentation. For more information, see in the [TUA Help portal](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
+For more information on the following topics, click the links of the corresponding topics to view the [TUA Help portal](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
 
 - View list of My Subscriptions - subscribed offerings. For more information, see [View List of my Subscriptions](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/f488da777e9b49c3882eed1b95efd215.html).
 - View Consumption Details. For more information, see [View Consumption Details](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html).
@@ -80,15 +80,15 @@ For more information, see [Eligibility Policies Evaluation](https://help.sap.com
 - Journey Coordinator. For more information, see [Journey Coordinator](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html).
 - Checkist Actions. For more information, see [Checklist Actions](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/9fead1b7969b425fa1c15fb985324b42.html).
 
-A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine.  TUA support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of Spartacus means that the code contains breaking changes - to be determined.
+A new major (2.0) is planned 2H-2020, primarily due to planned support for Angular 9 and the new Ivy rendering engine. Telco & Utilities Accelerator support for 2007 (latest patch) with SAP Commerce 2005 will be supported with 2.0.  The release of a new major version of TUA Spartacus means that the code contains breaking changes.
 
-#### Move to Angular 9 / Ivy
+#### Move to Angular 9/Ivy
 
 - Move to Angular 9 
     - Schematics update for supporting migration
-    - 3rd party dependencies updates
+    - Third party dependencies updates
 - Angular Ivy support (new compilation and rendering pipeline)
-    - Smaller, simpler and faster
+    - Smaller, simpler, and faster
     - Better performance on mobile devices
     - Less memory used
     - Tree shaking for smaller packages
@@ -105,7 +105,7 @@ Additional retention scenarios based on contract terms.
 
 ### Future Outlook
 
-The following features are in our roadmap, but currently not planned for a specific quarter.
+The following features are in roadmap, but currently not planned for a specific quarter.
 
 B2C Self-Care and Assurance supporting:
 
@@ -116,7 +116,7 @@ B2C Self-Care and Assurance supporting:
 
 ### B2C Functionality
 
-The following features are in our roadmap, but currently not planned for a specific quarter:
+The following features are in roadmap, but currently not planned for a specific quarter:
 
 - Fixed Bundled Product Offerings
 - Retention Process Flows
