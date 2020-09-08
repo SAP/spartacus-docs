@@ -2,7 +2,7 @@
 title: Roadmap for TUA Spartacus
 ---
 
-*Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated September 8, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 This document describes what is planned for TUA Spartacus for Q2 2020 and later.
 
