@@ -16,7 +16,7 @@ title: Journey Management - MSISDN
 
 ## Overview
 
-The `Journey Management - MSISDN (Mobile Station International Subscriber Directory Number)` feature enables the customers browsing the TUA for SPA Storefront to select an MSISDN, before adding the selected product offering or a service plan to the cart.
+The `Journey Management - MSISDN (Mobile Station International Subscriber Directory Number)` feature enables the customers who are browsing the TUA for SPA Storefront to select an MSISDN before adding the selected product offering or a service plan to the cart.
 
 `MSISDN` is a number used to identify a mobile phone number internationally from the available MSISDNs. This number includes a country code and a National Destination Code, which identifies the subscriber's operator.
 
