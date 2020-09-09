@@ -16,7 +16,7 @@ title: Journey Management - Appointment Reference
 
 ## Overview
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product offering. For example, a service plan that involves onsite installation by a service technician, and select a suitable appointment from the available time slots before purchasing the product offering.
+The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product or service offering. For example, a service plan that involves onsite installation by a service technician, and select a suitable appointment from the available time slots before purchasing the product offering.
 
 **Note:** The `Journey Management - Appointment Reference` feature is applicable to only those product or service offerings for which a checklist policy for `Appointment Reference` is configured at the backend by the Product Manager.
 
