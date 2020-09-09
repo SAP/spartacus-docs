@@ -68,6 +68,10 @@ yarn test storefrontlib
 
 When you run these commands, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
 
+## Accessibility
+
+The UI of the feature complies with the Accessibility success criteria defined for the given released version. For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+
 ## End-To-End Tests are Passing
 
 All the end-to-end tests are passing.
