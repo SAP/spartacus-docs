@@ -10,12 +10,12 @@ title: Checkout
 
 ## Overview
 
-The checkout display and structure for TUA differs from core commerce as product offering prices are displayed differently and include one-time charges, recurring charges, and usage charges. 
+The checkout display and structure for TUA differs from core commerce as product offering prices  include one-time charges, recurring charges, and usage charges. 
 
 ## Checkout Components
 
-- `TmaReviewSubmitComponent` extends `ReviewSubmitComponent` to display Pay on Checkout and other prices of the Product Offering in the Review Order Page. Information displayed is the same as for `TmaCartItemComponent`.
-- `TmaCheckoutOrderSummaryComponent` extends `CheckoutOrderSummaryComponent` to display Subtotal, Delivery cost, and Pay on Checkout Total price in the Review Order Page. Information displayed is the same as for `TmaOrderSummaryComponent`, and the only difference is that the Delivery Cost is always displayed.
+- `TmaReviewSubmitComponent` extends `ReviewSubmitComponent` to display Pay on Checkout and other prices of the Product Offering in the Review Order. Information displayed is the same as for `TmaCartItemComponent`.
+- `TmaCheckoutOrderSummaryComponent` extends `CheckoutOrderSummaryComponent` to display Subtotal, Delivery cost, and Pay on Checkout Total price in the Review Order. Information displayed is the same as for `TmaOrderSummaryComponent`, and the only difference is that the Delivery Cost is always displayed.
 
 ## Further Reading
 
