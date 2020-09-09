@@ -16,9 +16,9 @@ title: Journey Management - Appointment Reference
 
 ## Overview
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the content of a product offering and select a suitable appointment before purchasing the product offering.
+The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product offering. For example, a service plan that involves onsite installation by a service technician, and select a suitable appointment from the available time slots before purchasing the product offering.
 
-**Note:** The `Journey Management - Appointment Reference` feature applies to only those product or service offerings for which a checklist policy is configured at the backend by the Product Manager.
+**Note:** The `Journey Management - Appointment Reference` feature is applicable to only those product or service offerings for which a checklist policy for `Appointment Reference` is configured at the backend by the Product Manager.
 
 ## Key Personas
 
@@ -27,17 +27,17 @@ The `Journey Management - Appointment Reference` feature enables the customers b
 
 ## Business Use Case
 
-A customer wants to purchase a product offering. Before adding the product offering to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager. The customer can select a `call to schedule` option to arrange a call back to schedule an appointment, or a suitable a suitable appointment from the available time slots (appointments).
+A customer wants to purchase a service plan that involves onsite installation by a service technician. Before adding the service plan to the cart, the `Select a suitable time for an appointment` component is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The customer can select a suitable appointment from the available time slots, or can select `call to schedule` option to arrange a call back to schedule an appointment.
 
 The business use case includes the following steps:
 
 1. A customer searches and selects a product offering; for example, Fiberlink 100, and clicks **Add to Cart** to add the product offering to the cart.
-2. The `Select a suitable time for an appointment` screen is displayed, based on the checklist actions configured at the backend by Product Manager. The `Select a suitable time for an appointment` screen displays:
+2. The `Select a suitable time for an appointment` component is displayed,  `Appointment Reference` checklist policy configured at the backend by the Product Manager. The `Select a suitable time for an appointment` component displays:
     - **Call to Schedule:** A customer can select this option if a call back is required to schedule a suitable appointment.
     - **Select a Suitable Appointment:** A customer can select a suitable appointment from the available time slots (appointments).
 3. The selected product offering with the appointment is added and displayed on the cart.
-4. A customer can choose to edit the appointment before proceeding to checkout the product offering. 
-5. A customer can view the appointment and the order details from **Account >** `Order History` page.
+4. A customer can choose to edit the appointment before proceeding to checkout the product offering.
+5. A customer can view the appointment and the order details from **Account >** `Order History` component.
 
 ## Navigation Flow
 
@@ -49,38 +49,38 @@ The business use case includes the following steps:
 
     <p align="center"><img src="/assets/images/telco/1Product_Offering.png"></p>
 
-3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager.   
+3. Click **Add to Cart**. The `Select a suitable time for an appointment` component is displayed.  
 
-4. Click a suitable appointment from the available appointments.
+4. Click a suitable appointment from the available time slots (appointments).
 
     **Note:** The `Please Call to Schedule` option is preselected.
 
     <p align="center"><img src="/assets/images/telco/2Select_Suitable_Appointment.png"></p>
 
-5. Click **CONTINUE**. The appointment is displayed in the `Item(s) added to your cart` screen.
+5. Click **CONTINUE**. The appointment is displayed in the `Item(s) added to your cart` component.
 
     <p align="center"><img src="/assets/images/telco/3Add_to_Cart.png"></p>
 
-6. Click **View Cart**. The cart displays all relevant details of the product offering (Fiber Link) with the appointment.
+6. Click **View Cart**. The cart displays all relevant details of the product offering (Fiber Link) with the selected appointment.
 
     <p align="center"><img src="/assets/images/telco/4View_Cart.png"></p>
 
-7. Click the pencil icon to edit or update the appointment. The `Select a suitable time for an appointment` screen is displayed.
+7. Click the pencil icon to edit or update the appointment. The `Select a suitable time for an appointment` component is displayed.
 
     <p align="center"><img src="/assets/images/telco/5Edit_Cart.png"></p>
 
     **Notes:** 
     - The earlier selected appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
-    - Top five available time slots are displayed with the default `Please call to Schedule` option.
-    - For each cart entry, you can book only one time slot, or choose the default `Call to Schedule` option.
+    - Top five available time slots are displayed with the default `Please call to Schedule` preselected option.
+    - For each cart entry, you can book only one appointment, or choose the default `Call to Schedule` option.
 
-8. Select a suitable appointment and click **Update**. The cart page displays the new appointment.
+8. Select a suitable appointment and click **Update**. The cart component displays the new appointment.
 
     <p align="center"><img src="/assets/images/telco/6Updated_Appointment.png"></p>
 
-9. Click **Proceed to Checkout** to buy the product offering.
+9. Click **Proceed to Checkout** to purchase the product offering.
 
-10. Click **Account > Order History** in the `Product Display` page to check the appointment.
+10. Click **Account > Order History** in the `Product Display` component to check the appointment and product offering details.
 
 ## Requirements and Dependencies
 
@@ -122,24 +122,24 @@ In progress.-->
 
 ## Configuring and Enabling the Appointment Reference
 
-To configure and enable the appointment reference, follow the steps:
+To configure and enable the appointment reference from the Backoffice, follow the steps:
 
 1. Log in to the **Backoffice**.
-2. Navigate to **Catalog > Conditional Policies > Policy Statement > Checklist Action Statement > Configurable Psc Checklist Action Statement**. The `Checklist action type` page is displayed.
+2. Navigate to **Catalog > Conditional Policies > Policy Statement > Checklist Action Statement > Configurable Psc Checklist Action Statement**. The `Checklist action type` component is displayed.
 3. Click **Checklist action type**. The details are displayed in the following pane.
 4. In the **PROPERTIES** tab:
     - In the **Checklist action type**, select `Appointment`.
     - In the **Product Specification Characteristic**, select either the staged or online catalog.
 5. In the **Product Offering**, select the product offering for configuring the appointment.
 
-When the product offering is successfully configured for the Appointment Reference feature, the `Select a suitable time for an appointment` screen is displayed after adding the product offering to the cart.
+When the product offering is successfully configured for the `Appointment Reference` feature, the `Select a suitable time for an appointment` component is displayed before adding the product offering to the cart.
 
 ### Components
 
 | Component Name                          | Status | Description                                                                                     |
 | --------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
-| TmaAppointmentDisplayComponent          | New    | the component displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
-| TmaJourneyChecklistAppointmentComponent | New    | the component displays the available time slots to the customer                               |
+| TmaAppointmentDisplayComponent          | New    | The component displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
+| TmaJourneyChecklistAppointmentComponent | New    | The component displays the available time slots to the customer                               |
 | TmaJourneyChecklistStepComponent        | New    | A stepper component that renders the checklist components                                        |
 
 <!--### Sample Data
