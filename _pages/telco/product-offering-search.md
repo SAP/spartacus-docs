@@ -10,7 +10,7 @@ title: Product Offering Search
 
 ## Overview
 
-A Product Offering (PO) represents how the Product Specification is sold and contains the market details over a particular period of time. When customers select products from the `ProductCatalog` (be it an online website or a brochure), it is the Product Offering’s details that they are looking at and which are reflected in what they agree to contractually.
+A Product Offering includes the specification of a product and also the market details of the product offering for a particular period of time. When customers select a particular product from the `ProductCatalog`, either from an online portal or from a brochure, the details of the selected product offering is displayed for the customers, which allows them to check and confirm before purchasing.
 
 The following options are available while searching for a Product Offering in the Home Page:
 - Menu: Displays list of available options that the Customer can use to navigate and select the required commodity product.
