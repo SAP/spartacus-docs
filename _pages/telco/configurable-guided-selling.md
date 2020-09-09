@@ -10,10 +10,7 @@ title: Configurable Guided Selling Journey
 
 ## Overview
 
-This feature enables customers to: 
-
-- Browse through the content of a BPO and purchase SPOs, as part of a BPO 
-- Purchase bulk product offerings by providing customers a purchase wizard experience, wherein they can view and select the desired POs within a set of available options
+Configurable Guided Selling allows customers to browse through the content of a BPO and purchase SPOs, as part of a BPO, and it supports nested bundles.
 
 For more information, see the following:
 - [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html)
