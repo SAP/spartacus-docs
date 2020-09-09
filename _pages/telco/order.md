@@ -10,7 +10,7 @@ title: Order
 
 ## Overview
 
-The order display and structure for TUA differs from core commerce as product offering prices are displayed different and include one-time charges, recurring charges, and usage charges.
+The order display and structure for TUA differs from core commerce as product offering prices include one-time charges, recurring charges, and usage charges.
 
 The Order Review page allows users to browse through their orders and see price details of the cart and cart item of the selected order, the Order Summary page displays the final price of the order after discounts and other charges before proceeding to checkout, and the Order Confirmation page displays the detailed information of the placed order. 
 
