@@ -16,10 +16,10 @@ The following options are available while searching for a Product Offering in th
 - Menu: Displays list of available options that the Customer can use to navigate and select the required commodity product.
 - Free Text Search: Customer uses this option to search for the required product offering(s) and then select the desired one from the search result.
 - Search results include the following:
-    - Commodity Items
+    - Subscription Offerings
     - Service Items
     - Physical Goods
-    - Subscription Offerings
+    - Commodity Items
 
 ## Further Reading
 
