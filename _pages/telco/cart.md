@@ -10,10 +10,6 @@ title: Cart
 
 ## Overview
 
-Cart is redesigned to offer composite price structure support for allowing multiple types of charges in a cart. When an order is placed, all charges are passed over to the order (that is one-time charges, recurring charges) so that the charges can be sent to third-party systems for further processing such as billing and fulfillment.
-
-## Pricing in Cart Page
-
 The Added To Cart Dialog Component is updated to display the sum of the Pay Now prices of that Product Offering and The Pay Now total for the items in the cart. The Cart Item component is updated to display prices configured in the for the Product Offering:
 
 - Sum of Pay Now prices 
@@ -29,9 +25,9 @@ The Order Summary Component is updated to display the sum of the Pay Now prices 
 - `TmaAddedToCartDialogComponent` extends `AddedToCartDialogComponent` to display Pay on Checkout price of the Product Offering and Cart total price in add to cart pop-up when the product is added to cart.
     - Pay On Checkout: pay on checkout price is displayed as a sum of the total pay now one-time charge prices. 
     - Cart Total: price displayed is the subtotal cart price, which is a sum of each product Pay On Checkout price.
-- `TmaCartItemListComponent` extends `CartItemListComponent` to display Pay on Checkout label in the Cart Page.
+- `TmaCartItemListComponent` extends `CartItemListComponent` to display Pay on Checkout label in the Cart.
     - Pay On Checkout: column label respective to the pay on checkout price.
-- `TmaCartItemComponent` extends `CartItemComponent` to display Pay on Checkout price and the other prices of the Product Offering in the Cart Page.
+- `TmaCartItemComponent` extends `CartItemComponent` to display Pay on Checkout price and the other prices of the Product Offering in the Cart.
     - Pay On Checkout: pay on checkout price is displayed as a sum of the total pay now, one time charge prices.
     - Other Prices: rest of the prices are displayed below the item description on two columns:
         - first column: Recurring charges and One-time charges
@@ -48,7 +44,7 @@ The Order Summary Component is updated to display the sum of the Pay Now prices 
         - Tiers: the tier start and end
         - price and currency
         - unit of measure
-- `TmaOrderSummaryComponent` extends `OrderSummaryComponent` to display Subtotal, Delivery cost, and Pay on Checkout Total price in the Cart Page.
+- `TmaOrderSummaryComponent` extends `OrderSummaryComponent` to display Subtotal, Delivery cost, and Pay on Checkout Total price in the Cart.
     - Subtotal: price displayed is the subtotal cart price, which is a sum of each product Pay On Checkout price.
     - Estimated shipping: delivery cost which is taken from the cart costs or 'TBD' if the delivery information and delivery mode are not provided.
     - Pay On Checkout Total: price displayed is the total cart price, which is a sum of the subtotal cart price and the cart costs prices (for example, delivery cost, discounts and so on.)
