@@ -10,7 +10,7 @@ title: Checkout
 
 ## Overview
 
-The checkout display and structure for TUA differs from core commerce as product offering prices  include one-time charges, recurring charges, and usage charges. 
+The checkout display and structure for TUA differs from core commerce as product offering prices include one-time charges, recurring charges, and usage charges. 
 
 ## Checkout Components
 
