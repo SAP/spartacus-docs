@@ -29,18 +29,18 @@ Summary:
 
 1. Download and unzip the following files:
    - SAP Commerce Cloud (release 2005 recommended) from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE). 
-   - Spartacus Sample Data AddOn from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). 
-     - The zip file itself, `spartacussampledataaddon.2005.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library. 
-     - [Direct link to spartacussampledataaddon.2005.zip](https://github.com/SAP/spartacus/releases/download/storefront-2.0.0/spartacussampledataaddon.2005.zip) (newer versions of the sample data may be released in later releases)
+   - Spartacus Sample Data extension from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). 
+     - The zip file itself, `spartacussampledata.2005.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library. 
+     - [Direct link to spartacussampledata.2005.zip](https://github.com/SAP/spartacus/releases/download/storefront-2.0.0/spartacussampledata.2005.zip) (newer versions of the sample data may be released in later releases)
    
-1. Move the file `custom.properties` from `spartacussampledataaddon/resources/installer/customconfig` to `installer/customconfig`.
+1. Move the file `custom.properties` from `spartacussampledata/resources/installer/customconfig` to `installer/customconfig`.
 
    It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
    The contents of this file are listed at the end of this document for reference.
 
 1. In `hybris/bin`:
    - Create the folder `custom`.
-   - Move the entire `spartacussampledataaddon` folder to `hybris/bin/custom`.
+   - Move the entire `spartacussampledata` folder to `hybris/bin/custom`.
    
 1. In the `installer/recipes` folder:
    - Duplicate the `cx` folder.
@@ -51,10 +51,10 @@ Summary:
    - Uncomment the following lines:
      
      In the list of extensions:
-     `//  extName 'spartacussampledataaddon'`
+     `//  extName 'spartacussampledata'`
      
      In the section `addons forStoreFronts('yacceleratorstorefront,yb2bacceleratorstorefront') {`:   
-     `// 'spartacussampledataaddon',`
+     `// 'spartacussampledata',`
      
    - Save and close the file.
   
@@ -77,7 +77,7 @@ Summary:
    
    `./install.sh -r cx-for-spa start`
    
-   (Using `spartacussampledataaddon` and the full `cx` recipe, startup may take approximately 30 minutes, depending on your system.)
+   (Using `spartacussampledata` and the full `cx` recipe, startup may take approximately 30 minutes, depending on your system.)
 
 1. Verify that SAP Commerce Cloud is working. To do this, you can:
    - Display the Admin Console: https://localhost:9002
@@ -146,17 +146,20 @@ You can now start Spartacus. After you have configured SAP Commerce Cloud to acc
 - Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
 - The default cx recipe is used to create the recipe for Spartacus. Among other extensions, the cx recipe uses the Order Management Services feature (OMS). If you make an order, OMS doesn't ship the order, so orders remain in processing. To ship the order, a Warehouse Agent must confirm order shipment. For more information, see the [OMS documentation](https://help.sap.com/viewer/9442091906534fbf837f9f3155ea7b4f/latest/en-US/8b48bef286691014a289a06b5d3b9cfe.html).
 
-### Spartacus Sample Data AddOn ###
-- The Spartacus Sample Data AddOn contains both sample data modifications used by Spartacus. The addon makes a copy of the Electronics and Apparel sample stores, if present (and Powertools in a future release). If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data Addon is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like `commercewebservices`.
-- The Spartacus Sample Data AddOn copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe's `build.gradle` file.
-- Previous versions of the Spartacus Sample Data Addon are available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
-- For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
+### Spartacus Sample Data Extension ###
+
+- The Spartacus Sample Data extension contains both sample data modifications used by Spartacus. The extension makes a copy of the Electronics and Apparel sample stores, if present (and Powertools in a future release). If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data extension is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like `commercewebservices`.
+- The Spartacus Sample Data extension copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe's `build.gradle` file.
+- Previous versions of the Spartacus Sample Data extension are available. For example, to download the Spartacus Sample Data extension for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
+- For more information about the changes that are implemented with the Spartacus Sample Data extension, see [Spartacus Sample Data Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
 ### Sample configuration properties ###
+
 The sample custom properties file is meant for development and evaluation purposes only. 
 Please be careful to at least review the following properties:
-   - The admin password (`initialpassword.admin`) (default is `nimda`).
-   - CORS settings as described further in this document, and in the Spartacus documentation.
+
+- The admin password (`initialpassword.admin`) (default is `nimda`).
+- CORS settings as described further in this document, and in the Spartacus documentation.
 
 The following table summarizes the settings included in this file:
 
@@ -172,6 +175,7 @@ The following table summarizes the settings included in this file:
 | build.parallel | Speeds up initialization if your system has multiple cores |
 
 ### Sample OCC credentials ###
+
 - By default, SAP Commerce Cloud successfully replies to OCC REST API calls that do not require authentication. For example, you can do the following:
   - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
   - Display information about the `Electronics` base store: https://localhost:9002/rest/v2/electronics/basestores/electronics
@@ -181,6 +185,7 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 - For more information on this topic, see [this help topic](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html).
 
 ### CORS Settings
+
 - CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as the sample properties should not be used for production servers.
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 - You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
@@ -188,12 +193,13 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 - There are a number of other Spartacus features that also require additional CORS settings. For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
 ## Troubleshooting ##
+
 - If SAP Commerce Cloud installer doesn't work, make sure there are no spaces in the path to the SAP Commerce Cloud folder.
 - If Spartacus starts or partially starts, check all CORS settings. For more information, see [this help topic]({{ site.baseurl }}{% link _pages/dev/cors.md %}).
 
 ## config.properties file ##
 
-To use these settings, create a file named `custom.properties` inside the `spartacussampledataaddon/resources/customconfig` folder, and then add the following to the file:
+To use these settings, create a file named `custom.properties` inside the `spartacussampledata/resources/customconfig` folder, and then add the following to the file:
    
    ```
    initialpassword.admin=nimda

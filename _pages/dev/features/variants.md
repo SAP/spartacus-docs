@@ -43,7 +43,7 @@ You can find variant elements in locations such as the following:
 - Cart items (for example, see the `CartItemComponent`)
 - Account pages, such as Order History, Order Page, Wish List, Cancellations and Returns, and so on.
 
-By default, the `spartacussampledataaddon` AddOn includes style and size variants in the `apparel-spa` storefront, and a color variant in the `electronics-spa` storefront.
+By default, the `spartacussampledata` extension includes style and size variants in the `apparel-spa` storefront, and a color variant in the `electronics-spa` storefront.
 
 ## Adding a Custom Variant Type
 

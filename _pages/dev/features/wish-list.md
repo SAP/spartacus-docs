@@ -28,7 +28,7 @@ A user cannot have more than one wish list. Furthermore, each wish list is tied 
 
 The wish list feature is enabled by default in Spartacus.
 
-The only way to disable wish lists is through the CMS. You can disable wish lists by making changes to the `spartacussampledataaddon` AddOn, or to your custom AddOn, as follows:
+The only way to disable wish lists is through the CMS. You can disable wish lists by making changes to the `spartacussampledata` extension, or to your custom AddOn, as follows:
 
 1. Remove the `WishListLink` by removing the following line from the relevant `cms-responsive-content.impex` files:
 

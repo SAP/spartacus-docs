@@ -24,9 +24,9 @@ You should also consider installing Order Management in the back end. For more i
 
 The Cancellations and Returns feature is disabled by default in Spartacus.
 
-Since the feature is CMS-driven, the only way to enable it is through the CMS. The following procedure describes the changes you should make to the `spartacussampledataaddon` AddOn, or to your own, custom AddOn.
+Since the feature is CMS-driven, the only way to enable it is through the CMS. The following procedure describes the changes you should make to the `spartacussampledata` extension, or to your own, custom extension.
 
-**Note:** All of the required CMS data is already included in the `spartacussampledataaddon` AddOn.
+**Note:** All of the required CMS data is already included in the `spartacussampledata` extension.
 
 ### Enabling Cancellations and Returns through the CMS
 
