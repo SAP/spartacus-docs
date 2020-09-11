@@ -4,13 +4,13 @@ title: Installing SAP Commerce Cloud 1905
 
 The following instructions describe how to install and configure SAP Commerce Cloud release 1905 for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
-The installation procedure includes steps for creating and using a `b2c_for_spartacus` recipe that makes use of the Spartacus Sample Data Addon, but you can use you own sample data or recipe as long as it includes the `cmsoccaddon` and `ycommercewebservices` extensions.
+The installation procedure includes steps for creating and using a `b2c_for_spartacus` recipe that makes use of the Spartacus Sample Data extension, but you can use you own sample data or recipe as long as it includes the `cmsoccaddon` and `ycommercewebservices` extensions.
 
-**Note:** If you are trying out Spartacus for the first time and intend to use the default sample data, you must install the Spartacus Sample Data Addon. The Spartacus Sample Data Addon makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront.
+**Note:** If you are trying out Spartacus for the first time and intend to use the default sample data, you must install the Spartacus Sample Data extension. The Spartacus Sample Data extension makes a copy of the Electronics storefront with changes to content that work with the default Spartacus storefront.
 
-However, installing the Spartacus Sample Data Addon is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your custom project.
+However, installing the Spartacus Sample Data extension is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your custom project.
 
-For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
+For more information about the changes that are implemented with the Spartacus Sample Data extension, see [Spartacus Sample Data Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
 To install and configuring SAP Commerce Cloud for use with Spartacus, you must complete the following procedures:
 
@@ -18,7 +18,7 @@ To install and configuring SAP Commerce Cloud for use with Spartacus, you must c
 2. [Configuring OCC credentials](#configuring-occ-credentials)
 3. [Configuring CORS](#configuring-cors)
 
-## Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon
+## Setting Up SAP Commerce Cloud with the Spartacus Sample Data Extension
 
 Some of the steps in this procedure are derived from the documentation for installing SAP Commerce Cloud using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) in the SAP Help Portal.
 
@@ -26,18 +26,18 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    Note: The name of the zip archive for release 1905 starts with `CXCOMM1905#...`. This folder will be referred to as `CXCOMM*` for the rest of these instructions.
 
-1. [Download](https://github.com/SAP/spartacus/releases) the Spartacus Sample Data AddOn.
+1. [Download](https://github.com/SAP/spartacus/releases) the Spartacus Sample Data extension.
 
-    The Spartacus Sample Data AddOn is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledataaddon.zip` in the **Assets** section of the most recent release of the `storefront` library.
+    The Spartacus Sample Data extension is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledata.zip` in the **Assets** section of the most recent release of the `storefront` library.
   
-    Of course, previous versions are also available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
+    Of course, previous versions are also available. For example, to download the Spartacus Sample Data extension for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
 
 
-1. Unzip the `spartacussampledataaddon.zip` archive.
+1. Unzip the `spartacussampledata.zip` archive.
 
-1. Move the `spartacussampledataaddon` folder to `hybris/bin/modules/b2c-accelerator`.
+1. Move the `spartacussampledata` folder to `hybris/bin/modules/b2c-accelerator`.
 
-   The `spartacussampledataaddon` folder can be stored anywhere in the `modules` folder. The `b2c-accelerator` folder is chosen as it contains other B2C sample data.
+   The `spartacussampledata` folder can be stored anywhere in the `modules` folder. The `b2c-accelerator` folder is chosen as it contains other B2C sample data.
 
 1. In the `installer/recipes` folder, duplicate the `b2c_acc_plus` folder.
 
@@ -48,7 +48,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 1. In the list of extensions, add the following:
 
    ```java
-   extName 'spartacussampledataaddon'
+   extName 'spartacussampledata'
    ```
 
    You can put the new entry anywhere in the list of extensions, but it's usually added near `electronicsstore`. The following is an example:
@@ -56,18 +56,18 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```java
    extName 'electronicsstore'
    extName 'apparelstore'
-   extName 'spartacussampledataaddon'
+   extName 'spartacussampledata'
 
    ```
 
-   **Note:** The Spartacus Sample Data AddOn copies data from the `Electronics` store, so the `electronicsstore` extension is required. Additionally, the time to initialize is longer because SAP Commerce Cloud builds the `Electronics` and `Apparel` stores, as well as the `Electronics for Spartacus` store. If you do not need to install the `Apparel` store, you can speed up initialization by removing `extName 'apparelstore'` from the `build.gradle` file.
+   **Note:** The Spartacus Sample Data extension copies data from the `Electronics` store, so the `electronicsstore` extension is required. Additionally, the time to initialize is longer because SAP Commerce Cloud builds the `Electronics` and `Apparel` stores, as well as the `Electronics for Spartacus` store. If you do not need to install the `Apparel` store, you can speed up initialization by removing `extName 'apparelstore'` from the `build.gradle` file.
 
-1. In the `addons { forStoreFronts('yacceleratorstorefront')` section of the `build.gradle` file, add `'spartacussampledataaddon'` to the `names` list. The following is an example:
+1. In the `addons { forStoreFronts('yacceleratorstorefront')` section of the `build.gradle` file, add `'spartacussampledata'` to the `names` list. The following is an example:
 
    ```ts
     addons {
         forStoreFronts('yacceleratorstorefront') {
-            names('spartacussampledataaddon', 'captchaaddon', ...
+            names('spartacussampledata', 'captchaaddon', ...
 
    ```
 
