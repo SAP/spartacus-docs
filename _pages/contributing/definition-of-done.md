@@ -2,15 +2,27 @@
 title: Definition of Done
 ---
 
-This document describes the necessary steps to declare a feature or bug for Spartacus as `Done`.
+This document states what the Spartacus team considers our Definition of Done. It describes a series of requirements that must be fulfilled to declare a feature or bug as `Done`.
+
+## General requirements
+
+All new features for Spartacus must be compliant with the following guidelines:
+
+- [Architecture](https://sap.github.io/spartacus-docs/connecting-to-other-systems/)
+
+- [Security](https://sap.github.io/spartacus-docs/security-best-practices)
+
+- [Accessibility](https://sap.github.io/spartacus-docs/a11y-best-practices)
+
+- [Testing guidelines](https://sap.github.io/spartacus-docs/coding-guidelines/#testing)
+
+- UI/UX guidelines still need to be defined.
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.
 
-Note that this list is not complete.
-
 ## TL;DR
 
-Run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned in this document, such as the linting and formatting checks, running unit and e2e tests, etc.
+You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned in this document, such as the linting and formatting checks, running unit and e2e tests, etc.
 
 ## Code is Formatted
 
