@@ -8,45 +8,25 @@ This document states what the Spartacus team considers our Definition of Done. I
 
 All new features for Spartacus must be compliant with the following guidelines:
 
-- [Architecture](https://sap.github.io/spartacus-docs/connecting-to-other-systems/)
+- [Architecture]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %})
 
-- [Security](https://sap.github.io/spartacus-docs/security-best-practices)
+- [Security]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %})
 
-- [Accessibility](https://sap.github.io/spartacus-docs/a11y-best-practices)
-
-- [Testing guidelines](https://sap.github.io/spartacus-docs/coding-guidelines/#testing)
+- [Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
 
 - UI/UX guidelines still need to be defined.
 
+## Code guidelines
+
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.
 
-## TL;DR
+### TL;DR
 
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned in this document, such as the linting and formatting checks, running unit and e2e tests, etc.
+You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit and e2e tests, etc.
 
-## Code is Formatted
+### Code formatting
 
-We use Visual Studio Code and require the use of the Prettier VS Code plugin.
-
-For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
-
-## Code is Styled
-
-For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
-
-### Code Linting
-
-Use the `TSLint` plugin in VS Code.
-
-```yarn
-yarn lint
-```
-
-For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
-
-### Code Styling with Prettier
-
-Use the `Prettier` plugin in VS Code.
+We use [Prettier](https://prettier.io/) to format our code.
 
 To check that are all the files prettified, run the following:
 
@@ -60,6 +40,22 @@ To prettify files, run the following:
 yarn prettier-fix
 ```
 
+We also encourage the use the Prettier VS Code plugin. For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
+
+### Code is Styled
+
+For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
+
+### Code Linting
+
+Use the `TSLint` plugin in VS Code.
+
+```yarn
+yarn lint
+```
+
+For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
+
 ### SCSS is Preprocesed (node-sass)
 
 Use the following command to pre-process the sass in `projects/storefrontstyles`
@@ -68,7 +64,7 @@ Use the following command to pre-process the sass in `projects/storefrontstyles`
 yarn sass
 ```
 
-## Unit Tests are Passing
+### Unit Tests are Passing
 
 There are unit tests and they are passing.
 
@@ -81,7 +77,7 @@ yarn test storefrontlib
 
 When you run these commands, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
 
-## End-To-End Tests are Passing
+### End-To-End Tests are Passing
 
 All the end-to-end tests are passing.
 
@@ -109,7 +105,7 @@ The objective of end-to-end tests is to make sure your feature works. For exampl
 
 **Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
 
-## Test Coverage is Adequate
+### Test Coverage is Adequate
 
 Make sure that test coverage is >= 80% for everything, and >=60% for branches.
 
@@ -129,7 +125,7 @@ yarn test:core:lib
 
 The coverage report can be found in `./coverage/index.html`.
 
-## The Library Builds without Errors
+### The Library Builds without Errors
 
 Run the following command to ensure the library builds without errors
 
@@ -137,7 +133,7 @@ Run the following command to ensure the library builds without errors
 yarn build:core:lib
 ```
 
-## The Shell Starts without Errors
+### The Shell Starts without Errors
 
 Run the following command to ensure the shell starts without errors:
 
@@ -150,11 +146,11 @@ After running the command, you should see the following:
 - There are no errors in the webpack terminal output
 - There are no errors in the JS console in Chrome when displaying the home page.
 
-## No Regression Errors
+### No Regression Errors
 
 Check that the areas where the change is implemented still work as before. Also verify that major features (such as the homepage, search, and checkout) are not affected.
 
-## New Feature Happy Path Works in the Shell App
+### New Feature Happy Path Works in the Shell App
 
 Run a smoke test of the feature, deployed in a lib in the shell app.
 
@@ -170,7 +166,7 @@ The following changes are likely candidates:
 - Adding a module
 - Changing the way the configuration mechanism works
 
-## Verify the Production Build Works
+### Verify the Production Build Works
 
 When you think you are done :)
 
