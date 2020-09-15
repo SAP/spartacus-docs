@@ -25,7 +25,7 @@ For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/c
 
 Use the `TSLint` plugin in VS Code.
 
-```
+```yarn
 yarn lint
 ```
 
@@ -37,13 +37,13 @@ Use the `Prettier` plugin in VS Code.
 
 To check that are all the files prettified, run the following:
 
-```
+```yarn
 yarn prettier
 ```
 
 To prettify files, run the following:
 
-```
+```yarn
 yarn prettier-fix
 ```
 
@@ -51,7 +51,7 @@ yarn prettier-fix
 
 Use the following command to pre-process the sass in `projects/storefrontstyles`
 
-```
+```yarn
 yarn sass
 ```
 
@@ -61,7 +61,7 @@ There are unit tests and they are passing.
 
 Run the following commands to perform unit tests:
 
-```
+```yarn
 yarn test [project]
 yarn test storefrontlib
 ```
@@ -102,14 +102,14 @@ Make sure that test coverage is >= 80% for everything, and >=60% for branches.
 
 To see the test coverage, run the following commands:
 
-```
+```yarn
 yarn test [project] --code-coverage
 yarn test storefrontlib --code-coverage
 ```
 
 Alternatively, you can run the following commands:
 
-```​
+```yarn​
 yarn test [project] --code-coverage
 yarn test:core:lib
 ```
@@ -120,7 +120,7 @@ The coverage report can be found in `./coverage/index.html`.
 
 Run the following command to ensure the library builds without errors
 
-```
+```yarn
 yarn build:core:lib
 ```
 
@@ -128,7 +128,7 @@ yarn build:core:lib
 
 Run the following command to ensure the shell starts without errors:
 
-```
+```yarn
 yarn start
 ```
 
@@ -163,7 +163,7 @@ When you think you are done :)
 
 Run the following commands to verify that the production build works, especially the Ahead-of-Time (AOT) compiler:
 
-```
+```yarn
 yarn build:core:lib
 yarn start
 ```
