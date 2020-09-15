@@ -2,7 +2,7 @@
 title: Accessibility E2E Tests
 ---
 
-During developement of a11y feature, we decided to go with TDD approach (or something similar to it). We have created separate e2e tests located in:
+During development of a11y feature, we decided to go with TDD approach (or something similar to it). We have created separate e2e tests located in:
 
 ```
 projects\storefrontapp-e2e-cypress\cypress\integration\accessibility\tabbing-order.e2e-spec.ts
@@ -35,7 +35,7 @@ projects\storefrontapp-e2e-cypress\cypress\helpers\accessibility\
 
 Firstly, you have to add a new property to the config object. The name should be short and descriptive.
 
-```
+```ts
 login: [ // 1
 { value: 'userId', type: TabbingOrderTypes.FORM_FIELD }, // 2
 { value: 'password', type: TabbingOrderTypes.FORM_FIELD },

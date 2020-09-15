@@ -2,7 +2,7 @@
 title: Keyboard Focus
 ---
 
-The `cxFocus` directive handles keyboard-specific features in Spartacus regarding Focus Management, which is crucial for keyboard-only users.
+The `cxFocus` directive handles keyboard-specific features in Spartacus related to focus management. These features are essential for keyboard-only users.
 
 The keyboard features are used for a host element, and for the focusable elements of the inner DOM of the host element. Focusable elements are HTML elements that receive focus when you use the keyboard. For example, by tabbing through the experience, focusable elements are highlighted and provide access to key features, such as "open product", "add to cart", and so on.
 
@@ -25,7 +25,7 @@ The various features can be used with a single directive. The following is an ex
 
 ```html
 <div
-  [cxFocus]="{ 
+  [cxFocus]="{
     autofocus: 'input[submit:true]',
     lock: true,
     trap: true }"

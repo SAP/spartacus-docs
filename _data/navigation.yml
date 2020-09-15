@@ -215,7 +215,9 @@ docs:
             url: /a11y-best-practices/
             subchildren:
                 - title: "Keyboard Accessibility"
-                  url: /keyboard-accessibility/  
+                  url: /keyboard-accessibility/
+                - title: "Accessibility E2E Tests"
+                  url: /a11y-e2e-tests/
           - title: "Keyboard Focus ➢"
             url: /keyboard-focus/
             subchildren:
