@@ -14,9 +14,9 @@ All new features for Spartacus must be compliant with the following guidelines:
 
 - [Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
 
-- UI/UX guidelines still need to be defined.
+- UI/UX guidelines are a work in progress.
 
-## Code guidelines
+## Coding guidelines
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.
 
@@ -24,9 +24,25 @@ The Spartacus team adopted the following set of rules to keep the Spartacus code
 
 You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit and e2e tests, etc.
 
+### Code Standards
+
+There are several aspects to consider when writing code. Please review the [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
+
+### Linting
+
+We use [TSLint](https://palantir.github.io/tslint/) to analyze and improve our typescript code.
+
+You can run the following command to lint your code:
+
+```yarn
+yarn lint
+```
+
+We also encourage to use the `TSLint` plugin in VS Code.
+
 ### Code formatting
 
-We use [Prettier](https://prettier.io/) to format our code.
+We use [Prettier](https://prettier.io/) to format our code (and make it prettier).
 
 To check that are all the files prettified, run the following:
 
@@ -34,29 +50,17 @@ To check that are all the files prettified, run the following:
 yarn prettier
 ```
 
-To prettify files, run the following:
+To format and prettify your codebase, run the following:
 
 ```yarn
-yarn prettier-fix
+yarn prettier:fix
 ```
 
-We also encourage the use the Prettier VS Code plugin. For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
+We also encourage to use the Prettier VS Code plugin. For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
 
-### Code is Styled
+### SCSS is Preprocessed (node-sass)
 
-For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
-
-### Code Linting
-
-Use the `TSLint` plugin in VS Code.
-
-```yarn
-yarn lint
-```
-
-For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
-
-### SCSS is Preprocesed (node-sass)
+We use SASS for all of our CSS, which then is converted to CSS using [node-sass](https://github.com/sass/node-sass/blob/master/README.md)
 
 Use the following command to pre-process the sass in `projects/storefrontstyles`
 
@@ -64,22 +68,42 @@ Use the following command to pre-process the sass in `projects/storefrontstyles`
 yarn sass
 ```
 
-### Unit Tests are Passing
+### Unit Tests
 
-There are unit tests and they are passing.
+We unit test our code. Please make sure the new feature or bug has unit tests and they are passing.
 
-Run the following commands to perform unit tests:
+Run the following commands to run the unit tests for a library:
 
 ```yarn
 yarn test [project]
 yarn test storefrontlib
 ```
 
-When you run these commands, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
+When you run the tests, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
 
-### End-To-End Tests are Passing
+### Unit Test Code Coverage
 
-All the end-to-end tests are passing.
+Please make sure that unit test coverage is >= 80% for everything, and >=60% for branches.
+
+To get the test coverage report, run the following commands:
+
+```yarn
+yarn test [project] --code-coverage
+yarn test storefrontlib --code-coverage
+```
+
+Alternatively, you can run the following commands:
+
+```yarn​
+yarn test [project] --code-coverage
+yarn test:core:lib
+```
+
+The coverage report can be found in `./coverage/index.html`.
+
+### End-To-End Tests
+
+We write end to end tests for all of our features using [Cypress](https://www.cypress.io/). Please make sure the new feature has end-to-end tests and that they are passing.
 
 When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
 
@@ -105,37 +129,17 @@ The objective of end-to-end tests is to make sure your feature works. For exampl
 
 **Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
 
-### Test Coverage is Adequate
-
-Make sure that test coverage is >= 80% for everything, and >=60% for branches.
-
-To see the test coverage, run the following commands:
-
-```yarn
-yarn test [project] --code-coverage
-yarn test storefrontlib --code-coverage
-```
-
-Alternatively, you can run the following commands:
-
-```yarn​
-yarn test [project] --code-coverage
-yarn test:core:lib
-```
-
-The coverage report can be found in `./coverage/index.html`.
-
 ### The Library Builds without Errors
 
-Run the following command to ensure the library builds without errors
+Run the following command to ensure the libraries build without errors
 
 ```yarn
-yarn build:core:lib
+yarn build:libs
 ```
 
 ### The Shell Starts without Errors
 
-Run the following command to ensure the shell starts without errors:
+Run the following command to ensure the shell storefront app starts without errors:
 
 ```yarn
 yarn start
@@ -173,7 +177,7 @@ When you think you are done :)
 Run the following commands to verify that the production build works, especially the Ahead-of-Time (AOT) compiler:
 
 ```yarn
-yarn build:core:lib
+yarn build:libs
 yarn start
 ```
 
