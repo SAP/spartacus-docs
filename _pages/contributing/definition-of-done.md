@@ -2,14 +2,15 @@
 title: Definition of Done
 ---
 
-This document describes the necessary steps to declare a feature or bug for Spartacus as "Done".
+This document describes the necessary steps to declare a feature or bug for Spartacus as `Done`.
 
-To keep the Spartacus code readable and maintainable, please follow these rules, even if you find them violated somewhere. Note that this list is not complete.
-When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.
+The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.
+
+Note that this list is not complete.
 
 ## TL;DR
 
-Run the `build.sh` script located in the root of the project. It will check most of the things mentioned in this document, such as the linting and formatting violations, running unit and e2e tests, etc.
+Run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned in this document, such as the linting and formatting checks, running unit and e2e tests, etc.
 
 ## Code is Formatted
 
@@ -174,18 +175,19 @@ The following are some reasons why the production build might fail:
 
 - Be careful when using `index.ts` files (that is, barrel files). When running a production build, you might see the following error in the `node/webpack` console:
 
-  ```
+  ```text
   ERROR in : Encountered undefined provider! Usually this means you have a circular dependencies (might be caused by using 'barrel' index.ts files.
   ```
 
-  This is usually caused by having the following import:
+  This is usually caused by having an import statement as the following:
 
-  ```
+  ```typescript
   import * as fromServices from '../../services'.
   ```
 
-  Instead, you should directly import each class, as follows:
+  Instead, you should specifically import each class, as follows:
 
-  ```import { OccCmsService } from '../../services/occ-cms.service'
-  import { DefaultPageService } from '../../services/default-page.service'
+  ```typescript
+  import { OccCmsService } from "../../services/occ-cms.service";
+  import { DefaultPageService } from "../../services/default-page.service";
   ```
