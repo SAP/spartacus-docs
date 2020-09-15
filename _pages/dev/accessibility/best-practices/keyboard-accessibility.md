@@ -30,7 +30,7 @@ The following are examples of HTML attributes and elements that should be avoide
 
 ## Focus Management
 
-A proper Focus Management is essential to an uninterrupted and consistent keyboard flow. For more information, see [Keyboard Focus]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-focus.md %}).
+A proper Focus Management is essential to an uninterrupted and consistent keyboard flow. For more information, see [Keyboard Focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %}).
 
 ## CSS Styles
 

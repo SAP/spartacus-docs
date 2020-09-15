@@ -16,7 +16,7 @@ Up to version 2.0, Spartacus features comply with the 6 following [WCAG 2.1](htt
 Altogether they provide Spartacus with **Keyboard Accessibility**, and in order to preserve compliance for each criterion, the following technniques are recommended when developing new features and addressing regressions:
 
 - [Keyboard Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
-- [Keyboard Focus]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-focus.md %})
+- [Keyboard Focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
 - [Accessibility E2E tests]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-e2e-tests.md %})
 
 More success criteria will be introduced in future versions and will be added to this page. The project aims for a [WCAG 2.1](https://www.w3.org/TR/WCAG21/) AA conformance level.

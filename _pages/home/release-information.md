@@ -44,7 +44,7 @@ _Release 2.1.0 libraries published August 27, 2020_
 
 ## Release 2.0
 
-_Release 2.0.0 libraries published June 3, 2020_
+*Release 2.0.0 libraries published June 3, 2020*
 
 As Release 2.0 is a new major version, it contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
 
@@ -56,7 +56,7 @@ The following is a summary of the major changes introduced in 2.0:
 
 - Framework updated to Angular 9, including related dependencies such as ngrx 9
 - [Schematics updated]({{ site.baseurl }}{% link _pages/install/schematics.md %})
-- [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-accessibility.md %})
+- [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
 - [Lazy loading of CMS components](https://sap.github.io/spartacus-docs/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
 - [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}), with Add to Cart event
 - [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %})
