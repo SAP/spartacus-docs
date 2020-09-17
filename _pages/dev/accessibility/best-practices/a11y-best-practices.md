@@ -17,4 +17,5 @@ When combined all together, these criteria provide Spartacus with keyboard acces
 
 - [Keyboard Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
 - [Keyboard Focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
-- [Accessibility E2E tests]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-e2e-tests.md %})
+
+If you are a contributor to the Spartacus project, it is also important to ensure you run end-to-end tests for accessibility. For more information, see [Accessibility E2E Tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).

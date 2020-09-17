@@ -216,8 +216,6 @@ docs:
             subchildren:
                 - title: "Keyboard Accessibility"
                   url: /keyboard-accessibility/
-                - title: "Accessibility E2E Tests"
-                  url: /a11y-e2e-tests/
           - title: "Keyboard Focus ➢"
             url: /keyboard-focus/
             subchildren:
@@ -292,6 +290,8 @@ docs:
                   url: /contributor-setup/
                 - title: "Coding Guidelines"
                   url: /coding-guidelines/
+                - title: "Accessibility E2E Tests"
+                  url: /a11y-e2e-tests/
                 - title: "Maintaining Public APIs"
                   url: /breaking-changes/
                 - title: "Feature Flags and Code Deprecation"
