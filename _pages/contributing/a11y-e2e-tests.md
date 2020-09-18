@@ -100,7 +100,7 @@ You can create a new a11y e2e test by updating the existing set of tests, as des
     - The string `'should allow to navigate with tab key'` is used in every test and should be included in all new tests.
     - The `loginTabbingOrder` is the function you created in your `login.ts` helper file, and `(config.login)` refers to the `login` property you added to the config object in `projects/storefrontapp-e2e-cypress/cypress/helpers/accessibility/tabbing-order.config.ts` (in step 1 of this procedure).
 
-### Group Skipping
+## Group Skipping
 
 If your feature uses a unique route and also uses group skipping to improve the user experience on the keyboard, you need to implement a test configuration for this aspect of your feature.
 
