@@ -70,7 +70,7 @@ When you run these commands, Chrome opens, and you can see the progress of the t
 
 ## Accessibility
 
-The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
 ## End-To-End Tests are Passing
 
