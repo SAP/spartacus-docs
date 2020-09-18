@@ -9,7 +9,7 @@ title: Customer Product Inventory (CPI)
 - [Overview](#overview)
 - [Key Personas](#key-personas)
 - [Navigation Flow](#navigation-flow)
-- [Feature Use Cases](#feature-use-cases)
+- [Business Use Cases](#feature-use-cases)
   - [Viewing All Subscriptions](#viewing-all-subscriptions)
   - [Viewing Details of Subscribed Products in a Tile Format](#viewing-details-of-subscribed-products-in-a-tile-format)
   - [Viewing the Usage Consumption of a Subscribed Product in Pie Charts](#viewing-the-usage-consumption-of-a-subscribed-product-in-pie-charts)
@@ -20,7 +20,7 @@ title: Customer Product Inventory (CPI)
 
 ## Overview
 
-The Customer Product Inventory feature enables the logged in customers browsing the Telco & Utilities Spartacus (TUA) Storefront to view their subscriptions-related information and subscribed products, as imported in the Telco & Utilities Accelerator from the external systems.
+The Customer Product Inventory (CPI) feature enables the logged in customers who are browsing the Telco & Utilities Spartacus (TUA) Storefront to view their subscriptions information and subscribed products, as imported in the Telco & Utilities Accelerator from the external systems.
 
 ## Key Personas
 
@@ -29,7 +29,7 @@ The Customer Product Inventory feature enables the logged in customers browsing 
 
 ## Navigation Flow
 
-From the **Account** menu drop-down, click **Subscriptions**. The `My Subscriptions` screen is displayed. The subcriptions show:
+From the **Account** menu drop-down, click **Subscriptions**. The `My Subscriptions` screen is displayed. The subscriptions show:
 
 - Subscription ID. For example, 1040123111111.
 - Number of subscribed offerings. For example, 2.
@@ -37,7 +37,7 @@ From the **Account** menu drop-down, click **Subscriptions**. The `My Subscripti
 
 <p align="center"><img src="/assets/images/telco/navigation-flow.png"></p>
 
-## Feature Use Cases
+## Business Use Cases
 
 ### Viewing All Subscriptions
 
@@ -82,6 +82,21 @@ From the **Account** menu drop-down, click **Subscriptions**. All subscriptions 
 
 ### Frontend Requirements and Dependencies
 
+Your Angular development environment should include the following:
+
+The `Ngx-spinner` library, version 8.03 for Angular CLI 8.0. The `Ngx-spinner` library is available:
+
+Using npm:
+
+     ```bash
+     $ npm install ngx-spinner --save
+     ```
+
+Using yarn:
+
+     ```bash
+     $ yarn add ngx-spinner
+     ```
 There are no specific frontend requirements and dependencies for this feature.
 
 ### Backend Requirements and Dependencies
@@ -90,7 +105,7 @@ For more information, see [Customer Product Inventory](https://help.sap.com/view
 
 ### Supported Backend Functionality
 
-Customer Product Inventory feature involves mapping between subscriptions and users, covering the customer and billing account. It holds the data around a customer and their subscriptions. For more information, see TUA [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) and [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help Portal.
+The Customer Product Inventory feature involves mapping between subscriptions and users, covering the customer and billing account. It holds the data of the customers and their subscriptions. For more information, see TUA [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) and [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help Portal.
 
 |  Entity Exposed for CPI            	 |TM Forum API                          |Description                         |
 |----------------|-------------------------------|-----------------------------|
@@ -100,7 +115,7 @@ Customer Product Inventory feature involves mapping between subscriptions and us
 
 ## Configuring and Enabling Customer Product Inventory
 
-The following new and and existing Spatacus components were updated:
+The following new and and existing TUA Spartacus components are updated:
 
 |              Component              	|                                                    Description                                                   	|
 |------------------------------------	|----------------------------------------------------------------------------------------------------------------- |
@@ -114,7 +129,7 @@ The following new and and existing Spatacus components were updated:
 
 ### Configuring and Enabling Customer Product Inventory Components From the BackOffice
 
-A Product Manager can set the visibility of the Backoffice components as per the requirement. For example, if there is a requirement to not do display the `TmaUsageConsumptionGridComponent` component in the SPA Storefront, then the Prodcut Manager can set the visibility of the `TmaUsageConsumptionGridComponent` component to false. This enables the Product Manager to control the visibility of the components in the SPA Storefront.
+A Product Manager can set the visibility of the Backoffice components as per the requirement. For example, if there is a requirement to not do display the `TmaUsageConsumptionGridComponent` component in the SPA Storefront, then the Product Manager can set the visibility of the `TmaUsageConsumptionGridComponent` component to false. This enables the Product Manager to control the visibility of the components in the TUA SPA storefront.
 
 |              Angular Component              |                                                    Backoffice Component                                                   |
 |-------------------------------------|----------------------------------------------------------------------------------------------------------------- |
