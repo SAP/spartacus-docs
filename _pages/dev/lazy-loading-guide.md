@@ -2,7 +2,9 @@
 title: Lazy Loading Guide
 ---
 
-**Lazy loading or code splitting** lets you divide the JavaScript code into multiple chunks, so they don't have to be loaded upfront, but only when actually needed, greatly improving Time To Interactive, especially in case of complex web applications and on lower-end mobile devices. 
+**Lazy loading or code splitting** lets you divide the JavaScript code into multiple chunks, so they don't have to be loaded upfront, but only when actually needed.
+
+ Such an approach can substantially improve Time To Interactive, especially in case of complex web applications and  lower-end mobile devices. 
 
 ## Spartacus Approach to Lazy Loading
    
