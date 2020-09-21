@@ -24,6 +24,8 @@ To meet those requirements, Spartacus provides CMS driven lazy loading on two le
 
 **Dynamic imports**, a technique used to facilitate lazy loading and allow for code splitting, can be only used in the main application. It's not possible to define them in prebuild libraries.
 
+This is an unfortunate limitation, that results in some application code that must be added by customers. While the amount of custom code is limited to the bare minimum, we'll add a feature in a future version of the schematics library to automatically add lazy loaded modules.
+
 ### Avoid static imports for lazy loaded code
 
 To make code spitting possible, your static javascript code (main app bundle) shouldn't have any static imports to code that you want to lazy load. The builder will notice, that the code is already included and won't generate a separate chunk for it.
