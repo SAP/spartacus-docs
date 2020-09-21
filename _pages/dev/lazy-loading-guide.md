@@ -11,23 +11,23 @@ There is always a room for manual tweaking it based on app knowledge, but such a
    
 To meet those requirements, Spartacus provides CMS driven lazy loading on two levels:
  
-   	1. Lazy loading of CMS components (simplest)
+  1. Lazy loading of CMS components (simplest)
    	
-    2. CMS driven lazy loading of feature modules
+  2. CMS driven lazy loading of feature modules
     
     
 ## Important information
 
 ### Dynamic imports can only be defined in the main application
 
-**Dynamic imports**, a technique used to facilitate lazy loading and allow for code splitting, can be only used in the main application, it's not possible to define them in prebuild libraries.
+**Dynamic imports**, a technique used to facilitate lazy loading and allow for code splitting, can be only used in the main application. It's not possible to define them in prebuild libraries.
 
 ### Avoid static imports for lazy loaded code
 
 To make code spitting possible, your static javascript code (main app bundle) shouldn't have any static imports to code that you want to lazy load. The builder will notice, that the code is already included and won't generate a separate chunk for it.
 
 It's especially important in the case of importing symbols from libraries. 
-At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point, including the whole entry point statically. 
+At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point, including the whole entry point statically into the build. 
 That's why **it's recommended to create separate entry points** for the code, that has to be loaded statically and the code that can be loaded lazily. 
 
 ### Configuration in lazy loaded modules
@@ -117,6 +117,16 @@ Configuration for the feature contains two parts:
   },
 }
 ```
+
+### Component Mapping Configuration in Lazy Loaded Modules
+
+Default CMS Mapping Configuration in lazy loaded modules should be defined in exactly the same fashion as in statically imported ones.
+
+Spartacus is able to extract CMS component mapping configuration from a lazy-loaded feature and use it to resolve component classes and factories covered by the feature. That's why it's possible and advised to use the standard way of providing default CMS Mapping configuration inside a lazy loaded module. Thanks to it:
+
+ - The exact same module and library entry point can be imported dynamically or statically, depending on the needs
+ - It's still possible to overwrite lazy-loaded CMS configuration from the Application level, providing config overrides in the application.   
+
 
 ### Defining shared dependency modules 
 
