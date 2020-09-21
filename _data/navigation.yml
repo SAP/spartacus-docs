@@ -128,7 +128,7 @@ docs:
                 - title: "Deferred Loading"
                   url: /deferred-loading/
                 - title: "Above-the-Fold Loading"
-                  url: /above-the-fold/  
+                  url: /above-the-fold/
           - title: "Outlets"
             url: /outlets/        
           - title: "Styling and Page Layout ➢"
@@ -159,6 +159,8 @@ docs:
                   url: /pagination/  
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
+          - title: "Lazy-loading Guide"
+            url: /lazy-loading-guide/
           - title: "Extending Checkout"
             url: /extending-checkout/
           - title: "Express Checkout"
