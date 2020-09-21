@@ -277,6 +277,25 @@ docs:
                 - title: "Writing Notification Banners"
                   url: /writing-notification-banners/
 
+    - title: Telco & Utilities Storefront Development Guide
+      children:
+          - title: "About TUA Spartacus"
+            url: /about-tua-spartacus/
+          - title: "Release Information for TUA Spartacus ➢"
+            url: /telco-release-information/
+            subchildren:
+                - title: "Pre-Release Information"
+                  url: /tua-pre-release-information/
+          - title: "Roadmap for TUA Spartacus"
+            url: /tua-spartacus-roadmap/
+          - title: "Getting Started with TUA Spartacus ➢"
+            url: /getting-started-with-tua-spartacus/ 
+            subchildren:
+                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
+                  url: /installing-sap-commerce-for-tua-spartacus/
+                - title: "Building the TUA Spartacus Storefront from Libraries"
+                  url: /building-the-tua-storefront-from-libraries/                           
+  
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
