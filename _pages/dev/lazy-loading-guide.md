@@ -193,12 +193,12 @@ To address some specific customizations on top of a lazy loaded library, it is p
 
 ### Unified Configuration
 
-_(A preview will be available in the 3.0-next releases)_
+**Note:** A preview will be available in the _3.0-next_ releases.
 
 Unified configuration provides a way to get a global configuration that includes both the root configuration and the configuration from already-loaded lazy-loaded modules.
 
 ### Unified Injector
 
-_(A preview will be available in the 3.0-next releases)_
+**Note:** A preview will be available in the _3.0-next_ releases.
 
 The unified injector provides a way to inject a token, or multi-provided tokens, taking into account the root injector and the injectors from lazy-loaded modules. The injector exposes an Observable that emits a new set of injectables for a specified token each time the status of the Unified Injector changes. This status changes whenever Spartacus instantiates a new lazy-loaded module, because the module contains an injector that can be added to the Unified Injector.
