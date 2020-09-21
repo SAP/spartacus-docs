@@ -2,15 +2,13 @@
 title: Lazy Loading Guide
 ---
 
-Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all of the chunks when a user first accesses your storefront. Instead, chunks are only loaded when they are needed.
+Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all the JavaScript of the full application when a user accesses the first page. Instead, only the chunks that are required for the given page are loaded. While navigating the storefront, additional chunks might be loaded when needed.
 
 Such an approach can substantially improve "Time To Interactive", especially in the case of complex web applications being accessed by low-end mobile devices.
 
 ## Spartacus Approach to Lazy Loading
 
-Spartacus is mostly CMS driven, which means Spartacus does not use much of the built-in, route-based lazy loading that is offered out-of-the-box by Angular. Code splitting has to be done at app build time, although Spartacus cannot know what components or features a specific route can contain before actually loading them.
-
-As a result, Spartacus provides CMS-driven lazy loading in the following ways:
+Code splitting is a technique that has to be done at application build time. Code splitting provided by Angular is typically route-based, which means there is a chunk for the landing page, another chunk for the product page, and so on. Since Spartacus is mostly CMS driven, the actual application logic for each route cannot be decided at build time. Business users will eventually alter the page structure by introducing or removing components. This is why an alternative approach to lazy-loading is required, which Spartacus provides in the following ways:
 
 - Lazy loading of CMS components
 - CMS-driven lazy loading of feature modules
