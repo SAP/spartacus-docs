@@ -159,7 +159,7 @@ docs:
                   url: /pagination/  
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
-          - title: "Lazy-loading Guide"
+          - title: "Lazy Loading Guide"
             url: /lazy-loading-guide/
           - title: "Extending Checkout"
             url: /extending-checkout/
