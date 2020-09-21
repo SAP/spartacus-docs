@@ -41,7 +41,7 @@ If you start from scratch and initialize your SAP Commerce Cloud system with ver
 
 If you upgrade from an earlier version than 1905.5, you need to grant the `asagentgroup` permissions by importing this impex data via the impex console:
 
-```impex
+```text
 # Access rights for asagentgroup
 # - These are needed for rendering (cmsoccaddon).
 
@@ -78,7 +78,7 @@ $END_USERRIGHTS;;;;;
 The `assistedservicewebservices` extension requires CORS configuration, which is possible since SAP Commerce Cloud version 1905.5.  
 The cors configurations for `assistedservicewebservices` have default values specified in the `project.properties` file of the `assistedservicewebservices`. At the time of writing these lines, the default values are:
 
-```cors
+```text
 corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization
@@ -90,7 +90,7 @@ CORS configurations are customized by overriding the default configuration via y
 
 Since configurations are _overridden_ in local.properties, if you want to add a configuration element without losing the default value, you need to add all the defaults in addition to the new element. For example, to add 'my-new-header' in the allowed header list in addition to the default ones, you need to add this in local.properties:
 
-```cors
+```text
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
 ```
 
@@ -101,13 +101,13 @@ To customize `allowedOrigins`, you will need to override the value with one that
 
 You need to customize the `allowedOrigins` property for `assistedservicewebservices` with host names that are relevant to your environment. As mentioned above, this is done by adding the propery yout `local.properties` with a new value:
 
-```cors
+```text
 corsfilter.assistedservicewebservices.allowedOrigins=https://my-new-host:4200
 ```
 
 For development purposes only, the value can be a wildcard:
 
-```cors
+```text
 corsfilter.assistedservicewebservices.allowedOrigins=*
 ```
 
@@ -118,7 +118,7 @@ Bear in mind this wildcard configuration is flexible for development environment
 To invoke the ASM UI in the storefront, add the `?asm=true` suffix to the url.
 For example, with the sample store, you can invoke the ASM UI on the home page with this url.
 
-```url
+```text
 https://{hostname}/electronics-spa/en/USD/?asm=true
 ```
 
