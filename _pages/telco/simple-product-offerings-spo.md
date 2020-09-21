@@ -1,5 +1,5 @@
 ---
-title: Simple Product Offerings (SPOs)
+title: Simple Product Offering (SPO)
 ---
 
 {% capture version_note %}
