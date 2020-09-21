@@ -18,7 +18,7 @@ In development, the allowed origins are often configured with an asterisk (`*`),
 
 The allowed headers must include all the HTTP methods that are allowed to be used. For Spartacus, the following methods should be configured:
 
-```
+```plaintext
 GET HEAD OPTIONS PATCH PUT POST DELETE
 ```
 
@@ -36,14 +36,16 @@ The allowed headers setting indicates the HTTP headers that are allowed for cros
 | authorization | The `authorization` request header is used during authentication. Unless there is no login process, this must be configured. |
 | cache-control | The `cache-control` headers are used for various API requests. |
 | x-anonymous-consents | The `x-anonymous-consents` header is required by the anonymous consent feature. If anonymous consent is not used, this configuration can be omitted. However, it is important to note that if you do not include this header, you must disable the anonymous consent feature. Otherwise, you might encounter problems with your storefront not displaying properly. |
-| occ-personalization-id | The `occ-personalization-id` header is required by the personalization feature. If you do not use the personalization feature, this header can be omitted. For more information, see [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/e970070f997041c7b3f3e77fcb762744.html) on the SAP Help Portal. |
-| occ-personalization-time | The `occ-personalization-time` header is required by the personalization feature. If you do not use the personalization feature, this header can be omitted. For more information, see [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/e970070f997041c7b3f3e77fcb762744.html) on the SAP Help Portal. |
+| occ-personalization-id | The `occ-personalization-id` header is required by the personalization feature. If you do not use the personalization feature, this header can be omitted. For more information, see [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/e970070f997041c7b3f3e77fcb762744.html) on the SAP Help Portal. |
+| occ-personalization-time | The `occ-personalization-time` header is required by the personalization feature. If you do not use the personalization feature, this header can be omitted. For more information, see [Configure Personalization for Commerce Web Services](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/e970070f997041c7b3f3e77fcb762744.html) on the SAP Help Portal. |
 | x-profile-tag-debug | The `x-profile-tag-debug` header is required by Context-Driven Services. It is used to instruct Context-Driven Services to produce a trace. If you do not use Context-Driven Services, this header can be omitted. For more information, see [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US?task=discover_task) on the SAP Help Portal. |
 | x-consent-reference | The `x-consent-reference` header is required by Context-Driven Services. If you do not use Context-Driven Services, this header can be omitted. For more information, see [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US?task=discover_task) on the SAP Help Portal. |
 
 ### exposedHeaders
 
-Only Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
+Context-Driven Services requires a custom header to be exposed, which is the `x-anonymous-consents` header.
+
+Personalization requires the `occ-personalization-id` and the `occ-personalization-time` headers to be exposed.
 
 ### allowCredentials
 
@@ -51,9 +53,9 @@ Request credentials are concerned with cookies, authorization headers, or TLS cl
 
 Spartacus did not send cookies in version 1.x of the Spartacus libraries, but since version 2.0, cookies will be sent for each and every OCC request. This has also been patched to versions 1.4 and 1.5 of the Spartacus libraries.
 
-Sending cookies is required to gain "session infinity", which is also know as "sticky sessions". Session infinity means that the same server behind an API endpoint is used for all subsequent requests for the same session. Although the Commerce API is stateless, there are occasions when multiple parallel or sequential calls could fail. For example, an “add to cart” request followed by a “load cart” request could fail, because the first request could end up at server 1, whereas the second request, immediately following after, could end up at server 2. The servers might not be fast enough to send around cache invalidation, which is why the second response might fail to catch the added item. 
+Sending cookies is required to gain "session affinity", which is also know as "sticky sessions". Session affinity means that the same server behind an API endpoint is used for all subsequent requests for the same session. Although the Commerce API is stateless, there are occasions when multiple parallel or sequential calls could fail. For example, an “add to cart” request followed by a “load cart” request could fail, because the first request could end up at server 1, whereas the second request, immediately following after, could end up at server 2. The servers might not be fast enough to send around cache invalidation, which is why the second response might fail to catch the added item. 
 
-An added advantage of session infinity is that the back end will gain performance improvements if requests for the same session are served by the same server.
+An added advantage of session affinity is that the back end will gain performance improvements if requests for the same session are served by the same server.
 
 For this reason, CCv2 exposes a response cookie (`ROUTE`) that indicates the processing server that was used to process the API request. Whenever the client adds this cookie into the next request, the request is handled by the same server.
 
@@ -68,28 +70,30 @@ The various CORS configurations that are required by the back end can be install
 
 For each installation, it is important to note the following:
 
-- OCC is installed by a template extension with the name `ycommercewebservices`. However, you can rename the extension web application path, or generate a custom extension out of this. In the examples in the next sections, we assume the name is `ycommercewebservices`, but you should replace this if you have a custom name.
+- OCC is installed by a template extension with the name `commercewebservices`. However, you can rename the extension web application path, or generate a custom extension out of this. In the examples in the next sections, we assume the name is `commercewebservices`, but you should replace this if you have a custom name.
 - Most configurations apply to OCC only, but in case you use other APIs (such as the Assisted Service Module), you also need to configure CORS for these APIs as well.
+
+**Note:** If you are using SAP Commerce Cloud version 1905 or older, you must use `ycommercewebservices` (or your custom extension name) and not `commercewebservices`. If you are using SAP Commerce Cloud version 2005 or newer, you can choose to use `commercewebservices` or `ycommercewebservices`, but the default is `commercewebservices`, which is defined by the cx recipe.
 
 ### Project Properties File
 
 If you install the CORS filter configuration by properties, the following properties must be added:
 
-```
-corsfilter.ycommercewebservices.allowedOrigins=*
-corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
-corsfilter.ycommercewebservices.allowCredentials=true
+```plaintext
+corsfilter.commercewebservices.allowedOrigins=*
+corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
+corsfilter.commercewebservices.allowCredentials=true
 ```
 
 If you are using the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
-```
+```plaintext
 corsfilter.assistedservicewebservices.allowedOrigins=*
 corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
+corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
 corsfilter.assistedservicewebservices.allowCredentials=true
 ```
 
@@ -99,23 +103,23 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 
 ```json
 {
-	"key": "corsfilter.ycommercewebservices.allowedOrigins",
+	"key": "corsfilter.commercewebservices.allowedOrigins",
 	"value": "*"
 },
 {
-	"key": "corsfilter.ycommercewebservices.allowedMethods",
+	"key": "corsfilter.commercewebservices.allowedMethods",
 	"value": "GET HEAD OPTIONS PATCH PUT POST DELETE"
 },
 {
-	"key": "corsfilter.ycommercewebservices.allowedHeaders",
+	"key": "corsfilter.commercewebservices.allowedHeaders",
 	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
 },
 {
-	"key": "corsfilter.ycommercewebservices.exposedHeaders",
-	"value": "x-anonymous-consents"
+	"key": "corsfilter.commercewebservices.exposedHeaders",
+	"value": "x-anonymous-consents occ-personalization-id occ-personalization-time"
 }
 {
-	"key": "corsfilter.ycommercewebservices.allowCredentials",
+	"key": "corsfilter.commercewebservices.allowCredentials",
 	"value": "true"
 }
 ```
@@ -137,7 +141,7 @@ If you use the Assisted Service Module (ASM), you must also add the same headers
 },
 {
 	"key": "corsfilter.assistedservicewebservices.exposedHeaders",
-	"value": "x-anonymous-consents"
+	"value": "x-anonymous-consents occ-personalization-id occ-personalization-time"
 }
 {
 	"key": "corsfilter.assistedservicewebservices.allowCredentials",
@@ -149,22 +153,22 @@ If you use the Assisted Service Module (ASM), you must also add the same headers
 
 You can use the following ImpEx script if you want to install the CORS filter configuration during initialization, during an update, or manually with the Hybris Admin Console.
 
-```
-INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=ycommercewebservices,unique=true]
+```plaintext
+INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=commercewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
 ;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
-;exposedHeaders;x-anonymous-consents
+;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```
 
 If you are using the Assisted Service Module (ASM), you must also run the following script:
 
-```
+```plaintext
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
 ;allowedOrigins;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
 ;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
-;exposedHeaders;x-anonymous-consents
+;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```

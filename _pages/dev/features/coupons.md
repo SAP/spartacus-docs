@@ -1,5 +1,5 @@
 ---
-title: Coupons (DRAFT)
+title: Coupons
 ---
 
 {% capture version_note %}
