@@ -31,11 +31,13 @@ At the time of writing (Angular 9 and Angular 10), mixing static imports with dy
 
 ### Configuration in Lazy Loaded Modules
 
-The lazy loaded configuration is not visible to other modules and does not contribute to the global configuration of the running application. This will be addressed in Spartacus 3.x with the concept of unified configuration. For Spartacus 2.1, you should import modules with configuration statically.
+If additional configuration is provided inside the lazy-loaded module, this configuration is not merged in the global application configuration. As a result, the configuration will not affect any component other than the lazy-loaded components.
+
+This limitation will be addressed in Spartacus 3.x with the concept of unified configuration. For Spartacus 2.x, you should import modules with configuration statically.
 
 ### Providers in Lazy Loaded Modules
 
-Injection tokens provided in lazy-loaded modules are not visible to services provided in the app root. This applies especially to multi-provided tokens, such as `PageMetaResolvers`, various Handlers, and so on. This problem will be partially addressed in Spartacus 3.0 with the Unified Injector mechanism. For Spartacus 2.1, you should always provide these tokens in modules statically imported to your app root module.
+Injection tokens provided in lazy-loaded modules are not visible to services provided in the app root. This applies especially to multi-provided tokens, such as `PageMetaResolvers`, various Handlers, and so on. This problem will be partially addressed in Spartacus 3.0 with the Unified Injector mechanism. For Spartacus 2.x, you should always provide these tokens in modules statically imported to your app root module.
 
 ### Avoiding Importing the HttpClientModule in Your Lazy Loaded Modules
 
