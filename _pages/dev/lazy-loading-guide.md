@@ -8,7 +8,7 @@ Such an approach can substantially improve "Time To Interactive", especially in 
 
 ## Spartacus Approach to Lazy Loading
 
-Spartacus is mostly CMS driven, which Spartacus does not use much of the built-in, route-based lazy loading that is offered out-of-the-box by Angular. Code splitting has to be done at app build time, although Spartacus cannot know what components or features a specific route can contain before actually loading them.
+Spartacus is mostly CMS driven, which means Spartacus does not use much of the built-in, route-based lazy loading that is offered out-of-the-box by Angular. Code splitting has to be done at app build time, although Spartacus cannot know what components or features a specific route can contain before actually loading them.
 
 As a result, Spartacus provides CMS-driven lazy loading in the following ways:
 
@@ -33,7 +33,7 @@ At the time of writing (Angular 9 and Angular 10), mixing static imports with dy
 
 ### Configuration in Lazy Loaded Modules
 
-The lazy loaded configuration is not be visible to other modules and does not contribute to the global configuration of the running application. This will be addressed in Spartacus 3.x with the concept of unified configuration. For Spartacus 2.1, you should import modules with configuration statically.
+The lazy loaded configuration is not visible to other modules and does not contribute to the global configuration of the running application. This will be addressed in Spartacus 3.x with the concept of unified configuration. For Spartacus 2.1, you should import modules with configuration statically.
 
 ### Providers in Lazy Loaded Modules
 
