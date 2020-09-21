@@ -9,11 +9,10 @@ title: Lazy Loading Guide
 ## Spartacus Approach to Lazy Loading
    
 As Spartacus is mostly CMS driven, there is not much of the usage of the built-in route based lazy loading offered by Angular out of the box. Code splitting has to be done at app build time, while Spartacus never knows upfront what components or features a specific route can contain, before actually loading them. 
-There is always a room for manual tweaking it based on app knowledge, but such a solution breaks the flexibility that Spartacus offers and requires additional prerequisites.
    
 To meet those requirements, Spartacus provides CMS driven lazy loading on two levels:
  
-  1. Lazy loading of CMS components (simplest)
+  1. Lazy loading of CMS components
    	
   2. CMS driven lazy loading of feature modules
     
