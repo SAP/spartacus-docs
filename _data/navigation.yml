@@ -253,9 +253,7 @@ docs:
             subchildren:
                 - title: "Product Offering Search"
                   url: /product-offering-search/                                     
-                - title: "Product Offering Prices"
-                  url: /product-offering-prices/  
-                - title: "Simple Product Offering (SPOs)"
+                - title: "Simple Product Offering (SPO)"
                   url: /simple-product-offerings-spo/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/  
