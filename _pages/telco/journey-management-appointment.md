@@ -78,7 +78,7 @@ The business use case includes the following steps:
 
     **Notes:** 
     - The earlier appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
-    - Top six available appointments are displayed with the default `Please call to Schedule` preselected option.
+    - Top six available time slots are displayed with `Please call to Schedule` preselected option.
     - For each cart entry, you can book only one appointment, or choose the default `Call to Schedule` option.
 
 8. Select a suitable appointment and click **Update**. The cart screen displays the new appointment.
