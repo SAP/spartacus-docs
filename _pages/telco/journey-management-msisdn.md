@@ -141,8 +141,8 @@ When the product offering is successfully configured for the `MSISDN Reference` 
 
 |  Component Name            	 |Status                         |Description                         |
 |----------------|-------------------------------|-----------------------------|
-|TmaLogicalResourceComponent|New            | The component interacts with the mock TMF API to fetch details of logical resource            |
-|TmaLogicalResourceDisplayComponent          |New            |The component displays the LogicalResource in the **Add to Cart** popup, in the **Cart** page and in the **Order** page          |[GET /usageConsumptionReport](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_usageconsumptionreportfind)| The API requests the calculation of a new usage consumption report for a subscribed product |||
+|LogicalResourceComponent|New            | The component displays the available logical resource details to the customer. Customer can select the desired logical resource from the available list.            |
+|JourneyChecklistLogicalResourceComponent          |New            |The component displays the logical resource details in the **Add to Cart** popup, in the **Cart** page and in the **Order** page          |JourneyChecklistStepComponent| New   | Stepper component, which renders the checklist components one-by- one  |||
 
 <!--### Sample Data
 
