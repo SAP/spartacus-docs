@@ -10,7 +10,7 @@ title: Cart
 
 ## Overview
 
-The Added To Cart Dialog Component is updated to display the sum of the Pay Now prices of that Product Offering and The Pay Now total for the items in the cart. The Cart Item component is updated to display prices configured in the for the Product Offering:
+The Added To Cart Dialog Component is updated to display the sum of the Pay Now prices of that Product Offering and the Pay Now total for the items in the cart. The Cart Item component is updated to display prices configured in the Product Offering:
 
 - Sum of Pay Now prices 
 - Recurring Charges 
