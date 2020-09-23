@@ -7,53 +7,69 @@ title: Journey Management - Appointment Reference
 ## Contents
 
 - [Overview](#overview)
+- [Business Requirement](#business-requirement)
 - [Key Personas](#key-personas)
-- [Business Use Case](#business-use-case)
+- [Business Use Cases](#business-use-cases)
 - [Navigation Flow](#navigation-flow)
 - [Requirements and Dependencies](#requirements-and-dependencies)
-- [Configuring and Enabling New Appointment](#configuring-and-enabling-new-appointment)
+- [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference)
+- [Handling Error Messages](#handling-error-messages)
 - [Further Reading](#further-reading)
 
 ## Overview
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA for SPA Storefront to browse the content of a product offering, and select a suitable appointment for arranging onsite service support, before purchasing the product offering.
+Some product offerings or specifications require booking an appointment with a service technician for installation before placing an order. When the appointment is confirmed and order is placed, the service technician can contact the customer to confirm the address to visit and complete the installation.
 
-**Note:** The `Journey Management - Appointment Reference` feature applies to only those product or service offerings for which a checklist policy is configured at the backend by the Product Manager.
+
+## Business Requirement
+
+The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product or service offering and schedule an appointment. For example, a customer purchases a service plan that involves onsite installation by a service technician. Before adding the service plan to the cart, the customer selects a suitable appointment from the available time slots. When the appointment is confirmed and order is placed, the service technician calls the customer to confirm the address to visit and complete the installation.
+
+This feature also enables the TUA SPA Storefront to showcase the end-to-end integration with the appointment system for the products while placing an order in the Acquisition flow.
+
+**Note:** The `Journey Management - Appointment Reference` feature is enabled in the TUA SPA Storefront by configuring the checklist policies for Appointment for single product offerings by the Product Manager in the Backoffice.
 
 ## Key Personas
 
 - Customers
 - Product Managers
 
-## Business Use Case
+## Business Use Cases
 
-A customer wants to purchase a product offering. Before adding the product offering to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager. The customer is required to select a `call to schedule` option, or a suitable appointment from the available appointments.
+A customer wants to purchase a service plan, for example, `Fiberlink 100`, which involves onsite installation by a service technician. Before adding the service plan to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The customer can select a suitable appointment from the available time slots, or can select `call to schedule` option to arrange a call back to schedule an appointment.
 
-The business use case includes the following steps:
+The following use cases are covered:
 
-1. The customer searches and selects a product offering; for example, Fiberlink 100, and clicks **Add to Cart** to add the product offering to the cart.
-2. The `Select a suitable time for an appointment` screen is displayed, based on the checklist actions configured at the backend by Product Manager. The `Select a suitable time for an appointment` screen displays:
-    - **Call to Schedule:** The customer can select this option if a call back is required to schedule an appointment.
-    - **Select a Suitable Appointment:** The customer can select a suitable appointment from the available appointments.
-3. The selected product offering with the appointment is added to the cart.
-4. The customer can edit the appointment before proceeding to checkout the product offering. 
-5. The customer can view view the appointment and the order details from the `Order Details` page or the `Order History` page.
+- Booking an appointment for services, which require installation by service technicians.
+- Cancelling an appointment from the Appointment system on the Cart screen. For example, the customer has not acted in a specific time duration after which the Appointment system cannot block the service technicians, hence, cancels the appointment. Or, the service technicians are no more available, hence, the appointment system cancels the appointment.
+- Displaying errors from the Appointment systems integration during checkout process. For more information, see [Handling Error Messages](#handling-error-messages).
+
+The business use cases include the following steps:
+
+1. A customer searches and selects a product offering; for example, `Fiberlink 100`, and clicks **Add to Cart** to add the product offering to the cart.
+2. The `Select a suitable time for an appointment` screen is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The `Select a suitable time for an appointment` screen displays:
+    - **Call to Schedule:** A customer can select this option if a call back is required to schedule the appointment. 
+    - **Select a Suitable Appointment:** A customer can select a suitable appointment from the available time slots (appointments).
+3. The selected product offering with the appointment is added and displayed on the cart.
+4. A customer updates the existing appointment before proceeding to checkout the product offering.
+5. A customer places an order for the product offering.
+6. A customer confirms the appointment and the order details from **Account >** `Order History` screen.
 
 ## Navigation Flow
 
-1. Log in to the Telco SPA.
+1. Log in to the TUA SPA Storefront.
 
     <p align="center"><img src="/assets/images/telco/Screenshot_2020-09-02 Login.png"></p>
 
-2. Search and select a product offering. For example, Fiber Link 100 mbps.
+2. Search and select a product offering. For example, `Fiber Link 100 mbps`.
 
     <p align="center"><img src="/assets/images/telco/1Product_Offering.png"></p>
 
-3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager.
-
-    **Note:** The `Please Call to Schedule` option is preselected.
+3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed.  
 
 4. Click a suitable appointment from the available appointments.
+
+    **Note:** The `Please Call to Schedule` option is preselected.
 
     <p align="center"><img src="/assets/images/telco/2Select_Suitable_Appointment.png"></p>
 
@@ -61,24 +77,28 @@ The business use case includes the following steps:
 
     <p align="center"><img src="/assets/images/telco/3Add_to_Cart.png"></p>
 
-6. Click **View Cart**. The cart displays all relevant details of the product offering (Fiber Link) with the appointment.
+6. Click **View Cart**. The cart displays all relevant details of `Fiber Link 100 mbps` with the selected appointment.
 
     <p align="center"><img src="/assets/images/telco/4View_Cart.png"></p>
 
-7. Click the pencil icon to edit or update the appointment. The `Select a suitable time for an appointment` screen is displayed.
+7. Click the pencil icon to update the appointment. The `Select a suitable time for an appointment` screen is displayed.
 
     <p align="center"><img src="/assets/images/telco/5Edit_Cart.png"></p>
 
     **Notes:** 
-    - The earlier selected appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
-    - Top five available time slots are displayed with the default `Please call to Schedule` option.
-    - For each cart entry, you can book only one time slot, or choose the default option `Call to Schedule'.
+    - The earlier appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
+    - Top six available time slots are displayed with `Please call to Schedule` preselected option.
+    - For each cart entry, you can book only one appointment, or choose the default `Call to Schedule` option.
 
-8. Select a suitable appointment and click **Update**. The cart page displays the new appointment.
+8. Select a suitable appointment and click **Update**. The cart screen displays the new appointment.
 
     <p align="center"><img src="/assets/images/telco/6Updated_Appointment.png"></p>
 
-9. Click **Proceed to Checkout** to buy the product offering.
+9. Click **Proceed to Checkout** to place an order for `Fiber Link 100 mbps`.
+
+10. Click **Account > Order History**.
+
+11. Click the order number to confirm the appointment and other relevant details.
 
 ## Requirements and Dependencies
 
@@ -102,7 +122,7 @@ Using yarn:
 
 ### Backend Requirements and Dependencies
 
-In progress.
+The checklist policy is configured by the Product Manager in the Backoffice to have the `Select a suitable time for an appointment` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart. For more information, see [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference).
 
 ### Supported Backed Functionality
 
@@ -120,33 +140,52 @@ In progress.
 
 ## Configuring and Enabling the Appointment Reference
 
-To configure and enable the appointment reference, follow the steps:
+To configure and enable the appointment reference from the Backoffice, follow the steps:
 
 1. Log in to the **Backoffice**.
-2. Navigate to **Catalog > Conditional Policies > Policy Statement > Checklist Action Statement > Configurable Psc Checklist Action Statement**. The `Checklist action type` page is displayed.
+2. Navigate to **Catalog > Conditional Policies > Policy Statement > Checklist Action Statement > Configurable Psc Checklist Action Statement**. The `Checklist action type` screen is displayed.
 3. Click **Checklist action type**. The details are displayed in the following pane.
 4. In the **PROPERTIES** tab:
     - In the **Checklist action type**, select `Appointment`.
     - In the **Product Specification Characteristic**, select either the staged or online catalog.
-5. In the **Product Offering** field, select the product offering for configuring appointment.
+5. In the **Product Offering**, select the product offering for configuring the appointment.
 
-When the product offering is successfully configured for the Appointment Reference feature, the `Select a suitable time for an appointment` screen is displayed after adding the product offering to the cart.
+When the product offering is successfully configured for the `Appointment Reference` feature, the `Select a suitable time for an appointment` screen is displayed before adding the product offering to the cart.
 
 ### Components
 
-| Component Name                          | Status | Description                                                                                     |
-| --------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
-| TmaAppointmentDisplayComponent          | New    | the component displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
-| TmaJourneyChecklistAppointmentComponent | New    | the component displays the available time slots to the customer                               |
-| TmaJourneyChecklistStepComponent        | New    | A stepper component that renders the checklist components                                        |
+| Angular Component   Name             | Status  | Description                                                                                                                        |
+|--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| JourneyChecklistStepComponent        | New     | A stepper component that renders the checklist components                                                                          |
+| JourneyChecklistAppointmentComponent | New     | Displays the available time slots  to customers                                                                                    |
+| AppointmentComponent                 | New     | Displays the appointment details in the Order, Order History, Cart   Summary and Cart popup                                        |
+| TmaAddToCartComponent                | Updated | Displays the **Add to cart** button that is enhanced with the checklist   call and opening checklist action stepper if applicable  |
+| TmaCartTotalsComponent               | Updated | Displays cart total, and the **Proceed to checkout** button, which is   disabled in case of appointment errors or cancelled state  |
+| TmaPlaceOrderComponent               | New     | Displays the **Place order** button, which is disabled in case of   appointment errors or cancelled state                          |
 
 <!--### Sample Data
 
 In progress.-->
 
+## Handling Error Messages
+
+The following table lists the common error messages:
+
+| Error   Message                                                                                                           	| Description                                                                                                                                                                                                                                                                                                                               	|
+|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Something went wrong. Could not add item to the shopping cart                                                             	| A   server error message that is displayed on the Product   Offering Details screen. This error message is   displayed when a customer selects the desired appointment and clicks CONTINUE. As a result of this error   message, booking of the appointment does not happen, and the selected product   offering is not added to the cart 	|
+| Your appointment cannot be displayed. Please remove the cart   entry to proceed                                            	| A   server error message that is displayed on the Cart screen. As a result of this error message, the appointment   does not display and the Proceed to Checkout button is disabled; hence, the customer cannot proceed to   checkout the product offering                                                                                	|
+| There is a problem with appointment. Please remove this entry   from the cart to checkout                                 	| A   server error message that is displayed on the Cart screen. This error message is displayed when the appointment   is cancelled. As a result of this error message, the Proceed to Checkout button is   disabled; hence, the customer cannot proceed to checkout the product offering                                                  	|
+| There is a problem in fetching appointment details. Please try   again later                                              	| A   server error message that is displayed on the Cart screen. This error message is displayed when the customer   clicks the UPDATE   (Pencil icon)  on the Cart screen to update the existing   appointment                                                                                                                            	|
+| Could not update the appointment at this time. Select "Call   to Schedule" option to have an appointment booked for you.  	| A   server error message that is displayed on the Cart screen. This error message is displayed when the customer   tries to update the existing appointment                                                                                                                                                                               	|
+| There is a problem in fetching appointment details. Please try   again later                                              	| A   server error message that is displayed on the Shipping   Address screen. This error message is displayed   when the customer clicks Proceed to Checkout button on the Cart screen. As a result of this error message, the Place Order button is disabled;   hence, a customer cannot place an order                                   	|
+| Your appointment cannot be displayed. Please remove the cart   entry to proceed                                           	| This   error message is displayed on the Review Order screen when the customer tries to place an order for the   selected product offering. This error message is displayed because the phone   number is cancelled. As a result of this error message, the Place Order button is disabled                                                	|
+| There is a problem in fetching appointment details. Please try   again later                                              	| This   error message is displayed on the Order Confirmation screen when the customer places an order for the selected   product offering                                                                                                                                                                                                  	|
+| There is a problem in fetching appointment details. Please try   again later                                              	| This   error message is displayed on the Order History screen when the customer places an order for the selected   product offering and wants to confirm the order details from the Order History screen                                                                                                                                  	|
+
 ## Further Reading
 
-Consult the TUA Help Portal for more information on the following topics:
+For further reading, see the following topics in the TUA Help portal.
 
 - [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
 - [Customer Inventory and Cart](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/6d4fed0352f04fb8ba10846024854ea6.html).
