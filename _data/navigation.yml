@@ -247,7 +247,12 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
                   url: /installing-sap-commerce-for-tua-spartacus/
                 - title: "Building the TUA Spartacus Storefront from Libraries"
-                  url: /building-the-tua-storefront-from-libraries/                           
+                  url: /building-the-tua-storefront-from-libraries/
+          - title: "Spartacus Features for TUA ➢"
+            url: /spartacus-features-for-tua/ 
+            subchildren:
+                - title: "Journey Management - Appointment Reference"
+                  url: /journey-management-appointment/                           
   
     - title: Contributing to Spartacus
       children:
