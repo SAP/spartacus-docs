@@ -145,11 +145,14 @@ When the product offering is successfully configured for the `Appointment Refere
 
 ### Components
 
-| Component Name                          | Status | Description                                                                                     |
-| --------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
-| TmaAppointmentDisplayComponent          | New    | The component displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
-| TmaJourneyChecklistAppointmentComponent | New    | The component displays the available time slots to the customer                               |
-| TmaJourneyChecklistStepComponent        | New    | A stepper component that renders the checklist components                                        |
+| Angular Component   Name             | Status  | Description                                                                                                                        |
+|--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| JourneyChecklistStepComponent        | New     | A stepper component that renders the checklist components                                                                          |
+| JourneyChecklistAppointmentComponent | New     | Displays the available time slots  to customers                                                                                    |
+| AppointmentComponent                 | New     | Displays the appointment details in the Order, Order History, Cart   Summary and Cart popup                                        |
+| TmaAddToCartComponent                | Updated | Displays the **Add to cart** button that is enhanced with the checklist   call and opening checklist action stepper if applicable  |
+| TmaCartTotalsComponent               | Updated | Displays cart total, and the **Proceed to checkout** button, which is   disabled in case of appointment errors or cancelled state  |
+| TmaPlaceOrderComponent               | New     | Displays the **Place order** button, which is disabled in case of   appointment errors or cancelled state                          |
 
 <!--### Sample Data
 
