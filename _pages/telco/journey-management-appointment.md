@@ -9,7 +9,7 @@ title: Journey Management - Appointment Reference
 - [Overview](#overview)
 - [Business Requirement](#business-requirement)
 - [Key Personas](#key-personas)
-- [Business Use Case](#business-use-case)
+- [Business Use Cases](#business-use-cases)
 - [Navigation Flow](#navigation-flow)
 - [Requirements and Dependencies](#requirements-and-dependencies)
 - [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference)
@@ -18,33 +18,42 @@ title: Journey Management - Appointment Reference
 
 ## Overview
 
-Some product offerings, specifically, the service plans require onsite installation by a service technician. Therefore, an appointment is required to be scheduled with the customer to complete the onsite installation. Using the appointment time, the service technician can coordinate with the customer and complete the onsite installation of the service purchased by the customer.
+Some product offerings or specifications require booking an appointment with a service technician for installation before placing an order. When the appointment is confirmed and order is placed, the service technician can contact the customer to confirm the address to visit and complete the installation.
+
 
 ## Business Requirement
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product or service offering and schedule an appointment. For example, a customer purchases a service plan that involves onsite installation by a service technician. Before adding the service plan to the cart, the customer selects a suitable appointment from the available time slots, based on the availability of the service technician to complete the onsite installation of the service.
+The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product or service offering and schedule an appointment. For example, a customer purchases a service plan that involves onsite installation by a service technician. Before adding the service plan to the cart, the customer selects a suitable appointment from the available time slots. When the appointment is confirmed and order is placed, the service technician calls the customer to confirm the address to visit and complete the installation.
 
-**Note:** The `Journey Management - Appointment Reference` feature is applicable to the product and service offerings for which a checklist policy for `Appointment Reference` is configured in the Backoffice by the Product Manager.
+This feature also enables the TUA SPA Storefront to showcase the end-to-end integration with the appointment system for the products while placing an order in the Acquisition flow.
+
+**Note:** The `Journey Management - Appointment Reference` feature is enabled in the TUA SPA Storefront by configuring the checklist policies for Appointment for single product offerings by the Product Manager in the Backoffice.
 
 ## Key Personas
 
 - Customers
 - Product Managers
 
-## Business Use Case
+## Business Use Cases
 
-A customer wants to purchase a plan for a service, which involves onsite installation by a service technician. Before adding the service plan to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The customer can select a suitable appointment from the available time slots, or can select `call to schedule` option to arrange a call back to schedule an appointment.
+A customer wants to purchase a service plan, for example, `Fiberlink 100`, which involves onsite installation by a service technician. Before adding the service plan to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The customer can select a suitable appointment from the available time slots, or can select `call to schedule` option to arrange a call back to schedule an appointment.
 
-The business use case includes the following steps:
+The following use cases are covered:
+
+- Booking an appointment for services, which require installation by service technicians.
+- Cancelling an appointment from the Appointment system on the Cart screen. For example, the customer has not acted in a specific time duration after which the Appointment system cannot block the service technicians, hence, cancels the appointment. Or, the service technicians are no more available, hence, the appointment system cancels the appointment.
+- Displaying errors from the Appointment systems integration during checkout process. For more information, see [Handling Error Messages](#handling-error-messages).
+
+The business use cases include the following steps:
 
 1. A customer searches and selects a product offering; for example, `Fiberlink 100`, and clicks **Add to Cart** to add the product offering to the cart.
 2. The `Select a suitable time for an appointment` screen is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The `Select a suitable time for an appointment` screen displays:
     - **Call to Schedule:** A customer can select this option if a call back is required to schedule the appointment. 
     - **Select a Suitable Appointment:** A customer can select a suitable appointment from the available time slots (appointments).
 3. The selected product offering with the appointment is added and displayed on the cart.
-4. A customer can update the existing appointment before proceeding to checkout the product offering.
+4. A customer updates the existing appointment before proceeding to checkout the product offering.
 5. A customer places an order for the product offering.
-6. A customer can view the appointment and the order details from **Account >** `Order History` screen.
+6. A customer confirms the appointment and the order details from **Account >** `Order History` screen.
 
 ## Navigation Flow
 
