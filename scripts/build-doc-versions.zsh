@@ -26,7 +26,7 @@ fi
 # Create directory to hold temporary clone
 mkdir $clone_dir
 cd $clone_dir
-git clone git@github.com:gladius-mtl/spartacus-docs.git
+git clone git@github.com:SAP/spartacus-docs.git
 cd spartacus-docs
 build_dir="/tmp/$v-build_$last_SHA"
 echo $build_dir
@@ -55,12 +55,12 @@ echo "Copying data, includes and layouts folders to the build directory"
 cp -R $clone_dir/spartacus-docs/_data $clone_dir/spartacus-docs/_includes $clone_dir/spartacus-docs/_layouts $build_dir/spartacus-docs/$v
 
 echo "Deleting target $v folder"
-rm -r /Users/i839916/doc-versions/spartacus-docs-version-test/$v
+rm -r  /Users/i839916/spartacus-docs/$v
 
-echo "Copying all build files to new $v folder in spartacus-docs-version-test"
-cp -R $build_dir/spartacus-docs/$v /Users/i839916/doc-versions/spartacus-docs-version-test
+echo "Copying all build files to new $v folder in spartacus-docs"
+cp -R $build_dir/spartacus-docs/$v  /Users/i839916/spartacus-docs
 
-cd /Users/i839916/doc-versions/spartacus-docs-version-test
+cd  /Users/i839916/spartacus-docs
 
 # Provides a publishing date stamp
 publishdate=`date +%m-%d-%Y`
