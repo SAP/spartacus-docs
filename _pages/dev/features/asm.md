@@ -1,5 +1,7 @@
 ---
 title: Assisted Service Module
+spa_rel_number: 1.3
+cx_rel_number: 1905
 ---
 
 {% capture version_note %}

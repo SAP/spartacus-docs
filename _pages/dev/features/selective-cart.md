@@ -1,5 +1,7 @@
 ---
 title: Selective Cart
+spa_rel_number: 1.5
+cx_rel_number: 1905
 ---
 
 {% capture version_note %}
