@@ -1251,6 +1251,9 @@ class MyAuthService extends AuthService {
     apiKey: 'b6583768751462c6ee53d5a5720cda44', 
     indexName: 'sap_spartacus', 
     inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:1.x"]
+      },
     debug: false // Set debug to true if you want to inspect the dropdown 
     }); 
     </script> 
