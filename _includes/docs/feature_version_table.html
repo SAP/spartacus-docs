@@ -11,7 +11,7 @@
       {% for items in site.pages %}
           {% for item in items.feature %}
             <tr>
-              <td>{{ item.name }}</td>
+              <td><a href="{{items.url}}">{{ item.name }}</a></td>
               <td style="text-align:center">{{ item.spa_version }}</td>
               <td style="text-align:center">{{ item.cx_version }}</td>
             </tr>
