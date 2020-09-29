@@ -21,6 +21,7 @@ Contents:
 - [How Spartacus is Versioned](#how-spartacus-is-versioned)
 - [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version)
 - [Future Releases](#future-releases)
+- [Feature Release Versions](#feature-release-versions)
 
 ## Introduction
 

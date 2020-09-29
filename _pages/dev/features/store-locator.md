@@ -1,5 +1,9 @@
 ---
 title: Store Locator
+feature:
+- name: Store Locator
+  spa_version: 1.2
+  cx_version: 1905
 ---
 
 {% capture version_note %}

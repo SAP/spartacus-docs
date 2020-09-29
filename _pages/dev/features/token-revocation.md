@@ -1,5 +1,9 @@
 ---
 title: Token Revocation
+feature:
+- name: Token Revocation
+  spa_version: 1.4
+  cx_version: 1905
 ---
 
 {% capture version_note %}

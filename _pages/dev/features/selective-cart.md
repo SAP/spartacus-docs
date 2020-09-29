@@ -4,7 +4,6 @@ feature:
 - name: Selective Cart
   spa_version: 1.5
   cx_version: 1905
-
 ---
 
 {% capture version_note %}

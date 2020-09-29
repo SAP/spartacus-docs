@@ -1,5 +1,9 @@
 ---
 title: Context-Driven Services Integration
+feature:
+- name: Context-Driven Services Integration
+  spa_version: 1.5
+  cx_version: 1905
 ---
 
 {% capture version_note %}
