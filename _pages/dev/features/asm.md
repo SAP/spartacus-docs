@@ -1,7 +1,9 @@
 ---
 title: Assisted Service Module
-spa_rel_number: 1.3
-cx_rel_number: 1905
+feature:
+- name: Assisted Service Module
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}

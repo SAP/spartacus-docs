@@ -8,12 +8,12 @@
       </tr>
     </thead>
     <tbody>
-      {% for item in site.pages %}
-        {% if item.spa_rel_number %}
-          <tr>
-            <td>{{ item.title }}</td>
-            <td>{{ item.spa_rel_number }}</td>
-            <td>{{ item.cx_rel_number }}</td>
-          </tr>
-        {% endif %}  
+      {% for items in site.pages %}
+          {% for item in items.feature %}
+            <tr>
+              <td>{{ item.name }}</td>
+              <td>{{ item.spa_version }}</td>
+              <td>{{ item.cx_version }}</td>
+            </tr>
+          {% endfor %}  
       {% endfor %}

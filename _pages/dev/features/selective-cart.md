@@ -1,7 +1,10 @@
 ---
 title: Selective Cart
-spa_rel_number: 1.5
-cx_rel_number: 1905
+feature:
+- name: Selective Cart
+  spa_version: 1.5
+  cx_version: 1905
+
 ---
 
 {% capture version_note %}
