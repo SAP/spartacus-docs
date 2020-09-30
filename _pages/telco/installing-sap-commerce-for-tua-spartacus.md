@@ -49,7 +49,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    def pl = platform {
 
        localProperties {
-	        	property 'kernel.events.cluster.jgroups.channel', 'disable'
+	        	  property 'kernel.events.cluster.jgroups.channel', 'disable'
 		        property 'datahub.publication.saveImpex', ''
 		        property 'commerceservices.default.desktop.ui.experience', 'responsive'
 		        property 'kernel.autoInitMode', 'update'
@@ -170,7 +170,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    task startInBackground () {
 	      doLast {
 		         pl.startInBackground()
-	}
+	      }
    }
 
    task stopInBackground {
@@ -304,8 +304,7 @@ corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept author
 ```
 
 ```sql
-corsfilter.b2ctelcotmfwebservices.allowedOrigins=http://localhost:4200
-https://localhost:4200
+corsfilter.b2ctelcotmfwebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
 corsfilter.b2ctelcotmfwebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.b2ctelcotmfwebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
@@ -368,6 +367,6 @@ This issue is caused by an incorrect configuration of the `sop.post.url` propert
 
 Make sure this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
 
-**Note:** Please make sure that you have the website properties properly set for your `telcospa` base site to point to your environment. For your **localhost** environment they should have the following values: 
+**Note:** Please make sure that you have the website properties properly set for your `telcospa` base site to point to your environment. For your **localhost** environment, they should have the following values: 
 `website.telcospa.http=http://localhost:9001`
 `website.telcospa.https=https://localhost:9002`
