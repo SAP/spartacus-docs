@@ -1,5 +1,9 @@
 ---
 title: Above-the-Fold Loading
+feature:
+- name: Above-the-Fold Loading
+  spa_version: 1.4
+  cx_version: 1905
 ---
 
 {% capture version_note %}

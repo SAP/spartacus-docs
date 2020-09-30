@@ -1,5 +1,9 @@
 ---
 title: Assisted Service Module
+feature:
+- name: Assisted Service Module
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}

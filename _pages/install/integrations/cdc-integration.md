@@ -1,5 +1,9 @@
 ---
 title: SAP Customer Data Cloud Integration
+feature:
+- name: Customer Data Cloud Integration
+  spa_version: 2.1
+  cx_version: 1905
 ---
 
 {% capture version_note %}

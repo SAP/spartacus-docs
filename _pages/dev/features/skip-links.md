@@ -1,5 +1,9 @@
 ---
 title: Skip Links
+feature:
+- name: Skip Links
+  spa_version: 1.5
+  cx_version: 1905
 ---
 
 {% capture version_note %}

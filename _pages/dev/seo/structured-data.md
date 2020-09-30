@@ -1,5 +1,9 @@
 ---
 title: Structured Data
+feature:
+- name: Structured Data
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}
