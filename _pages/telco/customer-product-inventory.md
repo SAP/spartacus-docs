@@ -107,25 +107,27 @@ For more information, see [Customer Product Inventory](https://help.sap.com/view
 
 The Customer Product Inventory feature involves mapping between subscriptions and users, covering the customer and billing account. It holds the data of the customers and their subscriptions. For more information, see TUA [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) and [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help Portal.
 
-|  Entity Exposed for CPI            	 |TM Forum API                          |Description                         |
-|----------------|-------------------------------|-----------------------------|
-|TmaSubscriptionBase|[GET/subscriptionBase](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_listsubscriptionbase)            |The API displays a list of  retrieves the list of SubscriptionBase resources that a customer has access to            |
-|TmaSubscribedProduct          |[GET /product/{productId}](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_productget)            |The API displays details of a subscribed product            |
-|TmaSubscriptionUsage          |[GET /usageConsumptionReport](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_usageconsumptionreportfind)| The API requests the calculation of a new usage consumption report for a subscribed product |||
+| Entity Exposed for   CPI 	| TUA API                                    	| Description                                                              	|
+|--------------------------	|--------------------------------------------	|--------------------------------------------------------------------------	|
+| TmaSubscriptionBase      	| GET /subscriptionBase                      	| Shows a list of of subscription base in the Subscription Details screen  	|
+| TmaSubscribedProduct     	| GET/product/{productId}                    	| Shows a list of subscription products in the Subscription Details screen 	|
+| TmaSubscriptionAccess    	| GET /subscriptionbase/{subscriptionBaseId} 	| Shows details of subscription base                                       	|
+| TmaSubscriptionUsage     	| GET/usageConsumptionReport                 	| Shows the usage consumption for a subscriptionBase Id                    	|
 
 ## Configuring and Enabling Customer Product Inventory
 
 The following new and and existing TUA Spartacus components are updated:
 
-|              Component              	|                                                    Description                                                   	|
-|------------------------------------	|----------------------------------------------------------------------------------------------------------------- |
-| TmaSubscriptionBaseListComponent    	|     Displays all subscription bases Ids of the user                                                                  	|
-| TmaUsageConsumptionGridComponent    	|     Displays all subscription bases Ids of the user                                                                  	|
-| TmaUsageConsumptionGridComponent    	|     Displays all subscription bases Ids of the user.                                                                 	|
-| TmaCartItemOneTimeChargeComponent   	|     Displays usage consumption for subscriptionBase Ids in pie chart format where percentage used is also displayed. 	|
-| TmaCartItemRecurringChargeComponent 	|     Displays one time charges for cart entry                                                                         	|
-| TmaCartItemRecurringChargeComponent 	|     Displays recurring charges for cart entry                                                                        	|
-| TmaCartItemRecurringChargeComponent 	|     Displays recurring charges for cart entry
+| Component Name                    	| Status 	| Description                                                                                                                         	|
+|-----------------------------------	|--------	|-------------------------------------------------------------------------------------------------------------------------------------	|
+| SubscriptionBaseListComponent     	| New    	| Displays all subscription bases Ids of the user                                                                                     	|
+| TmfProductComponent               	| New    	| Displays subscribed product details like subscribed product id, start   date, end date, status and action                           	|
+| UsageConsumptionGridComponent     	| New    	| Displays usage consumption for subscriptionBase Ids in a grid format                                                                	|
+| UsageConsumptionPieChartComponent 	| New    	| Displays usage consumption for subscriptionBase Ids in a Pie chart format   with usage in percentage is also displayed.             	|
+| UsageConsumptionHeaderComponent   	| New    	| Displays usage consumption heading and navigation button to navigate to   the subscription list page from subscription details page 	|
+| CartItemOneTimeChargeComponent    	| New    	| Displays one time charges for the cart entry                                                                                        	|
+| CartItemRecurringChargeComponent  	| New    	| Displays recurring charges for the cart entry                                                                                       	|
+| CartItemUsageChargeComponent      	| New    	| Displays usage charges for the cart entry                                                                                           	|
 
 ### Configuring and Enabling Customer Product Inventory Components From the BackOffice
 
