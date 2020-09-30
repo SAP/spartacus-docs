@@ -1,5 +1,5 @@
 ---
-title: Security Best Practices (DRAFT)
+title: Security Best Practices
 ---
 
 When you are developing your Project "Spartacus" storefront, you can improve the security of your storefront application by implementing the following security best practices.

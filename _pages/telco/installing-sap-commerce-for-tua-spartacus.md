@@ -24,7 +24,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    Note: Use the lastest patches for SAP Commerce version 1905 and Telco & Utilities Accelerator version 2003.
 
-1. [Download](https://github.com/SAP/spartacus/releases) the TUA Spartacus Sample Data Store Extension.
+1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
     The TUA Spartacus Sample Data Store Extension is the extension provided in the following zip file: `b2ctelcospastore.zip`.
   

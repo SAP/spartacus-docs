@@ -1,5 +1,5 @@
 ---
-title: Anonymous Consent (DRAFT)
+title: Anonymous Consent
 ---
 
 {% capture version_note %}
@@ -16,12 +16,21 @@ Anonymous Consent Management gives anonymous users control over the tracking of 
 
 ### Back End Requirements
 
-As anonymous consent uses a custom header `x-anonymous-consents`, this needs to be configured on the back end by adding it to the following properties:
+Anonymous consent uses an `x-anonymous-consents` custom header, which needs to be configured in the back end by adding it to certain properties. If you are using SAP Commerce Cloud 2005 or newer, add the `x-anonymous-consents` header to the following properties:
+
+- `corsfilter.commercewebservices.allowedHeaders`
+- `corsfilter.commercewebservices.exposedHeaders`
+- `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
+- `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
+
+If you are using SAP Commerce Cloud 1905 or older, add the `x-anonymous-consents` header to the following properties:
 
 - `corsfilter.ycommercewebservices.allowedHeaders`
 - `corsfilter.ycommercewebservices.exposedHeaders`
 - `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
 - `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
+
+**Note:** If you are using Spartacus 2.0 with SAP Commerce Cloud 1905, you may experience some caching issues on the consent management page. The fix has been back-ported to Spartacus version 1905.15.
 
 #### Consent Data
 
@@ -51,8 +60,6 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 ;;AnonymousConsentOpenDialogComponent;Anonymous Consent Open Dialog Component;AnonymousConsentOpenDialogComponent;AnonymousConsentOpenDialogComponent;anonymousUserRestriction
 ```
 
-Having these CMS components alone is not enough to enable the whole anonymous consent feature. Please see [Enabling Anonymous Consent](#enabling-anonymous-consent) section.
-
 ### Footer notice
 
 Previously, the `footer-navigation.component.html` was tightly coupled with the footer notice message, which is now a `CMSParagraphComponent` that should also be added like this:
@@ -71,32 +78,10 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 Along with the `NoticeTextParagraph` CMS component you should also update the localized properties files with a sample text such as this example:
 
 ```properties
-CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2019 SAP SE or an SAP affiliate company. All rights reserved.</div>"
+CMSParagraphComponent.NoticeTextParagraph.content="<div class=""cx-notice"">Copyright © 2020 SAP SE or an SAP affiliate company. All rights reserved.</div>"
 ```
 
 After changing the `*.properties` files, don't forget to run `ant build` and the `ant initialize` commands.
-
-_Warning_: to preserve backwards compatibility, the notice will still be displayed if the Anonymous Consent feature is disabled. However, if you add the CMS `NoticeTextParagraph` component (and have the Anonymous Consent feature disabled), you will see duplicated notice, like shown on the screen shot below:
-
-![duplicated notice]({{ site.baseurl }}/assets/images/footer-duplicate-notice.png)
-
-In this case, you can either enable Anonymous Consent feature or remove the `NoticeTextParagraph` CMS component.
-
-### Enabling Anonymous Consent
-
-To enable anonymous consent in Spartacus, you need to enable the `anonymousConsents` feature in your `app.module.ts`, i.e.:
-
-```typescript
-B2cStorefrontModule.withConfig({
-...
-features: {
-  ...
-  anonymousConsents: true,
-  ...
-},
-...
-}
-```
 
 ## Configuring Anonymous Consent
 
@@ -120,4 +105,4 @@ No special extensibility is available for this feature.
 
 Any user who registers is considered a new user. A user who logs in during the same session will have their anonymous consents transferred to registered consents. To no longer be considered a new user, the user then needs to refresh the page or close the page to end the current session.
 
-More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6467).
+More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/spartacus/issues/6467).

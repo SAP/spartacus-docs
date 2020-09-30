@@ -6,10 +6,10 @@ Snapshot builds are a way for Spartacus users to have access to library fixes or
 
 Snapshot builds are published in the following GitHub repositories:
 
-* [Core](https://github.com/SAP/cloud-commerce-spartacus-storefront-core-builds)
-* [Styles](https://github.com/SAP/cloud-commerce-spartacus-storefront-styles-builds)
-* [Assets](https://github.com/SAP/cloud-commerce-spartacus-storefront-assets-builds)
-* [Storefront](https://github.com/SAP/cloud-commerce-spartacus-storefront-storefront-builds)
+* [Core](https://github.com/SAP/spartacus-core-builds)
+* [Styles](https://github.com/SAP/spartacus-styles-builds)
+* [Assets](https://github.com/SAP/spartacus-assets-builds)
+* [Storefront](https://github.com/SAP/spartacus-storefront-builds)
 
 Each commit represents a snapshot. We create a snapshot every time a change is merged to the `develop` branch. A GitHub release with the source code is created for every snapshot.
 
@@ -18,10 +18,10 @@ To import a snapshot build in your shell app, update the library dependency in y
 ```json
 {
   "dependencies" : {
-    "@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds",
-    "@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds",
-    "@spartacus/assets": "SAP/cloud-commerce-spartacus-storefront-assets-builds",
-    "@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds"
+    "@spartacus/core": "SAP/spartacus-core-builds",
+    "@spartacus/styles": "SAP/spartacus-styles-builds",
+    "@spartacus/assets": "SAP/spartacus-assets-builds",
+    "@spartacus/storefront": "SAP/spartacus-storefront-builds"
     }
 }
  ```
@@ -33,10 +33,10 @@ If you want to import a specific snapshot, append the suffix of the GitHub repos
 ```json
 {
   "dependencies" : {
-    "@spartacus/core": "SAP/cloud-commerce-spartacus-storefront-core-builds#core-0.1.0+abcde23f",
-    "@spartacus/styles": "SAP/cloud-commerce-spartacus-storefront-styles-builds#styles-0.1.0+abcde23f",
-    "@spartacus/assets": "SAP/cloud-commerce-spartacus-storefront-assets-builds#styles-0.1.0+abcde23f",
-    "@spartacus/storefront": "SAP/cloud-commerce-spartacus-storefront-storefront-builds#storefront-0.1.0+abcde23f"
+    "@spartacus/core": "SAP/spartacus-core-builds#core-0.1.0+abcde23f",
+    "@spartacus/styles": "SAP/spartacus-styles-builds#styles-0.1.0+abcde23f",
+    "@spartacus/assets": "SAP/spartacus-assets-builds#styles-0.1.0+abcde23f",
+    "@spartacus/storefront": "SAP/spartacus-storefront-builds#storefront-0.1.0+abcde23f"
   }
 }
  ```
