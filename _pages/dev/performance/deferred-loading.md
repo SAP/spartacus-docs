@@ -1,5 +1,9 @@
 ---
 title: Deferred Loading
+feature:
+- name: Deferred Loading
+  spa_version: 1.4
+  cx_version: 1905
 ---
 
 {% capture version_note %}

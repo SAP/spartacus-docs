@@ -1,5 +1,9 @@
 ---
 title: Directionality
+feature:
+- name: Directionality
+  spa_version: 2.1
+  cx_version: 1905
 ---
 
 {% capture version_note %}

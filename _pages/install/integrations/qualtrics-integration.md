@@ -1,5 +1,9 @@
 ---
 title: Qualtrics Integration
+feature:
+- name: Qualtrics Integration
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}

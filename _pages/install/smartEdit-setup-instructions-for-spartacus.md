@@ -1,5 +1,9 @@
 ---
 title: SmartEdit Setup Instructions for Spartacus
+feature:
+- name: SmartEdit for Spartacus
+  spa_version: 1.0
+  cx_version: 1905
 ---
 
 {% capture version_note %}
