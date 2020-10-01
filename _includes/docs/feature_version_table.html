@@ -1,6 +1,5 @@
 {% capture feature_names %}
 {% for items in site.pages %}
-  
     {% for item in items.feature %}
       |{{ item.name }}::{{ item.spa_version }}::{{ item.cx_version }}::{{ items.url }}
     {% endfor %}
