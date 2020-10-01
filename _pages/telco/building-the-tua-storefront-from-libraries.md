@@ -192,7 +192,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    yarn start
    ```
   
-8. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/usd.
+8. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
 
 **Note:**
 
