@@ -1,8 +1,8 @@
 ---
-title: Building the Spartacus Storefront using 2.x Libraries
+title: Building the Spartacus Storefront using 3.x Libraries
 ---
 
-The following instructions describe how to build a storefront application using published Spartacus 2.x libraries. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+The following instructions describe how to build a storefront application using published Spartacus 3.x libraries. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ For a full list of available parameters please visit Spartacus schematics [docum
 
 ### Setting up the project using schematics ###
 
-To install the latest release of Spartacus 2.0 using schematics:
+To install the latest release of Spartacus 3.0 using schematics:
 
 ```bash
 ng add @spartacus/schematics
@@ -67,7 +67,7 @@ yarn install
 ```
 
 
-### Check app.module.ts for base URL and other settings ###
+### Check `app.module.ts` for base URL and other settings ###
 
 Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
 
