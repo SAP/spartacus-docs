@@ -16,7 +16,7 @@ The approach to browser support in Spartacus is as follows:
 Nonetheless, with a bit of effort, it is still possible to get Spartacus to work with older browsers. The following are some of the steps you can take to get an older browsers to work with Spartacus:
 
 - Configure the TypeScript compiler to transpile to the appropriate version of JavaScript.
-- Add JavaScript polyfills to provide some web features that are not added to older browsers.
+- Add JavaScript polyfills to provide some web features that are not included in older browsers.
 - Leverage PostCSS to (automatically) add vendor prefix style rules where browsers have not incorporated CSS standard syntax.
 
 ## Working with IE11
