@@ -2,7 +2,7 @@
 title: Building the TUA Spartacus Storefront from Libraries
 ---
 
-The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.x libraries.
+The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.1.0 libraries.
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
@@ -95,6 +95,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
       import { ConfigModule } from '@spartacus/core';
       import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
 
+
       @NgModule({
         declarations: [
           AppComponent
@@ -110,6 +111,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
               occ: {
                 baseUrl: 'https://localhost:9002',
                 prefix: '/rest/v2/'
+              },
+              tmf_appointment: {
+                baseUrl: 'http://localhost:8080',
+                prefix: '/tmf-api'
               }
             },
             context: {
@@ -167,7 +172,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@spartacus/styles": "~1.5.0",
     "@spartacus/storefront": "~1.5.0",
     "@spartacus/assets": "~1.5.0",
-    "@spartacus/tua-spa": "~1.0.0",
+    "@spartacus/tua-spa": "~1.1.0",
+    "ng2-charts": "^2.3.2",
+    "chart.js": "^2.9.3",
+    "ngx-spinner": "^8.0.3"
 
    ```
 
