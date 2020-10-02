@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for f in features_array %}
+      {% for f in features_array offset:1 %}
         {% assign feat_name_versions = f | split: '::' %}
             <tr>
               <td><a href="{{ feat_name_versions[3] }}">{{ feat_name_versions[0] }}</a></td>
@@ -24,4 +24,8 @@
               <td style="text-align:center">{{ feat_name_versions[2] }}</td>
             </tr>
       {% endfor %}
+    </tbody>
+</table>    
+
+
       
