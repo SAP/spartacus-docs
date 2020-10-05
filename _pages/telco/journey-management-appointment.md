@@ -31,10 +31,11 @@ This feature also enables the TUA SPA Storefront to showcase the end-to-end inte
 
 To setup soapUI to test Appointment reference feature, follow the steps:
 
-1. Download soapUI, version 5.6.0 from [https://www.soapui.org/downloads/latest-release/](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
-2. Click **Import** icon on the soapUI toolbar. The `Select soapUI Project` File dialog box opens.
-3. Navigate to the `mock_services` directory of the spa code repository and click the **AppointmentRestAPIMock-soapui-project.xml** file. For example, `C:\tmu-spa-utilities\mock_services` and import this file in to the soapUI. The `AppointmentRestAPIMock-soapui-project.xml` file is successfully imported in to the soapUI.
-4. Right-click **Appointment** and then click **Start Minimized**. When the mock service is up, you can see that the Appointment mock service is also up and running on port 8080.
+1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
+2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services` ZIP.
+3. Extract the `mock_services` ZIP. The content of the ZIP when extracted is the `AppointmentRestAPIMock-soapui-project.xml` file.
+4. Click **Import** icon on the soapUI toolbar. The `Select soapUI Project` File dialog box opens. Import the  `AppointmentRestAPIMock-soapui-project.xml` file into the soapUI.
+5. Right-click **Appointment** and then click **Start Minimized**. When the mock service is up, you can see that the Appointment mock service is also up and running.
 
 ## Business Use Cases
 
@@ -79,13 +80,13 @@ The following business use cases are covered:
 
 The checklist policy is configured by the Product Manager in the Backoffice to have the `Select a suitable time for an appointment` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
-## Configuring and Enabling the Appointment Reference
+<!--## Configuring and Enabling the Appointment Reference
 
-To configure and enable the appointment reference from the Backoffice, see.
+To configure and enable the appointment reference from the Backoffice, see.-->
 
 ## TM Forum APIs
 
-| API Name          	| API endpoint                         	| Description                                                                                                                                                                                	|
+| API Name          	| API Endpoint                         	| Description                                                                                                                                                                                	|
 |--------------------------------------	|----------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | Tmf Resources#TMF-ChecklistActionAPI 	| /checklistAction                 	| Shows applicable list of checklist policies   for product offering                                                                                                                         	|
 | TMF-646   (version 2.0.0)            	| POST appointment/searchTimeSlot  	| This operation creates a search time slot   entity. According to a set of criteria, it is used to retrieve available time   slots that are used after to book or reschedule an appointment 	|
@@ -98,6 +99,8 @@ For more information, see [TM Forum APIs
 
 ## Components
 
+Following are the new and updates Angular components:
+
 | Angular Component   Name             | Status  | Description                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
 | JourneyChecklistStepComponent        | New     | A stepper component that renders the checklist components                                                                          |
@@ -107,12 +110,9 @@ For more information, see [TM Forum APIs
 | TmaCartTotalsComponent               | Updated | Displays cart total, and the **Proceed to checkout** button, which is   disabled in case of appointment errors or cancelled state  |
 | TmaPlaceOrderComponent               | New     | Displays the **Place order** button, which is disabled in case of   appointment errors or cancelled state                          |
 
-
 ## Further Reading
 
 For further reading, see the following topics in the TUA Help portal.
 
 - [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
 - [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html)
-
-<!--Obtain details of the components zip from Siva-->
