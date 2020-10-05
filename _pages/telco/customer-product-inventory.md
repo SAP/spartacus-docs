@@ -9,12 +9,10 @@ title: Customer Product Inventory (CPI)
 - [Overview](#overview)
 - [Navigation Flow](#navigation-flow)
 - [Business Use Cases](#business-use-cases)
-- [Angular Development Environment](#angular-development-environment)
 - [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
 - [Supported Backend Functionality](#supported-backend-functionality)
 - [TM Forum APIs](#tm-forum-apis)
 - [Components](#components)
-- [Configuring and Enabling Customer Product Inventory](#configuring-and-enabling-customer-product-inventory)
 - [Further Reading](#further-reading)
 
 ## Overview
@@ -42,7 +40,7 @@ From the **Account** menu drop-down, click **Subscriptions**. All subscriptions 
 1. From the **Account** menu drop-down, click **Subscriptions**. All subscriptions are displayed.
 2. Click the header that shows the subscriber ID. For example, **1040123111111**. The subscribed products are displayed in a tile format.
 
-**Note:** The subscriptions owner will see all subscription information, including contract information and pricing details. However, the subscriptions beneficiary will see limited subscriptions information. For example, no contract duration and pricing details will be displayed. For more information on the backend configuration, see [Configuring and Enabling Customer Product Inventory](#configuring-and-enabling-customer-product-inventory).
+**Note:** The subscriptions owner will see all subscription information, including contract information and pricing details. However, the subscriptions beneficiary will see limited subscriptions information. For example, no contract duration and pricing details will be displayed. 
 
 <!--**Subscriptions Owner**
 
@@ -69,30 +67,6 @@ From the **Account** menu drop-down, click **Subscriptions**. All subscriptions 
 **Note:** The graphical representation of the usage consumption in the pie charts is displayed in a grid or a tabular format.
 
 <!--<p align="center"><img src="/assets/images/telco/tabular-format.png"></p>-->
-
-## Angular Development Environment
-
-Your Angular development environment should include the following:
-
-1. Install `ng2-charts` using npm.
-
-     ```bash
-     $ npm install --save ng2-charts
-     ```
-2. Install the `Chart.js` library using npm.
-
-     ```bash
-     $ npm install --save chart.js
-     ```
-Usage:
-
-```json
-import { ChartsModule } from 'ng2-charts';
-    // In your App's module:
-    imports: [
-      ChartsModule
-    ]
- ```
 
 ## Frontend and Backend Dependencies
 
@@ -137,13 +111,8 @@ The following new components are updated:
 | CartItemRecurringChargeComponent  	| New    	| Displays recurring charges for the cart entry                                                                                       	|
 | CartItemUsageChargeComponent      	| New    	| Displays usage charges for the cart entry                                                                                           	|
 
-## Configuring and Enabling Customer Product Inventory
-
-For more information, see [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help portal.
-
 ## Further Reading
 
-Consult the TUA Help Portal for more information on the following topics:
-
-- [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html)
+- [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) 
 - [Subscribed Services and Usage](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html)
+- [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html)
