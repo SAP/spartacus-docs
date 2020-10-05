@@ -4,7 +4,7 @@ title: Installing SAP Commerce for use with TUA Spartacus
 
 The following instructions describe how to install and configure SAP Commerce (release 1905) with Telco & Utilities Accelerator (release 2003, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
 
-The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use you own sample data or recipe as long as it includes the `cmsoccaddon`, `ycommercewebservices`, `acceleratorwebservicesaddon` extensions and TUA module.
+The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsoccaddon`, `ycommercewebservices`, `acceleratorwebservicesaddon` extensions and TUA module.
 
 **Note:** If you are trying out TUA Spartacus for the first time and intend to use the default sample data, you must use the TUA Spartacus Sample Data store extension (should be part of your list of extensions). The TUA Spartacus Sample Data is a set of data (product offerings and content) for the telco industry.
 
