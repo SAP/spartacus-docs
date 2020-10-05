@@ -3,7 +3,7 @@ title: Cancellations and Returns
 feature:
 - name: Cancellations and Returns
   spa_version: 1.4
-  cx_version: 1905
+  cx_version: 2005
 ---
 
 {% capture version_note %}

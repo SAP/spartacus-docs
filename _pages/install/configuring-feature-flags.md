@@ -3,7 +3,7 @@ title: Configuring Feature Flags
 feature:
 - name: Feature Flags
   spa_version: 1.1
-  cx_version: 1905
+  cx_version: Any version
 ---
 
 {% capture version_note %}
