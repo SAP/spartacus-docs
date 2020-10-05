@@ -31,7 +31,7 @@ Spartacus libraries will be integrated with SAP Cloud Platform Extension Factory
 
 ### Which browsers does Spartacus support?
 
-Spartacus supports evergreen web browsers. However, there are ways to support older browsers with custom implementations. For more information, see [Web Browser Support]({{ site.baseurl }}{% link _pages/install/browser-support.md %}).
+Spartacus actively supports evergreen web browsers. Non-evergreen browsers that support the same standards as evergreen browsers will typically work as well. For older browsers that do not support these standards, you can add the necessary support with custom implementations. For more information, see [Web Browser Support]({{ site.baseurl }}{% link _pages/install/browser-support.md %}).
 
 ### How does Spartacus compare to the SAP Commerce Cloud Accelerators?
 
