@@ -3,7 +3,7 @@ title: Structured Data
 feature:
 - name: Structured Data
   spa_version: 1.3
-  cx_version: 1905
+  cx_version: Any version
 ---
 
 {% capture version_note %}

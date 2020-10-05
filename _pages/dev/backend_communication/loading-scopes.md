@@ -3,7 +3,7 @@ title: Using Loading Scopes
 feature:
 - name: Loading Scopes
   spa_version: 1.4
-  cx_version: 1905
+  cx_version: Any version
 ---
 
 {% capture version_note %}

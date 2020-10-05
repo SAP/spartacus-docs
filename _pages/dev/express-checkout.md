@@ -3,7 +3,7 @@ title: Express Checkout
 feature:
 - name: Express Checkout
   spa_version: 1.2
-  cx_version: 1905
+  cx_version: Any version
 ---
 
 {% capture version_note %}
