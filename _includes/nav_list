@@ -19,7 +19,40 @@
                                 {% if child.subchildren[0] %}
                                     {% for underchild in subchild.underchildren %}
                                         {% if subchild.underchildren[0] %}
+                                            {% if underchild.url == page.url %}
+                                                {% for child in nav.children %}
+                                                    <li><a href="{{ child.url }}">{{ child.title }}</a>
+                                                        {% if child.subchildren[0] %}
+                                                            <ul>
+                                                                {% for subchild in child.subchildren %}
+                                                                    {% if subchild.underchildren[0] %}
+                                                                        <li><a href="{{ subchild.url }}">{{ subchild.title }}</a>
+                                                                            {% for underchild in subchild.underchildren %}
+                                                                                {% if underchild.url == page.url %}
+                                                                                    {% for underchild in subchild.underchildren %}
 
+                                                                                        {% comment %} set "active" class on current page {% endcomment %}
+                                                                                        {% if underchild.url == page.url %}
+                                                                                            {% assign active = "active" %}
+                                                                                        {% else %}
+                                                                                            {% assign active = "" %}
+                                                                                        {% endif %}
+
+                                                                                        <ul>
+                                                                                            <li><a href="{{ underchild.url }}" class="{{ active }}">{{ underchild.title }}</a></li>
+                                                                                        </ul>
+
+                                                                                     {% endfor %}
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                        </li>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+                                            {% endif %}
                                         {% endif %}
                                     {% endfor %}
                                 {% endif %}
@@ -40,7 +73,17 @@
                                                               {% assign active = "" %}
                                                              {% endif %}
 
-                                                                <li><a href="{{ subchild.url }}" class="{{ active }}">{{ subchild.title }}</a></li>
+                                                                <li><a href="{{ subchild.url }}" class="{{ active }}">{{ subchild.title }}</a>
+                                                                    {% for underchild in subchild.underchildren %}
+                                                                        {% if subchild.underchildren[0] %}
+                                                                            <ul>
+                                                                                {% if subchild.url == page.url %}
+                                                                                    <li><a href="{{ underchild.url }}">{{ underchild.title }}</a></li>
+                                                                                {% endif %}  
+                                                                            </ul>
+                                                                        {% endif %}
+                                                                    {% endfor %}    
+                                                                </li>
                                                             {% endfor %}
                                                         {% endif %}  
                                                     {% endfor %}
