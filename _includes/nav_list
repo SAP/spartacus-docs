@@ -15,6 +15,15 @@
                     {% if child.subchildren[0] %}
                         <ul>
                             {% for subchild in child.subchildren %}
+
+                                {% if child.subchildren[0] %}
+                                    {% for underchild in subchild.underchildren %}
+                                        {% if subchild.underchildren[0] %}
+
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+
                                 {% if subchild.url == page.url %}
                                     {% for child in nav.children %}
                                         <li><a href="{{ child.url }}">{{ child.title }}</a>
