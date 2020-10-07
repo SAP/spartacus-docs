@@ -1,5 +1,9 @@
 ---
 title: Early Login
+feature:
+- name: Early Login
+  spa_version: 1.2
+  cx_version: Any version
 ---
 
 {% capture version_note %}

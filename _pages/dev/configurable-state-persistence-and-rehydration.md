@@ -92,13 +92,10 @@ ConfigModule.withConfig({
   state: {
     ssrTransfer: {
       keys: {
-        products: true,
-        cms: {
-          page: true,
-          navigation: true
-        }
-      }
-    }
+        products: StateTransferType.TRANSFER_STATE,
+        cms: StateTransferType.TRANSFER_STATE,
+      },
+    },
   }
 });
 ```
