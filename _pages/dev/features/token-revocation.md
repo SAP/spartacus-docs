@@ -36,7 +36,7 @@ Under the hood, a back end that does not support token revocation returns an HTT
 
 ## Enabling Token Revocation
 
-Token revocation is enabled by default in Spartacus version 1.4 or newer.
+Token revocation is automatically enabled in Spartacus version 1.4 or newer. It cannot be disabled.
 
 ## Configuring
 
