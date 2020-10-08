@@ -93,19 +93,9 @@ The checklist policy is configured by the Product Manager in the Backoffice to h
 
 ## Configuring and Enabling MSISDN
 
-To configure and enable MSISDN reference from the Backoffice, follow the steps:
+The checklist policy is configured by the Product Manager in the Backoffice to have the `Select your desired Phone number` screen displayed to the customers to select the phone number, before adding the product or the service offering to the cart.
 
-1. Log in to the **Backoffice**.
-2. Navigate to **Catalog > Conditional Policies > Policy Statement > Checklist Action Statement > Configurable Psc Checklist Action Statement**. The `Checklist action type` component is displayed.
-3. Click **Checklist action type**. The details are displayed in the following pane.
-4. In the **PROPERTIES** tab:
-    - In the **Checklist action type**, select `MSISDN`.
-    - In the **Product Specification Characteristic**, select either the staged or online catalog.
-5. In the **Product Offering**, select the product offering for configuring the MSISDN.
-
-<!--For more information, see.-->
-
-<!--The checklist policy is configured by the Product Manager in the Backoffice to have the `Select your desired Phone Number` screen is displayed to the customers to select the desired phone number, before adding the product or the service offering to the cart. For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).-->
+To configure and enable MSISDN reference from the Backoffice, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## TM Forum APIs
 
