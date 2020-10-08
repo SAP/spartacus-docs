@@ -117,7 +117,7 @@ Represents individual control.
 The FieldConfig contains the following properties:
 - name - Sets control name
 - required - Defines if control is required
-- disabled - Defines if control is disabled (Disabled fields are not submitted to back-end)
+- disabled - Defines if control is disabled (disabled fields are not submitted to back-end)
 - [label](#localizedstring) - Defines control label (supports localization)
 - options - Defines available options for the following input types: dropdown, radio button, checkbox
 - cssClass - Enables adding unique CSS class to the form control. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
