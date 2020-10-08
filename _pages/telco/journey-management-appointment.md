@@ -11,7 +11,6 @@ title: Journey Management - Appointment Reference
 - [Business Use Cases](#business-use-cases)
 - [End-to-end Journey](#end-to-end-journey)
 - [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Supported Backend Functionality](#supported-backend-functionality)
 - [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference)
 - [TM Forum APIs](#tm-forum-apis)
 - [Components](#components)
@@ -76,13 +75,11 @@ The following business use cases are covered:
 | Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
 | Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
 
-## Supported Backend Functionality
+## Configuring and Enabling the Appointment Reference
 
-The checklist policy is configured by the Product Manager in the Backoffice to have the `Select a suitable time for an appointment` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+The checklist policy is configured by the Product Manager in the Backoffice to have the `Select a suitable time for an appointment` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart.
 
-<!--## Configuring and Enabling the Appointment Reference
-
-To configure and enable the appointment reference from the Backoffice, see.-->
+To configure and enable the Appointment reference from the Backoffice, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## TM Forum APIs
 
@@ -115,4 +112,4 @@ Following are the new and updates Angular components:
 For further reading, see the following topics in the TUA Help portal.
 
 - [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
-- [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html)
+- [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).
