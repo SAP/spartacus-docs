@@ -8,6 +8,41 @@ _Last updated October 8, 2020 by Bill Marcotte, Senior Product Manager, Spartacu
 
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}). For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
 
+## Release 3.0.0-next.3 - October 8th, 2020
+
+We're happy to announce that support for the SAP Commerce Cloud B2B Scheduled Replenishment feature has been released!
+
+You can set up Spartacus 3.0.0-next.3 with B2B Scheduled Replenishment by following these steps:
+
+1. Make sure Angular 10 is installed.
+2. Create a new Angular app: `ng new mystore --style=scss`
+3. Change to the `mystore` directory: `cd mystore`
+4. Add Spartacus schematics using the most recent `next` release: `ng add @spartacus/schematics@next`
+
+Then there are some slight edits needed, as follows:
+
+1. In `package.json`, add the following entries to the dependencies section:
+
+    ```plaintext
+    "@spartacus/my-account": "^3.0.0-next.3",
+    "@spartacus/setup": "^3.0.0-next.3",
+    ```
+
+2. In `src/app/app.module.ts`, make the following changes:
+
+    - Change the `import { B2c...` line to `import {  B2bStorefrontModule } from '@spartacus/setup';`
+    - Change `B2cStorefrontModule.withConfig({` to B2B: `B2bStorefrontModule.withConfig({`
+    - Set the base URL to point to your Powertools store OCC API server
+    - Set the OCC prefix (usually `/occ/v2/` for version 2005 of SAP Commerce Cloud)
+    - Update the context definition to include powertools, such as in the following example: `context: {urlParameters: ['baseSite', 'language', 'currency'], baseSite: ['powertools-spa'], language: ['en'], currency: ['USD']},`
+3. In `src/styles.scss`, add the line: `@import '~@spartacus/my-account/index';`
+4. Run `yarn install`.
+5. Run `yarn start`.
+
+For the final release, most of these setup steps will be taken care of by the installer.
+
+For more information on scheduled replenishment, see [B2B Checkout and Order Process](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac2500f8669101493e69e1392b970fd.html) on the SAP Help Portal. The "Scheduling a Replenishment Order" section is toward the end of the page.
+
 ## Release 3.0.0-next.2 - October 5th, 2020
 
 We're happy to announce that the B2B Commerce Organization feature has been released!
@@ -34,7 +69,7 @@ Then there are some slight edits needed, as follows:
 
     - Change the `import { B2c...` line to `import {  B2bStorefrontModule } from '@spartacus/setup';`
     - Change `B2cStorefrontModule.withConfig({` to B2B: `B2bStorefrontModule.withConfig({`
-    - Set the base URL to point to your Powertools store OCC API    server
+    - Set the base URL to point to your Powertools store OCC API server
     - Set the OCC prefix (usually `/occ/v2/` for version 2005 of SAP Commerce Cloud)
     - Update the context definition to include powertools, such as in the following example: `context: {urlParameters: ['baseSite', 'language', 'currency'], baseSite: ['powertools-spa'], language: ['en'], currency: ['USD']},`
 3. In `src/styles.scss`, add the line: `@import '~@spartacus/my-account/index';`
