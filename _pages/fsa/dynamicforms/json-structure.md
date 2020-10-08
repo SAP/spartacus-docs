@@ -13,7 +13,8 @@ export interface FormDefinition {
   formGroups: DynamicFormGroup[];
   formId: string;
   cssClass?: string;
-}
+}   
+
 export interface DynamicFormGroup {
   groupCode?: string;
   fieldConfigs: FieldConfig[];
@@ -44,10 +45,12 @@ export interface FieldConfig {
   maxFileSize?: number;
   multiple?: boolean;
 }
+
 export interface DependsOn {
   hide?: boolean;
   controls?: ControlDependency[];
 }
+
 export interface ApiConfig {
   url: string;
   param?: string;
@@ -85,16 +88,18 @@ export interface FieldOption {
 }
 
 ```
-Now we will try to explain interface structure in more details:
+More details about interface structure can be found below:
 
 ## FormDefinition 
-Represents top level entity which hold group of form field
+Represents top level entity which hold group of form field.
+The FormDefinition contains the following properties:
 - [formGroups](#dynamicformgroup) - Defines array of form groups
 - formId - Attaches ID to the form
-- cssClass - Enables adding unique CSS class to the form wrapper. More info can be found [Here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
+- cssClass - Enables adding unique CSS class to the form wrapper. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
 
 ## DynamicFormGroup
-Represents group of form controls
+Represents group of form controls.
+The DynamicFormGroup contains the following properties:
 - groupCode - Adds name to the form group which can be found in payload on form submit. In this example of submitted form data object, we can see that form controls are wrapped in two form groups:
 ```typescript
 groupOne: 
@@ -103,52 +108,58 @@ groupTwo:
     control2: "2020-12-31"
     control3: "YEARLY"
 ```
-- fieldConfigs - Array of controls in this form group
-- cssClass - Enables adding unique CSS class to the form group wrapper. More info can be found [Here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
+- fieldConfigs - Array of controls in this form group.
+- cssClass - Enables adding unique CSS class to the form group wrapper. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
 - dependsOn - With this property, we can define whole group`s visibility by defining control name on which group depends on.
 
 ## FieldConfig
-Represents individual control
+Represents individual control.
+The FieldConfig contains the following properties:
 - name - Sets control name
 - required - Defines if control is required
-- disabled - Defines if control is disabled ( Disabled fields are not picked up on submit )
-- [label](#localizedstring) - Defines control label ( supports localization)
-- options - Defines select`s, radio buttons etc.. options
-- cssClass - Enables adding unique CSS class to the form control. More info can be found [Here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
-- gridClass - Enables adding Bootstrap class to the form control to create a grid behaviour in the form. More info can be found [Here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
+- disabled - Defines if control is disabled (Disabled fields are not submitted to back-end)
+- [label](#localizedstring) - Defines control label (supports localization)
+- options - Defines available options for the following input types: dropdown, radio button, checkbox
+- cssClass - Enables adding unique CSS class to the form control. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
+- gridClass - Enables adding Bootstrap class to the form control to create a grid behaviour in the form. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
 - apiValue - Used with 'dynamicSelect' controll type, to fetch options dynamically from defined URL
-- placeholder - Sets control placeholder text
-- fieldType - Defines type of the field
+- placeholder - Sets control placeholder text (if applicable)
+- fieldType - Defines type of the field (input, select, radio button, checkbox, datepicker, separator etc..)
 - value - Sets default value to control
-- hidden - If set to true, control will be rendered but not visible on the page 
-- [error](#localizedstring) - Defines localized error message fot this control
+- hidden - If set to true, control will be available in DOM but not visible on the page
+- [error](#localizedstring) - Defines localized error message for this control
 - validations - Defines validations 
 - [dependsOn](#dependson) - Here we can define if our control should be visible depending on other controls value
-- [prefillValue](#prefillvalue) - Defines if field should be pre-filled with some data ( user, cart data from SPA store )
-- readonly - Sets readonly property 
+- [prefillValue](#prefillvalue) - Defines if field should be pre-filled with some data (user, cart data from SPA store)
+- readonly - Sets readonly property on the control (Disables control on UI, control data is submitted to back-end)
 - maxUploads - File upload property, sets maximum number of files
 - accept - File upload property, sets accepted file types
 - maxFileSize - File upload property, sets maximum file size 
 - multiple - File upload property, sets if multiple uploads are allowed
 
 ## LocalizedString
+The LocalizedString contains the following properties:
 - default - Sets default label if no match is found for current language
 - [lang: string] - Sets label for specific language
 
 ## DependsOn
-Represents configuration for defining dependency behavior 
+Represents configuration for defining dependency behavior.
+The DependsOn contains the following properties:
 - hide - Defines if dependant control/group should be hidden on the page
 - [controls](#controldependency) - Defines a list of controls and conditions on which control depends on
 
 ## ControlDependency
+The ControlDependency contains the following properties:
 - controlName - Control name on which we depend
 - [conditions](#validatorfunction) - Array of validator functions where conditions are defined
 
 ## ValidatorFunction
+The ValidatorFunction contains the following properties:
 - name - Name of the validator function
 - arguments - List of argument strings 
 
 ## PrefillValue
+The PrefillValue contains the following properties:
 - targetObject - Targets SPA state object ( cart, user...)
 - targetValue - Targets a specific property in that object
 
@@ -163,10 +174,27 @@ Current user first name is required for control prefill. We would configure Pref
 ```
 
 ## ApiConfig
+The ApiConfig contains the following properties:
 - url - Defines API url
 - param - Defines parameters for this API call
 
+Example of "dynamic-select" component that uses ApiConfig to receive options from external service:
+
+```typescript
+{
+    "fieldType": "dynamicSelect",
+    "apiValue": {
+    "url": "/catalogs/financialProductCatalog/valueLists/autoVehicleModel",
+    "param": "vehicleMake"
+    },
+    "name": "vehicleModel",
+    "required": true
+}
+```
+
+
 ## FieldOption 
+The FieldOption contains the following properties:
 - name - Name of the option
 - label - Label for the option
 - selected - Sets default selected option if set to true
@@ -470,3 +498,6 @@ In code snipped below you can find one example of form definition used to collec
   ]
 }
 ```
+## How it looks when rendered on UI:
+
+![rendered form on ui]({{ site.baseurl }}/assets/images/fsa/dynamicforms_ui_form.png)
