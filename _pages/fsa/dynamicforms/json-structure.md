@@ -160,7 +160,7 @@ The ValidatorFunction contains the following properties:
 
 ## PrefillValue
 The PrefillValue contains the following properties:
-- targetObject - Targets SPA state object ( cart, user...)
+- targetObject - Targets SPA state object (cart, user...)
 - targetValue - Targets a specific property in that object
 
 Example:
