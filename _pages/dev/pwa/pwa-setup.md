@@ -25,7 +25,7 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
     Adding the dependency using `ng add @spartacus/schematics --pwa` also triggers the angular PWA schematic, which automatically does the following:
 
     - creates default PWA configuration files
-    - create the service worker configuration file - `ngsw-config.json`
+    - creates the service worker configuration file - `ngsw-config.json`
     - creates icons
     - updates the `angular.json` file to include PWA related resources in your build
     - updates project files for PWA readiness.
