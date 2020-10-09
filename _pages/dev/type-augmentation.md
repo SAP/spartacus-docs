@@ -1,7 +1,7 @@
 ---
-title: Type augmentation
+title: Extending build-in models
 feature:
-  - name: Type augmentation
+  - name: Extending build-in models
     spa_version: 3.0
     cx_version: Any version
 ---
@@ -25,7 +25,7 @@ export interface CostCenter {
 }
 ```
 
-In core library in our file defining public API `public_api.ts` we export models directly (no reexport).
+In core library in our file defining public API `public_api.ts` we export models directly (no reexport). Note: this is required, because of the current limitation of Typescript: [#9532](https://github.com/microsoft/TypeScript/issues/9532) and [#18877](https://github.com/microsoft/TypeScript/issues/18877)
 
 ```ts
 export { CostCenter } from './src/model/org-unit.model';
