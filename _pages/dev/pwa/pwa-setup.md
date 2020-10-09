@@ -12,22 +12,22 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
     ng add @spartacus/schematics --pwa
     ```
 
-    **Note:** The command works regardless if you already have Spartacus installed.
+    **Note:** The command works even if you already have Spartacus installed.
 
     **Note:** If you have more than one project in your workspace, use the `--project` flag to add PWA to your main project.
 
-    **Note:** If you already have the `@angular/pwa` dependency, do the following:
+    If you already have the `@angular/pwa` dependency, do the following:
 
     - remove the `@angular/pwa` dependency from `package.json`
     - run `yarn` to remove the dependencies from your app
-    - run `ng add @spartacus/schematics --pwa`.
+    - run `ng add @spartacus/schematics --pwa`
 
     Adding the dependency using `ng add @spartacus/schematics --pwa` also triggers the angular PWA schematic, which automatically does the following:
 
     - creates default PWA configuration files
-    - creates the service worker configuration file - `ngsw-config.json`
+    - creates the `ngsw-config.json` service worker configuration file
     - creates icons
-    - updates the `angular.json` file to include PWA related resources in your build
+    - updates the `angular.json` file to include PWA-related resources in your build
     - updates project files for PWA readiness.
 
 2. Build your app in `prod` mode, as follows:
@@ -38,7 +38,7 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
 
     The build generates the required files to register your service worker and serve your app in PWA mode.
 
-    **Note:** The Spartacus PWA module assumes a `production===true` flag, which is set using the `environment.production` file. This setting needs to be set manually by customers.
+    **Note:** The Spartacus PWA module assumes a `production===true` flag, which is set using the `environment.production` file. You need to manually set this setting.
 
 3. Deploy and serve your app using an HTTP server.
 
