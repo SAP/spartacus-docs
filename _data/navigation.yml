@@ -161,6 +161,8 @@ docs:
                   url: /pagination/  
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
+          - title: "Extending Built-In Models"
+            url: /type-augmentation/        
           - title: "Lazy Loading Guide"
             url: /lazy-loading-guide/
           - title: "Extending Checkout"
