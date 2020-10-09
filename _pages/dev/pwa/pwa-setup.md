@@ -9,8 +9,10 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
 1. Add the Angular PWA dependency to your shell app, as follows:
 
     ```bash
-    ng add @angular/pwa
+    ng add @spartacus/schematics --pwa
     ```
+
+    **Note:** The command works regardless if you already have Spartacus installed.
 
     **Note:** If you have more than one project in your workspace, use the `--project` flag to add PWA to your main project.
 
@@ -18,33 +20,17 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
 
     - remove the `@angular/pwa` dependency from `package.json`
     - run `yarn` to remove the dependencies from your app
-    - reinstall the dependencies again using `ng`.
+    - run `ng add @spartacus/schematics --pwa`.
 
-    Adding the dependency using `ng` also triggers the angular PWA schematic, which automatically does the following:
+    Adding the dependency using `ng add @spartacus/schematics --pwa` also triggers the angular PWA schematic, which automatically does the following:
 
     - creates default PWA configuration files
+    - create the service worker configuration file - `ngsw-config.json`
     - creates icons
     - updates the `angular.json` file to include PWA related resources in your build
     - updates project files for PWA readiness.
 
-2. Update your `ngsw-config.json`, as follows:
-
-    ```json
-    {
-      "index": "/index.html",
-      "assetGroups": [
-        {
-          "name": "app",
-          "installMode": "prefetch",
-          "resources": {
-            "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js"]
-          }
-        }
-      ]
-    }
-    ```
-
-3. Build your app in `prod` mode, as follows:
+2. Build your app in `prod` mode, as follows:
 
     ```bash
     ng build --prod
@@ -54,7 +40,7 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
 
     **Note:** The Spartacus PWA module assumes a `production===true` flag, which is set using the `environment.production` file. This setting needs to be set manually by customers.
 
-4. Deploy and serve your app using an HTTP server.
+3. Deploy and serve your app using an HTTP server.
 
     For testing purposes, we recommend that you install [http-server](https://www.npmjs.com/package/http-server) as a dev dependency, and that you serve the app using `http-server ./dist/your-app`
 
