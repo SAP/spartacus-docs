@@ -2,6 +2,8 @@
 title: Spartacussampledataaddon AddOn
 ---
 
+**Note:** The `spartacussampledataaddon` AddOn should only be used with SAP Commerce 1905. If you are using SAP Commerce 2005 or newer, you should use the `spartacussampledata` extension that has been updated specifically for newer versions of SAP Commerce. For more information, see [Spartacus Sample Data Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
+
 The `spartacussampledataaddon` AddOn creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs that have been modified specifically for Spartacus requirements.
 
 You can download the Spartacus Sample Data AddOn from the [Spartacus Releases page](https://github.com/SAP/spartacus/releases).
