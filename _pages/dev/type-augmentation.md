@@ -12,11 +12,13 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-TypeScript gives developers a lot of confidence and safety, and speeds up development and library discovery. Where possible, Spartacus leverages the possibilities offered by TypeScript to provide a better developer experience. With Spartacus 2.1, you can take advantage of type augmentation.
+TypeScript gives developers a lot of confidence and safety, and speeds up development and library discovery. Where possible, Spartacus leverages the possibilities offered by TypeScript to provide a better developer experience. With Spartacus 2.1, you can take advantage of TypeScript's type augmentation capabilities.
 
-Spartacus has already typed most of the common objects that are used across the whole codebase, such as `Cart` and `Product` (and many more). However, the shape of these models was defined by Spartacus, which prevented you from adding properties to defined models. This could lead to difficulties working with the extra fields you may have needed in your customizations.
+Spartacus has already typed most of the common objects that are used across the whole codebase, such as `Cart` and `Product` (and many more). However, the shape of these models was defined by Spartacus, which prevented you from adding properties to already-defined models. This could lead to difficulties working with the extra fields you may have needed in your customizations.
 
-In future releases of Spartacus, more top-level exports will be added, which will allow you to augment them. For more information, see [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) in the TypeScript documentation.
+In future releases of Spartacus, more top-level exports will be added, which will allow you to augment them.
+
+For more information about type augmentation in general, see [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) in the TypeScript documentation.
 
 ## Exporting Type for Augmentation
 
@@ -31,19 +33,21 @@ export interface CostCenter {
 }
 ```
 
-In the core library, in the file that defines the public API (that is, `public_api.ts`), Spartacus exports models directly, meaning there is no re-export. The following is an example:
+In the core library, in the `projects/core/public_api.ts` file that defines the public API, Spartacus exports models directly, meaning there is no re-export. The following is an example:
 
 ```ts
 export { CostCenter } from './src/model/org-unit.model';
 ```
 
+That is all that is required to expose the model for augmentation.
+
 **Note:** This approach is required because of the current limitations of Typescript. See TypeScipt issues [#9532](https://github.com/microsoft/TypeScript/issues/9532) and [#18877](https://github.com/microsoft/TypeScript/issues/18877) for more information.
 
-That is all that is required to expose the model for augmentation. Feel free to submit issues and pull requests indicating models that you would like to expose for augmentation.
+**Note:** If there are models that you would like to expose for augmentation, you can submit issues and pull requests indicating which models you would like to expose.
 
 ## Augmenting Modules
 
-Now that the `CostCenter` can be augmented, you can alter the shape a bit to fit your requirements. Let's say you also need to display the `originalCode` field to users. You have already adjusted the endpoint configuration and entity normalizers, but TypeScript still does not automatically suggests that this key is also present on that model. To add it to the TypeScript type, you have to declare a new property on a `CostCenter` module. The following is an example:
+Now that the `CostCenter` can be augmented, you can alter its shape to fit your requirements. Let's say you need to display the `originalCode` field to users. Even if you have already adjusted the endpoint configuration and entity normalizers, TypeScript still does not automatically suggest that the `originalCode` key is also present on that model. To add it to the TypeScript type, you have to declare a new property on a `CostCenter` module. The following is an example:
 
 ```ts
 declare module '@spartacus/core' {
@@ -53,23 +57,21 @@ declare module '@spartacus/core' {
 }
 ```
 
-In the above example, the `@spartacus/core` module name must be set according to the same value that you use to reference the type. You import the type with the following line:
+The module name `@spartacus/core` must be set according to the same value that you use to reference the type. In this case, the module is `@spartacus/core`, and you import the type as follows:
 
 ```ts
-import { CostCenter } from "@spartacus/core"
+import { CostCenter } from '@spartacus/core'
 ```
 
-Accordingly, the module is `@spartacus/core`.
+From now on, when you work on an object of type `CostCenter`, the TypeScript compiler will suggest the `originalCode` property in autocomplete, and will allow you to define objects on this type normally, without having to hack the TypeScript with `as CostCenter` declarations.
 
-From now on, when you work on an object of type `CostCenter`, the TypeScript compiler will suggest this property in autocomplete, and will allow you to normally define objects on this type without hacking the TypeScript with `as CostCenter` declarations.
-
-**Note:** Only add optional properties to the module when you augment it. Do not add required properties. New objects of this type may be constructed in the library code, and then you will get errors from the TypeScript compiler that there are missing properties in objects of augmented type.
+**Note:** You should only add optional properties to a module when you augment it. Do not add required properties because new objects of this type may be constructed in the library code, and then you will get errors from the TypeScript compiler that there are missing properties in objects of augmented type.
 
 ## Augmentation in Feature Libraries
 
-You can also apply module augmentation techniques for feature libraries. To take an example from the Spartacus development team, we needed a `CostCenter` object for the `@spartacus/my-account` library and the `OrganizationModule`. However, we needed more properties than were defined in the `@spartacus/core` library.
+You can also apply module augmentation techniques to feature libraries. To take an example from the Spartacus development team, we needed a `CostCenter` object for the `@spartacus/my-account` library and the `OrganizationModule`. However, we needed more properties than were defined in the `@spartacus/core` library.
 
-Accordingly, we created a new `cost-center.model.ts` file where we could apply module augmentation. As with regular module augmentation, all properties in feature libraries should be optional. The following is an example:
+Accordingly, we created a new `cost-center.model.ts` file where we could apply module augmentation. As with regular module augmentation, when augmenting a feature library, all properties should be optional. The following is an example:
 
 ```ts
 import { Currency } from '@spartacus/core';
@@ -82,12 +84,12 @@ declare module '@spartacus/core' {
 }
 ```
 
-Next, we needed to reference this file. In the file that exposes all the organization models that are in the public API, we added an import of this augmented model. The following is an example:
+Next, we needed to reference this file. In the file that exposes all the organization models that are in the public API (`feature-libs/my-account/organization/core/model/index.ts`), we added an import of this augmented model. The following is an example:
 
 ```ts
 import './cost-center.model';
 ```
 
-After that, you can then safely use new the properties in the `@spartacus/my-account` library, as well as in the app build based on this library. You can also augment the module in the app with your own properties. All these declarations are combined together, and in your application, you can use all the properties that are declared in `@spartacus/core`, `@spartacus/my-account`, and in your module augmentation.
+After that, anyone can safely use the new properties in the `@spartacus/my-account` library, as well as in the app build that is based on this library. You can also augment the module in the app with your own properties. All these declarations are combined together, and in your application, you can use all the properties that are declared in `@spartacus/core`, `@spartacus/my-account`, and in your module augmentation.
 
-In each module augmentation declaration, you use the module name of the library that exposes the base type.
+**Note:** In each module augmentation declaration, you use the module name of the library that exposes the base type.
