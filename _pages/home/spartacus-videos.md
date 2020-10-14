@@ -27,19 +27,10 @@ To see a list of all videos tagged "Spartacus", [click here](https://enable.cx.s
 - [SEO Features](https://enable.cx.sap.com/media/SEO+Features+-+SAP+Commerce+Cloud/1_wim5rixu) (3:43) (Technical: Beginner)
 - [Styling with Global Variables](https://enable.cx.sap.com/media/Styling+with+Global+Variables+-+SAP+Commerce+Cloud/1_eae1fztm) (4:19) (Technical: Beginner)
 - [Styling with Precise Selectors](https://enable.cx.sap.com/media/Styling+With+Precise+Selectors+-+SAP+Commerce+Cloud/1_ldqmajwd) (4:02) (Technical: Beginner)
-- [Move to Angular 9](https://enable.cx.sap.com/media/Move+to+Angular+9+-+Spartacus+-+SAP+Commerce+Cloud/1_a0svzeu4) (6:20) (Technical: Intermediate)
-- [Spartacus Angular Update Schematics](https://enable.cx.sap.com/media/Spartacus+Angular+Update+Schematics+-+SAP+Commerce+Cloud/1_nowks75s) (9:08) (Technical: Intermediate)
-- [Themes to Avoid Breaking Changes Before, During and After 2.0](https://enable.cx.sap.com/media/Themes+to+Avoid+Breaking+Changes+Before%2C+During+and+After+2.0+-+Spartacus+-+SAP+Commerce+Cloud/1_c8tas0ee) (7:37) (Technical: Intermediate)
 - [Introduction to Extendability with Outlets](https://enable.cx.sap.com/media/Introduction+to+Extendability+with+Outlets+-+SAP+Commerce+Cloud/1_wy2eg32x) (8:33) (Technical: Intermediate)
 - [How Spartacus Uses Backend Catalog and CMS Data](https://enable.cx.sap.com/media/How+Spartacus+Uses+Backend+Catalog+and+CMS+Data+-+SAP+Commerce+Cloud/1_8mmwx8ck) (10:05) (Technical: Intermediate)
-- [Connecting SmartEdit to a Spartacus Storefront](https://enable.cx.sap.com/media/Connecting+SmartEdit+to+a+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_f3oraeow) (4:02) (Technical: Intermediate)
-- [Server-Side Rendering Deep Dive](https://enable.cx.sap.com/media/SpartacusA+SSR+Deep+Dive+-+SAP+Commerce+Cloud/1_6jbx5p6e) (12:56) (Technical: Intermediate)
-- [Automatic Site Configuration Detection from URL](https://enable.cx.sap.com/media/Automatic+Site+Configuration+Detection+from+URL+-+SAP+Commerce+Cloud/1_erxf2j1r) (8:42) (Technical: Intermediate)
 - [Infinite Scroll](https://enable.cx.sap.com/media/Infinite+Scroll+-+SAP+Commerce+Cloud/1_crd2801x) (4:57) (Technical: Intermediate)
 - [Configurable Routing](https://enable.cx.sap.com/media/Configurable+Routing+-+SAP+Commerce+Cloud/1_879ub3el) (10:38) (Technical: Advanced)
-- [Custom Angular URL Matchers](https://enable.cx.sap.com/media/Custom+Angular+URL+Matchers+in+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_hhjqkiuy) (3:57) (Technical: Advanced)
-- [Event System](https://enable.cx.sap.com/media/Event+System+-+Spartacus+-+SAP+Commerce+Cloud/0_h3j4ihzm) (7:40) (Technical: Advanced)
-- [Runtime Configuration Initializers](https://enable.cx.sap.com/media/Runtime+Configuration+Initializers+1.3+-+SAP+Commerce+Cloud/1_43lktcg4) (7:04) (Technical: Advanced)
 
 ## Spartacus Extensibility Live Coding Series
 

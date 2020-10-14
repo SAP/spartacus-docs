@@ -1,9 +1,5 @@
 ---
 title: Guest Checkout
-feature:
-- name: Guest Checkout
-  spa_version: 1.2
-  cx_version: 1905
 ---
 
 {% capture version_note %}

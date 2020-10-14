@@ -1,9 +1,5 @@
 ---
 title: Anonymous Consent
-feature:
-- name: Anonymous Consent
-  spa_version: 1.3
-  cx_version: 1905
 ---
 
 {% capture version_note %}

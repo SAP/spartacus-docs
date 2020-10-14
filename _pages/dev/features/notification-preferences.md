@@ -1,9 +1,5 @@
 ---
-title: Notification Preferences
-feature:
-- name: Notification Preferences
-  spa_version: 1.4
-  cx_version: 1905
+title: Notification Preferences (DRAFT)
 ---
 
 {% capture version_note %}

@@ -1,10 +1,10 @@
 ---
-title: Kyma Integration
+title: Kyma Integration (DRAFT)
 ---
 
 ## Prerequisites
 
-If your Spartacus application is running on Commerce Cloud, the following configs should already be in place:
+If your Spartacus application is running on Commerce Cloud, these configs should already be in place:
 
 `local.properties`:
 
@@ -27,7 +27,7 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 ## Spartacus Configuration
 
-The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core`, as follows:
+The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core` and enable `kyma_enabled: true` flag in `authentication` configuration:
 
 ```ts
 import { KymaModule } from '@spartacus/core';
@@ -38,6 +38,7 @@ import { KymaModule } from '@spartacus/core';
     B2cStorefrontModule.withConfig({
       ...
       authentication: {
+        kyma_enabled: true,
         kyma_client_id: 'client4kyma',
         kyma_client_secret: 'secret',
       },

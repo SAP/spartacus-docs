@@ -1,9 +1,5 @@
 ---
-title: Coupons
-feature:
-- name: Coupons
-  spa_version: 1.3
-  cx_version: 1905
+title: Coupons (DRAFT)
 ---
 
 {% capture version_note %}

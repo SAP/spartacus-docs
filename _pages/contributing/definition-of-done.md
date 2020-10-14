@@ -2,120 +2,83 @@
 title: Definition of Done
 ---
 
-The Spartacus Definition of Done describes a series of requirements that must be fulfilled to declare a feature or bug as "Done".
+This document describes the necessary steps to declare a feature or bug for Spartacus as "Done".
 
-## General requirements
-
-All new features for Spartacus must be compliant with the following guidelines:
-
-- [Architecture]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %})
-
-- [Security]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %})
-
-- [Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
-
-- UI/UX guidelines are a work in progress.
-
-## Coding guidelines
-
-The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.
+To keep the Spartacus code readable and maintainable, please follow these rules, even if you find them violated somewhere. Note that this list is not complete.
+When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.
 
 ## TL;DR
 
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit and e2e tests, and so on.
+Run the `build.sh` script located in the root of the project. It will check most of the things mentioned in this document, such as the linting and formatting violations, running unit and e2e tests, etc.
 
-## Code Standards
+## Code is Formatted
 
-There are several aspects to consider when writing code. Please review the [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
+We use Visual Studio Code and require the use of the Prettier VS Code plugin.
 
-## Linting
+For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
 
-We use [TSLint](https://palantir.github.io/tslint/) to analyze and improve our typescript code.
+## Code is Styled
 
-You can run the following command to lint your code:
+For more information, see [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
 
-```bash
+### Code Linting
+
+Use the `TSLint` plugin in VS Code.
+
+```
 yarn lint
 ```
 
-We also encourage you to use the `TSLint` plugin in VS Code.
+For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
 
-## Code Formatting
+### Code Styling with Prettier
 
-We use [Prettier](https://prettier.io/) to format our code (and make it prettier).
+Use the `Prettier` plugin in VS Code.
 
 To check that are all the files prettified, run the following:
 
-```bash
+```
 yarn prettier
 ```
 
-To format and prettify your codebase, run the following:
+To prettify files, run the following:
 
-```bash
-yarn prettier:fix
+```
+yarn prettier-fix
 ```
 
-We also encourage to use the Prettier VS Code plugin. For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
+### SCSS is Preprocesed (node-sass)
 
-## SCSS is Preprocessed (node-sass)
+Use the following command to pre-process the sass in `projects/storefrontstyles`
 
-We use Sass for all of our CSS, which then is converted to CSS using [node-sass](https://github.com/sass/node-sass/blob/master/README.md).
-
-Use the following command to preprocess the Sass in `projects/storefrontstyles`
-
-```bash
+```
 yarn sass
 ```
 
-## Unit Tests
+## Unit Tests are Passing
 
-Spartacus code requires unit tests. Ensure that new features or bugs have unit tests, and ensure that they are passing.
+There are unit tests and they are passing.
 
-Run the following commands to run the unit tests for a library:
+Run the following commands to perform unit tests:
 
-```bash
+```
 yarn test [project]
 yarn test storefrontlib
 ```
 
-When you run the tests, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
-
-## Unit Test Code Coverage
-
-Please ensure that unit test coverage is >= 80% for everything, and >=60% for branches.
-
-To get the test coverage report, run the following commands:
-
-```bash
-yarn test [project] --code-coverage
-yarn test storefrontlib --code-coverage
-```
-
-Alternatively, you can run the following commands:
-
-```bash
-yarn test [project] --code-coverage
-yarn test:core:lib
-```
-
-The coverage report can be found in `./coverage/index.html`.
-
-## Accessibility
-
-The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+When you run these commands, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
 
 ## End-To-End Tests are Passing
 
-All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing.
+All the end-to-end tests are passing.
 
-When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
+When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
 
-All newly written end-to-end tests must be reviewed, updated, or reused.
+All newly written end-to-end tests must be reviewed, updated, and/or re-used.
 
 Run the following commands to perform end-to-end tests:
 
-```bash
+```yarn
 yarn e2e:cy:run # smoke tests
 yarn e2e:cy:run:mobile # mobile tests
 yarn e2e:cy:run:regression # regression tests
@@ -133,19 +96,39 @@ The objective of end-to-end tests is to make sure your feature works. For exampl
 
 **Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
 
-## The Library Builds Without Errors
+## Test Coverage is Adequate
 
-Run the following command to ensure the libraries build without errors:
+Make sure that test coverage is >= 80% for everything, and >=60% for branches.
 
-```bash
-yarn build:libs
+To see the test coverage, run the following commands:
+
+```
+yarn test [project] --code-coverage
+yarn test storefrontlib --code-coverage
 ```
 
-## The Shell Starts Without Errors
+Alternatively, you can run the following commands:
 
-Run the following command to ensure the shell storefront app starts without errors:
+```​
+yarn test [project] --code-coverage
+yarn test:core:lib
+```
 
-```bash
+The coverage report can be found in `./coverage/index.html`.
+
+## The Library Builds without Errors
+
+Run the following command to ensure the library builds without errors
+
+```
+yarn build:core:lib
+```
+
+## The Shell Starts without Errors
+
+Run the following command to ensure the shell starts without errors:
+
+```
 yarn start
 ```
 
@@ -162,7 +145,7 @@ Check that the areas where the change is implemented still work as before. Also 
 
 Run a smoke test of the feature, deployed in a lib in the shell app.
 
-Then determine if the new feature requires changes in the shell app or in the configuration files as well.
+Then determine if the new feature require changes in the shell app or the configuration files as well.
 
 Some files and concepts live in the shell app itself. Ask yourself if the new code requires an update to the shell app or to the configuration files.
 
@@ -172,16 +155,16 @@ The following changes are likely candidates:
 - Adding or changing a module (changing the path or name)
 - Adding a component
 - Adding a module
-- Changing the way the configuration mechanism works.
+- Changing the way the configuration mechanism works
 
 ## Verify the Production Build Works
 
 When you think you are done :)
 
-Run the following commands to verify that the production build works, especially the ahead-of-time (AOT) compiler:
+Run the following commands to verify that the production build works, especially the Ahead-of-Time (AOT) compiler:
 
-```bash
-yarn build:libs
+```
+yarn build:core:lib
 yarn start
 ```
 
@@ -191,19 +174,18 @@ The following are some reasons why the production build might fail:
 
 - Be careful when using `index.ts` files (that is, barrel files). When running a production build, you might see the following error in the `node/webpack` console:
 
-  ```plaintext
+  ```
   ERROR in : Encountered undefined provider! Usually this means you have a circular dependencies (might be caused by using 'barrel' index.ts files.
   ```
 
-  This is usually caused by having an import statement, such as the following:
+  This is usually caused by having the following import:
 
-  ```typescript
+  ```
   import * as fromServices from '../../services'.
   ```
 
-  Instead, you should specifically import each class, as shown in the following example:
+  Instead, you should directly import each class, as follows:
 
-  ```typescript
-  import { OccCmsService } from "../../services/occ-cms.service";
-  import { DefaultPageService } from "../../services/default-page.service";
+  ```import { OccCmsService } from '../../services/occ-cms.service'
+  import { DefaultPageService } from '../../services/default-page.service'
   ```

@@ -1,5 +1,5 @@
 ---
-title: Disabling Standard Routes
+title: Disabling Standard Routes (DRAFT)
 ---
 
 ## Disabling Spartacus's Angular Route

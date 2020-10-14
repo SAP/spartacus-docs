@@ -1,9 +1,5 @@
 ---
 title: Automatic Multi-Site Configuration
-feature:
-- name: Automatic Multi-Site Configuration
-  spa_version: 1.3
-  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -94,7 +90,7 @@ When Spartacus identifies the site from the URL, it is often the case that the U
   - `ng serve --host electronics.localhost`
   - `ng serve --disable-host-check`
 
-## How to add custom context
+## How to add custom context (DRAFT)
 
 The site context persisted in the URL might be something different than a simply an isocode of currency or language. For example it can be a formatted language (using uppercase letters, or with underscores instead of dashes). Then a custom service `SiteContext<T>` can be implemented. It needs to be registered in `ContextServiceMap` and reflected in the config of `context` and `context.urlParameters`.
 

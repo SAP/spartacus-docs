@@ -1,5 +1,5 @@
 ---
-title: Global Configuration in Spartacus
+title: Global Configuration in Spartacus (DRAFT)
 ---
 
 Spartacus uses a configuration mechanism that provides global app configuration at app bootstrap and is not changed while the app is running.

@@ -1,9 +1,5 @@
 ---
-title: Express Checkout
-feature:
-- name: Express Checkout
-  spa_version: 1.2
-  cx_version: Any version
+title: Express Checkout (DRAFT)
 ---
 
 {% capture version_note %}

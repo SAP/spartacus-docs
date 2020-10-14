@@ -1,5 +1,5 @@
 ---
-title: Recommended Development Environment
+title: Recommended Development Environment (DRAFT)
 ---
 
 ## CLI tools
@@ -12,7 +12,7 @@ There are a couple of necessary CLI tools that you need to have installed in ord
 
 ## Editor
 
-Spartacus team recommends a highly extensible and open source editor - _VSCode_, which can be downloaded from [here](https://code.visualstudio.com/Download).
+Spartacus team recommends a highly extendable and open source editor - _VSCode_, which can be downloaded from [here](https://code.visualstudio.com/Download).
 
 ### VSCode settings
 

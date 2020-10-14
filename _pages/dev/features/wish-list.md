@@ -1,9 +1,5 @@
 ---
 title: Wish List
-feature:
-- name: Wish List
-  spa_version: 1.4
-  cx_version: 1905
 ---
 
 {% capture version_note %}

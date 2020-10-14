@@ -1,5 +1,5 @@
 ---
-title: Route Aliases
+title: Route Aliases (DRAFT)
 ---
 
 Many route aliases can be configured in `paths` array. For example:

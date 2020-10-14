@@ -1,5 +1,5 @@
 ---
-title: Adding and Customizing Routes
+title: Adding and Customizing Routes (DRAFT)
 ---
 
 ## Page Types and Page Labels
@@ -14,11 +14,11 @@ Spartacus reflects that by defining a few Angular `Routes`:
 
 The URLs of product, category and brand pages can be [configured only in Spartacus]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}). Content Pages have a configurable URL in the CMS, called *page label*.
 
-## Adding a Content Page Route
+## How to add Content Page route
 
 To add new route, no development is required, it suffices to add in the CMS a new Content Page with *page label* starting with slash i.e. `/contact-us`. The Spartacus' wildcard `**` route with match it out of the box.
 
-## Customizing the Product Page Route
+## How to customize the Product Page route
 
 Product Page route can be configured only in Spartacus. It has to contain the `:productCode` param to identify the product. But for SEO you may want to also include more parameters that can be accessed in the product entity, i.e. product name, in `ConfigModule`:
 
@@ -32,11 +32,11 @@ routing: {
 
 **Note:** The optional `paramsMapping` config can be used for properties that have a different name than the route parameter (i.e. to map from `product.code` to `:productCode`). For more information, see [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
 
-## Customizing the Category Page Route
+## How to customize the Category Page route
 
 Similar to Product Page.
 
-## Adding a Content Page with Dynamic Parameters
+## How to add Content Page with dynamic params
 
 Angular routes can contain dynamic *route parameters* that are consumed in the logic of Angular components. Although The SAP Commerce Cloud CMS doesn't support *page labels* with dynamic params, you can have dynamic params for Content Pages in Spartacus. You need to define your custom Angular `Route` with `path` and explicitly assign the CMS *page label*, for example in your `app.module.ts`:
 
@@ -62,9 +62,9 @@ imports: [
 ]
 ```
 
-## Adding Angular Child Routes for a Content Page
+## How to add Angular children routes for Content Page
 
-Angular can display components for child routes inside nested `<router-outlet>`. Although the SAP Commerce Cloud CMS doesn't support child pages, in Spartacus you can have child routes. You need to configure child routes for your CMS component, for example in `ConfigModule`:
+Angular can display components for children routes inside nested `<router-outlet>`. Although the SAP Commerce Cloud CMS doesn't support *children pages*, in Spartacus you can have children routes. You need to configure *children routes* for your CMS compoennt, for example in `ConfigModule`:
 
 ```typescript
 cmsComponents: {
@@ -80,9 +80,11 @@ cmsComponents: {
 }
 ```
 
-**Note:** Child routes for the Product and Category Pages are not supported.
+*Note: accessing children routes via a deep links to nested routes is not yet supported. You have to open firstly the parent route and then navigate to the child route via router link.*
 
-## Configuring the Category Name in the Product Page Route (Advanced)
+*Note 2: children routes of Product and Category Pages are not supported.*
+
+## Advanced: How to configure category name in the Product Page route
 
 Only the first-level properties of the product entity (i.e. `code` or `name`) can be used to build URL. Unfortunately, product categories is not the case (the field `categories` is an array of objects). So you need to map `categories` array's elements to the first-level properties of the product entity. You can perform such a mapping for example in the `PRODUCT_NORMALIZER`. Here is how to do it:
 
@@ -123,7 +125,7 @@ routing: {
 }
 ```
 
-**Note:** It is a known issue that product entities returned by the OCC product search endpoint do not contain categories, so you may want to also generate URLs from product entities that do not include categories. Then you also need to configure the second, less-specific route alias. The following is an example:
+*Note: it's a known issue that product entities returned by the OCC product search endpoint don't contain categories. So you may want to also generate URLs from product entities that do not include categories. Then you need to configure also the second, less-specific route alias:*
 
 ```typescript
 routing: {
@@ -134,6 +136,7 @@ routing: {
     }
 }
 ```
+
 
 ## Backwards Compatibility with Accelerators
 
@@ -161,82 +164,11 @@ routing: {
 }
 ```
 
-## Avoiding Static URL Segments in the Product Page URL (Advanced)
-
-To watch a video explainer of this topic, see [Custom Angular URL Matchers in the Spartacus Storefront](https://enable.cx.sap.com/media/Custom+Angular+URL+Matchers+in+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_hhjqkiuy).
-
-Angular, and Spartacus by extension, allows you to configure string patterns to match routes against URLs. An example is `/product/:productCode`, which has two segments. The first segment, `product`, is a static segment that determines the URL is a product page type, and the second segment, `:productCode`, is a dynamic parameter.
-
-However, there may be cases where you need to work with URL segments that contain both static and dynamic parts within a single segment. An example is `/macbook-p`, where `mackbook` is a dynamic product code, and `-p` is a static part that determines the URL is a product page type. In this case, you need to implement a custom Angular `UrlMatcher`. The following is an example:
-
-```typescript
-/**
- * Matches pattern `/:productCode-p`
- * @param segments
- */
-export function customProductUrlMatcher(
-  segments: UrlSegment[]
-): UrlMatchResult | null {
-  // check if URL ends with `-p`
-  if (segments.length === 1 && segments[0].path.endsWith('-p')) {
-    // Remove last two characters (which are `-p`), and treat the rest as a product code
-    const productCode = segments[0].path.slice(0, -2);
-    return {
-      consumed: segments,
-      posParams: { productCode: new UrlSegment(productCode, {}) },
-    };
-  }
-  return null;
-}
-```
-
-After setting up your `UrlMatcher`, you need to pass it to the Spartacus configuration of the product route. You can do this in the `app.module`, as follows:
-
-```typescript
-ConfigModule.withConfig({
-  routing: {
-    routes: {
-      product: {
-        matchers: [customProductUrlMatcher],
-        paths: [':customProductCode'],
-      },
-    },
-  },
-}),
-```
-
-In the above example, `paths` is also configured, with the intention of producing links that have a shape of `:productCode-p`. To do this, the `customProductCode` attribute needs to be added to the product data, which can be done by implementing a custom `PRODUCT_NORMALIZER`. The following is an example:
-
-```typescript
-@Injectable()
-export class CustomProductNormalizer
-  implements Converter<Occ.Product, Product> {
-  convert(source: Occ.Product, target?: Product): Product {
-    target['customProductCode'] = source.code + '-p';
-    return target;
-  }
-}
-```
-
-As you can see in the example above, the `customProductCode` is made by combining the original product code with the string `-p`.
-
-The final step is to provide the `PRODUCT_NORMALIZER`. You can do this in the `app.module`, as follows:
-
-```typescript
-providers: [
-  {
-    provide: PRODUCT_NORMALIZER,
-    useClass: CustomProductNormalizer,
-    multi: true,
-  },
-],
-```
-
 ## Expected CMS page labels of Content Pages
 
 Spartacus expects the page label `homepage` to be configured in the CMS. For B2C Storefront recipe the list of expected CMS page labels by default is longer:
 
-```plaintext
+```plain
 search
 
 /login

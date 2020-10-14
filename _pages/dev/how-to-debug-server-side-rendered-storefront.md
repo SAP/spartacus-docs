@@ -1,5 +1,5 @@
 ---
-title: How to Debug a Server–Side Rendered Storefront
+title: How to Debug a Server–Side Rendered Storefront (DRAFT)
 ---
 
 When a runtime error occurs in the server-side rendered Javascript application, it outputs only a stacktrace in the console of the Node.js process (not in the browser) and sometimes it can be difficult to deduce the cause cause of an error. But fortunately, you can use *Node.js debugging* to take advantage of standard debugging techniques like inspecting variables in code, breakpoints, etc.

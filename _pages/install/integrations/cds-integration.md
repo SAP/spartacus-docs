@@ -1,9 +1,5 @@
 ---
 title: Context-Driven Services Integration
-feature:
-- name: Context-Driven Services Integration
-  spa_version: 1.5
-  cx_version: 1905.9
 ---
 
 {% capture version_note %}
@@ -82,7 +78,7 @@ You can carry out all of the following steps after you have set up your Spartacu
             },
             merchandising: {
               defaultCarouselViewportThreshold: 80,
-            },
+            }
             profileTag: {
               javascriptUrl: 'https://tag.static.us.context.cloud.sap/js/profile-tag.js',
               configUrl:

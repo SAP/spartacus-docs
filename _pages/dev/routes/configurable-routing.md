@@ -1,12 +1,12 @@
 ---
-title: Configurable Routing
+title: Configurable Routing (DRAFT)
 ---
 
 ## Introduction
 
 Navigation in a web application is mostly done through URLs. Spartacus allows you to customize these URLs, which can be used to deep-link into a specific application state, and can contribute to the usability and SEO capabilities of the application.
 
-In a single-page application, URLs are intercepted by the application logic so that the view(s) can be updated seamlessly. This requires routing logic, which, in the case of Spartacus, is provided by the Angular Router.
+In a Single Page Application, URLs are intercepted by the application logic so that the view(s) can be updated seamlessly. This requires routing logic, which, in the case of Spartacus, is provided by the Angular Router.
 
 While the Angular Router contains a rich set of features and configuration options, Spartacus contains components that are intended to run without any configuration by default.
 
@@ -27,5 +27,5 @@ For more information, see the following:
 
 - Translation of routes in many languages is not currently supported
 - Configuration of lazy-loaded routes is not currently supported
-- Routing based on hash ([Angular's `HashLocationStrategy`](https://angular.io/guide/router#locationstrategy-and-browser-url-styles)) is not supported
+- Routing based on hash ([Angular's `HashLocationStrategy`](https://angular.io/guide/router#appendix-locationstrategy-and-browser-url-styles)) is not supported
 - [Secondary routes (and named router outlets)](https://angular.io/guide/router#secondary-routes) are not currently supported

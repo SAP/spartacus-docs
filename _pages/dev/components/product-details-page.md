@@ -1,5 +1,5 @@
 ---
-title: Product Details Page
+title: Product Details Page (DRAFT)
 ---
 
 The purpose of this page is to explain the specific CMS structure of the Product Details Page (PDP) and explain the different mechanisms to configure the page.
@@ -47,8 +47,8 @@ NEW_TAB_ID is the id of the new tab and the string associated to it is the title
 
 Since the Product Details Page is driven by CMS it can be configured using SmartEdit or Backoffice. This can be used to add new components, remove existing one or reoder the components/slots.
 
-For Spartacus configurations, the components listed in the section above can be mapped to new custom components using the method described [Customizing CMS Components](https://sap.github.io/spartacus-docs/customizing-cms-components/#custom-angular-cms-components).
+For Spartacus configurations, the components listed in the section above can be mapped to new custom components using the method described [Customizing CMS Components](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#custom-angular-cms-components).
 
-In addition to CMS mapping, outlets can also be used to add or replace certain components on the page. A detail overview of outlets can be found in [Using Outlets](https://sap.github.io/spartacus-docs/page-layout/#using-outlets-to-override-page-templates). The label of the outlets are the same as the name of the slots and components described in the section above.
+In addition to CMS mapping, outlets can also be used to add or replace certain components on the page. A detail overview of outlets can be found in [Using Outlets](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/page-layout/#using-outlets-to-override-page-templates). The label of the outlets are the same as the name of the slots and components described in the section above.
 
 **Note** when using outlets on the page, it might be necessary to provide custom CSS to align the new elements correctly.

@@ -1,9 +1,5 @@
 ---
-title: Customer Interests
-feature:
-- name: Customer Interests
-  spa_version: 1.4
-  cx_version: 1905
+title: Customer Interests (DRAFT)
 ---
 
 {% capture version_note %}
