@@ -47,7 +47,7 @@ That is all that is required to expose the model for augmentation.
 
 ## Augmenting Modules
 
-Now that the `CostCenter` can be augmented, you can alter its shape to fit your requirements. Let's say you need to display the `originalCode` field to users. Even if you have already adjusted the endpoint configuration and entity normalizers, TypeScript still does not automatically suggest that the `originalCode` key is also present on that model. To add it to the TypeScript type, you have to declare a new property on a `CostCenter` module. The following is an example:
+Now that the `CostCenter` can be augmented, you can alter its shape to fit your requirements. Let's say you need to display the `originalCode` field to users. Even if you have already adjusted the endpoint configuration and entity normalizers, TypeScript still does not automatically suggest that the `originalCode` key is also present on that model. To add it to the TypeScript type, you have to declare a new property on a `CostCenter` interface. The following is an example:
 
 ```ts
 declare module '@spartacus/core' {
