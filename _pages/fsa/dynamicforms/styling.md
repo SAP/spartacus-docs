@@ -2,7 +2,7 @@
 title: Dynamicforms Styling
 ---
 
-Dynamic forms Library uses Bootstrap 4 classes for styling. **Custom** CSS classes can be added in four places while defining JSON form definition through Back-Office.
+Dynamic forms Library uses Bootstrap 4 classes for styling. **Custom** CSS classes can be added in four places while defining JSON form definition through Backoffice.
 
 Custom CSS class can be defined for:
 
@@ -28,7 +28,7 @@ Example:
   "formGroups": [
     {
       "groupCode": "firstFormSection",
-       "cssClass": "customSectionClass", // This can be used to add custom styling class to the section (Form Group),
+      "cssClass": "customSectionClass",  // This can be used to add custom styling class to the section (Form Group),
                                          // it will be added to the existing bootstrap's "row" class,
                                          // in this case each section would have "row customSectionClass".
       "fieldConfigs": [
