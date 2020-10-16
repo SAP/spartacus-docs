@@ -18,9 +18,6 @@ Your Angular development environment should include the following:
 - node.js: 10.14.1 or later, < 13.0. The most recent 12.x version is recommended.
 - yarn: 1.15 or later
 
-
-<!--{% include docs/frontend_requirements.html %}-->
-
 ### Installing or Updating the Prerequisite Development Tools
 
 There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS, but also works on Linux and Windows 10 (through the Linux subsystem feature). 
