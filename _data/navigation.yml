@@ -229,7 +229,7 @@ docs:
             subchildren:
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
-          - title: "User Experience Guidelines ➢"
+          - title: "Customer Experience Guidelines ➢"
             url: /user-experience-guidelines/
             subchildren:
                 - title: "Designing Action Buttons"
