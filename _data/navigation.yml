@@ -254,6 +254,8 @@ docs:
                   url: /coding-guidelines/
                 - title: "Maintaining Public APIs"
                   url: /breaking-changes/
+                - title: "Continuous Integration"
+                  url: /continuous-integration/  
                 - title: "Feature Flags and Code Deprecation"
                   url: /feature-flags-and-code-deprecation/
                 - title: "Committing Code to Spartacus"
