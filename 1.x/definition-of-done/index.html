@@ -1240,123 +1240,81 @@
     
       <h1 id="page-title" class="page__title">Definition of Done</h1>
     
-    <p>The Spartacus Definition of Done describes a series of requirements that must be fulfilled to declare a feature or bug as “Done”.</p>
+    <p>This document describes the necessary steps to declare a feature or bug for Spartacus as “Done”.</p>
 
-<h2 id="general-requirements">General requirements</h2>
-
-<p>All new features for Spartacus must be compliant with the following guidelines:</p>
-
-<ul>
-  <li>
-    <p><a href="/spartacus-docs/1.x/connecting-to-other-systems/">Architecture</a></p>
-  </li>
-  <li>
-    <p><a href="/spartacus-docs/1.x/security-best-practices/">Security</a></p>
-  </li>
-  <li>
-    <p><a href="/spartacus-docs/1.x/a11y-best-practices/">Accessibility</a></p>
-  </li>
-  <li>
-    <p>UI/UX guidelines are a work in progress.</p>
-  </li>
-</ul>
-
-<h2 id="coding-guidelines">Coding guidelines</h2>
-
-<p>The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.</p>
+<p>To keep the Spartacus code readable and maintainable, please follow these rules, even if you find them violated somewhere. Note that this list is not complete.
+When a file is consistently not following these rules and adhering to the rules would make the code worse, follow the local style.</p>
 
 <h2 id="tldr">TL;DR</h2>
 
-<p>You can run the <code class="language-plaintext highlighter-rouge">build.sh</code> script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit and e2e tests, and so on.</p>
+<p>Run the <code class="language-plaintext highlighter-rouge">build.sh</code> script located in the root of the project. It will check most of the things mentioned in this document, such as the linting and formatting violations, running unit and e2e tests, etc.</p>
 
-<h2 id="code-standards">Code Standards</h2>
+<h2 id="code-is-formatted">Code is Formatted</h2>
 
-<p>There are several aspects to consider when writing code. Please review the <a href="/spartacus-docs/1.x/coding-guidelines/">Coding Guidelines</a>.</p>
+<p>We use Visual Studio Code and require the use of the Prettier VS Code plugin.</p>
 
-<h2 id="linting">Linting</h2>
+<p>For more information, see <a href="/spartacus-docs/1.x/development-tools-for-spartacus/">Development Tools for Spartacus</a>.</p>
 
-<p>We use <a href="https://palantir.github.io/tslint/">TSLint</a> to analyze and improve our typescript code.</p>
+<h2 id="code-is-styled">Code is Styled</h2>
 
-<p>You can run the following command to lint your code:</p>
+<p>For more information, see <a href="/spartacus-docs/1.x/coding-guidelines/">Coding Guidelines</a>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn lint
+<h3 id="code-linting">Code Linting</h3>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">TSLint</code> plugin in VS Code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn lint
 </code></pre></div></div>
 
-<p>We also encourage you to use the <code class="language-plaintext highlighter-rouge">TSLint</code> plugin in VS Code.</p>
+<p>For more information, see <a href="/spartacus-docs/1.x/development-tools-for-spartacus/">Development Tools for Spartacus</a>.</p>
 
-<h2 id="code-formatting">Code Formatting</h2>
+<h3 id="code-styling-with-prettier">Code Styling with Prettier</h3>
 
-<p>We use <a href="https://prettier.io/">Prettier</a> to format our code (and make it prettier).</p>
+<p>Use the <code class="language-plaintext highlighter-rouge">Prettier</code> plugin in VS Code.</p>
 
 <p>To check that are all the files prettified, run the following:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn prettier
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn prettier
 </code></pre></div></div>
 
-<p>To format and prettify your codebase, run the following:</p>
+<p>To prettify files, run the following:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn prettier:fix
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn prettier-fix
 </code></pre></div></div>
 
-<p>We also encourage to use the Prettier VS Code plugin. For more information, see <a href="/spartacus-docs/1.x/development-tools-for-spartacus/">Development Tools for Spartacus</a>.</p>
+<h3 id="scss-is-preprocesed-node-sass">SCSS is Preprocesed (node-sass)</h3>
 
-<h2 id="scss-is-preprocessed-node-sass">SCSS is Preprocessed (node-sass)</h2>
+<p>Use the following command to pre-process the sass in <code class="language-plaintext highlighter-rouge">projects/storefrontstyles</code></p>
 
-<p>We use Sass for all of our CSS, which then is converted to CSS using <a href="https://github.com/sass/node-sass/blob/master/README.md">node-sass</a>.</p>
-
-<p>Use the following command to preprocess the Sass in <code class="language-plaintext highlighter-rouge">projects/storefrontstyles</code></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn sass
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn sass
 </code></pre></div></div>
 
-<h2 id="unit-tests">Unit Tests</h2>
+<h2 id="unit-tests-are-passing">Unit Tests are Passing</h2>
 
-<p>Spartacus code requires unit tests. Ensure that new features or bugs have unit tests, and ensure that they are passing.</p>
+<p>There are unit tests and they are passing.</p>
 
-<p>Run the following commands to run the unit tests for a library:</p>
+<p>Run the following commands to perform unit tests:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn <span class="nb">test</span> <span class="o">[</span>project]
-yarn <span class="nb">test </span>storefrontlib
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn test [project]
+yarn test storefrontlib
 </code></pre></div></div>
 
-<p>When you run the tests, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.</p>
-
-<h2 id="unit-test-code-coverage">Unit Test Code Coverage</h2>
-
-<p>Please ensure that unit test coverage is &gt;= 80% for everything, and &gt;=60% for branches.</p>
-
-<p>To get the test coverage report, run the following commands:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn <span class="nb">test</span> <span class="o">[</span>project] <span class="nt">--code-coverage</span>
-yarn <span class="nb">test </span>storefrontlib <span class="nt">--code-coverage</span>
-</code></pre></div></div>
-
-<p>Alternatively, you can run the following commands:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn <span class="nb">test</span> <span class="o">[</span>project] <span class="nt">--code-coverage</span>
-yarn <span class="nb">test</span>:core:lib
-</code></pre></div></div>
-
-<p>The coverage report can be found in <code class="language-plaintext highlighter-rouge">./coverage/index.html</code>.</p>
-
-<h2 id="accessibility">Accessibility</h2>
-
-<p>The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing <a href="/spartacus-docs/1.x/a11y-e2e-tests/">accessibility end-to-end tests</a>. For more information, see <a href="/spartacus-docs/1.x/a11y-best-practices/">Accessibility Best Practices</a>.</p>
+<p>When you run these commands, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.</p>
 
 <h2 id="end-to-end-tests-are-passing">End-To-End Tests are Passing</h2>
 
-<p>All new features in Spartacus require end-to-end tests written with <a href="https://www.cypress.io/">Cypress</a>. Please ensure that new feature have end-to-end tests, and that they are passing.</p>
+<p>All the end-to-end tests are passing.</p>
 
-<p>When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.</p>
+<p>When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.</p>
 
-<p>All newly written end-to-end tests must be reviewed, updated, or reused.</p>
+<p>All newly written end-to-end tests must be reviewed, updated, and/or re-used.</p>
 
 <p>Run the following commands to perform end-to-end tests:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn e2e:cy:run <span class="c"># smoke tests</span>
-yarn e2e:cy:run:mobile <span class="c"># mobile tests</span>
-yarn e2e:cy:run:regression <span class="c"># regression tests</span>
-</code></pre></div></div>
+<pre><code class="language-yarn">yarn e2e:cy:run # smoke tests
+yarn e2e:cy:run:mobile # mobile tests
+yarn e2e:cy:run:regression # regression tests
+</code></pre>
 
 <p><strong>Note:</strong> Before running the end-to-end tests, make sure to install dependencies in <code class="language-plaintext highlighter-rouge">projects/storefrontapp-e2e-cypress</code>, and ensure the application is running.</p>
 
@@ -1376,18 +1334,36 @@ yarn e2e:cy:run:regression <span class="c"># regression tests</span>
 
 <p><strong>Note:</strong> E2E tests can currently only be run within SAP. We’re working on exposing E2E tests to contributors.</p>
 
-<h2 id="the-library-builds-without-errors">The Library Builds Without Errors</h2>
+<h2 id="test-coverage-is-adequate">Test Coverage is Adequate</h2>
 
-<p>Run the following command to ensure the libraries build without errors:</p>
+<p>Make sure that test coverage is &gt;= 80% for everything, and &gt;=60% for branches.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn build:libs
+<p>To see the test coverage, run the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn test [project] --code-coverage
+yarn test storefrontlib --code-coverage
 </code></pre></div></div>
 
-<h2 id="the-shell-starts-without-errors">The Shell Starts Without Errors</h2>
+<p>Alternatively, you can run the following commands:</p>
 
-<p>Run the following command to ensure the shell storefront app starts without errors:</p>
+<pre><code class="language-​">yarn test [project] --code-coverage
+yarn test:core:lib
+</code></pre>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn start
+<p>The coverage report can be found in <code class="language-plaintext highlighter-rouge">./coverage/index.html</code>.</p>
+
+<h2 id="the-library-builds-without-errors">The Library Builds without Errors</h2>
+
+<p>Run the following command to ensure the library builds without errors</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn build:core:lib
+</code></pre></div></div>
+
+<h2 id="the-shell-starts-without-errors">The Shell Starts without Errors</h2>
+
+<p>Run the following command to ensure the shell starts without errors:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn start
 </code></pre></div></div>
 
 <p>After running the command, you should see the following:</p>
@@ -1405,7 +1381,7 @@ yarn e2e:cy:run:regression <span class="c"># regression tests</span>
 
 <p>Run a smoke test of the feature, deployed in a lib in the shell app.</p>
 
-<p>Then determine if the new feature requires changes in the shell app or in the configuration files as well.</p>
+<p>Then determine if the new feature require changes in the shell app or the configuration files as well.</p>
 
 <p>Some files and concepts live in the shell app itself. Ask yourself if the new code requires an update to the shell app or to the configuration files.</p>
 
@@ -1416,16 +1392,16 @@ yarn e2e:cy:run:regression <span class="c"># regression tests</span>
   <li>Adding or changing a module (changing the path or name)</li>
   <li>Adding a component</li>
   <li>Adding a module</li>
-  <li>Changing the way the configuration mechanism works.</li>
+  <li>Changing the way the configuration mechanism works</li>
 </ul>
 
 <h2 id="verify-the-production-build-works">Verify the Production Build Works</h2>
 
 <p>When you think you are done :)</p>
 
-<p>Run the following commands to verify that the production build works, especially the ahead-of-time (AOT) compiler:</p>
+<p>Run the following commands to verify that the production build works, especially the Ahead-of-Time (AOT) compiler:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn build:libs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn build:core:lib
 yarn start
 </code></pre></div></div>
 
@@ -1441,16 +1417,16 @@ yarn start
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR in : Encountered undefined provider! Usually this means you have a circular dependencies (might be caused by using 'barrel' index.ts files.
 </code></pre></div>    </div>
 
-    <p>This is usually caused by having an import statement, such as the following:</p>
+    <p>This is usually caused by having the following import:</p>
 
-    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">fromServices</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../services</span><span class="dl">'</span><span class="p">.</span>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import * as fromServices from '../../services'.
 </code></pre></div>    </div>
 
-    <p>Instead, you should specifically import each class, as shown in the following example:</p>
+    <p>Instead, you should directly import each class, as follows:</p>
 
-    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">OccCmsService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../../services/occ-cms.service</span><span class="dl">"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">DefaultPageService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../../services/default-page.service</span><span class="dl">"</span><span class="p">;</span>
-</code></pre></div>    </div>
+    <p><code class="language-plaintext highlighter-rouge">import { OccCmsService } from '../../services/occ-cms.service'
+import { DefaultPageService } from '../../services/default-page.service'
+</code></p>
   </li>
 </ul>
 

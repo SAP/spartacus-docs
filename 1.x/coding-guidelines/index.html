@@ -1322,7 +1322,7 @@ Lint errors found in the listed files.
 
 <p>All code must be covered by unit tests.</p>
 
-<p>With regards to end-to-end tests, new, UI-oriented features must always be covered by basic UI end-to-end tests, as well as <a href="/spartacus-docs/1.x/a11y-e2e-tests/">accessibility end-to-end tests</a>. The file names for the tests should end with <code class="language-plaintext highlighter-rouge">e2e-spec.ts</code>. Common functions that can be re-used should be extracted into different files, and should be located in the sub-directory named <code class="language-plaintext highlighter-rouge">helpers</code>. These files should end with the file extension <code class="language-plaintext highlighter-rouge">.ts</code>.</p>
+<p>With regards to end-to-end tests, new, UI-oriented features must always be covered by basic UI end-to-end tests. The file names for the tests should end with <code class="language-plaintext highlighter-rouge">e2e-spec.ts</code>. Common functions that can be re-used should be extracted into different files, and should be located in the sub-directory named <code class="language-plaintext highlighter-rouge">helpers</code>. These files should end with the file extension <code class="language-plaintext highlighter-rouge">.ts</code>.</p>
 
 <p>If you decide to write an end-to-end test based on user-flow, add the word <code class="language-plaintext highlighter-rouge">flow</code> to the test’s name. If you have more than one user-flow test, separate them into individual files, so they can be run in parallel. We also recommend grouping the tests in a sub-directory with a relevant name. For reference, have a look at the end-to-end tests for product search.</p>
 
