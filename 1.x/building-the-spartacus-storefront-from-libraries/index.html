@@ -1043,7 +1043,7 @@
             
             
 
-            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">User Experience Guidelines ➢</a>
+            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">Customer Experience Guidelines ➢</a>
  
               
 
@@ -1224,13 +1224,14 @@ brew install angular-cli
 
 <p>Spartacus support command which allows for full application scaffold with features like <em>PWA</em> or <em>SSR</em>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ng add @spartacus/schematics <span class="nt">--pwa</span> <span class="nt">--ssr</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ng add @spartacus/schematics <span class="nt">--pwa</span> <span class="nt">--ssr</span>
 </code></pre></div></div>
 
 <p><strong>Note</strong>: <code class="language-plaintext highlighter-rouge">--pwa</code> and <code class="language-plaintext highlighter-rouge">--ssr</code> are optional and can be used separately.</p>
 
 <p>This command includes configuration parameters, such as <strong>baseUrl</strong> or <strong>baseSite</strong>. Usage example:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ng add @spartacus/schematics <span class="nt">--baseUrl</span> https://my.occ.server.url <span class="nt">--baseSite</span> my-site
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ng add @spartacus/schematics <span class="nt">--baseUrl</span> https://my.occ.server.url <span class="nt">--baseSite</span> my-site
 </code></pre></div></div>
 
 <p>After the project is set up using schematics:</p>
@@ -1251,6 +1252,7 @@ brew install angular-cli
 <p>For a full list of available parameters please visit Spartacus schematics <a href="https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics">documentation</a>.</p>
 
 <h2 id="setting-up-a-storefront-manually">Setting up a Storefront Manually</h2>
+
 <p>Although we recommend using Schematics, there might be situations when you want to build your application from scratch.</p>
 
 <p>The dependencies in this procedure are required by the Spartacus storefront.</p>
@@ -1322,6 +1324,7 @@ brew install angular-cli
      <span class="p">}</span>
    <span class="p">},</span>
    <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+     <span class="na">urlParameters</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">baseSite</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">language</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">currency</span><span class="dl">'</span><span class="p">],</span>
      <span class="na">baseSite</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">electronics-spa</span><span class="dl">'</span><span class="p">]</span>
    <span class="p">},</span>
    <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
@@ -1363,6 +1366,7 @@ brew install angular-cli
         <span class="p">}</span>
       <span class="p">},</span>
       <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">urlParameters</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">baseSite</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">language</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">currency</span><span class="dl">'</span><span class="p">],</span>
         <span class="na">baseSite</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">electronics-spa</span><span class="dl">'</span><span class="p">]</span>
       <span class="p">},</span>
       <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
@@ -1399,17 +1403,18 @@ brew install angular-cli
 
     <p><strong>Note:</strong> Your server is properly configured if you can display the Open API documentation (for example, <code class="language-plaintext highlighter-rouge">https://localhost:9002/rest/v2/swagger-ui.html</code>)</p>
   </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">site</code> (<code class="language-plaintext highlighter-rouge">baseSite</code>): The value for <code class="language-plaintext highlighter-rouge">baseSite</code> is the CMS name of the back end storefront, as it appears in <strong>Backoffice &gt; WCMS &gt; Website</strong>. This example uses the <code class="language-plaintext highlighter-rouge">electronics</code> sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the <code class="language-plaintext highlighter-rouge">spartacussampledataaddon</code> (described later in this document), you would use <code class="language-plaintext highlighter-rouge">electronics-spa</code> base site value.</p>
+  <li><code class="language-plaintext highlighter-rouge">site</code> (<code class="language-plaintext highlighter-rouge">urlParameters</code>, <code class="language-plaintext highlighter-rouge">baseSite</code>)
+    <ul>
+      <li>The <code class="language-plaintext highlighter-rouge">urlParameters</code> have different values depending on what you want to display in the URL. These values are optional and you do not have to include them if you do not want any of these parameters to be displayed in the URL. The value for <code class="language-plaintext highlighter-rouge">urlParameters.baseSite</code> displays the URL of the current catalog. The <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">currency</code> parameters allow you to display values for language and currency in the URL.</li>
+      <li>The value for <code class="language-plaintext highlighter-rouge">baseSite</code> is the CMS name of the back end storefront, as it appears in <strong>Backoffice &gt; WCMS &gt; Website</strong>. This example uses the <code class="language-plaintext highlighter-rouge">electronics</code> sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the <code class="language-plaintext highlighter-rouge">spartacussampledataaddon</code> (described later in this document), you would use <code class="language-plaintext highlighter-rouge">electronics-spa</code> base site value. If you have both AddOns, you can specify both <code class="language-plaintext highlighter-rouge">electronics</code> and <code class="language-plaintext highlighter-rouge">electronics-spa</code>.</li>
+    </ul>
 
     <p><strong>Note</strong>: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see <a href="/spartacus-docs/1.x/context-configuration/#automatic-context-configuration">Context Configuration</a>.</p>
   </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">i18n</code> (<code class="language-plaintext highlighter-rouge">resources</code>, <code class="language-plaintext highlighter-rouge">fallbackLang</code>): This parameter configures Spartacus to use default translation data provided with Spartacus and defines the language to use if a translation doesn’t exist.</p>
   </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">features</code>: Configure feature level available in an app. Value corresponds to minor (feature) release version number: ‘1.0’, ‘1.1’, etc. Each subsequent level contains all of the features from previous one.</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">features</code>: Configure feature level available in an app. Value corresponds to minor (feature) release version number: ‘1.0’, ‘1.1’, etc. Each subsequent level contains all of the features from previous one.</li>
 </ul>
 
 <h3 id="adding-the-storefront-to-appcomponenthtml">Adding the Storefront to <code class="language-plaintext highlighter-rouge">app.component.html</code></h3>
