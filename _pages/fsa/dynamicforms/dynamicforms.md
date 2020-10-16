@@ -8,3 +8,4 @@ Dynamicforms is a library for creating forms, designed to work with Spartacus ap
 This includes the following topics:  
 
 - [JSON Structure]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/json-structure.md %})
+- [Styling]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
