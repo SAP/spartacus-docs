@@ -19,8 +19,7 @@ Example:
           // controls defined here...
 ```
 
-- [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup)(section)
-- By default Dynamicforms will render "row" Bootstrap class here. Defining cssClass in "formGroups" section of JSON will **add** class to default class. It can be added by defining **"cssClass"** property in JSON.
+- [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup) (section) - By default Dynamicforms will render "row" Bootstrap class here. Defining cssClass in "formGroups" section of JSON will **add** class to default class. It can be added by defining **"cssClass"** property in JSON.
 
 Example:
 ```typescript
