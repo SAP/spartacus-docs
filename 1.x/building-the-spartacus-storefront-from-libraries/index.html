@@ -1343,7 +1343,7 @@ brew install angular-cli
   <li>
     <p>Save the file.</p>
 
-    <p>The final version of  <code class="language-plaintext highlighter-rouge">mystore/src/app/app.module.ts</code> should look like this:</p>
+    <p>The final version of  <code class="language-plaintext highlighter-rouge">mystore/src/app/app.module.ts</code> may look something like this:</p>
 
     <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/platform-browser</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
@@ -1405,8 +1405,14 @@ brew install angular-cli
   </li>
   <li><code class="language-plaintext highlighter-rouge">site</code> (<code class="language-plaintext highlighter-rouge">urlParameters</code>, <code class="language-plaintext highlighter-rouge">baseSite</code>)
     <ul>
-      <li>The <code class="language-plaintext highlighter-rouge">urlParameters</code> have different values depending on what you want to display in the URL. These values are optional and you do not have to include them if you do not want any of these parameters to be displayed in the URL. The value for <code class="language-plaintext highlighter-rouge">urlParameters.baseSite</code> displays the URL of the current catalog. The <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">currency</code> parameters allow you to display values for language and currency in the URL.</li>
-      <li>The value for <code class="language-plaintext highlighter-rouge">baseSite</code> is the CMS name of the back end storefront, as it appears in <strong>Backoffice &gt; WCMS &gt; Website</strong>. This example uses the <code class="language-plaintext highlighter-rouge">electronics</code> sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the <code class="language-plaintext highlighter-rouge">spartacussampledataaddon</code> (described later in this document), you would use <code class="language-plaintext highlighter-rouge">electronics-spa</code> base site value. If you have both AddOns, you can specify both <code class="language-plaintext highlighter-rouge">electronics</code> and <code class="language-plaintext highlighter-rouge">electronics-spa</code>.</li>
+      <li>
+        <p>The <code class="language-plaintext highlighter-rouge">urlParameters</code> have different values depending on what you want to display in the URL. These values are optional and you do not have to include them if you do not want any of these parameters to be displayed in the URL. The value for <code class="language-plaintext highlighter-rouge">urlParameters.baseSite</code> displays the URL of the current catalog. The <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">currency</code> parameters allow you to display values for language and currency in the URL.</p>
+
+        <p><strong>Note:</strong> The recommended approach is to not configure the <code class="language-plaintext highlighter-rouge">context</code> property, and instead to allow Spartacus to automatically determine the context based on the URL patterns of your sites, as defined in the CMS. For more information, see <a href="/spartacus-docs/1.x/automatic-context-configuration/">Automatic Multi-Site Configuration</a>.</p>
+      </li>
+      <li>
+        <p>The value for <code class="language-plaintext highlighter-rouge">baseSite</code> is the CMS name of the back end storefront, as it appears in <strong>Backoffice &gt; WCMS &gt; Website</strong>. This example uses the <code class="language-plaintext highlighter-rouge">electronics</code> sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the <code class="language-plaintext highlighter-rouge">spartacussampledataaddon</code> (described later in this document), you would use <code class="language-plaintext highlighter-rouge">electronics-spa</code> base site value. If you have both AddOns, you can specify both <code class="language-plaintext highlighter-rouge">electronics</code> and <code class="language-plaintext highlighter-rouge">electronics-spa</code>.</p>
+      </li>
     </ul>
 
     <p><strong>Note</strong>: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see <a href="/spartacus-docs/1.x/context-configuration/#automatic-context-configuration">Context Configuration</a>.</p>
