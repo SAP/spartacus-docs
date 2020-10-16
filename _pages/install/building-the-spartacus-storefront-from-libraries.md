@@ -70,16 +70,17 @@ The easiest way to start a new project is to use Angular Schematics to quickly s
 
 Spartacus support command which allows for full application scaffold with features like *PWA* or *SSR*:
 
-   ```bash
-    ng add @spartacus/schematics --pwa --ssr
-   ```
+```bash
+ ng add @spartacus/schematics --pwa --ssr
+```
 
 **Note**: `--pwa` and `--ssr` are optional and can be used separately.
 
 This command includes configuration parameters, such as **baseUrl** or **baseSite**. Usage example:
-   ```bash
-    ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
-   ```
+
+```bash
+ ng add @spartacus/schematics --baseUrl https://my.occ.server.url --baseSite my-site
+```
 
 After the project is set up using schematics:
 
@@ -92,8 +93,8 @@ After the project is set up using schematics:
 
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
-
 ## Setting up a Storefront Manually
+
 Although we recommend using Schematics, there might be situations when you want to build your application from scratch.
 
 The dependencies in this procedure are required by the Spartacus storefront.
@@ -122,7 +123,6 @@ The dependencies in this procedure are required by the Spartacus storefront.
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you would need to add a comma after `0.9.1"`.
-
 
 3. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
@@ -160,6 +160,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
         }
       },
       context: {
+        urlParameters: ['baseSite', 'language', 'currency'],
         baseSite: ['electronics-spa']
       },
       i18n: {
@@ -201,6 +202,7 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
            }
          },
          context: {
+           urlParameters: ['baseSite', 'language', 'currency'],
            baseSite: ['electronics-spa']
          },
          i18n: {
@@ -233,7 +235,9 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 
   **Note:** Your server is properly configured if you can display the Open API documentation (for example, `https://localhost:9002/rest/v2/swagger-ui.html`)
 
-- `site` (`baseSite`): The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the `spartacussampledataaddon` (described later in this document), you would use `electronics-spa` base site value.
+- `site` (`urlParameters`, `baseSite`)
+  - The `urlParameters` have different values depending on what you want to display in the URL. These values are optional and you do not have to include them if you do not want any of these parameters to be displayed in the URL. The value for `urlParameters.baseSite` displays the URL of the current catalog. The `language` and `currency` parameters allow you to display values for language and currency in the URL.
+  - The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the `spartacussampledataaddon` (described later in this document), you would use `electronics-spa` base site value. If you have both AddOns, you can specify both `electronics` and `electronics-spa`.
 
    **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
 
