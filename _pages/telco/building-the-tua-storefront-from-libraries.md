@@ -2,7 +2,7 @@
 title: Building the TUA Spartacus Storefront from Libraries
 ---
 
-The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.x libraries.
+The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.0.0 libraries.
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
@@ -12,7 +12,11 @@ Before carrying out the procedures below, ensure that you meet the following fro
 
 ## Front-End Development Requirements
 
-{% include docs/frontend_requirements.html %}
+Your Angular development environment should include the following:
+
+- [Angular CLI](https://angular.io/): 8.2.5 or later, < 9.0.0
+- node.js: 10.14.1 or later, < 13.0. The most recent 12.x version is recommended.
+- yarn: 1.15 or later
 
 ### Installing or Updating the Prerequisite Development Tools
 
@@ -84,12 +88,13 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
       To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
 
       ```typescript
-      import {BrowserModule} from '@angular/platform-browser';
-      import {NgModule} from '@angular/core';
-      import {ConfigModule} from '@spartacus/core';
-      import {AppComponent} from './app.component';
-      import {translationChunksConfig, translations} from '@spartacus/assets';
-      import {TmaAuthModule, TmaB2cStorefrontModule, TmaProductSummaryModule, tmaTranslations, TmfModule} from '@spartacus/tua-spa';
+      import { BrowserModule } from '@angular/platform-browser';
+      import { NgModule } from '@angular/core';
+      import { AppComponent } from './app.component';
+      import { translationChunksConfig, translations } from '@spartacus/assets';
+      import { ConfigModule } from '@spartacus/core';
+      import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
+
 
       @NgModule({
         declarations: [
@@ -97,32 +102,15 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
         ],
         imports: [
           BrowserModule,
-          TmaAuthModule,
-          TmfModule.forRoot(),
           TmaB2cStorefrontModule.withConfig({
             backend: {
               tmf: {
                 baseUrl: 'https://localhost:9002',
-                prefix: '/b2ctelcotmfwebservices/v2/',
+                prefix: '/b2ctelcotmfwebservices/v2/'
               },
               occ: {
                 baseUrl: 'https://localhost:9002',
-                prefix: '/rest/v2/',
-                endpoints: {
-                  product_scopes: {
-                    details:
-                      'products/${productCode}?fields=averageRating,stock(DEFAULT),description,availableForPickup,code,url,price(DEFAULT),numberOfReviews,manufacturer,categories(FULL),priceRange,multidimensional,configuratorType,configurable,tags,images(FULL),productOfferingPrice(FULL),productSpecification,validFor',
-                  },
-                  productSearch:
-                    'products/search?fields=products(code,name,summary,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions,productSpecification),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch',
-                },
-              }
-            },
-            routing: {
-              routes: {
-                product: {
-                  paths: ['product/:productCode/:name', 'product/:productCode'],
-                }
+                prefix: '/rest/v2/'
               }
             },
             context: {
@@ -135,21 +123,20 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
               fallbackLang: 'en'
             },
             features: {
-              level: '1.4'
+              level: '1.5',
+              saveForLater: false
             }
           }),
           ConfigModule.withConfig({
             i18n: {
               resources: tmaTranslations
             }
-          }),
-          TmaProductSummaryModule,
+          })
         ],
         providers: [],
         bootstrap: [AppComponent]
       })
-      export class AppModule {
-      }
+      export class AppModule { }
       ```
 
 2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
@@ -171,17 +158,16 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@ngrx/router-store": "~8.3.0",
     "@ngrx/store": "~8.3.0",
     "ngx-infinite-scroll": "^8.0.0",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "4.2.1",
     "i18next": "^15.0.6",
     "i18next-xhr-backend": "^2.0.1",
     "material-design-icons": "^3.0.1",
-  
+
     "@spartacus/core": "~1.5.0",
     "@spartacus/styles": "~1.5.0",
     "@spartacus/storefront": "~1.5.0",
     "@spartacus/assets": "~1.5.0",
-    "@spartacus/styles": "~1.5.0",
-    "@spartacus/tua-spa": "~0.1.0-next.2",
+    "@spartacus/tua-spa": "~1.0.0",
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you need to add a comma after `0.9.1"`.
@@ -244,16 +230,16 @@ This section describes how to validate your back-end installation and start the 
 
 To start your TUA Spartacus storefront, enter the following command from `mystore` in your terminal window:
 
-   ```bash
+```bash
 yarn start
-   ```
+```
   
    When the app server is properly started, point your browser to http://localhost:4200.
 
 Or, to start your TUA Spartacus storefront securely, enter the following command:
 
-   ```bash
+```bash
 yarn start --ssl
-   ```
+```
   
-Then point your browser to  https://localhost:4200.
+Then point your browser to `https://localhost:4200`.
