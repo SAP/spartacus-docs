@@ -176,9 +176,9 @@ To use Spartacus, your new Angular app needs to import Spartacus libraries.
   
    Don't forget to add a comma to the module entry before `B2cStorefrontModule`.
 
-4. Save the file. 
+4. Save the file.
 
-    The final version of  `mystore/src/app/app.module.ts` should look like this:
+    The final version of  `mystore/src/app/app.module.ts` may look something like this:
 
    ```typescript
    import { BrowserModule } from '@angular/platform-browser';
@@ -237,6 +237,8 @@ The B2cStorefrontModule settings are described in more detail in the Spartacus d
 
 - `site` (`urlParameters`, `baseSite`)
   - The `urlParameters` have different values depending on what you want to display in the URL. These values are optional and you do not have to include them if you do not want any of these parameters to be displayed in the URL. The value for `urlParameters.baseSite` displays the URL of the current catalog. The `language` and `currency` parameters allow you to display values for language and currency in the URL.
+  
+    **Note:** The recommended approach is to not configure the `context` property, and instead to allow Spartacus to automatically determine the context based on the URL patterns of your sites, as defined in the CMS. For more information, see [Automatic Multi-Site Configuration]({{ site.baseurl }}{% link _pages/dev/context/automatic-context-configuration.md %}).
   - The value for `baseSite` is the CMS name of the back end storefront, as it appears in **Backoffice > WCMS > Website**. This example uses the `electronics` sample storefront included with SAP Commerce Cloud. Change this value based on the CMS sites installed on your server. For example, if you install the `spartacussampledataaddon` (described later in this document), you would use `electronics-spa` base site value. If you have both AddOns, you can specify both `electronics` and `electronics-spa`.
 
    **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
