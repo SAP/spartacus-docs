@@ -17,8 +17,8 @@ Every time code is pushed to the Spartacus repository (regardless of whether a p
 
 The configuration for Travis CI builds can be found in the `.travis.yml` file at the root of Spartacus project.
 
-## End to End Tests
+## End-to-End Tests
 
-When a build is triggered, a parallel process is also triggered on a [Jenkins server](https://jkmaster.test.c3po.b2c.ydev.hybris.com) that runs all of the end-to-end tests for our libraries. The E2E test results are reported as pass or fail to the Pull Request checks on GitHub.
+When a build is triggered, a parallel process is also triggered on a [Jenkins server](https://jkmaster.test.c3po.b2c.ydev.hybris.com) that runs all of the end-to-end (E2E) tests for our libraries. The E2E test results are reported as pass or fail to the Pull Request checks on GitHub.
 
 Unfortunately, at the moment, the Jenkins server is not public, and as a result, external contributors cannot see the E2E test results. We hope to transition to a public server in the near future.
