@@ -9,7 +9,6 @@ title: Journey Management - MSISDN
 - [Overview](#overview)
 - [Prerequisite](#prerequisite)
 - [Business Use Case](#business-use-case)
-- [End-to-end Journey](#end-to-end-journey)
 - [Frontend Requirements and Dependencies](#frontend-requirements-and-dependencies)
 - [Supported Backend Functionality](#supported-backend-functionality)
 - [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn)
@@ -38,46 +37,6 @@ To setup soapUI to test the MSISDN feature, follow the steps:
 ## Business Use Case
 
 A customer wants to purchase a service plan, for example, `Do More with Less`. Before adding the service plan to the cart, the `Select your desired Phone Number` screen is displayed, based on the checklist policy configured for MSISDN at the backend by the Product Manager. The customer is required to select a phone number from the available phone numbers.
-
-## End-to-end Journey
-
-1. Log in to the TUA SPA Storefront.
-
-    <!--<p align="center"><img src="/assets/images/telco/Screenshot_2020-09-02 Login.png"></p>-->
-
-2. Search and select the desired product offering or the service plan, for example, `Do More with Less`.
-
-    <!--<p align="center"><img src="/assets/images/telco/1MSISDN_Add_to_Cart.png"></p>-->
-
-3. Click **Add to Cart**. The `Select your desired Phone Number` screen is displayed, based on the checklist policy configured for MSISDN at the backend by the Product Manager.
-
-4. Select the desired phone number from the available phone numbers.
-
-    **Note:** Top six available phone numbers are displayed.
-
-    <!--<p align="center"><img src="/assets/images/telco/2MSISDN_Select_Desired_Phone.png"></p>-->
-
-5. Click **CONTINUE**. The selected phone number is added and displayed in the `Item(s) added to your cart` screen.
-
-    <!--<p align="center"><img src="/assets/images/telco/3MSISDN_Items_Added-to_Cart.png"></p>-->
-
-6. Click **View Cart**. The cart displays all relevant details of the `Do More with Less` service plan with the phone number.
-
-    <!--<p align="center"><img src="/assets/images/telco/4MSISDN_Proceed_to_Checkout.png"></p>-->
-
-7. Click the pencil icon to update the phone number. The `Select your desired Phone Number` screen is displayed. 
-
-    **Notes:** The **UPDATE** button is disabled until you select a new phone number from the available phone numbers.
-
-8. Select a new phone number and click **UPDATE**. The cart page displays the updated phone number.
-
-    <!--<p align="center"><img src="/assets/images/telco/5Updated_Appointment.png"></p>-->
-
-9. Click **Proceed to Checkout** to place an order for the service plan.
-
-10. Click **Account > Order History**.
-
-11. Click the order number to confirm the phone number and other relevant details.
 
 ## Frontend Requirements and Dependencies
 
