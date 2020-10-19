@@ -9,7 +9,7 @@ title: Journey Management - Appointment Reference
 - [Overview](#overview)
 - [Prerequisite](#prerequisite)
 - [Business Use Cases](#business-use-cases)
-- [End-to-end Journey](#end-to-end-journey)
+<!--- [End-to-end Journey](#end-to-end-journey)-->
 - [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
 - [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference)
 - [TM Forum APIs](#tm-forum-apis)
@@ -44,7 +44,7 @@ The following business use cases are covered:
 2. Cancelling an appointment from the Appointment system on the Cart screen. For example, the customer has not acted in a specific time duration after which the Appointment system cannot block the service technicians, hence, cancels the appointment. Or, the service technicians are no more available, hence, the appointment system cancels the appointment.
 3. Displaying errors from the Appointment systems integration during checkout process.
 
-## End-to-end Journey
+<!--## End-to-end Journey
 
 1. Log in to the TUA SPA Storefront.
 2. Search and select a product offering. For example, `Fiber Link 100 mbps`.
@@ -65,7 +65,7 @@ The following business use cases are covered:
 8. Select a suitable appointment and click **Update**. The cart screen displays the new appointment.
 9. Click **Proceed to Checkout** to place an order for `Fiber Link 100 mbps`.
 10. Click **Account > Order History**.
-11. Click the order number to confirm the appointment and other relevant details.
+11. Click the order number to confirm the appointment and other relevant details.-->
 
 ## Frontend and Backend Dependencies
 
