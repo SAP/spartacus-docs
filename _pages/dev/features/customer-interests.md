@@ -1,5 +1,5 @@
 ---
-title: Customer Interests (DRAFT)
+title: Customer Interests
 ---
 
 {% capture version_note %}

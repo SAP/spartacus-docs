@@ -1,5 +1,5 @@
 ---
-title: Token Revocation (DRAFT)
+title: Token Revocation
 ---
 
 {% capture version_note %}

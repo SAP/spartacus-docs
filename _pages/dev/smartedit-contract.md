@@ -1,12 +1,12 @@
 ---
-title: SmartEdit Contract in Spartacus (DRAFT)
+title: SmartEdit Contract in Spartacus
 ---
 
 The following sections describe how the SmartEdit Contract is implemented in Spartacus.
 
 For information on setting up SmartEdit in Spartacus, see [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}).
 
-For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1808/en-US/622cebcb444b42e18de2147775430b9d.html#loio622cebcb444b42e18de2147775430b9d).
+For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
 
 ## SmartEdit contract implementation
 
@@ -16,7 +16,7 @@ To make Spartacus work with SmartEdit, we need implement the SmartEdit contract 
 
 #### 1. The webApplicationInjector.js file that must be included in each page
 
-[SmartEdit Setup Instructions for Spartacus](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/smartEdit-setup-instructions-for-spartacus/) has the details of how to include this js file into your app.
+[SmartEdit Setup Instructions for Spartacus](https://sap.github.io/spartacus-docs/smartEdit-setup-instructions-for-spartacus/) has the details of how to include this js file into your app.
 
 #### 2. A preview ticket API mechanism
 
@@ -35,7 +35,7 @@ INSERT_UPDATE SmartEditConfiguration;key[unique=true];value
 ;storefrontPreviewRoute;"""my-custom-preview"""
 ```
 
-`cmsTicketId` is generated in backend. It contains many information required by SmartEdit, such as `site-id` or `catalogVersion`. For the details, pleae read "Preview API" section in [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/1808/en-US/622cebcb444b42e18de2147775430b9d.html#loio622cebcb444b42e18de2147775430b9d).
+`cmsTicketId` is generated in backend. It contains many information required by SmartEdit, such as `site-id` or `catalogVersion`. For the details, pleae read "Preview API" section in [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
 
 Spartacus gets `cmsTicketId` from the request sent from SmartEdit.
 
@@ -152,3 +152,9 @@ In SmartEdit, product with code 2053367 is opened in the product details page:
 
 Same for the category page, category 575 is opened in the product list page:
 ![Screen Shot 2019-07-04 at 8 52 02 AM](https://user-images.githubusercontent.com/44440575/60668153-46d1f480-9e39-11e9-885c-d12cc6a62020.png)
+
+### WCMS Cockpit Preview URL and Spartacus Context
+
+The WCMS Cockpit Preview URL must match the default context for your Spartacus web site. 
+
+For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL (set in Backoffice) must match the default context uses, or errors will occur using SmartEdit. The default context installed by Spartacus Schematics is `https://localhost:4200/en/USD`.

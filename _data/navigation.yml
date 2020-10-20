@@ -1,10 +1,12 @@
 # main links
 main:
+    - title: Doc Archive
+      url: /docs-archive/
     - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU
     - title: Support
       url: https://stackoverflow.com/questions/tagged/spartacus-storefront
-    - title: Version 1.5
+    - title: Version 2.1
       url: /release-information/
 
 # sidebar menu
@@ -18,26 +20,36 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
+                - title: "Updating to Version 2.0"
+                  url: /updating-to-version-2/  
+                - title: "Technical Changes in Spartacus 2.0"
+                  url: /technical-changes-version-2/
+                - title: "Changes to Styles in 2.0"
+                  url: /css-changes-in-version-2/    
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
             url: /spartacus-roadmap/
           - title: "Spartacus FAQ"
             url: /spartacus-faq/
+          - title: "Documentation Archive"
+            url: /docs-archive/  
 
     - title: Getting Started with Spartacus Libraries
       children:
           - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
             subchildren:
-                - title: "Compatibility Notes"
-                  url: /compatibility-notes/
-                - title: "Working with Older Versions of SAP Commerce Cloud"
-                  url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
+                - title: "Installing SAP Commerce Cloud 2005"
+                  url: /installing-sap-commerce-cloud-2005/
+                - title: "Installing SAP Commerce Cloud 1905"
+                  url: /installing-sap-commerce-cloud-1905/                
           - title: "Cross-Origin Resource Sharing (CORS)"
             url: /cors/        
           - title: "Building the Spartacus Storefront from Libraries"
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Schematics"
+            url: /schematics/  
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
           - title: "Snapshot Builds"
@@ -54,13 +66,16 @@ docs:
             url: /integrations/
             subchildren:
                 - title: 'Context-Driven Services Integration'
-                  url: /cds-integration/              
+                  url: /cds-integration/  
                 - title: 'Payment Integration with CyberSource Example'
                   url: /cybersource-integration/
                 - title: "Kyma Integration"
                   url: /kyma-integration/
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
+                - title: "SAP Customer Data Cloud Integration"
+                  url: /cdc-integration/              
+
 
     - title: Storefront Development Guide
       children:
@@ -75,6 +90,8 @@ docs:
             subchildren:
                 - title: "Anonymous Consent"
                   url: /anonymous-consent/
+                - title: "Applied Promotions"
+                  url: /applied-promotions/
                 - title: "Assisted Service Module"
                   url: /asm/
                 - title: "Cancellations and Returns"
@@ -117,14 +134,16 @@ docs:
           - title: "Styling and Page Layout ➢"
             url: /styling-and-page-layout/
             subchildren:
-                - title: "Global Variables"
-                  url: /global-variables/
                 - title: "CSS Architecture"
                   url: /css-architecture/
+                - title: "Global Variables"
+                  url: /global-variables/
                 - title: "Icon Library"
                   url: /icon-library/
                 - title: "Page Layout"
                   url: /page-layout/
+                - title: "Directionality"
+                  url: /directionality/
           - title: "Customizing and Extending Spartacus Features ➢"
             url: /customizing-and-extending/
             subchildren:
@@ -136,7 +155,9 @@ docs:
                   url: /product-details-page/
                 - title: "Banner Component"
                   url: /banner-component/
-                - title: "Searchbox Component"
+                - title: 'Pagination Component'
+                  url: /pagination/  
+                - title: 'Searchbox Component'
                   url: /searchbox-component/
           - title: "Extending Checkout"
             url: /extending-checkout/
@@ -172,6 +193,8 @@ docs:
                   url: /automatic-context-configuration/
                 - title: "Static Multi-Site Configuration"
                   url: /static-context-configuration/
+          - title: "Event Service"
+            url: /event-service/
           - title: "PWA ➢"
             url: /pwa-home/
             subchildren:
@@ -188,11 +211,33 @@ docs:
                   url: /structured-data/
           - title: "Internationalization (i18n)"
             url: /i18n/
+          - title: "Accessibility Best Practices ➢"
+            url: /a11y-best-practices/
+            subchildren:
+                - title: "Keyboard Accessibility"
+                  url: /keyboard-accessibility/
+          - title: "Keyboard Focus ➢"
+            url: /keyboard-focus/
+            subchildren:
+                - title: "Visible Focus"
+                  url: /visible-focus/
+                - title: "Persist Focus"
+                  url: /persist-focus/
+                - title: "Escape Focus"
+                  url: /escape-focus/
+                - title: "Auto Focus"
+                  url: /auto-focus/
+                - title: "Trap Focus"
+                  url: /trap-focus/
+                - title: "Lock Focus"
+                  url: /lock-focus/          
           - title: "State Management ➢"
             url: /state-management/
             subchildren:
                 - title: "Loader Meta Reducer"
                   url: /loader-meta-reducer/
+                - title: "State Persistence"
+                  url: /state-persistence/  
           - title: "SmartEdit Contract in Spartacus"
             url: /smartedit-contract/
           - title: "Customizing Back End Communication ➢"
@@ -208,13 +253,15 @@ docs:
             url: /http-error-handling/
           - title: "Configurable State Persistence and Rehydration"
             url: /configurable-state-persistence-and-rehydration/
-          - title: "Server-Side Rendering in Spartacus ➢"
+          - title: "Server-Side Rendering ➢"
             url: /server-side-rendering-in-spartacus/
             subchildren:
                 - title: "Server–Side Rendering Coding Guidelines"
                   url: /server-side-rendering-coding-guidelines/
                 - title: "How to Debug a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
+                - title: "Workaround for Issue with SSR in Spartacus 2.0 and SAP Commerce Cloud for Public Cloud"
+                  url: /ssr-ccv2-issue-spartacus-version-2/  
           - title: "View Configuration ➢"
             url: /view-configuration/
             subchildren:
@@ -232,33 +279,32 @@ docs:
 
     - title: Telco & Utilities Storefront Development Guide
       children:
-          - title: "About Spartacus for TUA"
-            url: /about-spartacus-for-tua/
-          - title: "Release Information for TUA ➢"
+          - title: "About TUA Spartacus"
+            url: /about-tua-spartacus/
+          - title: "Release Information for TUA Spartacus ➢"
             url: /telco-release-information/
             subchildren:
                 - title: "Pre-Release Information"
-                  url: /tua-pre-release-notes-next1/
-          - title: "Spartacus Roadmap for TUA"
-            url: /spartacus-roadmap-for-tua/
-          - title: "Spartacus TUA FAQs"
-            url: /spartacus-tua-faqs/          
-          - title: "Getting Started with Spartacus for TUA ➢"
-            url: /getting-started-with-spartacus-for-tua/ 
+                  url: /tua-pre-release-information/
+          - title: "Roadmap for TUA Spartacus"
+            url: /tua-spartacus-roadmap/
+          - title: "Getting Started with TUA Spartacus ➢"
+            url: /getting-started-with-tua-spartacus/ 
             subchildren:
-                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus."
-                  url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/
-                - title: "Building the TUA Storefront from libraries"
-                  url: /building-the-tua-storefront-from-libraries/                               
-          - title: "Spartacus Features for TUA ➢"
-            url: /spartacus-features-for-tua/ 
-            subchildren:
+<<<<<<< HEAD
                 - title: "Customer Product Inventory (CPI)"
                   url: /customer-product-inventory/
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/  
                 - title: "Journey Management - Appointment Reference"
                   url: /journey-management-appointment/                  
+=======
+                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
+                  url: /installing-sap-commerce-for-tua-spartacus/
+                - title: "Building the TUA Spartacus Storefront from Libraries"
+                  url: /building-the-tua-storefront-from-libraries/                           
+  
+>>>>>>> 2ed1e204c0837de23978d76b670ccf310b19db3d
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
@@ -272,6 +318,8 @@ docs:
                   url: /contributor-setup/
                 - title: "Coding Guidelines"
                   url: /coding-guidelines/
+                - title: "Accessibility E2E Tests"
+                  url: /a11y-e2e-tests/
                 - title: "Maintaining Public APIs"
                   url: /breaking-changes/
                 - title: "Feature Flags and Code Deprecation"

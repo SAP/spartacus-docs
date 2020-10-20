@@ -1,5 +1,5 @@
 ---
-title: Banner Component (DRAFT)
+title: Banner Component
 ---
 
 The purpose of the Banner component is to render a media in a given page slot. The media can be optimized for the given slot size. The banner is typically used to link to another internal or external page.

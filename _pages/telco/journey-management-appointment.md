@@ -124,11 +124,11 @@ Using yarn:
 
 The checklist policy is configured by the Product Manager in the Backoffice to have the `Select a suitable time for an appointment` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart. For more information, see [Configuring and Enabling the Appointment Reference](#configuring-and-enabling-the-appointment-reference).
 
-### Supported Backed Functionality
+### Supported Back End Functionality
 
 - [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [TUA Data Model for entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [TUA Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Telco & Utilities Accelerator Data Model for entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Telco & Utilities Accelerator Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
 
 | Entity   Exposed for Journey Checklist | TMF or OCC APIs | Description | Request/Response |
 |-|-|-|-|
