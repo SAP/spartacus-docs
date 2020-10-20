@@ -1,5 +1,9 @@
 ---
-title: External Routes (DRAFT)
+title: External Routes
+feature:
+- name: External Routes
+  spa_version: 1.2
+  cx_version: Any version
 ---
 
 {% capture version_note %}
@@ -10,7 +14,7 @@ title: External Routes (DRAFT)
 
 As long as we are in the scope of SPA, Spartacus performs only 'inside' navigations due to usage of Angular's `routerLink` directive, which  by design doesn't load pages from backend. 
 
-However many Customers may want to migrate step-by-step (route-by-route) from the old storefront system (i.e. Hybris accelerator) to the modern Spartacus SPA (Single Page Application), which means temporarily using different systems to drive parts of the storefronts at the same time. 
+However many Customers may want to migrate step-by-step (route-by-route) from the old storefront system (i.e. Hybris accelerator) to the modern Spartacus SPA (single-page application), which means temporarily using different systems to drive parts of the storefronts at the same time. 
 
 Thanks to *external routes* feature of Spartacus, some routes can be loaded from backend or even redirected to a different domain.
 
@@ -83,9 +87,9 @@ Here are two examples:
 
 To bypass the cache of the service worker and let the backend serve the response after full page (re)load, you need to define property `navigationUrls` of your service worker's config `ngsw-config.json` and specify the URL patterns for internal routes (similar to config of Spartacus). It uses the same glob-like syntax as Spartacus, so you can **almost** copy-paste it. 
 
-**Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context-configuration.md %}).
+**Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %}).
 
-Here are two examples (assuming that URL starts with configured 3 segments of the site context):
+Here are two examples (assuming that URL starts with configured three segments of the site context):
 
 1. Let only the *homepage*, *cart* and *product details pages* be rendered in SPA, but all other URLs should be loaded from the backend:
 

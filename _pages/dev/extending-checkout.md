@@ -88,7 +88,7 @@ Also, the order of the steps in the `steps` array determines which steps are "pr
 
 ## Components
 
-Every checkout component is a CMS component. Furthermore, in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#placeholder-components). Compared to other CMS components, these components have more guards defined in the configuration, but are otherwise identical to regular CMS components.
+Every checkout component is a CMS component. Furthermore, in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/spartacus-docs/customizing-cms-components/#placeholder-components). Compared to other CMS components, these components have more guards defined in the configuration, but are otherwise identical to regular CMS components.
 
 ## Protecting Routes
 
@@ -131,7 +131,7 @@ Note that, on each checkout step, you can have multiple components. As a result,
 
 In the default checkout, Spartacus uses a modified `MultiStepCheckoutOrderSummaryPageTemplate`. In addition to `BodyContent` and `SideContent`, Spartacus includes `TopContent` and `BottomContent` for 100% of the sections above and below the `BodyContent` and `SideContent` page slots.
 
-For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the `spartacussampledataaddon` AddOn. For more information, see [Spartacussampledataaddon AddOn]({{ site.baseurl }}{% link _pages/dev/spartacussampledataaddon.md %})
+For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the `spartacussampledataaddon` AddOn. For more information, see [Spartacussampledataaddon AddOn]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %})
 
 ## Extensibility
 

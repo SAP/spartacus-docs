@@ -1,5 +1,9 @@
 ---
 title: Early Login
+feature:
+- name: Early Login
+  spa_version: 1.2
+  cx_version: Any version
 ---
 
 {% capture version_note %}
@@ -58,4 +62,4 @@ In the above example, the global configuration is set to `protected: true`, so a
 
 ## Protecting Individual Routes
 
-The early login feature is not recommended for protecting individual routes, because it only allows you to whitelist public pages. If you want to protect only a small number of routes, it is better to use CMS guarded components instead. For more information, see [Guarding Components](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#guarding-components).
+The early login feature is not recommended for protecting individual routes, because it only allows you to whitelist public pages. If you want to protect only a small number of routes, it is better to use CMS guarded components instead. For more information, see [Guarding Components](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components).

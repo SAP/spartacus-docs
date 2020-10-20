@@ -1,5 +1,5 @@
 ---
-title: Configurable Router Links (DRAFT)
+title: Configurable Router Links
 ---
 
 While the [route configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}) allows the application to listen to different routes, the links to those routes must take the route configuration into account as well.
@@ -229,8 +229,10 @@ result:
 
 ### Predefined parameters mapping
 
+The routes of some storefront already have predefined `paramsMapping`. They can be found in `default-routing-config.ts`.
+
 ```typescript
-// default-storefront-routes-config.ts
+// default-routing-config.ts
 
 product: {
     paramsMapping: { productCode: 'code' }

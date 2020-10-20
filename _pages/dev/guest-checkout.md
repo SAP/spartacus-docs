@@ -1,5 +1,9 @@
 ---
 title: Guest Checkout
+feature:
+- name: Guest Checkout
+  spa_version: 1.2
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -27,8 +31,8 @@ B2cStorefrontModule.withConfig({
 
 Spartacus allows you to enable guest checkout and express checkout at the same time. When both features are enabled, guest checkout is not affected by any configurations for express checkout because express checkout is only available to registered users who are signed in.
 
-For more information on express checkout, see [Express Checkout]({% link _pages/dev/express-checkout.md %}).
+For more information on express checkout, see [Express Checkout]({{ site.baseurl }}{% link _pages/dev/express-checkout.md %}).
 
 ## Extending Guest Checkout
 
-Guest checkout leverages the existing pages and components from the standard checkout, so you can extend guest checkout in the same way that you can extend the standard checkout feature. For more information, see [Extending Checkout]({% link _pages/dev/extending-checkout.md %}).
+Guest checkout leverages the existing pages and components from the standard checkout, so you can extend guest checkout in the same way that you can extend the standard checkout feature. For more information, see [Extending Checkout]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).

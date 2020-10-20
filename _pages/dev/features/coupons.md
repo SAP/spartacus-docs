@@ -1,5 +1,9 @@
 ---
-title: Coupons (DRAFT)
+title: Coupons
+feature:
+- name: Coupons
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -20,7 +24,7 @@ The coupon feature requires the following extensions to work:
 - couponfacades Extension 
 - couponwebservices Extension 
 
-For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/a3fab07560c94b8e9e5d8824c0d88580.html) in the SAP Help Portal.
+For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a3fab07560c94b8e9e5d8824c0d88580.html) in the SAP Help Portal.
 
 ## Enabling Coupons
 
@@ -31,7 +35,7 @@ The coupon feature has corresponding CMS-component data in the back end that all
 
 No special configuration needed.
 
-Coupons are managed using Backoffice. See [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) for more information.
+Coupons are managed using Backoffice. See [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) for more information.
 
 ## Extending
 
