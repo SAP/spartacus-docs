@@ -10,7 +10,7 @@ If you are building Spartacus from source, see [Contributor Setup]({{ site.baseu
 
 Before carrying out the procedures below, ensure the following front end and back end requirements are in place.
 
-## Front-End Development Requirements
+## Front End Development Requirements
 
 {% include docs/frontend_requirements.html %}
 
