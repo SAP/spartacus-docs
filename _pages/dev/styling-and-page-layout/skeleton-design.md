@@ -1,14 +1,24 @@
 # Skeleton Design
 
-Skeleton Design, also known as _ghost design_, is an experience design technique that renders gray boxes while the user is waiting for the actual content to be loaded. This technique improves the sense of performance, and avoids annoying flickering of the UI. It often comes with an animation.
+Skeleton Design, also known as _ghost design_, is an user experience technique that renders gray boxes while the user is waiting for the actual content to be loaded. This technique improves the sense of performance, and also avoids annoying flickering of the UI. It often comes with an animation.
 
-Skeleton design overlaps with loader indicators, although the two can coexist.
+Spartacus has introduced a Skeleton Design feature with version 3.0, but it is only used in a limited number of spaces. The Skeleton Design feature is fully compatible with other UX patterns, such as responsive design, theming, directionality, etc.
 
-Spartacus introduced Skeleton Design with version 3.0, but it is only used in a limited number of spaces. The Skeleton Design feature is fully compatible with other UX patterns, such as responsive design, theming, directionality, etc.
+Skeleton design might make traditional progress bars obsolete, although the two might coexist together. Spartacus has not changed the progress bar loader, and there's no plan to remove it as of now.
+
+## Requirements
+
+There are few requirements that have been taken into account while building this feature:
+
+- Skeleton design should work on top of existing UX patterns, such as responsive design, theming, directionality, etc.
+- Multiple skeletons could be running in parallel.
+- The animation should often include multiple elements, which means that a single animation goes from left to right of the outer element.
+- If multiple skeletons are on the same page, it should be possible to have multiple skeleton animations.
+- The animation always goes from left to right, even in rtl direction.
 
 ## Technique
 
-There are various techniques that you could use to render skeleton design:
+There are various techniques that you could use to render skeleton designs:
 
 1. use an image (svg) to render a skeleton while loading the content
 2. use an special skeleton component to render a skeleton for a specific component
