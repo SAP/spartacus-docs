@@ -2,7 +2,7 @@
 title: Personalization Setup Instructions for Spartacus
 ---
 
-For the following steps, the Electronics sample site is used along with the Spartacus Sample Data Addon.
+For the following steps, the Electronics sample site is used along with the Spartacus Sample Data extension.
 
 ## Back End Extension Requirements
 
