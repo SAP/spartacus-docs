@@ -3,7 +3,7 @@ title: Skeleton Design
 feature:
 - name: Skeleton Design
   spa_version: 3.0
-  cx_version: 1905
+  cx_version: Any version
 ---
 
 {% capture version_note %}
