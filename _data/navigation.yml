@@ -12,10 +12,10 @@ main:
 # sidebar menu
 docs:
     - title: Home
-      url: /home/
+      url: /
       children:
           - title: "About Spartacus"
-            url: /
+            url: /about/
           - title: "Release Information ➢"
             url: /release-information/
             subchildren:
