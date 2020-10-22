@@ -146,6 +146,8 @@ docs:
                   url: /page-layout/
                 - title: "Directionality"
                   url: /directionality/
+                - title: "Skeleton Design"
+                  url: /skeleton-design/  
           - title: "Customizing and Extending Spartacus Features ➢"
             url: /customizing-and-extending/
             subchildren:
