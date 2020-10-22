@@ -38,12 +38,20 @@ Introducing specific skeleton images or components has various disadvantages. Th
 
 - A `ghost` CSS class is added to the root element of the specific skeleton. If you use multiple isolated skeletons on a single page, those can work independently. Each `ghost` has its own skeleton animation.
 - The existing component DOM is used for the skeleton elements. No special DOM or specific ghost elements are introduced to build the skeletons.
-- The content stream (or streams) must be started with a ghost data set. Data streams in Spartacus are based on RxJS, which uses a `startWith` operator. The `startWith` operator typically has an array of empty objects, and potential other elements, to mimic the data.
+- The content stream (or streams) must be started with a ghost data set. Data streams in Spartacus are based on RxJS, which you can combine with a `startWith` operator. The `startWith` operator typically has an array of empty objects, and potential other elements, to mimic the data.
 - The component implementation should be prepared for empty elements. This is a good practice anyway, but might not be the case for existing components.
 
 ## Example
 
-An example of skeleton design can be found in the organization feature. Most entities in the organization self-service are based on a list of items that can be managed by the user. These lists use two techniques to implement skeletons, as described in the following sections. Standard CSS is used to add the gray boxes with an animation.
+An example of skeleton design can be found in the organization feature. Most entities in the organization self-service are based on lists of items that can be managed by the user. These lists are implemented with the following techniques, which leverage the skeleton design feature in Spartacus:
+
+- using a ghost data set to mimic the list data
+- adding the ghost CSS class to apply default skeleton styles
+- adding bespoke CSS rules for specifics to the organization list skeleton layout
+
+Standard CSS is then used to add the gray boxes with an animation.
+
+The first two of these techniques are described in the following sections.
 
 ### Starting with Ghost Data
 
