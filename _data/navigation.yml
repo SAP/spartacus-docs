@@ -20,6 +20,8 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
+                - title: "Feature Release Versions"
+                  url: /feature-release-versions/
                 - title: "Updating to Version 2.0"
                   url: /updating-to-version-2/  
                 - title: "Technical Changes in Spartacus 2.0"
