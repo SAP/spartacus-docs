@@ -4,7 +4,7 @@ title: Configurable Form Field Pre-populate
 
 This page will explain how to use configurable form field pre-populate in Dynamic forms library. Feature allows user to :
 
-- Pre-populate form on SPA side.
+- Pre-populate form field on SPA side.
 - Populate field with any available SPA asset which is exposed for that purpose (user, cart, claim etc..)
 - Adjust/override already provided mechanism and add new logic on top of that.
 
