@@ -12,7 +12,7 @@ You can use various CORS headers to specify whether the origin is allowed, with 
 
 ### allowedOrigins
 
-In development, the allowed origins are often configured with an asterisk (`*`), which whitelists all clients, regardless of their domain. In a production environment, this should contain the different domains that are allowed to interact with the back end API.
+In development, the allowed origins are often configured with an asterisk (`*`), which allowlists all clients, regardless of their domain. In a production environment, this should contain the different domains that are allowed to interact with the back end API.
 
 ### allowedMethods
 

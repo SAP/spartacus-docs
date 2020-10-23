@@ -61,13 +61,13 @@ Pre-requisites:
    - In Backoffice, in WCMS > Website > *your site*, click the WCMS Properties tab.
    - Set the WCMS Cockpit Preview URL to your Spartacus web site. For this example, it should point to `https://localhost:4200`.
    
-6. Ensure that the Spartacus site is whitelisted in Smartedit. There are many ways to do this; see the SmartEdit documentation for more information.
+6. Ensure that the Spartacus site is allowlisted in Smartedit. There are many ways to do this; see the SmartEdit documentation for more information.
 
    - Log onto SmartEdit as an administrator.
    
    - Click the Settings icon at top right.
    
-   - Scroll down to whiteListedStorefronts, and add the exact URL of the Spartacus storefront.
+   - Scroll down to `whiteListedStorefronts`, and add the exact URL of the Spartacus storefront.
       For this example, it is:
       
       ``` 
