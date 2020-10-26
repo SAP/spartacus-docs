@@ -3,7 +3,7 @@ title: Above-the-Fold Loading
 feature:
 - name: Above-the-Fold Loading
   spa_version: 1.4
-  cx_version: Any version
+  cx_version: n/a
 ---
 
 {% capture version_note %}

@@ -21,7 +21,6 @@ Contents:
 - [How Spartacus is Versioned](#how-spartacus-is-versioned)
 - [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version)
 - [Future Releases](#future-releases)
-- [Feature Release Versions](#feature-release-versions)
 
 ## Introduction
 
@@ -321,9 +320,3 @@ You can upgrade your Spartacus libraries to a new minor version, as follows:
 ## Future Releases
 
 See the [separate roadmap document]({{ site.baseurl }}{% link _pages/home/spartacus-roadmap.md %}).
-
-## Feature Release Versions
-
-The following table lists the Spartacus libraries release version for each feature, as well as the relevant version of SAP Commerce Cloud that is required.
-
-{% include docs/feature_version_table.html %}

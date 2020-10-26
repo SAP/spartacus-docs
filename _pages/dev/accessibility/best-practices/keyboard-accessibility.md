@@ -3,7 +3,7 @@ title: Keyboard Accessibility
 feature:
 - name: Keyboard Accessibility
   spa_version: 2.0
-  cx_version: Any version
+  cx_version: n/a
 ---
 
 {% capture version_note %}

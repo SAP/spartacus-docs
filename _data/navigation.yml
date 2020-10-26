@@ -21,6 +21,8 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
+                - title: "Feature Release Versions"
+                  url: /feature-release-versions/
                 - title: "Updating to Version 2.0"
                   url: /updating-to-version-2/  
                 - title: "Technical Changes in Spartacus 2.0"
@@ -277,7 +279,7 @@ docs:
             subchildren:
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
-          - title: "User Experience Guidelines ➢"
+          - title: "Customer Experience Guidelines ➢"
             url: /user-experience-guidelines/
             subchildren:
                 - title: "Designing Action Buttons"
@@ -321,6 +323,8 @@ docs:
             url: /a11y-e2e-tests/
           - title: "Maintaining Public APIs"
             url: /breaking-changes/
+          - title: "Continuous Integration"
+            url: /continuous-integration/ 
           - title: "Feature Flags and Code Deprecation"
             url: /feature-flags-and-code-deprecation/
           - title: "Committing Code to Spartacus"
