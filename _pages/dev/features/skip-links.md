@@ -3,7 +3,7 @@ title: Skip Links
 feature:
 - name: Skip Links
   spa_version: 1.5
-  cx_version: Any version
+  cx_version: n/a
 ---
 
 {% capture version_note %}
