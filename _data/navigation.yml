@@ -307,28 +307,25 @@ docs:
                   url: /building-the-tua-storefront-from-libraries/                           
   
     - title: Contributing to Spartacus
-      url: /contributing/
+      url: /contributors-guide/
       children:
-          - title: "Contributor's Guide ➢"
-            url: /contributors-guide/
-            subchildren:
-                - title: "Contributing to the Spartacus Storefront"
-                  url: /contributing-to-the-spartacus-storefront/
-                - title: "Development Tools for Spartacus"
-                  url: /development-tools-for-spartacus/
-                - title: "Contributor Setup"
-                  url: /contributor-setup/
-                - title: "Coding Guidelines"
-                  url: /coding-guidelines/
-                - title: "Accessibility E2E Tests"
-                  url: /a11y-e2e-tests/
-                - title: "Maintaining Public APIs"
-                  url: /breaking-changes/
-                - title: "Feature Flags and Code Deprecation"
-                  url: /feature-flags-and-code-deprecation/
-                - title: "Committing Code to Spartacus"
-                  url: /commit-guidelines/
-                - title: "Type Safety in Spartacus"
-                  url: /type-safety-in-spartacus/
-                - title: "Definition of Done"
-                  url: /definition-of-done/
+          - title: "Contributing to the Spartacus Storefront"
+            url: /contributing-to-the-spartacus-storefront/
+          - title: "Development Tools for Spartacus"
+            url: /development-tools-for-spartacus/
+          - title: "Contributor Setup"
+            url: /contributor-setup/
+          - title: "Coding Guidelines"
+            url: /coding-guidelines/
+          - title: "Accessibility E2E Tests"
+            url: /a11y-e2e-tests/
+          - title: "Maintaining Public APIs"
+            url: /breaking-changes/
+          - title: "Feature Flags and Code Deprecation"
+            url: /feature-flags-and-code-deprecation/
+          - title: "Committing Code to Spartacus"
+            url: /commit-guidelines/
+          - title: "Type Safety in Spartacus"
+            url: /type-safety-in-spartacus/
+          - title: "Definition of Done"
+            url: /definition-of-done/
