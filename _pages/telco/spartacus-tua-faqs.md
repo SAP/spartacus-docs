@@ -12,8 +12,6 @@ If you have technical questions and want to contribute your questions in this do
 
 SAP Commerce Telco & Utilities Accelerator is a ready-to-use web framework, designed to maximize average revenue per user through cost effective, streamlined process. SAP Commerce Industry Accelerators are purpose-built extensions for the SAP Commerce solution that contains industry-specific features.
 
-The Accelerator provides the essential tools, functionality, and processes to support features needed by these industries. The Accelerator not only jump starts a commerce implementation, but also provides a way to easily build, extend, and deliver a simplified digital experience for their customers.
-
 The Accelerator provides a future-proof technical foundation for growth, quick time-to-market, and a competitive advantage for delivering more innovative capabilities. For more information, see [SAP Commerce Telco & Utilities Accelerator](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
 
 **The SAP Telco & Utilities Accelerator exposes a TM Forum compliant API layer. Would TUA Spartacus support this?**
