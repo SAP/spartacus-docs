@@ -22,7 +22,7 @@ Once you have added items to the wish list, you can view the contents of your wi
 
 ## Customizing
 
-The wish list feature consists of the `AddToWishListComponent` and the `WishListService` component. Both of these components are CMS driven and can be configured in SmartEdit. You can also customize these components in Spartacus using CMS component mapping. For more information, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/customizing-cms-components.md %}).
+The wish list feature consists of the `AddToWishListComponent` and the `WishListService` component. Both of these components are CMS driven and can be configured in SmartEdit. You can also customize these components in Spartacus using CMS component mapping. For more information, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}).
 
 ## Limitations
 

@@ -176,13 +176,13 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 - CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as the sample properties should not be used for production servers.
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 - You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
-- For information on Spartacus and CORS settings, see [this help topic]({{ site.baseurl }}{% link _pages/dev/cors.md %}).
+- For information on Spartacus and CORS settings, see [this help topic]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 - There are a number of other Spartacus features that also require additional CORS settings. For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
 ## Troubleshooting
 
 - If SAP Commerce Cloud installer doesn't work, make sure there are no spaces in the path to the SAP Commerce Cloud folder.
-- If Spartacus starts or partially starts, check all CORS settings. For more information, see [this help topic]({{ site.baseurl }}{% link _pages/dev/cors.md %}).
+- If Spartacus starts or partially starts, check all CORS settings. For more information, see [this help topic]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 
 ## config.properties file
 

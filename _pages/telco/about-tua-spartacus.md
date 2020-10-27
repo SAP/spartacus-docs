@@ -1,5 +1,5 @@
 ---
-title: About TUA Spartacus
+title: Telco and utilities accelerator for project "Spartacus"
 ---
 
 The telco and utilities accelerator for project "Spartacus" (TUA Spartacus) is a lean, Angular-based storefront for SAP Commerce working exclusively through the Commerce REST API. TUA Spartacus works with and enhances the Telco and Utilities Accelerator storefront. In addition to supporting Commerce REST APIs, the Telco and Utilities Accelerator supports TM Forum APIs for delivering industry-specific functionality.
