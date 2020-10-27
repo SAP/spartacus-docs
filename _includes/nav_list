@@ -48,7 +48,7 @@
                                                                     {% assign subchild_url = subchild.url %}
                                                                   {% else %}
                                                                     {% assign subchild_url = subchild.url | relative_url %}
-                                                                   {% endif %}
+                                                                  {% endif %}
 
                                                                     {% if subchild.underchildren[0] %}
                                                                         <li><a href="{{ subchild_url }}">{{ subchild.title }}</a>
@@ -59,7 +59,7 @@
                                                                                 {% assign underchild_url = underchild.url %}
                                                                               {% else %}
                                                                                 {% assign underchild_url = underchild.url | relative_url %}
-                                                                               {% endif %}
+                                                                              {% endif %}
 
                                                                                 {% if underchild.url == page.url %}
                                                                                     {% for underchild in subchild.underchildren %}
@@ -92,12 +92,27 @@
 
                                 {% if subchild.url == page.url %}
                                     {% for child in nav.children %}
-                                        <li><a href="{{ child.url }}">{{ child.title }}</a>
+
+                                      {% comment %} internal/external URL check {% endcomment %}
+                                      {% if child.url contains "://" %}
+                                        {% assign child_url = child.url %}
+                                      {% else %}
+                                        {% assign child_url = child.url | relative_url %}
+                                      {% endif %}
+
+                                        <li><a href="{{ child_url }}">{{ child.title }}</a>
                                             {% if child.subchildren[0] %}
                                                 <ul>
                                                     {% for subchild in child.subchildren %}
                                                         {% if subchild.url == page.url %}
                                                             {% for subchild in child.subchildren %}
+
+                                                              {% comment %} internal/external URL check {% endcomment %}
+                                                              {% if subchild.url contains "://" %}
+                                                                {% assign subchild_url = subchild.url %}
+                                                              {% else %}
+                                                                {% assign subchild_url = subchild.url | relative_url %}
+                                                              {% endif %}
                                                             
                                                             {% comment %} set "active" class on current page {% endcomment %}
                                                             {% if subchild.url == page.url %}
@@ -106,12 +121,20 @@
                                                               {% assign active = "" %}
                                                              {% endif %}
 
-                                                                <li><a href="{{ subchild.url }}" class="{{ active }}">{{ subchild.title }}</a>
+                                                                <li><a href="{{ subchild_url }}" class="{{ active }}">{{ subchild.title }}</a>
                                                                     {% for underchild in subchild.underchildren %}
+
+                                                                      {% comment %} internal/external URL check {% endcomment %}
+                                                                      {% if underchild.url contains "://" %}
+                                                                        {% assign underchild_url = underchild.url %}
+                                                                      {% else %}
+                                                                        {% assign underchild_url = underchild.url | relative_url %}
+                                                                      {% endif %}
+
                                                                         {% if subchild.underchildren[0] %}
                                                                             <ul>
                                                                                 {% if subchild.url == page.url %}
-                                                                                    <li><a href="{{ underchild.url }}">{{ underchild.title }}</a></li>
+                                                                                    <li><a href="{{ underchild_url }}">{{ underchild.title }}</a></li>
                                                                                 {% endif %}  
                                                                             </ul>
                                                                         {% endif %}
@@ -132,6 +155,13 @@
                     {% if child.url == page.url %}
                         {% for child in nav.children %}
 
+                          {% comment %} internal/external URL check {% endcomment %}
+                          {% if child.url contains "://" %}
+                            {% assign child_url = child.url %}
+                          {% else %}
+                            {% assign child_url = child.url | relative_url %}
+                          {% endif %}
+
                             {% comment %} set "active" class on current page {% endcomment %}
                             {% if child.url == page.url %}
                                 {% assign active = "active" %}
@@ -139,12 +169,20 @@
                                 {% assign active = "" %}
                             {% endif %}
 
-                            <li><a href="{{ child.url }}" class="{{ active }}">{{ child.title }}</a>
+                            <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }}</a>
                                 {% if child.subchildren[0] %}
                                     <ul>
                                         {% for subchild in child.subchildren %}
+
+                                          {% comment %} internal/external URL check {% endcomment %}
+                                          {% if subchild.url contains "://" %}
+                                            {% assign subchild_url = subchild.url %}
+                                          {% else %}
+                                            {% assign subchild_url = subchild.url | relative_url %}
+                                          {% endif %}
+
                                             {% if child.url == page.url %}
-                                                <li><a href="{{ subchild.url }}">{{ subchild.title }}</a></li>
+                                                <li><a href="{{ subchild_url }}">{{ subchild.title }}</a></li>
                                             {% endif %}  
                                         {% endfor %}
                                     </ul>
@@ -154,7 +192,15 @@
                     {% endif %}
 
                     {% if nav.url == page.url %}
-                        <li><a href="{{ child.url }}" class="{{ active }}">{{ child.title }}</a>
+
+                      {% comment %} internal/external URL check {% endcomment %}
+                      {% if child.url contains "://" %}
+                        {% assign child_url = child.url %}
+                      {% else %}
+                        {% assign child_url = child.url | relative_url %}
+                      {% endif %}
+
+                        <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }}</a>
                         </li>
                     {% endif %}
 
