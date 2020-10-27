@@ -281,7 +281,7 @@ docs:
       children:
           - title: "About TUA Spartacus"
             url: /about-tua-spartacus/
-          - title: "Release Information for TUA Spartacus ➢"
+          - title: "Release Information ➢"
             url: /telco-release-information/
             subchildren:
                 - title: "Pre-Release Information"
@@ -291,20 +291,34 @@ docs:
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
-<<<<<<< HEAD
-                - title: "Customer Product Inventory (CPI)"
-                  url: /customer-product-inventory/
-                - title: "Journey Management - MSISDN"
-                  url: /journey-management-msisdn/  
-                - title: "Journey Management - Appointment Reference"
-                  url: /journey-management-appointment/                  
-=======
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
                   url: /installing-sap-commerce-for-tua-spartacus/
                 - title: "Building the TUA Spartacus Storefront from Libraries"
-                  url: /building-the-tua-storefront-from-libraries/                           
+                  url: /building-the-tua-storefront-from-libraries/
+          - title: "TUA Spartacus Features ➢"
+            url: /spartacus-features-for-tua/ 
+            subchildren:
+                - title: "Cart"
+                  url: /cart/                
+                - title: "Checkout"
+                  url: /checkout/
+                - title: "Configurable Guided Selling"
+                  url: /configurable-guided-selling/
+                - title: "Journey Management - Appointment Reference"
+                  url: /journey-management-appointment/
+                - title: "Journey Management - MSISDN"
+                  url: /journey-management-msisdn/
+                - title: "Order"
+                  url: /order/
+                - title: "Product Offering Search"
+                  url: /product-offering-search/
+                - title: "Simple Product Offering (SPO)"
+                  url: /simple-product-offerings-spo/           
+                
+          - title: "TUA Spartacus FAQs"
+            url: /spartacus-tua-faqs/                
+                                           
   
->>>>>>> 2ed1e204c0837de23978d76b670ccf310b19db3d
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
