@@ -221,7 +221,7 @@ docs:
           - title: "Accessibility ➢"
             url: /a11y/
             subchildren:
-                - title: "Accessibility Best Practices ➢"
+                - title: "Best Practices ➢"
                   url: /a11y-best-practices/
                   underchildren:
                       - title: "Keyboard Accessibility"
