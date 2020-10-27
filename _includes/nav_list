@@ -7,7 +7,16 @@
   <ul class="nav__items">
     {% for nav in navigation %}
       <li>
+        {% if nav.url %}
+          {% comment %} internal/external URL check {% endcomment %}
+          {% if nav.url contains "://" %}
+            {% assign nav_url = nav.url %}
+          {% else %}
+            {% assign nav_url = nav.url | relative_url %}
+          {% endif %}
+
          <a href="{{ nav.url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
+         {% endif %}
         
           {% if nav.children[0] %}
             <ul>
