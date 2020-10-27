@@ -14,8 +14,6 @@ docs:
     - title: Home
       url: /
       children:
-          - title: "About Spartacus"
-            url: /about/
           - title: "Release Information ➢"
             url: /release-information/
             subchildren:
@@ -290,9 +288,8 @@ docs:
                   url: /writing-notification-banners/
 
     - title: Telco & Utilities Storefront Development Guide
+      url: /about-tua-spartacus/
       children:
-          - title: "About TUA Spartacus"
-            url: /about-tua-spartacus/
           - title: "Release Information for TUA Spartacus ➢"
             url: /telco-release-information/
             subchildren:
