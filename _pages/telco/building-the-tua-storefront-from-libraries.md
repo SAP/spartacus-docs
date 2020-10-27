@@ -2,7 +2,7 @@
 title: Building the TUA Spartacus Storefront from Libraries
 ---
 
-The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.1.0 libraries.
+The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.2.0 libraries.
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
@@ -88,13 +88,13 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
       To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
 
       ```typescript
+
       import { BrowserModule } from '@angular/platform-browser';
       import { NgModule } from '@angular/core';
       import { AppComponent } from './app.component';
       import { translationChunksConfig, translations } from '@spartacus/assets';
       import { ConfigModule } from '@spartacus/core';
       import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
-
 
       @NgModule({
         declarations: [
@@ -111,6 +111,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
               occ: {
                 baseUrl: 'https://localhost:9002',
                 prefix: '/rest/v2/'
+              },
+              tmf_resource_pool_management: {
+                baseUrl: 'http://localhost:8080',
+                prefix: '/tmf-api',
               },
               tmf_appointment: {
                 baseUrl: 'http://localhost:8080',
@@ -129,7 +133,20 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             features: {
               level: '1.5',
               saveForLater: false
-            }
+            },
+            journeyChecklist: {
+              journeyChecklistSteps: ['APPOINTMENT', 'MSISDN'],
+                msisdn_reservation: {
+                    msisdn_qty: 1,
+                    msisdn_capacity_amount_demand: 1,
+                    msisdn_applied_capacity_amount: 5,
+                    applied_capacity_amount_for_msisdn_reservation: 1,
+                },
+              appointment: {
+                  requested_number_of_timeslots: 5,
+                  end_date_of_timeslots: 3,
+                },
+              },
           }),
           ConfigModule.withConfig({
             i18n: {
@@ -171,8 +188,8 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@spartacus/core": "~1.5.0",
     "@spartacus/styles": "~1.5.0",
     "@spartacus/storefront": "~1.5.0",
-    "@spartacus/assets": "~1.5.0",
-    "@spartacus/tua-spa": "~1.1.0",
+      "@spartacus/assets": "~1.5.0",
+      "@spartacus/tua-spa": "~1.2.0",
     "ng2-charts": "^2.3.2",
     "chart.js": "^2.9.3",
     "ngx-spinner": "^8.0.3"
