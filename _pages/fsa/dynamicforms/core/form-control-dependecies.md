@@ -14,8 +14,8 @@ Parent control - form control from which the specific abstract control (with def
 
 This logic can be applied to both single form control or form group.
 
-```typescript
 Interface representation
+```typescript
 export interface DynamicFormGroup {
   ...;
   dependsOn?: ControlDependency[];
@@ -36,7 +36,7 @@ It is necessary to constantly track value and validity of parent form controls a
 
 ## Example and Explanation
 
-- Form field with name "dependantField" is dependant on form control with name "controlField" and condition for its visibility is that minimum value of "controlField" is 1.
+- Form field with the name "dependantField" is dependant on the form control with name "controlField" and condition for its visibility is that minimum value of "controlField" is 1.
 ```typescript
 {
     "type": "input",
@@ -59,7 +59,7 @@ It is necessary to constantly track value and validity of parent form controls a
     ]
 }
 ```
-- FormGroup with name "dependantGroup" and all form fields that are defined in that group wont be visible if form control with name "controlField" is not equal or higher than 2.
+- FormGroup with the name "dependantGroup" and all of the form fields that are defined in that group won't be visible if the form control with name "controlField" is not equal or higher than 2.
 ```typescript
 {
    "groupCode": "dependantGroup",
@@ -81,7 +81,7 @@ It is necessary to constantly track value and validity of parent form controls a
   "formFields": [........]
 }
 ```
-- FormGroup with name "dependantGroup" and all form fields that are defined in that group wont be visible if form control with name "controlField" doesn't match values "test" or "test2"
+- FormGroup with the name "dependantGroup" and all of form fields that are defined in that group won`t be visible if form control with name "controlField" doesn't match values "test" or "test2"
 ```typescript
 {
 "groupCode": "dependantGroup",
@@ -108,4 +108,4 @@ It is necessary to constantly track value and validity of parent form controls a
 }
 ```
 
-If hiding dependant filed is not desired, it can only disabled using this functionality by setting "**hide**" property to false.
+If hiding dependant filed is not desired, it can be only disabled using this functionality by setting "**hide**" property to false.

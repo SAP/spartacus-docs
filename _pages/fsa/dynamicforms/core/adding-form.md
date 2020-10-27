@@ -5,7 +5,7 @@ title: Adding form to a simple page
 This page will explain how to add new form to a simple page: 
 
 - Create JSON form definition for a new form
-- Create YFormDefinition definition with reference to newly crated JSON definition
+- In impex file create YFormDefinition definition with a reference to newly created JSON definition
 ```typescript
 INSERT_UPDATE YFormDefinition; applicationId[unique = true]; formId[unique = true]; version; title; description; content[translator = de.hybris.platform.commerceservices.impex.impl.FileLoaderValueTranslator];
 ; insurance ; new_form ; 1 ; New Form ; "New Form" ; $siteResource/forms/new-form.json

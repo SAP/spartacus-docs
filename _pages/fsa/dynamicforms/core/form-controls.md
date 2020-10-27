@@ -76,8 +76,8 @@ So in the above example we have a type **input**, which exists in JSON configura
 
 To override the default component for an existing type, we will take "input" type as an example. As mentioned before "input" type is mapped to a "InputComponent". All that is needed is for user to have a custom component created and include it in some module. In this example we'll call it "CustomInputComponent". The configuration needed for this override must be done inside the module where "CustomInputComponent" resides, and it would look like this:
 
-```typescript
 Example of custom input component
+```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfigModule, I18nModule } from '@spartacus/core';
@@ -109,8 +109,9 @@ export class CategoryFormsModule {}
 ```
 
 In this "CustomInputComponent" it is also required to extend "AbstractFormComponent" which all existing form controls in DynamicForms are referencing:
-```typescript
+
 custom-input.component.ts
+```typescript
 import { Component } from '@angular/core';
 import { AbstractFormComponent } from '@fsa/dynamicforms';
  
@@ -151,9 +152,8 @@ Now every input field in DynamicForms will be replaced with "CustomInputComponen
 
 If custom form control is needed, custom type needs to be specified, and then custom component should be mapped to that type, as in following example:
 
-```typescript
 Example of creating custom type for a custom control
-
+```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfigModule, I18nModule } from '@spartacus/core';
@@ -183,9 +183,9 @@ import { DynamicFormModule, DynamicFormsConfig } from '@fsa/dynamicforms';
 export class CategoryFormsModule {}
 ```
 Now the only thing needed is to invoke this new type inside JSON configuration for a certain form, like so:
-```typescript
-FormSampleConfigurations
 
+FormSampleConfigurations
+```typescript
 {
   "formId": "customForm",
   "formGroups": [
