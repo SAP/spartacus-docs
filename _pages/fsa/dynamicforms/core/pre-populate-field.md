@@ -10,7 +10,7 @@ This page will explain how to use configurable form field pre-populate in Dynami
 
 ## How to use: 
 
-Let's say we want to pre-populate "Title" field on personal details form. We want to use existing user data, located in "User" state in our SPA. First we need to adjust out personal details form, and add JSON configuration to the title field.
+Let's say we want to pre-populate "Title" field on personal details form. We want to use existing user data, located in "User" state in our SPA. First we need to adjust our personal details form, and add JSON configuration to the title field.
 
 Looking from JSON perspective it should look similar to this:
 
