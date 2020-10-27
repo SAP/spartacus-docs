@@ -21,6 +21,14 @@
           {% if nav.children[0] %}
             <ul>
                 {% for child in nav.children %}
+
+                  {% comment %} internal/external URL check {% endcomment %}
+                  {% if child.url contains "://" %}
+                    {% assign child_url = child.url %}
+                  {% else %}
+                    {% assign child_url = child.url | relative_url %}
+                  {% endif %}
+
                     {% if child.subchildren[0] %}
                         <ul>
                             {% for subchild in child.subchildren %}
@@ -30,7 +38,7 @@
                                         {% if subchild.underchildren[0] %}
                                             {% if underchild.url == page.url %}
                                                 {% for child in nav.children %}
-                                                    <li><a href="{{ child.url }}">{{ child.title }}</a>
+                                                    <li><a href="{{ child_url }}">{{ child.title }}</a>
                                                         {% if child.subchildren[0] %}
                                                             <ul>
                                                                 {% for subchild in child.subchildren %}
