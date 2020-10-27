@@ -210,7 +210,7 @@ For Unix:
 
    Initialization of the b2c_telco_spa recipe can take about 20 minutes. Sample data for this recipe includes telco specific data and content.
 
-1. Start SAP Commerce with the following command. From the `sap-commerce-folder>/installer` folder run the following commands for Windows:
+1. Start SAP Commerce with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
