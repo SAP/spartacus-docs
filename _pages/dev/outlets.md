@@ -86,7 +86,7 @@ Data-driven outlets are provided by the CMS structure. There are three types, as
 
 - **CMS Page layout name:** Each page layout is available as an outlet reference.
 - **CMS page slot positions:** Each slot position is an outlet reference. Since slot positions are not necessarily unique throughout the CMS structure, an outlet template might occur more then once. There is currently no standard technique available to limit the outlet for a specific position or page.
-- **CMS Component type:** Each component type is available as an outlet. While component type-driven outlets can be used, it is generally considered best practice to leverage [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/customizing-cms-components.md %}) for introducing custom component UI.
+- **CMS Component type:** Each component type is available as an outlet. While component type-driven outlets can be used, it is generally considered best practice to leverage [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}) for introducing custom component UI.
 
 ### Software-Driven Outlet References
 
