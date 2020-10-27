@@ -250,7 +250,7 @@ X-module.ts
   entryComponents: [CustomInputComponent],
 })
 ```
-From the code snippet above we can see that for validation with name compareToCurrentDate we have new function defined in CategoryFormsModule. Functions has following implementation:
+From the code snippet above we can see that for validation with name compareToCurrentDate we have new a function defined in CategoryFormsModule. Function has the following implementation:
 
 ```typescript
 static customFunction(regex) {
