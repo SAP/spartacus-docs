@@ -42,9 +42,25 @@
                                                         {% if child.subchildren[0] %}
                                                             <ul>
                                                                 {% for subchild in child.subchildren %}
+
+                                                                  {% comment %} internal/external URL check {% endcomment %}
+                                                                  {% if subchild.url contains "://" %}
+                                                                    {% assign subchild_url = subchild.url %}
+                                                                  {% else %}
+                                                                    {% assign subchild_url = subchild.url | relative_url %}
+                                                                   {% endif %}
+
                                                                     {% if subchild.underchildren[0] %}
-                                                                        <li><a href="{{ subchild.url }}">{{ subchild.title }}</a>
+                                                                        <li><a href="{{ subchild_url }}">{{ subchild.title }}</a>
                                                                             {% for underchild in subchild.underchildren %}
+
+                                                                              {% comment %} internal/external URL check {% endcomment %}
+                                                                              {% if underchild.url contains "://" %}
+                                                                                {% assign underchild_url = underchild.url %}
+                                                                              {% else %}
+                                                                                {% assign underchild_url = underchild.url | relative_url %}
+                                                                               {% endif %}
+
                                                                                 {% if underchild.url == page.url %}
                                                                                     {% for underchild in subchild.underchildren %}
 
@@ -56,7 +72,7 @@
                                                                                         {% endif %}
 
                                                                                         <ul>
-                                                                                            <li><a href="{{ underchild.url }}" class="{{ active }}">{{ underchild.title }}</a></li>
+                                                                                            <li><a href="{{ underchild_url }}" class="{{ active }}">{{ underchild.title }}</a></li>
                                                                                         </ul>
 
                                                                                      {% endfor %}
