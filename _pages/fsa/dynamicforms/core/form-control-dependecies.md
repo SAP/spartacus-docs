@@ -81,7 +81,7 @@ It is necessary to constantly track value and validity of parent form controls a
   "formFields": [........]
 }
 ```
-- FormGroup with the name "dependantGroup" and all of form fields that are defined in that group won`t be visible if form control with name "controlField" doesn't match values "test" or "test2"
+- FormGroup with the name "dependantGroup" and all of form fields that are defined in that group won't be visible if form control with name "controlField" doesn't match values "test" or "test2"
 ```typescript
 {
 "groupCode": "dependantGroup",
