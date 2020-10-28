@@ -303,7 +303,12 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
                   url: /installing-sap-commerce-for-tua-spartacus/
                 - title: "Building the TUA Spartacus Storefront from Libraries"
-                  url: /building-the-tua-storefront-from-libraries/                           
+                  url: /building-the-tua-storefront-from-libraries/
+                  underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 2.x Libraries"
+                        url: /building-the-tua-storefront-from-libraries-2.x/
+                      - title: "Building the TUA Spartacus Storefront using 1.x Libraries"
+                        url: /building-the-tua-storefront-from-libraries-1.x/  
   
     - title: Contributing to Spartacus
       url: /contributors-guide/
