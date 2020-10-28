@@ -22,6 +22,7 @@ For detailed information on the release contents of TUA Spartacus Release 1.1.0,
 - [Cart]({{ site.baseurl }}{% link _pages/telco/cart.md %})
 - [Checkout]({{ site.baseurl }}{% link _pages/telco/checkout.md %})
 - [Configurable Guided Selling]({{ site.baseurl }}{% link _pages/telco/configurable-guided-selling.md %})
+- [Customer Product Inventory]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %})
 - [Journey Management - Appointment Reference]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %})
 - [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %})
 - [Order]({{ site.baseurl }}{% link _pages/telco/order.md %})
@@ -40,11 +41,13 @@ The following table lists the TUA release version for each feature, as well as S
 
 | Feature                                      | TUA Version | Spartacus Version | Commerce Cloud Version |
 |----------------------------------------------|:-----------:|:-----------------:|:----------------------:|
-| [Cart]({{ site.baseurl }}{% link _pages/telco/cart.md %})                                         |    1.1.0    |        2.1        |          2005          |
-| [Checkout]({{ site.baseurl }}{% link _pages/telco/checkout.md %})                                     |    1.1.0    |        2.1        |          2005          |
-| [Configurable Guided Selling]({{ site.baseurl }}{% link _pages/telco/configurable-guided-selling.md %})                  |    1.1.0    |        2.1        |          2005          |
-| [Journey Management - Appointment Reference]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %} |    1.1.0    |        2.1        |          2005          |
-| Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %})                  |    1.1.0    |        2.1        |          2005          |
-| [Order]({{ site.baseurl }}{% link _pages/telco/order.md %})                                        |    1.1.0    |        2.1        |          2005          |
-| [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %})                      |    1.1.0    |        2.1        |          2005          |
-| [Simple Product Offering]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %})                      |    1.1.0    |        2.1        |          2005          |
+| Cart                                         |    2003    |        2.1        |          1905          |
+| Checkout                                     |    2003    |        2.1        |          1905          |
+| Configurable Guided Selling                  |    2003    |        2.1        |          1905          |
+| Customer Product Inventory                   |    2003    |        2.1        |          1905          |
+| Journey Management - Appointment   Reference |    1.1.0    |        2.1        |          2005          |
+| Journey Management - MSISDN                  |    1.1.0    |        2.1        |          2005          |
+| Order                                        |    1.0.0    |        2.1        |          2005          |
+| Product Offering Search                      |    1.0.0    |        2.1        |          2005          |
+| Simple Product Offering                      |    1.0.0    |        2.1        |          2005          |
+
