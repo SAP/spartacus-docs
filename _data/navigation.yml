@@ -291,6 +291,8 @@ docs:
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
+                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.0."
+                  url: /installing-sap-commerce-for-tua-spartacus-2.0/
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
                   url: /installing-sap-commerce-for-tua-spartacus/
                 - title: "Building the TUA Spartacus Storefront from Libraries"
