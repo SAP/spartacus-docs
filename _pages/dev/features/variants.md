@@ -84,7 +84,7 @@ The `ProductVariantGuard` allows Spartacus to perform a redirect for products wi
 
 When it comes to variants, there is the potential to have a lot of similar product pages, for example, in the case of a base product that has many sizes and colors.
 
-There is no single way to address this issue. To provide a minimal, safe, and extendable setup in Spartacus, the `robots.txt` is set to `FOLLOW, NOINDEX` for products that cannot be purchased.
+There is no single way to address this issue. To provide a minimal, safe, and extensible setup in Spartacus, the `robots.txt` is set to `FOLLOW, NOINDEX` for products that cannot be purchased.
 
 For more details, see `ProductPageMetaResolver` in the source code.
 

@@ -19,7 +19,7 @@ An easy way to start is by helping others who may have questions or need support
 
 ## Reporting Issues
 
-Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/issues) for tracking user stories and bugs.
+Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP/spartacus-docs/issues) for tracking user stories and bugs.
 
 ### How We Process Issues
 
@@ -44,14 +44,13 @@ That being said, we will try our very best to ensure the Spartacus documentation
 
 You don't have to be a programmer to help us determine the specifics of a bug. Any help here is welcome!
 
-
 ----
 
 ## Contributing Documentation
 
 We welcome contributions to the Spartacus documentation. Before you start your first contribution, here are some things you should know:
 
-1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Contributors License Agreement](LICENSE.md). This is common practice for most open source projects.
+1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Developer Certificate of Origin](LICENSE.md). This is common practice for most open source projects.
 
     Note: You do not need to sign the CLA until you submit your first pull request. If you have not signed the CLA before, a link to the CLA assistant is provided on the PR status page.
 
@@ -66,27 +65,9 @@ We welcome contributions to the Spartacus documentation. Before you start your f
     * The documentation you are submitting must fit the overall vision and direction of Spartacus and really improve it.
     * Major feature implementations should be discussed with the owner [Bill Marcotte](https://github.com/Xymmer). You can also float ideas in our Slack channel, and we'll connect you to the appropriate person for further discussion.
 
-### Contributor License Agreement
+## Developer Certificate of Origin (DCO)
 
-When you contribute anything to Spartacus (code, documentation, analysis, anything), be aware that your contribution is covered by the same [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) that is applied to Spartacus itself. In particular, you must agree to the [Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
-
-This applies to all contributors, including those contributing on behalf of a company. If you agree to its content, click on the link posted by the CLA assistant as a comment to the pull request. Click it to check the CLA, then accept it on the following screen if you agree to it. CLA assistant will save this decision for upcoming contributions and will notify you if there is any changes to the CLA in the meantime.
-
-#### Company Contributors
-
-If employees of a company contribute documentation, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
-
-A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
-
-Submit the form to us through one of the following methods:
-
-* Email to [opensource@sap.com](mailto:opensource@sap.com) and [spartacus@sap.com](mailto:spartacus@sap.com)
-* Fax to +49 6227 78-45813
-* Mail to:
-
-Industry Standards & Open Source Team
-Dietmar-Hopp-Allee 16
-69190 Walldorf, Germany
+Due to legal reasons, contributors will be asked to accept a DCO before they submit the first pull request to this projects. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ### Contribution Content Guidelines
 
@@ -96,7 +77,7 @@ A contribution will be considered for inclusion in the Spartacus documentation i
 * The contribution truly improves the documentation
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/tree/master/contributing_to_docs).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/master/contributing_to_docs).
 
 ### Contribution Process
 
@@ -106,7 +87,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Build and run the documentation from the documentation development workspace. 
 
-    For more information, see the [Contributing to Documentation guides](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/tree/master/contributing_to_docs).
+    For more information, see the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/master/contributing_to_docs).
 
 1. Work on the change in your fork (either on the `develop` branch or on a `doc` branch).
 
@@ -116,12 +97,12 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. If your change fixes an issue reported in GitHub, add the following line to the commit message:
 
-     ```Fixes https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/(issueNumber)```
+     ```Fixes https://github.com/SAP/spartacus/issues/(issueNumber)```
 
     * Do not add a colon after "Fixes", as this prevents automatic closing.
     * When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
 
-        ```Closes https://github.com/SAP/cloud-commerce-spartacus-storefront/pull/(pullRequestNumber)```
+        ```Closes https://github.com/SAP/spartacus/pull/(pullRequestNumber)```
 
 1. Create a pull request so that we can review your change.
 1. Follow the link posted by the CLA assistant to your pull request and accept it, as described above.
