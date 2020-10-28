@@ -1,5 +1,9 @@
 ---
-title: Using Loading Scopes (DRAFT)
+title: Using Loading Scopes
+feature:
+- name: Loading Scopes
+  spa_version: 1.4
+  cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -29,7 +33,7 @@ export enum ProductScope {
 You can (and should) take advantage of those scopes when getting product data:
 
 ```typescript
-productService.get(code, ProductScope.DETAILS) // get minimal product data, suitable for listing, carousel items, etc.
+productService.get(code, ProductScope.LIST) // get minimal product data, suitable for listing, carousel items, etc.
 productService.get(code, ProductScope.DETAILS) // get detailed product data, suitable for using in product details page or for generating json-ld schema
 ```
 

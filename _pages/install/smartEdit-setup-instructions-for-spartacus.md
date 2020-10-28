@@ -1,16 +1,22 @@
 ---
 title: SmartEdit Setup Instructions for Spartacus
+feature:
+- name: SmartEdit for Spartacus
+  spa_version: 1.0
+  cx_version: 1905
 ---
 
-Pre-requisites:
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.0 {{ site.version_note_part2 }}
+{% endcapture %}
 
-- SAP Commerce Cloud 1905 (released May 29, 2019)
-  - with spartacussampledataaddon installed
-- Spartacus libraries, releases **0.1.0 alpha.4** or later, latest recommended
+{% include docs/feature_version.html content=version_note %}
 
+## Prerequisites
 
+For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer) with `spartacussampledataaddon` installed.
 
-### Configuring SmartEdit to work with a Spartacus storefront
+## Configuring SmartEdit to work with a Spartacus storefront
 
 1. Build your Angular app, adding Spartacus libraries as normal. Make sure it's working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
@@ -56,30 +62,30 @@ Pre-requisites:
 
    This line tells SmartEdit that Spartacus is allowed to be edited by SmartEdit.
 
-5. Ensure that the WCMS Cockpit Preview URL is set correctly.
+5. Ensure that the `WCMS Cockpit Preview URL` is set correctly by carrying out the following steps:
 
-   - In Backoffice, in WCMS > Website > *your site*, click the WCMS Properties tab.
-   - Set the WCMS Cockpit Preview URL to your Spartacus web site. For this example, it should point to `https://localhost:4200`.
-   
-6. Ensure that the Spartacus site is whitelisted in Smartedit. There are many ways to do this; see the SmartEdit documentation for more information.
+   - In Backoffice, in WCMS > Website > *your site*, click the `WCMS Properties` tab.
+   - Set the `WCMS Cockpit Preview URL` to match your Spartacus web site. For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL must match the default context uses, or errors will occur using SmartEdit. The default context installed by Spartacus schematics is `https://localhost:4200/en/USD`.
+
+6. Ensure that the Spartacus site is allowlisted in SmartEdit. There are many ways to do this; see the SmartEdit documentation for more information.
 
    - Log onto SmartEdit as an administrator.
-   
+  
    - Click the Settings icon at top right.
-   
-   - Scroll down to whiteListedStorefronts, and add the exact URL of the Spartacus storefront.
+  
+   - Scroll down to `whiteListedStorefronts`, and add the exact URL of the Spartacus storefront.
       For this example, it is:
-      
-      ``` 
+  
+      ```plaintext
       [
          "https://localhost:4200"
       ]
       ```
-   
+  
 7. Start the Angular app in SSL mode. Doing so will avoid an "unsafe scripting" message from the browser.
 
-   ```
+   ```plaintext
    yarn start --ssl
    ```
 
-Note: If you start the app without SSL mode, the two references to `https://localhost:4200` must be changed to `http://localhost:4200`.
+   **Note:** If you start the app without SSL mode, the two references to `https://localhost:4200` must be changed to `http://localhost:4200`.

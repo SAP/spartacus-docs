@@ -1,5 +1,9 @@
 ---
 title: Selective Cart
+feature:
+- name: Selective Cart
+  spa_version: 1.5
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -10,13 +14,15 @@ title: Selective Cart
 
 ## Overview
 
-The Selective Cart feature allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
+The Selective Cart feature (also known as "save for later") allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
 
 ## Requirements
 
-The Selective Cart feature requires the **selectivecartaddon** AddOn to work.
+The Selective Cart feature requires release **1905.11** of SAP Commerce Cloud.
 
-For more information, see [Selective Cart Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/923b6bd803734e168a6b2e7c1087caec.html) on the SAP Help Portal.
+The **selectivecartaddon** AddOn is also required for the Selective Cart feature to work.
+
+For more information, see [Selective Cart Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/923b6bd803734e168a6b2e7c1087caec.html) on the SAP Help Portal.
 
 ## Enabling Selective Cart
 

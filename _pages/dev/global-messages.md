@@ -1,5 +1,5 @@
 ---
-title: Global Messages (DRAFT)
+title: Global Messages
 ---
 
 # Model

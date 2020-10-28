@@ -1,5 +1,9 @@
 ---
-title: Stock Notification (DRAFT)
+title: Stock Notification
+feature:
+- name: Stock Notification
+  spa_version: 1.4
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -20,7 +24,7 @@ The stock notification feature requires the following extensions to work:
 -  customerinterestoccaddon AddOn
 -  notificationoccaddon AddOn
 
-For more information, see [Stock Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/7afe618e1ff4437ea6a7a0c6e0c8f32b.html), [Customer Interests Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/f096456e586c44a29bd833a88536855a.html) and [Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/b090364cfbe94c6da1b69af62f585d79.html) in the SAP Help Portal.
+For more information, see [Stock Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/7afe618e1ff4437ea6a7a0c6e0c8f32b.html), [Customer Interests Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/f096456e586c44a29bd833a88536855a.html) and [Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/b090364cfbe94c6da1b69af62f585d79.html) in the SAP Help Portal.
 
 Note that this feature works only when the notification preference feature and the customer interests feature are already working.
 

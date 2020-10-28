@@ -1,5 +1,9 @@
 ---
 title: Cancellations and Returns
+feature:
+- name: Cancellations and Returns
+  spa_version: 1.4
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -12,13 +16,13 @@ title: Cancellations and Returns
 
 The Cancellations and Returns feature in Spartacus allows customers to request a complete or partial cancellation for an order that has been placed, or a return for an order that has already been received. This allows customers to bypass having to call a customer service agent to cancel or return an order that was placed.
 
-For more information, see [Order Cancel Service ](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8c1f345e866910148d68e6ad0f19d930.html) and [Return Service](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8c446a3386691014817dd0941db58607.html) on the SAP Help Portal.
+For more information, see [Order Cancel Service ](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c1f345e866910148d68e6ad0f19d930.html) and [Return Service](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c446a3386691014817dd0941db58607.html) on the SAP Help Portal.
 
 ### Back-End Requirements
 
 The Cancellations and Returns feature in Spartacus requires SAP Commerce Cloud version 2005.0 or newer. The minimum version of 2005.0 is required because earlier versions do not include the endpoints related to this feature.
 
-You should also consider installing Order Management in the back end. For more information, see [Installing Order Management](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/1905/en-US/8b44994b86691014b7b7e63c4bd30592.html) on the SAP Help Portal.
+You should also consider installing Order Management in the back end. For more information, see [Installing Order Management](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b44994b86691014b7b7e63c4bd30592.html) on the SAP Help Portal.
 
 ## Enabling Cancellations and Returns in Spartacus
 

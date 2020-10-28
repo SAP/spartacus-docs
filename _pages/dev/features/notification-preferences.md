@@ -1,5 +1,9 @@
 ---
-title: Notification Preferences (DRAFT)
+title: Notification Preferences
+feature:
+- name: Notification Preferences
+  spa_version: 1.4
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -18,7 +22,7 @@ The notification preferences feature requires the following extension to work:
 
 - notificationoccaddon AddOn
 
-For more information, see [Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/b090364cfbe94c6da1b69af62f585d79.html) in the SAP Help Portal.
+For more information, see [Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/b090364cfbe94c6da1b69af62f585d79.html) in the SAP Help Portal.
 
 ## Enabling Notification Preference
 
