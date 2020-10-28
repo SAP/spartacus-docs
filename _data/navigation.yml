@@ -304,6 +304,8 @@ docs:
                   url: /checkout/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/
+                - title: "Configurable Product Inventory (CPI)"
+                  url: /customer-product-inventory/                
                 - title: "Journey Management - Appointment Reference"
                   url: /journey-management-appointment/
                 - title: "Journey Management - MSISDN"
