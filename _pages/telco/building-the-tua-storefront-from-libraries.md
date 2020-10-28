@@ -230,16 +230,16 @@ This section describes how to validate your back-end installation and start the 
 
 To start your TUA Spartacus storefront, enter the following command from `mystore` in your terminal window:
 
-   ```bash
+```bash
 yarn start
-   ```
+```
   
    When the app server is properly started, point your browser to http://localhost:4200.
 
 Or, to start your TUA Spartacus storefront securely, enter the following command:
 
-   ```bash
+```bash
 yarn start --ssl
-   ```
+```
   
-Then point your browser to  https://localhost:4200.
+Then point your browser to `https://localhost:4200`.

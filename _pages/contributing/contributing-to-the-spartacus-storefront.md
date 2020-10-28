@@ -170,7 +170,7 @@ A contribution will be considered for inclusion in Spartacus if it meets the fol
 * The contribution truly improves the storefront
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/contributors-guide.md %}).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}).
 
 ### Contribution Process
 
