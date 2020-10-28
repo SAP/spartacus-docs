@@ -8,4 +8,9 @@ Dynamicforms is a library for creating forms, designed to work with Spartacus ap
 This includes the following topics:  
 
 - [JSON Structure]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/json-structure.md %})
+- [Form Controls]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/core/form-controls.md %})
+- [Adding form to a simple page]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/core/adding-form.md %})
 - [Styling]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/styling.md %})
+- [Form controls dependencies]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/core/form-control-dependecies.md %})
+- [Basic Form Validations]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/core/basic-form-validations.md %})
+- [Configurable Form Field Pre-populate]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/core/pre-populate-field.md %})
