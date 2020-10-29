@@ -1,5 +1,5 @@
 ---
-title: Product Offering Prices
+title: Pricing - Subscription Rate Plan
 ---
 
 {% capture version_note %}
@@ -46,81 +46,6 @@ A Product Offering includes the specification of a product and also the market d
       - From `<usage charge tier start>` up to `<usage charge tier end> <usage unit>: <currency> <price>`
       - From `<maximum tier end + 1> <usage unit>` onwards `<currency> <price>` (**For overage prices)
 
-## Minimum Price Algorithm
-
-If the product offerings have multiple eligible prices, minimum price algorithm is used to determine the minimum price: 
-
-- Only recurring charges and one-time charges are taken into consideration when determining minimum price.
-- The first defined recurring charges are compared. Price that has the smaller recurring charge will be the minimum price.
-- If the recurring charges are equal, the first price will be the minimum price.
-- If neither price has recurring charges, one-time charges are compared. 
-- The first defined one-time charges are compared. Price that has the smaller one-time charge will be the minimum price. 
-- If one of the prices does not have recurring charges or one-time charges, the value for the recurring charge or one-time charge is interpreted as 0 by the algorithm.
-
-## Configuration 
-
-The client application allows customers to configure certain variables that are exposed through `TmaB2cStorefrontModule`, in order to make the application more flexible. These values can be configured in `app.module.ts` in the imports section under `TmaB2cStorefrontModule.withConfig({ ... })` config. 
-
-#### Configurable Variables
-`billingFrequency` – list of billing frequency and their value in months. Used for converting billing frequency string into their value in months.
-
-#### Syntax
-Billing Frequency
-
-```ts
-billingFrequency: [
-  {
-    key: <string>,
-    value: <number>,
-  },
-  ...
-  {
-    key: <string>,
-    value: <number>,
-  }
-],
-```
-
-#### Default values
-Billing Frequency
-
-```ts
-billingFrequency: [
-  {
-    key: 'yearly',
-    value: 12,
-  },
-  {
-    key: 'year',
-    value: 12,
-  },
-  {
-    key: 'annually',
-    value: 12,
-  },
-  {
-    key: 'annual',
-    value: 12,
-  },
-  {
-    key: 'monthly',
-    value: 1,
-  },
-  {
-    key: 'month',
-    value: 1,
-  },
-  {
-    key: 'quarterly',
-    value: 3,
-  },
-  {
-    key: 'quarter',
-    value: 3,
-  },
-],
-```
-
 ## Further Reading
 
-For more information, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html) in the TUA Help Portal.
+For more information, see [Subscription Rate Plan](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/8e591e48aa604b2f8c4a0d9804c6d6f5.html) in the TUA Help Portal.
