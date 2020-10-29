@@ -18,15 +18,15 @@ title: Journey Management - MSISDN
 
 ## Overview
 
-Some product offerings require specific MSISDNs or the phone numbers to be reserved by the customers before placing an order for the product or the service offering. An `MSISDN (Mobile Station International Subscriber Directory Number)` is a phone number used to identify a mobile phone number internationally from the available phone numbers. This number includes a country code and a National Destination Code, which identifies the subscriber's operator.
+As a result of Journey Management configuration, some product offerings may be defined with the requirement of an MSISDN selection.  This means that the MSISDN or Mobile Number must be selected (reserved) by the customer before the order can be successfully placed.  The Journey Management MSISDN feature enables customers to make this selection during the add to cart process.
 
-The `Journey Management - MSISDN` feature enables the customers who are browsing the TUA for SPA Storefront, to select a desired phone number (MSISDN) before adding the selected product or the service to the cart.
+The retrieval of MSISDN numbers for selection and reservation requires a 3rd party integration.
 
-**Note:** The `Journey Management - MSISDN` feature applies to the product offerings or service plans for which a checklist policy for `MSISDN Reference` is configured at the backend by the Product Manager. For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).
+This feature applies to product offerings that have a checklist policy for `MSISDN Reference` configured. For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).
 
 ## Prerequisite
 
-To setup soapUI to test the MSISDN feature, follow the steps:
+To test this feature using a mock service, please follow the set-up instructions below for soapUI:
 
 1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
 2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services` ZIP.
@@ -36,7 +36,7 @@ To setup soapUI to test the MSISDN feature, follow the steps:
 
 ## Business Use Case
 
-A customer wants to purchase a service plan, for example, `Do More with Less`. Before adding the service plan to the cart, the `Select your desired Phone Number` screen is displayed, based on the checklist policy configured for MSISDN at the backend by the Product Manager. The customer is required to select a phone number from the available phone numbers.
+A customer wants to purchase a product offering that requires an MSISDN selection.  During the add to cart process, the customer will be prompted to `Select your desired Phone Number`.  The customer makes a selection and the product offering is added to the cart along with the MSISDN number selection.   Customer also have the ability to change the selected MSISDN number to a new selection in the cart before placing the order.
 
 ## Frontend Requirements and Dependencies
 
@@ -46,15 +46,12 @@ A customer wants to purchase a service plan, for example, `Do More with Less`. B
 | Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
 | Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
 
-## Supported Backend Functionality
 
-The checklist policy is configured by the Product Manager in the Backoffice to have the `Select your Phone number` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+## Configuring and Enabling MSISDN in TUA
+The checklist policy for the MSISDN-Reference for a selected product offering is configured in the Backoffice by a Product Manager.   For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).
 
-## Configuring and Enabling MSISDN
-
-The checklist policy is configured by the Product Manager in the Backoffice to have the `Select your desired Phone number` screen displayed to the customers to select the phone number, before adding the product or the service offering to the cart.
-
-To configure and enable MSISDN reference from the Backoffice, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+## Component 
+The MSISDN component needs to be enabled in the TUA backoffice to appear on the Spartacus TUA storefront.
 
 ## TM Forum APIs
 
