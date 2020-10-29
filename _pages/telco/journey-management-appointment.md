@@ -18,17 +18,17 @@ title: Journey Management - Appointment Reference
 
 ## Overview
 
-Some product offerings or specifications require booking an appointment with a service technician for installation before placing an order. When the appointment is confirmed and order is placed, the service technician can contact the customer to confirm the address to visit and complete the installation.
+As a result of Journey Management configuration, a product offerings may be defined with the requirement of an appointment to be scheduled.  This means that an appointment reservation is required before the order can be successfully placed.  The Journey Management appointment feature enables customers to make this reservation during the add to cart process.
 
-The `Journey Management - Appointment Reference` feature enables the customers browsing the TUA Spartacus storefront to browse the contents of a product or service offering and schedule an appointment. For example, a customer wants to purchase a service plan `Fiberlink 100`, which involves onsite installation by a service technician. Before adding the service plan to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the `Appointment Reference` checklist policy configured at the backend by the Product Manager. The customer can select a suitable appointment from the available time slots, or can select `call to schedule` option to arrange a call back to schedule an appointment.
+Appointment selection and reservation in a productive system requires 3rd party integration to the appropriate backend system.
+This feature can be adapted to work with a cusotmers specific business process flow.
 
-This feature also enables the TUA SPA Storefront to showcase the end-to-end integration with the appointment system for the products while placing an order in the Acquisition flow.
+This feature applies to product offerings that have a checklist policy for Appointment Reference configured.  For more information, see Configuring and Enabling Appointments.
 
-**Note:** The `Journey Management - Appointment Reference` feature is enabled in the TUA SPA Storefront by configuring the checklist policies for Appointment for single product offerings by the Product Manager in the Backoffice.
 
 ## Prerequisite 
 
-To setup soapUI to test Appointment reference feature, follow the steps:
+To test this feature using a mock service, please follow the set-up instructions below for soapUI:
 
 1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
 2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services` ZIP.
@@ -38,11 +38,9 @@ To setup soapUI to test Appointment reference feature, follow the steps:
 
 ## Business Use Cases
 
-The following business use cases are covered:
+A customer wants to purchase a product offering that requires installation service.  During the add to cart process, the customer will be prompted to make an appointment reservation.   
 
-1. Booking an appointment for services, which require installation by service technicians.
-2. Cancelling an appointment from the Appointment system on the Cart screen. For example, the customer has not acted in a specific time duration after which the Appointment system cannot block the service technicians, hence, cancels the appointment. Or, the service technicians are no more available, hence, the appointment system cancels the appointment.
-3. Displaying errors from the Appointment systems integration during checkout process.
+In the cart, a customer has a product offering with a selected appointment reservation.  The customer does not immediately make place the order but instead either waits until the next day or completely abandons the cart.  After a defined period of time, the cart times-out and the apppointment is automatically cancelled and the slot can be made available for another cusotmer.  
 
 <!--## End-to-end Journey
 
@@ -75,11 +73,9 @@ The following business use cases are covered:
 | Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
 | Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
 
-## Configuring and Enabling the Appointment Reference
+## Configuring and Enabling the Appointment in TUA
 
-The checklist policy is configured by the Product Manager in the Backoffice to have the `Select a suitable time for an appointment` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart.
-
-To configure and enable the Appointment reference from the Backoffice, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+The Appointment-Reference checklist policy for a selected product offering is configured in the Backoffce by a Product Manager.  For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## TM Forum APIs
 
