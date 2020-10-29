@@ -1,6 +1,29 @@
 ---
 title: Pre-Release Information
 ---
+
+## Pre-Release Information
+
+This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
+
+_Last updated October 28, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
+
+For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}). 
+
+For detailed release notes, see the [Spartacus repository](https://github.com/SAP/spartacus/releases).
+
+## Release 2.0.0-next.1 - October 28, 2020
+
+Release 2.0 has been published! For more information, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
+
+We are happy to announce support for the TUA 2007 release.
+
+You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
+
+### Pre-Release Libraries for 2.0 and Earlier
+
+Pre-release libraries are no longer actively updated for versions 1.0 and earlier, as the final release of these libraries was already published. Pre-release libraries are still available but the final versions should be used.
+
 ## Release 1.0.0-next.2 - July 24th, 2020
 
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
