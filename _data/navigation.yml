@@ -307,6 +307,11 @@ docs:
                   url: /installing-sap-commerce-for-tua-spartacus/
                 - title: "Building the TUA Spartacus Storefront from Libraries"
                   url: /building-the-tua-storefront-from-libraries/
+                  underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 2.x Libraries"
+                        url: /building-the-tua-storefront-from-libraries-2.x/
+                      - title: "Building the TUA Spartacus Storefront using 1.x Libraries"
+                        url: /building-the-tua-storefront-from-libraries-1.x/
           - title: "TUA Spartacus Features ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
@@ -328,15 +333,8 @@ docs:
                   url: /product-offering-search/
                 - title: "Simple Product Offering (SPO)"
                   url: /simple-product-offerings-spo/           
-                
-          - title: "TUA Spartacus FAQs"
-            url: /spartacus-tua-faqs/                
-                                           
-                  underchildren:
-                      - title: "Building the TUA Spartacus Storefront using 2.x Libraries"
-                        url: /building-the-tua-storefront-from-libraries-2.x/
-                      - title: "Building the TUA Spartacus Storefront using 1.x Libraries"
-                        url: /building-the-tua-storefront-from-libraries-1.x/  
+           - title: "TUA Spartacus FAQs"
+             url: /spartacus-tua-faqs/                    
   
     - title: Contributing to Spartacus
       url: /contributors-guide/
