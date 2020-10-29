@@ -330,3 +330,5 @@ docs:
             url: /type-safety-in-spartacus/
           - title: "Definition of Done"
             url: /definition-of-done/
+          - title: "Git Flow and Release Process"
+            url: /git-flow-and-releases/
