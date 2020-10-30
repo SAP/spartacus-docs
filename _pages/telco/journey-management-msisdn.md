@@ -10,8 +10,7 @@ title: Journey Management - MSISDN
 - [Prerequisite](#prerequisite)
 - [Business Use Case](#business-use-case)
 - [Frontend Requirements and Dependencies](#frontend-requirements-and-dependencies)
-- [Supported Backend Functionality](#supported-backend-functionality)
-- [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn)
+- [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua)
 - [TM Forum APIs](#tm-forum-apis)
 - [Components](#components)
 - [Further Reading](#further-reading)
@@ -44,13 +43,8 @@ A customer wants to purchase a product offering that requires an MSISDN selectio
 | Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
 | Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
 
-## Supported Backend Functionality
-
-The checklist policy is configured by the Product Manager in the Backoffice to have the `Select your Phone number` screen is displayed to the customers to select a suitable appointment, before adding the product or the service offering to the cart. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
-
-## Configuring and Enabling MSISDN
-
-The checklist policy for the MSISDN-Reference for a selected product offering is configured in the Backoffice by a Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+## Configuring and Enabling MSISDN in TUA
+The checklist policy for the MSISDN-Reference for a selected product offering is configured in the Backoffice by a Product Manager.   For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).
 
 ## TM Forum APIs
 
