@@ -18,6 +18,8 @@ Our assumptions about versions are as follows:
 - An `rc` version is released when the Spartacus team has finished development of all new features for that version, which means there won't be any major changes in the features nor in the public API. The community can safely start testing the features in an `rc` release. An `rc` release might contain a few bugs that will be fixed before the `stable` version is released. When there aren't any more bugs and the community stops reporting issues for that version, we proceed with producing the `stable` release.
 - A `next` version is released when the Spartacus team finishes a particular feature. This allows the community to start testing the feature right away. These `next` versions may contain a lot of bugs, and the features and public API may be still be subject to change. If you want to test new features as soon as possible, this is the version for you. The `next` versions are available under the `next` tag on [npm](https://www.npmjs.com).
 
+    **Note:** It is strongly recommended that you **do not** use a `next` version in a production setup. This is because upgrading from a `next` release may be much more difficult that upgrading from one `stable` version to another.
+
 ### Support Policy
 
 There is always at least one `stable` or `rc` version supported.
