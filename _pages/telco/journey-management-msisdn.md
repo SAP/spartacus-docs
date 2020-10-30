@@ -11,15 +11,15 @@ title: Journey Management - MSISDN
 - [Business Use Case](#business-use-case)
 - [Frontend Requirements and Dependencies](#frontend-requirements-and-dependencies)
 - [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua)
-- [TM Forum APIs](#tm-forum-apis)
 - [Components](#components)
+- [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
 ## Overview
 
 As a result of Journey Management configuration, some product offerings may be defined with the requirement of an MSISDN selection. This means that the MSISDN or Mobile Number must be selected (reserved) by the customer before the order can be successfully placed. The Journey Management - MSISDN feature enables customers to make this selection during the "Add to Cart" process. The retrieval of MSISDN numbers for selection and reservation requires a third-party integration.
 
-**Note:** This feature applies to product offerings that have a checklist policy for `MSISDN Reference` configured. For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).
+**Note:** This feature applies to product offerings that have a checklist policy for `MSISDN Reference` configured. For more information, see [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua).
 
 ## Prerequisite
 
@@ -44,7 +44,18 @@ A customer wants to purchase a product offering that requires an MSISDN selectio
 | Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
 
 ## Configuring and Enabling MSISDN in TUA
-The checklist policy for the MSISDN-Reference for a selected product offering is configured in the Backoffice by a Product Manager.   For more information, see [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn).
+
+The checklist policy for the MSISDN-Reference for a selected product offering is configured in the Backoffice by a Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+
+## Components
+
+The following MSISDN components must be enabled in the TUA backoffice to appear on the Spartacus TUA storefront:
+
+| Component Name                           | Description                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| LogicalResourceComponent                 | Displays the logical resource details on   the order, order history, cart summary, and cart popup pages                                       |
+| JourneyChecklistLogicalResourceComponent | Displays the available logical resource details to the customer.   Customers can select the desired logical resource from the available list |
+| JourneyChecklistStepComponent            | Displays a stepper component that renders the checklist components   one-by-one                                                                       |
 
 ## TM Forum APIs
 
@@ -56,18 +67,7 @@ The checklist policy for the MSISDN-Reference for a selected product offering is
 | TMF-685                              | PATCH /resourcePoolManagement/Reservation/{id}  | Updates a reservation instance                                                                               |
 | TMF-685                              | GET /resourcePoolManagement/reservation/        | Retrieves a list of reservations. Additional filters can also be applied   to get the relevant search result |
 
-For more information, see [TM Forum APIs
-](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
-
-## Components
-
-The following MSISDN components must be enabled in the TUA backoffice to appear on the Spartacus TUA storefront:
-
-| Component Name                           | Description                                                                                                                                  |
-|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| LogicalResourceComponent                 | Displays the logical resource details on   the order, order history, cart summary, and cart popup pages                                       |
-| JourneyChecklistLogicalResourceComponent | Displays the available logical resource details to the customer.   Customers can select the desired logical resource from the available list |
-| JourneyChecklistStepComponent            | Displays a stepper component that renders the checklist components   one-by-one                                                                       |
+For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
 
 ## Further Reading
 
