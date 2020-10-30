@@ -2,83 +2,88 @@
 title: Git Flow and Release Process
 ---
 
-## Library Versions Compatibility
+## Library Version Compatibility
 
-In this document we always refer to version as a single instance. However spartacus project is not a single library, but a set of libraries.
+The Spartacus project is made up of a set of libraries. To make it easier to know which version of a library is compatible with another version, the library versions are synchronized across all packages. This means that when we want to release version `1.5.0`, we release all libraries under this version, even if some libraries do not have any changes since the previous release. In so doing, we can use a single version number to refer to the entire set of Spartacus libraries for any given release.
 
-To make it easier to know which version of one library is compatible with another library we keep version synchronized across all packages.
-That means when we want to release version `1.5.0` we release all libraries under this version (even if some libraries doesn't have any changes since the last release).
+This also means that you can be confident that if you install all packages with the same version, everything will work together correctly. Different versions of libraries may work well together, but we do not test those configurations and cannot promise correct behavior.
 
-Thanks to that you can be confident that if you install all packages with the same version everything will work correctly together. Different versions of libraries might work well together, but we don't test those configurations and can't promise correct behavior.
+## Version Support
 
-## Version support
+For versioning, we follow semantic versioning, also known as [SemVer](https://semver.org). Aside from `stable` versions, Spartacus also produces `next` and `rc` releases.
 
-For versioning we follow semver. (TODO put link here). Apart from `stable` versions we make use of `next` and `rc` releases.
+Our assumptions about versions are as follows:
 
-Our assumptions about versions:
+- A `stable` version is a well-tested Spartacus release (including testing by the community), and will only be patched with bug fixes. These versions are available under the `latest` tag on [npm](https://www.npmjs.com).
+- An `rc` version is released when the Spartacus team has finished development of all new features for that version, which means there won't be any major changes in the features nor in the public API. The community can safely start testing the features in an `rc` release. An `rc` release might contain a few bugs that will be fixed before the `stable` version is released. When there aren't any more bugs and the community stops reporting issues for that version, we proceed with producing the `stable` release.
+- A `next` version is released when the Spartacus team finishes a particular feature. This allows the community to start testing the feature right away. These `next` versions may contain a lot of bugs, and the features and public API may be still be subject to change. If you want to test new features as soon as possible, this is the version for you. The `next` versions are available under the `next` tag on [npm](https://www.npmjs.com).
 
-- `stable` version is well tested (also by community) spartacus release that will only be patched with bug fixes (versions available under `latest` tag on `npmjs.rg`).
-- `rc` version means that we finished development of all new features for that version (there won't be any major changes in this features and public API) and community can start testing those. These release might contain few bugs that will be fixed before stable release. When there won't be any more bugs and community stops reporting issues for that version we proceed with `stable` release.
-- `next` versions are released when we finish some particular feature so community can test them instantly. This versions can have a lot of bugs. Features and public API might be still a subject for big changes. If you want to test new features as soon as possible this is the versions for you (versions available under `next` tag on `npmjs.org`).
-
-### Support policy
+### Support Policy
 
 There is always at least one `stable` or `rc` version supported.
 
-Once version `x.y` is released it will be actively maintained until new `stable` or `rc` for `x.z` version will be released.
-On that moment `x.z` version will be the actively maintained version and work on next version begins.
+Once version `x.y` is released, it will be actively maintained until a new `stable` or `rc` for version `x.z` is released. At that point, version `x.z` will become the actively maintained version, and work on the next version wil begin.
 
-Eg. We just released `1.5.0-rc.0` version. From that moment `1.5.x` version will be actively maintained until we release `1.6.0-rc.0` which would switch active support to `1.6.x` version.
+For example, let's say we just released version `1.5.0-rc.0`. From that moment, version `1.5.x` will be actively maintained, until we release `1.6.0-rc.0`. Once version `1.6.0-rc.0` is released, then we would switch active support to version `1.6.x`.
 
-For important security issues or critical bug fixes there might be additional patch for versions no longer actively maintained.
+**Note:** For important security issues or critical bug fixes, there may be additional patches for versions that are no longer actively maintained.
 
-## Git flow
+## Git Flow
 
-Flow in spartacus project was structured around version support described above.
+The flow in the Spartacus project is structured around the version support described in the previous sections.
 
-`develop` is the default branch intended for new version development (is used for minor/major versions). All features and bug fixes are merged to this branch.
+The `develop` branch is the default branch, and is intended for new version development, for both minor and major versions. All features and bug fixes are merged to this branch.
 
-There is also so called maintenance branch which changes on new `stable`/`rc` release and is used for patch versions. Only bug fixes are merged to this branch.
-Once we release version `1.4.0-rc.0` the `release/1.4.x` branch is treated as a maintenance branch. When we release `1.5.0-rc.0` version then the `release/1.5.x` branch becomes the maintenance branch and so on.
+There is also a maintenance branch, which changes with new `stable` or `rc` releases, and this is used for patch versions. Only bug fixes are merged to the maintenance branch.
 
-Other branches convention:
+Once we release version `1.4.0-rc.0`, the `release/1.4.x` branch is treated as a maintenance branch. When we release version `1.5.0-rc.0`, then the `release/1.5.x` branch becomes the maintenance branch, and so on.
+
+Other branch conventions:
 
 - `feature/GH-xxxx` branches are used for simple features and bug fixes
 - `epic/epic-name` branches are used for big features (called epics)
-- `release/1.4.0-rc.0` branches are used for specific release (you can distinguish them from maintenance branches, because the full version number is included)
+- `release/1.4.0-rc.0` branches are used for specific releases (you can distinguish them from maintenance branches because the full version number is included)
 
-### Flow for epic development
+### Flow for Epic Development
 
-- create from `develop` branch new `epic/epic-name` branch
-- create branches for epic subtasks from `epic/epic-name` and merge them to `epic/epic-name` branch
-- from time to time update your `epic/epic-name` branch with changes from `develop` branch (it will help you with managing conflicts)
-- once the epic is complete create PR and merge `epic/epic-name` branch to `develop` branch
+The following are the steps for working with epics:
 
-### Flow for new simple feature
+1. Create a new `epic/epic-name` branch from the `develop` branch.
+1. Create branches for epic subtasks from `epic/epic-name`, and merge them back to the `epic/epic-name` branch.
+1. From time to time, update your `epic/epic-name` branch with changes from the `develop` branch (it will help you with managing conflicts).
+1. When the epic is complete, create a PR and merge the `epic/epic-name` branch to the `develop` branch.
 
-- create from `develop` branch new `feature/GH-xxxx` branch
-- develop your feature
-- when you finish create PR and merge `feature/GH-xxxx` branch to `develop` branch
+### Flow for Smaller Features
 
-### Flow for bug fix
+The following are the steps for working with smaller features:
 
-- create from `develop` branch new `feature/GH-xxxx` branch
-- fix the bug
-- create PR and merge `feature/GH-xxxx` branch to `develop` branch
-- if this fix applies to actively supported version create new branch `feature/GH-xxxx-maintenance` from maintenance branch
-- cherry pick commit with the fix from `develop` branch
-- create PR and merge `feature/GH-xxxx-maintenance` into maintenance branch
+1. Create a new `feature/GH-xxxx` branch from the `develop` branch.
+1. Develop your feature.
+1. When you have finished, create a PR and merge the `feature/GH-xxxx` branch to the `develop` branch.
 
-## Release schedule
+### Flow for Bug Fixes
 
-Currently we don't have scheduled releases. Product owner or team decides when is a good time to release a new version.
+The following are the steps for working with bug fixes:
 
-Terms we currently use that are misleading:
+1. Create a new `feature/GH-xxxx` branch from the `develop` branch.
+1. Fix the bug.
+1. Create a PR and merge the `feature/GH-xxxx` branch to the `develop` branch.
+1. If this fix applies to the actively-supported version, create a new `feature/GH-xxxx-maintenance` branch from the maintenance branch.
+1. Cherry pick the commit with the fix from the `develop` branch.
+1. Create a PR and merge `feature/GH-xxxx-maintenance` into the maintenance branch.
 
-- feature freeze - describes moment when we completed all features for new minor/major release (means that we want to release `rc` very soon, but still needs to fix some bugs)
-- code freeze - describes moment when you should stop committing code (that is not needed with our flow, because we can always cut release/maintenance branch and keep committing)
+## Release Schedule
 
-Replacements for those terms:
+Currently, we do not have scheduled releases. The product owner or the team decides when to release a new version.
 
-- feature freeze -> new maintenance branch and release new `rc` - first RC can be buggy, that's the point of RC
-- code freeze -> create new release branch - don't block main development/maintenance branch ever (don't need to bother developers with these details, because our flow supports concurrent work on these branches and releasing another version).
+## Terminology
+
+The following are terms we currently use that can be misleading:
+
+- "feature freeze" describes a moment when we have completed all features for a new minor or major release (which means we want to release an `rc` very soon, but still need to fix some bugs).
+- "code freeze" describes the moment when we stop committing code (although this is not needed with our flow, because we can always cut a release or maintenance branch and keep committing).
+
+The following concepts can be used to replace these terms:
+
+- Instead of having a feature freeze, we can create a new maintenance branch and release a new `rc`. The first RC can be buggy, because it is accepted that `rc` releases may contain bugs.
+- Instead of having a code freeze, we can create a new release branch. We never need to block the main development or maintenance branch (and we don't need to bother developers with these details, because our flow supports concurrent work on these branches and releasing another version).
