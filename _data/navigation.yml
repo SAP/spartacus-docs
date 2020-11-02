@@ -69,6 +69,8 @@ docs:
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
+                - title: "Configurable Products Integration"
+                  url: /ccp-integration/
                 - title: 'Context-Driven Services Integration'
                   url: /cds-integration/  
                 - title: 'Payment Integration with CyberSource Example'
