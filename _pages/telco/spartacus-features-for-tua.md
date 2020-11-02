@@ -4,6 +4,11 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 2.0
+
+- Pricing - Composite Pricing.
+- Pricing - Price Alteration Discounts.
+
 ## Release 1.2
 
 - [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}).
