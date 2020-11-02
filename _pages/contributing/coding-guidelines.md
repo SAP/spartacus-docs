@@ -105,7 +105,7 @@ If you answered "no" to these questions, then the test belongs in the `regressio
 
 Do not break server-side rendering (SSR).
 
-For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/server-side-rendering-coding-guidelines.md %}).
+For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}).
 
 ### Protected and Private Methods
 

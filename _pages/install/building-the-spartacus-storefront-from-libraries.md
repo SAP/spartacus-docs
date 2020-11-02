@@ -8,7 +8,7 @@ The following instructions describe how to build a storefront application using 
 
 Before carrying out the procedures below, ensure the following front end and back end requirements are in place.
 
-## Front-End Development Requirements
+## Front End Development Requirements
 
 {% include docs/frontend_requirements.html %}
 
@@ -101,4 +101,3 @@ Note: If your storefront doesn't appear, likely you have to accept a privacy cer
 You can display the Apparel storefront through this URL: `http://localhost:4200/apparel-uk-spa/en-GBP`
 
 Congratulations! You've built your first Spartacus storefront.
-
