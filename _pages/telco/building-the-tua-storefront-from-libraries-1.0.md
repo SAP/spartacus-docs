@@ -2,7 +2,7 @@
 title: Building the TUA Spartacus Storefront from 1.x Libraries
 ---
 
-The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.2.0 libraries.
+The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.0.0 libraries.
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
