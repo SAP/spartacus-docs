@@ -1,5 +1,9 @@
 ---
 title: Automatic Multi-Site Configuration
+feature:
+- name: Automatic Multi-Site Configuration
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}

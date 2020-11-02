@@ -1,5 +1,9 @@
 ---
 title: SmartEdit Setup Instructions for Spartacus
+feature:
+- name: SmartEdit for Spartacus
+  spa_version: 1.0
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -63,13 +67,13 @@ For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer
    - In Backoffice, in WCMS > Website > *your site*, click the `WCMS Properties` tab.
    - Set the `WCMS Cockpit Preview URL` to match your Spartacus web site. For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL must match the default context uses, or errors will occur using SmartEdit. The default context installed by Spartacus schematics is `https://localhost:4200/en/USD`.
 
-6. Ensure that the Spartacus site is whitelisted in SmartEdit. There are many ways to do this; see the SmartEdit documentation for more information.
+6. Ensure that the Spartacus site is allowlisted in SmartEdit. There are many ways to do this; see the SmartEdit documentation for more information.
 
    - Log onto SmartEdit as an administrator.
   
    - Click the Settings icon at top right.
   
-   - Scroll down to whiteListedStorefronts, and add the exact URL of the Spartacus storefront.
+   - Scroll down to `whiteListedStorefronts`, and add the exact URL of the Spartacus storefront.
       For this example, it is:
   
       ```plaintext
