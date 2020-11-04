@@ -1,5 +1,9 @@
 ---
 title: Infinite Scroll
+feature:
+- name: Infinite Scroll
+  spa_version: 1.2
+  cx_version: n/a
 ---
 
 {% capture version_note %}

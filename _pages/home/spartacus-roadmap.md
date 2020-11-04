@@ -2,19 +2,17 @@
 title: Spartacus Roadmap
 ---
 
-This document describes what what is planned for Spartacus for Q3 and Q4 2020, and later.
+This document describes what what is planned for Spartacus for Q4 2020 and later.
 
-*Last updated August 17, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated October 15, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Features Planned for Version 2.1 - End of August](#features-planned-for-version-21---end-of-august)
-- [Features Planned for Version 3.0 / September](#features-planned-for-version-30--september)
+- [Features Planned for Version 3.0 / November](#features-planned-for-version-30--november)
 - [Features Planned for the Rest of Q4 2020 and into Q1 2021](#features-planned-for-the-rest-of-q4-2020-and-into-q1-2021)
 - [Future Outlook / Features Planned for 2021 and Later](#future-outlook--features-planned-for-2021-and-later)
-  
   
 ### Disclaimer - Forward-Looking Statements
 
@@ -42,33 +40,29 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
 
-## Features Planned for Version 2.1 - End of August
-
-- **Directionality**: Provides support for bidirectional text and layout. You can configure Spartacus to use a left-to-right (LTR) orientation, or a right-to-left (RTL) orientation. The 2.1 feature is for core functionality; that Spartacus updates to CSS will be completed in the 3.0. For more information, see the [draft documentation](https://github.com/SAP/spartacus-docs/blob/5c42b580f2cdcfc5ced44a559658ac30be3a9be5/_pages/dev/styling-and-page-layout/directionality.md).
-
-- **Style Library Versioning**: Allows the core Spartacus development team to introduce  gradual changes in the style layer while maintaining backwards compatibility. New or adjusted style rules are added for a specific version, but these changes are not added in the style build process unless you explicitly opt in to receive these changes. For more information, see the [draft documentation](https://github.com/SAP/spartacus-docs/blob/develop/_pages/dev/styling-and-page-layout/css-architecture.md).
-  
-## Features Planned for Version 3.0 / September
+## Features Planned for Version 3.0 / November
 
 Release 3.0 will be the first release supporting B2B features.
 
 ### B2B Storefront Features planned for 3.0
 
+- **B2B Powertools Store support**
 - **B2B Checkout**
   - Allows customers to check out by account, besides credit card
   - Customers can enter a purchase order number that is saved with orders
   - If paying by account: cost center selection, shipping address restricted by cost center chosen), subject to approval process
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html)
-- **B2B Commerce Org** 
+- **B2B Commerce Organization**
   - Also known as My Company
   - Self-service spending and organization management
-  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals) 
+  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals)
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html)
-- **B2B Scheduled Replenishment** 
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) 
-- **B2B Re-order**
-- **Updates to Order Details** 
+- **B2B Scheduled Replenishment**
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html)
+- **Updates to Order Details**
   - Includes B2B-specific information, such as approval table and cost center
+- **B2B Inventory Display**
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 - **Lazy loading for modules**
   - For better performance
   - Starting with B2B My Company module
@@ -82,6 +76,9 @@ Release 3.0 will be the first release supporting B2B features.
   - Separates OCC API integration from core Spartacus code, allowing use of adapters and connectors
   - Makes it easier to add your own Identity Provider
   - Improves security while reducing friction in the authentication and login user experience
+
+### Integrations planned for 3.0 timeframe
+
 - **Customer Data Cloud** integration library (Login and Registration Support)
   - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
   - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/4fc06a3539a940e6b707c0c543d44053.html)
@@ -91,29 +88,24 @@ Release 3.0 will be the first release supporting B2B features.
   
 ### B2B Storefront Features
 
-- **B2B Saved Carts**
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
-- **B2B Quick Order** 
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
-- **B2B Inventory Display** 
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) 
-- **B2B Multi-dimensional product support** and **Order Grid**
+- **B2B Saved Carts** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
+- **B2B Re-order**
+- **B2B Quick Order** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
 - **B2B Bulk Price List**
-- **B2B Product Import and Export Cart** (\*) (from/to files) 
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html) 
-- **B2B Order Form Builder** 
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
-  
+- **B2B Multi-dimensional product support** (requires API updated to be included in release 2011)
+- **B2B Product Import and Export Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
+
 ### Core Storefront Features
 
 - **Image Zoom** on Product Details page (will be released in an incubator library)
 - **Accessibility Screen Reader support**
-- **Buy online pickup in store** 
+- **Buy online pickup in store**
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
-- **Assisted Service Module customer list** 
+- **Assisted Service Module customer list**
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - **Assisted Service Module anonymous cart binding** (requires API introduced in 2005)
-- Potential Promotions (\*)
+- **Potential Promotions**
+- **Bundles** (requires new API planned for 2105 release)
   
 ### Architecture Features
 
@@ -121,17 +113,6 @@ Release 3.0 will be the first release supporting B2B features.
 - **Site map**
 - **Tag Manager framework**
 - **Google Tag Manager Support**
-  
-### Integrations
-
-- **SAP Variant Configuration and Pricing** (formerly known as CPQ)
-  Initial version to include:
-  - Single- or multilevel configurable products in your Commerce Spartacus storefront
-  - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, and images for characteristic values
-  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
-  - Overview page with all user selections accessible at any time during configuration
-  - Conflict handling
-  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
   
 ## Future Outlook / Features Planned for 2021 and Later
 
@@ -146,7 +127,7 @@ The items in this section are on our future roadmap - not necessarily yet planne
 ### Core/B2C Storefront Features
 
 - Captcha (\*)
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html) 
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
 - New Accessibility features
 - Buy it again (add to cart from existing order)
 - Social sharing of product information
@@ -163,10 +144,24 @@ The items in this section are on our future roadmap - not necessarily yet planne
   
 ### B2B Storefront Features
 
+- **B2B Order Form Builder**
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
+- **B2B Multi-Dimensional Products Order Grid**
 - **B2B Commerce Quotes** (\*)
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
 - **B2B Future Stock** (\*)
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html) 
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html)
 - **B2B Account Summary** (\*) for Commerce Org
 
 Some items listed above have **(\*)** because the feature requires new OCC REST APIs, no date set yet.
+
+### Integrations
+
+- **SAP Variant Configuration and Pricing** (formerly known as CPQ)
+  Initial version to include:
+  - Single- or multilevel configurable products in your Commerce Spartacus storefront
+  - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, and images for characteristic values
+  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
+  - Overview page with all user selections accessible at any time during configuration
+  - Conflict handling
+  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
