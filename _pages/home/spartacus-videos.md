@@ -26,7 +26,7 @@ To see a list of all Spartacus videos, [click here](https://microlearning.opensa
 - [Search Indexing Support](https://microlearning.opensap.com/media/Search+Indexing+Support+-+SAP+Commerce+Cloud/1_erxdtpn6/178316081) (2:46) (Technical: Beginner)
 - [SEO Features](https://microlearning.opensap.com/media/SEO+Features+-+SAP+Commerce+Cloud/1_wim5rixu/178316081) (3:43) (Technical: Beginner)
 - [Styling with Global Variables](https://microlearning.opensap.com/media/Styling+with+Global+Variables+-+SAP+Commerce+Cloud/1_eae1fztm/178316081) (4:19) (Technical: Beginner)
-- [Styling with Precise Selectors]https://microlearning.opensap.com/media/Styling+With+Precise+Selectors+-+SAP+Commerce+Cloud/1_ldqmajwd/178316081) (4:02) (Technical: Beginner)
+- [Styling with Precise Selectors](https://microlearning.opensap.com/media/Styling+With+Precise+Selectors+-+SAP+Commerce+Cloud/1_ldqmajwd/178316081) (4:02) (Technical: Beginner)
 - [Move to Angular 9](https://microlearning.opensap.com/media/Move+to+Angular+9+-+Spartacus+-+SAP+Commerce+Cloud/1_a0svzeu4/178316081) (6:20) (Technical: Intermediate)
 - [Spartacus Angular Update Schematics](https://microlearning.opensap.com/media/Spartacus+Angular+Update+Schematics+-+SAP+Commerce+Cloud/1_nowks75s/178316081) (9:08) (Technical: Intermediate)
 - [Themes to Avoid Breaking Changes Before, During and After 2.0](https://microlearning.opensap.com/media/1_c8tas0ee) (7:37) (Technical: Intermediate)
