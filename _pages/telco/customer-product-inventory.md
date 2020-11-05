@@ -16,7 +16,7 @@ title: Customer Product Inventory (CPI)
 
 ## Overview
 
-Online customers use the Customer Product Inventory (CPI) feature to view their subscriptions and subscribed product information.  Customers can also manage their subscriptions with proper authorization.  Entries in the Customer Product Inventory are created and updated from backend systems once the subscribed offerings have been provisioned.
+Customers use the Customer Product Inventory (CPI) feature to view their existing subscriptions and subscribed products information.  Customers can manage their subscriptions with proper authorization.  Entries in the Customer Product Inventory are created and updated from backend systems once the product offerings have been provisioned.
 
 ## Business Use Cases
 
