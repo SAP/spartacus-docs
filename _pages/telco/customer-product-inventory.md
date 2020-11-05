@@ -16,20 +16,14 @@ title: Customer Product Inventory (CPI)
 
 ## Overview
 
-The Customer Product Inventory (CPI) feature enables the logged in customers who are browsing the Telco & Utilities Spartacus (TUA) Storefront to view their subscriptions information and subscribed products, as imported in the Telco & Utilities Accelerator from the external systems.
+Online customers use the Customer Product Inventory (CPI) feature to view their subscriptions and subscribed product information.  Customers can also manage their subscriptions with proper authorization.  Entries in the Customer Product Inventory are created and updated from backend systems once the subscribed offerings have been provisioned.
 
 ## Business Use Cases
 
-### Viewing All Subscriptions
+### Viewing Subscriptions
 
-From the **Account** menu drop-down, click **Subscriptions**. All subscriptions are displayed.
+From the **Account** menu drop-down, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information can be viewed and managed.
 
-### Viewing Details of Subscribed Products in a Tile Format
-
-1. From the **Account** menu drop-down, click **Subscriptions**. All subscriptions are displayed.
-2. Click the header that shows the subscriber ID. For example, **1040123111111**. The subscribed products are displayed in a tile format.
-
-**Note:** The subscriptions owner will see all subscription information, including contract information and pricing details. However, the subscriptions beneficiary will see limited subscriptions information. For example, no contract duration and pricing details will be displayed.
 
 ### Viewing the Usage Consumption of a Subscribed Product in a Pie Chart
 
@@ -53,7 +47,7 @@ From the **Account** menu drop-down, click **Subscriptions**. All subscriptions 
 
 ## Supported Backend Functionality
 
-The Customer Product Inventory feature involves mapping between subscriptions and users, covering the customer and billing account. It holds the data of the customers and their subscriptions. For more information, see [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) and TUA [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) in the TUA Help Portal.
+The Customer Product Inventory contains all subscription information for a given cugstomer, the mapping between subscriptions and users, as well as the mapping of the customer and billing account.  For more information, see [Customer Product Inventory](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) and TUA [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) in the TUA Help Portal.
 
 ## Components
 
