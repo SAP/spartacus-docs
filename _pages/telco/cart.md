@@ -10,13 +10,12 @@ title: Cart
 
 ## Overview
 
-The Added To Cart Dialog Component is updated to display the sum of the Pay Now prices of that Product Offering and the Pay Now total for the items in the cart. The Cart Item component is updated to display prices configured in the Product Offering:
+The cart works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges.  The Added To Cart Dialog Component is updated to display the sum of the Pay Now prices of that Product Offering and the Pay Now total for the items in the cart. The Cart Item component is updated to display prices configured in the Product Offering including:
 
-- Sum of Pay Now prices 
+- Pay Now Charges 
 - Recurring Charges 
 - Usage Charges 
-- Sum of Cancellation Fees 
-- Sum of On First Bill Fees
+- Other types of one time charges (i.e. Cancellation Fee)
 
 The Order Summary Component is updated to display the sum of the Pay Now prices of the items present in the cart.
 
