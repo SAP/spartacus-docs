@@ -18,9 +18,9 @@ For more information, see the following:
 
 ## Supported Backend Functionality
 
-Configurable Guided Selling functionality relies on the structure of a BPO modeled in the TUA.
-- For more information about Product Catalog and about BPO structure, see [TUA Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) in the TUA Help Portal.
-- For more information about BPO structure, see [TUA Data Model](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/8e39b671bd224dd9aa59d77890223cf4.html) in the TUA Help Portal.
+Configurable Guided Selling functionality relies on the structure of a Bundled Product Offering configured in the Telco and Utilities Accelerator.
+- For more information about Product Catalog and about Bundled Product Offering structure, see [TUA Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) in the TUA Help Portal.
+- For more information about the structure of Bundled Product Offerings, see [TUA Data Model](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/8e39b671bd224dd9aa59d77890223cf4.html) in the TUA Help Portal.
 
 ## Configuration
 
