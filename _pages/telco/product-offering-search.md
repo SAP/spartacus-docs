@@ -10,16 +10,12 @@ title: Product Offering Search
 
 ## Overview
 
-A Product Offering includes the specification of a product and also the market details of the product offering for a particular period of time. When customers select a particular product from the `ProductCatalog`, either from an online portal or from a brochure, the details of the selected product offering is displayed for the customers, which allows them to check and confirm before purchasing.
+To support the commercial product catalog of product offerings, changes were required in the way "searches" are technically conducted to search for and find simple product offerings.  Changes were made in the areas of free text search, facets and top level category menu navigation.   The use of product specifications, which are used to create product offerings, are leveraged in search.
 
-The following options are available while searching for a Product Offering in the Home Page:
-- Menu: Displays list of available options that the Customer can use to navigate and select the required commodity product.
-- Free Text Search: Customer uses this option to search for the required product offering(s) and then select the desired one from the search result.
-- Search results include the following:
-    - Subscription Offerings
-    - Service Items
-    - Physical Goods
-    - Commodity Items
+The following options are available while searching for a Product Offering:
+- Menu:  Displays list of available options that the Customer can use to navigate through the product catalog
+- Free Text Search:  Customer uses this option to manually search for product offerings based on their entry
+- Facet searches:  Enhanced to easily filter search results list
 
 ## Further Reading
 
