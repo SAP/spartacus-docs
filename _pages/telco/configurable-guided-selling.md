@@ -10,7 +10,7 @@ title: Configurable Guided Selling Journey
 
 ## Overview
 
-Configurable Guided Selling allows customers to browse through the content of a BPO and purchase SPOs, as part of a BPO, and it supports nested bundles.
+Configurable Guided Selling (CGS) is the process in which a customer is taken through a step-by-step guided selling journey to purchase a complex product bundle. 
 
 For more information, see the following:
 - [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html)
@@ -18,7 +18,7 @@ For more information, see the following:
 
 ## Supported Backend Functionality
 
-Configurable Guided Selling functionality relies on the structure of a BPO modeled in the TUA module.
+Configurable Guided Selling functionality relies on the structure of a BPO modeled in the TUA.
 - For more information about Product Catalog and about BPO structure, see [TUA Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html) in the TUA Help Portal.
 - For more information about BPO structure, see [TUA Data Model](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/8e39b671bd224dd9aa59d77890223cf4.html) in the TUA Help Portal.
 
