@@ -29,7 +29,7 @@ To see a list of all Spartacus videos, [click here](https://microlearning.opensa
 - [Styling with Precise Selectors](https://microlearning.opensap.com/media/Styling+With+Precise+Selectors+-+SAP+Commerce+Cloud/1_ldqmajwd/178316081) (4:02) (Technical: Beginner)
 - [Move to Angular 9](https://microlearning.opensap.com/media/Move+to+Angular+9+-+Spartacus+-+SAP+Commerce+Cloud/1_a0svzeu4/178316081) (6:20) (Technical: Intermediate)
 - [Spartacus Angular Update Schematics](https://microlearning.opensap.com/media/Spartacus+Angular+Update+Schematics+-+SAP+Commerce+Cloud/1_nowks75s/178316081) (9:08) (Technical: Intermediate)
-- [Themes to Avoid Breaking Changes Before, During and After 2.0](https://microlearning.opensap.com/media/1_c8tas0ee) (7:37) (Technical: Intermediate)
+- [Themes to Avoid Breaking Changes Before, During and After 2.0](https://microlearning.opensap.com/media/Themes+to+Avoid+Breaking+Changes+Before%2C+During+and+After+2.0+-+Spartacus+-+SAP+Commerce+Cloud/1_c8tas0ee/178316081) (7:37) (Technical: Intermediate)
 - [Introduction to Extendability with Outlets](https://microlearning.opensap.com/media/Introduction+to+Extendability+with+Outlets+-+SAP+Commerce+Cloud/1_wy2eg32x/178316081) (8:33) (Technical: Intermediate)
 - [How Spartacus Uses Backend Catalog and CMS Data](https://microlearning.opensap.com/media/How+Spartacus+Uses+Backend+Catalog+and+CMS+Data+-+SAP+Commerce+Cloud/1_8mmwx8ck/178316081) (10:05) (Technical: Intermediate)
 - [Connecting SmartEdit to a Spartacus Storefront](https://microlearning.opensap.com/media/Connecting+SmartEdit+to+a+Spartacus+Storefront+-+SAP+Commerce+Cloud/1_f3oraeow/178316081) (4:02) (Technical: Intermediate)
