@@ -98,7 +98,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
 
 1. Provide a `PRODUCT_NORMALIZER`.
 
-    You can provide it in your app.module, as shown in the following example:
+    You can provide it in your `app.module`, as shown in the following example:
 
     ```typescript
     providers: [
@@ -132,7 +132,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
     ```typescript
     routing: {
         routes: {
-            product: { paths: ['product/:category/:name/    :productCode'] }
+            product: { paths: ['product/:category/:name/:productCode'] }
         }
     }
     ```
@@ -143,7 +143,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
     routing: {
         routes: {
             product: {
-                paths: ['product/:category/:name/:productCode',     'product/:name/:productCode'] 
+                paths: ['product/:category/:name/:productCode', 'product/:name/:productCode'] 
             }
         }
     }

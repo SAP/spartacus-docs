@@ -4,7 +4,7 @@ title: Configurable Routing
 
 In a single-page application, you control what the user sees by showing different views of the app. Spartacus uses the Angular Router to take care of navigating from one view to another. The Router does this by treating each URL as an instruction to present a specific view.
 
-Spartacus allows you to customize these URLs, giving you more control over SEO and storefront usability. Spartacus includes default routes for accessing the different views, which you can use without any configuration, but you also have the option to customize any route that you want in Spartacus.
+Spartacus allows you to customize these URLs, giving you more control over SEO and storefront usability. Spartacus includes default routes for accessing the different views, which you can use without any configuration. You also have the option to customize any route that you want in Spartacus.
 
 For more information, see the following:
 
