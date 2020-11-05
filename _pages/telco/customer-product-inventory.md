@@ -22,20 +22,12 @@ Customers use the Customer Product Inventory (CPI) feature to view their existin
 
 ### Viewing Subscriptions
 
-From the **Account** drop-down menu, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information about each subscribed product can be viewed and managed.
+From the **Account** drop-down menu, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information about each subscribed product can be viewed and managed.   
 
+### Usage Consumption
 
-### Viewing the Usage Consumption of a Subscribed Product in a Pie Chart
+If enabled, consumption information for each subscribed product can be viewed in either grid format, pie chart format or both. 
 
-1. From the **Account** menu drop-down, click **Subscriptions**. All subscriptions are displayed.
-2. Click **Usage Details**. The usage consumption for a subscribed product is displayed in pie charts.
-3. Click **Go back to the Subscriptions** to navigate to the My Subscriptions page.
-
-### Viewing Subscribed Products in a Grid or a Tabular Format
-
-1. From the **Account** menu drop-down, click **Subscriptions**. All subscriptions are displayed.
-2. Click **Usage Details**. The usage consumption for a subscribed product is displayed in a grid or a tabular format.
-3. Click **Go back to the Subscriptions** to navigate to the My Subscriptions page.
 
 ## Frontend and Backend Dependencies
 
