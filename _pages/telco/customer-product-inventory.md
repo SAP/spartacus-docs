@@ -22,7 +22,7 @@ Customers use the Customer Product Inventory (CPI) feature to view their existin
 
 ### Viewing Subscriptions
 
-From the **Account** menu drop-down, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information can be viewed and managed.
+From the **Account** drop-down menu, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information about each subscribed product can be viewed and managed.
 
 
 ### Viewing the Usage Consumption of a Subscribed Product in a Pie Chart
