@@ -10,9 +10,8 @@ title: Pricing - Subscription Rate Plan
 
 ## Overview
 
-This feature enables customers to browse through the Telco SPA Store and purchase Product Offerings from a dedicated Product Catalog.
+A price could also encompass many different components. A typical introductory wireless offering, for example, will have an activation cost, a monthly cost, a number of free minutes, a cost for extra minutes, and some sort of promotional component. The offering might also include a corporate discount for business users. Each of these elements must be described in order to paint an accurate picture of the overall price charged for any Product Offering.
 
-A Product Offering includes the specification of a product and also the market details of the product offering for a particular period of time. When customers select a particular product from the `ProductCatalog`, either from an online portal or from a brochure, the details of the selected product offering is displayed for the customers, which allows them to check and confirm before purchasing.
 
 ## Product Price Components
 

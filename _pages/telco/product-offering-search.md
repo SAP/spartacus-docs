@@ -19,4 +19,4 @@ The following options are available while searching for a Product Offering:
 
 ## Further Reading
 
-For more information, see [Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html) in the TUA Help Portal.
+For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html) in the TUA Help Portal.
