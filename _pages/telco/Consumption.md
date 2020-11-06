@@ -25,7 +25,7 @@ From subscriptions, customers can drill down on subscribed offerings to view con
 
 ### Usage Consumption
 
-If enabled, consumption information for each subscribed product can be viewed in either grid format, pie chart format, or both. 
+If enabled, consumption information for each subscribed product can be viewed in either grid format, pie chart format, or both.
 
 
 ## Frontend and Backend Dependencies
