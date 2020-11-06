@@ -8,11 +8,17 @@ title: Cart
 
 {% include docs/feature_version.html content=version_note %}
 
+## Contents
+
+- [Overview](#overview)
+- [Components](#components)
+- [Further Reading](#further-reading)
+
 ## Overview
 
 The cart works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage-based charges.   Amongst various charges, for the cart, Customers need to be aware of the pay now charges upon checkout as well as the monthly recurring charge commitment. 
 
-## Cart Components
+## Components
 
 - `TmaAddedToCartDialogComponent` extends `AddedToCartDialogComponent` to display Pay on Checkout price of the Product Offering and Cart total price in add to cart pop-up when the product is added to cart.
     - Pay On Checkout: pay on checkout price is displayed as a sum of the total pay now one-time charge prices. 
