@@ -18,7 +18,7 @@ title: Release Information for TUA Spartacus Libraries
 
 This document describes what is included in all Spartacus 1.x libraries since 1.0.
 
-**Note:** Spartacus 1.x requires Angular 8. For more information, see [Installing SAP Commerce Cloud for TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installation-guide-for-tua-spartacus.md %}).
+**Note:** Spartacus 1.x requires Angular 8. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}).
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
