@@ -7,7 +7,6 @@ title: Release Information for TUA Spartacus Libraries
 ## Release Contents
 
 - [Introduction](#introduction)
-- [Release 2.0](#release-20)
 - [Release 1.2](#release-12)
 - [Release 1.1](#release-11)
 - [Release 1.0](#release-10)
@@ -32,26 +31,6 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
-## Release 2.0
-
-*Release 1.2.0 libraries published October 28, 2020*
-
-What's new?
-
-The following is a summary of the major changes introduced in 2.0:
-
-- **Pricing - Composite Pricing:** Composite Pricing brings forth a new way for handling operational processes that is clearer and more efficient. With Composite Pricing, a Product Manager or a Business Administrator can now define prices in a composite, TM Forum compliant manner. Multiple prices can be configured and defined as the price context and the product offering price. The product offering price is either a component price or a composite product offering price (POP) that can be bundled together with other product offering prices.
-
-Composite Pricing is enabled in both the backoffice for configuring product offering prices and through TM Forum and OCC APIs for application clients and third parties to operate on TM Forum compliant standards. 
-
-The goal of this feature in release 2.0 is to enable customers to browse through the TUA SPA storefront to purchase product offerings from a dedicated product catalog. 
-
-For more information, see [Pricing - Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html).
-
-- **Pricing - Price Alteration Discounts:** The Price Alterations feature enables Business Administrators to offer fixed-price and percentage discounts that can be configured as component prices and linked to other product offering prices. For more information, see [Pricing - Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html).
-
-<!--As Release 2.0 is a new major version, it contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:-->
-
 ## Release 1.2
 
 *Release 1.2.0 libraries published October 28, 2020*
@@ -74,9 +53,9 @@ Journey Management facilitates real-time personalized customer journeys enabling
 
 Increase NPS with the Customer Product Inventory. This features helps companies understand their customers by having a complete view of the "recurring" relationships or assets, their customers have with them. The Customer Product Inventory is used to dynamically determine user journeys: what the customer is interested in, what they are willing to pay, and what products, services, and prices they are entitled to. For more information, see [Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help portal.
 
-- [Consumption]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}).
+- [Consumption]({{ site.baseurl }}{% link _pages/telco/consumption.md %}).
 
-Maximize customer retention by understanding the consumption of services by customers.  Not all customers are created equal. Some subscribers are more valuable than others. With consumption data available, companies are able to analyze the data and provide customers with some highly engaging content, upgrades, or promotional offers to keep subscribers engaged. On the flip side, with consumption data visible, customers are able to see for themselves how much of the services they are actually consuming, which helps them maximize their investment and make more informative decision.
+Maximize customer retention by understanding the consumption of services by customers.  Not all customers are created equal. Some subscribers are more valuable than others. With consumption data available, companies are able to analyze the data and provide customers with some highly engaging content, upgrades, or promotional offers to keep subscribers engaged. On the flip side, with consumption data visible, customers are able to see for themselves how much of the services they are actually consuming, which helps them maximize their investment and make more informative decision. For more information, see [Create Average Service Usage for Subscribed Product](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html) in the TUA Help portal.
 
 ## Release 1.0
 
@@ -88,25 +67,27 @@ The commercial product catalog for service industries is different and the disti
 
 - [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %}).
 
-To support the commercial product catalog of product offerings, changes were required in the way "searches" are technically conducted to search for and find simple product offerings. Changes were made in the areas of free text search, facets, and top level category menu navigation. For more information, see  in the TUA Help portal.
+To support the commercial product catalog of product offerings, changes were required in the way "searches" are technically conducted to search for and find simple product offerings. Changes were made in the areas of free text search, facets, and top level category menu navigation. For more information, see [Product Offering Search](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html) in the TUA Help portal.
 
 - [Cart]({{ site.baseurl }}{% link _pages/telco/cart.md %})
 
-To support product offerings and the complex pricing structure they have for one time charges, recurring charges and usage charges, changes to the cart were necessary. For more information, see  in the TUA Help portal.
+To support product offerings and the complex pricing structure they have for one time charges, recurring charges and usage charges, changes to the cart were necessary. For more information, see [Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/525a0a7eafbb4d3ab988872a21e0e3b3.html) in the TUA Help portal.
 
 - [Order]({{ site.baseurl }}{% link _pages/telco/order.md %})
 
-To support product offerings and the complex pricing structure, they have for one time charges, recurring charges, and usage charges, changes to the order were necessary. For more information, see  in the TUA Help portal.
+To support product offerings and the complex pricing structure, they have for one time charges, recurring charges, and usage charges, changes to the order were necessary. For more information, see [Order](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html) in the TUA Help portal.
 
 - [Checkout]({{ site.baseurl }}{% link _pages/telco/checkout.md %})
 
-To support product offerings and the complex pricing structure they have for one time charges, recurring charges and usage charges, changes to the checkout process were necessary. For more information, see  in the TUA Help portal.
+To support product offerings and the complex pricing structure they have for one time charges, recurring charges and usage charges, changes to the checkout process were necessary. For more information, see  in the TUA Help portal. For more information, see [Checkout](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html) in the TUA Help portal.
 
 - [Configurable Guided Selling]({{ site.baseurl }}{% link _pages/telco/configurable-guided-selling.md %})
 
-Improves the user experience by simplifying the purchase process for complex bundled product offerings. Configurable Guided Selling (CGS) is the process in which a customer is taken through a step-by-step guided selling journey to purchase a complex product bundle.  For more information, see and  in the TUA Help portal.
+Improves the user experience by simplifying the purchase process for complex bundled product offerings. Configurable Guided Selling (CGS) is the process in which a customer is taken through a step-by-step guided selling journey to purchase a complex product bundle. For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html) in the TUA Help portal.
 
-<!--For more information, see the documentation for Bundled Product Offerings and for Configurable Guided Selling-->
+- [ Pricing - Subscription Rate Plan]({{ site.baseurl }}{% link _pages/telco/product-offering-prices.md %})
+
+Provide greater customer experiences by providing product offerings to customers with specific pricing that they are eligible for. Pricing for product offerings is extremely complex and includes one time charges, recurring charges and usage based charges. For more information, see [Pricing](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/8e591e48aa604b2f8c4a0d9804c6d6f5.html) in the TUA Help Portal.
 
 ## About Spartacus for TUA Releases
 
