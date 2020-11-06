@@ -300,11 +300,28 @@ docs:
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
-                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
-                  url: /installing-sap-commerce-for-tua-spartacus/
-                - title: "Building the TUA Spartacus Storefront from Libraries"
-                  url: /building-the-tua-storefront-from-libraries/                           
-  
+                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus"
+                  url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/
+                - title: "Building the TUA Storefront from libraries"
+                  url: /building-the-tua-storefront-from-libraries/ 
+          - title: "Spartacus Features for TUA ➢"
+            url: /spartacus-features-for-tua/ 
+            subchildren:
+                - title: "Product Offering Search"
+                  url: /product-offering-search/                                     
+                - title: "Pricing - Subscription Rate Plan"
+                  url: /product-offering-prices/ 
+                - title: "Simple Product Offering"
+                  url: /simple-product-offerings-spo/
+                - title: "Configurable Guided Selling"
+                  url: /configurable-guided-selling/  
+                - title: "Cart"
+                  url: /cart/
+                - title: "Checkout"
+                  url: /checkout/
+                - title: "Order"
+                  url: /order/        
+                                
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
