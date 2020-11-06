@@ -317,6 +317,8 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
+                - title: "Journey Management - Appointment"
+                  url: /journey-management-appointment/                           
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
                 - title: "Order"
