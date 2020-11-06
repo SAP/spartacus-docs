@@ -295,6 +295,8 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /tua-pre-release-information/
+                - title: "Feature Release Versions"
+                  url: /tua-feature-release-versions/  
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
           - title: "TUA Spartacus FAQ"
