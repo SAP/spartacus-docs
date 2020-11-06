@@ -295,16 +295,45 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /tua-pre-release-information/
+                - title: "Feature Release Versions"
+                  url: /tua-feature-release-versions/  
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
+          - title: "TUA Spartacus FAQ"
+            url: /spartacus-tua-faq/  
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
-                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
-                  url: /installing-sap-commerce-for-tua-spartacus/
-                - title: "Building the TUA Spartacus Storefront from Libraries"
-                  url: /building-the-tua-storefront-from-libraries/                           
-  
+                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus"
+                  url: /installing-sap-commerce-cloud-with-tua-for-use-with-spartacus/
+                - title: "Building the TUA Storefront from libraries"
+                  url: /building-the-tua-storefront-from-libraries/ 
+          - title: "Spartacus Features for TUA ➢"
+            url: /spartacus-features-for-tua/ 
+            subchildren:
+                - title: "Cart"
+                  url: /cart/
+                - title: "Checkout"
+                  url: /checkout/
+                - title: "Configurable Guided Selling"
+                  url: /configurable-guided-selling/
+                - title: "Consumption"
+                  url: /consumption/    
+                - title: "Customer Product Inventory"
+                  url: /customer-product-inventory/
+                - title: "Journey Management - Appointment"
+                  url: /journey-management-appointment/                           
+                - title: "Journey Management - MSISDN"
+                  url: /journey-management-msisdn/    
+                - title: "Order"
+                  url: /order/        
+                - title: "Pricing - Subscription Rate Plan"
+                  url: /product-offering-prices/ 
+                - title: "Product Offering Search"
+                  url: /product-offering-search/                                     
+                - title: "Simple Product Offering"
+                  url: /simple-product-offerings-spo/
+                                
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
