@@ -317,6 +317,8 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
+                - title: "Journey Management - MSISDN"
+                  url: /journey-management-msisdn/    
                 - title: "Order"
                   url: /order/        
                 - title: "Pricing - Subscription Rate Plan"
