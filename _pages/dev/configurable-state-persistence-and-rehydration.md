@@ -1,5 +1,5 @@
 ---
-title: Configurable State Persistence and Rehydration (DRAFT)
+title: Configurable State Persistence and Rehydration
 ---
 
 ## Storage Synchronization
@@ -92,13 +92,10 @@ ConfigModule.withConfig({
   state: {
     ssrTransfer: {
       keys: {
-        products: true,
-        cms: {
-          page: true,
-          navigation: true
-        }
-      }
-    }
+        products: StateTransferType.TRANSFER_STATE,
+        cms: StateTransferType.TRANSFER_STATE,
+      },
+    },
   }
 });
 ```

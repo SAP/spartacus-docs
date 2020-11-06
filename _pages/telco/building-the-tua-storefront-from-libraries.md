@@ -1,10 +1,10 @@
 ---
-title: Building the Spartacus TUA Storefront from Libraries
+title: Building the TUA Spartacus Storefront from Libraries
 ---
 
-The following instructions describe how to build a Telco & Utilities storefront application using published Spartacus 1.x libraries.
+The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.0.0 libraries.
 
-**Note:** If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+**Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 ## Prerequisites
 
@@ -12,7 +12,11 @@ Before carrying out the procedures below, ensure that you meet the following fro
 
 ## Front-End Development Requirements
 
-{% include docs/frontend_requirements.html %}
+Your Angular development environment should include the following:
+
+- [Angular CLI](https://angular.io/): 8.2.5 or later, < 9.0.0
+- node.js: 10.14.1 or later, < 13.0. The most recent 12.x version is recommended.
+- yarn: 1.15 or later
 
 ### Installing or Updating the Prerequisite Development Tools
 
@@ -34,14 +38,14 @@ To update existing installations, use `brew upgrade` instead of `brew install`.
 `brew link --force --overwrite node@10`.
 - Installing Homebrew and the prerequisites is beyond the scope of this document. You can also install the prerequisites using their individual installers.
 
-## Back-End Server Requirements
+## Back End Server Requirements
 
-Spartacus for TUA uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back-end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
+TUA Spartacus uses SAP Commerce and Telco & Utilities Accelerator for its back end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
 
 - SAP Commerce version: Release 1905 (latest patch is recommended).
-- TUA version: Release 2003 (latest patch) is required.
+- Telco & Utilities Accelerator version: Release 2003 (latest patch) is required.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/installing-sap-commerce-cloud.md %}). 
+For more information, see [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
 
 ## Creating a New Angular App
 
@@ -74,90 +78,76 @@ Run `yarn start`.
 For a full list of available parameters, visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
 
 ## Setting up a Storefront Manually
+
 Although we recommend using Schematics, there might be situations when you want to build your application from scratch.
 
-The dependencies in this procedure are required by the Spartacus storefront.
+The dependencies in this procedure are required by the TUA Spartacus storefront.
 
 1. Inspect the `mystore/src/app/app.module.ts` file for any changes you want to make for your setup. For example, you might want to change the `baseUrl` to point to your server and the `basesite` to corresond with the WCMS site. You likely also want to specify the compatibility version by changing `features.level`, as the default might not be the latest version.
 
-To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
+      To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
 
-```typescript
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {ConfigModule} from '@spartacus/core';
-import {AppComponent} from './app.component';
-import {translationChunksConfig, translations} from '@spartacus/assets';
-import {TmaAuthModule, TmaB2cStorefrontModule, TmaProductSummaryModule, tmaTranslations, TmfModule} from '@spartacus/tua-spa';
+      ```typescript
+      import { BrowserModule } from '@angular/platform-browser';
+      import { NgModule } from '@angular/core';
+      import { AppComponent } from './app.component';
+      import { translationChunksConfig, translations } from '@spartacus/assets';
+      import { ConfigModule } from '@spartacus/core';
+      import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    TmaAuthModule,
-    TmfModule.forRoot(),
-    TmaB2cStorefrontModule.withConfig({
-      backend: {
-        tmf: {
-          baseUrl: 'https://localhost:9002',
-          prefix: '/b2ctelcotmfwebservices/v2/',
-        },
-        occ: {
-          baseUrl: 'https://localhost:9002',
-          prefix: '/rest/v2/',
-          endpoints: {
-            product_scopes: {
-              details:
-                'products/${productCode}?fields=averageRating,stock(DEFAULT),description,availableForPickup,code,url,price(DEFAULT),numberOfReviews,manufacturer,categories(FULL),priceRange,multidimensional,configuratorType,configurable,tags,images(FULL),productOfferingPrice(FULL),productSpecification,validFor',
+
+      @NgModule({
+        declarations: [
+          AppComponent
+        ],
+        imports: [
+          BrowserModule,
+          TmaB2cStorefrontModule.withConfig({
+            backend: {
+              tmf: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/b2ctelcotmfwebservices/v2/'
+              },
+              occ: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/rest/v2/'
+              }
             },
-            productSearch:
-              'products/search?fields=products(code,name,summary,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions,productSpecification),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch',
-          },
-        }
-      },
-      routing: {
-        routes: {
-          product: {
-            paths: ['product/:productCode/:name', 'product/:productCode'],
-          }
-        }
-      },
-      context: {
-        urlParameters: ['baseSite', 'language', 'currency'],
-        baseSite: ['telcospa']
-      },
-      i18n: {
-        resources: translations,
-        chunks: translationChunksConfig,
-        fallbackLang: 'en'
-      },
-      features: {
-        level: '1.4'
-      }
-    }),
-    ConfigModule.withConfig({
-      i18n: {
-        resources: tmaTranslations
-      }
-    }),
-    TmaProductSummaryModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule {
-}
-```
+            context: {
+              urlParameters: ['baseSite', 'language', 'currency'],
+              baseSite: ['telcospa']
+            },
+            i18n: {
+              resources: translations,
+              chunks: translationChunksConfig,
+              fallbackLang: 'en'
+            },
+            features: {
+              level: '1.5',
+              saveForLater: false
+            }
+          }),
+          ConfigModule.withConfig({
+            i18n: {
+              resources: tmaTranslations
+            }
+          })
+        ],
+        providers: [],
+        bootstrap: [AppComponent]
+      })
+      export class AppModule { }
+      ```
+
 2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
 
    ```html
    <cx-storefront>Loading...</cx-storefront>
    ```
+  
 3. Open `mystore/package.json` using a text editor.
 
-4. Add the following dependencies to the end of the `dependencies` section of `package.json`. 
+4. Add the following dependencies to the end of the `dependencies` section of `package.json`.
 
     ```json
     "@angular/pwa": "^0.803.2",
@@ -168,17 +158,16 @@ export class AppModule {
     "@ngrx/router-store": "~8.3.0",
     "@ngrx/store": "~8.3.0",
     "ngx-infinite-scroll": "^8.0.0",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "4.2.1",
     "i18next": "^15.0.6",
     "i18next-xhr-backend": "^2.0.1",
     "material-design-icons": "^3.0.1",
-    
+
     "@spartacus/core": "~1.5.0",
     "@spartacus/styles": "~1.5.0",
     "@spartacus/storefront": "~1.5.0",
     "@spartacus/assets": "~1.5.0",
-    "@spartacus/styles": "~1.5.0",
-    "@spartacus/tua-spa": "~0.1.0-next.2",
+    "@spartacus/tua-spa": "~1.0.0",
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you need to add a comma after `0.9.1"`.
@@ -189,19 +178,22 @@ export class AppModule {
    @import '~@spartacus/styles/index';
    @import '~@spartacus/tua-spa/storefrontstyles/index';
     ```
+  
 6. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
    ```bash
    yarn install
    ```
+  
 7. Start the angular client app. From the terminal window, within `mystore` start the application by running the following command:
 
    ```bash
    yarn start
    ```
+  
 8. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/usd.
 
-**Note:** 
+**Note:**
 
 (1) Using `~` instructs yarn to use the latest patch version (x.y.**z**); whereas, using `^` instructs yarn to use the latest minor version (x.**y**.0).
 
@@ -209,17 +201,17 @@ export class AppModule {
 
 ### Adding Import Declarations and Storefront Configuration Settings
 
-**Note:** Some statements in the prceeding example were generated by Angular when you first created the app.
+**Note:** Some statements in the preceding example were generated by Angular when you first created the app.
 
 #### About the Import Statements
 
-The import statements import either modules or default data needed by Spartacus.
+The import statements import either modules or default data needed by TUA Spartacus.
 
 ## Building and Starting
 
 This section describes how to validate your back-end installation and start the application with the storefront enabled.
 
-## Validating the SAP Commerce Cloud Back-end
+## Validating the SAP Commerce Back End
 
 **Note:** The Chrome browser is recommended and used in the following example, but other browsers can be used as long as they recognize and allow you to continue even though a site is using a self-signed certificate.
 
@@ -236,16 +228,18 @@ This section describes how to validate your back-end installation and start the 
 
 ### Starting the Storefront Application
 
-To start your Spartacus storefront, enter the following command from `mystore` in your terminal window:
+To start your TUA Spartacus storefront, enter the following command from `mystore` in your terminal window:
 
-   ```bash
+```bash
 yarn start
-   ```
+```
+  
    When the app server is properly started, point your browser to http://localhost:4200.
 
-Or, to start your Spartacus storefront securely, enter the following command:
+Or, to start your TUA Spartacus storefront securely, enter the following command:
 
-   ```bash
+```bash
 yarn start --ssl
-   ```
-Then point your browser to  https://localhost:4200.
+```
+  
+Then point your browser to `https://localhost:4200`.

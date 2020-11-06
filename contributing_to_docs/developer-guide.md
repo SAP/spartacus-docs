@@ -12,7 +12,7 @@ Whether you are creating new documentation, or updating an existing topic, the s
 
 One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation.
 
-**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The `master` branch should only be used for emergencies.
+**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The one exception is if you have an update that is not tied to a particular release, and can be published as soon as it is merged. In this case, you can create your new `doc` branch from the `master` branch.
 
 1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/spartacus-docs/issues/new
 
@@ -20,9 +20,11 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
 2. Create a new branch in the documentation repo. The branch naming convention is `doc/GH-issue-number`, where `GH-issue-number` refers to the GitHub issue you have created in the documentation repository. So if your new issue number is #42, for example, then you would name your new branch `doc/GH-42`.
 
-    Always create your new `doc` branch from the `develop` branch.
+    Create your new `doc` branch from the `develop` branch if your update is tied to an upcoming release.
+
+    Create your new `doc` branch from the `master` branch if your update can be published immediately.
   
-    The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can create your new `doc` branch from the `master` branch.
+    
 
 3. Create new documentation or update existing topics in the `_pages` folder.
 

@@ -1,5 +1,9 @@
 ---
-title: Stock Notification (DRAFT)
+title: Stock Notification
+feature:
+- name: Stock Notification
+  spa_version: 1.4
+  cx_version: 1905
 ---
 
 {% capture version_note %}

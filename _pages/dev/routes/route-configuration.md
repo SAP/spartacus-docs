@@ -1,5 +1,5 @@
 ---
-title: Route Configuration (DRAFT)
+title: Route Configuration
 ---
 
 ## Config

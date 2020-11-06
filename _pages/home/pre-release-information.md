@@ -4,215 +4,137 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated April 28th, 2020 by Bill Marcotte, Product Owner, Spartacus_
+_Last updated October 8, 2020 by Bill Marcotte, Senior Product Manager, Spartacus_
 
-- For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
-- For information on specific code changes for a particular release, see the [development release notes](https://github.com/SAP/spartacus/releases).
+For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}). For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
 
-## Release 2.0.0-RC - April 28th, 2020
+## Release 3.0.0-next.3 - October 8th, 2020
 
-The first release candidate (RC) has been released for 2.0.
+We're happy to announce that support for the SAP Commerce Cloud B2B Scheduled Replenishment feature has been released!
 
-Release 2.0 is a new major version and contains breaking changes. To migrate to 2.0 from 1.x, see the following documentation:
+You can set up Spartacus 3.0.0-next.3 with B2B Scheduled Replenishment by following these steps:
 
-- [Updating to version 2.0](https://github.com/SAP/spartacus-docs/blob/v2-develop/_pages/home/updating-to-version-2/updating-to-version-2.md) (automated update using schematics)
-- [Technical Changes in Spartacus 2.0](https://github.com/SAP/spartacus/blob/develop/docs/migration/2_0.md)
-- [Changes to Styles in 2.0](https://github.com/SAP/spartacus-docs/blob/doc/GH-547/_pages/home/updating-to-version-2/css-changes-in-version-2.md)
+1. Make sure Angular 10 is installed.
+2. Create a new Angular app: `ng new mystore --style=scss`
+3. Change to the `mystore` directory: `cd mystore`
+4. Add Spartacus schematics using the most recent `next` release: `ng add @spartacus/schematics@next`
 
-Summary of major changes from 1.x to 2.0:
+Then there are some slight edits needed, as follows:
 
-- Angular 9, ngrx 9
-- Schematics updated
-- Accessibility Keyboarding features
-- Many components refactored
-- Lazy loading of CMS components
-- Events system with CartAddEntryEvent event
-- New facet navigation makes extending facets easier
-- Deprecated code removed
+1. In `package.json`, add the following entries to the dependencies section:
 
-For a list of all changes for 2.0 RC and previous 'next' releases of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+    ```plaintext
+    "@spartacus/my-account": "^3.0.0-next.3",
+    "@spartacus/setup": "^3.0.0-next.3",
+    ```
 
-## Release 2.0.0-next.7 - April 23rd, 2020
+2. In `src/app/app.module.ts`, make the following changes:
 
-Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.7` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+    - Change the `import { B2c...` line to `import {  B2bStorefrontModule } from '@spartacus/setup';`
+    - Change `B2cStorefrontModule.withConfig({` to B2B: `B2bStorefrontModule.withConfig({`
+    - Set the base URL to point to your Powertools store OCC API server
+    - Set the OCC prefix (usually `/occ/v2/` for version 2005 of SAP Commerce Cloud)
+    - Update the context definition to include powertools, such as in the following example: `context: {urlParameters: ['baseSite', 'language', 'currency'], baseSite: ['powertools-spa'], language: ['en'], currency: ['USD']},`
+3. In `src/styles.scss`, add the line: `@import '~@spartacus/my-account/index';`
+4. Run `yarn install`.
+5. Run `yarn start`.
 
-### New Facet Navigation
+For the final release, most of these setup steps will be taken care of by the installer.
 
-Facet navigation was refactored to address a number of shortcomings and bugs. For more information, see [GH-6581](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6581).
+For more information on scheduled replenishment, see [B2B Checkout and Order Process](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/8ac2500f8669101493e69e1392b970fd.html) on the SAP Help Portal. The "Scheduling a Replenishment Order" section is toward the end of the page.
 
-### PageSlotComponent now requires new CmsConfig and ChangeDetectorRef parameters (Breaking Change)
+## Release 3.0.0-next.2 - October 5th, 2020
 
-For more information, see [GH-7054](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/7054).
+We're happy to announce that the B2B Commerce Organization feature has been released!
 
-### Storefinder Radius Fixed and Made Configurable
+B2B Commerce Organization allows you to point to a Spartacus Powertools storefront, sign in as the `Linda Wolf` admin, and then configure units, users, budgets, cost centers, and spending limits, as described in [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2005/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
 
-The radius parameter was hard-coded, so "use my location" did not work. For more information, see [GH-6275](https://github.com/SAP/spartacus/issues/6275).
+You can set up Spartacus 3.0-next.2 with Commerce Organization by following these steps:
 
-### Action Link Styles Standardized
+1. Make sure Angular 10 is installed.
+2. Create a new Angular app: `ng new mystore --style=scss`
+3. Change to the `mystore` directory: `cd mystore`
+4. Add Spartacus schematics using the most recent `next` release: `ng add @spartacus/schematics@next`
 
-For more information, see [GH-7257](https://github.com/SAP/spartacus/pull/7257).
+Then there are some slight edits needed, as follows:
 
-## Release 2.0.0-next.6 (includes -next.5) - April 16th, 2020
+1. In `package.json`, add the following entries to the dependencies section:
 
-Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.6` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+    ```plaintext
+    "@spartacus/my-account": "^3.0.0-next.2",
+    "@spartacus/setup": "^3.0.0-next.2",
+    ```
 
-### CmsPageGuard Can be Extended More Easily
+2. In `src/app/app.module.ts`, make the following changes:
 
-Some dependencies of the `CmsPageGuard` were not public before, so the guard was not easily customizable. For more information, see [GH-6852](https://github.com/SAP/spartacus/pull/6852).
+    - Change the `import { B2c...` line to `import {  B2bStorefrontModule } from '@spartacus/setup';`
+    - Change `B2cStorefrontModule.withConfig({` to B2B: `B2bStorefrontModule.withConfig({`
+    - Set the base URL to point to your Powertools store OCC API server
+    - Set the OCC prefix (usually `/occ/v2/` for version 2005 of SAP Commerce Cloud)
+    - Update the context definition to include powertools, such as in the following example: `context: {urlParameters: ['baseSite', 'language', 'currency'], baseSite: ['powertools-spa'], language: ['en'], currency: ['USD']},`
+3. In `src/styles.scss`, add the line: `@import '~@spartacus/my-account/index';`
+4. Run `yarn install`.
+5. Run `yarn start`.
 
-### Language ISO Values Now Use Hyphens Instead of Underscores (Breaking Change)
+Using Commerce Organization also requires the latest pre-release of the Spartacus sample data extension (`spartacussampledata.2005.zip` or `spartacussampledataaddon.1905.zip`), which you can download from the Spartacus release page (for example, [here](https://github.com/SAP/spartacus/releases/download/storefront-3.0.0-next.3/spartacussampledata.2005.zip) if you are using a 2005 back end, or [here](https://github.com/SAP/spartacus/releases/download/storefront-3.0.0-next.3/spartacussampledataaddon.1905.zip) if you are using a 1905 back end).
 
-The language ISO value used in the HTML `lang` attribute now uses hyphens instead of underscores. For example, you will see `<html lang="es-MX">` instead of `<html lang="es_MX">`. For more information, see [GH-6802](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6802).
+**Note:** If you are using SAP Commerce Cloud 2005, the sample data is now an extension and no longer an AddOn.
 
-### REST Prefix
+To install the sample data for a 2005 back end, add `spartacussampledata` to the `extensions` section of the `localextensions.xml` file. Do not add it to the `addons` section. You can also do the same if using recipes to install.
 
-In the upcoming release of 2005 of SAP Commerce Cloud, the default OCC REST API changes from REST to OCC. Spartacus already used a setting to configure this prefix, but it was not used everywhere. For more information, see [GH-7235](https://github.com/SAP/spartacus/pull/7235).
+To install the sample data for a 1905 back end, see [Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon](https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud-1905/#setting-up-sap-commerce-cloud-with-the-spartacus-sample-data-addon).
 
-## Release 2.0.0-next.4 - April 9th, 2020
+## Release 3.0.0-next.1 - September 17th, 2020
 
-Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this release. For a list of all the changes in release `2.0.0-next.4` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
+This pre-release moves Spartacus to Angular 10.
 
-### Support for Session Infinity
+Setup instructions are very similar to [Building the Spartacus Storefront using 2.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}), except that you specify `@next` when adding schematics.
 
-Sending cookies to each OCC request has been implemented, using the `withCredentials` flag in the HTTP client. This requires a new OCC configuration, which (currently) defaults to false. An additional CORS configuration is required to ensure that a decoupled storefront is allowed to pass cookies into the request.
+1. Make sure Angular 10 is installed, either globally or as your local framework.
+2. Create a new Angular app  with `ng new mystore --style=scss`.
+3. Then `cd mystore`. The `package.json` file should contain Angular 10 libraries.
+4. Run `ng add @spartacus/schematics@next`. The `package.json` should contain Spartacus `3.0.0-next.1` libraries.
+5. Run `yarn install`.
+6. Run `yarn start`.
 
-### Assisted Service Module
+A reminder that, by default, `app.module.ts` is pointing to `localhost` and uses `/rest/v2/`.
 
-A new, generic service to dynamically render dialog and other non-CMS-driven components. This mechanism is now used for the ASM user interface. Customer coupons have been made ASM-friendly.
+See [Updating to Angular version 10](https://angular.io/guide/updating-to-version-10) for information on what's new in Angular 10.
 
-### Schematics Migrations
+## Release 3.0.0-next.0 - September 11th, 2020
 
-In our schematics, the SSR migration to 2.0 is now working. Also, `@angular/localize` has been added into the schematics for adding Spartacus, SSR, and upgrading to 2.0.
+We're proud to announce that our first `next` release for 3.0 has been published! It contains the B2B Checkout feature.
 
-### Dependency Upgrades
+To set up a server for use with Spartacus B2B, do the following:
 
-Angular and Spartacus dependencies have been updated across all Spartacus libraries. In terms of third-party dependencies, ng-bootstrap, ng-select, and ngx-infinite-scroll have been updated to their latest stable versions.
+- Download the latest `spartacussampledataaddon.2005.zip` from the Spartacus release page (for example, [here](https://github.com/SAP/spartacus/releases/download/storefront-3.0.0-next.2/spartacussampledataaddon.2005.zip)).
+- Build a back end according to the instructions in [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
-### Accessibility and Forms
+You can try out the new Spartacus `3.0.0-next` libraries by following these steps:
 
-It was necessary to remove `disabled` attributes from the submit buttons on forms. These attributes provided a way of submitting empty forms, because previously, we did not need to guard them from empty submissions. The fix is provided with a newly introduced `FormErrorsComponent`. This fix has been implemented in all of the forms across the entire application.
+1. Create a new Angular app (using Angular 9) with `ng new mystore --style=scss`.
+1. Then `cd mystore`.
+1. Run `ng add @spartacus/schematics@next`.
+1. Run `yarn install`.
+1. In `src/app/app.module.ts`, replace `B2cStorefrontModule` with `B2bStorefrontModule` (there are two instances that need replacing).
+1. In the same file, change `"/rest/v2/"` to `"/occ/v2/"`.
+1. In the same file, update the context definition to include powertools, such as in the following example: `context: {urlParameters: ['baseSite', 'language', 'currency'], baseSite: ['powertools-spa'], language: ['en'], currency: ['USD']},`
+1. Run `yarn start`.
 
-### Event Service
+**Note:** If you have Angular 10 installed globally, you can install Angular 9 locally with `npm install @angular/cli@^9.0.0` in a new folder, then follow the instructions above.
 
-The cart's "add entry" event has been implemented, along with minor service improvements.
+## 2.1 Pre-Release Libraries
 
-## Release 2.0.0-next.3 - April 1st, 2020
+Release 2.1 has been published! See [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}) for more information on release 2.1.
 
-Highlights for this release include the following:
+## Customer Data Cloud Pre-Release
 
-- Calydon is set as the base theme.
-- More deprecated code has been removed.
-- Improvements have been made to the current product service.
+The **Customer Data Cloud** (CDC, previously known as Gigya) integration library remains in pre-release and will likely be final alongside the 3.0 release. This new library provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %}).
 
-For a list of all the changes in release `2.0.0-next.3` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
 
-## Release 2.0.0-next.2 - March 23rd, 2020
+## Pre-Release Libraries for 2.0 and earlier
 
-### Deprecation
-
-We continue to work on removing deprecated code as part of the 2.0 release. This work is ongoing, and more deprecated code will be removed in future pre-releases of 2.0.
-
-For more information about changes in our public API, including all breaking changes, see [Updating to Spartacus 2.0](https://github.com/SAP/spartacus/blob/release/2.0.0-next.2/docs/migration/2_0.md).
-
-### Migrating with Schematics
-
-To improve the experience of migrating to version 2.0, we are working on migration schematics for Spartacus. Before you run the migration, please be sure to update to version 9 of Angular in your project.
-
-You can run the migration with the following command:
-
-```shell
-ng update @spartacus/schematics
-```
-
-If you want to try out the pre-release libraries, append the `--next` flag, as follows:
-
-```shell
-ng update @spartacus/schematics --next
-```
-
-**Note:** The migration schematics are still a work in progress, so you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
-
-### Accessibility
-
-We continue to work on accessibility in Spartacus. Aside from a number of improvements and bug fixes, a new `cxFocus` directive is now available. Documentation for this feature is still to come.
-
-### Event System
-
-The core for the event system is now included in the `@spartacus/core` library. Documentation for the event system is still to come.
-
-### Ngrx 9
-
-The ngrx dependency in Spartacus has been updated to version 9. Along with this update, the Angular libraries were also updated to the latest patch.
-
-For a list of all the changes in release `2.0.0-next.2` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
-
-## Release 2.0.0-next.1 - March 12th, 2020
-
-### Deprecation
-
-We are working on removing deprecated code as part of the 2.0 release. So far, a few classes and functions have been removed from the public API of our libraries, and for some classes, deprecated constructors have been removed. This work is ongoing, and more deprecated code will be removed in future pre-releases of 2.0.
-
-For more information about changes in our public API, see [Updating to Spartacus 2.0](https://github.com/SAP/spartacus/blob/release/2.0.0-next.1/docs/migration/2_0.md).
-
-### Migrating with Schematics
-
-To improve the experience of migrating to version 2.0, we are working on migration schematics for Spartacus. Before you run the migration, please be sure to update to version 9 of Angular in your project.
-
-You can run the migration with the following command:
-
-```shell
-ng update @spartacus/schematics
-```
-
-If you want to try out the pre-release libraries, append the `--next` flag, as follows:
-
-```shell
-ng update @spartacus/schematics --next
-```
-
-**Note:** This is our first attempt with the 2.0 migration schematics, so if you are trying it out, you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
-
-### Schematics SSR Update
-
-You can now install Spartacus with SSR in an Angular 9 app.
-
-The previous pre-release, `2.0.0-next.0`, only supported client-side rendering. In the `2.0.0-next.1` release, you can use schematics to install support for SSR and PWA.
-
-### Accessibility
-
-We continue to work on accessibility in Spartacus.
-
-For a list of all the changes in release `2.0.0-next.1` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
-
-## Release 2.0.0-next.0 - March 2nd, 2020
-
-### Update to Angular 9
-
-Spartacus libraries are now compatible with Angular 9.
-
-### Keyboard Accessibility
-
-The following accessibility features were added:
-
-- Navigation with the tab key
-- Correct focus state (visual focus)
-- Navigation with auxiliary keys, such as the space bar, arrow keys, and so on
-
-Additionally, new end-to-end tests were added for the tab and auxiliary keys. These tests check if a given page is accessible with the tab and auxiliary keys.
-
-### Component Refactoring
-
-The [pagination component](https://github.com/SAP/spartacus-docs/blob/v2-develop/_pages/dev/components/shared-components/pagination.md) and the item counter component were refactored, and are now simpler, while also being more extendable and easier to use.
-
-### Schematics Updated to Angular 9
-
-Schematics were updated to allow you to add Spartacus to applications generated with version 9 of the Angular CLI. Note, however, that the SSR and PWA options have not yet been updated, and might not fully work as intended.
-
-For a list of all the changes in release `2.0.0-next.0` of the Spartacus libraries, see the [Spartacus project release page](https://github.com/SAP/spartacus/releases) on GitHub.
-
-## Release 1.5 and earlier
-
-Pre-release libraries no longer published for these versions, as the final release of these libraries was published.
+Pre-release libraries are no longer actively updated for versions 2.0 and earlier, as the final release of these libraries was already published. Pre-release libraries are still available but the final versions should be used.
 
 ## Questions
 
