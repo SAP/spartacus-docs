@@ -255,7 +255,7 @@ docs:
                   url: /product-offering-search/                                     
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
-                - title: "Simple Product Offering (SPO)"
+                - title: "Simple Product Offering"
                   url: /simple-product-offerings-spo/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/  
