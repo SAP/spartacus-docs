@@ -4,11 +4,6 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
-## Release 2.0
-
-- Pricing - Composite Pricing.
-- Pricing - Price Alteration Discounts.
-
 ## Release 1.2
 
 - [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}).
@@ -16,7 +11,8 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 ## Release 1.1
 
 - [Customer Product Inventory (CPI)]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %}).
-- [Consumption]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}).
+- [Consumption]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %}).
+- [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/consumption.md %}).
 - [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %}).
 
 ## Release 1.0
