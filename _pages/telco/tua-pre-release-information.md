@@ -7,12 +7,12 @@ _Last updated October 28, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA S
 
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
-For detailed release notes, see the [Spartacus repository
-](https://github.com/SAP/spartacus/releases).
+For detailed release notes, see the [TUA Spartacus repository
+](https://github.com/SAP/spartacus-tua/releases).
 
 ## Release 2.0.0-next.1 - October 28, 2020
 
-Release 2.0 has been published! For more information, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
+The `2.0.0-next.1` library has been published! For more information, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
 We are happy to announce support for the TUA 2007 release.
 
