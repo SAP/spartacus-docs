@@ -3,7 +3,7 @@ title: Pricing - Subscription Rate Plan
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 1.0 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 1.0 {{ site.version_note_forTUA }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}

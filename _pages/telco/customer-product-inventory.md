@@ -2,7 +2,11 @@
 title: Customer Product Inventory
 ---
 
-**Note:** This feature is introduced in version 1.1 of the TUA Spartacus libraries.
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.1 {{ site.version_note_forTUA }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 ## Contents
 
