@@ -1,5 +1,5 @@
 ---
-title: Journey Management - Appointment Reference
+title: Journey Management - Appointment
 ---
 
 **Note:** This feature is introduced in version 1.1.0 of the TUA Spartacus libraries.
@@ -39,29 +39,6 @@ A customer wants to purchase a product offering that requires installation servi
 
 In the cart, a customer has a product offering with a selected appointment reservation. The customer does not immediately place the order, but instead, either waits until the next day, or completely abandons the cart. After a defined period of time, the cart times-out and the appointment is automatically cancelled, and the slot can be made available for another customer.  
 
-<!--## End-to-end Journey
-
-1. Log in to the TUA SPA Storefront.
-2. Search and select a product offering. For example, `Fiber Link 100 mbps`.
-3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed. 
-4. Click a suitable appointment from the available appointments.
-
-    **Note:** The `Please Call to Schedule` option is preselected.    
-
-5. Click **CONTINUE**. The appointment is displayed in the `Item(s) added to your cart` screen.
-6. Click **View Cart**. The cart displays all relevant details of `Fiber Link 100 mbps` with the selected appointment.
-7. Click the pencil icon to update the appointment. The `Select a suitable time for an appointment` screen is displayed.
-
-    **Notes:** 
-    - The earlier appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
-    - Top six available time slots are displayed with `Please call to Schedule` preselected option.
-    - For each cart entry, you can book only one appointment, or choose the default `Call to Schedule` option.
-
-8. Select a suitable appointment and click **Update**. The cart screen displays the new appointment.
-9. Click **Proceed to Checkout** to place an order for `Fiber Link 100 mbps`.
-10. Click **Account > Order History**.
-11. Click the order number to confirm the appointment and other relevant details.-->
-
 ## Frontend and Backend Dependencies
 
 | Dependency                                	| Detail                                                 	|
@@ -72,7 +49,7 @@ In the cart, a customer has a product offering with a selected appointment reser
 
 ## Configuring and Enabling the Appointment in TUA
 
-The Appointment-Reference checklist policy for a selected product offering is configured in the Backoffce by a Product Manager.  For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+The Appointment-Reference checklist policy for a selected product offering is configured in the Backoffice by a Product Manager.  For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## Components
 
