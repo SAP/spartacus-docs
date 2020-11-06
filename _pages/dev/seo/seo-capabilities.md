@@ -41,7 +41,7 @@ Server-side rendering (SSR) is a technique that renders the JavaScript logic on 
 
 SSR is provided by Spartacus, and is planned to be a default deployment option in Commerce Cloud.
 
-For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/server-side-rendering-coding-guidelines.md %}) and [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr).
+For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}) and [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr).
 
 ## Structured Data (schema.org)
 

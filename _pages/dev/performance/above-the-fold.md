@@ -1,5 +1,9 @@
 ---
 title: Above-the-Fold Loading
+feature:
+- name: Above-the-Fold Loading
+  spa_version: 1.4
+  cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -54,7 +58,7 @@ ProductDetailsPageTemplate: {
 }
 ```
 
-For more information on page layout configuration, see [Configuring the Layout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/page-layout/#configuring-the-layout).
+For more information on page layout configuration, see [Configuring the Layout](https://sap.github.io/spartacus-docs/page-layout/#configuring-the-layout).
 
 ## CSS Configuration
 
