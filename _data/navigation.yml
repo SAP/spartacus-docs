@@ -252,7 +252,9 @@ docs:
             url: /spartacus-features-for-tua/ 
             subchildren:
                 - title: "Customer Product Inventory (CPI)"
-                  url: /customer-product-inventory/                    
+                  url: /customer-product-inventory/ 
+                - title: "Consumption"
+                  url: /consumption/                   
     - title: Contributing to Spartacus
       children:
           - title: "Contributor's Guide ➢"
