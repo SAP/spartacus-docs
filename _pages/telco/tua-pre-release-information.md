@@ -5,7 +5,7 @@ This document describes what is included in the latest pre-release of TUA Sparta
 
 _Last updated October 28, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
-For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}). 
+For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
 For detailed release notes, see the [Spartacus repository
 ](https://github.com/SAP/spartacus/releases).
@@ -18,41 +18,19 @@ We are happy to announce support for the TUA 2007 release.
 
 You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
 
+The following features are included as part of this pre-release:
+
+**Composite Pricing**
+
+Composite Pricing brings forth a new way for handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner.  Product Offering Prices are now hierarchal; that is, they can be grouped together and they are also re-usable. For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
+
+**Price Alteration Discounts**
+
+The Price Alteration Discounts works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges and usage-based charges. With price alteration discounts, customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
+
 ### Pre-Release Libraries for 2.0 and Earlier
 
 Pre-release libraries are no longer actively updated for versions 1.0 and earlier, as the final release of these libraries was already published. Pre-release libraries are still available but the final versions should be used.
-
-## Release 1.0.0-next.2 - July 24th, 2020
-
-This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
-
-_Last updated July 24, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
-
-Aside from continued work on removing deprecated code, bug fixes, and code refactoring, the following sections highlight work that has been done for this pre-release.
-
-- Product Offering Prices (One-Time Charges, Recurring Charges and Usage Charges). For more information, see [Pricing in TUA Help Portal](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ad4430d10fc3477096752d83f935faf9.html) in the TUA Help portal.
-- Guided selling for complex Bundled Product Offerings. For more information, see [Configurable Guided Selling for BPOs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/464d4b03d91442e9ac95f69808895a39.html) in the TUA Help portal.
-
-## Release 1.0.0-next.1 - May 18th, 2020
-
-_Last updated May 18, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
-
-This is the very first pre-release of the Telco & Utilities Accelerator (TUA) Spartacus storefront. TUA Spartacus storefront requires Telco & Utilities Accelerator release 2003 (latest patch), with Spartacus 1.4 libraries.
-
-With this pre-release, the following Telco storefront features are included:
-
-- Login
-- Customer Registration
-- Search
-- Support of Simple Product Offerings (SPOs). For more information, see [Support of Simple Product Offerings (SPOs)](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/315410098c024e50adf4c43373761936.html?q=product%20offerings) in the TUA Help portal
-- Product Offering Details Page
-- Product Offering Listing Page
-- Product Offering Pricing. For more information, see [Product Offering Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html) in the TUA Help portal
-- Add Product Offering to Cart
-- Checkout
-- Order Placement
-- My Account standard commerce features
-- APIs supporting offer to fulfill including TM Forum APIs and OCC rest APIs
 
 ## Questions
 
