@@ -8,11 +8,17 @@ title: Checkout
 
 {% include docs/feature_version.html content=version_note %}
 
+## Contents
+
+- [Overview](#overview)
+- [Components](#components)
+- [Further Reading](#further-reading)
+
 ## Overview
 
 The checkout works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage charges. 
 
-## Checkout Components
+## Components
 
 - `TmaReviewSubmitComponent` extends `ReviewSubmitComponent` to display Pay on Checkout and other prices of the Product Offering in the Review Order. Information displayed is the same as for `TmaCartItemComponent`.
 - `TmaCheckoutOrderSummaryComponent` extends `CheckoutOrderSummaryComponent` to display Subtotal, Delivery cost, and Pay on Checkout Total price in the Review Order. Information displayed is the same as for `TmaOrderSummaryComponent`, and the only difference is that the Delivery Cost is always displayed.
