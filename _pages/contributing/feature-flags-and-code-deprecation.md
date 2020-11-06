@@ -1,5 +1,5 @@
 ---
-title: Feature Flags and Code Deprecation (DRAFT)
+title: Feature Flags and Code Deprecation
 ---
 
 {% capture version_note %}

@@ -11,7 +11,7 @@ If you have technical questions not answered in this FAQ, you can get in touch w
 
 ### What is SAP Commerce Cloud (Project Spartacus)? (referred to as just “Spartacus”)
 
-Spartacus is an open-source JavaScript web application hosted [here](https://github.com/SAP/cloud-commerce-spartacus-storefront) that allows you to quickly create your own branded JavaScript-based storefront for SAP Commerce Cloud. Spartacus is written using Angular and published as libraries. The recommended approach to using JavaScript is to build your own JavaScript web app and import the libraries. Without modification, the storefront works out of the box, but Spartacus has been designed to be upgradable, customizable, and extendable, to suit all your branding and functionality requirements.
+Spartacus is an open-source JavaScript web application hosted [here](https://github.com/SAP/spartacus) that allows you to quickly create your own branded JavaScript-based storefront for SAP Commerce Cloud. Spartacus is written using Angular and published as libraries. The recommended approach to using JavaScript is to build your own JavaScript web app and import the libraries. Without modification, the storefront works out of the box, but Spartacus has been designed to be upgradable, customizable, and extensible, to suit all your branding and functionality requirements.
 
 ### Does Spartacus require SAP Commerce Cloud?
 
@@ -31,22 +31,15 @@ Spartacus libraries will be integrated with SAP Cloud Platform Extension Factory
 
 ### Which browsers does Spartacus support?
 
-Spartacus is built using the Angular framework, which has its own [browser support](https://angular.io/guide/browser-support) page. Note that Spartacus only provides library code, so the application that you build with the Spartacus libraries can affect which browsers are supported. For example, your application settings will dictate the supported version of JavaScript and the CSS build (PostCSS). You can also use certain polyfills to add missing browser features.
-
-On the desktop, Spartacus supports Chrome with automated tests, and in general, Spartacus supports evergreen browsers. By default, Spartacus does not support IE11 because IE11 is missing certain modern browser features, such as support for CSS variables.
-
-Spartacus supports browsers on mobile and tablet platforms as follows:
-
-- On iOS-based devices, Spartacus is tested with Safari and Chrome. Although other browsers are not tested, Spartacus should work with any iOS browser, because all iOS browsers use the Webkit-based iOS browser engine.
-- On Android-based devices, Spartacus is tested with Chrome, which is based on Chromium and the Blink layout engine. Any Android browser that uses the same engine will likely work with Spartacus. Other browsers using different browser engines are not tested, but those browsers that use Webkit should work as well.
+Spartacus actively supports evergreen web browsers. Non-evergreen browsers that support the same standards as evergreen browsers will typically work as well. For older browsers that do not support these standards, you can add the necessary support with custom implementations. For more information, see [Web Browser Support]({{ site.baseurl }}{% link _pages/install/browser-support.md %}).
 
 ### How does Spartacus compare to the SAP Commerce Cloud Accelerators?
 
-Accelerators templates (link) were introduced in SAP Commerce v4.4 to provide a ready-to-use starter implementation; they allowed partners to quickly develop an omni-channel experience by changing an example storefront. While extendable, the templates were not easily upgradable, they were JSP-based, and the storefronts were coupled tightly with the platform. Spartacus is a set of libraries that help you create a decoupled, modern, JavaScript-based storefront that is similarly extendable but vastly more upgradable. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article “Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution” for more information on this topic. 
+Accelerators templates (link) were introduced in SAP Commerce v4.4 to provide a ready-to-use starter implementation; they allowed partners to quickly develop an omni-channel experience by changing an example storefront. While extensible, the templates were not easily upgradable, they were JSP-based, and the storefronts were coupled tightly with the platform. Spartacus is a set of libraries that help you create a decoupled, modern, JavaScript-based storefront that is similarly extensible but vastly more upgradable. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article “Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution” for more information on this topic.
 
 ### Are there features that are missing in Spartacus that exist in the SAP Commerce Cloud Accelerators?
 
-At the 1.0 release, Spartacus will not have feature parity when compared with all the Accelerators available in SAP Commerce Cloud. The focus to start is to achieve feature parity with the B2C accelerator. Feature parity with B2B, China and Industry accelerators will come in the future. Feature parity will be documented. 
+At the 1.0 release, Spartacus will not have feature parity when compared with all the Accelerators available in SAP Commerce Cloud. The focus to start is to achieve feature parity with the B2C accelerator. Feature parity with B2B, China and Industry accelerators will come in the future. Feature parity will be documented.
 
 ### Can I run Spartacus and an Accelerator storefront at the same time?
 
@@ -66,11 +59,11 @@ Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configur
 
 ### Is there a demo of a Spartacus-based storefront available?
 
-Try out our continuous-integration server [here](https://sap.github.io/cloud-commerce-spartacus-storefront).
+Try out our continuous-integration server [here](https://sap.github.io/spartacus).
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available?
 
-Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
+Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/spartacus-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
 
 ### Can I customize Spartacus?
 
@@ -128,7 +121,7 @@ Yes. Support for contextual journey tracking will be added to Spartacus, schedul
 
 ### How much will Spartacus cost?
 
-Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/master/LICENSE).  
+Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/spartacus/blob/master/LICENSE).  
 
 ### Do I need to sign a contract to obtain a license?
 
@@ -136,7 +129,7 @@ No. The license (link) is embedded in the libraries and code you use from the op
 
 ### Are there any restrictions for using Spartacus? Can I sell a customized version of a Spartacus-based storefront?
 
-See the license ([link](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/LICENSE.txt)). Generally, however, the Apache license is permissive and allows you to sell new works based off of Spartacus. See [this article](https://resources.whitesourcesoftware.com/blog-whitesource/top-10-apache-license-questions-answered) for more background information. (These answers do not constitute legal official advice.) 
+See the license ([link](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt)). Generally, however, the Apache license is permissive and allows you to sell new works based off of Spartacus. See [this article](https://resources.whitesourcesoftware.com/blog-whitesource/top-10-apache-license-questions-answered) for more background information. (These answers do not constitute legal official advice.) 
 
 ------
 

@@ -1,5 +1,5 @@
 ---
-title: Loader Meta Reducer (DRAFT)
+title: Loader Meta Reducer
 ---
 
 ## Overview
