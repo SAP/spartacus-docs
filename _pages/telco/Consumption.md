@@ -15,7 +15,7 @@ title: Consumption
 
 ## Overview
 
-Customers can view their current consumption for their subscribed offerings based on the frequency of the current contract term (that is, monthly consumption). By understanding usage, the customers can manage their subscriptions with proper authorization. Entries in the Customer Product Inventory (CPI) are created and updated from backend systems, when the product offerings have been provisioned.
+Customers can view their current consumption for their subscribed offerings based on the frequency of the current contract term (that is, monthly consumption). By understanding usage, the customers can manage their subscriptions with proper authorization. Entries for the usage consumption are created and updated from backend systems by average service usage for subscribed product. 
 
 ## Business Use Cases
 
@@ -59,4 +59,5 @@ For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006
 
 ## Further Reading
 
+- [Create Average Service Usage for Subscribed Product](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html)
 - [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html)
