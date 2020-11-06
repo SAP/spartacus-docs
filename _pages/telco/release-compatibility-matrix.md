@@ -1,5 +1,5 @@
 ---
-title: Spartacus for TUA Release Compatibility Matrix
+title: Release Compatibility Matrix
 ---
 
 The following table lists the release compatibility matrix between Enterprise Commerce (EC) and Telco & Utilities Accelerator (TUA).
