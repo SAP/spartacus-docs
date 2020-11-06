@@ -307,20 +307,22 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
-                - title: "Product Offering Search"
-                  url: /product-offering-search/                                     
-                - title: "Pricing - Subscription Rate Plan"
-                  url: /product-offering-prices/ 
-                - title: "Simple Product Offering"
-                  url: /simple-product-offerings-spo/
-                - title: "Configurable Guided Selling"
-                  url: /configurable-guided-selling/  
                 - title: "Cart"
                   url: /cart/
                 - title: "Checkout"
                   url: /checkout/
+                - title: "Configurable Guided Selling"
+                  url: /configurable-guided-selling/  
+                - title: "Customer Product Inventory"
+                  url: /customer-product-inventory/
                 - title: "Order"
                   url: /order/        
+                - title: "Pricing - Subscription Rate Plan"
+                  url: /product-offering-prices/ 
+                - title: "Product Offering Search"
+                  url: /product-offering-search/                                     
+                - title: "Simple Product Offering"
+                  url: /simple-product-offerings-spo/
                                 
     - title: Contributing to Spartacus
       url: /contributors-guide/
