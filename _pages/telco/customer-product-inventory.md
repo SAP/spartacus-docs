@@ -1,8 +1,8 @@
 ---
-title: Customer Product Inventory (CPI)
+title: Customer Product Inventory
 ---
 
-**Note:** This feature is introduced in version 1.1.0 of the TUA Spartacus libraries.
+**Note:** This feature is introduced in version 1.1 of the TUA Spartacus libraries.
 
 ## Contents
 
