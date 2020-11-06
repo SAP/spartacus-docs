@@ -297,6 +297,8 @@ docs:
                   url: /tua-pre-release-information/
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
+          - title: "TUA Spartacus FAQ"
+            url: /spartacus-tua-faq/  
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
