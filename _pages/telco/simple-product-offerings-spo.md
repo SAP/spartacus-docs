@@ -15,5 +15,7 @@ In TUA, there is a need to differentiate between a product and a product offerin
 ## Further Reading
 
 For more information, see [Product Offerings](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html) in the TUA Help portal.
+
 To learn more about product specifications, see @Sachin please include the link
+
 To learn more about product specification characterstics , see @sachin please include the link here
