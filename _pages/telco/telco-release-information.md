@@ -20,7 +20,7 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 
 **Note:** Spartacus 1.x requires Angular 8. For more information, see [Installing SAP Commerce Cloud for TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installation-guide-for-tua-spartacus.md %}).
 
-- For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
+- For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
@@ -37,7 +37,7 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 
 What's new?
 
-- [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}).
+- [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %})
 
 Journey Management facilitates real-time personalized customer journeys enabling online customers to successfully place an order. With the MSISDN checklist action in place, customers who wish to purchase a simple product offering that requires an MSISDN selection, will be required to select their new telephone number as part of the ordering process. For more information, see [Journey Management](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
@@ -45,15 +45,15 @@ Journey Management facilitates real-time personalized customer journeys enabling
 
 *Release 1.1.0 libraries published October 7, 2020*
 
-- [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %}).
+- [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %})
 
 Journey Management facilitates real-time personalized customer journeys enabling online customers to successfully place an order. With the appointment checklist action in place, customers that wish to purchase a simple product offering that requires an appointment to be scheduled, will be required to make the appointment selection as part of the ordering process. For more information, see [Journey Management](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
-- [Customer Product Inventory (CPI)]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %}).
+- [Customer Product Inventory (CPI)]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %})
 
 Increase NPS with the Customer Product Inventory. This features helps companies understand their customers by having a complete view of the "recurring" relationships or assets, their customers have with them. The Customer Product Inventory is used to dynamically determine user journeys: what the customer is interested in, what they are willing to pay, and what products, services, and prices they are entitled to. For more information, see [Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help portal.
 
-- [Consumption]({{ site.baseurl }}{% link _pages/telco/consumption.md %}).
+- [Consumption]({{ site.baseurl }}{% link _pages/telco/consumption.md %})
 
 Maximize customer retention by understanding the consumption of services by customers.  Not all customers are created equal. Some subscribers are more valuable than others. With consumption data available, companies are able to analyze the data and provide customers with some highly engaging content, upgrades, or promotional offers to keep subscribers engaged. On the flip side, with consumption data visible, customers are able to see for themselves how much of the services they are actually consuming, which helps them maximize their investment and make more informative decision. For more information, see [Create Average Service Usage for Subscribed Product](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/ba5f222fb5814829bd74eaf6e6505a9f.html) in the TUA Help portal.
 
@@ -61,11 +61,11 @@ Maximize customer retention by understanding the consumption of services by cust
 
 *Release 1.0.0 libraries published September 9, 2020*
 
-- [Simple Product Offering]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %}).
+- [Simple Product Offering]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %})
 
 The commercial product catalog for service industries is different and the distinction between product offerings and products is important to understand. Simple product offerings are different than retail products and represents what is externally presented to the market. For more information, see [Simple Product Offerings](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/6d3b4c0b88b04b709774c8ad10baa7a8.html?q=simple%20product%20offering) in the TUA Help portal.
 
-- [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %}).
+- [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %})
 
 To support the commercial product catalog of product offerings, changes were required in the way "searches" are technically conducted to search for and find simple product offerings. Changes were made in the areas of free text search, facets, and top level category menu navigation. For more information, see [Product Offering Search](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/315410098c024e50adf4c43373761936.html) in the TUA Help portal.
 
