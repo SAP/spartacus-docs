@@ -312,7 +312,9 @@ docs:
                 - title: "Checkout"
                   url: /checkout/
                 - title: "Configurable Guided Selling"
-                  url: /configurable-guided-selling/  
+                  url: /configurable-guided-selling/
+                - title: "Consumption"
+                  url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
                 - title: "Order"
