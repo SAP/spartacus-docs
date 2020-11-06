@@ -332,7 +332,7 @@ docs:
                 - title: "Product Offering Search"
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
-                  url: /simple-product-offerings-spo/
+                  url: /simple-product-offering/
                                 
     - title: Contributing to Spartacus
       url: /contributors-guide/
