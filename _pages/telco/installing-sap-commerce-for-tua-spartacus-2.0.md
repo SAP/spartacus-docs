@@ -2,9 +2,9 @@
 title: Installing SAP Commerce for use with TUA Spartacus
 ---
 
-The following instructions describe how to install and configure SAP Commerce (release 1905) with Telco & Utilities Accelerator (release 2003, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
+The following instructions describe how to install and configure SAP Commerce (release 2005) with Telco & Utilities Accelerator (release 2007, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
 
-The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsoccaddon`, `ycommercewebservices`, `acceleratorwebservicesaddon` extensions and TUA module.
+The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsocc`, `commercewebservices`, `acceleratorocc` extensions and TUA module.
 
 **Note:** If you are trying out TUA Spartacus for the first time and intend to use the default sample data, you must use the TUA Spartacus Sample Data store extension (should be part of your list of extensions). The TUA Spartacus Sample Data is a set of data (product offerings and content) for the telco industry.
 
@@ -14,7 +14,8 @@ To install and configure SAP Commerce for use with TUA Spartacus, you must compl
 
 1. [Setting up SAP Commerce with Telco & Utilities Accelerator](#setting-up-sap-commerce-with-telco--utilities-accelerator)
 2. [Configuring OCC credentials](#configuring-occ-credentials)
-3. [Configuring CORS](#configuring-cors)
+3. [Update System and User Credentials (2005 only) (Optional)](#update-system-and-user-credentials-2005-only-optional)
+4. [Configuring CORS](#configuring-cors)
 
 ## Setting Up SAP Commerce with Telco & Utilities Accelerator
 
@@ -22,7 +23,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the SAP Commerce and Telco & Utilities Accelerator zip archives.
 
-   Note: Use the lastest patches for SAP Commerce version 1905 and Telco & Utilities Accelerator version 2003.
+   Note: Use the lastest patches for SAP Commerce version 2005 and Telco & Utilities Accelerator version 2007.
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
@@ -54,7 +55,6 @@ Some of the steps in this procedure are derived from the documentation for insta
 		        property 'commerceservices.default.desktop.ui.experience', 'responsive'
 		        property 'kernel.autoInitMode', 'update'
 		        property 'installed.tenants', 'junit, api, foo'
-
 	      }
 	       afterSetup {
             ensureAdminPasswordSet()
@@ -68,67 +68,44 @@ Some of the steps in this procedure are derived from the documentation for insta
 			extName 'b2ctelcobackoffice'
 			extName 'b2ctelcofulfillmentprocess'
 			extName 'b2ctelcospastore'
-			extName 'b2ctelcoaddon'
 			extName 'b2ctelcotmfwebservices'
 			extName 'b2ctelcowebservices'
-		
-			extName 'b2ctelcooccaddon'
+			extName 'b2ctelcoocc'
+            extName 'cmsocc'
+            extName 'acceleratorocc'
+            extName 'b2ctelcocommercewebservicescommons'
 			extName 'commerceservicesbackoffice'
 			extName 'solrfacetsearchbackoffice'
 			extName 'solrserver'
 			extName 'subscriptionbackoffice'
-			extName 'yacceleratorstorefront'
-			extName 'yacceleratorcore'
-			extName 'ycommercewebservices'
-            extName 'pcmbackofficesamplesaddon'
-
-			extName 'cmsbackoffice'
-			extName 'cmswebservices'
-			extName 'previewwebservices'
-			extName 'smarteditwebservices'
-			extName 'cmssmarteditwebservices'
-			extName 'permissionswebservices'
-			extName 'smarteditaddon'
-			extName 'cmssmartedit'
-			extName 'cmsoccaddon'
-			extName 'customerticketingaddon'
-			extName 'customersupportbackoffice'
-			
-			extName 'personalizationwebservices'
-			extName 'previewpersonalizationweb'
-			extName 'personalizationcmsweb'
-			extName 'personalizationsmartedit'
-			extName 'personalizationservicesbackoffice'
-			extName 'personalizationcmsbackoffice'
+            extName 'yacceleratorcore'
+            extName 'commercewebservices'
+            extName 'cmsbackoffice'
+            extName 'cmswebservices'
+            extName 'previewwebservices'
+            extName 'smarteditwebservices'
+            extName 'cmssmarteditwebservices'
+            extName 'permissionswebservices'     
+            extName 'cmssmartedit'       
+            extName 'customersupportbackoffice'        
+            extName 'personalizationwebservices'
+            extName 'previewpersonalizationweb'
+            extName 'personalizationcmsweb'
+            extName 'personalizationsmartedit'
+            extName 'personalizationservicesbackoffice'
+            extName 'personalizationcmsbackoffice'
             extName 'personalizationservices'
-            extName 'personalizationfacades'
-			
-			extName 'acceleratorservices'
-			extName 'assistedservicefacades'
-			extName 'assistedservicestorefront'
-			extName 'assistedservicecustomerinterestsaddon'
-
-			extName 'rulebuilderbackoffice'
-			extName 'couponbackoffice'
-			extName 'droolsruleengineservices'
-			extName 'couponfacades'
-			extName 'couponservices' 
-			extName 'promotionenginesamplesaddon'
-			extName 'acceleratorwebservicesaddon'
-
-	}
-    addons {
-        forStoreFronts('yacceleratorstorefront') { 
-           names('b2ctelcoaddon', 'smarteditaddon', 'customerticketingaddon', 'assistedservicestorefront', 'assistedservicecustomerinterestsaddon', 'pcmbackofficesamplesaddon', 'promotionenginesamplesaddon')
-		   template 'yacceleratorstorefront'
-		}
-
-		forStoreFronts('ycommercewebservices') {
-		   names('b2ctelcooccaddon','cmsoccaddon','acceleratorwebservicesaddon')
-		   template 'ycommercewebservices'
-			
-		}
-      
+            extName 'personalizationfacades'     
+            extName 'acceleratorservices'
+            extName 'assistedservicefacades'   
+            extName 'rulebuilderbackoffice'
+            extName 'couponbackoffice'
+            extName 'droolsruleengineservices'
+            extName 'couponfacades'
+            extName 'couponservices'   
+            extName 'integrationmonitoringbackoffice'
+						
+	        
 	  }
     }
 
@@ -136,13 +113,12 @@ Some of the steps in this procedure are derived from the documentation for insta
 	      doLast {
 		
 		            pl.setup()
-
 		            copy {
-			               from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
+			               from "${installerHome}/recipes/b2c_telco/logback.xml"
 			               into "${suiteHome}/hybris/bin/platform/tomcat/lib"
 		            }
 		            copy {
-			               from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
+			               from "${installerHome}/recipes/b2c_telco/sbg_properties"
 			               into "${suiteHome}/hybris/bin/platform/tomcat/lib"
 			               exclude "**/*.txt"
 		            }
@@ -182,12 +158,14 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
-1. Set up the recipe using the following commands for Windows:
+1. Set up the recipe using the following commands:
+
+   Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
-For Unix:
+   Unix:
 
    ```bash
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
@@ -197,12 +175,14 @@ For Unix:
 
    **Note:** Starting with release 1905, SAP Commerce releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `sap-commerce-folder>\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure below for information on setting a password in the `custom.properties` file.
 
-1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands for Windows:
+1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands:
+   
+   Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
-For Unix:
+   Unix:
 
    ```bash
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
@@ -210,15 +190,17 @@ For Unix:
 
    Initialization of the b2c_telco_spa recipe can take about 20 minutes. Sample data for this recipe includes telco specific data and content.
 
-1. Start SAP Commerce with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
+1. Start SAP Commerce with the following command. From the `sap-commerce-folder>/installer` folder run the following commands:
+
+   Windows:
 
    ```bash
-   install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+   install.bat -r b2c_telco_spa start
    ```
-For Unix:
+   Unix:
 
    ```bash
-   ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
+   ./install.sh -r b2c_telco_spa start
    ```
 
 1. Verify that the system is working.
@@ -239,8 +221,8 @@ For Unix:
 
 By default, SAP Commerce replies to OCC REST API calls that do not require authentication. For example, you can do the following:
 
-- Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
-- Display information about the `telcospa` base store: https://localhost:9002/rest/v2/telcospa/basestores/telcospa
+- Display Open API documentation: https://localhost:9002/occ/v2/swagger-ui.html
+- Display information about the `telcospa` base store: https://localhost:9002/occ/v2/telcospa/basestores/telcospa
 
 In order to register users and check out, SAP Commerce must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
 For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
@@ -280,12 +262,16 @@ The following procedure describes how to configure SAP Commerce to accept OCC RE
 
    ```bash
    {
-     "access_token" : "550d9a25-87c8-4e76-af21-6174a1e56d5c",
+     "access_token" : "zOM6rJ-TnoUM8xvibfy-VK-m8Xw",
      "token_type" : "bearer",
-     "expires_in" : 41809,
+     "expires_in" : 43170,
      "scope" : "basic openid"
    }
    ```
+
+## Update System and User Credentials (2005 only) (optional)
+
+If you are using SAP Commerce Cloud 2005, you may need to enable users and passwords for certain functionality to work.For more information, see [Setting Passwords for Default Users](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) in the SAP Help Portal.
 
 **You can now start TUA Spartacus!** After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) for more information.
 
@@ -298,30 +284,30 @@ You can add these settings using the Hybris Administration Console. Hover your m
 To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (`local.properties` file of your config folder):
 
 ```sql
-corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
-corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
+corsfilter.commercewebservices.allowedOrigins=*
+corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
 ```sql
-corsfilter.b2ctelcotmfwebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
+corsfilter.b2ctelcotmfwebservices.allowedOrigins=*
 corsfilter.b2ctelcotmfwebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.b2ctelcotmfwebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
 ```sql
-corsfilter.acceleratorservices.allowedOrigins=http://localhost:4200 https://localhost:4200
+corsfilter.acceleratorservices.allowedOrigins=*
 corsfilter.acceleratorservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.acceleratorservices.allowedHeaders=origin content-type accept authorization cache-control
 ```
 
 **Note:** The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
-For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
+For more information about CORS, see [commerceservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/8b85a20586691014bacda05068f9c842.html) in the SAP Help Portal.
 
 ## Alternate Method for Setting the SAP Commerce Admin Password
 
-Instead of including the admin password in every install command as required for release 1905, you can create a configuration file that is used each time.
+Instead of including the admin password in every install command as required for release 2005, you can create a configuration file that is used each time.
 
 1. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce folder.
 
