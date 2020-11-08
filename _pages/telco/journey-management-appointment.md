@@ -1,142 +1,88 @@
 ---
-title: Journey Management - Appointment Reference
+title: Journey Management - Appointment
 ---
 
-**Note:** This feature is introduced in version 1.1.0 of the TUA Spartacus libraries.
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.1 {{ site.version_note_forTUA }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 ## Contents
 
 - [Overview](#overview)
-- [Key Personas](#key-personas)
+- [Prerequisite](#prerequisite)
 - [Business Use Case](#business-use-case)
-- [Navigation Flow](#navigation-flow)
-- [Requirements and Dependencies](#requirements-and-dependencies)
-- [Configuring and Enabling New Appointment](#configuring-and-enabling-new-appointment)
+- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
+- [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua)
+- [Components](#components)
+- [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
 ## Overview
 
-The `Journey Management - Appointment Reference` feature enables customers browsing the telco and utilities accelerator for project "Spartacus" (TUA Spartacus) storefront to browse the content of a product offering, and select a suitable appointment for arranging onsite service support, before purchasing the product offering.
+As a result of Journey Management configuration, a product offerings may be defined with the requirement of an appointment to be scheduled. This means that an appointment reservation is required before the order can be successfully placed. The Journey Management appointment feature enables customers to make this reservation during the "Add to Cart" process.
 
-**Note:** The `Journey Management - Appointment Reference` feature applies to only those product or service offerings for which a checklist policy is configured at the backend by the Product Manager.
+Appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
 
-## Key Personas
+This feature applies to product offerings that have a checklist policy for Appointment Reference configured. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua).
 
-- Customers
-- Product Managers
+## Prerequisite
+
+To test this feature using a mock service, please follow the set-up instructions below for soapUI:
+
+1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
+2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services.zip` file.
+3. Extract the `mock_services.zip` file. The content of the ZIP when extracted is the `Resource_Pool_Management_API.xml` file.
+4. Click the **Import** icon on the soapUI toolbar. The `Select soapUI Project` file dialog box opens. Import the  `Resource_Pool_Management_API.xml` file into the soapUI.
+5. Right-click **MSISDN** and then click **Start Minimized**. When the mock service is up, you can see that the MSISDN mock service is also up and running.
 
 ## Business Use Case
 
-A customer wants to purchase a product offering. Before adding the product offering to the cart, the `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager. The customer is required to select a `call to schedule` option, or a suitable appointment from the available appointments.
+A customer wants to purchase a product offering that requires installation service. During the "Add to "Cart" process, the customer is prompted to make an appointment reservation.
 
-The business use case includes the following steps:
+In the cart, a customer has a product offering with a selected appointment reservation. The customer does not immediately place the order, but instead, either waits until the next day, or completely abandons the cart. After a defined period of time, the cart times-out and the appointment is automatically cancelled, and the slot can be made available for another customer.  
 
-1. The customer searches and selects a product offering; for example, Fiberlink 100, and clicks **Add to Cart** to add the product offering to the cart.
-2. The `Select a suitable time for an appointment` screen is displayed, based on the checklist actions configured at the backend by Product Manager. The `Select a suitable time for an appointment` screen displays:
-    - **Call to Schedule:** The customer can select this option if a call back is required to schedule an appointment.
-    - **Select a Suitable Appointment:** The customer can select a suitable appointment from the available appointments.
-3. The selected product offering with the appointment is added to the cart.
-4. The customer can edit the appointment before proceeding to checkout the product offering. 
-5. The customer can view view the appointment and the order details from the `Order Details` page or the `Order History` page.
+## Frontend and Backend Dependencies
 
-## Navigation Flow
+| Dependency                                	| Detail                                                 	|
+|--------------------------------------------	|--------------------------------------------------------	|
+| Recipe                                     	| b2c_telco_spa                                          	|
+| Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
+| Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
 
-1. Log in to the Telco SPA.
+## Configuring and Enabling the Appointment in TUA
 
-    <p align="center"><img src="/assets/images/telco/Screenshot_2020-09-02 Login.png"></p>
+The Appointment-Reference checklist policy for a selected product offering is configured in the Backoffice by a Product Manager.  For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
-2. Search and select a product offering. For example, Fiber Link 100 mbps.
+## Components
 
-    <p align="center"><img src="/assets/images/telco/1Product_Offering.png"></p>
+The following new and updated components must be enabled in the TUA backoffice to appear on the Spartacus TUA storefront:
 
-3. Click **Add to Cart**. The `Select a suitable time for an appointment` screen is displayed, based on the checklist policy configured at the backend by the Product Manager.
+| Angular Component   Name             | Status  | Description                                                                                                                        |
+|--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| JourneyChecklistStepComponent        | New     | A stepper component that renders the checklist components                                                                          |
+| JourneyChecklistAppointmentComponent | New     | Displays the available time slots  to customers                                                                                    |
+| AppointmentComponent                 | New     | Displays the appointment details in the Order, Order History, Cart   Summary and Cart popup                                        |
+| TmaAddToCartComponent                | Updated | Displays the **Add to cart** button that is enhanced with the checklist   call and opening checklist action stepper if applicable  |
+| TmaCartTotalsComponent               | Updated | Displays cart total, and the **Proceed to checkout** button, which is   disabled in case of appointment errors or cancelled state  |
+| TmaPlaceOrderComponent               | New     | Displays the **Place order** button, which is disabled in case of   appointment errors or cancelled state                          |
 
-    **Note:** The `Please Call to Schedule` option is preselected.
+## TM Forum APIs
 
-4. Click a suitable appointment from the available appointments.
+| API Name          	| API Endpoint                         	| Description                                                                                                                                                                                	|
+|--------------------------------------	|----------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Tmf Resources#TMF-ChecklistActionAPI 	| /checklistAction                 	| Shows applicable list of checklist policies   for product offering                                                                                                                         	|
+| TMF-646   (version 2.0.0)            	| POST appointment/searchTimeSlot  	| This operation creates a search time slot   entity. According to a set of criteria, it is used to retrieve available time   slots that are used after to book or reschedule an appointment 	|
+| TMF-646   (version 2.0.0)            	| POST /appointment                	| Creates appointment for the customer                                                                                                                                                       	|
+| TMF-646   (version 2.0.0)            	| GET /appointment/{id}            	| Fetches the  appointment details of a   customer                                                                                                                                           	|
+| TMF-646   (version 2.0.0)            	| PATCH /appointment/{id}          	| Updates the appointment details of a customer                                                                                                                                              	|
 
-    <p align="center"><img src="/assets/images/telco/2Select_Suitable_Appointment.png"></p>
-
-5. Click **CONTINUE**. The appointment is displayed in the `Item(s) added to your cart` screen.
-
-    <p align="center"><img src="/assets/images/telco/3Add_to_Cart.png"></p>
-
-6. Click **View Cart**. The cart displays all relevant details of the product offering (Fiber Link) with the appointment.
-
-    <p align="center"><img src="/assets/images/telco/4View_Cart.png"></p>
-
-7. Click the pencil icon to edit or update the appointment. The `Select a suitable time for an appointment` screen is displayed.
-
-    <p align="center"><img src="/assets/images/telco/5Edit_Cart.png"></p>
-
-    **Notes:** 
-    - The earlier selected appointment is displayed by default and the **UPDATE** button is disabled, until you select a new time slot from the available appointments.
-    - Top five available time slots are displayed with the default `Please call to Schedule` option.
-    - For each cart entry, you can book only one time slot, or choose the default option `Call to Schedule'.
-
-8. Select a suitable appointment and click **Update**. The cart page displays the new appointment.
-
-    <p align="center"><img src="/assets/images/telco/6Updated_Appointment.png"></p>
-
-9. Click **Proceed to Checkout** to buy the product offering.
-
-## Requirements and Dependencies
-
-### Frontend Requirements and Dependencies
-
-Your Angular development environment should include the following:
-
-The `Ngx-spinner` library, version 8.03 for Angular CLI 8.0. The `Ngx-spinner` library is available:
-
-Using npm:
-
-     ```bash
-     $ npm install ngx-spinner --save
-     ```
-
-Using yarn:
-
-     ```bash
-     $ yarn add ngx-spinner
-     ```
-
-### Backend Requirements and Dependencies
-
-In progress.
-
-### Supported Back End Functionality
-
-- [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [Telco & Utilities Accelerator Data Model for entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [Telco & Utilities Accelerator Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-
-| Entity   Exposed 	| TMF & OCC APIs 	| Remark 	| Request or Response 	|
-|-	|-	|-	|-	|
-| Tmf   Resources#TMF-ChecklistActionAPI 	| /checklistAction 	| To show   applicable list of checklist policies for product offering 	| None 	|
-| TMF-646 (version 2.0.0) 	| POST   appointment/searchTimeSlot  	| The TM Forum API creates a search time slot entity. As per the set of criteria, this entity retrieves available time slots to book or reschedule an appointment.	| **Response (200 OK):**<br>     [<br>     {<br>     ""id"":   ""a9d239bb-dc21-4f98-a519-4a3f9aa4d2b5"",<br>     ""href"":   ""https://api-appointment-v4-0-0.mybluemix.net/tmf-api/appointment/v4/searchTimeSlot/a9d239bb-dc21-4f98-a519-4a3f9aa4d2b5"",<br>     ""@schemaLocation"":   ""https://api-appointment-v4-0-0.mybluemix.net/docs/#/"",<br>     ""@type"": ""SearchTimeSlot"",<br>     ""@baseType"":   ""SearchTimeSlot"",<br>     ""creationDate"":   ""2020-03-12T14:07:01.889Z"",<br>     ""status"": ""initialized"",<br>     ""availableTimeSlot"": [<br>     {<br>     ""id"": ""365"",<br>     ""href"":   ""https://host:port/appointment/searchtimeslot/99/availableTimeSlot/365"",<br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-28T14:00:00.000Z"",<br>     ""endDateTime"":   ""2020-08-28T16:00:00.000Z""<br>     },<br>     ""relatedParty"": {<br>     ""id"": ""56"",<br>     ""href"":   ""https://host:port/partyManagement/individual/56"",<br>     ""name"": ""John Doe"",<br>     ""role"": ""technician"",<br>     ""@referredType"":   ""Individual""<br>     }<br>     },<br>     {<br>     ""id"": ""921"",<br>     ""href"":   ""https://host:port/appointment/searchtimeslot/99/availableTimeSlot/921"",<br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-28T16:30:00.000Z"",<br>     ""endDateTime"":   ""2018-08-28T18:00:00.000Z""<br>     },<br>     ""relatedParty"": {<br>     ""id"": ""56"",<br>     ""href"":   ""https://host:port/partyManagement/individual/56"",<br>     ""name"": ""John Doe"",<br>     ""role"": ""technician"",<br>     ""@referredType"":   ""Individual""<br>     }<br>     },<br>     {<br>     ""id"": ""325"",<br>     ""href"": ""https://host:port/appointment/searchtimeslot/99/availableTimeSlot/325"",<br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-28T18:30:00.000Z"",<br>     ""endDateTime"":   ""2020-08-28T19:00:00.000Z""<br>     },<br>     ""relatedParty"": {<br>     ""id"": ""58"",<br>     ""href"": ""https://host:port/partyManagement/individual/58"",<br>     ""name"": ""Adam Smith"",<br>     ""role"": ""technician"",<br>     ""@referredType"": ""Individual""<br>     }<br>     }<br>     ]<br>     },<br>     {<br>     ""id"":   ""a9d239bb-dc21-4f98-a519-4a3f9aa4d2b5"",<br>     ""href"":   ""https://api-appointment-v4-0-0.mybluemix.net/tmf-api/appointment/v4/searchTimeSlot/a9d239bb-dc21-4f98-a519-4a3f9aa4d2b5"",<br>     ""@schemaLocation"":   ""https://api-appointment-v4-0-0.mybluemix.net/docs/#/"",<br>     ""@type"": ""SearchTimeSlot"",<br>     ""@baseType"":   ""SearchTimeSlot"",<br>     ""creationDate"":   ""2020-03-12T14:07:01.889Z"",<br>     ""status"": ""initialized"",<br>     ""availableTimeSlot"": [<br>     {<br>     ""id"": ""365"",<br>     ""href"":   ""https://host:port/appointment/searchtimeslot/99/availableTimeSlot/365"",<br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-29T14:00:00.000Z"",<br>     ""endDateTime"": ""2020-08-29T16:00:00.000Z""<br>     },<br>     ""relatedParty"": {<br>     ""id"": ""56"",<br>     ""href"":   ""https://host:port/partyManagement/individual/56"",<br>     ""name"": ""John Doe"",<br>     ""role"": ""technician"",<br>     ""@referredType"":   ""Individual""<br>     }<br>     },<br>     {<br>     ""id"": ""921"",<br>     ""href"":   ""https://host:port/appointment/searchtimeslot/99/availableTimeSlot/921"",<br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-29T16:30:00.000Z"",<br>     ""endDateTime"":   ""2020-08-29T18:00:00.000Z""<br>     },<br>     ""relatedParty"": {<br>     ""id"": ""56"",<br>     ""href"":   ""https://host:port/partyManagement/individual/56"",<br>     ""name"": ""John Doe"",<br>     ""role"": ""technician"",<br>     ""@referredType"":   ""Individual""<br>     }<br>     }<br>     ]<br>     }<br>     ]" 	|
-| TMF-646 	| POST /appointment 	| To create an   appointment for the customer 	| **Request:**<br>     {<br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-28T14:00:00.000Z"",<br>     ""endDateTime"":   ""2020-08-28T16:00:00.000Z""<br>     }<br>     <br>     }<br>     <br>     **Response (201 Created):**<br>     <br>     ""validFor"": {<br>     ""startDateTime"":   ""2020-08-28T14:00:00.000Z"",<br>     ""endDateTime"":   ""2020-08-28T16:00:00.000Z""<br>     },<br>     ""id"":   ""appointment-test-1"",<br>     ""href"":   ""https://localhost:8080/tmf-api/appointment/v4/appointment/appointment-test-1"",<br>     ""lastUpdate"":   ""2020-08-06T11:41:59.054Z"",<br>     ""@schemaLocation"":   ""https://localhost:8080/docs/#/"",<br>     ""@type"": ""Appointment"",<br>     ""@baseType"":   ""Appointment"",<br>     ""creationDate"":   ""2020-08-06T11:41:59.054Z"",<br>     ""status"": ""initialized""<br>     }" 	|
-| TMF-646 	| GET /appointment/{id} 	| To fetch the appointment details of a   customer 	| Response : (200 OK)<br>     <br>     {<br>     "validFor": {<br>     "startDateTime": "2020-08-28T14:00:00.000Z",<br>     "endDateTime": "2020-08-28T16:00:00.000Z"<br>     },<br>     "id": "appointment-test-1",<br>     "href":   "https://localhost:8080/tmf-api/appointment/v4/appointment/appointment-test-1",<br>     "lastUpdate": "2019-08-21T12:11:13.683Z",<br>     "@schemaLocation": "https://api-appointment-v4-0-0.mybluemix.net/docs/#/",<br>     "@type": "Appointment",<br>     "@baseType": "Appointment",<br>     "creationDate": "2019-08-21T12:11:13.683Z",<br>     "status": "initialized"<br>     } 	|
-| TMF-646 	| PATCH   /appointment/{id} 	| Update the   appointment details of a customer 	| **Request:**<br>     {<br>     """"validFor"""": {<br>     """"startDateTime"""":   """"2020-08-28T16:00:00.000Z"""",<br>     """"endDateTime"""":   """"2020-08-28T18:00:00.000Z""""<br>     }<br>     }<br>     <br>     **Response (200 OK):**<br>     {<br>     """"validFor"""": {<br>     """"startDateTime"""":   """"2020-08-28T16:00:00.000Z"""",<br>     """"endDateTime"""":   """"2020-08-28T18:00:00.000Z""""<br>     },<br>     """"id"""":   """"appointment-test-1"""",<br>     """"href"""":   """"https://localhost:8080/tmf-api/appointment/v4/appointment/appointment-test-1"""",<br>     """"lastUpdate"""":   """"2020-08-06T11:41:59.054Z"""",<br>     """"@schemaLocation"""":   """"https://localhost:8080/docs/#/"""",<br>     """"@type"""":   """"Appointment"""",<br>     """"@baseType"""":   """"Appointment"""",<br>     """"creationDate"""":   """"2020-08-06T11:41:59.054Z"""",<br>     """"status"""":   """"initialized""""<br>     }""" 	|
-
-## Configuring and Enabling the Appointment Reference
-
-In progress.
-
-### Components
-
-| Component Name                          | Status | Description                                                                                     |
-| --------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
-| TmaAppointmentDisplayComponent          | New    | the component displays the appointment details of an order, order-history, cart summary, and cart popup |  |  |
-| TmaJourneyChecklistAppointmentComponent | New    | the component displays the available time slots to the customer                               |
-| TmaJourneyChecklistStepComponent        | New    | A stepper component that renders the checklist components                                        |
-
-### Sample Data
-
-In progress.
+For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
 
 ## Further Reading
 
-Consult the Telco & Utilities Accelerator Help Portal for more information on the following topics:
+For further reading, see the following topics in the TUA Help portal.
 
 - [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
-- [Customer Inventory and Cart](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/6d4fed0352f04fb8ba10846024854ea6.html).
+- [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).
