@@ -2,7 +2,7 @@
 title: Feature Release Versions
 ---
 
-The following table lists the TUA Spartacus library release version for each feature, as well as the relevant versions of SAP Commerce Cloud, Telco & Utilities Accelerator, and core Spartacus libraries that are required.
+The following table lists the TUA Spartacus library release version for each feature, as well as the relevant versions of SAP Commerce Cloud, Telco & Utilities Accelerator (TUA), and core Spartacus libraries that are required.
 
 For features that do not rely on specific endpoints in the back end, the version indicated in the table is `n/a` (that is, not applicable).
 
