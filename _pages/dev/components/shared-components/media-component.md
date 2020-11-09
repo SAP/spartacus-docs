@@ -1,5 +1,9 @@
 ---
 title: Media Component
+feature:
+- name: Media Component
+  spa_version: 2.0
+  cx_version: n/a
 ---
 
 The media component is a low-level component that is used to render a single media. While media can be considered of any type, including image, video, PDF, etc, the media component renders current only images.
