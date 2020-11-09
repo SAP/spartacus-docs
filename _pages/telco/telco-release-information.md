@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated October 28, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated November 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ## Release Contents
 
@@ -38,11 +38,11 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 
 What's new?
 
-- [Cost Estimation][Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md.md %})
+- [Cost Estimation][Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
 
 While it can be hard to pinpoint precisely how much your electric and water bill will cost each month, the Cost Estimation feature helps provide an indication into the the average utility or telephone bill based on the anticipated consumption provided by a customer. Leveraging this information, the estimated monthly and annual cost for applicable product offerings will be presented to the customer. For more information, see [Cost Estimation](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
-- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})-->
+- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})
 
 Customers interested in acquiring product offerings, such as commodity items (for example,  electricity or gas) need to have an availability check of the premise details. For example, the installation address and the meter id to purchase a specific product offering.[Premise Validation](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
