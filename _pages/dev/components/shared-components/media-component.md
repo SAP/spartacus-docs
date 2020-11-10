@@ -58,7 +58,7 @@ The `cx-media` media component renders images with the native `img` HTML element
 
 The native `img` element supports multiple images with the `srcset` attribute. This attribute takes various image sources and combines them with an associated width descriptor. The browser selects and downloads the correct image based on which dimensions of the img element are used. With this approach, you do not need to provide a specific format for the media component, although you can do this with the `format` input.
 
-The `srcset` attribute also supports the pixel density descriptor, but it is (currently) not supported in Spartacus. This pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px because these devices double the pixels to provide an optimized image resolution for their device screens.
+The `srcset` attribute also supports the pixel density descriptor, but it is (currently) not supported in Spartacus. The pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px, because these devices double the pixels to provide an optimized image resolution for their device screens.
 
 The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The given media container
 
