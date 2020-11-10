@@ -19,7 +19,7 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %}) | 1.1.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}) | 1.2.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Order]({{ site.baseurl }}{% link _pages/telco/order.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
-| [Premise Validation]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
+| [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Pricing - Subscription Rate Plan]({{ site.baseurl }}{% link _pages/telco/product-offering-prices.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Simple Product Offerings]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
