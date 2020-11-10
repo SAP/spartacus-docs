@@ -2,7 +2,7 @@
 title: Banner Component
 ---
 
-The banner component is used to render a media item in a given page slot. The media item can be optimized for the given slot size. The banner is typically used to link to another internal or external page.
+The banner component is used to render different banners that are created in the CMS. Banners contain one or multiple images, as well as some optional content, such as a header. A banner is often used to link to other content.
 
 ## CMS Component Binding
 
@@ -12,9 +12,9 @@ There are multiple banner component types in the CMS, as follows:
 - `SimpleBannerComponent`
 - `SimpleResponsiveBannerComponent`
 
-There is also a `RotatingImagesComponent`, which renders one or multiple instances of `BannerComponent` in a carousel.
+There is also a `RotatingImagesComponent`, which is a so-called container component. A container component holds multiple components. The `RotatingImagesComponent` is used to render multiple `BannerComponent` components in a carousel.
 
-The different banner component types have been created for historical reasons, but there is not much to distinguish them anymore: in Spartacus, there is only component implementation for banners. Spartacus always renders banners using adaptive and responsive features to render the optimal image for the given device.
+The different banner component types have been created for historical reasons, but there is not much to distinguish them anymore: in Spartacus, there is only component implementation for banners. Spartacus renders the banner media using the media component, which includes lazy loading and loading specific media for specific dimensions. For more information, see [Media Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
 
 The CMS banner component is mapped to the Spartacus implementation as follows:
 
@@ -32,7 +32,7 @@ The CMS banner component is mapped to the Spartacus implementation as follows:
 };
 ```
 
-You can use this component mapping to configure an alternative banner implementation. For example, you might need to map all CMS banner component types if multiple types are used in your project.
+You can use this component mapping to configure an alternative banner implementation. If you introduce an alternative component, you must map all the CMS banner component types to your new component implementation, similar to the configuration above.
 
 ## Adaptive and Responsive Images
 
@@ -44,11 +44,13 @@ The banner component renders the following properties:
 
 | Config     | Description                                                                                                          |
 | --- | --- |
-| `urlLink` | |
+| `urlLink` | An optional link to an internal or external resource. |
 | `external` | If set to true, the URL will not use the Angular routerLink, but an ordinary href instead. |
 | `media` | The `media` contains different media items for each format, so that an optimized media item can be used for the given space and usage. |
 | `headline` | The `headline` is rendered as a paragraph tag before the media. |
 | `content` | The `content` is rendered in a paragraph tag below the media. |
+
+**Note:** Some of these properties might not be available, depending on the banner component type you receive from the back end.
 
 ## Component Logic
 

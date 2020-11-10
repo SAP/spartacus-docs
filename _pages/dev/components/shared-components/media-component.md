@@ -12,15 +12,15 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The media component is a low-level component that is used to render a single media item. Although many types of media exist, such as images, videos, PDFs, and so on, the media component currently only renders images. The media component renders specific images for different screen sizes and resolutions, so that each user has an optimized version of the image.
+The media component is a low-level component that is used to render a single media item. Although the back end could provide any type of media for a media item, the media component is currently limited to render images only. The type of image is not limited to a technical format, such as `png` or `jpg`. Every image format that can be rendered in an image element is supported, including `svg`. The media component renders specific images for different screen sizes and resolutions, so that each user has an optimized version of the image.
 
-There are two main types of images that are rendered in Spartacus: product images, and content images. Both types use the same technical implementation, but the semantics of the content is slightly different for each.
+There are two main types of images that are rendered in Spartacus: product images and content images. Both types use the same technical implementation, but the semantics of the content is slightly different for each.
 
 **Note:** Icons are a special type of image and are not rendered with the media component. For more information, see [Icon Library]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %}).
 
 ## Responsive Media
 
-The image structure that is used in SAP Commerce Cloud consists of a media container that holds multiple media items. The media items inside a container are distinguished by a media format. The media format is used to provide the same media for various different screen sizes.
+The image structure that is used in SAP Commerce Cloud consists of a media container that holds multiple media items. The media items inside a container are distinguished by a media format. The media format is used to provide the same media for various different screen sizes or placements.
 
 The media formats for product images and for content images are different, and their use also differs.
 
@@ -46,11 +46,13 @@ Content images are driven by CMS component data. Media items are used in differe
 - desktop
 - widescreen
 
+For more information, see [Banner Component]({{ site.baseurl }}{% link _pages/dev/components/banner-component.md %}).
+
 ## Localized Media
 
-The back end supports localized media, which means that different media items can be used for different languages. This is sometimes used for content images that contain localized text.
+SAP Commerce Cloud supports localized media, which means that different media items can be used for different languages. This is sometimes used for content images that contain localized text.
 
-Localized media works transparently for the media component. Whenever the size context changes in Spartacus (including for languages), the CMS and product data are cleared from the state, which results in a reload of the data for the given context.
+Localized media works transparently for the media component. Whenever the site context changes in Spartacus (including for languages), the CMS and product data are cleared from the state, which results in a reload of the data for the given context.
 
 ## Implementation Details
 
@@ -60,9 +62,9 @@ The native `img` element supports multiple images with the `srcset` attribute. T
 
 The `srcset` attribute also supports the pixel density descriptor, but it is (currently) not supported in Spartacus. The pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px, because these devices double the pixels to provide an optimized image resolution for their device screens.
 
-The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The given media container
+The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The main image `src` and the various image descriptions for the `srcset` are collected by the `MediaService`. This services compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and written in the img `srcset` attribute, so that the browser can select and download the correct image.
 
-The main image src and the various image descriptions for the `srcset` are collected by the `MediaService`. This services compares the images from the media container with a configuration set of media formats and their sizes. Whenever a matching format is found, the size is written into the width descriptor.
+**Note:** When you change the browser from a larger screen to a smaller screen, the browser does not download an additional image from the `srcset`, because it makes the assumption that the larger image can be decreased. This is acceptable for most images, but this might give unexpected results for banner images because the aspect ratio and the actual content of the banner image can be very different for each screen size.
 
 You can provide a custom configuration using the `MediaConfig` typing. The following is an example of the default media configuration:
 
@@ -94,6 +96,6 @@ If no matching image format is available in the media container, nor in the medi
 To ensure that crawlers get an optimized image from the `img` element, the main `src` of the `img` element is provided with the
 largest image available. This is done in `MediaService.resolveBestFormat()`, and you can further customize this behavior if needed.
 
-Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tag (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers.
+Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [Page Meta Resolvers](https://sap.github.io/spartacus-docs/seo-capabilities/#page-meta-resolvers) and [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 Another important aspect for SEO is the usage of the alternative (`alt`) text for images. The `alt` text is automatically selected by the `MediaService` if it is available in the media container data. However, you can also input a custom `alt` text through the component input.
