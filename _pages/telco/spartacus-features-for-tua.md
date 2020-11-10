@@ -4,6 +4,11 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 1.3
+
+- [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
+- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})
+
 ## Release 1.2
 
 - [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %})
@@ -23,5 +28,3 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 - [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %})
 - [Pricing - Subscription Rate Plan]({{ site.baseurl }}{% link _pages/telco/product-offering-prices.md %})
 - [Simple Product Offering]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %})
-
-
