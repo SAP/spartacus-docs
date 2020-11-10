@@ -6,7 +6,6 @@ title: Roadmap for TUA Spartacus
 
 This document describes what is planned for TUA Spartacus for Q4 2020 and later.
 
-
 Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
@@ -30,8 +29,8 @@ When new features are available for release, normally we will publish a pre-rele
 
 ### Other Release Documentation
 
-- For an overview of what was included in a specific release, see [TUA Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
-- For information about features published in pre-release libraries, see [TUA Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
+- For an overview of what was included in a specific release, see [TUA Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
+- For information about features published in pre-release libraries, see [TUA Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
 
 ### Questions?
 
@@ -108,4 +107,3 @@ Some features require new OCC REST APIs, not yet planned and still considered TB
 
 - Angular 10 upgrade / Spartacus 3.0
 - Event driven processes
-
