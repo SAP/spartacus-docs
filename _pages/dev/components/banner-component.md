@@ -18,21 +18,23 @@ The different banner component types have been created for historical reasons, b
 
 The CMS banner component is mapped to the Spartacus implementation as follows:
 
-```typescript
+```ts
 <CmsConfig>{
-  SimpleResponsiveBannerComponent: {
-    component: BannerComponent,
-  },
-  BannerComponent: {
-    component: BannerComponent,
-  },
-  SimpleBannerComponent: {
-    component: BannerComponent,
-  },
-};
+  cmsComponents: {
+    SimpleResponsiveBannerComponent: {
+      component: BannerComponent
+    },
+    BannerComponent: {
+      component: BannerComponent
+    },
+    SimpleBannerComponent: {
+      component: BannerComponent
+    }
+  }
+}
 ```
 
-You can use this component mapping to configure an alternative banner implementation. If you introduce an alternative component, you must map all the CMS banner component types to your new component implementation, similar to the configuration above.
+You can use a similar component mapping to configure an alternative banner implementation. If you introduce an alternative component, you must map all the CMS banner component types to your new component implementation, similar to the configuration above.
 
 ## Adaptive and Responsive Images
 
@@ -44,7 +46,7 @@ The banner component renders the following properties:
 
 | Config     | Description                                                                                                          |
 | --- | --- |
-| `urlLink` | An optional link to an internal or external resource. |
+| `urlLink` | An optional link to an internal or external page. |
 | `external` | If set to true, the URL will not use the Angular routerLink, but an ordinary href instead. |
 | `media` | The `media` contains different media items for each format, so that an optimized media item can be used for the given space and usage. |
 | `headline` | The `headline` is rendered as a paragraph tag before the media. |
@@ -54,7 +56,7 @@ The banner component renders the following properties:
 
 ## Component Logic
 
-There is no component logic in the banner component. The component simply renders component data. You can use the component-specific `CmsBannerComponent` to access the component data.
+There is no component logic in the banner component. The component simply renders component data. You can use the injected component data (of type `CmsBannerComponent`) to access the component data.
 
 ## Component Styling
 
