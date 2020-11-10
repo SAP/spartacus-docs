@@ -8,13 +8,21 @@ The Spartacus Definition of Done describes a series of requirements that must be
 
 All new features for Spartacus must be compliant with the following guidelines:
 
-- [Architecture]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %})
+- Comply with the [Spartacus Architecture]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %})
 
-- [Security]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %})
+- Follow the [Security best practices]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %})
 
-- [Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
+- Follow the [Accessibility best practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
 
-- UI/UX guidelines are a work in progress.
+- New feature modules should be [Lazy loaded]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %})
+
+- Provide necessary [Sample data]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %})
+
+- For new features, make sure CSS supports [directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %})
+
+- Provide necessary code deprecations for Schematics (docs in progress).
+
+- UI/UX guidelines (docs in progress).
 
 ## Coding guidelines
 
