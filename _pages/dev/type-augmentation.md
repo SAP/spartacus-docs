@@ -67,6 +67,8 @@ From now on, when you work on an object of type `CostCenter`, the TypeScript com
 
 **Note:** You should only add optional properties to a module when you augment it. Do not add required properties because new objects of this type may be constructed in the library code, and then you will get errors from the TypeScript compiler that there are missing properties in objects of augmented type.
 
+**Node:** It's important that in a file where module is augmented there is at least one import from that library. It can even be an unused import.
+
 ## Augmentation in Feature Libraries
 
 You can also apply module augmentation techniques to feature libraries. To take an example from the Spartacus development team, we needed a `CostCenter` object for the `@spartacus/my-account` library and the `OrganizationModule`. However, we needed more properties than were defined in the `@spartacus/core` library.
