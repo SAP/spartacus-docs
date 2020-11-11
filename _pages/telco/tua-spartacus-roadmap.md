@@ -10,7 +10,8 @@ Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Features Planned for Version 2.0 / Q4 2020 and into Q1 2021](#features-planned-for-version-20--q4-2020-and-into-q1-2021)
+- [Features Planned for Version 1.3 / Q4 2020](#features-planned-for-version-13--q4-2020)
+- [Features Planned for Version 2.0 / Q4 2020](#features-planned-for-version-20--q4-2020)
 - [Future Outlook / Features Planned for 2021 and Later](#future-outlook--features-planned-for-2021-and-later)
 
 ### Disclaimer - Forward-Looking Statements
@@ -36,25 +37,26 @@ When new features are available for release, normally we will publish a pre-rele
 
 If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). 
 
-For non-technical questions and roadmap feedback, you can reach us on our dedicated #help-tua [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). 
+For non-technical questions and roadmap feedback, you can reach us on our dedicated #help-tua [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
 
-## Features Planned for Version 2.0 / Q4 2020 and into Q1 2021
+## Features Planned for Version 1.3 / Q4 2020
+
+### B2C Storefront Features Planned
+
+- **Premise Validation with Meter ID** 
+- **Cost Estimation**
+
+## Features Planned for Version 2.0 / Q4 2020
 
 Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA 2007.
 
-### B2C Storefront Features Planned for 1.x
-
-- **Premise validation and meter id supporting switch provider or new customer** 
-- **Cost Estimation**
-- **Appointment scheduling for a bundled product offering** 
-
-### B2C Storefront Features Planned for 2.0
+### B2C Storefront Features Planned
 
 - **Composite Pricing** - for more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html)
 - **Price Alteration Discounts** - for more information, see [Price Alterations (Discounts)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html)
 - **Fixed Bundled Product Offerings**
 - **Hierarchal Cart**
-- **One-Click Order** 
+- **One-Click Order**
 
 ### Journey Management
 
