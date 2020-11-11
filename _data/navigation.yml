@@ -335,7 +335,8 @@ docs:
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
-                                
+                - title: "Cost Estimation"
+                  url: /cost-estimation/                
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
