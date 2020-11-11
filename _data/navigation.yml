@@ -335,7 +335,9 @@ docs:
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
-                                
+                - title: "Premise validation with Meter ID"
+                  url: /premise-validation/
+                  
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
