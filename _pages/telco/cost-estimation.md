@@ -16,50 +16,72 @@ title: Cost Estimation
 - [Frontend Requirements and Dependencies](#frontend-requirements-and-dependencies)
 - [Configuring and Enabling Cost Estimation](#configuring-and-enabling-cost-estimation)
 - [Components](#components)
-- [TM Forum APIs](#tm-forum-apis)
+- [Further Reading](#further-reading)
 
 ## Overview
 
-Customers search for Product Offerings by the provided consumption, and for PO details, they have the estimated average cost in case the POs have the POP defined for 1 single usage unit.
+Customers interested in purchasing goods or services are able to search for Product Offerings by providing their yearly consumption. Every PO in the result has the estimated average cost displayed in case the POs have the prices defined for maximum 1 usage unit (such as kWh, cubic meter and so on). Entire price information for the PO is also displayed.
 
-Customers, who are interested in acquiring product offerings (such as commodity items - electricity, gas etc.) that need an availability check against the premise details (such as installation address and meter id), are able to purchase the corresponding POs by providing the premise details at the time of purchase.
+Customers are also able to view the average cost and detailed price information in product details page for a specific set of offers (configured to display the average cost).
 
-For this, customers go to product catalog, search for product offerings that require availability check, view the product offering details and purchase it by providing the premise details.
+This feature determines and displays the average cost for a PO considering the provided yearly consumption and also displays the detailed price information.
+
+**Average cost** for a PO is determined using the following algorithm:
+
+**Average cost / year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
+
+**Note:**
+
+1. Average cost is determined using the algorithm presented in the previous picture, and it works with simple price information (such as one-time charges, recurring charges, and usage charges) for which the price has a fixed value not a complex price formula.
+
+2. Average cost is determined for those POs having prices defined for maximum 1 usage unit. In case the POs have prices defined for more than 1 usage unit (as seen in the sample below), the average cost cannot be properly determined, case in which it will not be displayed.
+
+
+Following are the detailed price information:
+
+  - contract duration
+  - cancellation fees
+  - one-time fees
+  - recurring charges
+  - usage charges
 
 ## Prerequisite
 
-To test this feature using a mock service, please follow the set-up instructions below for soapUI:
-
-1. To be updated
-2. ...
-3. ...
-4. ...
-5. ...
+1. Product offerings for which the average cost has to be displayed MUST have prices defined for maximum 1 usage unit (kWh, minutes, sms).
+2. CMS components are properly defined in CMS system (in our case in SAP Commerce, it is in content catalog)
 
 ## Business Use Case
 
-To be updated.
+- Discovery of product offerings by type and provided consumption:
+    - In the homepage, customer is able to search for POs by selecting or providing yearly consumption (at the moment for electricity or gas POs but any type if PO can be configured in the CMS components)
+    - A list of slider options are available for selecting the desired yearly consumption, or it can be manually provided.
+    - List of POs provided in the search results page display the following:
+        - Average cost calculated using the provided consumption (if the customer did not have the chance to provide value for consumption, the default value will be used)
+        - Option to view detailed prices
+        - Option to view details of the PO
+    - On the results listing page, customer is able to update the consumption and view the average cost corresponding to the newly provided input.
+    - On the product details page, in one of the POs in the results page, customer is also able to view the average cost for the provided consumption, view the detailed price information, and also update the consumption.
+- Landing on a category page of POs for which average cost and detailed prices should be displayed.
+    - Landing on a category page, listing POs for which average cost and detailed price information has to be displayed (such as electricity and gas) the following information will be available for each PO listed there:
+        - Average cost calculated using the provided value of the consumption (if the customer did not have the chance to provide value for consumption, the default value will be used)
+        - Option to view detailed prices
+        - Option to view details of the PO
 
 ## Frontend and Backend Dependencies
 
 | Dependency                                	| Detail                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
-| To be updated                                     	| To be updated                                          	|
-| To be updated             	| To be updated           	|
-| To be updated 	| To be updated 	|
+| Spartacus                                     	| 1.5                                          	|
+| Telco & Utilities Accelerator             	| Version 2003 (latest patch)           	|
+| SAP Commerce 	| Version 1905 (latest patch) 	|
 
 ## Configuring and Enabling Cost Estimation
 
 | Configuration             | Type: SPA or Backend  | Details                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Consumption Components**           |         | Renders display of discover by consumption CMS components.                                                                                   |
-| TmaConsumptionComponent              | New     |                                                                           |
-| TmaConsumptionDialogComponent        | New        |                                                                                     |
-| TmaPoSearchByConsumptionComponent    | New     |                                         |
-| TmaSliderOptionComponent             | New     |   |
-| **Product Components**               |         | Product components are updated to display the average cost for a set of configured POs (by their type). If a PO has charge prices defined for more than 1 usage unit, the average cost is not displayed.  |
-| TmaProductDetailsTabComponent        | Updated |                           |
-| TmaProductGridItemComponent          | Updated |                           |
+| Define discover by consumption CMS components           | Backend (CMS) | Define corresponding discovery by consumption CMS components such as:                                                                                   |
+| Configure default consumption values for PO types and usage units              | SPA     | Customer consumption preferences are saved in localStorage. If customer is visiting the website for the first time or localStorage is emptied, default values are used which can be configured. In case the customer has provided a preferred consumption via the Consumption Component, it will be saved in the localStorage and that value will be used to calculate average cost. These consumption values are stored based on the product specification of the product offering and the usageUnit in the following format:                                                                            |
+
 
 ## Components
 
@@ -79,10 +101,7 @@ The following new and updated components must be enabled in the TUA backoffice t
 | TmaProductListItemComponent          | Updated |                           |
 | TmaProductSummaryComponent           | Updated |                           |
 
-## TM Forum APIs
+## Further Reading
 
-To be updated
-
-
-For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
+For more information, see [TUA Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html).
 
