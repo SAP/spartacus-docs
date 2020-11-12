@@ -328,15 +328,15 @@ docs:
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
                 - title: "Order"
-                  url: /order/        
+                  url: /order/
+                - title: "Premise Validation"
+                  url: /premise-validation/          
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
-                - title: "Premise Validation"
-                  url: /premise-validation/
                   
     - title: Contributing to Spartacus
       url: /contributors-guide/
