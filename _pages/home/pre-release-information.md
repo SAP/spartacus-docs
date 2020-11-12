@@ -123,7 +123,7 @@ You can run the migration with the following command:
 ng update @spartacus/schematics@next
 ```
 
-**Note:** The migration schematics are still a work in progress, so you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
+**Note:** The migration schematics are still a work in progress, so you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 ### Accessibility
 
@@ -157,7 +157,7 @@ You can run the migration with the following command:
 ng update @spartacus/schematics@next
 ```
 
-**Note:** This is our first attempt with the 2.0 migration schematics, so if you are trying it out, you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
+**Note:** This is our first attempt with the 2.0 migration schematics, so if you are trying it out, you might encounter some "not ideal" modifications to your code. Please let us know about any problems you encounter by creating a GitHub issue in our repository, or by contacting us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 ### Schematics SSR Update
 
@@ -203,6 +203,6 @@ Pre-release libraries no longer published for these versions, as the final relea
 
 ## Questions
 
-If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 
