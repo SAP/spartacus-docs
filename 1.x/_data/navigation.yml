@@ -12,14 +12,15 @@ main:
 # sidebar menu
 docs:
     - title: Home
+      url: /
       children:
-          - title: "About Spartacus"
-            url: /
           - title: "Release Information ➢"
             url: /release-information/
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
+                - title: "Feature Release Versions"
+                  url: /feature-release-versions/
                 - title: "Updating to Version 2.0"
                   url: /updating-to-version-2/  
                 - title: "Technical Changes in Spartacus 2.0"
@@ -36,6 +37,7 @@ docs:
             url: /docs-archive/  
 
     - title: Getting Started with Spartacus Libraries
+      url: /getting-started/
       children:
           - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
@@ -80,6 +82,7 @@ docs:
 
 
     - title: Storefront Development Guide
+      url: /dev-guide/
       children:
           - title: "Storefront Development FAQ"
             url: /storefront-development-faq/
@@ -157,6 +160,8 @@ docs:
                   url: /product-details-page/
                 - title: "Banner Component"
                   url: /banner-component/
+                - title: "Media Component"
+                  url: /media-component/  
                 - title: 'Pagination Component'
                   url: /pagination/  
                 - title: 'Searchbox Component'
@@ -215,26 +220,29 @@ docs:
                   url: /structured-data/
           - title: "Internationalization (i18n)"
             url: /i18n/
-          - title: "Accessibility Best Practices ➢"
-            url: /a11y-best-practices/
+          - title: "Accessibility ➢"
+            url: /a11y/
             subchildren:
-                - title: "Keyboard Accessibility"
-                  url: /keyboard-accessibility/
-          - title: "Keyboard Focus ➢"
-            url: /keyboard-focus/
-            subchildren:
-                - title: "Visible Focus"
-                  url: /visible-focus/
-                - title: "Persist Focus"
-                  url: /persist-focus/
-                - title: "Escape Focus"
-                  url: /escape-focus/
-                - title: "Auto Focus"
-                  url: /auto-focus/
-                - title: "Trap Focus"
-                  url: /trap-focus/
-                - title: "Lock Focus"
-                  url: /lock-focus/          
+                - title: "Best Practices ➢"
+                  url: /a11y-best-practices/
+                  underchildren:
+                      - title: "Keyboard Accessibility"
+                        url: /keyboard-accessibility/
+                - title: "Keyboard Focus ➢"
+                  url: /keyboard-focus/
+                  underchildren:
+                      - title: "Visible Focus"
+                        url: /visible-focus/
+                      - title: "Persist Focus"
+                        url: /persist-focus/
+                      - title: "Escape Focus"
+                        url: /escape-focus/
+                      - title: "Auto Focus"
+                        url: /auto-focus/
+                      - title: "Trap Focus"
+                        url: /trap-focus/
+                      - title: "Lock Focus"
+                        url: /lock-focus/          
           - title: "State Management ➢"
             url: /state-management/
             subchildren:
@@ -282,48 +290,76 @@ docs:
                   url: /writing-notification-banners/
 
     - title: Telco & Utilities Storefront Development Guide
+      url: /about-tua-spartacus/
       children:
-          - title: "About TUA Spartacus"
-            url: /about-tua-spartacus/
           - title: "Release Information for TUA Spartacus ➢"
             url: /telco-release-information/
             subchildren:
                 - title: "Pre-Release Information"
                   url: /tua-pre-release-information/
+                - title: "Feature Release Versions"
+                  url: /tua-feature-release-versions/  
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
+          - title: "TUA Spartacus FAQ"
+            url: /spartacus-tua-faq/  
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
-                - title: "Installing SAP Commerce Cloud for use with TUA Spartacus."
+                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus"
                   url: /installing-sap-commerce-for-tua-spartacus/
-                - title: "Building the TUA Spartacus Storefront from Libraries"
-                  url: /building-the-tua-storefront-from-libraries/                           
-  
-    - title: Contributing to Spartacus
-      children:
-          - title: "Contributor's Guide ➢"
-            url: /contributors-guide/
+                - title: "Building the TUA Storefront from libraries"
+                  url: /building-the-tua-storefront-from-libraries/ 
+          - title: "Spartacus Features for TUA ➢"
+            url: /spartacus-features-for-tua/ 
             subchildren:
-                - title: "Contributing to the Spartacus Storefront"
-                  url: /contributing-to-the-spartacus-storefront/
-                - title: "Development Tools for Spartacus"
-                  url: /development-tools-for-spartacus/
-                - title: "Contributor Setup"
-                  url: /contributor-setup/
-                - title: "Coding Guidelines"
-                  url: /coding-guidelines/
-                - title: "Accessibility E2E Tests"
-                  url: /a11y-e2e-tests/
-                - title: "Maintaining Public APIs"
-                  url: /breaking-changes/
-                - title: "Continuous Integration"
-                  url: /continuous-integration/  
-                - title: "Feature Flags and Code Deprecation"
-                  url: /feature-flags-and-code-deprecation/
-                - title: "Committing Code to Spartacus"
-                  url: /commit-guidelines/
-                - title: "Type Safety in Spartacus"
-                  url: /type-safety-in-spartacus/
-                - title: "Definition of Done"
-                  url: /definition-of-done/
+                - title: "Cart"
+                  url: /cart/
+                - title: "Checkout"
+                  url: /checkout/
+                - title: "Configurable Guided Selling"
+                  url: /configurable-guided-selling/
+                - title: "Consumption"
+                  url: /consumption/    
+                - title: "Customer Product Inventory"
+                  url: /customer-product-inventory/
+                - title: "Journey Management - Appointment"
+                  url: /journey-management-appointment/                           
+                - title: "Journey Management - MSISDN"
+                  url: /journey-management-msisdn/    
+                - title: "Order"
+                  url: /order/        
+                - title: "Pricing - Subscription Rate Plan"
+                  url: /product-offering-prices/ 
+                - title: "Product Offering Search"
+                  url: /product-offering-search/                                     
+                - title: "Simple Product Offering"
+                  url: /simple-product-offering/
+                                
+    - title: Contributing to Spartacus
+      url: /contributors-guide/
+      children:
+          - title: "Contributing to the Spartacus Storefront"
+            url: /contributing-to-the-spartacus-storefront/
+          - title: "Development Tools for Spartacus"
+            url: /development-tools-for-spartacus/
+          - title: "Contributor Setup"
+            url: /contributor-setup/
+          - title: "Coding Guidelines"
+            url: /coding-guidelines/
+          - title: "Accessibility E2E Tests"
+            url: /a11y-e2e-tests/
+          - title: "Maintaining Public APIs"
+            url: /breaking-changes/
+          - title: "Continuous Integration"
+            url: /continuous-integration/ 
+          - title: "Feature Flags and Code Deprecation"
+            url: /feature-flags-and-code-deprecation/
+          - title: "Committing Code to Spartacus"
+            url: /commit-guidelines/
+          - title: "Type Safety in Spartacus"
+            url: /type-safety-in-spartacus/
+          - title: "Definition of Done"
+            url: /definition-of-done/
+          - title: "Git Flow and Release Process"
+            url: /git-flow-and-releases/
