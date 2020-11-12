@@ -319,6 +319,8 @@ docs:
                   url: /checkout/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/
+                - title: "Cost Estimation"
+                  url: /cost-estimation/  
                 - title: "Consumption"
                   url: /consumption/    
                 - title: "Customer Product Inventory"
@@ -328,14 +330,16 @@ docs:
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
                 - title: "Order"
-                  url: /order/        
+                  url: /order/
+                - title: "Premise Validation"
+                  url: /premise-validation/          
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
-                                
+
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
