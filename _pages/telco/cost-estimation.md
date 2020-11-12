@@ -30,7 +30,7 @@ This feature determines and displays the average cost for a PO considering the p
 
 **Average cost / year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 
-<p align="center"><img src="/assets/images/telco/Average cost algorithm.png"></p>
+<p align="center"><img src="/assets/images/telco/average-cost-algorithm.png"></p>
 
 **Note:**
 
@@ -38,7 +38,7 @@ This feature determines and displays the average cost for a PO considering the p
 
 2. Average cost is determined for those POs having prices defined for maximum 1 usage unit. In case the POs have prices defined for more than 1 usage unit (as seen in the sample below), the average cost cannot be properly determined, case in which it will not be displayed.
 
-<p align="center"><img src="/assets/images/telco/Average cost algorithm_2.png"></p>
+<p align="center"><img src="/assets/images/telco/average-cost-algorithm_2.png"></p>
 
 Following are the detailed price information:
 
