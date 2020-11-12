@@ -13,7 +13,7 @@ title: Cost Estimation
 - [Overview](#overview)
 - [Prerequisite](#prerequisite)
 - [Business Use Case](#business-use-case)
-- [Frontend Requirements and Dependencies](#frontend-requirements-and-dependencies)
+- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
 - [Configuring and Enabling Cost Estimation](#configuring-and-enabling-cost-estimation)
 - [Components](#components)
 - [Further Reading](#further-reading)
@@ -30,6 +30,7 @@ This feature determines and displays the average cost for a PO considering the p
 
 **Average cost / year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 
+
 **Note:**
 
 1. Average cost is determined using the algorithm presented in the previous picture, and it works with simple price information (such as one-time charges, recurring charges, and usage charges) for which the price has a fixed value not a complex price formula.
@@ -39,16 +40,16 @@ This feature determines and displays the average cost for a PO considering the p
 
 Following are the detailed price information:
 
-  - contract duration
-  - cancellation fees
-  - one-time fees
-  - recurring charges
-  - usage charges
+  - Contract duration
+  - Cancellation fees
+  - One-time fees
+  - Recurring charges
+  - Usage charges
 
 ## Prerequisite
 
 1. Product offerings for which the average cost has to be displayed MUST have prices defined for maximum 1 usage unit (kWh, minutes, sms).
-2. CMS components are properly defined in CMS system (in our case in SAP Commerce, it is in content catalog)
+2. CMS components are properly defined in CMS system (for SAP Commerce, it is in content catalog).
 
 ## Business Use Case
 
@@ -89,7 +90,7 @@ The following new and updated components must be enabled in the TUA backoffice t
 
 | Component   Name             | Status  | Description                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Consumption Components**           |         | Renders display of discover by consumption CMS components.                                                                                   |
+| **Consumption Components**           |         | Renders display of discovery by consumption CMS components.                                                                                   |
 | TmaConsumptionComponent              | New     |                                                                           |
 | TmaConsumptionDialogComponent        | New        |                                                                                     |
 | TmaPoSearchByConsumptionComponent    | New     |                                         |
