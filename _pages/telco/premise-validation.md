@@ -62,8 +62,8 @@ With this feature, customers are able to purchase Product Offerings requiring se
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
 | Define checklist actions for POs           | Backend | POs requiring premise details at the time of purchase should have the following checklist actions defined for them in Commerce platform such as Installation Address, Meter ID, Contract Start Date, and Previous Service Provider.                                                                          														  |
 | **View details** instead of **Add to cart**	           | SPA     | Adding a new product type for which this button has to be displayed, the product spec has to be part of the following config list.  	  |
-| **Check availability** button in PDP		   | SPA     | Check availability button is displayed for those product types for which the product spec is part of the following config list (and for those that have the previous checklist actions defined):                                                                                      												  |
-| Configure check availability URL       | SPA     | Availability check URL is configured in the corresponding premise lookup config.ts file:
+| **Check availability** button in PDP		   | SPA     | Check availability button is displayed for those product types for which the product spec is part of the following config list (and for those that have the previous checklist actions defined).                                                                                      												  |
+| Configure check availability URL       | SPA     | Availability check URL is configured in the corresponding premise lookup `config.ts` file.
 
 
 -   **View details** instead of **Add to cart**: Config list
