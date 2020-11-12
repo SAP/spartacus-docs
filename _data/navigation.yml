@@ -319,6 +319,8 @@ docs:
                   url: /checkout/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/
+                - title: "Cost Estimation"
+                  url: /cost-estimation/  
                 - title: "Consumption"
                   url: /consumption/    
                 - title: "Customer Product Inventory"
@@ -337,7 +339,7 @@ docs:
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
-                  
+
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
