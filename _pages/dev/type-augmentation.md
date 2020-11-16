@@ -22,7 +22,7 @@ For more information about type augmentation in general, see [Module Augmentatio
 
 ## Exporting Type for Augmentation
 
-The models that are most frequently customized are currently placed in `@spartacus/core`. The following is an example of module augmentation on a newly-added `CostCenter` model that is used in B2B Checkout:
+The models that are most frequently customized are currently placed in `@spartacus/core`. The following is an example of module augmentation on the `CostCenter` model that is used in B2B Checkout:
 
 ```ts
 export interface CostCenter {
@@ -41,9 +41,9 @@ export { CostCenter } from './src/model/org-unit.model';
 
 That is all that is required to expose the model for augmentation.
 
-**Note:** This approach is required because of the current limitations of Typescript. See TypeScipt issues [#9532](https://github.com/microsoft/TypeScript/issues/9532) and [#18877](https://github.com/microsoft/TypeScript/issues/18877) for more information.
+**Note:** This approach is required because of the current limitations of Typescript. See TypeScript issues [#9532](https://github.com/microsoft/TypeScript/issues/9532) and [#18877](https://github.com/microsoft/TypeScript/issues/18877) for more information.
 
-**Note:** If there are models that you would like to expose for augmentation, you can submit issues and pull requests indicating which models you would like to expose.
+**Note:** If there are models that you would like to expose for augmentation, you can submit issues and pull requests to the Spartacus project indicating which models you would like to expose.
 
 ## Augmenting Modules
 
@@ -63,9 +63,11 @@ The module name `@spartacus/core` must be set according to the same value that y
 import { CostCenter } from '@spartacus/core'
 ```
 
-From now on, when you work on an object of type `CostCenter`, the TypeScript compiler will suggest the `originalCode` property in autocomplete, and will allow you to define objects on this type normally, without having to hack the TypeScript with `as CostCenter` declarations.
+From now on, when you work on an object of type `CostCenter`, the TypeScript compiler suggests the `originalCode` property in autocomplete, and allows you to define objects on this type normally, without having to hack the TypeScript with `as CostCenter` declarations.
 
-**Note:** You should only add optional properties to a module when you augment it. Do not add required properties because new objects of this type may be constructed in the library code, and then you will get errors from the TypeScript compiler that there are missing properties in objects of augmented type.
+**Note:** When you augment a module, the properties that you add should be optional, rather than required. You should not add required properties because new objects of this type may be constructed in the library code, and then you will get errors from the TypeScript compiler that there are missing properties in objects of augmented type.
+
+**Note:** In any file where a module is augmented, there must be at least one import from the module. It can even be an unused import.
 
 ## Augmentation in Feature Libraries
 
