@@ -67,7 +67,7 @@ From now on, when you work on an object of type `CostCenter`, the TypeScript com
 
 **Note:** When you augment a module, the properties that you add should be optional, rather than required. You should not add required properties because new objects of this type may be constructed in the library code, and then you will get errors from the TypeScript compiler that there are missing properties in objects of augmented type.
 
-**Node:** It's important that in a file where module is augmented there is at least one import from that library. It can even be an unused import.
+**Note:** In any file where a module is augmented, there must be at least one import from the module. It can even be an unused import.
 
 ## Augmentation in Feature Libraries
 
