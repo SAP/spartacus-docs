@@ -74,7 +74,7 @@ B2cStorefrontModule.withConfig({
       },
     ],
   },
-})
+});
 ```
 
 The attributes in the `steps` array work as follows:
@@ -272,7 +272,7 @@ Combining checkout steps is also very similar to the previous examples. In most 
 
 In addition to combining steps, the following example shows how to create a new component, which is very similar to the `DeliveryModeComponent` except that it has a **Save** button instead of a **Next** button. Note, this **Save** button only saves information, without a redirect.
 
-``` ts
+```ts
 @NgModule({
   imports: [
     B2cStorefrontModule.withConfig({
@@ -334,7 +334,7 @@ Clicking the default checkout button redirects to the `/checkout` route. To invo
 
 The first step in setting up express checkout is to create an `ExpressCheckoutGuard`. The following is an example:
 
-``` ts
+```ts
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -343,9 +343,7 @@ import {
   ActivatedRouteSnapshot,
 } from '@angular/router';
 import { CheckoutConfig } from '../config/checkout-config';
-import {
-  RoutingConfigService,
-} from '@spartacus/core';
+import { RoutingConfigService } from '@spartacus/core';
 
 @Injectable({
   providedIn: 'root',
@@ -355,7 +353,7 @@ export class ExpressCheckoutGuard implements CanActivate {
     private router: Router,
     private config: CheckoutConfig,
     private routingConfigService: RoutingConfigService,
-    private checkoutConfigService: CheckoutConfigService,
+    private checkoutConfigService: CheckoutConfigService
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
@@ -371,9 +369,8 @@ export class ExpressCheckoutGuard implements CanActivate {
 
       return this.router.parseUrl(
         checkoutStep &&
-          this.routingConfigService.getRouteConfig(
-            checkoutStep.routeName
-          ).paths[0]
+          this.routingConfigService.getRouteConfig(checkoutStep.routeName)
+            .paths[0]
       );
     } else {
       // Redirect to the first step in the default checkout flow
@@ -391,7 +388,7 @@ export class ExpressCheckoutGuard implements CanActivate {
 
 Now that you have created the `ExpressCheckoutGuard`, you can use it in the Checkout Orchestrator. The following is an example:
 
-``` ts
+```ts
 @NgModule({
   imports: [
     B2cStorefrontModule.withConfig({
@@ -409,3 +406,37 @@ Now that you have created the `ExpressCheckoutGuard`, you can use it in the Chec
 ```
 
 Express checkout is now ready. The only steps that remain are to create express checkout links, and to place them on the page.
+
+## B2B Checkout
+
+The Spartacus B2B, the checkout, reuses the same steps as in B2C with the addition of the "Method of Payment" step. The added steps allow users to select if they want to pay using a credit card or by using an account. Additionally, the method of payment step contains the input to enter an optional PO number.
+
+### Credit card payment
+
+When a user selects the credit card payment option, Spartacus is configured to work in the same way for B2B as it does for B2C.
+
+### Account payment
+
+When a user selects the account option for payment, he will only be able to select the addresses assigned to one of the cost centers he is a purchaser of. Additionally, he will not have to go through the payment method step.
+
+### Known issues
+
+When clicking proceed to checkout, if the screen is blank and seems stuck loading. It means you are missing the "Method of Payment" step in from your CMS.
+Make sure you are using SpartacusSampleData version 3.0.0 or greater and you are using SAP Commerce Cloud version 2005 or greater.
+
+In case you only want to add this step you can run the following IMPEX:
+
+```
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;CheckoutPaymentType;Checkout Payment Type Page;MultiStepCheckoutSummaryPageTemplate;/checkout/payment-type
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutPaymentType;Checkout Payment Type Slot;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,CheckoutPaymentTypeComponent,CheckoutProgressMobileBottomComponent
+;;SideContentSlot-checkoutPaymentType;Order Summary Slot;CheckoutOrderSummaryComponent
+
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;CheckoutPaymentTypeComponent;Checkout Payment Type Component;CheckoutPaymentType
+```
