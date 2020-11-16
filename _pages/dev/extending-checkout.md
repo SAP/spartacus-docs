@@ -74,7 +74,7 @@ B2cStorefrontModule.withConfig({
       },
     ],
   },
-});
+})
 ```
 
 The attributes in the `steps` array work as follows:
@@ -272,7 +272,7 @@ Combining checkout steps is also very similar to the previous examples. In most 
 
 In addition to combining steps, the following example shows how to create a new component, which is very similar to the `DeliveryModeComponent` except that it has a **Save** button instead of a **Next** button. Note, this **Save** button only saves information, without a redirect.
 
-```ts
+``` ts
 @NgModule({
   imports: [
     B2cStorefrontModule.withConfig({
@@ -334,7 +334,7 @@ Clicking the default checkout button redirects to the `/checkout` route. To invo
 
 The first step in setting up express checkout is to create an `ExpressCheckoutGuard`. The following is an example:
 
-```ts
+``` ts
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -343,7 +343,9 @@ import {
   ActivatedRouteSnapshot,
 } from '@angular/router';
 import { CheckoutConfig } from '../config/checkout-config';
-import { RoutingConfigService } from '@spartacus/core';
+import {
+  RoutingConfigService,
+} from '@spartacus/core';
 
 @Injectable({
   providedIn: 'root',
@@ -353,7 +355,7 @@ export class ExpressCheckoutGuard implements CanActivate {
     private router: Router,
     private config: CheckoutConfig,
     private routingConfigService: RoutingConfigService,
-    private checkoutConfigService: CheckoutConfigService
+    private checkoutConfigService: CheckoutConfigService,
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
@@ -369,8 +371,9 @@ export class ExpressCheckoutGuard implements CanActivate {
 
       return this.router.parseUrl(
         checkoutStep &&
-          this.routingConfigService.getRouteConfig(checkoutStep.routeName)
-            .paths[0]
+          this.routingConfigService.getRouteConfig(
+            checkoutStep.routeName
+          ).paths[0]
       );
     } else {
       // Redirect to the first step in the default checkout flow
@@ -388,7 +391,7 @@ export class ExpressCheckoutGuard implements CanActivate {
 
 Now that you have created the `ExpressCheckoutGuard`, you can use it in the Checkout Orchestrator. The following is an example:
 
-```ts
+``` ts
 @NgModule({
   imports: [
     B2cStorefrontModule.withConfig({
