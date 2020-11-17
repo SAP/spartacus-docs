@@ -331,7 +331,7 @@ docs:
                   url: /journey-management-msisdn/    
                 - title: "Order"
                   url: /order/
-                - title: "Premise Validation"
+                - title: "Journey Management - Serviceability (Premise Details)"
                   url: /premise-validation/          
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
