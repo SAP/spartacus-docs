@@ -2,17 +2,17 @@
 
 All documentation for Spartacus resides in the `_pages` folder that is located in the root of this repository.
 
-The [Spartacus documentation website](https://sap.github.io/spartacus-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `master` branch automatically triggers Jekyll to rebuild the site.
+The [Spartacus documentation website](https://sap.github.io/spartacus-docs/) is hosted in GitHub Pages and is powered by Jekyll. Every merge to the `main` branch automatically triggers Jekyll to rebuild the site.
 
-Note that, after merging to the `master` branch, it can sometimes take a few minutes for changes to appear on the site.
+Note that, after merging to the `main` branch, it can sometimes take a few minutes for changes to appear on the site.
 
 ## Making Updates to the Documentation Repository
 
 Whether you are creating new documentation, or updating an existing topic, the steps are the same.
 
-One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `master` branch contains the "live", published documentation.
+One important detail to keep in mind is that the `develop` branch is used for staging documentation updates that will be published with the next release of the Spartacus libraries, while the `main` branch contains the "live", published documentation.
 
-**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The one exception is if you have an update that is not tied to a particular release, and can be published as soon as it is merged. In this case, you can create your new `doc` branch from the `master` branch.
+**Note:** It is recommended to always create new `doc` branches from the `develop` branch. It is also recommended to always send your pull requests to the `develop` branch. The one exception is if you have an update that is not tied to a particular release, and can be published as soon as it is merged. In this case, you can create your new `doc` branch from the `main` branch.
 
 1. Create a new issue (ticket) in the documentation repository: https://github.com/SAP/spartacus-docs/issues/new
 
@@ -22,7 +22,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
     Create your new `doc` branch from the `develop` branch if your update is tied to an upcoming release.
 
-    Create your new `doc` branch from the `master` branch if your update can be published immediately.
+    Create your new `doc` branch from the `main` branch if your update can be published immediately.
   
     
 
@@ -34,7 +34,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
    Always send your pull request to the `develop` branch.
   
-   The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can send your pull request to the `master` branch.
+   The one exception is if you have an emergency update that needs to be published as soon as it is merged, in which case you can send your pull request to the `main` branch.
 
    The PR requires a minimum of one approver. Always include a writer as one of the approvers.
 
@@ -42,7 +42,7 @@ One important detail to keep in mind is that the `develop` branch is used for st
 
    If you merged your updates to the `develop` branch, the updates will be staged until the next release of the Spartacus libraries, at which point they will be published by the documentation release master.
 
-   If you merged your updates to the `master` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).  
+   If you merged your updates to the `main` branch, the updates will automatically trigger Jekyll to rebuild the GitHub pages site. The changes will show up after a few minutes (you may need to empty your cache to see the updates).  
 
 ## Updating the Sidebar
 
@@ -128,7 +128,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     If your code example includes curly braces, you can escape it with the `{% raw %}` and `{% endraw %}` tags. 
 
-    See [the source](https://raw.githubusercontent.com/SAP/spartacus-docs/master/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
+    See [the source](https://raw.githubusercontent.com/SAP/spartacus-docs/main/_pages/dev/i18n.md?token=AKKGMXYMRJY6J7DB3QQ5J7K5CKPTW) of the "Internationalization (i18n)" topic for examples of the `raw` tag being used, both inline and to escape entire codeblocks.
 
 - **Includes:** If a certain block of text occurs repeatedly in the documentation, we can use the `include` tag to reference a single source HTML file. For example, the front end requirements for Spartacus developers are documented in `_includes/docs/frontend_requirements.html`, and then are referenced where ever they are needed, as follows:
 
@@ -136,6 +136,6 @@ Please adhere to the following conventions to ensure that your changes build suc
     {% include docs/frontend_requirements.html %}
     ```
 
-    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/spartacus-docs/blob/master/_includes/docs/frontend_requirements.html).
+    If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/spartacus-docs/blob/main/_includes/docs/frontend_requirements.html).
     
-    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/spartacus-docs/master/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
+    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/spartacus-docs/main/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
