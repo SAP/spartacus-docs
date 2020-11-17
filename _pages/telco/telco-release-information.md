@@ -42,7 +42,7 @@ What's new?
 
 While it can be hard to pinpoint precisely how much your electric and water bill will cost each month, the Cost Estimation feature helps provide an indication into the the average utility or telephone bill based on the anticipated consumption provided by a customer. Leveraging this information, the estimated monthly and annual cost for applicable product offerings is presented to the customer.
 
-- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})-->
+- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %})-->
 
 Customers interested in acquiring product offerings, such as commodity items (for example,  electricity or gas) need to have an availability check of the premise details. For example, the installation address and the meter id to purchase a specific product offering. For more information, see [Example – Serviceability](https://help.sap.com/viewer/DRAFT/d28406c672ff4cbca70dfb4b5748f8d8/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
