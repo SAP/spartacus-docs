@@ -226,5 +226,5 @@ The following new and updated components must be enabled in the TUA Backoffice t
 ## Further Reading
 
 For further reading, see the following topic in the TUA Help portal:
--   [TUA Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html).
+-   [TUA Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html)
 
