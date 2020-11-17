@@ -30,7 +30,7 @@ Customers are able to view the average cost that each of the product offerings w
 
 **Average Cost / Year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 
-<p align="center"><img src="/assets/images/telco/average-cost-algorithm.png"></p>
+<p align="center"><img src="/spartacus-docs/assets/images/telco/average-cost-algorithm.png"></p>
 
 **IMPORTANT NOTES:**
 
