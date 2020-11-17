@@ -77,7 +77,7 @@ A contribution will be considered for inclusion in the Spartacus documentation i
 * The contribution truly improves the documentation
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/master/contributing_to_docs).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/main/contributing_to_docs).
 
 ### Contribution Process
 
@@ -87,7 +87,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Build and run the documentation from the documentation development workspace. 
 
-    For more information, see the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/master/contributing_to_docs).
+    For more information, see the [Contributing to Documentation guides](https://github.com/SAP/spartacus-docs/tree/main/contributing_to_docs).
 
 1. Work on the change in your fork (either on the `develop` branch or on a `doc` branch).
 
