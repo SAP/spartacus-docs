@@ -1,7 +1,7 @@
 #!/bin/zsh
-# Builds current committed master branch from GitHub to gh-pages, replacing
-# everything in gh-pages. Intended to be run locally when you want to publish.
-# Run with the version number as a parameter.
+# Builds current committed main branch from GitHub to a local destination, then pushes udpates to main (origin). 
+# Run with the version number as a parameter. You can input multiple version numbers, as follows: 
+# for v in 1.x 2.x 3.x
 
 # Variables
 installed="bundle"
@@ -50,9 +50,9 @@ fi
 echo "Copying data, includes and layouts folders to the build directory"
 cp -R $clone_dir/spartacus-docs/_data $clone_dir/spartacus-docs/_includes $clone_dir/spartacus-docs/_layouts $build_dir/spartacus-docs/$v
 
-# Check out master branch
-echo "Checking out master branch"
-git checkout master
+# Check out main branch
+echo "Checking out main branch"
+git checkout main
 
 echo "Deleting target $v folder"
 rm -r  /Users/i839916/spartacus-docs/$v
@@ -73,7 +73,7 @@ git add $v
 echo "Committing all updated files"
 git commit -a -m "Publishing $v to GitHub Pages on $publishdate with $last_SHA"
 
-echo "Files committed, pushing to master (publishing to GitHub Pages)"
-git push origin master
+echo "Files committed, pushing to main (publishing to GitHub Pages)"
+git push origin main
 
 done

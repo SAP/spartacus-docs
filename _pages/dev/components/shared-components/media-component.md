@@ -31,7 +31,7 @@ The media formats for product images and for content images are different, and t
 
 Product images are driven by product data. Product images are used in a large number of components, such as in the product listing and product details pages, as well as in components that are used for cart and order data, and also in components such as carousels, wish lists, interests, and so on. However, the product image data source is always the same, regardless of the component.
 
-Different product images for different screen sizes are typically generated based on the same master image. This results in a media container that holds a number of media items that only differ in pixel size, but are equal in terms of content and proportions.
+Different product images for different screen sizes are typically generated based on the same source image. This results in a media container that holds a number of media items that only differ in pixel size, but are equal in terms of content and proportions.
 
 The media formats for product images can be configured in both the back end and the front end. The following list shows the (default) formats that are used in the sample data and in the Spartacus configuration:
 
