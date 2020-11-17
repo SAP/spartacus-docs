@@ -21,14 +21,6 @@
           {% if nav.children[0] %}
             <ul>
                 {% for child in nav.children %}
-
-                  {% comment %} internal/external URL check {% endcomment %}
-                  {% if child.url contains "://" %}
-                    {% assign child_url = child.url %}
-                  {% else %}
-                    {% assign child_url = child.url | relative_url %}
-                  {% endif %}
-
                     {% if child.subchildren[0] %}
                         <ul>
                             {% for subchild in child.subchildren %}
@@ -38,7 +30,18 @@
                                         {% if subchild.underchildren[0] %}
                                             {% if underchild.url == page.url %}
                                                 {% for child in nav.children %}
+
+                                                {% comment %} internal/external URL check {% endcomment %}
+                                                {% if child.url contains "://" %}
+                                                  {% assign child_url = child.url %}
+                                                {% else %}
+                                                  {% assign child_url = child.url | relative_url %}
+                                                {% endif %}
+
+                                                  {% if nav.children[0] %}
+
                                                     <li><a href="{{ child_url }}">{{ child.title }}</a>
+                                                  
                                                         {% if child.subchildren[0] %}
                                                             <ul>
                                                                 {% for subchild in child.subchildren %}
@@ -51,39 +54,43 @@
                                                                   {% endif %}
 
                                                                     {% if subchild.underchildren[0] %}
+
                                                                         <li><a href="{{ subchild_url }}">{{ subchild.title }}</a>
-                                                                            {% for underchild in subchild.underchildren %}
 
-                                                                              {% comment %} internal/external URL check {% endcomment %}
-                                                                              {% if underchild.url contains "://" %}
-                                                                                {% assign underchild_url = underchild.url %}
-                                                                              {% else %}
-                                                                                {% assign underchild_url = underchild.url | relative_url %}
-                                                                              {% endif %}
-
+                                                                          {% if child.subchildren[0] %}
+                                                                            <ul>
+                                                                              {% for underchild in subchild.underchildren %}
                                                                                 {% if underchild.url == page.url %}
-                                                                                    {% for underchild in subchild.underchildren %}
+                                                                                  {% for underchild in subchild.underchildren %}
 
-                                                                                        {% comment %} set "active" class on current page {% endcomment %}
-                                                                                        {% if underchild.url == page.url %}
-                                                                                            {% assign active = "active" %}
-                                                                                        {% else %}
-                                                                                            {% assign active = "" %}
-                                                                                        {% endif %}
+                                                                                    {% comment %} internal/external URL check {% endcomment %}
+                                                                                    {% if underchild.url contains "://" %}
+                                                                                      {% assign underchild_url = underchild.url %}
+                                                                                    {% else %}
+                                                                                      {% assign underchild_url = underchild.url | relative_url %}
+                                                                                    {% endif %}
+                                                                                  
+                                                                                    {% comment %} set "active" class on current page {% endcomment %}
+                                                                                    {% if underchild.url == page.url %}
+                                                                                      {% assign active = "active" %}
+                                                                                    {% else %}
+                                                                                      {% assign active = "" %}
+                                                                                     {% endif %}
+                                                                                         
+                                                                                       <li><a href="{{ underchild_url }}" class="{{ active }}">{{ underchild.title }}</a></li>
 
-                                                                                        <ul>
-                                                                                            <li><a href="{{ underchild_url }}" class="{{ active }}">{{ underchild.title }}</a></li>
-                                                                                        </ul>
-
-                                                                                     {% endfor %}
-                                                                                {% endif %}
-                                                                            {% endfor %}
+                                                                                  {% endfor %}     
+                                                                                {% endif %}        
+                                                                              {% endfor %}
+                                                                            </ul>                
+                                                                           {% endif %}     
                                                                         </li>
                                                                     {% endif %}
                                                                 {% endfor %}
                                                             </ul>
                                                         {% endif %}
                                                     </li>
+                                                  {% endif %}  
                                                 {% endfor %}
                                             {% endif %}
                                         {% endif %}
@@ -114,12 +121,12 @@
                                                                 {% assign subchild_url = subchild.url | relative_url %}
                                                               {% endif %}
                                                             
-                                                            {% comment %} set "active" class on current page {% endcomment %}
-                                                            {% if subchild.url == page.url %}
-                                                              {% assign active = "active" %}
-                                                            {% else %}
-                                                              {% assign active = "" %}
-                                                             {% endif %}
+                                                              {% comment %} set "active" class on current page {% endcomment %}
+                                                              {% if subchild.url == page.url %}
+                                                                {% assign active = "active" %}
+                                                              {% else %}
+                                                                {% assign active = "" %}
+                                                               {% endif %}
 
                                                                 <li><a href="{{ subchild_url }}" class="{{ active }}">{{ subchild.title }}</a>
                                                                     {% for underchild in subchild.underchildren %}
