@@ -44,28 +44,24 @@ Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA
 
 ### B2C Storefront Features Planned
 
-- **Composite Pricing** - for more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html)
-- **Price Alteration Discounts** - for more information, see [Price Alterations (Discounts)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html)
+- **Composite Pricing:** For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html)
+- **Price Alteration Discounts:** For more information, see [Price Alterations (Discounts)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html)
 - **Fixed Bundled Product Offerings**
 - **Hierarchal Cart**
 - **One-Click Order**
 
 ### Journey Management
 
-- **SPO Serviceability** - for more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html)
-- **Category Level Serviceability** - for more information, see [To Do](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html)
+- **SPO Serviceability:** For more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html)
+- **Category Level Serviceability**
 
 ### Retention Process Flows
 
-- **Contract Renewal** - for more information, see [Eligibility Policy in Action](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/341e50fcd20149d68735656c5c1b1fff.html)
-- **Tariff Change - Upgrade** - for more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html)
-- **Tariff Change - Upsell** - for more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
-- **Cross-selling (Add-Ons)** - for more information, see [To Do](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
+- **Contract Renewal:** For more information, see [Eligibility Policy in Action](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/341e50fcd20149d68735656c5c1b1fff.html)
+- **Tariff Change - Upgrade:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html)
+- **Tariff Change - Upsell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
+- **Cross-selling (Add-Ons)**
 
-### Architecture Features
-
-- Angular 9 upgrade / Spartacus 2.0
-    
 ## Future Outlook / Features Planned for 2021 and Later
 
 The items in this section are on our future roadmap, not necessarily yet planned for a specific quarter.
@@ -74,9 +70,9 @@ Some features require new OCC REST APIs, not yet planned and still considered to
 
 ### B2C storefront features planned for 2.0
 
-- **Price Alteration Credits** - for more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2011/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html)
-- **PSCV pricing** - for more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/9835174fd3b94550b41f0b72b5269231.html)
-- **Grid pricing on Cart, Checkout, and Order** - for more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
+- **Price Alteration Credits:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2011/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html)
+- **PSCV pricing:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/9835174fd3b94550b41f0b72b5269231.html)
+- **Grid pricing on Cart, Checkout, and Order:** For more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
 - **Automatic Cart Assignments**
 - **Policy Based Pricing**
 
@@ -94,8 +90,6 @@ Some features require new OCC REST APIs, not yet planned and still considered to
     - Suspend Subscription
     - Cancel Subscription
     - Contract Termination
-
-### B2B Self-Care Asset Management and Assurance 
 
 ### Architecture Features
 
