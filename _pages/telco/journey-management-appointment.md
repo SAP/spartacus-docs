@@ -29,13 +29,15 @@ This feature applies to product offerings that have a checklist policy for Appoi
 
 ## Prerequisite
 
-To test this feature using a mock service, please follow the set-up instructions below for soapUI:
+To test this feature using a mockup service, follow the instructions to set-up soapUI. Ensure that the Appointment system is always up and running.
+
+**Note:** The mockup service is not recommended for the production environments as it is intended only for demonstration purpose.
 
 1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
 2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services.zip` file.
 3. Extract the `mock_services.zip` file. The content of the ZIP when extracted is the `Resource_Pool_Management_API.xml` file.
 4. Click the **Import** icon on the soapUI toolbar. The `Select soapUI Project` file dialog box opens. Import the  `Resource_Pool_Management_API.xml` file into the soapUI.
-5. Right-click **MSISDN** and then click **Start Minimized**. When the mock service is up, you can see that the MSISDN mock service is also up and running.
+5. Right-click **Appointment** and then click **Start Minimized**. When the mock service is up, you can see that the Appointment mock service is also up and running.
 
 ## Business Use Case
 
