@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce for use with TUA Spartacus 1.3
+title: Installing SAP Commerce for use with TUA Spartacus 1.2
 ---
 
 The following instructions describe how to install and configure SAP Commerce (release 1905) with Telco & Utilities Accelerator (release 2003, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
@@ -22,25 +22,19 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the SAP Commerce and Telco & Utilities Accelerator zip archives.
 
-   **Note:** Use the lastest patches for SAP Commerce version 1905 and Telco & Utilities Accelerator version 2003.
+   Note: Use the lastest patches for SAP Commerce version 1905 and Telco & Utilities Accelerator version 2003.
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
-    The TUA Spartacus Sample Data Store Extension is the extension provided in the following zip file: `b2ctelcospastore.zip`.    
+    The TUA Spartacus Sample Data Store Extension is the extension provided in the following zip file: `b2ctelcospastore.zip`.
+  
+    
 
-1. Unzip the sample data.
+1. Unzip the `b2ctelcospastore.zip` archive.
 
-   **Note:** You can use both the store extensions, or only one of them, depending on your needs (specific to Telco or Utilities). 
-   - The sample data for Telco is stored in the `b2ctelcospastore.zip` archive.
-   - The sample data for Utilities is stored in the `utilitiesspastore.zip` archive.
+1. Move the `b2ctelcospastore` folder to `sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
-1. Move the `b2ctelcospastore` folder and `utilitiesspastore` folder to `sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
-
-   The `b2ctelcospastore` and `utilitiesspastore` folders can be stored anywhere in the `modules` folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
-
-1. Unzip the cms addon for Utilities:
-   - If you want to use utilities sample data, unzip the `b2ctelcocmsaddon.zip`.
-   - Move the `b2ctelcocmsaddon` folder in the same location with the `utilitiesspastore` folder.
+   The `b2ctelcospastore` folder can be stored anywhere in the `modules` folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
 1. In the `sap-commerce-folder>/installer/recipes` folder, duplicate the `b2c_telco` folder.
 
@@ -48,185 +42,160 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. In `b2c_telco_spa`, the `build.gradle` file should have the following content:
 
-   **Note:** If you want to use both sample data extensions for Telco and Utilities, the `build.gradle` file should have the following structure:
-
    ```java
    apply plugin: 'installer-platform-plugin'
    apply plugin: 'installer-addon2-plugin'
 
    def pl = platform {
 
-      localProperties {
-         property 'kernel.events.cluster.jgroups.channel', 'disable'
-         property 'datahub.publication.saveImpex', ''
-         property 'commerceservices.default.desktop.ui.experience', 'responsive'
-         property 'kernel.autoInitMode', 'update'
-         property 'installed.tenants', 'junit, api, foo'
+       localProperties {
+	        	  property 'kernel.events.cluster.jgroups.channel', 'disable'
+		        property 'datahub.publication.saveImpex', ''
+		        property 'commerceservices.default.desktop.ui.experience', 'responsive'
+		        property 'kernel.autoInitMode', 'update'
+		        property 'installed.tenants', 'junit, api, foo'
 
-      }
-      afterSetup {
-         ensureAdminPasswordSet()
-      }   
+	      }
+	       afterSetup {
+            ensureAdminPasswordSet()
+       }   
+	
+		extensions {
+			extName 'acceleratorcms'
+			extName 'adaptivesearchbackoffice'
+            extName 'adaptivesearchsolr'
+			extName 'addonsupport'
+			extName 'b2ctelcobackoffice'
+			extName 'b2ctelcofulfillmentprocess'
+			extName 'b2ctelcospastore'
+			extName 'b2ctelcoaddon'
+			extName 'b2ctelcotmfwebservices'
+			extName 'b2ctelcowebservices'
+		
+			extName 'b2ctelcooccaddon'
+			extName 'commerceservicesbackoffice'
+			extName 'solrfacetsearchbackoffice'
+			extName 'solrserver'
+			extName 'subscriptionbackoffice'
+			extName 'yacceleratorstorefront'
+			extName 'yacceleratorcore'
+			extName 'ycommercewebservices'
+            extName 'pcmbackofficesamplesaddon'
+
+			extName 'cmsbackoffice'
+			extName 'cmswebservices'
+			extName 'previewwebservices'
+			extName 'smarteditwebservices'
+			extName 'cmssmarteditwebservices'
+			extName 'permissionswebservices'
+			extName 'smarteditaddon'
+			extName 'cmssmartedit'
+			extName 'cmsoccaddon'
+			extName 'customerticketingaddon'
+			extName 'customersupportbackoffice'
+			
+			extName 'personalizationwebservices'
+			extName 'previewpersonalizationweb'
+			extName 'personalizationcmsweb'
+			extName 'personalizationsmartedit'
+			extName 'personalizationservicesbackoffice'
+			extName 'personalizationcmsbackoffice'
+         extName 'personalizationservices'
+         extName 'personalizationfacades'
+			
+			extName 'acceleratorservices'
+			extName 'assistedservicefacades'
+			extName 'assistedservicestorefront'
+			extName 'assistedservicecustomerinterestsaddon'
+
+			extName 'rulebuilderbackoffice'
+			extName 'couponbackoffice'
+			extName 'droolsruleengineservices'
+			extName 'couponfacades'
+			extName 'couponservices' 
+			extName 'promotionenginesamplesaddon'
+			extName 'acceleratorwebservicesaddon'
+
+	}
+    addons {
+        forStoreFronts('yacceleratorstorefront') { 
+           names('b2ctelcoaddon', 'smarteditaddon', 'customerticketingaddon', 'assistedservicestorefront', 'assistedservicecustomerinterestsaddon', 'pcmbackofficesamplesaddon', 'promotionenginesamplesaddon')
+		   template 'yacceleratorstorefront'
+		}
+
+		forStoreFronts('ycommercewebservices') {
+		   names('b2ctelcooccaddon','cmsoccaddon','acceleratorwebservicesaddon')
+		   template 'ycommercewebservices'
+			
+		}
       
-         extensions {
-            extName 'acceleratorcms'
-            extName 'adaptivesearchbackoffice'
-                     extName 'adaptivesearchsolr'
-            extName 'addonsupport'
-            extName 'b2ctelcobackoffice'
-            extName 'b2ctelcofulfillmentprocess'
-            extName 'b2ctelcospastore'
-            extName 'utilitiesspastore'
-            extName 'b2ctelcocmsaddon'
-
-            extName 'b2ctelcoaddon'
-            extName 'b2ctelcotmfwebservices'
-            extName 'b2ctelcowebservices'
-         
-            extName 'b2ctelcooccaddon'
-            extName 'commerceservicesbackoffice'
-            extName 'solrfacetsearchbackoffice'
-            extName 'solrserver'
-            extName 'subscriptionbackoffice'
-            extName 'yacceleratorstorefront'
-            extName 'yacceleratorcore'
-            extName 'ycommercewebservices'
-                     extName 'pcmbackofficesamplesaddon'
-
-            extName 'cmsbackoffice'
-            extName 'cmswebservices'
-            extName 'previewwebservices'
-            extName 'smarteditwebservices'
-            extName 'cmssmarteditwebservices'
-            extName 'permissionswebservices'
-            extName 'smarteditaddon'
-            extName 'cmssmartedit'
-            extName 'cmsoccaddon'
-            extName 'customerticketingaddon'
-            extName 'customersupportbackoffice'
-            
-            extName 'personalizationwebservices'
-            extName 'previewpersonalizationweb'
-            extName 'personalizationcmsweb'
-            extName 'personalizationsmartedit'
-            extName 'personalizationservicesbackoffice'
-            extName 'personalizationcmsbackoffice'
-            extName 'personalizationservices'
-            extName 'personalizationfacades'
-            
-            extName 'acceleratorservices'
-            extName 'assistedservicefacades'
-            extName 'assistedservicestorefront'
-            extName 'assistedservicecustomerinterestsaddon'
-
-            extName 'rulebuilderbackoffice'
-            extName 'couponbackoffice'
-            extName 'droolsruleengineservices'
-            extName 'couponfacades'
-            extName 'couponservices' 
-            extName 'promotionenginesamplesaddon'
-            extName 'acceleratorwebservicesaddon'
-
-      }
-   addons {
-         forStoreFronts('yacceleratorstorefront') { 
-            names('b2ctelcoaddon', 'smarteditaddon', 'customerticketingaddon', 'assistedservicestorefront', 'assistedservicecustomerinterestsaddon', 'pcmbackofficesamplesaddon', 'promotionenginesamplesaddon')
-            template 'yacceleratorstorefront'
-         }
-
-         forStoreFronts('ycommercewebservices') {
-            names('b2ctelcooccaddon','cmsoccaddon','acceleratorwebservicesaddon',b2ctelcocmsaddon')
-            template 'ycommercewebservices'
-            
-         }
-         
-      }
-   }
+	  }
+    }
 
    task setup () {
-      doLast {
-         
-         pl.setup()
+	      doLast {
+		
+		            pl.setup()
 
-         copy {
-            from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
-            into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-         }
-         copy {
-            from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
-            into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-            exclude "**/*.txt"
-         }
-      }
+		            copy {
+			               from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
+			               into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+		            }
+		            copy {
+			               from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
+			               into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+			               exclude "**/*.txt"
+		            }
+	      }
    }
 
    task buildSystem(dependsOn: setup) {
-      doLast {
-         pl.build()
-      }
+         doLast {
+            pl.build()
+         }
    }
 
    task initialize (dependsOn: buildSystem) {
-      doLast {
-         pl.initialize()
-      }
+	      doLast {
+		         pl.initialize()
+	      }
    }
 
    task start () {
-      doLast {
-         pl.start()
-      }
+	      doLast {
+		         pl.start()
+	      }
    }
 
    task startInBackground () {
-      doLast {
-         pl.startInBackground()
-      }
+	      doLast {
+		         pl.startInBackground()
+	      }
    }
 
    task stopInBackground {
-      doLast {
-         pl.stopInBackground()
-      }
+	      doLast {
+		         pl.stopInBackground()
+	      }
    }
-   ```
-   **Notes:** 
-   
-   If you want to use only Telco sample data, then remove the following lines from the `build.gradle` file:
-
-   ```bash
-   extName 'utilitiesspastore'
-   extName 'b2ctelcocmsaddon'
-   ```
-   Additionally, ensure that you also remove the `b2ctelcocmsaddon` from the `build.gradle` file:
-
-   ```bash
-   names('b2ctelcooccaddon','cmsoccaddon','acceleratorwebservicesaddon','b2ctelcocmsaddon')
-   ```
-   If you want to use only Utilities sample data, then remove the following line from the `build.gradle` file:
-
-   ```bash
-   extName 'telcospastore'
    ```
 
 1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
-1. Set up the recipe using the following commands.
-
-   For Windows:
+1. Set up the recipe using the following commands for Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
-   For Unix:
+For Unix:
 
    ```bash
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
-   **Note:** Starting with release 1905, SAP Commerce releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. For information about setting a password in the `custom.properties` file, see [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure.
+   **Note:** Starting with release 1905, SAP Commerce releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in a file named `custom.properties` stored in `sap-commerce-folder>\installer\customconfig`. See the [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure below for information on setting a password in the `custom.properties` file.
 
-1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
+1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands for Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
@@ -237,7 +206,7 @@ For Unix:
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
 
-   Initialization of the `b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
+   Initialization of the b2c_telco_spa recipe can take about 20 minutes. Sample data for this recipe includes telco specific data and content.
 
 1. Start SAP Commerce with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
 
@@ -252,34 +221,17 @@ For Unix:
 
 1. Verify that the system is working.
 
-   - To access the Admin Console, use: https://localhost:9002
-   - To access the Backoffice, use: https://localhost:9002/backoffice
+   - Access Admin Console: https://localhost:9002
+   - Access Backoffice: https://localhost:9002/backoffice
    
 
-   **Note:** When setting up your TUA Spartacus storefront, set the base site in `app.module.ts` to `telcospa` and/or `utilitiesspa` (depending on the sample data that you chose to use). The following is an example:
-
-   **Telco**
+   **Note:** When setting up your TUA Spartacus storefront, set the base site in `app.module.ts` to `telcospa`. The following is an example:
 
    ```ts
    context: {
    baseSite: ['telcospa']
    },
    ```  
-   **Utilities**
-
-   ```ts
-   context:{
-   baseSite: ['utilitiesspa']
-   },
-   ```
-
-   **Telco and Utilities**
-   
-   ```ts
-   context: {
-   baseSite: ['telcospa', ‘utilitiesspa’]
-   },
-   ```
 
 ## Configuring OCC Credentials
 
@@ -287,12 +239,11 @@ By default, SAP Commerce replies to OCC REST API calls that do not require authe
 
 - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
 - Display information about the `telcospa` base store: https://localhost:9002/rest/v2/telcospa/basestores/telcospa
-- Display information about the `utilitiesspa` base store: https://localhost:9002/rest/v2/utilitiesspa/basestores/utilitiesspa
 
-To register users and check out, SAP Commerce must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
+In order to register users and check out, SAP Commerce must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
 For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
 
-To configure SAP Commerce to accept OCC REST API calls, follow the steps:
+The following procedure describes how to configure SAP Commerce to accept OCC REST API calls.
 
 1. Open the Hybris Administration Console in a web browser at the following address: `https://localhost:9002`.
 
@@ -311,13 +262,13 @@ To configure SAP Commerce to accept OCC REST API calls, follow the steps:
     - client ID: `mobile_android`
     - password (or secret): `secret`
 
-   **Note:** The values for client ID and password are just samples. You can use different values for your production environments.
+   **Note:** The values for client ID and password are just samples. You would use different values for your production environments.
 
 4. Click the **Import content** button.
 
    You have now added a client ID and password to your TUA Spartacus storefront configuration.
 
-5. You can verify that the OAuth client has been successfully defined by entering the following `curl` command in a terminal or at the command prompt window:
+5. You can verify that the OAuth client has been successfully defined by entering the following curl command in a terminal or command prompt window:
 
    ```bash
    curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
@@ -334,7 +285,7 @@ To configure SAP Commerce to accept OCC REST API calls, follow the steps:
    }
    ```
 
-**You can now start TUA Spartacus!** After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building the TUA Spartacus Storefront Using 1.3 Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries-1-3.md %}) for more information.
+**You can now start TUA Spartacus!** After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building the TUA Spartacus Storefront Using 1.2 Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries-1-2.md %}) for more information.
 
 ## Configuring CORS
 
@@ -368,17 +319,17 @@ For more information about CORS, see [ycommercewebservices Extension](https://he
 
 ## Alternate Method for Setting the SAP Commerce Admin Password
 
-Instead of including the admin password in every install command as required for release 1905, you can create a configuration file to use each time.
+Instead of including the admin password in every install command as required for release 1905, you can create a configuration file that is used each time.
 
 1. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce folder.
 
 2. Add the following line: `initialpassword.admin=Y0urFav0r!tePassw0rd`
 
-   Change `Y0urFav0r!tePassw0rd` to the password you want to use.
+   Change `Y0urFav0r!tePassw0rd` to the password you'd like to use.
 
 3. Save the file.
 
-The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there is no need to include `-A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
+The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties` file, and there's no need to include `-A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
 
 ## Supporting Regions in the Billing Address
 
@@ -386,7 +337,7 @@ A specific configuration can be entered if the payment provider requires the `re
 
 TUA Spartacus automatically picks up on the configuration and displays the `regions` field in the form.
 
-1. If you do not have a `custom.properties` file, create a `custom.properties` file inside the `installer/customconfig` folder of your SAP Commerce folder.
+1. If you do not have a `custom.properties` file, create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce folder.
 
 2. Add the following line to your `custom.properties` file:
 
@@ -398,7 +349,7 @@ TUA Spartacus automatically picks up on the configuration and displays the `regi
 
 The next time you run the recipe install command, the settings inside `custom.properties` are used to build the `local.properties`.
 
-**Tip:** If you want to use this configuration without reinstalling, you can add the property to your `local.properties` file.
+**Note:** If you wish this configuration to be present without reinstalling, you can add the property to your `local.properties` file.
 
 ## Possible Issues
 
@@ -410,14 +361,10 @@ You may encounter the following error message:
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 
-This issue is caused due to an incorrect configuration of the `sop.post.url` property.
+This issue is caused by an incorrect configuration of the `sop.post.url` property.
 
-Make sure that this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
+Make sure this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
 
-**Note:** Ensure that you have the website properties properly set for your `telcospa` base site and/or the utilitiesspa base site(s) to point to your environment. For your **localhost** environment, they should have the following values:
-
-website.telcospa.http=http://localhost:9001
-website.telcospa.https=https://localhost:9002
-website.utilitiesspa.http=http://localhost:9001
-website.utilitiesspa.https=https://localhost:9002
-
+**Note:** Please make sure that you have the website properties properly set for your `telcospa` base site to point to your environment. For your **localhost** environment, they should have the following values: 
+`website.telcospa.http=http://localhost:9001`
+`website.telcospa.https=https://localhost:9002`
