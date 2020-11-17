@@ -38,8 +38,7 @@ Customers are able to view the average cost that each of the product offerings w
 
 2. Average Cost is determined for those product offerings that have prices defined **for a maximum of 1 usage unit**. In case the product offering has prices defined for more than 1 usage unit, the average cost cannot be properly determined, case in which it will not be displayed. Please see the following illustration.
 
-<p align="center"><img src="/assets/images/telco/average-cost-algorithm_2.png"></p>
-
+![average cost algorithm 2]({{ site.baseurl }}/assets/images/telco/average-cost-algorithm_2.png)
 
 ## Prerequisites
 
