@@ -115,16 +115,16 @@ Provide greater customer experiences by providing product offerings to customers
 - To use all functionality in Spartacus 2.*, release 2005 of SAP Commerce Cloud and 2007 of Telco & Utilities Accelerator is required.
 - The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus
 
-<!--## Upgrading Spartacus Libraries to a New Minor Version
+## Upgrading TUA Spartacus Libraries to a New Minor Version
 
-You can upgrade your Spartacus libraries to a new minor version, as follows:
+You can upgrade your TUA Spartacus libraries to a new minor version, as follows:
 
-1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. In `package.json`, set your `@spartacus` libraries to `“~1.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-   If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
+   If you are upgrading from 1.x to the latest 1.3 release, in `package.json`, set your `@spartacus` libraries to `“~1.3.0"`.
 
 1. Delete your `node_modules` folder.
-1. Run `yarn install`.-->
+1. Run `yarn install`.
 
 ## Feature Releases
 
