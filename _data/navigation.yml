@@ -306,10 +306,20 @@ docs:
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
-                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus"
+                - title: "Installing SAP Commerce Cloud with TUA for use with Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
-                - title: "Building the TUA Storefront from libraries"
-                  url: /building-the-tua-storefront-from-libraries/ 
+                  underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 1.3"
+                        url: /installing-sap-commerce-for-tua-spartacus-1-3/
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 1.2"
+                        url: /installing-sap-commerce-for-tua-spartacus-1-2/
+                - title: "Building the TUA Storefront from libraries ➢"
+                  url: /building-the-tua-storefront-from-libraries/
+                  underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 1.3 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-1-3/
+                      - title: "Building the TUA Spartacus Storefront using 1.2 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-1-2/ 
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
