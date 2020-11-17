@@ -24,7 +24,7 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
-- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **Disclaimer - Forward-Looking Statements**
 
@@ -42,9 +42,9 @@ What's new?
 
 While it can be hard to pinpoint precisely how much your electric and water bill will cost each month, the Cost Estimation feature helps provide an indication as to the average monthly bill for a given product offering based on the anticipated consumption provided by a customer.  Leveraging the anticipated usage provided by a customer, the estimated monthly and annual cost for applicable product offerings can be presented to the customer.
 
-- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})
+- [Journey Management - Serviceability (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %})
 
-Customers interested in acquiring product offerings, such as commodity items (for example,  electricity or gas) need to have an availability check of the premise details. As an  example, the premise address and meter id is needed to conduct a serviceability check for a commodity product offering.  For more information, see [Serviceability example](https://help.sap.com/viewer/DRAFT/d28406c672ff4cbca70dfb4b5748f8d8/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
+Customers interested in acquiring product offerings, such as commodity items (for example,  electricity or gas) need to have an availability check of the premise details. As an  example, the premise address and meter id is needed to conduct a serviceability check for a commodity product offering.  For more information, see [Serviceability example](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
 ## Release 1.2
 
