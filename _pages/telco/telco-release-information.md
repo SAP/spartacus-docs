@@ -7,7 +7,7 @@ title: Release Information for TUA Spartacus Libraries
 ## Release Contents
 
 - [Introduction](#introduction)
-- [Release 1.3](#release-12)
+- [Release 1.3](#release-13)
 - [Release 1.2](#release-12)
 - [Release 1.1](#release-11)
 - [Release 1.0](#release-10)
@@ -19,7 +19,7 @@ title: Release Information for TUA Spartacus Libraries
 
 This document describes what is included in all Spartacus 1.x libraries since 1.0.
 
-**Note:** Spartacus 1.x requires Angular 8. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link_pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
+**Note:** Spartacus 1.x requires Angular 8. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
@@ -38,11 +38,11 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 
 What's new?
 
-- [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})-->
+- [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
 
 While it can be hard to pinpoint precisely how much your electric and water bill will cost each month, the Cost Estimation feature helps provide an indication as to the average monthly bill for a given product offering based on the anticipated consumption provided by a customer.  Leveraging the anticipated usage provided by a customer, the estimated monthly and annual cost for applicable product offerings can be presented to the customer.
 
-- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})-->
+- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})
 
 Customers interested in acquiring product offerings, such as commodity items (for example,  electricity or gas) need to have an availability check of the premise details. As an  example, the premise address and meter id is needed to conduct a serviceability check for a commodity product offering.  For more information, see [Serviceability example](https://help.sap.com/viewer/DRAFT/d28406c672ff4cbca70dfb4b5748f8d8/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
