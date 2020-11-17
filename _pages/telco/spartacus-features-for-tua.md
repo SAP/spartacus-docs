@@ -7,7 +7,7 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 ## Release 1.3
 
 - [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
-- [Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})
+- [Journey Management - Premise Validation with Meter ID]({{ site.baseurl }}{% link _pages/telco/premise-validation.md %})
 
 ## Release 1.2
 
