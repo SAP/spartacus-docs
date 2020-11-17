@@ -2,11 +2,12 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated October 28, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated November 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ## Release Contents
 
 - [Introduction](#introduction)
+- [Release 1.3](#release-13)
 - [Release 1.2](#release-12)
 - [Release 1.1](#release-11)
 - [Release 1.0](#release-10)
@@ -18,18 +19,32 @@ title: Release Information for TUA Spartacus Libraries
 
 This document describes what is included in all Spartacus 1.x libraries since 1.0.
 
-**Note:** Spartacus 1.x requires Angular 8. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}).
+**Note:** Spartacus 1.x requires Angular 8. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
-- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **Disclaimer - Forward-Looking Statements**
 
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 1.3
+
+*Release 1.3.0 libraries published November 11, 2020*
+
+What's new?
+
+- [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
+
+While it can be hard to pinpoint precisely how much your electric and water bill will cost each month, the Cost Estimation feature helps provide an indication as to the average monthly bill for a given product offering based on the anticipated consumption provided by a customer.  Leveraging the anticipated usage provided by a customer, the estimated monthly and annual cost for applicable product offerings can be presented to the customer.
+
+- [Journey Management - Serviceability (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %})
+
+Customers interested in acquiring product offerings, such as commodity items (for example,  electricity or gas) need to have an availability check of the premise details. As an  example, the premise address and meter id is needed to conduct a serviceability check for a commodity product offering.  For more information, see [Serviceability example](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
 
 ## Release 1.2
 
@@ -100,13 +115,13 @@ Provide greater customer experiences by providing product offerings to customers
 - To use all functionality in Spartacus 2.*, release 2005 of SAP Commerce Cloud and 2007 of Telco & Utilities Accelerator is required.
 - The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus
 
-## Upgrading Spartacus Libraries to a New Minor Version
+## Upgrading TUA Spartacus Libraries to a New Minor Version
 
-You can upgrade your Spartacus libraries to a new minor version, as follows:
+You can upgrade your TUA Spartacus libraries to a new minor version, as follows:
 
-1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. In `package.json`, set your `@spartacus` libraries to `“~1.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-   If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
+   If you are upgrading from 1.x to the latest 1.3 release, in `package.json`, set your `@spartacus` libraries to `“~1.3.0"`.
 
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
