@@ -1,5 +1,5 @@
 ---
-title: Building the Spartacus Storefront from Libraries
+title: Building the TUA Spartacus Storefront from Libraries
 ---
 
 The following instructions describe how to build a TUA storefront application using published TUA Spartacus libraries
