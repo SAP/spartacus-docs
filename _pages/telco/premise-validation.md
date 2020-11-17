@@ -1,5 +1,5 @@
 ---
-title: Premise Validation
+title: Journey Management - Serviceability (Premise Details)
 ---
 
 {% capture version_note %}
@@ -11,48 +11,40 @@ title: Premise Validation
 ## Contents
 
 - [Overview](#overview)
-- [Prerequisite](#prerequisite)
-- [Business Use Case](#business-use-case)
+- [Prerequisites](#prerequisites)
+- [Specific Business Use Case](#specific-business-use-case)
 - [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
 - [Configuring and Enabling Premise Validation](#configuring-and-enabling-premise-validation)
 - [Components](#components)
 - [Further Reading](#further-reading)
 
 ## Overview
-With this feature, customers are able to purchase Product Offerings requiring serviceability check first for premise details (installation address and meter ID). Customers need to provide premise details such as installation address and a meter id. The serviceability API performs the availability check of the offering at the premise provided by the customer.
 
-## Prerequisite
+With this feature, customers are able to purchase Product Offerings that require a serviceability check to validate if the product offering is available for service at a given premise. As part of the purchase flow, customers will need to provide premise details including the premise address and meter id. The serviceability API performs the availability check of the offering at the premise location provided by the customer.
 
-1. System performing the serviceability check for premise details should be up and running (for demo purposes, mock service can be used). 
-    -   Starting the mock service (only for demo purposes) 
+## Prerequisites
+
+1. The system performing the serviceability check for premise details should be up and running (for demonstration purposes, a mock service can be used). 
+    -   To start the mock service (for demonstration purposes only) 
         -   Download SOAP UI 5.6.0 (or the version compatible with your Operating System)
         -   Download the ‘mock_services’ ZIP
         -   Import the TmuMockService-soapui-project.xml in SOAP UI
         -   Start the mock service ('Start minimized')
-        -   Once Mock Service is up and running you can demo premise validation feature by using a valid address from the ones defined in the mock      
+        -   Once the mock service is up and running, you can demo premise validation feature by using a valid address from the ones defined in the mock      
 
-**Note:** This mock service is not recommended for production environments as its purpose is exclusively for demo purposes.
+**Important Note:** The mock service is **not recommended** for production environments as it is used exclusively for demonstration purposes only.
 
-## Business Use Case
+## Specific Business Use Case
 
--   Display view details instead of add to cart in Product Listing Page (PLP) for a specific type of POs:
-    -   On PLP, for the customer, the **View details** button will be displayed instead of the  **Add to cart** button
--   Purchase PO requiring availability check starting from Product Details Page:
-    -   Customer lands on the PDP page of a PO requiring availability check. The **Availability Check** button is displayed in the PDP page.
-    -   When the customer checks for the availability of the PO, the customer is requested to provide the premise details (address and meter ID). In order to have the premise details displayed for the customer, the PO must have the installation address and meter ID checklist actions defined for it.
-    -   Availability check is performed against the provided premise details.
-    -   Once premise details are provided, which is also displayed in the page, the customer has the option to update them and perform the check again.
-    -   Once the premise details are valid, the customer is able to choose the desired purchase option (**Moving** or **Switching Suppliers**). The default option is **Moving**.
-    -   **Moving** purchase option enables customer to provide the desired contract start date.
-    -   **Switching Suppliers** purchase option enables customer to provide the desired contract change date and the name of the old supplier.
-    -   Once the availability of the PO, for the provided premise details, is confirmed, the customer will be able to purchase the PO.
+A company wants to bring a new product offering to market and is rolling-out the product logistically as it requires installation. A customer lands on the storefront and is interested in purchasing this new product offering. The customer clicks the product offering to learn more. The customer wants to see if the product is available for purchase at his home. The customer proceeds to check the availability and provides his premise details including premise address and meter id. A serviceability check is executed to validate the information. 
 
+If successful, the customer needs to indicate whether moving in or switching suppliers. If the customer is moving in, a desired contract start date is needed. If the cusotmer is switching suppliers, the customer will need to provide the name of the previous service provider along with their desired contract start date. Once this is completed, the product offering can be added to the cart. The premise details, contract start date, and previous service provider information can be edited from the cart, and validations will be executed again.
 
 ## Frontend and Backend Dependencies
 
 | Dependency                                	| Detail                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
-| Spartacus                                     	| Spartacus libraries, version 1.5                                          	|
+| Spartacus                                     	| 1.x, < 2.0                                          	|
 | Telco & Utilities Accelerator	             	| Version 2003 (latest patch)            	|
 | SAP Commerce 	| Version 1905 (latest patch) 	|
 
@@ -60,20 +52,26 @@ With this feature, customers are able to purchase Product Offerings requiring se
 
 | Configuration             		   | Type: SPA or Backend  | Details                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| Define checklist actions for POs           | Backend | POs requiring premise details at the time of purchase should have the following checklist actions defined for them in Commerce platform such as Installation Address, Meter ID, Contract Start Date, and Previous Service Provider.                                                                          														  |
-| **View details** instead of **Add to cart**	           | SPA     | Adding a new product type for which this button has to be displayed, the product spec has to be part of the following config list.  	  |
-| **Check availability** button in PDP		   | SPA     | Check availability button is displayed for those product types for which the product spec is part of the following config list (and for those that have the previous checklist actions defined).                                                                                      												  |
-| Configure check availability URL       | SPA     | Availability check URL is configured in the corresponding premise lookup `config.ts` file.
+| Define checklist actions for Product Offerings           | Backend | Commodity Product Offerings requiring premise details at the time of purchase should have the checklist actions defined for them in the TUA Commerce platform.                                                                          														  |
+| **View details** instead of **Add to cart**	           | SPA     | Adding a new product type for which this button has to be displayed, the product specification has to be part of the configuration list.  	  |
+| **Check availability** button in Product Details Page		   | SPA     | Check availability button is displayed for those product types for which the product specification is part of the configuration list (and for those that have the previous checklist actions defined).                                                                                      												  |
+| Configure check availability URL       | SPA     | The availability check URL is configured in the corresponding premise lookup `config.ts` file.
 
 
--   **View details** instead of **Add to cart**: Config list
+-   Define checklist actions for Product Offerings:
+    -   Installation Address - Requires the customer to provide the premise address
+    -   Meter ID - Requires the customer to provide a gas or electric meter id
+    -   Desired Contract Start Date - Requires customers to provide their desired contract start date
+    -   Previous Service Provider - Requires the customer to provide the name of the previous service provider
+
+-   **View details** instead of **Add to cart**: Configuration list
  ```typescript
 productSpecificationForViewDetails: {
    'electricity',
         'gas'
 }
 ```
--   **Check availability** button in PDP: Config list
+-   **Check availability** button in PDP: Configuration list
  ```typescript
 productSpecificationForViewDetails: {
    'electricity',
@@ -94,7 +92,7 @@ backend: {
 
 | Component   Name             		   | Status  | Description                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Premise Details Components**           | 	     | Displays of premise details, contract start date and previous service provider, and also availability checks are accommodated in a set of premise details specific components.                                                                          														  |
+| **Premise Details Components**           | 	     | Display of premise details, desired contract start date, and previous service provider. Also availability checks are accommodated in a set of premise details specific components.                                                                          														  |
 | PremiseDetailsComponent	           | New     |  	  |
 | PremiseDetailsFormComponent		   | New     |                                                                                      												  |
 | PremiseDetailsDisplayComponent       | New     |
@@ -107,11 +105,11 @@ backend: {
 | TmaCartItemComponent		           | Updated | 																			  |
 | TmaCartItemListComponent	           | Updated |    										  |
 | TmaMiniCartComponent		           | Updated | 	  |
-| **Order Components**			       |	     | 	Order components are updated to accommodate display of premise details, contract start date, and previous service provider stored in an order item.																																  |
+| **Order Components**			       |	     | 	Order components are updated to accommodate display of premise details including the desired contract start date and previous service provider. Both are stored on the order item.																																  |
 | TmaOrderConfirmationItemsComponent   | Updated | 																																	  |
 | TmaOrderDetailItemsComponent         | Updated | 																																	  |
 | TmaReviewSubmitComponent	           | Updated | 																																	  |
-| **Product Components**		           |  | If POs require availability check, product components display **View Details** button instead of **Add To Cart** button that redirects customers to the Product Details Page.																																	  |
+| **Product Components**		           |  | In case the product offering type is part of the corresponding configuration for **View Details** button instead of **Add to Cart** then the customer will be redirected to Product Details Page instead of directly adding to the cart.																																	  |
 | TmaProductGridItemComponent          | Updated | 	                                  |
 | TmaProductListItemComponent          | Updated | 	  |
 | TmaProductSummaryComponent           | Updated | 																																	  |
@@ -122,14 +120,14 @@ backend: {
 Cart components are updated to accommodate display and selection of purchase flow data and actions such as:
 
 -   Displays additional information stored on cart items:
-    -   Contract start date
-    -   Old supplier name
-    -   Installation address
+    -   Installation Address
     -   Meter ID
--   Option for customers to select within desired actions:
-    -   Moving in: This is the default purchase option of any of the commodity items in the cart.
-    -   Switch supplier: Selection of switch supplier option displays an input field where customers can provide the old supplier name.
--   Updates premise details for a cart item: Installation address and meter ID can be updated for each cart item directly from shopping cart. Once the customer opts in for updating them, the new premise details are first validated and then updated for the cart item.
+    -   Desired Contract start date
+    -   Previous Service Provider   
+-   Additional customer indicators: 
+    -   Moving In - Default purchase option for this type of commodity product offering in the cart
+    -   Switch supplier - Selection of switch supplier option displays an additional text input field for customers to enter name of the supplier they are switching from
+-   Update of premise details for a cart item: Premise details include installation address and meter Id. This information can be updated for each cart item directly from the shopping cart. If the customer decides to update this information, the new premise details will be validated first and then updated for the cart item.
 
 ## Further Reading
 
