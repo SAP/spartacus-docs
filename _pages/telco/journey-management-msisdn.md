@@ -27,8 +27,10 @@ As a result of Journey Management configuration, some product offerings may be d
 
 ## Prerequisite
 
-To test this feature using a mock service, follow the instructions for soapUI:
- 
+To test this feature using a mockup service, follow the instructions to set-up soapUI. Ensure that the MSISDN system is always up and running.
+
+**Note:** The mockup service is not recommended for the production environments as it is intended only for demonstration purpose.
+
 1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
 2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services.zip` file.
 3. Extract the `mock_services.zip` file. The content of the ZIP when extracted is the `Resource_Pool_Management_API.xml` file.
