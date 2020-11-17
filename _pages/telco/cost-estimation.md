@@ -11,11 +11,12 @@ title: Cost Estimation
 ## Contents
 
 - [Overview](#overview)
-- [Prerequisite](#prerequisite)
-- [Business Use Case](#business-use-case)
+- [Prerequisites](#prerequisites)
+- [Business Use Cases](#business-use-cases)
 - [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
 - [Configuring and Enabling Cost Estimation](#configuring-and-enabling-cost-estimation)
 - [CMS Component Configuration for Anticipated Consumption](#cms-component-configuration-for-anticipated-consumption)
+- [Attributes](#attributes)
 - [Components](#components)
 - [Further Reading](#further-reading)
 
@@ -23,9 +24,9 @@ title: Cost Estimation
 
 This feature determines and displays the average cost for a product offering considering the provided yearly consumption entered by a customer. 
 
-Certain types of product offerings (that is commodity products - electricity and gas) are charged by consumption.  In order for the customers to get an idea of how much these type of product offerings could potentially cost them on a monthly or yearly basis, customers need to provide additional information regarding their anticipated usage. Once the customer enters their anticipated annual consumption information, the search result list of all applicable product offerings are displayed.
+Certain types of product offerings (i.e. commodity products - electricity and gas) are charged by consumption.  In order for customers to get an idea of how much these type of product offerings could potentially cost them on a monthly or yearly basis, customers will need to provide additional information regarding their anticipated usage. Once the customer enters their anticipated annual consumption information, the search result list of all applicable product offerings are displayed.
 
-Customers are able to view the average cost that each of the product offerings would cost them based on their anticipated usage. Additional pricing-related information for each product offering is available by expanding the offering. The products shown in the search result list must be properly configured for this scenario and have prices defined for maximum 1 usage unit (such as kWh, cubic meter and so on). The **Average Cost** for a product offering is determined using the following algorithm:
+Customers are able to view the average cost that each of the product offerings would cost them based on their anticipated usage. Additional pricing-related information for each product offering is available by expanding the offering. The products shown in the search result list must be properly configured for this scenario and have prices defined for maximum 1 usage unit (such as kWh, cubic meter etc). The **Average Cost** for a product offering is determined using the following algorithm:
 
 **Average Cost / Year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 
@@ -33,36 +34,36 @@ Customers are able to view the average cost that each of the product offerings w
 
 **IMPORTANT NOTES:**
 
-1. Average cost is determined using the algorithm presented in the above illustration. The calculation works with simple price information, such as one-time charges, recurring charges and usage charges, for which the price has a fixed value and not a complex price formula.
+1. Average Cost is determined using the algorithm presented in the above illustration. The calculation works with simple price information, such as one-time charges, recurring charges, and usage charges, for which the price has a fixed value and not a complex price formula.
 
-2. Average cost is determined for those product offerings that have prices defined **for a maximum of 1 usage unit**. In case the product offering has prices defined for more than 1 usage unit, the average cost cannot be properly determined, case in which it will not be displayed. Please see the following illustration.
+2. Average Cost is determined for those product offerings that have prices defined **for a maximum of 1 usage unit**. In case the product offering has prices defined for more than 1 usage unit, the average cost cannot be properly determined, case in which it will not be displayed. Please see the following illustration.
 
 <p align="center"><img src="/assets/images/telco/average-cost-algorithm_2.png"></p>
 
 
-## Prerequisite
+## Prerequisites
 
-1. Product offerings for which the average cost has to be calculated and displayed must have prices defined for maximum 1 usage unit (kWh, minutes, sms and so on).
+1. Product offerings for which the average cost has to be calculated and displayed must have prices defined for maximum 1 usage unit (kWh, minutes, sms, etc).
 2. CMS components must be properly defined in the CMS system (in our case in SAP Commerce, in the content catalog).
 
-## Business Use Case
+## Business Use Cases
 
 **Use Case 1:   Discover product offerings by consumption from homepage**
 
-Customer lands on the homepage and is able to search for product offerings by consumption.  Customer selects the desired option for gas or electricity and provides their annual consumption manually in the consumption input area. Alternatively, if a customer does not provide a value, a default value will be taken into consideration. Customer conducts the search, and search results with list of product offerings are presented.  For each product offering, the customer is able to see the average cost that was calcuated using their provided input.  For each product offering listed, the customer has the option to expand the row and view additional pricing-related information including the contract duration, one-time charges, recurring charges, and usage-based charges.  From the search results page or from the product details page, the customer has the ability to re-calculate the costs using a different anticipated consumption value.
+Customer lands on the homepage and is able to search for product offerings by consumption.  Customer selects the desired option for gas or electricity and provides the annual consumption manually in the consumption input area. Alternatively, if a customer does not provide a value, a default value will be taken into consideration. Customer conducts the search, and search results with list of product offerings are presented. For each product offering, the customer is able to see the average cost that was calcuated using the provided input. For each product offering listed, the customer has the option to expand the row and view additional pricing-related information including the contract duration, one-time charges, recurring charges, and usage-based charges. From the search results page or from the Product Details Page, the customer has the ability to re-calculate the costs using a different anticipated consumption value.
 
 **Use Case 2:   Customer lands on category page**
 
-Customer accesses a category page (in this use case example, a commodity category of either electricity or gas).  As a result, the customer lands on the product listing page displaying the product offerings in that category.  If the cusotmer has not yet provided any personal consumption usage criteria, each offering shown will display pricing information based on the default value.   Customer will be able to view additional pricing-related information, view the details of a selected product offering or change the consumption criteria.
+Customer accesses a category page (in this use case example, a commodity category of either electricity or gas).  As a result, the customer lands on the product listing page displaying the product offerings in that category.  If the customer has not yet provided any personal consumption usage criteria, each offering shown will display pricing information based on the default value.   Customer will be able to view additional pricing-related information, view the details of a selected product offering or change the consumption criteria.
 
 **Use Case 3:   Content Manager defines the CMS components enabling customers to search by consumption in backoffice tools**
 
-A content manager wants to define and enable the cost estimation feature.  The content manager accesses the backoffice to create the necessary components including:
+A Content Manager wants to define and enable the cost estimation feature.  The Content Manager accesses the Backoffice to create the necessary components including:
 -   Component of type `SliderOptionComponent`
--   Component of type `PoSearchByConsumptionComponent` (note: Slider option components part of a `PoSearchByConsumptionComponent` are selected within the list of the  `SliderOptionComponent` objects)
--   Component of type `ConsumptionListComponent` (note: Search by consumption components part of a `ConsumptionListComponent` are selected within the list of the `PoSearchByConsumptionComponent` objects)
+-   Component of type `PoSearchByConsumptionComponent` (**Note:** Slider option components part of a `PoSearchByConsumptionComponent` are selected within the list of the  `SliderOptionComponent` objects)
+-   Component of type `ConsumptionListComponent` (**Note:** Search by consumption components part of a `ConsumptionListComponent` are selected within the list of the `PoSearchByConsumptionComponent` objects)
 
-Content manager updates the homepage by including the desired `ConsumptionListComponent` objects in the corresponding slot.
+Content Manager updates the homepage by including the desired `ConsumptionListComponent` objects in the corresponding slot.
 
 ## Frontend and Backend Dependencies
 
@@ -77,11 +78,11 @@ Content manager updates the homepage by including the desired `ConsumptionListCo
 | Configuration             | Type: SPA or Backend  | Details                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
 | Define discover by consumption CMS components           | Backend (CMS) | Define corresponding discovery by consumption CMS components such as Consumption components and Slider option components.                                                                                   |
-| Configure default consumption values for PO types and usage units              | SPA     | Customer consumption preferences are saved in `localStorage`. If customer is visiting the website for the first time or `localStorage` is emptied, default values that can be configured are used. In case the customer has provided a preferred consumption through the Consumption Component, it will be saved in the `localStorage` and that value will be used to calculate average cost.                                                                            |
+| Configure default consumption values for PO types and usage units              | SPA     | Customer consumption preferences are saved in `localStorage`. If the customer is visiting the website for the first time or `localStorage` is emptied, default values that can be configured are used. In case the customer has provided a preferred consumption through the Consumption Component, it is saved in the `localStorage` and that value is used to calculate average cost.                                                                            |
 
 Configure default consumption values for PO types and usage units: Consumption values are stored based on the product specification of the product offering and the `usageUnit` in the following format:
 
-    ```sql
+    ```
     consumption_<productSpecification>_<usage_Unit> : <value>
     ```
 
@@ -107,12 +108,12 @@ consumption: {
 
 ## CMS Component Configuration for Anticipated Consumption
 
-The content manager will create CMS components for consumption (defined in `b2ctelcoaddon`). This is the list of CMS components that a content manager would need to define in CMS to enable the cost estimation feature.
+The Content Manager creates CMS components for consumption (defined in `b2ctelcoaddon`). This is the list of CMS components that a Content Manager would need to define in CMS to enable the cost estimation feature.
 
 | Component   Name             | Description  | Component Structure                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| SliderOptionComponent           | CMS component representing the predefined value and media associated to it defining a consumption option. A sample list of `SliderOptionComponent` objects is listed below: - 1000 kwh    | It extends `SimpleCMSComponent`.                                                                                   See [Attributes](#attributes)|
-| PoSearchByConsumptionComponent              | CMS component defining a list of consumption options available for a specific usage unit, consumed in a specific amount of time and applicable to a specific type of POs.     | It extends `SimpleCMSComponent`.            See [Attributes](#attributes)                                                               |
+| SliderOptionComponent           | CMS component representing the predefined value and media associated to it defining a consumption option. See the sample list of `SliderOptionComponent` objects listed below the following table.     | It extends `SimpleCMSComponent`.                                                                                   See [Attributes](#attributes)|
+| PoSearchByConsumptionComponent              | CMS component defining a list of consumption options available for a specific usage unit, consumed in a specific amount of time and applicable to specific type of POs.     | It extends `SimpleCMSComponent`.            See [Attributes](#attributes)                                                               |
 | ConsumptionListingComponent        | CMS component defining a list of `PoSearchByConsumptionComponent` objects.        | It extends `SimpleCMSComponent`.  See [Attributes](#attributes)                                                                                    |
 
 **SliderOptionComponent - Sample List**
@@ -156,7 +157,9 @@ Examples of how components can be defined in CMS as sample data:
 
 **SliderOptionComponent components**
 
-Electricity-specific slider option components
+Detailed sample data
+
+Electricity specific slider option components
 
 | Component UID                                	| Name                                                 	| Value                                                 	| Media                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
@@ -178,6 +181,8 @@ Gas-specific slider option components
 
 **PoSearchByConsumptionComponent components**
 
+Detailed sample data
+
 Electricity search by consumption components
 
 | Component UID                                	| Name                                                 	| Product specification                                                 	| Usage Unit                                                 	| Billing Frequency                                                 	| Slider option components                                                 	|
@@ -192,6 +197,8 @@ Gas search by consumption components
 
 **ConsumptionListingComponent components**
 
+Detailed sample data
+
 Consumption listing component for electricity and gas
 
 | Component UID                                	| Name                                                 	| Search by consumption components                                                 	| 
@@ -200,7 +207,7 @@ Consumption listing component for electricity and gas
 
 ## Components
 
-The following new and updated components must be enabled in the TUA backoffice to appear on the Spartacus TUA storefront:
+The following new and updated components must be enabled in the TUA Backoffice to appear on the Spartacus TUA storefront:
 
 | Component   Name             | Status  | Description                                                                                                                        |
 |--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -218,5 +225,6 @@ The following new and updated components must be enabled in the TUA backoffice t
 
 ## Further Reading
 
-For more information, see [TUA Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html).
+For further reading, see the following topic in the TUA Help portal:
+-   [TUA Pricing](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/ad4430d10fc3477096752d83f935faf9.html).
 
