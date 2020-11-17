@@ -2,7 +2,7 @@
 title: Roadmap for TUA Spartacus
 ---
 
-*Last updated October 28, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated November 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 This document describes what is planned for TUA Spartacus for Q4 2020 and later.
 
@@ -10,8 +10,7 @@ Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Features Planned for Version 1.3 / Q4 2020](#features-planned-for-version-13--q4-2020)
-- [Features Planned for Version 2.0 / Q4 2020](#features-planned-for-version-20--q4-2020)
+- [Features Planned for Version 2.0 / Q4-2020 and into Q1-2021](#features-planned-for-version-20--q4-2020-and-into-q1-2021)
 - [Future Outlook / Features Planned for 2021 and Later](#future-outlook--features-planned-for-2021-and-later)
 
 ### Disclaimer - Forward-Looking Statements
@@ -35,16 +34,9 @@ When new features are available for release, normally we will publish a pre-rele
 
 ### Questions?
 
-If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). 
+If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
 
 For non-technical questions and roadmap feedback, you can reach us on our dedicated #help-tua [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU).
-
-## Features Planned for Version 1.3 / Q4 2020
-
-### B2C Storefront Features Planned
-
-- **Premise Validation with Meter ID** 
-- **Cost Estimation**
 
 ## Features Planned for Version 2.0 / Q4 2020
 
@@ -61,30 +53,30 @@ Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA
 ### Journey Management
 
 - **SPO Serviceability** - for more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html)
-- **Category Level Serviceability** 
+- **Category Level Serviceability** - for more information, see [To Do](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html)
 
 ### Retention Process Flows
 
 - **Contract Renewal** - for more information, see [Eligibility Policy in Action](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/341e50fcd20149d68735656c5c1b1fff.html)
 - **Tariff Change - Upgrade** - for more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html)
 - **Tariff Change - Upsell** - for more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
-- **Cross-selling (Add-Ons)**
+- **Cross-selling (Add-Ons)** - for more information, see [To Do](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
 
 ### Architecture Features
 
-- Angular 9 upgrade / Spartacus 2.0 
+- Angular 9 upgrade / Spartacus 2.0
     
 ## Future Outlook / Features Planned for 2021 and Later
 
-The items in this section are on our future roadmap - not necessarily yet planned for a specific quarter.
+The items in this section are on our future roadmap, not necessarily yet planned for a specific quarter.
 
-Some features require new OCC REST APIs, not yet planned and still considered TBD.
+Some features require new OCC REST APIs, not yet planned and still considered to be done.
 
 ### B2C storefront features planned for 2.0
 
-- **Price Alteration Credits** 
-- **PSCV pricing** for more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/a37d0f967d2c49d38314b328753c143e.html)
-- **Grid pricing on Cart, Checkout and Order** for more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
+- **Price Alteration Credits** - for more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2011/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html)
+- **PSCV pricing** - for more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/9835174fd3b94550b41f0b72b5269231.html)
+- **Grid pricing on Cart, Checkout, and Order** - for more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
 - **Automatic Cart Assignments**
 - **Policy Based Pricing**
 
