@@ -30,7 +30,7 @@ Customers are able to view the average cost that each of the product offerings w
 
 **Average Cost / Year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/average-cost-algorithm.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/Telco/average-cost-algorithm.png"></p>
 
 **IMPORTANT NOTES:**
 
@@ -38,7 +38,7 @@ Customers are able to view the average cost that each of the product offerings w
 
 2. Average Cost is determined for those product offerings that have prices defined **for a maximum of 1 usage unit**. In case the product offering has prices defined for more than 1 usage unit, the average cost cannot be properly determined, case in which it will not be displayed. Please see the following illustration.
 
-![average cost algorithm 2]({{ site.baseurl }}/assets/images/telco/average-cost-algorithm_2.png)
+![average cost algorithm 2]({{ site.baseurl }}/assets/images/Telco/average-cost-algorithm_2.png)
 
 ## Prerequisites
 
@@ -162,7 +162,7 @@ Electricity specific slider option components
 
 | Component UID                                	| Name                                                 	| Value                                                 	| Media                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
-| OnePersonElectricitySliderOption                                     	| 1 person/ 1000 kwh                                          	|1000                                     	|<img src="/assets/images/telco/electric-specific-slider-option-comp-1.png">                                     	|
+| OnePersonElectricitySliderOption                                     	| 1 person/ 1000 kwh                                          	|1000                                     	|<img src="/assets/images/Telco/electric-specific-slider-option-comp-1.png">                                     	|
 | TwoPersonElectricitySliderOption             	| 2 person/ 2000 kwh           	|2000                                     	|<img src="/assets/images/telco/electric-specific-slider-option-comp-2.png">                                     	|
 | ThreePersonElectricitySliderOption 	| 3 person/ 3500 kwh 	|3500                                     	|<img src="/assets/images/telco/electric-specific-slider-option-comp-3.png">                                     	|
 | FourPersonElectricitySliderOption                                     	| 4 person/ 6000 kwh                                          	|6000                                     	|<img src="/assets/images/telco/electric-specific-slider-option-comp-4.png">                                     	|
