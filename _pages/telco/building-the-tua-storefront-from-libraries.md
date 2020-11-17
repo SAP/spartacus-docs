@@ -2,7 +2,7 @@
 title: Building the TUA Spartacus Storefront from Libraries
 ---
 
-The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.x libraries.
+The following instructions describe how to build a TUA storefront application using published TUA Spartacus 1.2 libraries. 1.0 libraries are not used when you use 1.2 libraries
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
@@ -32,7 +32,7 @@ To update existing installations, use `brew upgrade` instead of `brew install`.
 
 **Note:** 
 
-- If you have a later version of node.js installed in addition to v10, you can set v10 to be used with the following command: 
+- If you have a later version of node.js installed in addition to v10, you can set v10 to be used with the following command:
 `brew link --force --overwrite node@10`.
 - Installing Homebrew and the prerequisites is beyond the scope of this document. You can also install the prerequisites using their individual installers.
 
@@ -86,13 +86,13 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
       To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
 
       ```typescript
+
       import { BrowserModule } from '@angular/platform-browser';
       import { NgModule } from '@angular/core';
       import { AppComponent } from './app.component';
       import { translationChunksConfig, translations } from '@spartacus/assets';
       import { ConfigModule } from '@spartacus/core';
       import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
-
 
       @NgModule({
         declarations: [
@@ -117,15 +117,11 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
               tmf_appointment: {
                 baseUrl: 'http://localhost:8080',
                 prefix: '/tmf-api'
-              },
-              premiseLookup: {
-                baseUrl: 'http://localhost:9003',
-                prefix: '/premise/v1/'
               }
             },
             context: {
               urlParameters: ['baseSite', 'language', 'currency'],
-              baseSite: ['telcospa', 'utilitiesspa']
+              baseSite: ['telcospa']
             },
             i18n: {
               resources: translations,
@@ -138,18 +134,17 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             },
             journeyChecklist: {
               journeyChecklistSteps: ['APPOINTMENT', 'MSISDN'],
-              msisdn_reservation: {
-                msisdn_qty: 1,
-                msisdn_capacity_amount_demand: 1,
-                msisdn_applied_capacity_amount: 5,
-                applied_capacity_amount_for_msisdn_reservation: 1,
-              },
+                msisdn_reservation: {
+                    msisdn_qty: 1,
+                    msisdn_capacity_amount_demand: 1,
+                    msisdn_applied_capacity_amount: 5,
+                    applied_capacity_amount_for_msisdn_reservation: 1,
+                },
               appointment: {
-                requested_number_of_timeslots: 5,
-                end_date_of_timeslots: 3,
+                  requested_number_of_timeslots: 5,
+                  end_date_of_timeslots: 3,
+                },
               },
-            },
-
           }),
           ConfigModule.withConfig({
             i18n: {
@@ -161,6 +156,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
         bootstrap: [AppComponent]
       })
       export class AppModule { }
+
       ```
 
 2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
@@ -182,22 +178,20 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@ngrx/router-store": "~8.3.0",
     "@ngrx/store": "~8.3.0",
     "ngx-infinite-scroll": "^8.0.0",
-    "ngx-spinner": "^8.0.3",
     "bootstrap": "4.2.1",
     "i18next": "^15.0.6",
     "i18next-xhr-backend": "^2.0.1",
     "material-design-icons": "^3.0.1",
-    "ng2-charts": "^2.3.2",
-    "chart.js": "^2.9.3",
-    "rxjs": "~6.4.0",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.9.1",
 
     "@spartacus/core": "~1.5.0",
     "@spartacus/styles": "~1.5.0",
     "@spartacus/storefront": "~1.5.0",
     "@spartacus/assets": "~1.5.0",
-    "@spartacus/tua-spa": "~1.3.0",
+    "@spartacus/tua-spa": "~1.2.0",
+    "ng2-charts": "^2.3.2",
+    "chart.js": "^2.9.3",
+    "ngx-spinner": "^8.0.3"
+
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.9.1"` so you need to add a comma after `0.9.1"`.
@@ -221,12 +215,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    yarn start
    ```
   
-8. Make sure your backend server is up and running (SAP Commerce with TUA).
-
-9. Your client application is accessible at the following locations in your local environment:
-
-   - **Telco application:** http://localhost:4200/telcospa/en/USD/
-   - **Utilities application:** http://localhost:4200/utilitiesspa/en/USD/
+8. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
 
 **Note:**
 
