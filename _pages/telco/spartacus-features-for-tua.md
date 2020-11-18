@@ -4,6 +4,11 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 1.3
+
+- [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
+- [Journey Management - Serviceability (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %})
+
 ## Release 1.2
 
 - [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %})

@@ -1,5 +1,5 @@
 ---
-title: Building the Spartacus Storefront using 2.x Libraries
+title: Building the Spartacus Storefront Using 2.x Libraries
 ---
 
 The following instructions describe how to build a storefront application using published Spartacus 2.x libraries. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
@@ -94,7 +94,7 @@ yarn start
 
 Your app will be compiled and then started.
 
-To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data Addon, the Spartacus storefront for Electronics should appear.
+To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data extension, the Spartacus storefront for Electronics should appear.
 
 Note: If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/rest/v2/electronics/cms/pages`, and then accept the privacy certificate. This step is necessary because your browser will block calls to app will make calls to localhost:9002 due to security settings. To see the browser message, right-click in your browser, select Inspect, then click Console.
 

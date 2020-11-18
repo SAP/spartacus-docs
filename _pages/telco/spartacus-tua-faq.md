@@ -6,7 +6,7 @@ This document compiles frequently-asked or interesting questions related to telc
 
 This document also cover a wide array of questions as a service to customers, stakeholders, and others who are seeking information regarding TUA Spartacus. We hope you find what you’re looking for.
 
-If you have technical questions and want to contribute your questions in this document, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+If you have technical questions and want to contribute your questions in this document, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **What is Telco & Utilities Accelerator?**
 
