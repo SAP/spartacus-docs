@@ -412,24 +412,19 @@ Express checkout is now ready. The only steps that remain are to create express 
 
 ## B2B Checkout
 
-The Spartacus B2B, the checkout, reuses the same steps as in B2C with the addition of the "Method of Payment" step. The added steps allow users to select if they want to pay using a credit card or by using an account. Additionally, the method of payment step contains the input to enter an optional PO number.
+In the Spartacus B2B storefront, the checkout includes the same steps as the B2C storefront, with the addition of a step for selecting the payment method. This step allow you to choose if you want to pay with an account or with a credit card, and also allows you to enter an optional PO number.
 
-### Credit card payment
+With the credit card payment option, the B2B checkout is configured to work the same as the B2C checkout.
 
-When a user selects the credit card payment option, Spartacus is configured to work in the same way for B2B as it does for B2C.
+With the account payment option, you can only select the addresses of cost centers that you are assigned to as a purchaser. Also, when you select the account payment option, it allows you to skip the payment details step.
 
-### Account payment
+### Known Issues
 
-When a user selects the account option for payment, he will only be able to select the addresses assigned to one of the cost centers he is a purchaser of. Additionally, he will not have to go through the payment method step.
+When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using `spartacussampledata` version 3.0.0 or newer, and that you are using SAP Commerce Cloud 2005 or newer.
 
-### Known issues
+If you only want to add the payment method step, you can do so by running the following ImpEx:
 
-When clicking proceed to checkout, if the screen is blank and seems stuck loading. It means you are missing the "Method of Payment" step in from your CMS.
-Make sure you are using SpartacusSampleData version 3.0.0 or greater and you are using SAP Commerce Cloud version 2005 or greater.
-
-In case you only want to add this step you can run the following IMPEX:
-
-```
+```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 
