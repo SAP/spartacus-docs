@@ -412,7 +412,7 @@ Express checkout is now ready. The only steps that remain are to create express 
 
 ## B2B Checkout
 
-In the Spartacus B2B storefront, the checkout includes the same steps as the B2C storefront, with the addition of a step for selecting the payment method. This step allow you to choose if you want to pay with an account or with a credit card, and also allows you to enter an optional PO number.
+In the Spartacus B2B storefront, the checkout includes the same steps as the B2C storefront, with the addition of a step for selecting the payment method. This step allows you to choose if you want to pay with an account or with a credit card, and also allows you to enter an optional PO number.
 
 With the credit card payment option, the B2B checkout is configured to work the same as the B2C checkout.
 
