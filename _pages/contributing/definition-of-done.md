@@ -6,21 +6,21 @@ The Spartacus Definition of Done describes a series of requirements that must be
 
 ## General requirements
 
-All new features for Spartacus must be compliant with the following guidelines:
+All new features for Spartacus must:
 
-- Comply with the [Spartacus Architecture]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %})
+- Comply with Spartacus's architecture. For more information, see [Connecting to Other Systems]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
 
-- Follow the [Security best practices]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %})
+- Follow our security best practices. For more information, see [Security Best Practices]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %}).
 
-- Follow the [Accessibility best practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
+- Follow our accessibility best practices. For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
-- New feature modules should be [Lazy loaded]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %})
+- Ensure that new feature modules are lazy loaded. For more information, see [Lazy Loading Guide]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
 
-- Provide necessary [Sample data]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %})
+- Provide the necessary sample data. For more information, see [Spartacussampledata Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
-- For new features, make sure CSS supports [directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %})
+- Ensure the CSS supports directionality for new features. For more information, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
-- Provide necessary code deprecations for Schematics (docs in progress).
+- Provide necessary code deprecations for schematics (docs in progress).
 
 - UI/UX guidelines (docs in progress).
 
