@@ -4,9 +4,85 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated October 8, 2020 by Bill Marcotte, Senior Product Manager, Spartacus_
-
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}). For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
+
+## Releaes 3.0.0-RC.0 - Friday, November 20, 2020
+
+**The first release candidate is here!**
+
+We're proud to announce our first release candidate for Spartacus libraries 3.0. The RC includes:
+
+- B2B Commerce Organization
+- B2B Checkout
+- B2B Scheduled Replenishment
+- Session Management
+- Uses Angular 10
+
+As always, feedback appreciated! Contact us through Slack or submit an [issue](https://github.com/SAP/spartacus/issues/new/choose).
+
+Trying out the Spartacus 3.0 RC is similar to installing the 'next' versions. The following is a summary of the steps:
+
+### Adding the new sample data
+
+1. Download `spartacussampledata.2005.zip` from the assets of the [3.0.0-rc.0](https://github.com/SAP/spartacus/releases/tag/storefront-3.0.0-rc.0) (or use this [direct link](https://github.com/SAP/spartacus/releases/download/storefront-3.0.0-rc.0/spartacussampledata.2005.zip)). The spartacus sample data can be used with releases 2005 and 2011.
+1. Copy the `spartacussampledata` folder to `hybris/bin/custom`.
+1. In `installer/recipes/cx`, open `build.gradle` and add the following entry in the `extensions` section:
+
+   ```text
+   extName 'spartacussampledata'
+   ```
+
+   **Note:** Do not uncomment the Spartacus AddOn entries. They are no longer needed because the sample data is now an extension, not an AddOn.
+1. Build the `cx` recipe.
+
+### Building a B2C store (requires Angular 10!)
+
+1. `ng new b2cstore --style=scss`
+2. `cd b2cstore`
+3. `ng add @spartacus/schematics@rc`
+4. In `src/app/app.module.ts`, check that `baseUrl` points to your server (`localhost` is default)
+5. In `src/app/app.module.ts`, update `context` as needed. The following is an example:
+
+    ```ts
+    context: {
+      urlParameters: ['baseSite', 'language', 'currency'],
+      baseSite: ['electronics-spa', 'apparel-uk-spa'],
+      language: ['en'],
+      currency: ['USD','GBP']
+    },
+    ```
+
+6. `yarn install`
+7. `yarn start`
+8. Browse to http://localhost:4200
+
+   Note: The OCC prefix now defaults to `occ/v2` and is no longer shown by default in `app.module.ts`, although you can add it.
+
+### Building a B2B Spartacus Store
+
+The following steps are for B2B store features, including B2B Checkout and Commerce Organization. Ensure you have Powertools installed in your back end.
+
+1. `ng new b2bstore --style=scss`
+1. `cd b2bstore`
+1. `ng add @spartacus/schematics@rc`
+1. `ng add @spartacus/organization@rc`
+
+    This step adds the B2B Commerce Organization module.
+1. In `src/app/app.module.ts`, check that `baseUrl` points to your server (`localhost` is default).
+1. In `src/app/app.module.ts`, update `context` as needed. The following is an example:
+
+    ```ts
+    context: {
+      urlParameters: ['baseSite', 'language', 'currency'], 
+      baseSite: ['powertools-spa'],
+      language: ['en'],
+      currency: ['USD'] 
+    },
+    ```
+
+1. `yarn install`
+1. `yarn start`
+1. Browse to `http://localhost:4200`
 
 ## Release 3.0.0-next.3 - October 8th, 2020
 
