@@ -10,7 +10,7 @@ For an overview of what is included in a specific release, see [Release Informat
 
 ## Releaes 3.0.0-RC.0 - Friday, November 20, 2020
 
-**First release candidate is here!**
+**The first release candidate is here!**
 
 We're proud to announce our first release candidate for Spartacus libraries 3.0. The RC includes:
 
