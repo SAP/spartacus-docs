@@ -4,8 +4,6 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated October 8, 2020 by Bill Marcotte, Senior Product Manager, Spartacus_
-
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}). For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
 
 ## Releaes 3.0.0-RC.0 - Friday, November 20, 2020
