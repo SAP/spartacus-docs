@@ -16,7 +16,7 @@ The `2.0.0-next.2` library has been published! We are happy to announce our seco
 
 In the `2.0.0-next.2` pre-release version, support for both - TUA 2007 and TUA 2011 is provided. In addition to supporting composite pricing and price alteration discounts, priority pricing is now available, as well as support for 1.x spartacus features that were delivered in previous releases, with the exception of 1.3 features, which is planned next.
 
-You can set up TUA Spartacus 2.0.0-next.2 by following the instructions from [Building the TUA Spartacus Storefront from 2.x Libraries](https://github.com/SAP/spartacus-docs/blob/doc/GH-804/_pages/telco/building-the-tua-storefront-from-libraries-2.0.md).
+You can set up TUA Spartacus 2.0.0-next.2 by following the instructions from [Building the TUA Spartacus Storefront using 2.x Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}).
 
 ## Release 2.0.0-next.1 - October 28, 2020
 
@@ -24,7 +24,7 @@ The `2.0.0-next.1` library has been published! For more information, see [Releas
 
 We are happy to announce support for the TUA 2007 release.
 
-You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Building the TUA Spartacus Storefront from 2.x Libraries](https://github.com/SAP/spartacus-docs/blob/doc/GH-804/_pages/telco/building-the-tua-storefront-from-libraries-2.0.md).
+You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Building the TUA Spartacus Storefront using 2.x Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}).
 
 The following features are included as part of this pre-release:
 
