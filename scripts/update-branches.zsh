@@ -9,8 +9,7 @@ for branch in v3-develop develop tua-develop Telco-Preprod-Doc
 git checkout $branch
 git pull
 git merge main
-vim
-:wq
+git commit -a -m "Merge branch 'main' into $branch"
 git push
 
 done
