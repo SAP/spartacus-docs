@@ -40,7 +40,7 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
-## Features Planned for Version 3.0 / final release early December
+## Features Planned for Version 3.0 / Final Release Early December
 
 The first release candidate for 3.0 was published November 20. We'll publish 1-2 more RC's then publish the final version probably first week of December. Please check our Slack announcements channel for the latest information.
 
@@ -114,7 +114,7 @@ Release 3.0 will be the first release supporting B2B features.
 
 - **Customer Data Cloud** integration library (Login and Registration Support)
   - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
-  - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/4fc06a3539a940e6b707c0c543d44053.html)
+  - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
   - CDC is previously known as Gigya
 
   
