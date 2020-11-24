@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Checks out various branches and merges updates from main
+# Checks out various branches and merges updates from the 'main' branch.
 
 git pull
 
