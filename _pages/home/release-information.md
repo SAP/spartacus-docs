@@ -26,7 +26,7 @@ Contents:
 
 This document describes what is included in all Spartacus 2.x libraries since 2.0.
 
-For release information about Spartacus 1.x, see [Release Information for Versions 1.0-1.5 of Spartacus Libraries](https://sap.github.io/spartacus-docs-v1/release-information/) in our version 1.x documentation archive.
+For release information about Spartacus 1.x, see [Release Information for Versions 1.0-1.5 of Spartacus Libraries](https://sap.github.io/spartacus-docs/1.x/release-information/) in our version 1.x documentation archive.
 
 **Note: Spartacus 2.x requires Angular 9. For more information, see [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/updating-to-version-2.md %}).**
 
