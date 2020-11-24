@@ -9,7 +9,7 @@ for branch in v3-develop develop tua-develop Telco-Preprod-Doc
 git checkout $branch
 git pull
 git merge main
-:wq
+if [ vim ]: then :wq fi
 git push
 
 done
