@@ -21,7 +21,7 @@ An easy way to start is by helping others who may have questions or need support
 
 ## Reporting Issues
 
-Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues) for tracking user stories and bugs.
+Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP/spartacus/issues) for tracking user stories and bugs.
 
 ### Determining if an Issue Should be Created
 
@@ -66,7 +66,7 @@ If the bug does indeed apply to Spartacus code, please create an issue.
   * Any required username or password (but don't give us credentials that can be mis-used)
   * Screenshots if it helps us understand better.
 
-* Use our [issue template](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/ISSUE_TEMPLATE.md).
+* Use our [issue template](https://github.com/SAP/spartacus/blob/develop/ISSUE_TEMPLATE.md).
 
   * Do not include more than one bug per issue created. This helps us to analyze bugs more easily.
 
@@ -101,7 +101,7 @@ We use labels to categorize issues and set issue status. We also use prefixes to
 * The `triage` label is applied to issues that still require further information or analysis before they can be worked on (for example, `triage/analysis wanted`).
 * The `type` prefix is used to identify issues other than tasks and user stories, such as bugs, enhancement requests, and issues that only affect the documentation (for example, `type/bug`).
 
-You can view all of the labels we use, including the label descriptions, on our GitHub [labels page](https://github.com/SAP/cloud-commerce-spartacus-storefront/labels).
+You can view all of the labels we use, including the label descriptions, on our GitHub [labels page](https://github.com/SAP/spartacus/labels).
 
 Note: labels can only be changed by maintainers.
 
@@ -117,7 +117,7 @@ That being said, we will try our very best to ensure the Spartacus codebase is o
 
 You don't have to be a programmer to help us determine the specifics of a bug. Any help here is welcome!
 
-To view a list of open issues that require analysis, see the [list of open issues](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues?q=is%3Aopen) and especially the [list of issues where analysis is requested](https://github.com/SAP/cloud-commerce-spartacus-storefront/labels/triage/analysis%20wanted).
+To view a list of open issues that require analysis, see the [list of open issues](https://github.com/SAP/spartacus/issues?q=is%3Aopen) and especially the [list of issues where analysis is requested](https://github.com/SAP/spartacus/labels/triage/analysis%20wanted).
 
 ----
 
@@ -125,7 +125,7 @@ To view a list of open issues that require analysis, see the [list of open issue
 
 We welcome contributions to the Spartacus codebase. Before you start your first contribution, here are some things you should know:
 
-1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Contributors License Agreement](https://github.com/SAP/cloud-commerce-spartacus-storefront/blob/develop/LICENSE). This is common practice for most open source projects.
+1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Contributors License Agreement](https://github.com/SAP/spartacus/blob/develop/LICENSE). This is common practice for most open source projects.
 
     Note: You do not need to sign the CLA until you submit your first pull request. If you have not signed the CLA before, a link to the CLA assistant is provided on the PR status page.
 
@@ -194,12 +194,12 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. If your change fixes an issue reported in GitHub, add the following line to the commit message:
 
-     ```Fixes https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/(issueNumber)```
+     ```Fixes https://github.com/SAP/spartacus/issues/(issueNumber)```
 
     * Do not add a colon after "Fixes", as this prevents automatic closing.
     * When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
 
-        ```Closes https://github.com/SAP/cloud-commerce-spartacus-storefront/pull/(pullRequestNumber)```
+        ```Closes https://github.com/SAP/spartacus/pull/(pullRequestNumber)```
 
 1. Create a pull request so that we can review your change.
 1. Follow the link posted by the CLA assistant to your pull request and accept it, as described above.

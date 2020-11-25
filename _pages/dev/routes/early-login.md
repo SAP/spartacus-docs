@@ -58,4 +58,4 @@ In the above example, the global configuration is set to `protected: true`, so a
 
 ## Protecting Individual Routes
 
-The early login feature is not recommended for protecting individual routes, because it only allows you to allowlist public pages. If you want to protect only a small number of routes, it is better to use CMS guarded components instead. For more information, see [Guarding Components](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/customizing-cms-components/#guarding-components).
+The early login feature is not recommended for protecting individual routes, because it only allows you to allowlist public pages. If you want to protect only a small number of routes, it is better to use CMS guarded components instead. For more information, see [Guarding Components](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components).

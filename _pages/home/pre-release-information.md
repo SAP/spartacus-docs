@@ -37,11 +37,11 @@ Aside from continued work on removing deprecated code, bug fixes, and code refac
 
 ### New Facet Navigation
 
-Facet navigation was refactored to address a number of shortcomings and bugs. For more information, see [GH-6581](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6581).
+Facet navigation was refactored to address a number of shortcomings and bugs. For more information, see [GH-6581](https://github.com/SAP/spartacus/issues/6581).
 
 ### PageSlotComponent now requires new CmsConfig and ChangeDetectorRef parameters (Breaking Change)
 
-For more information, see [GH-7054](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/7054).
+For more information, see [GH-7054](https://github.com/SAP/spartacus/issues/7054).
 
 ### Storefinder Radius Fixed and Made Configurable
 
@@ -61,7 +61,7 @@ Some dependencies of the `CmsPageGuard` were not public before, so the guard was
 
 ### Language ISO Values Now Use Hyphens Instead of Underscores (Breaking Change)
 
-The language ISO value used in the HTML `lang` attribute now uses hyphens instead of underscores. For example, you will see `<html lang="es-MX">` instead of `<html lang="es_MX">`. For more information, see [GH-6802](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/6802).
+The language ISO value used in the HTML `lang` attribute now uses hyphens instead of underscores. For example, you will see `<html lang="es-MX">` instead of `<html lang="es_MX">`. For more information, see [GH-6802](https://github.com/SAP/spartacus/issues/6802).
 
 ### REST Prefix
 
