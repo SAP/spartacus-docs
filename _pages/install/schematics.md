@@ -12,7 +12,7 @@ Before using Spartacus schematics, ensure that the following requirements are me
 - Your application is using Angular 9 or higher, < 10.0.
 - Your Node version is less than or equal to version 13.
 
-## Adding Spartacus core libraries and features to Your Angular Project
+## Adding Spartacus Core Libraries and Features to Your Angular Project
 
 You can add Spartacus core libraries and features to your Angular project by running the following command from your project root:
 
@@ -45,7 +45,7 @@ Another example is the following, which generates an application that is ready t
 ng add @spartacus/schematics --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
 ```
 
-### Additional Commands for core libraries and features
+### Additional Commands for Core Libraries and Features
 
 By default, the `ng add @spartacus/schematics` command adds only a basic configuration of Spartacus. The following is a description of the commands you can use to extend your application:
 
@@ -53,7 +53,7 @@ By default, the `ng add @spartacus/schematics` command adds only a basic configu
 - `ng g @spartacus/schematics:add-ssr` adds the SSR configuration.
 - `ng g @spartacus/schematics:add-cms-component` generates a CMS component, and adds the CMS component mapping to the specified module, or to a newly-generated module, if no module is specified. For more information, see [CMS Component Schematic](#cms-component-schematic), below.
 
-### How Spartacus Schematics Work
+## How Spartacus Schematics Work
 
 When you run `ng add @spartacus/schematics`, the command does the following:
 
@@ -67,7 +67,7 @@ When you run `ng add @spartacus/schematics`, the command does the following:
    - Adds server-side rendering dependencies.
    - Provides additional files that are required for SSR.
 
-### CMS Component Schematic
+## CMS Component Schematic
 
 The following is a description of the available options for the CMS component schematic:
 
@@ -84,7 +84,7 @@ The following Angular options are not supported:
 - The `--module` option for components. If you want to specify an existing module for a component, use `--declareCmsModule`. The `module` option is only applied to the Angular `module` schematic.
 - The `--skipImport` option.
 
-#### Using the 'add-cms-component' Schematic
+### Using the 'add-cms-component' Schematic
 
 The following are some examples of how the `add-cms-component` schematic can be used:
 
@@ -93,14 +93,26 @@ The following are some examples of how the `add-cms-component` schematic can be 
 - `ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app` generates the `my-awesome-cms.component.ts` component and the `my-awesome-cms.module.ts` module, and imports them to the specified `app.module.ts`.
 - `ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app --declareCmsModule=my-cms-path/my-cms` generates the `my-awesome-cms.component.ts` component and adds it to the specified `my-cms-path/my-cms.module.ts` module. It also imports `my-cms.module.ts` to the specified `app.module.ts`.
 
-## Other Spartacus' library schematics
+## Installing Additional Spartacus Libraries
 
-Before you can add any additional Spartacus libraries, you need to have the Spartacus core libraries [already installed](#Adding-Spartacus-core-libraries-and-features-to-Your-Angular-Project).
+You need to first install the Spartacus core libraries before you can install additional Spartacus libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project](#adding-spartacus-core-libraries-and-features-to-your-angular-project).
 
-### Organization library
+### Organization Library
 
-To add the Organization library, simply run `ng add @spartacus/organization`. You will be presented with an interactive menu from which you can select which Organization features you would like to add.
+You can add the Organization library by running the following command:
 
-### Misc library
+```shell
+ng add @spartacus/organization
+```
 
-To add the misc library, simply run `ng add @spartacus/misc`. You will be presented with an interactive menu from which you can select which misc features you would like to add.
+When you run this command, you are presented with an interactive menu that allows you to select which Organization features you want to install.
+
+### Misc Library
+
+You can add the Misc library by running the following command:
+
+```shell
+ng add @spartacus/misc
+```
+
+When you run this command, you are presented with an interactive menu that allows you to select which Misc features you want to install.
