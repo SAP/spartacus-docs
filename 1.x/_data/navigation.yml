@@ -42,7 +42,7 @@ docs:
                 - title: "Compatibility Notes"
                   url: /compatibility-notes/
                 - title: "Working with Older Versions of SAP Commerce Cloud"
-                  url: https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/docs/archived_installation_docs
+                  url: https://github.com/SAP/spartacus/tree/develop/docs/archived_installation_docs
           - title: "Cross-Origin Resource Sharing (CORS)"
             url: /cors/        
           - title: "Building the Spartacus Storefront from Libraries"
