@@ -6,7 +6,7 @@ Before code is integrated to our main line of development, a continuous integrat
 
 We use [Travis CI](https://travis-ci.org) for our continuous integration service.
 
-Every time code is pushed to the Spartacus repository (regardless of whether a pull requests has been made), a build in our [public Travis CI](https://travis-ci.org/SAP/cloud-commerce-spartacus-storefront) is triggered. For all of our libraries, the build executes the following steps:
+Every time code is pushed to the Spartacus repository (regardless of whether a pull requests has been made), a build in our [public Travis CI](https://travis-ci.org/SAP/spartacus) is triggered. For all of our libraries, the build executes the following steps:
 
 - Checks for prettier compliance
 - Checks for tslint compliance
