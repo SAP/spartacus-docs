@@ -57,7 +57,7 @@ Release 3.0 will be the first release supporting B2B features.
 - **B2B Commerce Organization**
   - Also known as My Company
   - Self-service spending and organization management
-  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals)
+  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html)
 - **B2B Scheduled Replenishment**
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html)
