@@ -1,6 +1,17 @@
 ---
 title: Split View Component
+feature:
+- name: Split View Component
+  spa_version: 3.0
+  cx_version: n/a
 ---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 
 The split view component manages the presentation of hierarchical content on a page. A split view consists of a two (or multiple) column interface showing multiple views in parallel. Split views are useful for navigating multiple levels of content hierarchy, like traversing a list of items to view each item.
 
