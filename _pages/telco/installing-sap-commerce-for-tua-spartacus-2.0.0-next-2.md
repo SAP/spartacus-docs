@@ -34,7 +34,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the `b2ctelcospastore_2007.zip` archive for version 2007 or `b2ctelcospastore_2011.zip` archive for version 2011.
 
-1. Move the `b2ctelcospastore` folder from extracted `b2ctelcospastore_2007` folder or `b2ctelcospastore_2011` folder to `sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+1. Move the `b2ctelcospastore` folder from extracted `b2ctelcospastore_2007` folder or `b2ctelcospastore_2011` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
    The `b2ctelcospastore` folder can be stored anywhere in the `modules` folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
