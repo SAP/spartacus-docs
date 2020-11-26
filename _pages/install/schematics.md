@@ -53,7 +53,7 @@ By default, the `ng add @spartacus/schematics` command adds only a basic configu
 - `ng g @spartacus/schematics:add-ssr` adds the SSR configuration.
 - `ng g @spartacus/schematics:add-cms-component` generates a CMS component, and adds the CMS component mapping to the specified module, or to a newly-generated module, if no module is specified. For more information, see [CMS Component Schematic](#cms-component-schematic), below.
 
-## How Spartacus Schematics Work
+### How Spartacus Schematics Work
 
 When you run `ng add @spartacus/schematics`, the command does the following:
 
