@@ -4,11 +4,15 @@ title: Recommended Development Environment
 
 ## CLI tools
 
-There are a couple of necessary CLI tools that you need to have installed in order to work with Spartacus:
+There are a number of necessary CLI tools that you need to have installed in order to work with Spartacus, as follows:
 
-- Node - first and foremost you need Node installed. The recommended version is Node 11. To install it, refer to the [official site](https://nodejs.org). An alternative to installing a system-wide version of node is to use a Node version manager, such as [nvm](https://github.com/nvm-sh/nvm#installation-and-update). `nvm` also works on Windows via Windows Subsystem for Linux, a.k.a. `WSL`; if `WSL` is not available, [nvm-windows](https://github.com/coreybutler/nvm-windows) can be used. The advantage of installing a Node version manager is that it provides an ability to easily switch to a different version of Node.
+- Node - first and foremost you need Node installed. To install it, refer to the [official site](https://nodejs.org). An alternative to installing a system-wide version of node is to use a Node version manager, such as [nvm](https://github.com/nvm-sh/nvm#installation-and-update). `nvm` also works on Windows via Windows Subsystem for Linux, a.k.a. `WSL`; if `WSL` is not available, [nvm-windows](https://github.com/coreybutler/nvm-windows) can be used. The advantage of installing a Node version manager is that it provides an ability to easily switch to a different version of Node.
 - Package manager - Spartacus team prefers `yarn` over `npm`, as a package manager solution, for its speed. To install `yarn` see the official [guide](https://yarnpkg.com/en/docs/install). `npm` comes pre-installed with Node.
 - Angular CLI - to install it, run `npm install -g @angular/cli`. To configure angular CLI to always use `yarn` over `npm` run `ng config -g cli.packageManager yarn`. This setting is stored in `<YOUR_HOMEDIR>/.angular-config.json`. For more, see [this article](https://medium.com/@beeman/using-yarn-with-angular-cli-v6-7f53a7678b93).
+
+### Versions
+
+{% include docs/frontend_requirements.html %}
 
 ## Editor
 
