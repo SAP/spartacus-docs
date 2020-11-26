@@ -6,7 +6,7 @@ Spartacus schematics allow you to install Spartacus libraries in your project. T
 
 ## Prerequisites
 
-Before using Spartacus schematics, ensure that you have all of the necessary prerequisites. 
+Before using Spartacus schematics, ensure that you have all of the necessary prerequisites.
 
 {% include docs/frontend_requirements.html %}
 
