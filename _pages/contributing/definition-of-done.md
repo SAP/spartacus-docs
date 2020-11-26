@@ -6,15 +6,23 @@ The Spartacus Definition of Done describes a series of requirements that must be
 
 ## General requirements
 
-All new features for Spartacus must be compliant with the following guidelines:
+All new features for Spartacus must:
 
-- [Architecture]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %})
+- Comply with Spartacus's architecture. For more information, see [Connecting to Other Systems]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
 
-- [Security]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %})
+- Follow our security best practices. For more information, see [Security Best Practices]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %}).
 
-- [Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %})
+- Follow our accessibility best practices. For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
-- UI/UX guidelines are a work in progress.
+- Ensure that new feature modules are lazy loaded. For more information, see [Lazy Loading Guide]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
+
+- Provide the necessary sample data. For more information, see [Spartacussampledata Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
+
+- Ensure the CSS supports directionality for new features. For more information, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+
+- Provide necessary code deprecations for schematics (docs in progress).
+
+- UI/UX guidelines (docs in progress).
 
 ## Coding guidelines
 

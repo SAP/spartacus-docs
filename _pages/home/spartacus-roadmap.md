@@ -4,7 +4,7 @@ title: Spartacus Roadmap
 
 This document describes what what is planned for Spartacus for Q4 2020 and later.
 
-*Last updated October 15, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated November 24, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
@@ -40,7 +40,9 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
-## Features Planned for Version 3.0 / November
+## Features Planned for Version 3.0 / Final Release Early December
+
+The first release candidate for 3.0 was published November 20. We'll publish 1-2 more RC's then publish the final version probably first week of December. Please check our Slack announcements channel for the latest information.
 
 Release 3.0 will be the first release supporting B2B features.
 
@@ -55,14 +57,12 @@ Release 3.0 will be the first release supporting B2B features.
 - **B2B Commerce Organization**
   - Also known as My Company
   - Self-service spending and organization management
-  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals)
+  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html)
 - **B2B Scheduled Replenishment**
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html)
 - **Updates to Order Details**
   - Includes B2B-specific information, such as approval table and cost center
-- **B2B Inventory Display**
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 - **Lazy loading for modules**
   - For better performance
   - Starting with B2B My Company module
@@ -77,23 +77,19 @@ Release 3.0 will be the first release supporting B2B features.
   - Makes it easier to add your own Identity Provider
   - Improves security while reducing friction in the authentication and login user experience
 
-### Integrations planned for 3.0 timeframe
-
-- **Customer Data Cloud** integration library (Login and Registration Support)
-  - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
-  - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/1905/en-US/4fc06a3539a940e6b707c0c543d44053.html)
-  - CDC is previously known as Gigya
-  
 ## Features Planned for the Rest of Q4 2020 and into Q1 2021
   
 ### B2B Storefront Features
 
+- **B2B Registration**
 - **B2B Saved Carts** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
 - **B2B Re-order**
 - **B2B Quick Order** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
 - **B2B Bulk Price List**
-- **B2B Multi-dimensional product support** (requires API updated to be included in release 2011)
+- **B2B Multi-dimensional product support** (requires API update)
 - **B2B Product Import and Export Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
+- **B2B Inventory Display**
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 
 ### Core Storefront Features
 
@@ -113,8 +109,16 @@ Release 3.0 will be the first release supporting B2B features.
 - **Site map**
 - **Tag Manager framework**
 - **Google Tag Manager Support**
+
+### Integrations
+
+- **Customer Data Cloud** integration library (Login and Registration Support)
+  - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
+  - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
+  - CDC is previously known as Gigya
+
   
-## Future Outlook / Features Planned for 2021 and Later
+## Future Outlook / Features Planned for mid-2021 and Later
 
 The items in this section are on our future roadmap - not necessarily yet planned for a specific quarter.
   

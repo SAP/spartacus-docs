@@ -113,7 +113,7 @@ Promotions now appear in all required locations (in the **Added-to-Cart** modal 
 - [Skip Links]({{ site.baseurl }}{% link _pages/dev/features/skip-links.md %})  
 The Skip Links features allows users to quickly navigate to important areas of a page using the keyboard. This feature is the first of several Accessibility feature improvements planned for Spartacus.
 
-- Bug fixes as described in the [development release notes](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases)
+- Bug fixes as described in the [development release notes](https://github.com/SAP/spartacus/releases)
 
 ## Release 1.4
 
@@ -126,12 +126,12 @@ What's new?
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
 - [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6)
-- [Stacked Outlets](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/outlets/#stacked-outlets)
-- [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/3666) for more information.
+- [Stacked Outlets](https://sap.github.io/spartacus-docs/outlets/#stacked-outlets)
+- [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
 - [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %})
-- CMS component data loading optimization. For more information, see [GitHub Issue 5845](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/5845)
-- Updates to cart handling to support future features. For more information, see [GitHub Issue 4432](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/4432)
+- CMS component data loading optimization. For more information, see [GitHub Issue 5845](https://github.com/SAP/spartacus/issues/5845)
+- Updates to cart handling to support future features. For more information, see [GitHub Issue 4432](https://github.com/SAP/spartacus/issues/4432)
 
 **Note:** The Cancellations and Returns feature is also part of 1.4. However, this feature requires updates to OCC REST APIs that are not yet released. The updated APIs are scheduled to be part of the May 2020 release (Release 2005) of SAP Commerce Cloud. Please see official SAP Commerce Cloud release announcements for more information.
 
@@ -144,28 +144,28 @@ What's new?
 ### Architecture and Development Features
 
 - Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)  
-  [Draft Spartacus Documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
+  [Draft Spartacus Documentation](https://github.com/SAP/spartacus-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
 
 - Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)  
-[Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/structured-data)
+[Spartacus Documentation](https://sap.github.io/spartacus-docs/structured-data)
 
 - Qualtrics intercept integration and example  
-[Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/qualtrics-integration)
+[Spartacus Documentation](https://sap.github.io/spartacus-docs/qualtrics-integration)
 
 ### Core/B2C Storefront Features
 
 - Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce 1905)  
-  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/asm) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
+  [Spartacus Documentation](https://sap.github.io/spartacus-docs/asm) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 
 - Anonymous consent  
-  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/anonymous-consent) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
+  [Spartacus Documentation](https://sap.github.io/spartacus-docs/anonymous-consent) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
   
 - Coupons (requires October patch release of SAP Commerce 1905)  
-  [Spartacus Documentation](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/coupons) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
+  [Spartacus Documentation](https://sap.github.io/spartacus-docs/coupons) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
 
 ### B2B Storefront Features
 
-Powertools sample data modified to work with Spartacus (requires latest spartacussampledataaddon).  
+Powertools sample data modified to work with Spartacus (requires latest spartacussampledata).  
 
 **Note:** B2B Spartacus not yet available (B2B My Company and Checkout planned for Q1 2020). Powertools out-of-the-box sample data itself is now “Spartacus-ified” so that it displays properly when you point Spartacus to it. It’s what we’re using to do our development. However My Company and Checkout not yet supported; you’ll see a few errors related to API calls that we are part of the updated b2boccaddon API release in Q1.
   
@@ -175,13 +175,13 @@ Powertools sample data modified to work with Spartacus (requires latest spartacu
 
 What's new?
 
-- [Store Locator](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/store-locator)
-- [Guest Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/guest-checkout)
-- [Express Checkout](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/express-checkout)
-- [Infinite Scroll](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/infinite-scroll)
+- [Store Locator](https://sap.github.io/spartacus-docs/store-locator)
+- [Guest Checkout](https://sap.github.io/spartacus-docs/guest-checkout)
+- [Express Checkout](https://sap.github.io/spartacus-docs/express-checkout)
+- [Infinite Scroll](https://sap.github.io/spartacus-docs/infinite-scroll)
 - Routing Migration
-- [Early Login](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/early-login)
-- [Consignment Tracking](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/consignment-tracking)
+- [Early Login](https://sap.github.io/spartacus-docs/early-login)
+- [Consignment Tracking](https://sap.github.io/spartacus-docs/consignment-tracking)
 - Angular updated to 8.2.5; ngrx to 8.3.0; other dependency updates
 
 To update to 1.2.0, you must change your libraries in `package.json` and and dependencies inside `app.module.ts`. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
@@ -232,13 +232,13 @@ To update to 1.2.0, you must change your libraries in `package.json` and and dep
 
 *Release 1.1 libraries published August 29, 2019*
 
-Release notes: [https://github.com/SAP/cloud-commerce-spartacus-storefront/releases](https://github.com/SAP/cloud-commerce-spartacus-storefront/releases)
+Release notes: [https://github.com/SAP/spartacus/releases](https://github.com/SAP/spartacus/releases)
 
 - Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
-  - [Documentation for development](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/contributing/feature-flags-and-code-deprecation.md)
-  - [Documentation for consumption](https://github.com/SAP/cloud-commerce-spartacus-storefront-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/install/configuring-feature-flags.md)
-- [Configurable Endpoints](https://sap.github.io/cloud-commerce-spartacus-storefront-docs/connecting-to-other-systems/#endpoint-configuration)
-- [Change to registration and login flow: must log in after registering](https://github.com/SAP/cloud-commerce-spartacus-storefront/issues/2799#issuecomment-525679882)
+  - [Documentation for development](https://github.com/SAP/spartacus-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/contributing/feature-flags-and-code-deprecation.md)
+  - [Documentation for consumption](https://github.com/SAP/spartacus-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/install/configuring-feature-flags.md)
+- [Configurable Endpoints](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#endpoint-configuration)
+- [Change to registration and login flow: must log in after registering](https://github.com/SAP/spartacus/issues/2799#issuecomment-525679882)
 - Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
 
 ## Release 1.0

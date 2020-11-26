@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: https://stackoverflow.com/questions/tagged/spartacus-storefront
-    - title: Version 2.1
+    - title: Version 3.0
       url: /release-information/
 
 # sidebar menu
@@ -21,12 +21,20 @@ docs:
                   url: /pre-release-information/
                 - title: "Feature Release Versions"
                   url: /feature-release-versions/
-                - title: "Updating to Version 2.0"
-                  url: /updating-to-version-2/  
-                - title: "Technical Changes in Spartacus 2.0"
-                  url: /technical-changes-version-2/
-                - title: "Changes to Styles in 2.0"
-                  url: /css-changes-in-version-2/    
+                - title: "Updating to Version 3.0 ➢"
+                  url: /updating-to-version-3/
+                  underchildren:
+                      - title: "Technical Changes in Spartacus 3.0"
+                        url: /technical-changes-version-3/
+                      - title: "Changes to Styles in 3.0"
+                        url: /css-changes-in-version-3/    
+                - title: "Updating to Version 2.0 ➢"
+                  url: /updating-to-version-2/
+                  underchildren:
+                      - title: "Technical Changes in Spartacus 2.0"
+                        url: /technical-changes-version-2/
+                      - title: "Changes to Styles in 2.0"
+                        url: /css-changes-in-version-2/    
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
@@ -64,8 +72,8 @@ docs:
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: "Personalization Setup Instructions for Spartacus"
             url: /personalization-setup-instructions-for-spartacus/
-          - title: "Spartacussampledataaddon AddOn"
-            url: /spartacussampledataaddon/
+          - title: "Spartacussampledata Extension"
+            url: /spartacussampledata-extension/
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
@@ -149,6 +157,8 @@ docs:
                   url: /page-layout/
                 - title: "Directionality"
                   url: /directionality/
+                - title: "Skeleton Design"
+                  url: /skeleton-design/  
           - title: "Customizing and Extending Spartacus Features ➢"
             url: /customizing-and-extending/
             subchildren:
@@ -166,6 +176,8 @@ docs:
                   url: /pagination/  
                 - title: 'Searchbox Component'
                   url: /searchbox-component/
+          - title: "Extending Built-In Models"
+            url: /type-augmentation/        
           - title: "Lazy Loading Guide"
             url: /lazy-loading-guide/
           - title: "Extending Checkout"

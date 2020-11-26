@@ -73,7 +73,7 @@ The easiest way to start a new project and to quickly set up your application:
 
 Run `yarn start`.
 
-For a full list of available parameters, visit Spartacus schematics [documentation](https://github.com/SAP/cloud-commerce-spartacus-storefront/tree/develop/projects/schematics).
+For a full list of available parameters, see the Spartacus [schematics documentation]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
 
 ## Setting up a Storefront Manually
 
