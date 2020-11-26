@@ -38,7 +38,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
    The `b2ctelcospastore` folder can be stored anywhere in the `modules` folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
-1. In the `sap-commerce-folder>/installer/recipes` folder, duplicate the `b2c_telco` folder.
+1. In the `sap-commerce-folder>/installer/recipes` folder, create a copy of the `b2c_telco` folder.
 
 1. Rename the copy of the `b2c_telco` folder to `b2c_telco_spa`.
 
