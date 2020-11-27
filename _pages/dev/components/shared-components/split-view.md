@@ -12,13 +12,13 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The split view component manages the presentation of hierarchical content on a page. A split view consists of a two (or multiple) column interface showing multiple views in parallel. Split views are useful for navigating multiple levels of content hierarchy, like traversing a list of items to view each item.
+The split view component manages the presentation of hierarchical content on a page. A split view consists of a two column (or multiple column) interface showing multiple views in parallel. Split views are useful for navigating multiple levels of content hierarchy, such as traversing a list of items to view each item.
 
-The split view component is introduced with the "B2B Commerce Organization", also know as my company. This is a self service adminstration, that requires managing various entities such as business units, budgets, cost centers, etc. All those entities are presented as a list of items that can be opened and edited. The split view component gives a very comfortable layout to go through the list of items and edit them accordingly.
+You can see Spartacus making use of the split view component in B2B Commerce Organization (also known as My Company). Entities, such as business units, budgets and cost centers, are presented as lists of items that can be opened and edited. The split view component offers a clear layout that allows you to go through the lists and edit them as needed.
 
 ## Components
 
-The split view component is build out of two components. The `SplitViewComponent` is used as a root element for the split view and can host multiple `ViewComponent` elements.
+The split view component is itself built from two components: the `SplitViewComponent` is used as a root element for the split view, and it can host multiple `ViewComponent` elements. The following is an example:
 
 ```html
 <cx-split-view>
@@ -27,7 +27,7 @@ The split view component is build out of two components. The `SplitViewComponent
 </cx-split-view>
 ```
 
-The actual content of both components is completely flexible and it is not required to nest `ViewComponent` as direct children under the `SplitViewComponent`. This is particular useful when views are created form child routes, or by other child components. The following fragment illustrates such a DOM structure:
+The actual content of both components is completely flexible, and you do not have to nest `ViewComponent` elements as direct children under the `SplitViewComponent`. This is particularly useful when views are created from child routes, or from other child components. The following fragment illustrates such a DOM structure:
 
 ```html
 <cx-split-view>
@@ -41,15 +41,15 @@ The actual content of both components is completely flexible and it is not requi
 </cx-split-view>
 ```
 
-# Component interaction
+## Component Interaction
 
-The `SplitViewComponent` does not interact directly with nested `cx-view` elements. The component does not need any knowledge about the underlying views, other then keeping track of the last _visible_ view component number. This information is exposed by the `SplitViewService`. The `cx-view` elements interact with the `SplitViewService` to register itself and toggle it's visible state.
+The `SplitViewComponent` does not interact directly with nested `cx-view` elements. The component does not have any knowledge about the underlying views, other then keeping track of the last _visible_ view component number. This information is exposed by the `SplitViewService`. The `cx-view` elements interact with the `SplitViewService` to register themselves and to toggle their visible state.
 
-The `SplitViewService` is provided to each `SplitViewComponent`, so that the various views and their state is isolated to the `SplitViewComponent`. This allows to use multiple isolated split views in the application.
+The `SplitViewService` is provided to each `SplitViewComponent` so that the various views and their corresponding states are isolated from other `SplitViewComponent` components. This allows you to have multiple, independent split views in the application.
 
-# Styling
+## Styling
 
-The split view layout is driven by CSS Flexbox. To not break the content flow of nested flex items, it is important that any elements wrapping the cx-view elements are removed from the flexbox. This can be achieved by using the CSS `display` property, with the `content` value:
+The split view layout is driven by CSS flexbox. To not break the content flow of nested flex items, it is important that any elements wrapping the cx-view elements are removed from the flexbox. This can be achieved by using the CSS `display` property, with the `content` value:
 
 ```css
 .wrapper {
