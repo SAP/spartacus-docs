@@ -18,7 +18,7 @@ In the `2.0.0-next.2` pre-release version, support for both - TUA 2007 and TUA 2
 
 ### Installing SAP Commerce for use with TUA Spartacus
 
-Installation instructions are very similar to [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/Installing SAP Commerce for use with TUA Spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce (release 2005) with Telco & Utilities Accelerator (release 2007 or release 2011, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
+Installation instructions are very similar to [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce (release 2005) with Telco & Utilities Accelerator (release 2007 or release 2011, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
 
 The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsocc`, `commercewebservices`, `acceleratorocc` extensions and TUA module.
 
@@ -194,7 +194,7 @@ To create a new Angular application with the name `mystore`, follow the procedur
      cd mystore
      ```
 
-#### Setting up a Storefront Manually
+### Setting up a Storefront Manually
 
 Although we recommend using Schematics, there might be situations when you want to build your application from scratch.
 
