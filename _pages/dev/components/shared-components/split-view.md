@@ -1,9 +1,9 @@
 ---
 title: Split View Component
 feature:
-- name: Split View Component
-  spa_version: 3.0
-  cx_version: n/a
+  - name: Split View Component
+    spa_version: 3.0
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -11,7 +11,6 @@ feature:
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
-
 
 The split view component manages the presentation of hierarchical content on a page. A split view consists of a two (or multiple) column interface showing multiple views in parallel. Split views are useful for navigating multiple levels of content hierarchy, like traversing a list of items to view each item.
 
@@ -87,63 +86,3 @@ A gutter can be specified to add a margin between split view elements. The gutte
   --cx-split-gutter: 40px;
 }
 ```
-
-## Miscellaneous
-
-The `lastVisibleView` is bind to the host elements `active-view` attribute and `--cx-active-view` CSS variable.
-
-This component hosts one or multiple `ViewComponent`.
-
-A common example of such a requirement is when you manage a list of things, and want to view or edit a list item or manage related entities. This is a common pattern in the self service
-organization adminstration
-
-, an optional supplementary column, and a secondary pane of content. Changes in the primary column drive changes in the optional supplementary column, which affect the content itself. Split views are useful for navigating multiple levels of content hierarchy, like traversing the mailboxes and messages in Mail to view each message.
-
-The split-view component is used to create a split view experience. A split view is a common UX pattern that displays multiple "view" side by side. It is designed for using two (or multiple) views on a single page. This is useful in a situation where you may need to continuously reference information from both views at the same time.
-
-each one or move information from one to the other.
-
-, where multiple related views are
-
-The Split View displays multiple "views" side by side. It is designed for using tow (or multiple) views at the same time in a situation where you may need to continuously reference each one or move information from one to the other.
-
-The split-view component supports an unlimited number of nested views. Nested views are visually rendered next to each other. The views can be rendered next to each other, but the max number of visible views can be limited as well. This is configurable in the CSS layer, so that the max number of views per split-view can be different for each component.
-
-The basic structure of the split-view component is shown below:
-
-`<cx-split-view> </cx-split-view>`
-The UX pattern used for the split-view is driven by an initial view, which gets split into more views as soon as the user starts interacting with the initial and subsequent views. The views can be driven by routes, which means that you can navigate through the split views by using the browser history as well as share or bookmark split views.
-
-The UI is implemented in the style layer, with only a few generic style rules. Most of the split view style is driven by CSS properties, so that alternative split-view styles can be introduced per page or component.
-
-The max number of views per split-view on mobile is limited to 1 by default, where as on tablet (and higher) it is set to 2. Spartacus has a pretty narrow layout, which is why 2 is maximum, but customers could alter the layout to bring in more views in the same split-view at the time.
-
-/\*\*
-
-- The split-view component supports an unlimited number of nested views. The component
-- is a host to those view components and doesn't add any restrictions to it's content;
-- content is projected as-is.
--
-- ```html
-
-  ```
-
-- <cx-split-view>
-- <cx-view></cx-view>
-- <cx-view></cx-view>
-- <any-wrapper>
--     <cx-view></cx-view>
-- </any-wrapper>
-- </cx-split-view>
-- ```
-
-  ```
-
--
-- The split view component is only concerned with tracking the underlying _visible_
-- view components, so that the `lastVisibleView` can be updated accordingly. The actual
-- visibility of views is controlled by CSS. To allow for maximum flexibility, the CSS
-- implementation is using CSS variables. The `lastVisibleView` is bind to the
-- `--cx-active-view` on the host, so that all descendants views will inherit the
-- property conveniently.
-  \*/
