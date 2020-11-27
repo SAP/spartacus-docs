@@ -88,13 +88,11 @@ A gutter can be specified to add a margin between split view elements. The gutte
 }
 ```
 
-## mics
-
----
+## Miscellaneous
 
 The `lastVisibleView` is bind to the host elements `active-view` attribute and `--cx-active-view` CSS variable.
 
-. This component hosts one or multiple `ViewComponent`
+This component hosts one or multiple `ViewComponent`.
 
 A common example of such a requirement is when you manage a list of things, and want to view or edit a list item or manage related entities. This is a common pattern in the self service
 organization adminstration
