@@ -49,7 +49,7 @@ The `SplitViewService` is provided to each `SplitViewComponent` so that the vari
 
 ## Styling
 
-The split view layout is driven by CSS flexbox. To not break the content flow of nested flex items, it is important that any elements wrapping the cx-view elements are removed from the flexbox. This can be achieved by using the CSS `display` property, with the `content` value:
+The split view layout is driven by CSS Flexbox. To not break the content flow of nested flex items, it is important that any elements wrapping the `cx-view` elements are removed from the Flexbox. This can be achieved by using the CSS `display` property with the `content` value. The following is an example:
 
 ```css
 .wrapper {
@@ -57,15 +57,15 @@ The split view layout is driven by CSS flexbox. To not break the content flow of
 }
 ```
 
-## Split view animation
+## Split View Animation
 
-The split view component uses an animation to slide view elements in and out, when their visible state is toggled. The animations are driven by CSS animations, which you can further customize.
+The split view component uses an animation to show or hide view elements by sliding them in and out when their visible state is toggled. The animations are driven by CSS animations, which you can further customize.
 
-Special behavior is introduced in case a route driven split view is closed. The split view that is part of the route will be destroyed instantly by the Angular router, which would prevent an animation. To prevent destroying the element before the animation is done, the `ViewComponent.toggle()` is triggered, while the actual router link event is delayed with 500 millisecond.
+Special behavior is introduced if a route-driven split view is closed. The split view that is part of the route is destroyed instantly by the Angular router, which would prevent an animation. To prevent destroying the element before the animation is finished, the `ViewComponent.toggle()` is triggered, while the actual router link event is delayed by 500 milliseconds.
 
-## Column size configuration
+## Configuring the Column Size
 
-The number of active parallel views is configurable by CSS variables. The default number is set to `2`, so that a two-column layout is used. This fits nicely with the relatively small layout that comes with the Spartacus style library. However, if you like to use a wider layout, and benefit from a three column layout, you can increase the max number of columns by changing the CSS variable:
+You can configure the number of active parallel views using CSS variables. The default number is set to `2`, so that a two-column layout is used. This fits nicely with the relatively small layout that comes with the Spartacus style library. However, if you prefer to use a wider layout that makes use of three columns, you can increase the maximum number of columns by changing the CSS variable. The following is an example:
 
 ```css
 :root {
@@ -73,13 +73,13 @@ The number of active parallel views is configurable by CSS variables. The defaul
 }
 ```
 
-Using CSS variables allows for maximum flexibility. You can specify different max views per screen size, as well as specific max view size configuration for individual split view components.
+Using CSS variables gives you the most flexibility. You can specify different maximum views per screen size, as well as specific maximum view size configurations for individual split view components.
 
-Spartacus defaults to a two-column view for tablet and larger screens, and single-column view for mobile screens.
+Spartacus defaults to a two-column view for tablet and larger screens, and a single-column view for mobile screens.
 
 ## Gutter
 
-A gutter can be specified to add a margin between split view elements. The gutter is drive by a CSS variable, to provide maximum configurability of various split views. The default gutter is set to 40px:
+You can specify a gutter to add a margin between split view elements. The gutter is driven by a CSS variable, which provides a lot of flexibility for configuring various split views. The default gutter is set to 40px, as shown in the following example:
 
 ```css
 :root {
