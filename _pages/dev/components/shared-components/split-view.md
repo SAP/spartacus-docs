@@ -14,7 +14,7 @@ feature:
 
 The split view component manages the presentation of hierarchical content on a page. A split view consists of a multi-column interface that shows two or more views in parallel. Split views are useful for navigating multiple levels of content hierarchy, such as traversing a list to view each item in the list.
 
-You can see Spartacus making use of the split view component in B2B Commerce Organization (also known as My Company). Entities, such as business units, budgets and cost centers, are presented as lists of items that can be opened and edited. The split view component offers a clear layout that allows you to go through the lists and edit them as needed.
+A good example of where Spartacus uses the split view component is in B2B Commerce Organization (also known as My Company). Entities, such as business units, budgets and cost centers, are presented as lists of items that can be opened and edited. The split view component offers a clear layout that allows you to go through the lists and edit them as needed.
 
 ## Components
 
@@ -27,7 +27,7 @@ The split view component is itself built from two components: the `SplitViewComp
 </cx-split-view>
 ```
 
-The actual content of both components is completely flexible, and you do not have to nest `ViewComponent` elements as direct children under the `SplitViewComponent`. This is particularly useful when views are created from child routes, or from other child components. The following fragment illustrates such a DOM structure:
+The actual content of both components is very flexible, and you do not have to nest `ViewComponent` elements as direct children under the `SplitViewComponent`. This is particularly useful when views are created from child routes, or from other child components. The following fragment illustrates such a DOM structure:
 
 ```html
 <cx-split-view>
@@ -43,13 +43,13 @@ The actual content of both components is completely flexible, and you do not hav
 
 ## Component Interaction
 
-The `SplitViewComponent` does not interact directly with nested `cx-view` elements. The component does not have any knowledge about the underlying views, other then keeping track of the last _visible_ view component number. This information is exposed by the `SplitViewService`. The `cx-view` elements interact with the `SplitViewService` to register themselves and to toggle their visible state.
+The `SplitViewComponent` does not interact directly with nested `cx-view` elements, and does not need any information about the underlying views, other than to keep track of the last visible view component number. This information is exposed by the `SplitViewService`. The `cx-view` elements interact with the `SplitViewService` to register themselves and to toggle their visible state.
 
-The `SplitViewService` is provided to each `SplitViewComponent` so that the various views and their corresponding states are isolated from other `SplitViewComponent` components. This allows you to have multiple, independent split views in the application.
+The `SplitViewService` is provided to each `SplitViewComponent` so that the various views and their corresponding states can be isolated from other `SplitViewComponent` components. This allows you to have multiple, independent split views in the application.
 
 ## Styling
 
-The split view layout is driven by CSS Flexbox. To not break the content flow of nested flex items, it is important that any elements wrapping the `cx-view` elements are removed from the Flexbox. This can be achieved by using the CSS `display` property with the `content` value. The following is an example:
+The split view layout is driven by CSS Flexbox. To avoid breaking the content flow of nested flex items, it is important that any elements that wrap the `cx-view` elements are removed from the Flexbox. This can be achieved by using the CSS `display` property with the `contents` value. The following is an example:
 
 ```css
 .wrapper {
@@ -69,13 +69,13 @@ You can configure the number of active parallel views using CSS variables. The d
 
 ```css
 :root {
-  --cx-max-views: 2;
+  --cx-max-views: 3;
 }
 ```
 
-Using CSS variables gives you the most flexibility. You can specify different maximum views per screen size, as well as specific maximum view size configurations for individual split view components.
+Using CSS variables provides a lot of flexibility. You can specify different maximum views per screen size, as well as specific maximum view size configurations for individual split view components.
 
-Spartacus defaults to a two-column view for tablet and larger screens, and a single-column view for mobile screens.
+Spartacus defaults to a two-column view for tablets and larger screens, and a single-column view for mobile screens.
 
 ## Gutter
 
