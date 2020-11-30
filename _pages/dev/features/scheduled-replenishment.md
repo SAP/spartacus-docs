@@ -20,7 +20,7 @@ A Scheduled Replenishment "order" is a template for future orders, `B2B-only`.
 - Scheduled Replenishment orders are "held" and placed automatically at the frequency defined by the user e.g. \* every 28th of the month
 - The actual orders show up separately in Order History
 
-For more information, see [Replenishment and Order Scheduling](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2011/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) on the SAP Help Portal.
+For more information, see [Replenishment and Order Scheduling](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) on the SAP Help Portal.
 
 ## Usage
 
@@ -30,13 +30,13 @@ You can view replenishments under **My Account** menu, and by choosing **Repleni
 
 ## CMS components
 
-All the required CMS data is already included in the `spartacussampledata` AddOn, however the following procedures also applies to your custom AddOn. Moreover, these changes can be made through `backoffice` instead of impex.
+All the required CMS data is already included in the `spartacussampledata` extension, however the following procedures also applies to your custom AddOn. Moreover, these changes can be made through `backoffice` instead of impex.
 
 Scheduled replenishment is enabled by default in Spartacus. This feature is CMS-driven, where you can opt out of displaying the option of scheduling an order at the final checkout step and the options to remove the visibility to view replenishments under the history and details page of replenishment orders.
 
 **Note:** $contentCV is given as:
 
-```sql
+```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 ```
