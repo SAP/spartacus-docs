@@ -122,7 +122,7 @@ The following new and updated components must be enabled in the TUA backoffice t
 | Add to Cart            	| POST occ/v2/telcospa/users/{userId}/carts/{cartID}/entries                	| Adds a product to the cart                                                                                                                                                       	|
 | Cart Details            	| GET occ/v2/telcospa/users/{userId}/carts/{cartID}            	| Retrieves the cart details                                                                                                                                           	|
 
-For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
+For more information, see [API and YAML Documentation](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2011/en-US/52cf34e46ce34672bc3e47bdabcbc838.html).
 
 ## Further Reading
 
