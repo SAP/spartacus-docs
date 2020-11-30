@@ -172,10 +172,12 @@ docs:
                   url: /banner-component/
                 - title: "Media Component"
                   url: /media-component/  
-                - title: 'Pagination Component'
+                - title: "Pagination Component"
                   url: /pagination/  
-                - title: 'Searchbox Component'
+                - title: "Searchbox Component"
                   url: /searchbox-component/
+                - title: "Split View Component"
+                  url: /split-view/
           - title: "Extending Built-In Models"
             url: /type-augmentation/        
           - title: "Lazy Loading Guide"
