@@ -9,3 +9,5 @@ This is a landing page for grouping together topics about styling and page layou
 - [Icon Library]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %})
 - [Page Layout]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/page-layout.md %})
 - [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %})
+- [Skeleton Design]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/skeleton-design.md %})
+

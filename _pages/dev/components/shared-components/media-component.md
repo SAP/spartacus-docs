@@ -4,6 +4,9 @@ feature:
 - name: Media Component
   spa_version: 2.0
   cx_version: n/a
+- name: Image Lazy Loading
+  spa_version: 3.0
+  cx_version: n/a  
 ---
 
 {% capture version_note %}
@@ -90,6 +93,34 @@ export const mediaConfig: MediaConfig = {
 Whenever a media item is unavailable, the `img` element is not written in the DOM. The `cx-media` host element will get an `is-missing` class, so that the correct style can be applied by CSS. In this scenario, Spartacus provides an empty image through the background image.
 
 If no matching image format is available in the media container, nor in the media configuration, Spartacus takes a random image from the container. This might not be an accurate format, but at least it helps to show content.
+
+## Lazy Loading
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+Images can be created with a lazy loading strategy, as follows:
+
+```html
+<img src="..." loading="lazy">
+```
+
+This lazy loading strategy is a relatively new browser capability that was [adopted recently in various browsers](https://caniuse.com/loading-lazy-attr). The lazy loading strategy is used to defer the loading of the image if it is not in the viewport. When the user scrolls down the page, the image is loaded automatically.
+
+While Spartacus offers more advanced techniques to lazy load full portions of the page, using deferred loading and above-the-fold loading, these techniques do not apply to a server-Side rendered page. In this case, users who access the storefront for the first time will not benefit from the deferred loading technique, so all page content is loaded at once. This is where image lazy loading provides an additional performance improvement.
+
+The lazy loading strategy is not enabled by default, but can be configured using the following configuration:
+
+```ts
+provideConfig({
+  imageLoadingStrategy: ImageLoadingStrategy.LAZY
+} as MediaConfig)
+```
+
+For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}) and [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %}).
 
 ## SEO
 
