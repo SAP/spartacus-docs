@@ -14,7 +14,7 @@ feature:
 
 The split view component manages the presentation of hierarchical content on a page. A split view consists of a multi-column interface that shows two or more views in parallel. Split views are useful for navigating multiple levels of content hierarchy, such as traversing a list to view each item in the list.
 
-A good example of where Spartacus uses the split view component is in B2B Commerce Organization (also known as My Company). Entities, such as business units, budgets and cost centers, are presented as lists of items that can be opened and edited. The split view component offers a clear layout that allows you to go through the lists and edit them as needed.
+A good example of where Spartacus uses the split view component is in B2B Commerce Organization (also known as My Company). Entities, such as business units, budgets and cost centers, are presented as lists of items that can be opened and edited. The split view component offers a convenient UI that allows you to go through the lists and edit them as needed.
 
 ## Components
 
