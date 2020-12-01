@@ -61,79 +61,79 @@ The following procedure describes how to enable the scheduled replenishment feat
 
 1. With the following ImpEx, add the `cms component` and `content slot` to enable the replenishment feature in the final checkout step:
 
-    ```text
-    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
-    ;;SideContentSlot-checkoutReviewOrder;Checkout Place Order Slot;CheckoutOrderSummaryComponent,    CheckoutScheduleReplenishmentOrderComponent,CheckoutPlaceOrderComponent
+   ```text
+   INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+   ;;SideContentSlot-checkoutReviewOrder;Checkout Place Order Slot;CheckoutOrderSummaryComponent,CheckoutScheduleReplenishmentOrderComponent,CheckoutPlaceOrderComponent
 
-    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-    ;;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrder
-    ```
+   INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+   ;;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrder
+   ```
 
 2. With the following ImpEx, enable access to the `content page` for the replenishment details, replenishment history, and replenishment order confirmation page:
 
-    ```text
-    UPDATE ContentPage;$contentCV[unique=true];uid    [unique=true];label;pageStatus(code,itemtype(code))
-    ;;my-replenishment-details;/my-account/my-replenishment;    active:CmsPageStatus
-    ;;my-replenishment-orders;/my-account/my-replenishments;    active:CmsPageStatus
-    ;;replenishmentConfirmationPage;/replenishment/   confirmation;active:CmsPageStatus
-    ```
+   ```text
+   UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
+   ;;my-replenishment-details;/my-account/my-replenishment;active:CmsPageStatus
+   ;;my-replenishment-orders;/my-account/my-replenishments;active:CmsPageStatus
+   ;;replenishmentConfirmationPage;/replenishment/confirmation;active:CmsPageStatus
+   ```
 
 3. With the following ImpEx, create the `cms components` and `content slot` for the replenishment details page:
 
-    ```text
-    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];   uid[unique=true];name;flexType
-    ;;ReplenishmentDetailItemsComponent;Replenishment Detail    Items Component;ReplenishmentDetailItemsComponent
-    ;;ReplenishmentDetailTotalsComponent;Replenishment    Detail Totals Component;  ReplenishmentDetailTotalsComponent
-    ;;ReplenishmentDetailShippingComponent;Replenishment    Detail Shipping Component;  ReplenishmentDetailShippingComponent
-    ;;ReplenishmentDetailActionsComponent;Replenishment     Detail Actions Component;   ReplenishmentDetailActionsComponent
-    ;;ReplenishmentDetailOrderHistoryComponent;Replenishment    Detail Order History Component;   ReplenishmentDetailOrderHistoryComponent
+   ```text
+   INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+   ;;ReplenishmentDetailItemsComponent;Replenishment Detail Items Component;ReplenishmentDetailItemsComponent
+   ;;ReplenishmentDetailTotalsComponent;Replenishment Detail Totals Component;ReplenishmentDetailTotalsComponent
+   ;;ReplenishmentDetailShippingComponent;Replenishment Detail Shipping Component;ReplenishmentDetailShippingComponent
+   ;;ReplenishmentDetailActionsComponent;Replenishment Detail Actions Component;ReplenishmentDetailActionsComponent
+   ;;ReplenishmentDetailOrderHistoryComponent;Replenishment Detail Order History Component;ReplenishmentDetailOrderHistoryComponent
 
-    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid   [unique=true];cmsComponents(uid, $contentCV)
-    ;;BodyContent-my-replenishment-details;   ReplenishmentDetailShippingComponent,   ReplenishmentDetailItemsComponent,   ReplenishmentDetailTotalsComponent,  ReplenishmentDetailActionsComponent,   ReplenishmentDetailOrderHistoryComponent
-    ```
+   INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+   ;;BodyContent-my-replenishment-details;ReplenishmentDetailShippingComponent,ReplenishmentDetailItemsComponent,ReplenishmentDetailTotalsComponent,ReplenishmentDetailActionsComponent,ReplenishmentDetailOrderHistoryComponent
+   ```
 
 4. With the following ImpEx, create the `cms components` and `content slot` for the replenishment history page:
 
-    ```text
-    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];   uid[unique=true];name;flexType
-    ;;AccountReplenishmentHistoryComponent;Account    Replenishment History Component;  AccountReplenishmentHistoryComponent
+   ```text
+   INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+   ;;AccountReplenishmentHistoryComponent;Account Replenishment History Component;AccountReplenishmentHistoryComponent
 
-    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid   [unique=true];cmsComponents(uid, $contentCV)
-    ;;BodyContent-my-replenishment-orders;    AccountReplenishmentHistoryComponent
-    ```
+   INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+   ;;BodyContent-my-replenishment-orders;AccountReplenishmentHistoryComponent
+   ```
 
 5. With the following ImpEx, create the `cms components` and `content slot` for the replenishment order confirmation page:
 
-    ```text
-    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-    ;;ReplenishmentConfirmationMessageComponent;Replenishment Confirmation Message Component;   ReplenishmentConfirmationMessageComponent
-    ;;ReplenishmentConfirmationOverviewComponent;Replenishment Confirmation Overview Component;   ReplenishmentConfirmationOverviewComponent
-    ;;ReplenishmentConfirmationItemsComponent;Replenishment Confirmation Items Component;ReplenishmentConfirmationItemsComponent
-    ;;ReplenishmentConfirmationShippingComponent;Replenishment Confirmation Shipping Component;   ReplenishmentConfirmationShippingComponent
-    ;;ReplenishmentConfirmationTotalsComponent;Replenishment Confirmation Totals Component;ReplenishmentConfirmationTotalsComponent
-    ;;ReplenishmentConfirmationContinueButtonComponent;Replenishment Confirmation Continue Button Component;    ReplenishmentConfirmationContinueButtonComponent
+   ```text
+   INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+   ;;ReplenishmentConfirmationMessageComponent;Replenishment Confirmation Message Component;ReplenishmentConfirmationMessageComponent
+   ;;ReplenishmentConfirmationOverviewComponent;Replenishment Confirmation Overview Component;ReplenishmentConfirmationOverviewComponent
+   ;;ReplenishmentConfirmationItemsComponent;Replenishment Confirmation Items Component;ReplenishmentConfirmationItemsComponent
+   ;;ReplenishmentConfirmationShippingComponent;Replenishment Confirmation Shipping Component;ReplenishmentConfirmationShippingComponent
+   ;;ReplenishmentConfirmationTotalsComponent;Replenishment Confirmation Totals Component;ReplenishmentConfirmationTotalsComponent
+   ;;ReplenishmentConfirmationContinueButtonComponent;Replenishment Confirmation Continue Button Component;ReplenishmentConfirmationContinueButtonComponent
 
-    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-    ;;BodyContent-replenishmentConfirmation;ReplenishmentConfirmationMessageComponent,ReplenishmentConfirmationOverviewComponent,   ReplenishmentConfirmationItemsComponent,ReplenishmentConfirmationShippingComponent,ReplenishmentConfirmationTotalsComponent,  ReplenishmentConfirmationContinueButtonComponent
-    ```
+   INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+   ;;BodyContent-replenishmentConfirmation;ReplenishmentConfirmationMessageComponent,ReplenishmentConfirmationOverviewComponent,ReplenishmentConfirmationItemsComponent,ReplenishmentConfirmationShippingComponent,ReplenishmentConfirmationTotalsComponent,ReplenishmentConfirmationContinueButtonComponent
+   ```
 
 6. With the following ImpEx, create the `navigation node`, `navigation entry`, and `link` that routes to the replenishment orders.
 
-    **Note:** The `$lang` variable is defined as any language code that is available to you.
+   **Note:** The `$lang` variable is defined as any language code that is available to you.
 
-    ```text
-    INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-    ;MyReplenishmentOrdersNavNode;;My Replenishment Orders;MyAccountNavNode;;MyReplenishmentOrdersNavNode
+   ```text
+   INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+   ;MyReplenishmentOrdersNavNode;;My Replenishment Orders;MyAccountNavNode;;MyReplenishmentOrdersNavNode
 
-    INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
-    ;MyReplenishmentOrdersNavNodeEntry;;MyReplenishmentOrdersNavNodeEntry;MyReplenishmentOrdersNavNode;MyReplenishmentOrdersLink;
+   INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+   ;MyReplenishmentOrdersNavNodeEntry;;MyReplenishmentOrdersNavNodeEntry;MyReplenishmentOrdersNavNode;MyReplenishmentOrdersLink;
 
-    INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)      [default='sameWindow'];restrictions(uid,$contentCV)
-    ;;MyReplenishmentOrdersLink;My Replenishment Orders Link;/my-account/my-replenishments;MyReplenishmentOrdersLink;     MyReplenishmentOrdersLink;;loggedInUser
+   INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];restrictions(uid,$contentCV)
+   ;;MyReplenishmentOrdersLink;My Replenishment Orders Link;/my-account/my-replenishments;MyReplenishmentOrdersLink;MyReplenishmentOrdersLink;;loggedInUser
 
-    UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
-    ;;MyReplenishmentOrdersLink;"Replenishment Orders"
-    ```
+   UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+   ;;MyReplenishmentOrdersLink;"Replenishment Orders"
+   ```
 
 ### Disabling Scheduled Replenishment
 
@@ -141,32 +141,32 @@ You can disable the scheduled replenishment feature through the CMS, as describe
 
 1. With the following ImpEx, remove the `cms component` of the replenishment feature from the final checkout step:
 
-    ```text
-    REMOVE CMSFlexComponent;uid[unique=true];$contentCV[unique=true]
-    ;CheckoutScheduleReplenishmentOrderComponent;
-    ```
+   ```text
+   REMOVE CMSFlexComponent;uid[unique=true];$contentCV[unique=true]
+   ;CheckoutScheduleReplenishmentOrderComponent;
+   ```
 
 2. With the following ImpEx, remove access to the `content page` for the replenishment details, replenishment history, and replenishment order confirmation page:
 
-    ```text
-    UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
-    ;;my-replenishment-details;/my-account/my-replenishment;deleted:CmsPageStatus
-    ;;my-replenishment-orders;/my-account/my-replenishments;deleted:CmsPageStatus
-    ;;replenishmentConfirmationPage;/replenishment/confirmation;deleted:CmsPageStatus
-    ```
+   ```text
+   UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
+   ;;my-replenishment-details;/my-account/my-replenishment;deleted:CmsPageStatus
+   ;;my-replenishment-orders;/my-account/my-replenishments;deleted:CmsPageStatus
+   ;;replenishmentConfirmationPage;/replenishment/confirmation;deleted:CmsPageStatus
+   ```
 
 3. With the following ImpEx, remove the `navigation node`, `navigation entry`, and `link` that routes to the replenishment orders:
 
-    ```text
-    REMOVE CMSNavigationNode;uid[unique=true];$contentCV[unique=true]
-    ;MyReplenishmentOrdersNavNode;
+   ```text
+   REMOVE CMSNavigationNode;uid[unique=true];$contentCV[unique=true]
+   ;MyReplenishmentOrdersNavNode;
 
-    REMOVE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];
-    ;MyReplenishmentOrdersNavNodeEntry;
+   REMOVE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];
+   ;MyReplenishmentOrdersNavNodeEntry;
 
-    REMOVE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]
-    ;;MyReplenishmentOrdersLink
-    ```
+   REMOVE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]
+   ;;MyReplenishmentOrdersLink
+   ```
 
 ## Configuring
 
