@@ -119,6 +119,8 @@ docs:
                   url: /customer-interests/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
+                - title: "Scheduled Replenishment"
+                  url: /scheduled-replenishment/  
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"

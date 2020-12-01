@@ -13,6 +13,7 @@ This is a landing page for grouping together Spartacus Features topics. The Spar
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})
 - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
 - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
+- [Scheduled Replenishment]({{ site.baseurl }}{% link _pages/dev/features/scheduled-replenishment.md %})
 - [Selective Cart]({{ site.baseurl }}{% link _pages/dev/features/selective-cart.md %})
 - [Skip Links]({{ site.baseurl }}{% link _pages/dev/features/skip-links.md %})
 - [Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})
