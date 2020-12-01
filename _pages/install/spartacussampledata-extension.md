@@ -8,7 +8,7 @@ You can download the Spartacus Sample Data extension from the [Spartacus Release
 
 The Spartacus Sample Data extension is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledata.zip` in the **Assets** section of the most recent release of the `storefront` library. 
 
-Of course, previous versions are also available. For example, to download the Spartacus Sample Data extension for the `3.0.0-RC.1` release, you can access the **Assets** section of the `@spartacus/storefront@3.0.0-rc.1` library [here](https://github.com/SAP/spartacus/releases/download/storefront-3.0.0-rc.1).
+Of course, previous versions are also available. For example, to download the Spartacus Sample Data extension for the `3.0.0-RC.1` release, you can access the **Assets** section of the `@spartacus/storefront@3.0.0-rc.1` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-3.0.0-rc.1).
 
 For more information about installing the `spartacussampledata` extension, see [Installing SAP Commerce Cloud for use with Spartacus
 ]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
