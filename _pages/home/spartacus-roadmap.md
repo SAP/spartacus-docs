@@ -4,7 +4,7 @@ title: Spartacus Roadmap
 
 This document describes what what is planned for Spartacus for Q4 2020 and later.
 
-*Last updated November 24, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated December 1, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
