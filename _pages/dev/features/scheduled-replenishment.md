@@ -36,7 +36,7 @@ To view your scheduled orders, choose **Replenishment Orders** under the **My Ac
 
 ![Replenishment Orders]({{ site.baseurl }}/assets/images/replenishment-orders-1.png)
 
-When you select an order, you open the **Replenishment Order Details** page, which provides all the details about the order, including what items are in the replenishment order, and how often the order has been fulfilled.
+When you select a replenishment, you open the **Replenishment Order Details** page, which provides all the details about the replenishment order, including what items are in the replenishment, and how often the replenishment has been fulfilled.
 
 You can cancel your replenishment at any time, either from the **Replenishment Orders** page, or from the **Replenishment Order Details** page.
 
