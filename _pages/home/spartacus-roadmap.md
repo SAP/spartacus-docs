@@ -4,7 +4,7 @@ title: Spartacus Roadmap
 
 This document describes what what is planned for Spartacus for Q4 2020 and later.
 
-*Last updated November 24, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated December 1, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
@@ -82,16 +82,48 @@ Release 3.0 will be the first release supporting B2B features.
 ### B2B Storefront Features
 
 - **B2B Registration**
-- **B2B Saved Carts** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
-- **B2B Re-order**
-- **B2B Quick Order** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
 - **B2B Bulk Price List**
 - **B2B Multi-dimensional product support** (requires API update)
+- **B2B Saved Carts** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
+- **B2B Quick Order** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
+- **B2B Re-order**
 - **B2B Product Import and Export Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
 - **B2B Inventory Display**
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 
-### Core Storefront Features
+### Architecture Features
+
+- **Lazy loading** of existing features
+- **New events** for Event Service
+
+### Integrations
+
+- **Customer Data Cloud** integration library (Login and Registration Support)
+  - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
+  - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
+  - CDC is previously known as Gigya
+- **SAP Variant Configuration and Pricing** (formerly known as CPQ)
+  Initial version to include:
+  - Single- or multilevel configurable products in your Commerce Spartacus storefront
+  - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, and images for characteristic values
+  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
+  - Overview page with all user selections accessible at any time during configuration
+  - Conflict handling
+  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
+
+  
+## Future Outlook / Features Planned for mid-2021 and Later
+
+The items in this section are on our future roadmap - not necessarily yet planned for a specific quarter.
+  
+### Architecture and Development Features
+
+- **Tag Manager framework**
+- **Google Tag Manager Support**
+- **Site map**
+- **Extensibility 2.0** - finer-grained extensibility
+  
+### Core/B2C Storefront Features
 
 - **Image Zoom** on Product Details page (will be released in an incubator library)
 - **Accessibility Screen Reader support**
@@ -101,50 +133,15 @@ Release 3.0 will be the first release supporting B2B features.
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - **Assisted Service Module anonymous cart binding** (requires API introduced in 2005)
 - **Potential Promotions**
-- **Bundles** (requires new API planned for 2105 release)
-  
-### Architecture Features
-
-- **New events** for Event Service
-- **Site map**
-- **Tag Manager framework**
-- **Google Tag Manager Support**
-
-### Integrations
-
-- **Customer Data Cloud** integration library (Login and Registration Support)
-  - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
-  - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
-  - CDC is previously known as Gigya
-
-  
-## Future Outlook / Features Planned for mid-2021 and Later
-
-The items in this section are on our future roadmap - not necessarily yet planned for a specific quarter.
-  
-### Architecture and Development Features
-
-- Performance improvements through further implementation of lazy loading and with CMS
-- Completion of events framework
-- Extensibility improvements
-  
-### Core/B2C Storefront Features
-
-- Captcha (\*)
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
-- New Accessibility features
-- Buy it again (add to cart from existing order)
-- Social sharing of product information
-- Self-service customer support through the Customer Service Module (\*)
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
-- Configurable bundles (\*)  
+- **Product bundles** (requires 2011 release)
   - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
-- Payments Request API ([W3 Documentation](https://www.w3.org/TR/payment-request/))
-- Credentials API
-- Other PWA Features as defined in Google's [PWA Checklist](https://developers.google.com/web/progressive-web-apps/checklist) such as mobile notifications
+- **Captcha** (\*)
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
+- **Self-service customer support** through the Customer Service Module (\*)
+  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
 - Angular I18N support
-- Directionality (for right-to-left display support)
-- Spartacus for China (similar to [Accelerator for China](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8b258c36866910148298d20518a62a16.html))
+- **Buy it again** (add to cart from existing order)
+- **Social sharing** of product information
   
 ### B2B Storefront Features
 
@@ -158,14 +155,3 @@ The items in this section are on our future roadmap - not necessarily yet planne
 - **B2B Account Summary** (\*) for Commerce Org
 
 Some items listed above have **(\*)** because the feature requires new OCC REST APIs, no date set yet.
-
-### Integrations
-
-- **SAP Variant Configuration and Pricing** (formerly known as CPQ)
-  Initial version to include:
-  - Single- or multilevel configurable products in your Commerce Spartacus storefront
-  - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, and images for characteristic values
-  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
-  - Overview page with all user selections accessible at any time during configuration
-  - Conflict handling
-  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
