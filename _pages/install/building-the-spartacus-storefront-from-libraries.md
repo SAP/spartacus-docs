@@ -91,7 +91,7 @@ For example, check:
 - `prefix`: Defines the prefix for OCC calls.
   - The default for Spartacus libraries 3.0 and later is `/occ/v2/`; this entry is not added by schematics.
   - If using 2005 or later, the default backend prefix is `/occ/v2/`.
-  - If using 1905 or 2005 with the OCC AddOn, add the line `prefix: '/rest/v2/'`.
+  - If using 1905, or 2005 with the OCC AddOn, add the line `prefix: '/rest/v2/'`.
 - `features.level`: Defines the compatibility level
 - `context`: Defines the site context such as base site, language, and currency.
   - To see the base site in the URL and add Apparel store support, change `context` to the following:
