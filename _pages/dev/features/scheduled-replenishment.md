@@ -14,143 +14,145 @@ feature:
 
 ## Overview
 
-A Scheduled Replenishment "order" is a template for future orders, `B2B-only`.
+The scheduled replenishment feature allows you to set up orders that are fulfilled automatically on a recurring basis. For example, you might choose to set up an order that is fulfilled on the 15th day of every month. Each time a scheduled replenishment order is placed, the order shows up in the order history.
 
-- A normal order is placed automatically
-- Scheduled Replenishment orders are "held" and placed automatically at the frequency defined by the user e.g. \* every 28th of the month
-- The actual orders show up separately in Order History
+**Note:** The scheduled replenishment feature is for B2B storefronts only.
 
 For more information, see [Replenishment and Order Scheduling](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) on the SAP Help Portal.
 
 ## Usage
 
-Proceed to checkout and in the final step before placing an order, you have the option to schedule a replenishment or to place an order. Choosing to schedule a replenishment order, you may choose the specific day, week or month. Once an order is scheduled successfully, you will have an automatic re-order system from the date of your choosing.
+In the final step of checkout, before placing an order, you have the option to schedule a replenishment or to place an order. If you choose to schedule a replenishment, you can select the specific day, week, or month for the order to recur. Once you have scheduled your order, it will be fulfilled automatically starting from the date you have chosen, and will recur according to the schedule that you have set.
 
-You can view replenishments under **My Account** menu, and by choosing **Replenishment Orders**. You will be redirected to the replenishment history page, where you can view a list of replenishments with basic details that you subscribed to. Finally, choosing a specific replenishment from the history page, you can view in more details what the replenishment is about and how many successful re-orders were placed.
+To view your scheduled orders, choose **Replenishment Orders** under the **My Account** menu. You are redirected to the **Replenishment History** page, where you can view a list of your replenishment orders along with some basic details about each order. If you choose a specific replenishment order from the **Replenishment History** page, you can view more details about the the replenishment order, such as what items are in the replenishment order, and how often the order has been fulfilled.
 
-## CMS components
+## CMS Components
 
-All the required CMS data is already included in the `spartacussampledata` extension, however the following procedures also applies to your custom AddOn. Moreover, these changes can be made through `backoffice` instead of impex.
+If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, which is enabled by default. If you are not using the `spartacussampledata` extension, see [Enabling Scheduled Replenishment](#enabling-scheduled-replenishment), below.
 
-Scheduled replenishment is enabled by default in Spartacus. This feature is CMS-driven, where you can opt out of displaying the option of scheduling an order at the final checkout step and the options to remove the visibility to view replenishments under the history and details page of replenishment orders.
+Scheduled replenishment is CMS-driven, so you can choose not to display the order replenishment option in the final step of checkout. You can also choose not to display replenishment orders under the history and details pages of **Replenishment Orders**.
 
-**Note:** $contentCV is given as:
+The following procedures describe how to enable and disable scheduled replenishment using ImpEx, but you can also make these changes through Backoffice.
+
+**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 ```
 
-### Disabling Scheduled Replenishment through the CMS
+### Enabling Scheduled Replenishment
 
-To disable `Scheduled Replenishment`, proceed as follows:
+The following procedure describes how to enable the scheduled replenishment feature, which is necessary if you are not using the Spartacus sample data to build your storefront.
 
-1. Remove the `cms component` of the replenishment feature from the last checkout step:
+1. With the following ImpEx, add the `cms component` and `content slot` to enable the replenishment feature in the final checkout step:
 
-```sql
-REMOVE CMSFlexComponent;uid[unique=true];$contentCV[unique=true]
-;CheckoutScheduleReplenishmentOrderComponent;
-```
+    ```text
+    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+    ;;SideContentSlot-checkoutReviewOrder;Checkout Place Order Slot;CheckoutOrderSummaryComponent,    CheckoutScheduleReplenishmentOrderComponent,CheckoutPlaceOrderComponent
 
-2. Remove access to the `content page` for replenishment details, replenishment history, and replenishment order confirmation page:
+    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+    ;;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrder
+    ```
 
-```sql
-UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
-;;my-replenishment-details;/my-account/my-replenishment;deleted:CmsPageStatus
-;;my-replenishment-orders;/my-account/my-replenishments;deleted:CmsPageStatus
-;;replenishmentConfirmationPage;/replenishment/confirmation;deleted:CmsPageStatus
-```
+2. With the following ImpEx, enable access to the `content page` for the replenishment details, replenishment history, and replenishment order confirmation page:
 
-3. Remove the `navigation node`, `navigation entry`, and `link` that routes to the replenishments.
+    ```text
+    UPDATE ContentPage;$contentCV[unique=true];uid    [unique=true];label;pageStatus(code,itemtype(code))
+    ;;my-replenishment-details;/my-account/my-replenishment;    active:CmsPageStatus
+    ;;my-replenishment-orders;/my-account/my-replenishments;    active:CmsPageStatus
+    ;;replenishmentConfirmationPage;/replenishment/   confirmation;active:CmsPageStatus
+    ```
 
-```sql
-REMOVE CMSNavigationNode;uid[unique=true];$contentCV[unique=true]
-;MyReplenishmentOrdersNavNode;
+3. With the following ImpEx, create the `cms components` and `content slot` for the replenishment details page:
 
-REMOVE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];
-;MyReplenishmentOrdersNavNodeEntry;
+    ```text
+    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];   uid[unique=true];name;flexType
+    ;;ReplenishmentDetailItemsComponent;Replenishment Detail    Items Component;ReplenishmentDetailItemsComponent
+    ;;ReplenishmentDetailTotalsComponent;Replenishment    Detail Totals Component;  ReplenishmentDetailTotalsComponent
+    ;;ReplenishmentDetailShippingComponent;Replenishment    Detail Shipping Component;  ReplenishmentDetailShippingComponent
+    ;;ReplenishmentDetailActionsComponent;Replenishment     Detail Actions Component;   ReplenishmentDetailActionsComponent
+    ;;ReplenishmentDetailOrderHistoryComponent;Replenishment    Detail Order History Component;   ReplenishmentDetailOrderHistoryComponent
 
-REMOVE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]
-;;MyReplenishmentOrdersLink
-```
+    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid   [unique=true];cmsComponents(uid, $contentCV)
+    ;;BodyContent-my-replenishment-details;   ReplenishmentDetailShippingComponent,   ReplenishmentDetailItemsComponent,   ReplenishmentDetailTotalsComponent,  ReplenishmentDetailActionsComponent,   ReplenishmentDetailOrderHistoryComponent
+    ```
 
-### Enabling Scheduled Replenishment through the CMS
+4. With the following ImpEx, create the `cms components` and `content slot` for the replenishment history page:
 
-1. Add the `cms component` and `content slot` to enable the replenishment feature from the last checkout step:
+    ```text
+    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];   uid[unique=true];name;flexType
+    ;;AccountReplenishmentHistoryComponent;Account    Replenishment History Component;  AccountReplenishmentHistoryComponent
 
-```sql
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
-;;SideContentSlot-checkoutReviewOrder;Checkout Place Order Slot;CheckoutOrderSummaryComponent,CheckoutScheduleReplenishmentOrderComponent,CheckoutPlaceOrderComponent
+    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid   [unique=true];cmsComponents(uid, $contentCV)
+    ;;BodyContent-my-replenishment-orders;    AccountReplenishmentHistoryComponent
+    ```
 
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-;;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrderComponent;CheckoutScheduleReplenishmentOrder
-```
+5. With the following ImpEx, create the `cms components` and `content slot` for the replenishment order confirmation page:
 
-2. Enable access to the `content page` for replenishment details, replenishment history, and replenishment order confirmation page:
+    ```text
+    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+    ;;ReplenishmentConfirmationMessageComponent;Replenishment Confirmation Message Component;   ReplenishmentConfirmationMessageComponent
+    ;;ReplenishmentConfirmationOverviewComponent;Replenishment Confirmation Overview Component;   ReplenishmentConfirmationOverviewComponent
+    ;;ReplenishmentConfirmationItemsComponent;Replenishment Confirmation Items Component;ReplenishmentConfirmationItemsComponent
+    ;;ReplenishmentConfirmationShippingComponent;Replenishment Confirmation Shipping Component;   ReplenishmentConfirmationShippingComponent
+    ;;ReplenishmentConfirmationTotalsComponent;Replenishment Confirmation Totals Component;ReplenishmentConfirmationTotalsComponent
+    ;;ReplenishmentConfirmationContinueButtonComponent;Replenishment Confirmation Continue Button Component;    ReplenishmentConfirmationContinueButtonComponent
 
-```sql
-UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
-;;my-replenishment-details;/my-account/my-replenishment;active:CmsPageStatus
-;;my-replenishment-orders;/my-account/my-replenishments;active:CmsPageStatus
-;;replenishmentConfirmationPage;/replenishment/confirmation;active:CmsPageStatus
-```
+    INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+    ;;BodyContent-replenishmentConfirmation;ReplenishmentConfirmationMessageComponent,ReplenishmentConfirmationOverviewComponent,   ReplenishmentConfirmationItemsComponent,ReplenishmentConfirmationShippingComponent,ReplenishmentConfirmationTotalsComponent,  ReplenishmentConfirmationContinueButtonComponent
+    ```
 
-3. Create the `cms components` and `content slot` for the replenishment details page
+6. With the following ImpEx, create the `navigation node`, `navigation entry`, and `link` that routes to the replenishment orders.
 
-```sql
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-;;ReplenishmentDetailItemsComponent;Replenishment Detail Items Component;ReplenishmentDetailItemsComponent
-;;ReplenishmentDetailTotalsComponent;Replenishment Detail Totals Component;ReplenishmentDetailTotalsComponent
-;;ReplenishmentDetailShippingComponent;Replenishment Detail Shipping Component;ReplenishmentDetailShippingComponent
-;;ReplenishmentDetailActionsComponent;Replenishment Detail Actions Component;ReplenishmentDetailActionsComponent
-;;ReplenishmentDetailOrderHistoryComponent;Replenishment Detail Order History Component;ReplenishmentDetailOrderHistoryComponent
+    **Note:** The `$lang` variable is defined as any language code that is available to you.
 
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;BodyContent-my-replenishment-details;ReplenishmentDetailShippingComponent,ReplenishmentDetailItemsComponent,ReplenishmentDetailTotalsComponent,ReplenishmentDetailActionsComponent,ReplenishmentDetailOrderHistoryComponent
-```
+    ```text
+    INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+    ;MyReplenishmentOrdersNavNode;;My Replenishment Orders;MyAccountNavNode;;MyReplenishmentOrdersNavNode
 
-4. Create the `cms components` and `content slot` for the replenishment history page:
+    INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+    ;MyReplenishmentOrdersNavNodeEntry;;MyReplenishmentOrdersNavNodeEntry;MyReplenishmentOrdersNavNode;MyReplenishmentOrdersLink;
 
-```sql
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-;;AccountReplenishmentHistoryComponent;Account Replenishment History Component;AccountReplenishmentHistoryComponent
+    INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)      [default='sameWindow'];restrictions(uid,$contentCV)
+    ;;MyReplenishmentOrdersLink;My Replenishment Orders Link;/my-account/my-replenishments;MyReplenishmentOrdersLink;     MyReplenishmentOrdersLink;;loggedInUser
 
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;BodyContent-my-replenishment-orders;AccountReplenishmentHistoryComponent
-```
+    UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+    ;;MyReplenishmentOrdersLink;"Replenishment Orders"
+    ```
 
-5. Create the `cms components` and `content slot` for the replenishment order confirmation page:
+### Disabling Scheduled Replenishment
 
-```sql
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
-;;ReplenishmentConfirmationMessageComponent;Replenishment Confirmation Message Component;ReplenishmentConfirmationMessageComponent
-;;ReplenishmentConfirmationOverviewComponent;Replenishment Confirmation Overview Component;ReplenishmentConfirmationOverviewComponent
-;;ReplenishmentConfirmationItemsComponent;Replenishment Confirmation Items Component;ReplenishmentConfirmationItemsComponent
-;;ReplenishmentConfirmationShippingComponent;Replenishment Confirmation Shipping Component;ReplenishmentConfirmationShippingComponent
-;;ReplenishmentConfirmationTotalsComponent;Replenishment Confirmation Totals Component;ReplenishmentConfirmationTotalsComponent
-;;ReplenishmentConfirmationContinueButtonComponent;Replenishment Confirmation Continue Button Component;ReplenishmentConfirmationContinueButtonComponent
+You can disable the scheduled replenishment feature through the CMS, as described in the following procedure.
 
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;BodyContent-replenishmentConfirmation;ReplenishmentConfirmationMessageComponent,ReplenishmentConfirmationOverviewComponent,ReplenishmentConfirmationItemsComponent,ReplenishmentConfirmationShippingComponent,ReplenishmentConfirmationTotalsComponent,ReplenishmentConfirmationContinueButtonComponent
-```
+1. With the following ImpEx, remove the `cms component` of the replenishment feature from the final checkout step:
 
-6. Create the `navigation node`, `navigation entry`, and `link` that routes to the replenishments.
+    ```text
+    REMOVE CMSFlexComponent;uid[unique=true];$contentCV[unique=true]
+    ;CheckoutScheduleReplenishmentOrderComponent;
+    ```
 
-**Note:** $lang is defined as any language code that is available to you.
+2. With the following ImpEx, remove access to the `content page` for replenishment details, replenishment history, and replenishment order confirmation page:
 
-```sql
-INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-;MyReplenishmentOrdersNavNode;;My Replenishment Orders;MyAccountNavNode;;MyReplenishmentOrdersNavNode
+    ```text
+    UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
+    ;;my-replenishment-details;/my-account/my-replenishment;deleted:CmsPageStatus
+    ;;my-replenishment-orders;/my-account/my-replenishments;deleted:CmsPageStatus
+    ;;replenishmentConfirmationPage;/replenishment/confirmation;deleted:CmsPageStatus
+    ```
 
-INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
-;MyReplenishmentOrdersNavNodeEntry;;MyReplenishmentOrdersNavNodeEntry;MyReplenishmentOrdersNavNode;MyReplenishmentOrdersLink;
+3. With the following ImpEx, remove the `navigation node`, `navigation entry`, and `link` that routes to the replenishment orders:
 
-INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];restrictions(uid,$contentCV)
-;;MyReplenishmentOrdersLink;My Replenishment Orders Link;/my-account/my-replenishments;MyReplenishmentOrdersLink;MyReplenishmentOrdersLink;;loggedInUser
+    ```text
+    REMOVE CMSNavigationNode;uid[unique=true];$contentCV[unique=true]
+    ;MyReplenishmentOrdersNavNode;
 
-UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
-;;MyReplenishmentOrdersLink;"Replenishment Orders"
-```
+    REMOVE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];
+    ;MyReplenishmentOrdersNavNodeEntry;
+
+    REMOVE CMSLinkComponent;$contentCV[unique=true];uid[unique=true]
+    ;;MyReplenishmentOrdersLink
+    ```
 
 ## Configuring
 
