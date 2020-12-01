@@ -18,7 +18,7 @@ Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample d
 
 No matter the version, the latest patch is required, as important fixes are often added that affect Spartacus.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}). 
+For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 ## Creating a New Angular App
 
@@ -36,19 +36,19 @@ The following procedure describes how to create a new Angular application with t
 
    The `mystore` folder and the new app are created.
 
-4.  Access the newly created `mystore` folder with the following command:
+3. Access the newly created `mystore` folder with the following command:
 
-     ```bash
+     ```shell
      cd mystore
      ```
 
 ## Spartacus Project Setup
 
-The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
+The easiest way to start a new project is to use Angular Schematics to quickly set up your application.
 
 For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
-### Setting up the core B2C project using schematics ###
+### Setting up the Core B2C Project Using Schematics
 
 To install the latest official release of Spartacus using schematics:
 
@@ -57,8 +57,9 @@ ng add @spartacus/schematics
 ```
 
 Notes:
-- The `/schematics` command adds core Spartacus (or B2C) configuration, to work with SAP Commerce Cloud Electronics or Apparel sample stores.
-- To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command. 
+
+- The `/schematics` command adds the core Spartacus (or B2C) configuration, to work with SAP Commerce Cloud Electronics or Apparel sample stores.
+- To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command.
 - To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
 
 ### Adding B2B Commerce Organization (Optional)
@@ -69,46 +70,46 @@ To get Spartacus to work with the SAP Commerce Cloud Powertools sample store, yo
 ng add @spartacus/organization
 ```
 
-The installer will asked what to include (organization or approvals); both are required for B2B Commerce Organization to work. The default is both, so you can just press Enter when prompted.
+The installer will asked what to include (`organization` or `approvals`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
 
-
-### Install dependencies ###  
+### Installing Dependencies
 
 Install dependencies needed by your Spartacus app with the following command:
 
-```
+```shell
 yarn install
 ```
   
-  
-### Check app.module.ts for base URL and other settings ###
+### Checking app.module.ts for Base URL and Other Settings
 
-Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
+Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup.
 
 For example, check:
+
 - `baseUrl`: Points to your SAP Commerce Cloud server.
-- `prefix`: Defines the prefix for OCC calls. 
-   - The default for Spartacus libraries 3.0 and later is `/occ/v2/`; this entry is not added by schematics. 
-   - If using 2005 or later, the default backend prefix is `/occ/v2/`.
-   - If using 1905 or 2005 with the OCC addon, add the line `prefix: '/rest/v2/'`. 
+- `prefix`: Defines the prefix for OCC calls.
+  - The default for Spartacus libraries 3.0 and later is `/occ/v2/`; this entry is not added by schematics.
+  - If using 2005 or later, the default backend prefix is `/occ/v2/`.
+  - If using 1905 or 2005 with the OCC AddOn, add the line `prefix: '/rest/v2/'`.
 - `features.level`: Defines the compatibility level
-- `context`: Defines the site context such as base site, language, and currency. 
-   - To see the base site in the URL and add Apparel store support, change `context` to the following:
-     ```
+- `context`: Defines the site context such as base site, language, and currency.
+  - To see the base site in the URL and add Apparel store support, change `context` to the following:
+
+     ```ts
      context: {
      urlParameters: ['baseSite', 'language', 'currency'],
      baseSite: ['electronics-spa','apparel-uk-spa'],
      currency: ['USD', 'GBP',]
      },
      ```
-   - If using Powertools, add `powertools-spa` to the list in `baseSite`.
+
+  - If using Powertools, add `powertools-spa` to the list in `baseSite`.
   
-  
-### Starting your Spartacus app ###  
+### Starting Your Spartacus App
 
 Start your app with the following command:
 
-```
+```shell
 yarn start
 ```
 
@@ -116,7 +117,7 @@ Your app will be compiled and then started.
 
 To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data extension, the Spartacus storefront for Electronics should appear.
 
-Note: If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/electronics/cms/pages` (or `../rest/..` if using 1905), and then accept the privacy certificate. This step is necessary because your browser will block calls to app will make calls to `localhost:9002` due to security settings. To see the browser message, right-click in your browser, select Inspect, then click Console.
+Note: If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/electronics/cms/pages` (or `../rest/..` if using 1905), and then accept the privacy certificate. This step is necessary because your browser will block calls the app will make to `localhost:9002` due to security settings. To see the browser message, right-click in your browser, select **Inspect**, then click **Console**.
 
 - You can display the Apparel storefront through this URL: `http://localhost:4200/apparel-uk-spa/en-GBP`
 - You can display the Powertools storefront through this URL: `http://localhost:4200/powertools-spa/en-GBP`
