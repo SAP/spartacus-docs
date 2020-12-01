@@ -20,19 +20,33 @@ The scheduled replenishment feature allows you to set up orders that are fulfill
 
 For more information, see [Replenishment and Order Scheduling](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) on the SAP Help Portal.
 
-## Usage
+## Setting Up a Replenishment Order
 
-In the final step of checkout, before placing an order, you have the option to schedule a replenishment or to place an order. If you choose to schedule a replenishment, you can select the specific day, week, or month for the order to recur. Once you have scheduled your order, it will be fulfilled automatically starting from the date you have chosen, and will recur according to the schedule that you have set.
+Any order can become a replenishment order. On the last checkout step, in the **Order Summary** section, you have the option to auto replenish your order. If you choose to schedule a replenishment, you can select the schedule as follows:
 
-To view your scheduled orders, choose **Replenishment Orders** under the **My Account** menu. You are redirected to the **Replenishment History** page, where you can view a list of your replenishment orders along with some basic details about each order. If you choose a specific replenishment order from the **Replenishment History** page, you can view more details about the the replenishment order, such as what items are in the replenishment order, and how often the order has been fulfilled.
+- **Days:** You can specify how often your order is replenished by choosing the number of days until the order is fulfilled again, from 1 to 30.
+- **Weeks:** You can specify how often your order is replenished by choosing the number of weeks until the order is fulfilled again, from 1 to 12. You can also specify on which day of the week the order will be replenished.
+- **Months:** You can specify how often your order is replenished by choosing **Month**, and then choosing on which day of the month the order will be replenished.
+
+There is also a **Start on** field that lets you specify the date for when the first order will be fulfilled.
+
+Once you have scheduled your order, it will be fulfilled automatically starting from the date you have chosen, and will recur according to the schedule that you have set.
+
+To view your scheduled orders, choose **Replenishment Orders** under the **My Account** menu. On the **Replenishment Orders** page, you can see a list of all of your scheduled replenishment orders. The following is an example:
+
+![Replenishment Orders]({{ site.baseurl }}/assets/images/replenishment-orders-1.png)
+
+When you select an order, you open the **Replenishment Order Details** page, which provides all the details about the order, including what items are in the replenishment order, and how often the order has been fulfilled.
+
+You can cancel your replenishment at any time, either from the **Replenishment Orders** page, or from the **Replenishment Order Details** page.
 
 ## CMS Components
 
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, which is enabled by default. If you are not using the `spartacussampledata` extension, see [Enabling Scheduled Replenishment](#enabling-scheduled-replenishment), below.
+If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to enable the feature before using it. For more information, see [Enabling Scheduled Replenishment](#enabling-scheduled-replenishment).
 
-Scheduled replenishment is CMS-driven, so you can choose not to display the order replenishment option in the final step of checkout. You can also choose not to display replenishment orders under the history and details pages of **Replenishment Orders**.
+Scheduled replenishment is CMS-driven, so you can choose to not display the order replenishment option in the final step of checkout. You can also choose to not display replenishment orders on the **Replenishment Orders** page.
 
-The following procedures describe how to enable and disable scheduled replenishment using ImpEx, but you can also make these changes through Backoffice.
+The procedures in the following sections describe how to enable and disable scheduled replenishment using ImpEx, but you can also enable and disable the feature using Backoffice.
 
 **Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
 
@@ -43,7 +57,7 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
 
 ### Enabling Scheduled Replenishment
 
-The following procedure describes how to enable the scheduled replenishment feature, which is necessary if you are not using the Spartacus sample data to build your storefront.
+The following procedure describes how to enable the scheduled replenishment feature, which is necessary if you are not using the `spartacussampledata` extension to build your storefront.
 
 1. With the following ImpEx, add the `cms component` and `content slot` to enable the replenishment feature in the final checkout step:
 
@@ -132,7 +146,7 @@ You can disable the scheduled replenishment feature through the CMS, as describe
     ;CheckoutScheduleReplenishmentOrderComponent;
     ```
 
-2. With the following ImpEx, remove access to the `content page` for replenishment details, replenishment history, and replenishment order confirmation page:
+2. With the following ImpEx, remove access to the `content page` for the replenishment details, replenishment history, and replenishment order confirmation page:
 
     ```text
     UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];label;pageStatus(code,itemtype(code))
