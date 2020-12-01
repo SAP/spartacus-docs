@@ -110,7 +110,6 @@ Release 3.0 will be the first release supporting B2B features.
   - Overview page with all user selections accessible at any time during configuration
   - Conflict handling
   For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
-
   
 ## Future Outlook / Features Planned for mid-2021 and Later
 
@@ -155,3 +154,7 @@ The items in this section are on our future roadmap - not necessarily yet planne
 - **B2B Account Summary** (\*) for Commerce Org
 
 Some items listed above have **(\*)** because the feature requires new OCC REST APIs, no date set yet.
+
+### Integrations
+
+- Financial Accelerator for Spartacus

@@ -42,20 +42,28 @@ origin content-type accept authorization occ-personalization-id occ-personalizat
 
   To test that the configuration is working:
 
-  - Send an OCC REST API call to your site. You should see `Occ-Personalization-Id` in the response header. 
-  - Send the call again but with `Occ-Personalization-Id: yourid` in the header,  and you should also see `Occ-Personalization-Time`.
+- Send an OCC REST API call to your site. You should see `Occ-Personalization-Id` in the response header.
+- Send the call again but with `Occ-Personalization-Id: yourid` in the header,  and you should also see `Occ-Personalization-Time`.
 
 ## Enabling Personalization in Spartacus
 
 In `app.module.ts`, add the following to the settings in the `B2cStorefrontModule.withConfig` section:
 
-```
+```ts
 personalization: {
   enabled: true,
 },
 ```
 
 ## Testing Personalization
+
+To check if Spartacus Personalization is configured properly:
+
+1. From your Spartacus site, right-click the page, click **Inspect**, then click **Network**.
+
+2. Click the Spartacus store logo to go to the Home page, then click a product.
+
+Any network call referring to `cms/pages` should include the personalization ID and time in the header. You can also run the command `localStorage` in the **Inspect Console**; the `personalization-id` and `personalization-time` should be visible in the response.
 
 To test your own configurations, you can try out the steps in the following Personalization tutorials:
 
@@ -113,11 +121,12 @@ Sample personalization context :
 
 2. The PersonalizationScriptComponent
 
-    The personalizationaddon contains the PersonalizationScriptComponent, which should be inserted into PlaceholderContentSlot. 
-    You can run the impex below to add PersonalizationScriptComponent to your content catalog. 
+    The personalizationaddon contains the PersonalizationScriptComponent, which should be inserted into PlaceholderContentSlot.
+
+    You can run the ImpEx below to add PersonalizationScriptComponent to your content catalog.
     Remember to set **$contentCatalog** parameter to the proper content catalog value.
   
-   ```sql
+   ```text
    $contentCatalog = electronics-spaContentCatalog
    $stageContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
   
@@ -130,29 +139,29 @@ Sample personalization context :
   
    INSERT_UPDATE ContentSlot; $stageContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $stageContentCV)[mode = append]
                             ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
-     
-     
-     
-     
-     
+
+
+
+
+
    $onlineContentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
-     
-     
+
+
    # -----------------------------------------------------------------------
    # Component needed for personalization context visible in storefront
    # -----------------------------------------------------------------------
-     
+
    INSERT_UPDATE PersonalizationScriptComponent; $onlineContentCV[unique = true]; uid[unique = true]             ; name                  ;
                                                ;                          ; PersonalizationScriptComponent ; PersonalizationScript ; PersonalizationScript ; ;
-     
+
    INSERT_UPDATE ContentSlot; $onlineContentCV[unique = true]; uid[unique = true]     ; active; cmsComponents(uid, $onlineContentCV)[mode = append]
                             ;                          ; PlaceholderContentSlot ; true  ; PersonalizationScriptComponent
-   
-    ```
+
+   ```
 
 ### Frontend - Spartacus
 
-Spartacus contains **PersonalizationContextService**, which enables access to personalization context. 
+Spartacus contains **PersonalizationContextService**, which enables access to personalization context.
 If you would like to use information from personalization context, you can subscribe to it and get PersonalizationContext object.
 
 ```ts
@@ -171,7 +180,7 @@ export interface PersonalizationAction {
 }
 ```
 
-Below you can find a sample test service, which displays personalization context in the console. 
+Below you can find a sample test service, which displays personalization context in the console.
 
 ```ts
 import { Injectable } from '@angular/core';
