@@ -15,7 +15,6 @@ title: Pricing - Composite Pricing with Price Alteration
 - [Changes Implemented](#changes-implemented)
 - [Creating and Configuring Composite Pricing for SPO in TUA](#creating-and-configuring-composite-pricing-for-spo-in-tua)
 - [Components](#components)
-- [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
 ## Business Use Case
