@@ -57,8 +57,13 @@ personalization: {
 
 ## Testing Personalization
 
-To test your own configurations, you can try out the steps in the following Personalization tutorials:
+To check if Spartacus Personalization is configured properly:
+1. From your Spartacus site, right-click the page, click Inspect, then click Network.
+2. Click the Spartacus store logo to go to the Home page, then click a product. 
 
+Any network call referring to cms/pages should include the personalization ID and time in the header. You can also run the command `localStorage` in the Inspect Console; the personaliztion-id and -time should be visible in the response.
+
+To test your own configurations, you can try out the steps in the following Personalization tutorials:
 - [Add a Personalization to a Page](https://enable.cx.sap.com/media/Add+a+Personalization+to+a+Page+-+SAP+Commerce+Cloud/1_0nu4ayiu)
 - [Create Personalized Search Results](https://enable.cx.sap.com/media/Create+Personalized+Search+Results+-+SAP+Commerce+Cloud/1_5dhey09h)
 

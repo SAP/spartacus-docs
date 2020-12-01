@@ -116,7 +116,15 @@ Release 3.0 will be the first release supporting B2B features.
   - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
   - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
   - CDC is previously known as Gigya
-
+- **SAP Variant Configuration and Pricing** (formerly known as CPQ)
+  Initial version to include:
+  - Single- or multilevel configurable products in your Commerce Spartacus storefront
+  - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, and images for characteristic values
+  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
+  - Overview page with all user selections accessible at any time during configuration
+  - Conflict handling
+  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
+  
   
 ## Future Outlook / Features Planned for mid-2021 and Later
 
@@ -159,13 +167,7 @@ The items in this section are on our future roadmap - not necessarily yet planne
 
 Some items listed above have **(\*)** because the feature requires new OCC REST APIs, no date set yet.
 
+
 ### Integrations
 
-- **SAP Variant Configuration and Pricing** (formerly known as CPQ)
-  Initial version to include:
-  - Single- or multilevel configurable products in your Commerce Spartacus storefront
-  - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, and images for characteristic values
-  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
-  - Overview page with all user selections accessible at any time during configuration
-  - Conflict handling
-  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
+- Financial Accelerator for Spartacus
