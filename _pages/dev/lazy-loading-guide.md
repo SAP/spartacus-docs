@@ -38,13 +38,39 @@ At the time of writing (Angular 9 and Angular 10), mixing static imports with dy
 
 ### Configuration in Lazy Loaded Modules
 
-If additional configuration is provided inside the lazy-loaded module, this configuration is not merged in the global application configuration. As a result, the configuration will not affect any component other than the lazy-loaded components.
+If additional configuration is provided inside the lazy-loaded module, usually this configuration is not merged in the global application configuration. As a result, the configuration will not affect any component other than the lazy-loaded components.
 
-This limitation will be addressed in Spartacus 3.x with the concept of unified configuration. For Spartacus 2.x, you should import modules with configuration statically.
+However, Spartacus 3.x introduced compatibility mechanism that will merge any lazy loaded configuration into the global one, to support lazy loading scenarios for existing components and services. In most cases, especially when lazy loaded modules provides mostly default configuration, it works reliable, but can cause problems if overused, especially when two modules provide different configuration for the same part of the config. Such a scenarios can be fixed by providing necessary overrides in the main app.   
+This mechanism is enabled by default in Spartacus 3.x and can be disabled with feature flag `disableConfigUpdates`. If you are developing new modules that have to hook into configuration from lazy loaded modules, you should use `ConfigurationService.unifiedConfig$` instead. 
+
+#### Unified configuration
+
+Unified configuration provides a way to get a global configuration that includes both the root configuration and the configuration from already-loaded lazy-loaded modules.
+
+`ConfigurationService.unifiedConfig$` exposes unified configuration as an observable that will emit the new configuration each time it will change, so each time when lazy-loaded module with provided configuration will be loaded and instantiated.  
+
+All configuration parts are merged in a strict order, where the actual configuration will always override the default one and the configuration defined in the root module (app shell) will have precedence:
+
+As an example, here is the order of merging different configurations provided in the root app and in two lazy loaded modules (each next item on the list can override the previous one):
+
+  - default root configuration
+  - default configuration from lazy-loaded module 1
+  - default configuration from lazy-loaded module 2
+  - configuration from lazy-loaded module 1
+  - configuration from lazy-loaded module 2
+  - root configuration (will always take precedence)  
 
 ### Providers in Lazy Loaded Modules
 
-Injection tokens provided in lazy-loaded modules are not visible to services provided in the app root. This applies especially to multi-provided tokens, such as `PageMetaResolvers`, various Handlers, and so on. This problem will be partially addressed in Spartacus 3.0 with the Unified Injector mechanism. For Spartacus 2.x, you should always provide these tokens in modules statically imported to your app root module.
+Injection tokens provided in lazy-loaded modules are not visible to services provided in the app root. This applies especially to multi-provided tokens, such as `HttpInterceptors`, various Handlers, and so on. 
+
+To mitigate this drawback, some Spartacus features like `PageMetaService` (consuming `PageMetaResolver` tokens) or `ConverterService` (consuming mostly adapter serializers and normalizers) are using Unified Injector under the hood. In this way they have access to lazy loaded tokens and can leverage them for global features.   
+
+For mechanism that are not relying on Unified Injector (e.g. most non-Spartacus libs like core Angular functionalities) you should always provide such tokens eagerly, in modules statically imported to your app root module.
+
+#### Unified Injector
+
+The unified injector provides a way to inject a token, or multi-provided tokens, taking into account the root injector and the injectors from lazy-loaded features. The injector exposes an Observable that emits a new set of injectables for a specified token each time the status of the Unified Injector changes.
 
 ### Avoiding Importing the HttpClientModule in Your Lazy Loaded Modules
 
@@ -82,7 +108,7 @@ For more information on CMS mapping, see [Customizing CMS Components]({{ site.ba
 Support for dynamic imports in CMS component mapping is implemented using customizable component handlers (specifically, the `LazyComponentHandler`).
 
 It is possible to extend this handler to customize its behavior, to add special hooks, or different triggers, or to implement a completely new handler that can optionally reuse existing ones.
-
+ 
 ## Lazy Loading of Modules
 
 {% capture version_note %}
@@ -158,17 +184,17 @@ It is possible to extract some logic to a shared, lazy-loaded module that can be
 }
 ```
 
-Such unnamed dependency modules are instantiated only once, when lazy loading the first feature that depends on it. Its providers contribute to the combined injector that is passed to the CMS component that is covered by the feature.  
+Such unnamed dependency modules are instantiated only once, when lazy loading the first feature that depends on it. Its providers contribute to the combined injector that is passed to the feature module, thus all feature services and components have access to services provided by dependency modules.  
 
 ### Combined Injector
 
+Any lazy-loaded module can inject (have acces to) services and tokens from the app root injector and dependency modules injectors. This is achieved thanks to the `CombinedInjector` that is created each time the feature module with dependencies is instantiated. 
+
 When a CMS component that is covered by a lazy-loaded module is instantiated, it can inject (have access to) services from the following:
 
-- the app root injector, taking into account the hierarchical injector component tree (that is, providers defined in the parent components)
-- the feature module injector
-- the dependency modules injectors
+- `ModuleInjector` hierarchy - starting from feature module injector, including dependency modules and root injector
+- `ElementInjector` hierarchy — created implicitly at each DOM element
 
-This is achieved thanks to the `CombinedInjector` that is created on the fly by the CMS rendering logic. As a rule of thumb, local hierarchical providers take precedence over feature module providers, which in turn takes precedence over dependency module injectors, which take precedence over the root application injector.
 
 ## Preparing Libraries to Work with Lazy Loading
 
@@ -176,36 +202,22 @@ This is achieved thanks to the `CombinedInjector` that is created on the fly by 
 
 Mixing static and dynamic imports from the same entry points breaks lazy loading and affects tree shaking, so any library that will be used directly in dynamic imports should expose fine-grained secondary entry points to optimize code splitting.
 
-For more information, see [Secondary Entry Points](https://github.com/ng-packagr/ng-packagr/blob/master/docs/secondary-entrypoints.md) in the ng-packagr documentation on GitHub.
+As a convention, Spartacus exposes **root entry points** for features (eg. `@spartacus/orgainzation/administration/root`). Such an entry point contains all the code that should not or can't be lazy-loaded. Modules from root entry point should be imported statically in the root application, which means, will be loaded eagerly and be available in the main application chunk.   
+
+For more information regarding secondary entry points support in Angular libraries, see [Secondary Entry Points](https://github.com/ng-packagr/ng-packagr/blob/master/docs/secondary-entrypoints.md) in the ng-packagr documentation on GitHub.
 
 ### Separating Static Code from Lazy Loaded Code
 
-When you work with Angular Dependency Injection, the list of providers in the injector should not change after the injector is initialized. This paradigm specifically affects the following:
+When you work with Angular Dependency Injection, the list of providers in the injector should not change after the injector is initialized. This paradigm specifically applies to any multi-provided tokens, handlers, especially any Angular native multi-provided tokens, such as `HTTP_INTERCEPTOR`, `APP_INITIALIZER`, and so on.
   
-- The Spartacus configuration, which is defined by providing configuration chunks that are merged in the global Configuration Factory Provider.
+The result is that any multi-provided token in a lazy-loaded module will not be visible to modules and services provided in the root, or in other lazy-loaded chunks, with an exception of using Unified Injector.
 
-- Any multi-provided tokens, handlers such as `PageMetaResolver`, `ErrorHandler`, and so on.
-  
-- Any Angular native multi-provided tokens, such as `HTTP_INTERCEPTOR`, `APP_INITIALIZER`, and so on.
-  
-The result is that any configuration or multi-provided token in a lazy-loaded module will not be visible to modules and services provided in the root, or in other lazy-loaded chunks.
+Some Spartacus features (like `PageMateService` or `ConverterService`) use `UnifiedInjector` to be aware of tokens that can be lazy loaded, so the global logic (like SEO features) can work reliably even if the logic is lazy-loaded with the feature (eg. storefinder page meta resolver can be lazy-loaded with storefinder feature).
 
-The easiest way to fix this is to always include this kind of code in a statically-linked module that is available upfront. It is recommended to create a separate entry point in your library (by convention, named _root_, such as `my-library/root`) that contains minimal code, and that will be included in the main bundle and will be available from the beginning.
+Spartacus configuration, which is also defined by providing configuration chunks, is treated a bit differently because of a compatibility mechanism, that is contributing configuration from lazy-loading features to global configuration. This mechanism can be disabled by a feature flag and will be turned off by default in the future, in favor of Unified Configuration feature.   
+
+In case of issues with lazy-loaded provides not being visible by root services, it's always possible to include this kind of code in a statically-linked module that is available upfront. It is recommended to create a separate entry point in your library (by convention, named _root_, such as `my-library/root`) that contains minimal code, and that will be included in the main bundle and will be available from the beginning.
 
 ### Wrapping Library Code in a Lazy-Loaded Module
 
 To address some specific customizations on top of a lazy loaded library, it is possible to wrap static imports from one or more libraries into a single module that will be imported dynamically instead. This technique can also be an effective optimization strategy, because the builder will be able to use tree shaking for all of the static imports inside the module.
-
-## Additional Mechanisms (Planned for Spartacus 3.0)
-
-### Unified Configuration
-
-**Note:** A preview will be available in the _3.0-next_ releases.
-
-Unified configuration provides a way to get a global configuration that includes both the root configuration and the configuration from already-loaded lazy-loaded modules.
-
-### Unified Injector
-
-**Note:** A preview will be available in the _3.0-next_ releases.
-
-The unified injector provides a way to inject a token, or multi-provided tokens, taking into account the root injector and the injectors from lazy-loaded modules. The injector exposes an Observable that emits a new set of injectables for a specified token each time the status of the Unified Injector changes. This status changes whenever Spartacus instantiates a new lazy-loaded module, because the module contains an injector that can be added to the Unified Injector.
