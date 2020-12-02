@@ -70,7 +70,7 @@ Try out our continuous-integration server [here](https://sap.github.io/spartacus
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available?
 
-Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/spartacus-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
+Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/spartacus-docs/). We are starting a collection of [helpful how-to videos](https://microlearning.opensap.com/category/Spartacus/178316081). Official training via SAP Education is not planned for launch but may be made available in the future.  
 
 ### Can I customize Spartacus?
 
