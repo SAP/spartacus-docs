@@ -193,7 +193,7 @@ The following new and updated components must be enabled in the TUA backoffice t
   <tr>
     <td class="tg-pcvp">TmaCartItemComponent</td>
     <td class="tg-pcvp">Updated</td>
-    <td class="tg-pcvp">A Cart Item component that displays details of the cart items. It is updated to include TmaCartItemPriceDisplayComponent and to show pay now prices with alterations, if applicable.<br><span style="font-weight:bold">Format:</span> &lt;discounted value&gt; <br><span style="font-weight:bold">Example:</span> <strike>$50</strike> $32 for Product signatureUnlimitedPlan.</td>
+    <td class="tg-pcvp">A Cart Item component that displays details of the cart items. It is updated to include TmaCartItemPriceDisplayComponent and to show pay now prices with alterations, if applicable.<br><span style="font-weight:bold">Format:</span> <strike>&lt;original value&gt;</strike> &lt;discounted value&gt; <br><span style="font-weight:bold">Example:</span> <strike>$50</strike> $32 for Product signatureUnlimitedPlan.</td>
   </tr>
   <tr>
     <td class="tg-0pky">TmaAddedToCartDialogComponent</td>
