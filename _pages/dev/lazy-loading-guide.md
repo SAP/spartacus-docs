@@ -9,13 +9,13 @@ feature:
   cx_version: n/a
 ---
 
-Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all the JavaScript of the full application when a user accesses the first page. Instead, only the chunks that are required for the given page are loaded. While navigating the storefront, additional chunks might be loaded when needed.
+Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all the JavaScript of the full application when a user accesses the first page. Instead, only the chunks that are required for the given page are loaded. While navigating the storefront, additional chunks are loaded when needed.
 
 Such an approach can substantially improve "Time To Interactive", especially in the case of complex web applications being accessed by low-end mobile devices.
 
 ## Spartacus Approach to Lazy Loading
 
-Code splitting is a technique that has to be done at application build time. Code splitting provided by Angular is typically route-based, which means there is a chunk for the landing page, another chunk for the product page, and so on. Since Spartacus is mostly CMS driven, the actual application logic for each route cannot be decided at build time. Business users will eventually alter the page structure by introducing or removing components. This is why an alternative approach to lazy-loading is required, which Spartacus provides in the following ways:
+Code splitting is a technique that has to be done at application build time. Code splitting provided by Angular is typically route-based, which means there is a chunk for the landing page, another chunk for the product page, and so on. Since Spartacus is mostly CMS driven, the actual application logic for each route cannot be decided at build time. Business users will eventually alter the page structure by introducing or removing components. This is why an alternative approach to lazy loading is required, which Spartacus provides in the following ways:
 
 - Lazy loading of CMS components
 - CMS-driven lazy loading of feature modules
@@ -28,13 +28,13 @@ The following sections offer some important information about how lazing loading
 
 Dynamic imports, a technique that is used to facilitate lazy loading and that also allows code splitting, can only be used in the main application. It is not possible to define dynamic imports in the prebuilt libraries.
 
-This is an unfortunate limitation, which results in some application code that must be added by customers. Although the amount of custom code is limited to the bare minimum, we'll add a feature in a future version of the schematics library to automatically add lazy loaded modules.
+This is an unfortunate limitation, which results in some application code that must be added by customers. Although the amount of custom code is limited to the bare minimum, we'll add a feature in a future version of the schematics library to automatically add lazy-loaded modules.
 
-### Avoiding Static Imports for Lazy Loaded Code
+### Avoiding Static Imports for Lazy-Loaded Code
 
 To make code spitting possible, your static JavaScript code (the main app bundle) should not have any static imports to code that you want to lazy load. The builder will notice that the code is already included, and as a result, will not generate a separate chunk for it. This is especially important in the case of importing symbols from libraries.
 
-At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point. This includes the whole entry point statically into the build. For this reason, it is highly recommended you create separate entry points for the code that has to be loaded statically, and for the code that can be loaded lazily.
+At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point. If you were to do this, it would statically include the entire entry point in the build. For this reason, it is highly recommended that you create one entry point for the code that has to be loaded statically, and a separate entry point for the code that can be loaded lazily.
 
 ### Configuration in Lazy Loaded Modules
 
@@ -71,7 +71,9 @@ Injection tokens provided in lazy-loaded modules are not visible to services pro
 
 To mitigate this drawback, some Spartacus features, such as the `PageMetaService` (which consumes `PageMetaResolver` tokens), or the `ConverterService` (which mostly consumes adapter serializers and normalizers), use the unified injector under the hood. In doing so, they have access to lazy-loaded tokens and can leverage them for global features.
 
-For mechanisms that do not rely on the unified injector (for example, functionality from most non-Spartacus libraries, such as the core Angular libraries), it is recommended that you always provide such tokens eagerly in modules that are statically imported into your app root module.
+For mechanisms that do not rely on the unified injector (for example, functionality from most non-Spartacus libraries, such as the core Angular libraries), it is recommended that you always eager load modules with these kinds of tokens.
+
+For more information about eager loading, see the [Angular documentation glossary](https://angular.io/guide/glossary#eager-loading).
 
 #### Unified Injector
 
@@ -205,7 +207,7 @@ When a CMS component that is covered by a lazy-loaded module is instantiated, it
 
 Mixing static and dynamic imports from the same entry points breaks lazy loading and affects tree shaking, so any library that will be used directly in dynamic imports should expose fine-grained secondary entry points to optimize code splitting.
 
-As a convention, Spartacus exposes root entry points for features, such as `@spartacus/orgainzation/administration/root`. This type of entry point contains all of the code that should not or cannot be lazy loaded. Modules from the root entry point should be imported statically in the root application, which means they will be loaded eagerly and be available in the main application chunk.
+As a convention, Spartacus exposes root entry points for features, such as `@spartacus/orgainzation/administration/root`. This type of entry point contains all of the code that should not or cannot be lazy loaded. Modules from the root entry point should be imported statically in the root application, which means they will be eager loaded and will be available in the main application chunk.
 
 For more information about support for secondary entry points in the Angular libraries, see [Secondary Entry Points](https://github.com/ng-packagr/ng-packagr/blob/master/docs/secondary-entrypoints.md) in the ng-packagr documentation on GitHub.
 
@@ -217,7 +219,7 @@ The result is that any multi-provided token in a lazy-loaded module will not be 
 
 Some Spartacus features, such as `PageMetaService` or `ConverterService`, use the `UnifiedInjector` to be aware of tokens that can be lazy loaded, so that the global logic (such as SEO features) can work reliably even if the logic is lazy loaded with the feature. For example, the store locator page meta resolver can be lazy loaded with the store locator feature.
 
-The Spartacus configuration, which is also defined by providing configuration chunks, is treated a bit differently because of a compatibility mechanism that contributes configurations from lazy-loading features to the global configuration. This mechanism can be disabled by a feature flag, and will be turned off by default in the future, in favor of the unified configuration feature.
+The Spartacus configuration, which is also defined by providing configuration chunks, is treated a bit differently because of a compatibility mechanism that contributes configurations from lazy loading features to the global configuration. This mechanism can be disabled by a feature flag, and will be turned off by default in the future, in favor of the unified configuration feature.
 
 If there are issues with lazy-loaded providers not being visible by the root services, it is always possible to include this kind of code in a statically-linked module that is available upfront. It is recommended to create a separate entry point in your library (by convention, named `root`, such as `my-library/root`) that contains minimal code, that will be included in the main bundle, and that will be available from the beginning.
 
