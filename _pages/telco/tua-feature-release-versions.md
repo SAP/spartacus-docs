@@ -12,7 +12,7 @@ For features that do not rely on specific endpoints in the back end, the version
 |---|---|---|---|---|
 | [Cart]({{ site.baseurl }}{% link _pages/telco/cart.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Checkout]({{ site.baseurl }}{% link _pages/telco/checkout.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
-| [Pricing - Composite Pricing with Price Alteration]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
+| [Composite Pricing with Price Alteration (Discount)]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Configurable Guided Selling]({{ site.baseurl }}{% link _pages/telco/configurable-guided-selling.md %}) | 1.0.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %}) | 1.3.0 | 1905 | 2005 | 1.x, < 2.0 |
 | [Consumption]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %}) | 1.1.0 | 1905 | 2003 | 1.x, < 2.0 |

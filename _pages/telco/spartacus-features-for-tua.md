@@ -6,7 +6,7 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 
 ## Release 2.0
 
-- [Pricing - Composite Pricing with Price Alteration]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
+- [Composite Pricing with Price Alteration (Discount)]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
 
 ## Release 1.3
 
