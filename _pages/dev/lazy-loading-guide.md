@@ -36,7 +36,7 @@ To make code spitting possible, your static JavaScript code (the main app bundle
 
 At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point. If you were to do this, it would statically include the entire entry point in the build. For this reason, it is highly recommended that you create one entry point for the code that has to be loaded statically, and a separate entry point for the code that can be loaded lazily.
 
-### Configuration in Lazy Loaded Modules
+### Configuration in Lazy-Loaded Modules
 
 {% capture version_note %}
 {{ site.version_note_part1a }} 3.0 {{ site.version_note_part2 }}
@@ -44,9 +44,9 @@ At the time of writing (Angular 9 and Angular 10), mixing static imports with dy
 
 {% include docs/feature_version.html content=version_note %}
 
-If additional configuration is provided inside the lazy-loaded module, Spartacus merges it into the global application configuration to support lazy loading scenarios for existing components and services. In most cases, especially when lazy-loaded modules provide mostly default configurations, this works reliably. However, it can cause problems if is overused, especially when two modules provide different configurations for the same part of the config. Scenarios such as these can be fixed by providing the necessary overrides in the main app.
+If additional configuration is provided inside the lazy-loaded module, Spartacus merges it into the global application configuration to support lazy loading scenarios for existing components and services. In most cases, especially when lazy-loaded modules provide mostly default configurations, this works reliably. However, it can cause problems if it is overused, especially when two modules provide different configurations for the same part of the config. Scenarios such as these can be fixed by providing the necessary overrides in the main app.
 
-The compatibility mechanism is enabled by default, and can be disabled with the `disableConfigUpdates` feature flag. If you are developing new modules that have to hook into configurations from lazy loaded modules, you should use the `ConfigurationService.unifiedConfig$` instead. This functionality is described in the following section.
+This merging functionality is made possible by a compatibility mechanism that is enabled by default, but you can disable it with the `disableConfigUpdates` feature flag. If you are developing new modules that have to hook into configurations from lazy-loaded modules, you should use the `ConfigurationService.unifiedConfig$` instead. This functionality is described in the following section.
 
 #### Unified Configuration
 
@@ -56,7 +56,7 @@ The `ConfigurationService.unifiedConfig$` exposes the unified configuration as a
 
 All configuration parts are merged in a strict order, where the actual configuration always overrides the default one, and the configuration defined in the root module (that is, the app shell) has precedence.
 
-For example, the following is the order in which different configurations provided in the root app and in two lazy-loaded modules are merged, where each subsequent item in the list can override the previous one:
+The following is an example that shows the order in which different configurations provided in the root app and in two lazy-loaded modules are merged, where each subsequent item in the list can override the previous one:
 
 - default root configuration
 - default configuration from lazy-loaded module 1
@@ -65,9 +65,9 @@ For example, the following is the order in which different configurations provid
 - configuration from lazy-loaded module 2
 - root configuration (always takes precedence)  
 
-### Providers in Lazy Loaded Modules
+### Providers in Lazy-Loaded Modules
 
-Injection tokens provided in lazy-loaded modules are not visible to services provided in the app root. This applies especially to multi-provided tokens, such as `HttpInterceptors`, various Handlers, and so on.
+Injection tokens provided in lazy-loaded modules are not visible to services provided in the root application. This applies especially to multi-provided tokens, such as `HttpInterceptors`, various handlers, and so on.
 
 To mitigate this drawback, some Spartacus features, such as the `PageMetaService` (which consumes `PageMetaResolver` tokens), or the `ConverterService` (which mostly consumes adapter serializers and normalizers), use the unified injector under the hood. In doing so, they have access to lazy-loaded tokens and can leverage them for global features.
 
@@ -79,7 +79,7 @@ For more information about eager loading, see the [Angular documentation glossar
 
 The unified injector provides a way to inject a token, or multi-provided tokens, while taking into account the root injector and the injectors from lazy-loaded features. The injector exposes an observable that emits a new set of injectables for a specified token each time the status of the unified injector changes.
 
-### Avoiding Importing the HttpClientModule in Your Lazy Loaded Modules
+### Avoiding Importing the HttpClientModule in Your Lazy-Loaded Modules
 
 In general, the `HttpClientModule` should be imported in the root application, not in the library. For example, if you import it inside a lazy-loaded library, all injectors from the root library will be invisible to HTTP calls originating from the lazy-loaded module.
 
@@ -131,7 +131,7 @@ CMS-driven lazy loading of feature modules allows the following:
 
 Lazy loading of the feature module is triggered by the CMS requesting a component when the implementation is covered by the relevant feature configuration.
 
-### Configuration of Lazy Loaded Modules
+### Configuration of Lazy-Loaded Modules
 
 Configuration of the feature involves the following aspects:
 
@@ -164,7 +164,7 @@ Configuration of the feature involves the following aspects:
 
 Default CMS mapping configuration in lazy-loaded modules should be defined in exactly the same fashion as in statically-imported ones.
 
-Spartacus is able to extract a CMS component mapping configuration from a lazy-loaded feature and use it to resolve component classes and factories covered by the feature. That is why it is possible and recommended to use the standard way of providing the default CMS mapping configuration inside a lazy loaded module. As a result, the exact same module and library entry point can be imported dynamically or statically, depending on the needs, and it is still possible to overwrite a lazy-loaded CMS configuration from the application level by providing configuration overrides in the application.
+Spartacus is able to extract a CMS component mapping configuration from a lazy-loaded feature and use it to resolve component classes and factories covered by the feature. That is why it is possible and recommended to use the standard way of providing the default CMS mapping configuration inside a lazy-loaded module. As a result, the exact same module and library entry point can be imported dynamically or statically, depending on the needs, and it is still possible to overwrite a lazy-loaded CMS configuration from the application level by providing configuration overrides in the application.
 
 ### Defining Shared-Dependency Modules
 
@@ -194,7 +194,7 @@ Such unnamed dependency modules are instantiated only once, when lazy loading th
 
 ### Combined Injector
 
-Any lazy-loaded module can inject (that is, have access to) services and tokens from the app root injector and the dependency modules injectors. This is possible because of the `CombinedInjector` that is created each time the feature module with dependencies is instantiated.
+Any lazy-loaded module can inject (that is, have access to) services and tokens from the root application injector and the dependency modules injectors. This is possible because of the `CombinedInjector` that is created each time the feature module with dependencies is instantiated.
 
 When a CMS component that is covered by a lazy-loaded module is instantiated, it can inject (that is, have access to) services from the following:
 
@@ -211,7 +211,7 @@ As a convention, Spartacus exposes root entry points for features, such as `@spa
 
 For more information about support for secondary entry points in the Angular libraries, see [Secondary Entry Points](https://github.com/ng-packagr/ng-packagr/blob/master/docs/secondary-entrypoints.md) in the ng-packagr documentation on GitHub.
 
-### Separating Static Code from Lazy Loaded Code
+### Separating Static Code from Lazy-Loaded Code
 
 When you work with Angular Dependency Injection, the list of providers in the injector should not change after the injector is initialized. This paradigm specifically applies to any multi-provided tokens, to handlers, and especially to any Angular-native multi-provided tokens, such as `HTTP_INTERCEPTOR`, `APP_INITIALIZER`, and so on.
   
@@ -225,4 +225,4 @@ If there are issues with lazy-loaded providers not being visible by the root ser
 
 ### Wrapping Library Code in a Lazy-Loaded Module
 
-To address some specific customizations on top of a lazy loaded library, it is possible to wrap static imports from one or more libraries into a single module that will be imported dynamically instead. This technique can also be an effective optimization strategy, because the builder will be able to use tree shaking for all of the static imports inside the module.
+To address some specific customizations on top of a lazy-loaded library, it is possible to wrap static imports from one or more libraries into a single module that will be imported dynamically instead. This technique can also be an effective optimization strategy, because the builder will be able to use tree shaking for all of the static imports inside the module.
