@@ -92,3 +92,21 @@ intercept(
     ...
   }
 ```
+
+## Partial usage for services/components mocks
+
+When implementing mocks for services/components in unit tests it's recommended to use `Partial` with the mocked entity TS type.
+
+```typescript
+class MockUserIdService implements Partial<UserIdService> {
+  getUserId(): Observable<string> {
+    return of('');
+  }
+  clearUserId() {}
+}
+```
+
+There are two benefits of this pattern:
+
+- mocked methods better resemble the original methods, so tests are more accurate (eg. you don't forget to return value)
+- refactoring of original methods are also propagated in mocks in unit tests
