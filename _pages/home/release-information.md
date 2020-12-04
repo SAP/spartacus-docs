@@ -2,7 +2,7 @@
 title: Release Information for Versions 1.0-1.5 of Spartacus Libraries
 ---
 
-**Note: This document is no longer updated. For the latest information on released libraries, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).** This archive document is made available for information purposes only.
+**Note: This document is no longer updated. For the latest information on released libraries, see [Release Information](https://sap.github.io/spartacus-docs/release-information/).** This archive document is made available for information purposes only.
 
 This document describes what is included in all Spartacus 1.x libraries, 1.0-1.5.
 
