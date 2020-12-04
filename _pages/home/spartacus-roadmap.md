@@ -41,11 +41,9 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-  
-
 ## Features Planned for Version 3.0 / December
 
-The first release candidate for 3.0 was published November 20. We'll publish 1-2 more RC's then publish the final version probably mid-December. Please check our Slack announcements channel for the latest information. Release 3.0 will be the first release supporting B2B features.
+The first release candidate for 3.0 was published November 20. We'll publish 1-2 more RCs then publish the final version probably mid-December. Please check our Slack announcements channel for the latest information. Release 3.0 will be the first release supporting B2B features.
 
 - **B2B Powertools Store support**
 - **B2B Checkout**
@@ -72,20 +70,21 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
   - Makes it easier to add your own Identity Provider
   - Improves security while reducing friction in the authentication and login user experience
   
-  
-  
 ## Features Planned for Q1 2021
   
 ### B2B Features
+
 - **B2B Registration**
 - **B2B Bulk Price List**
 - **B2B Multi-dimensional product support** (requires API update)
 
 ### Architecture
+
 - **Performance improvements through Lazy loading** (update of existing codebase)
 - **New events** for Event Service
 
 ### Integrations
+
 - **SAP Variant Configuration and Pricing** (formerly known as CPQ)
   Initial version to include:
   - Single- or multilevel configurable products in your Commerce Spartacus storefront
@@ -98,12 +97,11 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
   - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
   - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
   - CDC is previously known as Gigya
-    
 
-    
 ## Features Planned for Q2 2021
 
 ### B2B Features
+
 - **B2B Saved Carts** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
 - **B2B Re-order**
 - **B2B Quick Order** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
@@ -112,9 +110,9 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
 - **Accessibility Screen Reader** support
 
 ### Architecture
+
 - **Tag Manager framework**
   
-
 ## Future Outlook - Q3 2021 and Later
 
 The items in this section are on our future roadmap.
@@ -138,14 +136,14 @@ The items in this section are on our future roadmap.
 - **B2B Future Stock** (\*) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html)
 - **B2B Account Summary** (\*) for Commerce Org
 
-Items listed above with **(\*)** reqeuire new OCC REST APIs, no date set yet; see general SAP Commerce Cloud roadmap.
+Items listed above with **(\*)** require new OCC REST APIs, no date set yet; see general SAP Commerce Cloud roadmap.
 
 ### Architecture
+
 - **Google Tag Manager Support**
 - **Site map**
 - **Extensibility 2.0** - finer-grained extensibility
   
-
 ### Integrations
 
-- **SAP Digital Payments service** - see https://help.sap.com/viewer/product/DIGITALPAYMENTS/PROD/en-US for more information
+- **SAP Digital Payments service** - for more information, see [SAP Digital Payments Add-On](https://help.sap.com/viewer/product/DIGITALPAYMENTS/PROD/en-US).
