@@ -51,7 +51,7 @@ However usage of `withLatestFrom` here caused that once we registered listener t
 
 As we think about this case we only want cart data when the cart event happens.
 We can adjust the stream accordingly.
-Now we don't subscribe to cart stream at the application start, but only when event occurs.
+Now we don't subscribe to the cart stream when someone subscribes to the output stream (i.e. on app start), but only when the source event occurs.
 
 ```typescript
 this.getAction(mapping.action).pipe(
