@@ -19,7 +19,7 @@ title: Composite Pricing with Price Alteration (Discount)
 
 ## Business Use Case
 
-Customers browsing single product offerings (SPO) from TUA SPA storefront want to view detailed composite pricing with price alteration (discount) in the following pages:
+Customers browsing the storefront should be able to view detailed pricing information about a product offering. 
 
 | Page   Information 	| Eligible Prices 	|
 |-	|-	|
