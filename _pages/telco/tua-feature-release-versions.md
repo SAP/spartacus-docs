@@ -16,6 +16,7 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %}) | 1.3.0 | 1905 | 2005 | 1.x, < 2.0 |
 | [Consumption]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %}) | 1.1.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Customer Product Inventory]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %}) | 1.1.0 | 1905 | 2003 | 1.x, < 2.0 |
+| [Journey Management - Specifying Site Address and Scheduling an Appointment]({{ site.baseurl }}{% link _pages/telco/journey management - appointment with site address.md %}) | 1.1.0 | 1905 | 2007 or 2011 | 1.x, < 2.0 |
 | [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %}) | 1.1.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}) | 1.2.0 | 1905 | 2003 | 1.x, < 2.0 |
 | [Journey Management - Serviceability]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %}) | 1.3.0 | 1905 | 2003 | 1.x, < 2.0 |
