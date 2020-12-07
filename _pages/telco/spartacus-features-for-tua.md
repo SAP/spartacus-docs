@@ -4,6 +4,10 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 2.0
+
+- [Journey Management - Specifying Site Address and Scheduling an Appointment]({{ site.baseurl }}{% link _pages/telco/journey management - appointment with site address.md %})
+
 ## Release 1.3
 
 - [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
