@@ -34,7 +34,7 @@ This is an unfortunate limitation, which results in some application code that m
 
 To make code spitting possible, your static JavaScript code (the main app bundle) should not have any static imports to code that you want to lazy load. The builder will notice that the code is already included, and as a result, will not generate a separate chunk for it. This is especially important in the case of importing symbols from libraries.
 
-At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point. If you were to do this, it would statically include the entire entry point in the build. For this reason, it is highly recommended that you create one entry point for the code that has to be loaded statically, and a separate entry point for the code that can be loaded lazily.
+At the time of writing (Angular 9 and Angular 10), mixing static imports with dynamic imports for the same library entry point, even for distinct symbols, will break lazy loading and tree shaking for this library entry point. If you were to do this, it would statically include the entire entry point in the build. For this reason, it is highly recommended that you create specific entry point for the code that has to be loaded statically, and separate entry points for the code that can be loaded lazily.
 
 ### Configuration in Lazy-Loaded Modules
 
