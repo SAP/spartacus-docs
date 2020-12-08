@@ -1,5 +1,5 @@
 ---
-title: Journey Management - Specifying Site Address and Scheduling an Appointment 
+title: Enhancement to Journey Management - Appointment Scheduling 
 ---
 
 {% capture version_note %}
@@ -14,20 +14,20 @@ title: Journey Management - Specifying Site Address and Scheduling an Appointmen
 - [Prerequisite](#prerequisite)
 - [Business Use Cases](#business-use-cases)
 - [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Configuring and Enabling the Appointment and Installation Address in TUA](#configuring-and-enabling-the-appointment-and-installation-address-in-tua)
+- [Configuring and Enabling Installation Address and Appointment in TUA](#configuring-and-enabling-installation-address-and-appointment-in-tua)
 - [Components](#components)
 - [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
 ## Overview
 
-As a result of Journey Management configuration, a single product or a service offering that is part of the bundle product offering may be defined with the requirement to schedule an appointment and to specify the site (installation) address. This means that an appointment reservation with the site address is required before the order can be successfully placed.
+As a result of Journey Management configuration, a product offering that is part of the bundle product offering may be defined with the requirement to specify the site (installation) address and to schedule an appointment. This means that a site address with an appointment reservation is required before the order can be successfully placed.
 
-The "Journey Management - Specifying Site Address and Scheduling an Appointment" feature enables customers to first create a preferred site address and then make an appointment reservation during the "Add to Cart" process.
+The "Enhancement to Journey Management - Appointment Scheduling" feature enables customers to create a preferred site address and then make an appointment reservation during the "Add to Cart" process.
 
 Creating a site address and appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
 
-This feature applies to configurable guided selling for bundle product offerings that have a checklist policy for "Appointment Reference" and "Installation address" configured for the stand-alone product or service offering (SPO), or part of the bundle product offering (BPO). For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua).
+This feature applies to the product offerings, which are bought as a part of Bundle Product Offering (BPO) through Configurable Guided Selling (CGS), or bought as a stand-alone product offering. To enable this feature, checklist policy for "Installation address" and "Appointment Reference" must be enabled for the product offerings or the specifications. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
 
 ## Prerequisite
 
@@ -45,18 +45,13 @@ To test this feature using a mockup service, follow the instructions to set-up s
 
 The following business use cases are covered for this feature:
 
-1. **Booking an appointment and specifying the site address for a standalone service offering (SPO).** 
-A customer wants to purchase a service offering (SPO) that requires an installation service at the preferred site address specified by the customer. During the "Add to "Cart" process, the customer is prompted to first select or create a new site address and then make an appointment reservation.
+1. **Booking an appointment by specifying the address for a standalone Product offering:** A customer wants to purchase a stand-alone product offering that requires an installation at the preferred address specified by the customer, followed with booking an appointment. During the "Add to “Cart" process, the customer is prompted to specify a new address and then make an appointment reservation.
 
-2. **Booking an appointment and specifying the site address for installing a service offering via [CGS](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/464d4b03d91442e9ac95f69808895a39.html).**
-A customer wants to purchase a service offering that is part of the bundle product offering that requires an installation service at the preferred site address specified by the customer. Before adding the service plan to the cart by clicking the "Add to "Cart" button, the customer is prompted to first create a new site address and then make an appointment reservation.
+2. **Booking an appointment and specifying the site address for installing a Product offering bought as part of BPO via CGS:**. A customer enters [CGS](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/464d4b03d91442e9ac95f69808895a39.html) and wants to purchase a product offering that requires an installation at the preferred address specified by the customer, followed with the appointment booking. During the "Add to Cart" process, the customer is prompted to select a new site address and then make an appointment reservation. If multiple products require installation address and appointment reservation based on the policy configurations by Product Manger in TUA, the end customer is prompted to provide this information one-time during CGS journey for the seamless experience. This one-time information provided by the customer is copied for similar products, which require installation address and appointment reservation.
 
-3. **Editing an appointment and the site address for the service plan that is part of the BPO.**
-A customer has already done the appointment reservation and has specified the preferred site address for the installation of the chosen service offering from the BPO. Now, the customer wants to edit or update the appointment details and the site address prior to placing an order for the chosen service plan.
+3. **Editing an appointment details for Product Offerings bought as Stand alone or as part of Bundled Product Offering:** A customer has already provided the appointment details, such as the address and time. Now, the customer wants to edit or update the appointment details. The Customer will be first prompted to update the address followed with time update.
 
-4. If the Product Manager has configured the checklist policy only for an installation address, then only the Installation Address screen is displayed to the customer, prompting the customer to fill-up the preferred installation address. The Appointment selection screen does not display.
-
-**Note:** If multiple products require installation address and appointment reservation, the customer is prompted to provide this information. This one-time information provided by the customer is copied for similar products, which require installation address and appointment reservation.
+**Note:** If the Product Manager in TUA has configured the checklist policy as installation address only, then the customer is prompted to fill-up the installation address only. The Appointment selection screen does not display.
 
 ## Frontend and Backend Dependencies
 
@@ -64,11 +59,11 @@ A customer has already done the appointment reservation and has specified the pr
 |--------------------------------------------	|--------------------------------------------------------	|
 | Recipe                                     	| b2c_telco_spa                                          	|
 | Minimum version of backend TUA             	| TUA Release 2007 or 2011 (latest patch is required)           	|
-| Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
+| Minimum   version of core commerce backend 	| SAP Commerce release 2005 (latest patch is recommended) 	|
 
-## Configuring and Enabling the Appointment and Installation Address in TUA
+## Configuring and Enabling Installation Address and Appointment in TUA
 
-The `Appointment-Reference` and the `Installation address` checklist policy is configured in the Backoffice by the Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+The `Installation address` and the `Appointment-Reference` checklist policy is configured in the Backoffice by the Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## Components
 
@@ -168,9 +163,9 @@ The following new and updated components must be enabled in the TUA backoffice t
 | POST /appointment               | TMF-646  | Creates an appointment for the customer                                                 |
 | GET /appointment/{id}           | TMF-646  | Retrieves the  appointment details of a customer                                       |
 | PATCH /appointment/{id}         | TMF-646  | Updates the appointment details of a customer                                           |
-| GET /checklistAction            | None     | TRetrieves applicable list of checklist policies for product offerings |
+| GET /checklistAction            | None     | Retrieves applicable list of checklist policies for product offerings |
 | PATCH /shoppingCart/{id}        | TMF-633  | Updates an existing entry in the shopping cart                           |
-| POST    /GeopgraphicAddress     | TMF-673  | Creates an installation address                                                   |
+| POST /geographicAddress     | TMF-673  | Creates an installation address                                                   |
 | PATCH /geographicAddress/{id}   | TMF-673  | Edits an installation address                                                        |
 
 For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
