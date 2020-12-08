@@ -40,7 +40,7 @@ For non-technical questions and roadmap feedback, you can reach us on our dedica
 
 ## Features Planned for Version 2.0 / Q4-2020 and into Q1-2021
 
-Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA 2007.
+Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA 2007 and/or 2011.
 
 ### B2C Storefront Features Planned
 
@@ -51,6 +51,7 @@ Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA
 ### Journey Management
 
 - Provide the ability for a customer to conduct a serviceability check for a product offering of interest. For more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html) in the TUA Help portal.
+
 - Provide the ability for a customer to conduct a serviceability check for all product offerings available to him/her based on a premise address.
 
 ### Retention Process Flows
