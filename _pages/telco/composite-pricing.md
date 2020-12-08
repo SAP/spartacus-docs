@@ -1,5 +1,5 @@
 ---
-title: Composite Pricing with Price Alteration (Discount)
+title: Pricing - Composite Pricing
 ---
 
 {% capture version_note %}
@@ -11,7 +11,7 @@ title: Composite Pricing with Price Alteration (Discount)
 ## Contents
 
 - [Business Use Case](#business-use-case)
-- [Introducing Composite Pricing with Price Alteration Feature](#introducing-composite-pricing-with-price-alteration-feature)
+- [Introducing Composite Pricing](#introducing-composite-pricing)
 - [Changes Implemented](#changes-implemented)
 - [Creating and Configuring Composite Pricing for SPO in TUA](#creating-and-configuring-composite-pricing-for-spo-in-tua)
 - [Components](#components)
@@ -36,17 +36,13 @@ The following figure illustrates hirarchical structure of the composite pricing,
 
 <p align="center"><img src="/assets/images/telco/composite-pricing-feature.png"></p>
 
-## Introducing Composite Pricing with Price Alteration Feature
+## Introducing Composite Pricing
 
 Composite Pricing brings forth a new way of handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner. Product offering prices are now hierarchal; that is, they can be grouped together and they are also re-usable.
 
 For more information, see [Composite Pricing](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
-The Price Alteration (Discount) works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges, and usage-based charges. With price alteration (discount), customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
-
 This feature is enabled through the Telco SPA store and is implemented on top of TM Forum and OCC APIs.
-
-**Note:** With this feature, TUA SPA is updated with Angular 9. Some services from Angular, such as the minimum pricing is deprecated.
 
 The following Product Details Page (PDP) illustrates the composite product offering prices structure for the sample Signature Unlimited Promo Price product offering:
 
@@ -69,12 +65,11 @@ The following changes are implemented as part of this feature:
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | End-point   changes                 | The OCC endpoints are changed from REST/V2 to OCC/V2 in the `app.modules.ts` to use commerce web services endpoints. No API-related changes from the previous release                    |
 | Highest   Priority Price Algorithm  | If the product offering has multiple eligible prices, the product offering with the highest [priority price](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/b5ea5881224d4960820a1cca3924b12d.html) is determined and displayed                                                    |
-| Product   Display Page (PDP)        | Displays the highest priority   SPO price                                                                                                                                             |
-| TUA   recipe changes                | The recipe is updated to use `b2ctelcocc` and `commercewebservices` extensions, instead of `ycommercewebservices` extension |
+| Product   Display Page (PDP) and Product Listing Page (PLP)      | Displays the highest priority   SPO price                                                                                                                                             |
 
 ## Creating and Configuring Composite Pricing for SPO in TUA
 
-To create prices in a composite and TM Forum compliant manner and to configure the prices using product offering prices, see [Creating Composite Prices for a Simple Product Offering](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) and [Creating Price Row for a Price Context](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/edd790667fd54960a216646c85deb5a7.html) in the TUA Help portal.
+To create prices in a composite and TM Forum compliant manner, see [Creating Composite Prices for a Simple Product Offering](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
 ## Components
 
@@ -235,8 +230,6 @@ The following new and updated components must be enabled in the TUA backoffice t
 
 For further reading, see the following topics in the TUA Help portal.
 
-- [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html).
 - [Creating Composite Prices for a Simple Product Offering](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/cc31b2c3e2c049059766598fe0cd88de.html).
-- [Price Alterations (Discounts)](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/61b21155624e4a498632964bc566e1eb.html).
 - [TUA APIs Documentation](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2011/en-US/52cf34e46ce34672bc3e47bdabcbc838.html).
 - [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).
