@@ -1,5 +1,5 @@
 ---
-title: Enhancement to Journey Management - Appointment Scheduling 
+title: Journey Management - Appointment Scheduling 
 ---
 
 {% capture version_note %}
@@ -23,7 +23,7 @@ title: Enhancement to Journey Management - Appointment Scheduling
 
 As a result of Journey Management configuration, a product offering that is part of the bundle product offering may be defined with the requirement to specify the site (installation) address and to schedule an appointment. This means that a site address with an appointment reservation is required before the order can be successfully placed.
 
-The "Enhancement to Journey Management - Appointment Scheduling" feature enables customers to create a preferred site address and then make an appointment reservation during the "Add to Cart" process.
+The "Journey Management - Appointment Scheduling" feature enables customers to create a preferred site address and then make an appointment reservation during the "Add to Cart" process.
 
 Creating a site address and appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
 
