@@ -146,4 +146,4 @@ Items listed above with **(\*)** require new OCC REST APIs, no date set yet; see
   
 ### Integrations
 
-- **SAP Digital Payments service** - for more information, see [SAP Digital Payments Add-On](https://help.sap.com/viewer/product/DIGITALPAYMENTS/PROD/en-US).
+- **SAP Digital Payments service** - for more information, see [SAP Digital Payments Add-On](https://help.sap.com/viewer/4f00a6453e4242bbac5b3cb82b616576/latest/en-US).
