@@ -109,4 +109,4 @@ class MockUserIdService implements Partial<UserIdService> {
 The benefits of this pattern are as follows:
 
 - Mocked methods resemble the original methods much more, so tests are more accurate (for example, you do not forget to return a value)
-- If the original methods are refactored, this refactoring is also propagated to the mocks in the unit test
+- If the original methods are refactored, this refactoring is also propagated to the mocks in the unit test.

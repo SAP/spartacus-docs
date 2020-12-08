@@ -19,4 +19,4 @@ addEntry(product: string, quantity: number): Observable<Status> {
 }
 ```
 
-**Note** You may still find promises or callbacks in the Spartacus codebase, but these will gradually be replaced in future releases.
+**Note:** You may still find promises or callbacks in the Spartacus codebase, but these will gradually be replaced in future releases.
