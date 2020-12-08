@@ -2,15 +2,11 @@
 title: Reactive Programming in Spartacus
 ---
 
-## Observables as main mechanism for asynchronous code
+There are many ways to write asynchronous code in JS, such as callbacks and promises, as well as observables in the case of RxJS. As much as possible, Spartacus uses observables as the main mechanism for asynchronous code.
 
-There are many ways to write asynchronous code in JS: callbacks, promises, observables (rxjs). In spartacus we decided to go all in on observables.
+When interacting with external dependencies, it is sometimes necessary to follow the same pattern that is used by those dependencies. However, if you are working with methods that use a different pattern, always try to return an `Observable` if you can. By consistently using the same patterns across the entire codebase, we make our code easier to follow, and simplify the analysis of data flow.
 
-Sometimes to interact with external dependencies you have to use what is used by those, but from methods that are working on different patterns always try to return `Observable`. Consistent usage of those across the whole codebase makes code easier to follow and reasoning about flow of data is simpler.
-
-Example:
-You have method to add entry to the cart and you want return from it information about success or failure.
-You could do it with Promise, but for better integration with spartacus code you should return observable.
+For example, let's say you have a method to add an entry to the cart, and you want to return a result of success or failure. You could do this with a `Promise`, but for better integration with Spartacus code, you should return an `Observable` instead. The following is an example:
 
 ```typescript
 addEntry(product: string, quantity: number): Observable<Status> {
@@ -23,4 +19,4 @@ addEntry(product: string, quantity: number): Observable<Status> {
 }
 ```
 
-**Note** You might still find some promises/callbacks in spartacus, but those are leftovers from the past and will be gradually replaced.
+**Note** You may still find promises or callbacks in the Spartacus codebase, but these will gradually be replaced in future releases.
