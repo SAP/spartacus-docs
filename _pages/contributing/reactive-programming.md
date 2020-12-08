@@ -1,5 +1,5 @@
 ---
-title: Reactive programming in Spartacus
+title: Reactive Programming in Spartacus
 ---
 
 ## Observables as main mechanism for asynchronous code

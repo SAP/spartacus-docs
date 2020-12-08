@@ -1,0 +1,48 @@
+---
+title: Events and Subscriptions
+---
+
+In Spartacus, you can subscribe to event streams that start when the application is initialized, and which continue to be active whenever someone subscribes to these events.
+
+When working with these kinds of events streams, it is important to subscribe only to the ones you need, and nothing else. This is because event streams can often cause side effects, such as loading data. Subscribing needlessly to event streams can cause redundant calls and add extra computations that result in reduced application performance.
+
+In those cases make sure to subscribe to the things you need at the moment and nothing else. Often streams cause some side effects (eg. loading some data). Using them recklessly can cause redundant calls, extra computations which can result in worse application performance.
+
+In the following example, use of the `withLatestFrom` operator results in subscriptions to the passed stream when the root stream is subscribed to:
+
+```typescript
+this.getAction(mapping.action).pipe(
+  withLatestFrom(this.activeCartService.getActive()),
+  map(([action, activeCart]) =>
+    createFrom(mapping.event, {
+      ...action.payload,
+      cartCode: activeCart.code,
+    })
+  )
+);
+```
+
+The intention in this example is to enrich cart actions with the contents of the cart. However, once a listener has been registered to the cart events, using the `withLatestFrom` operator results in a subscription to the active cart, which then invokes a cart load. But in fact, we only want cart data when a cart event happens.
+
+We can adjust the event stream, as shown in the following example:
+
+```typescript
+this.getAction(mapping.action).pipe(
+  switchMap((action) => {
+    return of(action).pipe(
+      withLatestFrom(
+        this.activeCartService.getActive(),
+        this.activeCartService.getActiveCartId()
+      )
+    );
+  }),
+  map(([action, activeCart]) =>
+    createFrom(mapping.event, {
+      ...action.payload,
+      cartCode: activeCart.code,
+    })
+  )
+);
+```
+
+In this example, we no longer subscribe to the cart stream when someone subscribes to the output stream (that is, when the application starts). Instead, we only subscribe when the source event occurs.
