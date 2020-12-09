@@ -16,6 +16,7 @@ Config details
 
 ## Override RoutingConfig
 
+https://sap.github.io/spartacus-docs/route-configuration/#predefined-config
 RouterConfig details or link
 
 ## Override CmsConfig
