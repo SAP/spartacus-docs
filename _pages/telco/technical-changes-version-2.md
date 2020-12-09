@@ -25,7 +25,7 @@ title: Technical Changes in TUA Spartacus 2.0
 
 ### TmaPriceService
 
-#### Remove Method
+#### Remove Methods
 
 | Method Name                         | Description                                                                                           |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -58,15 +58,20 @@ title: Technical Changes in TUA Spartacus 2.0
 
 This component extends the `ProductSummaryComponent` to display information about the prices of the product offering in the Product Details Page (PDP). It displays the price charges. For more information, see `TmaPriceDisplayComponent`.
 
-**Note:** If a product offering has multiple prices, highest priority pricing will be used to determine the price.
+**Note:** If a product offering has multiple prices, highest priority pricing is used to determine the price.
 
 ### TmaProductDetailsTabComponent
 
-This component extends the `ProductDetailsTabComponent` to display detailed prices of the product offering in the Product Details tab in the Product Details Page (PDP). The followings information is displayed: 
+This component extends the `ProductDetailsTabComponent` to display detailed prices of the product offering in the Product Details tab of the Product Details Page (PDP). The followings information is displayed:
 
-- Contract Duration: The contract duration is displayed in the "Contract Duration: <contract term name>" format. For example, Contract Duration: 12 Months - monthly billing.
+- Contract Duration: The contract duration is displayed in the following format:
 
-**Note:** No charges will be shown in this component. All product charges are shown in price tree in product summary component.
+```shell
+Contract Duration: <contract term name> 
+```
+For example, Contract Duration: 12 Months - monthly billing.
+
+**Note:** If a product offering does not have a contract term, recurring prices, or usage charges, this section will not be displayed. No charges will be shown in this component. All product charges are shown in a price tree in the product summary component.
 
 ### TmaProductListItemComponent
 
@@ -78,57 +83,92 @@ This component extends the `ProductGridItemComponent` to display information abo
 
 ### TmaUsageChargeComponent
 
-This component displays the usage charge in the product pages in the "<value><currency>/<usageUnit> for <cycle start> to <cycle end> <usageUnit>" format. For example, Inside "Per Minutes Charges (Charged By Each Respective Tier)" TmaPriceDisplayComponent, Usage Charge as 0.08 $ /minute for 1 to 100 minute for Product signatureUnlimitedPlan.
+This component displays the usage charge details in the product pages in the following format:
+
+```shell
+<value><currency>/<usageUnit> for <cycle start> to <cycle end> <usageUnit> 
+```
+For example, Inside "Per Minutes Charges (Charged By Each Respective Tier)" TmaPriceDisplayComponent, Usage Charge as 0.08 $ /minute for 1 to 100 minute for Product signatureUnlimitedPlan.
 
 ### TmaOneTimeChargeComponent
 
-This component displays the one time chargers component to display one time charges in the product pages in the  <value><currency> <billingEvent> format. For example, Inside "Activation Charges" TmaPriceDisplayComponent, One Time Charge as 50.0 $ On Checkout for Product signatureUnlimitedPlan.
+This component displays the one time charges in the product pages in the following format:  
+
+```shell
+<value><currency> <billingEvent> 
+```
+For example, Inside "Activation Charges" TmaPriceDisplayComponent, One Time Charge as 50.0 $ On Checkout for Product signatureUnlimitedPlan.
 
 ### TmaRecurringChargeComponent
 
-This component displays the recurring charges in the product pages in the <value><currency> <billingEvent> format. For example, Inside “Service Charges" TmaPriceDisplayComponent, Recurring Charges as 50.0 $ monthly for Product signatureUnlimitedPlan.
+This component displays the recurring charges in the product pages in the following format:
+
+```shell
+<value><currency> <billingEvent> 
+```
+For example, Inside "Service Charges" TmaPriceDisplayComponent, Recurring Charges as 50.0 $ monthly for the signatureUnlimitedPlan product.
 
 ### CartItemOneTimeChargeComponent
 
-This component displays one time charges on the cart item in the <value><currency> <billingEvent> format. For example, One Time Charge as 50.0 $ On Checkout for Product signatureUnlimitedPlan.
+This component displays one time charges on the cart item in the following format:
+
+```shell
+<value><currency> <billingEvent> 
+```
+For example, one time charge of 50.0 $ On Checkout for Product signatureUnlimitedPlan.
 
 ### CartItemRecurringChargeComponent
 
-This component displays the recurring charges on the cart item in the <value><currency> <billingEvent> format. For example, Recurring Charges as 50.0 $ monthly for Product signatureUnlimitedPlan.
+This component displays the recurring charges on the cart item in the following format:
+
+```shell
+<value><currency> <billingEvent> 
+```
+For example, recurring charges of 50.0 $ monthly for Product signatureUnlimitedPlan.
 
 ### CartItemUsageChargeComponent
 
-This component displays the usages charges on the cart item in the <value><currency> /<usageUnit> for <cycle start> to <cycle end> <usageUnit> format. For example, Usage Charge as 0.08 $ /minute for 1 to 100 minute for Product signatureUnlimitedPlan.
+This component displays the usages charges on the cart item in the following format:
+
+```shell
+<value><currency> /<usageUnit> for <cycle start> to <cycle end> <usageUnit> 
+```
+For example, usage charge of 0.08 $ /minute for 1 to 100 minute for Product signatureUnlimitedPlan.
 
 ### TmaCartItemComponent
 
-This component displays the details of the cart items in the <original value> <discounted value> format. For example, $50 $32 for Product signatureUnlimitedPlan.
+This component displays the details of the cart items in the following format:
 
-It is updated to show pay now prices with alterations if applicable and it has modified the display of the appointment details to move at the cart entry level. For more information, see `TmaCartItemListComponent`.
+```shell
+<discounted value> 
+```
+For example, $50 $32 for Product signatureUnlimitedPlan.
+
+The component is updated to show pay now prices with alterations if applicable and it has modified the display of the appointment details to move at the cart entry level. For more information, see `TmaCartItemListComponent`.
 
 ### TmaAddedToCartDialogComponent
 
-This component is added to the cart dialog to show the entries added to the cart. It is updated to show the formatted pay now price of the cart for composite pricing and to include the `AppointmentDetailsComponent` in the `Add to Cart` dialog.
+This component is added to the cart dialog to show the entries added to the cart. It is updated to show the formatted "pay now" price of the cart for composite pricing and to include the `AppointmentDetailsComponent` in the `Add to Cart` dialog.
 
 ### TmfProductComponent
 
-This component displays the prices of subscription order. It is updated to include the `TmaCartItemPriceDisplayComponent`.
+This component displays the prices of the subscription order. It is updated to include the `TmaCartItemPriceDisplayComponent`.
 
 ### TmaGuidedSellingProductGridItemComponent
 
-The Guided Selling Grid component that displays product details in a grid format. It is updated to include price display component. The followings is displayed: Price Charges. For more information, see `TmaPriceDisplayComponent`.
+This component displays product details in a grid. It is updated to include price display component. The followings is displayed: Price Charges. For more information, see `TmaPriceDisplayComponent`.
 
 ### TmaGuidedSellingProductListItemComponent
 
-The Guided Selling Grid component that displays product details in a list format. It is updated to include price display component. The followings is displayed: Price Charges. For more information, see `TmaPriceDisplayComponent`.
+This component that displays product details in a list. It is updated to include price display component. The followings is displayed: Price Charges. For more information, see `TmaPriceDisplayComponent`.
 
 ### TmaGuidedSellingCurrentSelectionComponent
 
-This component displays the **Add to Cart** button for a BPO, which calls the checklist action and opens the checklist action stepper if any checklist actions for an Appointment or an Installation Address are present. If multiple products require Installation Address and/or Appointment, the user is prompted to provide one-time information, so that the same information is copied for the products, which require Installation Address and/or Appointment.
+This component displays the **Add to Cart** button for a BPO, which calls the checklist action and opens the checklist action stepper if any checklist actions for the Appointment or the Installation Address are present. If multiple products require Installation Address and/or Appointment, the user is prompted to provide one-time information, so that the same information is copied for similar other products, which require Installation Address and/or Appointment.
 
 ### TmaGuidedSellingAddedToCartDialogComponent
 
-Guided selling added to the cart dialog to show the entries added to the cart. It is updated to show the formatted pay now price of the cart for composite pricing. The component is updated to display the `AppointmentDetailsComponent`. For more information, see `AppointmentDetailsComponent`.
+The guided selling is added to the cart dialog to show the entries added to the cart. It is updated to show the formatted "pay now" price of the cart for composite pricing. The component is updated to display the `AppointmentDetailsComponent`. For more information, see `AppointmentDetailsComponent`.
 
 ### JourneyChecklistStepComponent
 
@@ -146,9 +186,14 @@ This component displays the available time slots to the customer.
 
 ### AppointmentComponent
 
-This component displays the displays the appointment details in the order page, order-history page, cart summary page, and on the cart pop-up in the "Contract Duration: <contract term name>" format. For example, Contract Duration: 12 Months - monthly billing.
+This component displays the displays the appointment details in the order page, order-history page, cart summary page, and on the cart pop-up in the following format:
 
-- Contract Duration: The contract duration is displayed in the "Appointment: Month Date, Year Time (AM/PM)" format. For example, Appointment: Sept 9,2020 12:00 PM or Appointment: Please Call to Schedule.
+```shell
+Appointment: Month Date, Year Time (AM/PM)  
+```
+For example: Appointment: Sept 9,2020 12:00 PM or Appointment: Please Call to Schedule.
+
+**Contract Duration:** The contract duration is displayed in the "Appointment: Month Date, Year Time (AM/PM)" format. For example, Appointment: Sept 9,2020 12:00 PM or Appointment: Please Call to Schedule.
 
 ### TmaCartItemListComponent
 
@@ -159,16 +204,23 @@ This component is updated to include the `AppointmentDetailsComponent` on the ca
 
 ### TmaAddToCartComponent
 
-This component displays the **Add to Cart" button, which is enhanced to call checklist actions and open checklist action stepper if any checklist actions for an Appointment or an Installation Address are present.
+This component displays the **Add to Cart" button, which is enhanced to call checklist actions, and open checklist action stepper if any checklist actions for the Appointment or the Installation Address are present.
 
 ## New Components
 
 ### TmaPriceDisplayComponent
 
-This component displays prices in the product pages. It includes subsequent product charge types components
-<POP Name> In Case No <UsageType>) is present. For example, Activation Charges for Product signatureUnlimitedPlan.
+This component displays prices in the product pages. It includes subsequent product charge types components in the following format:
 
-<POP Name> (Charged By <UsageType>) if UsageType is present. For example, Per MB Charges (Charged By Highest Applicable Tier) for Product signatureUnlimitedPlan.
+```shell
+<POP Name> (In Case No <UsageType>) is present
+```
+For example, Activation Charges for Product signatureUnlimitedPlan.
+
+```shell
+<POP Name> (Charged By <UsageType> if UsageType is present)
+```
+For example, Per MB charges (charged by highest applicable tier) for the signatureUnlimitedPlan product.
 
 It displays all the usage charges, such as: 
 - one time charges. For more information, see `TmaOneTimeChargeComponent`.
@@ -179,16 +231,32 @@ It displays all the usage charges, such as:
 ### TmaAlterationDetailsComponent
 
 This component displays alteration charges in the product pages in the following format:
-<-<value><currency> OFF <billingEvent> : Without Cycle. For example, A-10.0 $ OFF On Checkout  for Product signatureUnlimitedPlan or -20.0 % OFF On Checkout for Product signatureUnlimitedPlan.
 
--<value><currency> OFF <billingEvent>  for <cycle start> to <cycle end>:  With Cycle. For example, -10.0 $ OFF monthly for 1 to 6  for Product signatureUnlimitedPlan.
+```shell
+-<value><currency> OFF <billingEvent> : Without Cycle
+```
+For example, A-10.0 $ OFF On Checkout  for Product signatureUnlimitedPlan or -20.0 % OFF On Checkout for Product signatureUnlimitedPlan.
+
+```shell
+-<value><currency> OFF <billingEvent>  for <cycle start> to <cycle end>:  With Cycle
+```
+For example, -10.0 $ OFF monthly for 1 to 6  for Product signatureUnlimitedPlan.
 
 ### TmaCartitemPriceDisplayComponent
 
-This component displays prices on the cart. It includes subsequent cart charge types components, such as
-Hierarchical Price In Case No <UsageType>) is present. For example, Hierarchical Price for Product signatureUnlimitedPlan if Added in Cart Hierarchical Price (Charged By <UsageType>) if UsageType is present
+This component displays prices on the cart. It includes subsequent cart charge types components, such as Hierarchical Price in case:
 
-It displays all usage charges in the following way:
+```shell
+ No (<UsageType>) is present
+```
+For example, Hierarchical Price for the product signatureUnlimitedPlan if added in the Cart Hierarchical Price: 
+
+```shell
+(Charged By <UsageType>) if UsageType is present
+```
+For Example:  Hierarchical Price (Charged By Each Respective Tier) for Product signatureUnlimitedPlan if Added in Cart.
+
+It displays all usage charges for:
 
 - one time charges. For more information, `CartItemOneTimeChargeComponent`.
 - recurring charges. For more information, `CartItemOneTimeChargeComponent`.
@@ -197,22 +265,30 @@ It displays all usage charges in the following way:
 
 ### CartItemAlterationsDetailsComponent
 
-This component displays alteration charges on the cart pages in the following format: 
-- -<value><currency> OFF <billingEvent> : Without Cycle. For example, -10.0 $ OFF On Checkout  for Product signatureUnlimitedPlan or -20.0 % OFF On Checkout for Product signatureUnlimitedPlan.
-- -<value><currency> OFF <billingEvent>  for <cycle start> to <cycle end>:  With Cycle. For example, -10.0 $ OFF monthly for 1 to 6  for Product signatureUnlimitedPlan.
+This component displays alteration charges on the cart pages in the following format:
+
+```shell
+-<value><currency> OFF <billingEvent> : Without Cycle 
+```
+For example: -10.0 $ OFF On Checkout  for Product signatureUnlimitedPlan or -20.0 % OFF On Checkout for Product signatureUnlimitedPlan.
+
+```shell
+-<value><currency> OFF <billingEvent>  for <cycle start> to <cycle end>:  With Cycle 
+```
+For example: -10.0 $ OFF monthly for 1 to 6  for Product signatureUnlimitedPlan.
 
 ### JourneyChecklistInstallationAddressComponent
-This component wraps the `TmaAddressFormComponent` for the checklist pertaining to the installation address. It is responsible for populating the address while editing.
+This component wraps the `TmaAddressFormComponent` for the checklist pertaining to the installation address. It is intended for populating the address while editing.
 
 ### InstallationAddressComponent
 This component displays the installation address details in the Order page, Order History page, Cart summary, and Cart pop-up. The
-"Installation AAddress" details contains: Building Number, Street Name, City, State or Province (Optional), Country, and Postal Code.
+"Installation Address" details contains: Building Number, Street Name, City, State or Province (Optional), Country, and Postal Code.
 
 ### AppointmentDetailsComponent
 This component is a wrapper for the `AppointmentComponent` and `InstallationAddressComponent`. It is responsible for editing an appointment, hence has an **Edit** icon.
 
 ### TmaAddressFormComponent
-This components is intended for populating address details, such as House/Building Number, Street, Apartment/Unit/Suite(Optional), City, Country, State/Province (appears only if the country is United States), and Zip/Postal code.
+This components is used for populating address details, such as House/Building Number, Street, Apartment/Unit/Suite(Optional), City, Country, State/Province (appears only if the country is United States), and Zip/Postal code.
 
 ## Removed Components
 
