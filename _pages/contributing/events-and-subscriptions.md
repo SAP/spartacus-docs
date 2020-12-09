@@ -4,7 +4,7 @@ title: Events and Subscriptions
 
 In Spartacus, at the application start, you can subscribe to event streams that continue to be active for the whole application lifetime.
 
-When working with these kinds of event streams, it is important to subscribe only to the ones you need at the time, and nothing else. This is because event streams can often cause side effects, such as loading data. Subscribing needlessly to event streams can cause redundant calls, and add extra computations that result in reduced application performance.
+When working with these kinds of event streams, it is important to subscribe only to the ones you need at the time, and nothing else. This is because streams can often cause side effects, such as loading data. Subscribing needlessly to streams can cause redundant calls, and add extra computations that result in reduced application performance.
 
 In the following example, use of the `withLatestFrom` operator results in subscriptions to the passed stream (that is, to the parameter you use to call the `withLatestFrom` function) when the root stream is subscribed to:
 
