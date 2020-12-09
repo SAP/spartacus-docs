@@ -28,23 +28,20 @@ For more information, see [Selective Cart Architecture](https://help.sap.com/vie
 
 The Selective Cart feature has corresponding CMS-component data that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
 
-Furthermore, you need to configure the `saveForLater` feature flag to enable or disable the feature. The following is an example:
+Furthermore, you need to configure the `selectiveCart` in the cart configuration to enable or disable the feature. The following is an example:
 
 ```typescript
-features: {
-   saveForLater: true
+cart: {
+  selectiveCart: {
+    enabled: true,
+  }
 }
 ```
-
-For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
-
 
 ## Configuring
 
 No special configuration is needed.
 
-
 ## Extending
 
 No special extensibility is available for this feature.
-
