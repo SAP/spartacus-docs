@@ -17,6 +17,11 @@ title: Pricing - Price Alteration Discounts
 - [Components](#components)
 - [Further Reading](#further-reading)
 
+## Overview
+
+The Price Alterations in the form of Discounts works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges, and usage-based charges. With price alteration (discount), customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
+
+
 ## Business Use Case
 
 Customers browsing the storefront should be able to view detailed pricing information about a product offering. 
@@ -36,24 +41,6 @@ The following figure illustrates hirarchical structure of the price alteration d
 
 <p align="center"><img src="/assets/images/telco/composite-pricing-feature.png"></p>
 
-## Introducing Price Alteration Discounts Feature
-
-The Price Alteration (Discount) works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges, and usage-based charges. With price alteration (discount), customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
-
-This feature is enabled through the Telco SPA store and is implemented on top of TM Forum and OCC APIs.
-
-The following Product Details Page (PDP) illustrates the price alteration discounts structure for the sample Signature Unlimited Promo Price product offering:
-
-<p align="center"><img src="/assets/images/telco/composite-pricing-sample.png"></p>
-
-### Highest Priority Price Algorithm
-
-If a single product offering has multiple eligible prices, the product offering with highest [priority price](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/b5ea5881224d4960820a1cca3924b12d.html) is determined and displayed in the `Product Detail Page (PDP)`.
-
-In the Product Details Page (PDP):
-
- - The highest priority `ProductOfferingPrice` that is configured for the product offering is displayed.
- - In case of same priority, first `ProductOfferingPrice` is displayed.
 
 ## Changes Implemented
 
