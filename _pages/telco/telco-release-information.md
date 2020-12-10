@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated December 9, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated December 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ## Release Contents
 
@@ -35,7 +35,7 @@ This document describes what is included in all Spartacus 2.x libraries since 2.
 
 ## Release 2.0
 
-*Release 2.0 libraries published December 9, 2020*
+*Release 2.0 libraries published December 11, 2020*
 
 What's new?
 
