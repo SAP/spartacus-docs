@@ -10,10 +10,10 @@ title: Pricing - Composite Pricing
 
 ## Contents
 
+- [Overview](#overview)
 - [Business Use Case](#business-use-case)
-- [Introducing Composite Pricing](#introducing-composite-pricing)
 - [Changes Implemented](#changes-implemented)
-- [Creating and Configuring Composite Pricing for SPO in TUA](#creating-and-configuring-composite-pricing-for-spo-in-tua)
+- [Creating and Configuring Composite Pricing in TUA](#creating-and-configuring-composite-pricing-in-tua)
 - [Components](#components)
 - [Further Reading](#further-reading)
 
@@ -36,7 +36,7 @@ Customers browsing the storefront are able to view detailed pricing information 
 | Order History page 	| Pay now, Recurring, One time Charges, and Usage charged, along with Price   alteration 	|
 | Configurable Guided Selling (CGS) Page 	| Details are similar to the Product Listing Page (PLP) along with Price alteration in the cart 	|
 
-The following figure illustrates hirarchical structure of the composite pricing, with price alteration for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
+The following figure illustrates hirarchical structure of the composite pricing for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
 
 <p align="center"><img src="/assets/images/telco/composite-pricing-feature.png"></p>
 
@@ -51,7 +51,7 @@ The following changes are implemented as part of this feature:
 | Highest   Priority Price Algorithm  | If the product offering has multiple eligible prices, the product offering with the highest [priority price](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/b5ea5881224d4960820a1cca3924b12d.html) is determined and displayed                                                    |
 | Product   Display Page (PDP) and Product Listing Page (PLP)      | Displays the highest priority   SPO price                                                                                                                                             |
 
-## Creating and Configuring Composite Pricing for SPO in TUA
+## Creating and Configuring Composite Pricing in TUA
 
 To create composite prices, see [Creating Composite Prices for a Simple Product Offering](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
@@ -134,45 +134,35 @@ The following new and updated components must be enabled in the TUA backoffice t
   <tr>
     <td class="tg-pcvp">TmaPriceDisplayComponent</td>
     <td class="tg-pcvp">New</td>
-    <td class="tg-pcvp">A Price Display component to display prices in the <span style="font-weight:bold">Product</span> pages. It includes subsequent product charge types components.<br><br><span style="font-weight:bold">Format: </span>&lt;POP Name&gt; In Case No &lt;UsageType&gt;) is present<br><span style="font-weight:bold">Example:</span> Activation Charges for Product signatureUnlimitedPlan<br><br><span style="font-weight:bold">Format:</span> &lt;POP Name&gt; (Charged By &lt;UsageType&gt;) if  UsageType  is present<br><span style="font-weight:bold">Example:</span> Per MB Charges (Charged By Highest Applicable Tier) for Product signatureUnlimitedPlan <br><br>Displays all usage charges, such as: <br>- one time charges. For more information, see TmaOneTimeChargeComponent<br>- recurring charges. For more information, see TmaRecurringChargeComponent<br>- usage charges. For more information, see TmaUsageChargeComponent <br>- alteration charges. For more information, see TmaAlterationDetailsComponent</td>
+    <td class="tg-pcvp">A Price Display component to display prices in the <span style="font-weight:bold">Product</span> pages. It includes subsequent product charge types components.<br><br><span style="font-weight:bold">Format: </span>&lt;POP Name&gt; In Case No &lt;UsageType&gt;) is present<br><span style="font-weight:bold">Example:</span> Activation Charges for Product signatureUnlimitedPlan<br><br><span style="font-weight:bold">Format:</span> &lt;POP Name&gt; (Charged By &lt;UsageType&gt;) if  UsageType  is present<br><span style="font-weight:bold">Example:</span> Per MB Charges (Charged By Highest Applicable Tier) for Product signatureUnlimitedPlan <br><br>Displays all usage charges, such as: <br>- one time charges. For more information, see TmaOneTimeChargeComponent<br>- recurring charges. For more information, see TmaRecurringChargeComponent<br>- usage charges. For more information, see TmaUsageChargeComponent <br></td>
   </tr>
   <tr>
-    <td class="tg-0pky">TmaAlterationDetailsComponent</td>
-    <td class="tg-0pky">New</td>
-    <td class="tg-0pky">An Alteration Display component to display alterations charges in the <span style="font-weight:bold">Product</span> pages.<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; OFF &lt;billingEvent&gt; : Without Cycle<br><span style="font-weight:bold">Examples: </span><br>-10.0 $ OFF On Checkout  for Product signatureUnlimitedPlan <br>-20.0 % OFF On Checkout for Product signatureUnlimitedPlan<br><br><span style="font-weight:bold">Format: </span>&lt;value&gt;&lt;currency&gt; OFF &lt;billingEvent&gt; for &lt;cycle start&gt; to &lt;cycle end&gt;: With Cycle<br><span style="font-weight:bold">Example:</span> -10.0 $ OFF monthly for 1 to 6  for Product signatureUnlimitedPlan</td>
+    <td class="tg-0pky" colspan="3"><span style="font-weight:bold">Cart Components</span></td>
   </tr>
   <tr>
-    <td class="tg-pcvp" colspan="3"><span style="font-weight:bold">Cart Components</span></td>
+    <td class="tg-pcvp">TmaCartitemPriceDisplayComponent</td>
+    <td class="tg-pcvp">New</td>
+    <td class="tg-pcvp">A Price Display component to display prices on the cart and it includes subsequent cart charge types components. Hierarchical Price, in case no &lt;UsageType&gt;) is present.<br><br><span style="font-weight:bold">Format:</span> Hierarchical Price In Case No &lt;UsageType&gt;) is present<br><span style="font-weight:bold">Example:</span> Hierarchical Price for Product signatureUnlimitedPlan if Added in Cart<br><br><span style="font-weight:bold">Format:</span> Hierarchical Price (Charged By &lt;UsageType&gt;) if  UsageType  is present<br><span style="font-weight:bold">Example:</span> Hierarchical Price (Charged By Each Respective Tier)for Product signatureUnlimitedPlan  if Added in Cart <br><span style="font-weight:bold">Displays: </span>All usage charges, such as:<br>- one time charges. For more information, see <span style="font-style:italic">CartItemOneTimeChargeComponent</span><br>- recurring charges. For more information, see <span style="font-style:italic">CartItemRecurringChargeComponent</span><br>- usage charges. For more information, see <span style="font-style:italic">CartItemUsageChargeComponent</span><br></td>
   </tr>
   <tr>
-    <td class="tg-0pky">TmaCartitemPriceDisplayComponent</td>
-    <td class="tg-0pky">New</td>
-    <td class="tg-0pky">A Price Display component to display prices on the cart and it includes subsequent cart charge types components. Hierarchical Price, in case no &lt;UsageType&gt;) is present.<br><br><span style="font-weight:bold">Format:</span> Hierarchical Price In Case No &lt;UsageType&gt;) is present<br><span style="font-weight:bold">Example:</span> Hierarchical Price for Product signatureUnlimitedPlan if Added in Cart<br><br><span style="font-weight:bold">Format:</span> Hierarchical Price (Charged By &lt;UsageType&gt;) if  UsageType  is present<br><span style="font-weight:bold">Example:</span> Hierarchical Price (Charged By Each Respective Tier)for Product signatureUnlimitedPlan  if Added in Cart <br><span style="font-weight:bold">Displays: </span>All usage charges, such as:<br>- one time charges. For more information, see <span style="font-style:italic">CartItemOneTimeChargeComponent</span><br>- recurring charges. For more information, see <span style="font-style:italic">CartItemRecurringChargeComponent</span><br>- usage charges. For more information, see <span style="font-style:italic">CartItemUsageChargeComponent</span><br>- alteration charges. For more information, see <span style="font-style:italic">CartItemAlterationsDetailsComponent</span></td>
-  </tr>
-  <tr>
-    <td class="tg-pcvp">CartItemOneTimeChargeComponent</td>
-    <td class="tg-pcvp">Updated</td>
-    <td class="tg-pcvp">A One Time Charges component to display one time charges on the <span style="font-weight:bold">Cart</span> Item.<br><br><span style="font-weight:bold">Format: </span>&lt;value&gt;&lt;currency&gt; &lt;billingEvent&gt;<br><span style="font-weight:bold">Example:</span> One Time Charge as 50.0 $ On Checkout for Product signatureUnlimitedPlan</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">CartItemRecurringChargeComponent</td>
+    <td class="tg-0pky">CartItemOneTimeChargeComponent</td>
     <td class="tg-0pky">Updated</td>
-    <td class="tg-0pky">A Recurring Charges component to display recurring charges on the <span style="font-weight:bold">Cart</span> Item.<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; &lt;billingEvent&gt;<br><span style="font-weight:bold">Example: </span>Recurring Charges as 50.0 $ monthly for Product signatureUnlimitedPlan</td>
+    <td class="tg-0pky">A One Time Charges component to display one time charges on the <span style="font-weight:bold">Cart</span> Item.<br><br><span style="font-weight:bold">Format: </span>&lt;value&gt;&lt;currency&gt; &lt;billingEvent&gt;<br><span style="font-weight:bold">Example:</span> One Time Charge as 50.0 $ On Checkout for Product signatureUnlimitedPlan</td>
   </tr>
   <tr>
-    <td class="tg-pcvp">CartItemUsageChargeComponent</td>
+    <td class="tg-pcvp">CartItemRecurringChargeComponent</td>
     <td class="tg-pcvp">Updated</td>
-    <td class="tg-pcvp">A Usage Charges component to display usages charges on the <span style="font-weight:bold">Cart</span> Item.<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; /&lt;usageUnit&gt; for &lt;cycle start&gt; to   &lt;cycle end&gt; &lt;usageUnit&gt;<br><span style="font-weight:bold">Example:</span> Usage Charge as 0.08 $ /minute for 1 to 100 minute for Product signatureUnlimitedPlan</td>
+    <td class="tg-pcvp">A Recurring Charges component to display recurring charges on the <span style="font-weight:bold">Cart</span> Item.<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; &lt;billingEvent&gt;<br><span style="font-weight:bold">Example: </span>Recurring Charges as 50.0 $ monthly for Product signatureUnlimitedPlan</td>
   </tr>
   <tr>
-    <td class="tg-0pky">CartItemAlterationsDetailsComponent</td>
-    <td class="tg-0pky">New</td>
-    <td class="tg-0pky">An Alteration Details component to display alterations charges on the <span style="font-weight:bold">Cart</span> pages<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; OFF &lt;billingEvent&gt; : Without Cycle<br><span style="font-weight:bold">Examples:</span> <br>-10.0 $ OFF On Checkout  for Product signatureUnlimitedPlan <br>-20.0 % OFF On Checkout for Product signatureUnlimitedPlan<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; OFF &lt;billingEvent&gt; for &lt;cycle start&gt; to &lt;cycle end&gt;: With Cycle<br><span style="font-weight:bold">Example:</span> -10.0 $ OFF monthly for 1 to 6  for Product signatureUnlimitedPlan</td>
+    <td class="tg-0pky">CartItemUsageChargeComponent</td>
+    <td class="tg-0pky">Updated</td>
+    <td class="tg-0pky">A Usage Charges component to display usages charges on the <span style="font-weight:bold">Cart</span> Item.<br><br><span style="font-weight:bold">Format:</span> &lt;value&gt;&lt;currency&gt; /&lt;usageUnit&gt; for &lt;cycle start&gt; to   &lt;cycle end&gt; &lt;usageUnit&gt;<br><span style="font-weight:bold">Example:</span> Usage Charge as 0.08 $ /minute for 1 to 100 minute for Product signatureUnlimitedPlan</td>
   </tr>
   <tr>
     <td class="tg-pcvp">TmaCartItemComponent</td>
     <td class="tg-pcvp">Updated</td>
-    <td class="tg-pcvp">A Cart Item component that displays details of the cart items. It is updated to include TmaCartItemPriceDisplayComponent and to show pay now prices with alterations, if applicable.<br><span style="font-weight:bold">Format:</span> <strike>&lt;original value&gt;</strike> &lt;discounted value&gt; <br><span style="font-weight:bold">Example:</span> <strike>$50</strike> $32 for Product signatureUnlimitedPlan.</td>
+    <td class="tg-pcvp">A Cart Item component that displays details of the cart items. It is updated to include TmaCartItemPriceDisplayComponent, if applicable.<br><span style="font-weight:bold">Format:</span> &lt;discounted value&gt; <br><span style="font-weight:bold">Example:</span> $50 $32 for Product signatureUnlimitedPlan.</td>
   </tr>
   <tr>
     <td class="tg-0pky">TmaAddedToCartDialogComponent</td>
@@ -215,5 +205,6 @@ The following new and updated components must be enabled in the TUA backoffice t
 For further reading, see the following topics in the TUA Help portal.
 
 - [Creating Composite Prices for a Simple Product Offering](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/cc31b2c3e2c049059766598fe0cd88de.html).
+- [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %}).
 - [TUA APIs Documentation](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2011/en-US/52cf34e46ce34672bc3e47bdabcbc838.html).
 - [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).
