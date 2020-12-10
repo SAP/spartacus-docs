@@ -38,24 +38,9 @@ The following figure illustrates hirarchical structure of the composite pricing,
 
 ## Introducing Composite Pricing
 
-Composite Pricing brings forth a new way of handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner. Product offering prices are now hierarchal; that is, they can be grouped together and they are also re-usable.
+Composite Pricing brings forth a new way of handling pricing information and supports recurring charges, one-time charges and usage-based charges that are built in a hierarchal tree structure.  Pricing displayed on the storefront are now based on the composite pricing model.  For more information, see [Composite Pricing](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
-For more information, see [Composite Pricing](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
-
-This feature is enabled through the Telco SPA store and is implemented on top of TM Forum and OCC APIs.
-
-The following Product Details Page (PDP) illustrates the composite product offering prices structure for the sample Signature Unlimited Promo Price product offering:
-
-<p align="center"><img src="/assets/images/telco/composite-pricing-sample.png"></p>
-
-### Highest Priority Price Algorithm
-
-If a single product offering has multiple eligible prices, the product offering with highest [priority price](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/b5ea5881224d4960820a1cca3924b12d.html) is determined and displayed in the `Product Detail Page (PDP)`.
-
-In the Product Details Page (PDP):
-
- - The highest priority `ProductOfferingPrice` that is configured for the product offering is displayed.
- - In case of same priority, first `ProductOfferingPrice` is displayed.
+Part of the composite pricing feature includes priority pricing which means if there are multiple prices for a product offering that a customer is eligible for, the price with the highest priority will apply.  For more information, please see {priority pricing} in the TUA Help Portal.
 
 ## Changes Implemented
 
@@ -69,7 +54,7 @@ The following changes are implemented as part of this feature:
 
 ## Creating and Configuring Composite Pricing for SPO in TUA
 
-To create prices in a composite and TM Forum compliant manner, see [Creating Composite Prices for a Simple Product Offering](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
+To create composite prices, see [Creating Composite Prices for a Simple Product Offering](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
 ## Components
 
