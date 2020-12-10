@@ -19,9 +19,8 @@ title: Pricing - Composite Pricing
 
 ## Introducing Composite Pricing
 
-Composite Pricing brings forth a new way of handling pricing information and supports recurring charges, one-time charges and usage-based charges that are built in a hierarchal tree structure.  Pricing displayed on the storefront are now based on the composite pricing model.  For more information, see [Composite Pricing](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
+Composite Pricing brings forth a new way of handling pricing information and supports recurring charges, one-time charges and usage-based charges that are built in a hierarchal tree structure.  Pricing displayed on the storefront is now based on the composite pricing structure.  Priority pricing is also supported to determine the applicable price for a customer in the case where there are multiple prices that a given customer is eligible for.  For more information, see [Composite Pricing](#https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
-Part of the composite pricing feature includes priority pricing which means if there are multiple prices for a product offering that a customer is eligible for, the price with the highest priority will apply.  For more information, please see {priority pricing} in the TUA Help Portal.
 ## Business Use Case
 
 Customers browsing the storefront are able to view detailed pricing information about a product offering. 
