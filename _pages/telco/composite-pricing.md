@@ -19,7 +19,7 @@ title: Pricing - Composite Pricing
 
 ## Business Use Case
 
-Customers browsing the storefront should be able to view detailed pricing information about a product offering. 
+Customers browsing the storefront are able to view detailed pricing information about a product offering. 
 
 | Page   Information 	| Eligible Prices 	|
 |-	|-	|
