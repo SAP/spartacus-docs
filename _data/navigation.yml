@@ -50,6 +50,8 @@ docs:
           - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
             subchildren:
+                - title: "Installing SAP Commerce Cloud 2011"
+                  url: /installing-sap-commerce-cloud-2011/
                 - title: "Installing SAP Commerce Cloud 2005"
                   url: /installing-sap-commerce-cloud-2005/
                 - title: "Installing SAP Commerce Cloud 1905"
@@ -72,8 +74,11 @@ docs:
             url: /smartEdit-setup-instructions-for-spartacus/
           - title: "Personalization Setup Instructions for Spartacus"
             url: /personalization-setup-instructions-for-spartacus/
-          - title: "Spartacussampledata Extension"
+          - title: "Spartacussampledata Extension ➢"
             url: /spartacussampledata-extension/
+            subchildren:
+                - title: "Spartacussampledataaddon AddOn"
+                  url: /spartacussampledataaddon/
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:

@@ -13,6 +13,6 @@ In the navigation pane on the left of this page, you can also find many other to
 
 - [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %})
 - [Personalization Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
-- [Spartacus Sample Data]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %})
+- [Spartacus Sample Data]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %})
 - [Web Browser Support]({{ site.baseurl }}{% link _pages/install/browser-support.md %})
 - [Integrations]({{ site.baseurl }}{% link _pages/install/integrations/integrations.md %})
