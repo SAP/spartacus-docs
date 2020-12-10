@@ -379,6 +379,8 @@ docs:
             url: /coding-guidelines/
           - title: "Definition of Done"
             url: /definition-of-done/
+          - title: "Updating Schematics"
+            url: /updating-schematics/  
           - title: "Accessibility E2E Tests"
             url: /a11y-e2e-tests/
           - title: "Maintaining Public APIs"
