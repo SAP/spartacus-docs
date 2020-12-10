@@ -21,13 +21,11 @@ title: Journey Management - Appointment Scheduling
 
 ## Overview
 
-As a result of Journey Management configuration, a product offering that is part of the bundle product offering may be defined with the requirement to specify the site (installation) address and to schedule an appointment. This means that a site address with an appointment reservation is required before the order can be successfully placed.
+As a result of Journey Management configuration, a product offerings may be defined with the requirement of an appointment to be scheduled. This means that an appointment reservation is required before the order can be successfully placed. The Journey Management appointment feature enables customers to make this reservation during the "Add to Cart" process.
 
-The "Journey Management - Appointment Scheduling" feature enables customers to create a preferred site address and then make an appointment reservation during the "Add to Cart" process.
+Appointment selection and/or reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
 
-Creating a site address and appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
-
-This feature applies to the product offerings, which are bought as a part of Bundle Product Offering (BPO) through Configurable Guided Selling (CGS), or bought as a stand-alone product offering. To enable this feature, checklist policy for "Installation address" and "Appointment Reference" must be enabled for the product offerings or the specifications. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
+This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured.    It is applicable to product offerings sold as a simple product offering or bundled product offering through configurbale guided selling. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
 
 ## Prerequisite
 
@@ -45,13 +43,15 @@ To test this feature using a mockup service, follow the instructions to set-up s
 
 The following business use cases are covered for this feature:
 
-1. **Booking an appointment by specifying the address for a standalone Product offering:** A customer wants to purchase a stand-alone product offering that requires an installation at the preferred address specified by the customer, followed with booking an appointment. During the "Add to “Cart" process, the customer is prompted to specify a new address and then make an appointment reservation.
+1. A customer wants to purchase a product offering that requires an installation service at a preferred address specified by the customer.  During the "Add to “Cart" process, the customer is prompted to specify the address and/or make an appointment reservation.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.
 
-2. **Booking an appointment and specifying the site address for installing a Product offering bought as part of BPO via CGS:**. A customer enters [CGS](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/464d4b03d91442e9ac95f69808895a39.html) and wants to purchase a product offering that requires an installation at the preferred address specified by the customer, followed with the appointment booking. During the "Add to Cart" process, the customer is prompted to select a new site address and then make an appointment reservation. If multiple products require installation address and appointment reservation based on the policy configurations by Product Manger in TUA, the end customer is prompted to provide this information one-time during CGS journey for the seamless experience. This one-time information provided by the customer is copied for similar products, which require installation address and appointment reservation.
+2. A customer enters Configurable Guided Selling (https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/464d4b03d91442e9ac95f69808895a39.html) and wants to purchase a product offering that requires an installation service at a preferred address specified by the customer. During the "Add to Cart" process, the customer is prompted to specify the address and/or make an appointment reservation. If multiple products requires installation, the end customer will only be prompted once to provide this information making the configurable guided selling journey seamless.  Behind the scenes, the installation address and appointment will be copied to all product offerings requiring this information.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.
 
-3. **Editing an appointment details for Product Offerings bought as Stand alone or as part of Bundled Product Offering:** A customer has already provided the appointment details, such as the address and time. Now, the customer wants to edit or update the appointment details. The Customer will be first prompted to update the address followed with time update.
+3.  A customer has the ability to change the installation address and/or appointment from within the cart.
 
-**Note:** If the Product Manager in TUA has configured the checklist policy as installation address only, then the customer is prompted to fill-up the installation address only. The Appointment selection screen does not display.
+4.  A customer may not immediately place the order but instead waits until the next day, or the customer completely abandons the cart. After a defined period of time, the cart times-out and the appointment is automatically cancelled, and the slot can be made available for another customer.
+
+
 
 ## Frontend and Backend Dependencies
 
