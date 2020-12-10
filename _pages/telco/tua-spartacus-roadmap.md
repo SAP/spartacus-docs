@@ -2,7 +2,7 @@
 title: Roadmap for TUA Spartacus
 ---
 
-*Last updated December 9, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated December 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 This document describes what is planned for TUA Spartacus for Q4 2020 and later.
 
@@ -40,7 +40,7 @@ For non-technical questions and roadmap feedback, you can reach us on our dedica
 
 ## Features Planned for Version 2.0 / Q4-2020 and into Q1-2021
 
-Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA 2007 and/or 2011.
+Release 2.0 supports SAP Commerce Cloud 2005 and TUA 2007 / TUA 2011 releases.
 
 ### B2C Storefront Features Planned
 
