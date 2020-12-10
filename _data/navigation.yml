@@ -377,6 +377,8 @@ docs:
             url: /contributor-setup/
           - title: "Coding Guidelines"
             url: /coding-guidelines/
+          - title: "Definition of Done"
+            url: /definition-of-done/
           - title: "Accessibility E2E Tests"
             url: /a11y-e2e-tests/
           - title: "Maintaining Public APIs"
@@ -389,7 +391,9 @@ docs:
             url: /commit-guidelines/
           - title: "Type Safety in Spartacus"
             url: /type-safety-in-spartacus/
-          - title: "Definition of Done"
-            url: /definition-of-done/
+          - title: "Events and Subscriptions"
+            url: /events-and-subscriptions/
+          - title: "Reactive Programming in Spartacus"
+            url: /reactive-programming/    
           - title: "Git Flow and Release Process"
             url: /git-flow-and-releases/

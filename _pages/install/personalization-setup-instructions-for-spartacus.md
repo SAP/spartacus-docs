@@ -67,8 +67,8 @@ Any network call referring to `cms/pages` should include the personalization ID 
 
 To test your own configurations, you can try out the steps in the following Personalization tutorials:
 
-- [Add a Personalization to a Page](https://enable.cx.sap.com/media/Add+a+Personalization+to+a+Page+-+SAP+Commerce+Cloud/1_0nu4ayiu)
-- [Create Personalized Search Results](https://enable.cx.sap.com/media/Create+Personalized+Search+Results+-+SAP+Commerce+Cloud/1_5dhey09h)
+- [Add a Personalization to a Page](https://microlearning.opensap.com/media/1_0nu4ayiu)
+- [Create Personalized Search Results](https://microlearning.opensap.com/media/1_5dhey09h)
 
 For more information, see [Peronalization](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/2aee3397ba474c0ba959e43f0fc5d3d4.html) in the SAP Help Portal.
 
