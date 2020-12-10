@@ -23,6 +23,7 @@ The following steps describe how to manually add SSR support so that your Sparta
     ```json
     "@angular/platform-server": "~10.1.0",
     "@nguniversal/express-engine": "^10.1.0",
+    "@spartacus/setup": "^3.0.0-rc.2",
     "express": "^4.15.2"
     ```
 
@@ -30,7 +31,6 @@ The following steps describe how to manually add SSR support so that your Sparta
 
     ```json
     "ts-loader": "^6.0.4",
-    "webpack-cli": "^3.3.12",
     "@nguniversal/builders": "^10.1.0",
     "@types/express": "^4.17.0",
     ```
@@ -39,10 +39,10 @@ The following steps describe how to manually add SSR support so that your Sparta
 
     ```json
     "e2e": "ng e2e",
-    "dev:ssr": "ng run test:serve-ssr",
-    "serve:ssr": "node dist/test/server/main.js",
-    "build:ssr": "ng build --prod && ng run test:server:production",
-    "prerender": "ng run test:prerender"
+    "dev:ssr": "ng run <your-project-name>:serve-ssr",
+    "serve:ssr": "node dist/<your-project-name>/server/main.js",
+    "build:ssr": "ng build --prod && ng run <your-project-name>:server:production",
+    "prerender": "ng run <your-project-name>:prerender"
     ```
 
 1. Update the `src/main.ts` file, as follows:
@@ -171,6 +171,11 @@ The following steps describe how to manually add SSR support so that your Sparta
 1. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
+    /***************************************************************************************************
+    * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+    */
+    import '@angular/localize/init';
+
     import { enableProdMode } from "@angular/core";
 
     import { environment } from "./environments/environment";
