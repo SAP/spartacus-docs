@@ -2,62 +2,66 @@
 title: Banner Component
 ---
 
-The purpose of the Banner component is to render a media in a given page slot. The media can be optimized for the given slot size. The banner is typically used to link to another internal or external page.
+The banner component is used to render different banners that are created in the CMS. Banners contain one or multiple images, as well as some optional content, such as a header. A banner is often used to link to other content.
 
 ## CMS Component Binding
 
-There are multipe banner component types in the CMS:
+There are multiple banner component types in the CMS, as follows:
 
--   `BannerComponent`
--   `SimpleBannerComponent`
--   `SimpleResponsiveBannerComponent`
+- `BannerComponent`
+- `SimpleBannerComponent`
+- `SimpleResponsiveBannerComponent`
 
-There is also a `RotatingImagesComponent` which renders a one or multiple `BannerComponents` in a carousel.
+There is also a `RotatingImagesComponent`, which is a so-called container component. A container component holds multiple components. The `RotatingImagesComponent` is used to render multiple `BannerComponent` components in a carousel.
 
-The different types have been created for historical reasons, there's not much of a point to distinquish them anymore; there's only component implementation in Spartacus for banners. Sparatacus always renders banners using adaptive and responsive features to render the most optimal image for the given device.
+The different banner component types have been created for historical reasons, but there is not much to distinguish them anymore: in Spartacus, there is only component implementation for banners. Spartacus renders the banner media using the media component, which includes lazy loading and loading specific media for specific dimensions. For more information, see [Media Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
 
-The CMS Banner component is mapped to the Spartacus implementation as follows:
+The CMS banner component is mapped to the Spartacus implementation as follows:
 
-```typescript
+```ts
 <CmsConfig>{
+  cmsComponents: {
     SimpleResponsiveBannerComponent: {
-        component: BannerComponent
+      component: BannerComponent
     },
     BannerComponent: {
-        component: BannerComponent
+      component: BannerComponent
     },
     SimpleBannerComponent: {
-        component: BannerComponent
+      component: BannerComponent
     }
-};
+  }
+}
 ```
 
-You can use this component mapping to configure an alternative banner implementation. You might need to map all CMS banner component types in case multiple types are used in your project.
+You can use a similar component mapping to configure an alternative banner implementation. If you introduce an alternative component, you must map all the CMS banner component types to your new component implementation, similar to the configuration above.
 
-## Adaptive vs responsive images
+## Adaptive and Responsive Images
 
-The banner component supports both _responsive_ images as well as _adaptive_ images. Responsive images are simply driven by the CSS rules, which allow to reuse the same images cross different devices and screen sizes. Adaptive images can be used simultaneouly, and are driven by the images provided by the backend. The backend provides different medias by media formats. The `cx-media` components adds the different formats in a so-called `srcset`, so that the browser decides when to use which image.
+The banner component supports both responsive images and adaptive images. Responsive images are simply driven by CSS rules, which allow you to reuse the same images across different devices and screen sizes. Adaptive images can be used simultaneously, and are driven by the images provided by the back end. The back end provides different media items according to the media format. The `cx-media` component adds the different formats in a `srcset` so that the browser can decide when to use which image. Media items are rendered in the `cx-media` component. For more information, see [Media Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
 
 ## Component Data
 
 The banner component renders the following properties:
 
-| config     | description                                                                                                         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------- |
-| `urlLink`  |                                                                                                                     |
-| `external` | If set to true, the URL will not use the Angular routerLink, but an ordinary href instead.                          |
-| `media`    | The media contains different media per format, so that an optimzed media can be used for the given space and usage. |
-| `headline` | The headline is rendered as paragraph tag before the media.                                                         |
-| `content`  | The content is rendered in a paragraph tag below the media.                                                         |
+| Config     | Description                                                                                                          |
+| --- | --- |
+| `urlLink` | An optional link to an internal or external page. |
+| `external` | If set to true, the URL will not use the Angular routerLink, but an ordinary href instead. |
+| `media` | The `media` contains different media items for each format, so that an optimized media item can be used for the given space and usage. |
+| `headline` | The `headline` is rendered as a paragraph tag before the media. |
+| `content` | The `content` is rendered in a paragraph tag below the media. |
+
+**Note:** Some of these properties might not be available, depending on the banner component type you receive from the back end.
 
 ## Component Logic
 
-There's no component logic in the banner component, the component just renders component data. You can use the component specific `CmsBannerComponent` to access the component data.
+There is no component logic in the banner component. The component simply renders component data. You can use the injected component data (of type `CmsBannerComponent`) to access the component data.
 
 ## Component Styling
 
-The component styles are provided by the `%cx-banner` placeholder selector in the styles library. The media style is made available in the default sparta theme. You can opt out of the banner styles by adding the selector to the list of `skipComponentStyles`.
+The component styles are provided by the `%cx-banner` placeholder selector in the styles library. The media style is made available in the default `sparta` theme. You can opt out of the banner styles by adding the selector to the list of `skipComponentStyles`.
 
 ## Known limitations
 
-The banner component currently only renders images, including SVGs. There's no support yet for video.
+The banner component currently only renders images, including SVGs. There is no support yet for video.

@@ -1,0 +1,31 @@
+{% capture feature_names %}
+{% for items in site.pages %}
+    {% for item in items.feature %}
+      |{{ item.name }}::{{ item.spa_version }}::{{ item.cx_version }}::{{ site.baseurl }}{{ items.url }}
+    {% endfor %}
+{% endfor %}
+{% endcapture %}
+{% assign features_array = feature_names | split: '|' | sort %}
+
+<table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Spartacus Version</th>
+        <th>Commerce Cloud Version</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in features_array offset:1 %}
+        {% assign feat_name_versions = f | split: '::' %}
+            <tr>
+              <td><a href="{{ feat_name_versions[3] }}">{{ feat_name_versions[0] }}</a></td>
+              <td style="text-align:center">{{ feat_name_versions[1] }}</td>
+              <td style="text-align:center">{{ feat_name_versions[2] }}</td>
+            </tr>
+      {% endfor %}
+    </tbody>
+</table>    
+
+
+      
