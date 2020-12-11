@@ -43,35 +43,35 @@ ng add @fsa/schematics --baseSite=sample-financial-site --currency=usd,eur --lan
 When you run `ng add @fsa/schematics`, the command does the following:
 
 1. Adds the required dependencies.
-2. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration:
-```shell
-FSStorefrontModule.withConfig({
-  backend: {
-    occ: {
-      prefix: '/occ/v2/',
-      baseUrl: 'https://yourUrl:9002' // this is the baseUrl you entered when prompted via ng add @fsa/schematics command
-    }
-  },
-  context: {
-    baseSite: [
-      'financial',
-    ],
-    language: ['en', 'de'],
-    currency: ['EUR'],
-    urlParameters: ['baseSite', 'language', 'currency'],
-  },
-  authentication: {
-    client_id: 'financial_customer',
-    client_secret: 'secret'
-  },
-  features: {
-    consignmentTracking: true,
-  }
-}),
-```
-3. Imports FSA Spartacus styles to `styles.scss`:
-```shell
-@import '~@fsa/fsastorefrontstyles/index
-```
+1. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration:
+    ```shell
+    FSStorefrontModule.withConfig({
+      backend: {
+        occ: {
+          prefix: '/occ/v2/',
+          baseUrl: 'https://yourUrl:9002' // this is the baseUrl you entered when prompted via ng add @fsa/schematics command
+        }
+      },
+      context: {
+        baseSite: [
+          'financial',
+        ],
+        language: ['en', 'de'],
+        currency: ['EUR'],
+        urlParameters: ['baseSite', 'language', 'currency'],
+      },
+      authentication: {
+        client_id: 'financial_customer',
+        client_secret: 'secret'
+      },
+      features: {
+        consignmentTracking: true,
+      }
+    }),
+    ```
+  1. Imports FSA Spartacus styles to `styles.scss`:
+    ```shell
+    @import '~@fsa/fsastorefrontstyles/index
+    ```
 
 
