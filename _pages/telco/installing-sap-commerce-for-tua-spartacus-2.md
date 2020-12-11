@@ -27,22 +27,48 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
-    The TUA Spartacus Sample Data Store Extension is the extension provided in the following zip files:
+    The TUA Spartacus Sample Data is provided in the following zip files:
 
-    - For TUA 2007: `b2ctelcospastore_2007.zip`.
-    - For TUA 2011: `b2ctelcospastore_2011.zip`.
+    - For TUA 2007: 
+        - `b2ctelcospastore_2007.zip`.
+        - `utilitiesspastore_2007.zip`.
 
-1. Unzip the `b2ctelcospastore_2007.zip` archive for version 2007 or `b2ctelcospastore_2011.zip` archive for version 2011.
+    - For TUA 2011:
+        - `b2ctelcospastore_2011.zip`.
+        - `utilitiesspastore_2011.zip`.
 
-1. Move the `b2ctelcospastore` folder from extracted `b2ctelcospastore_2007` folder or `b2ctelcospastore_2011` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+1. Unzip the sample data for 2007 or 2011 depending on the TUA backend version you want to use.
 
-   The `b2ctelcospastore` folder can be stored anywhere in the `modules` folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
+    **Note:** You can either use both the store extensions, or only one of them, depending on your needs (specific to Telco or to Utilities).
+
+    - Sample data for Telco is stored in the following archive files:
+        - `b2ctelcospastore_2007.zip`.
+        - `b2ctelcospastore_2011.zip`.
+
+    - Sample data for Utilities is stored in the following archive files:
+        - `utilitiesspastore_2007.zip`.
+        - `utilitiesspastore_2011.zip`.
+
+1. Move:
+    - the `b2ctelcospastore` folder from extracted `b2ctelcospastore_2007` folder or `b2ctelcospastore_2011` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+
+    - the `utilitiesspastore` folder from extracted `utilitiesspastore_2007` or `utilitiesspastore_2011` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+
+    **Note:** The `b2ctelcospastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
+
+1. Unzip TUA cms extension for utilities:
+
+    - If you want to use utilities sample data then also unzip the `b2ctelcocms.zip`.
+     
+    - Move the `b2ctelcocms` folder in the same location with `utilitiesspastore` folder.
 
 1. In the `sap-commerce-folder>/installer/recipes` folder, create a copy of the `b2c_telco` folder.
 
 1. Rename the copy of the `b2c_telco` folder to `b2c_telco_spa`.
 
 1. In `b2c_telco_spa`, the `build.gradle` file should have the following content:
+
+    If you want to use the two sample data extensions, for Telco and Utilities, the `build.gradle` file must have the following structure:
 
    ```java
     apply plugin: 'installer-platform-plugin'
@@ -68,6 +94,8 @@ Some of the steps in this procedure are derived from the documentation for insta
         extName 'b2ctelcobackoffice'
         extName 'b2ctelcofulfillmentprocess'
         extName 'b2ctelcospastore'
+        extName 'utilitiesspastore'
+        extName 'b2ctelcocms'
         extName 'b2ctelcotmfwebservices'
         extName 'b2ctelcowebservices'
 
@@ -158,10 +186,15 @@ Some of the steps in this procedure are derived from the documentation for insta
     }
     }
     ```
+    If you want to use only Telco sample data then remove the following lines from the `build.gradle` file:
 
-    1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
+    ```bash
+    extName 'utilitiesspastore'
+    extName 'b2ctelcocms'
+    ```
+1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
-    1. Set up the recipe using the following commands: 
+1. Set up the recipe using the following commands: 
     
     For Windows:
 
@@ -210,20 +243,38 @@ Some of the steps in this procedure are derived from the documentation for insta
    - Access Backoffice: https://localhost:9002/backoffice
    
 
-   **Note:** When setting up your TUA Spartacus storefront, set the base site in `app.module.ts` to `telcospa`. The following is an example:
+   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to telcospa and/or utilitiesspa depending on which sample data you want to use. Following are the samples:
 
-   ```ts
-   context: {
-   baseSite: ['telcospa']
-   },
-   ```  
+    Telco:
+
+    ```ts
+    context: {
+    baseSite: ['telcospa']
+    },
+    ```
+
+    Utilities:
+
+    ```ts
+    context: {
+    baseSite: ['utilitiesspa']
+    },
+    ```
+    Both:
+
+    ```ts
+    context: {
+    baseSite: ['telcospa', ‘utilitiesspa’]
+    },
+    ```  
 
 ## Configuring OCC Credentials
 
 By default, SAP Commerce replies to OCC REST API calls that do not require authentication. For example, you can do the following:
 
 - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
-- Display information about the `telcospa` base store: https://localhost:9002/rest/v2/telcospa/basestores/telcospa
+- Display information about the `telcospa` base store: https://localhost:9002/occ/v2/telcospa/basestores/telcospa
+- Display information about the `utilitiesspa` base store: https://localhost:9002/rest/v2/utilitiesspa/basestores/utilitiesspa
 
 To register users and check out, SAP Commerce must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
 For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
@@ -360,4 +411,6 @@ Make sure this property is set to `sop.post.url=https://localhost:9002/accelerat
 
 **Note:** Please make sure that you have the website properties properly set for your `telcospa` base site to point to your environment. For your **localhost** environment, they should have the following values: 
 - `website.telcospa.http=http://localhost:9001`
-- `website.telcospa.https=https://localhost:9002`
+- `website.telcospa.https= https://localhost:9002`
+- `website.utilitiesspa.http=http://localhost:9001`  
+- `website.utilitiesspa.https=https://localhost:9002`
