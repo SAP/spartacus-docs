@@ -45,17 +45,12 @@ The following procedure describes how to create a new Angular application with t
 ## FSA Spartacus Project Setup
 
 The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
-First install plane Spartacus application over schematics:
-```shell
-ng add @spartacus/schematics
-```
 
-After that you can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
+You can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
 
 ```shell
 ng add @fsa/schematics
 ```
-After this make sure that you have only FSStorefrontModule.withConfig({..}) in you app.module. Remove any other storefront module configuration you have.
 
 For the detailed explanation visit [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
 
