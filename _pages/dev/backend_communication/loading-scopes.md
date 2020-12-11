@@ -1,5 +1,9 @@
 ---
 title: Using Loading Scopes
+feature:
+- name: Loading Scopes
+  spa_version: 1.4
+  cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -133,7 +137,7 @@ With this configuration you will always get an optimal call, for example:
 2. if details scope will be required, list and details scope will be loaded in one network request
 3. if defails scope will be required and list scope will be already available, only data from details scope will be loaded
 
-Payload defined for master scope (`details` in the above example) will always take precedence when merging scopes, meaning that if one of the included scopes (`list`) contains the same payload parts as `details` it will be effectively overwritten by data from `details`.
+Payload defined for main scope (`details` in the above example) will always take precedence when merging scopes, meaning that if one of the included scopes (`list`) contains the same payload parts as `details` it will be effectively overwritten by data from `details`.
 It's possible to provide more than one scope in `include` array configuration and those scopes will be merged using the same rules and order as described in __Merging of Scopes__.
 
 

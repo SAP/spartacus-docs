@@ -14,7 +14,7 @@ Note: This is a living document. Like the Spartacus code, this document will be 
 
 An easy way to start is by helping others who may have questions or need support. Look for such requests here:
 
-* Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU)
+* Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ)
 * [Stack Overflow posts tagged with 'spartacus-storefront'](https://stackoverflow.com/questions/tagged/spartacus-storefront)
 
 ----
@@ -170,7 +170,7 @@ A contribution will be considered for inclusion in Spartacus if it meets the fol
 * The contribution truly improves the storefront
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/contributors-guide.md %}).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}).
 
 ### Contribution Process
 

@@ -1,5 +1,9 @@
 ---
 title: Applied Promotions
+feature:
+- name: Applied Promotions
+  spa_version: 2.0
+  cx_version: 1905
 ---
 
 {% capture version_note %}

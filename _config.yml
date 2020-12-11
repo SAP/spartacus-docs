@@ -300,4 +300,5 @@ defaults:
 
 version_note_part1: This feature is introduced with version
 version_note_part2: of the Spartacus libraries.
+version_note_forTUA: of the TUA Spartacus libraries.
 product_name: Spartacus Storefront
