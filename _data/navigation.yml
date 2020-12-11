@@ -297,8 +297,12 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /tua-pre-release-information/
+                - title: "Upgrading to Version 2.0"
+                  url: /upgrading-tua-spartacus-to-2/
+                - title: "Technical Changes in Spartacus 2.0"
+                  url: /technical-changes-version-2/ 
                 - title: "Feature Release Versions"
-                  url: /tua-feature-release-versions/  
+                  url: /tua-feature-release-versions/   
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
           - title: "TUA Spartacus FAQ"
