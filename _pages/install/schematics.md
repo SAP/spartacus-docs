@@ -6,11 +6,9 @@ Spartacus schematics allow you to install Spartacus libraries in your project. T
 
 ## Prerequisites
 
-Before using Spartacus schematics, ensure that the following requirements are met:
+Before using Spartacus schematics, ensure that you have all of the necessary prerequisites.
 
-- Your Angular CLI is on version 9.1 or higher, < 10.0.
-- Your application is using Angular 9 or higher, < 10.0.
-- Your Node version is less than or equal to version 13.
+{% include docs/frontend_requirements.html %}
 
 ## Adding Spartacus Libraries to Your Angular Project
 
@@ -36,13 +34,13 @@ The following is a description of the various options you can use with the `ng a
 The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the `baseUrl` and the `baseSite`, and that also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=electronics-spa --ssr
+ng add @spartacus/schematics --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=electronics-spa --ssr
 ```
 
 Another example is the following, which generates an application that is ready to be used with both an apparel storefront and an electronics storefront, that sets the `baseUrl`, `baseSite`, `currency`, and `language`, and also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://api.c39j2-walkersde1-d4-public.model-t.cc.commerce.ondemand.com/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
+ng add @spartacus/schematics --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
 ```
 
 ### Additional Commands

@@ -1,5 +1,9 @@
 ---
 title: CSS Architecture
+feature:
+- name: Style Versioning
+  spa_version: 2.0
+  cx_version: n/a
 ---
 
 This page provides a high level overview of the CSS architecture in Spartacus.

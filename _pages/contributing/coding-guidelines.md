@@ -85,7 +85,7 @@ Try to keep modules as small as possible. In most cases, one module has only one
 
 All code must be covered by unit tests.
 
-With regards to end-to-end tests, new, UI-oriented features must always be covered by basic UI end-to-end tests. The file names for the tests should end with `e2e-spec.ts`. Common functions that can be re-used should be extracted into different files, and should be located in the sub-directory named `helpers`. These files should end with the file extension `.ts`.
+With regards to end-to-end tests, new, UI-oriented features must always be covered by basic UI end-to-end tests, as well as [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). The file names for the tests should end with `e2e-spec.ts`. Common functions that can be re-used should be extracted into different files, and should be located in the sub-directory named `helpers`. These files should end with the file extension `.ts`.
 
 If you decide to write an end-to-end test based on user-flow, add the word `flow` to the test's name. If you have more than one user-flow test, separate them into individual files, so they can be run in parallel. We also recommend grouping the tests in a sub-directory with a relevant name. For reference, have a look at the end-to-end tests for product search.
 
@@ -105,7 +105,7 @@ If you answered "no" to these questions, then the test belongs in the `regressio
 
 Do not break server-side rendering (SSR).
 
-For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/server-side-rendering-coding-guidelines.md %}).
+For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}).
 
 ### Protected and Private Methods
 

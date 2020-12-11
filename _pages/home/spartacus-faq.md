@@ -2,7 +2,7 @@
 title: Spartacus FAQ
 ---
 
-If you have technical questions not answered in this FAQ, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). Feedback welcome!
+If you have technical questions not answered in this FAQ, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 - [Questions Related to Spartacus as a Product](#questions-related-to-spartacus-as-a-product)
 - [Questions Related to Commercialization](#questions-related-to-commercialization)
@@ -31,14 +31,7 @@ Spartacus libraries will be integrated with SAP Cloud Platform Extension Factory
 
 ### Which browsers does Spartacus support?
 
-Spartacus is built using the Angular framework, which has its own [browser support](https://angular.io/guide/browser-support) page. Note that Spartacus only provides library code, so the application that you build with the Spartacus libraries can affect which browsers are supported. For example, your application settings will dictate the supported version of JavaScript and the CSS build (PostCSS). You can also use certain polyfills to add missing browser features.
-
-On the desktop, Spartacus supports Chrome with automated tests, and in general, Spartacus supports evergreen browsers. By default, Spartacus does not support IE11 because IE11 is missing certain modern browser features, such as support for CSS variables.
-
-Spartacus supports browsers on mobile and tablet platforms as follows:
-
-- On iOS-based devices, Spartacus is tested with Safari and Chrome. Although other browsers are not tested, Spartacus should work with any iOS browser, because all iOS browsers use the Webkit-based iOS browser engine.
-- On Android-based devices, Spartacus is tested with Chrome, which is based on Chromium and the Blink layout engine. Any Android browser that uses the same engine will likely work with Spartacus. Other browsers using different browser engines are not tested, but those browsers that use Webkit should work as well.
+Spartacus actively supports evergreen web browsers. Non-evergreen browsers that support the same standards as evergreen browsers will typically work as well. For older browsers that do not support these standards, you can add the necessary support with custom implementations. For more information, see [Web Browser Support]({{ site.baseurl }}{% link _pages/install/browser-support.md %}).
 
 ### How does Spartacus compare to the SAP Commerce Cloud Accelerators?
 
@@ -70,7 +63,7 @@ Try out our continuous-integration server [here](https://sap.github.io/spartacus
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available?
 
-Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/spartacus-docs/). We are starting a collection of [helpful how-to videos](https://enable.cx.sap.com/tag/tagid/spartacus). Official training via SAP Education is not planned for launch but may be made available in the future.  
+Documentation is available from the Spartacus GitHub Pages [documentation site](https://sap.github.io/spartacus-docs/). We are starting a collection of [helpful how-to videos](https://microlearning.opensap.com/category/Spartacus/178316081). Official training via SAP Education is not planned for launch but may be made available in the future.  
 
 ### Can I customize Spartacus?
 
@@ -108,7 +101,7 @@ Spartacus storefronts are JavaScript web applications that communicate to the ba
 
 ### How do I get support when I run into issues with Spartacus?
 
-Spartacus is provided "as-is" with no official lines of support. To get help from the Spartacus community, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU). 
+Spartacus is provided "as-is" with no official lines of support. To get help from the Spartacus community, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 ### Is it possible to contribute to this open source project? How?
 
@@ -142,6 +135,4 @@ See the license ([link](https://github.com/SAP/spartacus/blob/develop/LICENSE.tx
 
 ### More Questions?
 
-Join our [Spartacus Slack channel](https://join.slack.com/t/spartacus-storefront/shared_invite/enQtNDM1OTI3OTMwNjU5LTg1NGVjZmFkZjQzODc1MzFhMjc3OTZmMzIzYzg0YjMwODJiY2YxYjA5MTE5NjVmN2E5NjMxNjEzMGNlMDRjMjU) and ask a question.
-
-
+Join our [Spartacus Slack channel](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) and ask a question.

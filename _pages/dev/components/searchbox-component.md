@@ -1,5 +1,9 @@
 ---
 title: Searchbox Component
+feature:
+- name: Searchbox Component
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 The searchbox component allows you to search the product catalog using typeahead search (also known as autocomplete or autosuggest search).

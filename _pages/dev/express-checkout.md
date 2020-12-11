@@ -1,5 +1,9 @@
 ---
 title: Express Checkout
+feature:
+- name: Express Checkout
+  spa_version: 1.2
+  cx_version: n/a
 ---
 
 {% capture version_note %}
