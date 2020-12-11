@@ -92,6 +92,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     import { translationChunksConfig, translations } from '@spartacus/assets';
     import { ConfigModule } from '@spartacus/core';
     import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
+
     @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -113,70 +114,15 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             tmf_resource_pool_management: {
             baseUrl: 'http://localhost:8080',
             prefix: '/tmf-api',
+            },
+            premiseLookup: {
+            baseUrl: 'http://localhost:9003',
+            prefix: '/premise/v1/',
             }
         },
         context: {
             urlParameters: ['baseSite', 'language', 'currency'],
-            baseSite: ['telcospa'],
-        },
-        i18n: {
-            resources: translations,
-            chunks: translationChunksConfig,
-            fallbackLang: 'en',
-        },
-        features: { level: '2.0' },
-        journeyChecklist: {
-            journeyChecklistSteps: ['APPOINTMENT', 'MSISDN', 'INSTALLATION_ADDRESS'],
-            msisdn_reservation: {
-            msisdn_qty: 1,
-            msisdn_capacity_amount_demand: 1,
-            msisdn_applied_capacity_amount: 5,
-            applied_capacity_amount_for_msisdn_reservation: 1,
-            },
-            appointment: {
-            requested_number_of_timeslots: 5,
-            end_date_of_timeslots: 3,
-            }
-        }
-        }),
-        ConfigModule.withConfig({ i18n: { resources: tmaTranslations } }),
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
-    })
-    export class AppModule {}
-    import { BrowserModule } from '@angular/platform-browser';
-    import { NgModule } from '@angular/core';
-    import { AppComponent } from './app.component';
-    import { translationChunksConfig, translations } from '@spartacus/assets';
-    import { ConfigModule } from '@spartacus/core';
-    import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
-    @NgModule({
-    declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        TmaB2cStorefrontModule.withConfig({
-        backend: {
-            tmf: {
-            baseUrl: 'https://localhost:9002',
-            prefix: '/b2ctelcotmfwebservices/v2/',
-            },
-            occ: {
-            baseUrl: 'https://localhost:9002',
-            prefix: '/occ/v2/',
-            },
-            tmf_appointment: {
-            baseUrl: 'http://localhost:8080',
-            prefix: '/tmf-api',
-            },
-            tmf_resource_pool_management: {
-            baseUrl: 'http://localhost:8080',
-            prefix: '/tmf-api',
-            }
-        },
-        context: {
-            urlParameters: ['baseSite', 'language', 'currency'],
-            baseSite: ['telcospa'],
+            baseSite: ['telcospa', 'utilitiesspa'],
         },
         i18n: {
             resources: translations,
@@ -271,6 +217,11 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
   
 9. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
 
+10. Your client application is accessible at the following locations in your local environment:
+
+    - Telco application: http://localhost:4200/telcospa/en/USD
+    - Utilities application: http://localhost:4200/utilitiesspa/en/USD
+
 **Note:**
 
 (1) Using `~` instructs yarn to use the latest patch version (x.y.**z**); whereas, using `^` instructs yarn to use the latest minor version (x.**y**.0).
@@ -295,10 +246,9 @@ This section describes how to validate your back-end installation and start the 
 
 1. Use a web browser to access the OCC endpoint of your backend.
 
-   The default is available at: `{server-base-url}/rest/v2/electronics/cms/pages`
+   The default is available at: `{server-base-url}/occ/v2/telcospa/cms/pages` or `{server-base-url}/occ/v2/utilitiesspa/cms/pages`.
 
-   For example, you can access:
-   https://localhost:9002/rest/v2/telcospa/cms/pages with a back-end instance running from `https://localhost:9002`.
+   For example, with a backend instance running from `https://localhost:9002`, you can access `https://localhost:9002/occ/v2/telcospa/cms/pages` or `https://localhost:9002/occ/v2/utilitiesspa/cms/pages`.
 
 2. Accept the security exception in your browser if you are running a development instance with a self-signed HTTPS certificate.
 
