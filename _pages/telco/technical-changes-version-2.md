@@ -2,7 +2,7 @@
 title: Technical Changes in TUA Spartacus 2.0
 ---
 
-## Breaking Changes Introduced in 2.0
+## Components and Methods-related Changes Introduced in 2.0
 
 ### TmaCartPriceService
 
