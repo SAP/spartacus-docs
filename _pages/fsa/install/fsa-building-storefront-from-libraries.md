@@ -26,8 +26,7 @@ For more information, see [Installing SAP Commerce Cloud for use with Spartacus]
 The following procedure describes how to create a new Angular application with the name `mystore`.
 
 1. Open a terminal or command prompt window at the location of your choice.
-
-2. Using the Angular CLI, generate a new Angular application with the following command:
+1. Using the Angular CLI, generate a new Angular application with the following command:
 
    ```bash
    ng new mystore --style=scss
@@ -37,7 +36,7 @@ The following procedure describes how to create a new Angular application with t
 
    The `mystore` folder and the new app are created.
 
-4.  Access the newly created `mystore` folder with the following command:
+1. Access the newly created `mystore` folder with the following command:
 
      ```bash
      cd mystore
