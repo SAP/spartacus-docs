@@ -45,7 +45,7 @@ As release 2.0 is a new major version, it contains breaking changes. To migrate 
 - [Technical Changes in TUA Spartacus 2.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-version-2.md %})
 - [Changes to Styles in 2.0](https://sap.github.io/spartacus-docs/css-changes-in-version-2/) 
 
-Please refer to core [Release Information for All Versions of Spartacus Libraries]({{ site.baseurl }}{% link _pages/telco/release-information.md %}) documentation for updates on the Spartacus framework including the upgrade to Angular 9 and related dependencies.
+Please refer to core [Release Information for All Versions of Spartacus Libraries]({{ site.baseurl }}{% link _pages/home/release-information.md %}) documentation for updates on the Spartacus framework including the upgrade to Angular 9 and related dependencies.
 
 ### Pricing
 
@@ -53,7 +53,7 @@ It is important to note that Spartacus 2.0 for TUA completely leverages the new 
 
 What's new?
 
-[Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
+- [Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
 
 Pricing complex services for telcos, utilities, or other industries, require a pricing mechanism that can handle multiple types of charges (recurring charges, one-time charges, and usage-based charges) that may also have multiple of each type of charge, as well as tiered pricing.   Composite pricing is now supported in the TUA Sparatacus storefront and provides the visibility of all pricing information that a customer needs to make an informed purchasing decision. For more information, see [Composite Pricing](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2011/en-US/407fcab313ed4b3aab01f47386029b00.html?q=composite%20pricing) in the TUA Help portal.
 
