@@ -19,7 +19,7 @@ FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end, and
 - SAP Commerce version: Release 2005 (latest patch is recommended - 2005.5).
 - Financial Services Accelerator version: Release 2008 (latest patch - 2008.2) is required.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }} link _pages/fsa/install/installing-sap-commerce-for-use-with-fsa-spartacus-1.0.md ). 
+For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-for-use-with-fsa-spartacus.md %}). 
 
 ## Creating a New Angular App
 
@@ -68,24 +68,55 @@ yarn install
 ### Check app.module.ts for base URL and other settings ###
 
 Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
+After FSA is installed your app.module.ts should look like following:
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { FSStorefrontModule } from '@fsa/fsastorefront';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FSStorefrontModule.withConfig({
+      backend: {
+        occ: {
+          baseUrl: '/--path to the server---/',
+          prefix: '/occ/v2/'
+        }
+      },
+      context: {
+        currency: ['EUR'],
+        language: ['en', 'de'],
+        urlParameters: ['baseSite', 'language', 'currency'],
+        baseSite: ['financial']
+      },
+      authentication: {
+        client_id: 'financial_customer',
+        client_secret: 'secret'
+      },
+      features: {
+        consignmentTracking: true,
+      }
+    })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
 For example, check:
 - `baseUrl`: Points to your SAP Commerce server
 - `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2005
-- `features.level`: Defines the compatibility level
-- `context`: Defines the site context such as base site, language, and currency. For example, to see the base site in the URL and add Financial store support, change `context` to the following:
-   ```
-   context: {
-     urlParameters: ['baseSite', 'language', 'currency'],
-     baseSite: ['financial'],
-     language: ['en', 'de'],
-     currency: ['EUR']
-   },
-   ```
-  
-### Copy styles to your application ###
-
-Copy the folder @fsa/fsastorefrontstyles/fonts from node_modules to src/assets folder of your new application.
+- `context`: Defines the site context such as base site, language, and currency.
+- `authentication`: Defines authorization of financial customer
+ 
+*Note:* If your setup failed and for some reason your app.module.ts is not configured like described please check one more time requirements for fsa schematics usage, Angular CLI version should be <= 10.0!
 
 ### Starting your Spartacus app ###  
 

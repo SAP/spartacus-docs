@@ -30,6 +30,7 @@ The following is a description of the various options you can use with the `ng a
 - `clientId` used to authorize financial user. Default value is: financial_customer
 - `clientSecret` used to authorize financial user. Default value is: secret
 - `consignmentTracking` sets consignment tracking on or off. Default value is: true
+- `overwriteAppComponent` overwrites the content of app.component.html. The default value is true.
 
 *Note:* Default values will be applied if no option is passed to ng add @fsa/schematics command.
 
