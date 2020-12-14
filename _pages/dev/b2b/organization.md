@@ -78,7 +78,7 @@ There is also possibility to upload any image file and use it as an icon in bann
 
 1. On the next step upload image you want to use.
 
-2. When media object is created it can be used in media  reference of any **Banner Component** belongs to **My Company Slot** ([please see](###fields-list)).
+1. When media object is created it can be used as media  reference of any **Banner Component** belongs to **My Company Slot** ([please see](###fields-list)).
 
 ## Styles
 
