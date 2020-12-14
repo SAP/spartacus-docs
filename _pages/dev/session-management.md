@@ -1,9 +1,9 @@
 ---
 title: Session management
 feature:
-  - name: Session management
-    spa_version: 3.0
-    cx_version: 1905
+- name: Session management
+  spa_version: 3.0
+  cx_version: 1905
 ---
 
 In Spartacus 3.0 we completely revamped the way we manage user session, handle tokens and perform authorization. This guide will help you understand how it works under the hood, how can you extend the underlying mechanism and how you should interact from outside with the auth module.
