@@ -6,6 +6,12 @@ feature:
   cx_version: 1905
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 In Spartacus 3.0 we completely revamped the way we manage user session, handle tokens and perform authorization. This guide will help you understand how it works under the hood, how can you extend the underlying mechanism and how you should interact from outside with the auth module.
 
 ## Client authentication vs user authentication
