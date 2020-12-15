@@ -181,7 +181,9 @@ docs:
                 - title: "Split View Component"
                   url: /split-view/
           - title: "Extending Built-In Models"
-            url: /type-augmentation/        
+            url: /type-augmentation/
+          - title: "Session Management"
+            url: /session-management/
           - title: "Lazy Loading Guide"
             url: /lazy-loading-guide/
           - title: "Extending Checkout"

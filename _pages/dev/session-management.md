@@ -1,7 +1,7 @@
 ---
-title: Session management
+title: Session Management
 feature:
-- name: Session management
+- name: Session Management
   spa_version: 3.0
   cx_version: 1905
 ---
@@ -12,9 +12,9 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-In Spartacus 3.0 we completely revamped the way we manage user session, handle tokens and perform authorization. This guide will help you understand how it works under the hood, how can you extend the underlying mechanism and how you should interact from outside with the auth module.
+In Spartacus 3.0, there is a whole new way to manage user sessions, handle tokens, and perform authorizations. The following sections are intended to help you understand how session management works under the hood, how can you extend the underlying mechanism, and how you should interact with the auth module from outside of Spartacus.
 
-## Client authentication vs user authentication
+## Client Authentication and User Authentication
 
 Since the start of the spartacus project it included both client and user authentication which is pretty unusual for web applications. That's the requirement put on Spartacus by the OCC API.
 
