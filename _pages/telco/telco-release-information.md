@@ -2,11 +2,12 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated November 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated December 15, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ## Release Contents
 
 - [Introduction](#introduction)
+- [Release 2.0](#release-20)
 - [Release 1.3](#release-13)
 - [Release 1.2](#release-12)
 - [Release 1.1](#release-11)
@@ -17,9 +18,11 @@ title: Release Information for TUA Spartacus Libraries
 
 ## Introduction
 
-This document describes what is included in all Spartacus 1.x libraries since 1.0.
+This document describes what is included in all Spartacus 2.x libraries since 2.0.
 
-**Note:** Spartacus 1.x requires Angular 8. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
+**Note:** Spartacus 2.x requires Angular 9. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
+
+For release information about Spartacus 1.x, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}) in 1.x documentation archive.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
@@ -31,6 +34,36 @@ This document describes what is included in all Spartacus 1.x libraries since 1.
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 2.0
+
+*Release 2.0 libraries published December 15, 2020*
+
+As release 2.0 is a new major version, it contains breaking changes. To migrate to 2.0 from 1.x, please see the following documentation:
+
+- [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-2.md %})
+- [Technical Changes in TUA Spartacus 2.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-2.md %})
+- [Changes to Styles in 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/css-changes-in-version-2.md %})
+
+Please refer to core [Release Information for All Versions of Spartacus Libraries]({{ site.baseurl }}{% link _pages/home/release-information.md %}) documentation for updates on the Spartacus framework including the upgrade to Angular 9 and related dependencies.
+
+### Pricing
+
+It is important to note that Spartacus 2.0 for TUA completely leverages the new composite pricing framework introduced with TUA release 2007. This means that the Spartacus 2.0 for TUA no longer supports Subscription Rate Plan pricing.
+
+What's new?
+
+- [Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
+
+Pricing complex services for telcos, utilities, or other industries, require a pricing mechanism that can handle multiple types of charges (recurring charges, one-time charges, and usage-based charges) that may also have multiple of each type of charge, as well as tiered pricing.   Composite pricing is now supported in the TUA Sparatacus storefront and provides the visibility of all pricing information that a customer needs to make an informed purchasing decision. For more information, see [Composite Pricing](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2011/en-US/407fcab313ed4b3aab01f47386029b00.html?q=composite%20pricing) in the TUA Help portal.
+
+- [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %})
+
+Customers are always interested in getting the best deal for products and services. With price alteration discounts, customers are able to see the discounted price of the product offerings before adding the item to the shopping basket.  For more information, see [Pricing - Price Alteration Discounts](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2011/en-US/de730ef83899405f8e88f7c89381fdae.html) in the TUA Help portal.
+
+- [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment-scheduling.md %})
+
+Appointment scheduling is important as it ensures that you make the best use of your time and the providers time so that they can provide remarkable service. This goes without saying for customers purchasing multiple services, and having a single service appointment to service the multiple services ordered. For more information, see  [Journey Management - Appointment Scheduling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help Portal.  
 
 ## Release 1.3
 
@@ -119,10 +152,48 @@ Provide greater customer experiences by providing product offerings to customers
 
 You can upgrade your TUA Spartacus libraries to a new minor version, as follows:
 
-1. In `package.json`, set your `@spartacus` libraries to `“~1.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-   If you are upgrading from 1.x to the latest 1.3 release, in `package.json`, set your `@spartacus` libraries to `“~1.3.0"`.
+   If you are upgrading from 1.x to the latest 1.3 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.3.3"`.
 
+1. Make sure other entries in `package.json` match with below configuration. (If not available add below entries)
+
+    ```bash
+   "@angular/localize":"^9.1.0",    
+    "@angular/service-worker": "~9.1.0",
+    "@ng-bootstrap/ng-bootstrap": "6.0.0",
+    "@ng-select/ng-select": "^4.0.0",
+    "@ngrx/effects": "~9.0.0",
+    "@ngrx/router-store": "~9.0.0",
+    "@ngrx/store": "~9.0.0",
+    "bootstrap": "^4.2.1",
+    "chart.js": "^2.9.3",
+    "express": "^4.15.2",
+    "i18next": "^19.3.4",
+    "i18next-xhr-backend": "^3.2.2",
+    "material-design-icons": "^3.0.1",
+    "ng2-charts": "^2.3.2",
+    "ngx-infinite-scroll": "^8.0.0",
+    "ngx-spinner": "^9.0.1",
+    "jquery": "^3.5.1"
+    ```
+
+1. Inspect the `mystore/src/app/app.module.ts` file for any changes you want to make for your setup.
+    - Remove the `premiseLookup` entry from the backend section if present.
+    - Remove `saveForLater: false` from features section if present.
+    - Remove the `utilitiesspa` entry from the `baseSite` list under the section context.
+    - Update level under features section to 2.0.0.
+    - Add the following import `/mystore/src/polyfills.ts` in the file:
+ 
+    ```bash
+    import '@angular/localize/init';    
+    import 'zone.js/dist/zone';    
+    ```
+1. Add the following entry `/mystore/tsconfig.json` in the `mystore/src/app/app.module.ts` file if not already available:
+ 
+    ```bash
+    “enableIvy”: false        
+    ```
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
 
