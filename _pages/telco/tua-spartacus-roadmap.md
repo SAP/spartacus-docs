@@ -2,7 +2,7 @@
 title: Roadmap for TUA Spartacus
 ---
 
-*Last updated November 11, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated December 15, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 This document describes what is planned for TUA Spartacus for Q4 2020 and later.
 
@@ -40,20 +40,19 @@ For non-technical questions and roadmap feedback, you can reach us on our dedica
 
 ## Features Planned for Version 2.0 / Q4-2020 and into Q1-2021
 
-Release 2.0 will be the first release supporting SAP Commerce Cloud 2005 and TUA 2007.
+Release 2.0 supports SAP Commerce Cloud 2005 and TUA 2007 / TUA 2011 releases.
 
 ### B2C Storefront Features Planned
 
-- **Composite Pricing:** For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html)
-- **Price Alteration Discounts:** For more information, see [Price Alterations (Discounts)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html)
-- **Fixed Bundled Product Offerings**
-- **Hierarchal Cart**
-- **One-Click Order**
+- Support of the hierarchal cart in spartacus (pre-requisite for fixed bundled product offerings).
+- Provide the ability for a customer to purchase a fixed Bundled Product Offerings.
+- One-Click Order Placement for services. 
 
 ### Journey Management
 
-- **SPO Serviceability:** For more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html)
-- **Category Level Serviceability**
+- Provide the ability for a customer to conduct a serviceability check for a product offering of interest. For more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html) in the TUA Help portal.
+
+- Provide the ability for a customer to conduct a serviceability check for all product offerings available to him/her based on a premise address.
 
 ### Retention Process Flows
 
@@ -73,8 +72,6 @@ Some features require new OCC REST APIs, not yet planned and still considered to
 - **Price Alteration Credits:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2011/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html)
 - **PSCV pricing:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/9835174fd3b94550b41f0b72b5269231.html)
 - **Grid pricing on Cart, Checkout, and Order:** For more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
-- **Automatic Cart Assignments**
-- **Policy Based Pricing**
 
 ### B2C Self-Care Asset Management and Assurance
 
