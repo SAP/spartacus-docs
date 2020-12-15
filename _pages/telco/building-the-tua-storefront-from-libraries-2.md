@@ -174,7 +174,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@spartacus/core": "~2.0.4",
     "@spartacus/storefront": "~2.0.4",
     "@spartacus/styles": "~2.0.4",
-    "@spartacus/tua-spa": "~2.0.0-next.2",
+    "@spartacus/tua-spa": "~2.0.1",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.9.3",
     "express": "^4.15.2",
@@ -184,7 +184,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "ng2-charts": "^2.3.2",
     "ngx-infinite-scroll": "^8.0.0",
     "ngx-spinner": "^9.0.1",
-     "jquery": "^3.5.1"
+    "jquery": "^3.5.1"
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.10.2"` so you need to add a comma after `0.10.2"`.
@@ -262,7 +262,7 @@ To start your TUA Spartacus storefront, enter the following command from `mystor
 yarn start
    ```
   
-   When the app server is properly started, point your browser to http://localhost:4200.
+When the app server is properly started, point your browser to http://localhost:4200.
 
 Or, to start your TUA Spartacus storefront securely, enter the following command:
 
