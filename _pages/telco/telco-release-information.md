@@ -41,9 +41,9 @@ For release information about Spartacus 1.x, see [Building the TUA Spartacus Sto
 
 As release 2.0 is a new major version, it contains breaking changes. To migrate to 2.0 from 1.x, please see the following documentation:
 
-- [Upgrading to Version 2.0]({{ site.baseurl }}{% link _pages/telco/upgrading-tua-spartacus-to-2.md %}) 
-- [Technical Changes in TUA Spartacus 2.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-version-2.md %})
-- [Changes to Styles in 2.0](https://sap.github.io/spartacus-docs/css-changes-in-version-2/) 
+- [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-2.md %})
+- [Technical Changes in TUA Spartacus 2.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-2.md %})
+- [Changes to Styles in 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/css-changes-in-version-2.md %})
 
 Please refer to core [Release Information for All Versions of Spartacus Libraries]({{ site.baseurl }}{% link _pages/home/release-information.md %}) documentation for updates on the Spartacus framework including the upgrade to Angular 9 and related dependencies.
 
@@ -57,11 +57,11 @@ What's new?
 
 Pricing complex services for telcos, utilities, or other industries, require a pricing mechanism that can handle multiple types of charges (recurring charges, one-time charges, and usage-based charges) that may also have multiple of each type of charge, as well as tiered pricing.   Composite pricing is now supported in the TUA Sparatacus storefront and provides the visibility of all pricing information that a customer needs to make an informed purchasing decision. For more information, see [Composite Pricing](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2011/en-US/407fcab313ed4b3aab01f47386029b00.html?q=composite%20pricing) in the TUA Help portal.
 
-- [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %})
+- [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %})
 
 Customers are always interested in getting the best deal for products and services. With price alteration discounts, customers are able to see the discounted price of the product offerings before adding the item to the shopping basket.  For more information, see [Pricing - Price Alteration Discounts](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2011/en-US/de730ef83899405f8e88f7c89381fdae.html) in the TUA Help portal.
 
-- [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey management - appointment with site address.md %})
+- [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment-scheduling.md %})
 
 Appointment scheduling is important as it ensures that you make the best use of your time and the providers time so that they can provide remarkable service. This goes without saying for customers purchasing multiple services, and having a single service appointment to service the multiple services ordered. For more information, see  [Journey Management - Appointment Scheduling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help Portal.  
 
