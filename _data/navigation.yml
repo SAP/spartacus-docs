@@ -394,6 +394,8 @@ docs:
             url: /pre-populate-field/
         - title: "Inbox"
           url: /fsa-inbox/
+        - title: "Checkout"
+          url: /fsa-checkout/
 
     - title: Contributing to Spartacus
       url: /contributors-guide/
