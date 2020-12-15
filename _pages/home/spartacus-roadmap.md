@@ -4,7 +4,7 @@ title: Spartacus Roadmap
 
 This document describes what what is planned for Spartacus for Q4 2020 and later.
 
-*Last updated December 4, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated December 8, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
@@ -92,12 +92,16 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
   - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
   - Overview page with all user selections accessible at any time during configuration
   - Conflict handling
-  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
-- **Customer Data Cloud** integration library (Login and Registration Support)
+  For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US).
+- **SAP Customer Data Cloud** integration library (Login and Registration Support)
   - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
   - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
   - CDC is previously known as Gigya
-
+- **SAP Digital Payments Integration** - for more information, see the [SAP Digital Payments Add-On Integration Module documentation](https://help.sap.com/viewer/4f00a6453e4242bbac5b3cb82b616576/latest/en-US)
+- **SAP Entitlement Management Integration** - for more information, see the [SAP Entitlement Management Integration Module documentation](https://help.sap.com/viewer/f1a442a5d4664fa08fee7b182df437f5/latest/en-US)
+  
+  
+  
 ## Features Planned for Q2 2021
 
 ### B2B Features
@@ -143,7 +147,4 @@ Items listed above with **(\*)** require new OCC REST APIs, no date set yet; see
 - **Google Tag Manager Support**
 - **Site map**
 - **Extensibility 2.0** - finer-grained extensibility
-  
-### Integrations
-
-- **SAP Digital Payments service** - for more information, see [SAP Digital Payments Add-On](https://help.sap.com/viewer/product/DIGITALPAYMENTS/PROD/en-US).
+ 
