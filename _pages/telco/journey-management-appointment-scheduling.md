@@ -45,7 +45,7 @@ The following business use cases are covered for this feature:
 
 1. A customer wants to purchase a product offering that requires an installation service at a preferred address specified by the customer.  During the "Add to “Cart" process, the customer is prompted to specify the address and/or make an appointment reservation.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.
 
-2. A customer enters Configurable Guided Selling (https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/464d4b03d91442e9ac95f69808895a39.html) and wants to purchase a product offering that requires an installation service at a preferred address specified by the customer. During the "Add to Cart" process, the customer is prompted to specify the address and/or make an appointment reservation. If multiple products requires installation, the end customer will only be prompted once to provide this information making the configurable guided selling journey seamless.  Behind the scenes, the installation address and appointment will be copied to all product offerings requiring this information.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.
+2. A customer enters [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/464d4b03d91442e9ac95f69808895a39.html) and wants to purchase a product offering that requires an installation service at a preferred address specified by the customer. During the "Add to Cart" process, the customer is prompted to specify the address and/or make an appointment reservation. If multiple products requires installation, the end customer will only be prompted once to provide this information making the configurable guided selling journey seamless.  Behind the scenes, the installation address and appointment will be copied to all product offerings requiring this information.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.
 
 3.  A customer has the ability to change the installation address and/or appointment from within the cart.
 
@@ -63,7 +63,7 @@ The following business use cases are covered for this feature:
 
 ## Configuring and Enabling Installation Address and Appointment in TUA
 
-The `Installation address` and the `Appointment-Reference` checklist policy is configured in the Backoffice by the Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
+The `Installation address` and the `Appointment-Reference` checklist policy is configured in the Backoffice by the Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## Components
 
@@ -168,12 +168,12 @@ The following new and updated components must be enabled in the TUA backoffice t
 | POST /geographicAddress     | TMF-673  | Creates an installation address                                                   |
 | PATCH /geographicAddress/{id}   | TMF-673  | Edits an installation address                                                        |
 
-For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
+For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/latest/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
 
 ## Further Reading
 
 For further reading, see the following topics in the TUA Help portal.
 
-- [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
-- [Configurable Guided Selling (CGS)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/464d4b03d91442e9ac95f69808895a39.html).
-- [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).
+- [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
+- [Configurable Guided Selling (CGS)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/464d4b03d91442e9ac95f69808895a39.html).
+- [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).
