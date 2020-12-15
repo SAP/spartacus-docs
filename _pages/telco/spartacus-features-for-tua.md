@@ -7,6 +7,8 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 ## Release 2.0
 
 - [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment-scheduling.md %})
+- [Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
+- [Pricing - Price Alterations Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %})
 
 ## Release 1.3
 

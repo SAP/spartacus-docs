@@ -345,6 +345,10 @@ docs:
                   url: /journey-management-serviceability/          
                 - title: "Order"
                   url: /order/
+                - title: "Pricing - Composite Pricing"
+                  url: /composite-pricing/
+                - title: "Pricing - Price Alteration Discounts"
+                  url: /price-alteration-discounts/
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
