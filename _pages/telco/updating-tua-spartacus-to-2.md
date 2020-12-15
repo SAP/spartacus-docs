@@ -1,10 +1,10 @@
 ---
-title: Upgrading to Version 2.0
+title: Updating to Version 2.0
 ---
 
 ## Prerequisites
 
-Before upgrading your TUA Spartacus libraries to version 2.0, you must address the following prerequisites:
+Before updating your TUA Spartacus libraries to version 2.0, you must address the following prerequisites:
 
 - You must first upgrade all of your `@spartacus` libraries to the latest 1.5.x release before you begin upgrading to Spartacus 2.0. For more information, see [Upgrading TUA Spartacus Libraries to a New Minor Version](#upgrading-tua-spartacus-libraries-to-a-new-minor-version).
 - You also must first upgrade all of your `@spartacus/tua-spa` to the latest 1.5.x release before you begin upgrading to Spartacus 2.0
@@ -56,19 +56,21 @@ You can upgrade your TUA Spartacus libraries to a new minor version, as follows:
     - Remove `saveForLater: false` from features section if present.
     - Remove the `utilitiesspa` entry from the `baseSite` list under the section context.
     - Update level under the features section to 2.0.0.
-    
+  
 1. Add the following import `/mystore/src/polyfills.ts` in the file:
- 
+
     ```bash
     import '@angular/localize/init';    
     import 'zone.js/dist/zone';    
     ```
+
 1. Add the following entry `/mystore/tsconfig.json` in the `mystore/src/app/app.module.ts` file if not already available:
- 
+
     ```bash
     “enableIvy”: false        
     ```
+
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
 
-For more information, see [Technical Changes in TUA Spartacus 2.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-version-2.md %}).
+For more information, see [Technical Changes in TUA Spartacus 2.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-2.md %}).
