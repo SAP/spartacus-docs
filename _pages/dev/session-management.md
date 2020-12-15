@@ -12,17 +12,17 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-In Spartacus 3.0, there is a whole new way to manage user sessions, handle tokens, and perform authorizations. The following sections are intended to help you understand how session management works under the hood, how can you extend the underlying mechanism, and how you should interact with the auth module from outside of Spartacus.
+Spartacus 3.0 introduces a new way to manage user sessions, handle tokens, and perform authorizations. The following sections are intended to help you understand how session management works under the hood, how can you extend the underlying mechanism, and how you can interact with the auth module from outside of Spartacus.
 
 ## Client Authentication and User Authentication
 
-Since the start of the spartacus project it included both client and user authentication which is pretty unusual for web applications. That's the requirement put on Spartacus by the OCC API.
+From the beginning, Spartacus has included both client authentication and user authentication. Although this is not typical for web applications, it is necessary for Spartacus to work with the OCC API.
 
-There are couple of endpoints that work on behalf on logged out user (eg. register, reset password, place order as guest, verify address) which require access token to be passed with the request. That access token needs to be retrieved by following Client Credentials Flow defined by OAuth specification. That's the part we define in spartacus as "Client authentication".
+There are a number of endpoints that work on behalf of logged-out users, such as registering, resetting a password, placing an order as a guest, and verifying an address. These endpoints require an access token to be sent with the request, and this access token needs to be retrieved by following the Client Credentials Flow that is defined by the OAuth specification. This is the client authentication.
 
-On the other hand we have user authentication which is used for requests send on particular user resources. If you want to update you profile you need to be logged in. When you log in server confirms your credentials and returns back to the application access token. This token is then used for all requests on your account (eg. profile update, cart modifications, checkout).
+Meanwhile, user authentication is used for requests that are sent on behalf of specific user resources. For example, if you want to update your profile, you need to be logged in. When you log in, the server confirms your credentials and returns an application access token. This token is then used for all requests on your account, such as updating your profile, making cart modifications, and checking out.
 
-With that explained we can present the first big change in session management in version 3.0. That is the separation of client authentication from user authentication. Before 3.0 client and user authentication code lived together in `AuthModule`. Interceptors, services, methods in facade, everything was mixed together in this module. After the refactor `AuthModule` still contains client and user authentication, but it's now accomplished by importing two modules: `UserAuthModule` and `ClientAuthModule`. Each module responsible for one type of authentication.
+Prior to Spartacus 3.0, the code for both client authentication and user authentication was in the `AuthModule`, which included interceptors, services, and methods for facades all mixed together. In Spartacus 3.0, the `AuthModule` still contains client and user authentication, but this is now the result of importing two modules, the `UserAuthModule` and the `ClientAuthModule`. Each module is responsible for one type of authentication.
 
 Why this change was important? Spartacus is build to support OCC by default, but it's not limited to it. OCC needs client credentials for some of the requests, but that is not common for the APIs. Separation of those modules makes use of different API simpler. When you don't need client authentication, instead of using `AuthModule` you can import only `UserAuthModule` and shave few kilobytes of your final bundle, by not including useless in this case `ClientAuthModule`.
 
