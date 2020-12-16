@@ -71,45 +71,41 @@ You can learn more about advanced configuration of the authentication flow by lo
 
 ### Storing Tokens and User Identifiers
 
-After authentication, the tokens received from the library methods need to be stored somewhere. Previously, these tokens were kept in NgRx Store, but in Spartacus 3.0, there are dedicated services to keep the data.
-
-Once we complete authentication we need to store received tokens from the lib methods somewhere. Previously we kept them in ngrx store. In 3.0 we have dedicated services to keep the data. Library requires storage mechanism with the API similar to `localStorage` or `sessionStorage` and that was the main reason to switch from ngrx to services with stream keeping the data.
+After authentication, the tokens received from the library methods need to be stored somewhere. Previously, these tokens were kept in NgRx Store, but in Spartacus 3.0, there are dedicated services to keep the data. The library requires a storage mechanism with an API similar to `localStorage` or `sessionStorage`, and that was the main reason to switch from NgRx to services with a stream for keeping the data.
 
 ![Storing auth data]({{ site.baseurl }}/assets/images/session-management/store.svg)
 
-Normally for auth we need to only store tokens and their metadata (eg. expiration time, scope). However in case of OCC there is also tightly coupled user id that have to be set after login/logout and user emulation (ASM). In previous version it lived in the same place in ngrx and because of that previous association we decided to keep the user id in `UserAuthModule`, but we separated tokens from it. Tokens and their metadata are stored with `AuthStorageService` while user id lives in it's own `UserIdService`.
+For authentication, it is normally sufficient to store only tokens and their metadata (such as expiration time and scope). However, with OCC, there is also the tightly-coupled user ID that needs to be set after login or logout, as well as being required for user emulation when working with the Assisted Service Module (ASM). Prior to Spartacus 3.0, the user ID was kept in the same place as the tokens in NgRx, and because of that previous association, the user ID remains in the `UserAuthModule`. However, the tokens have now been separated from this module. Tokens and their metadata are now stored with the `AuthStorageService`, while user IDs have their own, dedicated `UserIdService`.
 
-Usual flow with this data flow goes like this:
+The usual sequence for the authentication data flow is the following:
 
-- user invokes login
-- auth lib perform OAuth flow and receives tokens
-- auth lib directly sets them in `AuthStorageService` through `setItem`, `removeItem` methods
-- `AuthService` is informed about successful login
-- `AuthService` sets user id in `UserIdService` accordingly to logged in user
+- a user invokes login
+- the authentication library perform the OAuth flow and receives tokens
+- the authentication library directly sets the tokens in the `AuthStorageService` through the `setItem` and `removeItem` methods
+- the `AuthService` is informed about the successful login
+- the `AuthService` sets the user ID in the `UserIdService` for the logged-in user
 
-`UserIdService` is part of facade as almost all services interacting with OCC API require it. Previously user id was exposed in `AuthService.getOccUserId`. So it still lives in the same facade, but in different service and in different method.
+The `UserIdService` is part of a facade, because almost all services that interact with the OCC API require it. Previously, the user ID was exposed in the `AuthService.getOccUserId`. As a result, in Spartacus 3.0 it has been kept in the same facade, but in a different service and in a different method.
 
-### Access token in API calls and error recovery
+### Access Tokens in API Calls and Error Recovery
 
-We performed login for user, stored their access token and user id. Now it's time to request some of user's resources. To achieve that we need to pass access token as a header in these requests. In Spartacus it is achieved with HTTP interceptors.
+After logging in a user, and storing their access token and user ID, it is then possible to request some of the user's resources. To do so, it is necessary to pass an access token as a header in the request. In Spartacus, this is achieved with HTTP interceptors, as shown in the following diagram:
 
 ![Auth interceptors]({{ site.baseurl }}/assets/images/session-management/interceptors.svg)
 
-To enrich request with access token you don't need to mark request in any way. `AuthInterceptor` recognizes request to API based on url. If the request doesn't have `Authorization` header and matches API path the interceptor will add the header to request. To make it easier to extend interceptor we have it's own helper service `AuthHttpHeaderService` (most often extending this one service should be enough).
+To enrich a request with an access token, you do not need to mark the request in any way. The `AuthInterceptor` recognizes the request to the API based on the URL. If the request does not have the `Authorization` header, and does not match the API path, the interceptor adds the header to the request. To make it easier to extend the interceptor, Spartacus has its own `AuthHttpHeaderService` helper service. In most cases, extending this one service should be enough.
 
-Apart from injecting the token this interceptor also is responsible for handling errors related to authorization. In such cases it will try to recover first and retry request and if that is not possible it will complete logout process and redirect user to login page. When requests fails, because access token expired it will use refresh token (if it exists) to request new access token and then retry failed request with the new token.
+Apart from injecting the token, this interceptor is also responsible for handling errors that are related to authorization. In such cases, it tries to recover first and retry the request, and if that is not possible, it completes the logout process and redirects the user to the login page. When a request fails because the access token has expired, the interceptor uses the refresh token (if it exists) to request a new access token, and then retries the failed request with the new token.
 
-Second interceptor `TokenRevocationInterceptor` has very specific role. For calls to revoke tokens on user logout this interceptor adds `Authorization` header. With different OAuth server you might not need to provide this header and you can drop this interceptor from your own `UserAuthModule`.
+A second `TokenRevocationInterceptor` interceptor has a very specific role. For calls to revoke tokens on user logout, this interceptor adds an `Authorization` header. With a different OAuth server, you might not need to provide this header, and you can drop this interceptor from your own `UserAuthModule`.
 
-### Persisting auth data in browser storage
+### Persisting Authentication Data in the Browser Storage
 
-We managed to log in, store the token and use it for API calls, but once we refresh the page we are no longer logged in. Missing piece is the synchronization of auth data (tokens, user id) in browser storage.
+After you log in, and your token has been stored and used for API calls, you refresh the page and suddenly you are no longer logged in. To avoid this problem, the `AuthStatePersistenceService` synchronizes the authentication data (such as tokens and user ID) in the browser storage, as shown in the following diagram.
 
 ![Storing auth data in browser]({{ site.baseurl }}/assets/images/session-management/storage.svg)
 
-Here comes `AuthStatePersistenceService`. This service uses `StatePersistenceService` to sync data to/from browser storage. User id from `UserIdService`, tokens from `AuthStorageService` and redirect url from `AuthRedirectStorageService` all synchronized to `localStorage`. Every time data changes it is saved in browser storage and when the application starts it is read from storage into services.
-
-And that's all the responsibilities of `UserAuthModule` covered.
+The `AuthStatePersistenceService` uses the `StatePersistenceService` to synchronize data to and from the browser storage. The user ID from the `UserIdService`, the tokens from the `AuthStorageService`, and the redirect URL from the `AuthRedirectStorageService` are all synchronized to the `localStorage`. Every time data changes, it is saved in the browser storage, and when the application starts, it is read from the storage into services.
 
 ## Assisted Service Module
 
