@@ -32,7 +32,7 @@ export interface ControlDependency {
 }
 ```
 
-It is necessary to constantly track value and validity of parent form controls and based on it, show/hide some form controls (group or specific field). For tracking validity, dynamic forms uses already defined validator functions. See [this page]({{ site.baseurl }}{% link _pages/fsa/dynamicforms/core/basic-form-validations.md %}) for more info.
+It is necessary to constantly track value and validity of parent form controls and based on it, show/hide some form controls (group or specific field). For tracking validity, dynamic forms uses already defined validator functions. See [this page]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/basic-form-validations.md %}) for more info.
 
 ## Example and Explanation
 
