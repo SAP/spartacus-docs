@@ -36,7 +36,7 @@ Customers browsing the storefront want to view detailed pricing information of a
 | Order History page 	| Pay now, Recurring, One time Charges, and Usage charged, along with Price   alteration 	|
 | Configurable Guided Selling (CGS) Page 	| Details are similar to the Product Listing Page (PLP) along with Price alteration in the cart 	|
 
-The following figure illustrates hirarchical structure of the price alteration discounts for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
+The following figure illustrates the hierarchical structure of the price alteration discounts for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/price-alteration-discounts.png"></p>
 
