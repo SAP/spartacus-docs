@@ -32,7 +32,7 @@ This section takes a detailed look at the `UserAuthModule`, where most of the ch
 
 The following diagram shows how the `UserAuthModule` works under the hood:
 
-![UserAuthModule](./../../assets/images/session-management/all.svg)
+![UserAuthModule]({{ site.baseurl }}/assets/images/session-management/all.svg)
 
 The `UserAuthModule` module is responsible for the following:
 
@@ -50,7 +50,7 @@ Authenticating users is the main responsibility of this module. Previous version
 
 The services that are involved in authenticating users are highlighted in the following diagram:
 
-![Authentication flow](./../../assets/images/session-management/auth.svg)
+![Authentication flow]({{ site.baseurl }}/assets/images/session-management/auth.svg)
 
 Authentication starts from the `AuthService` facade, where you initialize the process by calling one of the following login methods:
 
@@ -75,7 +75,7 @@ After authentication, the tokens received from the library methods need to be st
 
 Once we complete authentication we need to store received tokens from the lib methods somewhere. Previously we kept them in ngrx store. In 3.0 we have dedicated services to keep the data. Library requires storage mechanism with the API similar to `localStorage` or `sessionStorage` and that was the main reason to switch from ngrx to services with stream keeping the data.
 
-![Storing auth data](./../../assets/images/session-management/store.svg)
+![Storing auth data]({{ site.baseurl }}/assets/images/session-management/store.svg)
 
 Normally for auth we need to only store tokens and their metadata (eg. expiration time, scope). However in case of OCC there is also tightly coupled user id that have to be set after login/logout and user emulation (ASM). In previous version it lived in the same place in ngrx and because of that previous association we decided to keep the user id in `UserAuthModule`, but we separated tokens from it. Tokens and their metadata are stored with `AuthStorageService` while user id lives in it's own `UserIdService`.
 
@@ -93,7 +93,7 @@ Usual flow with this data flow goes like this:
 
 We performed login for user, stored their access token and user id. Now it's time to request some of user's resources. To achieve that we need to pass access token as a header in these requests. In Spartacus it is achieved with HTTP interceptors.
 
-![Auth interceptors](./../../assets/images/session-management/interceptors.svg)
+![Auth interceptors]({{ site.baseurl }}/assets/images/session-management/interceptors.svg)
 
 To enrich request with access token you don't need to mark request in any way. `AuthInterceptor` recognizes request to API based on url. If the request doesn't have `Authorization` header and matches API path the interceptor will add the header to request. To make it easier to extend interceptor we have it's own helper service `AuthHttpHeaderService` (most often extending this one service should be enough).
 
@@ -105,7 +105,7 @@ Second interceptor `TokenRevocationInterceptor` has very specific role. For call
 
 We managed to log in, store the token and use it for API calls, but once we refresh the page we are no longer logged in. Missing piece is the synchronization of auth data (tokens, user id) in browser storage.
 
-![Storing auth data in browser](./../../assets/images/session-management/storage.svg)
+![Storing auth data in browser]({{ site.baseurl }}/assets/images/session-management/storage.svg)
 
 Here comes `AuthStatePersistenceService`. This service uses `StatePersistenceService` to sync data to/from browser storage. User id from `UserIdService`, tokens from `AuthStorageService` and redirect url from `AuthRedirectStorageService` all synchronized to `localStorage`. Every time data changes it is saved in browser storage and when the application starts it is read from storage into services.
 
@@ -117,7 +117,7 @@ Since Spartacus version 1.3 we supported feature called ASM, which allows custom
 
 One of the goals of session management refactor was to make `AuthModule` not aware of ASM at all. Removing ASM from your application should be as simple as just not including `AsmModule`. No code should be left in different modules. With the new `AuthModule` structure we were able to make ASM feature isolated.
 
-![Asm integration with UserAuthModule](./../../assets/images/session-management/asm.svg)
+![Asm integration with UserAuthModule]({{ site.baseurl }}/assets/images/session-management/asm.svg)
 
 To integrate ASM with `UserAuthModule` we mainly used the mechanism to provide your own services in place of the default along with inheritance.
 
