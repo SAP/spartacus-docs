@@ -38,7 +38,7 @@ Customers browsing the storefront want to view detailed pricing information of a
 
 The following figure illustrates hirarchical structure of the price alteration discounts for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
 
-<p align="center"><img src="/assets/images/telco/price-alteration-discounts.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/price-alteration-discounts.png"></p>
 
 ## Changes Implemented
 

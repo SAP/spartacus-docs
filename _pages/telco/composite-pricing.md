@@ -38,7 +38,7 @@ Customers browsing the storefront are able to view detailed pricing information 
 
 The following figure illustrates hirarchical structure of the composite pricing for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
 
-<p align="center"><img src="/assets/images/telco/composite-pricing-feature.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/composite-pricing-feature.png"></p>
 
 
 ## Changes Implemented
