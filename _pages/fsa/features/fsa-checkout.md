@@ -101,7 +101,7 @@ quote-review.component.html
               >
 ```
 
-Many guards have been implemented to prevent access to restricted or uncompleted checkout steps:
+The following guards have been implemented to prevent access to restricted or uncompleted checkout steps:
 
 - CategoryStepGuard
 - BindQuoteGuard
