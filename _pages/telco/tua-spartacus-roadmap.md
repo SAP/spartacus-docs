@@ -44,9 +44,9 @@ Release 2.0 supports SAP Commerce Cloud 2005 and TUA 2007 / TUA 2011 releases.
 
 ### B2C Storefront Features Planned
 
-- Support of the hierarchal cart in spartacus (pre-requisite for fixed bundled product offerings).
+- Support of the hierarchical cart in spartacus (pre-requisite for fixed bundled product offerings).
 - Provide the ability for a customer to purchase a fixed Bundled Product Offerings.
-- One-Click Order Placement for services. 
+- One-Click Order Placement for services.
 
 ### Journey Management
 
