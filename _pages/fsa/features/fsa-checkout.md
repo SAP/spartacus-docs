@@ -10,19 +10,19 @@ title: Checkout
 
 ## Overview
 
-Checkout in FSA Spartacus enables financial customers to buy insurance or banking products. It's configurable for each kind of product.
+Checkout in FSA Spartacus enables financial customers to buy insurance or banking products. It’s configurable for each product kind.
 
 ## Configuration
 
-You can configure checkout steps over default-checkout-config.ts. There is a list of all possible steps during checkout process.
-Interface FSCheckoutStep extends Checkout Step with one additional attribute *restrictedCategories*. 
+You can configure checkout steps over default-checkout-config.ts. There you can find a list of all possible steps that you can include in the checkout process.
+Interface FSCheckoutStep extends Checkout Step with one additional attribute - *restrictedCategories*. 
 ```
 export interface FSCheckoutStep extends CheckoutStep {
   restrictedCategories?: string[];
 }
 ```
-This attribute is important for making checkout process different for various group of products.
-Following example of payment checkout step definition restricts payment step for all banking products:
+This attribute is important for making the checkout process different for various groups of products. 
+The following example of payment checkout step definition restricts payment step for all banking products:
 ```
      {
         id: 'checkoutPaymentDetailsStep',
@@ -40,8 +40,8 @@ Following example of payment checkout step definition restricts payment step for
 
 ## Components
 
-FSCheckoutModule consists of multiple checkout components, guards and services which are making checkout process fully configurable.
-Example of the step components inside FSCheckoutModule:  
+FSCheckoutModule consists of multiple checkout components, guards and services, making the checkout process fully configurable. 
+The following example shows step components inside the FSCheckoutModule:
 ```
     AddOptionsComponent,
     QuoteReviewComponent,
@@ -55,7 +55,8 @@ Example of the step components inside FSCheckoutModule:
     MiniCartComponent,
 ```
 
-These components are fulfilled with logic from *FSCheckoutConfigService*, responsible for navigation by setting next and previous steps. If you want to extend checkout with additional step you should add step definition and route to *default-checkout-config.ts*, create new component and place logic for handling steps inside it. 
+These components are fulfilled with logic from *FSCheckoutConfigService*, responsible for navigation by setting next and previous steps. 
+If you want to extend your checkout with an additional step, you should add the step definition and route to *default-checkout-config.ts*, create a new component and place the logic for handling steps inside it.
 
 QuoteReviewComponent example of implementing nextCheckoutStep:  
 ```
@@ -100,7 +101,7 @@ quote-review.component.html
               >
 ```
 
-There are many implemented guards which are preventing access of restricted checkout steps and uncompleted steps: 
+Many guards have been implemented to prevent access to restricted or uncompleted checkout steps:
 
 - CategoryStepGuard
 - BindQuoteGuard
@@ -110,7 +111,6 @@ There are many implemented guards which are preventing access of restricted chec
 - QuoteNotBoundGuard
 - ReferredQuoteGuard
 
-Besides concrete components of checkout  steps there is one important component which connects them all and that is FSCheckoutProgressComponent.
- It's responsible for filtering steps, setting active index and indicating step status by styling. Step could be disabled, active or visited.
+Besides specific components of checkout steps, there is one crucial component that connects them - the FSCheckoutProgressComponent. This component is responsible for filtering the checkout steps, setting the active index, and indicating the step status by styling. A checkout step can be disabled, active or visited.
 
 ![checkout progress bar]({{ site.baseurl }}/assets/images/fsa/checkout_progress_bar.png)
