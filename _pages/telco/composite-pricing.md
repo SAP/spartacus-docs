@@ -36,7 +36,7 @@ Customers browsing the storefront are able to view detailed pricing information 
 | Order History page 	| Pay now, Recurring, One time Charges, and Usage charged, along with Price   alteration 	|
 | Configurable Guided Selling (CGS) Page 	| Details are similar to the Product Listing Page (PLP) along with Price alteration in the cart 	|
 
-The following figure illustrates hirarchical structure of the composite pricing for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
+The following figure illustrates the hierarchical structure of the composite pricing for Signature Unlimited Plan that is configured by the Administrator in the backoffice as an example.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/composite-pricing-feature.png"></p>
 
