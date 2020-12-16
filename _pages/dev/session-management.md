@@ -24,43 +24,54 @@ Meanwhile, user authentication is used for requests that are sent on behalf of s
 
 Prior to Spartacus 3.0, the code for both client authentication and user authentication was in the `AuthModule`, which included interceptors, services, and methods for facades all mixed together. In Spartacus 3.0, the `AuthModule` still contains client and user authentication, but this is now the result of importing two modules, the `UserAuthModule` and the `ClientAuthModule`. Each module is responsible for one type of authentication.
 
-Why this change was important? Spartacus is build to support OCC by default, but it's not limited to it. OCC needs client credentials for some of the requests, but that is not common for the APIs. Separation of those modules makes use of different API simpler. When you don't need client authentication, instead of using `AuthModule` you can import only `UserAuthModule` and shave few kilobytes of your final bundle, by not including useless in this case `ClientAuthModule`.
+This change is important because Spartacus is built to support OCC by default, but Spartacus is not limited to using OCC. The OCC API requires client credentials for some of the requests it receives, but this is not common for other APIs, and accordingly, the client and user authentication has been separated to make it easier to work with other APIs. For example, if you are using a different API that does not need client authentication, instead of using the `AuthModule`, you can import only the `UserAuthModule` and reduce the size of your final bundle by not including the `ClientAuthModule`.
 
-## User authentication
+## User Authentication
 
-Most of the changes related to session management happened in `UserAuthModule`, so we will focus on this module.
+This section takes a detailed look at the `UserAuthModule`, where most of the changes to session management were made.
 
-Let's look how the `UserAuthModule` works under the hood.
+The following diagram shows how the `UserAuthModule` works under the hood:
 
 ![UserAuthModule](./../../assets/images/session-management/all.svg)
 
-There are a lot of things going on there, so let's follow it step by step.
+The `UserAuthModule` module is responsible for the following:
 
-This module is responsible for few things:
+- performing authentication flow
+- storing tokens and user identifiers
+- adding access tokens for user calls
+- recovering from API auth errors (for example, refreshing tokens when access tokens expire)
+- persisting the tokens in browser storage
 
-- perform authentication flow
-- store tokens and user identifiers
-- persist the tokens in browser storage
-- add access token for user calls
-- recover from API auth errors (eg. refresh token once access token expires)
+Each of these steps is described in more detail in the following sections.
 
-Let's cover those things one by one.
+### Authentication Flow
 
-### Authentication flow
+Authenticating users is the main responsibility of this module. Previous versions of Spartacus used custom code to provide support for the Resource Owner Password Flow, but OAuth specifies additional flows that can be used in web applications. To support these additional flows, Spartacus 3.0 no longer uses its custom code for the Resource Owner Password Flow, and instead relies on the third party `angular-oauth2-oidc` library that is built for this purpose, and is also well-tested and certified.
 
-Authenticating user is the main responsibility of this module. In previous Spartacus versions we provided support for Resource Owner Password Flow with our handwritten code. However OAuth specifies more flows that can be used in web applications and we wanted to support those as well. To cover this requirement we decided to drop our code for Resource Owner Password Flow and rely on third party library `angular-oauth2-oidc` which was build for that purpose and is well tested and certified.
+The services that are involved in authenticating users are highlighted in the following diagram:
 
 ![Authentication flow](./../../assets/images/session-management/auth.svg)
 
-Highlighted services are the ones that mostly take part of authenticating user.
+Authentication starts from the `AuthService` facade, where you initialize the process by calling one of the following login methods:
 
-Everything starts from the facade (`AuthService`) where you usually initialize the whole process, by calling login method (`loginWithCredentials` for Resource Owner Password Flow or `loginWithRedirect` for Implicit Flow or Authorization Code Flow). Login methods will then interact with the `angular-oauth2-oidc`. However this interaction will always go through `OAuthLibWrapperService` which is layer to isolate external lib from our code (if you would like to access some methods from lib that we do not expose you should extend this class). Wrapper class is also responsible for configuring the library. It uses `AuthConfigService` to access configuration provided in application (`AuthConfig`).
+- `loginWithCredentials` for the Resource Owner Password Flow
+- `loginWithRedirect` for the Implicit Flow or the Authorization Code Flow
 
-We encourage to always use `AuthConfigService` if you need to read anything from the `AuthConfig`. This service is able to provide sensible defaults when some parts of configuration are missing and it gives you few utilities out of the box (eg. detecting OAuth flow by config).
+The login method then interacts with the `angular-oauth2-oidc` library. However, this interaction always goes through the `OAuthLibWrapperService`, which is a layer for isolating external libraries from Spartacus code.
 
-`OAuthLibWrapperService` is pretty thin layer, which gives you a lot of flexibility with the library as well as `authentication.OAuthLibConfig` configuration option which allows you to pass any configuration option to it (client and endpoints configuration are available in top level `authentication` configuration). With that said for more advanced configuration for authentication flow look into the library source code and documentation [https://github.com/manfredsteyer/angular-oauth2-oidc](https://github.com/manfredsteyer/angular-oauth2-oidc).
+**Note:** If you want to access methods from a library that Spartacus does not expose, you should extend the `OAuthLibWrapperService` class.
 
-### Storing tokens and user id
+The `OAuthLibWrapperService` class is also responsible for configuring the library. It uses the `AuthConfigService` to access the `AuthConfig` configuration provided in the application.
+
+It is recommended that you always use the `AuthConfigService` if you need to read anything from the `AuthConfig`. This service is able to provide sensible defaults when some parts of the configuration are missing, and it gives you a few utilities out of the box, including one that detects OAuth flow based on your configuration.
+
+The `OAuthLibWrapperService` is a relatively thin layer that provides a lot of flexibility with the library, and also provides the `authentication.OAuthLibConfig` configuration option, which allows you to pass any configuration option to the library. Client and endpoint configurations are available in the top-level `authentication` configuration.
+
+You can learn more about advanced configuration of the authentication flow by looking at the `angular-oauth2-oidc` library source code, as well as the [angular-oauth2-oidc documentation](https://github.com/manfredsteyer/angular-oauth2-oidc).
+
+### Storing Tokens and User Identifiers
+
+After authentication, the tokens received from the library methods need to be stored somewhere. Previously, these tokens were kept in NgRx Store, but in Spartacus 3.0, there are dedicated services to keep the data.
 
 Once we complete authentication we need to store received tokens from the lib methods somewhere. Previously we kept them in ngrx store. In 3.0 we have dedicated services to keep the data. Library requires storage mechanism with the API similar to `localStorage` or `sessionStorage` and that was the main reason to switch from ngrx to services with stream keeping the data.
 
