@@ -7,8 +7,6 @@ The following instructions describe how to install and configure SAP Commerce (r
 
 The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module. 
 
-**Note**: If you are trying out FSA Spartacus for the first time and intend to use the default sample data, you must use the FSA Spartacus Sample Data store extension (should be part of your list of extensions). The FSA Spartacus Sample Data is a set of data (product offerings and content) for the financial industry.
-
 ## Installation and Configuration Instructions
 
 Summary:
@@ -251,10 +249,12 @@ Next time you run the recipe install command, the settings inside custom.proper
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 - You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 - For information on Spartacus and CORS settings, see <a href="https://sap.github.io/spartacus-docs/cors/" target="_blank">this help topic</a>.
-- Several other Spartacus features also require additional CORS settings. For more information about CORS, see the <a href="https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html" target="_blank">ycommercewebservices Extension</a>in the SAP Help Portal.
+- Several other Spartacus features also require additional CORS settings. For more information about CORS, see the <a href="https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html" target="_blank">ycommercewebservices Extension</a> in the SAP Help Portal.
 
-Troubleshooting
+## Troubleshooting
+
 **Failure at the Payment Step in the Checkout**
+
 You may encounter the following error message:
 
 ```typescript
@@ -263,4 +263,4 @@ POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 
 This issue is caused due to an incorrect configuration of the sop.post.url property.
 
-Make sure that this property is set to sop.post.url=<a href="https://localhost:9002/acceleratorservices/sop-mock/process" target="_blank">https://localhost:9002/acceleratorservices/sop-mock/process</a>
+Make sure that this property is set to sop.post.url=<a href="https://localhost:9002/acceleratorservices/sop-mock/process" target="_blank">https://localhost:9002/acceleratorservices/sop-mock/process</a>.

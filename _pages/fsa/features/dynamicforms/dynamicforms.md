@@ -11,6 +11,6 @@ This includes the following topics:
 - [Form Controls]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-controls.md %})
 - [Adding form to a simple page]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/adding-form.md %})
 - [Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
-- [Form controls dependencies]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-control-dependecies.md %})
+- [Form controls dependencies]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-control-dependencies.md %})
 - [Basic Form Validations]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/basic-form-validations.md %})
 - [Configurable Form Field Pre-populate]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/pre-populate-field.md %})

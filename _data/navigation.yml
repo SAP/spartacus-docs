@@ -363,16 +363,15 @@ docs:
         url: /getting-started-with-fsa-spartacus/
         subchildren:
         - title: "Installing SAP Commerce Cloud FSA for use with FSA Spartacus ➢"
-          url: /installing-sap-commerce-for-fsa-spartacus/
+          url: /installing-sap-commerce-for-use-with-fsa-spartacus/
           underchildren:
           - title: "Installing SAP Commerce Cloud FSA for use with FSA Spartacus 1.0"
             url: /installing-sap-commerce-for-use-with-fsa-spartacus-1.0/
-        - title: "Building the FSA Storefront from Libraries ➢"
+        - title: "Building the FSA Storefront from Libraries"
           url: /building-the-fsa-storefront-from-libraries/
-          underchildren:
-          - title: "Building the FSA Spartacus Storefront using 1.0 Libraries"
-            url: /building-the-fsa-storefront-from-libraries/
-      - title: "Spartacus Features for FSA ➢"
+        - title: "FSA Schematics"
+          url: /fsa-schematics/
+      - title: "FSA Spartacus Features ➢"
         url: /spartacus-features-for-fsa/
         subchildren:
         - title: "Dynamic forms ➢"
