@@ -4,6 +4,12 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 2.0
+
+- [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment-scheduling.md %})
+- [Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %})
+- [Pricing - Price Alterations Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %})
+
 ## Release 1.3
 
 - [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
