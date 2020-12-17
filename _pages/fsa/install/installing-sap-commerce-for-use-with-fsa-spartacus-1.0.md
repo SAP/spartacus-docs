@@ -7,8 +7,6 @@ The following instructions describe how to install and configure SAP Commerce (r
 
 The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module. 
 
-**Note**: If you are trying out FSA Spartacus for the first time and intend to use the default sample data, you must use the FSA Spartacus Sample Data store extension (should be part of your list of extensions). The FSA Spartacus Sample Data is a set of data (product offerings and content) for the financial industry.
-
 ## Installation and Configuration Instructions
 
 Summary:
