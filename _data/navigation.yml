@@ -353,48 +353,48 @@ docs:
     - title: Financial Services Accelerator Storefront Development Guide
       url: /about-fsa-spartacus/
       children:
-      - title: "Release Information for FSA Spartacus"
-        url: /fsa-release-information/
-      - title: "Roadmap for FSA Spartacus"
-        url: /fsa-spartacus-roadmap/
-      - title: "FSA Spartacus FAQ"
-        url: /spartacus-fsa-faq/
-      - title: "Getting Started with FSA Spartacus ➢"
-        url: /getting-started-with-fsa-spartacus/
-        subchildren:
-        - title: "Installing SAP Commerce Cloud FSA for use with FSA Spartacus ➢"
-          url: /installing-sap-commerce-for-use-with-fsa-spartacus/
-          underchildren:
-          - title: "Installing SAP Commerce Cloud FSA for use with FSA Spartacus 1.0"
-            url: /installing-sap-commerce-for-use-with-fsa-spartacus-1.0/
-        - title: "Building the FSA Storefront from Libraries"
-          url: /building-the-fsa-storefront-from-libraries/
-        - title: "FSA Schematics"
-          url: /fsa-schematics/
-      - title: "FSA Spartacus Features ➢"
-        url: /spartacus-features-for-fsa/
-        subchildren:
-        - title: "Dynamic forms ➢"
-          url: /dynamicforms
-          underchildren:
-          - title: "JSON structure"
-            url: /json-structure/
-          - title: "Form controls"
-            url: /form-controls/
-          - title: "Adding form to a simpe page"
-            url: /adding-form/
-          - title: "Styling"
-            url: /styling/
-          - title: "Form control dependencies"
-            url: /form-control-dependencies/
-          - title: "Basic form validations"
-            url: /basic-form-validations/
-          - title: "Configurable Form Field Pre-populate"
-            url: /pre-populate-field/
-        - title: "Inbox"
-          url: /fsa-inbox/
-        - title: "Checkout"
-          url: /fsa-checkout/
+          - title: "Release Information for FSA Spartacus"
+            url: /fsa-release-information/
+          - title: "Roadmap for FSA Spartacus"
+            url: /fsa-spartacus-roadmap/
+          - title: "FSA Spartacus FAQ"
+            url: /spartacus-fsa-faq/
+          - title: "Getting Started with FSA Spartacus ➢"
+            url: /getting-started-with-fsa-spartacus/
+            subchildren:
+                - title: "Installing SAP Commerce Cloud FSA for use with FSA Spartacus ➢"
+                  url: /installing-sap-commerce-for-use-with-fsa-spartacus/
+                  underchildren:
+                      - title: "Installing SAP Commerce Cloud FSA for use with FSA Spartacus 1.0"
+                        url: /installing-sap-commerce-for-use-with-fsa-spartacus-1.0/
+                - title: "Building the FSA Storefront from Libraries"
+                  url: /building-the-fsa-storefront-from-libraries/
+                - title: "FSA Schematics"
+                  url: /fsa-schematics/
+          - title: "FSA Spartacus Features ➢"
+            url: /spartacus-features-for-fsa/
+            subchildren:
+                - title: "Dynamic forms ➢"
+                  url: /dynamicforms
+                  underchildren:
+                      - title: "JSON structure"
+                        url: /json-structure/
+                      - title: "Form controls"
+                        url: /form-controls/
+                      - title: "Adding form to a simpe page"
+                        url: /adding-form/
+                      - title: "Styling"
+                        url: /styling/
+                      - title: "Form control dependencies"
+                        url: /form-control-dependencies/
+                      - title: "Basic form validations"
+                        url: /basic-form-validations/
+                      - title: "Configurable Form Field Pre-populate"
+                        url: /pre-populate-field/
+                - title: "Inbox"
+                  url: /fsa-inbox/
+                - title: "Checkout"
+                  url: /fsa-checkout/
 
     - title: Contributing to Spartacus
       url: /contributors-guide/
