@@ -7,7 +7,7 @@ This is a landing page for grouping together FSA Spartacus features. The FSA Spa
 ## Release 1.0
 
 - [Inbox]({{ site.baseurl }}{% link _pages/fsa/features/fsa-inbox.md %})
-- [Checkout]
+- [Checkout]({{ site.baseurl }}{% link _pages/fsa/features/fsa-checkout.md %})
 - [Dynamic Forms]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/dynamicforms.md %})
 
 
