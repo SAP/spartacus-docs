@@ -109,15 +109,15 @@ The `AuthStatePersistenceService` uses the `StatePersistenceService` to synchron
 
 ## Assisted Service Module
 
-Since Spartacus version 1.3 we supported feature called ASM, which allows customer support agents to emulate users and help them accomplish their goals. This feature is tightly coupled with `AuthModule` as agents needs to log in with OAuth flow similarly to normal user and manipulate user id. In previous versions some parts of the implementation of this feature was placed in `AuthModule` logic.
+Since version 1.3, Spartacus supports the Assisted Service Module (ASM), which allows customer support agents to emulate users and help them accomplish their goals. This feature is tightly coupled with the `AuthModule` because agents need to log in with OAuth flow and make updates using the customer's user ID. In previous versions of Spartacus, some parts of the implementation of this feature were placed in the `AuthModule` logic.
 
-One of the goals of session management refactor was to make `AuthModule` not aware of ASM at all. Removing ASM from your application should be as simple as just not including `AsmModule`. No code should be left in different modules. With the new `AuthModule` structure we were able to make ASM feature isolated.
+One of the goals of the Session Management refactor was to make the `AuthModule` not aware of ASM at all. As a result, removing ASM from your application should be as simple as not including the `AsmModule`. No code should be left in different modules. With the new `AuthModule` structure, the ASM feature is now isolated.
 
 ![Asm integration with UserAuthModule]({{ site.baseurl }}/assets/images/session-management/asm.svg)
 
-To integrate ASM with `UserAuthModule` we mainly used the mechanism to provide your own services in place of the default along with inheritance.
+To integrate ASM with the `UserAuthModule` the mechanism for providing your own services was used instead of the default, along with inheritance.
 
-We extended `AuthService`, `AuthHttpHeaderService` and `AuthStorageService` and provided them in `AsmModule`.
+The `AuthService`, `AuthHttpHeaderService`, and `AuthStorageService` were extended, and then provided in the `AsmModule`, as shown in the following example:
 
 ```ts
 {
@@ -134,26 +134,25 @@ We extended `AuthService`, `AuthHttpHeaderService` and `AuthStorageService` and 
 },
 ```
 
-Along with this services we created `CSAgentAuthService` which is responsible for CS agent login/logout process. `AsmAuthStorageService` stores a bit more information than the original `AuthStorageService`. And those information must be persisted in browser as well so we created `AsmStatePersistenceService` to work alongside the `AuthStatePersistenceService`. So part of the data in `AsmAuthStorageService` is initialized by `AuthStatePersistenceService` and the rest by `AsmStatePersistenceService`.
+Along with these services, Spartacus now has a `CSAgentAuthService` that is responsible for the CS agent login and logout process. The `AsmAuthStorageService` stores a bit more information than the original `AuthStorageService`, and this information must be persisted in browser as well, so the `AsmStatePersistenceService` was created to work alongside the `AuthStatePersistenceService`. Part of the data in `AsmAuthStorageService` is initialized by the `AuthStatePersistenceService`, and the rest is resolved by the `AsmStatePersistenceService`.
 
-We also had to override `AuthHttpHeaderService`, because we don't only need to add the token to OCC calls, but also for ASM calls (eg. listing users available for emulation). The error handling for auth errors also had to be improved, because we have to handle for agent requests differently than to normal user (eg. logout agent instead of normal user).
+The `AuthHttpHeaderService` also had to be overridden because Spartacus needs to not only add the token to OCC calls, but also to ASM calls (for example, listing users that are available for emulation). The error handling for authentication errors also needed to be improved because Spartacus needs to handle agent requests differently than normal user requests (for example, logging out an agent instead of a regular user).
 
-`AsmModule` from `@spartacus/core` is a great example of how new `UserAuthModule` can be modified and extended from outside. Most of the patterns use there are the same patterns you should use when extending it on your own (eg. providing services, inheritance, building new services be assembling few existing services).
+The `AsmModule` from `@spartacus/core` is a good example of how the new `UserAuthModule` can be modified and extended from the outside. Most of the patterns that are used in the `AsmModule` are the same patterns you would use if you wish to extend the `UserAuthModule` (for example, to provide services and inheritance, to build new services, or to assemble a few existing services).
 
-## Complementary components to `AuthModule`
+## Complementary Components to the AuthModule
 
-We focused mainly on the `AuthModule` from the `@spartacus/core` library, but there are few complementary components across the codebase to make auth working as you would expect in web application.
+There are a few complementary components across the codebase to make authentication work as you would expect in a web application.
 
-We still rely on `AuthGuard` and `NotAuthGuard` to protect pages that should be only available to logged in users (`AuthGuard`) and to pages only for anonymous users (`NotAuthGuard`). Using them consistently for all pages enables correct redirects after successful login.
-`AuthRedirectService` is called from those guards with information about accessed page. Thanks to this once you login, you are redirected to the page you were on (or tried to access) before logging in.
+Spartacus still relies on `AuthGuard` to protect pages that should only be available to logged in users, and `NotAuthGuard` for pages that are only for anonymous users. Using these guards consistently for all pages ensures correct redirects after successful login. The `AuthRedirectService` is called from these guards with information about the accessed page. As a result, when you log in, you are redirected to the page you were on (or tried to access) before logging in.
 
-Another established pattern by us is the use of `logout` route as the main mechanism to initialize logout process for the user. `AuthService` exposes method to logout user (`coreLogout`), but the process of logout have some gotchas (especially if you use feature called protected routes). Instead we recommend redirecting to `logout` page every time you want to logout. This flow have you covered with the gotchas (those are mostly redirect issues and staying on page for auth user as not authorized user) and you don't need to worry about them.
+Another established pattern in Spartacus is the use of the `logout` route as the main mechanism for initializing the logout process for the user. The `AuthService` exposes the method to log out the user (`coreLogout`), but you need to be careful with the logout process, especially if you use protected routes. Instead, it is recommended that you redirect to the `logout` page every time you want to log out. This flow allows you to avoid typical logout problems, including redirect issues, as well as having users log out but still remain on a page that is only for authenticated users.
 
 ## Configuring OpenId
 
-Refactor of `AuthModule` made `KymaModule` broken and impossible to fix, so we removed it. The functionality however can be replicated, by providing proper `authentication` configuration. `KymaModule` was responsible for one thing: fetching JWT token alongside the tokens on user login. It was accomplished by using separate OAuth client and calling login endpoint 2 times with different clients.
+The `KymaModule` has been removed, but the functionality can be replicated by providing an appropriate `authentication` configuration. The `KymaModule` was responsible only for fetching a JWT token alongside the other tokens that are fetched during user login. This was accomplished by using a separate OAuth client and by calling the login endpoint two times with different clients.
 
-This can be done in one login call, by using the OpenID capable client and setting proper response type and scope. Below is the example configuration to get both access token and `id_token` with Resource Owner Password Flow.
+This can be done in one login call by using an OpenID-capable client and setting the proper response type and scope. The following is an example configuration to get both the access token and the `id_token` with the Resource Owner Password Flow:
 
 ```ts
 authentication: {
@@ -167,28 +166,28 @@ authentication: {
 },
 ```
 
-Then once you complete login you can access id token with `OAuthLibWrapperService.getIdToken` method.
+When you complete the login, you can then access the `id_token` with the `OAuthLibWrapperService.getIdToken` method.
 
 ## Configuring Authorization Code Flow or Implicit Flow
 
-Using `angular-oauth2-oidc` library made support of Authorization Code Flow and Implicit Flow possible in Spartacus. These flows are drastically different that Resource Owner Password Flow, because the authentication part happens not in Spartacus, but on OAuth server login page. Spartacus redirects you to this page, you provide login and password there and if the credentials match you are redirected back to Spartacus application with the token (Implicit Flow) or code (Authorization Code Flow) as part of url. Then spartacus grabs the data from url and continue the login process (ask for token in case of Authorization Code flow, set user id, dispatch `Login` action and redirects to previously visited page).
+Now the Spartacus uses the `angular-oauth2-oidc` library, it is possible to support the Authorization Code Flow and the Implicit Flow. These flows are very different from the Resource Owner Password Flow because the authentication part happens on the OAuth server login page rather than in Spartacus. When Spartacus redirects you to this page, you provide login and password information there, and if the credentials match, you are redirected back to the Spartacus application with the token (Implicit Flow) or code (Authorization Code Flow) as part of the URL. Then Spartacus obtains the data from the URL and continues the login process (requests a token in the case of Authorization Code Flow, sets the user ID, dispatches the `Login` action, and redirects to the previously visited page).
 
-Here is how you can configure it:
+You can configure this as follows:
 
 ```ts
 authentication: {
   OAuthLibConfig: {
-    responseType: 'token', // 'code` for Authorization code flow
+    responseType: 'token', // 'code` for Authorization Code Flow
   },
 },
 ```
 
-Apart from this config you might need to update few things for your OAuth client in backoffice (allow implicit flow or authorization code flow, set redirect url of the application).
+Apart from this configuration, you may need to update a few details for your OAuth client in Backoffice (such as allowing Implicit Flow or Authorization Code Flow, and setting the redirect URL of the application).
 
-Once you have it setup then spartacus out of the box will use defined flow. Login route is configured in the way that detects OAuth flow by config (`LoginGuard` and `LoginRouteModule`). When it detects different flow than Resource Owner Password Flow it will save the previous url (to redirect to it after login) and redirect you to OAuth server login page.
+Once these settings are in place, Spartacus will use the defined flow out of the box. The login route is configured in a way that detects the OAuth flow based on the configuration (`LoginGuard` and `LoginRouteModule`). When it detects a flow other than the Resource Owner Password Flow, Spartacus saves the previous URL (to redirect to after login), and redirects you to the OAuth server login page.
 
-Spartacus runs `AuthService.checkOAuthParamsInUrl` with `APP_INITIALIZER` on any route, so you can redirect to any spartacus page from the OAuth server. It doesn't have to be callback page as it's usually done.
+Spartacus runs `AuthService.checkOAuthParamsInUrl` with `APP_INITIALIZER` on any route, so you can redirect to any Spartacus page from the OAuth server. It does not have to be a callback page, as it is usually done.
 
-**Warning** Default OAuth server provided with Cloud commerce do not have great support for these flows (no way to logout user from external applications, no way to customize login page), so for now we still expect everyone using this OAuth server to continue with Resource Owner Password Flow. However if you use different OAuth server (eg. `Auth0`) you can switch to these flows.
+**Note:** The default OAuth server that is provided with SAP Commerce Cloud does not have great support for the Authorization Code Flow and the Implicit Flow (there is no way to log out a user from an external application, and no way to customize the login page), so for now it is expected that everyone using this OAuth server will continue to work with the Resource Owner Password Flow. However, if you use a different OAuth server (such as `Auth0`), you can switch to either of these flows.
 
-**Warning** ASM login is prepared to only with Resource Owner Password Flow for customer support agents.
+**Note:** ASM login only works with the Resource Owner Password Flow for customer support agents.
