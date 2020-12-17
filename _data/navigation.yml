@@ -297,12 +297,12 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /tua-pre-release-information/
-                - title: "Feature Release Versions"
-                  url: /tua-feature-release-versions/
-                - title: "Upgrading to Version 2.0"
-                  url: /upgrading-tua-spartacus-to-2/
+                - title: "Updating to Version 2.0"
+                  url: /updating-tua-spartacus-to-2/
                 - title: "Technical Changes in Spartacus 2.0"
-                  url: /technical-changes-version-2/                  
+                  url: /technical-changes-tua-version-2/ 
+                - title: "Feature Release Versions"
+                  url: /tua-feature-release-versions/   
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
           - title: "TUA Spartacus FAQ"
@@ -313,6 +313,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.0"
+                        url: /installing-sap-commerce-for-tua-spartacus-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 1.3"
                         url: /installing-sap-commerce-for-tua-spartacus-1-3/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 1.2"
@@ -320,6 +322,8 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 2.0 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-2/
                       - title: "Building the TUA Spartacus Storefront using 1.3 Libraries"
                         url: /building-the-tua-storefront-from-libraries-1-3/
                       - title: "Building the TUA Spartacus Storefront using 1.2 Libraries"
@@ -339,6 +343,8 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
+                - title: " Journey Management - Appointment Scheduling"
+                  url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - Appointment"
                   url: /journey-management-appointment/                           
                 - title: "Journey Management - MSISDN"
@@ -347,6 +353,10 @@ docs:
                   url: /journey-management-serviceability/          
                 - title: "Order"
                   url: /order/
+                - title: "Pricing - Composite Pricing"
+                  url: /composite-pricing/
+                - title: "Pricing - Price Alteration Discounts"
+                  url: /price-alteration-discounts/
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
