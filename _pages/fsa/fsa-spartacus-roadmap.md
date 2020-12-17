@@ -2,7 +2,7 @@
 title: FSA Spartacus Roadmap
 ---
 
-This document describes what what is planned for FSA Spartacus for Q2 2021 and later.
+This document describes what is planned for FSA Spartacus for Q2 2021 and later.
 
 Contents:
 
@@ -21,14 +21,14 @@ Contents:
 
 Each release may contain bug fixes, improvements, and new features.
 
-When new features are available for release, normally we will publish a pre-release “next” version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
+When new features are available for release, we will normally publish a pre-release “next” version of the libraries with new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
 
-Some of the links provided in the following lists point to SAP Commerce Cloud Financial Services Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the FSA Spartacus implementation of features may not work exactly as in Financial Services Accelerator.
+Some of the links provided in the following lists point to SAP Commerce Cloud Financial Services Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the FSA Spartacus implementation of features may not work exactly as in the Financial Services Accelerator.
 
 ### Other Release Documentation
 
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/fsa/fsa-release-information.md %}).
-- For information on SAP Commerce Cloud Financial Services Accelerator, see the .
+- For information on SAP Commerce Cloud Financial Services Accelerator, see the [the FSA documentation on SAP Help Portal](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/2008/en-US).
   
 ### Questions?
 
@@ -38,11 +38,11 @@ For non-technical questions and roadmap feedback, you can reach us on our #help-
   
 ## Features Planned for Version 2.0 / February 2021
 
-- Additional Policy Changes - Existing Policy Change Process is extended with two additional changes: add additional drivers and remove coverage
-- Claims Integration Enhancement - Enhancement of the claims integration, utilising document upload functionality in Claims use case
-- Document Upload - Provides document upload feature from FSA SPA UI, upload control supporting upload, progress bar for uploaded, download or remove of uploaded documents.
-- Invoice Payment - New Payment Method introduced and also supported in integration with S4I
-- Order Splitting - Offers possibility to combine insurance and banking products with some 3rd party products, supporting different order processes
+- Additional Policy Changes - Existing set of policy changes is extended with two additional ones for adding additional driver(s) and removing coverage(s).
+- Claims Integration - Enhancement of the existing claims process by enabling document upload as well as improved integration with SAP Claims Management.
+- Document Upload - Enablement of document upload in FSA SPA UI via an upload control supporting upload, download and removal of uploaded documents.
+- Invoice Payment - New payment method is made available in the quotation process and also integrated with SAP S/4 HANA.
+- Order Splitting - Possibility for a combined offering of financial services products with third-party services/products, as well as support for different fulfillment options per product type.
 
 ### Future Outlook - Q2 2021 and Later
 
