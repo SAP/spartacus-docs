@@ -49,7 +49,7 @@ The easiest way to start a new project is to use Angular Schematics to quickly s
 You can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
 
 ```shell
-ng add @fsa/schematics
+ng add @spartacus/fsa-schematics
 ```
 
 For the detailed explanation visit [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
@@ -74,7 +74,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FSStorefrontModule } from '@fsa/fsastorefront';
+import { FSStorefrontModule } from '@spartacus/fsa-storefront';
 
 @NgModule({
   declarations: [

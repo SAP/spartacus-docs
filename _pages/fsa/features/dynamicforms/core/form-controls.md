@@ -83,7 +83,7 @@ import { CommonModule } from '@angular/common';
 import { ConfigModule, I18nModule } from '@spartacus/core';
 import { CustomInputComponent } from './custom-input-component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DynamicFormModule, DynamicFormsConfig } from '@fsa/dynamicforms';
+import { DynamicFormModule, DynamicFormsConfig } from '@spartacus/dynamicforms';
  
 @NgModule({
   imports: [
@@ -113,7 +113,7 @@ In this "CustomInputComponent" it is also required to extend "AbstractFormCompon
 custom-input.component.ts
 ```typescript
 import { Component } from '@angular/core';
-import { AbstractFormComponent } from '@fsa/dynamicforms';
+import { AbstractFormComponent } from '@spartacus/dynamicforms';
  
 @Component({
   selector: 'cx-fs-custom-input',
@@ -158,7 +158,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfigModule, I18nModule } from '@spartacus/core';
 import { CustomInputComponent } from './custom-input-component';
-import { DynamicFormModule, DynamicFormsConfig } from '@fsa/dynamicforms';
+import { DynamicFormModule, DynamicFormsConfig } from '@spartacus/dynamicforms';
  
 @NgModule({
   imports: [
