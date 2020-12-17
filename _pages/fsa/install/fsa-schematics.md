@@ -17,10 +17,10 @@ Before using Spartacus schematics, ensure that the following requirements are me
 You can add FSA Spartacus libraries to your Angular project by running the following command from your project root:
 
 ```shell
-ng add @fsa/schematics
+ng add @spartacus/fsa-schematics
 ```
 
-The following is a description of the various options you can use with the `ng add @fsa/schematics` command:
+The following is a description of the various options you can use with the `ng add @spartacus/fsa-schematics` command:
 
 - `baseUrl` sets the base URL of your CX OCC back end.
 - `baseSite` is a comma-separated list of base site(s) to use with Spartacus.
@@ -32,16 +32,16 @@ The following is a description of the various options you can use with the `ng a
 - `consignmentTracking` sets consignment tracking on or off. Default value is: true
 - `overwriteAppComponent` overwrites the content of app.component.html. The default value is true.
 
-*Note:* Default values will be applied if no option is passed to ng add @fsa/schematics command.
+*Note:* Default values will be applied if no option is passed to ng add @spartacus/fsa-schematics command.
 
 To have a clear picture on how some of these properties can be used, user can enter the following command that sets baseSite(s), currency(ies), and language(s):
 ```shell
-ng add @fsa/schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
+ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
 ```
 
 ## How FSA Spartacus Schematics Work
 
-When you run `ng add @fsa/schematics`, the command does the following:
+When you run `ng add @spartacus/fsa-schematics`, the command does the following:
 
 1. Adds the required dependencies.
 1. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration:
@@ -50,7 +50,7 @@ When you run `ng add @fsa/schematics`, the command does the following:
       backend: {
         occ: {
           prefix: '/occ/v2/',
-          baseUrl: 'https://yourUrl:9002' // this is the baseUrl you entered when prompted via ng add @fsa/schematics command
+          baseUrl: 'https://yourUrl:9002' // this is the baseUrl you entered when prompted via ng add @spartacus/fsa-schematics command
         }
       },
       context: {
@@ -72,7 +72,7 @@ When you run `ng add @fsa/schematics`, the command does the following:
     ```
   1. Imports FSA Spartacus styles to `styles.scss`:
     ```shell
-    @import '~@fsa/fsastorefrontstyles/index
+    @import '~@spartacus/fsa-styles/index
     ```
 
 
