@@ -19,7 +19,7 @@ FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end, and
 - SAP Commerce version: Release 2005 (latest patch is recommended - 2005.5).
 - Financial Services Accelerator version: Release 2008 (latest patch - 2008.2) is required.
 
-For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-for-use-with-fsa-spartacus.md %}). 
+For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}). 
 
 ## Creating a New Angular App
 
