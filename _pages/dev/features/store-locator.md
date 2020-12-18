@@ -44,7 +44,7 @@ The following is a description of the `googleMaps` parameters:
 
 ## Enabling the Store Locator
 
-The store locator is enabled by default.
+You can enable the store locator by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries](https://sap.github.io/spartacus-docs/schematics/#installing-additional-spartacus-libraries).
 
 ### Disabling the Store Locator
 

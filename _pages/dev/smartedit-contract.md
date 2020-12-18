@@ -114,6 +114,7 @@ In Spartacus, we have `DynamicAttributeService`. It can add dynamic attributes t
 **Note:** There can by many different groups of properties, one of them is `smaredit`. But EC allows addons to create different groups. For example, personalization may add `script` group etc.
 
 To add SmartEdit HTML Markup contract to Slot, we have this function:
+
 ```typescript
 private addSmartEditContract(slot: ContentSlotData): void {
     this.dynamicAttributeService.addDynamicAttributes(
