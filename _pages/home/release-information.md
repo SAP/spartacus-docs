@@ -2,13 +2,14 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Final 2.0 released June 3, 2020!**
+**Latest news: Final 3.0 published December 17, 2020**
 
-*Last updated June 3, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated December 18, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
 - [Introduction](#introduction)
+- [Release 3.0](#release-30)
 - [Release 2.1](#release-21)
 - [Release 2.0](#release-20)
 - [Release 1.5](#release-15)
@@ -24,11 +25,7 @@ Contents:
 
 ## Introduction
 
-This document describes what is included in all Spartacus 2.x libraries since 2.0.
-
-For release information about Spartacus 1.x, see [Release Information for Versions 1.0-1.5 of Spartacus Libraries](https://sap.github.io/spartacus-docs/1.x/release-information/) in our version 1.x documentation archive.
-
-**Note: Spartacus 2.x requires Angular 9. For more information, see [Updating to Version 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/updating-to-version-2.md %}).**
+This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.0.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
@@ -40,6 +37,30 @@ For release information about Spartacus 1.x, see [Release Information for Versio
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+
+## Release 3.0
+
+*Release 3.0 libraries published December 17, 2020*
+
+- **Uses Angular 10**
+- **B2B Powertools Store support** (for more information, see [Powertools Extension](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2005/en-US/8ae789ad86691014afcccba59ba613e9.html) in help.sap.com)
+- **B2B Commerce Organization** (Spartacus-specific documentation to come - for information on the overall feature as provided by SAP Commerce Cloud, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2005/en-US/8ac27d4d86691014a47588e9126fdf21.html) in help.sap.com)
+- **B2B Checkout** (Spartacus-specific documentation to come - for information on the overall feature as provided by SAP Commerce Cloud, see [B2B Checkout](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2005/en-US/8ac2500f8669101493e69e1392b970fd.html) in help.sap.com)
+- **B2B Scheduled Replenishment** ([documentation]({{ site.baseurl }}{% link _pages/dev/features/scheduled-replenishment.md}))
+- **Session Management** ([documentation]({{ site.baseurl }}{% link _pages/dev/session-management.md}))
+- **Release 3.0 Documentation** published (v2 and v1 archived)
+
+As always, feedback appreciated! Contact us through Slack or submit an [issue](https://github.com/SAP/spartacus/issues/new/choose).
+
+### Notes about this Release
+- Make sure to use the latest sample data, which includes updates to CMS data for the out-of-the-box Powertools store. The latest sample data is published with the [Storefront library](https://github.com/SAP/spartacus/releases/tag/storefront-3.0.0), in the Assets section.
+- Spartacus 3.0 and later use the new Spartacus sample data extension (not the addon). For now we provide both for download. However, the sample data extension will be the only one updated in the future. 
+- The same backend can be used for hosting both B2C and B2B stores. However, Spartacus requires two different apps, with two different confugrations, one for B2C stores, and one for B2B stores. (The ability to use one app for both B2C and B2B will be added in a future Spartacus release.) For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+- Setting up a B2B Spartacus store follows the same process as for a B2C store, with one extra step for adding B2B Commerce Organization features using schematics (`ng add @spartacus/organization`). For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+- Do not use a B2B Spartacus for a B2C base store. OCC API calls are different, and many aspects of the store will not work. For example, if you point a B2B store to Electronics base store, adding to cart does not work as the call is different.
+- B2B Commerce Organization allows you to configure units, users, budgets, cost centers, and spending limits, for the purposes of spend tracking and requiring approvals. For more information on how this feature works in SAP Commerce Cloud, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2005/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
+- SAP Commerce Cloud ships with all users disabled and no passwords defined. When exploring how to use Spartacus and SAP Commerce Cloud, one of the steps is to import sample users and passwords (see [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html)). After that is done, you can use the default B2B users as defined in the [Powertools Extension](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2005/en-US/8ae789ad86691014afcccba59ba613e9.html) in help.sap.com. For example, you can log in as linda.wolf@rustic-hw.com, who is an administrator for the Rustic Hardware set of units.
 
 ## Release 2.1
 
