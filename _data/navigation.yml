@@ -376,10 +376,10 @@ docs:
           - title: "Getting Started with FSA Spartacus ➢"
             url: /getting-started-with-fsa-spartacus/
             subchildren:
-                - title: "Installing SAP Commerce FSA for Use with FSA Spartacus ➢"
+                - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus ➢"
                   url: /installing-sap-commerce-with-fsa-spartacus/
                   underchildren:
-                      - title: "Installing SAP Commerce FSA for Use with FSA Spartacus 1.0"
+                      - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 1.0"
                         url: /installing-sap-commerce-with-fsa-spartacus-1-0/
                 - title: "Building the FSA Storefront from Libraries"
                   url: /building-the-fsa-storefront-from-libraries/  
