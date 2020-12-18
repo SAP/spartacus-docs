@@ -1,11 +1,13 @@
 ---
-title: JSON structure
+title: JSON Structure
 ---
 
 ## Overview
+
 In Dynamic Forms, form content, behavior and styling is defined by JSON definition. To create a form, we have to add controls and define it's properties such as control type, name, labels etc.
 
 ## Form Definition Interface
+
 Following interface is used to describe one JSON definition:
 
 ```typescript
@@ -88,19 +90,25 @@ export interface FieldOption {
 }
 
 ```
+
 More details about interface structure can be found below:
 
 ## FormDefinition 
+
 Represents top level entity which hold group of form field.
 The FormDefinition contains the following properties:
+
 - [formGroups](#dynamicformgroup) - Defines array of form groups
 - formId - Attaches ID to the form
 - cssClass - Enables adding unique CSS class to the form wrapper. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 
 ## DynamicFormGroup
+
 Represents group of form controls.
 The DynamicFormGroup contains the following properties:
+
 - groupCode - Adds name to the form group which can be found in payload on form submit. In this example of submitted form data object, we can see that form controls are wrapped in two form groups:
+
 ```typescript
 groupOne: 
     control1: "0"
@@ -108,13 +116,16 @@ groupTwo:
     control2: "2020-12-31"
     control3: "YEARLY"
 ```
+
 - fieldConfigs - Array of controls in this form group.
 - cssClass - Enables adding unique CSS class to the form group wrapper. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 - dependsOn - With this property, we can define whole group`s visibility by defining control name on which group depends on.
 
 ## FieldConfig
+
 Represents individual control.
 The FieldConfig contains the following properties:
+
 - name - Sets control name
 - required - Defines if control is required
 - disabled - Defines if control is disabled (disabled fields are not submitted to back-end)
@@ -138,28 +149,38 @@ The FieldConfig contains the following properties:
 - multiple - File upload property, sets if multiple uploads are allowed
 
 ## LocalizedString
+
 The LocalizedString contains the following properties:
+
 - default - Sets default label if no match is found for current language
 - [lang: string] - Sets label for specific language
 
 ## DependsOn
+
 Represents configuration for defining dependency behavior.
 The DependsOn contains the following properties:
+
 - hide - Defines if dependant control/group should be hidden on the page
 - [controls](#controldependency) - Defines a list of controls and conditions on which control depends on
 
 ## ControlDependency
+
 The ControlDependency contains the following properties:
+
 - controlName - Control name on which we depend
 - [conditions](#validatorfunction) - Array of validator functions where conditions are defined
 
 ## ValidatorFunction
+
 The ValidatorFunction contains the following properties:
+
 - name - Name of the validator function
 - arguments - List of argument strings 
 
 ## PrefillValue
+
 The PrefillValue contains the following properties:
+
 - targetObject - Targets SPA state object (cart, user...)
 - targetValue - Targets a specific property in that object
 
@@ -174,7 +195,9 @@ Current user first name is required for control prefill. We would configure Pref
 ```
 
 ## ApiConfig
+
 The ApiConfig contains the following properties:
+
 - url - Defines API url
 - param - Defines parameters for this API call
 
@@ -192,15 +215,16 @@ Example of "dynamic-select" component that uses ApiConfig to receive options fro
 }
 ```
 
+## FieldOption
 
-## FieldOption 
 The FieldOption contains the following properties:
+
 - name - Name of the option
 - label - Label for the option
 - selected - Sets default selected option if set to true
 
-
 ## Form Definition Example
+
 In code snipped below you can find one example of form definition used to collect information for life insurance:
 
 ```typescript
@@ -498,6 +522,7 @@ In code snipped below you can find one example of form definition used to collec
   ]
 }
 ```
-## How it looks when rendered on UI:
+
+## How it looks when rendered on UI
 
 ![rendered form on ui]({{ site.baseurl }}/assets/images/fsa/dynamicforms_ui_form.png)

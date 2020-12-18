@@ -1,8 +1,9 @@
 ---
-title: Inbox
+title: FSA Inbox
 ---
 
 ## Overview
+
 The Inbox feature enables your customers to see all notifications in one place, that is, on the Inbox page of the My Account area. All messages are grouped according to their content, sorted, and then displayed in different tabs.
 
 More details regarding Inbox feature from Financial Services Accelerator can be found
@@ -10,7 +11,6 @@ More details regarding Inbox feature from Financial Services Accelerator can be 
 In addition to that, messages in Inbox can have attachments. Customer can see the icon as an indicator of some attachments, and by clicking on the attachment link customer will be redirected to the attachment url. 
 
 ![inbox overview]({{ site.baseurl }}/assets/images/fsa/inbox_attachment.png)
-
 
 ![inbox message open]({{ site.baseurl }}/assets/images/fsa/inbox_attachment_open.png)
 
@@ -22,11 +22,13 @@ See  [Inbound API for Correspondence](https://help.sap.com/viewer/4c33bf189ab940
 ## SPA Components
 
 Inbox feature consists of three components and it comes within inbox.module:
+
 - inbox.component
 - inbox-tab.component
 - inbox-messages.component
 
 Inbox component have inbox-tab at the top and inbox-messages at the bottom.
+
 ```html
 <li class="tab"
     *ngFor="let tab of tabs; let i = index"
@@ -36,7 +38,9 @@ Inbox component have inbox-tab at the top and inbox-messages at the bottom.
     </cx-fs-inbox-tab>
 </li>
 ```
+
 In inbox tab we are setting current active tab index so we could render messages for current tab or navigate to other tabs. According to the selected tab(message group) messages are loaded:
+
 ```html
 <cx-fs-inbox-messages
   [mobileTabs]="tabs"
@@ -44,7 +48,9 @@ In inbox tab we are setting current active tab index so we could render messages
   [initialGroup]="initialGroupName" >
 </cx-fs-inbox-messages>
 ```
+
 InboxService is dedicated service for this feature, it has property `activeMessageGroupAndTitle` which is used to fetch active message group and set the title, also service provides following method for loading messages:
+
 ```typescript
 getMessages(messageGroup, searchConfig: SearchConfig): Observable<any> {
     return this.adapter.getSiteMessagesForUserAndGroup(

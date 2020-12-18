@@ -1,5 +1,5 @@
 ---
-title: Checkout
+title: FSA Checkout
 ---
 
 ## Contents
@@ -16,14 +16,17 @@ Checkout in FSA Spartacus enables financial customers to buy insurance or bankin
 
 You can configure checkout steps over default-checkout-config.ts. There you can find a list of all possible steps that you can include in the checkout process.
 Interface FSCheckoutStep extends Checkout Step with one additional attribute - *restrictedCategories*. 
-```
+
+```ts
 export interface FSCheckoutStep extends CheckoutStep {
   restrictedCategories?: string[];
 }
 ```
+
 This attribute is important for making the checkout process different for various groups of products. 
 The following example of payment checkout step definition restricts payment step for all banking products:
-```
+
+```ts
      {
         id: 'checkoutPaymentDetailsStep',
         name: 'fscommon.paymentDetails',
@@ -42,7 +45,8 @@ The following example of payment checkout step definition restricts payment step
 
 FSCheckoutModule consists of multiple checkout components, guards and services, making the checkout process fully configurable. 
 The following example shows step components inside the FSCheckoutModule:
-```
+
+```plaintext
     AddOptionsComponent,
     QuoteReviewComponent,
     BindQuoteDialogComponent,
@@ -59,7 +63,8 @@ These components are fulfilled with logic from *FSCheckoutConfigService*, respon
 If you want to extend your checkout with an additional step, you should add the step definition and route to *default-checkout-config.ts*, create a new component and place the logic for handling steps inside it.
 
 QuoteReviewComponent example of implementing nextCheckoutStep:  
-```
+
+```ts
 @Component({
     selector: 'cx-fs-quote-review',
     templateUrl: './quote-review.component.html',

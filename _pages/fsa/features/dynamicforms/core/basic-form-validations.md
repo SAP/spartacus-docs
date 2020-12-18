@@ -3,6 +3,7 @@ title: Basic Form Validations
 ---
 
 ## Overview
+
 Dynamic Forms library provides some basic validator functions by default. This page will explain how to use, override or add validations in Dynamic Forms library for end customers. Following things should be covered:
 
 - [How to invoke validation from JSON?](#how-to-invoke-validation-from-json)
@@ -19,6 +20,7 @@ In order to specify validations for certain field, JSON schema is enhanced by ex
 - validation input parameters - specify input parameter(s) which are acceptable by validation function (ex: shouldBeGreater, shouldBeLess)
 
 Example of the field with multiple validations:
+
 - input data must be of type number
 - input data max value must be 100
 - input value should be less than 'otherField' value
@@ -78,6 +80,7 @@ Example of the field with multiple validations:
   - shouldBeLessOrEqual
 
 JSON example:
+
 ```typescript
 "validations": [
     {
@@ -90,12 +93,14 @@ JSON example:
     }
 ],
 ```
+
 - **dateOfBirth** - Accepts argument of type number. It will trigger validation if input date is less than argument provided.
 - **compareDOBtoAge** - Compares date from other filed with input date. Accepts two arguments:
   - name of the field to compare (string)
   - operator (string) can be 'shouldBeGreater' or 'shouldBeLess'
 
 JSON example, compare input to the value of the 'retirementAge' field:
+
 ```typescript
 "validations": [
     {
@@ -111,6 +116,7 @@ JSON example, compare input to the value of the 'retirementAge' field:
     }
 ],
 ```
+
 - **maxValue**, **minValue**, **maxLength**, **minLength** - Default Angular validators
 - **number** - Triggers error message if input type is not a number.
 - **compareDates** - Compares input date to the value of other field. Accepts two arguments:
@@ -118,6 +124,7 @@ JSON example, compare input to the value of the 'retirementAge' field:
   - operator (string) can be 'shouldBeGreater' or 'shouldBeLess'
 
 JSON example, compare input to the value of the 'vehiclePurchaseDate' field:
+
 ```typescript
 "validations": [
     {
@@ -133,8 +140,10 @@ JSON example, compare input to the value of the 'vehiclePurchaseDate' field:
     }
 ],
 ```
+
 - **checkValue** - Checks if input data matches any item from array of allowed values. Accepts one argument (array of strings)
 JSON example, field is valid only in case string "no" is added to the input:
+
 ```typescript
 "validations": [
     {
@@ -149,8 +158,10 @@ JSON example, field is valid only in case string "no" is added to the input:
     }
 ]
 ```
+
 - **containsValue** - Checks if input value contains string form argument array. Accepts one argument (array of strings) 
 JSON example:
+
 ```typescript
 "validations": [
     {
@@ -163,11 +174,13 @@ JSON example:
     }
 ]       
 ```
+
 - **compareNumbers** - Compares input value to other field. Accepts two arguments:
   - name of the field to compare (string)
   - operator (string) can be 'shouldBeGreater' or 'shouldBeLess' 
-   
+
 JSON example:
+
 ```typescript
 "validations": [
     {
@@ -183,6 +196,7 @@ JSON example:
     }
 ],
 ```
+
 - **email** - Checks if input data is valid email
 - **alphanumeric** - Allows only numbers and letters as input data 
 
@@ -221,6 +235,7 @@ static compareToCurrentDate(operator) {
    };
  }
 ```
+
 and assign that function with input parameter 'shouldBeGreater' (operator in this case) to the corresponding field. In the same way we can pass multiple input parameters via arguments attribute in case function requires more and add them to the validation function respectively.
 
 ## How to override existing validation in custom App
@@ -228,6 +243,7 @@ and assign that function with input parameter 'shouldBeGreater' (operator in thi
 In order to override some predefined validation, customers should be able to do that in their modules by referencing their custom functions with the same name as existing ones. Let's try to override compareToCurrentDate function, so that it just logs customized message and returns always true for validation.  We will start in one of our modules by specifying following configuration:
 
 X-module.ts
+
 ```typescript
 @NgModule({
   imports: [
@@ -250,6 +266,7 @@ X-module.ts
   entryComponents: [CustomInputComponent],
 })
 ```
+
 From the code snippet above we can see that for validation with name compareToCurrentDate we have a new function defined in CategoryFormsModule. Function has the following implementation:
 
 ```typescript
@@ -260,6 +277,7 @@ static customFunction(regex) {
   };
 }
 ```
+
 As described in introduction, function has one console log and always returns true for validation. In this particular case, JSON file should not be edited since name of new function is the same as for old one.
 
 ## How to add new validation in custom App and invoke that from JSON
@@ -267,6 +285,7 @@ As described in introduction, function has one console log and always returns tr
 Adding new functions is similar to overriding them. First, we need to define a new function and then we have to expose it via configuration.
 
 New validation function
+
 ```typescript
 static customNewFunction(regex) {
     return (control: AbstractControl): ValidationErrors | null => {
@@ -277,6 +296,7 @@ static customNewFunction(regex) {
 ```
 
 Mapping new validation function
+
 ```typescript
 @NgModule({
   imports: [
@@ -299,6 +319,7 @@ Mapping new validation function
   entryComponents: [CustomInputComponent],
 })
 ```
+
 Lastly, since this function is completely new we have to invoke it from our JSON form definition:
 
 ```typescript
