@@ -1,5 +1,5 @@
 ---
-title: Configurable Form Field Pre-populate
+title: Configurable Form Field Pre-Populate
 ---
 
 This page will explain how to use configurable form field pre-populate in Dynamic forms library. Feature allows user to :
@@ -8,7 +8,7 @@ This page will explain how to use configurable form field pre-populate in Dynami
 - Populate field with any available SPA asset which is exposed for that purpose (user, cart, claim etc..)
 - Adjust/override already provided mechanism and add new logic on top of that.
 
-## How to use: 
+## How to Use
 
 Let's say we want to pre-populate "Title" field on personal details form. We want to use existing user data, located in "User" state in our SPA. First we need to adjust our personal details form, and add JSON configuration to the title field.
 
@@ -50,6 +50,7 @@ In given example targetObject - user signalizes that asset from SPA, which is ac
 For every object that we want to offer for pre-populate functionality,  we will define one service that will take field name from JSON definition and return field value from state object. All services will implement same interface with dedicated method for value extraction, so they can be invoked in generic way.
 
 User resolver
+
 ```typescript
 @Injectable({
   providedIn: 'root',
@@ -76,6 +77,7 @@ export class UserPrefillResolver implements PrefillResolver {
 As displayed above, UserPrefillResolver implements given interface and implements dedicated method, so it can take user object from state and find value by key defined as input parameter. All these resolver classes will be defined in dynamic forms configuration, so they can be easily extended and overridden:
 
 prefill-resolver.interface.ts
+
 ```typescript
 /**
  * An interface representing prefill resolver used for getting data from application state.
@@ -95,6 +97,7 @@ export interface PrefillResolver {
 With such approach customer can redefine some of the prefill resolvers by specifying new service instance for same key. Also, in case customer decides they need to access some other object they can easily inject that into configuration. 
 
 config.ts
+
 ```typescript
 @NgModule({
   imports: [

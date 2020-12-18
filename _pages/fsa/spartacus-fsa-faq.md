@@ -15,4 +15,3 @@ Financial Services Accelerator includes preconfigured reference integration and 
 Customers are provided with a summary of their choices and the options to create a quote, save it for later review or issue a policy on the spot. The FSA also provides a rich self-service area for customers to inquire about policies, premiums and claims.
 
 For more information, see [SAP Commerce, Financial Services Accelerator](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/2008/en-US).
-

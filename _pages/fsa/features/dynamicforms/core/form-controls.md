@@ -3,7 +3,9 @@ title: Form Controls
 ---
 
 ## Overview
+
 In this page you can read about:
+
 - [Default form controls](#default-from-controls)
 - [Overriding existing controls](#overriding-existing-controls)
 - [Adding new form control](#adding-new-form-control) 
@@ -11,6 +13,7 @@ In this page you can read about:
 ## Default from controls
 
 Dynamic Forms library is shipped with following controls out of the box:
+
 - button
 - input
 - select
@@ -21,11 +24,12 @@ Dynamic Forms library is shipped with following controls out of the box:
 - textarea
 - time
 - checkbox
-- separator (HTML element <hr/> used as visual separator)
+- separator (HTML element `<hr/>` used as visual separator)
 - dataHolder (hidden input field, used for holding data, usually for "dependsOn" functionality)
 - upload
 
 Default Form Controls configuration looks like this:
+
 ```typescript
 components: {
       button: {
@@ -70,13 +74,14 @@ components: {
 },
 ```
 
-So in the above example we have a type **input**, which exists in JSON configuration for a certain form, and it is being mapped (by default) to the **InputComponent**. This means that all of the simple input fields in every form of DynamicForms, will have the look and logic of "InputComponent". 
+So in the above example we have a type **input**, which exists in JSON configuration for a certain form, and it is being mapped (by default) to the **InputComponent**. This means that all of the simple input fields in every form of DynamicForms, will have the look and logic of "InputComponent".
 
 ## Overriding existing controls
 
 To override the default component for an existing type, we will take "input" type as an example. As mentioned before "input" type is mapped to a "InputComponent". All that is needed is for user to have a custom component created and include it in some module. In this example we'll call it "CustomInputComponent". The configuration needed for this override must be done inside the module where "CustomInputComponent" resides, and it would look like this:
 
 Example of custom input component
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -111,6 +116,7 @@ export class CategoryFormsModule {}
 In this "CustomInputComponent" it is also required to extend "AbstractFormComponent" which all existing form controls in DynamicForms are referencing:
 
 custom-input.component.ts
+
 ```typescript
 import { Component } from '@angular/core';
 import { AbstractFormComponent } from '@spartacus/dynamicforms';
@@ -123,6 +129,7 @@ export class CustomInputComponent extends AbstractFormComponent {}
 ```
 
 Having done that, it is possible now to use properties and functionalities from "AbstractFormComponent" in HTML:
+
 ```html
 <div [formGroup]="group">
   <div [ngClass]="cssClass.inputWrapper">
@@ -153,6 +160,7 @@ Now every input field in DynamicForms will be replaced with "CustomInputComponen
 If custom form control is needed, custom type needs to be specified, and then custom component should be mapped to that type, as in following example:
 
 Example of creating custom type for a custom control
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -185,6 +193,7 @@ export class CategoryFormsModule {}
 Now the only thing needed is to invoke this new type inside JSON configuration for a certain form, like so:
 
 FormSampleConfigurations
+
 ```typescript
 {
   "formId": "customForm",

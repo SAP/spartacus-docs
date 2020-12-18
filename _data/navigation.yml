@@ -388,22 +388,22 @@ docs:
           - title: "FSA Spartacus Features ➢"
             url: /spartacus-features-for-fsa/
             subchildren:
-                - title: "Dynamic forms ➢"
+                - title: "Dynamic Forms ➢"
                   url: /dynamicforms/
                   underchildren:
-                      - title: "JSON structure"
+                      - title: "JSON Structure"
                         url: /json-structure/
-                      - title: "Form controls"
+                      - title: "Form Controls"
                         url: /form-controls/
-                      - title: "Adding Form to a Simple Page"
+                      - title: "Adding a Form to a Simple Page"
                         url: /adding-form/
                       - title: "Styling"
                         url: /styling/
-                      - title: "Form control dependencies"
+                      - title: "Form Control Dependencies"
                         url: /form-control-dependencies/
-                      - title: "Basic form validations"
+                      - title: "Basic Form Validations"
                         url: /basic-form-validations/
-                      - title: "Configurable Form Field Pre-populate"
+                      - title: "Configurable Form Field Pre-Populate"
                         url: /pre-populate-field/
                 - title: "Inbox"
                   url: /fsa-inbox/

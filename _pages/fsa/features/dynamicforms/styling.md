@@ -9,6 +9,7 @@ Custom CSS class can be defined for:
 - [Form tag]({{ site.baseurl }}/json-structure/#formdefinition) - By default empty. This class can be used for specific styling of each form. It can be added by defining **"cssClass"** property in JSON.
 
 Example:
+
 ```typescript
 {
   "cssClass": "customFormClass", // This can be used to add custom styling class on the form tag
@@ -22,6 +23,7 @@ Example:
 - [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup) (section) - By default Dynamicforms will render "row" Bootstrap class here. Defining cssClass in "formGroups" section of JSON will **add** class to default class. It can be added by defining **"cssClass"** property in JSON.
 
 Example:
+
 ```typescript
 {
   "cssClass": "customFormClass",
@@ -39,6 +41,7 @@ Example:
 We can also **override** default bootstrap "col-12" class by defining **"gridClass"** property in same section of JSON definition.
 
 Example:
+
 ```typescript
 {
     "fieldConfigs": [
@@ -54,6 +57,7 @@ Example:
             "label": "How much life insurance coverage do you require?",
             "validations": [
 ```
+
 ## How HTML looks like
 
 If we consider a form with two sections and one control per section, basic html structure **by default** would consist of:
@@ -72,6 +76,7 @@ If we consider a form with two sections and one control per section, basic html 
     </div>
 </form>
 ```
+
 Adding our classes from examples above would result in HTML :
 
 ```typescript
