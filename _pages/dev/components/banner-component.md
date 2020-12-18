@@ -2,7 +2,7 @@
 title: Banner Component
 feature:
 - name: Banner Component
-  spa_version: 2.0
+  spa_version: 1.0
   cx_version: n/a
 ---
 
