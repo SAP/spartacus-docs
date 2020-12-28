@@ -8,7 +8,17 @@ feature:
 
 ## Overview
 
-Overview here
+Commerce Org allows companies to create and manage their buying company as represented on the seller's site:
+
+- **Units** (companies, divisions, etc.) in a hierarchy i.e. parents and children units
+- **Shipping addresses** assigned to units
+- **Users** (assigned to units) (assigned roles such as admin, manager, approver, or customer/buyer, and you can add more)
+  - Only admins can see and manage units, employees and cost centers
+  - Only approvers can see items requiring approval
+- **Cost centers** (assigned to units)
+- **Budgets** (assigned to cost centers)
+- **Purchase thresholds** (labelled as "Permissions" in Powertools), which trigger approvals if over the threshold (assigned to users)
+- **User groups**
 
 ## Configuration
 
