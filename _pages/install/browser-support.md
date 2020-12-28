@@ -14,7 +14,9 @@ Although Spartacus might not support older browsers, there are some common techn
 
 ## Working with IE11
 
-If your Spartacus storefront needs to support IE11, you should consider the following steps:
+IE11 is not supported by Spartacus.
+
+If your Spartacus storefront needs to support IE11, consider the following:
 
 - Use JavaScript polyfills to add missing browser capabilities. The polyfills are prepared in a newly-rendered Angular CLI application, so it is typically only a matter of "uncommenting" some of these polyfills. For more information, see [Browser support](https://angular.io/guide/browser-support) in the official Angular documentation.
 - Customize the Spartacus styles, or bring in a custom style layer.

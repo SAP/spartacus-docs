@@ -10,9 +10,9 @@ Before using Spartacus schematics, ensure that you have all of the necessary pre
 
 {% include docs/frontend_requirements.html %}
 
-## Adding Spartacus Libraries to Your Angular Project
+## Adding Spartacus Core Libraries and Features to Your Angular Project
 
-You can add Spartacus libraries to your Angular project by running the following command from your project root:
+You can add Spartacus core libraries and features to your Angular project by running the following command from your project root:
 
 ```shell
 ng add @spartacus/schematics
@@ -43,7 +43,7 @@ Another example is the following, which generates an application that is ready t
 ng add @spartacus/schematics --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
 ```
 
-### Additional Commands
+### Additional Commands for Core Libraries and Features
 
 By default, the `ng add @spartacus/schematics` command adds only a basic configuration of Spartacus. The following is a description of the commands you can use to extend your application:
 
@@ -51,7 +51,7 @@ By default, the `ng add @spartacus/schematics` command adds only a basic configu
 - `ng g @spartacus/schematics:add-ssr` adds the SSR configuration.
 - `ng g @spartacus/schematics:add-cms-component` generates a CMS component, and adds the CMS component mapping to the specified module, or to a newly-generated module, if no module is specified. For more information, see [CMS Component Schematic](#cms-component-schematic), below.
 
-## How Spartacus Schematics Work
+### How Spartacus Schematics Work
 
 When you run `ng add @spartacus/schematics`, the command does the following:
 
@@ -90,3 +90,25 @@ The following are some examples of how the `add-cms-component` schematic can be 
 - `ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --declareCmsModule=my-cms-path/my-cms` generates the `my-awesome-cms.component.ts` component and adds it to the specified CMS mapping for `my-cms-path/my-cms.module.ts`.
 - `ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app` generates the `my-awesome-cms.component.ts` component and the `my-awesome-cms.module.ts` module, and imports them to the specified `app.module.ts`.
 - `ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app --declareCmsModule=my-cms-path/my-cms` generates the `my-awesome-cms.component.ts` component and adds it to the specified `my-cms-path/my-cms.module.ts` module. It also imports `my-cms.module.ts` to the specified `app.module.ts`.
+
+## Installing Additional Spartacus Libraries
+
+You need to first install the Spartacus core libraries before you can install additional Spartacus libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project](#adding-spartacus-core-libraries-and-features-to-your-angular-project).
+
+### Organization Library
+
+You can add the Organization library by running the following command:
+
+```shell
+ng add @spartacus/organization
+```
+
+When you run this command, you are presented with an interactive menu that allows you to select which Organization features you want to install. Both `organization` and `approvals` are required for B2B Commerce Organization to work.
+
+### Storefinder Feature Library
+
+You can install the store locator feature by running the following command:
+
+```shell
+ng add @spartacus/storefinder
+```

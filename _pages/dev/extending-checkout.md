@@ -131,7 +131,7 @@ Note that, on each checkout step, you can have multiple components. As a result,
 
 In the default checkout, Spartacus uses a modified `MultiStepCheckoutOrderSummaryPageTemplate`. In addition to `BodyContent` and `SideContent`, Spartacus includes `TopContent` and `BottomContent` for 100% of the sections above and below the `BodyContent` and `SideContent` page slots.
 
-For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the `spartacussampledataaddon` AddOn. For more information, see [Spartacussampledataaddon AddOn]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %})
+For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the `spartacussampledata` extension. For more information, see [Spartacussampledata Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %})
 
 ## Extensibility
 
@@ -409,3 +409,32 @@ Now that you have created the `ExpressCheckoutGuard`, you can use it in the Chec
 ```
 
 Express checkout is now ready. The only steps that remain are to create express checkout links, and to place them on the page.
+
+## B2B Checkout
+
+In the Spartacus B2B storefront, the checkout includes the same steps as the B2C storefront, with the addition of a step for selecting the payment method. This step allows you to choose if you want to pay with an account or with a credit card, and also allows you to enter an optional PO number.
+
+With the credit card payment option, the B2B checkout is configured to work the same as the B2C checkout.
+
+With the account payment option, you can only select the addresses of cost centers that you are assigned to as a purchaser. Also, when you select the account payment option, it allows you to skip the payment details step.
+
+### Known Issues
+
+When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using `spartacussampledata` version 3.0.0 or newer, and that you are using SAP Commerce Cloud 2005 or newer.
+
+If you only want to add the payment method step, you can do so by running the following ImpEx:
+
+```text
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;CheckoutPaymentType;Checkout Payment Type Page;MultiStepCheckoutSummaryPageTemplate;/checkout/payment-type
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutPaymentType;Checkout Payment Type Slot;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,CheckoutPaymentTypeComponent,CheckoutProgressMobileBottomComponent
+;;SideContentSlot-checkoutPaymentType;Order Summary Slot;CheckoutOrderSummaryComponent
+
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;CheckoutPaymentTypeComponent;Checkout Payment Type Component;CheckoutPaymentType
+```

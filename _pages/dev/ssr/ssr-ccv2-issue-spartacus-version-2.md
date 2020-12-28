@@ -1,14 +1,14 @@
 ---
-title: Workaround for Issue with Server-Side Rendering in Spartacus 2.0 and SAP Commerce Cloud for Public Cloud
+title: Workaround for Issue with Server-Side Rendering in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud
 ---
 
-This document describes a temporary workaround for a problem with running Spartacus 2.0 with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
+This document describes a temporary workaround for a problem with running Spartacus 2.0 or later with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud. 
 
 ## Overview
 
-As of this writing (July 2020), Spartacus 2.0 with SSR does not work out of the box with SAP Commerce Cloud in the Public Cloud. This is because the hosting service expects a predefined structure for building Angular applications based on Angular 8 and ng-universal 8, which is used by Spartacus 1.x. However, Spartacus 2.0 uses Angular 9, which has a slightly different file structure.
+As of this writing (December 2020), Spartacus 2.0 or later, with SSR, does not work out of the box with SAP Commerce Cloud in the Public Cloud. This is because the hosting service expects a predefined structure for building Angular applications based on Angular 8 and ng-universal 8, which is used by Spartacus 1.x. However, Spartacus 2.0/3.0 use Angular 9/10, which has a slightly different file structure.
 
-This problem will soon be fixed in a future release of SAP Commerce Cloud in the Public Cloud. For the moment, use the following workaround for Spartacus 2.0 with SSR when hosting with SAP Commerce Cloud in the Public Cloud.
+This problem will be fixed in a release of SAP Commerce Cloud in the Public Cloud, expected early 2021. For the moment, use the following workaround for Spartacus 2.0 or later with SSR when hosting with SAP Commerce Cloud in the Public Cloud.
 
 ## Workaround
 
@@ -58,6 +58,6 @@ To follow the upcoming updates that will make SSR work without modification, see
 
 ## Support
 
-If you need help with this specific issue (Spartacus 2.0 with SSR on hosted SAP Commerce Cloud in the Public Cloud), contact Bill Marcotte through the [Spartacus Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
+If you need help with this specific issue (Spartacus 2.0 or later with SSR on hosted SAP Commerce Cloud in the Public Cloud), contact Bill Marcotte through the [Spartacus Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 For general support, search for Spartacus answers on [Stack Overflow](https://stackoverflow.com/search?q=spartacus-storefront), or add a new question using the *spartacus-storefront* tag.

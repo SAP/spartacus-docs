@@ -3,7 +3,7 @@
 
 git pull
 
-for branch in v3-develop develop tua-develop Telco-Preprod-Doc
+for branch in develop tua-develop Telco-Preprod-Doc
   do
 
 git checkout $branch
