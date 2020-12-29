@@ -60,7 +60,7 @@ declare module '@spartacus/core' {
 The module name `@spartacus/core` must be set according to the same value that you use to reference the type. In this case, the module is `@spartacus/core`, and you import the type as follows:
 
 ```ts
-import { CostCenter } from '@spartacus/core'
+import { CostCenter } from '@spartacus/core';
 ```
 
 From now on, when you work on an object of type `CostCenter`, the TypeScript compiler suggests the `originalCode` property in autocomplete, and allows you to define objects on this type normally, without having to hack the TypeScript with `as CostCenter` declarations.
@@ -71,7 +71,7 @@ From now on, when you work on an object of type `CostCenter`, the TypeScript com
 
 ## Augmentation in Feature Libraries
 
-You can also apply module augmentation techniques to feature libraries. To take an example from the Spartacus development team, we needed a `CostCenter` object for the `@spartacus/my-account` library and the `OrganizationModule`. However, we needed more properties than were defined in the `@spartacus/core` library.
+You can also apply module augmentation techniques to feature libraries. To take an example from the Spartacus development team, we needed a `CostCenter` object for the `@spartacus/organization` library and the `AdministrationCoreModule`. However, we needed more properties than were defined in the `@spartacus/core` library.
 
 Accordingly, we created a new `cost-center.model.ts` file where we could apply module augmentation. As with regular module augmentation, when augmenting a feature library, all properties should be optional. The following is an example:
 
@@ -86,12 +86,12 @@ declare module '@spartacus/core' {
 }
 ```
 
-Next, we needed to reference this file. In the file that exposes all the organization models that are in the public API (`feature-libs/my-account/organization/core/model/index.ts`), we added an import of this augmented model. The following is an example:
+Next, we needed to reference this file. In the file that exposes all the organization models that are in the public API (`feature-libs/organization/administration/core/model/index.ts`), we added an import of this augmented model. The following is an example:
 
 ```ts
 import './cost-center.model';
 ```
 
-After that, anyone can safely use the new properties in the `@spartacus/my-account` library, as well as in the app build that is based on this library. You can also augment the module in the app with your own properties. All these declarations are combined together, and in your application, you can use all the properties that are declared in `@spartacus/core`, `@spartacus/my-account`, and in your module augmentation.
+After that, anyone can safely use the new properties in the `@spartacus/organization` library, as well as in the app build that is based on this library. You can also augment the module in the app with your own properties. All these declarations are combined together, and in your application, you can use all the properties that are declared in `@spartacus/core`, `@spartacus/organization`, and in your module augmentation.
 
 **Note:** In each module augmentation declaration, you use the module name of the library that exposes the base type.
