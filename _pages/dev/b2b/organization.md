@@ -36,7 +36,85 @@ CmsConfig details or link
 ## Override TableConfig
 
 TableConfig details or link
+// move so other section
 
+```ts
+export abstract class TableConfig {
+  table?: {
+    [tableType: string]: ResponsiveTableConfiguration;
+  };
+  tableOptions?: {
+    /**
+     * Global component to render table header _content_ (`<th>...</th>`). A specific component
+     * can be configured alternatively per table or table field.
+     */
+    headerComponent?: Type<any>;
+
+    /**
+     * Global component to render table cell _content_ (`<td>...</td>`). A specific component per
+     * field can be configured alternatively.
+     *
+     * If no component is available, the table content will render as-is.
+     */
+    dataComponent?: Type<any>;
+  };
+}
+```
+Organization lists which can be overridden:
+```ts
+export enum OrganizationTableType {
+  BUDGET = 'orgBudget',
+  BUDGET_ASSIGNED_COST_CENTERS = 'orgBudgetAssignedCostCenters',
+  COST_CENTER = 'orgCostCenter',
+  COST_CENTER_BUDGETS = 'orgCostCenterBudgets',
+  COST_CENTER_ASSIGNED_BUDGETS = 'orgCostCenterAssignedBudgets',
+  UNIT = 'orgUnit',
+  UNIT_USERS = 'orgUnitUsers',
+  UNIT_CHILDREN = 'orgUnitChildren',
+  UNIT_APPROVERS = 'orgUnitApprovers',
+  UNIT_ASSIGNED_APPROVERS = 'orgUnitAssignedApprovers',
+  UNIT_ADDRESS = 'orgUnitAddress',
+  UNIT_COST_CENTERS = 'orgUnitCostCenters',
+  USER_GROUP = 'orgUserGroup',
+  USER_GROUP_USERS = 'orgUserGroupUsers',
+  USER_GROUP_ASSIGNED_USERS = 'orgUserGroupAssignedUsers',
+  USER_GROUP_PERMISSIONS = 'orgUserGroupPermissions',
+  USER_GROUP_ASSIGNED_PERMISSIONS = 'orgUserGroupAssignedPermissions',
+  USER = 'orgUser',
+  USER_APPROVERS = 'orgUserApprovers',
+  USER_ASSIGNED_APPROVERS = 'orgUserAssignedApprovers',
+  USER_PERMISSIONS = 'orgUserPermissions',
+  USER_ASSIGNED_PERMISSIONS = 'orgUserAssignedPermissions',
+  USER_USER_GROUPS = 'orgUserUserGroups',
+  USER_ASSIGNED_USER_GROUPS = 'orgUserAssignedUserGroups',
+  PERMISSION = 'orgPurchaseLimit',
+}
+```
+Here is an example how to override `name` cell in `orgBudget` table with prepared previously `MyComponent`
+
+```ts
+export const myTableConfig: TableConfig = {
+  table: {
+    [OrganizationTableType.BUDGET]: {
+      options: {
+        cells: {
+          name: {
+            dataComponent: MyComponent,
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+Now it's enough to add configuration in your providers list.
+```ts
+ providers: [
+   ...
+    provideConfig(myTableConfig)
+  ],
+```
 ## Homepage
 
 Organization homepage is a place containing set of links which user can use to navigate through all specific my company functionalities.
