@@ -76,6 +76,10 @@ Cms components to override:
 `ManageBudgetsListComponent, ManageCostCentersListComponent, ManagePermissionsListComponent, ManageUnitsListComponent, ManageUsersListComponent, ManageUserGroupsListComponent`
 
 
+Organization list components uses Split view. [See more](https://sap.github.io/spartacus-docs/split-view/)
+// TODO: convert to local link
+
+
 For more details how to override cms configuration, please see section [CMS Configuration](https://sap.github.io/spartacus-docs/customizing-cms-components/)
 // TODO: convert to local link
 
