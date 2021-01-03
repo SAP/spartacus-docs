@@ -26,41 +26,87 @@ Config details
 
 ## Override RoutingConfig
 
-https://sap.github.io/spartacus-docs/route-configuration/#predefined-config
-RouterConfig details or link
+
+In organization module, we have defined the following routes:
+
+Budgets:
+`orgBudget, orgBudgetCreate, orgBudgetDetails, orgBudgetCostCenters, orgBudgetEdit`
+
+Cost centers:
+`(TODO: orgCostCenter), orgCostCenterCreate, orgCostCenterDetails, orgCostCenterBudgets, orgCostCenterAssignBudgets, orgCostCenterEdit`
+
+Purchase limits:
+`orgPurchaseLimit, orgPurchaseLimitCreate, orgPurchaseLimitDetails, orgPurchaseLimitEdit`
+
+Units:
+`orgUnits, orgUnitCreate, orgUnitDetails, orgUnitEdit, orgUnitChildren, orgUnitCreateChild, orgUnitUserList, orgUnitCreateUser, orgUnitUserRoles, orgUnitApprovers, orgUnitAssignApprovers, orgUnitAddressList, orgUnitAddressCreate, orgUnitAddressDetails, orgUnitAddressEdit, orgUnitCostCenters, orgUnitCreateCostCenter`
+
+Users:
+`orgUser, orgUserCreate, orgUserDetails, orgUserEdit, orgUserChangePassword, orgUserApprovers, orgUserAssignApprovers,   orgUserPermissions, orgUserAssignPermissions, orgUserUserGroups, orgUserAssignUserGroups`
+
+User groups:
+`orgUserGroup, orgUserGroupCreate, orgUserGroupDetails, orgUserGroupEdit, orgUserGroupUsers, orgUserGroupAssignUsers, orgUserGroupPermissions, orgUserGroupAssignPermissions`
+
+
+For more details how to override routes, please see section [Route Configuration](https://sap.github.io/spartacus-docs/route-configuration/#predefined-config)
+// TODO: convert to local link
+
+Example:
+
+```ts
+imports: [
+  // ...
+  B2bStorefrontModule.withConfig({
+    // ...
+    routing: {
+      routes: {
+        orgBudgetCreate: {
+          paths: ['organization/budgets/my-create'],
+        },
+      },
+    },    
+  )},
+  // ...
+]
+```
 
 ## Override CmsConfig
 
-CmsConfig details or link
+Cms components to override:
+`ManageBudgetsListComponent, ManageCostCentersListComponent, ManagePermissionsListComponent, ManageUnitsListComponent, ManageUsersListComponent, ManageUserGroupsListComponent`
+
+
+For more details how to override cms configuration, please see section [CMS Configuration](https://sap.github.io/spartacus-docs/customizing-cms-components/)
+// TODO: convert to local link
+
+Example:
+```ts
+imports: [
+  // ...
+  B2bStorefrontModule.withConfig({
+    // ...
+    cmsComponents: {
+      ManageBudgetsListComponent: {
+        // ...
+        childRoutes: {
+          children: [
+            {
+              path: 'my-create',
+              component: MyFormComponent,
+            },
+            // ...
+          ],
+        },
+        // ...
+      },
+    },    
+  )},
+]
+```
 
 ## Override TableConfig
 
-TableConfig details or link
-// move so other section
-
-```ts
-export abstract class TableConfig {
-  table?: {
-    [tableType: string]: ResponsiveTableConfiguration;
-  };
-  tableOptions?: {
-    /**
-     * Global component to render table header _content_ (`<th>...</th>`). A specific component
-     * can be configured alternatively per table or table field.
-     */
-    headerComponent?: Type<any>;
-
-    /**
-     * Global component to render table cell _content_ (`<td>...</td>`). A specific component per
-     * field can be configured alternatively.
-     *
-     * If no component is available, the table content will render as-is.
-     */
-    dataComponent?: Type<any>;
-  };
-}
-```
-Organization lists which can be overridden:
+Following lists in organization module which can be overridden:
 ```ts
 export enum OrganizationTableType {
   BUDGET = 'orgBudget',
@@ -90,7 +136,11 @@ export enum OrganizationTableType {
   PERMISSION = 'orgPurchaseLimit',
 }
 ```
-Here is an example how to override `name` cell in `orgBudget` table with prepared previously `MyComponent`
+
+For more details how to override table configuration, please see section [Table Configuration](https://sap.github.io/spartacus-docs/table/)
+// TODO: convert to local link
+
+Example: How to override `name` cell in `orgBudget` table with prepared previously `MyComponent`
 
 ```ts
 export const myTableConfig: TableConfig = {
@@ -99,7 +149,7 @@ export const myTableConfig: TableConfig = {
       options: {
         cells: {
           name: {
-            dataComponent: MyComponent,
+            dataComponent: MyNameComponent,
           },
         },
       },
@@ -110,10 +160,10 @@ export const myTableConfig: TableConfig = {
 
 Now it's enough to add configuration in your providers list.
 ```ts
- providers: [
-   ...
-    provideConfig(myTableConfig)
-  ],
+providers: [
+  //...
+  provideConfig(myTableConfig)
+],
 ```
 ## Homepage
 
