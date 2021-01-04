@@ -1,9 +1,9 @@
 ---
 title: Session Management
 feature:
-  - name: Session Management
-    spa_version: 3.0
-    cx_version: 1905
+- name: Session Management
+  spa_version: 3.0
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -115,7 +115,7 @@ One of the goals of the Session Management refactor was to make the `AuthModule`
 
 ![Asm integration with UserAuthModule]({{ site.baseurl }}/assets/images/session-management/asm.svg)
 
-To integrate ASM with the `UserAuthModule` the mechanism for providing your own services was used, along with inheritance.
+To integrate ASM with the `UserAuthModule`, the mechanism for providing your own services was used, along with inheritance.
 
 The `AuthService`, `AuthHttpHeaderService`, and `AuthStorageService` were extended, and then provided in the `AsmModule`, as shown in the following example:
 

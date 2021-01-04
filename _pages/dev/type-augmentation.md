@@ -1,9 +1,9 @@
 ---
 title: Extending Built-In Models
 feature:
-  - name: Extending Built-In Models
-    spa_version: 2.1
-    cx_version: 1905
+- name: Extending Built-In Models
+  spa_version: 2.1
+  cx_version: 1905
 ---
 
 {% capture version_note %}
