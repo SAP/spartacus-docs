@@ -196,12 +196,12 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    @import '~@spartacus/tua-spa/storefrontstyles/index';
     ```
 
-6.	Add the following import in the `/mystore/src/polyfills.ts` file:
+6. Add the following import in the `/mystore/src/polyfills.ts` file:
 
-    ```bash
-   @import '@angular/localize/init';
-   @import 'zone.js/dist/zone';
-    ```
+   ```bash
+   import '@angular/localize/init';
+   import 'zone.js/dist/zone';
+   ```
 
 7. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
