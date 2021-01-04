@@ -93,7 +93,7 @@ After logging in a user, and storing their access token and user ID, it is then 
 
 ![Auth interceptors]({{ site.baseurl }}/assets/images/session-management/interceptors.svg)
 
-To enrich a request with an access token, you do not need to mark the request in any way. The `AuthInterceptor` recognizes the request to the API based on the URL. If the request does not have the `Authorization` header, and does not match the API path, the interceptor adds the header to the request. To make it easier to extend the interceptor, Spartacus has its own `AuthHttpHeaderService` helper service. In most cases, extending this one service should be enough.
+To enrich a request with an access token, you do not need to mark the request in any way. The `AuthInterceptor` recognizes the request to the API based on the URL. If the request does not have the `Authorization` header, and does match the API path, the interceptor adds the header to the request. To make it easier to extend the interceptor, Spartacus has its own `AuthHttpHeaderService` helper service. In most cases, extending this one service should be enough.
 
 Apart from injecting the token, this interceptor is also responsible for handling errors that are related to authorization. In such cases, it tries to recover first and retry the request, and if that is not possible, it completes the logout process and redirects the user to the login page. When a request fails because the access token has expired, the interceptor uses the refresh token (if it exists) to request a new access token, and then retries the failed request with the new token.
 
@@ -115,7 +115,7 @@ One of the goals of the Session Management refactor was to make the `AuthModule`
 
 ![Asm integration with UserAuthModule]({{ site.baseurl }}/assets/images/session-management/asm.svg)
 
-To integrate ASM with the `UserAuthModule` the mechanism for providing your own services was used instead of the default, along with inheritance.
+To integrate ASM with the `UserAuthModule`, the mechanism for providing your own services was used, along with inheritance.
 
 The `AuthService`, `AuthHttpHeaderService`, and `AuthStorageService` were extended, and then provided in the `AsmModule`, as shown in the following example:
 
