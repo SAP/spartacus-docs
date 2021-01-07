@@ -75,7 +75,7 @@ To get Spartacus to work with the SAP Commerce Cloud Powertools sample store, yo
 ng add @spartacus/organization
 ```
 
-The installer asks what to include (`organization` or `approvals`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
+The installer asks what to include (`Administration` and `Order-approval`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
 
 ### Installing Dependencies
 
