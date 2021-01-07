@@ -23,7 +23,6 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 
 - [Customer Product Inventory (CPI)]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %})
 - [Consumption]({{ site.baseurl }}{% link _pages/telco/consumption.md %})
-- [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %})
 
 ## Release 1.0
 

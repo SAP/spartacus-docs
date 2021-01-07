@@ -93,10 +93,6 @@ Journey Management facilitates real-time personalized customer journeys enabling
 
 *Release 1.1.0 libraries published October 7, 2020*
 
-- [Journey Management - Appointment]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment.md %})
-
-Journey Management facilitates real-time personalized customer journeys enabling online customers to successfully place an order. With the appointment checklist action in place, customers that wish to purchase a simple product offering that requires an appointment to be scheduled, will be required to make the appointment selection as part of the ordering process. For more information, see [Journey Management](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/39a59f20c92f4a0090c7ef2d007d623c.html) in the TUA Help portal.
-
 - [Customer Product Inventory (CPI)]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %})
 
 Increase NPS with the Customer Product Inventory. This features helps companies understand their customers by having a complete view of the "recurring" relationships or assets, their customers have with them. The Customer Product Inventory is used to dynamically determine user journeys: what the customer is interested in, what they are willing to pay, and what products, services, and prices they are entitled to. For more information, see [Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/612f26c3d5f14248965ad908cf5952f6.html) in the TUA Help portal.
