@@ -4,13 +4,13 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem "jekyll"
+gem "jekyll", "~>3.9.0"
 
 gem "minimal-mistakes-jekyll"
 
 gem 'jemoji'
 
-gem 'nokogiri', '~> 1.10.8'
+gem "nokogiri"
 
 group :jekyll_plugins do
     gem "jekyll-feed"
