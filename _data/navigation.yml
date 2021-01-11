@@ -309,10 +309,6 @@ docs:
             subchildren:
               - title: "Organization"
                 url: /organization/
-          - title: "Table configuration ➢"
-            url: /table/
-          - title: "Split view ➢"
-            url: /split-view/
 
     - title: Telco & Utilities Storefront Development Guide
       url: /about-tua-spartacus/
