@@ -166,6 +166,15 @@ providers: [
   provideConfig(myTableConfig)
 ],
 ```
+## Core
+
+Structure:
+In simplify we store everything related to organization in entities and lists of ID separately.
+
+Exceptions:
+- We avoid cleaning users list when we assign / unassign an approver for user 
+- We have missing id while creation of user and address, so there are some routing redirections applied directly in effects. 
+
 ## Homepage
 
 Organization homepage is a place containing set of links which user can use to navigate through all specific my company functionalities.
