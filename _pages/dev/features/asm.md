@@ -1,9 +1,9 @@
 ---
 title: Assisted Service Module
 feature:
-- name: Assisted Service Module
-  spa_version: 1.3
-  cx_version: 1905
+  - name: Assisted Service Module
+    spa_version: 1.3
+    cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -314,9 +314,9 @@ The start time for the customer support agent session timer has a default value 
 B2cStorefrontModule.withConfig({
   asm: {
     agentSessionTimer: {
-      startingDelayInSeconds: 600
-    }
-  }
+      startingDelayInSeconds: 600,
+    },
+  },
 });
 ```
 
@@ -328,12 +328,30 @@ The number of results in the asm customer search can be customized in spartacus 
 B2cStorefrontModule.withConfig({
   asm: {
     customeSearch: {
-      maxResults: 20
-    }
-  }
+      maxResults: 20,
+    },
+  },
 });
 ```
 
 ## Extending
 
 No special extensibility is available for this feature.
+
+## Limitations
+
+### CMS
+
+ASM customer emulation does not work with CMS content rules and restrictions in Spartacus. If there are content rules or restrictions that depend on the customer or the customer's groups to apply, they won't apply during an ASM customer emulation. The CMS endpoints will rather provide content based on what the customer support agent can see.
+
+To display CMS content, Spartacus relies on the CMS endpoints from OCC. The CMS endpoints don't accept a userId parameter that defines the user for which the request applies. During an ASM customer emulation session, the user for which the request applies is the customer, which is different from the authenticated user (the customer support agent).
+
+The OCC CMS endpoints below, use the authenticated user only:
+
+/{baseSiteId}/cms/components
+/{baseSiteId}/cms/components/{componentId}
+/{baseSiteId}/cms/pages
+/{baseSiteId}/cms/pages/{pageId}
+/{baseSiteId}/cms/sitepages
+
+Since OCC CMS endpoints do not accept a userId parameter, it is not possible for an emulated customer to trigger CMS rules and restrictions during an ASM emulation session.
