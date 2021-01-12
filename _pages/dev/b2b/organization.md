@@ -33,7 +33,7 @@ Budgets:
 `orgBudget, orgBudgetCreate, orgBudgetDetails, orgBudgetCostCenters, orgBudgetEdit`
 
 Cost centers:
-`(TODO: orgCostCenter), orgCostCenterCreate, orgCostCenterDetails, orgCostCenterBudgets, orgCostCenterAssignBudgets, orgCostCenterEdit`
+`orgCostCenter, orgCostCenterCreate, orgCostCenterDetails, orgCostCenterBudgets, orgCostCenterAssignBudgets, orgCostCenterEdit`
 
 Purchase limits:
 `orgPurchaseLimit, orgPurchaseLimitCreate, orgPurchaseLimitDetails, orgPurchaseLimitEdit`
@@ -49,7 +49,6 @@ User groups:
 
 
 For more details how to override routes, please see section [Route Configuration](https://sap.github.io/spartacus-docs/route-configuration/#predefined-config)
-// TODO: convert to local link
 
 Example:
 
@@ -72,16 +71,15 @@ imports: [
 
 ## Override CmsConfig
 
-Cms components to override:
+Organization library provides clear split into features. They are reflected in feature list components. 
+
+You can override next CMS components:
 `ManageBudgetsListComponent, ManageCostCentersListComponent, ManagePermissionsListComponent, ManageUnitsListComponent, ManageUsersListComponent, ManageUserGroupsListComponent`
 
 
-Organization list components uses Split view. [See more](https://sap.github.io/spartacus-docs/split-view/)
-// TODO: convert to local link
-
+Presented feature list components uses [Split view](https://sap.github.io/spartacus-docs/split-view/), it means all components inside are ordered in nested hierarchy. A side effect of this solution is the need to overwrite the entire configuration, even if we want to make a small change.
 
 For more details how to override cms configuration, please see section [CMS Configuration](https://sap.github.io/spartacus-docs/customizing-cms-components/)
-// TODO: convert to local link
 
 Example:
 ```ts
@@ -142,7 +140,6 @@ export enum OrganizationTableType {
 ```
 
 For more details how to override table configuration, please see section [Table Configuration](https://sap.github.io/spartacus-docs/table/)
-// TODO: convert to local link
 
 Example: How to override `name` cell in `orgBudget` table with prepared previously `MyComponent`
 
