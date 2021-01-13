@@ -1,9 +1,9 @@
 ---
 title: Assisted Service Module
 feature:
-  - name: Assisted Service Module
-    spa_version: 1.3
-    cx_version: 1905
+- name: Assisted Service Module
+  spa_version: 1.3
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -342,16 +342,16 @@ No special extensibility is available for this feature.
 
 ### CMS
 
-ASM customer emulation does not work with CMS content rules and restrictions in Spartacus. If there are content rules or restrictions that depend on the customer or the customer's groups to apply, they won't apply during an ASM customer emulation. The CMS endpoints will rather provide content based on what the customer support agent can see.
+ASM customer emulation does not work with CMS content rules and restrictions in Spartacus. If there are content rules or restrictions that are normally applied based on a customer's ID, or the customer's group ID, these rules and restrictions will not be applied during an ASM customer emulation. The CMS endpoints instead provide content based on what the customer support agent is permitted to see.
 
-To display CMS content, Spartacus relies on the CMS endpoints from OCC. The CMS endpoints don't accept a userId parameter that defines the user for which the request applies. During an ASM customer emulation session, the user for which the request applies is the customer, which is different from the authenticated user (the customer support agent).
+To display CMS content, Spartacus relies on the CMS endpoints from OCC. When requests are sent, the CMS endpoints do not accept a `userId` parameter that could define the emulated user (that is, the customer). The CMS endpoints only recognize the authenticated user as the sender of requests, and in ASM customer emulation sessions, the authenticated user is the customer support agent.
 
-The OCC CMS endpoints below, use the authenticated user only:
+The following OCC CMS endpoints work only for the authenticated user:
 
-/{baseSiteId}/cms/components
-/{baseSiteId}/cms/components/{componentId}
-/{baseSiteId}/cms/pages
-/{baseSiteId}/cms/pages/{pageId}
-/{baseSiteId}/cms/sitepages
+- `/{baseSiteId}/cms/components`
+- `/{baseSiteId}/cms/components/{componentId}`
+- `/{baseSiteId}/cms/pages`
+- `/{baseSiteId}/cms/pages/{pageId}`
+- `/{baseSiteId}/cms/sitepages`
 
-Since OCC CMS endpoints do not accept a userId parameter, it is not possible for an emulated customer to trigger CMS rules and restrictions during an ASM emulation session.
+OCC CMS endpoints do not accept a `userId` parameter, so it is not possible for an emulated customer to trigger CMS rules and restrictions during an ASM emulation session.
