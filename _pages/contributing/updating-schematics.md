@@ -1,6 +1,16 @@
 ---
 title: Updating Schematics
 ---
+## Introduction
+
+The Spartacus' migrations mechanism has been developed in order to perform automatic changes of the code which has been either change or removed in a newer major version. As a part of the [Definition Of Done]({{ site.baseurl }}{% link _pages/contributing/definition-of-done.md %}), while working on a bug, feature or other change in the Spartacus' source code requirements described in this document has to be fulfilled. It makes upgrading Spartacus to a new major version (eg. 3 -> 4) much easier for developers who:
+- contribute to Spartacus: no need to spent tons of time on upgrading the migrations mechanism just before the actual release
+- integrate Spartacus: automatic migrations will take an action (either updating the code to it's new form or, at least, auto-comment parts of the used code which can't be updated programatically)
+
+That being said, more changes covered with migration mechanism mean less manual work during the Spartacus major upgrade.
+## Migrations mechanism
+
+The migrations mechanism should be updated at the very beginning of a new development path after upgrading to new major version. For example, if Spartacus has been updated from version 2 to 3, updated mechanism should be merged to develop branch as soon as possible (to allow contributors provide migrations along with features and bug fixes).
 
 ## Structure for Updating Schematics
 
@@ -40,3 +50,14 @@ Similar to [constructor deprecation](#Constructor-deprecation), `projects/schema
 ## CSS
 
 To handle CSS changes, we are printing a link to the CSS docs, where customers can look up which CSS selectors have changed between Spartacus versions. For this reason, if making a change to a CSS selector, please update this docs. (link to follow).
+
+## Example flow of adding a migration
+
+As a Spartacus' contributor, after finish work on bug/feature/other change, to properly take care of a migration please follow the below checklist:
+- check wether any of changed files is exported in the public API (if no, you're done)
+- check wether changes made are [the breaking ones]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}) - if no, you're done.
+- for all the breaking changes please ensure that you have:
+  - docummented them, ie updated the corresponding migration docs file (for migration from 2 to 3 it's `docs/migration/3_0.md`) and/or code comments has been added
+  - builded automation tasks (check for described above: [validations](#validations), [constructor deprecations](#constructor-deprecation), [component deprecations](#component-deprecation))
+  - tested added migrations (run tests, try to migrate an example app)
+- nice and short example of migration being made is [this one](https://github.com/SAP/spartacus/pull/9946/files)
