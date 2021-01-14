@@ -34,7 +34,7 @@ Some of the links provided in the following lists point to SAP Commerce Cloud Fi
 
 If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
   
-For non-technical questions and roadmap feedback, you can reach us on our #help-fsa channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) over channel: *#help-fsa*.
+For non-technical questions and roadmap feedback, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
 ## Features Planned for Version 2.0 / February 2021
 
