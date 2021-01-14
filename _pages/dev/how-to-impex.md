@@ -1,8 +1,8 @@
 ---
-title: SAP Commerce - ImpEx
+title: SAP Commerce Cloud - ImpEx
 ---
 
-ImpEx is a text-based import and export functionality, which is shipped with SAP Commerce. It allows basic operations, such as creating, updating, removing, and exporting Platform items. All input are from comma-separated value.
+ImpEx is a text-based import and export functionality, which is shipped with SAP Commerce Cloud. It allows basic operations, such as creating, updating, removing, and exporting Platform items. All input are from comma-separated value.
 
 More information can be found here. 
 [ImpEx](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/6.2.0.0/en-US/8bee5297866910149854898187b16c96.html)

@@ -46,7 +46,7 @@ If successful, the customer needs to indicate whether moving in or switching sup
 |--------------------------------------------	|--------------------------------------------------------	|
 | Spartacus                                     	| 1.x, < 2.0                                          	|
 | Telco & Utilities Accelerator	             	| Version 2003 (latest patch)            	|
-| SAP Commerce 	| Version 1905 (latest patch) 	|
+| SAP Commerce Cloud 	| Version 1905 (latest patch) 	|
 
 ## Configuring and Enabling Premise Validation
 

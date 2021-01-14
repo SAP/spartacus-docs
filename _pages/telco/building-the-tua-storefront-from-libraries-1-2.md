@@ -38,12 +38,12 @@ To update existing installations, use `brew upgrade` instead of `brew install`.
 
 ## Back End Server Requirements
 
-TUA Spartacus uses SAP Commerce and Telco & Utilities Accelerator for its back end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
+TUA Spartacus uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
 
-- SAP Commerce version: Release 1905 (latest patch is recommended).
+- SAP Commerce Cloud version: Release 1905 (latest patch is recommended).
 - Telco & Utilities Accelerator version: Release 2003 (latest patch) is required.
 
-For more information, see [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
+For more information, see [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
 
 ## Creating a New Angular App
 
