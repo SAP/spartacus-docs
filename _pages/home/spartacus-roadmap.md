@@ -41,34 +41,6 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-## Features Planned for Version 3.0 / December
-
-The first release candidate for 3.0 was published November 20. We'll publish 1-2 more RCs then publish the final version probably mid-December. Please check our Slack announcements channel for the latest information. Release 3.0 will be the first release supporting B2B features.
-
-- **B2B Powertools Store support**
-- **B2B Checkout**
-  - Allows customers to check out by account, besides credit card
-  - Customers can enter a purchase order number that is saved with orders
-  - If paying by account: cost center selection, shipping address restricted by cost center chosen), subject to approval process
-  - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html)
-- **B2B Commerce Organization**
-  - Also known as My Company
-  - Self-service spending and organization management
-  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals
-  - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html)
-- **B2B Scheduled Replenishment** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html)
-- **Updates to Order Details** - includes B2B-specific information, such as approval table and cost center
-- **Lazy loading** for B2B My Company module
-
-**Note:** Spartacus B2B features require SAP Commerce Cloud 2005. Certain features (such as Commerce Org or Scheduled Replenishment) require OCC REST APIs introduced in 2005; and the Spartacus functionality will be implemented based on the non-conflicting B2B endpoints introduced in 2005.
-  
-### Architectural Features to be released in 3.0
-
-- **Angular 10**
-- **Session Management** improvements
-  - Separates OCC API integration from core Spartacus code, allowing use of adapters and connectors
-  - Makes it easier to add your own Identity Provider
-  - Improves security while reducing friction in the authentication and login user experience
   
 ## Features Planned for Q1 2021
   
@@ -77,11 +49,14 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
 - **B2B Registration**
 - **B2B Bulk Price List**
 - **B2B Multi-dimensional product support** (requires API update)
+- **Improvements to B2B Commerce Organization**
 
 ### Architecture
 
-- **Performance improvements through Lazy loading** (update of existing codebase)
+- **Performance improvements through code splitting / lazy loading** (update of existing codebase)
 - **New events** for Event Service
+- **Dynamic Theme Selection**
+- **One app for running B2C and B2B stores**
 
 ### Integrations
 
@@ -116,6 +91,8 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
 ### Architecture
 
 - **Tag Manager framework**
+- Support for **Adobe Experience Platform Launch**
+  
   
 ## Future Outlook - Q3 2021 and Later
 
@@ -144,7 +121,7 @@ Items listed above with **(\*)** require new OCC REST APIs, no date set yet; see
 
 ### Architecture
 
-- **Google Tag Manager Support**
+- Support for **Google Tag Manager**
 - **Site map**
 - **Extensibility 2.0** - finer-grained extensibility
  
