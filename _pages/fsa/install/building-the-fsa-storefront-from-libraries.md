@@ -68,11 +68,27 @@ yarn install
 ### Check app.module.ts for base URL and other settings ###
 
 Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
+
+You should add following ngrx store module with specified runtime checks option in imports section:
+
+```
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      },
+    }),
+```
+It also requires ngrx import:
+```
+import { StoreModule } from '@ngrx/store';
+```
+
 After FSA is installed your app.module.ts should look like following:
 ```
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { FSStorefrontModule } from '@spartacus/fsa-storefront';
 
@@ -82,6 +98,12 @@ import { FSStorefrontModule } from '@spartacus/fsa-storefront';
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+      },
+    }),
     FSStorefrontModule.withConfig({
       backend: {
         occ: {
