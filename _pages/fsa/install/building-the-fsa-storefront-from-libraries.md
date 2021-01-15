@@ -69,7 +69,7 @@ yarn install
 
 Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
 
-You should add following ngrx store module with specified runtime checks option in imports section:
+You should add the following ngrx store module with specified runtime checks option in the imports section:
 
 ```
     StoreModule.forRoot({}, {
