@@ -314,9 +314,9 @@ The start time for the customer support agent session timer has a default value 
 B2cStorefrontModule.withConfig({
   asm: {
     agentSessionTimer: {
-      startingDelayInSeconds: 600
-    }
-  }
+      startingDelayInSeconds: 600,
+    },
+  },
 });
 ```
 
@@ -328,12 +328,30 @@ The number of results in the asm customer search can be customized in spartacus 
 B2cStorefrontModule.withConfig({
   asm: {
     customeSearch: {
-      maxResults: 20
-    }
-  }
+      maxResults: 20,
+    },
+  },
 });
 ```
 
 ## Extending
 
 No special extensibility is available for this feature.
+
+## Limitations
+
+### CMS
+
+ASM customer emulation does not work with CMS content rules and restrictions in Spartacus. If there are content rules or restrictions that are normally applied based on a customer's ID, or the customer's group ID, these rules and restrictions will not be applied during an ASM customer emulation. The CMS endpoints instead provide content based on what the customer support agent is permitted to see.
+
+To display CMS content, Spartacus relies on the CMS endpoints from OCC. When requests are sent, the CMS endpoints do not accept a `userId` parameter that could define the emulated user (that is, the customer). The CMS endpoints only recognize the authenticated user as the sender of requests, and in ASM customer emulation sessions, the authenticated user is the customer support agent.
+
+The following OCC CMS endpoints work only for the authenticated user:
+
+- `/{baseSiteId}/cms/components`
+- `/{baseSiteId}/cms/components/{componentId}`
+- `/{baseSiteId}/cms/pages`
+- `/{baseSiteId}/cms/pages/{pageId}`
+- `/{baseSiteId}/cms/sitepages`
+
+OCC CMS endpoints do not accept a `userId` parameter, so it is not possible for an emulated customer to trigger CMS rules and restrictions during an ASM emulation session.

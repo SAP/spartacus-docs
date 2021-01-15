@@ -59,7 +59,7 @@ The following business use cases are covered for this feature:
 |--------------------------------------------	|--------------------------------------------------------	|
 | Recipe                                     	| b2c_telco_spa                                          	|
 | Minimum version of backend TUA             	| TUA Release 2007 or 2011 (latest patch is required)           	|
-| Minimum   version of core commerce backend 	| SAP Commerce release 2005 (latest patch is recommended) 	|
+| Minimum   version of core commerce backend 	| SAP Commerce Cloud release 2005 (latest patch is recommended) 	|
 
 ## Configuring and Enabling Installation Address and Appointment in TUA
 

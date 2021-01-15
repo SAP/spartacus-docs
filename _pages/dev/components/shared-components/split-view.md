@@ -1,9 +1,9 @@
 ---
 title: Split View Component
 feature:
-  - name: Split View Component
-    spa_version: 3.0
-    cx_version: n/a
+- name: Split View Component
+  spa_version: 3.0
+  cx_version: n/a
 ---
 
 {% capture version_note %}
