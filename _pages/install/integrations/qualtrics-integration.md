@@ -1,9 +1,9 @@
 ---
 title: Qualtrics Integration
 feature:
-- name: Qualtrics Integration
-  spa_version: 1.3
-  cx_version: n/a
+  - name: Qualtrics Integration
+    spa_version: 1.3
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -106,9 +106,9 @@ The `isDataLoaded()` is taken into account before loading the deployment code. T
 The following example demonstrates the loading of cart data before the deployment script is loaded:
 
 ```ts
-import { Injectable } from "@angular/core";
-import { CartService, WindowRef } from "@spartacus/core";
-import { QualtricsConfig, QualtricsLoaderService } from "@spartacus/storefront";
+import { Injectable, RendererFactory2 } from "@angular/core";
+import { ActiveCartService, WindowRef } from "@spartacus/core";
+import { QualtricsLoaderService } from "@spartacus/qualtrics/components";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -116,10 +116,10 @@ import { map } from "rxjs/operators";
 export class DemoQualtricsLoaderService extends QualtricsLoaderService {
   constructor(
     winRef: WindowRef,
-    config: QualtricsConfig,
-    private cartService: CartService
+    rendererFactory: RendererFactory2,
+    private cartService: ActiveCartService
   ) {
-    super(winRef, config);
+    super(winRef, rendererFactory);
   }
 
   isDataLoaded(): Observable<boolean> {
@@ -128,4 +128,15 @@ export class DemoQualtricsLoaderService extends QualtricsLoaderService {
       .pipe(map((entries) => entries.length === 1));
   }
 }
+```
+
+## Spartacus support for Qualtrics Embedded Feedback feature
+
+The Qualtrics Embedded Feedback feature relies on CSS selectors to display the Embedded Feedback component into a page. More information can be found in [Embedded Feedback](https://www.qualtrics.com/support/website-app-feedback/creatives-tab/creative-types/embedded-feedback/).
+
+You use this feature in Spartacus either by pointing to an appropriate selector on a page or using the dedicated CMS component in which you can use to place in a slot for a given page.
+
+```ts
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;QualtricsEmbeddedFeedbackComponent;Qualtrics Embedded Feedback Component;QualtricsEmbeddedFeedbackComponent
 ```
