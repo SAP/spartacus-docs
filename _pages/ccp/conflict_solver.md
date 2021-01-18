@@ -1,9 +1,9 @@
 ---
 title: Conflict Solver
 ---
-The conflict solver as developed with MVP version is quite rudimentary with regards to user navigation.
+The conflict solver as developed with the minimal viable product (MVP) version is quite rudimentary with regards to user navigation.
 
-In the MVP version the following user navigation is currently implemented:
+In the MVP version, the following user navigation is currently implemented:
 
 - If the user is in a conflict group and changes a value there, after the update the UI displays the original group of the attribute for which she changed the value, i.e. the user is taken out of the conflict resolving context.
 - This happens every time she is changing a value in a conflict group, even if the value-change did not solve the conflict or if there are still other conflicts to be resolved.

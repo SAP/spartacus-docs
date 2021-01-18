@@ -1,4 +1,4 @@
 ---
 title: Configurable Products for Project "Spartacus"
 ---
-Some content goes here
+Configurable Products for project "Spartacus" lets you implement the Spartacus storefront in conjunction with SAP Variant Configuration and Pricing.

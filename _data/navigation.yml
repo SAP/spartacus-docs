@@ -367,24 +367,35 @@ docs:
     - title: Configurable Products
       url: /about_ccp_spartacus/
       children:
-          - title: "Locales"
-            url: /locales/
-          - title: "Conflict Solver"
-            url: /conflict_solver/
-          - title: "Save for Later / Selective Cart"    
-            url: /save_for_later/
-          - title: "Cart Validation"
-            url: /cart_validation/  
-          - title: "Spartacus"
-            url: /ccp_spartacus/
-          - title: "Commerce"
-            url: /commerce/
-          - title: "RTL Support"
-            url: /rtl_support/
-          - title: "Group Status Handling"
-            url: /group_status_handling/
-          - title: "Group Navigation"          
-            url: /group_navigation/
+          - title: "Release Information for Configurable Products"
+            url: /release_information_for_ccp/
+          - title: "Roadmap for Configurable Products"
+            url: /cp_roadmap/
+          - title: "CP Spartacus FAQ"
+            url: /cp_faqs/
+          - title: "Getting Started with Configurable Products"
+            url: /getting_started/
+          - title: "Configurable Products Features ➢"
+            url: /features/
+            subchildren:
+                - title: "Locales"
+                  url: /locales/
+                - title: "Conflict Solver"
+                  url: /conflict_solver/
+                - title: "Save for Later / Selective Cart"    
+                  url: /save_for_later/
+                - title: "Cart Validation"
+                  url: /cart_validation/  
+                - title: "Spartacus"
+                  url: /ccp_spartacus/
+                - title: "Commerce"
+                  url: /commerce/
+                - title: "RTL Support"
+                  url: /rtl_support/
+                - title: "Group Status Handling"
+                  url: /group_status_handling/
+                - title: "Group Navigation"          
+                  url: /group_navigation/
 
     - title: Contributing to Spartacus
       url: /contributors-guide/
