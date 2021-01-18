@@ -39,36 +39,36 @@ If any validations need to be run before actually upgrading Spartacus, you can u
 
 ## Constructor Deprecation
 
-The `projects/schematics/src/migrations/2_0/constructor-deprecations.ts` performs the constructor migration tasks. Usually, a developer does not need to touch this file, and instead should describe the constructor deprecation in `projects/schematics/src/migrations/2_0/constructor-deprecation-data.ts`. The `CONSTRUCTOR_DEPRECATION_DATA` constant describes the deprecated constructor, and includes the `addParams` and `removeParams` properties that allow you to specify which parameters should be added or removed, respectively.
+The `projects/schematics/src/migrations/2_0/constructor-deprecations.ts` performs the constructor migration tasks. Usually, a developer does not need to touch this file, and instead should describe constructor deprecations in `projects/schematics/src/migrations/2_0/constructor-deprecation-data.ts`. The `CONSTRUCTOR_DEPRECATION_DATA` constant describes the deprecated constructor, and includes the `addParams` and `removeParams` properties that allow you to specify which parameters should be added or removed, respectively.
 
 ## Commenting Code
 
-When it is not possible to automatically migrate code, we often place a comment in the customer's code base that describes what the customer should do to upgrade their project to the new version. We should do this only in cases where upgrading manually is easy, and writing a migration script would be too complex.
+When it is not possible to automatically migrate code, we often place a comment in the customer's code base that describes what the customer should do to upgrade their project to the new version of Spartacus. We should do this only in cases where upgrading manually is easy, and writing a migration script would be too complex.
 
 The `projects/schematics/src/shared/utils/file-utils.ts#insertCommentAboveIdentifier` method adds comments above the specified `identifier` TypeScript node.
 
-The following are examples:
+The following are examples of how you might add a comment:
 
-- adding a comment above a removed API method that suggests which method can be used instead
-- adding a comment above an NgRx action where we changed parameters
+- If you removed an API method, you could add a comment above the removed method that suggests which method can be used instead.
+- If you changed the parameters of an NgRx action, you could add a comment above the action where the parameters were changed.
 
 ## Component Deprecation
 
-Similar to constructor deprecation, `projects/schematics/src/migrations/2_0/component-deprecations.ts` performs component migration tasks, for both component `*.ts` and `HTML` templates. Usually, a developer does not need to touch this file, and instead should describe the component deprecation in `projects/schematics/src/migrations/2_0/component-deprecations-data.ts`. The `COMPONENT_DEPRECATION_DATA` constant describes the deprecated components.
+Similar to constructor deprecation, `projects/schematics/src/migrations/2_0/component-deprecations.ts` performs component migration tasks, for both component `*.ts` and `HTML` templates. Usually, a developer does not need to touch this file, and instead should describe component deprecations in `projects/schematics/src/migrations/2_0/component-deprecations-data.ts`. The `COMPONENT_DEPRECATION_DATA` constant describes the deprecated components.
 
 ## CSS
 
-To handle CSS changes, we print a link to the CSS migration documentation, where customers can look up which CSS selectors have changed between Spartacus versions. For this reason, if you are making a change to a CSS selector, please update the relevant documentation (for example, [Changes to Styles in 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/css-changes-in-version-3.md %})).
+To handle CSS changes, we print a link to the CSS migration documentation, where customers can look up which CSS selectors have changed in the new version of Spartacus. If you are making a change to a CSS selector, simply update the relevant documentation (such as, [Changes to Styles in 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/css-changes-in-version-3.md %})).
 
 ## Adding a Migration
 
-The following is an example flow for adding a migration, after finishing work on a feature, a bug, or any other change to the source code:
+The following is an example flow for adding a migration:
 
-- Check whether any of the changed files are exported in the public API. If no files are exported in the public API, no further action is required.
+- Check whether any of the changed files are exported in the public API. If no, then no further action is required.
 - Check whether any of the changes you have made are breaking changes. If not, no further action is required. For more information, see [Maintaining Public APIs]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}).
 - For every breaking change, you must do the following:
   - Document the breaking change by updating the corresponding migration doc file (such as `docs/migration/3_0.md`), and if necessary, ensure that code comments have been added.
-  - Build automation tasks, as described in the above [Validations](#validations), [Constructor Deprecation](#constructor-deprecation), and [Component Deprecation](#component-deprecation)) sections.
+  - Build automation tasks, as described in the [Validations](#validations), [Constructor Deprecation](#constructor-deprecation), and [Component Deprecation](#component-deprecation)) sections, above.
   - Test the added migrations by running tests, trying to migrate an example app, and so on.
 
 You can see an example of adding a migration in [this pull request](https://github.com/SAP/spartacus/pull/9946/files).
