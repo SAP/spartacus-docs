@@ -1,7 +1,7 @@
 ---
 title: Configurable Products Integration
 ---
-**Note:** This feature is available as of version 3.1 of the Spartacus libraries.
+**Note:** This feature is planned for release with version 3.1 of the Spartacus libraries.
 
 ## Overview
 
