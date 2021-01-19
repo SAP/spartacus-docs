@@ -18,7 +18,9 @@ The first quarter of 2021 will see the inclusion of the Spartacus libraries for 
 - Basic conflict handling
 - Configurable products are part of storefront processes such as catalog browsing, product detail page, add to cart, checkout, and order history
 
-SAP Variant Configuration and Pricing provides the UI for configuring and selling configurable products using the SAP Variant Configuration and Pricing add-on for Commerce. **Note that the Spartacus libraries do not include the add-on itself.**
+The SAP Variant Configuration and Pricing add-on for Commerce provides the user interface (UI) with which configurable products can be configured and sold using SAP Variant Configuration and Pricing.
+ 
+**Note that the Spartacus libraries do not include the add-on itself.**
 
 For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US) and [Configurable Products Integration](https://github.com/SAP/spartacus-docs/blob/doc/GH-941/_pages/ccp/ccp-integration.md).
 
