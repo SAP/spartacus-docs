@@ -29,7 +29,7 @@ Each script has a set of properties, which are described as follows:
   - `version` indicates which version of Spartacus the migration is intended for.
   - `migration-feature-name` is a short name that describes what the migration is doing.
   - `sequence-number` indicates the order of execution for the migration scripts. For example, if a script has a `sequence-number` of `03`, it will be the third script to execute when the migration scripts are run.
-- `version` is very important for the Angular update mechanism. It is used to automatically run the required migration scripts for a specific version. For more information, see the [Releasing Update Schematics](#releasing-update-schematics) section.
+- `version` is very important for the Angular update mechanism. It is used to automatically run the required migration scripts for a specific version. For more information, see the [Releasing Update Schematics](https://github.com/SAP/spartacus/tree/develop/projects/schematics#releasing-update-schematics) section of the schematics README.
 - `factory` points to the relevant migration script.
 - `description` is a short, free-form description field to describe what the migration script does.
 
