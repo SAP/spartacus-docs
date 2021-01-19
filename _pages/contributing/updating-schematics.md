@@ -7,7 +7,7 @@ When upgrading Spartacus to a new major version (for example, from 3.x to 4.0), 
 
 When you are working on a feature or a bug, or making any other change to the Spartacus source code, you need to update the schematics as part of the [Definition Of Done]({{ site.baseurl }}{% link _pages/contributing/definition-of-done.md %}). By making these updates iteratively as part of the DoD for each change to the source code, it saves you from having to spend a lot of time upgrading the migration mechanism at the end of the development cycle, and as a result, it makes it easier to prepare the Spartacus libraries for a new major version.
 
-## Migrations Mechanism
+## Migration Mechanism
 
 After upgrading to a new major version, the migration mechanism should be updated at the very beginning of the new development cycle. For example, if Spartacus has been updated from version 2.x to 3.0, the updated mechanism should be merged to the `develop` branch as soon as possible. This allows contributors to include migrations with their features and bug fixes from the very start of the development cycle.
 
