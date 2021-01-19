@@ -7,7 +7,7 @@ When upgrading Spartacus to a new major version (for example, from 3.x to 4.0), 
 
 When you are working on a feature or a bug, or making any other change to the Spartacus source code, you need to update the schematics as part of the [Definition Of Done]({{ site.baseurl }}{% link _pages/contributing/definition-of-done.md %}). By making these updates iteratively as part of the DoD for each change to the source code, it saves you from having to spend a lot of time upgrading the migration mechanism at the end of the development cycle, and as a result, it makes it easier to prepare the Spartacus libraries for a new major version.
 
-## Migrations Mechanism
+## Migration Mechanism
 
 After upgrading to a new major version, the migration mechanism should be updated at the very beginning of the new development cycle. For example, if Spartacus has been updated from version 2.x to 3.0, the updated mechanism should be merged to the `develop` branch as soon as possible. This allows contributors to include migrations with their features and bug fixes from the very start of the development cycle.
 
@@ -29,7 +29,7 @@ Each script has a set of properties, which are described as follows:
   - `version` indicates which version of Spartacus the migration is intended for.
   - `migration-feature-name` is a short name that describes what the migration is doing.
   - `sequence-number` indicates the order of execution for the migration scripts. For example, if a script has a `sequence-number` of `03`, it will be the third script to execute when the migration scripts are run.
-- `version` is very important for the Angular update mechanism. It is used to automatically run the required migration scripts for a specific version. For more information, see the [Releasing Update Schematics](#releasing-update-schematics) section.
+- `version` is very important for the Angular update mechanism. It is used to automatically run the required migration scripts for a specific version. For more information, see the [Releasing Update Schematics](https://github.com/SAP/spartacus/tree/develop/projects/schematics#releasing-update-schematics) section of the schematics README.
 - `factory` points to the relevant migration script.
 - `description` is a short, free-form description field to describe what the migration script does.
 
