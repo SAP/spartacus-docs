@@ -96,7 +96,7 @@ For a detailed list of all changes for 2.0 and previous 'next' releases of the S
 *Release 1.5 libraries published February 26, 2020*
 
 - [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
-Context-Driven Services provides real-time customer experience personalization for SAP Commerce, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Context-Driven Services feature itself, see the [Context-Driven Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+Context-Driven Services provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Context-Driven Services feature itself, see the [Context-Driven Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
 Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
@@ -154,13 +154,13 @@ What's new?
 
 ### Core/B2C Storefront Features
 
-- Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce 1905)  
+- Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce Cloud 1905)  
   [Spartacus Documentation](https://sap.github.io/spartacus-docs/asm) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 
 - Anonymous consent  
   [Spartacus Documentation](https://sap.github.io/spartacus-docs/anonymous-consent) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
   
-- Coupons (requires October patch release of SAP Commerce 1905)  
+- Coupons (requires October patch release of SAP Commerce Cloud 1905)  
   [Spartacus Documentation](https://sap.github.io/spartacus-docs/coupons) [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
 
 ### B2B Storefront Features
@@ -274,8 +274,8 @@ Architectural and foundational features:
 | Extendable architecture          | Replace existing components with custom components; add custom components before or after existing components; customize component-specific business logic; re-use public internal services |
 | Customizable Styling             | Global variables for ease of branding; precise selectors for fine-tuning styling; also useful for certain simple positioning changes |
 | Responsive Design                | Layouts display properly on devices of different sizes; ootb viewports include mobile, tablet, desktop, wide desktop; configurable |
-| CMS                              | Driven almost completely by CMS provided by SAP Commerce backend; can be used for marketing content and also as placeholders for injecting functionality; can use third-party systems |
-| SmartEdit                        | SmartEdit supported; same functionality as in Accelerator (requires SAP Commerce 1905) |
+| CMS                              | Driven almost completely by CMS provided by SAP Commerce Cloud backend; can be used for marketing content and also as placeholders for injecting functionality; can use third-party systems |
+| SmartEdit                        | SmartEdit supported; same functionality as in Accelerator (requires SAP Commerce Cloud 1905) |
 | Routing                          | Allows configuration of all site URLs (e.g. /products/shoes); configurable in Spartacus application but also controlled by CMS routing configuration defined in the backend (thus editable by SmartEdit); includes default configurations so no customization necessary to get Spartacus working |
 | SSR                              | SSR (Server-Side Rendering) supported, where HTML page is rendered on the server instead of on the client; required to for SEO / search site indexing; also improves performance of first time-to-view |
 | SEO                              | Stateful URLs for every part of the storefront; search engine indexing supported by way of SSR; configurable routing; page meta resolvers including title, description, image (og:image), and robots |

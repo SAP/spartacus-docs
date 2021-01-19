@@ -280,6 +280,6 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
     - **javascriptUrl** specifies the URL of the Web SDK that you wish to load. This is constructed using the value of the Site API Key, and the data center where the Customer Data Cloud site is created. For example, `https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>`
 
-    - **sessionExpiration** is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce token live for the same time.
+    - **sessionExpiration** is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce Cloud token live for the same time.
 
 4. Build and start the storefront app to verify your changes.
