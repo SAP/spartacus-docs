@@ -18,7 +18,7 @@ The first quarter of 2021 will see the inclusion of the Spartacus libraries for 
 - Basic conflict handling
 - Configurable products are part of storefront processes such as catalog browsing, product detail page, add to cart, checkout, and order history
 
-For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US).
+For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US) and [Configurable Products Integration](https://github.com/SAP/spartacus-docs/blob/doc/GH-941/_pages/ccp/ccp-integration.md).
 
 ## Pre-Release Libraries for 3.0.0 and earlier
 
