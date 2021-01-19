@@ -450,6 +450,8 @@ docs:
             url: /a11y-e2e-tests/
           - title: "Maintaining Public APIs"
             url: /breaking-changes/
+          - title: "Updating Schematics"
+            url: /updating-schematics/  
           - title: "Continuous Integration"
             url: /continuous-integration/ 
           - title: "Feature Flags and Code Deprecation"
