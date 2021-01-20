@@ -22,7 +22,7 @@ The `pwaConfigurationFactory`, `pwaFactory`, `getStructuredDataFactory` and `ski
 
 ### Bad Request Handler
 
-The `BadRequestHandler` handles 400 errors. Previously, it was handling `not found` errors for OCC CMS pages because these were not returned as 404 errors. This was done in a generic way, by handling *all other errors*. Since the 1905 release of SAP Commerce, the OCC CMS returns a 404 error if a page is not found. Accordingly, we removed this special handling in the `BadRequestHandler`. This might affect custom implementations that relied on this behavior, and in these cases, it is recommended to throw 404 errors from your back end, or to customize the `BadRequestHandler`.
+The `BadRequestHandler` handles 400 errors. Previously, it was handling `not found` errors for OCC CMS pages because these were not returned as 404 errors. This was done in a generic way, by handling *all other errors*. Since the 1905 release of SAP Commerce Cloud, the OCC CMS returns a 404 error if a page is not found. Accordingly, we removed this special handling in the `BadRequestHandler`. This might affect custom implementations that relied on this behavior, and in these cases, it is recommended to throw 404 errors from your back end, or to customize the `BadRequestHandler`.
 
 ### UrlMatcherFactoryService was renamed to UrlMatcherService and its methods were renamed
 
@@ -95,7 +95,7 @@ The `getComponentState`, `getComponentEntities`, `componentStateSelectorFactory`
 
 ### Default OCC prefix
 
-The default value for the `backend.occ.prefix` configuration key is now `/occ/v2/`. This is the default value for the 2005 release of SAP Commerce.
+The default value for the `backend.occ.prefix` configuration key is now `/occ/v2/`. This is the default value for the 2005 release of SAP Commerce Cloud.
 
 ### Cart components changes
 

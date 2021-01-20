@@ -1,5 +1,9 @@
 ---
 title: Pagination Component
+feature:
+- name: Pagination Component
+  spa_version: 2.0
+  cx_version: n/a
 ---
 
 **Note:** Improvements to this feature are introduced with version 2.0 of the Spartacus libraries.

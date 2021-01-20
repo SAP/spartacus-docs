@@ -2,115 +2,82 @@
 title: Journey Management - MSISDN
 ---
 
-**Note:** This feature is introduced in version 1.1.0 of the TUA Spartacus libraries.
+{% capture version_note %}
+{{ site.version_note_part1 }} 1.2 {{ site.version_note_forTUA }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 ## Contents
 
 - [Overview](#overview)
-- [Key Personas](#key-personas)
+- [Prerequisite](#prerequisite)
 - [Business Use Case](#business-use-case)
-- [Navigation Flow](#navigation-flow)
-- [Requirements and Dependencies](#requirements-and-dependencies)
-- [Configuring and Enabling MSISDN](#configuring-and-enabling-msisdn)
+- [Frontend Requirements and Dependencies](#frontend-requirements-and-dependencies)
+- [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua)
+- [Components](#components)
+- [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
 ## Overview
 
-The `Journey Management - MSISDN (Mobile Station International Subscriber Directory Number)` feature enables the customers browsing the telco and utilities accelerator for project "Spartacus" (TUA Spartacus) storefront to select an MSISDN, before adding the selected product offering or a service plan to the cart.
+As a result of Journey Management configuration, some product offerings may be defined with the requirement of an MSISDN selection. This means that the MSISDN or Mobile Number must be selected (reserved) by the customer before the order can be successfully placed. The Journey Management - MSISDN feature enables customers to make this selection during the "Add to Cart" process. The retrieval of MSISDN numbers for selection and reservation requires a third-party integration.
 
-`MSISDN` is a number used to identify a mobile phone number internationally from the available MSISDNs. This number includes a country code and a National Destination Code, which identifies the subscriber's operator.
+**Note:** This feature applies to product offerings that have a checklist policy for `MSISDN Reference` configured. For more information, see [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua).
 
-**Note:** The `Journey Management - MSISDN` feature applies to only those product offerings or service plans for which a checklist policy is configured at the backend by the Product Manager..
+## Prerequisite
 
-## Key Personas
+To test this feature using a mockup service, follow the instructions to set-up soapUI. Ensure that the MSISDN system is always up and running.
 
-- **Customers:** Customers who are interested in the product offerings and the different service plans.
-- **Product Managers:** Backoffice users who manage the product catalog.
+**Note:** The mockup service is not recommended for the production environments as it is intended only for demonstration purpose.
+
+1. Download [soapUI, version 5.6.0](https://www.soapui.org/downloads/latest-release/) as per your installed Operating System.
+2. Navigate to the [TUA Spartacus git repository](https://github.com/SAP/spartacus-tua/releases/tag/1.1.0) and download the `mock_services.zip` file.
+3. Extract the `mock_services.zip` file. The content of the ZIP when extracted is the `Resource_Pool_Management_API.xml` file.
+4. Click the **Import** icon on the soapUI toolbar. The `Select soapUI Project` file dialog box opens. Import the  `Resource_Pool_Management_API.xml` file into the soapUI.
+5. Right-click **MSISDN** and then click **Start Minimized**. When the mock service is up, you can see that the MSISDN mock service is also up and running.
 
 ## Business Use Case
 
-A customer wants to purchase a service plan. Before adding the chosen service plan to the cart, the `Select Your desired Phone Number` screen is displayed, based on the checklist policy configured at the backend by the Product Manager. The customer is required to select a phone number (MSISDN) from the available phone numbers.
+A customer wants to purchase a product offering that requires an MSISDN selection. During the "Add to Cart" process, the customer is prompted to `Select your desired Phone Number`. The customer makes a selection and the product offering is added to the cart, along with the MSISDN number selection. Customers also have the ability to change the selected MSISDN number to a new selection in the cart before placing the order.
 
-The business use case includes the following steps:
+## Frontend Requirements and Dependencies
 
-1. The customer searches and selects a service plan; for example, Unlimited Starter Plan, and clicks **Add to Cart** to add the selected service plan to the cart.
-2. Based on checklist actions configured for MSISDN at the backend by Product Manager, the `Select Your desired Phone Number` screen displays MSISDNs to the customer.
-3. The customer selects the desired MSISDN from the available MSISDNs, before adding the service plan to the cart.
-4. The selected service plan is added to the cart.
-5. The customer can edit the MSISDN before proceeding to checkout the service plan.
-6. The customer places an order for the service plan.
+| Dependency                                	| Detail                                                 	|
+|--------------------------------------------	|--------------------------------------------------------	|
+| Recipe                                     	| b2c_telco_spa                                          	|
+| Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
+| Minimum   version of core commerce backend 	| SAP Commerce Cloud release 1905 (latest patch is recommended) 	|
 
-## Navigation Flow
+## Configuring and Enabling MSISDN in TUA
 
-- Search and select the desired service plan, for example, Unlimited Starter Plan.
+The checklist policy for the MSISDN-Reference for a selected product offering is configured in the Backoffice by a Product Manager. For more information, see [Journey Checklist Policy Configurations](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
-<p align="center"><img src="/assets/images/telco/1MSISDN_Add_to_Cart.png"></p>
+## Components
 
-- Click **Add to Cart**. The `Select Your Desired Phone Number` screen is displayed, based on the checklist policy configured for MSISDN at the backend by the Product Manager.
+The following MSISDN components must be enabled in the TUA backoffice to appear on the Spartacus TUA storefront:
 
-    **Note:** The first MSISDN is preselected.
+| Component Name                           | Description                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| LogicalResourceComponent                 | Displays the logical resource details on   the order, order history, cart summary, and cart popup pages                                       |
+| JourneyChecklistLogicalResourceComponent | Displays the available logical resource details to the customer.   Customers can select the desired logical resource from the available list |
+| JourneyChecklistStepComponent            | Displays a stepper component that renders the checklist components   one-by-one                                                                       |
 
-- Click an MSISDN from the available MSISDNs.
+## TM Forum APIs
 
-<p align="center"><img src="/assets/images/telco/2MSISDN_Select_Desired_Phone.png"></p>
+| API Name                       | API Endpoint                                        | Description                                                                                                  |
+|--------------------------------------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| Tmf Resources#TMF-ChecklistActionAPI | /checklistAction                                | Shows applicable list of checklist policies for the product offerings                                        |
+| TMF-685                              | POST /resourcePoolManagement/AvailabilityCheck  | Retrieves available resource entities (MSISDN)                                                               |
+| TMF-685                              | POST /resourcePoolManagement/Reservation        | Creates a reservation instance                                                                               |
+| TMF-685                              | PATCH /resourcePoolManagement/Reservation/{id}  | Updates a reservation instance                                                                               |
+| TMF-685                              | GET /resourcePoolManagement/reservation/        | Retrieves a list of reservations. Additional filters can also be applied   to get the relevant search result |
 
-- Click **CONTINUE**. The selected MSISDN is displayed in the `Item(s) added to your cart` screen.
-
-<p align="center"><img src="/assets/images/telco/3MSISDN_Items_Added-to_Cart.png"></p>
-
-- Click **View Cart**. The cart displays all relevant details of the service plan (Unlimited Starter Plan) with the MSISDN.
-
-<p align="center"><img src="/assets/images/telco/4MSISDN_Proceed_to_Checkout.png"></p>
-
-- Click the pencil icon to edit the MSISDN. The `Select a suitable MSISDN` screen is displayed. 
-- Select a suitable MSISDN and click **Update**. The cart page displays the updated MSISDN.
-- Click **Proceed to Checkout** to purchase the service plan.
-
-## Requirements and Dependencies
-
-### Frontend Requirements and Dependencies
-
-In progress.
-
-### Backend Requirements and Dependencies
-
-The checklist policy must be configured to display the MSISDNs screen, for the customer to select the desired MSISDN.
-
-### Supported Back End Functionality
-
-- [Product Catalog](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [Telco & Utilities Accelerator Data Model for Entities exposed Via TMF and OCC APIs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-- [Telco & Utilities Accelerator Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/552515309dd545e7b7878eb081b56453.html).
-
-|  Entity Exposed for Journey Checklist            	 |TMF and OCC API                          |Description                         |
-|----------------|-------------------------------|-----------------------------|
-|TmaSubscriptionBase|[GET/subscriptionBase](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_listsubscriptionbase)            |The API displays a list of  retrieves the list of SubscriptionBase resources that a customer has access to            |
-|TmaSubscribedProduct          |[GET /product/{productId}](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_productget)            |The API displays details of a subscribed product            |
-|TmaSubscriptionUsage          |[GET /usageConsumptionReport](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_usageconsumptionreportfind)| The API requests the calculation of a new usage consumption report for a subscribed product |||
-
-## Configuring and Enabling MSISDN
-
-To configure and enable MSISDN, follow the steps:
-
-1. Log in to the **Backoffice**.
-2. Navigate to **Catalog > Conditional Policies > Policy Statement > Checklist Action Statement > Configurable Psc Checklist Action Statement**. The `Checklist action type` page is displayed.
-3. Click the **Checklist Action type**. The details are displayed in the following pane.
-4. In the **PROPERTIES** tab, ensure that `MSISDN` is selected as the property in the Checklist Action Type field.
-5. In the **Product Offering** field, select the product offering for configuring MSISDN.
-
-### Components
-
-|  Component Name            	 |Status                         |Description                         |
-|----------------|-------------------------------|-----------------------------|
-|TmaLogicalResourceComponent|New            |Interacts with the mock TMF API to fetch details of logical resource            |
-|TmaLogicalResourceDisplayComponent          |New            |Displays the LogicalResource in the **Add to Cart** popup, in the **Cart** page and in the **Order** page          |[GET /usageConsumptionReport](https://help.sap.com/doc/c280898e0829413d838559088d5e4b5f/2007/en-US/index_TMF_V2.html#_usageconsumptionreportfind)| The API requests the calculation of a new usage consumption report for a subscribed product |||
-
-### Sample Data
-
-In progress.
+For more information, see [TM Forum APIs](https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/2007/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html).
 
 ## Further Reading
 
-Consult the Telco & Utilities Accelerator Help Portal for more information on the following topics:
+For further reading, see the following topics in the TUA Help portal.
 
-- [Standardization of the Names of the Service Plans](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2007/en-US/1efef20cf9ab42b59f1bdb9004e67477.html)
+- [Checklist Policy](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html).
+- [Making Components Visible](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html).

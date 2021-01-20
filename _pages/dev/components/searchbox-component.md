@@ -1,5 +1,9 @@
 ---
 title: Searchbox Component
+feature:
+- name: Searchbox Component
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 The searchbox component allows you to search the product catalog using typeahead search (also known as autocomplete or autosuggest search).
@@ -52,5 +56,5 @@ The component styles are provided by the `%cx-searchbox` placeholder selector in
 
 ## Known Limitations
 
-- The search configuration in SAP Commerce allows for a redirect configuration. This configuration is not yet implemented in Spartacus.
+- The search configuration in SAP Commerce Cloud allows for a redirect configuration. This configuration is not yet implemented in Spartacus.
 - The searchbox only searches products and product suggestions. There is no search for categories, pages, or other content types.

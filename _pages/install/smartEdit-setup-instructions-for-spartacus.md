@@ -14,7 +14,7 @@ feature:
 
 ## Prerequisites
 
-For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer) with `spartacussampledataaddon` installed.
+For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer) with `spartacussampledata` installed.
 
 ## Configuring SmartEdit to work with a Spartacus storefront
 
