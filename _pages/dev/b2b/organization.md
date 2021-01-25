@@ -20,11 +20,10 @@ Commerce Org allows companies to create and manage their buying company as repre
 - **Purchase thresholds** (labelled as "Permissions" in Powertools), which trigger approvals if over the threshold (assigned to users)
 - **User groups**
 
-## Configuration
+## UI
 
-Config details
 
-## Override RoutingConfig
+### Override RoutingConfig
 
 
 In organization module, we have defined the following routes:
@@ -69,7 +68,7 @@ imports: [
 ]
 ```
 
-## Override CmsConfig
+### Override CmsConfig
 
 Organization library provides clear split into features. They are reflected in feature list components. 
 
@@ -106,7 +105,7 @@ imports: [
 ]
 ```
 
-## Override TableConfig
+### Override TableConfig
 
 Following lists in organization module which can be overridden:
 ```ts
@@ -166,14 +165,190 @@ providers: [
   provideConfig(myTableConfig)
 ],
 ```
+
+
+###Local message component
+TODO
+
+###Cell components
+TODO
+
 ## Core
 
-Structure:
-In simplify we store everything related to organization in entities and lists of ID separately.
+###Guards:
+We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components) `AdminGuard` which verify that logged user has permissions to see organization pages. By default, it redirects into organization home page and displays warning message. 
+
+###Models
+TODO 
+
+### Occ
+Config - Organization uses below endpoints for data access:
+```ts
+export const defaultOccOrganizationConfig: OccConfig = {
+  backend: {
+    occ: {
+      endpoints: {
+        budgets: '/users/${userId}/budgets',
+        budget: '/users/${userId}/budgets/${budgetCode}',
+        orgUnitsAvailable: '/users/${userId}/availableOrgUnitNodes',
+        orgUnitsTree: '/users/${userId}/orgUnitsRootNodeTree',
+        orgUnitsApprovalProcesses:
+          '/users/${userId}/orgUnitsAvailableApprovalProcesses',
+        orgUnits: '/users/${userId}/orgUnits',
+        orgUnit: '/users/${userId}/orgUnits/${orgUnitId}',
+        orgUnitUsers:
+          '/users/${userId}/orgUnits/${orgUnitId}/availableUsers/${roleId}',
+        orgUnitApprovers:
+          '/users/${userId}/orgUnits/${orgUnitId}/orgCustomers/${orgCustomerId}/roles',
+        orgUnitApprover:
+          '/users/${userId}/orgUnits/${orgUnitId}/orgCustomers/${orgCustomerId}/roles/${roleId}',
+        orgUnitUserRoles:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/roles',
+        orgUnitUserRole:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/roles/${roleId}',
+        orgUnitsAddresses: '/users/${userId}/orgUnits/${orgUnitId}/addresses',
+        orgUnitsAddress:
+          '/users/${userId}/orgUnits/${orgUnitId}/addresses/${addressId}',
+        userGroups: '/users/${userId}/orgUnitUserGroups',
+        userGroup: '/users/${userId}/orgUnitUserGroups/${userGroupId}',
+        userGroupAvailableOrderApprovalPermissions:
+          '/users/${userId}/orgUnitUserGroups/${userGroupId}/availableOrderApprovalPermissions',
+        userGroupAvailableOrgCustomers:
+          '/users/${userId}/orgUnitUserGroups/${userGroupId}/availableOrgCustomers',
+        userGroupMembers:
+          '/users/${userId}/orgUnitUserGroups/${userGroupId}/members',
+        userGroupMember:
+          '/users/${userId}/orgUnitUserGroups/${userGroupId}/members/${orgCustomerId}',
+        userGroupOrderApprovalPermissions:
+          '/users/${userId}/orgUnitUserGroups/${userGroupId}/orderApprovalPermissions',
+        userGroupOrderApprovalPermission:
+          '/users/${userId}/orgUnitUserGroups/${userGroupId}/orderApprovalPermissions/${orderApprovalPermissionCode}',
+        costCenters: '/costcenters',
+        costCenter: '/costcenters/${costCenterCode}',
+        costCentersAll: '/costcentersall',
+        costCenterBudgets: '/costcenters/${costCenterCode}/budgets',
+        costCenterBudget:
+          '/costcenters/${costCenterCode}/budgets/${budgetCode}',
+        permissions: '/users/${userId}/orderApprovalPermissions',
+        permission:
+          '/users/${userId}/orderApprovalPermissions/${orderApprovalPermissionCode}',
+        orderApprovalPermissionTypes: '/orderApprovalPermissionTypes',
+        b2bUsers: '/users/${userId}/orgCustomers',
+        b2bUser: '/users/${userId}/orgCustomers/${orgCustomerId}',
+        b2bUserApprovers:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/approvers',
+        b2bUserApprover:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/approvers/${approverId}',
+        b2bUserUserGroups:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/orgUserGroups',
+        b2bUserUserGroup:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/orgUserGroups/${userGroupId}',
+        b2bUserPermissions:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/permissions',
+        b2bUserPermission:
+          '/users/${userId}/orgCustomers/${orgCustomerId}/permissions/${premissionId}',
+      },
+    },
+  },
+};
+```
+###Serializers:
+TODO list of serializers
+
+###Normalizers:
+TODO list of normalizers
+
+###Adapters:
+TODO list of adapters
+
+### Store
+Main assumptions:
+- Every PATCH/POST action clean whole organization state to make sure, that we have always up to date data.
+- Components and their services have responsibility to routing redirects.
+- In facades, we try load data only if they were not loaded before.
 
 Exceptions:
-- We avoid cleaning users list when we assign / unassign an approver for user 
-- We have missing id while creation of user and address, so there are some routing redirections applied directly in effects. 
+- We avoid cleaning users list when we assign / unassign an approver for user (race condition in split view)
+- We have missing id while creation of user, so there are some routing redirections applied directly in effects.
+
+
+Organization model stored in redux contains all main features:
+```ts
+export interface OrganizationState {
+  [BUDGET_FEATURE]: BudgetManagement;
+  [ORG_UNIT_FEATURE]: OrgUnits;
+  [USER_GROUP_FEATURE]: UserGroupManagement;
+  [PERMISSION_FEATURE]: PermissionManagement;
+  [COST_CENTER_FEATURE]: CostCenterManagement;
+  [B2B_USER_FEATURE]: B2BUserManagement;
+}
+```
+In simplify we store everything related to organization in entities and lists of IDs separately. Associated data for a subsection is stored in their own feature, but for specific views we use combination of ID and query params to store list of IDs and other information.
+
+```ts
+export interface Management<Type> extends StateUtils.EntityListState<Type> {}
+
+export interface BudgetManagement extends Management<Budget> {}
+
+export interface OrgUnits {
+  availableOrgUnitNodes: StateUtils.EntityLoaderState<B2BUnitNode[]>;
+  entities: StateUtils.EntityLoaderState<B2BUnit>;
+  tree: StateUtils.EntityLoaderState<B2BUnitNode>;
+  approvalProcesses: StateUtils.EntityLoaderState<B2BApprovalProcess[]>;
+  users: StateUtils.EntityLoaderState<ListModel>;
+  addressList: StateUtils.EntityLoaderState<ListModel>;
+  addressEntities: StateUtils.EntityLoaderState<Address>;
+}
+
+export interface UserGroupManagement extends Management<UserGroup> {
+  permissions: StateUtils.EntityLoaderState<ListModel>;
+  customers: StateUtils.EntityLoaderState<ListModel>;
+}
+
+export interface PermissionManagement extends Management<Permission> {
+  permissionTypes: StateUtils.EntityLoaderState<OrderApprovalPermissionType[]>;
+}
+
+export interface CostCenterManagement extends Management<CostCenter> {
+  budgets: StateUtils.EntityLoaderState<ListModel>;
+}
+
+export interface B2BUserManagement extends Management<B2BUser> {
+  approvers: StateUtils.EntityLoaderState<ListModel>;
+  permissions: StateUtils.EntityLoaderState<ListModel>;
+  userGroups: StateUtils.EntityLoaderState<ListModel>;
+}
+```
+For more details about usage of EntityLoaderState, please see section [Loader Meta Reducer](https://sap.github.io/spartacus-docs/loader-meta-reducer/#defining-the-state-interface)
+
+
+E.g. For `User group` structure can look like this:
+```ts
+userGroup:
+    entities:
+        entities: {edited-entity-a33xc5fnn: {…}, edited-entity-xi4yvmatz: {…}, edited-entity-f88ca37gt: {…}, edited-entity-cfew7374i: {…}, edited-entity-jjajzn4na: {…}, …}
+    list:
+        entities:
+            ?pageSize=10&currentPage=&sort=:
+                error: false
+                loading: false
+                success: true
+                value: {ids: Array<String>(10), pagination: {…}, sorts: Array(3)}
+    customers:
+        entities:
+            edited-entity-a33xc5fnn?pageSize=10&currentPage=&sort=: {loading: false, error: false, success: true, value: {…}}
+            edited-entity-a33xc5fnn?pageSize=2147483647&currentPage=&sort=: {loading: false, error: false, success: true, value: {…}}
+    permissions:
+        entities:
+            edited-entity-a33xc5fnn?pageSize=10&currentPage=&sort=: {loading: false, error: false, success: true, value: {…}}
+            edited-entity-a33xc5fnn?pageSize=2147483647&currentPage=&sort=: {loading: false, error: false, success: true, value: {…}}
+
+```
+Where:
+- `entities` stores user group real objects (key mapped to status flags and value)
+- `list` stores list of user groups IDs for specified page (keys based on query params like pagination, sort)
+- `customers`, `permisions` stores ID's for a subsection (keys based on ID of user group and query params)
+* `pageSize=2147483647` means, we fetch all possible items - max Java safe integer
 
 ## Homepage
 
@@ -232,3 +407,8 @@ There is also possibility to upload any image file and use it as an icon in bann
 ## Styles
 
 How to override styles
+TODO
+
+## Assets
+How to override translations
+TODO
