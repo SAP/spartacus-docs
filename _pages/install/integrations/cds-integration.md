@@ -92,6 +92,7 @@ You can carry out all of the following steps after you have set up your Spartacu
         }),
         ...
     ```
+
     The following is a summary of the parameters of the `CdsModule`:
 
     - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
@@ -124,6 +125,11 @@ This ImpEx creates the component in the Staged catalog. To publish it, run a syn
 Context-Driven Merchandising carousels enable a Spartacus storefront to display the results of Context-Driven Merchandising in the form of a product carousel.
 
 For more information, see [Context-Driven Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Context-Driven Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
+
+**Note:** Using the Profile Tag Data Layer for Merchandising Carousel Events requires Spartacus version 2.1.0 or newer. For more information, see the following:
+
+- [Merchandising Reporting](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/b130b714953b4a0eaae1f21279189a96.html)
+- [Configure Profile Tag for Merchandising](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/c45f9bc5bb0444d984362e9a02570777.html#loio306b155081b948558bfe9e1d2aeb2a47)
 
 ### Requirements for Enabling Context-Driven Merchandising
 
