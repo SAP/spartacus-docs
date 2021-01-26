@@ -161,4 +161,7 @@ Only a header of conflict groups gets a warning icon. In the accelerator, the ic
 
 ![Conflicts shown on the B2B Accelerator screen]({{site.baseurl}}/assets/images/ccp/b2b_accelerator.png)
 
+## Browser Refresh
+
+When users refresh the browser, the product configuration is reset to the default configuration (unlike in the accelerator). Users will therefore have to reconfigure their products after reloading the page.
 
