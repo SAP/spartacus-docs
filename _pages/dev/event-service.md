@@ -13,7 +13,8 @@ The event service leverages RxJs Observables to drive the streams of events.
 Events are driven by Typescript classes, which are signatures for a given event and can be instantiated. The following is an example:
 
 ```typescript
-export class CartAddEntryEvent {
+import { CxEvent } from "@spartacus/core";
+export class CartAddEntryEvent extends CxEvent {
   cartId: string;
   userId: string;
   productCode: string;
@@ -63,9 +64,9 @@ const result$ = this.events.get(CartAddEntrySuccessEvent).pipe(
 Since the event service leverages RxJs Observables, event streams are lazy. This means that no defined computations happen (such as pulling data from facades) until someone subscribes to the particular stream of events. The following is an example:
 
 ```typescript
-result$.subscribe(event => {
-    // < log the event (for example, to a tag manager) >
-})
+result$.subscribe((event) => {
+  // < log the event (for example, to a tag manager) >
+});
 ```
 
 ## Registering Event Sources
@@ -124,3 +125,30 @@ onClick() {
   this.events.dispatch(new CustomUIEvent(...));
 }
 ```
+
+## Event Types Inheritance
+
+In Spartacus 3.1, we've introduced a concept of "umbrella" events. The purpose of these events is to group similar events under one common umbrella event. This enables you to observe only the umbrella event, and receive all the grouped events.
+
+For example, `@spartacus/core`'s `PageEvent` is an umbrella event. All the specific page events inherit from it (`HomePageEvent`, `CartPageEvent`, etc.).
+In the previous Spartacus versions, you had to observe each of the page events individually (i.e. `eventService.get(HomePageEvent).subscribe(...)`, `eventService.get(CartPageEvent).subscribe(...)`, etc.).
+Starting from Spartacus 3.1, you can subscribe to all the grouped events just by observing the umbrella event:
+
+```typescript
+eventService.get(PageEvent).subscribe(...) // receives all page events
+```
+
+Note that all events _should_ inherit from `@spartacus/core`'s `CxEvent`:
+
+```typescript
+import { CxEvent } from "@spartacus/core";
+export class MyEvent extends CxEvent {...}
+```
+
+This is not required for the event to work properly, but it is desireable to have in cases you want to observe all events at once:
+
+```typescript
+eventService.get(CxEvent).subscribe(...) // receives all Spartacus' events.
+```
+
+_NOTE: observing all Spartacus' events at once might have a significant performance hit, therefore use with care._
