@@ -7,9 +7,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
 
-## Release 3.1.0-next.0 - [Date]
-
-Configurable Products Pre-Release
+## Release 3.1.0-next.0 - Thursday, January 28, 2021
 
 We're happy to announce that the Spartacus libraries for SAP Variant Configuration and Pricing have been released. These libraries provide the following features:
 
