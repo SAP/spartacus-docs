@@ -272,7 +272,7 @@ export class HomePageEvent extends PageEvent {
  */
 export class CartPageEvent extends PageEvent {
   /** event's type */
-  static type = "CartPageEvent";
+  static readonly type = "CartPageEvent";
 }
 ```
 
