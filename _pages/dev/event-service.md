@@ -152,3 +152,288 @@ eventService.get(CxEvent).subscribe(...) // receives all Spartacus' events.
 ```
 
 _NOTE: observing all Spartacus' events at once might have a significant performance hit, therefore use with care._
+
+## Spartacus Event List
+
+This is the complete list of all the Spartacus events:
+
+### `CxEvent`
+
+```typescript
+/**
+ * An umbrella event, intended to be inherited by all other Spartacus' events.
+ */
+export abstract class CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type: string = "CxEvent";
+}
+```
+
+### Auth events
+
+```typescript
+/**
+ * Indicates that the user has logged out
+ */
+export class LogoutEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "LogoutEvent";
+}
+```
+
+```typescript
+/**
+ * Indicates that the user has logged in
+ */
+export class LoginEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "LoginEvent";
+}
+```
+
+### Navigation and Page Events
+
+```typescript
+/**
+ * Indicates that a user navigated to an arbitrary page.
+ */
+export class NavigationEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "NavigationEvent";
+  /**
+   * The page's context
+   */
+  context: PageContext;
+  /**
+   * The route's semantic name
+   */
+  semanticRoute?: string;
+  /**
+   * The current URL
+   */
+  url: string;
+  /**
+   * The current URL's params
+   */
+  params: Params;
+}
+```
+
+```typescript
+/**
+ * Indicates that a user visited an arbitrary page.
+ */
+export class PageEvent extends CxEvent {
+  /**
+   * @deprecated @since 3.1 - this will be removed in 4.0. Please use `navigation` property instead, or subscribe to NavigationEvent
+   */
+  context: PageContext;
+  /**
+   * @deprecated @since 3.1 - this will be removed in 4.0. Please use `navigation` property instead, or subscribe to NavigationEvent
+   */
+  semanticRoute?: string;
+  /**
+   * @deprecated @since 3.1 - this will be removed in 4.0. Please use `navigation` property instead, or subscribe to NavigationEvent
+   */
+  url: string;
+  /**
+   * @deprecated @since 3.1 - this will be removed in 4.0. Please use `navigation` property instead, or subscribe to NavigationEvent
+   */
+  params: Params;
+
+  /**
+   * `NavigationEvent`'s payload
+   */
+  navigation: NavigationEvent;
+}
+```
+
+```typescript
+/**
+ * Indicates that a user visited a home page.
+ */
+export class HomePageEvent extends PageEvent {
+  /** event's type */
+  static type = "HomePageEvent";
+}
+```
+
+```typescript
+/**
+ * Indicates that a user visited a cart page.
+ */
+export class CartPageEvent extends PageEvent {
+  /** event's type */
+  static type = "CartPageEvent";
+}
+```
+
+### Product and category related events
+
+```typescript
+/**
+ * Indicates that a user visited a product details page.
+ */
+export class ProductDetailsPageEvent extends PageEvent {
+  /** event's type */
+  static readonly type = "ProductDetailsPageEvent";
+  categories?: Category[];
+  code?: string;
+  name?: string;
+  price?: Price;
+}
+```
+
+```typescript
+/**
+ * Indicates that a user visited a category page.
+ */
+export class CategoryPageResultsEvent extends PageEvent {
+  /** event's type */
+  static readonly type = "CategoryPageResultsEvent";
+  categoryCode: string;
+  categoryName?: string;
+  numberOfResults: Number;
+}
+```
+
+### Search events
+
+```typescript
+/**
+ * Indicates that the a user visited the search results page,
+ * and that the search results have been retrieved.
+ */
+export class SearchPageResultsEvent extends PageEvent {
+  /** event's type */
+  static readonly type = "SearchPageResultsEvent";
+  searchTerm: string;
+  numberOfResults: Number;
+}
+```
+
+### Cart Events
+
+```typescript
+/**
+ * Base cart event. Most cart events should have these properties.
+ */
+export abstract class CartEvent extends CxEvent {
+  cartId: string;
+  cartCode: string;
+  userId: string;
+}
+```
+
+```typescript
+// =====================================================================
+
+export class CartAddEntryEvent extends CartEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "CartAddEntryEvent";
+  productCode: string;
+  quantity: number;
+}
+```
+
+```typescript
+export class CartAddEntrySuccessEvent extends CartEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "CartAddEntrySuccessEvent";
+  productCode: string;
+  quantity: number;
+  entry: OrderEntry;
+  quantityAdded: number;
+  deliveryModeChanged: boolean;
+}
+```
+
+```typescript
+export class CartAddEntryFailEvent extends CartEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "CartAddEntryFailEvent";
+  productCode: string;
+  quantity: number;
+}
+```
+
+```typescript
+export class CartRemoveEntrySuccessEvent extends CartEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "CartRemoveEntrySuccessEvent";
+  entry: OrderEntry;
+}
+```
+
+```typescript
+export class CartUpdateEntrySuccessEvent extends CartEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "CartUpdateEntrySuccessEvent";
+  quantity: number;
+  entry: OrderEntry;
+}
+```
+
+### Checkout events
+
+```typescript
+/**
+ * Indicates that a user has successfully placed an order
+ */
+export class OrderPlacedEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "OrderPlacedEvent";
+  /**
+   * Order code
+   */
+  code: string;
+}
+```
+
+### Misc events
+
+```typescript
+/**
+ * Will be thrown in case lazy loaded modules are loaded and instantiated.
+ *
+ * This event is thrown for cms driven lazy loaded feature modules amd it's
+ * dependencies
+ */
+export class ModuleInitializedEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "ModuleInitializedEvent";
+  /**
+   * Name/identifier of the feature associated with this module.
+   *
+   * You can differentiate between feature and dependency modules, as the latter
+   * won't have thus property set.
+   */
+  feature?: string;
+  /**
+   * Reference fpr lazy loaded module instance
+   */
+  moduleRef: NgModuleRef<any>;
+}
+```
