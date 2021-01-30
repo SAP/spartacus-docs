@@ -179,8 +179,18 @@ TODO
 We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components) `AdminGuard` which verify that logged user has permissions to see organization pages. By default, it redirects into organization home page and displays warning message. 
 
 ###Models
-TODO 
-
+- Models from core used in organization 
+`Address, Currency, B2BApprovalProcess, B2BUserRole, OrderApprovalPermissionType`
+- Core models used for structure:
+`ListModel, SearchConfig, StateUtils`  
+- Models augmented core:
+`B2BUnit, B2BUser, CostCenter`
+- Dedicated models for organization:
+`B2BUnitNode, Budget, Permission, Period, UserGroup`
+- Other models, used for processes:
+`LoadStatus, OrganizationItemStatus`
+- Models used for components:
+`B2BUnitTreeNode`
 ### Occ
 Config - Organization uses below endpoints for data access:
 ```ts
@@ -252,15 +262,29 @@ export const defaultOccOrganizationConfig: OccConfig = {
   },
 };
 ```
-###Serializers:
-TODO list of serializers
 
-###Normalizers:
-TODO list of normalizers
+For more information on OCC endpoint configuration, see [Configuring Endpoints](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#configuring-endpoints)
 
 ###Adapters:
-TODO list of adapters
+List of adapters:
+`BudgetAdapter, OrgUnitAdapter, UserGroupAdapter, PermissionAdapter, CostCenterAdapter, B2BUserAdapter`
 
+More information about adapters is available [here.](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#adapter)
+
+###Convertors:
+- List of serializers in core:
+`ADDRESS_SERIALIZER, COST_CENTER_SERIALIZER`
+
+- List of serializers in organization:
+`BUDGET_SERIALIZER, B2B_USER_SERIALIZER, B2BUNIT_SERIALIZER, PERMISSION_SERIALIZER, USER_GROUP_SERIALIZER, `
+
+- List of normalizers in core:
+`COST_CENTERS_NORMALIZER, COST_CENTER_NORMALIZER`
+
+- List of normalizers in organization:
+`BUDGET_NORMALIZER, BUDGETS_NORMALIZER, B2BUNIT_NORMALIZER, B2BUNIT_NODE_NORMALIZER, B2BUNIT_NODE_LIST_NORMALIZER, B2BUNIT_APPROVAL_PROCESSES_NORMALIZER, USER_GROUP_NORMALIZER, USER_GROUPS_NORMALIZER, PERMISSION_NORMALIZER, PERMISSIONS_NORMALIZER, PERMISSION_TYPE_NORMALIZER, PERMISSION_TYPES_NORMALIZER, B2B_USER_NORMALIZER, B2B_USERS_NORMALIZER`
+
+Please see section [convertor](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#convertor) to see more details.
 ### Store
 Main assumptions:
 - Every PATCH/POST action clean whole organization state to make sure, that we have always up to date data.
@@ -322,7 +346,8 @@ export interface B2BUserManagement extends Management<B2BUser> {
 For more details about usage of EntityLoaderState, please see section [Loader Meta Reducer](https://sap.github.io/spartacus-docs/loader-meta-reducer/#defining-the-state-interface)
 
 
-E.g. For `User group` structure can look like this:
+####Example.
+For `User group` structure can look like this:
 ```ts
 userGroup:
     entities:
