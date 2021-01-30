@@ -410,5 +410,29 @@ How to override styles
 TODO
 
 ## Assets
-How to override translations
-TODO
+
+### Override translations
+
+Translation resources for organization can be overridden on the same rules as other spartacus chunks e.g.:
+
+```ts
+provideConfig(
+  {
+    i18n: {
+      resources: {
+        en: {
+          organization: {
+            organization: { // general chunks
+              enabled: 'Enabled',
+            },
+            orgUserGroup: { // specified sub features chunks
+              header: 'List of user groups ({{count}})',
+            }
+          },
+        },
+      },
+    },
+  }
+),
+```
+More about translations please see section [extending translation](https://sap.github.io/spartacus-docs/i18n/#extending-translations)
