@@ -406,8 +406,30 @@ There is also possibility to upload any image file and use it as an icon in bann
 
 ## Styles
 
-How to override styles
-TODO
+How to override organization styles:
+
+Make sure that file is generated properly by schematics, or add it own. Your `angular.json` file should include his path in build styles.
+```ts
+"styles": [
+  "src/styles.scss",
+  "src/styles/spartacus/organization.scss"
+],
+```
+
+In `organization.scss` should be imported organization styles, and you can add your own styles below.
+```ts
+@import "@spartacus/organization";
+
+// your styles, e.g.:
+%organizationList {
+    cx-org-toggle-link-cell {
+        button.tree-item-toggle {
+            background-color: blue;
+        }
+    }
+}
+```
+More about styles in spartacus you can see in section dedicated to [ styles.](https://sap.github.io/spartacus-docs/css-architecture/#component-styles)
 
 ## Assets
 
