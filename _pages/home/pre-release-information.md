@@ -9,6 +9,8 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 ## Release 3.1.0-next.0 - Thursday, January 28, 2021
 
+### SAP Variant Configuration and Pricing
+
 We're happy to announce that the Spartacus libraries for SAP Variant Configuration and Pricing have been released. These libraries provide the following features:
 
 - single-level and multilevel configurable products in your Spartacus storefront, where the product model resides in SAP ERP or SAP S/4HANA
@@ -23,6 +25,16 @@ The SAP Variant Configuration and Pricing add-on for Commerce provides the user 
 **Note:** The SAP Variant Configuration and Pricing add-on for Commerce is not included with the Spartacus libraries.
 
 For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US) and [Configurable Products Integration](https://github.com/SAP/spartacus-docs/blob/doc/GH-941/_pages/ccp/ccp-integration.md).
+
+### Qualtrics Embedded Feedback
+
+We're happy to also announce support for the Qualtrics Embedded Feedback feature. For more information, see [Spartacus Support for Qualtrics Embedded Feedback](https://github.com/SAP/spartacus-docs/blob/develop/_pages/install/integrations/qualtrics-integration.md#spartacus-support-for-qualtrics-embedded-feedback).
+
+**Note:** Starting with Spartacus 3.1, you must install the Qualtrics feature library to be able to use Qualtrics features. You can install the Qualtrics library by running the following command:
+
+```shell
+ ng add @spartacus/qualtrics
+ ```
 
 ## Pre-Release Libraries for 3.0.0 and earlier
 
