@@ -272,16 +272,16 @@ List of adapters:
 More information about adapters is available [here.](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#adapter)
 
 ###Convertors:
-- List of serializers in core:
+- List of serializers in a core:
 `ADDRESS_SERIALIZER, COST_CENTER_SERIALIZER`
 
-- List of serializers in organization:
+- List of serializers in the organization:
 `BUDGET_SERIALIZER, B2B_USER_SERIALIZER, B2BUNIT_SERIALIZER, PERMISSION_SERIALIZER, USER_GROUP_SERIALIZER, `
 
-- List of normalizers in core:
+- List of normalizers in a core:
 `COST_CENTERS_NORMALIZER, COST_CENTER_NORMALIZER`
 
-- List of normalizers in organization:
+- List of normalizers in the organization:
 `BUDGET_NORMALIZER, BUDGETS_NORMALIZER, B2BUNIT_NORMALIZER, B2BUNIT_NODE_NORMALIZER, B2BUNIT_NODE_LIST_NORMALIZER, B2BUNIT_APPROVAL_PROCESSES_NORMALIZER, USER_GROUP_NORMALIZER, USER_GROUPS_NORMALIZER, PERMISSION_NORMALIZER, PERMISSIONS_NORMALIZER, PERMISSION_TYPE_NORMALIZER, PERMISSION_TYPES_NORMALIZER, B2B_USER_NORMALIZER, B2B_USERS_NORMALIZER`
 
 Please see section [convertor](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#convertor) to see more details.
