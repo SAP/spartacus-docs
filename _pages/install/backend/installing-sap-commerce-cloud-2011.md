@@ -160,8 +160,8 @@ The following table summarizes the settings included in this file:
 ### Sample OCC credentials
 
 - By default, SAP Commerce Cloud successfully replies to OCC REST API calls that do not require authentication. For example, you can do the following:
-  - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
-  - Display information about the `Electronics` base store: https://localhost:9002/rest/v2/electronics/basestores/electronics
+  - Display Open API documentation: https://localhost:9002/occ/v2/swagger-ui.html
+  - Display information about the `Electronics` base store: https://localhost:9002/occ/v2/electronics/basestores/electronics
 
 To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end.
 
