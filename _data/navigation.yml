@@ -112,6 +112,8 @@ docs:
                   url: /applied-promotions/
                 - title: "Assisted Service Module"
                   url: /asm/
+                - title: "Bulk Pricing"
+                  url: /bulk-pricing/  
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
                 - title: "Consignment Tracking"

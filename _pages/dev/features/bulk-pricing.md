@@ -7,20 +7,20 @@ feature:
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 3.2 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
 
 ## Overview
 
-B2B Bulk Pricing allows users to be notified about potential saving opportunities that exist when purchasing specific products in bulk. By displaying a pricing table on the product's detail page, users are made aware of different price tiers based on quantity purchased.
+B2B Bulk Pricing allows users to see potential savings for specific products when they are purchased in bulk. A pricing table is displayed on the product details page that lists the different price tiers for the product, based on the quantity that is purchased.
 
 ## CMS Component
 
-B2B Bulk Pricing, is driven by CMS. To have this CMS component, an ImpEx similar to this can be used:
+B2B Bulk Pricing is driven by CMS. You can add the bulk pricing table to your product pages using ImpEx similar to the following:
 
-```sql
+```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 
