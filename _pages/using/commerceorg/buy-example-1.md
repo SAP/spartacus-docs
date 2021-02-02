@@ -68,3 +68,5 @@ The following features are optional, but of course make sense to create in order
 - Approvers (if there are no approvers defined, the administrator is the approver)
 - Spending limits (for triggering approvals but also to allow small purchases to be approved automatically)
 - Budgets (to apply spending limits collectively to a group of buyers)
+
+[Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#custom-angular-cms-components)
