@@ -2,13 +2,13 @@
 title: Budgets
 ---
 
-# Overview
+## Overview
 
 A budget is used to limit spending for overall groups of people. Purchases count against budgets by being associated with cost centers. Buyers must select a cost center when checking out, so the purchase total is counted against that budget.
 
 Budgets are not optional; an error will occur if a cost center is used without a corresponding budget. The same budget can be assigned to multiple cost centers.
 
-# Creating a budget
+## Creating a budget
 
 1. From the My Company home page, click Budgets.
 
@@ -22,7 +22,7 @@ Budgets are not optional; an error will occur if a cost center is used without a
 
 Initially the budget is not assigned to any cost center.
 
-# Assigning a budget to a cost center
+## Assigning a budget to a cost center
 
 1. From the My Company home page, click Cost Centers.
 
