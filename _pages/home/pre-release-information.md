@@ -11,7 +11,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 ### SAP Variant Configuration and Pricing
 
-We're happy to announce that the Spartacus libraries for SAP Variant Configuration and Pricing have been released. These libraries provide the following features:
+We're happy to announce that the Spartacus library for SAP Variant Configuration and Pricing has been released. This library provides the following features:
 
 - single-level and multilevel configurable products in your Spartacus storefront, where the product model resides in SAP ERP or SAP S/4HANA
 - a configuration page with the most commonly used characteristic types, such as radio buttons, checkboxes, drop-down listboxes, and images for characteristic values
