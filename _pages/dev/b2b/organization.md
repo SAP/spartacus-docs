@@ -22,7 +22,6 @@ Commerce Org allows companies to create and manage their buying company as repre
 
 ## UI
 
-
 ### Override RoutingConfig
 
 
@@ -149,7 +148,7 @@ export const myTableConfig: TableConfig = {
       options: {
         cells: {
           name: {
-            dataComponent: MyNameComponent,
+            dataComponent: MyComponent,
           },
         },
       },
@@ -166,19 +165,35 @@ providers: [
 ],
 ```
 
+### Cell components
 
-###Local message component
-TODO
+Several implementations of `CellComponent` have been defined in the organization that apply to tables and subtables.
 
-###Cell components
-TODO
+- `ToggleLinkCellComponent` - allows toggling branches on units list and set styles for depth level
+- `AssignCellComponent` - is used for allows assigning or unassigning items
+- `ActiveLinkCellComponent` - displays name and make whole row as link
+- `AmountCellComponent` - prepared for display budget combined with currency
+- `DateRangeCellComponent` - displays combined start and end date for budget
+- `LimitCellComponent` - depending on orderApprovalPermissionType shows purchase limit
+- `RolesCellComponent` - displays user roles in specified way
+- `StatusCellComponent` - is used for display colorable status of active flag
+- `UnitCellComponent` - displays information about unit of current item
+- `LinkCellComponent` - link for nested views (address)
+- `UnitUserRolesCellComponent` - personalized link for open roles view
+
+### Local message component
+Newly added messages was used in the organization. They work similarly to global messages, but are displayed directly in the component of the subject they concern.
+
+- In common cases we use `NotificationMessageComponent` to display information about success or error.
+
+- `ConfirmationMessageComponent` has been designed to ask question for make sure that user is aware of consequences of his action. Used e.g. in `ToggleStatusComponent` and `DeleteItemComponent`.
 
 ## Core
 
-###Guards:
+### Guards:
 We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components) `AdminGuard` which verify that logged user has permissions to see organization pages. By default, it redirects into organization home page and displays warning message. 
 
-###Models
+### Models
 - Models from core used in organization 
 `Address, Currency, B2BApprovalProcess, B2BUserRole, OrderApprovalPermissionType`
 - Core models used for structure:
@@ -191,6 +206,7 @@ We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-com
 `LoadStatus, OrganizationItemStatus`
 - Models used for components:
 `B2BUnitTreeNode`
+  
 ### Occ
 Config - Organization uses below endpoints for data access:
 ```ts
@@ -265,13 +281,13 @@ export const defaultOccOrganizationConfig: OccConfig = {
 
 For more information on OCC endpoint configuration, see [Configuring Endpoints](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#configuring-endpoints)
 
-###Adapters:
+### Adapters:
 List of adapters:
 `BudgetAdapter, OrgUnitAdapter, UserGroupAdapter, PermissionAdapter, CostCenterAdapter, B2BUserAdapter`
 
 More information about adapters is available [here.](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#adapter)
 
-###Convertors:
+### Convertors:
 - List of serializers in a core:
 `ADDRESS_SERIALIZER, COST_CENTER_SERIALIZER`
 
@@ -285,6 +301,7 @@ More information about adapters is available [here.](https://sap.github.io/spart
 `BUDGET_NORMALIZER, BUDGETS_NORMALIZER, B2BUNIT_NORMALIZER, B2BUNIT_NODE_NORMALIZER, B2BUNIT_NODE_LIST_NORMALIZER, B2BUNIT_APPROVAL_PROCESSES_NORMALIZER, USER_GROUP_NORMALIZER, USER_GROUPS_NORMALIZER, PERMISSION_NORMALIZER, PERMISSIONS_NORMALIZER, PERMISSION_TYPE_NORMALIZER, PERMISSION_TYPES_NORMALIZER, B2B_USER_NORMALIZER, B2B_USERS_NORMALIZER`
 
 Please see section [convertor](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#convertor) to see more details.
+
 ### Store
 Main assumptions:
 - Every PATCH/POST action clean whole organization state to make sure, that we have always up to date data.
@@ -346,7 +363,7 @@ export interface B2BUserManagement extends Management<B2BUser> {
 For more details about usage of EntityLoaderState, please see section [Loader Meta Reducer](https://sap.github.io/spartacus-docs/loader-meta-reducer/#defining-the-state-interface)
 
 
-####Example.
+#### Example.
 For `User group` structure can look like this:
 ```ts
 userGroup:
