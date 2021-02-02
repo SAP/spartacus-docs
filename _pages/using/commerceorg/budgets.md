@@ -34,4 +34,4 @@ Initially the budget is not assigned to any cost center.
 
 In the following example, the budget Bud1 was assigned to Cost Center 2.
 
-<img src="assets/bud1-cc2.png" alt="" width="500" border="1px" />
+<img src="{{ site.baseurl }}/_pages/using/commerceorg/assets/bud1-cc2.png" alt="" width="500" border="1px" />
