@@ -8,7 +8,7 @@ This section will detail how to create a new Page or Component inside Spartacus.
 
 Spartacus receives the page with the list of slots and component and can use it to render the appropriate components.
 
-*Note* if you want to replace an existing component please refer to [Configuring Custom Components](https://sap.github.io/spartacus-docs/customizing-cms-components/#configuring-custom-components)
+*Note* if you want to replace an existing component please refer to [Configuring Custom Components]({{ site.baseurl }}/customizing-cms-components/#configuring-custom-components)
 
 ## Creating a New Page
 
@@ -45,7 +45,7 @@ imports: [
 ]
 ```
 
-The following logic will inject use the `WishlistComponent` wherever it is placed in the CMS. For more details on using CMS components see [Customizing CMS Components](https://sap.github.io/spartacus-docs/customizing-cms-components).
+The following logic will inject use the `WishlistComponent` wherever it is placed in the CMS. For more details on using CMS components see [Customizing CMS Components]({{ site.baseurl }}/customizing-cms-components).
 
 ## Static Pages
 

@@ -213,7 +213,7 @@ The following steps describe how to manually add SSR support so that your Sparta
     export class AppServerModule {}
     ```
 
-    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering](https://sap.github.io/spartacus-docs/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
+    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
 
 1. Add the `server.ts` file to your existing shell app. The following is an example:
 

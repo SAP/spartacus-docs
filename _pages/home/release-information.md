@@ -46,7 +46,7 @@ This document describes what is included in all Spartacus libraries since the in
 - **Uses Angular 10**
 - **B2B Powertools Store support** (for more information, see [Powertools Extension](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae789ad86691014afcccba59ba613e9.html) in the SAP Help Portal)
 - **B2B Commerce Organization** (Spartacus-specific documentation to come - for information on the overall feature as provided by SAP Commerce Cloud, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) in the SAP Help Portal)
-- **B2B Checkout** ([documentation](https://sap.github.io/spartacus-docs/extending-checkout/#b2b-checkout)). For information on the overall feature as provided by SAP Commerce Cloud, see [B2B Checkout](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html) in the SAP Help Portal.
+- **B2B Checkout** ([documentation]({{ site.baseurl }}/extending-checkout/#b2b-checkout)). For information on the overall feature as provided by SAP Commerce Cloud, see [B2B Checkout](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html) in the SAP Help Portal.
 - **B2B Scheduled Replenishment** ([documentation]({{ site.baseurl }}{% link _pages/dev/features/scheduled-replenishment.md %}))
 - **Session Management** ([documentation]({{ site.baseurl }}{% link _pages/dev/session-management.md %}))
 - **Release 3.0 Documentation** published (v2 and v1 archived)
@@ -85,10 +85,10 @@ The following is a summary of the major changes introduced in 2.0:
 - Framework updated to Angular 9, including related dependencies such as ngrx 9
 - [Schematics updated]({{ site.baseurl }}{% link _pages/install/schematics.md %})
 - [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
-- [Lazy loading of CMS components](https://sap.github.io/spartacus-docs/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
+- [Lazy loading of CMS components]({{ site.baseurl }}/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
 - [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}), with Add to Cart event
 - [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %})
-- [Custom Angular URL Matching](https://sap.github.io/spartacus-docs/adding-and-customizing-routes/#avoiding-static-url-segments-in-the-product-page-url-advanced)
+- [Custom Angular URL Matching]({{ site.baseurl }}/adding-and-customizing-routes/#avoiding-static-url-segments-in-the-product-page-url-advanced)
 - Many components refactored
 - New facet navigation makes extending facets easier
 - Deprecated code removed
@@ -148,7 +148,7 @@ What's new?
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
 - [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6)
-- [Stacked Outlets](https://sap.github.io/spartacus-docs/outlets/#stacked-outlets)
+- [Stacked Outlets]({{ site.baseurl }}/outlets/#stacked-outlets)
 - [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
 - [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %})
