@@ -19,7 +19,7 @@ It's important to follow the tutorial in the order presented, as each step build
   - Approvers (users-approvers)
 - Purchase Limits (spend-limits)
 - Cost Centers (cost-centers)
-- Budgets (budgets)
+- [Budgets]({{ site.baseurl }}{% link _pages/using/commerceorg/budgets.md %})
 - Shipping Addresses (shipping-addresses)
 - Purchase and Approval Flow Example - New Units and Users (buy-example-2)
 - Disabling and Deleting Commerce Organization Entities (disabling)
