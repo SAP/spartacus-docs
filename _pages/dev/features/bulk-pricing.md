@@ -14,11 +14,13 @@ feature:
 
 ## Overview
 
-B2B Bulk Pricing allows users to see potential savings for specific products when they are purchased in bulk. A pricing table is displayed on the product details page that lists the different price tiers for the product, based on the quantity that is purchased.
+Bulk Pricing allows users to see potential savings for specific products when they are purchased in bulk. A pricing table is displayed on the product details page that lists the different price tiers for the product, based on the quantity that is purchased.
 
-## CMS Component
+## Enabling Bulk Pricing
 
-B2B Bulk Pricing is driven by CMS. You can add the bulk pricing table to your product pages using ImpEx similar to the following:
+You can enable bulk pricing by selecting it as an option when installing the `@spartacus/product` feature library. For more information, see [Installing Additional Spartacus Libraries](https://sap.github.io/spartacus-docs/schematics/#installing-additional-spartacus-libraries).
+
+Bulk Pricing is driven by CMS. You can add the bulk pricing table to your product pages using ImpEx similar to the following:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
