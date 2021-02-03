@@ -169,21 +169,21 @@ What's new?
   [Draft Spartacus Documentation](https://github.com/SAP/spartacus-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
 
 - Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)  
-[Spartacus Documentation](https://sap.github.io/spartacus-docs/structured-data)
+[Spartacus Documentation]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
 
 - Qualtrics intercept integration and example  
-[Spartacus Documentation](https://sap.github.io/spartacus-docs/qualtrics-integration)
+[Spartacus Documentation]({{ site.baseurl }}{% link _pages/install/integrations/qualtrics-integration.md %})
 
 ### Core/B2C Storefront Features
 
 - Assisted Service Module (ASM) customer emulation (requires October patch release of SAP Commerce Cloud 1905)  
-  [Spartacus Documentation](https://sap.github.io/spartacus-docs/asm) [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
+  [Spartacus Documentation]({{ site.baseurl }}{% link _pages/dev/features/asm.md %}) [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 
 - Anonymous consent  
-  [Spartacus Documentation](https://sap.github.io/spartacus-docs/anonymous-consent) [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
+  [Spartacus Documentation]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}) [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a9f387f70d484c19971aca001dc71bc5.html)
   
 - Coupons (requires October patch release of SAP Commerce Cloud 1905)  
-  [Spartacus Documentation](https://sap.github.io/spartacus-docs/coupons) [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
+  [Spartacus Documentation]({{ site.baseurl }}{% link _pages/dev/features/coupons.md %}) [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/02a8521eb67b4866a632a1a5e79037e3.html?q=coupons)
 
 ### B2B Storefront Features
 
@@ -197,14 +197,14 @@ Powertools sample data modified to work with Spartacus (requires latest spartacu
 
 What's new?
 
-- [Store Locator](https://sap.github.io/spartacus-docs/store-locator)
-- [Guest Checkout](https://sap.github.io/spartacus-docs/guest-checkout)
-- [Express Checkout](https://sap.github.io/spartacus-docs/express-checkout)
-- [Infinite Scroll](https://sap.github.io/spartacus-docs/infinite-scroll)
+- [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %})
+- [Guest Checkout]({{ site.baseurl }}{% link _pages/dev/guest-checkout.md %})
+- [Express Checkout]({{ site.baseurl }}{% link _pages/dev/express-checkout.md %})
+- [Infinite Scroll]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %})
 - Routing Migration
-- [Early Login](https://sap.github.io/spartacus-docs/early-login)
-- [Consignment Tracking](https://sap.github.io/spartacus-docs/consignment-tracking)
-- Angular updated to 8.2.5; ngrx to 8.3.0; other dependency updates
+- [Early Login]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %})
+- [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
+- Angular updated to 8.2.5; NgRx to 8.3.0; other dependency updates
 
 To update to 1.2.0, you must change your libraries in `package.json` and and dependencies inside `app.module.ts`. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
@@ -259,7 +259,7 @@ Release notes: [https://github.com/SAP/spartacus/releases](https://github.com/SA
 - Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
   - [Documentation for development](https://github.com/SAP/spartacus-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/contributing/feature-flags-and-code-deprecation.md)
   - [Documentation for consumption](https://github.com/SAP/spartacus-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/install/configuring-feature-flags.md)
-- [Configurable Endpoints](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#endpoint-configuration)
+- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#endpoint-configuration)
 - [Change to registration and login flow: must log in after registering](https://github.com/SAP/spartacus/issues/2799#issuecomment-525679882)
 - Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
 
