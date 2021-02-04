@@ -403,7 +403,7 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
-                - title: " Journey Management - Appointment Scheduling"
+                - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - Appointment"
                   url: /journey-management-appointment/                           
