@@ -6,11 +6,11 @@ A unit is the basic building block of the organization. A unit represents a depa
 
 Units are the parents of, or are associated with, the following Commerce Organization entities:
 
-- child units
-- users
-- approvers
-- shipping addresses
-- cost centers
+- Child units
+- Users
+- Approvers
+- Shipping addresses
+- Cost centers
 
 Each entity is important in its own way, as follows:
 
