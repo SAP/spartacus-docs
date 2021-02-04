@@ -139,7 +139,6 @@ In contrast, if you resolve a conflict in the accelerator directly in the confli
 1. You resolve the conflict.
 1. You return to the group that contained the conflict.
 
- 
 
 1. You click on *Resolve Conflict* on the cart, overview page, or conflict group via the group menu.
 1. You resolve the conflict.
