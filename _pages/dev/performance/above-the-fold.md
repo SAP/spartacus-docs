@@ -58,7 +58,7 @@ ProductDetailsPageTemplate: {
 }
 ```
 
-For more information on page layout configuration, see [Configuring the Layout](https://sap.github.io/spartacus-docs/page-layout/#configuring-the-layout).
+For more information on page layout configuration, see [Configuring the Layout]({{ site.baseurl }}/page-layout/#configuring-the-layout).
 
 ## CSS Configuration
 

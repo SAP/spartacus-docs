@@ -33,7 +33,7 @@ To enable SAP Customer Data Cloud Integration in Spartacus, you need to configur
 
 The following steps describe how to configure the Commerce Cloud back end for integration with SAP Customer Data Cloud.
 
-1. Follow the steps for [Installing SAP Commerce Cloud for use with Spartacus](https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud/).
+1. Follow the steps for [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 2. Enable the SAP Customer Data Cloud extensions for B2C according to [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html) on the SAP Help Portal.
 
@@ -240,7 +240,7 @@ The following steps describe how to configure the Commerce Cloud back end for in
 
 ### Configuring Spartacus for SAP Customer Data Cloud Integration
 
-Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries](https://sap.github.io/spartacus-docs/building-the-spartacus-storefront-from-libraries/).
+Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application:
 
