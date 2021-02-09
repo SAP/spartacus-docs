@@ -201,6 +201,52 @@ When a CMS component that is covered by a lazy-loaded module is instantiated, it
 - The `ModuleInjector` hierarchy, starting from the feature module injector, and including dependency modules and the root injector
 - The `ElementInjector` hierarchy, which is created implicitly at each DOM element
 
+### Use MODULE_INITIALIZER inistead of APP_INITIALIZER
+
+Lazy loaded features may need to run some initialization logic when they are loaded. However, lazy loaded modules can not rely on Angular's `APP_INITIALIZER` mechanism because the application has already finished initializing by the time the lazy loading occurs.
+
+Therefore, Spartacus 3.1 introduces the `MODULE_INITIALIZER` injection token that can be used instead of Angular's `APP_INITIALIZER` in modules that are intended to be lazy loaded.  Overall, `MODULE_INITIALIZER` works essentially the same as `APP_INITIALIZER`, except that it supports lazy loaded modules in Spartacus.
+
+Each `MODULE_INITIALIZER` function will run when the module in which it is defined is eventually loaded in the app.
+
+A `MODULE_INITIALIZER` is configured in the same way you would configure an `APP_INITIALIZER`. For example:
+
+```typescript
+...
+
+import { MODULE_INITIALIZER} from '@spartacus/core';
+
+...
+
+export function myFactoryFunction(
+  dependencyOne: DependencyOne
+) {
+  const result = () => {
+      // add initialization logic here
+  };
+  return result;
+}
+
+@NgModule({
+  providers: [
+    {
+      provide: MODULE_INITIALIZER,
+      useFactory: myFactoryFunction,
+      deps: [DependencyOne],
+      multi: true,
+    },
+  ],
+})
+export class MyLazyLoadedModule {}
+
+```
+
+Even though the primary use case for `MODULE_INITIALIZER` is to run when a module is lazily loaded, the `MODULE_INITIALIZER` functions will still run if the module in which it is defined is configured to be eagerly loaded (loaded when the app starts, the default way to import modules). Should an eager loading configuration be applied on a module designed for lazy loading, the `MODULE_INITIALIZER` functions are run during the Angular app boostrap sequence.
+
+`MODULE_INITIALIZER` handles init function return values like `APP_INITIALIZER` does.  The result of the initializer functions is ignored unless it is a Promise. The `MODULE_INITIALIZER` will gather and wait for all resulting Promise objects to be resolved before before allowing the loading process to resume.  The result values of the promises are otherwise ignored.
+
+If an error is thrown by an initialization function or if its returned Promise is rejected, the loading process is expected to be interrupted.  If the error occurs in a lazy loading scenario, the moodule loadinig process is aborted.  If the error occurs in an eager loading scenario, the app will not properly initialize.
+
 ## Preparing Libraries to Work with Lazy Loading
 
 ### Providing Fine-Grained Entry Points in Your Library
