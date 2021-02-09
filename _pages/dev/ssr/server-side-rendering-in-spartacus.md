@@ -12,11 +12,11 @@ The recommended way to add SSR support to your Spartacus application is to use s
 ng add @spartacus/schematics --ssr
 ```
 
-The steps executed by this command are described in more detail in the following sections.
+You have now added SSR support to your Spartacus application. No further steps are required.
 
 ## Adding SSR Support Manually
 
-The following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
+For most situations and setups, is is best to add SSR support to your Spartacus application using schematics, as described in the previous section. However, if you are unable to add SSR support using schematics, the following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
 
 1. Add the following dependencies to `package.json`:
 
@@ -303,9 +303,11 @@ The following steps describe how to manually add SSR support so that your Sparta
     npm run build:ssr && npm run serve:ssr
     ```
 
-## Installation Steps for Spartacus Development
+## Installation Steps for Internal Spartacus Development
 
-If you are involved in Spartacus internal development, or wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.
+If you are involved in Spartacus internal development (for example, if you are contributing to the Spartacus core libraries), or if you wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.
+
+**Note:** You do not need to follow the steps in this section if your intention is to add SSR support to your Spartacus application. You can do that simply by running the schematics command, as described in [Adding SSR Support Using Schematics (Recommended)](#adding-ssr-support-using-schematics-recommended).
 
 1. Set the production server endpoint in your `environment.prod.ts` (dev mode) or `app.module.ts` (shell app mode), as follows:
 
