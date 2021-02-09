@@ -1,9 +1,9 @@
 # Tag Management System
 
-Spartacus introduced the Tag Management System (TMS) integration in version 3.1.
-As TMS is highly dependent on the events in Spartacus, it's highly recommended to get yourself familiar with the [Events Service](./event-service) first.
+Spartacus introduced the Tag Management System (TMS) integration in version 3.2.
+Before you continue reading this page, it's highly recommended to first get yourself familiar with the [Events Service](./event-service), as TMS relies on it.
 
-The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Only Google Tag Manager (GTM) and Adobe Launch systems are covered at this moment.
+The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Platform (AEP) systems are supported out of the box, while the other tag managers can easily be plugged in.
 
 Spartacus supports running multiple TMS in parallel, and you can decide which events should be collected by each of the supported TMS systems.
 
@@ -16,31 +16,24 @@ After this is done, we can move on to the [configuration](#configuration) sectio
 
 ## Configuration
 
-In your `app.module.ts` you can import the module that corresponds to the chosen TMS solution:
+You can import the `TmsModule` and pass the configuration to it like this:
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { CartAddEntrySuccessEvent, LoginEvent } from '@spartacus/core';
+import { CartAddEntrySuccessEvent, CartRemoveEntrySuccessEvent } from '@spartacus/core';
 import { NavigationEvent } from '@spartacus/storefront';
-import { AdobeLaunchModule } from '@spartacus/tms/adobe-launch';
-import { GoogleTagManagerModule } from '@spartacus/tms/gtm';
 import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
     ...
-    GoogleTagManagerModule.forRoot({
-      tms: {
+    TmsModule.forRoot({
+      tagManager: {
         gtm: {
-          events: [NavigationEvent, LoginEvent],
-        },
-      },
-    }),
-    AdobeLaunchModule.forRoot({
-      tms: {
-        adobeLaunch: {
-          debug: !environment.production,
           events: [NavigationEvent, CartAddEntrySuccessEvent],
+        },
+        aep: {
+          events: [NavigationEvent, CartRemoveEntrySuccessEvent],
         },
       },
     }),
@@ -51,101 +44,93 @@ import { environment } from '../environments/environment';
 export class AppModule {...}
 ```
 
-In the example above, we have configured both GTM and Adobe Launch TMS solutions.
-
-In `GoogleTagManagerModule`, we are passing Spartacus events that will be collected _only_ by GTM. Similar is for the `AdobeLaunchModule`. Notice that we are also enabling the `debug` config in development mode, which can be useful to see console.logs of the collected events.
+In the example above, we are just providing which events should be collected by each of the configured TMS solutions.
 
 ### Customizations
 
-There are various customizations available in order to tweak how Spartacus interacts with the events and the data layer.
+In the example above, we are leveraging Spartacus' default configuration for both GTM and AEP TMS solutions, and providing only the minimal custom configuration.
+There are various customizations available in order to tweak how Spartacus interacts with the events and the data layer:
 
 #### Data layer
 
 Spartacus uses the standard data layer object names and types for each of the supported TMS:
 
 - [GTM](https://developers.google.com/tag-manager/devguide#datalayer) - `dataLayer: any[]`
-- [Adobe Launch](https://experienceleague.adobe.com/docs/analytics/implementation/prepare/data-layer.html?lang=en#setting-data-layer-values) - `digitalData: {[eventName: string]: any}`
+- [AEP](https://experienceleague.adobe.com/docs/analytics/implementation/prepare/data-layer.html?lang=en#setting-data-layer-values) - `digitalData: {[eventName: string]: any}`
 
-If you use a custom data layer object, you can extend the corresponding Spartacus service:
+If you use a custom data layer object (with the standard data structure), you can configure it using the `dataLayerProperty` configuration property.
 
-- GTM - `GoogleTagManagerService` from `@spartacus/tms/gtm`
-- Adobe Launch - `AdobeLaunchService` from `@spartacus/tms/adobe-launch`
-
-Let's take a look at a custom Adobe Launch service:
+If you are using a different data layer structure than the standard, you can write your own collector like this:
 
 ```typescript
-import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
-import { CxEvent, EventService, WindowRef } from "@spartacus/core";
-import { AdobeLaunchService } from "@spartacus/tms/adobe-launch";
-import { TmsConfig } from "@spartacus/tms/core";
-
-// define your data layer object here
-interface CustomAdobeLaunchWindow extends Window {
-  _trackData?: (data: any, linkObject?: any, eventObject?: any) => void;
-}
+import { Injectable } from "@angular/core";
+import { CxEvent } from "@spartacus/core";
+import {
+  TmsCollector,
+  TmsCollectorConfig,
+  WindowObject,
+} from "@spartacus/tracking/tms/core";
 
 @Injectable({ providedIn: "root" })
-export class CustomAdobeLaunchService extends AdobeLaunchService {
-  constructor(
-    protected eventsService: EventService,
-    protected windowRef: WindowRef,
-    protected tmsConfig: TmsConfig,
-    @Inject(PLATFORM_ID) protected platformId: any
-  ) {
-    super(eventsService, windowRef, tmsConfig, platformId);
+export class MyCollectorService implements TmsCollector {
+  init(config: TmsCollectorConfig, windowObject: WindowObject): void {
+    windowObject.myDataLayer = windowObject.myDataLayer ?? [];
   }
 
-  // add a type safety for your data layer
-  get window(): CustomAdobeLaunchWindow | undefined {
-    return this.windowRef.nativeWindow;
-  }
-
-  // define how your data layer is being initialized
-  protected prepareDataLayer(): void {
-    if (this.window) {
-      this.window._trackData =
-        this.window._trackData ??
-        function (_data: any, _linkObject?: any, _eventObject?: any): void {};
-    }
-  }
-
-  // specify how your events are being pushed to the data layer
-  protected push<T extends CxEvent>(event: T): void {
-    if (this.window) {
-      if (this.tmsConfig.tms?.adobeLaunch?.debug) {
-        console.log(
-          `🎭  CUSTOM Adobe Launch received data: ${JSON.stringify(event)}`
-        );
-      }
-      this.window._trackData(event);
-    }
+  pushEvent<T extends CxEvent>(
+    config: TmsCollectorConfig,
+    windowObject: WindowObject,
+    event: T | any
+  ): void {
+    windowObject.myDataLayer.push(event);
   }
 }
 ```
 
-You can then provide the custom service like so:
+and configure it like this:
 
 ```typescript
-@NgModule({
-  imports: [
+TmsModule.forRoot({
+  tagManager: {
+    gtm: {
+      collector: MyCollectorService,
+      events: [NavigationEvent, CartAddEntrySuccessEvent],
+    },
     ...
-    AdobeLaunchModule.forRoot({...}),
-    ...
-  ],
-  ...
-  providers: [
-    ...
-    { provide: AdobeLaunchService, useClass: CustomAdobeLaunchService }
-  ]
-})
-export class AppModule {...}
+  },
+}),
 ```
 
 #### Events payload
 
 As the required event's payloads can quite vary between clients, we can't cover every possible use case. With that in mind, we've made sure that the events have some sensible payloads, and we've made it easy to adjust (re-map) the payloads in more than one way:
 
-- by creating custom events
+##### Creating a custom mapper
+
+To create a custom mapper per a TMS solution, you can build on top of the [example above](#Data-layer) (by creating a custom collector), and implement the `map` method like so:
+
+```typescript
+import { Injectable } from "@angular/core";
+import { CxEvent } from "@spartacus/core";
+import {
+  TmsCollector,
+  TmsCollectorConfig,
+  WindowObject,
+} from "@spartacus/tracking/tms/core";
+
+@Injectable({ providedIn: "root" })
+export class MyCollectorService implements TmsCollector {
+  ...
+
+  map?<T extends CxEvent>(event: T): T | object {
+    // TODO: custom mapping logic goes here...
+  }
+}
+```
+
+In the `map` method you can use `instanceof` check to differentiate which event should you re-map. As this logic can get quite complex, you have the ability to inject other services to your `MyCollectorService`.
+
+##### Creating custom events
 
 Creating custom events in Spartacus and re-mapping the data to fit your data structure requirements is straightforward:
 
@@ -185,34 +170,36 @@ export class CustomNavigationEventBuilder {
 
 In the case above, we are re-mapping Spartacus' `NavigationEvent` to `CustomNavigationEvent`. If you need to pull additional data, please see the "Pulling Additional Data From Facades" chapter in the [Events Service docs](./event-service#Pulling-Additional-Data-From-Facades).
 
-Note that you need to inject your `CustomNavigationEventBuilder` builder somewhere in order to bootstrap the logic - e.g. to a dummy module that's being imported to e.g. `AppModule`.
+Note that you need to inject your `CustomNavigationEventBuilder` builder somewhere, in order to bootstrap the logic - e.g. to a dummy module that's being imported to e.g. `AppModule`.
 
 If you use this approach, you need to pass your `CustomNavigationEvent` to the `tms.adobeLaunch.events` config array, instead of the default `NavigationEvent`.
 
-- by overriding the TMS service's `mapEvents()`
+##### Overriding the TMS service's `mapEvents()`
 
-In case you just want enrich all Spartacus events with some common data, overriding the `AdobeLaunchService`'s `mapEvents()` is a good place to do it:
+In case you just want enrich all Spartacus events with some common data, overriding the `TmsService`'s `mapEvents()` is a good place to do it:
 
 ```typescript
+import { Inject, Injectable, Injector, PLATFORM_ID } from "@angular/core";
+import { CxEvent, EventService, WindowRef } from "@spartacus/core";
+import { TmsConfig, TmsService } from "@spartacus/tracking/tms/core";
+import { merge, Observable } from "rxjs";
+
 @Injectable({ providedIn: "root" })
-export class CustomAdobeLaunchService extends AdobeLaunchService {
+export class MyTmsService extends TmsService {
   constructor(
     protected eventsService: EventService,
     protected windowRef: WindowRef,
     protected tmsConfig: TmsConfig,
+    protected injector: Injector,
     @Inject(PLATFORM_ID) protected platformId: any
   ) {
-    super(eventsService, windowRef, tmsConfig, platformId);
+    super(eventsService, windowRef, tmsConfig, injector, platformId);
   }
-
-  ...
 
   protected mapEvents<T extends CxEvent>(
     events: Observable<T>[]
   ): Observable<T> {
-    // your mapping logic here
+    // TODO: implement your custom mapping logic here
   }
 }
 ```
-
-The principle is the same for other supported TMS solutions.
