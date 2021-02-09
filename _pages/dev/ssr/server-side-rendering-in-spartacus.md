@@ -12,35 +12,37 @@ The recommended way to add SSR support to your Spartacus application is to use s
 ng add @spartacus/schematics --ssr
 ```
 
-The steps executed by this command are described in more detail in the following sections.
+You have now added SSR support to your Spartacus application. No further steps are required.
 
 ## Adding SSR Support Manually
 
-The following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
+For most situations and setups, is is best to add SSR support to your Spartacus application using schematics, as described in the previous section. However, if you are unable to add SSR support using schematics, the following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
 
 1. Add the following dependencies to `package.json`:
 
     ```json
-    "@angular/platform-server": "~8.2.14",
-    "@nguniversal/express-engine": "^8.1.1",
-    "@nguniversal/module-map-ngfactory-loader": "^8.2.6",
+    "@angular/platform-server": "~10.1.0",
+    "@nguniversal/express-engine": "^10.1.0",
+    "@spartacus/setup": "^3.0.0-rc.2",
     "express": "^4.15.2"
     ```
 
 1. Add the following developer dependencies to `package.json`:
 
     ```json
-    "ts-loader": "^5.3.2",
-    "webpack-cli": "^3.3.2"
+    "ts-loader": "^6.0.4",
+    "@nguniversal/builders": "^10.1.0",
+    "@types/express": "^4.17.0",
     ```
 
 1. For convenience, add the following scripts to `package.json`:
 
     ```json
-    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run spartacus:server"
+    "e2e": "ng e2e",
+    "dev:ssr": "ng run <your-project-name>:serve-ssr",
+    "serve:ssr": "node dist/<your-project-name>/server/main.js",
+    "build:ssr": "ng build --prod && ng run <your-project-name>:server:production",
+    "prerender": "ng run <your-project-name>:prerender"
     ```
 
 1. Update the `src/main.ts` file, as follows:
@@ -62,6 +64,14 @@ The following steps describe how to manually add SSR support so that your Sparta
     //to
     BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
     ```
+    and
+    ```typescript
+    //from
+    import { BrowserModule } from '@angular/platform-browser';
+    //to
+    import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+    ```
+    and add `BrowserTransferStateModule` to `imports`.
 
 1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BASE_URL` with the URL of your back end instance, as follows:
 
@@ -69,21 +79,67 @@ The following steps describe how to manually add SSR support so that your Sparta
     <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
     ```
 
+1. In `projects.<your-project-name>.architect.build.options` change following line:
+    ```json
+    //from
+    "outputPath": "dist/<your-project-name>",
+    //to
+    "outputPath": "dist/<your-project-name>/browser",
+    ```
+
+1. In `projects.<your-project-name>.architect.lint.options.tsConfig` add:
+    ```json
+    "tsconfig.server.json"
+    ```
+
 1. In `projects.<your-project-name>.architect`, add the following configuration to your existing `angular.json` file:
 
     ```json
     "server": {
-      "builder": "@angular-devkit/build-angular:server",
-      "options": {
-        "outputPath": "dist/<your-project-name>-server",
-        "main": "src/main.server.ts",
-        "tsConfig": "tsconfig.server.json",
-        "fileReplacements": [
-          {
-            "replace": "src/environments/environment.ts",
-            "with": "src/environments/environment.prod.ts"
+        "builder": "@angular-devkit/build-angular:server",
+        "options": {
+          "outputPath": "dist/<your-project-name>/server",
+          "main": "server.ts",
+          "tsConfig": "tsconfig.server.json"
+        },
+        "configurations": {
+          "production": {
+            "outputHashing": "media",
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }
+            ],
+            "sourceMap": false,
+            "optimization": true
           }
+        }
+    },
+    "serve-ssr": {
+      "builder": "@nguniversal/builders:ssr-dev-server",
+      "options": {
+        "browserTarget": "<your-project-name>:build",
+        "serverTarget": "<your-project-name>:server"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "<your-project-name>:build:production",
+          "serverTarget": "<your-project-name>:server:production"
+        }
+      }
+    },
+    "prerender": {
+      "builder": "@nguniversal/builders:prerender",
+      "options": {
+        "browserTarget": "<your-project-name>:build:production",
+        "serverTarget": "<your-project-name>:server:production",
+        "routes": [
+          "/"
         ]
+      },
+      "configurations": {
+        "production": {}
       }
     }
     ```
@@ -94,16 +150,20 @@ The following steps describe how to manually add SSR support so that your Sparta
 
     ```json
     {
-      "extends": "./tsconfig.json",
+      "extends": "./tsconfig.app.json",
       "compilerOptions": {
-        "outDir": "../out-tsc/app",
-        "baseUrl": "./",
-        "module": "commonjs",
-        "types": []
+        "outDir": "./out-tsc/server",
+        "target": "es2016",
+        "types": [
+          "node"
+        ]
       },
-      "exclude": ["test.ts", "e2e/src/app.e2e-spec.ts", "**/*.spec.ts"],
+      "files": [
+        "src/main.server.ts",
+        "server.ts"
+      ],
       "angularCompilerOptions": {
-        "entryModule": "src/app/app.server.module#AppServerModule"
+        "entryModule": "./src/app/app.server.module#AppServerModule"
       }
     }
     ```
@@ -111,6 +171,11 @@ The following steps describe how to manually add SSR support so that your Sparta
 1. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
+    /***************************************************************************************************
+    * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+    */
+    import '@angular/localize/init';
+
     import { enableProdMode } from "@angular/core";
 
     import { environment } from "./environments/environment";
@@ -119,11 +184,8 @@ The following steps describe how to manually add SSR support so that your Sparta
       enableProdMode();
     }
 
-    export { AppServerModule } from "./app/app.server.module";
-    export { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
-    import { ngExpressEngine as engine } from "@nguniversal/express-engine";
-    import { NgExpressEngineDecorator } from "@spartacus/core";
-    export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
+    export { AppServerModule } from './app/app.server.module';
+    export { renderModule, renderModuleFactory } from '@angular/platform-server';
     ```
 
 1. Add the `src/app/app.server.module` file to your existing shell app. The following is an example:
@@ -137,7 +199,6 @@ The following steps describe how to manually add SSR support so that your Sparta
 
     import { AppModule } from "./app.module";
     import { AppComponent } from "./app.component";
-    import { ModuleMapLoaderModule } from "@nguniversal/module-map-ngfactory-loader";
 
     @NgModule({
       imports: [
@@ -145,7 +206,6 @@ The following steps describe how to manually add SSR support so that your Sparta
         // by the ServerModule from @angular/platform-server.
         AppModule,
         ServerModule,
-        ModuleMapLoaderModule,
         ServerTransferStateModule,
       ],
       bootstrap: [AppComponent],
@@ -153,125 +213,89 @@ The following steps describe how to manually add SSR support so that your Sparta
     export class AppServerModule {}
     ```
 
-    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering](https://sap.github.io/spartacus-docs/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
-
-1. Add the `webpack.server.config.js` file to your existing shell app. The following is an example:
-
-    ```javascript
-    const path = require("path");
-    const webpack = require("webpack");
-
-    module.exports = {
-      mode: "none",
-      entry: {
-        // This is our Express server for Dynamic universal
-        server: "./server.ts",
-      },
-      externals: {
-        "./dist/server/main": 'require("./server/main")',
-      },
-      target: "node",
-      resolve: { extensions: [".ts", ".js"] },
-      optimization: {
-        minimize: false,
-      },
-      output: {
-        // Puts the output at the root of the dist folder
-        path: path.join(__dirname, "dist"),
-        filename: "[name].js",
-      },
-      module: {
-        noParse: /polyfills-.*\.js/,
-        rules: [
-          { test: /\.ts$/, loader: "ts-loader" },
-          {
-            // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
-            // Removing this will cause deprecation warnings to appear.
-            test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
-            parser: { system: true },
-          },
-        ],
-      },
-      plugins: [
-        new webpack.ContextReplacementPlugin(
-          // fixes WARNING Critical dependency: the request of a dependency is an expression
-          /(.+)?angular(\\|\/)core(.+)?/,
-          path.join(__dirname, "src"), // location of your src
-          {} // a map of your routes
-        ),
-        new webpack.ContextReplacementPlugin(
-          // fixes WARNING Critical dependency: the request of a dependency is an expression
-          /(.+)?express(\\|\/)(.+)?/,
-          path.join(__dirname, "src"),
-          {}
-        ),
-      ],
-    };
-    ```
+    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
 
 1. Add the `server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
-    import "zone.js/dist/zone-node";
+    /***************************************************************************************************
+     * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+    */
+    import '@angular/localize/init';
+    import 'zone.js/dist/zone-node';
 
-    import * as express from "express";
-    import { join } from "path";
+    import { ngExpressEngine as engine } from '@nguniversal/express-engine';
+    import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
+    import * as express from 'express';
+    import { join } from 'path';
 
-    // Express server
-    const app = express();
+    import { AppServerModule } from './src/main.server';
+    import { APP_BASE_HREF } from '@angular/common';
+    import { existsSync } from 'fs';
 
-    const PORT = process.env.PORT || 4200;
-    const DIST_FOLDER = join(process.cwd(), "dist/<your-project-name>");
+    const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 
-    // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-    const {
-      AppServerModuleNgFactory,
-      LAZY_MODULE_MAP,
-      ngExpressEngine,
-      provideModuleMap,
-    } = require("./dist/<your-project-name>-server/main");
+    // The Express app is exported so that it can be used by serverless Functions.
+    export function app() {
+      const server = express();
+      const distFolder = join(process.cwd(), 'dist/<your-project-name>/browser');
+      const indexHtml = existsSync(join(distFolder, 'index.original.html'))
+        ? 'index.original.html'
+        : 'index';
 
-    app.engine(
-      "html",
-      ngExpressEngine({
-        bootstrap: AppServerModuleNgFactory,
-        providers: [provideModuleMap(LAZY_MODULE_MAP)],
-      })
-    );
+      server.engine(
+        'html',
+        ngExpressEngine({
+          bootstrap: AppServerModule,
+        })
+      );
 
-    app.set("view engine", "html");
-    app.set("views", DIST_FOLDER);
+      server.set('view engine', 'html');
+      server.set('views', distFolder);
 
-    app.get(
-      "*.*",
-      express.static(DIST_FOLDER, {
-        maxAge: "1y",
-      })
-    );
+      // Serve static files from /browser
+      server.get(
+        '*.*',
+        express.static(distFolder, {
+          maxAge: '1y',
+        })
+      );
 
-    // All regular routes use the Universal engine
-    app.get("*", (req, res) => {
-      res.render("index", { req });
-    });
+      // All regular routes use the Universal engine
+      server.get('*', (req, res) => {
+        res.render(indexHtml, {
+          req,
+          providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+        });
+      });
 
-    // Start up the Node server
-    app.listen(PORT, () => {
-      console.log(`Node server listening on http://localhost:${PORT}`);
-    });
+      return server;
+    }
+
+    function run() {
+      const port = process.env.PORT || 4000;
+
+      // Start up the Node server
+      const server = app();
+      server.listen(port, () => {
+        console.log(`Node Express server listening on http://localhost:${port}`);
+      });
+    }
+
+    // Webpack will replace 'require' with '__webpack_require__'
+    // '__non_webpack_require__' is a proxy to Node 'require'
+    // The below code is to ensure that the server is run only when not requiring the bundle.
+    declare const __non_webpack_require__: NodeRequire;
+    const mainModule = __non_webpack_require__.main;
+    const moduleFilename = (mainModule && mainModule.filename) || '';
+    if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
+      run();
+    }
+
+    export * from './src/main.server';
     ```
 
     **Note:** In the above example, remember to replace the string `"<your-project-name>"` with your project name (such as `mystore`, for example).
-
-1. Add the following scripts to your `package.json`. Remember to replace `<your-project-name>` with your project name (such as `mystore`, for example).
-
-    ```json
-    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run <your-project-name>:server"
-    ```
-
-    **Note:** For the `build:client-and-server-bundles` script, replace `<your-project-name>` with the name of your Angular application.
 
 1. Build the SSR version of your Spartacus shell app by running the following command:
 
@@ -279,9 +303,11 @@ The following steps describe how to manually add SSR support so that your Sparta
     npm run build:ssr && npm run serve:ssr
     ```
 
-## Installation Steps for Spartacus Development
+## Installation Steps for Internal Spartacus Development
 
-If you are involved in Spartacus internal development, or wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.
+If you are involved in Spartacus internal development (for example, if you are contributing to the Spartacus core libraries), or if you wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.
+
+**Note:** You do not need to follow the steps in this section if your intention is to add SSR support to your Spartacus application. You can do that simply by running the schematics command, as described in [Adding SSR Support Using Schematics (Recommended)](#adding-ssr-support-using-schematics-recommended).
 
 1. Set the production server endpoint in your `environment.prod.ts` (dev mode) or `app.module.ts` (shell app mode), as follows:
 

@@ -16,9 +16,9 @@ The `2.0.0-next.2` library has been published! We are happy to announce our seco
 
 In the `2.0.0-next.2` pre-release version, support for both - TUA 2007 and TUA 2011 is provided. In addition to supporting composite pricing and price alteration discounts, priority pricing is now available, as well as support for 1.x spartacus features that were delivered in previous releases, with the exception of 1.3 features, which is planned next.
 
-### Installing SAP Commerce for use with TUA Spartacus
+### Installing SAP Commerce Cloud for use with TUA Spartacus
 
-Installation instructions are very similar to [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce (release 2005) with Telco & Utilities Accelerator (release 2007 or release 2011, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
+Installation instructions are very similar to [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce Cloud (release 2005) with Telco & Utilities Accelerator (release 2007 or release 2011, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
 
 The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsocc`, `commercewebservices`, `acceleratorocc` extensions and TUA module.
 
@@ -340,7 +340,7 @@ The following features are included as part of this pre-release:
 
 **Composite Pricing**
 
-Composite Pricing brings forth a new way for handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner.  Product Offering Prices are now hierarchal; that is, they can be grouped together and they are also re-usable. For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
+Composite Pricing brings forth a new way for handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner.  Product Offering Prices are now hierarchical; that is, they can be grouped together and they are also re-usable. For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
 **Price Alteration Discounts**
 

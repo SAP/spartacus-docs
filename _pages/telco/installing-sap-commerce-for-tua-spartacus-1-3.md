@@ -1,8 +1,8 @@
 ---
-title: Installing SAP Commerce for use with TUA Spartacus 1.3
+title: Installing SAP  Cloud for use with TUA Spartacus 1.3
 ---
 
-The following instructions describe how to install and configure SAP Commerce (release 1905) with Telco & Utilities Accelerator (release 2003, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
+The following instructions describe how to install and configure SAP Commerce Cloud (release 1905) with Telco & Utilities Accelerator (release 2003, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
 
 The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsoccaddon`, `ycommercewebservices`, `acceleratorwebservicesaddon` extensions and TUA module.
 
@@ -10,7 +10,7 @@ The installation procedure includes steps for creating and using a `b2c_telco_sp
 
 However, installing the TUA Spartacus Sample Data is not required in all cases. The TUA Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, TUA Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `TmaB2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the TUA Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `TmaB2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the TUA Spartacus sample data, and is most likely a good starting point for your custom project.
 
-To install and configure SAP Commerce for use with TUA Spartacus, you must complete the following procedures:
+To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must complete the following procedures:
 
 1. [Setting up SAP Commerce with Telco & Utilities Accelerator](#setting-up-sap-commerce-with-telco--utilities-accelerator)
 2. [Configuring OCC credentials](#configuring-occ-credentials)
@@ -22,7 +22,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the SAP Commerce and Telco & Utilities Accelerator zip archives.
 
-   **Note:** Use the lastest patches for SAP Commerce version 1905 and Telco & Utilities Accelerator version 2003.
+   **Note:** Use the lastest patches for SAP Commerce Cloud version 1905 and Telco & Utilities Accelerator version 2003.
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
@@ -224,7 +224,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
-   **Note:** Starting with release 1905, SAP Commerce releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. For information about setting a password in the `custom.properties` file, see [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure.
+   **Note:** Starting with release 1905, SAP Commerce Cloud releases do not ship with a default admin password. You must specify a password when running recipe commands (as shown above), or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. For information about setting a password in the `custom.properties` file, see [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure.
 
 1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
 
@@ -239,7 +239,7 @@ For Unix:
 
    Initialization of the `b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
 
-1. Start SAP Commerce with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
+1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands for Windows:
 
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
@@ -283,16 +283,16 @@ For Unix:
 
 ## Configuring OCC Credentials
 
-By default, SAP Commerce replies to OCC REST API calls that do not require authentication. For example, you can do the following:
+By default, SAP Commerce Cloud replies to OCC REST API calls that do not require authentication. For example, you can do the following:
 
 - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
 - Display information about the `telcospa` base store: https://localhost:9002/rest/v2/telcospa/basestores/telcospa
 - Display information about the `utilitiesspa` base store: https://localhost:9002/rest/v2/utilitiesspa/basestores/utilitiesspa
 
-To register users and check out, SAP Commerce must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
+To register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
 For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
 
-To configure SAP Commerce to accept OCC REST API calls, follow the steps:
+To configure SAP Commerce Cloud to accept OCC REST API calls, follow the steps:
 
 1. Open the Hybris Administration Console in a web browser at the following address: `https://localhost:9002`.
 
@@ -306,7 +306,7 @@ To configure SAP Commerce to accept OCC REST API calls, follow the steps:
                                    ;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
    ```
 
-   When you import this sample (which is the same as the sample that is provided in the SAP Commerce documentation), you add the following client ID and password:
+   When you import this sample (which is the same as the sample that is provided in the SAP Commerce Cloud documentation), you add the following client ID and password:
 
     - client ID: `mobile_android`
     - password (or secret): `secret`
@@ -334,15 +334,15 @@ To configure SAP Commerce to accept OCC REST API calls, follow the steps:
    }
    ```
 
-**You can now start TUA Spartacus!** After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building the TUA Spartacus Storefront Using 1.3 Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries-1-3.md %}) for more information.
+**You can now start TUA Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the TUA Spartacus Storefront Using 1.3 Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries-1-3.md %}) for more information.
 
 ## Configuring CORS
 
-CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain TUA Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce.
+CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain TUA Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 
 You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
-To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (`local.properties` file of your config folder):
+To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce Cloud configuration (`local.properties` file of your config folder):
 
 ```sql
 corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200

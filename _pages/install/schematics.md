@@ -103,14 +103,12 @@ You can add the Organization library by running the following command:
 ng add @spartacus/organization
 ```
 
-When you run this command, you are presented with an interactive menu that allows you to select which Organization features you want to install.
+When you run this command, you are presented with an interactive menu that allows you to select which Organization features you want to install. Both `organization` and `approvals` are required for B2B Commerce Organization to work.
 
-### Misc Library
+### Storefinder Feature Library
 
-You can add the Misc library by running the following command:
+You can install the store locator feature by running the following command:
 
 ```shell
-ng add @spartacus/misc
+ng add @spartacus/storefinder
 ```
-
-When you run this command, you are presented with an interactive menu that allows you to select which Misc features you want to install.

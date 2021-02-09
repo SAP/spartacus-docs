@@ -38,7 +38,7 @@ If enabled, consumption information for each subscribed product can be viewed in
 |--------------------------------------------	|--------------------------------------------------------	|
 | Recipe                                     	| b2c_telco_spa                                          	|
 | Minimum version of backend TUA             	| TUA Release 2003 (latest patch is required)           	|
-| Minimum   version of core commerce backend 	| SAP Commerce release 1905 (latest patch is recommended) 	|
+| Minimum   version of core commerce backend 	| SAP Commerce Cloud release 1905 (latest patch is recommended) 	|
 
 ## Components
 

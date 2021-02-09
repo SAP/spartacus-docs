@@ -1,63 +1,150 @@
 ---
-title: Workaround for Issue with Server-Side Rendering in Spartacus 2.0 and SAP Commerce Cloud for Public Cloud
+title: Workaround for Issue with Server-Side Rendering in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud
 ---
 
-This document describes a temporary workaround for a problem with running Spartacus 2.0 with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
+This document describes a temporary workaround for a problem with running Spartacus 2.0 or later with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
 
 ## Overview
 
-As of this writing (July 2020), Spartacus 2.0 with SSR does not work out of the box with SAP Commerce Cloud in the Public Cloud. This is because the hosting service expects a predefined structure for building Angular applications based on Angular 8 and ng-universal 8, which is used by Spartacus 1.x. However, Spartacus 2.0 uses Angular 9, which has a slightly different file structure.
+As of this writing (January 2021), Spartacus 2.0 (or later) with SSR does not work out of the box with SAP Commerce Cloud in the Public Cloud. This is because the hosting service expects a predefined structure for building Angular applications based on Angular 8 and ng-universal 8, which is used by Spartacus 1.x. However, Spartacus 2.0 uses Angular 9, and Spartacus 3.0 uses Angular 10, both of which have a slightly different file structure.
 
-This problem will soon be fixed in a future release of SAP Commerce Cloud in the Public Cloud. For the moment, use the following workaround for Spartacus 2.0 with SSR when hosting with SAP Commerce Cloud in the Public Cloud.
+This problem will be fixed in a release of SAP Commerce Cloud in the Public Cloud that is expected in 2021. For the moment, use one of the following workarounds for Spartacus 2.0 or later with SSR when hosting with SAP Commerce Cloud in the Public Cloud.
 
-## Workaround
+## Workarounds
 
-With the following changes, the Angular build process is modified to match the structure expected by SAP Commerce Cloud in the Public Cloud.
+Choose a workaround depending on whether the `manifest.json` of your js-app uses the new manifest format or the old manifest format.
 
-**Note:**  In the following steps, substitute "APPNAME" with the name of your app.
+### Workaround for the New Manifest Format
 
-1. In `angular.json`, make the following changes:
-    - Change  `"outputPath": "dist/APPNAME/browser"` to `"outputPath": "dist/APPNAME"`
-    - Change  `"outputPath": "dist/APPNAME/server"` to `"outputPath": "dist/APPNAME-server"`
-  
+Use this workaround if the `manifest.json` of your js-app looks like the following example:
+
+```json
+  "applications": [
+      {
+          "name": "<your storefrontapp name>",
+          "path": "<your storefrontapp path>",
+          "ssr": {
+                "enabled": true,
+                "path": "dist/<your storefrontapp name>/server/main.js"
+          }
+      }
+  ]
+```
+
+For more information on how to structure your manifest, see [Enabling Server-Side Rendering](https://help.sap.com/viewer/b2f400d4c0414461a4bb7e115dccd779/LATEST/en-US/cd5b94c25a68456ba5840f942f33f68b.html) on the SAP Help Portal.
+
+With the following changes, the Angular build process is modified to match the browser structure that is expected by SAP Commerce Cloud in the Public Cloud.
+
+**Note:** In the following steps, substitute `APPNAME` with the name of your app.
+
+1. In `angular.json`, the following appears:
+
+   ```json
+   "outputPath": "dist/APPNAME/browser"
+   ```
+   
+   Change this to the following:
+   
+   ```json
+   "outputPath": "dist/APPNAME"
+   ```
+
+   **Note:** The `outputPath` must match the path in your `manifest.json`.
+
 2. In `server.ts`, the following appears:
 
-   ```plaintext
+   ```ts
    const distFolder = join(process.cwd(), 'dist/APPNAME/browser');
    ```
 
    Change this to the following:
-   ```plaintext
+
+   ```ts
    const distFolder = join(process.cwd(), 'dist/APPNAME');
    ```
 
-3. In `package.json`, add the following  command to the end of the `build:ssr` script.
+### Workaround for the Old Manifest Format
 
-   ```plaintext
+Use this workaround if the `manifest.json` of your js-app looks like the following example:
+
+```json
+  "applications": [
+      {
+          "name": "<your storefrontapp name>",
+          "path": "<your storefrontapp path>",
+          "enableSSR": true
+      }
+  ]
+```
+
+**Note** This manifest format is still supported, but you may want to consider moving to the new format to be more future-proof.
+
+With the following changes, the Angular build process is modified to match the structure that is expected by SAP Commerce Cloud in the Public Cloud.
+
+**Note:** In the following steps, substitute "APPNAME" with the name of your app.
+
+1. In `angular.json`, the following appears:
+
+   ```json
+   "outputPath": "dist/APPNAME/browser"
+   ```
+
+   Change this to the following:
+
+   ```json
+   "outputPath": "dist/APPNAME"
+   ```
+
+2. In `angular.json`, the following appears:
+
+   ```json
+   "outputPath": "dist/APPNAME/server"
+   ```
+
+   Change this to the following:
+
+   ```json
+   "outputPath": "dist/APPNAME-server"
+   ```
+
+3. In `server.ts`, the following appears:
+
+   ```ts
+   const distFolder = join(process.cwd(), 'dist/APPNAME/browser');
+   ```
+
+   Change this to the following:
+
+   ```ts
+   const distFolder = join(process.cwd(), 'dist/APPNAME');
+   ```
+
+4. In `package.json`, add the following command to the end of the `build:ssr` script:
+
+   ```text
    && mv dist/APPNAME-server/main.js dist/server.js || move dist\\APPNAME-server\\main.js dist\\server.js"
    ```
 
    The final `build:ssr` might appear as follows:
-  
-   ```plaintext
+
+   ```text
    "build:ssr": "ng build --prod && ng run mystore:server:production && mv dist/APPNAME-server/main.js dist/server.js || move dist\\APPNAME-server\\main.js dist\\server.js"
    ```
 
-A bit of explanation for this last step:
+   The hosting automation service expects a `server.ts` file in the `dist` folder, instead of `main.ts` in the ssr app folder. To fulfill this requirement, after the build is complete, the `dist/APPNAME-server/main.ts` file is moved to the `dist` folder and renamed to `server.ts`.
 
-- The hosting automation service expects a `server.ts` file in the `dist` folder, instead of `main.ts` in the ssr app folder. To fulfill this requirement, after the build is complete, the `dist/APPNAME-server/main.ts` file is moved to the `dist` folder and renamed to `server.ts`.
-- To ensure the move command works on Windows computers, both `mv` and `move` are used, separated by `||`, in case `mv` fails.
+   Also, to ensure the move command works on Windows computers, both `mv` and `move` are used, separated by `||`, in case `mv` fails.
 
 ## Further Reading
 
-For more information on deploying SAP Commerce Cloud in the Public Cloud, see [SAP Commerce Cloud in the Public Cloud](https://help.sap.com/viewer/product/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/SHIP/en-US) on the SAP Help Portal.
+For more information on deploying SAP Commerce Cloud in the Public Cloud, see [SAP Commerce Cloud in the Public Cloud](https://help.sap.com/viewer/product/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/LATEST/en-US) on the SAP Help Portal.
 
-For information specific to deploying JavaScript storefronts in SAP Commerce Cloud in the Public Cloud, see [JavaScript Storefronts](https://help.sap.com/viewer/b2f400d4c0414461a4bb7e115dccd779/SHIP/en-US/d1a3de28d67c4a418eabbba532238f9b.html) on the SAP Help Portal.
+For information specific to deploying JavaScript storefronts in SAP Commerce Cloud in the Public Cloud, see [JavaScript Storefronts](https://help.sap.com/viewer/b2f400d4c0414461a4bb7e115dccd779/LATEST/en-US/d1a3de28d67c4a418eabbba532238f9b.html) on the SAP Help Portal.
 
 To follow the upcoming updates that will make SSR work without modification, see [Spartacus GitHub Issue 7993](https://github.com/SAP/spartacus/issues/7993).
 
 ## Support
 
-If you need help with this specific issue (Spartacus 2.0 with SSR on hosted SAP Commerce Cloud in the Public Cloud), contact Bill Marcotte through the [Spartacus Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
+If you need help with this specific issue (Spartacus 2.0 or later with SSR on hosted SAP Commerce Cloud in the Public Cloud), contact Bill Marcotte through the [Spartacus Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 For general support, search for Spartacus answers on [Stack Overflow](https://stackoverflow.com/search?q=spartacus-storefront), or add a new question using the *spartacus-storefront* tag.
