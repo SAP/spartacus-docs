@@ -43,7 +43,7 @@ Customers are able to view the average cost that each of the product offerings w
 ## Prerequisites
 
 1. Product offerings for which the average cost has to be calculated and displayed must have prices defined for maximum 1 usage unit (kWh, minutes, sms, etc).
-2. CMS components must be properly defined in the CMS system (in our case in SAP Commerce, in the content catalog).
+2. CMS components must be properly defined in the CMS system (in our case in SAP Commerce Cloud, in the content catalog).
 
 ## Business Use Cases
 
@@ -70,7 +70,7 @@ Content Manager updates the homepage by including the desired `ConsumptionListCo
 |--------------------------------------------	|--------------------------------------------------------	|
 | Spartacus                                     	| 1.x, < 2.0                                          	|
 | Telco & Utilities Accelerator             	| Version 2003 (latest patch)           	|
-| SAP Commerce 	| Version 1905 (latest patch) 	|
+| SAP Commerce Cloud	| Version 1905 (latest patch) 	|
 
 ## Configuring and Enabling Cost Estimation
 

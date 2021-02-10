@@ -1468,7 +1468,7 @@
 
 <h3 id="bad-request-handler">Bad Request Handler</h3>
 
-<p>The <code class="language-plaintext highlighter-rouge">BadRequestHandler</code> handles 400 errors. Previously, it was handling <code class="language-plaintext highlighter-rouge">not found</code> errors for OCC CMS pages because these were not returned as 404 errors. This was done in a generic way, by handling <em>all other errors</em>. Since the 1905 release of SAP Commerce, the OCC CMS returns a 404 error if a page is not found. Accordingly, we removed this special handling in the <code class="language-plaintext highlighter-rouge">BadRequestHandler</code>. This might affect custom implementations that relied on this behavior, and in these cases, it is recommended to throw 404 errors from your back end, or to customize the <code class="language-plaintext highlighter-rouge">BadRequestHandler</code>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">BadRequestHandler</code> handles 400 errors. Previously, it was handling <code class="language-plaintext highlighter-rouge">not found</code> errors for OCC CMS pages because these were not returned as 404 errors. This was done in a generic way, by handling <em>all other errors</em>. Since the 1905 release of SAP Commerce Cloud, the OCC CMS returns a 404 error if a page is not found. Accordingly, we removed this special handling in the <code class="language-plaintext highlighter-rouge">BadRequestHandler</code>. This might affect custom implementations that relied on this behavior, and in these cases, it is recommended to throw 404 errors from your back end, or to customize the <code class="language-plaintext highlighter-rouge">BadRequestHandler</code>.</p>
 
 <h3 id="urlmatcherfactoryservice-was-renamed-to-urlmatcherservice-and-its-methods-were-renamed">UrlMatcherFactoryService was renamed to UrlMatcherService and its methods were renamed</h3>
 
@@ -1566,7 +1566,7 @@
 
 <h3 id="default-occ-prefix">Default OCC prefix</h3>
 
-<p>The default value for the <code class="language-plaintext highlighter-rouge">backend.occ.prefix</code> configuration key is now <code class="language-plaintext highlighter-rouge">/occ/v2/</code>. This is the default value for the 2005 release of SAP Commerce.</p>
+<p>The default value for the <code class="language-plaintext highlighter-rouge">backend.occ.prefix</code> configuration key is now <code class="language-plaintext highlighter-rouge">/occ/v2/</code>. This is the default value for the 2005 release of SAP Commerce Cloud.</p>
 
 <h3 id="cart-components-changes">Cart components changes</h3>
 
@@ -2434,7 +2434,7 @@ The default configuration is more concise and shows a maximum of three pages wit
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+<div class="page__footer-copyright">&copy; 2021 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
 
       </footer>
     </div>

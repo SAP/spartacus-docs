@@ -11,6 +11,7 @@ To help maintain a high degree of quality and consistency throughout the Spartac
 - [Definition Of Done]({{ site.baseurl }}{% link _pages/contributing/definition-of-done.md %})
 - [Accessibility E2E Tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %})
 - [Maintaining Public APIs]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %})
+- [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %})
 - [Continuous Integration]({{ site.baseurl }}{% link _pages/contributing/continuous-integration.md %})
 - [Feature Flags and Code Deprecation]({{ site.baseurl }}{% link _pages/contributing/feature-flags-and-code-deprecation.md %})
 - [Committing Code to Spartacus]({{ site.baseurl }}{% link _pages/contributing/commit-guidelines.md %})

@@ -127,6 +127,6 @@ For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/de
 To ensure that crawlers get an optimized image from the `img` element, the main `src` of the `img` element is provided with the
 largest image available. This is done in `MediaService.resolveBestFormat()`, and you can further customize this behavior if needed.
 
-Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [Page Meta Resolvers](https://sap.github.io/spartacus-docs/seo-capabilities/#page-meta-resolvers) and [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [Page Meta Resolvers]({{ site.baseurl }}/seo-capabilities/#page-meta-resolvers) and [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 Another important aspect for SEO is the usage of the alternative (`alt`) text for images. The `alt` text is automatically selected by the `MediaService` if it is available in the media container data. However, you can also input a custom `alt` text through the component input.

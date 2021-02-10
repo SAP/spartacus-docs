@@ -17,7 +17,7 @@ Contents:
   
 ### Disclaimer - Forward-Looking Statements
 
-*This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence. The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+*This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence. The various documentation links provided point to SAP BTP or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
   
 ## Overview
 
@@ -41,34 +41,6 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-## Features Planned for Version 3.0 / December
-
-The first release candidate for 3.0 was published November 20. We'll publish 1-2 more RCs then publish the final version probably mid-December. Please check our Slack announcements channel for the latest information. Release 3.0 will be the first release supporting B2B features.
-
-- **B2B Powertools Store support**
-- **B2B Checkout**
-  - Allows customers to check out by account, besides credit card
-  - Customers can enter a purchase order number that is saved with orders
-  - If paying by account: cost center selection, shipping address restricted by cost center chosen), subject to approval process
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac2500f8669101493e69e1392b970fd.html)
-- **B2B Commerce Organization**
-  - Also known as My Company
-  - Self-service spending and organization management
-  - Create and manage units, users, budgets, cost centers, purchase thresholds, user groups, and approvals
-  - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html)
-- **B2B Scheduled Replenishment** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html)
-- **Updates to Order Details** - includes B2B-specific information, such as approval table and cost center
-- **Lazy loading** for B2B My Company module
-
-**Note:** Spartacus B2B features require SAP Commerce Cloud 2005. Certain features (such as Commerce Org or Scheduled Replenishment) require OCC REST APIs introduced in 2005; and the Spartacus functionality will be implemented based on the non-conflicting B2B endpoints introduced in 2005.
-  
-### Architectural Features to be released in 3.0
-
-- **Angular 10**
-- **Session Management** improvements
-  - Separates OCC API integration from core Spartacus code, allowing use of adapters and connectors
-  - Makes it easier to add your own Identity Provider
-  - Improves security while reducing friction in the authentication and login user experience
   
 ## Features Planned for Q1 2021
   
@@ -77,11 +49,14 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
 - **B2B Registration**
 - **B2B Bulk Price List**
 - **B2B Multi-dimensional product support** (requires API update)
+- **Improvements to B2B Commerce Organization**
 
 ### Architecture
 
-- **Performance improvements through Lazy loading** (update of existing codebase)
+- **Performance improvements through code splitting / lazy loading** (update of existing codebase)
 - **New events** for Event Service
+- **Dynamic Theme Selection**
+- **One app for running B2C and B2B stores**
 
 ### Integrations
 
@@ -106,16 +81,18 @@ The first release candidate for 3.0 was published November 20. We'll publish 1-2
 
 ### B2B Features
 
-- **B2B Saved Carts** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
+- **B2B Saved Carts** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/4d094e78a5494963b2d66148167f0553.html)
 - **B2B Re-order**
-- **B2B Quick Order** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
-- **B2B Product Import and Export Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
-- **B2B Inventory Display** - For more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
+- **B2B Quick Order** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
+- **B2B Product Import and Export Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
+- **B2B Inventory Display** - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 - **Accessibility Screen Reader** support
 
 ### Architecture
 
 - **Tag Manager framework**
+- Support for **Adobe Experience Platform Launch**
+  
   
 ## Future Outlook - Q3 2021 and Later
 
@@ -124,27 +101,27 @@ The items in this section are on our future roadmap.
 ### Features
 
 - **B2B Multi-Dimensional Products Order Grid**
-- **B2B Order Form Builder** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
+- **B2B Order Form Builder** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
 - **Image Zoom** on Product Details page (will be released in an incubator library)
-- **Buy online pickup in store** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
-- **Assisted Service Module customer list** - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
+- **Buy online pickup in store** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
+- **Assisted Service Module customer list** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - **Assisted Service Module anonymous cart binding** (requires API introduced in 2005)
 - **Potential Promotions**
-- **Product bundles** (requires SAP Commerce Cloud 2011) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
-- **Captcha** (\*) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
-- **Self-service customer support** through the Customer Service Module (\*) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
+- **Product bundles** (requires SAP Commerce Cloud 2011) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
+- **Captcha** (\*) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
+- **Self-service customer support** through the Customer Service Module (\*) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
 - Angular I18N support
 - **Buy it again** (add to cart from existing order)
 - **Social sharing** of product information
-- **B2B Commerce Quotes** (\*) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
-- **B2B Future Stock** (\*) - for more information, see the [SAP Commerce Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html)
+- **B2B Commerce Quotes** (\*) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
+- **B2B Future Stock** (\*) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html)
 - **B2B Account Summary** (\*) for Commerce Org
 
 Items listed above with **(\*)** require new OCC REST APIs, no date set yet; see general SAP Commerce Cloud roadmap.
 
 ### Architecture
 
-- **Google Tag Manager Support**
+- Support for **Google Tag Manager**
 - **Site map**
 - **Extensibility 2.0** - finer-grained extensibility
  

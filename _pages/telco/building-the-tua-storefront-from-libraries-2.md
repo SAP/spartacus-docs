@@ -38,12 +38,12 @@ To update existing installations, use `brew upgrade` instead of `brew install`.
 
 ## Back End Server Requirements
 
-TUA Spartacus uses SAP Commerce and Telco & Utilities Accelerator for its back end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
+TUA Spartacus uses SAP Commerce Cloud and Telco & Utilities Accelerator for its back end, and makes use of the sample data from the Telco & Utilities Accelerator storefront in particular.
 
-- SAP Commerce version: Release 2005 (latest patch is recommended).
+- SAP Commerce Cloud version: Release 2005 (latest patch is recommended).
 - Telco & Utilities Accelerator version: Release 2007 or 2011 (latest patch) is required.
 
-For more information, see [Installing SAP Commerce for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
+For more information, see [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
 
 ## Creating a New Angular App
 
@@ -196,12 +196,12 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    @import '~@spartacus/tua-spa/storefrontstyles/index';
     ```
 
-6.	Add the following import in the `/mystore/src/polyfills.ts` file:
+6. Add the following import in the `/mystore/src/polyfills.ts` file:
 
-    ```bash
-   @import '@angular/localize/init';
-   @import 'zone.js/dist/zone';
-    ```
+   ```bash
+   import '@angular/localize/init';
+   import 'zone.js/dist/zone';
+   ```
 
 7. From the terminal window, within `mystore`, install the dependencies by running the following command:
 

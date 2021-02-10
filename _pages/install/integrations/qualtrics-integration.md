@@ -1,9 +1,9 @@
 ---
 title: Qualtrics Integration
 feature:
-- name: Qualtrics Integration
-  spa_version: 1.3
-  cx_version: n/a
+  - name: Qualtrics Integration
+    spa_version: 1.3
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -14,7 +14,7 @@ feature:
 
 The Qualtrics integration in Spartacus allows you to set up Qualtrics to work seamlessly in a single-page application. This integration is based on a JavaScript API that intercepts events in the storefront. The API is called Qualtrics Site Intercept (QSI), and is provided by Qualtrics. To import and use the API, Qualtrics provides a simple deployment code for your Qualtrics project, which you can integrate in Spartacus.
 
-**Note:** When using Qualtrics, it is important to be aware that users will be tracked while interacting with the survey, in terms of page views, impressions, and clicks. The consent management feature in SAP Commerce can be configured to create a specific consent for Qualtrics. Additionally, the SAP Qualtrics Integration Module provides a standard integration to incorporate consent into Qualtrics.
+**Note:** When using Qualtrics, it is important to be aware that users will be tracked while interacting with the survey, in terms of page views, impressions, and clicks. The consent management feature in SAP Commerce Cloud can be configured to create a specific consent for Qualtrics. Additionally, the SAP Qualtrics Integration Module provides a standard integration to incorporate consent into Qualtrics.
 
 Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled to view surveys.
 
@@ -106,9 +106,9 @@ The `isDataLoaded()` is taken into account before loading the deployment code. T
 The following example demonstrates the loading of cart data before the deployment script is loaded:
 
 ```ts
-import { Injectable } from "@angular/core";
-import { CartService, WindowRef } from "@spartacus/core";
-import { QualtricsConfig, QualtricsLoaderService } from "@spartacus/storefront";
+import { Injectable, RendererFactory2 } from "@angular/core";
+import { ActiveCartService, WindowRef } from "@spartacus/core";
+import { QualtricsLoaderService } from "@spartacus/qualtrics/components";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -116,10 +116,10 @@ import { map } from "rxjs/operators";
 export class DemoQualtricsLoaderService extends QualtricsLoaderService {
   constructor(
     winRef: WindowRef,
-    config: QualtricsConfig,
-    private cartService: CartService
+    rendererFactory: RendererFactory2,
+    private cartService: ActiveCartService
   ) {
-    super(winRef, config);
+    super(winRef, rendererFactory);
   }
 
   isDataLoaded(): Observable<boolean> {
@@ -128,4 +128,18 @@ export class DemoQualtricsLoaderService extends QualtricsLoaderService {
       .pipe(map((entries) => entries.length === 1));
   }
 }
+```
+
+## Spartacus Support for Qualtrics Embedded Feedback
+
+The Qualtrics Embedded Feedback feature relies on CSS selectors to display the Embedded Feedback component in a page. For more information, see [Embedded Feedback](https://www.qualtrics.com/support/website-app-feedback/creatives-tab/creative-types/embedded-feedback/) in the Qualtrics documentation.
+
+You can use this feature in Spartacus either by pointing to an appropriate selector on a page, or by using a dedicated CMS component that allows you to place the feature in a slot for a specific page. The following is an example of assigning the Embedded Feedback feature to a page slot using a CMS component:
+
+```ts
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;QualtricsEmbeddedFeedbackComponent;Qualtrics Embedded Feedback Component;QualtricsEmbeddedFeedbackComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;ProductSummarySlot;ProductImagesComponent,ProductIntroComponent,QualtricsEmbeddedFeedbackComponent,ProductSummaryComponent,VariantSelector,AddToCart,ConfigureProductComponent,AddToWishListComponent,StockNotificationComponent
 ```

@@ -13,7 +13,7 @@ Every time code is pushed to the Spartacus repository (regardless of whether a p
 - Runs all the unit tests
 - Runs Sonar checks
 - Builds the Spartacus project sources
-- Publishes [snapshot builds](https://sap.github.io/spartacus-docs/snapshot-builds)
+- Publishes [snapshot builds]({{ site.baseurl }}{% link _pages/install/snapshot-builds.md %})
 
 The configuration for Travis CI builds can be found in the `.travis.yml` file at the root of Spartacus project.
 

@@ -14,7 +14,7 @@ Before carrying out the procedures below, ensure the following front end and bac
 
 ## Back End Server Requirements
 
-Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus should only be used with SAP Commerce Cloud 1905 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs. For example, the B2B Commerce Organization API was added in release 2005. For more information on which back end releases contain which APIs, see [Feature Release Versions]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %})
+Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus should only be used with SAP Commerce Cloud 1905 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs. For example, the B2B Commerce Organization API was added in release 2005. For more information on which back end releases contain which APIs, see [Feature Release Versions]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 
 No matter the version, the latest patch is required, as important fixes are often added that affect Spartacus.
 
@@ -61,7 +61,7 @@ ng add @spartacus/schematics
 - The `/schematics` command adds the core Spartacus (or B2C) configuration, to work with SAP Commerce Cloud Electronics or Apparel sample stores.
 - To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command.
 - To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
-- The store locator feature is no longer included with the core Spartacus libraries. You can enable it by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries](https://sap.github.io/spartacus-docs/schematics/#installing-additional-spartacus-libraries).
+- The store locator feature is no longer included with the core Spartacus libraries. You can enable it by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
 ### Adding B2B Commerce Organization (Optional)
 
@@ -75,7 +75,7 @@ To get Spartacus to work with the SAP Commerce Cloud Powertools sample store, yo
 ng add @spartacus/organization
 ```
 
-The installer asks what to include (`organization` or `approvals`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
+The installer asks what to include (`Administration` and `Order-approval`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
 
 ### Installing Dependencies
 
@@ -124,7 +124,7 @@ To display your storefront, assuming everything is installed locally, browse to 
 
 Note: If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/electronics/cms/pages` (or `../rest/..` if using 1905), and then accept the privacy certificate. This step is necessary because your browser will block calls the app will make to `localhost:9002` due to security settings. To see the browser message, right-click in your browser, select **Inspect**, then click **Console**.
 
-- You can display the Apparel storefront through this URL: `http://localhost:4200/apparel-uk-spa/en-GBP`
-- You can display the Powertools storefront through this URL: `http://localhost:4200/powertools-spa/en-GBP`
+- You can display the Apparel storefront through this URL: `http://localhost:4200/apparel-uk-spa/en/GBP`
+- You can display the Powertools storefront through this URL: `http://localhost:4200/powertools-spa/en/USD`
 
 Congratulations! You've built your first Spartacus storefront.
