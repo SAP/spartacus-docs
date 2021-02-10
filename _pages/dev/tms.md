@@ -5,11 +5,11 @@ Before you continue reading this page, it's highly recommended to first get your
 
 The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Launch Platform (AELP) systems are supported out of the box, while the other tag managers can easily be plugged in.
 
-Spartacus supports running TMS integrations in parallel, and you can decide which events should be collected by each of the supported TMS systems.
+Spartacus supports running TMS integrations in parallel, and you can decide which events should be collected by each of the supported Tag Management solutions.
 
 ## Setup
 
-Each TMS system might require a different setup instruction, and it's not possible to cover every system here.
+Each Tag Management solution might require a different setup instruction, and it's not possible to cover every system here.
 However, the process _usually_ requires you to specify a certain `<script>` tag in your `index.html` which will load and bootstrap the TMS.
 
 After this is done, we can move on to the [configuration](#configuration) section.
