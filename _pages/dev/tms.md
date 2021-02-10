@@ -3,7 +3,7 @@
 Spartacus introduced the Tag Management System (TMS) integration in version 3.2.
 Before you continue reading this page, it's highly recommended to first get yourself familiar with the [Events Service](./event-service), as TMS relies on it.
 
-The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Platform (AEP) systems are supported out of the box, while the other tag managers can easily be plugged in.
+The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Launch Platform (AELP) systems are supported out of the box, while the other tag managers can easily be plugged in.
 
 Spartacus supports running TMS integrations in parallel, and you can decide which events should be collected by each of the supported TMS systems.
 
@@ -48,7 +48,7 @@ In the example above, we are just providing which events should be collected by 
 
 ### Customizations
 
-In the example above, we are leveraging Spartacus' default configuration for both GTM and AEP TMS solutions, and providing only the minimal custom configuration.
+In the example above, we are leveraging Spartacus' default configuration for both GTM and AELP TMS solutions, and providing only the minimal custom configuration.
 There are various customizations available in order to tweak how Spartacus interacts with the events and the data layer:
 
 #### Data layer
@@ -56,7 +56,7 @@ There are various customizations available in order to tweak how Spartacus inter
 Spartacus uses the standard data layer object names and types for each of the supported TMS:
 
 - [GTM](https://developers.google.com/tag-manager/devguide#datalayer) - `dataLayer: any[]`
-- [AEP](https://experienceleague.adobe.com/docs/analytics/implementation/prepare/data-layer.html?lang=en#setting-data-layer-values) - `digitalData: {[eventName: string]: any}`
+- [AELP](https://experienceleague.adobe.com/docs/analytics/implementation/prepare/data-layer.html?lang=en#setting-data-layer-values) - `digitalData: {[eventName: string]: any}`
 
 If you use a custom data layer object (with the standard data structure), you can configure it using the `dataLayerProperty` configuration property.
 
