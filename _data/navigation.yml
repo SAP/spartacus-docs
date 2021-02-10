@@ -431,7 +431,9 @@ docs:
                 - title: "Inbox"
                   url: /fsa-inbox/
                 - title: "Checkout"
-                  url: /fsa-checkout/                 
+                  url: /fsa-checkout/
+                - title: "Invoice Payment"
+                  url: /fsa-invoice-payment/
 
     - title: Contributing to Spartacus
       url: /contributors-guide/
