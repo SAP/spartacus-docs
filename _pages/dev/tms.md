@@ -33,18 +33,34 @@ After this is done, we can move on to the [configuration](#configuration) sectio
 
 ## Configuration
 
-You can import the `TmsModule` and pass the configuration to it like this:
+To use start collecting events, you need to import the `BaseTmsModule.forRoot()`, and provide a configuration.
+Optionally, you can import the `AepModule` or `GtmModule` to leverage Spartacus' default configuration.
+
+The following is how a full configuration might look like:
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { CartAddEntrySuccessEvent, CartRemoveEntrySuccessEvent } from '@spartacus/core';
+import {
+  CartAddEntrySuccessEvent,
+  CartRemoveEntrySuccessEvent,
+  provideConfig,
+} from '@spartacus/core';
 import { NavigationEvent } from '@spartacus/storefront';
-import { environment } from '../environments/environment';
+import { AepModule } from '@spartacus/tracking/tms/aep';
+import { BaseTmsModule } from '@spartacus/tracking/tms/core';
+import { GtmModule } from '@spartacus/tracking/tms/gtm';
 
 @NgModule({
   imports: [
+    ...,
+    BaseTmsModule.forRoot(),
+    GtmModule,
+    AepModule,
     ...
-    TmsModule.forRoot({
+  ],
+  providers: [
+    ...,
+    provideConfig({
       tagManager: {
         gtm: {
           events: [NavigationEvent, CartAddEntrySuccessEvent],
@@ -54,11 +70,9 @@ import { environment } from '../environments/environment';
         },
       },
     }),
-    ...
   ],
-  ...
 })
-export class AppModule {...}
+export class AppModule {}
 ```
 
 In the example above, we are just providing which events should be collected by each of the configured TMS solutions.
@@ -107,7 +121,7 @@ export class MyCollectorService implements TmsCollector {
 and configure it like this:
 
 ```typescript
-TmsModule.forRoot({
+BaseTmsModule.forRoot({
   tagManager: {
     gtm: {
       collector: MyCollectorService,
