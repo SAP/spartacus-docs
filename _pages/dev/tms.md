@@ -5,7 +5,7 @@ Before you continue reading this page, it's highly recommended to first get your
 
 The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Platform (AEP) systems are supported out of the box, while the other tag managers can easily be plugged in.
 
-Spartacus supports running multiple TMS in parallel, and you can decide which events should be collected by each of the supported TMS systems.
+Spartacus supports running TMS integrations in parallel, and you can decide which events should be collected by each of the supported TMS systems.
 
 ## Setup
 
