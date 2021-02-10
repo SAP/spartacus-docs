@@ -1,54 +1,37 @@
 ---
-title: B2B Organization
+title: Customizing B2B Commerce Organization
 feature:
-- name: B2B Organization
+- name: B2B Commerce Organization
   spa_version: 3.0
   cx_version: 2005
 ---
 
-## Overview
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}
+{% endcapture %}
 
-Commerce Org allows companies to create and manage their buying company as represented on the seller's site:
+{% include docs/feature_version.html content=version_note %}
 
-- **Units** (companies, divisions, etc.) in a hierarchy i.e. parents and children units
-- **Shipping addresses** assigned to units
-- **Users** (assigned to units) (assigned roles such as admin, manager, approver, or customer/buyer, and you can add more)
-  - Only admins can see and manage units, employees and cost centers
-  - Only approvers can see items requiring approval
-- **Cost centers** (assigned to units)
-- **Budgets** (assigned to cost centers)
-- **Purchase thresholds** (labelled as "Permissions" in Powertools), which trigger approvals if over the threshold (assigned to users)
-- **User groups**
+B2B Commerce Organization for Spartacus allows companies to manage purchases made through a Spartacus commerce web site.
 
-## UI
+The following sections describe how to customize and configure B2B Commerce Organization for Spartacus. For information about using B2B Commerce Organization, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
 
-### Override RoutingConfig
+For in-depth information on this feature, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
 
+## Customizing Routes
 
-In organization module, we have defined the following routes:
+A number of default routes are defined for B2B Commerce Organization. You can see the routes in the `config.ts` files of the following components:
 
-Budgets:
-`orgBudget, orgBudgetCreate, orgBudgetDetails, orgBudgetCostCenters, orgBudgetEdit`
+- budget
+- cost-center
+- permission (also known as purchase limits)
+- unit
+- user
+- user-group
 
-Cost centers:
-`orgCostCenter, orgCostCenterCreate, orgCostCenterDetails, orgCostCenterBudgets, orgCostCenterAssignBudgets, orgCostCenterEdit`
+For example, the routes for budgets are defined in `feature-libs/organization/administration/components/budget/budget.config.ts`.
 
-Purchase limits:
-`orgPurchaseLimit, orgPurchaseLimitCreate, orgPurchaseLimitDetails, orgPurchaseLimitEdit`
-
-Units:
-`orgUnits, orgUnitCreate, orgUnitDetails, orgUnitEdit, orgUnitChildren, orgUnitCreateChild, orgUnitUserList, orgUnitCreateUser, orgUnitUserRoles, orgUnitApprovers, orgUnitAssignApprovers, orgUnitAddressList, orgUnitAddressCreate, orgUnitAddressDetails, orgUnitAddressEdit, orgUnitCostCenters, orgUnitCreateCostCenter`
-
-Users:
-`orgUser, orgUserCreate, orgUserDetails, orgUserEdit, orgUserChangePassword, orgUserApprovers, orgUserAssignApprovers,   orgUserPermissions, orgUserAssignPermissions, orgUserUserGroups, orgUserAssignUserGroups`
-
-User groups:
-`orgUserGroup, orgUserGroupCreate, orgUserGroupDetails, orgUserGroupEdit, orgUserGroupUsers, orgUserGroupAssignUsers, orgUserGroupPermissions, orgUserGroupAssignPermissions`
-
-
-For more details how to override routes, please see section [Route Configuration](https://sap.github.io/spartacus-docs/route-configuration/#predefined-config)
-
-Example:
+You can override these routes, as shown in the following example:
 
 ```ts
 imports: [
@@ -58,7 +41,7 @@ imports: [
     routing: {
       routes: {
         orgBudgetCreate: {
-          paths: ['organization/budgets/my-create'],
+          paths: ['organization/budgets/custom-create'],
         },
       },
     },    
@@ -67,19 +50,21 @@ imports: [
 ]
 ```
 
-### Override CmsConfig
+For more information on overriding routes, see [Route Configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md%}).
 
-Organization library provides clear split into features. They are reflected in feature list components. 
+## Customizing CMS Components
 
-You can override next CMS components:
-`ManageBudgetsListComponent, ManageCostCentersListComponent, ManagePermissionsListComponent, ManageUnitsListComponent, ManageUsersListComponent, ManageUserGroupsListComponent`
+In the Organization library, you can override the following CMS components:
 
+- `ManageBudgetsListComponent`
+- `ManageCostCentersListComponent`
+- `ManagePermissionsListComponent`
+- `ManageUnitsListComponent`
+- `ManageUsersListComponent`
+- `ManageUserGroupsListComponent`
 
-Presented feature list components uses [Split view](https://sap.github.io/spartacus-docs/split-view/), it means all components inside are ordered in nested hierarchy. A side effect of this solution is the need to overwrite the entire configuration, even if we want to make a small change.
+The following is an example:
 
-For more details how to override cms configuration, please see section [CMS Configuration](https://sap.github.io/spartacus-docs/customizing-cms-components/)
-
-Example:
 ```ts
 imports: [
   // ...
@@ -91,7 +76,7 @@ imports: [
         childRoutes: {
           children: [
             {
-              path: 'my-create',
+              path: 'custom-create',
               component: MyFormComponent,
             },
             // ...
@@ -104,9 +89,14 @@ imports: [
 ]
 ```
 
-### Override TableConfig
+All of the list components in the Organization library use split view, which means all the components inside the split view component are ordered in a nested hierarchy. As a result, even small changes require overwriting the entire configuration. For more information, see [Split View]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
+
+For more information on overriding CMS configurations, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md%}).
+
+## Override TableConfig
 
 Following lists in organization module which can be overridden:
+
 ```ts
 export enum OrganizationTableType {
   BUDGET = 'orgBudget',
@@ -182,6 +172,7 @@ Several implementations of `CellComponent` have been defined in the organization
 - `UnitUserRolesCellComponent` - personalized link for open roles view
 
 ### Local message component
+
 Newly added messages was used in the organization. They work similarly to global messages, but are displayed directly in the component of the subject they concern.
 
 - In common cases we use `NotificationMessageComponent` to display information about success or error.
