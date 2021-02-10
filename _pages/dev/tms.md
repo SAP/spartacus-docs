@@ -36,9 +36,9 @@ After this is done, we can move on to the [configuration](#configuration) sectio
 The following TMS configuration options are available for each TMS:
 
 - `debug?: boolean` - Should be enabled in development mode only. Enables console logs.
-- `dataLayerProperty?: string` - The name for the data layer object.
-- `events?: AbstractType<CxEvent>[]` - Events to send to the configured TMS.
-- `collector?: Type<TmsCollector>` - The collector service implementation.
+- `dataLayerProperty?: string` - The name for the data layer object. Provide only if you are using a different name than the default one with the default data-layer data structure (e.g. for `gtm` it's an array-like, while for `aelp` it's an empty object).
+- `events?: AbstractType<CxEvent>[]` - List all the event classes which are to be collected and pushed to the data layer.
+- `collector?: Type<TmsCollector>` - The custom collector service implementation.
 
 To use start collecting events, you need to import the `BaseTmsModule.forRoot()`, and provide a configuration.
 Optionally, you can import the `AepModule` or `GtmModule` to leverage Spartacus' default configuration.
