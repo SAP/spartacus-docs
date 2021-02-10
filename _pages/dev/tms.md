@@ -33,6 +33,13 @@ After this is done, we can move on to the [configuration](#configuration) sectio
 
 ## Configuration
 
+The following TMS configuration options are available for each TMS:
+
+- `debug?: boolean` - Should be enabled in development mode only. Enables console logs.
+- `dataLayerProperty?: string` - The name for the data layer object.
+- `events?: AbstractType<CxEvent>[]` - Events to send to the configured TMS.
+- `collector?: Type<TmsCollector>` - The collector service implementation.
+
 To use start collecting events, you need to import the `BaseTmsModule.forRoot()`, and provide a configuration.
 Optionally, you can import the `AepModule` or `GtmModule` to leverage Spartacus' default configuration.
 
@@ -47,7 +54,7 @@ import {
 } from '@spartacus/core';
 import { NavigationEvent } from '@spartacus/storefront';
 import { AepModule } from '@spartacus/tracking/tms/aep';
-import { BaseTmsModule } from '@spartacus/tracking/tms/core';
+import { BaseTmsModule, TmsConfig } from '@spartacus/tracking/tms/core';
 import { GtmModule } from '@spartacus/tracking/tms/gtm';
 
 @NgModule({
@@ -69,7 +76,7 @@ import { GtmModule } from '@spartacus/tracking/tms/gtm';
           events: [NavigationEvent, CartRemoveEntrySuccessEvent],
         },
       },
-    }),
+    } as TmsConfig),
   ],
 })
 export class AppModule {}
