@@ -12,6 +12,8 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
+**Note:** B2B Commerce Organization requires the Organization feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
+
 B2B Commerce Organization for Spartacus allows companies to manage purchases made through a Spartacus commerce web site.
 
 The following sections describe how to customize and configure B2B Commerce Organization for Spartacus. For information about using B2B Commerce Organization, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
