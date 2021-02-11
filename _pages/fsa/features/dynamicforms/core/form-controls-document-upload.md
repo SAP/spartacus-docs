@@ -2,7 +2,7 @@
 title: Document Upload
 ---
 
-**Note: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
 
 ## Contents
 
@@ -25,7 +25,7 @@ Dynamic Forms is a library for creating forms, designed to work with Spartacus a
 
 JSON representation of document upload form control is presented in the following example:
 
-```typescript
+```json
 {
     "label": {
         "en": "Please upload files relevant to the incident:",
@@ -48,34 +48,34 @@ JSON representation of document upload form control is presented in the followin
 ```
 
 
-| Properties                                	| Description                                                 	|
-|---------------	|--------------------------------------------------------	|
-| label             | Represents a localizable caption for an item in a user interface.                         |
-| name             	| Identification of upload form control.           	|
-| fieldType 	    | The upload fieldType is used to create interactive upload control for dynamic-based forms.|
-| required          | When present, it specifies that an input field must be filled out before submitting the form.
-| multiple          | Specifies that the user is allowed to enter/select more than one value. Should be set it to " true " if you wish to allow uploading multiple files at once and to " false " for a single file upload (i.e. one by one). |
-| maxUploads        | A maximum number of files that can be uploaded at one time.
-| accept            | Specifies a filter for what file types the user can pick from the file input dialogue box.
-| maxFileSize       | Maximum size limit for files in bytes. |
+| Properties                   | Description                                                 	|
+|:---	                       | :---	|
+| `label`            		   | Represents a localizable caption for an item in a user interface.                         |
+| `name`            		   | Identification of upload form control.           	|
+| `fieldType` 	  			   | The upload fieldType is used to create interactive upload control for dynamic-based forms.|
+| `required`       		       | When present, it specifies that an input field must be filled out before submitting the form.
+| `multiple`                   | Specifies that the user is allowed to enter/select more than one value. Should be set it to " true " if you wish to allow uploading multiple files at once and to " false " for a single file upload (i.e. one by one). |
+| `maxUploads`                 | A maximum number of files that can be uploaded at one time.
+| `accept`                     | Specifies a filter for what file types the user can pick from the file input dialogue box.
+| `maxFileSize`                | Maximum size limit for files in bytes. |
 
-## File upload
+## File Upload
 
-The previous example demonstrates how to upload the files to the server. Users have the possibility to upload images, Microsoft Office, PDF, and plain text files that are up to 5 MB in size. This sample limits the maximum number of files that can be uploaded to 4. The cx-upload component allows you to validate the file type and limit the file size using the maxFileSize property.
+The previous example demonstrates how to upload the files to the server. Users have the possibility to upload images, Microsoft Office, PDF, and plain text files that are up to 5.0 MB in size. This sample limits the maximum number of files that can be uploaded to 4. The cx-upload component allows you to validate the file type and limit the file size using the maxFileSize property.
 
 ![document upload]({{ site.baseurl }}/assets/images/fsa/document-upload.png)
 
-The component displays a built-in progress bar (progress indicator) with the progress percentage during each file upload. Once the upload is finished, the user should be able to download the uploaded file and the file will be marked with a check icon.
+The component displays a built-in progress bar (progress indicator) with the progress percentage during each file upload. Once the upload is finished, the user should be able to download the uploaded file, and the file will be marked with a check icon.
 
 ![progress bar during document upload]({{ site.baseurl }}/assets/images/fsa/document-upload-progress-bar.png)
 
-When a user clicks the UPLOAD button, a new instance of DocumentModel is created in CommerceSuite. Relevant information during document upload is:
+When a user clicks the **UPLOAD** button, a new instance of DocumentModel is created in CommerceSuite. Relevant information during document upload is:
 
-- content of document
+- content of the document
 - document name
 - document object identifier
 - customer external id
 
-Open Backoffice and find the uploaded file under Document itemtype. Example:
+In the Backoffice, the uploaded file can be found under Document itemtype.  
 
 ![uploaded document in backoffice]({{ site.baseurl }}/assets/images/fsa/document-upload-backoffice.png)
