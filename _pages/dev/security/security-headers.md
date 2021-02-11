@@ -8,7 +8,7 @@ This document describes various security headers that are in place or should be 
 
 ## HTTP Strict-Transport-Security
 
-The HSTS security header forces the web browser to access the storefront by https only. This contributes to protocol downgrading and cookie hijacking.
+The HSTS security header forces the web browser to access the storefront by https only. This prevents potential protocol downgrading and cookie hijacking.
 
 This is a pretty basic header that should be applied by default to Spartacus applications.
 
@@ -24,21 +24,15 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 
 ## HTTP Public Key Pinning (HPKP)
 
-`HPKP` is a (deprecated) mechanism that can be added through http headers. The mechanism would forces the same headers cross various layers, including APIs.
-
-CCv2 doesn't support this header deliberately. It adds too much pressure on syncing certificates cross multiple (changing) layers in the hosting setup. Moreover, HPKP is deprecated and not implemented in a stable manner cross browsers for HPKP.
-
-Spartacus does not insist on the usage of HPKP.
+`HPKP` is a (deprecated) mechanism that can be added through http headers. The mechanism would forces the same headers cross various layers, including APIs. Since it's deprecated and not implemented consistently cross browsers, this is not a mechanism that is used in Spartacus nor CCv2.
 
 ## X-Frame-Options
 
-The `X-Frame-Options` header is a well-known header that can be used to mitigate clickjacking. This header can only be 2 values, `DENY` or `SAMEORIGIN`. This is too limited for Spartacus as a default strategy to prevent clickjacking, since the Spartacus storefront runs in an iframe in SmartEdit. SmartEdit loads Spartacus in an iframe and actually uses _Clickjacking_ technique deliberately to support inline content managing.
+The `X-Frame-Options` header can be used to prevent Spartacus to be loaded inside an iframe on another origin, which is a common approach to mitigates clickjacking. Clickjacking is a malicious technique of tricking a user into clicking on something different from what the user perceives, often done by the help of an overlay over an iframe with the original site.
 
-The `Content-Security-Policy: frame-ancestors` offers more sophisticated approach to tackle clickjacking, so that SmartEdit can be used while still being able to protect from clickjacking. The CSP is detailed further below.
+This `X-Frame-Options` header however can only have two values, `DENY` or `SAMEORIGIN`. This is too limited for Spartacus as a default strategy to prevent clickjacking, since the Spartacus storefront runs in an iframe in SmartEdit. SmartEdit loads Spartacus in an iframe and actually uses _Clickjacking_ technique deliberately to support inline content managing.
 
-The `Content-Security-Policy: frame-ancestors` is not supported in older browsers such as IE11. Customers who need to support IE11, the `X-Frame-Options` could be used as an alternative policy to evaluate. (Keep in mind however that this will block SmartEdit on the same deployed environment).
-
-Since audits will likely report the lack of `X-Frame-Options` even if the more modern CSP is in place, it is recommended to add this header regardless.
+The `Content-Security-Policy: frame-ancestors` offers a more sophisticated approach to tackle clickjacking, so that SmartEdit can be used while still being able to protect from clickjacking. The CSP is detailed further below. To ensure that IE11 users are also protected, the use of `X-Frame-Options` is still relevant. Modern browsers will ignore the `X-Frame-Options` header completely, if a CSP header with the `frame-ancestors` directive is present.
 
 **TODO**
 
