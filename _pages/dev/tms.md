@@ -170,40 +170,20 @@ In the `map` method you can use `instanceof` check to differentiate which event 
 
 ##### Creating custom events
 
-Creating custom events in Spartacus and re-mapping the data to fit your data structure requirements is straightforward:
+Creating custom events in Spartacus and re-mapping the data to fit your data structure requirements is just the matter of registering a [new event source](/_pages/dev/event-service.md#Registering-Event-Sources)
 
 ```typescript
-import { Injectable } from "@angular/core";
-import { createFrom, EventService } from "@spartacus/core";
-import { NavigationEvent } from "@spartacus/storefront";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+const eventSource = this.eventService.get(NavigationEvent).pipe(
+  map((navigationEvent) =>
+    createFrom(CustomNavigationEvent, {
+      // just an example logic, it's not necessarily the actual page name and type
+      pageName: navigationEvent.context.id,
+      pageType: navigationEvent.context.type,
+    })
+  )
+);
 
-export class CustomNavigationEvent {
-  pageType: string;
-  pageName: string;
-}
-
-@Injectable({
-  providedIn: "root",
-})
-export class CustomNavigationEventBuilder {
-  constructor(protected eventService: EventService) {
-    this.buildNavigationEvent();
-  }
-
-  private buildNavigationEvent(): Observable<CustomNavigationEvent> {
-    return this.eventService.get(NavigationEvent).pipe(
-      map((navigationEvent) =>
-        createFrom(CustomNavigationEvent, {
-          // just an example logic, it's not necessarily the actual page name and type
-          pageName: navigationEvent.context.id,
-          pageType: navigationEvent.context.type,
-        })
-      )
-    );
-  }
-}
+eventService.register(CustomEvent, eventSource);
 ```
 
 In the case above, we are re-mapping Spartacus' `NavigationEvent` to `CustomNavigationEvent`. If you need to pull additional data, please see the "Pulling Additional Data From Facades" chapter in the [Events Service docs](./event-service#Pulling-Additional-Data-From-Facades).
@@ -214,30 +194,4 @@ If you use this approach, you need to pass your `CustomNavigationEvent` to the `
 
 ##### Overriding the TMS service's `mapEvents()`
 
-In case you just want enrich all Spartacus events with some common data, overriding the `TmsService`'s `mapEvents()` is a good place to do it:
-
-```typescript
-import { Inject, Injectable, Injector, PLATFORM_ID } from "@angular/core";
-import { CxEvent, EventService, WindowRef } from "@spartacus/core";
-import { TmsConfig, TmsService } from "@spartacus/tracking/tms/core";
-import { merge, Observable } from "rxjs";
-
-@Injectable({ providedIn: "root" })
-export class MyTmsService extends TmsService {
-  constructor(
-    protected eventsService: EventService,
-    protected windowRef: WindowRef,
-    protected tmsConfig: TmsConfig,
-    protected injector: Injector,
-    @Inject(PLATFORM_ID) protected platformId: any
-  ) {
-    super(eventsService, windowRef, tmsConfig, injector, platformId);
-  }
-
-  protected mapEvents<T extends CxEvent>(
-    events: Observable<T>[]
-  ): Observable<T> {
-    // TODO: implement your custom mapping logic here
-  }
-}
-```
+In case you just want enrich all Spartacus events with some common data, overriding the `TmsService`'s `mapEvents()` is a good place to do it.
