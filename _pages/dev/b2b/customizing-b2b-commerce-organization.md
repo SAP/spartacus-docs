@@ -93,43 +93,11 @@ All of the list components in the Organization library use split view, which mea
 
 For more information on overriding CMS configurations, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md%}).
 
-## Override TableConfig
+## Customizing Table Configurations
 
-Following lists in organization module which can be overridden:
+All of the table configurations in the Organization library are listed in the `OrganizationTableType` enum in `feature-libs/organization/administration/components/shared/organization.model.ts`.
 
-```ts
-export enum OrganizationTableType {
-  BUDGET = 'orgBudget',
-  BUDGET_ASSIGNED_COST_CENTERS = 'orgBudgetAssignedCostCenters',
-  COST_CENTER = 'orgCostCenter',
-  COST_CENTER_BUDGETS = 'orgCostCenterBudgets',
-  COST_CENTER_ASSIGNED_BUDGETS = 'orgCostCenterAssignedBudgets',
-  UNIT = 'orgUnit',
-  UNIT_USERS = 'orgUnitUsers',
-  UNIT_CHILDREN = 'orgUnitChildren',
-  UNIT_APPROVERS = 'orgUnitApprovers',
-  UNIT_ASSIGNED_APPROVERS = 'orgUnitAssignedApprovers',
-  UNIT_ADDRESS = 'orgUnitAddress',
-  UNIT_COST_CENTERS = 'orgUnitCostCenters',
-  USER_GROUP = 'orgUserGroup',
-  USER_GROUP_USERS = 'orgUserGroupUsers',
-  USER_GROUP_ASSIGNED_USERS = 'orgUserGroupAssignedUsers',
-  USER_GROUP_PERMISSIONS = 'orgUserGroupPermissions',
-  USER_GROUP_ASSIGNED_PERMISSIONS = 'orgUserGroupAssignedPermissions',
-  USER = 'orgUser',
-  USER_APPROVERS = 'orgUserApprovers',
-  USER_ASSIGNED_APPROVERS = 'orgUserAssignedApprovers',
-  USER_PERMISSIONS = 'orgUserPermissions',
-  USER_ASSIGNED_PERMISSIONS = 'orgUserAssignedPermissions',
-  USER_USER_GROUPS = 'orgUserUserGroups',
-  USER_ASSIGNED_USER_GROUPS = 'orgUserAssignedUserGroups',
-  PERMISSION = 'orgPurchaseLimit',
-}
-```
-
-For more details how to override table configuration, please see section [Table Configuration](https://sap.github.io/spartacus-docs/table/)
-
-Example: How to override `name` cell in `orgBudget` table with prepared previously `MyComponent`
+You can override any of these table configurations, as shown in the following example, which overrides the `name` cell in the `orgBudget` table with a previously prepared `MyComponent` data component:
 
 ```ts
 export const myTableConfig: TableConfig = {
@@ -147,7 +115,8 @@ export const myTableConfig: TableConfig = {
 };
 ```
 
-Now it's enough to add configuration in your providers list.
+Now you can add the configuration to your `providers` list. The following is an example:
+
 ```ts
 providers: [
   //...
@@ -155,36 +124,38 @@ providers: [
 ],
 ```
 
-### Cell components
+For more information, see [Table Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
 
-Several implementations of `CellComponent` have been defined in the organization that apply to tables and subtables.
+**MAKE SURE THE ABOVE LINK IS CORRECT!**
 
-- `ToggleLinkCellComponent` - allows toggling branches on units list and set styles for depth level
-- `AssignCellComponent` - is used for allows assigning or unassigning items
-- `ActiveLinkCellComponent` - displays name and make whole row as link
-- `AmountCellComponent` - prepared for display budget combined with currency
-- `DateRangeCellComponent` - displays combined start and end date for budget
-- `LimitCellComponent` - depending on orderApprovalPermissionType shows purchase limit
-- `RolesCellComponent` - displays user roles in specified way
-- `StatusCellComponent` - is used for display colorable status of active flag
-- `UnitCellComponent` - displays information about unit of current item
-- `LinkCellComponent` - link for nested views (address)
-- `UnitUserRolesCellComponent` - personalized link for open roles view
+### Cell Components
 
-### Local message component
+Several implementations of `CellComponent` have been defined in the Organization library that apply to tables and subtables, as follows:
 
-Newly added messages was used in the organization. They work similarly to global messages, but are displayed directly in the component of the subject they concern.
+- `ToggleLinkCellComponent` allows toggling of branches on the units list and sets styles for the depth level
+- `AssignCellComponent` is used to allow assigning or unassigning of items
+- `ActiveLinkCellComponent` displays the name and makes the whole row into a link
+- `AmountCellComponent` displays the budget combined with the currency
+- `DateRangeCellComponent` displays the combined start and end date for budget
+- `LimitCellComponent` shows the purchase limit, depending on `orderApprovalPermissionType`
+- `RolesCellComponent` displays user roles in a specified way
+- `StatusCellComponent` is used for displaying the colorable status of an active flag
+- `UnitCellComponent` displays information about the unit of the current item
+- `LinkCellComponent` provides a link for nested views (such as address)
+- `UnitUserRolesCellComponent` is a personalized link for the open roles view
 
-- In common cases we use `NotificationMessageComponent` to display information about success or error.
+## Local Message Component
 
-- `ConfirmationMessageComponent` has been designed to ask question for make sure that user is aware of consequences of his action. Used e.g. in `ToggleStatusComponent` and `DeleteItemComponent`.
+Messages in the Organization library similarly to global messages, but are displayed directly in the component of the subject they are related to. For normal cases, Spartacus uses `NotificationMessageComponent` to display information about the success or failure of an action. The `ConfirmationMessageComponent` is designed to ask a question that ensures users are aware of any consequences that may result from their actions. The `ConfirmationMessageComponent` is used in the `ToggleStatusComponent` and `DeleteItemComponent`, for example.
 
 ## Core
 
-### Guards:
+### Guards
+
 We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components) `AdminGuard` which verify that logged user has permissions to see organization pages. By default, it redirects into organization home page and displays warning message. 
 
 ### Models
+
 - Models from core used in organization 
 `Address, Currency, B2BApprovalProcess, B2BUserRole, OrderApprovalPermissionType`
 - Core models used for structure:
@@ -199,7 +170,9 @@ We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-com
 `B2BUnitTreeNode`
   
 ### Occ
+
 Config - Organization uses below endpoints for data access:
+
 ```ts
 export const defaultOccOrganizationConfig: OccConfig = {
   backend: {
@@ -272,13 +245,15 @@ export const defaultOccOrganizationConfig: OccConfig = {
 
 For more information on OCC endpoint configuration, see [Configuring Endpoints](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#configuring-endpoints)
 
-### Adapters:
+### Adapters
+
 List of adapters:
 `BudgetAdapter, OrgUnitAdapter, UserGroupAdapter, PermissionAdapter, CostCenterAdapter, B2BUserAdapter`
 
 More information about adapters is available [here.](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#adapter)
 
-### Convertors:
+### Convertors
+
 - List of serializers in a core:
 `ADDRESS_SERIALIZER, COST_CENTER_SERIALIZER`
 
@@ -294,17 +269,20 @@ More information about adapters is available [here.](https://sap.github.io/spart
 Please see section [convertor](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#convertor) to see more details.
 
 ### Store
+
 Main assumptions:
+
 - Every PATCH/POST action clean whole organization state to make sure, that we have always up to date data.
 - Components and their services have responsibility to routing redirects.
 - In facades, we try load data only if they were not loaded before.
 
 Exceptions:
+
 - We avoid cleaning users list when we assign / unassign an approver for user (race condition in split view)
 - We have missing id while creation of user, so there are some routing redirections applied directly in effects.
 
-
 Organization model stored in redux contains all main features:
+
 ```ts
 export interface OrganizationState {
   [BUDGET_FEATURE]: BudgetManagement;
@@ -315,6 +293,7 @@ export interface OrganizationState {
   [B2B_USER_FEATURE]: B2BUserManagement;
 }
 ```
+
 In simplify we store everything related to organization in entities and lists of IDs separately. Associated data for a subsection is stored in their own feature, but for specific views we use combination of ID and query params to store list of IDs and other information.
 
 ```ts
@@ -351,11 +330,13 @@ export interface B2BUserManagement extends Management<B2BUser> {
   userGroups: StateUtils.EntityLoaderState<ListModel>;
 }
 ```
+
 For more details about usage of EntityLoaderState, please see section [Loader Meta Reducer](https://sap.github.io/spartacus-docs/loader-meta-reducer/#defining-the-state-interface)
 
+#### Example
 
-#### Example.
 For `User group` structure can look like this:
+
 ```ts
 userGroup:
     entities:
@@ -377,7 +358,9 @@ userGroup:
             edited-entity-a33xc5fnn?pageSize=2147483647&currentPage=&sort=: {loading: false, error: false, success: true, value: {…}}
 
 ```
+
 Where:
+
 - `entities` stores user group real objects (key mapped to status flags and value)
 - `list` stores list of user groups IDs for specified page (keys based on query params like pagination, sort)
 - `customers`, `permisions` stores ID's for a subsection (keys based on ID of user group and query params)
@@ -442,6 +425,7 @@ There is also possibility to upload any image file and use it as an icon in bann
 How to override organization styles:
 
 Make sure that file is generated properly by schematics, or add it own. Your `angular.json` file should include his path in build styles.
+
 ```ts
 "styles": [
   "src/styles.scss",
@@ -462,6 +446,7 @@ In `organization.scss` should be imported organization styles, and you can add y
     }
 }
 ```
+
 More about styles in spartacus you can see in section dedicated to [ styles.](https://sap.github.io/spartacus-docs/css-architecture/#component-styles)
 
 ## Assets
@@ -488,4 +473,5 @@ provideConfig({
   },
 }),
 ```
+
 More about translations please see section [extending translation](https://sap.github.io/spartacus-docs/i18n/#extending-translations)
