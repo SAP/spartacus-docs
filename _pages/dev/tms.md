@@ -111,16 +111,16 @@ import {
 
 @Injectable({ providedIn: "root" })
 export class MyCollectorService implements TmsCollector {
-  init(config: TmsCollectorConfig, windowObject: WindowObject): void {
-    windowObject.myDataLayer = windowObject.myDataLayer ?? [];
+  init(config: TmsCollectorConfig, window: WindowObject): void {
+    window.myDataLayer = window.myDataLayer ?? [];
   }
 
   pushEvent<T extends CxEvent>(
     config: TmsCollectorConfig,
-    windowObject: WindowObject,
+    window: WindowObject,
     event: T | any
   ): void {
-    windowObject.myDataLayer.push(event);
+    window.myDataLayer.push(event);
   }
 }
 ```
