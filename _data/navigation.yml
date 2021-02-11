@@ -434,6 +434,8 @@ docs:
                   url: /fsa-checkout/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
+                - title: "Invoice Payment"
+                  url: /fsa-invoice-payment/
 
     - title: Contributing to Spartacus
       url: /contributors-guide/
