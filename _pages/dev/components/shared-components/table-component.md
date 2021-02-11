@@ -1,9 +1,9 @@
 ---
 title: Table Component
 feature:
-- name: Table Component
-  spa_version: 3.0
-  cx_version: n/a
+  - name: Table Component
+    spa_version: 3.0
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -29,11 +29,11 @@ The following is a basic example of a table configuration, which provides the ce
 ```ts
 provideConfig({
   table: {
-    'my-table': {
+    budget: {
       cells: ['name', 'active', 'amount', 'dateRange', 'unit'],
-    },
-  },
-} as TableConfig);
+    }
+  }
+} as TableConfig)
 ```
 
 ## Table Layout Configuration
@@ -51,14 +51,14 @@ A layout configuration can be provided for each table type, as shown in the foll
 ```ts
 provideConfig({
   table: {
-    'my-table': {
-      cells: ['first', 'second', 'third'],
+    budget: {
+      cells: ['name', 'active', 'amount', 'dateRange', 'unit'],
       options: {
         layout: TableLayout.VERTICAL,
-      },
-    },
-  },
-} as TableConfig);
+      }
+    }
+  }
+} as TableConfig)
 ```
 
 ## Responsive Table Configuration
@@ -70,7 +70,7 @@ The following example demonstrates building a configuration on top of the preced
 ```ts
 provideConfig({
   table: {
-    'my-table': {
+    'budget': {
       cells: ['name', 'active', 'amount', 'dateRange', 'unit']
       options: {
         layout: TableLayout.VERTICAL
@@ -83,7 +83,7 @@ provideConfig({
       }
     }
   }
-} as TableConfig);
+} as TableConfig)
 ```
 
 ## Cell Renderers
@@ -95,22 +95,22 @@ The following example demonstrates how cell rendering can be configured:
 ```ts
 provideConfig({
   table: {
-    'my-table': {
+    'budget': {
       cells: ['name', 'active', 'amount', 'dateRange', 'unit']
       options: {
-        headerComponent: CustomHeaderCellComponent,
+        headerComponent: BudgetHeaderCellComponent,
         cells: {
           name: {
-            dataComponent: NameDataCellComponent,
+            dataComponent: BudgetNameDataCellComponent,
           },
           active: {
-            headerComponent: ActiveHeaderComponent,
-          },
-        },
-      },
-    },
-  },
-} as TableConfig),
+            headerComponent: BudgetActiveHeaderComponent,
+          }
+        }
+      }
+    }
+  }
+} as TableConfig)
 ```
 
 ## Cell Outlets
