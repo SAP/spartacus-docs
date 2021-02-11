@@ -188,6 +188,8 @@ docs:
                   url: /searchbox-component/
                 - title: "Split View Component"
                   url: /split-view/
+                - title: "Table Component"
+                  url: /table-component/
           - title: "Extending Built-In Models"
             url: /type-augmentation/
           - title: "Session Management"
