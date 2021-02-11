@@ -128,11 +128,12 @@ onClick() {
 
 ## Event Types Inheritance
 
-In Spartacus 3.1, we've introduced a concept of "umbrella" events. The purpose of these events is to group similar events under one common umbrella event. This enables you to observe only the umbrella event, and receive all the grouped events.
+In Spartacus 3.1, we've introduced a concept of parent (or "umbrella") events. The purpose of these parent events is to group similar events under one common event. The parent event can be an abstract or a regular class.
+By subscribing to the parent event, you will get emissions from all the "child" events that inherit it.
 
-For example, `@spartacus/core`'s `PageEvent` is an umbrella event. All the specific page events inherit from it (`HomePageEvent`, `CartPageEvent`, etc.).
+For example, `@spartacus/core`'s `PageEvent` is a parent event. All the specific page events inherit from it (`HomePageEvent`, `CartPageEvent`, etc.).
 In the previous Spartacus versions, you had to observe each of the page events individually (i.e. `eventService.get(HomePageEvent).subscribe(...)`, `eventService.get(CartPageEvent).subscribe(...)`, etc.).
-Starting from Spartacus 3.1, you can subscribe to all the grouped events just by observing the umbrella event:
+Starting from Spartacus 3.1, you can subscribe to all the grouped events just by observing the parent event:
 
 ```typescript
 eventService.get(PageEvent).subscribe(...) // receives all page events
@@ -161,7 +162,7 @@ This is the complete list of all the Spartacus events:
 
 ```typescript
 /**
- * An umbrella event, intended to be inherited by all other Spartacus' events.
+ * Intended to be inherited by all other Spartacus' events.
  */
 export abstract class CxEvent {
   /**
