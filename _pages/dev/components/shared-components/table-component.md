@@ -41,7 +41,7 @@ provideConfig({
 The table can be rendered in the following different layout orientations:
 
 - `VERTICAL` renders the table vertically, with a heading on top of the table
-- `VERTICAL_STACKED` renders a horizontally-oriented table layout, with the table headers in the first column of the table
+- `VERTICAL_STACKED` renders each item in a separate table with a horizontal layout, nested inside a vertical table layout
 - `HORIZONTAL` renders the table horizontally, with the header on the left side of the table
 
 The vertical layout is the default layout.
@@ -115,7 +115,7 @@ provideConfig({
 
 ## Cell Outlets
 
-Aside from configuration, the table component can be customized with outlets. Outlets are used to customize existing UI elements without changing existing component logic or templates.
+Aside from configuration, the table component can be customized with [outlets]({{ site.baseurl }}{% link _pages/dev/outlets.md %}). Outlets are used to customize existing UI elements without changing existing component logic or templates.
 
 The table component generates an outlet for each cell, so that customizations can be done by both outlet templates and components. Outlet references are concatenated from the table `type` and header `key`. The following snippet shows an outlet generated for the table header name of the budget table:
 
@@ -129,8 +129,6 @@ Similarly, the data cells (`<td>`) are generated with the `table.budget.data.nam
 
 The cell context is injected in the outlets, so that template or component logic can pick up the provided cell data. The outlet is typed with either `TableHeaderOutletContext` or `TableDataOutletContext`, which are exported in the public API.
 
-For more information, see [Outlets]({{ site.baseurl }}{% link _pages/dev/outlets.md %}).
-
 ## Localized Table Headers
 
 Table headers are rendered by default with the `TableHeaderCellComponent`. This component renders the field label from the configuration, if it is available. If there is no field label provided, an `i18n` label is expected. The `i18n` label is taken from `fieldOptions.i18nKey`, but if this is also not provided, it will fall back to the following concatenated label:
@@ -138,3 +136,5 @@ Table headers are rendered by default with the `TableHeaderCellComponent`. This 
 ```text
 [i18nRoot].[cell-name]
 ```
+
+The `i18nRoot` is part of the outlet context, which is driven by the `TableComponent.i18nRoot` input. This rather complex setup improves the flexibility and reusability of the table component.
