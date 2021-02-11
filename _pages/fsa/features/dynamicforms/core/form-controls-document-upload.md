@@ -49,11 +49,11 @@ JSON representation of document upload form control is presented in the followin
 
 
 | Properties                   | Description                                                 	|
-|:---	                       | :---	|
-| `label`            		   | Represents a localizable caption for an item in a user interface.                         |
-| `name`            		   | Identification of upload form control.           	|
-| `fieldType` 	  			   | The upload fieldType is used to create interactive upload control for dynamic-based forms.|
-| `required`       		       | When present, it specifies that an input field must be filled out before submitting the form.
+| :---                         | :---	|
+| `label`                      | Represents a localizable caption for an item in a user interface.                         |
+| `name`                       | Identification of upload form control.           	|
+| `fieldType`                  | The upload fieldType is used to create interactive upload control for dynamic-based forms.|
+| `required`                   | When present, it specifies that an input field must be filled out before submitting the form.
 | `multiple`                   | Specifies that the user is allowed to enter/select more than one value. Should be set it to " true " if you wish to allow uploading multiple files at once and to " false " for a single file upload (i.e. one by one). |
 | `maxUploads`                 | A maximum number of files that can be uploaded at one time.
 | `accept`                     | Specifies a filter for what file types the user can pick from the file input dialogue box.
