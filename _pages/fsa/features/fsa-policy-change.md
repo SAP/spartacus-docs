@@ -5,8 +5,8 @@ title: FSA Policy Change
 ## Contents
 
 - [Overview](#overview)
-- [Adding additional drivers](#adding-additional-drivers)
-- [Removing coverages](#removing-coverages)
+- [Adding Additional drivers](#adding-additional-drivers)
+- [Removing Coverages](#removing-coverages)
 
 ## Overview
 
@@ -34,7 +34,7 @@ The user can see the policy change by visiting the Policy Details page again. In
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/driver_added.png)
 
-## Removing coverages
+## Removing Coverages
 
 Removing coverages is now also available and can be initiated by clicking the **Edit** button in the 'Optional Extras' accordion.
 
