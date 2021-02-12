@@ -15,22 +15,22 @@ In addition to sample processes for changing mileage and adding coverages, custo
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy_details.png)
 
-### Adding additional drivers
+### Adding Additional Drivers
 
-By clicking on 'add' button in the Drivers section of 'Who or What is Insured' accordion, the user enteres Policy Change process for additonal driver. User is presented with the form requesting information about additional driver. Note that 'Effective date' field is disabled and cannot be changed by Policy holder.
+By clicking  the **Add** button in the Drivers section of the 'Who or What is Insured' accordion, the user initiate the Policy Change process for adding an additional driver to the policy. User is presented with the form requesting information about the additional driver. Note that 'Effective date' field is disabled and cannot be changed by the policyholder.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/additional_driver_form.png)
 
-Once all the required fileds are filled user can proceed to the final step of Policy change process for additional driver.
-On this step user is presented with an overview of the change being applied to the current Policy.
+Once all the required fields are filled in, the user can proceed to the final step of the Policy Change process for adding a driver.
+On this step, the user is presented with an overview of the change applied to the current Policy.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/change_preview.png)
 
-By clicking on submit, a Confirmation page is displayed indicating the request has been submitted.
+When the user clicks **Submit**, a Confirmation page is displayed, indicating that the request has been submitted.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/cr_confirmation.png)
 
-Policy change can be observed by visiting Policy details page again. In the 'Who or What is Insured' accordion there should be an additional section containing info about additional driver, with headline 'Driver 2'.
+The user can see the policy change by visiting the Policy Details page again. In the 'Who or What is Insured' accordion there should be an additional section containing information about the additional driver, with the headline 'Driver 2'.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/driver_added.png)
 
