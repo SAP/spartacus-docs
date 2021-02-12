@@ -404,7 +404,7 @@ docs:
                   underchildren:
                       - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 1.0"
                         url: /installing-sap-commerce-with-fsa-spartacus-1-0/
-                - title: "Building the FSA Storefront from Libraries"
+                - title: "Building the FSA Storefront from Libraries ➢"
                   url: /building-the-fsa-storefront-from-libraries/
                   underchildren:
                     - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
