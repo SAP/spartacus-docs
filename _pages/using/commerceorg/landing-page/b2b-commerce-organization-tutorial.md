@@ -10,6 +10,8 @@ title: B2B Commerce Organization Tutorial
 
 **Note:** B2B Commerce Organization requires the Organization feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
+For information about customizing the Spartacus Organization feature library, see [B2B Commerce Organization]({{ site.baseurl }}{% link _pages/dev/features/b2b-commerce-organization.md %}).
+
 This tutorial introduces the B2B Commerce Organization feature. It is important to follow the tutorial in the order presented, as the information on each page builds upon the steps from the previous pages.
 
 - [B2B Commerce Organization Overview]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-commerce-organization-overview.md %})

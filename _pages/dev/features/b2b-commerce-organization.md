@@ -1,5 +1,5 @@
 ---
-title: Customizing B2B Commerce Organization
+title: B2B Commerce Organization
 feature:
 - name: B2B Commerce Organization
   spa_version: 3.0
@@ -14,7 +14,7 @@ feature:
 
 B2B Commerce Organization for Spartacus allows companies to manage purchases made through a Spartacus commerce web site.
 
-The following sections describe how to customize and configure B2B Commerce Organization for Spartacus. For information about using B2B Commerce Organization, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
+The following sections describe how to customize and configure the Spartacus Organization feature library. For information about using B2B Commerce Organization in Spartacus, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
 
 For in-depth information on this feature, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
 
@@ -156,11 +156,102 @@ Spartacus provides an `AdminGuard` that verifies that a logged-in user has permi
 
 For more information on guards, see [Guarding Components]({{ site.baseurl }}/customizing-cms-components/#guarding-components).
 
+## Models
+
+The following core models are used in the Organization library:
+
+- `Address`
+- `Currency`
+- `B2BApprovalProcess`
+- `B2BUserRole`
+- `OrderApprovalPermissionType`
+
+The following core models are used for structure:
+
+- `ListModel`
+- `SearchConfig`
+- `StateUtils`  
+
+The models are augmented from core models:
+
+- `B2BUnit`
+- `B2BUser`
+- `CostCenter`
+
+The following are dedicated models for the Organization library:
+
+- `B2BUnitNode`
+- `Budget`
+- `Permission`
+- ` Period`
+- `UserGroup`
+
+The following models are use for processes:
+
+- `LoadStatus`
+- `OrganizationItemStatus`
+
+The following model is used for components:
+
+- `B2BUnitTreeNode`
+
 ## OCC
 
 You can see all the endpoints that the Organization library makes use of in `feature-libs/organization/administration/occ/config/default-occ-organization-config.ts`.
 
 For more information, see [Configuring Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#configuring-endpoints).
+
+## Adapters
+
+The following adapters are used in the Organization library:
+
+- `BudgetAdapter`
+- `OrgUnitAdapter`
+- `UserGroupAdapter`
+- `PermissionAdapter`
+- `CostCenterAdapter`
+- `B2BUserAdapter`
+
+For more information, see [Adapter]({{ site.baseurl }}/connecting-to-other-systems/#adapter)
+
+## Convertors
+
+The Organization library uses the following core serializers:
+
+- `ADDRESS_SERIALIZER`
+- `COST_CENTER_SERIALIZER`
+
+The following are serializers in the Organization library:
+
+- `BUDGET_SERIALIZER`
+- `B2B_USER_SERIALIZER`
+- `B2BUNIT_SERIALIZER`
+- `PERMISSION_SERIALIZER`
+- `USER_GROUP_SERIALIZER`
+
+The Organization library uses the following core normalizers:
+
+- `COST_CENTERS_NORMALIZER`
+- `COST_CENTER_NORMALIZER`
+
+The following are normalizers in the Organization library:
+
+- `BUDGET_NORMALIZER`
+- `BUDGETS_NORMALIZER`
+- `B2BUNIT_NORMALIZER`
+- `B2BUNIT_NODE_NORMALIZER`
+- `B2BUNIT_NODE_LIST_NORMALIZER`
+- `B2BUNIT_APPROVAL_PROCESSES_NORMALIZER`
+- `USER_GROUP_NORMALIZER`
+- `USER_GROUPS_NORMALIZER`
+- `PERMISSION_NORMALIZER`
+- `PERMISSIONS_NORMALIZER`
+- `PERMISSION_TYPE_NORMALIZER`
+- `PERMISSION_TYPES_NORMALIZER`
+- `B2B_USER_NORMALIZER`
+- `B2B_USERS_NORMALIZER`
+
+For more information, see [Convertor]({{ site.baseurl }}/connecting-to-other-systems/#convertor).
 
 ## Store
 
