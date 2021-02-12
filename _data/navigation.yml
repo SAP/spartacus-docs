@@ -390,8 +390,11 @@ docs:
     - title: Financial Services Accelerator Storefront Development Guide
       url: /about-fsa-spartacus/
       children:
-          - title: "Release Information for FSA Spartacus"
+          - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
+            subchildren:
+                - title: "Updating to Version 2.0 ➢"
+                  url: /fsa-updating-to-version-2/
           - title: "Roadmap for FSA Spartacus"
             url: /fsa-spartacus-roadmap/
           - title: "FSA Spartacus FAQ"
