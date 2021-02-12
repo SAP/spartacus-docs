@@ -405,7 +405,12 @@ docs:
                       - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 1.0"
                         url: /installing-sap-commerce-with-fsa-spartacus-1-0/
                 - title: "Building the FSA Storefront from Libraries"
-                  url: /building-the-fsa-storefront-from-libraries/  
+                  url: /building-the-fsa-storefront-from-libraries/
+                  underchildren:
+                    - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-2-0/
+                    - title: "Building the FSA Spartacus Storefront using 1.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-1-0/
                 - title: "FSA Schematics"
                   url: /fsa-schematics/  
           - title: "FSA Spartacus Features ➢"
