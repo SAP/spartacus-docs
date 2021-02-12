@@ -40,9 +40,12 @@ provideConfig({
 
 The table can be rendered in the following different layout orientations:
 
-- `VERTICAL` renders the table vertically, with a heading on top of the table
-- `VERTICAL_STACKED` renders each item in a separate table with a horizontal layout, nested inside a vertical table layout
-- `HORIZONTAL` renders the table horizontally, with the header on the left side of the table
+- `VERTICAL` renders the table vertically, with a heading on top of the table.
+- `HORIZONTAL` renders the table horizontally, with the header on the left side of the table.
+- `VERTICAL_STACKED` renders multiple tables with a horizontal layout, each table containing a single item, and each stacked one on top of the other. The following is an example:
+
+  <img src="{{ site.baseurl }}/assets/images/vertical-stacked-table.png" alt="A table with a vertical-stacked layout" width="400" border="1px" />
+
 
 The vertical layout is the default layout.
 
