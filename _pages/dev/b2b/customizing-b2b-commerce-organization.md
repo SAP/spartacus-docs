@@ -126,9 +126,7 @@ providers: [
 ],
 ```
 
-For more information, see [Table Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
-
-**MAKE SURE THE ABOVE LINK IS CORRECT!**
+For more information, see [Table Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/table-component.md %}).
 
 ### Cell Components
 
@@ -150,111 +148,32 @@ Several implementations of `CellComponent` have been defined in the Organization
 
 Messages in the Organization library similarly to global messages, but are displayed directly in the component of the subject they are related to. For normal cases, Spartacus uses `NotificationMessageComponent` to display information about the success or failure of an action. The `ConfirmationMessageComponent` is designed to ask a question that ensures users are aware of any consequences that may result from their actions. The `ConfirmationMessageComponent` is used in the `ToggleStatusComponent` and `DeleteItemComponent`, for example.
 
-## Core
+## Guards
 
-### Guards
+Spartacus provides an `AdminGuard` that verifies that a logged-in user has permissions to see the commerce organization pages. By default, the guard redirects to the organization home page and displays a warning message.
 
-We provided new [guard](https://sap.github.io/spartacus-docs/customizing-cms-components/#guarding-components) `AdminGuard` which verify that logged user has permissions to see organization pages. By default, it redirects into organization home page and displays warning message. 
+For more information on guards, see [Guarding Components]({{ site.baseurl }}/customizing-cms-components/#guarding-components).
 
-### Models
+## OCC
 
-- Models from core used in organization 
-`Address, Currency, B2BApprovalProcess, B2BUserRole, OrderApprovalPermissionType`
-- Core models used for structure:
-`ListModel, SearchConfig, StateUtils`  
-- Models augmented core:
-`B2BUnit, B2BUser, CostCenter`
-- Dedicated models for organization:
-`B2BUnitNode, Budget, Permission, Period, UserGroup`
-- Other models, used for processes:
-`LoadStatus, OrganizationItemStatus`
-- Models used for components:
-`B2BUnitTreeNode`
-  
-### Occ
+You can see all the endpoints that the Organization library makes use of in `feature-libs/organization/administration/occ/config/default-occ-organization-config.ts`.
 
-Config - Organization uses below endpoints for data access:
+For more information, see [Configuring Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#configuring-endpoints).
 
-```ts
-export const defaultOccOrganizationConfig: OccConfig = {
-  backend: {
-    occ: {
-      endpoints: {
-        budgets: '/users/${userId}/budgets',
-        budget: '/users/${userId}/budgets/${budgetCode}',
-        orgUnitsAvailable: '/users/${userId}/availableOrgUnitNodes',
-        orgUnitsTree: '/users/${userId}/orgUnitsRootNodeTree',
-        orgUnitsApprovalProcesses:
-          '/users/${userId}/orgUnitsAvailableApprovalProcesses',
-        orgUnits: '/users/${userId}/orgUnits',
-        orgUnit: '/users/${userId}/orgUnits/${orgUnitId}',
-        orgUnitUsers:
-          '/users/${userId}/orgUnits/${orgUnitId}/availableUsers/${roleId}',
-        orgUnitApprovers:
-          '/users/${userId}/orgUnits/${orgUnitId}/orgCustomers/${orgCustomerId}/roles',
-        orgUnitApprover:
-          '/users/${userId}/orgUnits/${orgUnitId}/orgCustomers/${orgCustomerId}/roles/${roleId}',
-        orgUnitUserRoles:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/roles',
-        orgUnitUserRole:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/roles/${roleId}',
-        orgUnitsAddresses: '/users/${userId}/orgUnits/${orgUnitId}/addresses',
-        orgUnitsAddress:
-          '/users/${userId}/orgUnits/${orgUnitId}/addresses/${addressId}',
-        userGroups: '/users/${userId}/orgUnitUserGroups',
-        userGroup: '/users/${userId}/orgUnitUserGroups/${userGroupId}',
-        userGroupAvailableOrderApprovalPermissions:
-          '/users/${userId}/orgUnitUserGroups/${userGroupId}/availableOrderApprovalPermissions',
-        userGroupAvailableOrgCustomers:
-          '/users/${userId}/orgUnitUserGroups/${userGroupId}/availableOrgCustomers',
-        userGroupMembers:
-          '/users/${userId}/orgUnitUserGroups/${userGroupId}/members',
-        userGroupMember:
-          '/users/${userId}/orgUnitUserGroups/${userGroupId}/members/${orgCustomerId}',
-        userGroupOrderApprovalPermissions:
-          '/users/${userId}/orgUnitUserGroups/${userGroupId}/orderApprovalPermissions',
-        userGroupOrderApprovalPermission:
-          '/users/${userId}/orgUnitUserGroups/${userGroupId}/orderApprovalPermissions/${orderApprovalPermissionCode}',
-        costCenters: '/costcenters',
-        costCenter: '/costcenters/${costCenterCode}',
-        costCentersAll: '/costcentersall',
-        costCenterBudgets: '/costcenters/${costCenterCode}/budgets',
-        costCenterBudget:
-          '/costcenters/${costCenterCode}/budgets/${budgetCode}',
-        permissions: '/users/${userId}/orderApprovalPermissions',
-        permission:
-          '/users/${userId}/orderApprovalPermissions/${orderApprovalPermissionCode}',
-        orderApprovalPermissionTypes: '/orderApprovalPermissionTypes',
-        b2bUsers: '/users/${userId}/orgCustomers',
-        b2bUser: '/users/${userId}/orgCustomers/${orgCustomerId}',
-        b2bUserApprovers:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/approvers',
-        b2bUserApprover:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/approvers/${approverId}',
-        b2bUserUserGroups:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/orgUserGroups',
-        b2bUserUserGroup:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/orgUserGroups/${userGroupId}',
-        b2bUserPermissions:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/permissions',
-        b2bUserPermission:
-          '/users/${userId}/orgCustomers/${orgCustomerId}/permissions/${premissionId}',
-      },
-    },
-  },
-};
-```
+## Adapters
 
-For more information on OCC endpoint configuration, see [Configuring Endpoints](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#configuring-endpoints)
+The Organization library uses the following adapters:
 
-### Adapters
+- `BudgetAdapter`
+- `OrgUnitAdapter`
+- `UserGroupAdapter`
+- `PermissionAdapter`
+- `CostCenterAdapter`
+- `B2BUserAdapter`
 
-List of adapters:
-`BudgetAdapter, OrgUnitAdapter, UserGroupAdapter, PermissionAdapter, CostCenterAdapter, B2BUserAdapter`
+For more information, see [Adapter]({{ site.baseurl }}/connecting-to-other-systems/#adapter).
 
-More information about adapters is available [here.](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#adapter)
-
-### Convertors
+## Convertors
 
 - List of serializers in a core:
 `ADDRESS_SERIALIZER, COST_CENTER_SERIALIZER`
