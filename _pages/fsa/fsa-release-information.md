@@ -12,9 +12,9 @@ Contents:
 
 ## Introduction
 
-This document describes what is included in all FSA Spartacus 2.x libraries since 2.0. 
+This document describes what is included in all FSA Spartacus since the initial 1.0 release. 
 
-**Note: FSA Spartacus 2.x requires Spartacus 3.0 and Angular 10.1 or later (< 11). For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
+**Note: FSA Spartacus 2.x requires Spartacus 3.0 and Angular 9. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-financial-services-accelerator/releases).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
@@ -43,7 +43,8 @@ List of features delivered with 2.0:
 
 
 ## Release 1.0
-  
+*Release 1.0 libraries published December 18, 2020* 
+
 List of features delivered with 1.0:
 - **Quotation and Application Process**
  : The Financial Services Accelerator guides customers through each step of the quotation/application process. At every step, customers are provided with a summary of their choices. In this guided-selling processes, customers have general options: request a quote/application, save it for later review or issue the policy/contract right away. The Process itself is configurable and steps can be adjusted in different way for each product category.  
@@ -69,7 +70,7 @@ List of features delivered with 1.0:
 - A minor change means we added new features, but they are configured to be off by default, not to cause compatibility issues. A new minor can also include changes or bug fixes that may affect compatibility, but feature flags also control these. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled ‘next’ a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug, and we’ll assess and fix it. We encourage you to upgrade to the latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- To use all functionalities in Spartacus 2.*, release 2005 of SAP Commerce Cloud and 2008 of Financial Services Accelerator is required.
+- To use all functionalities in Spartacus 2.*, release 2011 of SAP Commerce Cloud and 2102 of Financial Services Accelerator is required.
 - The latest patch release is strongly recommended, as it usually contains bug fixes that affect Spartacus.
 
 ## Future Releases
