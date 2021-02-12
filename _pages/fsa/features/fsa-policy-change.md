@@ -11,7 +11,7 @@ title: FSA Policy Change
 ## Overview
 
 The Policy Change Process framework enables insurance carriers to provide their customers with the possibility to change their policy online.
-In addition to sample processes for changing mileage and adding coverages, customers can now add additional drivers and remove coverages. All sample processes are provided based on the Auto Insurance product. The policy change can be cancelled at any time during change process in case the simulated premium does not match customer's expectation in which case the customer will be redirected to 'Policy details' page again.
+In addition to sample processes for changing mileage and adding coverages, customers can now add additional drivers and remove coverages. All sample processes are provided based on the Auto Insurance product. The policy change can be cancelled at any time during change process in case the simulated premium does not match customer's expectation, in which case the customer will be redirected to the 'Policy Details' page again.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy_details.png)
 
@@ -36,16 +36,16 @@ The user can see the policy change by visiting the Policy Details page again. In
 
 ## Removing coverages
 
-Removing coverages is now also available and can be initiated by clicking on edit button in 'Optional Extras' accordion.
+Removing coverages is now also available and can be initiated by clicking the **Edit** button in the 'Optional Extras' accordion.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/removing_coverage.png)
 
-In the first step user can now choose whether to add or remove coverages. Note that continue button stays disabled until a change has been made. Once a change has been made, user can proceed to the final - review step of the Change coverage process.
+In the first step, the user can now choose whether to add or remove coverages. Note that the 'Continue' button stays disabled until the change is made. Once a change has been made, user can proceed to the review step of the Change Coverage process.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/cr_removing_coverage.png)
 
-On the final step, user can review changes made to the policy, and submit those changes if he/she is satisfied with them.
+On the final step, the user can preview the changes made to the policy, and if satisfied, submit those changes.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/removing_coverage_final_step.png)
 
-Just as mentioned earlier in adding additional drivers section, after submitting change coverage request, user can verify this change by visiting 'Policy details' page.
+Just as in the 'Adding additional driver' policy change process, after submitting a request for coverage change, the user can see the changes on the 'Policy Details' page.
