@@ -12,13 +12,15 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-**Note:** B2B Commerce Organization requires the Organization feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
-
 B2B Commerce Organization for Spartacus allows companies to manage purchases made through a Spartacus commerce web site.
 
 The following sections describe how to customize and configure B2B Commerce Organization for Spartacus. For information about using B2B Commerce Organization, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
 
 For in-depth information on this feature, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
+
+## Prerequisites
+
+B2B Commerce Organization requires the Organization feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
 ## Customizing Routes
 
@@ -91,7 +93,7 @@ imports: [
 ]
 ```
 
-All of the list components in the Organization library use split view, which means all the components inside the split view component are ordered in a nested hierarchy. As a result, even small changes require overwriting the entire configuration. For more information, see [Split View]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
+All of the list components in the Organization library use split view, which means all the components inside the split view component are ordered in a nested hierarchy. As a result, even small changes require overwriting the entire configuration. For more information, see [Split View Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
 
 For more information on overriding CMS configurations, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md%}).
 
@@ -160,103 +162,24 @@ You can see all the endpoints that the Organization library makes use of in `fea
 
 For more information, see [Configuring Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#configuring-endpoints).
 
-## Adapters
+## Store
 
-The Organization library uses the following adapters:
+The following are standard behaviors in the Organization library:
 
-- `BudgetAdapter`
-- `OrgUnitAdapter`
-- `UserGroupAdapter`
-- `PermissionAdapter`
-- `CostCenterAdapter`
-- `B2BUserAdapter`
+- Every `PATCH` and `POST` action cleans the entire state of the Organization library to ensure that Spartacus always has data that is up-to-date.
+- Components and their services have the responsibility of routing redirects.
+- In facades, Spartacus tries to load data only if the data were not already loaded.
 
-For more information, see [Adapter]({{ site.baseurl }}/connecting-to-other-systems/#adapter).
+The following are exceptions:
 
-## Convertors
+- Spartacus avoids cleaning users list when an approver is assigned or unassigned for a user. This is to avoid a race condition in split view.
+- The ID is missing when a user is being created, and as a result, some routing redirects are applied directly in effects.
 
-- List of serializers in a core:
-`ADDRESS_SERIALIZER, COST_CENTER_SERIALIZER`
+Spartacus stores everything related to Organization in entities and lists of IDs separately. Associated data for a subsection is stored with its own feature, but for specific views, Spartacus uses a combination of ID and query parameters to store a list of IDs and other information.
 
-- List of serializers in the organization:
-`BUDGET_SERIALIZER, B2B_USER_SERIALIZER, B2BUNIT_SERIALIZER, PERMISSION_SERIALIZER, USER_GROUP_SERIALIZER, `
+You can see how this is implemented in Spartacus in `feature-libs/organization/administration/core/store/organization-state.ts`.
 
-- List of normalizers in a core:
-`COST_CENTERS_NORMALIZER, COST_CENTER_NORMALIZER`
-
-- List of normalizers in the organization:
-`BUDGET_NORMALIZER, BUDGETS_NORMALIZER, B2BUNIT_NORMALIZER, B2BUNIT_NODE_NORMALIZER, B2BUNIT_NODE_LIST_NORMALIZER, B2BUNIT_APPROVAL_PROCESSES_NORMALIZER, USER_GROUP_NORMALIZER, USER_GROUPS_NORMALIZER, PERMISSION_NORMALIZER, PERMISSIONS_NORMALIZER, PERMISSION_TYPE_NORMALIZER, PERMISSION_TYPES_NORMALIZER, B2B_USER_NORMALIZER, B2B_USERS_NORMALIZER`
-
-Please see section [convertor](https://sap.github.io/spartacus-docs/connecting-to-other-systems/#convertor) to see more details.
-
-### Store
-
-Main assumptions:
-
-- Every PATCH/POST action clean whole organization state to make sure, that we have always up to date data.
-- Components and their services have responsibility to routing redirects.
-- In facades, we try load data only if they were not loaded before.
-
-Exceptions:
-
-- We avoid cleaning users list when we assign / unassign an approver for user (race condition in split view)
-- We have missing id while creation of user, so there are some routing redirections applied directly in effects.
-
-Organization model stored in redux contains all main features:
-
-```ts
-export interface OrganizationState {
-  [BUDGET_FEATURE]: BudgetManagement;
-  [ORG_UNIT_FEATURE]: OrgUnits;
-  [USER_GROUP_FEATURE]: UserGroupManagement;
-  [PERMISSION_FEATURE]: PermissionManagement;
-  [COST_CENTER_FEATURE]: CostCenterManagement;
-  [B2B_USER_FEATURE]: B2BUserManagement;
-}
-```
-
-In simplify we store everything related to organization in entities and lists of IDs separately. Associated data for a subsection is stored in their own feature, but for specific views we use combination of ID and query params to store list of IDs and other information.
-
-```ts
-export interface Management<Type> extends StateUtils.EntityListState<Type> {}
-
-export interface BudgetManagement extends Management<Budget> {}
-
-export interface OrgUnits {
-  availableOrgUnitNodes: StateUtils.EntityLoaderState<B2BUnitNode[]>;
-  entities: StateUtils.EntityLoaderState<B2BUnit>;
-  tree: StateUtils.EntityLoaderState<B2BUnitNode>;
-  approvalProcesses: StateUtils.EntityLoaderState<B2BApprovalProcess[]>;
-  users: StateUtils.EntityLoaderState<ListModel>;
-  addressList: StateUtils.EntityLoaderState<ListModel>;
-  addressEntities: StateUtils.EntityLoaderState<Address>;
-}
-
-export interface UserGroupManagement extends Management<UserGroup> {
-  permissions: StateUtils.EntityLoaderState<ListModel>;
-  customers: StateUtils.EntityLoaderState<ListModel>;
-}
-
-export interface PermissionManagement extends Management<Permission> {
-  permissionTypes: StateUtils.EntityLoaderState<OrderApprovalPermissionType[]>;
-}
-
-export interface CostCenterManagement extends Management<CostCenter> {
-  budgets: StateUtils.EntityLoaderState<ListModel>;
-}
-
-export interface B2BUserManagement extends Management<B2BUser> {
-  approvers: StateUtils.EntityLoaderState<ListModel>;
-  permissions: StateUtils.EntityLoaderState<ListModel>;
-  userGroups: StateUtils.EntityLoaderState<ListModel>;
-}
-```
-
-For more details about usage of EntityLoaderState, please see section [Loader Meta Reducer](https://sap.github.io/spartacus-docs/loader-meta-reducer/#defining-the-state-interface)
-
-#### Example
-
-For `User group` structure can look like this:
+The following is an example of the user group structure:
 
 ```ts
 userGroup:
@@ -280,72 +203,92 @@ userGroup:
 
 ```
 
-Where:
+The various elements in the structure are described as follows:
 
-- `entities` stores user group real objects (key mapped to status flags and value)
-- `list` stores list of user groups IDs for specified page (keys based on query params like pagination, sort)
-- `customers`, `permisions` stores ID's for a subsection (keys based on ID of user group and query params)
-* `pageSize=2147483647` means, we fetch all possible items - max Java safe integer
+- `entities` stores real user group objects, which are key mapped to status flags and values
+- `list` stores a list of user groups IDs for specified pages, with keys based on query parameters, such as `pagination` and `sorts`
+- `customers` stores IDs for a subsection, with keys based on the ID of the user group and query parameters
+- `permisions` stores IDs for a subsection, with keys based on the ID of the user group and query parameters
+- `pageSize=2147483647` indicates that Spartacus fetches all possible items, up to the maximum safe Java integer
+
+For more information, see [Loader Meta Reducer]({{ site.baseurl }}{% link _pages/dev/state_management/loader-meta-reducer.md %}).
 
 ## Homepage
 
-Organization homepage is a place containing set of links which user can use to navigate through all specific my company functionalities.
+The Organization homepage contains a set of links that allow users to access all of the My Company functionality.
 
-All links introduced on organization homepage are corresponding to standard banner components created on the backend.
+All of the links on the Organization homepage correspond to standard banner components that are created in the back end.
 
-### Adding new banner
+### Adding a New Banner
 
-There is possibility to add new links to organization homepage. Easiest way to do that is to create new **Banner Component** in Backoffice as described in the following procedure:
-
-1. Log in to Backoffice as an administrator.
-
-1. In the left sidebar of Backoffice, select **WCMS ––> Component**.
-
-1. When components list shows up, click on arrow down icon next to plus from top left and select following type **Abstract Banner Component ––> Banner Component**.
-
-1. Next specify **ID** and **Catalog Version** fields, then click **Done**.
-
-1. Select recent created component from components list and go to **Administration** tab.
-
-1. <span id="fields-list">Following fields needs to be filled in:</span>
-   - **Headline** - is title of the link.
-   - **Content** - is a text displayed below link title.
-   - **URL link** - is target url address.
-   - **Media** - is reference to specified media object added into *Media Library*. In this case used to define banner icon.
-
-1. Finally to display newly created banner it should be assigned to proper content slot. Go to **Content slots** tab and select **My Company Slot**.
-
-### Hiding specific banner
-
-Number of visible banners on organization homepage can be reduced. Easiest way to hide specific banner is to set component visibility to `false` in the Backoffice:
+The easiest way to add new links to the Organization homepage is to create a new **Banner Component** in Backoffice, as follows:
 
 1. Log in to Backoffice as an administrator.
 
-1. In the left sidebar of Backoffice, select **WCMS ––> Component**.
+1. In the left sidebar of Backoffice, select **WCMS**, and then **Component**.
 
-1. Select banner component assigned to **My Company Slot** you want to hide.
+    A list of components is displayed.
 
-1. Go to **Properties** tab and set **Visibility** value to `false`.
+1. Above the list of components, click on the down-arrow next to the plus (`+`) icon, select **Abstract Banner Component**, and then **Banner Component**.
 
-### Adding custom icon
+    The **Create New Banner Component** dialog is displayed.
 
-There is also possibility to upload any image file and use it as an icon in banner link. To do it again Backoffice can be used:
+1. Select the **Catalog Version**, provide an ID in the **ID** field, and then click **Done**.
+
+1. Select the new component.
+
+    It should appear at the top of the **Components** list, but you may have to refresh the view before it appears (for example, you could click on any other entry in the Backoffice navigation sidebar, and then return to **Components**).
+
+1. Once you have selected your new component, click on the **Administration** tab.
+
+1. In the **Unbound** section of the **Administration** tab, fill in the following fields:
+
+   - **Headline** is title of the link.
+   - **Content** is the text displayed below link title.
+   - **Media** is a reference to a specific media object that has been added to the media library. In this case, it is used to define a banner icon. For more information, see [Adding a Custom Icon]({{ site.baseurl }}#adding-a-custom-icon), below.
+   - **URL link** is the target URL address.
+
+1. Click the **Content Slots** tab and select **My Company Slot**.
+
+    This allows you display the new banner by assigning it to an appropriate content slot.
+
+### Hiding a Banner
+
+The easiest way to hide a banner is to set the component visibility to **False** in Backoffice, as follows:
 
 1. Log in to Backoffice as an administrator.
 
-1. In the left sidebar of Backoffice, select **Multimedia ––> Media**.
+1. In the left sidebar of Backoffice, select **WCMS**, and then **Component**.
 
-1. Click add icon and specify **Identifier** and **Catalog Version**.
+    A list of components is displayed.
 
-1. On the next step upload image you want to use.
+1. Select the banner component assigned to **My Company Slot** that you want to hide.
 
-1. When media object is created it can be used as media  reference of any **Banner Component** belongs to **My Company Slot** ([please see](###fields-list)).
+1. Click the **Properties** tab and set the **Visible** radio button to **False**.
+
+### Adding a Custom Icon
+
+You can upload any image file and use it as an icon in the banner link, as follows:
+
+1. Log in to Backoffice as an administrator.
+
+1. In the left sidebar of Backoffice, select **Multimedia**, and then **Media**.
+
+1. Click the plus (`+`) icon.
+
+    The **Create New Media** dialog appears.
+
+1. Fill in the **Identifier** field, specify a **Catalog version**, and then click **Next**.
+
+    You now see the **Content: Upload media content** step.
+
+1. Upload the image you want to use, click **Next** if you want to define additional properties, then click **Done**.
+
+    When you are creating a new banner, you can now select this image in the **Media** field to use as an icon in the banner link, as described in [Adding a New Banner]({{ site.baseurl }}#adding-a-new-banner), above.
 
 ## Styles
 
-How to override organization styles:
-
-Make sure that file is generated properly by schematics, or add it own. Your `angular.json` file should include his path in build styles.
+If you want to override the default Organization styles, first ensure that the `organization.scss` file is generated properly by schematics, or else you can add your own. Your `angular.json` file should include the following path in the build styles:
 
 ```ts
 "styles": [
@@ -354,11 +297,12 @@ Make sure that file is generated properly by schematics, or add it own. Your `an
 ],
 ```
 
-In `organization.scss` should be imported organization styles, and you can add your own styles below.
+In `src/styles/spartacus/organization.scss`, you should import the Organization styles, and then you can add your own styles below. The following is an example:
+
 ```ts
 @import "@spartacus/organization";
 
-// your styles, e.g.:
+// Your custom styles
 %organizationList {
     cx-org-toggle-link-cell {
         button.tree-item-toggle {
@@ -368,13 +312,11 @@ In `organization.scss` should be imported organization styles, and you can add y
 }
 ```
 
-More about styles in spartacus you can see in section dedicated to [ styles.](https://sap.github.io/spartacus-docs/css-architecture/#component-styles)
+For more information, see [Component Styles]({{ site.baseurl }}/css-architecture/#component-styles).
 
-## Assets
+## Translations
 
-### Override translations
-
-Translation resources for organization can be overridden on the same rules as other spartacus chunks e.g.:
+Organization translation resources can be overridden following the same rules as for other Spartacus chunks. The following is an example:
 
 ```ts
 provideConfig({
@@ -385,7 +327,7 @@ provideConfig({
           organization: { // general chunks
             enabled: 'Enabled',
           },
-          orgUserGroup: { // specified sub features chunks
+          orgUserGroup: { // specified sub-feature chunks
             header: 'List of user groups ({{count}})',
           }
         },
@@ -395,4 +337,4 @@ provideConfig({
 }),
 ```
 
-More about translations please see section [extending translation](https://sap.github.io/spartacus-docs/i18n/#extending-translations)
+For more information, see [Extending Translations]({{ site.baseurl }}/i18n/#extending-translations).
