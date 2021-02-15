@@ -69,7 +69,7 @@ The full list of parameters is explained in the [How to configure](#how-to-confi
 
 _Default 3000 milliseconds_
 
-This property represents the amount of time (in milliseconds) the SSR server will try to render a page before falling back to CSR. Once the delay is expired, the server returns the `index.html` of the CSR which is blank. The CSR app (`index.html`) served with a `Cache-Control:no-store` header. As such, it will not be stored by the cache layer. SSR pages do not contain such a header as they are preferable for caching purposes.
+This property represents the amount of time (in milliseconds) the SSR server will try to render a page before falling back to CSR. Once the delay is expired, the server returns the `index.html` of the CSR which doesn't contain any pre-rendered markup. The CSR app (`index.html`) served with a `Cache-Control:no-store` header. As such, it will not be stored by the cache layer. SSR pages do not contain such a header as they are preferable for caching purposes.
 
 In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server will clear the page from its cache after returning it for the first time. We assume that you are using an additional layer to cache the page externally.
 
