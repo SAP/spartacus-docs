@@ -183,7 +183,7 @@ The following are dedicated models for the Organization library:
 - `B2BUnitNode`
 - `Budget`
 - `Permission`
-- ` Period`
+- `Period`
 - `UserGroup`
 
 The following models are use for processes:
