@@ -373,7 +373,9 @@ docs:
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
                 - title: "Journey Management - Serviceability"
-                  url: /journey-management-serviceability/          
+                  url: /journey-management-serviceability/
+                - title: "Journey Management - Serviceability Check of an SPO"
+                  url: /journey-management-serviceability-check-of-spo/        
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
