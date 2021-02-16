@@ -4,6 +4,10 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 3.0
+
+- [Journey Management - Serviceability Check of an SPO]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %})
+
 ## Release 2.0
 
 - [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment-scheduling.md %})
