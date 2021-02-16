@@ -85,6 +85,8 @@ docs:
             subchildren:
                 - title: "Configurable Products Integration"
                   url: /configurable-products-integration/
+                - title: "CPQ Configurable Products Integration"
+                  url: /cpq-configurable-products-integration/
                 - title: "Context-Driven Services Integration"
                   url: /cds-integration/  
                 - title: "Payment Integration with CyberSource Example"
