@@ -20,7 +20,7 @@ All new features for Spartacus must:
 
 - Ensure the CSS supports directionality for new features. For more information, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
-- Provide necessary code deprecations for schematics (docs in progress).
+- Provide necessary code deprecations for schematics. For more information, see [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
 
 - UI/UX guidelines (docs in progress).
 

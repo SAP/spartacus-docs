@@ -44,6 +44,7 @@ docs:
           - title: "Documentation Archive"
             url: /docs-archive/  
 
+
     - title: Getting Started with Spartacus Libraries
       url: /getting-started/
       children:
@@ -185,6 +186,8 @@ docs:
                   url: /searchbox-component/
                 - title: "Split View Component"
                   url: /split-view/
+                - title: "Table Component"
+                  url: /table-component/
           - title: "Extending Built-In Models"
             url: /type-augmentation/
           - title: "Session Management"
@@ -312,6 +315,42 @@ docs:
                 - title: "Writing Notification Banners"
                   url: /writing-notification-banners/
 
+
+    - title: Using the Spartacus Storefront
+      url: /using-spartacus/
+      children:
+          - title: "B2B Commerce Organization Tutorial ➢"
+            url: /b2b-commerce-organization-tutorial/
+            subchildren:
+                - title: "B2B Commerce Organization Overview"
+                  url: /b2b-commerce-organization-overview/
+                - title: "Purchase Flow Example"
+                  url: /purchase-flow-example/
+                - title: "Creating a New Commerce Organization and Administrator"
+                  url: /creating-a-new-organization-and-administrator/
+                - title: "Units"
+                  url: /b2b-units/
+                - title: "Users ➢"
+                  url: /b2b-users/
+                  underchildren:
+                      - title: "Buyers"
+                        url: /b2b-buyers/
+                      - title: "Approvers"
+                        url: /b2b-approvers/
+                - title: "Purchasing Limits"
+                  url: /b2b-purchasing-limits/
+                - title: "Cost Centers"
+                  url: /b2b-cost-centers/
+                - title: "Budgets"
+                  url: /b2b-budgets/
+                - title: "Shipping Addresses"
+                  url: /b2b-shipping-addresses/
+                - title: "Purchase and Approval Flow Example"
+                  url: /purchase-and-approval-flow-example/
+                - title: "Disabling and Deleting Commerce Organization Entities"
+                  url: /disabling-commerce-organization-entities/         
+
+
     - title: Telco & Utilities Storefront Development Guide
       url: /about-tua-spartacus/
       children:
@@ -366,7 +405,7 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
-                - title: " Journey Management - Appointment Scheduling"
+                - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - Appointment"
                   url: /journey-management-appointment/                           
@@ -386,6 +425,7 @@ docs:
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
+
 
     - title: Financial Services Accelerator Storefront Development Guide
       url: /about-fsa-spartacus/
@@ -433,6 +473,7 @@ docs:
                 - title: "Checkout"
                   url: /fsa-checkout/                 
 
+
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
@@ -450,6 +491,8 @@ docs:
             url: /a11y-e2e-tests/
           - title: "Maintaining Public APIs"
             url: /breaking-changes/
+          - title: "Updating Schematics"
+            url: /updating-schematics/  
           - title: "Continuous Integration"
             url: /continuous-integration/ 
           - title: "Feature Flags and Code Deprecation"
