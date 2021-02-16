@@ -1,5 +1,9 @@
 ---
-title: Fine Tuning SSR service in Spartacus
+title: Server-Side Rendering Optimization
+feature:
+- name: Server-Side Rendering Optimization
+  spa_version: 3.0
+  cx_version: n/a
 ---
 
 ## Idea
