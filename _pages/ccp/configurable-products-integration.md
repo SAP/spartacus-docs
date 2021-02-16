@@ -8,13 +8,32 @@ title: Configurable Products Integration
 
 {% include docs/feature_version.html content=version_note %}
 
-The Configurable Products integration with Spartacus lets you implement a Spartacus storefront in conjunction with SAP Variant Configuration and Pricing.
+## Overview
+
+The Configurable Products integration provides the user interface (UI) for configuring and selling configurable products using *SAP Commerce Cloud* add-on *Product Configuration with SAP Variant Configuration and Pricing*. Note that the Spartacus library does not include the add-on itself.
+
+The initial version of the Spartacus library for *Product Configuration with SAP Variant Configuration and Pricing* includes the following features:
+- Single-level and multilevel configurable products in your Spartacus storefront, where the product model resides in SAP ERP or SAP S/4HANA
+- Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, dropdown listboxes, and images for characteristic values
+- Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
+- Overview page with all user selections accessible at any time during configuration
+- Basic conflict handling
+- Configurable products are part of storefront processes such as catalog browsing, product detail page, add to cart, checkout, and order history
+
+
+For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US/528b7395bc314999a01e3560f2bdc069.html) on SAP Help Portal.
+
+## Requirements
+
+The Configurable Products integration requires release 2005 of SAP Commerce Cloud and the following extension to work:
+
+- `sapproductconfigocc`
+
+For more information, see [Configurator for Complex Products Module](https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html) on SAP Help Portal.
 
 ## Locales
 
 All available locales must be replicated into Spartacus. Locales in the back end and front end must be in sync.
-
-<!-- What exactly needs to be done on customer side? (This came up in relation to numeric formats) Could be that Spartacus core is going to document something on this. -->
 
 ## Conflict Solver
 
@@ -24,11 +43,75 @@ In the MVP version, the following user navigation is currently implemented:
 
 - If the user is in a conflict group and changes a value there, after the update the UI displays the original group of the attribute for which she changed the value, i.e. the user is taken out of the conflict resolving context.
 - This happens every time she is changing a value in a conflict group, even if the value-change did not solve the conflict or if there are still other conflicts to be resolved.
-- If the user clicks on "Resolve Issues" link in overview/cart the user is taken to the first conflict group. But after changing a value in the conflict group the above behavior applies, i.e. there is currently no guided "resolve issue" mode where the user is taken from issue to issue until the configuration has no issues anymore.
+- If the user clicks on **Resolve Issues** link in overview/cart the user is taken to the first conflict group. But after changing a value in the conflict group the above behavior applies, i.e. there is currently no guided "resolve issue" mode where the user is taken from issue to issue until the configuration has no issues anymore.
 
-<!-- For v2, we have created a BI to enhance the conflict solver: https://cxjira.sap.com/browse/TIGER-6778 -->
+## RTL Support
 
-## Save for Later / Selective Cart
+Right-to-left (RTL) is supported for product configuration in Spartacus.
+
+## Group Status Handling
+
+There are three group statuses, which are interpreted as follows:
+
+|Group Status|Combination|Description|
+|------------|-----------|-----------|
+|COMPLETE|Visited + Complete + Consistent|The group is *complete* if it has been visited and there are no incomplete characteristics or conflicts.|
+|ERROR|Visited + Incomplete|The group gets an *error* icon if it has been visited and there are incomplete characteristics.|
+|WARNING|Inconsistent|The group is *inconsistent* if there are conflicting characteristics within the corresponding group. The default configuration can contain inconsistent groups. It means by entering such configuration a conflicting groups should be displayed accordingly.|
+
+### Navigation
+
+After the conflict group has been updated, you are taken to the non-conflict group where the updated characteristic is located, regardless of whether the conflict has been resolved.
+
+In contrast, if you resolve a conflict in the Accelerator directly in the conflict group, you are taken to the first conflict group or the first non-conflict group within the configuration.  If the conflict has not been resolved, you remain in the corresponding conflict group until the conflict has been resolved or you explicitly leave the conflict group.
+
+### Conflict Navigation
+
+Option 1:
+
+1. You click on **Resolve Conflict** for a specific, conflicting attribute.
+1. You resolve the conflict.
+1. You return to the group that contained the conflict.
+
+Option 2:
+
+1. You click on **Resolve Conflict** on the cart, overview page, or conflict group via the group menu.
+1. You resolve the conflict.
+1. You navigate to the next conflict group.
+1. You resolve the last conflict.
+1. You are taken to the first group.
+
+### Icon Alignment
+
+The following is an example of the **Configuration Menu** showing errors and conflicts:
+
+<img src="{{ site.baseurl }}/assets/images/ccp/icon_alignment.png" alt="Configuration menu showing errors and conflicts" width="650" border="1px" />
+
+For reference, the Accelerator behaves as follows.
+
+Only a header of conflict groups gets a warning icon. In the Accelerator, the icons have the following meanings:
+
+|Group Status|Combination|Description|
+|------------|-----------|-----------|
+|COMPLETE|Visited + Complete|The group is *complete* if it has been visited and there are no incomplete characteristics.|
+|ERROR|Visited + Incomplete|The group gets an *error* icon with the total number of errors in the group if the group has been visited and there are incomplete characteristics. The conflicts within the corresponding group are not counted.|
+|WARNING|Inconsistent|Only the headers of conflict groups get a *warning* icon with the total number of conflicts in the configuration.|
+
+The following is an example of conflicts shown on the B2B Accelerator screen:
+
+![Conflicts shown on the B2B Accelerator screen]({{site.baseurl}}/assets/images/ccp/b2b_accelerator.png)
+
+## Browser Refresh
+
+When users refresh the browser, the product configuration is reset to the default configuration (unlike in the Accelerator). Users will therefore have to reconfigure their products after reloading the page.
+
+## Features Currently Not Supported for Configurable Products
+
+- [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
+- [Cart Validation](#cart-validation)
+- [Assisted Service Mode](#assisted-service-mode)
+
+## Save for Later and Selective Cart
 
 This feature is not supported in MVP. To prevent the button from showing, customers should remove the relevant view (disable selective cart):
 
@@ -42,7 +125,7 @@ This feature is not supported in MVP. To prevent the button from showing, custom
     },
     ```
 
-- Deactivate the saveForLater component that is assigned to CMS component SaveForLaterComponent: Introduce a new module that clears the assigned SPA components for that CMS component. The following is an example:
+- Deactivate the `saveForLater` component that is assigned to CMS component `SaveForLaterComponent`: Introduce a new module that clears the assigned SPA components for that CMS component. The following is an example:
 
     ```ts
     @NgModule({
@@ -62,11 +145,11 @@ This feature is not supported in MVP. To prevent the button from showing, custom
 
 ## Cart Validation
 
-Cart validation is currently not supported, although you can implement your own workaround.
+Cart validation is currently not supported, although you can implement your own workaround by making the following adjustments.
 
-### Spartacus
+### Necessary Adjustments in Spartacus
 
-- Introduce their own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one
+- Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one
 - Inject `ConfiguratorCartService` from `@spartacus/product/configurators/common` into the custom version of `cart-totals.component`
 - Introduce a component member. The following is an example:
 
@@ -100,11 +183,11 @@ Cart validation is currently not supported, although you can implement your own 
     </ng-container>
     ```
 
-### Commerce
+### Necessary Adjustments in Commerce
 
-The steps that can be done on the Spartacus side ensure that for a standard UI flow, configurations with issues cannot be ordered. Still it's needed to also block the creation of orders via OCC, otherwise an order containing such configurations can be created using e.g. the developer tools in the end-user's browser.
+The steps that can be done on the Spartacus side ensure that for a standard UI flow, configurations with issues cannot be ordered. However, you still need to block the creation of orders via OCC. Otherwise an order containing such configurations can be created using e.g. the developer tools in the end-user's browser.
 
-In your spring configuration, see that bean commerceWebServicesCartService refers to cartValidationStrategy instead of cartValidationWithoutCartAlteringStrategy. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
+In your spring configuration, see that bean `commerceWebServicesCartService` refers to `cartValidationStrategy` instead of `cartValidationWithoutCartAlteringStrategy`. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
 
 ```xml
 <alias name="customWebServicesCartService" alias="commerceWebServicesCartService"/>
@@ -116,57 +199,6 @@ In your spring configuration, see that bean commerceWebServicesCartService refer
 
 Note that it will guarantee that the order is validated for product configuration issues before order submit, but it will not ensure that the error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. We plan to address this in SAP Commerce Cloud release 20.11.
 
-## RTL Support
+## Assisted Service Mode
 
-Right-to-left (RTL) is supported for product configuration in Spartacus.
-
-## Group Status Handling
-
-There are three group statuses, which are interpreted as follows:
-
-|Group Status|Combination|Description|
-|------------|-----------|-----------|
-|COMPLETE|Visited + Complete + Consistent|The group is *complete* if it has been visited and there are no incomplete characteristics or conflicts.|
-|ERROR|Visited + Incomplete|The group gets an *error* icon if it has been visited and there are incomplete characteristics.|
-|WARNING|Inconsistent|The group is *inconsistent* if there are conflicting characteristics within the corresponding group. The default configuration can contain inconsistent groups. It means by entering such configuration a conflicting groups should be displayed accordingly.|
-
-## Conflict Group Navigation
-
-After the conflict group has been updated, you are taken to the non-conflict group where the updated characteristic is located, regardless of whether the conflict has been resolved.
-
-In contrast, if you resolve a conflict in the Accelerator directly in the conflict group, you are taken to the first conflict group or the first non-conflict group within the configuration.  If the conflict has not been resolved, you remain in the corresponding conflict group until the conflict has been resolved or you explicitly leave the conflict group.
-
-### Conflict Navigation
-
-1. You click on **Resolve Conflict** for a specific, conflicting attribute.
-1. You resolve the conflict.
-1. You return to the group that contained the conflict.
-1. You click on **Resolve Conflict** on the cart, overview page, or conflict group via the group menu.
-1. You resolve the conflict.
-1. You navigate to the next conflict group.
-1. You resolve the last conflict.
-1. You are taken to the first group.
-
-### Icon Alignment
-
-The following is an example of the **Configuration Menu** showing errors and conflicts:
-
-<img src="{{ site.baseurl }}/assets/images/ccp/icon_alignment.png" alt="Configuration menu showing errors and conflicts" width="650" border="1px" />
-
-For reference, the Accelerator behaves as follows.
-
-Only a header of conflict groups gets a warning icon. In the Accelerator, the icons have the following meanings:
-
-|Group Status|Combination|Description|
-|------------|-----------|-----------|
-|COMPLETE|Visited + Complete|The group is *complete* if it has been visited and there are no incomplete characteristics.|
-|ERROR|Visited + Incomplete|The group gets an *error* icon with the total number of errors in the group if the group has been visited and there are incomplete characteristics. The conflicts within the corresponding group are not counted.|
-|WARNING|Inconsistent|Only the headers of conflict groups get a *warning* icon with the total number of conflicts in the configuration.|
-
-The following is an example of conflicts shown on the B2B Accelerator screen:
-
-![Conflicts shown on the B2B Accelerator screen]({{site.baseurl}}/assets/images/ccp/b2b_accelerator.png)
-
-## Browser Refresh
-
-When users refresh the browser, the product configuration is reset to the default configuration (unlike in the Accelerator). Users will therefore have to reconfigure their products after reloading the page.
+Assisted service mode (ASM) is currently not supported for configurable products.
