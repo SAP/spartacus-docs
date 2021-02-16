@@ -2,16 +2,16 @@
 title: Roadmap for TUA Spartacus
 ---
 
-*Last updated December 15, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated February 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
-This document describes what is planned for TUA Spartacus for Q4 2020 and later.
+This document describes what is planned for TUA Spartacus for Q1 2021 and later.
 
 Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Features Planned for Version 2.0 / Q4-2020 and into Q1-2021](#features-planned-for-version-20--q4-2020-and-into-q1-2021)
-- [Future Outlook / Features Planned for 2021 and Later](#future-outlook--features-planned-for-2021-and-later)
+- [Features Planned for Q1 2021](#features-planned-for-q1-2021)
+- [Future Outlook / Features Planned for Q2 2021 and Later](#future-outlook--features-planned-for-q2-2021-and-later)
 
 ### Disclaimer - Forward-Looking Statements
 
@@ -27,6 +27,8 @@ We typically try to publish new Spartacus libraries every two weeks.  Each relea
 
 When new features are available for release, normally we will publish a pre-release “next” version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
 
+Some of the links provided in the following lists point to SAP Commerce Telco and Utilities Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
+
 ### Other Release Documentation
 
 - For an overview of what was included in a specific release, see [TUA Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
@@ -38,9 +40,7 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
 
 For non-technical questions and roadmap feedback, you can reach us on our dedicated #help-tua [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
-## Features Planned for Version 2.0 / Q4-2020 and into Q1-2021
-
-Release 2.0 supports SAP Commerce Cloud 2005 and TUA 2007 / TUA 2011 releases.
+## Features Planned for Q1 2021
 
 ### B2C Storefront Features Planned
 
@@ -50,45 +50,49 @@ Release 2.0 supports SAP Commerce Cloud 2005 and TUA 2007 / TUA 2011 releases.
 
 ### Journey Management
 
-- Provide the ability for a customer to conduct a serviceability check for a product offering of interest. For more information, see [Journey Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html) in the TUA Help portal.
-
-- Provide the ability for a customer to conduct a serviceability check for all product offerings available to him/her based on a premise address.
+- Provide the ability for a customer to conduct a serviceability check for a product offering of interest. For more information, see [Serviceability](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
+- Provide the ability for a customer to conduct a serviceability check for all product offerings that are available based on a premise address. For more information, see [Serviceability](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
+- Provide the ability for a customer to conduct a contract termination (without assurance).
 
 ### Retention Process Flows
 
-- **Contract Renewal:** For more information, see [Eligibility Policy in Action](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/341e50fcd20149d68735656c5c1b1fff.html)
-- **Tariff Change - Upgrade:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html)
-- **Tariff Change - Upsell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
+- **Contract Renewal:** For more information, see [Eligibility Policy in Action](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/341e50fcd20149d68735656c5c1b1fff.html).
+- **Tariff Change - Upgrade:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
+- **Tariff Change - Upsell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html).
 - **Cross-selling (Add-Ons)**
+- **One-click activation/deactivation of services**
 
-## Future Outlook / Features Planned for 2021 and Later
+## Future Outlook / Features Planned for Q2 2021 and Later
 
 The items in this section are on our future roadmap, not necessarily yet planned for a specific quarter.
 
 Some features require new OCC REST APIs, not yet planned and still considered to be done.
 
-### B2C storefront features planned for 2.0
+### B2C Features
 
 - **Price Alteration Credits:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2011/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html)
 - **PSCV pricing:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2011/en-US/9835174fd3b94550b41f0b72b5269231.html)
 - **Grid pricing on Cart, Checkout, and Order:** For more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
 
-### B2C Self-Care Asset Management and Assurance
+### B2C Asset and Subscription Services Management (customer product inventory) with Assurance (contractual terms to drive retention process flows)
 
-- Self-Care Process Flows
-    - Activate Service
-    - Deactivate Service
-    - Top-Up Account
-    - Pre-Paid to Post-Paid
-    - Post-Paid to Pre-Paid
-    - Tariff Change - Downgrade
-    - Merge Accounts
-    - Split Accounts
-    - Suspend Subscription
-    - Cancel Subscription
-    - Contract Termination
+- Activate Service
+- Deactivate Service
+- Top-Up Account
+- Pre-Paid to Post-Paid
+- Post-Paid to Pre-Paid
+- Tariff Change - Upgrade
+- Tariff Change - Cross-sell
+- Tariff Change - Downgrade
+- Merge Accounts
+- Split Accounts
+- Suspend Subscription
+- Cancel Subscription
+- Contract Termination
 
-### Architecture Features
+### Business to Business Storefront Supporting SMB Customers
 
-- Angular 10 upgrade / Spartacus 3.0
+- B2B Product Catalog
+- Roles and Permissions Management
+- B2B Asset and Subscription Services Management (CPI) with Assurance (contractual terms)
 - Event driven processes
