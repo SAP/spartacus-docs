@@ -166,7 +166,7 @@ What's new?
 ### Architecture and Development Features
 
 - Storefront Self-Configuration (detection of languages, currencies, and other site settings through base site API)  
-  [Draft Spartacus Documentation](https://github.com/SAP/spartacus-docs/blob/901d0521dcf4668e2ddc5982947268becd0e66dd/_pages/dev/context-configuration.md)
+  [Spartacus Documentation]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %})
 
 - Structured Data (provides a data structure for the web that makes the web content more understandable for web crawlers)  
 [Spartacus Documentation]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
@@ -257,8 +257,8 @@ To update to 1.2.0, you must change your libraries in `package.json` and and dep
 Release notes: [https://github.com/SAP/spartacus/releases](https://github.com/SAP/spartacus/releases)
 
 - Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
-  - [Documentation for development](https://github.com/SAP/spartacus-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/contributing/feature-flags-and-code-deprecation.md)
-  - [Documentation for consumption](https://github.com/SAP/spartacus-docs/blob/e2f291d6c8d21d870a68fe1903b8cd1cf568640d/_pages/install/configuring-feature-flags.md)
+  - [Documentation for development]({{ site.baseurl }}{% link _pages/contributing/feature-flags-and-code-deprecation.md %})
+  - [Documentation for consumption]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %})
 - [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#endpoint-configuration)
 - [Change to registration and login flow: must log in after registering](https://github.com/SAP/spartacus/issues/2799#issuecomment-525679882)
 - Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
