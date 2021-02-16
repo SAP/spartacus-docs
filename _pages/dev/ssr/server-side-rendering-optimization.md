@@ -121,6 +121,16 @@ _Default 60 seconds_
 
 Time in milliseconds to wait for rendering when SSR_ALWAYS render strategy is set for the request. This prevents the SSR rendering from blocking resources for too long if the server is under heavy load or the page contains errors.
 
+### Debug (boolean)
+
+_Default false_
+
+**Note**: This property is available in version 3.1.0 and later.
+
+Setting debug to `true` will enable extra logs which are useful for troubleshooting SSR issues. You should leave this flag to `false` in production to avoid an excessive number of logs.
+
+One thing to note is that the SSR timeout log `SSR rendering exceeded timeout...` is rendered even if the debug flag is set to `false`.
+
 ## Troubleshooting
 
 In the event SSR is not rendering the pages, you can use the following methods to troubleshoot the issue.
