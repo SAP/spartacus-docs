@@ -12,13 +12,13 @@ For detailed release notes, see the [TUA Spartacus repository
 
 ## Release 3.0.0-next.1 - February 17, 2021
 
-The `3.0.0-next.1` library has been published! We are happy to announce our third Spartacus for TUA pre-release.
+The `3.0.0-next.1` library has been published. We are happy to announce our 3.0 Spartacus for TUA pre-release.
 
-In the `3.0.0-next.1` pre-release version, support is provided for Spartacus 3.0 libraries with the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
+In the `3.0.0-next.1` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
 
 **Complex Industry Cart**
 
-The hierarchical representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchical structure making it easy to support the purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchical representation of the cart and order, the exact structure of a bundled product offering is retained, the components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/d28406c672ff4cbca70dfb4b5748f8d8/2102/en-US/33005fa795d2425282ffe769737e27e7.html.html) in the TUA Help portal.
+The hierarchical representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchical manner making it easy to support the purchasing of complex and nested (multi-layered) bundled product offerings.  With the hierarchical representation of the cart and order, the exact structure of a bundled product offering is retained and the selected components are together by the parent bundle in which they belong. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/d28406c672ff4cbca70dfb4b5748f8d8/2102/en-US/33005fa795d2425282ffe769737e27e7.html.html) in the TUA Help portal.
 
 **Contract Renewals**
 
