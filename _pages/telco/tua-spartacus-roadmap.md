@@ -44,9 +44,11 @@ For non-technical questions and roadmap feedback, you can reach us on our dedica
 
 ### B2C Storefront Features Planned
 
-- Support of the hierarchical cart in spartacus (pre-requisite for fixed bundled product offerings).
-- Provide the ability for a customer to purchase a fixed Bundled Product Offerings.
-- One-Click Order Placement for services.
+- Support of the hierarchical cart in spartacus (pre-requisite for fixed bundled product offerings)
+- Provide the ability for a customer to purchase a fixed Bundled Product Offerings
+- One-Click Order Placement for activation/deactivation of services
+- One-Click Top-Up Account
+- One-Click Suspend service
 
 ### Journey Management
 
@@ -60,7 +62,6 @@ For non-technical questions and roadmap feedback, you can reach us on our dedica
 - **Tariff Change - Upgrade:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
 - **Tariff Change - Upsell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html).
 - **Cross-selling (Add-Ons)**
-- **One-click activation/deactivation of services**
 
 ## Future Outlook / Features Planned for Q2 2021 and Later
 
@@ -76,23 +77,33 @@ Some features require new OCC REST APIs, not yet planned and still considered to
 
 ### B2C Asset and Subscription Services Management (customer product inventory) with Assurance (contractual terms to drive retention process flows)
 
-- Activate Service
-- Deactivate Service
-- Top-Up Account
-- Pre-Paid to Post-Paid
-- Post-Paid to Pre-Paid
-- Tariff Change - Upgrade
-- Tariff Change - Cross-sell
-- Tariff Change - Downgrade
-- Merge Accounts
-- Split Accounts
-- Suspend Subscription
-- Cancel Subscription
-- Contract Termination
+- Roles and Permissions for managing assets and services
+- B2B Asset and Subscription Services Management (CPI) with Assurance (contractual terms)
+    - Activate Service
+    - Deactivate Service
+    - Top-Up Account
+    - Pre-Paid to Post-Paid
+    - Post-Paid to Pre-Paid
+    - Tariff Change - Upgrade
+    - Tariff Change - Cross-sell
+    - Tariff Change - Downgrade
+    - Merge Accounts
+    - Split Accounts
+    - Suspend Subscription
+    - Cancel Subscription
+    - Contract Termination
+- Billing (View Bill, View Bill History)
+- Pay Bill
+- View consumption details
 
 ### Business to Business Storefront Supporting SMB Customers
 
-- B2B Product Catalog
-- Roles and Permissions Management
+- Roles and Permissions for managing assets and services (Service Provider, B2B Customer Admin, B2B Customer Employee, etc)
+- Permissions Management 
 - B2B Asset and Subscription Services Management (CPI) with Assurance (contractual terms)
-- Event driven processes
+- CPQ for Product Offering Configuration (SPO, BPO)
+- Support of Frame Agreements and Call-Offs
+- Automatic product offering creation based on Frame Agreement
+- Ehanced rules engine or compatibility, eligibility and servicability
+- Dashboard for managing assets and services (various views)
+- Reporting capabiliites
