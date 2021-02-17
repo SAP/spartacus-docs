@@ -100,6 +100,7 @@ The site context persisted in the URL might be something different than a simply
 
 Here is an example code of a custom site context that is simply the language isocode, but formatted uppercase.
 
+### Service for custom context 
 The implementation of custom context service:
 
 ```typescript
@@ -133,6 +134,11 @@ export class CustomContextService implements SiteContext<string> {
 }
 ```
 
+### Config for custom context
+
+The Spartacus configuration of `context.custom` needs to be filled with all possible valid values of the custom context. This can be achieved differently when using static or automatic context configuration (from CMS).
+
+#### Automatic context configuration
 If you are using automatic site configuration, additionally you need to:
 
 1. Add in CMS (Backoffice) the _URL encoding attribute_ named `custom`.
@@ -159,6 +165,19 @@ If you are using automatic site configuration, additionally you need to:
       }
     }
     ```
+
+#### Static context configuration
+If you are using static context configuration, you need to populate the `context.custom` with all possible valid values of the custom context. For example in your `app.module.ts`:
+
+```typescript
+providers: [
+  provideConfig({
+    context: { custom: ['EN', 'DE', 'JA', 'ZH'] }
+  })
+]
+```
+
+### Update context services mapping
 
 Finally you need to provide the `ContextServiceMap` containing the custom context service, i.e. in your app module (if you implemented custom `OccConfigLoaderService`, it also needs being provided):
 
@@ -187,6 +206,8 @@ export function serviceMapFactory() {
 /*...*/
 ```
 
-Then you should be able to see your URL with language uppercase (i.e. `www.site.com/EN`), but use standard languages in your application with lowercase.
+### Summary
+
+After the steps described above you should be able to see your URL with language uppercase (i.e. `www.site.com/EN`), but use standard languages in your application with lowercase.
 
 Above technique can be applied to implement any custom site context.
