@@ -93,7 +93,7 @@ Some features require new OCC REST APIs, not yet planned and still considered to
     - Suspend Subscription
     - Cancel Subscription
     - Contract Termination
-- Billing (View Bill, View Bill History)
+- Billing (View Bill and View Bill History)
 - Pay Bill
 - View consumption details
 
@@ -103,8 +103,8 @@ Some features require new OCC REST APIs, not yet planned and still considered to
 - Permissions Management 
 - B2B Asset and Subscription Services Management (CPI) with Assurance (contractual terms)
 - CPQ for Product Offering Configuration (SPO, BPO)
-- Support of Frame Agreements and Call-Offs
+- Support of Frame Agreements and Call-offs
 - Automatic product offering creation based on Frame Agreement
-- Ehanced rules engine or compatibility, eligibility and servicability
+- Enhanced rules engine or compatibility, eligibility and serviceability
 - Dashboard for managing assets and services (various views)
-- Reporting capabiliites
+- Reporting capabilities
