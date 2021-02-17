@@ -54,6 +54,7 @@ For non-technical questions and roadmap feedback, you can reach us on our dedica
 
 - Provide the ability for a customer to conduct a serviceability check for a product offering of interest. For more information, see [Serviceability](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
 - Provide the ability for a customer to conduct a serviceability check for all product offerings that are available based on a premise address. For more information, see [Serviceability](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
+- Provide the ability for a customer to conduct a contact renewal (without assurance).
 - Provide the ability for a customer to conduct a contract termination (without assurance).
 
 ### Retention Process Flows
@@ -78,7 +79,7 @@ Some features require new OCC REST APIs, not yet planned and still considered to
 ### B2C Asset and Subscription Services Management (customer product inventory) with Assurance (contractual terms to drive retention process flows)
 
 - Roles and Permissions for managing assets and services
-- B2B Asset and Subscription Services Management (CPI) with Assurance (contractual terms)
+- Asset and Subscription Services Management (CPI) with Assurance (contractual terms)
     - Activate Service
     - Deactivate Service
     - Top-Up Account
