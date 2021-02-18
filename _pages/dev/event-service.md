@@ -445,7 +445,7 @@ export class FacetChangedEvent extends CxEvent {
   /**
    * Event's type
    */
-  static readonly type = 'FacetChangedEvent';
+  static readonly type = "FacetChangedEvent";
   /**
    * Facet code
    */
@@ -494,5 +494,29 @@ export class ModuleInitializedEvent extends CxEvent {
    * Reference fpr lazy loaded module instance
    */
   moduleRef: NgModuleRef<any>;
+}
+```
+
+```typescript
+/**
+ * Indicates that the language has changed.
+ */
+export class LanguageSetEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "LanguageSetEvent";
+  activeLanguage: string;
+}
+
+/**
+ * Indicates that the Currency has changed.
+ */
+export class CurrencySetEvent extends CxEvent {
+  /**
+   * Event's type
+   */
+  static readonly type = "CurrencySetEvent";
+  activeCurrency: string;
 }
 ```
