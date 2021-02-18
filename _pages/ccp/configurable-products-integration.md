@@ -85,7 +85,7 @@ Option 2:
 
 The following is an example of the **Configuration Menu** showing errors and conflicts:
 
-<img src="{{ site.baseurl }}/assets/images/ccp/icon_alignment.png" alt="Configuration menu showing errors and conflicts" width="650" border="1px" />
+![Configuration menu showing errors and conflicts]({{ site.baseurl }}/assets/images/ccp/icon_alignment.png)
 
 For reference, the Accelerator behaves as follows.
 
@@ -99,7 +99,7 @@ Only a header of conflict groups gets a warning icon. In the Accelerator, the ic
 
 The following is an example of conflicts shown on the B2B Accelerator screen:
 
-![Conflicts shown on the B2B Accelerator screen]({{site.baseurl}}/assets/images/ccp/b2b_accelerator.png)
+![Conflicts shown on the B2B Accelerator screen]({{ site.baseurl }}/assets/images/ccp/b2b_accelerator.png)
 
 ## Browser Refresh
 
