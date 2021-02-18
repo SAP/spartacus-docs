@@ -197,7 +197,9 @@ Cart validation is currently not supported, although you can implement your own 
     </ng-container>
     ```
 
-### Necessary Adjustments in Commerce
+### Necessary Adjustments in SAP Commerce 2005
+
+(If you use SAP Commerce 2011, these adjustments aren't necessary)
 
 The steps that can be done on the Spartacus side ensure that for a standard UI flow, configurations with issues cannot be ordered. However, you still need to block the creation of orders via OCC. Otherwise an order containing such configurations can be created using e.g. the developer tools in the end-user's browser.
 
