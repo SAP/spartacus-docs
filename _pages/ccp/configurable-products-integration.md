@@ -115,6 +115,10 @@ This will modify your application using schematics and include the modules neede
 
 Note that at runtime, most of the libary is loaded lazily when the configurator is first loaded. This is done for performance reasons.
 
+## Extending Spartacus for Configurable Products Integration
+
+No special extensibility is available for this feature.
+
 ## Features Currently Not Supported for Configurable Products
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
@@ -212,7 +216,3 @@ Note that it will guarantee that the order is validated for product configuratio
 ## Assisted Service Mode
 
 Assisted service mode (ASM) is currently not supported for configurable products.
-
-## Extending Spartacus for Configurable Products Integration
-
-No special extensibility is available for this feature.
