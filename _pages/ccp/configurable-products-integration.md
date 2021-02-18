@@ -105,6 +105,16 @@ The following is an example of conflicts shown on the B2B Accelerator screen:
 
 When users refresh the browser, the product configuration is reset to the default configuration (unlike in the Accelerator). Users will therefore have to reconfigure their products after reloading the page.
 
+## Configuring Spartacus for Configurable Products Integration
+
+After you have set up your Spartacus storefront (see [Building the Spartacus Storefront Using 3.x Libraries](#building-the-spartacus-storefront-from-libraries)), install the Product Configurator library by running the following command from within the root directory of your storefront app:
+
+`ng add @spartacus/product-configurator`
+
+This will modify your application using schematics and include the modules needed to launch the library.
+
+Note that at runtime, most of the libary is loaded lazily when the configurator is first loaded. This is done for performance reasons.
+
 ## Features Currently Not Supported for Configurable Products
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
@@ -150,7 +160,7 @@ Cart validation is currently not supported, although you can implement your own 
 ### Necessary Adjustments in Spartacus
 
 - Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one
-- Inject `ConfiguratorCartService` from `@spartacus/product/configurators/common` into the custom version of `cart-totals.component`
+- Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`
 - Introduce a component member. The following is an example:
 
     ```ts
@@ -202,3 +212,7 @@ Note that it will guarantee that the order is validated for product configuratio
 ## Assisted Service Mode
 
 Assisted service mode (ASM) is currently not supported for configurable products.
+
+## Extending Spartacus for Configurable Products Integration
+
+No special extensibility is available for this feature.
