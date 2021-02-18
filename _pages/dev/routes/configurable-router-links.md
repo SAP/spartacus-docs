@@ -271,7 +271,7 @@ routingService.go({ cxRoute: 'product', params: { productCode: 1234 } });
 
 ### Simply generation of the path
 
-The `UrlService.generateUrl` method called with `{ cxRoute: <route> }` returns the generated path (just like `cxUrl` pipe in HTML templates). For example:
+The `SemanticPathService.transform` method called with `{ cxRoute: <route> }` returns the generated path (just like `cxUrl` pipe in HTML templates). For example:
 
 When config is:
 
@@ -286,7 +286,7 @@ ConfigModule.withConfig({
 ```
 
 ```typescript
-urlService.generateUrl({ cxRoute: 'product', params: { productCode: 1234 } });
+semanticPathService.transform({ cxRoute: 'product', params: { productCode: 1234 } });
 
 // ['/', 'p', 1234]
 ```
