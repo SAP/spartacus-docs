@@ -31,6 +31,16 @@ The Configurable Products integration requires release 2005 of SAP Commerce Clou
 
 For more information, see [Configurator for Complex Products Module](https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html) on SAP Help Portal.
 
+## Configuring Spartacus for Configurable Products Integration
+
+After you have set up your Spartacus storefront (see [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %})), install the Product Configurator library by running the following command from within the root directory of your storefront app:
+
+`ng add @spartacus/product-configurator`
+
+This will modify your application using schematics and include the modules needed to launch the library.
+
+Note that at runtime, most of the libary is loaded lazily when the configurator is first loaded. This is done for performance reasons.
+
 ## Locales
 
 All available locales must be replicated into Spartacus. Locales in the back end and front end must be in sync.
@@ -104,20 +114,6 @@ The following is an example of conflicts shown on the B2B Accelerator screen:
 ## Browser Refresh
 
 When users refresh the browser, the product configuration is reset to the default configuration (unlike in the Accelerator). Users will therefore have to reconfigure their products after reloading the page.
-
-## Configuring Spartacus for Configurable Products Integration
-
-After you have set up your Spartacus storefront (see [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %})), install the Product Configurator library by running the following command from within the root directory of your storefront app:
-
-`ng add @spartacus/product-configurator`
-
-This will modify your application using schematics and include the modules needed to launch the library.
-
-Note that at runtime, most of the libary is loaded lazily when the configurator is first loaded. This is done for performance reasons.
-
-## Extending Spartacus for Configurable Products Integration
-
-No special extensibility is available for this feature.
 
 ## Features Currently Not Supported for Configurable Products
 
