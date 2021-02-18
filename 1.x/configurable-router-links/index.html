@@ -1478,7 +1478,7 @@
 
 <h3 id="simply-generation-of-the-path">Simply generation of the path</h3>
 
-<p>The <code class="language-plaintext highlighter-rouge">UrlService.generateUrl</code> method called with <code class="language-plaintext highlighter-rouge">{ cxRoute: &lt;route&gt; }</code> returns the generated path (just like <code class="language-plaintext highlighter-rouge">cxUrl</code> pipe in HTML templates). For example:</p>
+<p>The <code class="language-plaintext highlighter-rouge">SemanticPathService.transform</code> method called with <code class="language-plaintext highlighter-rouge">{ cxRoute: &lt;route&gt; }</code> returns the generated path (just like <code class="language-plaintext highlighter-rouge">cxUrl</code> pipe in HTML templates). For example:</p>
 
 <p>When config is:</p>
 
@@ -1491,7 +1491,7 @@
 <span class="p">})</span>
 </code></pre></div></div>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">urlService</span><span class="p">.</span><span class="nx">generateUrl</span><span class="p">({</span> <span class="na">cxRoute</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product</span><span class="dl">'</span><span class="p">,</span> <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">productCode</span><span class="p">:</span> <span class="mi">1234</span> <span class="p">}</span> <span class="p">});</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">semanticPathService</span><span class="p">.</span><span class="nx">transform</span><span class="p">({</span> <span class="na">cxRoute</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product</span><span class="dl">'</span><span class="p">,</span> <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">productCode</span><span class="p">:</span> <span class="mi">1234</span> <span class="p">}</span> <span class="p">});</span>
 
 <span class="c1">// ['/', 'p', 1234]</span>
 </code></pre></div></div>
