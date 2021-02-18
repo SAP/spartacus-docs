@@ -296,6 +296,8 @@ docs:
             subchildren:
                 - title: "Server–Side Rendering Coding Guidelines"
                   url: /server-side-rendering-coding-guidelines/
+                - title: "Server-Side Rendering Optimization"
+                  url: /server-side-rendering-optimization/
                 - title: "How to Debug a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
                 - title: "Workaround for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
