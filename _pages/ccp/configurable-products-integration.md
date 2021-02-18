@@ -107,7 +107,7 @@ When users refresh the browser, the product configuration is reset to the defaul
 
 ## Configuring Spartacus for Configurable Products Integration
 
-After you have set up your Spartacus storefront (see [Building the Spartacus Storefront Using 3.x Libraries](#building-the-spartacus-storefront-from-libraries)), install the Product Configurator library by running the following command from within the root directory of your storefront app:
+After you have set up your Spartacus storefront (see [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %})), install the Product Configurator library by running the following command from within the root directory of your storefront app:
 
 `ng add @spartacus/product-configurator`
 
