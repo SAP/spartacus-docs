@@ -94,14 +94,15 @@ When Spartacus identifies the site from the URL, it is often the case that the U
   - `ng serve --host electronics.localhost`
   - `ng serve --disable-host-check`
 
-## How to add custom context
+## Adding a Custom Context
 
-The site context persisted in the URL might be something different than a simply an isocode of currency or language. For example it can be a formatted language (using uppercase letters, or with underscores instead of dashes). Then a custom service `SiteContext<T>` can be implemented. It needs to be registered in `ContextServiceMap` and reflected in the config of `context` and `context.urlParameters`.
+The site context that is persisted in the URL might not be just a simple ISO code of the currency or language. For example, it could be a formatted language that uses uppercase letters, or underscores instead of dashes. In this case, a custom `SiteContext<T>` service can be implemented. It needs to be registered in `ContextServiceMap` and reflected in the config of `context` and `context.urlParameters`.
 
-Here is an example code of a custom site context that is simply the language isocode, but formatted uppercase.
+The following sections describe how to implement a custom context service. In the example that follows, the ISO language code is formatted in uppercase, but you can use this technique to implement any custom site context that you wish.
 
-### Service for custom context 
-The implementation of custom context service:
+### Creating a Service for a Custom Context
+
+The following is an example of creating a service for a custom context where the ISO language code is formatted in uppercase:
 
 ```typescript
 export function languageToCustom(lang: string): string {
@@ -134,15 +135,21 @@ export class CustomContextService implements SiteContext<string> {
 }
 ```
 
-### Config for custom context
+### Configuring the Custom Context
 
-The Spartacus configuration of `context.custom` needs to be filled with all possible valid values of the custom context. This can be achieved differently when using static or automatic context configuration (from CMS).
+You need to fill the Spartacus configuration of `context.custom` with all possible valid values of the custom context. How you do this depends on whether you are using [Automatic Context Configuration](#automatic-context-configuration) or [Static Context Configuration](#static-context-configuration). Each of these scenarios is described in the following sections.
 
-#### Automatic context configuration
-If you are using automatic site configuration, additionally you need to:
+#### Automatic Context Configuration
 
-1. Add in CMS (Backoffice) the _URL encoding attribute_ named `custom`.
-2. Extend the dynamic Spartacus configuration of `context` to contain the key `custom`:
+If you are using automatic site configuration, can set up the Spartacus configuration of `context.custom` as follows:
+
+1. In Backoffice, open the **WCMS > Website** view and select the website that you want to update.
+1. In the **Properties** tab, scroll down to **URL Encoding Attributes** and click the plus (`+`) button.
+1. In the modal that appears, enter the name `custom` and click **Add**.
+1. Save your changes and exit Backoffice.
+1. In your Spartacus code, extend the dynamic Spartacus configuration of `context` to contain the `custom` key.
+
+    The following is an example:
 
     ```typescript
     @Injectable()
@@ -156,7 +163,7 @@ If you are using automatic site configuration, additionally you need to:
         // take the chunk with SiteContextConfig (which is the first one in the array)
         const contextConfig = (chunks[0] as SiteContextConfig).context;
 
-        // define possible values of custom context deriving from languages' iso codes
+        // define possible values of custom context deriving from ISO languages codes
         contextConfig.custom = contextConfig[LANGUAGE_CONTEXT_ID].map(
           languageToCustom
         );
@@ -166,8 +173,9 @@ If you are using automatic site configuration, additionally you need to:
     }
     ```
 
-#### Static context configuration
-If you are using static context configuration, you need to populate the `context.custom` with all possible valid values of the custom context. For example in your `app.module.ts`:
+#### Static Context Configuration
+
+If you are using static context configuration, you need to populate the `context.custom` with all possible valid values of the custom context. The following is an example from `app.module.ts`:
 
 ```typescript
 providers: [
@@ -177,9 +185,9 @@ providers: [
 ]
 ```
 
-### Update context services mapping
+### Updating the Context Services Mapping
 
-Finally you need to provide the `ContextServiceMap` containing the custom context service, i.e. in your app module (if you implemented custom `OccConfigLoaderService`, it also needs being provided):
+After configuring your custom context, you need to provide the `ContextServiceMap` that contains the custom context service. You can provide this in your app module, as shown in the following example:
 
 ```typescript
 export function serviceMapFactory() {
@@ -206,8 +214,6 @@ export function serviceMapFactory() {
 /*...*/
 ```
 
-### Summary
+**Note:** If you have implemented a custom `OccConfigLoaderService`, it also needs to be provided, as shown in the example above.
 
-After the steps described above you should be able to see your URL with language uppercase (i.e. `www.site.com/EN`), but use standard languages in your application with lowercase.
-
-Above technique can be applied to implement any custom site context.
+You should now be able to see your URL with an uppercase ISO language code (for example, `www.site.com/EN`), while still being able to use standard lowercase languages in your application.
