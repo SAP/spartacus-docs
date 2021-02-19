@@ -131,7 +131,7 @@ With the following changes, the Angular build process is modified to match the s
    "build:ssr": "ng build --prod && ng run mystore:server:production && mv dist/APPNAME-server/main.js dist/server.js || move dist\\APPNAME-server\\main.js dist\\server.js"
    ```
 
-   The hosting automation service expects a `server.ts` file in the `dist` folder, instead of `main.ts` in the ssr app folder. To fulfill this requirement, after the build is complete, the `dist/APPNAME-server/main.ts` file is moved to the `dist` folder and renamed to `server.ts`.
+   The hosting automation service expects a `server.js` file in the `dist` folder, instead of `main.js` in the ssr app folder. To fulfill this requirement, after the build is complete, the `dist/APPNAME-server/main.js` file is moved to the `dist` folder and renamed to `server.js`.
 
    Also, to ensure the move command works on Windows computers, both `mv` and `move` are used, separated by `||`, in case `mv` fails.
 
