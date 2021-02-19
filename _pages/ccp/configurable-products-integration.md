@@ -8,18 +8,16 @@ title: Configurable Products Integration
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
+The Configurable Products integration provides a user interface for configuring and selling configurable products in Spartacus by making use of the Product Configuration with SAP Variant Configuration and Pricing AddOn. This AddOn is part of SAP Commerce Cloud and is not included in the Spartacus libraries.
 
-The Configurable Products integration provides the user interface (UI) for configuring and selling configurable products using *SAP Commerce Cloud* add-on *Product Configuration with SAP Variant Configuration and Pricing*. Note that the Spartacus library does not include the add-on itself.
+The Spartacus product configuration library includes the following features:
 
-The initial version of the Spartacus library for *Product Configuration with SAP Variant Configuration and Pricing* includes the following features:
 - Single-level and multilevel configurable products in your Spartacus storefront, where the product model resides in SAP ERP or SAP S/4HANA
 - Configuration page with the most commonly used characteristic types such as radio buttons, checkboxes, dropdown listboxes, and images for characteristic values
 - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
 - Overview page with all user selections accessible at any time during configuration
 - Basic conflict handling
 - Configurable products are part of storefront processes such as catalog browsing, product detail page, add to cart, checkout, and order history
-
 
 For reference, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US/528b7395bc314999a01e3560f2bdc069.html) on SAP Help Portal.
 
