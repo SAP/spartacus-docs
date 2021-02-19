@@ -24,7 +24,7 @@ The SAP Variant Configuration and Pricing add-on for Commerce provides the user 
 
 **Note:** The SAP Variant Configuration and Pricing add-on for Commerce is not included with the Spartacus libraries.
 
-For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US) and [Configurable Products Integration](https://github.com/SAP/spartacus-docs/blob/develop/_pages/ccp/configurable-products-integration.md).
+For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/2005/en-US) and [Configurable Products Integration]({{ site.baseurl }}{% link _pages/ccp/configurable-products-integration.md %}).
 
 ### Qualtrics Embedded Feedback
 
