@@ -16,7 +16,7 @@ This feature takes into consideration the journey checklist policy for serviceab
 
 ## Prerequisites
 
-The system performing the serviceability check of the provided installation address should be up and running (for demonstration purposes, a mock service can be used). 
+The system performing the serviceability check of the provided installation address should be up and running (for demonstration purposes, a mock service can be used).
 
 To start the mock service:
 1. Download SOAP UI 5.6.0 (or the version compatible with your Operating System)
@@ -25,7 +25,7 @@ To start the mock service:
 4. Start the mock service ('Start minimized')
 5. When the mock service is up and running, you can demo the feature.
 
-**Important:** The mock service is not recommended for production environments as it is used exclusively for demonstration purposes only.
+**Important:** The mock service is not recommended for production environments, but can be exclusively used for demonstration purposes only.
 
 ## Business Need
 
