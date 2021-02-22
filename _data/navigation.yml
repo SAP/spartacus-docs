@@ -432,6 +432,8 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/
+                - title: "Claims Integration"
+                  url: /claims-integration/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
                 - title: "Invoice Payment"
