@@ -70,7 +70,7 @@ List of features delivered with 1.0:
 - A minor change means we added new features, but they are configured to be off by default, not to cause compatibility issues. A new minor can also include changes or bug fixes that may affect compatibility, but feature flags also control these. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled ‘next’ a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug, and we’ll assess and fix it. We encourage you to upgrade to the latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- To use all functionalities in Spartacus 2.*, release 2011 of SAP Commerce Cloud and 2102 of Financial Services Accelerator is required.
+- To use all functionalities in FSA Spartacus 2.*, release 2011 of SAP Commerce Cloud and 2102 of Financial Services Accelerator is required.
 - The latest patch release is strongly recommended, as it usually contains bug fixes that affect Spartacus.
 
 ## Future Releases
