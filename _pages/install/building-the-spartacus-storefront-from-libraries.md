@@ -65,9 +65,13 @@ ng add @spartacus/schematics
 
 ### Adding B2B Commerce Organization (Optional)
 
-**Note:** You need to install the Spartacus core libraries before you can add B2B Commerce Organization. For more information, see [Setting up the Core B2C Project Using Schematics](#setting-up-the-core-b2c-project-using-schematics).
-
 **Note:** Spartacus does not support B2C and B2B storefronts running together in a single storefront application. When you enable B2B Commerce Organization, the B2C storefront will load but not work properly.
+
+**Note:** You need to first install the Spartacus core libraries before you can add B2B Commerce Organization. If you have not already done so, run the following command to install the Spartacus core libraries:
+
+```bash
+ng add @spartacus/schematics
+```
 
 To get Spartacus to work with the SAP Commerce Cloud Powertools sample store, you must add the B2B Commerce Organization configuration to Spartacus using schematics, as follows:
 

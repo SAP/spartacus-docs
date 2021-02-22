@@ -115,6 +115,8 @@ docs:
                   url: /applied-promotions/
                 - title: "Assisted Service Module"
                   url: /asm/
+                - title: "B2B Commerce Organization"
+                  url: /b2b-commerce-organization/
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
                 - title: "Consignment Tracking"
