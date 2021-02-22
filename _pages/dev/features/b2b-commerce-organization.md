@@ -409,6 +409,8 @@ For more information, see [Component Styles]({{ site.baseurl }}/css-architecture
 
 Organization translation resources can be overridden following the same rules as for other Spartacus chunks. The following is an example:
 
+{% raw %}
+
 ```ts
 provideConfig({
   i18n: {
@@ -433,5 +435,7 @@ provideConfig({
   },
 }),
 ```
+
+{% endraw %}
 
 For more information, see [Extending Translations]({{ site.baseurl }}/i18n/#extending-translations).
