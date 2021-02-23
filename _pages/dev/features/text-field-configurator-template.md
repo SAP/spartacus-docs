@@ -21,3 +21,5 @@ The Text Field Configurator Template requires the following extension to work:
 For more information, see [Text Field Configurator Template Module](https://help.sap.com/viewer/7e47d40a176d48ba914b50957d003804/v2011/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on SAP Help Portal.
 
 ## Enabling Text Field Configurator
+
+The Text Field Configurator Template feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
