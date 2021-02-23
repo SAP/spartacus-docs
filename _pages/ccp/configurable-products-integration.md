@@ -1,5 +1,9 @@
 ---
 title: Configurable Products Integration
+feature:
+- name: Configurable Products Integration
+  spa_version: 3.1
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -7,6 +11,8 @@ title: Configurable Products Integration
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
+
+## Overview
 
 The Configurable Products integration provides a user interface for configuring and selling configurable products in Spartacus. The integration makes use of the *Product Configuration with SAP Variant Configuration and Pricing* AddOn, which is part of SAP Commerce Cloud. This AddOn is not included in the Spartacus libraries.
 
