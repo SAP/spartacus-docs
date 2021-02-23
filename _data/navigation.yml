@@ -137,6 +137,8 @@ docs:
                   url: /stock-notification/  
                 - title: "Store Locator"
                   url: /store-locator/
+                - title: "Text Field Configurator Template"
+                  url: /text-field-configurator-template/
                 - title: "Token Revocation"
                   url: /token-revocation/
                 - title: "Variants"

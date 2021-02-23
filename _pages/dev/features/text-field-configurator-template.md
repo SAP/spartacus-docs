@@ -1,5 +1,9 @@
 ---
 title: Text Field Configurator Template
+feature:
+- name: Text Field Configurator Template
+  spa_version: 3.1
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -10,7 +14,7 @@ title: Text Field Configurator Template
 
 ## Overview
 
-The Text Field Configurator Template allows you to add simple, text-field-based configuration forms to your products (for example, to allow your customers to enter a text for engraving).
+The Text Field Configurator Template allows you to add simple, text field-based configuration forms to your products. For example, you can use this feature to allow your customers to enter a text for engraving.
 
 ## Requirements
 
@@ -18,8 +22,16 @@ The Text Field Configurator Template requires the following extension to work:
 
 - `textfieldconfiguratortemplateocc`
 
-For more information, see [Text Field Configurator Template Module](https://help.sap.com/viewer/7e47d40a176d48ba914b50957d003804/v2011/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on SAP Help Portal.
+For more information, see [Text Field Configurator Template Module](https://help.sap.com/viewer/7e47d40a176d48ba914b50957d003804/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
 
-## Enabling Text Field Configurator
+## Enabling the Text Field Configurator
 
-The Text Field Configurator Template feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
+You can enable the Text Field Configurator Template through the corresponding CMS component data in the back end that allows you to enable or disable this feature.
+
+## Configuring
+
+No additional configuration is required.
+
+## Extending
+
+No special extensibility is available for this feature.
