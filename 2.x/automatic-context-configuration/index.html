@@ -1767,7 +1767,7 @@
 This feature is introduced with version 1.3 of the Spartacus libraries.
  </p>
 
-<p>Every site that is defined in the CMS has its own context, which includes a base site ID, language properties, and currency properties. The context also defines how these attributes are persisted in the URL. You can allow Spartacus to automatically determine the context based on the URL patterns of your sites, as defined in the CMS. You can enable automatic context configuration by simply not defining the <code class="language-plaintext highlighter-rouge">context.baseSite</code> property in <code class="language-plaintext highlighter-rouge">app.module.ts</code>.</p>
+<p>Every site that is defined in the CMS has its own context, which includes a base site ID, language properties, and currency properties. The context also defines how these attributes are persisted in the URL. You can allow Spartacus to automatically determine the context based on the URL patterns of your sites, as defined in the CMS. You can enable this automatic context configuration by simply not defining the <code class="language-plaintext highlighter-rouge">context.baseSite</code> property in <code class="language-plaintext highlighter-rouge">app.module.ts</code>.</p>
 
 <p>Before the application is initialized, Spartacus gets a list of the base sites from the back end, compares the current URL with the URL patterns of the sites that are defined in the CMS, and then identifies the current base site, along with its languages, currencies, and URL encoding attributes.</p>
 
@@ -1826,7 +1826,7 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 
 <p>For historical reasons, regular expressions with URL patterns that are defined in the CMS are written in Java. However, these regular expressions are evaluated on the front end using JavaScript. You should continue to use Java regex in the CMS, and they will be implicitly converted to JavaScript in Spartacus. For example, for case-insensitivity, modifiers such as <code class="language-plaintext highlighter-rouge">(?i)</code> are mapped to <code class="language-plaintext highlighter-rouge">/i</code>.</p>
 
-<p><strong>Note</strong> Although the existing mapping between Java regex and JavaScript should suffice for the most common cases, not all Java regex features are available in JavaScript, so it is important to verify that your URL patterns do not use Java regex features that are not available in JavaScript. Otherwise, any base site with the wrong URL pattern will not be recognized by Spartacus.</p>
+<p><strong>Note:</strong> Although the existing mapping between Java regex and JavaScript should suffice for the most common cases, not all Java regex features are available in JavaScript, so it is important to verify that your URL patterns do not use Java regex features that are not available in JavaScript. Otherwise, any base site with the wrong URL pattern will not be recognized by Spartacus.</p>
 
 <p>For more information, see this comparison of regular expression engines in <a href="https://en.wikipedia.org/wiki/Comparison_of_regular_expression_engines#Language_features">Wikipedia</a>, and also look at the implementation of the <code class="language-plaintext highlighter-rouge">JavaRegExpConverter</code> service in Spartacus.</p>
 
@@ -1853,13 +1853,15 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
   </li>
 </ul>
 
-<h2 id="how-to-add-custom-context">How to add custom context</h2>
+<h2 id="adding-a-custom-context">Adding a Custom Context</h2>
 
-<p>The site context persisted in the URL might be something different than a simply an isocode of currency or language. For example it can be a formatted language (using uppercase letters, or with underscores instead of dashes). Then a custom service <code class="language-plaintext highlighter-rouge">SiteContext&lt;T&gt;</code> can be implemented. It needs to be registered in <code class="language-plaintext highlighter-rouge">ContextServiceMap</code> and reflected in the config of <code class="language-plaintext highlighter-rouge">context</code> and <code class="language-plaintext highlighter-rouge">context.urlParameters</code>.</p>
+<p>The site context that is persisted in the URL might not be just a simple ISO code of the currency or language. For example, it could be a formatted language that uses uppercase letters, or underscores instead of dashes. In this case, a custom <code class="language-plaintext highlighter-rouge">SiteContext&lt;T&gt;</code> service can be implemented. It needs to be registered in <code class="language-plaintext highlighter-rouge">ContextServiceMap</code> and reflected in the config of <code class="language-plaintext highlighter-rouge">context</code> and <code class="language-plaintext highlighter-rouge">context.urlParameters</code>.</p>
 
-<p>Here is an example code of a custom site context that is simply the language isocode, but formatted uppercase.</p>
+<p>The following sections describe how to implement a custom context service. In the example that follows, the ISO language code is formatted in uppercase, but you can use this technique to implement any custom site context that you wish.</p>
 
-<p>The implementation of custom context service:</p>
+<h3 id="creating-a-service-for-a-custom-context">Creating a Service for a Custom Context</h3>
+
+<p>The following is an example of creating a service for a custom context where the ISO language code is formatted in uppercase:</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">languageToCustom</span><span class="p">(</span><span class="nx">lang</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">lang</span> <span class="o">&amp;&amp;</span> <span class="nx">lang</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
@@ -1891,12 +1893,23 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>If you are using automatic site configuration, additionally you need to:</p>
+<h3 id="configuring-the-custom-context">Configuring the Custom Context</h3>
+
+<p>You need to fill the Spartacus configuration of <code class="language-plaintext highlighter-rouge">context.custom</code> with all possible valid values of the custom context. How you do this depends on whether you are using <a href="#automatic-context-configuration">Automatic Context Configuration</a> or <a href="#static-context-configuration">Static Context Configuration</a>. Each of these scenarios is described in the following sections.</p>
+
+<h4 id="automatic-context-configuration">Automatic Context Configuration</h4>
+
+<p>If you are using automatic site configuration, can set up the Spartacus configuration of <code class="language-plaintext highlighter-rouge">context.custom</code> as follows:</p>
 
 <ol>
-  <li>Add in CMS (Backoffice) the <em>URL encoding attribute</em> named <code class="language-plaintext highlighter-rouge">custom</code>.</li>
+  <li>In Backoffice, open the <strong>WCMS &gt; Website</strong> view and select the website that you want to update.</li>
+  <li>In the <strong>Properties</strong> tab, scroll down to <strong>URL Encoding Attributes</strong> and click the plus (<code class="language-plaintext highlighter-rouge">+</code>) button.</li>
+  <li>In the modal that appears, enter the name <code class="language-plaintext highlighter-rouge">custom</code> and click <strong>Add</strong>.</li>
+  <li>Save your changes and exit Backoffice.</li>
   <li>
-    <p>Extend the dynamic Spartacus configuration of <code class="language-plaintext highlighter-rouge">context</code> to contain the key <code class="language-plaintext highlighter-rouge">custom</code>:</p>
+    <p>In your Spartacus code, extend the dynamic Spartacus configuration of <code class="language-plaintext highlighter-rouge">context</code> to contain the <code class="language-plaintext highlighter-rouge">custom</code> key.</p>
+
+    <p>The following is an example:</p>
 
     <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
  <span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomOccConfigLoaderService</span> <span class="kd">extends</span> <span class="nx">OccConfigLoaderService</span> <span class="p">{</span>
@@ -1909,7 +1922,7 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
      <span class="c1">// take the chunk with SiteContextConfig (which is the first one in the array)</span>
      <span class="kd">const</span> <span class="nx">contextConfig</span> <span class="o">=</span> <span class="p">(</span><span class="nx">chunks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">as</span> <span class="nx">SiteContextConfig</span><span class="p">).</span><span class="nx">context</span><span class="p">;</span>
 
-     <span class="c1">// define possible values of custom context deriving from languages' iso codes</span>
+     <span class="c1">// define possible values of custom context deriving from ISO languages codes</span>
      <span class="nx">contextConfig</span><span class="p">.</span><span class="nx">custom</span> <span class="o">=</span> <span class="nx">contextConfig</span><span class="p">[</span><span class="nx">LANGUAGE_CONTEXT_ID</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span>
        <span class="nx">languageToCustom</span>
      <span class="p">);</span>
@@ -1921,7 +1934,20 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
   </li>
 </ol>
 
-<p>Finally you need to provide the <code class="language-plaintext highlighter-rouge">ContextServiceMap</code> containing the custom context service, i.e. in your app module (if you implemented custom <code class="language-plaintext highlighter-rouge">OccConfigLoaderService</code>, it also needs being provided):</p>
+<h4 id="static-context-configuration">Static Context Configuration</h4>
+
+<p>If you are using static context configuration, you need to populate the <code class="language-plaintext highlighter-rouge">context.custom</code> with all possible valid values of the custom context. The following is an example from <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">providers</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">provideConfig</span><span class="p">({</span>
+    <span class="na">context</span><span class="p">:</span> <span class="p">{</span> <span class="na">custom</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">EN</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">DE</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">JA</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ZH</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="updating-the-context-services-mapping">Updating the Context Services Mapping</h3>
+
+<p>After configuring your custom context, you need to provide the <code class="language-plaintext highlighter-rouge">ContextServiceMap</code> that contains the custom context service. You can provide this in your app module, as shown in the following example:</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">serviceMapFactory</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
@@ -1947,9 +1973,9 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 <span class="cm">/*...*/</span>
 </code></pre></div></div>
 
-<p>Then you should be able to see your URL with language uppercase (i.e. <code class="language-plaintext highlighter-rouge">www.site.com/EN</code>), but use standard languages in your application with lowercase.</p>
+<p><strong>Note:</strong> If you have implemented a custom <code class="language-plaintext highlighter-rouge">OccConfigLoaderService</code>, it also needs to be provided, as shown in the example above.</p>
 
-<p>Above technique can be applied to implement any custom site context.</p>
+<p>You should now be able to see your URL with an uppercase ISO language code (for example, <code class="language-plaintext highlighter-rouge">www.site.com/EN</code>), while still being able to use standard lowercase languages in your application.</p>
 
 
 <!-- <h3 class="archive__subtitle">Recent posts</h3>

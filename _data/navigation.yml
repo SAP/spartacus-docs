@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: https://stackoverflow.com/questions/tagged/spartacus-storefront
-    - title: Version 3.0
+    - title: Version 3.1
       url: /release-information/
 
 # sidebar menu
@@ -43,6 +43,7 @@ docs:
             url: /spartacus-faq/
           - title: "Documentation Archive"
             url: /docs-archive/  
+
 
     - title: Getting Started with Spartacus Libraries
       url: /getting-started/
@@ -82,9 +83,11 @@ docs:
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
-                - title: 'Context-Driven Services Integration'
+                - title: "Configurable Products Integration"
+                  url: /configurable-products-integration/
+                - title: "Context-Driven Services Integration"
                   url: /cds-integration/  
-                - title: 'Payment Integration with CyberSource Example'
+                - title: "Payment Integration with CyberSource Example"
                   url: /cybersource-integration/
                 - title: "Kyma Integration"
                   url: /kyma-integration/
@@ -112,6 +115,8 @@ docs:
                   url: /applied-promotions/
                 - title: "Assisted Service Module"
                   url: /asm/
+                - title: "B2B Commerce Organization"
+                  url: /b2b-commerce-organization/
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
                 - title: "Consignment Tracking"
@@ -134,6 +139,8 @@ docs:
                   url: /stock-notification/  
                 - title: "Store Locator"
                   url: /store-locator/
+                - title: "Text Field Configurator Template"
+                  url: /text-field-configurator-template/
                 - title: "Token Revocation"
                   url: /token-revocation/
                 - title: "Variants"
@@ -185,6 +192,8 @@ docs:
                   url: /searchbox-component/
                 - title: "Split View Component"
                   url: /split-view/
+                - title: "Table Component"
+                  url: /table-component/
           - title: "Extending Built-In Models"
             url: /type-augmentation/
           - title: "Session Management"
@@ -293,6 +302,8 @@ docs:
             subchildren:
                 - title: "Server–Side Rendering Coding Guidelines"
                   url: /server-side-rendering-coding-guidelines/
+                - title: "Server-Side Rendering Optimization"
+                  url: /server-side-rendering-optimization/
                 - title: "How to Debug a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
                 - title: "Workaround for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
@@ -311,6 +322,42 @@ docs:
                   url: /main-actions-with-form-pages/
                 - title: "Writing Notification Banners"
                   url: /writing-notification-banners/
+
+
+    - title: Using the Spartacus Storefront
+      url: /using-spartacus/
+      children:
+          - title: "B2B Commerce Organization Tutorial ➢"
+            url: /b2b-commerce-organization-tutorial/
+            subchildren:
+                - title: "B2B Commerce Organization Overview"
+                  url: /b2b-commerce-organization-overview/
+                - title: "Purchase Flow Example"
+                  url: /purchase-flow-example/
+                - title: "Creating a New Commerce Organization and Administrator"
+                  url: /creating-a-new-organization-and-administrator/
+                - title: "Units"
+                  url: /b2b-units/
+                - title: "Users ➢"
+                  url: /b2b-users/
+                  underchildren:
+                      - title: "Buyers"
+                        url: /b2b-buyers/
+                      - title: "Approvers"
+                        url: /b2b-approvers/
+                - title: "Purchasing Limits"
+                  url: /b2b-purchasing-limits/
+                - title: "Cost Centers"
+                  url: /b2b-cost-centers/
+                - title: "Budgets"
+                  url: /b2b-budgets/
+                - title: "Shipping Addresses"
+                  url: /b2b-shipping-addresses/
+                - title: "Purchase and Approval Flow Example"
+                  url: /purchase-and-approval-flow-example/
+                - title: "Disabling and Deleting Commerce Organization Entities"
+                  url: /disabling-commerce-organization-entities/         
+
 
     - title: Telco & Utilities Storefront Development Guide
       url: /about-tua-spartacus/
@@ -366,7 +413,7 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
-                - title: " Journey Management - Appointment Scheduling"
+                - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - Appointment"
                   url: /journey-management-appointment/                           
@@ -386,6 +433,7 @@ docs:
                   url: /product-offering-search/                                     
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
+
 
     - title: Financial Services Accelerator Storefront Development Guide
       url: /about-fsa-spartacus/
@@ -432,6 +480,7 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/                 
+
 
     - title: Contributing to Spartacus
       url: /contributors-guide/
