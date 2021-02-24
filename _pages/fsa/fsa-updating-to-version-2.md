@@ -12,7 +12,7 @@ Before upgrading your FSA Spartacus libraries to version 2.0, you must address t
 
 ## Updating FSA Spartacus
 
-1. Open the `src\app\app.module.ts` file, and remove the following:
+1. Go to the `package.json` at the root of your project and upgrade FSA SPA versions to the:
 
     ```shell
     "@spartacus/fsa-schematics": "^2.0.0",
@@ -33,7 +33,7 @@ Before upgrading your FSA Spartacus libraries to version 2.0, you must address t
     "@spartacus/storefinder": "^3.0.0",
     "angular-oauth2-oidc": "^10.0.0",
     ```
-4. Go to the `package.json` at the root of your project and upgrade FSA SPA versions to the:
+4. Open the `src\app\app.module.ts` file, and remove the following:
 
     ```shell
     StoreModule.forRoot({}, {
@@ -54,4 +54,4 @@ Before upgrading your FSA Spartacus libraries to version 2.0, you must address t
     yarn install
     ```
 
-Your app is now successfully updated.
+You have now successfully updated your FSA Spartacus app.
