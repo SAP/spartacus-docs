@@ -1,5 +1,13 @@
 ---
 title: Event Service
+feature:
+- name: Event Service
+  spa_version: 2.0
+  cx_version: n/a
+- name: Event Type Inheritance
+  spa_version: 3.1
+  cx_version: n/a
+  anchor: event-type-inheritance
 ---
 
 The Spartacus event service provides a stream of events that can be consumed by customer experience personalization solutions, such as SAP Commerce Cloud, Context-Driven Services.
@@ -13,7 +21,8 @@ The event service leverages RxJs Observables to drive the streams of events.
 Events are driven by TypeScript classes, which are signatures for a given event and can be instantiated. The following is an example:
 
 ```typescript
-export class CartAddEntryEvent {
+import { CxEvent } from "@spartacus/core";
+export class CartAddEntryEvent extends CxEvent {
   cartId: string;
   userId: string;
   productCode: string;
@@ -63,9 +72,9 @@ const result$ = this.events.get(CartAddEntrySuccessEvent).pipe(
 Since the event service leverages RxJs Observables, event streams are lazy. This means that no defined computations happen (such as pulling data from facades) until someone subscribes to the particular stream of events. The following is an example:
 
 ```typescript
-result$.subscribe(event => {
-    // < log the event (for example, to a tag manager) >
-})
+result$.subscribe((event) => {
+  // < log the event (for example, to a tag manager) >
+});
 ```
 
 ## Registering Event Sources
@@ -124,3 +133,49 @@ onClick() {
   this.events.dispatch(new CustomUIEvent(...));
 }
 ```
+
+## Event Type Inheritance
+
+In Spartacus 3.1, we've introduced a concept of parent (or "umbrella") events. The purpose of these parent events is to group similar events under one common event. The parent event can be an abstract or a regular class.
+By subscribing to the parent event, you will get emissions from all the "child" events that inherit it.
+
+For example, `@spartacus/core`'s `PageEvent` is a parent event. All the specific page events inherit from it (`HomePageEvent`, `CartPageEvent`, etc.).
+In the previous Spartacus versions, you had to observe each of the page events individually (i.e. `eventService.get(HomePageEvent).subscribe(...)`, `eventService.get(CartPageEvent).subscribe(...)`, etc.).
+Starting from Spartacus 3.1, you can subscribe to all the grouped events just by observing the parent event:
+
+```typescript
+eventService.get(PageEvent).subscribe(...) // receives all page events
+```
+
+Note that all events _should_ inherit from `@spartacus/core`'s `CxEvent`:
+
+```typescript
+import { CxEvent } from "@spartacus/core";
+export class MyEvent extends CxEvent {...}
+```
+
+This is not required for the event to work properly, but it is desireable to have in cases you want to observe all events at once:
+
+```typescript
+eventService.get(CxEvent).subscribe(...) // receives all Spartacus' events.
+```
+
+**Note:** observing all Spartacus' events at once might have a significant performance hit, therefore use with care.
+
+## Finding Spartacus Events
+
+The following is a non-exhaustive list of locations where you can find Spartacus events:
+
+- `projects/core/src/event/cx-event.ts`
+- `projects/core/src/auth/user-auth/events/user-auth.events.ts`
+- `projects/core/src/cart/event/cart.events.ts`
+- `projects/core/src/checkout/events/checkout.events.ts`
+- `projects/core/src/product/event/product.events.ts`
+- `projects/core/src/lazy-loading/events/module-initialized-event.ts`
+- `projects/core/src/site-context/events/site-context.events.ts`
+- `projects/storefrontlib/src/events/navigation/navigation.event.ts`
+- `projects/storefrontlib/src/events/page/page.events.ts`
+- `projects/storefrontlib/src/events/home/home-page.events.ts`
+- `projects/storefrontlib/src/events/cart/cart-page.events.ts`
+- `projects/storefrontlib/src/events/product/product-page.events.ts`
+- `projects/storefrontlib/src/cms-components/navigation/search-box/search-box.events.ts`

@@ -4,6 +4,7 @@ feature:
 - name: Stacked Outlets
   spa_version: 1.4
   cx_version: n/a
+  anchor: stacked-outlets
 ---
 
 Outlets allow you to customize the standard UI that is provided by Spartacus by letting you plug custom UIinto the standard Spartacus DOM. This is particularly helpful if the UI is not driven by CMS components, or if you wish to change a granular piece in the UI.

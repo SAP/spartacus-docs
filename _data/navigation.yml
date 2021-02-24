@@ -287,7 +287,7 @@ docs:
           - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
-                - title: "Using Loading Scopes"
+                - title: "Loading Scopes"
                   url: /loading-scopes/
                 - title: "Connecting to Other Systems"
                   url: /connecting-to-other-systems/  
