@@ -10,7 +10,7 @@ The event service leverages RxJs Observables to drive the streams of events.
 
 ## Event Types
 
-Events are driven by Typescript classes, which are signatures for a given event and can be instantiated. The following is an example:
+Events are driven by TypeScript classes, which are signatures for a given event and can be instantiated. The following is an example:
 
 ```typescript
 export class CartAddEntryEvent {
