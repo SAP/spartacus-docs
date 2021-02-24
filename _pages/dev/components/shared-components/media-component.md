@@ -7,7 +7,7 @@ feature:
 - name: Image Lazy Loading
   spa_version: 3.0
   cx_version: n/a
-  anchor: image-lazy-loading
+  anchor: "#image-lazy-loading"
 ---
 
 {% capture version_note %}

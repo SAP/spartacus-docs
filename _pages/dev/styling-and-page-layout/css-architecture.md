@@ -4,7 +4,7 @@ feature:
 - name: Style Versioning
   spa_version: 2.0
   cx_version: n/a
-  anchor: style-versioning
+  anchor: "#style-versioning"
 ---
 
 This page provides a high level overview of the CSS architecture in Spartacus.

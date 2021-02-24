@@ -7,7 +7,7 @@ feature:
 - name: Event Type Inheritance
   spa_version: 3.1
   cx_version: n/a
-  anchor: event-type-inheritance
+  anchor: "#event-type-inheritance"
 ---
 
 The Spartacus event service provides a stream of events that can be consumed by customer experience personalization solutions, such as SAP Commerce Cloud, Context-Driven Services.
