@@ -96,7 +96,24 @@ Only the first-level properties of the product entity, such as `code` or `name`,
 
 The following procedure describes how to create this mapping in the `PRODUCT_NORMALIZER`.
 
-1. Provide a `PRODUCT_NORMALIZER`.
+1. Configure the `product` OCC endpoint so that the `list` scope contains the `categories(code,name)` field.
+
+    The following is an example:
+
+    ```typescript
+    backend: {
+      occ: {
+        endpoints: {
+          product: {
+            list: //                          👇
+              'products/${productCode}?fields=categories(code,name),code,name,summary,price(formattedValue),images(DEFAULT, galleryIndex)',
+          },
+        },
+      },
+    },
+    ```
+
+2. Provide a `PRODUCT_NORMALIZER`.
 
     You can provide it in your `app.module`, as shown in the following example:
 
@@ -110,15 +127,15 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
     ]
     ```
 
-2. Add your implementation with the mapping, as shown in the following example:
+3. Add your implementation with the mapping, as shown in the following example:
 
     ```typescript
     @Injectable()
     export class MyProductCategoriesNormalizer
       implements Converter<Occ.Product, Product> {
       convert(source: Occ.Product, target?: any): any {
-        if (source.categories && source.categories.length) {
-          target.category = source.categories[0].name; //
+        if (source?.categories?.length) {
+          target.category = source.categories[0].name;
         }
         return target;
       }
@@ -127,7 +144,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
 
     Now the `category` field is available in your product entity.
 
-3. Configure the Product page route in your `ConfigModule` to contain the `:category` parameter, as shown in the following example:
+4. Configure the Product page route in your `ConfigModule` to contain the `:category` parameter, as shown in the following example:
 
     ```typescript
     routing: {
