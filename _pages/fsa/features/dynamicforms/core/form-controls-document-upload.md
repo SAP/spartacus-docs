@@ -12,7 +12,7 @@ title: Document Upload
 
 ## Overview
 
-The document upload feature is one of the many components implemented in the Dynamicforms library and is used to make a form control that stores an image-kind of data. The cx-upload is used for uploading one or multiple images, documents, audio, video, and other files to a server. It provides a rich set of features like multiple file selection, real-time progress bar, document download, document deletion, file validation, and more. This cx-upload component uses the Document Upload API for uploading files.
+The Document Upload feature is one of the many components implemented in the Dynamicforms library and is used to enable the user to upload one or multiple images, documents, audio, video, and other file types to a server.
 
 The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.
 
@@ -21,7 +21,7 @@ Financial Services Accelerator offers insurance customers the possibility to upl
 
 ## Document Upload Usage
 
-Dynamic Forms is a library for creating forms, designed to work with Spartacus application. It allows customers to define forms metadata in JSON format and render them on UI. 
+Dynamic Forms is a library for creating forms, designed to work with Spartacus application. It allows customers to define forms metadata in JSON configuration and render them on the UI. 
 
 JSON representation of document upload form control is presented in the following example:
 
