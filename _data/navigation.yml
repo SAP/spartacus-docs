@@ -418,6 +418,8 @@ docs:
                         url: /json-structure/
                       - title: "Form Controls"
                         url: /form-controls/
+                      - title: "Document Upload"
+                        url: /form-controls-document-upload/
                       - title: "Adding a Form to a Simple Page"
                         url: /adding-form/
                       - title: "Styling"
