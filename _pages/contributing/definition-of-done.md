@@ -24,6 +24,10 @@ All new features for Spartacus must:
 
 - UI/UX guidelines (docs in progress).
 
+- Be compatible with most commonly used browsers. 
+
+- Function out of the box, if applicable, in Android and iOS devices. 
+
 ## Coding guidelines
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.
@@ -112,6 +116,27 @@ The coverage report can be found in `./coverage/index.html`.
 ## Accessibility
 
 The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+
+## Browser Compatibility
+
+At minimum, manual happy path test of new feature is successful and there are no significant layout issues in the following browsers:
+- Chrome 87.0.4280
+- Firefox 86.0
+- Safari 14.0.1
+- Edge 88.0.705.63
+
+Version numbers subject to change periodically. Internet Explorer not officially supported. 
+
+## Device Compatibility
+
+New feature must be compatible with major mobile devices in the marketplace. Manual happy path test must pass with: 
+- iPhone 7, 10, X ,11 (at least one)
+- iOS tablet (any)
+- Android mobile phone (i.e. Samsung Galaxy)
+- Android tablet (any)
+
+In the case, devices are not available, simulations with browser tools should be used instead.  
+Devices subject to change periodically based on market conditions. 
 
 ## End-To-End Tests are Passing
 
