@@ -130,7 +130,7 @@ Version numbers subject to change periodically. Internet Explorer not officially
 ## Device Compatibility
 
 New feature must be compatible with major mobile devices in the marketplace. Manual happy path test must pass with: 
-- iPhone 7, 10, X ,11 (at least one)
+- iPhone 8, 10, X ,11 (at least one)
 - iOS tablet (any)
 - Android mobile phone (i.e. Samsung Galaxy)
 - Android tablet (any)
