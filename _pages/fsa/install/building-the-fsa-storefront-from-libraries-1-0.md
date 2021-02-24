@@ -142,7 +142,7 @@ For example, check:
 - `context`: Defines the site context such as base site, language, and currency.
 - `authentication`: Defines authorization of financial customer
  
-*Note:* If your setup failed and for some reason your app.module.ts is not configured like described please check one more time requirements for fsa schematics usage, Angular CLI version should be <= 10.0!
+**Note:** If your setup failed and for some reason your app.module.ts is not configured like described please check one more time requirements for fsa schematics usage, Angular CLI version should be <= 10.0!
 
 ### Starting your Spartacus app ###  
 
@@ -156,7 +156,7 @@ Your app will be compiled and then started.
 
 To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Financial sample data with the financialstorefront extension, the FSA Spartacus storefront for Financial services should appear.
 
-Note: If your storefront doesn't appear, you probably have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/financial/cms/pages`, and then accept the privacy certificate. This step is necessary because your browser will block calls to app which makes calls to localhost:9002, due to security settings. To see the browser message, right-click in your browser, select *Inspect*, then click *Console*.
+**Note:** If your storefront doesn't appear, you probably have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/financial/cms/pages`, and then accept the privacy certificate. This step is necessary because your browser will block calls to app which makes calls to localhost:9002, due to security settings. To see the browser message, right-click in your browser, select *Inspect*, then click *Console*.
 
 
 Congratulations! You've built your first FSA Spartacus storefront.
