@@ -105,7 +105,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
     },
     ```
 
-1. Provide a `PRODUCT_NORMALIZER`.
+2. Provide a `PRODUCT_NORMALIZER`.
 
     You can provide it in your `app.module`, as shown in the following example:
 
@@ -119,7 +119,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
     ]
     ```
 
-1. Add your implementation with the mapping, as shown in the following example:
+3. Add your implementation with the mapping, as shown in the following example:
 
     ```typescript
     @Injectable()
@@ -136,7 +136,7 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
 
     Now the `category` field is available in your product entity.
 
-1. Configure the Product page route in your `ConfigModule` to contain the `:category` parameter, as shown in the following example:
+4. Configure the Product page route in your `ConfigModule` to contain the `:category` parameter, as shown in the following example:
 
     ```typescript
     routing: {
