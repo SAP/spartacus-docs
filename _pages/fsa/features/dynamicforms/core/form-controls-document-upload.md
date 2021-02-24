@@ -23,7 +23,7 @@ Financial Services Accelerator offers insurance customers the possibility to upl
 
 Dynamic Forms is a library for creating forms, designed to work with Spartacus application. It allows customers to define forms metadata in JSON configuration and render them on the UI. 
 
-JSON representation of document upload form control is presented in the following example:
+The following example shows a JSON representation of the document upload form control:  
 
 ```json
 {
