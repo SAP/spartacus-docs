@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 2.0
+title: Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0
 ---
 
 ## Overview
