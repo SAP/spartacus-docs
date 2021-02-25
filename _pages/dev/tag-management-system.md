@@ -1,7 +1,7 @@
 # Tag Management System
 
 Spartacus introduced the Tag Management System (TMS) integration in version 3.2.
-Before you continue reading this page, it's highly recommended to first get yourself familiar with the [Events Service](./event-service), as TMS relies on it.
+Before you continue reading this page, it's highly recommended to first get yourself familiar with the [Events Service](./event-service.md), as TMS relies on it.
 
 The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Launch Platform (AELP) systems are supported out of the box, while the other tag managers can easily be plugged in.
 
