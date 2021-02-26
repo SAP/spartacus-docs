@@ -109,4 +109,4 @@ Spartacus offers an out of the box support for AELP, and in order to configure i
 ></script>
 ```
 
-For more details on this, please check the [official docs](https://experienceleague.adobe.com/docs/launch/using/get-started/quick-start.html?lang=en#3.-create-a-property).
+For more details on this, please check the [official docs](https://experienceleague.adobe.com/docs/launch/using/get-started/quick-start.html?lang=en#libraries-and-builds).
