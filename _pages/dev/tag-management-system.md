@@ -31,6 +31,8 @@ However, the process _usually_ requires you to specify a certain `<script>` tag 
 
 After this is done, we can move on to the [configuration](#configuration) section.
 
+For more example, please check our [TMS examples doc](tag-management-system-examples.md).
+
 ## Configuration
 
 The following TMS configuration options are available for each TMS:
@@ -83,6 +85,7 @@ export class AppModule {}
 ```
 
 In the example above, we are just providing which events should be collected by each of the configured TMS solutions.
+We are also enabling both GTM and AELP to run in parallel.
 
 ### Customizations
 
