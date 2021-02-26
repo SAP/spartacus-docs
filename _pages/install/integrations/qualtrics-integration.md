@@ -132,6 +132,12 @@ export class DemoQualtricsLoaderService extends QualtricsLoaderService {
 
 ## Spartacus Support for Qualtrics Embedded Feedback
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.1 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 The Qualtrics Embedded Feedback feature relies on CSS selectors to display the Embedded Feedback component in a page. For more information, see [Embedded Feedback](https://www.qualtrics.com/support/website-app-feedback/creatives-tab/creative-types/embedded-feedback/) in the Qualtrics documentation.
 
 You can use this feature in Spartacus either by pointing to an appropriate selector on a page, or by using a dedicated CMS component that allows you to place the feature in a slot for a specific page. The following is an example of assigning the Embedded Feedback feature to a page slot using a CMS component:
