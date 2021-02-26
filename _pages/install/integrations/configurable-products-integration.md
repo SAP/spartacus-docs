@@ -30,9 +30,9 @@ For more information, see [Product Configuration with SAP Variant Configuration 
 
 ## Requirements
 
-The Configurable Products integration requires SAP Commerce Cloud 2005 or newer, as well as the following extension:
+The Configurable Products integration requires SAP Commerce Cloud release **2005.6** or **2011.1** or newer.
 
-- `sapproductconfigocc`
+The integration also requires the `sapproductconfigocc` extension.
 
 For more information, see [Configurator for Complex Products Module](https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html) on the SAP Help Portal.
 
@@ -91,7 +91,7 @@ Group statuses are interpreted as follows:
 
 The following is an example of errors and conflicts shown in the **Configuration Menu**:
 
-![Configuration menu showing errors and conflicts]({{ site.baseurl }}/assets/images/ccp/icon_alignment.png)
+![Configuration menu showing errors and conflicts]({{ site.baseurl }}/assets/images/ccp/configuration-menu-icon-alignment.png)
 
 ## Browser Refresh
 
