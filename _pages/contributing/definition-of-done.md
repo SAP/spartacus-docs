@@ -22,11 +22,9 @@ All new features for Spartacus must:
 
 - Provide necessary code deprecations for schematics. For more information, see [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
 
-- UI/UX guidelines (docs in progress).
+- Be compatible with modern browsers. For more information, see [Browser Compatibility](#browser-compatibility).
 
-- Be compatible with most commonly used browsers. 
-
-- Function out of the box, if applicable, in Android and iOS devices. 
+- If applicable, function on Android and iOS devices. For more information, see [Device Compatibility](#device-compatibility).
 
 ## Coding guidelines
 
@@ -115,28 +113,29 @@ The coverage report can be found in `./coverage/index.html`.
 
 ## Accessibility
 
-The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
+
+For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
 ## Browser Compatibility
 
-At minimum, manual happy path test of new feature is successful and there are no significant layout issues in the following browsers:
-- Chrome 87.0.4280
-- Firefox 86.0
-- Safari 14.0.1
-- Edge 88.0.705.63
+For a new feature to meet the definition of done, at a minimum, a manual, happy-path test of the new feature must be successful, with no significant layout issues in the most recent major version of the following browsers:
 
-Version numbers subject to change periodically. Internet Explorer not officially supported. 
+- Chrome
+- Firefox
+- Safari
+- Edge
 
 ## Device Compatibility
 
-New feature must be compatible with major mobile devices in the marketplace. Manual happy path test must pass with: 
+New features must be compatible with iOS and Android, on phones as well as tablets. A manual, happy-path test of new features must be successful, with no significant layout issues, on the following platforms, running the latest versions of their respective operating systems:
+
 - iPhone 8, 10, X ,11 (at least one)
 - iOS tablet (any)
-- Android mobile phone (i.e. Samsung Galaxy)
+- Android mobile phone (such as the Samsung Galaxy)
 - Android tablet (any)
 
-In the case, devices are not available, simulations with browser tools should be used instead.  
-Devices subject to change periodically based on market conditions. 
+If devices are not available, simulations with browser tools should be used instead.  
 
 ## End-To-End Tests are Passing
 
