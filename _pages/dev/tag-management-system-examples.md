@@ -27,7 +27,7 @@ For more details on this, please check the [official docs](https://developers.go
 
 ## Google Analytics (GA)
 
-As both GA and GTM push events in the same fashion (they both push the events to the `dataLayer`), you can still leverage our out-of-the-box support for GTM, but include a different code snippet to your `index.html`.
+As both GA and GTM observe the same `dataLayer`, you can leverage Spartacus' out-of-the-box support for GTM. You just need to include a different code snippet to your `index.html`.
 
 As per the [official GA docs](https://developers.google.com/analytics/devguides/collection/gtagjs), the code snippet should looks something like:
 
