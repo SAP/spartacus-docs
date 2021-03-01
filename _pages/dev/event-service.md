@@ -142,7 +142,7 @@ onClick() {
 
 {% include docs/feature_version.html content=version_note %}
 
-Parent events, also called umbrella events, allow you to group similar events under one common event. The parent event can be an abstract class or a regular class. By subscribing to the parent event, you get emissions from all of the child events that inherit it.
+Parent events allow you to group similar events under one common event. The parent event can be an abstract class or a regular class. By subscribing to the parent event, you get emissions from all of the child events that inherit it.
 
 For example, `PageEvent` from `@spartacus/storefrontlib` is a parent event, and all of the child page events, such as `HomePageEvent`, `CartPageEvent`, and `ProductDetailsPageEvent`, inherit from this parent. If you subscribe to `PageEvent`, you will get emissions from all of the child page events that inherit from `PageEvent`. The following is an example:
 
@@ -150,7 +150,7 @@ For example, `PageEvent` from `@spartacus/storefrontlib` is a parent event, and 
 eventService.get(PageEvent).subscribe(...) // receives all page events
 ```
 
-All events should inherit from `CxEvent` in `@spartacus/core`, as shown in the following example:
+All events should inherit from the `CxEvent` that is in `@spartacus/core`, as shown in the following example:
 
 ```typescript
 import { CxEvent } from "@spartacus/core";
