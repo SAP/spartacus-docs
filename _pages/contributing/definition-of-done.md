@@ -128,12 +128,14 @@ For a new feature to meet the definition of done, at a minimum, a manual, happy-
 
 ## Device Compatibility
 
-New features must be compatible with iOS and Android, on phones as well as tablets. A manual, happy-path test of new features must be successful, with no significant layout issues, on the following platforms, running the latest versions of their respective operating systems:
+New features must be compatible with Safari on iOS, and Chrome on Android, and must be tested on a range of devices. To meet the DoD, a new feature must successfully pass a manual, happy-path test, with no significant layout issues, on the following platforms:
 
 - iPhone 8, 10, X ,11 (at least one)
 - iOS tablet (any)
 - Android mobile phone (such as the Samsung Galaxy)
 - Android tablet (any)
+
+**Note:** Phones and tablets should be running on the latest versions of their respective operating systems.
 
 If devices are not available, simulations with browser tools should be used instead.  
 
