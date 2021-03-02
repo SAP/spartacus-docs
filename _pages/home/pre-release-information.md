@@ -7,7 +7,6 @@ This document describes what is included in the latest pre-release of Spartacus 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
   
-  
 ## Release 3.2.0-next.0 - February 25, 2021
 
 - New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency)
@@ -16,8 +15,7 @@ This document describes what is included in the latest pre-release of Spartacus 
 - Dynamic site themes
 - Bug fixes
 
-For more information, see 3.2.0-next.0 release entries in https://github.com/SAP/spartacus/releases.
-  
+For more information, see `3.2.0-next.0` release entries in the [Spartacus Releases](https://github.com/SAP/spartacus/releases).
   
 ## Pre-Release Libraries for 3.1 and Earlier
 
