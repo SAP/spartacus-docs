@@ -6,39 +6,22 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
+  
+  
+## Release 3.2.0-next.0 - February 25, 2021
 
-## Release 3.1.0-next.0 - Thursday, January 28, 2021
+- New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency)
+- Tag Manager framework with support for Google and Adobe tag systems, and Google Analytics
+- Code splitting continues with new libraries for SmartEdit, Events and Tag Management, 
+- Dynamic site themes
+- Bug fixes
 
-### SAP Variant Configuration and Pricing
+For more information, see 3.2.0-next.0 release entries in https://github.com/SAP/spartacus/releases.
+  
+  
+## Pre-Release Libraries for 3.1 and Earlier
 
-We're happy to announce that the Spartacus library for SAP Variant Configuration and Pricing has been released. This library provides the following features:
-
-- single-level and multilevel configurable products in your Spartacus storefront, where the product model resides in SAP ERP or SAP S/4HANA
-- a configuration page with the most commonly used characteristic types, such as radio buttons, checkboxes, drop-down listboxes, and images for characteristic values
-- a price summary at the bottom of the configuration page with the base price, the price of the selected options, and the total price of the configured product
-- an overview page with all user selections accessible at any time during configuration
-- basic conflict handling
-- inclusion of configurable products as part of storefront processes, such as catalog browsing, product detail page, add to cart, checkout, and order history
-
-The SAP Variant Configuration and Pricing add-on for Commerce provides the user interface (UI) with which configurable products can be configured and sold using SAP Variant Configuration and Pricing.
-
-**Note:** The SAP Variant Configuration and Pricing add-on for Commerce is not included with the Spartacus libraries.
-
-For more information, see [Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}) in the Spartacus documentation, and [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US) on the SAP Help Portal.
-
-### Qualtrics Embedded Feedback
-
-We're happy to also announce support for the Qualtrics Embedded Feedback feature. For more information, see [Spartacus Support for Qualtrics Embedded Feedback](https://github.com/SAP/spartacus-docs/blob/develop/_pages/install/integrations/qualtrics-integration.md#spartacus-support-for-qualtrics-embedded-feedback).
-
-**Note:** Starting with Spartacus 3.1, you must install the Qualtrics feature library to be able to use Qualtrics features. You can install the Qualtrics library by running the following command:
-
-```shell
- ng add @spartacus/qualtrics
- ```
-
-## Pre-Release Libraries for 3.0.0 and earlier
-
-Pre-release libraries are no longer published for versions 3.0.0 and earlier, as the final releases of these libraries were published. Pre-release libraries are still available but the final versions should be used. New pre-release libraries will be published as needed for 3.1, 3.2, and so on.
+Pre-release libraries are no longer published for libraries that are officially released. Pre-release libraries are still available but the final versions should be used. New pre-release libraries will be published as needed for future releases.
 
 ## Customer Data Cloud Pre-Release
 
