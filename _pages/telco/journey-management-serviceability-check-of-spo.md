@@ -65,7 +65,7 @@ With this feature, in the SPA Storefront, when you add a product offering to the
 
 ## Feature Enablement
 
-This feature is enabled through TUA SPA 2.x on top of TUA SPA 3.x. The feature is enabled for the customers via a banner, which advertises a 5G Internet plan, as well as on the **Add to Cart** component for other product offerings, which require a serviceability check as per the journey checklist configuration.
+This feature is enabled via banner, as well as on the **Add to Cart** component for other product offerings, which require a serviceability check as per the journey checklist configuration.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/banner.png"></p>
 
@@ -89,23 +89,7 @@ If the selected product offering is not serviceable at the provided site address
 
 ## Configuring and Enabling Serviceability Check
 
-| Configuration             		   | Type: SPA or Backend  | Details                                                                                                                        |
-|--------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| Define checklist actions policy for Serviceability for product offerings           | Backend | Product offerings that require serviceability check at the time of purchase should have the Serviceability checklist actions defined for them in the TUA Commerce platform.                                                                          														  |
-|
-| Configure check availability URL       | SPA     | The availability check URL is configured in the corresponding `default-tmf-query-service-qualification-config.ts` file.
-
--   Define checklist actions for serviceability check: Installation Address - Requires the customer to provide the premise installation address. 
-
- ```typescript
-backend: {
-    tmf_query_service_qualification: {
-      baseUrl: 'http://localhost:8080',
-      prefix: '/tmf-api'
-    }
-  }
-}
-```
+For detailed information about configuring and enabling serviceability check, see [Configuring Checklist Actions](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html).
 
 ## Components
 
@@ -137,4 +121,3 @@ backend: {
 For further reading, see the following topics in the TUA Help portal.
 
 - [Customer Product Inventory and Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/552515309dd545e7b7878eb081b56453.html).
-- [Configuring Checklist Actions](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html)
