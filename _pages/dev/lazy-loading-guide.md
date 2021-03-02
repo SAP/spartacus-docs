@@ -4,9 +4,11 @@ feature:
 - name: Lazy Loading of CMS components
   spa_version: 2.0
   cx_version: n/a
+  anchor: "#lazy-loading-of-cms-components"
 - name: Lazy Loading of Modules
   spa_version: 2.1
   cx_version: n/a
+  anchor: "#lazy-loading-of-modules"
 ---
 
 Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all the JavaScript of the full application when a user accesses the first page. Instead, only the chunks that are required for the given page are loaded. While navigating the storefront, additional chunks are loaded when needed.

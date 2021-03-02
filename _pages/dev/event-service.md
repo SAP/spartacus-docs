@@ -1,8 +1,16 @@
 ---
 title: Event Service
+feature:
+- name: Event Service
+  spa_version: 2.0
+  cx_version: n/a
+- name: Event Type Inheritance
+  spa_version: 3.1
+  cx_version: n/a
+  anchor: "#event-type-inheritance"
 ---
 
-The Spartacus event service provides a stream of events that can be consumed by customer experience personalization solutions, such as SAP Commerce Cloud, Context-Driven Services.
+The Spartacus event service provides a stream of events that you can consume without a tight integration to specific components or modules. The event system is used in Spartacus to build integrations to third party systems, such as Tag Managers and web trackers.
 
 The event service also allows you to decouple certain components. For example, you might have a component that dispatches an event, and another component that reacts to this event, without requiring any hard dependency between the components.
 
@@ -13,7 +21,8 @@ The event service leverages RxJs Observables to drive the streams of events.
 Events are driven by TypeScript classes, which are signatures for a given event and can be instantiated. The following is an example:
 
 ```typescript
-export class CartAddEntryEvent {
+import { CxEvent } from "@spartacus/core";
+export class CartAddEntryEvent extends CxEvent {
   cartId: string;
   userId: string;
   productCode: string;
@@ -63,9 +72,9 @@ const result$ = this.events.get(CartAddEntrySuccessEvent).pipe(
 Since the event service leverages RxJs Observables, event streams are lazy. This means that no defined computations happen (such as pulling data from facades) until someone subscribes to the particular stream of events. The following is an example:
 
 ```typescript
-result$.subscribe(event => {
-    // < log the event (for example, to a tag manager) >
-})
+result$.subscribe((event) => {
+  // < log the event (for example, to a tag manager) >
+});
 ```
 
 ## Registering Event Sources
@@ -123,4 +132,43 @@ constructor(events: EventService){}
 onClick() {
   this.events.dispatch(new CustomUIEvent(...));
 }
+```
+
+## Event Type Inheritance
+
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.1 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+Parent events allow you to group similar events under one common event. The parent event can be an abstract class or a regular class. By subscribing to the parent event, you get emissions from all of the child events that inherit it.
+
+For example, `PageEvent` from `@spartacus/storefrontlib` is a parent event, and all of the child page events, such as `HomePageEvent`, `CartPageEvent`, and `ProductDetailsPageEvent`, inherit from this parent. If you subscribe to `PageEvent`, you will get emissions from all of the child page events that inherit from `PageEvent`. The following is an example:
+
+```typescript
+eventService.get(PageEvent).subscribe(...) // receives all page events
+```
+
+All events should inherit from the `CxEvent` that is in `@spartacus/core`, as shown in the following example:
+
+```typescript
+import { CxEvent } from "@spartacus/core";
+export class MyEvent extends CxEvent {...}
+```
+
+Although this is not required for events to work properly, if all events inherit from `CxEvent`, it allows you to observe all events at once, as shown in the following example:
+
+```typescript
+eventService.get(CxEvent).subscribe(...) // receives all Spartacus events.
+```
+
+**Note:** Observing all Spartacus events at once may have significant effects on performance, so it should be done with care.
+
+### Observing Events in Older Versions of Spartacus
+
+If you are using a version of Spartacus that is older than release 3.1, for every event that you wish to observe, you must subscribe to it individually, as shown in the following example:
+
+```typescript
+eventService.get(HomePageEvent).subscribe(...), eventService.get(CartPageEvent).subscribe(...), eventService.get(ProductDetailsPageEvent).subscribe(...), eventService.get(CategoryPageResultsEvent).subscribe(...), eventService.get(SearchPageResultsEvent).subscribe(...)
 ```
