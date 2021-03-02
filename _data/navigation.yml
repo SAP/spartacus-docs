@@ -415,8 +415,6 @@ docs:
                   url: /customer-product-inventory/
                 - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
-                - title: "Journey Management - Appointment"
-                  url: /journey-management-appointment/                           
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
                 - title: "Journey Management - Serviceability"
