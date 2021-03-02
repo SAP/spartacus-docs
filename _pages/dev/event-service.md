@@ -10,7 +10,7 @@ feature:
   anchor: "#event-type-inheritance"
 ---
 
-The Spartacus event service provides a stream of events that can be consumed by customer experience personalization solutions, such as SAP Commerce Cloud, Context-Driven Services.
+The Spartacus event service provides a stream of events that you can consume without a tight integration to specific components or modules. The event system is used in Spartacus to build integrations to third party systems, such as Tag Managers and web trackers.
 
 The event service also allows you to decouple certain components. For example, you might have a component that dispatches an event, and another component that reacts to this event, without requiring any hard dependency between the components.
 
@@ -172,21 +172,3 @@ If you are using a version of Spartacus that is older than release 3.1, for ever
 ```typescript
 eventService.get(HomePageEvent).subscribe(...), eventService.get(CartPageEvent).subscribe(...), eventService.get(ProductDetailsPageEvent).subscribe(...), eventService.get(CategoryPageResultsEvent).subscribe(...), eventService.get(SearchPageResultsEvent).subscribe(...)
 ```
-
-## Spartacus Event Definitions
-
-You can find Spartacus event definitions in the following locations of the Spartacus source code:
-
-- `projects/core/src/event/cx-event.ts`
-- `projects/core/src/auth/user-auth/events/user-auth.events.ts`
-- `projects/core/src/cart/event/cart.events.ts`
-- `projects/core/src/checkout/events/checkout.events.ts`
-- `projects/core/src/product/event/product.events.ts`
-- `projects/core/src/lazy-loading/events/module-initialized-event.ts`
-- `projects/core/src/site-context/events/site-context.events.ts`
-- `projects/storefrontlib/src/events/navigation/navigation.event.ts`
-- `projects/storefrontlib/src/events/page/page.events.ts`
-- `projects/storefrontlib/src/events/home/home-page.events.ts`
-- `projects/storefrontlib/src/events/cart/cart-page.events.ts`
-- `projects/storefrontlib/src/events/product/product-page.events.ts`
-- `projects/storefrontlib/src/cms-components/navigation/search-box/search-box.events.ts`
