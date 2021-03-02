@@ -68,21 +68,21 @@ For more information, see [Configurable Products Integration]({{ site.baseurl }}
 
 ### Qualtrics Embedded Feedback
 
-We're happy to also announce support for the Qualtrics Embedded Feedback feature. For more information, see [Spartacus Support for Qualtrics Embedded Feedback](https://github.com/SAP/spartacus-docs/blob/develop/_pages/install/integrations/qualtrics-integration.md#spartacus-support-for-qualtrics-embedded-feedback).
+We're happy to also announce support for the Qualtrics Embedded Feedback feature. For more information, see [Spartacus Support for Qualtrics Embedded Feedback]({{ site.baseurl }}/qualtrics-integration#spartacus-support-for-qualtrics-embedded-feedback).
 
 **Note:** Starting with Spartacus 3.1, you must install the Qualtrics feature library to be able to use Qualtrics features. You can install the Qualtrics library by running the following command:
 
 ```shell
  ng add @spartacus/qualtrics
  ```
- 
+
 ### New Events
- 
-Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service)
+
+Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}).
 
 ### Performance Improvements with Code Splitting / Lazy Loading
 
-The Spartacus code-based is being separated out into modules for better performance. The 3.1 release includes new libraries for Qualtrics and Variant Configuration. More modules will be split out in future releases. For more information, see [Lazy-Loaded CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components/#lazy-loaded-cms-components-code-splitting).
+The Spartacus code-based is being separated out into modules for better performance. The 3.1 release includes new libraries for Qualtrics and Variant Configuration. More modules will be split out in future releases. For more information, see [Lazy-Loaded CMS Components]({{ site.baseurl }}/customizing-cms-components/#lazy-loaded-cms-components-code-splitting).
   
   
 ## Release 3.0
