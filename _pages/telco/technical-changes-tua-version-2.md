@@ -273,6 +273,7 @@ This component displays the installation address details in the Order page, Orde
 This component is a wrapper for the `AppointmentComponent` and `InstallationAddressComponent`. It is responsible for editing an appointment, hence has an **Edit** icon.
 
 ### TmaAddressFormComponent
+
 This components is used for populating address details, such as House/Building Number, Street, Apartment/Unit/Suite(Optional), City, Country, State/Province (appears only if the country is United States), and Zip/Postal code.
 
 ## Removed Components

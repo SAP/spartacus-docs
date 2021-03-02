@@ -112,3 +112,11 @@ You can install the store locator feature by running the following command:
 ```shell
 ng add @spartacus/storefinder
 ```
+
+### Qualtrics Feature Library
+
+You can install the Qualtrics library by running the following command:
+
+```shell
+ng add @spartacus/qualtrics
+```

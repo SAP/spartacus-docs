@@ -84,56 +84,79 @@ cmsComponents: {
 
 ## Configuring the Category Name in the Product Page Route (Advanced)
 
-Only the first-level properties of the product entity (i.e. `code` or `name`) can be used to build URL. Unfortunately, product categories is not the case (the field `categories` is an array of objects). So you need to map `categories` array's elements to the first-level properties of the product entity. You can perform such a mapping for example in the `PRODUCT_NORMALIZER`. Here is how to do it:
+Only the first-level properties of the product entity, such as `code` or `name`, can be used to build a URL. Unfortunately, something like product categories is not a first-level property because the `categories` field is an array of objects. To be able to include product categories in the URL, you need to map the elements of the `categories` array to the first-level properties of the product entity.
 
-Provide `PRODUCT_NORMALIZER` i.e. in your app.module:
+The following procedure describes how to create this mapping in the `PRODUCT_NORMALIZER`.
 
-```typescript
-providers: [
-    {
-      provide: PRODUCT_NORMALIZER,
-      useClass: MyProductCategoriesNormalizer,
-      multi: true,
+1. Configure the `product` OCC endpoint so that the `list` scope contains the `categories(code,name)` field.
+
+    The following is an example:
+
+    ```typescript
+    backend: {
+      occ: {
+        endpoints: {
+          product: {
+            list: //                          👇
+              'products/${productCode}?fields=categories(code,name),code,name,summary,price(formattedValue),images(DEFAULT, galleryIndex)',
+          },
+        },
+      },
     },
-]
-```
+    ```
 
-... and add your implementation with mapping ...
+2. Provide a `PRODUCT_NORMALIZER`.
 
-```typescript
-@Injectable()
-export class MyProductCategoriesNormalizer
-  implements Converter<Occ.Product, Product> {
-  convert(source: Occ.Product, target?: any): any {
-    if (source.categories && source.categories.length) {
-      target.category = source.categories[0].name; //
+    You can provide it in your `app.module`, as shown in the following example:
+
+    ```typescript
+    providers: [
+        {
+          provide: PRODUCT_NORMALIZER,
+          useClass: MyProductCategoriesNormalizer,
+          multi: true,
+        },
+    ]
+    ```
+
+3. Add your implementation with the mapping, as shown in the following example:
+
+    ```typescript
+    @Injectable()
+    export class MyProductCategoriesNormalizer
+      implements Converter<Occ.Product, Product> {
+      convert(source: Occ.Product, target?: any): any {
+        if (source?.categories?.length) {
+          target.category = source.categories[0].name;
+        }
+        return target;
+      }
     }
-    return target;
-  }
-}
-```
+    ```
 
-... then the `category` field is available in your product entity. So you can configure the Product Page route in `ConfigModule` to contain `:category` param:
+    Now the `category` field is available in your product entity.
 
-```typescript
-routing: {
-    routes: {
-        product: { paths: ['product/:category/:name/:productCode'] }
-    }
-}
-```
+4. Configure the Product page route in your `ConfigModule` to contain the `:category` parameter, as shown in the following example:
 
-**Note:** It is a known issue that product entities returned by the OCC product search endpoint do not contain categories, so you may want to also generate URLs from product entities that do not include categories. Then you also need to configure the second, less-specific route alias. The following is an example:
-
-```typescript
-routing: {
-    routes: {
-        product: {
-            paths: ['product/:category/:name/:productCode', 'product/:name/:productCode'] 
+    ```typescript
+    routing: {
+        routes: {
+            product: { paths: ['product/:category/:name/:productCode'] }
         }
     }
-}
-```
+    ```
+
+    **Note:** It is a known issue that product entities returned by the OCC product search endpoint do not contain categories, so you may want to also generate URLs from product entities that do not include categories. In this case, you also need to configure the second, less specific route alias. The following is an example:
+
+    ```typescript
+    routing: {
+        routes: {
+            product: {
+                paths: ['product/:category/:name/:productCode', 'product/:name/:productCode'] 
+            }
+        }
+    }
+    ```
 
 ## Backwards Compatibility with Accelerators
 
