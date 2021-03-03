@@ -1,9 +1,9 @@
 ---
 title: Extending Built-In Models
 feature:
-- name: Extending Built-In Models
-  spa_version: 2.1
-  cx_version: 1905
+  - name: Extending Built-In Models
+    spa_version: 2.1
+    cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -95,3 +95,28 @@ import './cost-center.model';
 After that, anyone can safely use the new properties in the `@spartacus/organization` library, as well as in the app build that is based on this library. You can also augment the module in the app with your own properties. All these declarations are combined together, and in your application, you can use all the properties that are declared in `@spartacus/core`, `@spartacus/organization`, and in your module augmentation.
 
 **Note:** In each module augmentation declaration, you use the module name of the library that exposes the base type.
+
+## Enum augmentation
+
+All the examples above showed augmentation of interfaces, but `enum` can be augmented as well.
+To augment enum values use `const enum` in most cases.
+
+```ts
+declare module '@spartacus/core' {
+  const enum ProductScope {
+    BULK_PRICING = 'bulkPricing',
+  }
+}
+```
+
+There is one case when you don't want to use `const enum` and that is when you dynamically assign the enum value. Eg. mapping property from backend response to enum value. Augmenting normal `enum` is a bit different, because you also need to provide value for the underlying object (not only the type). This is not needed in case of `const enum` as the values during Typescript compilation are inlined.
+
+```ts
+declare module '@spartacus/core' {
+  enum ProductScope {
+    BULK_PRICING = 'bulkPricing',
+  }
+}
+
+(ProductScope as any)['BULK_PRICING'] = 'bulkPricing';
+```
