@@ -108,6 +108,8 @@ Feature-specific configuration can be either kept in feature modules or in `Spar
 
 Spartacus Feature Module is intended to easily manage all non-core Spartacus features, both statically and lazy-loaded. It serves as an entry point to all the features, which are ideally wrapped into separate feature modules on itself.
 
+With early 3.x minor releases, `SpartacusFeatureModule` may look bloated and busy, but with every consecutive release, it should become more and more concise, thanks to moving most of the features to separate libraries.
+
 Example:
 ```typescript
 @NgModule({
