@@ -1,9 +1,9 @@
 ---
 title: Extending Built-In Models
 feature:
-  - name: Extending Built-In Models
-    spa_version: 2.1
-    cx_version: 1905
+- name: Extending Built-In Models
+  spa_version: 2.1
+  cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -96,10 +96,9 @@ After that, anyone can safely use the new properties in the `@spartacus/organiza
 
 **Note:** In each module augmentation declaration, you use the module name of the library that exposes the base type.
 
-## Enum augmentation
+## Augmenting Enums
 
-All the examples above showed augmentation of interfaces, but `enum` can be augmented as well.
-To augment enum values use `const enum` in most cases.
+All of the examples above describe how to augment interfaces, but you can augment `enum` as well. In most cases, you use `const enum` to augment enum values. The following is an example:
 
 ```ts
 declare module '@spartacus/core' {
@@ -109,7 +108,9 @@ declare module '@spartacus/core' {
 }
 ```
 
-There is one case when you don't want to use `const enum` and that is when you enumarate over enum values or dynamically assign the enum value. Eg. mapping property from backend response to enum value. Augmenting normal `enum` is a bit different, because you also need to provide value for the underlying object (not only the type). This is not needed in case of `const enum` as the values during Typescript compilation are inlined.
+The only times when you do not want to use `const enum` are when you are enumerating over enum values, or when you are dynamically assigning the enum value, such as when you map a property from a back end response to an enum value. In these cases, you augment `enum` instead of `const enum`.
+
+When you augment `const enum`, the values are inlined during the TypeScript compilation, but when you augment `enum`, you need to explicitly provide a value for the underlying object, as well as the type. The following is an example:
 
 ```ts
 declare module '@spartacus/core' {
