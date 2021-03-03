@@ -6,13 +6,13 @@ title: Reference App Structure
 
 This document describes the recommended app structure introduced in Spartacus 3.1 onwards.
 
-By using it, you can benefit the most from automatic migrations available with major Spartacus releases, while still keeping flexibility for customizations and for building new features on top of it.
+By using it, you can benefit the most from automatic migrations available with major Spartacus releases, while still keeping flexibility for customizations and for building new features on top of it. It also makes possible to utilize code splitting for features that are being moved out to separate libraries after 3.0 was released.  
 
 Note: The structure described in this document is planned to be supported as a default one by schematics in one of Spartacus 3.x version. but not later than in 4.0. Until this happens, it's possible to migrate it (in any version starting from 3.1), but it has to be done manually.
 
 You can refer to the working example repository:
 https://github.com/dunqan/spartacus-reference-structure
-\
+
 # Introduction
 
 Spartacus is an Angular library, which means, it can be used solely in the Angular application, or can also be integrated into existing Angular project, or, the other way around, you can add any other Angular solution or library to the Spartacus project.
