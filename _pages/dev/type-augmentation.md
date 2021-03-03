@@ -109,7 +109,7 @@ declare module '@spartacus/core' {
 }
 ```
 
-There is one case when you don't want to use `const enum` and that is when you dynamically assign the enum value. Eg. mapping property from backend response to enum value. Augmenting normal `enum` is a bit different, because you also need to provide value for the underlying object (not only the type). This is not needed in case of `const enum` as the values during Typescript compilation are inlined.
+There is one case when you don't want to use `const enum` and that is when you enumarate over enum values or dynamically assign the enum value. Eg. mapping property from backend response to enum value. Augmenting normal `enum` is a bit different, because you also need to provide value for the underlying object (not only the type). This is not needed in case of `const enum` as the values during Typescript compilation are inlined.
 
 ```ts
 declare module '@spartacus/core' {
