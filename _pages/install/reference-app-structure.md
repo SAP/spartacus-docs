@@ -2,39 +2,41 @@
 title: Reference App Structure
 ---
 
-# Recommended Spartacus Application structure
+**Note:** The reference app structure is introduced with version 3.1 of the Spartacus libraries.
 
-This document describes the recommended app structure introduced in Spartacus 3.1 onwards.
+## Overview
 
-By using it, you can benefit the most from automatic migrations available with major Spartacus releases, while still keeping flexibility for customizations and for building new features on top of it. It also makes possible to utilize code splitting for features that are being moved out to separate libraries after 3.0 was released.  
+This recommended Spartacus app structure is intended to act as a reference for when you are setting up your own Spartacus application.
 
-Note: The structure described in this document is planned to be supported as a default one by schematics in one of Spartacus 3.x version. but not later than in 4.0. Until this happens, it's possible to migrate it (in any version starting from 3.1), but it has to be done manually.
+Spartacus is an Angular library, which means it can be used on its own in an Angular application, or it can be integrated into an existing Angular project. Conversely, you can add any other Angular solution or library to your Spartacus project.
 
-You can refer to the working example repository:
-https://github.com/dunqan/spartacus-reference-structure
+Spartacus itself comes with several layers and concepts, as well as a number of smaller feature libraries that can be lazy loaded out of the box. Customizations and third-party code add further complexity, and you can end up with modules that are difficult to maintain because they mix too many of these elements together.
 
-# Introduction
+This can be solved by defining and adhering to a standardized structure, such as the Spartacus reference app structure. Having a standardized structure also makes it easier to onboard new developers to your project, to handle external support cases, and to take care of audits.
 
-Spartacus is an Angular library, which means, it can be used solely in the Angular application, or can also be integrated into existing Angular project, or, the other way around, you can add any other Angular solution or library to the Spartacus project.
+By using the Spartacus reference app structure, you can get the most benefit from automatic migrations that are available with major Spartacus releases, while still having the flexibility to add customizations and to build new features on top of those customizations. Using the Spartacus reference app structure also makes it possible to take advantage of code splitting for features that are moved into separate libraries after the 3.0 release.  
 
-Spartacus itself comes with several layers and concepts, and dozen of smaller feature libraries that can be lazy-loaded out of the box. Customization and third-party code only add complexity to it, so it's quite hard to keep the balance and not end up with some god modules that mix everything.
+**Note:** In one of the 3.x releases that is after 3.1, the reference structure described in the following sections will be supported by schematics as the default structure. Until this update is made to schematics, if you are using release 3.1 or newer, you can migrate to the reference structure, but it must be done manually.
 
-Defining and sticking to some standardized reference structure aims to solve the above, but also helps in on-boarding new devs to the project, any external support cases, and audits.
+To see a working example repository, see [https://github.com/dunqan/spartacus-reference-structure](https://github.com/dunqan/spartacus-reference-structure).
 
-# Structure overview
+## Structure Overview
 
-- `AppModule` (placed in main app folder)
-  - _(application modules)_
-  - `SpartacusModule` (placed in `app/spartacus` folder)
-    - `BaseStorefrontModule` (from `@spartacus/storefront`)
-    - `SpartacusFeaturesModule` (placed in `app/spartacus` folder)
-      - _(feature related modules)_ (placed in `app/spartacus/features` folder)
-    - `SpartacusConfigurationModule`(placed in `app/spartacus` folder)
-    
+The following is an example of the reference app structure:
+
+- `AppModule` (placed in the main app folder)
+  - _application modules_
+  - `SpartacusModule` (placed in the `app/spartacus` folder)
+    - `BaseStorefrontModule` (imported from `@spartacus/storefront`)
+    - `SpartacusFeaturesModule` (placed in the `app/spartacus` folder)
+      - _feature related modules_ (placed in the `app/spartacus/features` folder)
+    - `SpartacusConfigurationModule`(placed in the `app/spartacus` folder)
 
 ## Spartacus Module
 
-Every Angular application has to have its root app module, usually named `AppModule`. It should include application-wide imports, that's we don't want to keep complex Spartacus-related things in it, but we want to narrow it to only one `SpartacusModule`.
+Every Angular application has a root app module, usually named `AppModule`. This module should include application-wide imports, and should avoid complex configurations related to Spartacus, which it does by handling only one `SpartacusModule`.
+
+ that's we don't want to keep complex Spartacus-related things in it, but we want to narrow it to only one `SpartacusModule`.
 
 Note:
 Angular Router and Ngrx are used by Spartacus, but it's affecting global Application, so we keep them outside of `SpaartacusModule` and import them directly in the `AppModule`.
