@@ -10,34 +10,34 @@ title: Contract Renewals
 
 ## Overview
 
-A contract renewal is the stage in the contract lifecycle where the customer's contract is scheduled to expire. At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offers and price discounts. In this scenario, based on the 
-[Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/612f26c3d5f14248965ad908cf5952f6.html?q=customer%20product%20inventory), a customer can renew eligible subscriptions resulting from a simple product offering.
+To increase retention and customer loyalty, Operators or Service Providers may want to offer eligible customers the ability to renew their contract, having them benefit of special and discounted prices. Eligible customers are typically incentivized to renew with special promotional offers and price discounts. 
 
-If a customer's subscription for an existing single product offering is eligible for renewal, the customer sees advertising the renewal of the subscription on the banner, with a list of subscription terms and discount offers. The customer can select one of the subscription terms for renewal, upon which the customer will be redirected to the Cart page that includes a cart entry for the selected subscribed product.
+In this scenario, based on the [Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/612f26c3d5f14248965ad908cf5952f6.html?q=customer%20product%20inventory), a customer can renew eligible subscriptions resulting from a standalone simple product offering purchase. If the eligibility policy is fulfilled, the customer sees an advertisement banner, encouraging to renew subscription for a selected term, which may result in discounted prices. The customer can select one of the subscription terms and choose to renew, upon which the customer will be redirected to the cart that includes a cart entry for the selected subscribed product, together with information about the renewal terms.
 
 ## Business Need
 
-This feature enables the customers to renew their existing and eligible subscriptions online and update their product inventory.
+The Contract Renewals feature enables the customers to renew their existing and eligible subscriptions online and update their product inventory.
 
-## Business Use Cases
+## Business Use Case
 
 A customer wants to renew an existing subscription that is eligible for renewal. The following procedure describes customer's subscription renewal journey:
 
-1. Log in to the TUA SPA portal.
+1. Log in to the TUA Spartacus.
+
+    **Note:** The banner is displayed only if your subscription is eligible for renewal as per the [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rule.
+
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-subscription- button.png"></p>
+
 1. Navigate to **Account** -> **Subscriptions**. All subscriptions of the logged in customer are displayed.
 1. Click on the header of the subscription that you want to renew. For example, *internet_22341 (Fiber Internet)*. The banner shows the default 12 months monthly billing subscription.
 
     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/my-subscriptions.png"></p>
 
-    **Note:** The banner is displayed only if your subscription is eligible for renewal as per the eligibility rule.
+1. Select the monthly billing cycle from the drop-down to renew your subscription. For example, 18 months - monthly billing. The monthly renewal price and the discount offer is displayed.
 
     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/Banner.png"></p>
 
-1. Select the monthly billing cycle from the drop-down to renew your subscription. For example, 18 months - monthly billing. The monthly renewal price and the discount offer is displayed.
-
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-subscription- button.png"></p>
-
-1. Click **Renew Subscription** on the banner to renew your subscription. The cart shows your subscription renewal information. For example, Renew 18 months - monthly billing. 
+1. Click **Renew Subscription** on the banner to renew your subscription. The cart shows your subscription renewal information. For example, *Renew 18 months - monthly billing*.
 1. Click **View Cart**. The cart displays all relevant information about your new subscription, such as the new monthly billing cycle, product offering, and the price details.
 1. Click **Proceed to Checkout**. The *Shipping Address* screen is displayed. Confirm your shipping address, or you can even add a new shipping address.
 1. Click **Continue**. The *Delivery Mode* screen is displayed. Select the shipping method from the options.
@@ -48,8 +48,6 @@ A customer wants to renew an existing subscription that is eligible for renewal.
 
 1. Click the **terms and conditions** checkbox and then click **Place Order**. Your order is successfully placed.
 1. Navigate to **Account** -> **Order History** screen to view the order details with new  contract details.
-
-A Business Administrator wants to define eligibility policies that are dependent on the status of the subscription, such as **active** or **subscribed** status of a standalone product subscribed by a customer. For more information, see [Configuring and Enabling Contract Renewals](#configuring-and-enabling-contract-renewals).
 
 ## Feature Enablement
 
@@ -78,8 +76,8 @@ For detailed information about configuring and enabling the feature, see [Eligib
 | Component   Name                 	| Status  	| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
 |----------------------------------	|---------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | RenewSubscriptionComponent       	| New     	| The component displays the Renewal button with the renewal banner component, which is used to add to cart entries with Retention process type. The text of the button is   controlled by the Hybris component "TmaRenewSubscriptionBannerComponent".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        	|
-| RenewSubscriptionBannerComponent 	| New     	| The component displays the renewal banner, eligible subscription terms and its relevant applicable prices for retention if the customer is eligible for the rentention journey. The component is mapped with the "TmaRenewSubscriptionBannerComponent" of Hybris.            The banner is displayed if the following conditions are fulfilled:           1.Subscription base is eligible for retention      2.Standalone price for retention      3.Subscribed product is not part of any bundle            The banner displays the following:           1.The media attached with web component      2.All eligible terms for retention process type in drop down .      3.When a particular subscription term is selected, the highest priority price is displayed.       4.The "Renew Now" button is displayed (see "RenewSubscriptionComponent" for more information). 	|
-| SubscriptionDetailComponent      	| New     	| The component displays all subscribed products and their details. The Angular web component is mapped to the "AccountSubscriptionDetailsComponent" of Hybris.       The component displays:      1. Renew Banner (See "RenewSubscriptionBannerComponent" for more information).  2. All subscribed products are displayed as play cards (See "TmfProductComponent" for more information).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   	|
+| RenewSubscriptionBannerComponent 	| New     	| The component displays the renewal banner, eligible subscription terms and its relevant applicable prices for retention if the customer is eligible for the rentention journey. The component is mapped with the "TmaRenewSubscriptionBannerComponent" of Hybris.            The banner is displayed if the following conditions are fulfilled:           1.Subscription base is eligible for retention      2.Standalone price for retention      3.Subscribed product is not part of any bundle.            The banner displays the following:           1.The media attached with web component      2.All eligible terms for retention process type in drop down      3.When a particular subscription term is selected, the highest priority price is displayed.       4.The "Renew Now" button is displayed (see "RenewSubscriptionComponent" for more information). 	|
+| SubscriptionDetailComponent      	| New     	| The component displays all subscribed products and their details. The Angular web component is mapped to the "AccountSubscriptionDetailsComponent" of Hybris.       The component displays:      1. Renew Banner (See "RenewSubscriptionBannerComponent" for more information)  2. All subscribed products are displayed as play cards (See "TmfProductComponent" for more information).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   	|
 | TmfProductComponent              	| Updated 	| The component displays the subscribed product details as play card on the frontend.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         	|
 
 ## Further Reading
