@@ -15,7 +15,9 @@ Spartacus is an open-source JavaScript web application hosted [here](https://git
 
 ### Does Spartacus require SAP Commerce Cloud?
 
-Spartacus is designed to work with SAP BTP only. Spartacus relies on SAP Commerce Cloud APIs and CMS content to function. However, if you’re using SAP Commerce Cloud, you are not required to use Spartacus. You can create your own JavaScript web application or you can use Accelerator templates.  
+Spartacus is designed to work with SAP Commerce Cloud, although it is possible to use Spartacus with other systems. For more information, see [Connecting to Other Systems]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
+
+Having said that, Spartacus relies on SAP Commerce Cloud APIs and CMS content to function out-of-the-box. However, if you’re using SAP Commerce Cloud, you are not required to use Spartacus. You can create your own JavaScript web application or you can use Accelerator templates.  
 
 ### How does Spartacus integrate with SAP Commerce Cloud?
 
@@ -27,7 +29,7 @@ SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs 
 
 ### Does Spartacus integrate with any other SAP products?
 
-Spartacus libraries will be integrated with SAP BTP Extension Factory and SAP Commerce Cloud Context Driven Services (Q4 2019 expectation), among other products. These differences will be described in the Spartacus documentation and/or by their respective product documentation.
+Yes. For more information, see [Integrations]({{ site.baseurl }}{% link _pages/install/integrations/integrations.md %}).
 
 ### Which browsers does Spartacus support?
 
@@ -113,10 +115,6 @@ Spartacus is provided "as-is" with no official lines of support. To get help fro
 ### Is it possible to contribute to this open source project? How?
 
 Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our Feedback chat in the Slack channel, or read the Contributing document and learn how to help others, report an issue, or contribute code to Spartacus. 
-
-### Is Spartacus the same as SAP BTP Extension Factory (Kyma)?
-
-No they are different. SAP BTP Extension Factory is the key extensibility layer for the SAP C/4HANA suite. It leverages the concepts and innovations from [project "Kyma" Field] to use scalable microservices. Spartacus storefronts can easily access these API-based services so that you can quickly add new functionality to your storefront.
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
