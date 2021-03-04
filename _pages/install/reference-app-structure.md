@@ -14,11 +14,11 @@ Spartacus itself comes with several layers and concepts, as well as a number of 
 
 This can be solved by defining and adhering to a standardized structure, such as the Spartacus reference app structure. Having a standardized structure also makes it easier to onboard new developers to your project, to handle external support cases, and to take care of audits.
 
-By using the Spartacus reference app structure, you can get the most benefit from automatic migrations that are available with major Spartacus releases, while still having the flexibility to add customizations and to build new features on top of those customizations. Using the Spartacus reference app structure also makes it possible to take advantage of code splitting for features that are moved into separate libraries after the 3.0 release.  
+By using the Spartacus reference app structure, you benefit the most from the automatic migrations that are available with each major Spartacus release, while also maintaining the flexibility to add customizations, and to build new features on top of those customizations. Using the reference app structure also makes it possible to take advantage of code splitting for features that are moved into separate libraries after the 3.0 release.  
 
-**Note:** In one of the 3.x releases that is after 3.1, the reference structure described in the following sections will be supported by schematics as the default structure. Until this update is made to schematics, if you are using release 3.1 or newer, you can migrate to the reference structure, but it must be done manually.
+**Note:** In one of the 3.x releases that is after 3.1, the reference structure described in the following sections will be supported by schematics as the default structure. Until this update is made, if you are using release 3.1 or newer, you can already migrate to the reference structure, but you will have to do it manually.
 
-To see a working example repository, see [https://github.com/dunqan/spartacus-reference-structure](https://github.com/dunqan/spartacus-reference-structure).
+To see a working example that makes use of the reference app structure, see [this repository](https://github.com/dunqan/spartacus-reference-structure).
 
 ## Structure Overview
 
@@ -34,21 +34,20 @@ The following is an example of the reference app structure:
 
 ## Spartacus Module
 
-Every Angular application has a root app module, usually named `AppModule`. This module should include application-wide imports, and should avoid complex configurations related to Spartacus, which it does by handling only one `SpartacusModule`.
+Every Angular application has a root app module, usually named `AppModule`. In the reference app strcuture, this module includes application-wide imports, and avoids complex module imports related to Spartacus by handling only one `SpartacusModule`.
 
- that's we don't want to keep complex Spartacus-related things in it, but we want to narrow it to only one `SpartacusModule`.
+**Note:** Both Angular Router and NgRx are used by Spartacus, but these affect the global application, so they are kept outside of the `SpartacusModule` and are imported directly in the `AppModule`.
 
-Note:
-Angular Router and Ngrx are used by Spartacus, but it's affecting global Application, so we keep them outside of `SpaartacusModule` and import them directly in the `AppModule`.
+The `SpartacusModule` is composed of the following:
 
-`SpartacusModule` is composed of:
-- `BaseStorefrontModule` - encapsulated core Spartacus imports (usually required by most of the Spartacus applications), imported directly from `@spartacus/storefront`
-- `SpartacusFeaturesModule` - encapsulates Spartacus features
-- `SpartacusConfigurationModule` - encapsulated general Spartacus configuration
+- The `BaseStorefrontModule`, which encapsulates core Spartacus imports that are usually required by most Spartacus applications. The `BaseStorefrontModule` is imported directly from `@spartacus/storefront`.
+- The `SpartacusFeaturesModule`, which encapsulates Spartacus features.
+- The `SpartacusConfigurationModule`, which encapsulates the general Spartacus configuration.
 
-and in most of the cases won't event change, as changes are usually encapsulated in configuration or feature modules. 
+In most cases, the `SpartacusModule` does not get modified because changes are more often encapsulated in configuration modules or feature modules.
 
-Module example: 
+The following is an example of the `SpartacusModule`:
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { BaseStorefrontModule } from '@spartacus/storefront';
@@ -66,12 +65,12 @@ import { SpartacusFeaturesModule } from './spartacus-features.module';
 export class SpartacusModule {}
 ```
 
-## SpartacusConfiguration Module
+## Spartacus Configuration Module
 
 The `SpartacusConfigurationModule` contains all global Spartacus configuration entries.
 
+The following is an example:
 
-It can look like this:
 ```typescript
 import { NgModule } from '@angular/core';
 import { provideConfig } from '@spartacus/core';
@@ -104,15 +103,16 @@ import {
 export class SpartacusConfigurationModule {}
 ```
 
-Feature-specific configuration can be either kept in feature modules or in `SpartacusConfigurationModule`. Keeping them in feature modules helps to maintain a good separation of concerns, so it's generally recommended, but there is nothing against keeping it if it helps to solve specific issues (using some env flag to change configuration).
+Feature-specific configurations can be kept either in feature modules, or in the `SpartacusConfigurationModule`. Keeping them in feature modules helps to maintain a good separation of concerns, so it is generally recommended, but there is nothing against keeping feature-specific configurations in the `SpartacusConfigurationModule` if it helps to solve specific issues (for example, by using an `env` flag to change the configuration).
 
-## Spartacus Feature Module
+## Spartacus Features Module
 
-Spartacus Feature Module is intended to easily manage all non-core Spartacus features, both statically and lazy-loaded. It serves as an entry point to all the features, which are ideally wrapped into separate feature modules on itself.
+The `SpartacusFeaturesModule` is intended to easily manage all non-core Spartacus features, both statically and though lazy loading. It serves as an entry point for all features, which are ideally wrapped into their own, separate feature modules.
 
-With early 3.x minor releases, `SpartacusFeatureModule` may look bloated and busy, but with every consecutive release, it should become more and more concise, thanks to moving most of the features to separate libraries.
+With early 3.x minor releases, the `SpartacusFeaturesModule` may look bloated and busy, but with every consecutive release, it should become more concise as a result of efforts to move most of the features to separate libraries.
 
-Example:
+The following is an example:
+
 ```typescript
 @NgModule({
     imports: [
@@ -147,10 +147,10 @@ export class SpartacusFeaturesModule {}
 
 ### Specific Feature Modules
 
-Ideally, one complete feature can be encapsulated into a specific feature module.
-It can contain both feature-related configurations, customizations, etc.
+Ideally, one complete feature can be encapsulated into a specific feature module. The module can contain feature-related configurations as well as customizations.
 
-Example of feature module with lazy loaded configuration:
+The following is an example of a feature module with a lazy-loaded configuration:
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { StoreFinderRootModule } from '@spartacus/storefinder/root';
