@@ -59,7 +59,7 @@ Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configur
 
 ### Is there a demo of a Spartacus-based storefront available?
 
-Try out our continuous-integration server [here](https://sap.github.io/spartacus).
+Yes! You can try out our demo [here](https://spartacus-demo.eastus.cloudapp.azure.com/electronics-spa/en/USD/).
 
 ### What enablement options exist for helping me understand how to use Spartacus? Is training available?
 
@@ -113,7 +113,7 @@ No they are different. SAP BTP Extension Factory is the key extensibility layer 
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
-Yes. Support for contextual journey tracking will be added to Spartacus, scheduled for Q3 2019.
+Yes. For more information, see [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}).
 
 ------
 
