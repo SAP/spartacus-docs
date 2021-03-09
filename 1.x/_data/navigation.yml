@@ -49,6 +49,8 @@ docs:
             url: /building-the-spartacus-storefront-from-libraries/
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
+          - title: "Web Browser Support"
+            url: /browser-support/
           - title: "Snapshot Builds"
             url: /snapshot-builds/
           - title: "Configuring Feature Flags"

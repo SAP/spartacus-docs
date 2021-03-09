@@ -23,7 +23,7 @@ Having said that, Spartacus relies on SAP Commerce Cloud APIs and CMS content to
 
 ### How does Spartacus integrate with SAP Commerce Cloud?
 
-Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is run in a headless fashion.  The Spartacus storefront makes the necessary calls to SAP Commerce Cloud via the RESTful APIs that are part of the Omni-Commerce Connect extensions (link). This decoupling allows you to separate front-end and back-end development, permitting independent update cycles.
+Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is run in a headless fashion.  The Spartacus storefront makes the necessary calls to SAP Commerce Cloud via the RESTful APIs that are part of the [Omni Commerce Connect extensions](https://help.sap.com/viewer/e5d7cec9064f453b84235dc582b886da/latest/en-US/8c19ab00866910148f87bf32d4a60d38.html). This decoupling allows you to separate front end and back end development, permitting independent update cycles.
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus?
 
@@ -39,27 +39,27 @@ Spartacus actively supports evergreen web browsers. Non-evergreen browsers that 
 
 ### How does Spartacus compare to the SAP Commerce Cloud Accelerators?
 
-Accelerators templates (link) were introduced in SAP Commerce v4.4 to provide a ready-to-use starter implementation; they allowed partners to quickly develop an omni-channel experience by changing an example storefront. While extensible, the templates were not easily upgradable, they were JSP-based, and the storefronts were coupled tightly with the platform. Spartacus is a set of libraries that help you create a decoupled, modern, JavaScript-based storefront that is similarly extensible but vastly more upgradable. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article “Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution” for more information on this topic.
+[Accelerator templates](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8adca7a186691014bd31f1d2d96624f5.html) were introduced in SAP Commerce v4.4 to provide a ready-to-use starter implementation; they allowed partners to quickly develop an omni-channel experience by changing an example storefront. While extensible, the templates were not easily upgradable, they were JSP-based, and the storefronts were coupled tightly with the platform. Spartacus is a set of libraries that help you create a decoupled, modern, JavaScript-based storefront that is similarly extensible but vastly more upgradable. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article [Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution](https://www.sap.com/cxworks/article/435949087/choosing_which_storefront_to_use_for_your_sap_commerce_cloud_solution) for more information on this topic.
 
 ### Are there features that are missing in Spartacus that exist in the SAP Commerce Cloud Accelerators?
 
-At the 1.0 release, Spartacus will not have feature parity when compared with all the Accelerators available in SAP Commerce Cloud. The focus to start is to achieve feature parity with the B2C accelerator. Feature parity with B2B, China and Industry accelerators will come in the future. Feature parity will be documented.
+At the 1.0 release, Spartacus will not have feature parity when compared with all the Accelerators available in SAP Commerce Cloud. The focus to begin with is to achieve feature parity with the B2C accelerator. Feature parity with B2B, China and Industry Accelerators will come in the future. Feature parity will be documented.
 
 ### Can I run Spartacus and an Accelerator storefront at the same time?
 
-Yes. Spartacus-based storefronts are decoupled from SAP Commerce Cloud, so you can run both your Accelerator template-based store and Spartacus storefront. In SAP Commerce Cloud, this would be a matter of configuring your code, aspects, and endpoints configured correctly. See the product documentation here and here for more. 
+Yes. Spartacus-based storefronts are decoupled from SAP Commerce Cloud, so you can run both your Accelerator template-based store and Spartacus storefront. In SAP Commerce Cloud, this would be a matter of configuring your code, aspects, and endpoints correctly. For more information, see [External Routes]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %}) and [Backwards Compatibility with Accelerators]({{ site.baseurl }}/adding-and-customizing-routes/#backwards-compatibility-with-accelerators).
 
 ### Does this mean the Accelerators will be deprecated?
 
-Eventually. We will announce deprecation and removal plans at a later date. Our goal is to move all customers to Spartacus, or at least JavaScript-based storefronts. All current development efforts are focused on improving Spartacus. For the moment, Accelerator templates are receiving critical and blocker bug or security fixes only. At the very least, Accelerator templates won’t be deprecated until Spartacus achieves feature parity. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article “Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution” for more information on this topic. 
+Eventually. We will announce deprecation and removal plans at a later date. Our goal is to move all customers to Spartacus, or at least JavaScript-based storefronts. All current development efforts are focused on improving Spartacus. For the moment, Accelerator templates are receiving critical and blocker bug or security fixes only. At the very least, Accelerator templates won’t be deprecated until Spartacus achieves feature parity. Spartacus is the strategic way forward for maintaining a customizable storefront with SAP Commerce Cloud. Please see the article [Choosing Which Storefront to Use for Your SAP Commerce Cloud Solution](https://www.sap.com/cxworks/article/435949087/choosing_which_storefront_to_use_for_your_sap_commerce_cloud_solution) for more information on this topic.
 
 ### If I’m currently using an SAP Commerce Cloud Accelerator, how do I migrate to a Spartacus-based storefront?
 
-Spartacus is a complete paradigm shift from the Accelerators in terms of technologies and architecture (template vs. libraries, headless vs. embedded, JSP vs Angular). As such there is no direct way to migrate from an Accelerator-based storefront to one that uses the Spartacus libraries. Given that it would take time to move an Accelerator-based storefront to Spartacus, we recommend a piece-by-piece approach, where parts of Spartacus functionality are used alongside Accelerator-based storefront, with seamless switching between the two. Another consideration is that custom functionality requires APIs for Spartacus. On the other hand, developing a JavaScript-based front-end is a much faster process than with Accelerator. 
+Spartacus is a complete paradigm shift from the Accelerators in terms of technologies and architecture (libraries vs. template, headless vs. embedded, Angular vs JSP). As such, there is no direct way to migrate from an Accelerator-based storefront to one that uses the Spartacus libraries. Given that it would take time to move an Accelerator-based storefront to Spartacus, we recommend a piece-by-piece approach, where parts of Spartacus functionality are used alongside Accelerator-based storefront, with seamless switching between the two. Another consideration is that custom functionality requires APIs for Spartacus. On the other hand, developing a JavaScript-based front end is a much faster process than with Accelerator.
 
 ### How long does it take to get a Spartacus-based storefront up and running?
 
-Assuming a vanilla SAP Commerce Cloud B2C backend is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+Assuming a vanilla SAP Commerce Cloud B2C back end is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 ### Is there a demo of a Spartacus-based storefront available?
 
@@ -71,7 +71,7 @@ Documentation is available from the Spartacus GitHub Pages [documentation site](
 
 ### Can I customize Spartacus?
 
-Spartacus is a set of libraries that contain core libraries, components and styling. You can choose which versions of the libraries you would like to use in your application, and these can be used to fully configure and customize your storefront. However, customization is not done in the same way as with Accelerator; you never customize Spartacus code directly – rather, you overwride or replace styling and code. This approach allows ease of upgradability. 
+Spartacus is a set of libraries that contain core libraries, components and styling. You can choose which versions of the libraries you would like to use in your application, and these can be used to fully configure and customize your storefront. However, customization is not done in the same way as with Accelerator; you never customize Spartacus code directly – rather, you override or replace styling and code. This approach allows ease of upgradability.
 
 ### What is the release cycle for Spartacus?
 
@@ -83,7 +83,7 @@ Spartacus uses a combination of languages, technologies and libraries, including
 
 ### Does Spartacus implement Responsive Design?
 
-Yes. Out-of-the-box, Spartacus supports mobile, tablet, desktop, and wide-desktop breakpoints, and you can configure your own. 
+Yes. Out-of-the-box, Spartacus supports mobile, tablet, desktop, and wide-desktop breakpoints, and you can configure your own.
 
 ### Is there going to be a version of Spartacus available to develop native iOS and/or Android apps?
 
@@ -91,13 +91,13 @@ There are no plans for native mobile apps. Spartacus implements Responsive Desig
 
 ### Do I need to host my Spartacus JavaScript storefront? What is required?
 
-You can host, or we can. SAP Commerce Cloud in the public cloud includes support for building and deploying JavaScript storefronts (link). If you’re hosting an on-premise version of SAP Commerce, then you will need to determine where to best build and deploy your storefront, as well as when/how to best scale it.
+You can host, or we can. SAP Commerce Cloud in the Public Cloud includes support for building and deploying [JavaScript storefronts](https://help.sap.com/viewer/b2f400d4c0414461a4bb7e115dccd779/latest/en-US/d1a3de28d67c4a418eabbba532238f9b.html). If you’re hosting an on-premise version of SAP Commerce, then you will need to determine where to best build and deploy your storefront, as well as when/how to best scale it.
 
 ### What about SEO? I heard that single page storefronts result in lower SEO ranking and make it difficult to share pages on social media. Is this an issue with Spartacus?
 
-Not an issue. No storefront would work with SEO. Spartacus is indeed a “SPA” (Single-Page Application), which benefits performance and flexibility while only loading one page. In order to support SEO, Spartacus also supports Server-Side Rendering (SSR), which builds entire pages on the server side before providing to the client. SSR provides web crawlers with access to individual pages for search indexing purposes. SSR also allows users to share a link to a page on things like social media, and Spartacus also allows configuration of social media meta tags. Usage of SSR has the added benefit of greatly speeding up first time-to-view.
+Not an issue. No storefront would work without SEO. Spartacus is indeed a “SPA” (Single-Page Application), which improves performance and flexibility while only loading one page. In order to support SEO, Spartacus also supports Server-Side Rendering (SSR), which builds entire pages on the server side before providing content to the client. SSR provides web crawlers with access to individual pages for search indexing purposes. SSR also allows users to share a link to a page on social media, for example, and Spartacus also allows configuration of social media meta tags. Usage of SSR has the added benefit of greatly speeding up first time-to-view.
 
-Your server must also support SSR functionality. Support for SSR will be added to SAP Commerce Cloud hosting services Q3 2019. 
+Your server must also support SSR functionality. For more information, see [Enabling Server-Side Rendering](https://help.sap.com/viewer/b2f400d4c0414461a4bb7e115dccd779/latest/en-US/cd5b94c25a68456ba5840f942f33f68b.html) on the SAP Help Portal.
 
 ### Does Spartacus scale? How?
 
@@ -109,7 +109,7 @@ Spartacus is provided "as-is" with no official lines of support. To get help fro
 
 ### Is it possible to contribute to this open source project? How?
 
-Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our Feedback chat in the Slack channel, or read the Contributing document and learn how to help others, report an issue, or contribute code to Spartacus. 
+Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our [feedback](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) channel in the Spartacus Slack space, or read the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}) and learn how to help others, report an issue, or contribute code to Spartacus.
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
@@ -121,15 +121,15 @@ Yes. For more information, see [Context-Driven Services Integration]({{ site.bas
 
 ### How much will Spartacus cost?
 
-Spartacus is free to use as libraries and to fork the source code (though forking is not recommended for upgradability reasons). It does come with a license, which is based off the Apache Software License, v2 – see the [license file](https://github.com/SAP/spartacus/blob/master/LICENSE).  
+Spartacus is free, whether you are using the libraries or forking the source code (though forking is not recommended for upgradability reasons). Spartacus does come with a [license](https://github.com/SAP/spartacus/blob/develop/LICENSE), which is based off the Apache Software License, v2.
 
 ### Do I need to sign a contract to obtain a license?
 
-No. The license (link) is embedded in the libraries and code you use from the open source project. 
+No. The [license](https://github.com/SAP/spartacus/blob/develop/LICENSE) is embedded in the libraries and code you use from the open source project.
 
 ### Are there any restrictions for using Spartacus? Can I sell a customized version of a Spartacus-based storefront?
 
-See the license ([link](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt)). Generally, however, the Apache license is permissive and allows you to sell new works based off of Spartacus. See [this article](https://resources.whitesourcesoftware.com/blog-whitesource/top-10-apache-license-questions-answered) for more background information. (These answers do not constitute legal official advice.) 
+See the [license](https://github.com/SAP/spartacus/blob/develop/LICENSE). Generally, however, the Apache license is permissive and allows you to sell new works based off of Spartacus. See [this article](https://resources.whitesourcesoftware.com/blog-whitesource/top-10-apache-license-questions-answered) for more background information. (These answers do not constitute official legal advice.)
 
 ------
 
