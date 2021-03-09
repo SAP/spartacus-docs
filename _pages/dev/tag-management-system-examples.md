@@ -2,9 +2,12 @@
 
 This doc will briefly explain how to setup some of the most useful TMS solution on the market. For more details on the configuration and extensibility part, please check the main [TMS docs](tag-management-system.md).
 
+As mentioned in the [setup](tag-management-system.md#setup) instructions, Spartacus can handle the script "injection" to the DOM for you. This only applies to the TMS solutions that are supported out of the box (GTM and AELP).
+However, if you want to have the control over this part, or you have some complex use case, you can do it yourself by looking at the examples below.
+
 ## Google Tag Manager (GTM)
 
-Spartacus offers an out of the box support for GTM, and in order to configure it you need to first include a code snippet provided by GTM to your `index.html`. The code snippet will look something like this:
+GTM requires an _iife_ function to be included in the DOM, which you can do in your `index.html`. The code snippet will look something like this:
 
 ```html
 <!-- Google Tag Manager -->
@@ -50,7 +53,7 @@ As per the [official GA docs](https://developers.google.com/analytics/devguides/
 
 ## GTM and GA
 
-Running both GTM and GA _at the same time_ is possible if you have a need for such a use case, although you should be aware of all the potential clashes of doing so.
+Running both GTM and GA _at the same time_ is possible if you have a need for such a use case. Although, you should be aware of all the potential clashes of doing so.
 We won't go in the details on this topic, and we will focus on enabling both in Spartacus.
 
 As Spartacus offers an out-of-the-box support for GTM, you can just refer to [this section](#Google-Tag-Manager-GTM).
@@ -100,7 +103,7 @@ export class AppModule {}
 
 ## Adobe Experience Launch Platform (AELP)
 
-Spartacus offers an out of the box support for AELP, and in order to configure it you need to first include a code snippet provided by AELP to your `index.html`. The code snippet will look something like this:
+AELP requires you to include a code snippet provided by AELP, which you can do in your `index.html`. The code snippet will look something like this:
 
 ```html
 <script
