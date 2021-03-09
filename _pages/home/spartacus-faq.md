@@ -109,7 +109,7 @@ Spartacus is provided "as-is" with no official lines of support. To get help fro
 
 ### Is it possible to contribute to this open source project? How?
 
-Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our [feedback](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) channel in the Spartacus Slack space, or read the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}) and learn how to help others, report an issue, or contribute code to Spartacus.
+Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our [feedback](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) channel in the Spartacus Slack space, or read the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/contributors-guide.md %}) and learn how to help others, report an issue, or contribute code to Spartacus.
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
