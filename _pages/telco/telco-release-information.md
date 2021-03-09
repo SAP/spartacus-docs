@@ -13,7 +13,7 @@ title: Release Information for TUA Spartacus Libraries
 - [Release 1.1](#release-11)
 - [Release 1.0](#release-10)
 - [About Spartacus for TUA Releases](#about-spartacus-for-tua-releases)
-- [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version)
+- [Upgrading TUA Spartacus Libraries to a New Minor Version](#upgrading-tua-spartacus-libraries-to-a-new-minor-version)
 - [Feature Releases](#feature-releases)
 
 ## Introduction
