@@ -105,7 +105,11 @@ Spartacus storefronts are JavaScript web applications that communicate to the ba
 
 ### How do I get support when I run into issues with Spartacus?
 
-Spartacus is provided "as-is" with no official lines of support. To get help from the Spartacus community, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
+You can get support for Spartacus in the following ways:
+
+- Get answers from our developers and the Spartacus community by asking a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
+- Problem or bug? If you have a SAP Commerce Cloud license, create a [customer support ticket](https://launchpad.support.sap.com/#incident/create).
+- For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 ### Is it possible to contribute to this open source project? How?
 
