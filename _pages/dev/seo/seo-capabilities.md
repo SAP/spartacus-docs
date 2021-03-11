@@ -6,16 +6,17 @@ Search engine optimization (SEO) is an important element of the Spartacus storef
 
 The SEO implementation in Spartacus includes the following:
 
--   Stateful URLs
--   Configurable URLs
--   Indexable Pages
--   Structured Data (schema.org)
--   HTML Tags
-    -   Page Meta Resolvers
-    -   Title Resolver
-    -   Description Resolver
-    -   Image Resolver
-    -   Robots Tag
+- Stateful URLs
+- Configurable URLs
+- Indexable Pages
+- Structured Data (schema.org)
+- HTML Tags
+  - Page Meta Resolvers
+  - Title Resolver
+  - Description Resolver
+  - Image Resolver
+  - Robots Tag
+  - Canonical URL
 
 ## Stateful URLs
 
@@ -49,79 +50,4 @@ Structured Data provides a data structure for the web that makes web content mor
 
 ## Html Tags
 
-HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing the meta tags, and evaluating their values on a regular basis, you can improve the ranking, click-through-rate, and usability of a page. For example, the `title` tag is used by browsers to display the page's title in tabs, in the browser history, and in bookmarks. All of this can affect SEO and the user experience.
-
-The `PageMeta` model is a set of attributes that can be resolved by so-called page meta resolvers. The resolvers are extendible on a fine-grained level, and can contribute to the tags that are generated. The `PageMeta` model consists of the following properties:
-
-```typescript
-export interface PageMeta {
-    title?: string;
-    description?: string;
-}
-```
-
-HTML5 supports a variety of meta tag properties, such as `description`. These meta tags are used by search engines, social platforms and bots. Some social platforms have introduced their own sets of properties that are specific to their platforms. For example, Facebook uses an Open Graph protocol that enables any web page to become a rich object in a social graph. Specific meta tags can be used to articulate the experience on the social platform. The code snippet below shows a custom page description for Facebook:
-
-```html
-<meta property="og:title" content="Custom title for Facebook" />
-<meta property="og:description" content="Custom description for Facebook" />
-```
-
-### Page Meta Resolvers
-
-To support the potential multitude of meta tags, Spartacus uses a small framework to customize and extend the meta tags per page.
-
-Spartacus ships with `PageMetaResolvers` that resolve the page meta data for a specific page. Some of the meta data might be driven by CMS data, but most meta tags are computed based on product content, category content, search results, and so on.
-
-The page meta data is updated dynamically during navigation, but can be delivered statically using SSR.
-
-### Title Resolver
-
-Adding an HTML `title` tag to your page has the following advantages:
-
--   the page can be uniquely addressed in the browser (that is, through the browser history, bookmarks, tabs, and so on)
--   the page title increases the ranking of the page in search engines
--   the page title identifies content in search engines
-
-Spartacus provides a special resolver for pages that require a specific heading. The page title for a search engine result page (SERP) is not necessarily the same as the page heading shown in the UI. Let's look at the product title as an example. To achieve good results in the SERP, a product details page would typically disclose the product title, category, and brand, as follows:
-
-`Product Title | Main category | Brand`
-
-However, such a title does not look good in the UI, so a different title is used for that. To support flexibility, Spartacus uses a specific `PageHeadingResolver` that can be implemented in the page resolving logic.
-
-### Description Resolver
-
-Each page on the storefront can contain a `description` tag. The description tag is used in the search engine result page to improve the click-through-rate (CTR). It is not used to improve the page ranking. It is generally considered best practice to create a description tag for each page, although there are occasions when the search engine is more capable of generating the description based on the context.
-
-### Image Resolver
-
-To share pages with social media, such as Facebook, Twitter, Pinterest, and so on, it is important to provide the correct image in the meta tags. The Open Graph standard from Facebook is widely adopted for this purpose. The following tag can be used to tell social media to use a specific image:
-
-```html
-<meta name="og:image" value="https:storefont.com/myimage" />
-```
-
-While it is possible to provide multiple images by replicating the tag with different values (for a gallery of images, for example), Spartacus only provides a solution for a single image. This is considered best practice for commerce storefronts.
-
-You can implement the `PageImageResolver` to resolve a specific image for a specific page. The `ProductPageMetaResolver` demonstrates an implementation of the `PageImageResolver` by providing the main product image URL for the product details page.
-
-### Robots Tag
-
-You can use the `robots` meta tag to control whether or not a page is indexed. The following is an example:
-
-```html
-<meta name="robots" value="FOLLOW, NOINDEX" />
-```
-
-The following table lists the values that can be used to guide search engines:
-
-| Value    | Description                                                                              |
-| -------- | ---------------------------------------------------------------------------------------- |
-| INDEX    | Instructs the search engine to index the page                                            |
-| NOINDEX  | Instructs the search engine to **not** index the page                                    |
-| FOLLOW   | Instructs the search engine to follow the links on the page for further indexing         |
-| NOFOLLOW | Instructs the search engine to **not** follow the links on the page for further indexing |
-
-Spartacus provides a separate `PageRobotsResolver` interface that you can use to control the `robots` meta tag. The `PageMetaService` uses `FOLLOW, NOINDEX` whenever no value is provided by the `PageMeta`.
-
-The `CheckoutPageMetaResolver` demonstrates the usage of the `PageRobotsResolver` and instructs search engines to not index the page nor follow any links on the page.
+HTML tags, and meta tags in particular, are used by search engines, social platforms, and crawlers to index page meta data into their platforms. Spartacus provides various ways to resolve meta tags, see [Html tags]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %}) for more information.
