@@ -55,8 +55,13 @@ The next step would be to create the .npmrc file at the root of your Angular pro
 The .npmrc file should contain the following: 
 
 ```shell
+shell = "{instalation directory}\\Git\\bin\\bash.exe" 
+script-shell = "{instalation directory}\\Git\\bin\\bash.exe" 
+
+
+Example:
 shell = "C:\\Program Files\\Git\\bin\\bash.exe"
-script-shell = "C:\\Program Files\\Git\\bin\\bash.exe
+script-shell = "C:\\Program Files\\Git\\bin\\bash.exe"
 ```
 
 You can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
