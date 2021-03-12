@@ -18,17 +18,15 @@ Spartacus 3.0 introduces a new way to manage user sessions, handle tokens, and p
 
 From the beginning, Spartacus has included both client authentication and user authentication. Although this is not typical for web applications, it is necessary for Spartacus to work with the OCC API.
 
-There are a number of endpoints that work on behalf of logged-out users, such as registering, resetting a password, placing an order as a guest, and verifying an address. These endpoints require an access token to be sent with the request, and this access token needs to be retrieved by following the Client Credentials Flow that is defined by the OAuth specification. This is the client authentication.
+Client authentication relates to the endpoints that work on behalf of logged-out users, such as registering, resetting a password, placing an order as a guest, and verifying an address. These endpoints require an access token to be sent with the request, and this access token needs to be retrieved by following the Client Credentials Flow that is defined by the OAuth specification. In other words, the Client Credentials Flow is needed for certain OCC requests, so you need to enable this flow in your OAuth client.
+
+**Caution:** When you enable the Client Credentials Flow in your OAuth client, you should always use `ROLE_CLIENT` with the Spartacus OAuth client. You should never use `ROLE_TRUSTED_CLIENT` with Spartacus because it will significantly compromise the security of your application.
 
 Meanwhile, user authentication is used for requests that are sent on behalf of specific user resources. For example, if you want to update your profile, you need to be logged in. When you log in, the server confirms your credentials and returns an access token to the application. This token is then used for all requests on your account, such as updating your profile, making cart modifications, and checking out.
 
 Prior to Spartacus 3.0, the code for both client authentication and user authentication was in the `AuthModule`, which included interceptors, services, and facade methods all mixed together. In Spartacus 3.0, the `AuthModule` still contains client and user authentication, but this is now the result of importing two modules, the `UserAuthModule` and the `ClientAuthModule`. Each module is responsible for one type of authentication.
 
 This change is important because Spartacus is built to support OCC by default, but Spartacus is not limited to using OCC. The OCC API requires client credentials for some of the requests it receives, but this is not common for other APIs, and accordingly, the client and user authentication has been separated to make it easier to work with other APIs. For example, if you are using a different API that does not need client authentication, instead of using the `AuthModule`, you can import only the `UserAuthModule` and reduce the size of your final bundle by not including the `ClientAuthModule`.
-
-## Security of Hybris OAuth client
-
-**Important!** Client credentials flow is needed for some OCC requests (as mentioned in chapter above) and that require enabling this flow in your OAuth client. You should always use "ROLE_CLIENT" with spartacus OAuth client. You should never use "ROLE_TRUSTED_CLIENT" with Spartacus, as it would compromise the security of your application to a huge extent.
 
 ## User Authentication
 
