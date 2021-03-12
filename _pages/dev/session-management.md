@@ -1,9 +1,9 @@
 ---
 title: Session Management
 feature:
-- name: Session Management
-  spa_version: 3.0
-  cx_version: 1905
+  - name: Session Management
+    spa_version: 3.0
+    cx_version: 1905
 ---
 
 {% capture version_note %}
@@ -25,6 +25,10 @@ Meanwhile, user authentication is used for requests that are sent on behalf of s
 Prior to Spartacus 3.0, the code for both client authentication and user authentication was in the `AuthModule`, which included interceptors, services, and facade methods all mixed together. In Spartacus 3.0, the `AuthModule` still contains client and user authentication, but this is now the result of importing two modules, the `UserAuthModule` and the `ClientAuthModule`. Each module is responsible for one type of authentication.
 
 This change is important because Spartacus is built to support OCC by default, but Spartacus is not limited to using OCC. The OCC API requires client credentials for some of the requests it receives, but this is not common for other APIs, and accordingly, the client and user authentication has been separated to make it easier to work with other APIs. For example, if you are using a different API that does not need client authentication, instead of using the `AuthModule`, you can import only the `UserAuthModule` and reduce the size of your final bundle by not including the `ClientAuthModule`.
+
+## Security of Hybris OAuth client
+
+**Important!** Client credentials flow is needed for some OCC requests (as mentioned in chapter above) and that require enabling this flow in your OAuth client. Token received with this flow can be used for querying/modifying any user data when you would grant too much permissions (role) for client. Normally "ROLE_CLIENT" should be used with spartacus. Don't ever use "ROLE_TRUSTED_CLIENT" with spartacus OAuth client. It would make your storefront vulnerable for variety of attacks (eg. user impersonation, data theft).
 
 ## User Authentication
 
