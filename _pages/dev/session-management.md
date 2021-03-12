@@ -28,7 +28,7 @@ This change is important because Spartacus is built to support OCC by default, b
 
 ## Security of Hybris OAuth client
 
-**Important!** Client credentials flow is needed for some OCC requests (as mentioned in chapter above) and that require enabling this flow in your OAuth client. Token received with this flow can be used for querying/modifying any user data when you would grant too much permissions (role) for client. Normally "ROLE_CLIENT" should be used with spartacus. Don't ever use "ROLE_TRUSTED_CLIENT" with spartacus OAuth client. It would make your storefront vulnerable for variety of attacks (eg. user impersonation, data theft).
+**Important!** Client credentials flow is needed for some OCC requests (as mentioned in chapter above) and that require enabling this flow in your OAuth client. You should always use "ROLE_CLIENT" with spartacus OAuth client. You should never use "ROLE_TRUSTED_CLIENT" with Spartacus, as it would compromise the security of your application to a huge extent.
 
 ## User Authentication
 
