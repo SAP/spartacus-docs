@@ -1,9 +1,9 @@
 ---
 title: Session Management
 feature:
-  - name: Session Management
-    spa_version: 3.0
-    cx_version: 1905
+- name: Session Management
+  spa_version: 3.0
+  cx_version: 1905
 ---
 
 {% capture version_note %}
