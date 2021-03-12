@@ -65,9 +65,9 @@ You can add FSA Spartacus libraries to your Spartacus Angular project by running
 ng add @spartacus/fsa-schematics
 ```
 
-For the detailed explanation visit [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
+For a detailed explanation, visit [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
 
-For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
+For a full list of available parameters, please visit Spartacus Schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
 
 ### Install dependencies ###  
