@@ -29,7 +29,7 @@ When you click `Squash and merge`, two text fields appear. The first is for ente
 The following is an example of a header you might enter:
 
 ```
-feat: introduce new facade signature and generic ngrx store state for fine-grained control of loading state (GH-123)
+feat: introduce new facade signature and generic ngrx store state for fine-grained control of loading state (#124)
 ```
 
 The following is an example of the corresponding body and footer. The footer begins with `BREAKING CHANGE`. Note that the body and footer are separated by a blank line:
@@ -41,7 +41,7 @@ BREAKING CHANGE:
 
 Product, language and currency facades have a new public interface.
 
-Closes GH-123
+Closes #123
 ```
 
 ### Header
@@ -51,16 +51,12 @@ The commit header is a brief summary of the work done.
 When you click `Squash and merge`, the header field is automatically populated. However, it does not match our commit guidelines format precisely. Please modify it to fit the following format:
 
 ```
- <type>: <subject><issue number>
+ <type>: <subject> (PR number)
 ```
 
 #### Type
 
 The `type` is mandatory, and must be one of the following:
-
-- `build`: for changes that affect the build system or external dependencies.
-
-- `ci`: for changes to our CI configuration files and scripts.
 
 - `docs`: for changes to documentation only
 
@@ -76,6 +72,8 @@ The `type` is mandatory, and must be one of the following:
 
 - `test`: for adding missing tests or to correct existing tests.
 
+- `chore`: for changes related to builds/CI/scripts/configs and anything that doesn't apply for types above.
+
 In the changelog, we only include commits that are of type `feat` or `fix`.
 
 #### Subject
@@ -86,11 +84,11 @@ The subject contains a succinct description of the change, and adheres to the fo
 - The first letter of the subject message is in lower-case.
 - There is no period at the end of the subject message.
 
-#### Issue Number
+#### PR Number
 
-At the end of the header, include the GitHub issue number in parentheses, as follows: `(GH-123)`.
+At the end of the header, include the GitHub PR number in parentheses, as follows: `(#124)`.
 
-By default, GitHub includes the pull request number here, so be sure to change it to the issue number. After your commit message is submitted, GitHub converts the issue number into a link to the original issue, which can be convenient for anyone who is reading the changelog.
+By default, GitHub includes the pull request number automatically here, so you won't need to add this manually. After your commit message is submitted, GitHub converts the PR number into a link to the original pull request, which can be convenient for anyone who is reading the changelog.
 
 ### Body
 
@@ -117,7 +115,7 @@ If your issue contains a deprecation, you use a similar approach to breaking cha
 - `DEPRECATED`
 - `DEPRECATIONS`
 
-The footer is also where you can automatically close your issue with a keyword (such as `closes` or `fixes`). For information on the format, and a list of the available keywords, see [GitHub Help](https://help.github.com/articles/closing-issues-using-keywords/).
+The footer is also the place where you should reference issue you are fixing (eg. `closes #123` or `fixes #123`). For information on the format, and a list of the available keywords, see [GitHub Help](https://help.github.com/articles/closing-issues-using-keywords/). Additionally it will automatically close your issue once you merge your PR to default repository branch.
 
 ### Reverting a Commit
 
