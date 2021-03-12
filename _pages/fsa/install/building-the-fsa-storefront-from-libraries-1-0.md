@@ -50,6 +50,15 @@ The following procedure describes how to create a new Angular application with t
 
 The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
 
+In the Windows environment, in order to successfully install the project, first make sure that you have installed GitBash. 
+The next step would be to create the .npmrc file at the root of your Angular project. 
+The .npmrc file should contain the following: 
+
+```shell
+shell = "C:\\Program Files\\Git\\bin\\bash.exe"
+script-shell = "C:\\Program Files\\Git\\bin\\bash.exe
+```
+
 You can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
 
 ```shell
