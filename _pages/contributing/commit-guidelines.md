@@ -2,6 +2,8 @@
 title: Committing Code to Spartacus
 ---
 
+We use git commit messages to generate the framework changelog. To that end, we have specific rules for how to format git commit messages. These rules are also intended to make the commit messages easier to read.
+
 ## Settings
 
 If you are on Windows, set the Git `core.autocrlf` configuration property to "false", and make sure to use Unix-style linebreaks (LF-only).
@@ -14,10 +16,6 @@ When you are ready to merge your pull request, select GitHub's `Squash and merge
 
 For information on `Squash and merge`, see [GitHub Help](https://help.github.com/articles/about-pull-request-merges/).
 
-# Commit Message Guidelines
-
-We use git commit messages to generate the framework changelog. To that end, we have specific rules for how to format git commit messages. These rules are also intended to make the commit messages easier to read.
-
 ## Commit Message Format
 
 The commit message consists of a header, a body, and optionally, a footer. Each line in the commit message has a maximum length of 100 characters.
@@ -28,13 +26,13 @@ When you click `Squash and merge`, two text fields appear. The first is for ente
 
 The following is an example of a header you might enter:
 
-```
+```text
 feat: introduce new facade signature and generic ngrx store state for fine-grained control of loading state (#124)
 ```
 
 The following is an example of the corresponding body and footer. The footer begins with `BREAKING CHANGE`. Note that the body and footer are separated by a blank line:
 
-```
+```text
 The product, language and currency facades have been refactored. A generic reducer has been introduced for all entities that require fine-grained load, success and error state.
 
 BREAKING CHANGE:
@@ -50,7 +48,7 @@ The commit header is a brief summary of the work done.
 
 When you click `Squash and merge`, the header field is automatically populated. However, it does not match our commit guidelines format precisely. Please modify it to fit the following format:
 
-```
+```text
  <type>: <subject> (PR number)
 ```
 
@@ -72,7 +70,7 @@ The `type` is mandatory, and must be one of the following:
 
 - `test`: for adding missing tests or to correct existing tests.
 
-- `chore`: for changes related to builds/CI/scripts/configs and anything that doesn't apply for types above.
+- `chore`: for changes related to builds, CI, scripts, configs, and anything that does not fit any of the types above.
 
 In the changelog, we only include commits that are of type `feat` or `fix`.
 
@@ -88,7 +86,7 @@ The subject contains a succinct description of the change, and adheres to the fo
 
 At the end of the header, include the GitHub PR number in parentheses, as follows: `(#124)`.
 
-By default, GitHub includes the pull request number automatically here, so you won't need to add this manually. After your commit message is submitted, GitHub converts the PR number into a link to the original pull request, which can be convenient for anyone who is reading the changelog.
+By default, GitHub includes the pull request number automatically here, so you do not need to add this manually. After your commit message is submitted, GitHub converts the PR number into a link to the original pull request, which can be convenient for anyone who is reading the changelog.
 
 ### Body
 
@@ -115,8 +113,8 @@ If your issue contains a deprecation, you use a similar approach to breaking cha
 - `DEPRECATED`
 - `DEPRECATIONS`
 
-The footer is also the place where you should reference issue you are fixing (eg. `closes #123` or `fixes #123`). For information on the format, and a list of the available keywords, see [GitHub Help](https://help.github.com/articles/closing-issues-using-keywords/). Additionally it will automatically close your issue once you merge your PR to default repository branch.
+The footer is also the place where you should reference the issue you are fixing (for example, `closes #123` or `fixes #123`). For information on the format, and a list of the available keywords, see [GitHub Help](https://help.github.com/articles/closing-issues-using-keywords/). Additionally, it will automatically close your issue once you merge your PR to the default repository branch.
 
-### Reverting a Commit
+## Reverting a Commit
 
 If your commit reverts a previous commit, begin the header with `revert:` and then include the header of the reverted commit. In the body, write "This reverts commit _hash_", where _hash_ is the SHA of the commit you are reverting.
