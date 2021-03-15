@@ -1,9 +1,9 @@
 ---
-title: Html Tags
+title: HTML Tags
 feature:
-  - name: Html Tags
-    spa_version: 1.0
-    cx_version: n/a
+- name: HTML Tags
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing the meta tags, and evaluating their values on a regular basis, you can improve the page ranking, click-through-rate and usability of a page. All of this can affect SEO and the user experience.

@@ -48,6 +48,6 @@ For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ 
 
 Structured Data provides a data structure for the web that makes web content more understandable for web crawlers. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
-## Html Tags
+## HTML Tags
 
-HTML tags, and meta tags in particular, are used by search engines, social platforms, and crawlers to index page meta data into their platforms. Spartacus provides various ways to resolve meta tags, see [Html tags]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %}) for more information.
+HTML tags, and meta tags in particular, are used by search engines, social platforms, and crawlers to index page meta data into their platforms. Spartacus provides various ways to resolve meta tags. For more information, see [HTML tags]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %}).

@@ -252,6 +252,8 @@ docs:
             subchildren:
                 - title: "SEO Capabilities"
                   url: /seo-capabilities/
+                - title: "HTML Tags"
+                  url: /html-tags/
                 - title: "Structured Data (schema.org)"
                   url: /structured-data/
           - title: "Internationalization (i18n)"
