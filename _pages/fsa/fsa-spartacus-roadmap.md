@@ -2,14 +2,13 @@
 title: FSA Spartacus Roadmap
 ---
 
-This document describes what is planned for FSA Spartacus for Q2 2021 and later.
+This document describes what is planned for FSA Spartacus for Q3 2021 and later.
 
 Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Features Planned for Version 2.0 / February 2021](#features-planned-for-version-20--february-2021)
-- [Future Outlook - Q2 2021 and Later](#future-outlook---q2-2021-and-later)
+- [Features Planned for Version 3.0 / August 2021](#features-planned-for-version-30--august-2021)
   
 ### Disclaimer - Forward-Looking Statements
 
@@ -28,7 +27,7 @@ Some of the links provided in the following lists point to SAP Commerce Cloud Fi
 ### Other Release Documentation
 
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/fsa/fsa-release-information.md %}).
-- For information on SAP Commerce Cloud Financial Services Accelerator, see the [the FSA documentation on SAP Help Portal](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/2008/en-US).
+- For information on SAP Commerce Cloud Financial Services Accelerator, see the [FSA documentation on SAP Help Portal](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/2102/en-US).
   
 ### Questions?
 
@@ -36,23 +35,14 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-## Features Planned for Version 2.0 / February 2021
+## Features Planned for Version 3.0 / August 2021
 
-- Additional Policy Changes - Existing set of policy changes is extended with two additional ones for adding additional driver(s) and removing coverage(s).
-- Claims Integration - Enhancement of the existing claims process by enabling document upload as well as improved integration with SAP Claims Management.
-- Document Upload - Enablement of document upload in FSA SPA UI via an upload control supporting upload, download and removal of uploaded documents.
-- Invoice Payment - New payment method is made available in the quotation process and also integrated with SAP S/4 HANA.
-- Order Splitting - Possibility for a combined offering of financial services products with third-party services/products, as well as support for different fulfillment options per product type.
+- **Group Policy** - 
+- **SAP Digital Payment Addon Integration** - This integration offers secure, end-to-end processing of digital payments.
+- **Document Accessibility** - Customers can see all their received and uploaded documents at one glance on the My Documents page in the My Account area.
+- **Claims Details Page** - Enablement of a more detailed claim view, which, besides general information, includes sub-claims, roles/persons involved, and documents connected to the claim.
+- **Enablement of Coupons and Discounts** - Possibility to apply coupons during the checkout process and obtain a discount.  
+- **Address Management** - Customers can add their address once and then use it in the quotation process at their convenience. They can preview and change the address at any time from the My Account area.  
+- **Product Discovery Enhancement** - 
 
-### Future Outlook - Q2 2021 and Later
 
-The items in this section are on our future roadmap.
-
-### Features
-
-- Group Policy
-- SAP Digital Payment Addon Integration
-- Document Accessibility
-- Claims Details Page
-- Enablement of Vouchers & Discounts
-- Product Discovery Enhancement
