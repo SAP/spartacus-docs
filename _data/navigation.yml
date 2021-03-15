@@ -374,7 +374,7 @@ docs:
                   url: /journey-management-msisdn/    
                 - title: "Journey Management - Serviceability"
                   url: /journey-management-serviceability/
-                - title: "Journey Management - Serviceability Check of an SPO"
+                - title: "Journey Management - Serviceability Check of Simple Product Offerings (SPOs)"
                   url: /journey-management-serviceability-check-of-spo/        
                 - title: "Order"
                   url: /order/
