@@ -21,13 +21,13 @@ See  [Inbound API for Correspondence](https://help.sap.com/viewer/4c33bf189ab940
 
 ## SPA Components
 
-Inbox feature consists of three components, and it comes within inbox.module:
+The Inbox feature consists of three components, and it comes within inbox.module:
 
 - inbox.component
 - inbox-tab.component
 - inbox-messages.component
 
-The Inbox component has inbox-tab at the top and inbox-messages at the bottom.
+The inbox component has inbox-tab at the top and inbox-messages at the bottom.
 
 ```html
 <li class="tab"
