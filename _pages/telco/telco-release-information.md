@@ -13,7 +13,7 @@ title: Release Information for TUA Spartacus Libraries
 - [Release 1.1](#release-11)
 - [Release 1.0](#release-10)
 - [About Spartacus for TUA Releases](#about-spartacus-for-tua-releases)
-- [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version)
+- [Upgrading TUA Spartacus Libraries to a New Minor Version](#upgrading-tua-spartacus-libraries-to-a-new-minor-version)
 - [Feature Releases](#feature-releases)
 
 ## Introduction
@@ -33,7 +33,7 @@ For release information about Spartacus 1.x, see [Building the TUA Spartacus Sto
 
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
-*The various documentation links provided point to SAP BTP or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+*The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 ## Release 2.0
 

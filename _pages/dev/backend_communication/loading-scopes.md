@@ -1,5 +1,5 @@
 ---
-title: Using Loading Scopes
+title: Loading Scopes
 feature:
 - name: Loading Scopes
   spa_version: 1.4

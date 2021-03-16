@@ -5,7 +5,7 @@ main:
     - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
-      url: https://stackoverflow.com/questions/tagged/spartacus-storefront
+      url: /#how-to-obtain-support
     - title: Version 3.2
       url: /release-information/
 
@@ -61,6 +61,8 @@ docs:
             url: /cors/        
           - title: "Building the Spartacus Storefront from Libraries"
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Reference App Structure"
+            url: /reference-app-structure/
           - title: "Schematics"
             url: /schematics/  
           - title: "Recommended Development Environment"
@@ -294,7 +296,7 @@ docs:
           - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
-                - title: "Using Loading Scopes"
+                - title: "Loading Scopes"
                   url: /loading-scopes/
                 - title: "Connecting to Other Systems"
                   url: /connecting-to-other-systems/  
@@ -422,8 +424,6 @@ docs:
                   url: /customer-product-inventory/
                 - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
-                - title: "Journey Management - Appointment"
-                  url: /journey-management-appointment/                           
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
                 - title: "Journey Management - Serviceability"
