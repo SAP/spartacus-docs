@@ -272,14 +272,16 @@ Some of the steps in this procedure are derived from the documentation for insta
     baseSite: ['utilitiesspa']
     },
     ```
+
     Both:
 
     ```ts
     context: {
     baseSite: ['telcospa', ‘utilitiesspa’]
     },
-    ``` 
-## Building the TUA Spartacus Storefront Using 2.x Libraries
+    ```
+
+## Building the TUA Spartacus Storefront Using 3.x Libraries
 
 The following instructions describe how to build a telco and utilities storefront application using published Spartacus 3.X libraries.
 

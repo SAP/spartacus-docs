@@ -85,13 +85,11 @@ Group statuses are interpreted as follows:
 |------------|-----------|-----------|
 |COMPLETE|Visited + Complete + Consistent|The group is considered complete if it has been visited and there are no incomplete characteristics or conflicts.|
 |ERROR|Visited + Incomplete|The group gets an error icon if it has been visited and there are incomplete characteristics.|
-|WARNING|Inconsistent|The group is considered inconsistent if there are conflicting characteristics within the corresponding group. The default configuration can contain inconsistent groups. It means by entering such a configuration, a conflicting groups status should be displayed accordingly.|
+|WARNING|Inconsistent|The group is considered inconsistent if there are conflicting characteristics within the corresponding group.|
 
-### Icon Alignment
+The following is an example of the configuration menu showing visited sections, missing mandatory selections, and conflicts:
 
-The following is an example of errors and conflicts shown in the **Configuration Menu**:
-
-![Configuration menu showing errors and conflicts]({{ site.baseurl }}/assets/images/ccp/configuration-menu-icon-alignment.png)
+![Spartacus group status icon alignment]({{ site.baseurl }}/assets/images/ccp/spartacus-group-status-icon-alignment.png)
 
 ## Browser Refresh
 
