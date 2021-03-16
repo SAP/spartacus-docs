@@ -15,15 +15,22 @@ feature:
 
 ## Overview
 
-The TMS integration allows you to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Launch Platform (AELP) systems are supported out of the box, while the other tag managers can easily be plugged in.
+The TMS integration allows you to setup a Tag Manager and to specify which Spartacus' events should be passed to the configured TMS. Google Tag Manager (GTM) and Adobe Experience Launch Platform (AELP) systems are supported out of the box, while the other tag managers can easily be plugged in.
 
-Spartacus supports running TMS integrations in parallel, and you can decide which events should be collected by each of the supported Tag Management solutions.
+Spartacus supports running multiple TMS integrations in parallel, and you can decide which events should be collected by each of the supported Tag Management solutions.
 
 Before you continue reading this page, it's highly recommended to first get yourself familiar with the [Events Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}), as TMS relies on it.
 
 ## Setup
 
-Each Tag Management solution might require a different setup instruction, and it's not possible to cover every system here.
+Spartacus offers an easy way to setup the TMS solutions that are supported out of the box:
+
+- for GTM, you can provide the GTM ID through the `gtmId` configuration property (see the [configuration](#configuration) section). Spartacus will run the _iife_ function (provided by GTM) which will "inject" the GTM script into the DOM.
+- for AELP, you can just provide the script URL through the `scriptUrl` configuration property (see the [configuration](#configuration) section). Spartacus will use this URL to "inject" the script into the DOM.
+
+This default behavior can be extend. For more, see the [customizations](#Customizations) section.
+
+If you don't provide these configuration properties, Spartacus will assume that you want to have the control over the "injected" scripts, and will just start collecting the events and populating the data layer. Having said that, each Tag Management solution might require a different setup instruction, and it's not possible to cover every system here.
 However, the process _usually_ requires you to specify a certain `<script>` tag in your `index.html` which will load and bootstrap the TMS. For example, this is how GTM is configured:
 
 ```html
@@ -38,7 +45,7 @@ However, the process _usually_ requires you to specify a certain `<script>` tag 
     j.async = true;
     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
     f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", "GTM-XXXX");
+  })(window, document, "script", "dataLayer", "GTM-XXXXXXX");
 </script>
 <!-- End Google Tag Manager -->
 ```
@@ -49,17 +56,19 @@ For more example, please check our [TMS examples doc](tag-management-system-exam
 
 ## Configuration
 
-The following TMS configuration options are available for each TMS:
+The following TMS configuration options are available:
 
 - `debug?: boolean` - Should be enabled in development mode only. Enables console logs.
 - `dataLayerProperty?: string` - The name for the data layer object. Provide only if you are using a different name than the default one with the default data-layer data structure (e.g. for `gtm` it's an array-like, while for `aelp` it's an empty object).
 - `events?: AbstractType<CxEvent>[]` - List all the event classes which are to be collected and pushed to the data layer.
 - `collector?: Type<TmsCollector>` - The custom collector service implementation.
+- `gtmId` - Available only for GTM. By providing it, Spartacus will handle the script "injection" and bootstrapping for you.
+- `scriptUrl` - Available only for AELP. By providing it, Spartacus will handle the script "injection" and bootstrapping for you.
 
-To use start collecting events, you need to import the `BaseTmsModule.forRoot()`, and provide a configuration.
+To start collecting events, you need to import the `BaseTmsModule.forRoot()`, and provide a configuration.
 Optionally, you can import the `AepModule` or `GtmModule` to leverage Spartacus' default configuration.
 
-The following is how a full configuration might look like:
+The following is an example of how a full configuration might look like:
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -86,9 +95,11 @@ import { GtmModule } from '@spartacus/tracking/tms/gtm';
     provideConfig({
       tagManager: {
         gtm: {
+          gtmId: 'GTM-XXXXXXX',
           events: [NavigationEvent, CartAddEntrySuccessEvent],
         },
         aep: {
+          scriptUrl: '//assets.adobedtm.com/xxxxxxx/yyyyyyy/launch-zzzzzzz-development.min.js',
           events: [NavigationEvent, CartRemoveEntrySuccessEvent],
         },
       },
