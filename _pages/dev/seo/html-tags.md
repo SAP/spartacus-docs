@@ -6,7 +6,7 @@ feature:
   cx_version: n/a
 ---
 
-HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing the meta tags, and evaluating their values on a regular basis, you can improve the page ranking, click-through-rate and usability of a page. All of this can affect SEO and the user experience.
+HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing meta tags, and evaluating their values on a regular basis, you can improve the page ranking, click-through-rate, and usability of a page. All of this can affect SEO and the user experience.
 
 Page meta tags are written into the head of the HTML. In HTML5, you can use a variety of meta tag properties, such as `title` and `description`. These meta tags are used by search engines, social platforms and crawlers. Some social platforms have introduced their own sets of properties that are specific to their platforms. For example, Facebook uses the Open Graph protocol, which enables any web page to become a rich object in a social graph. Specific meta tags can be used to describe the experience on the social platform. The code snippet below shows a custom page description for Facebook:
 
@@ -40,13 +40,13 @@ For more information on the tags supported by Spartacus, including how data is r
 
 ## Customizing Meta Tags
 
-The content that is used for the meta tags is driven by back end (runtime) data wherever possible. The image tag for the product details page, for example, uses the main product image. Another example is the title for the product details page, which is constructed from the product title, the (first) category, and the brand.
+The content that is used for meta tags is driven by back end (runtime) data wherever possible. The image tag for the product details page, for example, uses the main product image. Another example is the title for the product details page, which is constructed from the product title, the (first) category, and the brand.
 
 If you want to further customize the creation of meta tags, you can implement custom `PageMetaResolvers`. Page resolvers generate the content for the meta data for a specific page. The list of standard page resolvers can be further adjusted to meet your needs.
 
 From version 3.1 onwards, page resolvers are configurable, and this allows you to extend resolvers more easily to meet your needs. The resolvers are taken into account by the `PageMetaService` to construct the `PageMeta` object. The `PageMeta` object is primarily used by the `SeoMetaService` for the creation of the actual tags.
 
-Most of the page meta data is used by crawlers and is therefore not of interest when a user is navigating your application. Each meta data tag can therefore be configured so that it is created on the server (SSR) only. This simplifies building the page and therefore improves performance. However, if you want to debug the meta tags in development, you can use the `pageMeta.enableInDevMode` configuration flag.
+Most of the page meta data is used by crawlers and is therefore not of interest while a user is navigating your application. Accordingly, each meta data tag can be configured so that it is only created on the server (SSR). This simplifies building the page, and therefore improves performance. However, if you want to debug the meta tags in development, you can use the `pageMeta.enableInDevMode` configuration flag.
 
 ### Title Resolver
 
@@ -107,7 +107,7 @@ The `CheckoutPageMetaResolver` demonstrates the usage of the `PageRobotsResolver
 
 {% include docs/feature_version.html content=version_note %}
 
-Introducing canonical URLs could result in a breaking change if you already have a custom canonical URL in place. Accordingly, this feature will only be part of the default configuration starting from version 4.0 of the Spartacus libraries. However, you can use this feature in 3.2 or newer by adding the following resolver configuration:
+Using the Spartacus canonical URLs feature could result in a breaking change if you already have a custom canonical URL in place. Accordingly, this feature will only be part of the default configuration starting from Spartacus 4.0. However, you can use this feature in 3.2 (or newer) by adding the following resolver configuration:
 
 ```ts
 pageMeta: {
@@ -121,9 +121,9 @@ pageMeta: {
 }
 ```
 
-Canonical URLs are used by crawlers to optimize the search index by providing a single URL to a page, which helps avoid results with duplicated content. Without a canonical URL, subtle differences in (generated) URL variations are considered duplicates, which might impact the ranking of the page.
+A canonical URL provides a single URL to a page, and this URL is used by crawlers to optimize the search index. When a page has a canonical URL, it help crawlers to avoid identifying the page as duplicated content. Without a canonical URL, subtle differences in (generated) URLs are considered duplicates, and this could impact the ranking of the page.
 
-URL variations might be introduced by external systems (such as social platforms) or they may be caused by the internal mechanism of the web application. The following are common examples of URL variations:
+URL variations might be introduced by external systems (such as social platforms), or they may be caused by the internal mechanism of the web application. The following are common examples of URL variations:
 
 - links to pages with query parameters from social platforms: the query parameters are different from user to user, but the actual page is the same.
 - product variations that only differ in the selected size or colour: the URL is different, but the content is 99.99% similar.
@@ -136,7 +136,7 @@ The following are a few common techniques for normalizing the URL:
 - remove (certain) query parameters
 - add a trailing slash to all URLs, except in the case of remaining query parameters
 
-The `PageMetaConfig` configuration allows you to configure these aspects of the canonical URL creation. The default configuration for Spartacus adds `https`, the trailing slash, and removes the query parameters, as shown in the following example:
+The `PageMetaConfig` configuration allows you to configure these aspects of the canonical URL creation. The default configuration for Spartacus adds `https`, as well as the trailing slash, and removes the query parameters, as shown in the following example:
 
 ```ts
 pageMeta: {
