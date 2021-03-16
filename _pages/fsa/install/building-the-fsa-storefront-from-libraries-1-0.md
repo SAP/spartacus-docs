@@ -4,11 +4,12 @@ title: Building the FSA Spartacus Storefront using 1.0 Libraries
 
 The following instructions describe how to build an FSA storefront application using published FSA Spartacus 1.x libraries. If you are building Spartacus from the source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
+
 ## Prerequisites
 
 Before carrying out the procedures below, ensure the following front-end and back-end requirements are in place.
 
-## Front-End Development Requirements
+### Front-End Development Requirements
 
 Your Angular development environment should include the following:
 
@@ -16,7 +17,7 @@ Your Angular development environment should include the following:
 - node.js: 10.14.1 or later, < 13.0. The most recent 12.x version is recommended.
 - yarn: v1.15 or later.
 
-## Back-End Server Requirements
+### Back-End Server Requirements
 
 FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end, and makes use of the sample data.
 
@@ -24,6 +25,26 @@ FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end, and
 - Financial Services Accelerator version: Release 2008 (the latest patch - 2008.2) is required.
 
 For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}). 
+
+### Windows Setup 
+
+To successfully install the project in the Windows environment, first make sure that you have installed GitBash.
+ 
+Next, create the .npmrc file at the root of your Angular project. 
+The .npmrc file should contain the following: 
+
+```shell
+shell = "{instalation directory}\\Git\\bin\\bash.exe" 
+script-shell = "{instalation directory}\\Git\\bin\\bash.exe" 
+
+
+Example:
+shell = "C:\\Program Files\\Git\\bin\\bash.exe"
+script-shell = "C:\\Program Files\\Git\\bin\\bash.exe"
+```
+
+Once you have configured this, you should execute all the commands in the procedures that follow from the GitBash console.
+
 
 ## Creating a New Angular App
 
@@ -46,23 +67,10 @@ The following procedure describes how to create a new Angular application with t
      cd mystore
      ```
 
+
 ## FSA Spartacus Project Setup
 
-The easiest way to start a new project is to use Angular Schematics to quickly set up your application. 
-
-In the Windows environment, in order to successfully install the project, first make sure that you have installed GitBash. 
-The next step would be to create the .npmrc file at the root of your Angular project. 
-The .npmrc file should contain the following: 
-
-```shell
-shell = "{instalation directory}\\Git\\bin\\bash.exe" 
-script-shell = "{instalation directory}\\Git\\bin\\bash.exe" 
-
-
-Example:
-shell = "C:\\Program Files\\Git\\bin\\bash.exe"
-script-shell = "C:\\Program Files\\Git\\bin\\bash.exe"
-```
+The easiest way to start a new project is to use Angular Schematics to quickly set up your application.  
 
 You can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
 
