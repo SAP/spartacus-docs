@@ -37,12 +37,13 @@ For non-technical questions and roadmap feedback, you can reach us on our *#help
   
 ## Features Planned for Version 3.0 / August 2021
 
-- **Group Policy** - 
+- **Group Policy** - Opportunity for the insurance companies to offer a B2B2C portal to their group insurance customers and their employees. Through this portal, the B2B companies can manage their employees, create and maintain groups as well as assign employees and plans to these groups. B2B administrators can do this directly on the portal in the My Groups area.
 - **SAP Digital Payment Addon Integration** - This integration offers secure, end-to-end processing of digital payments.
 - **Document Accessibility** - Customers can see all their received and uploaded documents at one glance on the My Documents page in the My Account area.
-- **Claims Details Page** - Enablement of a more detailed claim view, which, besides general information, includes sub-claims, roles/persons involved, and documents connected to the claim.
-- **Enablement of Coupons and Discounts** - Possibility to apply coupons during the checkout process and obtain a discount.  
-- **Address Management** - Customers can add their address once and then use it in the quotation process at their convenience. They can preview and change the address at any time from the My Account area.  
-- **Product Discovery Enhancement** - 
+- **Claims Details Page** - Enablement of customers to see more details about their claims. Besides general information, details about payments, persons involved and associated documents are made available.
+- **Enablement of Coupons and Discounts** - Possibility to apply coupons during the quotation process and to obtain a discount on the policy premium.   
+- **Address Management** - Customers can manage their address at a central place in the My Account area. This address is then consistently used in quotation and application processes.  
+- **Product Discovery Enhancement** - Customers are guided through a structured process to identify the best suitable product for their needs.  
+- **Integration of Live Contract by SyncPilot** - Financial services products can be complex and require advisory of an agent. Now, customers can at any time engage with an agent and seamlessly move from a self-service into a collaborate journey.
 
 
