@@ -59,6 +59,14 @@ For non-technical questions and roadmap feedback, you can reach us on our [Slack
 - **Tag Manager framework** with support for Google and Adobe tag systems, and Google Analytics
 - **Dynamic Theme Selection**
 - **One app for running B2C and B2B stores**
+- **SAP CPQ Integration for Configurable Products**
+  - Bundling and guided-selling scenarios where the bundle in Commerce contains simple (non-configurable) products. The dependencies within this bundle are controlled by the underlying CPQ configurable product
+  - Single-level configurable products in your Commerce Spartacus storefront where the product model resides in SAP CPQ
+  - Configuration page with the most commonly used attribute types, especially attributes with values that are linked to a (non-configurable) product. Attribute types with quantity on attribute or attribute value level are supported
+  - Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
+  - Overview page with all user selections accessible at any time during configuration
+  - Configurable bundles are part of storefront processes such as catalog browsing, product detail page, add to cart, checkout, and order history
+  - For underlying functionality in detail and for features that are currently not supported, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/DRAFT/347450bd6a3d49a9a266964b6c618ca5/2005/en-US)
 - **SAP Customer Data Cloud** integration library (Login and Registration Support)
   - Provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud
   - For more information, see the [SAP Customer Data Cloud Integration Module Documentation](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/4fc06a3539a940e6b707c0c543d44053.html)
