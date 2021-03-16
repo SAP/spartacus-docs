@@ -8,7 +8,7 @@ feature:
 
 HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing the meta tags, and evaluating their values on a regular basis, you can improve the page ranking, click-through-rate and usability of a page. All of this can affect SEO and the user experience.
 
-Page meta tags are written into the head of the HTML. HTML5 supports a variety of meta tag properties, such as `description`. These meta tags are used by search engines, social platforms and crawlers. Some social platforms have introduced their own sets of properties that are specific to their platforms. For example, Facebook uses the Open Graph protocol that enables any web page to become a rich object in a social graph. Specific meta tags can be used to articulate the experience on the social platform. The code snippet below shows a custom page description for Facebook:
+Page meta tags are written into the head of the HTML. In HTML5, you can use a variety of meta tag properties, such as `title` and `description`. These meta tags are used by search engines, social platforms and crawlers. Some social platforms have introduced their own sets of properties that are specific to their platforms. For example, Facebook uses the Open Graph protocol, which enables any web page to become a rich object in a social graph. Specific meta tags can be used to describe the experience on the social platform. The code snippet below shows a custom page description for Facebook:
 
 ```html
 <meta property="og:title" content="Custom title for Facebook" />
@@ -17,34 +17,36 @@ Page meta tags are written into the head of the HTML. HTML5 supports a variety o
 
 ## Structured Data (schema.org)
 
-While page meta tags can be of great help to articulate the page content, crawlers have started to leverage an alternative technique to better understand the content. This technique is called _structured data_, which is supported in Spartacus as well. This is [documented as a separate topic]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}). You can use structured data and meta tags together on a page. Each techniques has it's own specific purpose and use with a fair amount of overlap. Crawlers use both techniques when they evaluate the page content.
+While page meta tags can be of great help to describe the page content, crawlers have started to leverage an alternative technique to better understand the content. This technique is called "structured data", and is also supported in Spartacus.  You can use structured data and meta tags together on the same page. Each technique has its own specific purpose and use, with a fair amount of overlap. Crawlers use both techniques when they evaluate the page content.
+
+For more information on structured data in Spartacus, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 ## Supported Meta Tags
 
-Spartacus supports a certain amount of meta tags, which can be further customized to your needs.
+Spartacus supports the following meta tags, which can be further customized to meet your needs:
 
 | content      | (meta) tag                                                                       |
-| ------------ | -------------------------------------------------------------------------------- | --- |
-| page title   | The page title is written in `<title>` element in the head of the page.          |
+| ------------ | -------------------------------------------------------------------------------- |
+| page title   | The page title is written in the `<title>` element in the head of the page.      |
 | page heading | The page heading is added to the `<h1>` element inside the breadcrumb component. |
 | description  | The page description is added to the `description` meta tag.                     |
 | image        | The (product) image is added to the `og:image` meta tag.                         |
-| robot        | The robot values are written to the `robots` meta tag.                           |     |
-| canonicalUrl | The canonical url is added to a link with the `rel="canonical"` attribute.       |
+| robot        | The robot values are written to the `robots` meta tag.                           |
+| canonicalUrl | The canonical URL is added to a link with the `rel="canonical"` attribute.       |
 
-The actual creation and values of the tags differ per page. For example, the image tag is only added for product detail pages.
+The actual creation of a tag, along with its value, is dependent on the page type. For example, the image tag is only added to the product details pages.
 
-More information on the specific tags and how the data is resolved can be found below in this page.
+For more information on the tags supported by Spartacus, including how data is resolved for each tag, see the related sections below.
 
-## Customize Meta Tags
+## Customizing Meta Tags
 
-The content that is used for the meta tags is driven by backend (runtime) data wherever possible. The image tag for the product detail page, for example, uses the main product image. Another example is the title for the product detail page, which is constructed from the product title, (first) category and brand.
+The content that is used for the meta tags is driven by back end (runtime) data wherever possible. The image tag for the product details page, for example, uses the main product image. Another example is the title for the product details page, which is constructed from the product title, the (first) category, and the brand.
 
-If you like to further customize the creation of meta tas, you can implement custom `PageMetaResolvers`. Page resolvers generate the content for the meta data for a specific page. The list of standard page resolvers can be further adjusted to your needs.
+If you want to further customize the creation of meta tags, you can implement custom `PageMetaResolvers`. Page resolvers generate the content for the meta data for a specific page. The list of standard page resolvers can be further adjusted to meet your needs.
 
-From version 3.1 onwards, page resolvers are configurable so that you can extend resolvers more easily to your needs. The resolvers are taken into account by the `PageMetaService` to construct the `PageMeta` object. The `PageMeta` object is primarily used by the `SeoMetaService` for the creating of the actual tags.
+From version 3.1 onwards, page resolvers are configurable, and this allows you to extend resolvers more easily to meet your needs. The resolvers are taken into account by the `PageMetaService` to construct the `PageMeta` object. The `PageMeta` object is primarily used by the `SeoMetaService` for the creation of the actual tags.
 
-Most of the page meta data is used by crawlers and is therefor not of interest while the user is navigating the application. Each meta data tag can therefor be configured to be created on the server (SSR) only. This will simplify building the page and therefor improves performance. If you want to debug the meta tags in development you can however use the `pageMeta.enableInDevMode` configuration flag.
+Most of the page meta data is used by crawlers and is therefore not of interest when a user is navigating your application. Each meta data tag can therefore be configured so that it is created on the server (SSR) only. This simplifies building the page and therefore improves performance. However, if you want to debug the meta tags in development, you can use the `pageMeta.enableInDevMode` configuration flag.
 
 ### Title Resolver
 
@@ -62,7 +64,7 @@ However, such a title does not look good in the UI, so a different title is used
 
 ### Description Resolver
 
-Each page on the storefront can contain a `description` tag. The description tag is used in the search engine result page to improve the click-through-rate (CTR). It is not used to improve the page ranking. It is generally considered best practice to create a description tag for each page, although there are occasions when the search engine is more capable of generating the description based on the context.
+Each page in the storefront can contain a `description` tag. The description tag is used in the search engine result page to improve the click-through-rate (CTR). It is not used to improve the page ranking. It is generally considered best practice to create a description tag for each page, although there are occasions when the search engine is more capable of generating the description based on the context.
 
 ### Image Resolver
 
@@ -99,7 +101,13 @@ The `CheckoutPageMetaResolver` demonstrates the usage of the `PageRobotsResolver
 
 ### Canonical URLs
 
-This feature is introduced in version 3.2. Since introducing canonical URLs can be a breaking change for those who have already a custom canonical URL in place, this feature will be part of the default configuration in version 4. You can however use this feature in 3.2 and above, by adding the following resolver configuration:
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.2 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+Introducing canonical URLs could result in a breaking change if you already have a custom canonical URL in place. Accordingly, this feature will only be part of the default configuration starting from version 4.0 of the Spartacus libraries. However, you can use this feature in 3.2 or newer by adding the following resolver configuration:
 
 ```ts
 pageMeta: {
@@ -113,22 +121,22 @@ pageMeta: {
 }
 ```
 
-A canonical URL is used by crawlers to optimize the search index by providing the single URL to a page and avoid the notion of so-called duplicated content. Without a canonical URL, subtle differences in (generated) URLs variations are considered duplicates, which might impact the ranking of the page.
+Canonical URLs are used by crawlers to optimize the search index by providing a single URL to a page, which helps avoid results with duplicated content. Without a canonical URL, subtle differences in (generated) URL variations are considered duplicates, which might impact the ranking of the page.
 
-URL variations might be introduced by external systems (such as social platforms) or caused by the internal mechanism of the web application. Common examples of URL variations are:
+URL variations might be introduced by external systems (such as social platforms) or they may be caused by the internal mechanism of the web application. The following are common examples of URL variations:
 
-- links to pages with query parameters from social platforms; the query parameters differ from user to user, but the actual page is the same.
-- product variations that only differ in the selected size or colour; the URL is different, but the content is 99,99% similar.
-- filtering product listing pages by using query or route parameters; the actual page content might be the same using various filters.
+- links to pages with query parameters from social platforms: the query parameters are different from user to user, but the actual page is the same.
+- product variations that only differ in the selected size or colour: the URL is different, but the content is 99.99% similar.
+- filtering product listing pages by using query or route parameters: the actual page content might be the same using various filters.
 
-There are a few common techniques to normalize the URL:
+The following are a few common techniques for normalizing the URL:
 
-- always add `https://`, avoid `http://`
+- always add `https://`, and avoid `http://`
 - always add `www.`
 - remove (certain) query parameters
-- add a trailing slash to all URLs, except in case of remaining query parameters
+- add a trailing slash to all URLs, except in the case of remaining query parameters
 
-The `PageMetaConfig` configuration allows to configure these aspects of the canonical url creation. The default configuration for Spartacus adds https, the trailing slash and removes the query parameters:
+The `PageMetaConfig` configuration allows you to configure these aspects of the canonical URL creation. The default configuration for Spartacus adds `https`, the trailing slash, and removes the query parameters, as shown in the following example:
 
 ```ts
 pageMeta: {
@@ -141,6 +149,6 @@ pageMeta: {
 }
 ```
 
-The `www` subdomain is not added since you might use a subdomain for your storefront that we're not able to detect in an efficient way.
+The `www` subdomain is not added because you might use a subdomain for your storefront that Spartacus cannot detect in an efficient way.
 
-The canonical resolver for the product detail page is using the product data to indicate whether the canonical url should be created for the current product or - in case of a variant product - should use the baseProduct for the creation of the canonical url. Most likely, variations of the same products are very similar in terms of product detail page and should be exposed as the base product to avoid duplicated content.
+The canonical resolver for the product details page uses the product data to indicate whether the canonical URL should be created for the current product or, in the case of a variant product, whether it should use the `baseProduct` for the creation of the canonical URL. Most likely, variations of the same products are very similar in terms of the product details page, and should be exposed as the base product to avoid duplicated content.
