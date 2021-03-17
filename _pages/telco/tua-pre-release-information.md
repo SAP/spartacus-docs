@@ -3,7 +3,7 @@ title: Pre-Release Information
 ---
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated February 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
+_Last updated March 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
@@ -16,19 +16,19 @@ The `3.0.0-next.2` library has been published. We are happy to announce our 3.0 
 
 In the `3.0.0-next.2` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
 
-### Complex Industry Cart
+### Complex Industry Cart (first introduced in 3.0.0-next.1)
 
 The hierarchal representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchal structure, making it easy to support purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchal representation of the cart and order, the exact structure of a bundled product offering is retained. The components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html) in the TUA Help portal.
+
+### Contract Renewals (first introduced in 3.0.0-next.1)
+
+A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire. At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, customers can renew eligible subscriptions, resulting from a simple product offering.
 
 ### Serviceability Check of Simple Product Offerings (SPOs)
 
 In order to determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability check can be run for a specific product offering a customer is interested in, or it can be run at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability (installation address) check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
 
-### Contract Renewals
-
-A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire. At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, customers can renew eligible subscriptions, resulting from a simple product offering.
-
-To set up Spartacus 3.0.0-next.2 and build the TUA Spartacus Storefront Using 3.0.0-next.2 libraries, refer the following sections.
+To set up Spartacus 3.0.0-next.2 and build the TUA Spartacus Storefront using 3.0.0-next.2 libraries, refer the following sections.
 
 ## Installing SAP Commerce Cloud for use with TUA Spartacus
 
