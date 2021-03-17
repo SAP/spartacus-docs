@@ -8,7 +8,7 @@ title: Document Upload
 
 - [Overview](#overview)
 - [Document Upload Usage](#document-upload-usage)
-- [File Upload](#file-upload) 
+- [File Upload](#file-upload)
 
 ## Overview
 
@@ -18,10 +18,9 @@ The Document Upload API creates a document that is assigned to a specified user.
 
 Financial Services Accelerator offers insurance customers the possibility to upload documents during the FNOL process. Once the documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
 
-
 ## Document Upload Usage
 
-Dynamic Forms is a library for creating forms, designed to work with Spartacus application. It allows customers to define forms metadata in JSON configuration and render them on the UI. 
+Dynamic Forms is a library for creating forms, designed to work with the Spartacus application. It allows customers to define forms metadata in a JSON configuration and render them on the UI.
 
 The following example shows a JSON representation of the document upload form control:  
 
@@ -47,11 +46,12 @@ The following example shows a JSON representation of the document upload form co
 }
 ```
 
+The following table describes the properties used in the document upload form control:
 
-| Properties                   | Description                                                 	|
-| :---                         | :---	|
-| `label`                      | Represents a localizable caption for an item in a user interface.                         |
-| `name`                       | Identification of upload form control.           	|
+| Properties                   | Description |
+| ---                          | ---|
+| `label`                      | Represents a localizable caption for an item in a user interface. |
+| `name`                       | Identification of upload form control. |
 | `fieldType`                  | The upload fieldType is used to create interactive upload control for dynamic-based forms.|
 | `required`                   | When present, it specifies that an input field must be filled out before submitting the form.
 | `multiple`                   | Specifies that the user is allowed to enter/select more than one value. Should be set it to " true " if you wish to allow uploading multiple files at once and to " false " for a single file upload (i.e. one by one). |

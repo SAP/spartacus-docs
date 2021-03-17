@@ -6,9 +6,10 @@ title: FSA Inbox
 
 The Inbox feature enables your customers to see all notifications in one place, that is, on the Inbox page of the My Account area. All messages are grouped according to their content, sorted, and then displayed in different tabs.
 
-More details regarding Inbox feature from Financial Services Accelerator can be found
- [here](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/abe842cac00a4f34a756cd720d4c2288.html).
-In addition to that, messages in Inbox can have attachments. The customer will see the paper-clip icon in the message preview as an indicator that the message contains attachments. By clicking on the attachment link, the customer will be redirected to the attachment's URL. 
+More details regarding the Inbox feature from Financial Services Accelerator can be found on the
+ [SAP Help Portal](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/abe842cac00a4f34a756cd720d4c2288.html).
+
+In addition to that, messages in Inbox can have attachments. The customer will see the paper-clip icon in the message preview as an indicator that the message contains attachments. By clicking on the attachment link, the customer will be redirected to the attachment's URL.
 
 ![inbox overview]({{ site.baseurl }}/assets/images/fsa/inbox_attachment.png)
 
@@ -16,8 +17,9 @@ In addition to that, messages in Inbox can have attachments. The customer will s
 
 ## Inbound API
 
-Document inbound is enabled by default with the **financialspastore** extension. FSDocumentPostPersistHook is responsible for creating a message with an attachment for a certain user. Generated Inbox Message can have one document attached or a bundle of documents. If documents are imported as a bundle, they should have the same **bundleId**. 
-See  [Inbound API for Correspondence](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1905/en-US/cfe6ce0fba1e45b88db9e076ec801a61.html?q=fsDocumentPostPersistHook) for more details.
+Document inbound is enabled by default with the **financialspastore** extension. FSDocumentPostPersistHook is responsible for creating a message with an attachment for a certain user. Generated Inbox Message can have one document attached or a bundle of documents. If documents are imported as a bundle, they should have the same **bundleId**.
+
+For more information, see  [Inbound API for Correspondence](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/cfe6ce0fba1e45b88db9e076ec801a61.html?q=fsDocumentPostPersistHook).
 
 ## SPA Components
 

@@ -35,6 +35,7 @@ The following is a description of the various options you can use with the `ng a
 *Note:* Default values will be applied if no option is passed to ng add @spartacus/fsa-schematics command.
 
 To have a clear picture on how some of these properties can be used, user can enter the following command that sets baseSite(s), currency(ies), and language(s):
+
 ```shell
 ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
 ```
@@ -44,7 +45,10 @@ ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd
 When you run `ng add @spartacus/fsa-schematics`, the command does the following:
 
 1. Adds the required dependencies.
-1. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration:
+1. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration.
+
+    The following is an example:
+
     ```shell
     FSStorefrontModule.withConfig({
       backend: {
@@ -70,9 +74,9 @@ When you run `ng add @spartacus/fsa-schematics`, the command does the following:
       }
     }),
     ```
-  1. Imports FSA Spartacus styles to `styles.scss`:
+
+1. Imports FSA Spartacus styles to `styles.scss`:
+
     ```shell
     @import '~@spartacus/fsa-styles/index
     ```
-
-

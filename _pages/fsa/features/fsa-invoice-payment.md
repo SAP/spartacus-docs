@@ -4,7 +4,7 @@ title: FSA Invoice Payment
 
 ## Overview
 
-Two payment options are available in the FSA Checkout Process: credit card and invoice. 
+Two payment options are available in the FSA Checkout Process: credit card and invoice.
 
 ![payment details]({{ site.baseurl }}/assets/images/fsa/payment_details.png)
 
@@ -18,7 +18,6 @@ On the other hand, if the customer selects invoice as a payment method, there is
 Once the policy is created, the information about the chosen payment method is available on the Policy Details page:
 
 ![policy details]({{ site.baseurl }}/assets/images/fsa/policy_details_payment.png)
-
 
 ## SPA Components
 

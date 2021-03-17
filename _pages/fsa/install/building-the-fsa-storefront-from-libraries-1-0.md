@@ -4,7 +4,6 @@ title: Building the FSA Spartacus Storefront using 1.0 Libraries
 
 The following instructions describe how to build an FSA storefront application using published FSA Spartacus 1.x libraries. If you are building Spartacus from the source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
-
 ## Prerequisites
 
 Before carrying out the procedures below, ensure the following front-end and back-end requirements are in place.
@@ -24,14 +23,14 @@ FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end, and
 - SAP Commerce version: Release 2005 (the latest patch is recommended - 2005.5).
 - Financial Services Accelerator version: Release 2008 (the latest patch - 2008.2) is required.
 
-For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}). 
+For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}).
 
-### Windows Setup 
+### Windows Setup
 
 To successfully install the project in the Windows environment, first make sure that you have installed GitBash.
- 
-Next, create the .npmrc file at the root of your Angular project. 
-The .npmrc file should contain the following: 
+
+Next, create the .npmrc file at the root of your Angular project.
+The .npmrc file should contain the following:
 
 ```shell
 shell = "{instalation directory}\\Git\\bin\\bash.exe" 
@@ -44,7 +43,6 @@ script-shell = "C:\\Program Files\\Git\\bin\\bash.exe"
 ```
 
 Once you have configured this, you should execute all the commands in the procedures that follow from the GitBash console.
-
 
 ## Creating a New Angular App
 
@@ -67,7 +65,6 @@ The following procedure describes how to create a new Angular application with t
      cd mystore
      ```
 
-
 ## FSA Spartacus Project Setup
 
 The easiest way to start a new project is to use Angular Schematics to quickly set up your application.  
@@ -82,22 +79,21 @@ For a detailed explanation, visit [FSA Schematics]({{ site.baseurl }}{% link _pa
 
 For a full list of available parameters, please visit Spartacus Schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
-
-### Install dependencies ###  
+### Installing Dependencies
 
 Install dependencies needed by your FSA Spartacus app with the following command:
 
-```
+```shell
 yarn install
 ```
 
-### Check app.module.ts for base URL and other settings ###
+### Checking app.module.ts for base URL and Other Settings
 
-Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup. 
+Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup.
 
 You should add the following ngrx store module with specified runtime checks option in the imports section:
 
-```
+```ts
     StoreModule.forRoot({}, {
       runtimeChecks: {
         strictStateImmutability: false,
@@ -105,13 +101,16 @@ You should add the following ngrx store module with specified runtime checks opt
       },
     }),
 ```
-It also requires ngrx import:
-```
+
+It also requires an `ngrx` import:
+
+```ts
 import { StoreModule } from '@ngrx/store';
 ```
 
 After FSA is installed your app.module.ts should look like following:
-```
+
+```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
@@ -159,18 +158,19 @@ export class AppModule { }
 ```
 
 For example, check:
+
 - `baseUrl`: Points to your SAP Commerce server
 - `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2005
 - `context`: Defines the site context such as base site, language, and currency.
 - `authentication`: Defines authorization of financial customer
- 
+
 **Note:** If your setup failed and for some reason your app.module.ts is not configured like described please check one more time requirements for fsa schematics usage, Angular CLI version should be <= 10.0!
 
-### Starting your Spartacus app ###  
+### Starting Your Spartacus App
 
 Start your app with the following command:
 
-```
+```shell
 yarn start
 ```
 
@@ -180,6 +180,4 @@ To display your storefront, assuming everything is installed locally, browse to 
 
 **Note:** If your storefront doesn't appear, you probably have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/financial/cms/pages`, and then accept the privacy certificate. This step is necessary because your browser will block calls to app which makes calls to localhost:9002, due to security settings. To see the browser message, right-click in your browser, select *Inspect*, then click *Console*.
 
-
 Congratulations! You've built your first FSA Spartacus storefront.
-
