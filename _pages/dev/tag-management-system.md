@@ -25,7 +25,7 @@ Before you continue reading this page, it's highly recommended to first get your
 
 Spartacus offers an easy way to setup the TMS solutions that are supported out of the box:
 
-- for GTM, you can provide the GTM ID through the `gtmId` configuration property (see the [configuration](#configuration) section). Spartacus will run the _iife_ function (provided by GTM) which will "inject" the GTM script into the DOM.
+- for GTM, you can provide the GTM ID through the `gtmId` configuration property (see the [configuration](#configuration) section). Spartacus will run the immediately invoked function expression (IIFE)  (provided by GTM) which will "inject" the GTM script into the DOM.
 - for AELP, you can just provide the script URL through the `scriptUrl` configuration property (see the [configuration](#configuration) section). Spartacus will use this URL to "inject" the script into the DOM.
 
 This default behavior can be extend. For more, see the [customizations](#Customizations) section.

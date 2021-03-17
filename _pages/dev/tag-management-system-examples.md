@@ -1,4 +1,6 @@
-# Tag Management System Examples
+---
+title: Tag Management System Examples
+---
 
 This doc will briefly explain how to setup some of the most useful TMS solution on the market. For more details on the configuration and extensibility part, please check the main [TMS docs](tag-management-system.md).
 
