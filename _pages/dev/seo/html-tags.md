@@ -6,7 +6,7 @@ feature:
   cx_version: n/a
 ---
 
-HTML tags, and meta tags in particular, are used by search engines, social platforms, and bots to display page meta data on their platforms. By carefully preparing meta tags, and evaluating their values on a regular basis, you can improve the page ranking, click-through-rate, and usability of a page. All of this can affect SEO and the user experience.
+HTML tags, and meta tags in particular, allow search engines, social platforms, and bots to use page meta data in their platforms. By carefully preparing meta tags, and evaluating their values on a regular basis, you can improve the page ranking, click-through-rate, and usability of a page. All of this can affect SEO and the user experience.
 
 Page meta tags are written into the head of the HTML. In HTML5, you can use a variety of meta tag properties, such as `title` and `description`. These meta tags are used by search engines, social platforms and crawlers. Some social platforms have introduced their own sets of properties that are specific to their platforms. For example, Facebook uses the Open Graph protocol, which enables any web page to become a rich object in a social graph. Specific meta tags can be used to describe the experience on the social platform. The code snippet below shows a custom page description for Facebook:
 
@@ -17,7 +17,7 @@ Page meta tags are written into the head of the HTML. In HTML5, you can use a va
 
 ## Structured Data (schema.org)
 
-While page meta tags can be of great help to describe the page content, crawlers have started to leverage an alternative technique to better understand the content. This technique is called "structured data", and is also supported in Spartacus.  You can use structured data and meta tags together on the same page. Each technique has its own specific purpose and use, with a fair amount of overlap. Crawlers use both techniques when they evaluate the page content.
+While page meta tags can be of great help to describe the page content, crawlers have started to leverage an alternative technique to better understand the content. This technique is called "structured data", and is also supported in Spartacus. You can use structured data and meta tags together on the same page. Each technique has its own specific purpose and use, with a fair amount of overlap. Crawlers use both techniques when they evaluate the page content.
 
 For more information on structured data in Spartacus, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
@@ -34,7 +34,7 @@ Spartacus supports the following meta tags, which can be further customized to m
 | robot        | The robot values are written to the `robots` meta tag.                           |
 | canonicalUrl | The canonical URL is added to a link with the `rel="canonical"` attribute.       |
 
-The actual creation of a tag, along with its value, is dependent on the page type. For example, the image tag is only added to the product details pages.
+The actual creation of a tag, along with its value, depends on the page type. For example, the image tag is only added to the product details pages.
 
 For more information on the tags supported by Spartacus, including how data is resolved for each tag, see the related sections below.
 
@@ -80,11 +80,9 @@ You can implement the `PageImageResolver` to resolve a specific image for a spec
 
 ### Robots Tag
 
-You can use the `robots` meta tag to control whether or not a page is indexed. The following is an example:
+You can use the `robots` meta tag to control whether or not a page is indexed by a search index. The robot information can guide the search index to indicate whether the page should be indexed and whether the links on the page should be followed.
 
-```html
-<meta name="robots" value="FOLLOW, NOINDEX" />
-```
+Most of the pages should be indexed and followed. However, some pages contain private information, or irrelevant content that should not be indexed. While the robot information can be resolved by page resolvers, Spartacus 3.1 introduces a standard page resolver that populates the page robot information provided by the CMS page data. If you are using SAP Commerce Cloud 2005 or newer, you can maintain robot information in the CMS.
 
 The following table lists the values that can be used to guide search engines:
 
