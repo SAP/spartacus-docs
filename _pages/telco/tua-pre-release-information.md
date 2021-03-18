@@ -369,6 +369,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             premiseLookup: {
             baseUrl: 'http://localhost:9003',
             prefix: '/premise/v1/',
+            },
+            tmf_query_service_qualification: {
+            baseUrl: 'http://localhost:8080',
+            prefix: '/tmf-api'
             }
         },
         context: {
@@ -393,6 +397,9 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             requested_number_of_timeslots: 5,
             end_date_of_timeslots: 3,
             }
+        },
+        deliveryMode: {
+            default_delivery_mode: 'not-applicable'
         }
         }),
         ConfigModule.withConfig({ i18n: { resources: tmaTranslations } }),
