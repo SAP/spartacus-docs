@@ -26,6 +26,7 @@ This document describes what is included in all FSA Spartacus since the initial 
 *The various documentation links provided point to SAP Commerce Cloud platform or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 ## Release 2.0
+*Release 2.0 libraries published March 17, 2021*
   
 List of features delivered with 2.0:
 - **Additional Policy Changes**
