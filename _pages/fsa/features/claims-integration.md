@@ -2,6 +2,8 @@
 title: Claims Integration
 ---
 
+**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+
 ## Upload section
 
 On the second step of the Incident Report, an Upload control has been added. It serves the purpose of handling files uploaded by users in the Claim process.
