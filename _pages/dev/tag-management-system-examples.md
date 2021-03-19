@@ -2,14 +2,13 @@
 title: Tag Management System Examples
 ---
 
-This doc will briefly explain how to setup some of the most useful TMS solution on the market. For more details on the configuration and extensibility part, please check the main [TMS docs](tag-management-system.md).
+There are a number of popular solutions that you can integrate with the Spartacus tag management system (TMS). The following sections provide examples of how to set up Spartacus with some of most common TMS solutions, such as Google Tag Manager (GTM), Google Analytics (GA), and Adobe Experience Platform Launch (AEPL).
 
-As mentioned in the [setup](tag-management-system.md#setup) instructions, Spartacus can handle the script "injection" to the DOM for you. This only applies to the TMS solutions that are supported out of the box (GTM and AELP).
-However, if you want to have the control over this part, or you have some complex use case, you can do it yourself by looking at the examples below.
+As mentioned in the "Setup" section of the main [Tag Management System]({{ site.baseurl }}{% link _pages/dev/tag-management-system.md %}) documentation, if you are using GTM or AEPL, Spartacus can handle the script "injection" to the DOM for you. However, if you prefer to have more control over the process, or if you have a complex use case, you can use the examples in the following sections to implement the setup according to your needs.
 
-## Google Tag Manager (GTM)
+## Google Tag Manager
 
-GTM requires an _iife_ function to be included in the DOM, which you can do in your `index.html`. The code snippet will look something like this:
+GTM requires an _immediately invoked function expression_ (IIFE) to be included in the DOM, which you can do by adding a script to your `index.html`. The following is an example:
 
 ```html
 <!-- Google Tag Manager -->
@@ -28,13 +27,11 @@ GTM requires an _iife_ function to be included in the DOM, which you can do in y
 <!-- End Google Tag Manager -->
 ```
 
-For more details on this, please check the [official docs](https://developers.google.com/tag-manager/quickstart).
+For more information, see the [Google Tag Manager documentation](https://developers.google.com/tag-manager/quickstart).
 
-## Google Analytics (GA)
+## Google Analytics
 
-As both GA and GTM observe the same `dataLayer`, you can leverage Spartacus' out-of-the-box support for GTM. You just need to include a different code snippet to your `index.html`.
-
-As per the [official GA docs](https://developers.google.com/analytics/devguides/collection/gtagjs), the code snippet should looks something like:
+Google Analytics observes the same `dataLayer` as GTM, so you can set up GA in Spartacus the same way you set up GTM. In this case, you include a GA-specific script in your `index.html`. The following is an example:
 
 ```html
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -53,59 +50,67 @@ As per the [official GA docs](https://developers.google.com/analytics/devguides/
 </script>
 ```
 
-## GTM and GA
+For more information, see the [Google Analytics documentation](https://developers.google.com/analytics/devguides/collection/gtagjs).
 
-Running both GTM and GA _at the same time_ is possible if you have a need for such a use case. Although, you should be aware of all the potential clashes of doing so.
-We won't go in the details on this topic, and we will focus on enabling both in Spartacus.
+## Google Tag Manager and Google Analytics
 
-As Spartacus offers an out-of-the-box support for GTM, you can just refer to [this section](#Google-Tag-Manager-GTM).
+Running both GTM and GA _at the same time_ is possible in Spartacus, although you should be aware of the potential clashes that may arise. This section only focuses on enabling both solutions in Spartacus. Any description of potential issues when running GMT and GA at the same time is out-of-scope for this document.
 
-Enabling GA will requires you to do this [step](#Google-Analytics-GA), plus some coding.
-First, you can create a new collector service, e.g. `ga-collector.service`. Because the logic is similar to Spartacus' `GtmCollectorService` (from `@spartacus/tracking/tms/gtm`), you can just extend it:
+The following procedure describes how to set up GTM and GA to run in Spartacus at the same time.
 
-```typescript
-import { Injectable } from "@angular/core";
-import { GtmCollectorService } from "@spartacus/tracking/tms/gtm";
+1. Set up GMT, as described in the [Google Tag Manager](#google-tag-manager) section, above.
 
-@Injectable({ providedIn: "root" })
-export class GaCollectorService extends GtmCollectorService {}
-```
+2. Set up GA, as described in the [Google Analytics](#google-analytics) section, above.
 
-Then, configure it with the other TMS solutions, like so:
+3. Create a new collector service, such as `ga-collector.service`.
 
-```typescript
-import { NgModule } from '@angular/core';
-import {
-  CartAddEntrySuccessEvent,
-  CartRemoveEntrySuccessEvent,
-  provideConfig,
-} from '@spartacus/core';
-import { TmsConfig } from '@spartacus/tracking/tms/core';
-import { GaCollectorService } from './ga-collector.service';
+    The logic should be similar to the logic in the Spartacus `GtmCollectorService`, so you can simply extend `GtmCollectorService`, as shown in the following example:
 
-@NgModule({
-  imports: [
-    ...,
-  ],
-  providers: [
-    ...,
-    provideConfig({
-      tagManager: {
+    ```typescript
+    import { Injectable } from "@angular/core";
+    import { GtmCollectorService } from "@spartacus/tracking/tms/gtm";
+
+    @Injectable({ providedIn: "root" })
+    export class GaCollectorService extends GtmCollectorService {}
+    ```
+
+4. Configure the `GaCollectorService` with the other TMS solutions, as shown in the following example:
+
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import {
+      CartAddEntrySuccessEvent,
+      CartRemoveEntrySuccessEvent,
+      provideConfig,
+    } from '@spartacus/core';
+    import { TmsConfig } from '@spartacus/tracking/tms/core';
+    import { GaCollectorService } from './ga-collector.service';
+
+    @NgModule({
+      imports: [
         ...,
-        ga: {
-          collector: GaCollectorService,
-          events: [...],
-        },
-      },
-    } as TmsConfig),
-  ],
-})
-export class AppModule {}
-```
+      ],
+      providers: [
+        ...,
+        provideConfig({
+          tagManager: {
+            ...,
+            ga: {
+              collector: GaCollectorService,
+              events: [...],
+            },
+          },
+        } as TmsConfig),
+      ],
+    })
+    export class AppModule {}
+    ```
 
-## Adobe Experience Launch Platform (AELP)
+    You should now be able to run both GTM and GA in Spartacus at the same time.
 
-AELP requires you to include a code snippet provided by AELP, which you can do in your `index.html`. The code snippet will look something like this:
+## Adobe Experience Platform Launch (AEPL)
+
+AEPL requires you to include a code snippet provided by AEPL, which you can add to your `index.html`. The code snippet should look something like the following example:
 
 ```html
 <script
@@ -114,4 +119,4 @@ AELP requires you to include a code snippet provided by AELP, which you can do i
 ></script>
 ```
 
-For more details on this, please check the [official docs](https://experienceleague.adobe.com/docs/launch/using/get-started/quick-start.html?lang=en#libraries-and-builds).
+For more information, see the [Adobe Experience Platform Launch documentation](https://experienceleague.adobe.com/docs/launch/using/get-started/quick-start.html?lang=en#libraries-and-builds).
