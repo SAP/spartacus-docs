@@ -2,6 +2,8 @@
 title: FSA Policy Change
 ---
 
+**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+
 ## Contents
 
 - [Overview](#overview)
