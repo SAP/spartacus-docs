@@ -8,9 +8,17 @@ FSA Spartacus schematics allow you to install FSA Spartacus libraries in your pr
 
 Before using Spartacus schematics, ensure that the following requirements are met:
 
-- Your Angular CLI is on version 9.1 or higher, < 10.0.
-- Your application is using Angular 9 or higher, < 10.0.
-- Your Node version is less than or equal to version 13.
+RELEASE 1.0
+
+- Angular CLI: Version 9.1 or later, < 10.0
+- node.js: Version 10.14.1 or later, < 13.0
+- yarn: Version 1.15 or later
+
+RELEASE 2.0
+
+- Angular CLI: Version 10.1 or later, < 11.
+- node.js: The most recent 12.x version is recommended, < 13.
+- yarn: Version 1.15 or later
 
 ## Adding FSA Spartacus Libraries to Your Angular Project
 

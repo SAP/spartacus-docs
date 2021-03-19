@@ -2,6 +2,8 @@
 title: FSA Order Splitting
 ---
 
+**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+
 ## Overview
 
 Order splitting offers a possibility for insurance carriers to sell third-party products together with insurance products.

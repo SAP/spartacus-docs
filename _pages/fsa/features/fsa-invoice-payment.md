@@ -2,6 +2,8 @@
 title: FSA Invoice Payment
 ---
 
+**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+
 ## Overview
 
 Two payment options are available in the FSA Checkout Process: credit card and invoice.
