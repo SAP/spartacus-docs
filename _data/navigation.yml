@@ -442,8 +442,11 @@ docs:
     - title: Financial Services Accelerator Storefront Development Guide
       url: /about-fsa-spartacus/
       children:
-          - title: "Release Information for FSA Spartacus"
+          - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
+            subchildren:
+                - title: "Updating to Version 2.0"
+                  url: /fsa-updating-to-version-2/
           - title: "Roadmap for FSA Spartacus"
             url: /fsa-spartacus-roadmap/
           - title: "FSA Spartacus FAQ"
@@ -451,13 +454,20 @@ docs:
           - title: "Getting Started with FSA Spartacus ➢"
             url: /getting-started-with-fsa-spartacus/
             subchildren:
-                - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus ➢"
+                - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus ➢"
                   url: /installing-sap-commerce-with-fsa-spartacus/
                   underchildren:
-                      - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 1.0"
-                        url: /installing-sap-commerce-with-fsa-spartacus-1-0/
-                - title: "Building the FSA Storefront from Libraries"
-                  url: /building-the-fsa-storefront-from-libraries/  
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-2-0/
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 1.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-1-0/
+                - title: "Building the FSA Storefront from Libraries ➢"
+                  url: /building-the-fsa-storefront-from-libraries/
+                  underchildren:
+                    - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-2-0/
+                    - title: "Building the FSA Spartacus Storefront using 1.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-1-0/
                 - title: "FSA Schematics"
                   url: /fsa-schematics/  
           - title: "FSA Spartacus Features ➢"
@@ -470,6 +480,8 @@ docs:
                         url: /json-structure/
                       - title: "Form Controls"
                         url: /form-controls/
+                      - title: "Document Upload"
+                        url: /form-controls-document-upload/
                       - title: "Adding a Form to a Simple Page"
                         url: /adding-form/
                       - title: "Styling"
@@ -483,7 +495,15 @@ docs:
                 - title: "Inbox"
                   url: /fsa-inbox/
                 - title: "Checkout"
-                  url: /fsa-checkout/                 
+                  url: /fsa-checkout/
+                - title: "Claims Integration"
+                  url: /claims-integration/
+                - title: "Order Splitting"
+                  url: /fsa-order-splitting/
+                - title: "Invoice Payment"
+                  url: /fsa-invoice-payment/
+                - title: "Policy Change"
+                  url: /fsa-policy-change/
 
 
     - title: Contributing to Spartacus
