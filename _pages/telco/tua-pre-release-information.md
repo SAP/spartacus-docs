@@ -18,7 +18,7 @@ In the `3.0.0-next.2` pre-release version, support is provided for the 2102 rele
 
 ### Complex Industry Cart (first introduced in 3.0.0-next.1)
 
-The hierarchal representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchal structure, making it easy to support purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchal representation of the cart and order, the exact structure of a bundled product offering is retained. The components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html) in the TUA Help portal.
+The hierarchal representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchal structure, making it easy to support purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchal representation of the cart and order, the exact structure of a bundled product offering is retained. The components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html) on the SAP Help portal.
 
 ### Contract Renewals (first introduced in 3.0.0-next.1)
 
@@ -26,7 +26,7 @@ A contract renewal is the stage in the contract lifecycle where the contract is 
 
 ### Serviceability Check of Simple Product Offerings (SPOs)
 
-In order to determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability check can be run for a specific product offering a customer is interested in, or it can be run at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability (installation address) check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
+In order to determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability check can be run for a specific product offering a customer is interested in, or it can be run at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability Check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) on the SAP Help portal.
 
 To set up Spartacus 3.0.0-next.2 and build the TUA Spartacus Storefront using 3.0.0-next.2 libraries, refer the following sections.
 
@@ -525,11 +525,11 @@ You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Bu
 
 The following features are included as part of this pre-release:
 
-### **Composite Pricing**
+### Composite Pricing
 
 Composite Pricing brings forth a new way for handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner.  Product Offering Prices are now hierarchical; that is, they can be grouped together and they are also re-usable. For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
-### **Price Alteration Discounts**
+### Price Alteration Discounts
 
 The Price Alteration Discounts works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges and usage-based charges. With price alteration discounts, customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
 
