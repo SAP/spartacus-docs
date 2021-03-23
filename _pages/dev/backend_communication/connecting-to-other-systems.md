@@ -4,6 +4,11 @@ title: Connecting to Other Systems
 
 The system landscape of a Commerce Cloud solution is made up of various systems, which are typically orchestrated on various application layers, including the front end. Spartacus connects to SAP Commerce Cloud APIs by default, but the underlying framework can be used to work with other systems as well. This is done by so-called "connectors", which can be added to connect to other systems.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Component Data Binding
 
 Spartacus delivers view logic that binds to (complex) commerce data and logic in the Commerce Cloud back end. Angular provides standards for data binding, and relies on reactive programming as the best-practice, standard pattern for data binding. The following best practices are used for data binding in Spartacus:

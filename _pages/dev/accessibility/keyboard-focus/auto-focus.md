@@ -6,6 +6,11 @@ The `cxFocus` directive provides auto focus capabilities for a single-page exper
 
 The auto focus feature of the `cxFocus` directive focuses an element when the host element is focused. The element of choice that is focused is driven by configuration. Moreover, the previously focused element can be persisted, so that it will be refocused during the user session.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Default Behavior
 
 The default configuration (`autofocus: true`) selects the first focusable element of the inner DOM of the host element. Focusable elements are elements that receive focus when you tab through the DOM. The focus is primarily driven by the semantic nature of the element, but can also be forced by using the `tabindex` attribute. In the below example, the first focusable element is the close button:
