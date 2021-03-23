@@ -76,7 +76,7 @@ You can carry out all of the following steps after you have set up your Spartacu
         CdsModule.forRoot({
           cds: {
             tenant: 'my-tenant',
-            baseUrl: 'https://api.us.context.cloud.sap',
+            baseUrl: 'https://my-tenant.api.us.context.cloud.sap',
             endpoints: {
               strategyProducts: '/strategy/${tenant}/strategies/${strategyId}/products',
             },
@@ -96,7 +96,7 @@ You can carry out all of the following steps after you have set up your Spartacu
     The following is a summary of the parameters of the `CdsModule`:
 
     - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
-    - **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment.
+    - **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment. In particular, replace `my-tenant` with your actual CDS tenant ID, and also replace `.us` with `.eu` if you are working with the EU environment of CDS.
     - **strategyProducts:** Set this value as shown in the example.
     - **defaultCarouselViewportThreshold:** With Commerce Cloud 1905.14 or newer, you can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Context-Driven Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.
     - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
