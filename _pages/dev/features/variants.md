@@ -23,6 +23,11 @@ For more information, see the following:
 - [Styles and Size Variants in the SAP Commerce Product Cockpit](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8af06a1b8669101483c085453d75849e.html)
 - [Modeling Product Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html)
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Enabling Variants
 
 You enable variants by configuring a CMS component. The following is an example from `product-variants.module.ts`:

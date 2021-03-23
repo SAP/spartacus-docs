@@ -12,11 +12,18 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
+## Overview
+
 B2B Commerce Organization for Spartacus allows companies to manage purchases made through a Spartacus commerce web site.
 
 The following sections describe how to customize and configure the Spartacus Organization feature library. For information about using B2B Commerce Organization in Spartacus, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
 
 For in-depth information on this feature, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Prerequisites
 
