@@ -4,7 +4,7 @@ title: Release Information for All Versions of Spartacus Libraries
 
 **Latest news: Final 3.0 published December 17, 2020**
 
-*Last updated December 18, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated February 25, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 **Table of Contents**
 
