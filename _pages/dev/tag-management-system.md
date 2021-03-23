@@ -55,7 +55,7 @@ For see additional setup examples with Google Analytics and AEPL, see [Tag Manag
 The following TMS configuration options are available:
 
 - `debug` is a boolean that enables the console log. It should only be enabled in development mode.
-- `dataLayerProperty` is a string that names the data layer object. You only need to provide the `dataLayerProperty` if you are not using the default name for the default data layer data structure. In the case of GTM, the default data structure for the data layer is an array-like object, and in the case of AEPL, it is an empty object.
+- `dataLayerProperty` is a string that names the data layer object. You only need to provide the `dataLayerProperty` if you are not using the default name for the data layer.
 - `events` is an `AbstractType<CxEvent>[]` that lists all the event classes that are to be collected and pushed to the data layer.
 - `collector` is a `Type<TmsCollector>`, and is the custom collector service implementation.
 - `gtmId` is only available for GTM. When you provide `gtmId`, Spartacus handles the script "injection" and bootstrapping for you.
@@ -213,7 +213,7 @@ In the example above, the Spartacus `NavigationEvent` is re-mapped to a `CustomN
 
 **Note:** To bootstrap the logic, you need to inject your `CustomNavigationEventBuilder` somewhere, such as in a dummy module that is being imported, for example, to the `AppModule`.
 
-If you use this approach, you need to pass your `CustomNavigationEvent` to the `tms.adobeLaunch.events` config array, instead of the default `NavigationEvent`.
+If you use this approach, you need to pass your `CustomNavigationEvent` to the relevant config array (such as `tagManager.gtm.events` or `tagManager.aep.events`), instead of the default `NavigationEvent`.
 
 #### Overriding mapEvents() in the TMS Service
 
