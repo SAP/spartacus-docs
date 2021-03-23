@@ -6,23 +6,10 @@ title: Release Information for All Versions of Spartacus Libraries
 
 *Last updated December 18, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-Contents:
+**Table of Contents**
 
-- [Introduction](#introduction)
-- [Release 3.1](#release-31)
-- [Release 3.0](#release-30)
-- [Release 2.1](#release-21)
-- [Release 2.0](#release-20)
-- [Release 1.5](#release-15)
-- [Release 1.4](#release-14)
-- [Release 1.3](#release-13)
-- [Release 1.2](#release-12)
-- [Release 1.1](#release-11)
-- [Release 1.0](#release-10)
-- [About Spartacus Releases](#about-spartacus-releases)
-- [How Spartacus is Versioned](#how-spartacus-is-versioned)
-- [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version)
-- [Future Releases](#future-releases)
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Introduction
 
