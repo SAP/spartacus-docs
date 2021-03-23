@@ -14,6 +14,11 @@ With this setup, CMS components can be customized in the following ways:
 | Replace component | Configure a custom component                         | Provide a custom `BannerComponent`                   |
 | Customize logic   | Configure a custom service                           | Provide a custom `SearchBoxComponentService`         |
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Configuring Custom Components
 
 There are two types of components that can be configured: angular components, and web components (for which we currently provide experimental support).

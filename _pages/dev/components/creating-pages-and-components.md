@@ -8,7 +8,12 @@ This section will detail how to create a new Page or Component inside Spartacus.
 
 Spartacus receives the page with the list of slots and component and can use it to render the appropriate components.
 
-*Note* if you want to replace an existing component please refer to [Configuring Custom Components]({{ site.baseurl }}/customizing-cms-components/#configuring-custom-components)
+**Note:** if you want to replace an existing component please refer to [Configuring Custom Components]({{ site.baseurl }}/customizing-cms-components/#configuring-custom-components).
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Creating a New Page
 

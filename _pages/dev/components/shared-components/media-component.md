@@ -22,6 +22,11 @@ There are two main types of images that are rendered in Spartacus: product image
 
 **Note:** Icons are a special type of image and are not rendered with the media component. For more information, see [Icon Library]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %}).
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Responsive Media
 
 The image structure that is used in SAP Commerce Cloud consists of a media container that holds multiple media items. The media items inside a container are distinguished by a media format. The media format is used to provide the same media for various different screen sizes or placements.

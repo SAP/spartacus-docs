@@ -14,6 +14,11 @@ Each customer has different pagination requirements, especially with regards to 
 
 For the Product List in particular, the pagination component can be replaced by the infinite scroll feature. For more information, see [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %}).
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Pagination Structure
 
 The pagination component is comprised of anchor links. The anchor links can be used as `href` links, or as action links (such as `onclick` events). The type of anchor links that are rendered depends on the number of total pages, as well as the configuration that is applied. If you apply the full structure, the following pagination navigation is available:

@@ -8,6 +8,11 @@ feature:
 
 The banner component is used to render different banners that are created in the CMS. Banners contain one or multiple images, as well as some optional content, such as a header. A banner is often used to link to other content.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## CMS Component Binding
 
 There are multiple banner component types in the CMS, as follows:
