@@ -240,6 +240,11 @@ docs:
                   url: /static-context-configuration/
           - title: "Event Service"
             url: /event-service/
+          - title: "Tag Management System ➢"
+            url: /tag-management-system/
+            subchildren:
+                - title: "Tag Management System Examples"
+                  url: /tag-management-system-examples/
           - title: "PWA ➢"
             url: /pwa-home/
             subchildren:
