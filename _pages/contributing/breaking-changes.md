@@ -49,7 +49,7 @@ After:
   ) {}
 ```
 
-That would be a breaking change when upgrading to that minor version for a customer who already extended our service in his codebase, calling `super()` constructor with less parameters.
+That would cause a breaking change (compilation error) when upgrading to that minor version by a customer who already extended our service in his codebase, calling `super()` constructor with less parameters.
 
 ```ts
    export class CustomService extends SpartacusService {
