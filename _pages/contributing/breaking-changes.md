@@ -45,7 +45,7 @@ After:
 ```ts
   constructor(
     protected promotionService: PromotionService,
-    cartItemContextSource: CartItemContextSource
+    protected cartItemContextSource: CartItemContextSource
   ) {}
 ```
 
