@@ -30,3 +30,60 @@ Spartacus releases follow semantic versioning, which means breaking changes are 
 - Changing default configurations.
 - Changing any CSS or SCSS attributes, classes or selectors.
 - Changing anything that affects the rendering of the existing DOM.
+
+## How to add new constructor dependencies in minor versions
+Let's say we want to add a new constructor dependency `cartItemContextSource` in a minor version. For example:
+
+Before:
+```ts
+  constructor(
+    protected promotionService: PromotionService,
+  ) {}
+```
+
+After:
+```ts
+  constructor(
+    protected promotionService: PromotionService,
+    cartItemContextSource: CartItemContextSource
+  ) {}
+```
+
+That would be a breaking change when upgrading to that minor version for a customer who already extended our service in his codebase, calling `super()` constructor with less parameters.
+
+```ts
+   export class CustomService extends SpartacusService {
+     constructor(promotionService: PromotionService){
+       super(promotionService);
+       /* customer's constructor logic here */
+     }
+   }
+   ```
+
+### Ideal solution
+```ts
+  // TODO(#10946): make CartItemContextSource a required dependency
+  constructor(
+    promotionService: PromotionService,
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
+    cartItemContextSource: CartItemContextSource
+  );
+  /**
+   * @deprecated since 3.1
+   */
+  constructor(promotionService: PromotionService);
+  constructor(
+    protected promotionService: PromotionService,
+    @Optional() protected cartItemContextSource?: CartItemContextSource
+  ) {}
+```
+
+#### MUST HAVEs:
+
+- Add `?` to make the new constructor parameter optional. Otherwise customer passing less arguments will get a compilation error.
+-  In the latter code of your class, be prepared that the new constructor parameter might be undefined. Please simply access any properties of the new dependency with `?.` (optional chaining), for example `this.cartItemContextSource?.item$`. Otherwise a customer extending our class and passing less params to the `super()` constructor, will get a runtime error because there is no property `item$` of undefined.
+- If your new constructor dependency **might** be not provided for your class (i.e. the dependency service is not `providedIn: 'root'` or is provided conditionally in the DOM, etc.), then precede it with `@Optional()`. Otherwise when the dependency is conditionally NOT provided customers, customer will get an Angular runtime error (that it can't resolve the dependency). Preceding with `@Optional()` tells Angular to fallback gracefully to `null` value when cannot inject.
+
+#### NICE TO HAVEs:
+- add inline comment `// TODO(#ticket-number): make X a required dependency`
+- add 2 alternative **declarations** of the constructor above the implementation. **The top one** has to be **the newest one**. (It's because in prod SSR build only the first declaration is used to resolve dependencies). Moreover you can `@deprecated since X.Y` the old constructor in the JSDoc comment. Thanks to that, customers can get warned by their IDE that the old constructor signature they are using (with less params) is deprecated and motivate them to migrate to the new signature early before the next major release.
