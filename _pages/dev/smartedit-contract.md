@@ -103,6 +103,7 @@ CMS slots and components also contain the `properties`. We need add these attrib
 ```
 
 In the page source, you will see this:
+
 ```typescript
 <cx-link data-smartedit-catalog-version-uuid="electronics-spaContentCatalog/Staged" data-smartedit-component-type="CMSLinkComponent" data-smartedit-component-id="HelpLink" class="smartEditComponent" data-smartedit-component-uuid="eyJpdGVtSWQiOiJIZWxwTGluayIsImNhdGFsb2dJZCI6ImVsZWN0cm9uaWNzLXNwYUNvbnRlbnRDYXRhbG9nIiwiY2F0YWxvZ1ZlcnNpb24iOiJTdGFnZWQifQ==" data-smart-edit-component-process-status="removeComponent" data-smartedit-element-uuid="8505cd4a-11b3-4fc8-b278-6f8ff74e50b3" style="position: relative;">
 ```
@@ -111,7 +112,7 @@ In the page source, you will see this:
 
 In Spartacus, we have `DynamicAttributeService`. It can add dynamic attributes to DOM. These attributes are extracted from the `properties` of CMS items received from backend.
 
-**Note:** There can by many different groups of properties, one of them is `smaredit`. But EC allows addons to create different groups. For example, personalization may add `script` group etc.
+**Note:** There can by many different groups of properties, one of them is `smartedit`. But EC allows addons to create different groups. For example, personalization may add `script` group etc.
 
 To add SmartEdit HTML Markup contract to Slot, we have this function:
 
@@ -125,6 +126,8 @@ private addSmartEditContract(slot: ContentSlotData): void {
 }
 ```
 
+Function `addDynamicAttributes` was deprecated since version 3.2, use functions `addAttributesToComponent` and `addAttributesToSlot` instead.
+
 #### 4. Rerendering Components and Content Slots After Editing
 
 After the user makes changes to components or content slots, the user will want to see the changes reflected on the page. SmartEdit optimizes this by rerendering only the changed content.
@@ -134,8 +137,8 @@ For frontend-rendered pages, the storefront rerenders the pages and not SmartEdi
 ```typescript
 window.smartedit.renderComponent = function(componentId, componentType, parentId) { ... };
 ```
-If `parentId` does not exist, the CMS item is a slot, then `renderComponent` actually refresh the whole CMS page. If `parentId` exists, the CMS item is component. Only this CMS component is refreshed.
 
+If `parentId` does not exist, the CMS item is a slot, then `renderComponent` actually refresh the whole CMS page. If `parentId` exists, the CMS item is component. Only this CMS component is refreshed.
 
 ### Default Preview Category/Product
 
@@ -156,6 +159,6 @@ Same for the category page, category 575 is opened in the product list page:
 
 ### WCMS Cockpit Preview URL and Spartacus Context
 
-The WCMS Cockpit Preview URL must match the default context for your Spartacus web site. 
+The WCMS Cockpit Preview URL must match the default context for your Spartacus web site.
 
 For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL (set in Backoffice) must match the default context uses, or errors will occur using SmartEdit. The default context installed by Spartacus Schematics is `https://localhost:4200/en/USD`.
