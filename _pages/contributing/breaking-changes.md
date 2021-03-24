@@ -60,7 +60,7 @@ That would cause a breaking change (compilation error) when upgrading to that mi
 ```ts
    export class CustomService extends SpartacusService {
      constructor(promotionService: PromotionService){
-       super(promotionService);
+       super(promotionService); // <--------- wrong constructor signature
        /* customer's constructor logic here */
      }
    }
@@ -93,7 +93,7 @@ That would cause a breaking change (compilation error) when upgrading to that mi
 #### MUST HAVEs:
 
 - Add `?` to make the new constructor parameter optional. Otherwise customer passing less arguments will get a compilation error.
--  In the latter code of your class, be prepared that the new constructor parameter might be undefined. Please simply access any properties of the new dependency with `?.` (optional chaining), for example `this.cartItemContextSource?.item$`. Otherwise a customer extending our class and passing less params to the `super()` constructor, will get a runtime error because there is no property `item$` of undefined.
+-  In the logic of your class, be prepared that the new constructor parameter might be null or undefined. Please simply access any properties of the new dependency with `?.` (optional chaining), for example `this.cartItemContextSource?.item$`. Otherwise a customer extending our class and passing less params to the `super()` constructor, will get a runtime error in our logic, because there is no property `item$` of undefined.
 - If your new constructor dependency **might** be not provided for your class (i.e. the dependency service is not `providedIn: 'root'` or is provided conditionally in the DOM, etc.), then precede it with `@Optional()`. Otherwise when the dependency is conditionally NOT provided customers, customer will get an Angular runtime error (that it can't resolve the dependency). Preceding with `@Optional()` tells Angular to fallback gracefully to `null` value when cannot inject.
 
 #### NICE TO HAVEs:
