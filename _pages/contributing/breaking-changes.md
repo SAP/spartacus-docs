@@ -47,6 +47,12 @@ After:
     protected promotionService: PromotionService,
     protected cartItemContextSource: CartItemContextSource
   ) {}
+
+  /* ... */
+
+  method() {
+    console.log(this.cartItemContextSource.item$);
+  }
 ```
 
 That would cause a breaking change (compilation error) when upgrading to that minor version by a customer who already extended our service in his codebase, calling `super()` constructor with less parameters.
@@ -76,6 +82,12 @@ That would cause a breaking change (compilation error) when upgrading to that mi
     protected promotionService: PromotionService,
     @Optional() protected cartItemContextSource?: CartItemContextSource
   ) {}
+
+  /* ... */
+
+  method() {
+    console.log(this.cartItemContextSource?.item$);
+  }
 ```
 
 #### MUST HAVEs:
