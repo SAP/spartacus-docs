@@ -31,17 +31,20 @@ Spartacus releases follow semantic versioning, which means breaking changes are 
 - Changing any CSS or SCSS attributes, classes or selectors.
 - Changing anything that affects the rendering of the existing DOM.
 
-## How to add new constructor dependencies in minor versions
-Let's say we want to add a new constructor dependency `cartItemContextSource` in a minor version. For example:
+## Adding New Constructor Dependencies in Minor Versions
 
-Before:
+The following describes what to do, and what not do do, when adding a new constructor dependency in a minor version.
+
+The following is an example of some code before a new constructor dependency is added:
+
 ```ts
   constructor(
     protected promotionService: PromotionService,
   ) {}
 ```
 
-After:
+A new `cartItemContextSource` constructor dependency is then added, as follows:
+
 ```ts
   constructor(
     protected promotionService: PromotionService,
@@ -55,7 +58,7 @@ After:
   }
 ```
 
-That would cause a breaking change (compilation error) when upgrading to that minor version by a customer who already extended our service in his codebase, calling `super()` constructor with less parameters.
+This would cause a breaking change (specifically, a compilation error) for any customer who upgrades to the new minor version and who has previously extended our service in their codebase, for instance, by calling the `super()` constructor with less parameters, as shown in the following example:
 
 ```ts
    export class CustomService extends SpartacusService {
@@ -66,7 +69,8 @@ That would cause a breaking change (compilation error) when upgrading to that mi
    }
    ```
 
-### Ideal solution
+Instead, the new constructor dependency should be added as follows:
+
 ```ts
   // TODO(#10946): make CartItemContextSource a required dependency
   constructor(
@@ -90,12 +94,13 @@ That would cause a breaking change (compilation error) when upgrading to that mi
   }
 ```
 
-#### MUST HAVEs:
+When adding a new constructor dependency, you **must** do the following:
 
-- Add `?` to make the new constructor parameter optional. Otherwise customer passing less arguments will get a compilation error.
--  In the logic of your class, be prepared that the new constructor parameter might be null or undefined. Please simply access any properties of the new dependency with `?.` (optional chaining), for example `this.cartItemContextSource?.item$`. Otherwise a customer extending our class and passing less params to the `super()` constructor, will get a runtime error in our logic, because there is no property `item$` of undefined.
-- If your new constructor dependency **might** be not provided for your class (i.e. the dependency service is not `providedIn: 'root'` or is provided conditionally in the DOM, etc.), then precede it with `@Optional()`. Otherwise when the dependency is conditionally NOT provided, customer will get an Angular runtime error (that it can't resolve the dependency). Preceding with `@Optional()` tells Angular to fallback gracefully to `null`, when the value when cannot be injected.
+- Add `?` to make the new constructor parameter optional. Otherwise, customers who pass less arguments will get a compilation error.
+- In the logic of your class, allow for the new constructor parameter to be null or undefined. You can do this by accessing any properties of the new dependency with optional chaining (`?.`), such as `this.cartItemContextSource?.item$`. If this is not done, a customer who extends our class and passes less parameters to the `super()` constructor will get a runtime error in our logic because there is no undefined `item$` property.
+- If your new constructor dependency might not be provided for your class (for example, the dependency service is not `providedIn: 'root'`, or is provided conditionally in the DOM), then precede the constructor dependency with `@Optional()`. Otherwise, when the dependency is not conditionally provided, customers will get an Angular runtime error that the dependency cannot be resolved. Preceding the constructor dependency with `@Optional()` tells Angular to fall back gracefully to `null` when the value cannot be injected.
 
-#### NICE TO HAVEs:
-- add inline comment `// TODO(#ticket-number): make X a required dependency` to reference a planned work in the next major version
-- add 2 alternative **declarations** of the constructor above the implementation. **The top one** has to be **the newest one**. (It's because in prod SSR build only the first declaration is used to resolve dependencies). Moreover you can  add do your JSDoc comment `@deprecated since X.Y`. Thanks to that, customers can get warned by their IDE that the old constructor signature they are using (with less params) is deprecated and motivate them to migrate to the new signature early.
+Aside from the above requirements, we also encourage you to do the following:
+
+- Add an inline comment, such as `// TODO(#ticket-number): make X a required dependency`, to reference planned work for the next major version.
+- Add two alternative declarations of the constructor above the implementation. **The top declaration must be the newest one**. This is because, in a production build using SSR, only the first declaration is used to resolve dependencies. It is also helpful to add `@deprecated since X.Y` to your JSDoc comment. When this is included, customers can be warned by their IDE that the old constructor signature they are using (with less parameters) is deprecated, and this can motivate them to migrate early to the new signature.
