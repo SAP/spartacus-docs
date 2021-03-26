@@ -126,7 +126,7 @@ private addSmartEditContract(slot: ContentSlotData): void {
 }
 ```
 
-Function `addDynamicAttributes` was deprecated since version 3.2, use functions `addAttributesToComponent` and `addAttributesToSlot` instead.
+**Note:** The `addDynamicAttributes` function is deprecated in version 3.2. If you are using Spartacus 3.2 or newer, use the `addAttributesToComponent` and `addAttributesToSlot` functions instead.
 
 #### 4. Rerendering Components and Content Slots After Editing
 
@@ -138,7 +138,7 @@ For frontend-rendered pages, the storefront rerenders the pages and not SmartEdi
 window.smartedit.renderComponent = function(componentId, componentType, parentId) { ... };
 ```
 
-If `parentId` does not exist, the CMS item is a slot, then `renderComponent` actually refresh the whole CMS page. If `parentId` exists, the CMS item is component. Only this CMS component is refreshed.
+If the `parentId` does not exist, the CMS item is a slot, and `renderComponent` then actually refreshes the whole CMS page. If the `parentId` does exist, the CMS item is component, in which case, only this CMS component is refreshed.
 
 ### Default Preview Category/Product
 
