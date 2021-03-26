@@ -138,7 +138,7 @@ For frontend-rendered pages, the storefront rerenders the pages and not SmartEdi
 window.smartedit.renderComponent = function(componentId, componentType, parentId) { ... };
 ```
 
-If the `parentId` does not exist, the CMS item is a slot, and `renderComponent` then actually refreshes the whole CMS page. If the `parentId` does exist, the CMS item is component, in which case, only this CMS component is refreshed.
+If the `parentId` does not exist, the CMS item is a slot, and `renderComponent` then actually refreshes the whole CMS page. If the `parentId` does exist, the CMS item is a component, in which case, only this CMS component is refreshed.
 
 ### Default Preview Category/Product
 
