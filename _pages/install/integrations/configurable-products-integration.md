@@ -101,6 +101,7 @@ The following features are currently not supported in the Configurable Products 
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
 - [Cart Validation](#cart-validation)
+- [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
 
 ### Save for Later and Selective Cart
@@ -202,6 +203,33 @@ In your spring configuration, ensure that the `commerceWebServicesCartService` b
 ```
 
 Note that it will guarantee that the order is validated for product configuration issues before an order is submitted, but it will not ensure that the error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
+
+### Commerce Business Rules in Combination with Configurable Products
+
+The following conditions and actions work on the Spartacus UI for configurable products:
+
+- Conditions:
+    - Product you are currently configuring
+    - Customers
+    - Customer groups
+- Actions:
+    - Set characteristic value for configurable product
+    - Hide assignable value for configurable product
+    - Hide characteristic for configurable product
+    - Display characteristic for configurable product as read-only
+
+The following conditions and actions **do not** yet work on the Spartacus UI for configurable products:
+
+- Conditions:
+    - Product with specified configuration in the cart
+    - Customer support (ASM mode currently not supported for configurable products)
+- Actions:
+    - Display message at the product level
+    - Display message at the attribute level
+    - Display message at the value level
+    - Display promo message (promo applies)
+    - Display promo opportunity message (promo does not yet apply)
+    - Display discount message
 
 ### Assisted Service Mode
 
