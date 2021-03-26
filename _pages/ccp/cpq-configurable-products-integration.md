@@ -83,12 +83,46 @@ The attribute label on the configuration screen displays the content of the attr
 1. Choose **Product Catalog** > **Products**.
 1. On the **Attributes** tab, choose the attribute that you want to edit.
 
-If the **Custom Label** field is blank, the standard label will be **Choose** followed by the attribute name.
+If the **Custom Label** field is blank, the standard label will be **Choose** or **Select** followed by the attribute name.
 If you want to display only the attribute name without the word "Choose" in front of it, enter the attribute name in the **Custom Label** field.
+
+## Translations for Product Texts on the UI
+
+Product texts coming from the CPQ product model are translated on the Commerce UI if the translations are maintained in CPQ. However, there are a few exceptions.
+
+The following translations are currently not displayed on the Commerce UI but are instead shown in English:
+- Standard labels **Choose** and **Select**, as well as standard label **No option selected**
+- Error and validation messages coming from CPQ
+- Product names in the cart summary
+
+## Product ID (Article Number) in SAP Commerce
+
+Note that in SAP Commerce, product IDs (article numbers) cannot contain slashes, backslashes, encoded slashes (`%2F`), or encoded backslashes (`%5C`). If necessary, adjust the product IDs in CPQ accordingly. 
 
 ## Group Status Handling
 
-The CPQ Configurable Products integration behaves differently from the Configurable Products integration when it comes to group status handling. With CPQ Configurable Products, groups are shown as complete in the sense that no mandatory fields are missing. The group menu doesn't provide any information about conflicts at group level. 
+Group status handling on the CPQ Spartacus UI is different from the Spartacus UI for SAP Variant Configuration and Pricing. The CPQ Spartacus group menu only shows whether are "complete" in the sense that no mandatory fields are missing. The group menu doesn't provide any information about conflicts at group level. At this point, CPQ Spartacus doesn't even know whether a group is consistent (no conflicts) for the *current* group. This information isn't even known for the attribute itself.
+
+Note that the group status is reset once the product has been added to the cart. If the user edits the configuration coming from the cart, the display for the group status is initially empty again, even if some of the mandatory attributes were not filled when the product was added to the cart.
+
+## Resolving Issues
+
+**Resolve Issues** only leads to the first incomplete group for which mandatory fields are missing.
+
+In CPQ, conflicts are rendered as messages. Consequently, there is no conflict solving with generated conflict groups or navigation to conflicting attributes through **Resolve Issues**.
+
+## Error and Warning Messages
+
+CPQ can generate different kinds of messages, which cause the following responses on the SAP UI.
+
+| CPQ Message Type | Counted Towards Total Number of Issues? | Message Shown on UI in Global Message Area? | UI Message Type |
+|----------------- | --------------------------------------- | --------------------------------------------|-----------------|
+| Incomplete attributes | Yes | No | N/A |
+| Incomplete messages   | Yes | Yes | ERROR |
+| Error messages | Yes | Yes | ERROR |
+| Conflict messages | Yes | Yes | ERROR |
+| Invalid messages | Yes | Yes | Error |
+| Failed validations | Yes | Yes | WARNING |
 
 ## Bundle Item Product Not Available in Commerce
 
@@ -96,12 +130,14 @@ If a bundle item cannot be found in SAP Commerce, only the product ID is display
 
 ## Cart Summary
 
-When added to the cart, the CPQ bundle product results in a single cart item entry. There are no subitems representing the products contained in the bundle. However, to give customers an overview of their selections and to confirm what exactly they are buying, the information in the cart has been extended to show the list of products that have been selected inside the bundle. The list contains the product description, the quantity, and the item price.
+When added to the cart, the CPQ bundle product results in a single cart item entry. There are no subitems representing the products contained in the bundle. However, to give customers an overview of their selections and to confirm what exactly they are buying, the information in the cart has been extended to show the list of products that have been selected inside the bundle. The list contains the product description, the quantity, and the item price if these are maintained in CPQ.
 
 The following prerequisites apply for a product to appear in the cart summary:
 
 - In CPQ, the attribute value has been linked to a product. 
 - In CPQ, the attribute has been marked as line item.
+
+Note that currently in the cart summary, the product names for line items come from CPQ, not from SAP Commerce. In contrast, product names for bundle items on the configuration page come from SAP Commerce. To avoid differing product names for bundle items between the configuration and overview page on the one hand and the cart summary on the other hand, we recommend that you use the identical product name both in CPQ and in SAP Commerce.
 
 ## Cart Validation
 
@@ -109,7 +145,7 @@ Cart validation is currently not supported, although you can implement your own 
 
 ### Necessary Adjustments in Spartacus
 
-- Introduce their own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one
+- Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one
 - Inject `ConfiguratorCartService` from `@spartacus/product/configurators/common` into the custom version of `cart-totals.component`
 - Introduce a component member. The following is an example:
 
@@ -149,46 +185,54 @@ The steps that can be done on Spartacus side ensure that for a standard UI flow,
 
 Note that although the order will be checked for product configuration issues before it is submitted, any error message that is returned may not reflect the actual error. The error message will state that the issue is because of low stock.
 
-1. Enhance B2BOrdersController.
+#### Enhance B2BOrdersController
 
-    The `validateCart` method in `B2BOrdersController` needs to be enhanced or replaced with a custom version. Cart validation is rudimentary and does not call the standard cart validation like the B2C case. The new method should look as follows.
+The `validateCart` method in `B2BOrdersController` needs to be enhanced or replaced with a custom version. Cart validation is rudimentary and does not call the standard cart validation like the B2C case. The new method should look as follows.
 
-    ```ts
-    protected void validateCart(final CartData cartData) throws InvalidCartException
+```ts
+protected void validateCart(final CartData cartData) throws InvalidCartException
+{
+    final Errors errors = new BeanPropertyBindingResult(cartData, "sessionCart");
+    placeOrderCartValidator.validate(cartData, errors);
+    if (errors.hasErrors())
     {
-        final Errors errors = new BeanPropertyBindingResult(cartData, "sessionCart");
-        placeOrderCartValidator.validate(cartData, errors);
-        if (errors.hasErrors())
+        throw new WebserviceValidationException(errors);
+    }
+ 
+    try
+    {
+        final List<CartModificationData> modificationList = cartFacade.validateCurrentCartData();
+        if(CollectionUtils.isNotEmpty(modificationList))
         {
-            throw new WebserviceValidationException(errors);
-        }
-    
-        try
-        {
-            final List<CartModificationData> modificationList = cartFacade.validateCurrentCartData();
-            if(CollectionUtils.isNotEmpty(modificationList))
-            {
-                final CartModificationDataList cartModificationDataList = new CartModificationDataList();
-                cartModificationDataList.setCartModificationList(modificationList);
-                throw new WebserviceValidationException(cartModificationDataList);
-            }
-        }
-        catch (final CommerceCartModificationException e)
-        {
-            throw new InvalidCartException(e);
+            final CartModificationDataList cartModificationDataList = new CartModificationDataList();
+            cartModificationDataList.setCartModificationList(modificationList);
+            throw new WebserviceValidationException(cartModificationDataList);
         }
     }
-    ```
-1. Adjust CartValidation Strategy.
+    catch (final CommerceCartModificationException e)
+    {
+        throw new InvalidCartException(e);
+    }
+}
+```
+
+### Necessary Adjustments in SAP Commerce 2005
+
+#### Adjust CartValidation Strategy
     
-    In your spring configuration, see that bean commerceWebServicesCartService refers to cartValidationStrategy instead of cartValidationWithoutCartAlteringStrategy. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
+In your spring configuration, see that bean commerceWebServicesCartService refers to cartValidationStrategy instead of cartValidationWithoutCartAlteringStrategy. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
 
-    ```xml
-    <alias name="customWebServicesCartService" alias="commerceWebServicesCartService"/>
-    <bean id="customWebServicesCartService" parent="defaultCommerceCartService">
-        <property name="cartValidationStrategy" ref="cartValidationStrategy"/>
-        <property name="productConfigurationStrategy" ref="productConfigurationStrategy"/>
-    </bean>
-    ```
+```xml
+<alias name="customWebServicesCartService" alias="commerceWebServicesCartService"/>
+<bean id="customWebServicesCartService" parent="defaultCommerceCartService">
+  <property name="cartValidationStrategy" ref="cartValidationStrategy"/>
+  <property name="productConfigurationStrategy" ref="productConfigurationStrategy"/>
+</bean>
+```
 
+## Commerce Business Rules in Combination with CPQ Configurable Products
+
+Commerce business rules that are specific to product configuration (for example, hiding a certain value if another value is selected) do not work for CPQ configurable products.
+
+Other Commerce business rules (such as those for promotions) still work and apply (for example, 2% off if the cart value exceeds 4000 USD).
 
