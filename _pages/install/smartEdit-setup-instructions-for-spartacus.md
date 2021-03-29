@@ -34,7 +34,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
    ng add @spartacus/smartedit
    ```
 
-   You can also install the SmartEdit library manually, by adding it to `package.json`, and then installing it by running `yarn update`, or using `npm` commands. If you install the SmartEdit library with this approach, then after installation, you also need to either copy the `webApplicationInjector.js` file from `node_modules/@spartacus/smartedit/assets` to your application's asset folder, or else add `node_modules/@spartacus/smartedit/assets` into the `assets` array in `angular.json`, as shown in the following example:
+   If you install the SmartEdit library manually (that is, without schematics), then you also need to either copy the `webApplicationInjector.js` file from `node_modules/@spartacus/smartedit/assets` to your application's asset folder, or else add `node_modules/@spartacus/smartedit/assets` into the `assets` array in `angular.json`, as shown in the following example:
 
    ```ts
       {
