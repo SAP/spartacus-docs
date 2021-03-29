@@ -102,6 +102,7 @@ The following features are currently not supported in the Configurable Products 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
 - [Cart Validation](#cart-validation)
 - [Assisted Service Mode](#assisted-service-mode)
+- [Saved Cart](#saved-cart)
 
 ### Save for Later and Selective Cart
 
