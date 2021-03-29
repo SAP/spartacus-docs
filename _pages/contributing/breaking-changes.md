@@ -58,7 +58,7 @@ A new `cartItemContextSource` constructor dependency is then added, as follows:
   }
 ```
 
-This would cause a breaking change (specifically, a compilation error) for any customer who upgrades to the new minor version and who has previously extended our service in their codebase, for instance, by calling the `super()` constructor with less parameters, as shown in the following example:
+This would cause a breaking change (specifically, a compilation error) for any customer who upgrades to the new minor version and who has previously extended our service in their codebase by calling the `super()` constructor with less parameters, such as in the following example:
 
 ```ts
    export class CustomService extends SpartacusService {
@@ -97,7 +97,7 @@ Instead, the new constructor dependency should be added as follows:
 When adding a new constructor dependency, you **must** do the following:
 
 - Add `?` to make the new constructor parameter optional. Otherwise, customers who pass less arguments will get a compilation error.
-- In the logic of your class, allow for the new constructor parameter to be null or undefined. You can do this by accessing any properties of the new dependency with optional chaining (`?.`), such as `this.cartItemContextSource?.item$`. If this is not done, a customer who extends our class and passes less parameters to the `super()` constructor will get a runtime error in our logic because there is no undefined `item$` property.
+- In the logic of your class, allow for the new constructor parameter to be null or undefined. You can do this by accessing any properties of the new dependency with optional chaining (`?.`), such as `this.cartItemContextSource?.item$`. If this is not done, a customer who extends our class and passes less parameters to the `super()` constructor will get a runtime error in our logic because the `this.cartItemContextSource` object would be undefined.
 - If your new constructor dependency might not be provided for your class (for example, the dependency service is not `providedIn: 'root'`, or is provided conditionally in the DOM), then precede the constructor dependency with `@Optional()`. Otherwise, when the dependency is not conditionally provided, customers will get an Angular runtime error that the dependency cannot be resolved. Preceding the constructor dependency with `@Optional()` tells Angular to fall back gracefully to `null` when the value cannot be injected.
 
 Aside from the above requirements, we also encourage you to do the following:
