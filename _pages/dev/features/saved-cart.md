@@ -36,7 +36,7 @@ The number of saved carts is **unlimited**. From the saved cart list page you ca
 
 Once you click **Make Cart Active**, the selected saved cart will restore and become an active cart. After the successful restoration, this cart will disappear from the list. During restoration, if there is an active cart, it will be saved and will appear on the list with the default name as cart id.
 
-After that action, if you open the active cart and again would you like to save it. Dialog form will open with filled data.
+After that action, if you open the active cart and would like to save it again, dialog form will open with filled data.
 
 If you open saved cart details, you can see all information about the saved cart. You can change products quantity and remove it. If you remove the last entry, the saved cart will be deleted automatically and will redirect you to the saved cart list.
 
