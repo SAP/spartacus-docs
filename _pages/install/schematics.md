@@ -105,18 +105,26 @@ ng add @spartacus/organization
 
 When you run this command, you are presented with an interactive menu that allows you to select which Organization features you want to install. Both `organization` and `approvals` are required for B2B Commerce Organization to work.
 
-### Storefinder Feature Library
-
-You can install the store locator feature by running the following command:
-
-```shell
-ng add @spartacus/storefinder
-```
-
 ### Qualtrics Feature Library
 
 You can install the Qualtrics library by running the following command:
 
 ```shell
 ng add @spartacus/qualtrics
+```
+
+### SmartEdit Feature Library
+
+You can install the SmartEdit feature library by running the following command:
+
+```shell
+ng add @spartacus/smartedit
+```
+
+### Storefinder Feature Library
+
+You can install the store locator feature by running the following command:
+
+```shell
+ng add @spartacus/storefinder
 ```
