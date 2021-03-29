@@ -34,7 +34,7 @@ The number of saved carts is **unlimited**. From the saved cart list page you ca
 
 ![Saved Carts]({{ site.baseurl }}/assets/images/saved-carts-4.png)
 
-Once you click **Make Cart Active**, the selected saved cart will restore and became an active cart. After successful restoration, this cart will disappear from the list. During restoration, if there is an active cart, it will be saved and will appear on the list with the default name as cart id.
+Once you click **Make Cart Active**, the selected saved cart will restore and become an active cart. After the successful restoration, this cart will disappear from the list. During restoration, if there is an active cart, it will be saved and will appear on the list with the default name as cart id.
 
 After that action, if you open the active cart and again would you like to save it. Dialog form will open with filled data.
 
