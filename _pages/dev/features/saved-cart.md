@@ -18,7 +18,7 @@ Saved Cart requires the Save Cart feature library. For more information, see [In
 
 Saved cart extends **Cart** interface with name, description and saved times fields. The name field is mandatory in the dialog form.
 
-You can save the cart from the cart page. If you are not signed in, the “Saved carts” and “Save cart for later” options will indicate that you need to be logged in before you can perform those actions. To save active cart, click **Save Cart For Later**
+You can save the cart from the cart page. If you are not signed in, the “Saved carts” and “Save cart for later” options will indicate that you need to be logged in before you can perform those actions. To save an active cart, click **Save Cart For Later**
 
 ![Saved Carts]({{ site.baseurl }}/assets/images/saved-carts-1.png)
 
