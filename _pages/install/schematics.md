@@ -113,6 +113,14 @@ You can install the Qualtrics library by running the following command:
 ng add @spartacus/qualtrics
 ```
 
+### Saved Cart Feature Library
+
+You can install the Saved Cart library by running the following command:
+
+```shell
+ng add @spartacus/cart
+```
+
 ### SmartEdit Feature Library
 
 You can install the SmartEdit feature library by running the following command:

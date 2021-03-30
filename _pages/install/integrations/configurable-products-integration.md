@@ -102,6 +102,7 @@ The following features are currently not supported in the Configurable Products 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
 - [Cart Validation](#cart-validation)
 - [Assisted Service Mode](#assisted-service-mode)
+- [Saved Cart](#saved-cart)
 
 ### Save for Later and Selective Cart
 
@@ -205,4 +206,8 @@ Note that it will guarantee that the order is validated for product configuratio
 
 ### Assisted Service Mode
 
-Assisted service mode (ASM) is currently not supported with the configurable products integration.
+Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
+
+### Saved Cart
+
+The saved cart feature is currently not supported with the Configurable Products integration.

@@ -133,6 +133,8 @@ docs:
                   url: /customer-interests/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
+                - title: "Saved Cart"
+                  url: /saved-cart/
                 - title: "Scheduled Replenishment"
                   url: /scheduled-replenishment/  
                 - title: "Selective Cart"
