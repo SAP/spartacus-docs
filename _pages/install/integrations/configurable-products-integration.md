@@ -206,4 +206,8 @@ Note that it will guarantee that the order is validated for product configuratio
 
 ### Assisted Service Mode
 
-Assisted service mode (ASM) is currently not supported with the configurable products integration.
+Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
+
+### Saved Cart
+
+The saved cart feature is currently not supported with the Configurable Products integration.
