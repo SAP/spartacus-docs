@@ -4,11 +4,8 @@ title: Basic Form Validations
 
 Dynamic Forms library provides some basic validator functions by default. This page will explain how to use, override or add validations in Dynamic Forms library for end customers. Following things should be covered:
 
-- [How to invoke validation from JSON?](#how-to-invoke-validation-from-json)
-- [Which validations exist out of the box?](#existing-validations) 
-- [How all this works?](#how-all-this-works)
-- [How to override existing validation in custom App?](#how-to-override-existing-validation-in-custom-app)
-- [How to add new validation in custom App and invoke that from JSON?](#how-to-add-new-validation-in-custom-app-and-invoke-that-from-json) 
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## How to invoke validation from JSON
 

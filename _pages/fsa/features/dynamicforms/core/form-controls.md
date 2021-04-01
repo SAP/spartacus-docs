@@ -2,11 +2,10 @@
 title: Form Controls
 ---
 
-In this page you can read about:
+**Table of Contents**
 
-- [Default form controls](#default-from-controls)
-- [Overriding existing controls](#overriding-existing-controls)
-- [Adding new form control](#adding-new-form-control) 
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Default from controls
 

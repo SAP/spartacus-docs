@@ -4,6 +4,11 @@ title: Building the FSA Spartacus Storefront using 1.0 Libraries
 
 The following instructions describe how to build an FSA storefront application using published FSA Spartacus 1.x libraries. If you are building Spartacus from the source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Prerequisites
 
 Before carrying out the procedures below, ensure the following front-end and back-end requirements are in place.

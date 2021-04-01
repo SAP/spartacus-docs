@@ -6,6 +6,11 @@ The following instructions describe how to install and configure SAP Commerce (r
 
 The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Installation and Configuration Instructions
 
 Summary:
