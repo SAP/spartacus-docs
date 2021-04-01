@@ -16,6 +16,11 @@ The SAP Commerce Cloud, Context-Driven Services solution provides real-time cust
 
 For more information, see [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) on the SAP Help Portal.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Requirements
 
 To integrate Context-Driven Services with Spartacus, release **1905.9** of Commerce Cloud is required.

@@ -20,6 +20,11 @@ Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled t
 
 For more information about Qualtrics, see [Getting Started with Website Feedback](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback) in the Qualtrics documentation, and [SAP Qualtrics Integration Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/8a849c5254db460e8eea4d7b9af39bff.html) on the SAP Help Portal.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Qualtrics Projects
 
 Qualtrics recommends a single project for each application or page. Since Spartacus runs as a single-page application, it is recommended to use a single Qualtrics project in Spartacus. This might not be ideal, but the Qualtrics JavaScript API is not equipped to handle multiple projects. For example, the `QSI.API.unload` and `QSI.API.run` APIs have the side effect of applying across all projects at once. If you need to run multiple projects side by side, you should be prepared for side effects that will result from calling the `unload` API.

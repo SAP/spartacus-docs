@@ -2,6 +2,11 @@
 title: Kyma Integration
 ---
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Prerequisites
 
 If your Spartacus application is running on Commerce Cloud, the following configs should already be in place:

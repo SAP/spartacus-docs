@@ -16,6 +16,11 @@ SAP Customer Data Cloud allows you to enable customized registration and login, 
 
 For more information see, [SAP Customer Data Cloud Integration](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US) and [SAP Customer Data Cloud](https://developers.gigya.com/) on the SAP Help Portal.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Requirements
 
 To integrate SAP Customer Data Cloud with Spartacus, you must have either of the following:

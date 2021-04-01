@@ -26,6 +26,11 @@ With this integration, configurable products become a part of the storefront's s
 
 For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US/528b7395bc314999a01e3560f2bdc069.html) on the SAP Help Portal.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Requirements
 
 The Configurable Products integration requires SAP Commerce Cloud release **2005.6** or **2011.1** or newer.
