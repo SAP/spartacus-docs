@@ -15,8 +15,6 @@ title: Configurable Guided Selling Journey
 - [Configuring Configurable Guided Selling Journey](#configuring-configurable-guided-selling-journey)
 - [Further Reading](#further-reading)
 
-## Overview
-
 Configurable Guided Selling (CGS) is the process in which a customer is taken through a step-by-step guided selling journey to purchase a complex product bundle. 
 
 For more information, see the following:

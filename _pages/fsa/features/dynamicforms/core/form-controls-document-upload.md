@@ -10,8 +10,6 @@ title: Document Upload
 - [Document Upload Usage](#document-upload-usage)
 - [File Upload](#file-upload)
 
-## Overview
-
 The Document Upload feature is one of the many components implemented in the Dynamicforms library and is used to enable the user to upload one or multiple images, documents, audio, video, and other file types to a server.
 
 The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.

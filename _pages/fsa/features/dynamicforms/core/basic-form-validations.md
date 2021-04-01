@@ -2,8 +2,6 @@
 title: Basic Form Validations
 ---
 
-## Overview
-
 Dynamic Forms library provides some basic validator functions by default. This page will explain how to use, override or add validations in Dynamic Forms library for end customers. Following things should be covered:
 
 - [How to invoke validation from JSON?](#how-to-invoke-validation-from-json)

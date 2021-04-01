@@ -11,6 +11,11 @@ Outlets allow you to customize the standard UI that is provided by Spartacus by 
 
 Outlets use a string to reference a named outlet. The outlet names are either hard-coded in Spartacus, or driven by content. In the latter case, the outlets are driven by the customer's CMS setup.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Template-Driven Outlets
 
 The basic syntax for adding UI is based on a `TemplateRef` that can be added by the `ng-template` component. The `cxOutletRef` is used to add a reference to an outlet. The following is an example:

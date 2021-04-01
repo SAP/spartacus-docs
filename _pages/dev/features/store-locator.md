@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Spartacus store locator feature helps customers find brick-and-mortar retail locations. Customers can view a list of all stores, they can search for stores based on their location, or they can search for stores based on a postal code, a town, or an address that the customer provides.
 
 If the customer chooses to **Use My Location**, and allows their device to access their current location, a list of the nearest stores is displayed, sorted by distance in kilometers. By selecting any store in the list, the customer can view store details, such as address, phone number, opening hours, and store features.

@@ -4,6 +4,11 @@ title: Page Layout
 
 Spartacus is based on a single-page application design pattern, but there are still pages that are rendered in the storefront. The concept of a "page" is key to the web and cannot be avoided: pages are identified by URLs, indexed by search engines, shared through social media, stored in browser history, and so on. Pages are fundamental to end users, and to the content creation process as well.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Page Structure
 
 Pages in CMS are constructed with slots and components. A page contains slots, and slots contain components. To organize common slots and components, Spartacus supports page templates. A page template contains layout and components that can be used globally, such as header and footer sections.

@@ -14,7 +14,10 @@ feature:
 
 Structured Data provides a data structure for the web that makes the web content more understandable for web crawlers. With only HTML structure, a web page provides insufficient understanding of the content itself. An `img` element, for example, doesn't provide information whether it represents a product or person. Without more detail, crawlers like Google, Pinterest, Twitter, etc. have a hard time to understand the content. This is where _Structured Data_ kicks in. With structured data you provide various data sets to the page to make the content better understandable by web crawlers. The data sets should be aligned with standard schemas, which are provided by the schema.org community.
 
-Structured Data has been introduced in Spartacus with version 1.3.
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Tag Managers
 

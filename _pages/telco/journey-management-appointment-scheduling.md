@@ -19,8 +19,6 @@ title: Journey Management - Appointment Scheduling
 - [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
-## Overview
-
 As a result of Journey Management configuration, a product offerings may be defined with the requirement of an appointment to be scheduled. This means that an appointment reservation is required before the order can be successfully placed. The Journey Management appointment feature enables customers to make this reservation during the "Add to Cart" process.
 
 Appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.

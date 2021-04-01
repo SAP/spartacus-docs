@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 In Spartacus, you can display information about the following types of applied promotions:
 
 - Cart promotions, which offer a discount on the entire cart - for example, a percentage or fixed discount on the entire order.

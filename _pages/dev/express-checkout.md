@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 Express checkout allows the user to skip all steps and sees the review summary page instantly after click "Go to checkout".
 
 The guard will check that the user has at least 1 shipping address and 1 payment method - if there are more it will choose default. After setup address, it will choose the default delivery mode for current configuration. 
@@ -22,6 +20,10 @@ If everything has been successful, the user should be redirected to review summa
 
 In the review summary step, the user will see pre-set data, there is also the possibility to update step.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Configuration
 

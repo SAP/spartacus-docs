@@ -17,8 +17,6 @@ title: Consumption
 - [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
-## Overview
-
 Customers can view their current consumption for their subscribed offerings based on the frequency of the current contract term (that is, monthly consumption). By understanding usage, the customers can manage their subscriptions with proper authorization. Entries for the usage consumption are created and updated from backend systems by average service usage for subscribed product. 
 
 ## Business Use Cases

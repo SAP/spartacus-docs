@@ -20,9 +20,7 @@ title: Cost Estimation
 - [Components](#components)
 - [Further Reading](#further-reading)
 
-## Overview
-
-This feature determines and displays the average cost for a product offering considering the provided yearly consumption entered by a customer. 
+This feature determines and displays the average cost for a product offering considering the provided yearly consumption entered by a customer.
 
 Certain types of product offerings (i.e. commodity products - electricity and gas) are charged by consumption.  In order for customers to get an idea of how much these type of product offerings could potentially cost them on a monthly or yearly basis, customers will need to provide additional information regarding their anticipated usage. Once the customer enters their anticipated annual consumption information, the search result list of all applicable product offerings are displayed.
 

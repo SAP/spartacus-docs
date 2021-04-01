@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The scheduled replenishment feature allows you to set up orders that are fulfilled automatically on a recurring basis. For example, you might choose to set up an order that is fulfilled on the 15th day of every month. Each time a scheduled replenishment order is placed, the order shows up in the order history.
 
 **Note:** The scheduled replenishment feature is for B2B storefronts only.

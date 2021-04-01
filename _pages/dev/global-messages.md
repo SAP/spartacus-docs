@@ -2,7 +2,8 @@
 title: Global Messages
 ---
 
-# Model
+## Model
+
 Global messages have predefined types in model:
 
 ```typescript
@@ -13,7 +14,8 @@ enum GlobalMessageType {
 }
 ```
 
-# Configuration Model
+## Configuration Model
+
 The model is used in the configuration for setting the time after which the message should disappear.
 Omitting the type in the configuration causes that such messages will not disappear.
 
@@ -31,7 +33,7 @@ abstract class GlobalMessageConfig {
 }
 ```
 
-# Configuration
+## Configuration
 
 We used the default configuration setting the timeout:
 

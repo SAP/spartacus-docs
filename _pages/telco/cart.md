@@ -14,8 +14,6 @@ title: Cart
 - [Components](#components)
 - [Further Reading](#further-reading)
 
-## Overview
-
 The cart works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage-based charges.   Amongst various charges, for the cart, Customers need to be aware of the pay now charges upon checkout as well as the monthly recurring charge commitment. 
 
 ## Components

@@ -8,6 +8,11 @@ For information on setting up SmartEdit in Spartacus, see [SmartEdit Setup Instr
 
 For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## SmartEdit contract implementation
 
 To make Spartacus work with SmartEdit, we need implement the SmartEdit contract in Spartacus.

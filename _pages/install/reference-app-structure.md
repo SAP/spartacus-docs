@@ -4,8 +4,6 @@ title: Reference App Structure
 
 **Note:** The reference app structure is introduced with version 3.1 of the Spartacus libraries.
 
-## Overview
-
 This recommended Spartacus app structure is intended to act as a reference for when you are setting up your own Spartacus application.
 
 Spartacus is an Angular library, which means it can be used on its own in an Angular application, or it can be integrated into an existing Angular project. Conversely, you can add any other Angular solution or library to your Spartacus project.

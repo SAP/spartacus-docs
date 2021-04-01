@@ -8,8 +8,6 @@ title: FSA Checkout
 - [Configuration](#configuration)
 - [Components](#components)
 
-## Overview
-
 Checkout in FSA Spartacus enables financial customers to buy insurance or banking products. It’s configurable for each product kind.
 
 ## Configuration

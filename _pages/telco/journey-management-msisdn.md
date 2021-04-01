@@ -19,8 +19,6 @@ title: Journey Management - MSISDN
 - [TM Forum APIs](#tm-forum-apis)
 - [Further Reading](#further-reading)
 
-## Overview
-
 As a result of Journey Management configuration, some product offerings may be defined with the requirement of an MSISDN selection. This means that the MSISDN or Mobile Number must be selected (reserved) by the customer before the order can be successfully placed. The Journey Management - MSISDN feature enables customers to make this selection during the "Add to Cart" process. The retrieval of MSISDN numbers for selection and reservation requires a third-party integration.
 
 **Note:** This feature applies to product offerings that have a checklist policy for `MSISDN Reference` configured. For more information, see [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua).

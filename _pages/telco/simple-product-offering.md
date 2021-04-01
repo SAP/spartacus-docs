@@ -13,8 +13,6 @@ title: Simple Product Offering (SPO)
 - [Overview](#overview)
 - [Further Reading](#further-reading)
 
-## Overview
-
 In TUA, there is a need to differentiate between a product and a product offering.  A Product Offering is a commercial representation of what can be sold to a customer in contrast to a product which is what a customer has purchased - essentially what they already own.  A Product Offering is created based on product specifications, their characteristics and values; as well as defining all the applicable charges including one-time charges, recurring charges and usage-based charges.
 
 ## Further Reading

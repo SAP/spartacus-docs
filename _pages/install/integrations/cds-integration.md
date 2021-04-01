@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The SAP Commerce Cloud, Context-Driven Services solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate Context-Driven Services with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.
 
 For more information, see [SAP Commerce Cloud, Context-Driven Services](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) on the SAP Help Portal.

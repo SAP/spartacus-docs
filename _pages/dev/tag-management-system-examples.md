@@ -6,6 +6,11 @@ There are a number of popular solutions that you can integrate with the Spartacu
 
 As mentioned in the "Setup" section of the main [Tag Management System]({{ site.baseurl }}{% link _pages/dev/tag-management-system.md %}) documentation, if you are using GTM or AEPL, Spartacus can handle the script "injection" to the DOM for you. However, if you prefer to have more control over the process, or if you have a complex use case, you can use the examples in the following sections to implement the setup according to your needs.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Google Tag Manager
 
 GTM requires an _immediately invoked function expression_ (IIFE) to be included in the DOM, which you can do by adding a script to your `index.html`. The following is an example:

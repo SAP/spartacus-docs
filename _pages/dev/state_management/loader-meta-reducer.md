@@ -2,12 +2,15 @@
 title: Loader Meta Reducer
 ---
 
-## Overview
-
 To give better feedback to users, based on their actions, we often have to keep information such as "cart is loading", "fetching user address failed", and so on.
 For every separate application state, we have to keep that meta data beside. Separate for cart, user information, product data and so on. Implementing this logic in all of these places manually would result in having different solutions to the same problem across the codebase.
 That's why in spartacus `loaderReducer` was created. This reducer standardizes meta data handling in the whole state tree.
 You are able to use it on any depth of the tree, wherever you need it. Apart from the reducer, we also provide utilities for actions and selectors.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Applying the Meta Reducer
 

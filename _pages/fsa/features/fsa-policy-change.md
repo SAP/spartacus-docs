@@ -10,8 +10,6 @@ title: FSA Policy Change
 - [Adding Additional drivers](#adding-additional-drivers)
 - [Removing Coverages](#removing-coverages)
 
-## Overview
-
 The Policy Change Process framework enables insurance carriers to provide their customers with the possibility to change their policy online.
 In addition to sample processes for changing mileage and adding coverages, customers can now add additional drivers and remove coverages. All sample processes are provided based on the Auto Insurance product. The policy change can be cancelled at any time during change process in case the simulated premium does not match customer's expectation, in which case the customer will be redirected to the 'Policy Details' page again.
 

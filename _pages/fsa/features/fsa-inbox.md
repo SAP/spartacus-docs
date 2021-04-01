@@ -2,8 +2,6 @@
 title: FSA Inbox
 ---
 
-## Overview
-
 The Inbox feature enables your customers to see all notifications in one place, that is, on the Inbox page of the My Account area. All messages are grouped according to their content, sorted, and then displayed in different tabs.
 
 More details regarding the Inbox feature from Financial Services Accelerator can be found on the

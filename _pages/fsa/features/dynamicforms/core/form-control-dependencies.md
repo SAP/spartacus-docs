@@ -2,8 +2,6 @@
 title: Form Controls Dependencies
 ---
 
-## Overview
-
 This page will explain how to show/hide form controls that have a dependency on different form fields and how changes on "parent" fields will affect their visibility.
 
 In order to specify dependencies for a certain field, JSON schema is enhanced by exposing the property called "**dependsOn**".  The property represents array of complex objects  and it consists of two properties:

@@ -1,5 +1,5 @@
 ---
-title: Lazy Loading Guide
+title: Lazy Loading
 feature:
 - name: Lazy Loading of CMS components
   spa_version: 2.0
@@ -14,6 +14,11 @@ feature:
 Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all the JavaScript of the full application when a user accesses the first page. Instead, only the chunks that are required for the given page are loaded. While navigating the storefront, additional chunks are loaded when needed.
 
 Such an approach can substantially improve "Time To Interactive", especially in the case of complex web applications being accessed by low-end mobile devices.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Spartacus Approach to Lazy Loading
 

@@ -13,13 +13,16 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Spartacus tag management system (TMS) allows you to set up a tag manager, and to specify which Spartacus events should be passed to the configured TMS. Both Google Tag Manager (GTM) and Adobe Experience Platform Launch (AEPL) are supported by Spartacus out-of-the-box, while other tag managers can easily be plugged in.
 
 Spartacus supports running multiple tag manager integrations in parallel, and you can decide which events should be collected by each of the supported tag management solutions.
 
 **Note:** To work with the Spartacus tag management system, you should also be familiar with the Spartacus events service, which the TMS relies on. For more information, see [Events Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}).
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Setup
 

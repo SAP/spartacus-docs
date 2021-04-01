@@ -2,6 +2,12 @@
 title: Visible Focus
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 One of the main requirements for accessibility is a clear visual indication of focused elements in the UI. A clear focus indication helps sighted keyboard users with orientation in the storefront.
 
 In Spartacus, focusable elements are styled with a blue outline. This appearance can be further customized in the CSS layer if you prefer to have an alternative effect for certain elements.

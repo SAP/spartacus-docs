@@ -2,8 +2,6 @@
 title: Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0
 ---
 
-## Overview
-
 The following instructions describe how to install and configure SAP Commerce (release 2011, patch 2) with Financial Services Accelerator (release 2102) for use with FSA Spartacus storefront. In these instructions, SAP Commerce and Financial Services Accelerator are installed on your local computer, so localhost is used in the browser URLs.
 
 The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module.  

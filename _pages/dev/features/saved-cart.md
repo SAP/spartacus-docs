@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The saved cart feature allows users to save one or more carts for later use. Users can benefit from the saved cart feature to enhance their online shopping experience. For example, they can create a saved cart for items that they purchase on a regular basis, or they can create different saved carts for specific types of purchases.
 
 **Note:** The saved cart feature currently works only with B2B storefronts.

@@ -2,8 +2,6 @@
 title: Form Controls
 ---
 
-## Overview
-
 In this page you can read about:
 
 - [Default form controls](#default-from-controls)

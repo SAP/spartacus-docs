@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 SAP Customer Data Cloud allows you to enable customized registration and login, and also manage user profile and consent.
 
 For more information see, [SAP Customer Data Cloud Integration](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US) and [SAP Customer Data Cloud](https://developers.gigya.com/) on the SAP Help Portal.
