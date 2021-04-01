@@ -18,6 +18,11 @@ By using the Spartacus reference app structure, you benefit the most from the au
 
 To see a working example that makes use of the reference app structure, see [this repository](https://github.com/dunqan/spartacus-reference-structure).
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Structure Overview
 
 The following is an example of the reference app structure:

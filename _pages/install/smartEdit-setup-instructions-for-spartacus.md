@@ -12,6 +12,11 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Prerequisites
 
 For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer) with the `spartacussampledata` installed.

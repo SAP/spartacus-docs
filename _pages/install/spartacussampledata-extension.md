@@ -4,14 +4,23 @@ title: Spartacussampledata Extension
 
 The `spartacussampledata` extension creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs that have been modified specifically for Spartacus requirements.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+## Downloading the Spartacussampledata Extension
+
 You can download the Spartacus Sample Data extension from the [Spartacus Releases page](https://github.com/SAP/spartacus/releases).
 
-The Spartacus Sample Data extension is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledata.zip` in the **Assets** section of the most recent release of the `storefront` library. 
+The Spartacus Sample Data extension is versioned and released with the Spartacus `storefront` library. You can download the latest version by clicking on `spartacussampledata.zip` in the **Assets** section of the most recent release of the `storefront` library.
 
 Of course, previous versions are also available. For example, to download the Spartacus Sample Data extension for the `3.0.0-RC.1` release, you can access the **Assets** section of the `@spartacus/storefront@3.0.0-rc.1` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-3.0.0-rc.1).
 
 For more information about installing the `spartacussampledata` extension, see [Installing SAP Commerce Cloud for use with Spartacus
 ]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
+
+## Overview
 
 The following diagram demonstrates how the `Electronics-Spa` base site is created. The process is similar for all sample stores.
 
