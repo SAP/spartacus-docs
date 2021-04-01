@@ -102,8 +102,6 @@ docs:
     - title: Storefront Development Guide
       url: /dev-guide/
       children:
-          - title: "Storefront Development FAQ"
-            url: /storefront-development-faq/
           - title: "Spartacus API"
             url: /spartacus-api/
           - title: "Global Configuration in Spartacus"
