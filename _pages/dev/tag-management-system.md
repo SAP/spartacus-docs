@@ -221,3 +221,7 @@ If you use this approach, you need to pass your `CustomNavigationEvent` to the r
 #### Overriding mapEvents() in the TMS Service
 
 If you wish to enrich all Spartacus events with some common data, you can do so by overriding `mapEvents()` in the `TmsService`.
+
+### Disclaimer
+
+The use of tag managers implies the execution of third-party scripts within Spartacus in real time. These scripts may contain malicious payloads. SAP therefore, cannot be held liable, nor responsible for the content or side effects caused due to the execution of third-party scripts within Spartacus. Dev teams involved in the implementation of tag managers for Spartacus storefronts should consult with the business side to confirm compliance with local privacy and security laws, such as GDPR.  
