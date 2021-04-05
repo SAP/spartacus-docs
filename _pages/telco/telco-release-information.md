@@ -2,11 +2,12 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated December 15, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated April 7, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ## Release Contents
 
 - [Introduction](#introduction)
+- [Release 3.0](#release-30)
 - [Release 2.0](#release-20)
 - [Release 1.3](#release-13)
 - [Release 1.2](#release-12)
@@ -34,6 +35,27 @@ For release information about Spartacus 1.x, see [Building the TUA Spartacus Sto
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 3.0
+
+*Release 3.0 libraries published April 7, 2021*
+
+As release 3.0 is a new major version, it contains breaking changes. To migrate to 3.0 from 2.x, please see the following documentation:
+
+- Uses Angular 10
+- [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-2.md %})
+- [Technical Changes in TUA Spartacus 3.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-2.md %})
+
+Following features are introduced in release 3.0:
+
+- Complex Industry Cart
+- Contract (subscription) renewal without assurance
+- Contract (subscription) termination without assurance
+- Serviceability
+
+You can refer to the core Release Information for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 10 and related dependencies.
+
+We welcome your feedback. If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 ## Release 2.0
 
