@@ -8,6 +8,11 @@ The out-of-the-box behavior of the Powertools sample store is to require a new b
 
 Creation of a new buying organization along with a new administrator can be done with the SAP Commerce Cloud Backoffice management tool. The top-level unit is known as the root unit.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Creating a New Root Unit for the Buying Company
 
 1. Open the Backoffice tool. If you are working locally, you can access the tool through the following URL:

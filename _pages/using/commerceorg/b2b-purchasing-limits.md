@@ -4,6 +4,11 @@ title: Purchasing Limits
 
 Purchasing limits are assigned to individual users or to user groups. When an order that is placed by a buyer is below a limit, the order is automatically allowed to proceed through the seller's purchase flow. If the order surpasses any of the limits, the order is placed, but held until approval is given. If the order is rejected, the order is cancelled.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Types of Purchasing Limits
 
 The following kinds of purchasing limits are provided out-of-the-box with SAP Commerce Cloud:
