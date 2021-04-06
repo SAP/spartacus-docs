@@ -1,5 +1,5 @@
 ---
-title: Contract Termination
+title: Contract Termination (without assurance)
 ---
 
 {% capture version_note %}
@@ -12,7 +12,7 @@ title: Contract Termination
 
 A contract termination is described as a contract being brought to an early end for any number of reasons. The effect of termination is to bring the contract to an end at a certain point and absolve parties of the majority of all ongoing obligations. The Contact Termination feature enables a customer to initiate a contract termination based on rules defined in the accelerator.
 
-With the Contract Termination feature, while browsing TUA Spartacus, eligible customers can  terminate their existing active subscriptions resulting from a standalone purchase for as per the configured The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2102/en-US/602fadbbb42c40a68750d0dac7deba8a.html) policies, without any penalties. The eligible customers see the **Terminate** button on the header of the subscription, below the banner to terminate the subscription one day before the expiry of the subscription. When the customer clicks the **Terminate** button, an order is placed on behalf of the customer in the backend to complete the subscription termination.
+With the Contract Termination feature, while browsing TUA Spartacus, eligible customers can  terminate their existing active subscriptions resulting from a standalone purchase as per the configured The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2102/en-US/602fadbbb42c40a68750d0dac7deba8a.html) policies, without any penalties. The eligible customers see the **Terminate** button on the header of the subscription, below the banner to terminate the subscription one day before the expiry of the subscription. When the customer clicks the **Terminate** button, an order is placed on behalf of the customer in the backend to complete the subscription termination.
 
 **Note:** The **Terminate** button does not display on the subscription if the subscription is not active, and the expiry duration of the subscription is more than one day.
 
@@ -26,7 +26,7 @@ An eligible customer wants to terminate an existing and active subscription. The
 
 1. Log in to the TUA Spartacus.
 
-    **Note:** Your active subscription below the banner is displayed only if your subscription is eligible for termination as per the [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules.    
+    **Note:** Your active subscription below the banner is displayed only if your subscription is eligible for termination as per the [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules.
 
 1. Navigate to **Account** -> **Subscriptions**. All subscriptions of the logged in customer are displayed.
 1. Click on the header of the active subscription that you want to terminate. For example, *internet_22341 (Fiber Internet)*. The details of the subscription are displayed below the banner with the **Terminate** button.
@@ -56,8 +56,8 @@ If you are eligible as per the configured The [eligibility](https://help.sap.com
 
 | Dependency                                	| Detail                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
-| Spartacus                                     	| 1.x, 1.2x, < 3.0                                          	|
-| Telco & Utilities Accelerator	             	| Version 2102 (latest patch - 21.02)            	|
+| Spartacus                                     	| 3.0.0                                          	|
+| Telco & Utilities Accelerator	             	| Version 2102 (latest patch)            	|
 | SAP Commerce Cloud 	| Version 2011 (latest patch) 	|
 
 ## Configuring and Enabling Contract Termination
@@ -68,10 +68,10 @@ For detailed information about configuring and enabling the feature, see [Eligib
 
 | Component   Name                 	| Status  	| Description                                                                                                                                                                                                         	|
 |----------------------------------	|---------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| TerminationButtonComponent       	| New     	| The component provides an option to the user to terminate the subscribed product if it is eligible for termination. When you click the Termnation button, the terminated subscribed is added to cart.               	|
-| TmfProductComponent              	| Updated 	| The component is updated to include the Termination button component (see "TerminationButtonComponent")if the subscribed product is eligible for termination.                                                       	|
+| TerminationButtonComponent       	| New     	| The component provides an option to the user to terminate the subscribed product if it is eligible for termination. When you click the **Termination** button, the terminated subscribed is added to cart.               	|
+| TmfProductComponent              	| Updated 	| The component is updated to include the **Termination** button component (see "TerminationButtonComponent")if the subscribed product is eligible for termination.                                                       	|
 | TmaCartItemComponent             	| Updated 	| The component is updated to show action type with which a cart entry is added to the cart.                                                                                                                          	|
-| RenewSubscriptionBannerComponent 	| Updated 	| The component is updated to check the retention eligibility only when a subscription contains an active product, so that if the subscribed product is in pending termination, the option of renewal is not visible. 	|
+| RenewSubscriptionBannerComponent 	| Updated 	| The component is updated to check the retention eligibility only when a subscription contains an active product, so that if the subscribed product is in pending termination, the option of renewal is not visible.
 
 ## Further Reading
 
