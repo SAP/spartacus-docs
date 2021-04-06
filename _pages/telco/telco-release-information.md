@@ -19,11 +19,7 @@ title: Release Information for TUA Spartacus Libraries
 
 ## Introduction
 
-This document describes what is included in all Spartacus 2.x libraries since 2.0.
-
-**Note:** Spartacus 2.x requires Angular 9. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
-
-For release information about Spartacus 1.x, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}) in 1.x documentation archive.
+This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.0.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
@@ -42,18 +38,20 @@ For release information about Spartacus 1.x, see [Building the TUA Spartacus Sto
 
 As release 3.0 is a new major version, it contains breaking changes. To migrate to 3.0 from 2.x, please see the following documentation:
 
-- Uses Angular 10
-- [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-2.md %})
-- [Technical Changes in TUA Spartacus 3.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-2.md %})
+- Uses Angular 10.
+- [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-3.md %}).
+- [Technical Changes in TUA Spartacus 3.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-3.md %}).
 
 Following features are introduced in release 3.0:
 
-- Complex Industry Cart
-- Contract (subscription) renewal without assurance
-- Contract (subscription) termination without assurance
-- Serviceability
+- [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html?q=complex%20industry%20cart).
+- [Contract (subscription) renewal without assurance]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %}).
+- [Contract (subscription) termination without assurance]({{ site.baseurl }}{% link _pages/telco/contract-termination.md %}).
+- [Serviceability Check]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %}). This feature documentation covers serviceability check of a selected single product offering (SPO) and also serviceability check of all product offerings at the specified address.
 
-You can refer to the core Release Information for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 10 and related dependencies.
+You can refer to the core [Release Information]({{ site.baseurl }}{% link _pages/telco/release-information.md %}) for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 10 and related dependencies.
+
+**Note:** For information on core commerce Spartacus, see [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/updating-to-version-3.md %}).
 
 We welcome your feedback. If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
