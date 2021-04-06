@@ -8,11 +8,6 @@ title: Product Offering Search
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Further Reading](#further-reading)
-
 To support the commercial product catalog of product offerings, changes were required in the way "searches" are technically conducted to search for and find simple product offerings.  Changes were made in the areas of free text search, facets and top level category menu navigation.   The use of product specifications, which are used to create product offerings, are leveraged in search.
 
 The following options are available while searching for a Product Offering:

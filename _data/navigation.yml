@@ -380,7 +380,7 @@ docs:
                   url: /tua-pre-release-information/
                 - title: "Updating to Version 2.0"
                   url: /updating-tua-spartacus-to-2/
-                - title: "Technical Changes in Spartacus 2.0"
+                - title: "Technical Changes in TUA Spartacus 2.0"
                   url: /technical-changes-tua-version-2/ 
                 - title: "Feature Release Versions"
                   url: /tua-feature-release-versions/   
@@ -418,10 +418,10 @@ docs:
                   url: /checkout/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/
-                - title: "Cost Estimation"
-                  url: /cost-estimation/  
                 - title: "Consumption"
                   url: /consumption/    
+                - title: "Cost Estimation"
+                  url: /cost-estimation/  
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
                 - title: "Journey Management - Appointment Scheduling"

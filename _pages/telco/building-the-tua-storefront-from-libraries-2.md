@@ -6,6 +6,11 @@ The following instructions describe how to build a TUA storefront application us
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## Prerequisites
 
 Before carrying out the procedures below, ensure that you meet the following front-end and back-end requirements.

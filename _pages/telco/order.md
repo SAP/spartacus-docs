@@ -8,15 +8,14 @@ title: Order
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Components](#components)
-- [Further Reading](#further-reading)
-
 The order works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage charges.
 
 The Order Review allows customers to browse through their orders and see price details of the cart and cart item of the selected order, the Order Summary displays the final price of the order after discounts and other charges before proceeding to checkout, and the Order Confirmation displays the detailed information of the placed order.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Components
 

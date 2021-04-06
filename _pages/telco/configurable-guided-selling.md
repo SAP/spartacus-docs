@@ -8,18 +8,14 @@ title: Configurable Guided Selling Journey
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
+Configurable Guided Selling (CGS) is the process in which a customer is taken through a step-by-step guided selling journey to purchase a complex product bundle.
 
-- [Overview](#overview)
-- [Supported Backend Functionality](#supported-backend-functionality)
-- [Configuring Configurable Guided Selling Journey](#configuring-configurable-guided-selling-journey)
-- [Further Reading](#further-reading)
+For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html) and [Configurable Guided Selling for BPOs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/464d4b03d91442e9ac95f69808895a39.html) on the SAP Help Portal.
 
-Configurable Guided Selling (CGS) is the process in which a customer is taken through a step-by-step guided selling journey to purchase a complex product bundle. 
+**Table of Contents**
 
-For more information, see the following:
-- [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html)
-- [Configurable Guided Selling for BPOs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/464d4b03d91442e9ac95f69808895a39.html)
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Supported Backend Functionality
 

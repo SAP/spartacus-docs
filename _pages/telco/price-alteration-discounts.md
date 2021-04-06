@@ -8,16 +8,12 @@ title: Pricing - Price Alteration Discounts
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Business Use Case](#business-use-case)
-- [Changes Implemented](#changes-implemented)
-- [Creating and Configuring Price Alteration Discounts in TUA](#creating-and-configuring-price-alteration-discounts-in-tua)
-- [Components](#components)
-- [Further Reading](#further-reading)
-
 The Price Alterations in the form of Discounts works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges, and usage-based charges. With price alteration - discounts, customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Business Use Case
 

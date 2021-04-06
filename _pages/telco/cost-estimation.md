@@ -8,19 +8,14 @@ title: Cost Estimation
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Business Use Cases](#business-use-cases)
-- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Configuring and Enabling Cost Estimation](#configuring-and-enabling-cost-estimation)
-- [CMS Component Configuration for Anticipated Consumption](#cms-component-configuration-for-anticipated-consumption)
-- [Attributes](#attributes)
-- [Components](#components)
-- [Further Reading](#further-reading)
-
 This feature determines and displays the average cost for a product offering considering the provided yearly consumption entered by a customer.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+## Overview
 
 Certain types of product offerings (i.e. commodity products - electricity and gas) are charged by consumption.  In order for customers to get an idea of how much these type of product offerings could potentially cost them on a monthly or yearly basis, customers will need to provide additional information regarding their anticipated usage. Once the customer enters their anticipated annual consumption information, the search result list of all applicable product offerings are displayed.
 

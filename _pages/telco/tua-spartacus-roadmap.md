@@ -6,12 +6,10 @@ title: Roadmap for TUA Spartacus
 
 This document describes what is planned for TUA Spartacus for Q1 2021 and later.
 
-Contents:
+**Table of Contents**
 
-- [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
-- [Overview](#overview)
-- [Features Planned for Q1 2021](#features-planned-for-q1-2021)
-- [Future Outlook / Features Planned for Q2 2021 and Later](#future-outlook--features-planned-for-q2-2021-and-later)
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ### Disclaimer - Forward-Looking Statements
 

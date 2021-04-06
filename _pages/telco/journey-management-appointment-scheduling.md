@@ -8,22 +8,16 @@ title: Journey Management - Appointment Scheduling
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Prerequisite](#prerequisite)
-- [Business Use Cases](#business-use-cases)
-- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Configuring and Enabling Installation Address and Appointment in TUA](#configuring-and-enabling-installation-address-and-appointment-in-tua)
-- [Components](#components)
-- [TM Forum APIs](#tm-forum-apis)
-- [Further Reading](#further-reading)
-
 As a result of Journey Management configuration, a product offerings may be defined with the requirement of an appointment to be scheduled. This means that an appointment reservation is required before the order can be successfully placed. The Journey Management appointment feature enables customers to make this reservation during the "Add to Cart" process.
 
 Appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
 
-This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured. It is applicable to product offerings sold as a simple product offering or bundled product offering through configurbale guided selling. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
+This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured. It is applicable to product offerings sold as a simple product offering or bundled product offering through configurable guided selling. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Prerequisite
 

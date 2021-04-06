@@ -8,27 +8,24 @@ title: Journey Management - Serviceability (Premise Details)
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Specific Business Use Case](#specific-business-use-case)
-- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Configuring and Enabling Premise Validation](#configuring-and-enabling-premise-validation)
-- [Components](#components)
-- [Further Reading](#further-reading)
-
 With this feature, customers are able to purchase Product Offerings that require a serviceability check to validate if the product offering is available for service at a given premise. As part of the purchase flow, customers will need to provide premise details including the premise address and meter id. The serviceability API performs the availability check of the offering at the premise location provided by the customer.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Prerequisites
 
-1. The system performing the serviceability check for premise details should be up and running (for demonstration purposes, a mock service can be used). 
-    -   To start the mock service (for demonstration purposes only) 
-        -   Download SOAP UI 5.6.0 (or the version compatible with your Operating System)
-        -   Download the ‘mock_services’ ZIP
-        -   Import the TmuMockService-soapui-project.xml in SOAP UI
-        -   Start the mock service ('Start minimized')
-        -   Once the mock service is up and running, you can demo premise validation feature by using a valid address from the ones defined in the mock      
+The system performing the serviceability check for premise details should be up and running (for demonstration purposes, a mock service can be used).
+
+For demonstration purposes, you can perform the following steps to start the mock service:
+
+- Download SOAP UI 5.6.0 (or the version compatible with your Operating System)
+- Download the ‘mock_services’ ZIP
+- Import the TmuMockService-soapui-project.xml in SOAP UI
+- Start the mock service ('Start minimized')
+- Once the mock service is up and running, you can demo premise validation feature by using a valid address from the ones defined in the mock
 
 **Important Note:** The mock service is **not recommended** for production environments as it is used exclusively for demonstration purposes only.
 

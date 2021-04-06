@@ -15,5 +15,5 @@ SAP Commerce Telco & Utilities Accelerator is a ready-to-use web framework, desi
 The Accelerator provides a future-proof technical foundation for growth, quick time-to-market, and a competitive advantage for delivering more innovative capabilities. For more information, see [SAP Commerce Telco & Utilities Accelerator](https://help.sap.com/viewer/product/TELCO_ACCELERATOR/2007/en-US).
 
 **The SAP Telco & Utilities Accelerator exposes a TM Forum compliant API layer. Would TUA Spartacus support this?**
- 
+
 Spartacus uses OCC APIs, which is leveraged in TUA Spartacus.  In the TUA SPA library, functionality that is not covered using standard OCC APIs will be covered using TM Forum APIs.  There is already support for TM Forum APIs and was delivered with the first TUA library.

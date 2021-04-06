@@ -4,17 +4,10 @@ title: Release Information for TUA Spartacus Libraries
 
 *Last updated December 15, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
-## Release Contents
+**Table of Contents**
 
-- [Introduction](#introduction)
-- [Release 2.0](#release-20)
-- [Release 1.3](#release-13)
-- [Release 1.2](#release-12)
-- [Release 1.1](#release-11)
-- [Release 1.0](#release-10)
-- [About Spartacus for TUA Releases](#about-spartacus-for-tua-releases)
-- [Upgrading TUA Spartacus Libraries to a New Minor Version](#upgrading-tua-spartacus-libraries-to-a-new-minor-version)
-- [Feature Releases](#feature-releases)
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Introduction
 
