@@ -19,6 +19,10 @@ Spartacus supports running multiple tag manager integrations in parallel, and yo
 
 **Note:** To work with the Spartacus tag management system, you should also be familiar with the Spartacus events service, which the TMS relies on. For more information, see [Events Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}).
 
+**Disclaimer**
+
+*The use of tag managers implies the execution of third-party scripts in real time within Spartacus. These scripts may contain malicious payloads. As a result, SAP cannot be held liable or responsible for the content or side effects that may be caused by the execution of third-party scripts within Spartacus. Development teams that are involved in the implementation of tag managers for Spartacus storefronts should consult with business stakeholders to confirm compliance with local privacy and security laws, such as GDPR.*
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
@@ -221,7 +225,3 @@ If you use this approach, you need to pass your `CustomNavigationEvent` to the r
 #### Overriding mapEvents() in the TMS Service
 
 If you wish to enrich all Spartacus events with some common data, you can do so by overriding `mapEvents()` in the `TmsService`.
-
-### Disclaimer
-
-The use of tag managers implies the execution of third-party scripts within Spartacus in real time. These scripts may contain malicious payloads. SAP therefore, cannot be held liable, nor responsible for the content or side effects caused due to the execution of third-party scripts within Spartacus. Dev teams involved in the implementation of tag managers for Spartacus storefronts should consult with the business side to confirm compliance with local privacy and security laws, such as GDPR.  
