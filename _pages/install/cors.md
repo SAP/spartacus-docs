@@ -6,6 +6,11 @@ CORS is a standard mechanism on the web that enables cross-domain requests from 
 
 The response headers are dictated by the server, which is why the server must be set up to generate the correct headers. In the SAP Commerce Cloud back end, these headers can be [configured in a generic fashion](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/b27d995150a74be08869e60e3fbc7395.html?q=authorization%20CORS) by using a CorsFilter. Project properties can be used to configure this for each node, or an ImpEx installation script can be used to install to each node.
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## CORS Headers
 
 You can use various CORS headers to specify whether the origin is allowed, with or without certain methods, headers, cookies, and so on. The following sections describe each of the configurations as they are related to Spartacus.

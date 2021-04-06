@@ -2,6 +2,11 @@
 title: Recommended Development Environment
 ---
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
 ## CLI tools
 
 There are a number of necessary CLI tools that you need to have installed in order to work with Spartacus, as follows:
