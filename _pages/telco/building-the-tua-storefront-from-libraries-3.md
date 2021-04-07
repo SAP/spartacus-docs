@@ -197,7 +197,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@spartacus/core": "3.0.0",
     "@spartacus/storefront": "3.0.0",
     "@spartacus/styles": "3.0.0",
-    "@spartacus/tua-spa": "3.0.0-next.2",
+    "@spartacus/tua-spa": "3.0.0",
     "angular-oauth2-oidc": "^10.0.1",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.9.3",
