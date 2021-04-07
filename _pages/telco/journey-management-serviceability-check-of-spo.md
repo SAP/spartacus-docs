@@ -1,5 +1,5 @@
 ---
-title: Journey Management - Serviceability Check of Simple Product Offerings (SPOs)
+title: Journey Management - Serviceability (Address Validation) of Single and Multiple Product Offerings (SPOs)
 ---
 
 {% capture version_note %}
