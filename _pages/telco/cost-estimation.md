@@ -34,7 +34,7 @@ Gas consumption:
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/gas.png"></p>
 
-When the customer selects or enters anticipated annual consumption information and clicks **Get Available Offers**, the the product listing page displays all applicable product offerings based on the annual consumption as illustrated in the following figures:
+When the customer selects or enters anticipated annual consumption information and clicks **Get Available Offers**, the product listing page displays all applicable product offerings based on the annual consumption as illustrated in the following figures:
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-your-consumption.png"></p>
 
