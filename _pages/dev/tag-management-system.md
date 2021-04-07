@@ -23,6 +23,8 @@ Spartacus supports running multiple tag manager integrations in parallel, and yo
 
 *The use of tag managers implies the execution of third-party scripts in real time within Spartacus. These scripts may contain malicious payloads. As a result, SAP cannot be held liable or responsible for the content or side effects that may be caused by the execution of third-party scripts within Spartacus. Development teams that are involved in the implementation of tag managers for Spartacus storefronts should consult with business stakeholders to confirm compliance with local privacy and security laws, such as GDPR.*
 
+*For more information about third-party script security risks, see [Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html) in the OWASP Cheat Sheet Series.*
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
