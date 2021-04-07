@@ -14,7 +14,7 @@ A contract termination is described as a contract being brought to an early end 
 
 With the Contract Termination feature, while browsing TUA Spartacus, eligible customers can  terminate their existing active subscriptions resulting from a standalone purchase as per the configured The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2102/en-US/602fadbbb42c40a68750d0dac7deba8a.html) policies, without any penalties. The eligible customers see the **Terminate** button on the header of the subscription, below the banner to terminate the subscription one day before the expiry of the subscription. When the customer clicks the **Terminate** button, an order is placed on behalf of the customer in the backend to complete the subscription termination.
 
-**Note:** The **Terminate** button does not display on the subscription if the subscription is not active, and the expiry duration of the subscription is more than one day.
+**Note:** The **Terminate** button does not display below the subscription if the subscription is not active, and the expiry duration of the subscription is more than one day, as well as if the subscription is not a result of a standalone SPO purchase.
 
 ## Business Need
 
@@ -33,14 +33,11 @@ An eligible customer wants to terminate an existing and active subscription. The
 
     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/1banner-termination-button.png"></p>
 
-1. Click **Terminate** to terminate your active subscription. The cart displays the item or items added to cart for the termination flow.
-1. Click **View Cart**. The cart screen displays all relevant details, including the cart items ready for termination.
-1. Click **Proceed to Checkout**. The *Shipping Address* screen is displayed to confirm the default shipping address, or to add a new shipping address.
-1. Click **Continue**. The *Delivery Mode* screen is displayed. 
-1. Click **Continue**. The *Payment Details* screen is displayed. This step is mandatory. Select the mode of payment; for example, a credit card. 
-1. Click **Continue**. The *Review Order* screen is displayed. Review the order details, including the subscription items ready for termination.
-1. Click the **terms and conditions** checkbox and then click **Place Order**. Your order is successfully placed and the subscription is initiated for termination. The header of the subscription shows *Pending Termination* status.
-1. Navigate to **Account** -> **Order History** screen to view the order details with new  contract details.
+-  Click **Terminate** to terminate your active subscription. A confirmation message, *Are you sure you want to terminate your subscription?* is displayed.
+
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/confirmation-message.png"></p>
+
+- Click **Yes**. The cart screen displays the Order Number, date on which termination was initiated, and the status of termination.
 
 ## Feature Enablement
 
