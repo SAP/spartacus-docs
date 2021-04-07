@@ -374,11 +374,11 @@ docs:
                   url: /journey-management-msisdn/    
                 - title: "Journey Management - Serviceability Check ➢"
                   url: /journey-management-serviceability-page/
-                  subchildren:
-                - title: "Journey Management - Serviceability Check (Premise Details)"
-                  url: /journey-management-serviceability/
-                - title: "Journey Management - Serviceability (Address Validation) of Single and Multiple Product Offerings (SPOs)"
-                  url: /journey-management-serviceability-check-of-spo/                        
+                  underchildren:
+                      - title: "Journey Management - Serviceability Check (Premise Details)"
+                        url: /journey-management-serviceability/
+                      - title: "Journey Management - Serviceability (Address Validation) of Single and Multiple Product Offerings (SPOs)"
+                        url: /journey-management-serviceability-check-of-spo/                        
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
