@@ -45,15 +45,15 @@ The items in this section are on the future roadmap, but not necessarily yet pla
 
 ### B2C Storefront Features Planned
 
-- Provide the ability for a customer to purchase a fixed Bundled Product Offerings.
+- Provide the ability for a customer to purchase a fixed Bundled Product Offering.
 - One-Click Order Placement for services.
 - One-click activation/deactivation of services.
 
 ### Retention Process Flows
 
-- **Tariff Change - Upgrade:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
-- **Tariff Change - Upsell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
-- **Tariff Change - Cross-Sell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
+- **Tariff Change - Upgrade (without assurance):** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
+- **Tariff Change - Upsell (without assurance):** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
+- **Tariff Change - Cross-Sell (without assurance):** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
 
 ### Pricing Features
 
@@ -82,10 +82,10 @@ TM Forum-compliant Customer Product Inventory to support retention-based purchas
 - Deactivate Service
 - Top-up Account
 
-### Business-to-Business Storefront Supporting SMB Customers
+### TUA Business-to-Business Storefront Supporting SMB Customers
 
-- B2B Product Catalog supporting complex product offerings
+- Telco B2B Product Catalog supporting complex product offerings
 - Organizational Management
 - Enhanced Roles and Permissions Management
 - Support of complex purchase flows (i.e. workflow management)
-- B2B Self-Care Asset Management and Assurance
+- B2B Self-Care Asset Management and Assurance to manage corporate assets
