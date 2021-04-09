@@ -23,7 +23,7 @@ Structured data is a standardized way of describing the page content of a websit
 
 It is possible to use structured data in combination with a tag management system (TMS), but you can also use structured data to add various schemas to your HTML without using a TMS. For example, tag managers have great advantages over tags implemented by a development team, but there can also be certain disadvantages regarding the runtime performance and the governance of tags. Of course, the use of structured data is also optional.
 
-For more information, see [Tag Management System]({{ site.baseurl }}{% link _pages/dev/tag-management-system.md %}).
+For more information, see [Tag Management System]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %}).
 
 ## Schema Types
 

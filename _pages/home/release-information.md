@@ -65,7 +65,7 @@ We're happy to also announce support for the Qualtrics Embedded Feedback feature
 
 ### New Events
 
-Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}).
+Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %}).
 
 ### Performance Improvements with Code Splitting / Lazy Loading
 
@@ -119,7 +119,7 @@ The following is a summary of the major changes introduced in 2.0:
 - [Schematics updated]({{ site.baseurl }}{% link _pages/install/schematics.md %})
 - [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
 - [Lazy loading of CMS components]({{ site.baseurl }}/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
-- [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}), with Add to Cart event
+- [Event Service]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %}), with Add to Cart event
 - [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %})
 - [Custom Angular URL Matching]({{ site.baseurl }}/adding-and-customizing-routes/#avoiding-static-url-segments-in-the-product-page-url-advanced)
 - Many components refactored
@@ -231,9 +231,9 @@ Powertools sample data modified to work with Spartacus (requires latest spartacu
 What's new?
 
 - [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %})
-- [Guest Checkout]({{ site.baseurl }}{% link _pages/dev/guest-checkout.md %})
-- [Express Checkout]({{ site.baseurl }}{% link _pages/dev/express-checkout.md %})
-- [Infinite Scroll]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %})
+- [Guest Checkout]({{ site.baseurl }}{% link _pages/dev/features/guest-checkout.md %})
+- [Express Checkout]({{ site.baseurl }}{% link _pages/dev/features/express-checkout.md %})
+- [Infinite Scroll]({{ site.baseurl }}{% link _pages/dev/features/infinite-scroll.md %})
 - Routing Migration
 - [Early Login]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %})
 - [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
