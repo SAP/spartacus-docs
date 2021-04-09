@@ -62,6 +62,8 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
+                - title: "Configuring Feature Flags"
+                  url: /configuring-feature-flags/
                 - title: "Reference App Structure"
                   url: /reference-app-structure/
                 - title: "Schematics"
@@ -77,8 +79,6 @@ docs:
             url: /recommended-development-environment/
           - title: "Web Browser Support"
             url: /browser-support/  
-          - title: "Configuring Feature Flags"
-            url: /configuring-feature-flags/
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
