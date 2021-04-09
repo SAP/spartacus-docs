@@ -287,8 +287,6 @@ docs:
                         url: /tag-management-system-examples/
                 - title: "Text Field Configurator Template"
                   url: /text-field-configurator-template/
-                - title: "Token Revocation"
-                  url: /token-revocation/
                 - title: "Variants"
                   url: /variants/  
                 - title: "Wish List"
@@ -300,8 +298,11 @@ docs:
                   url: /deferred-loading/
                 - title: "Above-the-Fold Loading"
                   url: /above-the-fold/
-          - title: "Security Best Practices"
+          - title: "Security Best Practices ➢"
             url: /security-best-practices/
+            subchildren:
+                - title: "Token Revocation"
+                  url: /token-revocation/
           - title: "Server-Side Rendering ➢"
             url: /server-side-rendering-in-spartacus/
             subchildren:
@@ -522,31 +523,34 @@ docs:
       children:
           - title: "Contributing to the Spartacus Storefront"
             url: /contributing-to-the-spartacus-storefront/
-          - title: "Development Tools for Spartacus"
-            url: /development-tools-for-spartacus/
-          - title: "Contributor Setup"
+          - title: "Contributor Setup ➢"
             url: /contributor-setup/
-          - title: "Coding Guidelines"
+            subchildren:
+                - title: "Development Tools for Spartacus"
+                  url: /development-tools-for-spartacus/
+          - title: "Coding Guidelines ➢"
             url: /coding-guidelines/
-          - title: "Definition of Done"
+            subchildren:
+              - title: "Committing Code to Spartacus"
+                url: /commit-guidelines/
+              - title: "Events and Subscriptions"
+                url: /events-and-subscriptions/
+              - title: "Feature Flags and Code Deprecation"
+                url: /feature-flags-and-code-deprecation/
+              - title: "Git Flow and Release Process"
+                url: /git-flow-and-releases/
+              - title: "Reactive Programming in Spartacus"
+                url: /reactive-programming/    
+              - title: "Type Safety in Spartacus"
+                url: /type-safety-in-spartacus/
+          - title: "Definition of Done ➢"
             url: /definition-of-done/
-          - title: "Accessibility E2E Tests"
-            url: /a11y-e2e-tests/
-          - title: "Maintaining Public APIs"
-            url: /breaking-changes/
-          - title: "Updating Schematics"
-            url: /updating-schematics/  
+            subchildren:
+              - title: "Accessibility E2E Tests"
+                url: /a11y-e2e-tests/
+              - title: "Maintaining Public APIs"
+                url: /breaking-changes/
+              - title: "Updating Schematics"
+                url: /updating-schematics/
           - title: "Continuous Integration"
             url: /continuous-integration/ 
-          - title: "Feature Flags and Code Deprecation"
-            url: /feature-flags-and-code-deprecation/
-          - title: "Committing Code to Spartacus"
-            url: /commit-guidelines/
-          - title: "Type Safety in Spartacus"
-            url: /type-safety-in-spartacus/
-          - title: "Events and Subscriptions"
-            url: /events-and-subscriptions/
-          - title: "Reactive Programming in Spartacus"
-            url: /reactive-programming/    
-          - title: "Git Flow and Release Process"
-            url: /git-flow-and-releases/
