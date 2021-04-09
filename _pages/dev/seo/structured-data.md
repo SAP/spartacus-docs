@@ -12,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Structured data is a standardized way of describing the pages and contents of a website to make it easier for web crawlers and search engines to understand. For example, using HTML alone, an `img` element does not indicate whether the element represents a product or a person. When you use structured data, you provide various data sets to the page to make the content easier for web crawlers to classify. The data sets used in Spartacus are aligned with the standard schemas that are provided by the Schema.org community.
+Structured data is a standardized way of describing the page content of a website to make it easier for web crawlers and search engines to understand. For example, using HTML alone, an `img` element does not indicate whether the element represents a product or a person. When you use structured data, you provide various data sets to the page to make the content easier for web crawlers to classify. The data sets used in Spartacus are aligned with the standard schemas that are provided by the Schema.org community.
 
 **Table of Contents**
 
@@ -27,7 +27,7 @@ For more information, see [Tag Management System]({{ site.baseurl }}{% link _pag
 
 ## Schema Types
 
-There are various schemas for the web, and schemas can be extended as well. The schemas are maintained by the Schema.org community. The following are common schemas for commerce: WebSite, Organization, BreadcrumbList, Product, Reviews, Offer, and Rating.
+There are various standard schemas for the web that are maintained by the Schema.org community. Common schemas that are used on e-commerce websites including: WebSite, Organization, BreadcrumbList, Product, Review, Offer, and Rating. Other, custom schemas may also be suggested by certain crawlers.
 
 Spartacus has implemented standard schemas for the following:
 
@@ -39,13 +39,11 @@ Spartacus has implemented standard schemas for the following:
 
 You can further enhance the generated schemas or introduce new schemas to the application as well.
 
-The schemas allow you to add different schemas in a script tag, or to wrap multiple schemas within a single, overarching schema. In the standard schema build for product data, the product reviews, offers, and rating are included as part the the product schema.
-
 ### Structured Data Vocabularies
 
 There are three vocabularies that can be used to describe structured data on a web page: RDFa, Microdata, and JSON-LD.
 
-Spartacus uses JSON-LD because it is the recommended format according to Google, it is an easier format to generate, and it is decoupled from the actual UI components. The other vocabularies are tightly coupled with the UI components, which has a number of disadvantages.
+Spartacus uses JSON-LD because it is an easier format to generate, and it is decoupled from the actual UI components. The other vocabularies are tightly coupled with the UI components, which has a number of disadvantages.
 
 ## Implementation of JSON-LD Schemas in Spartacus
 
@@ -96,6 +94,4 @@ This example JSON schema generates the following script tag:
 </script>
 ```
 
-**Note:** Spartacus does not validate the given JSON-LD schema.
-
-<!-- Is this note saying that Spartacus does not validate any JSON-LD schemas, or just the one in the example provided here? -->
+**Note:** Spartacus does not validate the JSON-LD schema that is generated inside the script tag.

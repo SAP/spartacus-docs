@@ -37,7 +37,7 @@ For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ 
 
 ## Structured Data (schema.org)
 
-Structured data is a standardized way of describing the pages and contents of a website to make it easier for web crawlers and search engines to understand. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+Structured data is a standardized way of describing the page content of a website to make it easier for web crawlers and search engines to understand. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 ## HTML Tags
 
