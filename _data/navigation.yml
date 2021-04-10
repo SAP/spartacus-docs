@@ -59,29 +59,26 @@ docs:
                   url: /installing-sap-commerce-cloud-1905/                
           - title: "Cross-Origin Resource Sharing (CORS)"
             url: /cors/        
-          - title: "Building the Spartacus Storefront from Libraries"
+          - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
-          - title: "Reference App Structure"
-            url: /reference-app-structure/
-          - title: "Schematics"
-            url: /schematics/  
+            subchildren:
+                - title: "Configuring Feature Flags"
+                  url: /configuring-feature-flags/
+                - title: "Reference App Structure"
+                  url: /reference-app-structure/
+                - title: "Schematics"
+                  url: /schematics/  
+                - title: "Snapshot Builds"
+                  url: /snapshot-builds/
+                - title: "Spartacussampledata Extension ➢"
+                  url: /spartacussampledata-extension/
+                  underchildren:
+                      - title: "Spartacussampledataaddon AddOn"
+                        url: /spartacussampledataaddon/
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
           - title: "Web Browser Support"
             url: /browser-support/  
-          - title: "Snapshot Builds"
-            url: /snapshot-builds/
-          - title: "Configuring Feature Flags"
-            url: /configuring-feature-flags/
-          - title: "SmartEdit Setup Instructions for Spartacus"
-            url: /smartEdit-setup-instructions-for-spartacus/
-          - title: "Personalization Setup Instructions for Spartacus"
-            url: /personalization-setup-instructions-for-spartacus/
-          - title: "Spartacussampledata Extension ➢"
-            url: /spartacussampledata-extension/
-            subchildren:
-                - title: "Spartacussampledataaddon AddOn"
-                  url: /spartacussampledataaddon/
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
@@ -89,180 +86,27 @@ docs:
                   url: /configurable-products-integration/
                 - title: "Context-Driven Services Integration"
                   url: /cds-integration/  
-                - title: "Payment Integration with CyberSource Example"
-                  url: /cybersource-integration/
+                - title: "Customer Data Cloud Integration"
+                  url: /cdc-integration/              
                 - title: "Kyma Integration"
                   url: /kyma-integration/
+                - title: "Payment Integration with CyberSource Example"
+                  url: /cybersource-integration/
+                - title: "Personalization Setup Instructions for Spartacus"
+                  url: /personalization-setup-instructions-for-spartacus/
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
-                - title: "SAP Customer Data Cloud Integration"
-                  url: /cdc-integration/              
+                - title: "SmartEdit Setup Instructions for Spartacus ➢"
+                  url: /smartEdit-setup-instructions-for-spartacus/
+                  underchildren:
+                      - title: "SmartEdit Contract in Spartacus"
+                        url: /smartedit-contract/
+
 
 
     - title: Storefront Development Guide
       url: /dev-guide/
       children:
-          - title: "Spartacus API"
-            url: /spartacus-api/
-          - title: "Global Configuration in Spartacus"
-            url: /global-configuration-in-spartacus/
-          - title: "Spartacus Features ➢"
-            url: /spartacus-features/
-            subchildren:
-                - title: "Anonymous Consent"
-                  url: /anonymous-consent/
-                - title: "Applied Promotions"
-                  url: /applied-promotions/
-                - title: "Assisted Service Module"
-                  url: /asm/
-                - title: "B2B Commerce Organization"
-                  url: /b2b-commerce-organization/
-                - title: "Bulk Pricing"
-                  url: /bulk-pricing/  
-                - title: "Cancellations and Returns"
-                  url: /cancellations-and-returns/  
-                - title: "Consignment Tracking"
-                  url: /consignment-tracking/
-                - title: "Coupons"
-                  url: /coupons/
-                - title: "Customer Coupons"
-                  url: /customer-coupons/                
-                - title: "Customer Interests"
-                  url: /customer-interests/
-                - title: "Notification Preferences"
-                  url: /notification-preferences/
-                - title: "Saved Cart"
-                  url: /saved-cart/
-                - title: "Scheduled Replenishment"
-                  url: /scheduled-replenishment/  
-                - title: "Selective Cart"
-                  url: /selective-cart/
-                - title: "Skip Links"
-                  url: /skip-links/  
-                - title: "Stock Notification"
-                  url: /stock-notification/  
-                - title: "Store Locator"
-                  url: /store-locator/
-                - title: "Text Field Configurator Template"
-                  url: /text-field-configurator-template/
-                - title: "Token Revocation"
-                  url: /token-revocation/
-                - title: "Variants"
-                  url: /variants/  
-                - title: "Wish List"
-                  url: /wish-list/  
-          - title: "Security Best Practices"
-            url: /security-best-practices/
-          - title: "Performance Optimizations ➢"
-            url: /performance/
-            subchildren:
-                - title: "Deferred Loading"
-                  url: /deferred-loading/
-                - title: "Above-the-Fold Loading"
-                  url: /above-the-fold/
-          - title: "Outlets"
-            url: /outlets/        
-          - title: "Styling and Page Layout ➢"
-            url: /styling-and-page-layout/
-            subchildren:
-                - title: "CSS Architecture"
-                  url: /css-architecture/
-                - title: "Global Variables"
-                  url: /global-variables/
-                - title: "Icon Library"
-                  url: /icon-library/
-                - title: "Page Layout"
-                  url: /page-layout/
-                - title: "Directionality"
-                  url: /directionality/
-                - title: "Skeleton Design"
-                  url: /skeleton-design/  
-          - title: "Customizing and Extending Spartacus Features ➢"
-            url: /customizing-and-extending/
-            subchildren:
-                - title: "Customizing CMS Components"
-                  url: /customizing-cms-components/
-                - title: "Creating New Pages and Components"
-                  url: /creating-pages-and-components/
-                - title: "Product Details Page"
-                  url: /product-details-page/
-                - title: "Banner Component"
-                  url: /banner-component/
-                - title: "Media Component"
-                  url: /media-component/  
-                - title: "Pagination Component"
-                  url: /pagination/  
-                - title: "Searchbox Component"
-                  url: /searchbox-component/
-                - title: "Split View Component"
-                  url: /split-view/
-                - title: "Table Component"
-                  url: /table-component/
-          - title: "Extending Built-In Models"
-            url: /type-augmentation/
-          - title: "Session Management"
-            url: /session-management/
-          - title: "Lazy Loading"
-            url: /lazy-loading-guide/
-          - title: "Extending Checkout"
-            url: /extending-checkout/
-          - title: "Express Checkout"
-            url: /express-checkout/
-          - title: "Guest Checkout"
-            url: /guest-checkout/
-          - title: "Configurable Routing ➢"
-            url: /configurable-routing/
-            subchildren:
-                - title: "Adding and Customizing Routes"
-                  url: /adding-and-customizing-routes/
-                - title: "Route Configuration"
-                  url: /route-configuration/
-                - title: "Configurable Router Links"
-                  url: /configurable-router-links/
-                - title: "Disabling Standard Routes"
-                  url: /disabling-standard-routes/
-                - title: "Additional Route Parameters"
-                  url: /additional-route-parameters/
-                - title: "Route Aliases"
-                  url: /route-aliases/
-                - title: "External Routes"
-                  url: /external-routes/
-                - title: "Early Login"
-                  url: /early-login/
-          - title: "Configuring the Base URL"
-            url: /configuring-base-url/
-          - title: "Multi-Site Configuration ➢"
-            url: /context-configuration/
-            subchildren:
-                - title: "Automatic Multi-Site Configuration"
-                  url: /automatic-context-configuration/
-                - title: "Static Multi-Site Configuration"
-                  url: /static-context-configuration/
-          - title: "Event Service"
-            url: /event-service/
-          - title: "Tag Management System ➢"
-            url: /tag-management-system/
-            subchildren:
-                - title: "Tag Management System Examples"
-                  url: /tag-management-system-examples/
-          - title: "PWA ➢"
-            url: /pwa-home/
-            subchildren:
-                - title: "Adding PWA Support to Spartacus"
-                  url: /pwa-setup/
-                - title: "Adding the Spartacus App to the Home Screen"
-                  url: /add-to-home-pwa/
-          - title: "SEO ➢"
-            url: /seo/
-            subchildren:
-                - title: "SEO Capabilities"
-                  url: /seo-capabilities/
-                - title: "HTML Tags"
-                  url: /html-tags/
-                - title: "Structured Data (schema.org)"
-                  url: /structured-data/
-          - title: "Internationalization (i18n)"
-            url: /i18n/
           - title: "Accessibility ➢"
             url: /a11y/
             subchildren:
@@ -285,29 +129,180 @@ docs:
                       - title: "Trap Focus"
                         url: /trap-focus/
                       - title: "Lock Focus"
-                        url: /lock-focus/          
-          - title: "State Management ➢"
-            url: /state-management/
+                        url: /lock-focus/
+          - title: "API"
+            url: /spartacus-api/
+          - title: "Architecture ➢"
+            url: /architecture/
             subchildren:
-                - title: "Loader Meta Reducer"
-                  url: /loader-meta-reducer/
-                - title: "State Persistence"
-                  url: /state-persistence/  
-          - title: "SmartEdit Contract in Spartacus"
-            url: /smartedit-contract/
+                - title: "Configurable Routing ➢"
+                  url: /configurable-routing/
+                  underchildren:
+                      - title: "Adding and Customizing Routes"
+                        url: /adding-and-customizing-routes/
+                      - title: "Route Configuration"
+                        url: /route-configuration/
+                      - title: "Configurable Router Links"
+                        url: /configurable-router-links/
+                      - title: "Disabling Standard Routes"
+                        url: /disabling-standard-routes/
+                      - title: "Additional Route Parameters"
+                        url: /additional-route-parameters/
+                      - title: "Route Aliases"
+                        url: /route-aliases/
+                      - title: "External Routes"
+                        url: /external-routes/
+                      - title: "Early Login"
+                        url: /early-login/
+                - title: "Configurable State Persistence and Rehydration"
+                  url: /configurable-state-persistence-and-rehydration/
+                - title: "Configuring the Base URL"
+                  url: /configuring-base-url/
+                - title: "Extending Built-In Models"
+                  url: /type-augmentation/
+                - title: "Global Configuration in Spartacus"
+                  url: /global-configuration-in-spartacus/
+                - title: "Global Messages"
+                  url: /global-messages/
+                - title: "HTTP Error Handling"
+                  url: /http-error-handling/
+                - title: "Lazy Loading"
+                  url: /lazy-loading-guide/
+                - title: "Multi-Site Configuration ➢"
+                  url: /context-configuration/
+                  underchildren:
+                      - title: "Automatic Multi-Site Configuration"
+                        url: /automatic-context-configuration/
+                      - title: "Static Multi-Site Configuration"
+                        url: /static-context-configuration/
+                - title: "PWA ➢"
+                  url: /pwa-home/
+                  underchildren:
+                      - title: "Adding PWA Support to Spartacus"
+                        url: /pwa-setup/
+                      - title: "Adding the Spartacus App to the Home Screen"
+                        url: /add-to-home-pwa/
+                - title: "SEO ➢"
+                  url: /seo/
+                  underchildren:
+                      - title: "SEO Capabilities"
+                        url: /seo-capabilities/
+                      - title: "HTML Tags"
+                        url: /html-tags/
+                      - title: "Structured Data (schema.org)"
+                        url: /structured-data/
+                - title: "Session Management"
+                  url: /session-management/
+                - title: "State Management ➢"
+                  url: /state-management/
+                  underchildren:
+                      - title: "Loader Meta Reducer"
+                        url: /loader-meta-reducer/
+                      - title: "State Persistence"
+                        url: /state-persistence/  
+          - title: "Customizing and Extending Spartacus ➢"
+            url: /customizing-and-extending/
+            subchildren:
+                - title: "Customizing CMS Components"
+                  url: /customizing-cms-components/
+                - title: "Creating New Pages and Components"
+                  url: /creating-pages-and-components/
+                - title: "Extending Checkout"
+                  url: /extending-checkout/
+                - title: "Internationalization (i18n)"
+                  url: /i18n/
+                - title: "Product Details Page"
+                  url: /product-details-page/
+                - title: "Spartacus Components ➢"
+                  url: /components/
+                  underchildren:
+                      - title: "Banner Component"
+                        url: /banner-component/
+                      - title: "Media Component"
+                        url: /media-component/  
+                      - title: "Pagination Component"
+                        url: /pagination/  
+                      - title: "Searchbox Component"
+                        url: /searchbox-component/
+                      - title: "Split View Component"
+                        url: /split-view/
+                      - title: "Table Component"
+                        url: /table-component/
           - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
                 - title: "Loading Scopes"
                   url: /loading-scopes/
                 - title: "Connecting to Other Systems"
-                  url: /connecting-to-other-systems/  
-          - title: "Global Messages"
-            url: /global-messages/
-          - title: "HTTP Error Handling"
-            url: /http-error-handling/
-          - title: "Configurable State Persistence and Rehydration"
-            url: /configurable-state-persistence-and-rehydration/
+                  url: /connecting-to-other-systems/
+          - title: "Features ➢"
+            url: /spartacus-features/
+            subchildren:
+                - title: "Anonymous Consent"
+                  url: /anonymous-consent/
+                - title: "Applied Promotions"
+                  url: /applied-promotions/
+                - title: "Assisted Service Module"
+                  url: /asm/
+                - title: "B2B Commerce Organization"
+                  url: /b2b-commerce-organization/
+                - title: "Bulk Pricing"
+                  url: /bulk-pricing/  
+                - title: "Cancellations and Returns"
+                  url: /cancellations-and-returns/  
+                - title: "Consignment Tracking"
+                  url: /consignment-tracking/
+                - title: "Coupons"
+                  url: /coupons/
+                - title: "Customer Coupons"
+                  url: /customer-coupons/                
+                - title: "Customer Interests"
+                  url: /customer-interests/
+                - title: "Event Service"
+                  url: /event-service/
+                - title: "Express Checkout"
+                  url: /express-checkout/
+                - title: "Guest Checkout"
+                  url: /guest-checkout/
+                - title: "Infinite Scroll"
+                  url: /infinite-scroll/  
+                - title: "Notification Preferences"
+                  url: /notification-preferences/
+                - title: "Saved Cart"
+                  url: /saved-cart/
+                - title: "Scheduled Replenishment"
+                  url: /scheduled-replenishment/  
+                - title: "Selective Cart"
+                  url: /selective-cart/
+                - title: "Skip Links"
+                  url: /skip-links/  
+                - title: "Stock Notification"
+                  url: /stock-notification/  
+                - title: "Store Locator"
+                  url: /store-locator/
+                - title: "Tag Management System ➢"
+                  url: /tag-management-system/
+                  underchildren:
+                      - title: "Tag Management System Examples"
+                        url: /tag-management-system-examples/
+                - title: "Text Field Configurator Template"
+                  url: /text-field-configurator-template/
+                - title: "Variants"
+                  url: /variants/  
+                - title: "Wish List"
+                  url: /wish-list/  
+          - title: "Performance Optimizations ➢"
+            url: /performance/
+            subchildren:
+                - title: "Deferred Loading"
+                  url: /deferred-loading/
+                - title: "Above-the-Fold Loading"
+                  url: /above-the-fold/
+          - title: "Security Best Practices ➢"
+            url: /security-best-practices/
+            subchildren:
+                - title: "Token Revocation"
+                  url: /token-revocation/
           - title: "Server-Side Rendering ➢"
             url: /server-side-rendering-in-spartacus/
             subchildren:
@@ -319,11 +314,23 @@ docs:
                   url: /how-to-debug-server-side-rendered-storefront/
                 - title: "Workaround for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
                   url: /ssr-ccv2-issue-spartacus-version-2/  
-          - title: "View Configuration ➢"
-            url: /view-configuration/
+          - title: "Styling and Page Layout ➢"
+            url: /styling-and-page-layout/
             subchildren:
-                - title: "Infinite Scroll"
-                  url: /infinite-scroll/
+                - title: "CSS Architecture"
+                  url: /css-architecture/
+                - title: "Global Variables"
+                  url: /global-variables/
+                - title: "Icon Library"
+                  url: /icon-library/
+                - title: "Outlets"
+                  url: /outlets/        
+                - title: "Page Layout"
+                  url: /page-layout/
+                - title: "Directionality"
+                  url: /directionality/
+                - title: "Skeleton Design"
+                  url: /skeleton-design/  
           - title: "Customer Experience Guidelines ➢"
             url: /user-experience-guidelines/
             subchildren:
@@ -516,31 +523,34 @@ docs:
       children:
           - title: "Contributing to the Spartacus Storefront"
             url: /contributing-to-the-spartacus-storefront/
-          - title: "Development Tools for Spartacus"
-            url: /development-tools-for-spartacus/
-          - title: "Contributor Setup"
+          - title: "Contributor Setup ➢"
             url: /contributor-setup/
-          - title: "Coding Guidelines"
+            subchildren:
+                - title: "Development Tools for Spartacus"
+                  url: /development-tools-for-spartacus/
+          - title: "Coding Guidelines ➢"
             url: /coding-guidelines/
-          - title: "Definition of Done"
+            subchildren:
+              - title: "Committing Code to Spartacus"
+                url: /commit-guidelines/
+              - title: "Events and Subscriptions"
+                url: /events-and-subscriptions/
+              - title: "Feature Flags and Code Deprecation"
+                url: /feature-flags-and-code-deprecation/
+              - title: "Git Flow and Release Process"
+                url: /git-flow-and-releases/
+              - title: "Reactive Programming in Spartacus"
+                url: /reactive-programming/    
+              - title: "Type Safety in Spartacus"
+                url: /type-safety-in-spartacus/
+          - title: "Definition of Done ➢"
             url: /definition-of-done/
-          - title: "Accessibility E2E Tests"
-            url: /a11y-e2e-tests/
-          - title: "Maintaining Public APIs"
-            url: /breaking-changes/
-          - title: "Updating Schematics"
-            url: /updating-schematics/  
+            subchildren:
+              - title: "Accessibility E2E Tests"
+                url: /a11y-e2e-tests/
+              - title: "Maintaining Public APIs"
+                url: /breaking-changes/
+              - title: "Updating Schematics"
+                url: /updating-schematics/
           - title: "Continuous Integration"
             url: /continuous-integration/ 
-          - title: "Feature Flags and Code Deprecation"
-            url: /feature-flags-and-code-deprecation/
-          - title: "Committing Code to Spartacus"
-            url: /commit-guidelines/
-          - title: "Type Safety in Spartacus"
-            url: /type-safety-in-spartacus/
-          - title: "Events and Subscriptions"
-            url: /events-and-subscriptions/
-          - title: "Reactive Programming in Spartacus"
-            url: /reactive-programming/    
-          - title: "Git Flow and Release Process"
-            url: /git-flow-and-releases/

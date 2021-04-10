@@ -4,7 +4,7 @@ title: Tag Management System Examples
 
 There are a number of popular solutions that you can integrate with the Spartacus tag management system (TMS). The following sections provide examples of how to set up Spartacus with some of most common TMS solutions, such as Google Tag Manager (GTM), Google Analytics (GA), and Adobe Experience Platform Launch (AEPL).
 
-As mentioned in the "Setup" section of the main [Tag Management System]({{ site.baseurl }}{% link _pages/dev/tag-management-system.md %}) documentation, if you are using GTM or AEPL, Spartacus can handle the script "injection" to the DOM for you. However, if you prefer to have more control over the process, or if you have a complex use case, you can use the examples in the following sections to implement the setup according to your needs.
+As mentioned in the "Setup" section of the main [Tag Management System]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %}) documentation, if you are using GTM or AEPL, Spartacus can handle the script "injection" to the DOM for you. However, if you prefer to have more control over the process, or if you have a complex use case, you can use the examples in the following sections to implement the setup according to your needs.
 
 **Table of Contents**
 
