@@ -87,5 +87,5 @@ TM Forum-compliant Customer Product Inventory to support retention-based purchas
 - Telco B2B Product Catalog supporting complex product offerings
 - Organizational Management
 - Enhanced Roles and Permissions Management
-- Support of complex purchase flows (i.e. workflow management)
+- Support of complex purchase flows (that is, workflow management)
 - B2B Self-Care Asset Management and Assurance to manage corporate assets
