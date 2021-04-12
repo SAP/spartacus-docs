@@ -7,7 +7,7 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 ## Release 3.0
 
 - [Contract Termination (without assurance)]({{ site.baseurl }}{% link _pages/telco/contract-termination.md %})
-- [Journey Management - Serviceability Check of an SPO]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %})
+- [Journey Management - Serviceability]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %})
 - [Retention Flow - Renewal]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %})
 
 
