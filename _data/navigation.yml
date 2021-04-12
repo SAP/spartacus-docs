@@ -377,7 +377,7 @@ docs:
                   underchildren:
                       - title: "Journey Management - Serviceability Check (Premise Details)"
                         url: /journey-management-serviceability/
-                      - title: "Journey Management - Serviceability (Address Validation) of Single and Multiple Product Offerings (SPOs)"
+                      - title: "Journey Management - Serviceability"
                         url: /journey-management-serviceability-check-of-spo/                        
                 - title: "Order"
                   url: /order/
