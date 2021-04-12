@@ -1,5 +1,5 @@
 ---
-title: Journey Management - Serviceability (Address Validation) of Single and Multiple Product Offerings (SPOs)
+title: Journey Management - Serviceability
 ---
 
 {% capture version_note %}
@@ -10,13 +10,13 @@ title: Journey Management - Serviceability (Address Validation) of Single and Mu
 
 ## Overview
 
-The feature provides the ability for a registered customer to upfront verify if a selected single or multiple simple product offerings are serviceable (available) at the provided address or not from the advertisement banner, so that the customers can place orders for only those product offerings, which can be serviced at the provided address. This feature enhances customer experience as the customers can compare different offerings, which are available to them. Additionally, customers also get to know all product offerings that are serviceable at a specific address.
+The feature enables customers to confirm the availability (serviceability) of product offerings at the specified address before placing an order, so that customers can place orders only for product offerings that are available (serviceable) at the specified address. The feature enhances customer experience as the customers can compare different product offerings, which are available at the specified address before placing an order.
 
-This feature takes into consideration the journey [checklist policy for serviceability (installation address) check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html), so that when the customer places an order for the product offering that requires serviceability check, the journey checklist policy validates the provided address with the pin code to confirm if the single or multiple product offerings can be serviceable at the provided address or not.
+To effectively filter the product offerings based on the address that includes the postal code specified by the customer, this feature implements the [Serviceabiity Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
 
 ## Prerequisites
 
-The system performing the serviceability check of the provided installation address should be up and running (for demonstration purposes, a mock service can be used).
+The system performing the serviceability check of the specified installation address should be up and running (for demonstration purposes, a mock service can be used).
 
 To start the mock service:
 1. Download SOAP UI 5.6.0 (or the version compatible with your Operating System)
@@ -29,40 +29,11 @@ To start the mock service:
 
 ## Business Need
 
-In the TUA Spartacus storefront, a new **CHECK AVAILABILITY** button is provided on the advertisement banner and in the broadband category page. The feature enables the registered customer to upfront check if the selected product offering is serviceable (available) at the provided address or not, before placing the order for the selected product offering via cart.
+In the TUA Spartacus storefront, a new **CHECK AVAILABILITY** button is provided on the advertisement banner and in the broadband category page. The feature enables the customers to upfront confirm if the product offering is serviceable (available) at the specified address or not, before placing an order.
 
-## Business Use Cases
+## Business Scenarios
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0lax"><span style="font-weight:bold">Use Case</span></th>
-    <th class="tg-0lax"><span style="font-weight:bold">Steps</span></th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax">A customer wants to purchase 5G Internet plan. Before placing an order, customer wants to confirm if the selected product offering is serviceable (available) at the specified address  or not</td>
-    <td class="tg-0lax">1. Log in to the TUA  Spartacus. The advertisement banner displays the product offering; for example, 5G Internet plan and the new <span style="font-weight:bold">CHECK AVAILABILITY</span> button.<br>2. Click the<span style="font-weight:bold"> CHECK AVAILABILITY </span>on the advertisement banner<span style="font-weight:bold"> </span>to check the serviceability (availability) of 5G Internet at the installation address. The <span style="font-weight:bold">Check Availability</span> screen is displayed.<br>3. In the <span style="font-weight:bold">Check Availability </span>screen, type your address with the area code; for example, 94121 and then click the <span style="font-weight:bold">Check</span> button to check if the selected product offering is available at the specified address or not.   <br>4. The selected product offering is serviceable (available) in the specified address. The subsequent screen confirms that the selected product offering is available in the target area with the details of the selected product offering. <br>5. Click <span style="font-weight:bold">Add to Cart</span> to proceed to checkout and place the order for the product offering. </td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">A customer wants to purchase 5G Internet plan from the address at which the product offering is not serviceable</td>
-    <td class="tg-0lax">1. Log in to the TUA Spartacus. The advertisement banner displays the product offering; for example, 5G Internet plan and the new <span style="font-weight:bold">CHECK AVAILABILITY </span>button.  <br>2. Click CHECK AVAILABILITY to check the serviceability (availability) of the 5G Internet at the installation address. The <span style="font-weight:bold">Check Availability</span> screen is displayed.<br>3. In the <span style="font-weight:bold">Check Availability </span>screen, type your address with your area code as 94120 and then click the <span style="font-weight:bold">Check Availability</span> button to check if the selected product offering is available at the specified address or not.<br>4. The selected product offering is not serviceable (available) at the specified address. An information message: The <span style="font-style:italic">selected product offering is currently unavailable at the provided address. Please provide a different address to proceed</span>.<br><br><span style="font-weight:bold">Note:</span> If this preceding information message is displayed, you can click the<span style="font-weight:bold"> CHECK AVAILABILITY</span> button on the advertisement banner and update the address with the area code. </td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">A customer wants to check what product offerings are serviceable (available) at a provided installation address</td>
-    <td class="tg-0lax">1. Log in to the TUA Spartacus. The advertisement banner is displayed with the new <span style="font-weight:bold">CHECK AVAILABILITY</span> button. <br>2. Click the<span style="font-weight:bold"> BROADBAND</span><span style="font-style:italic"> </span>menu: If the selected product offering, for example, 5G Internet is available at the provided address, a message <span style="font-style:italic">Below offerings are available at the target address, with the target address</span> is displayed. If no product offerings are configured at the provided address, no product offerings will display.    <br>3. Click <span style="font-weight:bold">CHANGE ADDRESS</span> to update your address and the area code and then click the <span style="font-weight:bold">Check</span> button. You can continue to update the address with the area code to check the serviceability of the product offering or multiple product offerings at the new or updated address.<br>4. If the required product offering is serviceable (available) at the specified address, you can add the product offering to the cart and continue to checkout and place the order.</td>
-  </tr>
-</tbody>
-</table>
+For refer different Business Scenarios, see [Serviceabiity Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
 
 ## Feature Enablement
 
@@ -125,4 +96,4 @@ For detailed information about configuring and enabling serviceability check, se
 
 For further reading, see the following topics in the TUA Help portal.
 
-- [Serviceability (installation address) check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
+- [Serviceability Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
