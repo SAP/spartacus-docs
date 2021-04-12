@@ -1,5 +1,5 @@
 ---
-title: Feature Release Versions
+title: Feature Compatibility Matrix
 ---
 
 The following table lists the TUA Spartacus library release version for each feature, as well as the relevant versions of SAP Commerce Cloud, Telco & Utilities Accelerator (TUA), and core Spartacus libraries that are required.

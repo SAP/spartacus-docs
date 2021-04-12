@@ -33,6 +33,7 @@ For release information about Spartacus 1.x, see [Release Information for Versio
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
+- For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **Disclaimer - Forward-Looking Statements**
