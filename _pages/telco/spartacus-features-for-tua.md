@@ -6,7 +6,7 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 
 ## Release 3.0
 
-- [Journey Management - Serviceability (Address Validation) of Single and Multiple Product Offerings (SPOs)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %})
+- [Journey Management - Serviceability]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %})
 
 ## Release 2.0
 
