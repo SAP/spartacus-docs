@@ -331,15 +331,6 @@ docs:
                   url: /directionality/
                 - title: "Skeleton Design"
                   url: /skeleton-design/  
-          - title: "Customer Experience Guidelines ➢"
-            url: /user-experience-guidelines/
-            subchildren:
-                - title: "Designing Action Buttons"
-                  url: /designing-action-buttons/
-                - title: "Main Actions with Form Pages"
-                  url: /main-actions-with-form-pages/
-                - title: "Writing Notification Banners"
-                  url: /writing-notification-banners/
 
 
     - title: Using the Spartacus Storefront
