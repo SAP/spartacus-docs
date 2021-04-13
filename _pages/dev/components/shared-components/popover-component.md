@@ -7,54 +7,61 @@ feature:
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 3.2 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
+The popover component allows you to display a transient view that contains additional content, such as a note, whenever a user clicks on a control element.
 
-The Popover component is UI feature similar to tooltip. It is a transient view  that appears when the user clicks on the control element and can contain much more content.
+**Table of Contents**
 
-## Requirements
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
-Popover component requires `PopoverModule` to be imported inside the component module:
+## Adding a Popover to a UI Element
 
-```ts
-@NgModule({
-  imports: [PopoverModule]
-})
-```
+The popover component can be used by any UI element that needs to display some additional content near the element. The following steps describe how to add a popover to a UI element.
 
-## Component Usage
+1. Import the `PopoverModule` into the relevant component module, as shown in the following example:
 
-The popover component can be used by any UI that needs to display near some  content.
+    ```ts
+    @NgModule({
+      imports: [PopoverModule]
+    })
+    ```
 
-The following code snippet shows a simple example of popover binded to button which displays string after click:
+1. Bind the popover to the UI element.
 
-```html
-<button [cxPopover]="'Welcome popover!'">
-  Example Button
-</button>
-```
+    In the following example, the popover is bound to a button that displays a string after it is clicked:
 
-For some advanced usage there is also possibility to pass `<ng-template>` reference into popover instead of string. This solution will make template content rendered inside popover area:
+    ```html
+    <button [cxPopover]="'Welcome popover!'">
+      Example Button
+    </button>
+    ```
 
-```html
-<ng-template #myTemplate>
-  <h1>Welcome {{ name }}!</h1>
-</ng-template>
+    It is also possible to pass an `<ng-template>` reference into a popover instead of a string. The following example shows how to make template content render inside the popover:
 
-<button [cxPopover]="myTemplate">
-  Example Button
-</button>
-```
+    {% raw %}
+
+    ```html
+    <ng-template #myTemplate>
+      <h1>Welcome {{ name }}!</h1>
+    </ng-template>
+
+    <button [cxPopover]="myTemplate">
+      Example Button
+    </button>
+    ```
+
+{% endraw %}
 
 ## Configuration
 
-Popover component can be customized in few areas. There is configuration object called `cxPopoverOptions` which setups popover apperance and behaviour based on passed properties.
+You can use the `cxPopoverOptions` configuration object to modify the appearance and behavior of the popover component.
 
-To add customized popover please see following snippet:
+The following example creates a customized popover that appears at the bottom of the button it is bound to:
 
 ```html
 <button
@@ -66,29 +73,26 @@ To add customized popover please see following snippet:
   Example Button
 </button>
 ```
-It will add popover binded to button, but after trigger open action popover will be rendered from the bottom of such button.
 
-Placement is one of examples, here is full list of popover options:
+You can configure the popover component with the following options:
 
-| option | description | type | default |
-| ---------------------- | ------- | ------ | ------ |
-| `placement` | The preferred placement of the popover.<br/><br/> Allowed popover placements: `'auto'`, `'top'`, `'bottom'`, `'left'`, `'right'`, `'top-left'`, `'top-right'`, `'bottom-left'`, `'bottom-right'`, `'left-top'`, `'left-bottom'`, `'right-top'`, `'right-bottom'`. | `PopoverPosition` | `'top'`
-| `autoPositioning` | Flag used to define if popover should look for the best placement in case if there is not enough space in viewport for preferred position.<br/><br/> Value of this flag is omitted if preferred placement is set to `auto`. | `boolean` | `true`
-| `disable` | Flag used to prevent firing popover open function. | `boolean` | `false`
-| `class` | Custom class name passed to popover component. Mostly helpful for some custom CSS styling. | `string` | `'cx-popover'`
-| `displayCloseButton` | Flag used to display close button in popover component. | `boolean` | `false`
-| `appendToBody` | Appends popover component in DOM right before closing `'body'` tag. | `boolean` | `false`
-| `positionOnScroll` | Flag indicates if popover should be re-positioned on scroll event. | `boolean` | `false`
+- **placement** is of type `PopoverPosition` and indicates the preferred placement of the popover. You can see all of the possible `placement` values in `popover.model.ts`. The default is `'top'`.
+- **autoPositioning** is a boolean that indicates if the popover should try to find a better placement if there is not enough space in the viewport for the preferred position. This value is ignored if `placement` is set to `'auto'`. The default value is `true`.
+- **disable** is a boolean that prevents the popover open function from running. The default is `false`.
+- **class** is a string for a custom class name that is passed to the popover component. This is useful for custom CSS styling. The default is `'cx-popover'`.
+- **displayCloseButton** is a boolean that indicates if a "close" button is displayed in the popover. The default is `false`.
+- **appendToBody** is a boolean that indicates if the popover component is appended to the DOM just before the closing `'body'` tag. The default is `false`.
+- **positionOnScroll** is a boolean that indicates if the popover should be repositioned on a scroll event. The default is `false`.
 
 ## Events
 
-The popover emits two types of events:
-| event | description |
-| ---------------------- | ------- |
-`openPopover` | Fired after popover open method was triggered.
-`closePopover` | Fired after popover close method was triggered.
+The following is a description of the events the popover component can emit:
 
-Any function can be passed for such events. Here is an example how it can be done:
+- `openPopover` is emitted after the popover open method is triggered.
+- `closePopover` is emitted after the popover close method is triggered.
+
+Any function can be passed with these events. The following is an example:
+
 ```html
 <button
   [cxPopover]="'Welcome Popover!'"
@@ -99,23 +103,22 @@ Any function can be passed for such events. Here is an example how it can be don
 </button>
 ```
 
-## Auto positioning
+## Auto Positioning
 
-Popover by default is using `PositioningService` for placement adjustments. 
+By default, the popover component uses the `PositioningService` for placement adjustments.
 
-For example if `placement` option is specified to the `left` which means that preffered popover position should be left and is not enough space in viewport on left side to render popover properly service will change position automatically and render it in the best fitted placement.
+For example, if the `placement` option is set to `'left'`, it means the preferred popover position is on the left of the UI element, and if there is not enough space in the viewport on the left side to render the popover properly, the service changes the position automatically and renders the popover in the best available position.
 
-This option can be turned off by setting `autoPositioning` to `false`.
+You can turn this behavior off by setting `autoPositioning` to `false`.
 
 ## Accessibility
 
-Popover component is fully keyboard accessible. It can be opened on 'Enter' keydown and closed using 'Escape' key.
+The popover component is fully keyboard accessible. A popover can be opened when the `Enter` key is pressed, and closed when the `Escape` key is pressed.
 
-If popover is appended to body (see configuration section) there is autofocus set on popover area when open was triggered. Customer is 'trapped' inside area and can navigate all focusable elements till popover is closed.
+If a popover is appended to the DOM using the `appendToBody` configuration option, autofocus is set on the popover area when the popover is opened. The user is "trapped" inside the popover area and can navigate all of the focusable elements within the popover, until it is closed.
 
-After close focus back to element on which popover was triggered.
+After the popover is closed, focus returns to the UI element that triggered the opening of the popover.
 
-## Known limitations
+## Known Limitations
 
-Current version of popover cannot be triggerd on mouse hover. Also there is only possibile to display one popover instance per time. Triggering open another popover will close previous.
-
+Popovers cannot currently be triggered on mouse hover. Also, it is only possible to display one popover at a time. If you open a popover, any previously opened popover will close.

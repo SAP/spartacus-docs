@@ -221,7 +221,9 @@ docs:
                       - title: "Media Component"
                         url: /media-component/  
                       - title: "Pagination Component"
-                        url: /pagination/  
+                        url: /pagination/
+                      - title: "Popover Component"
+                        url: /popover-component/
                       - title: "Searchbox Component"
                         url: /searchbox-component/
                       - title: "Split View Component"
