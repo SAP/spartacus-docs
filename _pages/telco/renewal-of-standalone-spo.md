@@ -10,13 +10,13 @@ title: Contract Renewals
 
 ## Overview
 
-To increase retention and customer loyalty, Operators or Service Providers may want to offer eligible customers the ability to renew their contract, having them benefit of special and discounted prices. Eligible customers are typically incentivized to renew with special promotional offers and price discounts. 
+To increase retention and customer loyalty, Operators or Service Providers offer eligible customers the ability to renew their contract (subscriptions) to avail benefit of special and discounted prices. Eligible customers are typically incentivized to renew with special promotional offers and price discounts.
 
-In this scenario, based on the [Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/612f26c3d5f14248965ad908cf5952f6.html?q=customer%20product%20inventory), a customer can renew eligible subscriptions resulting from a standalone simple product offering purchase. If the eligibility policy is fulfilled, the customer sees an advertisement banner, encouraging to renew subscription for a selected term, which may result in discounted prices. The customer can select one of the subscription terms and choose to renew, upon which the customer will be redirected to the cart that includes a cart entry for the selected subscribed product, together with information about the renewal terms.
+A customer can renew eligible subscriptions resulting from a standalone product offering purchase based on the [Customer Product Inventory (CPI)](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/612f26c3d5f14248965ad908cf5952f6.html?q=customer%20product%20inventory). If the eligibility policy is fulfilled, the customer sees an advertisement banner to renew subscription for a selected term, which may result in discounted prices. The customer can select one of the subscription terms and choose to renew, upon which the customer will be redirected to the cart that includes a cart entry for the selected subscribed product, together with information about the renewal terms.
 
 ## Business Need
 
-The Contract Renewals feature enables the customers to renew their existing and eligible subscriptions online and update their product inventory.
+The feature enables the customers to renew their existing and eligible subscriptions online and update their product inventory.
 
 ## Business Use Case
 
@@ -55,7 +55,7 @@ This feature is enabled on the banner using the **RenewSubscriptionComponent**. 
 
 The banner shows the contractual terms with prices and discount offers. After selecting subscription renewal billing cycle, click **Renew Subscription** to renew your subscription.
 
-**Note** The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2102/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules automatically determine if you are eligible for a renewal of one or more of your existing subscriptions. If you are not eligible, the banner does not display as depicted in the following figure:
+**Note** The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules automatically determine if you are eligible for a renewal of one or more of your existing subscriptions. If you are not eligible, the banner does not display as depicted in the following figure:
 
  <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png"></p>
 
