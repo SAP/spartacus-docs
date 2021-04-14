@@ -415,7 +415,7 @@ docs:
                   url: /customer-product-inventory/
                 - title: "Contract Renewals"  
                   url: /renewal-of-standalone-spo/
-                - title: "Contract Termination (without assurance)"
+                - title: "Contract Termination (Without Assurance)"
                   url: /contract-termination/
                 - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/

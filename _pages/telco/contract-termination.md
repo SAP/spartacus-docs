@@ -1,5 +1,5 @@
 ---
-title: Contract Termination (without assurance)
+title: Contract Termination (Without Assurance)
 ---
 
 {% capture version_note %}
@@ -8,13 +8,16 @@ title: Contract Termination (without assurance)
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 A contract termination is described as a contract being brought to an early end for any number of reasons. The effect of termination is to bring the contract to an end at a certain point and absolve parties of the majority of all ongoing obligations. The Contact Termination feature enables a customer to initiate a contract termination based on rules defined in the accelerator.
 
 With the Contract Termination feature, while browsing TUA Spartacus, eligible customers can  terminate their existing active subscriptions resulting from a standalone purchase as per the configured The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2102/en-US/602fadbbb42c40a68750d0dac7deba8a.html) policies, without any penalties. The eligible customers see the **Terminate** button on the header of the subscription, below the banner to terminate the subscription one day before the expiry of the subscription. When the customer clicks the **Terminate** button, an order is placed on behalf of the customer in the backend to complete the subscription termination.
 
 **Note:** The **Terminate** button does not display below the subscription if the subscription is not active, and the expiry duration of the subscription is more than one day, as well as if the subscription is not a result of a standalone SPO purchase.
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Business Need
 
@@ -74,5 +77,5 @@ For detailed information about configuring and enabling the feature, see [Eligib
 
 For further reading, see the following topics in the TUA Help portal.
 
-- [Eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html).
-- [Customer Product Inventory and Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/552515309dd545e7b7878eb081b56453.html).
+- [Eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html)
+- [Customer Product Inventory and Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/552515309dd545e7b7878eb081b56453.html)
