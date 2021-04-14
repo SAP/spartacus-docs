@@ -421,16 +421,16 @@ docs:
                   url: /checkout/
                 - title: "Configurable Guided Selling"
                   url: /configurable-guided-selling/
-                - title: "Cost Estimation"
-                  url: /cost-estimation/  
                 - title: "Consumption"
                   url: /consumption/    
-                - title: "Customer Product Inventory"
-                  url: /customer-product-inventory/
                 - title: "Contract Renewals"  
                   url: /renewal-of-standalone-spo/
                 - title: "Contract Termination (Without Assurance)"
                   url: /contract-termination/
+                - title: "Cost Estimation"
+                  url: /cost-estimation/  
+                - title: "Customer Product Inventory"
+                  url: /customer-product-inventory/
                 - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - MSISDN"

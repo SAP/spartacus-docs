@@ -1,5 +1,5 @@
 ---
-title: Updating or Migrating TUA Spartacus to a New Version
+title: Updating TUA Spartacus to a New Version
 ---
 
 The following instructions describe updating or migrating earlier version to a new version of TUA Spartacus:
