@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce Cloud for use with TUA Spartacus 2.0
+title: Installing SAP Commerce Cloud for use with TUA Spartacus 2.x
 ---
 
 The following instructions describe how to install and configure SAP Commerce Cloud (release 2005) with Telco & Utilities Accelerator (supports both release 2007 and release 2011, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.

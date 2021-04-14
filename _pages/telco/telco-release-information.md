@@ -49,7 +49,7 @@ Following features are introduced in release 3.0:
 - [Contract (subscription) termination without assurance]({{ site.baseurl }}{% link _pages/telco/contract-termination.md %}).
 - [Serviceability Check]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %}). This feature documentation covers serviceability check of a selected single product offering (SPO) and also serviceability check of all product offerings at the specified address.
 
-You can refer to the core [Release Information]({{ site.baseurl }}{% link _pages/telco/release-information.md %}) for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 10 and related dependencies.
+You can refer to the core [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}) for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 10 and related dependencies.
 
 **Note:** For information on core commerce Spartacus, see [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/updating-to-version-3.md %}).
 
