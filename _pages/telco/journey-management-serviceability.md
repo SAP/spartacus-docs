@@ -30,7 +30,7 @@ With this feature, customers are able to purchase Product Offerings that require
         -   Download the ‘mock_services’ ZIP
         -   Import the TmuMockService-soapui-project.xml in SOAP UI
         -   Start the mock service ('Start minimized')
-        -   Once the mock service is up and running, you can demo premise validation feature by using a valid address from the ones defined in the mock      
+        -   Once the mock service is up and running, you can demo premise validation feature by using a valid address from the ones defined in the mock
 
 **Important Note:** The mock service is **not recommended** for production environments as it is used exclusively for demonstration purposes only.
 
@@ -38,7 +38,7 @@ With this feature, customers are able to purchase Product Offerings that require
 
 A company wants to bring a new product offering to market and is rolling-out the product logistically as it requires installation. A customer lands on the storefront and is interested in purchasing this new product offering. The customer clicks the product offering to learn more. The customer wants to see if the product is available for purchase at his home. The customer proceeds to check the availability and provides his premise details including premise address and meter id. A serviceability check is executed to validate the information. 
 
-If successful, the customer needs to indicate whether moving in or switching suppliers. If the customer is moving in, a desired contract start date is needed. If the cusotmer is switching suppliers, the customer will need to provide the name of the previous service provider along with their desired contract start date. Once this is completed, the product offering can be added to the cart. The premise details, contract start date, and previous service provider information can be edited from the cart, and validations will be executed again.
+If successful, the customer needs to indicate whether moving in or switching suppliers. If the customer is moving in, a desired contract start date is needed. If the customer is switching suppliers, the customer will need to provide the name of the previous service provider along with their desired contract start date. Once this is completed, the product offering can be added to the cart. The premise details, contract start date, and previous service provider information can be edited from the cart, and validations will be executed again.
 
 ## Frontend and Backend Dependencies
 

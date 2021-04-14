@@ -417,8 +417,13 @@ docs:
                   url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
-                - title: "Journey Management - Serviceability"
-                  url: /journey-management-serviceability/          
+                - title: "Journey Management - Serviceability Check ➢"
+                  url: /journey-management-serviceability-page/
+                  underchildren:
+                      - title: "Journey Management - Serviceability Check (Premise Details)"
+                        url: /journey-management-serviceability/
+                      - title: "Journey Management - Serviceability"
+                        url: /journey-management-serviceability-check-of-spo/                        
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
