@@ -8,11 +8,14 @@ title: Journey Management - Serviceability
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The feature enables customers to confirm the availability (serviceability) of product offerings at the specified address before placing an order, so that customers can place orders only for product offerings that are available (serviceable) at the specified address. The feature enhances customer experience as the customers can compare different product offerings, which are available at the specified address before placing an order.
 
 To effectively filter the product offerings based on the address that includes the postal code specified by the customer, this feature implements the [Serviceabiity Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Prerequisites
 
@@ -94,6 +97,4 @@ For detailed information about configuring and enabling serviceability check, se
 
 ## Further Reading
 
-For further reading, see the following topics in the TUA Help portal.
-
-- [Serviceability Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
+For further reading, see [Serviceability Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
