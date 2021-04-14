@@ -160,7 +160,7 @@ Provide greater customer experiences by providing product offerings to customers
 - Similar to Spartacus: A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- Please visit our Spartacus for TUA Compatibility Matrix to understand requirements. For more information, see [Feature Release Versions]({{ site.baseurl }}{% link _pages/telco/tua-feature-release-versions.md %}).
+- Please visit our Spartacus for TUA Compatibility Matrix to understand requirements. For more information, see [Feature Compatibility Matrix]({{ site.baseurl }}{% link _pages/telco/tua-feature-release-versions.md %}).
 - To use all functionality in Spartacus 2.*, release 2005 of SAP Commerce Cloud and 2007 of Telco & Utilities Accelerator is required.
 - The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus
 

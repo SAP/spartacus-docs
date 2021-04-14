@@ -19,7 +19,7 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
-                - title: "Feature Release Versions"
+                - title: "Feature Compatibility"
                   url: /feature-release-versions/
                 - title: "Updating to Version 3.0 ➢"
                   url: /updating-to-version-3/
@@ -102,8 +102,6 @@ docs:
     - title: Storefront Development Guide
       url: /dev-guide/
       children:
-          - title: "Storefront Development FAQ"
-            url: /storefront-development-faq/
           - title: "Spartacus API"
             url: /spartacus-api/
           - title: "Global Configuration in Spartacus"
@@ -388,9 +386,9 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
-                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.0"
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
                         url: /installing-sap-commerce-for-tua-spartacus-3/
-                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.0"
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.x"
                         url: /installing-sap-commerce-for-tua-spartacus-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 1.3"
                         url: /installing-sap-commerce-for-tua-spartacus-1-3/
@@ -399,9 +397,9 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
-                      - title: "Building the TUA Spartacus Storefront using 3.0 Libraries"
+                      - title: "Building the TUA Spartacus Storefront using 3.x Libraries"
                         url: /building-the-tua-storefront-from-libraries-3/
-                      - title: "Building the TUA Spartacus Storefront using 2.0 Libraries"
+                      - title: "Building the TUA Spartacus Storefront using 2.x Libraries"
                         url: /building-the-tua-storefront-from-libraries-2/
                       - title: "Building the TUA Spartacus Storefront using 1.3 Libraries"
                         url: /building-the-tua-storefront-from-libraries-1-3/
@@ -429,14 +427,21 @@ docs:
                   url: /consumption/    
                 - title: "Customer Product Inventory"
                   url: /customer-product-inventory/
+                - title: "Contract Renewals"  
+                  url: /renewal-of-standalone-spo/
+                - title: "Contract Termination (Without Assurance)"
+                  url: /contract-termination/
                 - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
-                - title: "Journey Management - Serviceability"
-                  url: /journey-management-serviceability/
-                - title: "Journey Management - Serviceability Check of an SPO"
-                  url: /journey-management-serviceability-check-of-spo/          
+                - title: "Journey Management - Serviceability Check ➢"
+                  url: /journey-management-serviceability-page/
+                  underchildren:
+                      - title: "Journey Management - Serviceability Check (Premise Details)"
+                        url: /journey-management-serviceability/
+                      - title: "Journey Management - Serviceability"
+                        url: /journey-management-serviceability-check-of-spo/                        
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
