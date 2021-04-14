@@ -38,7 +38,7 @@ A customer wants to renew an existing subscription that is eligible for renewal.
 
 1. Select the monthly billing cycle from the drop-down to renew your subscription. For example, 18 months - monthly billing. The monthly renewal price and the discount offer is displayed.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/Banner.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-banner.png"></p>
 
 1. Click **Renew Subscription** on the banner to renew your subscription. The cart shows your subscription renewal information. For example, *Renew 18 months - monthly billing*.
 1. Click **View Cart**. The cart displays all relevant information about your new subscription, such as the new monthly billing cycle, product offering, and the price details.
