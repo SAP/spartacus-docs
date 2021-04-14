@@ -1,8 +1,8 @@
 ---
-title: Installing SAP Commerce Cloud for use with TUA Spartacus 2.x
+title: Installing SAP Commerce Cloud for use with TUA Spartacus 3.x
 ---
 
-The following instructions describe how to install and configure SAP Commerce Cloud (release 2005) with Telco & Utilities Accelerator (supports both release 2007 and release 2011, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
+The following instructions describe how to install and configure SAP Commerce Cloud (release 2011) with Telco & Utilities Accelerator (supports both release 2102, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
 
 The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsocc`, `commercewebservices`, `acceleratorocc` extensions and TUA module.
 
@@ -23,38 +23,31 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the SAP Commerce and Telco & Utilities Accelerator zip archives.
 
-   **Note:** Use the latest patches for SAP Commerce Cloud version 2005 and Telco & Utilities Accelerator version 2007 or Telco & Utilities Accelerator version 2011.
+   **Note:** Use the latest patches for SAP Commerce Cloud version 2005 and Telco & Utilities Accelerator version 2011 or Telco & Utilities Accelerator version 2102.
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
     The TUA Spartacus Sample Data is provided in the following zip files:
 
-    - For TUA 2007: 
-        - `b2ctelcospastore_2007.zip`.
-        - `utilitiesspastore_2007.zip`.
-
-    - For TUA 2011:
-        - `b2ctelcospastore_2011.zip`.
-        - `utilitiesspastore_2011.zip`.
+    - `b2ctelcospastore_2007.zip`.
+    - `utilitiesspastore_2007.zip`.
 
 1. Unzip the sample data for 2007 or 2011 depending on the TUA backend version you want to use.
 
     **Note:** You can either use both the store extensions, or only one of them, depending on your needs (specific to Telco or to Utilities).
 
     - Sample data for Telco is stored in the following archive files:
-        - `b2ctelcospastore_2007.zip`.
-        - `b2ctelcospastore_2011.zip`.
+        - `b2ctelcospastore.zip`.
 
     - Sample data for Utilities is stored in the following archive files:
         - `utilitiesspastore_2007.zip`.
-        - `utilitiesspastore_2011.zip`.
 
 1. Move:
-    - the `b2ctelcospastore` folder from extracted `b2ctelcospastore_2007` folder or `b2ctelcospastore_2011` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+    - the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
-    - the `utilitiesspastore` folder from extracted `utilitiesspastore_2007` or `utilitiesspastore_2011` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+    - the `utilitiesspastore` folder from extracted `utilitiesspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
-    **Note:** The `b2ctelcospastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
+    **Note:** The `b2ctelcospastore` folder and the `utilitiesspastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
 1. Unzip TUA cms extension for utilities:
 
@@ -74,6 +67,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     apply plugin: 'installer-platform-plugin'
     apply plugin: 'installer-addon2-plugin'
 
+
     def pl = platform {
     localProperties {
         property 'kernel.events.cluster.jgroups.channel', 'disable'
@@ -86,6 +80,7 @@ Some of the steps in this procedure are derived from the documentation for insta
         ensureAdminPasswordSet()
     }
 
+
     extensions {
         extName 'acceleratorcms'
         extName 'adaptivesearchbackoffice'
@@ -93,20 +88,23 @@ Some of the steps in this procedure are derived from the documentation for insta
         extName 'addonsupport'
         extName 'b2ctelcobackoffice'
         extName 'b2ctelcofulfillmentprocess'
+        extName 'b2ctelcocms'
         extName 'b2ctelcospastore'
         extName 'utilitiesspastore'
-        extName 'b2ctelcocms'
         extName 'b2ctelcotmfwebservices'
         extName 'b2ctelcowebservices'
 
+
         extName 'b2ctelcocommercewebservicescommons'
         extName 'b2ctelcoocc'
+        extName 'b2ctelcoserviceabilityclient'	
         extName 'commerceservicesbackoffice'
         extName 'solrfacetsearchbackoffice'
         extName 'solrserver'
         extName 'subscriptionbackoffice'
         extName 'yacceleratorcore'
         extName 'commercewebservices'
+
 
         extName 'cmsbackoffice'
         extName 'cmswebservices'
@@ -119,6 +117,7 @@ Some of the steps in this procedure are derived from the documentation for insta
         extName 'acceleratorocc'
         extName 'customersupportbackoffice'
 
+
         extName 'personalizationwebservices'
         extName 'previewpersonalizationweb'
         extName 'personalizationcmsweb'
@@ -128,8 +127,10 @@ Some of the steps in this procedure are derived from the documentation for insta
         extName 'personalizationservices'
         extName 'personalizationfacades'
 
+
         extName 'acceleratorservices'
         extName 'assistedservicefacades'
+
 
         extName 'rulebuilderbackoffice'
         extName 'couponbackoffice'
@@ -139,10 +140,13 @@ Some of the steps in this procedure are derived from the documentation for insta
     }
     }
 
+
     task setup () {
     doLast {
 
+
         pl.setup()
+
 
         copy {
         from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
@@ -156,11 +160,13 @@ Some of the steps in this procedure are derived from the documentation for insta
     }
     }
 
+
     task buildSystem(dependsOn: setup) {
     doLast {
         pl.build()
     }
     }
+
 
     task initialize (dependsOn: buildSystem) {
     doLast {
@@ -168,17 +174,20 @@ Some of the steps in this procedure are derived from the documentation for insta
     }
     }
 
+
     task start () {
     doLast {
         pl.start()
     }
     }
 
+
     task startInBackground () {
     doLast {
         pl.startInBackground()
     }
     }
+
 
     task stopInBackground {
     doLast {
@@ -194,7 +203,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     ```
 1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
-1. Set up the recipe using the following commands: 
+1. Set up the recipe using the following commands:
     
     For Windows:
 
@@ -207,7 +216,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
-   **Note:** Starting with release 2005, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
+   **Note:** Starting with release 1905, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
 
 1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands:
 
@@ -314,9 +323,9 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
 
    ```bash
    {
-     "access_token" : "550d9a25-87c8-4e76-af21-6174a1e56d5c",
+     "access_token" : "zOM6rJ-TnoUM8xvibfy-VK-m8Xw",
      "token_type" : "bearer",
-     "expires_in" : 41809,
+     "expires_in" : 43170,
      "scope" : "basic openid"
    }
    ```
@@ -340,19 +349,19 @@ You can add these settings using the Hybris Administration Console. Hover your m
 To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce Cloud configuration (`local.properties` file of your config folder):
 
 ```sql
-corsfilter.ycommercewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
-corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
+corsfilter.commercewebservices.allowedOrigins=*
+corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
 ```sql
-corsfilter.b2ctelcotmfwebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
+corsfilter.b2ctelcotmfwebservices.allowedOrigins=*
 corsfilter.b2ctelcotmfwebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.b2ctelcotmfwebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
 ```sql
-corsfilter.acceleratorservices.allowedOrigins=http://localhost:4200 https://localhost:4200
+corsfilter.acceleratorservices.allowedOrigins=*
 corsfilter.acceleratorservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.acceleratorservices.allowedHeaders=origin content-type accept authorization cache-control
 ```

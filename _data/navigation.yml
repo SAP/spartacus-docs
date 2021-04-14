@@ -366,12 +366,8 @@ docs:
             url: /telco-release-information/
             subchildren:
                 - title: "Pre-Release Information"
-                  url: /tua-pre-release-information/
-                - title: "Updating to Version 2.0"
-                  url: /updating-tua-spartacus-to-2/
-                - title: "Technical Changes in Spartacus 2.0"
-                  url: /technical-changes-tua-version-2/ 
-                - title: "Feature Compatibility Matrix"
+                  url: /tua-pre-release-information/                                  
+                - title: "Feature Release Versions"
                   url: /tua-feature-release-versions/   
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
@@ -380,10 +376,19 @@ docs:
           - title: "Getting Started with TUA Spartacus ➢"
             url: /getting-started-with-tua-spartacus/ 
             subchildren:
+                - title: "Updating TUA Spartacus ➢"
+                  url: /updating-tua-spartacus/
+                  underchildren:
+                      - title: "Updating to Version 3.0"
+                        url: /updating-tua-spartacus-to-3/
+                      - title: "Updating to Version 2.0"
+                        url: /updating-tua-spartacus-to-2/                
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
-                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.0"
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
+                        url: /installing-sap-commerce-for-tua-spartacus-3/
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.x"
                         url: /installing-sap-commerce-for-tua-spartacus-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 1.3"
                         url: /installing-sap-commerce-for-tua-spartacus-1-3/
@@ -392,12 +397,21 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
-                      - title: "Building the TUA Spartacus Storefront using 2.0 Libraries"
+                      - title: "Building the TUA Spartacus Storefront using 3.x Libraries"
+                        url: /building-the-tua-storefront-from-libraries-3/
+                      - title: "Building the TUA Spartacus Storefront using 2.x Libraries"
                         url: /building-the-tua-storefront-from-libraries-2/
                       - title: "Building the TUA Spartacus Storefront using 1.3 Libraries"
                         url: /building-the-tua-storefront-from-libraries-1-3/
                       - title: "Building the TUA Spartacus Storefront using 1.2 Libraries"
-                        url: /building-the-tua-storefront-from-libraries-1-2/ 
+                        url: /building-the-tua-storefront-from-libraries-1-2/
+                - title: "Technical Changes in TUA Spartacus ➢"
+                  url: /technical-changes/
+                  underchildren:
+                      - title: "Technical Changes in TUA Spartacus 3.0"
+                        url: /technical-changes-tua-version-3/
+                      - title: "Technical Changes in TUA Spartacus 2.0"
+                        url: /technical-changes-tua-version-2/ 
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
