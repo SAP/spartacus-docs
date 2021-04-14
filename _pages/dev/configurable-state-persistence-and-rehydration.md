@@ -6,10 +6,14 @@ title: Configurable State Persistence and Rehydration
 
 Spartacus offers a mechanism to sync NGRX's store slices to the specified browser's storage - `localStorage` or `sessionStorage`.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ### Configuring storage synchronization
 

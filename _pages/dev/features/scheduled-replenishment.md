@@ -18,10 +18,14 @@ The scheduled replenishment feature allows you to set up orders that are fulfill
 
 For more information, see [Replenishment and Order Scheduling](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) on the SAP Help Portal.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Setting Up a Replenishment Order
 

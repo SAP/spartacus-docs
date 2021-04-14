@@ -9,10 +9,14 @@ feature:
 
 This page provides a high level overview of the CSS architecture in Spartacus.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Style Library
 

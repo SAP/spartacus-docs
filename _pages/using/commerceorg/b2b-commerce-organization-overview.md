@@ -12,10 +12,14 @@ For in-depth information on this feature, see [Commerce Organization](https://he
 
 **Note:** Spartacus for B2B Commerce Organization requires release 2005 or later of SAP Commerce Cloud.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Role Definitions
 

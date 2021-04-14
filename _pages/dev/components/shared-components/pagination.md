@@ -14,10 +14,14 @@ Each customer has different pagination requirements, especially with regards to 
 
 For the Product List in particular, the pagination component can be replaced by the infinite scroll feature. For more information, see [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/features/infinite-scroll.md %}).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Pagination Structure
 

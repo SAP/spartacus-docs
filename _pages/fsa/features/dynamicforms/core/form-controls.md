@@ -2,10 +2,14 @@
 title: Form Controls
 ---
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Default from controls
 

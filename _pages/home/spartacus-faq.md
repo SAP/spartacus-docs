@@ -7,10 +7,14 @@ If you have technical questions not answered in this FAQ, you can get in touch w
 - [Questions Related to Spartacus as a Product](#questions-related-to-spartacus-as-a-product)
 - [Questions Related to Commercialization](#questions-related-to-commercialization)
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Questions Related to Spartacus as a Product
 

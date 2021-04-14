@@ -4,10 +4,14 @@ title: Kyma Integration
 
 The following steps describe how to integrate [Kyma](https://kyma-project.io) into your Spartacus storefront.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Prerequisites
 

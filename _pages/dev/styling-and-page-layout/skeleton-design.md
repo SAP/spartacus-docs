@@ -26,10 +26,14 @@ The following are some of the requirements that were taken into account while th
 - If multiple skeletons are on the same page, it should be possible to have multiple skeleton animations.
 - The animation should always go from left to right, even on a right-to-left oriented site.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Rendering Skeleton Designs
 

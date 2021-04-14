@@ -4,10 +4,14 @@ title: Spartacussampledata Extension
 
 The `spartacussampledata` extension creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs that have been modified specifically for Spartacus requirements.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Downloading the Spartacussampledata Extension
 

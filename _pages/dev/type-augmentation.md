@@ -20,10 +20,14 @@ In future releases of Spartacus, more top-level exports will be added, which wil
 
 For more information about type augmentation in general, see [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) in the TypeScript documentation.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Exporting Type for Augmentation
 

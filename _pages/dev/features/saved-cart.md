@@ -18,10 +18,14 @@ The saved cart feature allows users to save one or more carts for later use. Use
 
 For more information, see [Multiple Saved Carts](https://help.sap.com/viewer/e1391e5265574bfbb56ca4c0573ba1dc/latest/en-US/4d094e78a5494963b2d66148167f0553.html) on the SAP Help Portal.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Enabling Saved Cart
 

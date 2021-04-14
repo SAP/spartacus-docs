@@ -10,10 +10,14 @@ title: Journey Management - Serviceability (Premise Details)
 
 With this feature, customers are able to purchase Product Offerings that require a serviceability check to validate if the product offering is available for service at a given premise. As part of the purchase flow, customers will need to provide premise details including the premise address and meter id. The serviceability API performs the availability check of the offering at the premise location provided by the customer.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Prerequisites
 

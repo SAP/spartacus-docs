@@ -20,10 +20,14 @@ Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled t
 
 For more information about Qualtrics, see [Getting Started with Website Feedback](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback) in the Qualtrics documentation, and [SAP Qualtrics Integration Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/8a849c5254db460e8eea4d7b9af39bff.html) on the SAP Help Portal.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Installing the Qualtrics Library
 

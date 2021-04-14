@@ -7,10 +7,14 @@ For every separate application state, we have to keep that meta data beside. Sep
 That's why in spartacus `loaderReducer` was created. This reducer standardizes meta data handling in the whole state tree.
 You are able to use it on any depth of the tree, wherever you need it. Apart from the reducer, we also provide utilities for actions and selectors.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Applying the Meta Reducer
 

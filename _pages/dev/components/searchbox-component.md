@@ -12,10 +12,14 @@ The searchbox component allows you to search through the product catalog without
 
 The back end returns product items as well as product suggestions.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Component Mapping
 

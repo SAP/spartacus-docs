@@ -16,10 +16,14 @@ The event service also allows you to decouple certain components. For example, y
 
 The event service leverages RxJs Observables to drive the streams of events.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Event Types
 

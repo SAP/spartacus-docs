@@ -12,10 +12,14 @@ The order works differently in TUA Spartacus than in core Commerce Spartacus and
 
 The Order Review allows customers to browse through their orders and see price details of the cart and cart item of the selected order, the Order Summary displays the final price of the order after discounts and other charges before proceeding to checkout, and the Order Confirmation displays the detailed information of the placed order.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Components
 

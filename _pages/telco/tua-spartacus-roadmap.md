@@ -6,10 +6,14 @@ title: Roadmap 2021 for TUA Spartacus
 
 This document describes what what is planned for Spartacus for Q2 2021 and later.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ### Disclaimer - Forward-Looking Statements
 

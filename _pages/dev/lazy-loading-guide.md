@@ -15,10 +15,14 @@ Lazy loading, also known as code splitting, lets you divide your JavaScript code
 
 Such an approach can substantially improve "Time To Interactive", especially in the case of complex web applications being accessed by low-end mobile devices.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Spartacus Approach to Lazy Loading
 

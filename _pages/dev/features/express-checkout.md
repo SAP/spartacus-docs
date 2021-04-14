@@ -20,10 +20,14 @@ If everything has been successful, the user should be redirected to review summa
 
 In the review summary step, the user will see pre-set data, there is also the possibility to update step.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Configuration
 

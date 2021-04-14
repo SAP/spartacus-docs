@@ -14,10 +14,14 @@ Appointment selection and reservation in a productive system requires third-part
 
 This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured. It is applicable to product offerings sold as a simple product offering or bundled product offering through configurable guided selling. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Prerequisite
 

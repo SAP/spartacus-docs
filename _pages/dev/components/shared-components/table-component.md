@@ -18,10 +18,14 @@ The main purpose of the table component is to allow you to generate tables based
 
 The table component supports various layout orientations, as well as responsive configurations for table definitions.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Table Cell Configuration
 

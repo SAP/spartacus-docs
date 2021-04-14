@@ -12,10 +12,14 @@ The cart works differently in TUA Spartacus than in core Commerce Spartacus and 
 
 **Note:**  With TUA Spartacus 3.0, the cart will leverage the [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/33005fa795d2425282ffe769737e27e7.html).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Components
 

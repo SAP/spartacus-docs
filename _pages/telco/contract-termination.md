@@ -14,10 +14,14 @@ With the Contract Termination feature, while browsing TUA Spartacus, eligible cu
 
 **Note:** The **Terminate** button does not display below the subscription if the subscription is not active, and the expiry duration of the subscription is more than one day, as well as if the subscription is not a result of a standalone SPO purchase.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Business Need
 

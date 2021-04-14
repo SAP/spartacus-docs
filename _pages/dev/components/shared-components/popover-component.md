@@ -14,10 +14,14 @@ feature:
 
 The popover component allows you to display a transient view that contains additional content, such as a note, whenever a user clicks on a control element.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Adding a Popover to a UI Element
 

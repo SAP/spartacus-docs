@@ -14,10 +14,14 @@ feature:
 
 Each minor version of the Spartacus libraries includes new features, which are often improvements to exiting components. These features are usually expected by users, but in some cases, these could be considered breaking changes, especially when customers build their own customizations on top of specific behaviors or the DOM structure.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Feature levels
 

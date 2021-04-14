@@ -13,10 +13,14 @@ As a result of Journey Management configuration, some product offerings may be d
 
 **Note:** This feature applies to product offerings that have a checklist policy for `MSISDN Reference` configured. For more information, see [Configuring and Enabling MSISDN in TUA](#configuring-and-enabling-msisdn-in-tua).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Prerequisite
 

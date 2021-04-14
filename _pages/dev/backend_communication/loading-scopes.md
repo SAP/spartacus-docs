@@ -16,10 +16,14 @@ Product data payload is usually huge and required in multiple places, like the P
 
 Currently, Spartacus supports scopes for loading product data.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Using default Product Scopes
 

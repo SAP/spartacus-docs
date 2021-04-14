@@ -20,10 +20,14 @@ Above-the-fold loading requires the following important ingredients:
 - The notion of the "page fold". The page fold is not static, and differs from device to device, from screen to screen, and even changes depending on the size of the browser.
 - A couple of CSS rules that initially move components below the page fold.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Page Fold Configuration
 

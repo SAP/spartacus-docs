@@ -6,10 +6,14 @@ title: Release Information for All Versions of Spartacus Libraries
 
 *Last updated February 25, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Introduction
 

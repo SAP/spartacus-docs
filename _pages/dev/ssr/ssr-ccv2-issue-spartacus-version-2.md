@@ -8,10 +8,14 @@ As of this writing (January 2021), Spartacus 2.0 (or later) with SSR does not wo
 
 This problem will be fixed in a release of SAP Commerce Cloud in the Public Cloud that is expected in 2021. For the moment, use one of the following workarounds for Spartacus 2.0 or later with SSR when hosting with SAP Commerce Cloud in the Public Cloud.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Workarounds
 

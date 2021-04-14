@@ -12,10 +12,14 @@ The feature enables customers to confirm the availability (serviceability) of pr
 
 To effectively filter the product offerings based on the address that includes the postal code specified by the customer, this feature implements the [Serviceabiity Checklist](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Prerequisites
 

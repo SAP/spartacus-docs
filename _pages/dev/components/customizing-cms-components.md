@@ -14,10 +14,14 @@ With this setup, CMS components can be customized in the following ways:
 | Replace component | Configure a custom component                         | Provide a custom `BannerComponent`                   |
 | Customize logic   | Configure a custom service                           | Provide a custom `SearchBoxComponentService`         |
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Configuring Custom Components
 

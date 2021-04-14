@@ -10,10 +10,14 @@ For an overview of what is included in a specific release, see [Release Informat
 For detailed release notes, see the [TUA Spartacus repository
 ](https://github.com/SAP/spartacus-tua/releases).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Release 3.0.0-next.2 - March 17, 2021
 

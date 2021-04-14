@@ -16,10 +16,14 @@ The split view component manages the presentation of hierarchical content on a p
 
 A good example of where Spartacus uses the split view component is in B2B Commerce Organization (also known as My Company). Entities, such as business units, budgets and cost centers, are presented as lists of items that can be opened and edited. The split view component offers a convenient UI that allows you to go through the lists and edit them as needed.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Components
 

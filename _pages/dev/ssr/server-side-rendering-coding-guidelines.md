@@ -4,10 +4,14 @@ title: Server-Side Rendering Coding Guidelines
 
 The following guidelines are highly recommended when working with server-side rendering (SSR).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Working with Global Objects
 

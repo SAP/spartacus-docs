@@ -16,10 +16,14 @@ To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must
 2. Configuring OCC credentials
 3. Configuring CORS
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Setting Up SAP Commerce with Telco & Utilities Accelerator
 

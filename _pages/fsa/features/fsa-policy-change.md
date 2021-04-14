@@ -8,10 +8,14 @@ The Policy Change Process framework enables insurance carriers to provide their 
 
 In addition to sample processes for changing mileage and adding coverages, customers can now add additional drivers and remove coverages. All sample processes are provided based on the Auto Insurance product. The policy change can be cancelled at any time during change process in case the simulated premium does not match customer's expectation, in which case the customer will be redirected to the 'Policy Details' page again.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ### Adding Additional Drivers
 

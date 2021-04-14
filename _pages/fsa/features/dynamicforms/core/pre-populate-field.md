@@ -8,10 +8,14 @@ This page will explain how to use configurable form field pre-populate in Dynami
 - Populate field with any available SPA asset which is exposed for that purpose (user, cart, claim etc..)
 - Adjust/override already provided mechanism and add new logic on top of that.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## How to Use
 

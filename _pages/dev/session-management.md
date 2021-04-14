@@ -14,10 +14,14 @@ feature:
 
 Spartacus 3.0 introduces a new way to manage user sessions, handle tokens, and perform authorizations. The following sections are intended to help you understand how session management works under the hood, how can you extend the underlying mechanism, and how you can interact with the auth module from outside of Spartacus.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Client Authentication and User Authentication
 

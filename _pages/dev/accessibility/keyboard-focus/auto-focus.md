@@ -12,10 +12,14 @@ The `cxFocus` directive provides auto focus capabilities for a single-page exper
 
 The auto focus feature of the `cxFocus` directive focuses an element when the host element is focused. The element of choice that is focused is driven by configuration. Moreover, the previously focused element can be persisted, so that it will be refocused during the user session.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Default Behavior
 

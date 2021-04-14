@@ -4,10 +4,14 @@ title: Release Information for TUA Spartacus Libraries
 
 *Last updated April 7, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Introduction
 

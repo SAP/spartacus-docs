@@ -6,10 +6,14 @@ ImpEx is a text-based import and export functionality, which is shipped with SAP
 
 For more information, see [ImpEx](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/8bee5297866910149854898187b16c96.html) on the SAP Help Portal.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## How to create PageTemplates
 

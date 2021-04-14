@@ -15,10 +15,14 @@ Page meta tags are written into the head of the HTML. In HTML5, you can use a va
 <meta property="og:description" content="Custom description for Facebook" />
 ```
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Structured Data (schema.org)
 

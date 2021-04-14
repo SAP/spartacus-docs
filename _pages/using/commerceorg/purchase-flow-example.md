@@ -4,10 +4,14 @@ title: Purchase Flow Example
 
 The following example highlights the differences between a B2C and a B2B checkout. The purchase flow is done with Mark Rivers (who is a "buyer"), and demonstrates how the checkout flow is influenced by B2B Commerce Organization settings.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## B2B Purchase Flow
 

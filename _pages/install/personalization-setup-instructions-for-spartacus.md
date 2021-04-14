@@ -4,10 +4,14 @@ title: Personalization Setup Instructions for Spartacus
 
 For the following steps, the Electronics sample site is used along with the Spartacus Sample Data extension.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Back End Extension Requirements
 

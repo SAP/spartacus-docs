@@ -10,10 +10,14 @@ The Document Upload API creates a document that is assigned to a specified user.
 
 Financial Services Accelerator offers insurance customers the possibility to upload documents during the FNOL process. Once the documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Document Upload Usage
 

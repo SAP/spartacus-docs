@@ -22,10 +22,14 @@ There are two main types of images that are rendered in Spartacus: product image
 
 **Note:** Icons are a special type of image and are not rendered with the media component. For more information, see [Icon Library]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %}).
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Responsive Media
 

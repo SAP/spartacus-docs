@@ -8,10 +8,14 @@ Each storefront module that is using configuration usually provides typing for i
 
 Any configuration provided can be overridden in the main app module.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## How to use configuration
 

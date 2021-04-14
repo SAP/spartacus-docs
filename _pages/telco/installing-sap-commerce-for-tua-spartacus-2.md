@@ -17,10 +17,14 @@ To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must
 3. Updating System and User Credentials
 4. Configuring CORS
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension
 

@@ -16,10 +16,14 @@ Assisted Service Module (ASM) enables customer service personnel to provide real
 
 Spartacus now supports the ASM functionality that allows customer emulation by sales support agents through the Spartacus storefront.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Requirements
 

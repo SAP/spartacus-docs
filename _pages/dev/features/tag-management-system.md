@@ -25,10 +25,14 @@ Spartacus supports running multiple tag manager integrations in parallel, and yo
 
 *For more information about third-party script security risks, see the [Third Party JavaScript Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Third_Party_Javascript_Management_Cheat_Sheet.html) in the OWASP Cheat Sheet Series.*
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Setup
 

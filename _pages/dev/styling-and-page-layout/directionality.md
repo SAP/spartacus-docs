@@ -18,10 +18,14 @@ Directionality is driven by language. Many languages are read from left to right
 
 In Spartacus, the direction of the UI reflects the active language, so that directionality can work in a bidirectional experience. If your storefront contains both LTR and RTL languages, the active language is used to detect the direction automatically.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Breaking Changes
 

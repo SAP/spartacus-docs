@@ -32,10 +32,14 @@ The SSR optimization engine addresses these issues as follows:
   **Note:** CSR renders should never be cached.
 - The rendered SSR pages should be cached (for example, using CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Enabling the SSR Optimization Engine
 

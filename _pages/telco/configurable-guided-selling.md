@@ -12,10 +12,14 @@ Configurable Guided Selling (CGS) is the process in which a customer is taken th
 
 For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html) and [Configurable Guided Selling for BPOs](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/464d4b03d91442e9ac95f69808895a39.html) on the SAP Help Portal.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Supported Backend Functionality
 

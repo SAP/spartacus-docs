@@ -4,10 +4,14 @@ title: FSA Spartacus Roadmap
 
 This document describes what is planned for FSA Spartacus for Q3 2021 and later.
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
   
 ### Disclaimer - Forward-Looking Statements
 

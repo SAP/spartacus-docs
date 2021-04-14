@@ -6,10 +6,14 @@ This document describes what what is planned for Spartacus for Q4 2020 and later
 
 *Last updated March 2, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
   
 ### Disclaimer - Forward-Looking Statements
 
