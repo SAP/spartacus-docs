@@ -78,10 +78,10 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     ```
     and add `BrowserTransferStateModule` to `imports`.
 
-1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BASE_URL` with the URL of your back end instance, as follows:
+1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BACKEND_BASE_URL_VALUE` with the URL of your back end instance, as follows:
 
     ```html
-    <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
+    <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
     ```
 
 1. In `projects.<your-project-name>.architect.build.options` change following line:
