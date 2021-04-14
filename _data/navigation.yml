@@ -5,7 +5,7 @@ main:
     - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
-      url: https://stackoverflow.com/questions/tagged/spartacus-storefront
+      url: /#how-to-obtain-support
     - title: Version 3.1
       url: /release-information/
 
@@ -19,7 +19,7 @@ docs:
             subchildren:
                 - title: "Pre-Release Information"
                   url: /pre-release-information/
-                - title: "Feature Release Versions"
+                - title: "Feature Compatibility"
                   url: /feature-release-versions/
                 - title: "Updating to Version 3.0 ➢"
                   url: /updating-to-version-3/
@@ -61,6 +61,8 @@ docs:
             url: /cors/        
           - title: "Building the Spartacus Storefront from Libraries"
             url: /building-the-spartacus-storefront-from-libraries/
+          - title: "Reference App Structure"
+            url: /reference-app-structure/
           - title: "Schematics"
             url: /schematics/  
           - title: "Recommended Development Environment"
@@ -100,8 +102,6 @@ docs:
     - title: Storefront Development Guide
       url: /dev-guide/
       children:
-          - title: "Storefront Development FAQ"
-            url: /storefront-development-faq/
           - title: "Spartacus API"
             url: /spartacus-api/
           - title: "Global Configuration in Spartacus"
@@ -287,7 +287,7 @@ docs:
           - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
-                - title: "Using Loading Scopes"
+                - title: "Loading Scopes"
                   url: /loading-scopes/
                 - title: "Connecting to Other Systems"
                   url: /connecting-to-other-systems/  
@@ -371,7 +371,7 @@ docs:
                   url: /updating-tua-spartacus-to-2/
                 - title: "Technical Changes in Spartacus 2.0"
                   url: /technical-changes-tua-version-2/ 
-                - title: "Feature Release Versions"
+                - title: "Feature Compatibility Matrix"
                   url: /tua-feature-release-versions/   
           - title: "Roadmap for TUA Spartacus"
             url: /tua-spartacus-roadmap/
@@ -417,12 +417,15 @@ docs:
                   url: /renewal-of-standalone-spo/
                 - title: "Journey Management - Appointment Scheduling"
                   url: /journey-management-appointment-scheduling/
-                - title: "Journey Management - Appointment"
-                  url: /journey-management-appointment/                           
                 - title: "Journey Management - MSISDN"
                   url: /journey-management-msisdn/    
-                - title: "Journey Management - Serviceability"
-                  url: /journey-management-serviceability/          
+                - title: "Journey Management - Serviceability Check ➢"
+                  url: /journey-management-serviceability-page/
+                  underchildren:
+                      - title: "Journey Management - Serviceability Check (Premise Details)"
+                        url: /journey-management-serviceability/
+                      - title: "Journey Management - Serviceability"
+                        url: /journey-management-serviceability-check-of-spo/                        
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
@@ -440,8 +443,11 @@ docs:
     - title: Financial Services Accelerator Storefront Development Guide
       url: /about-fsa-spartacus/
       children:
-          - title: "Release Information for FSA Spartacus"
+          - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
+            subchildren:
+                - title: "Updating to Version 2.0"
+                  url: /fsa-updating-to-version-2/
           - title: "Roadmap for FSA Spartacus"
             url: /fsa-spartacus-roadmap/
           - title: "FSA Spartacus FAQ"
@@ -449,13 +455,20 @@ docs:
           - title: "Getting Started with FSA Spartacus ➢"
             url: /getting-started-with-fsa-spartacus/
             subchildren:
-                - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus ➢"
+                - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus ➢"
                   url: /installing-sap-commerce-with-fsa-spartacus/
                   underchildren:
-                      - title: "Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 1.0"
-                        url: /installing-sap-commerce-with-fsa-spartacus-1-0/
-                - title: "Building the FSA Storefront from Libraries"
-                  url: /building-the-fsa-storefront-from-libraries/  
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-2-0/
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 1.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-1-0/
+                - title: "Building the FSA Storefront from Libraries ➢"
+                  url: /building-the-fsa-storefront-from-libraries/
+                  underchildren:
+                    - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-2-0/
+                    - title: "Building the FSA Spartacus Storefront using 1.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-1-0/
                 - title: "FSA Schematics"
                   url: /fsa-schematics/  
           - title: "FSA Spartacus Features ➢"
@@ -468,6 +481,8 @@ docs:
                         url: /json-structure/
                       - title: "Form Controls"
                         url: /form-controls/
+                      - title: "Document Upload"
+                        url: /form-controls-document-upload/
                       - title: "Adding a Form to a Simple Page"
                         url: /adding-form/
                       - title: "Styling"
@@ -481,7 +496,15 @@ docs:
                 - title: "Inbox"
                   url: /fsa-inbox/
                 - title: "Checkout"
-                  url: /fsa-checkout/                 
+                  url: /fsa-checkout/
+                - title: "Claims Integration"
+                  url: /claims-integration/
+                - title: "Order Splitting"
+                  url: /fsa-order-splitting/
+                - title: "Invoice Payment"
+                  url: /fsa-invoice-payment/
+                - title: "Policy Change"
+                  url: /fsa-policy-change/
 
 
     - title: Contributing to Spartacus

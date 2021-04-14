@@ -4,6 +4,7 @@ feature:
 - name: Style Versioning
   spa_version: 2.0
   cx_version: n/a
+  anchor: "#style-versioning"
 ---
 
 This page provides a high level overview of the CSS architecture in Spartacus.
@@ -16,7 +17,7 @@ To deliver as much flexibility as possible for styling, all of the CSS rules are
 
 Additionally, an existing UI framework, such as Bootstrap, can be used in Spartacus without making it a hard-coded dependency.
 
-### Versioning
+### Style Versioning
 
 Spartacus libraries support semantic versioning, which means that breaking changes are not allowed during the life cycle of a major version. This is also true for the style library. A new style rule, or an adjusted rule, that would lead to a difference in the UI experience, is considered a breaking change. Spartacus libraries are released with the assumption that customers are relying on the semantic versioning scheme, so breaking changes, such as implicit changes to the style library, will not be made during the life cycle of a major release.
 

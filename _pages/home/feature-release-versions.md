@@ -1,5 +1,5 @@
 ---
-title: Feature Release Versions
+title: Feature Compatibility
 ---
 
 The following table lists the Spartacus libraries release version for each feature, as well as the relevant version of SAP Commerce Cloud that is required.

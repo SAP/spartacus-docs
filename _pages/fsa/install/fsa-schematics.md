@@ -8,9 +8,17 @@ FSA Spartacus schematics allow you to install FSA Spartacus libraries in your pr
 
 Before using Spartacus schematics, ensure that the following requirements are met:
 
-- Your Angular CLI is on version 9.1 or higher, < 10.0.
-- Your application is using Angular 9 or higher, < 10.0.
-- Your Node version is less than or equal to version 13.
+RELEASE 1.0
+
+- Angular CLI: Version 9.1 or later, < 10.0
+- node.js: Version 10.14.1 or later, < 13.0
+- yarn: Version 1.15 or later
+
+RELEASE 2.0
+
+- Angular CLI: Version 10.1 or later, < 11.
+- node.js: The most recent 12.x version is recommended, < 13.
+- yarn: Version 1.15 or later
 
 ## Adding FSA Spartacus Libraries to Your Angular Project
 
@@ -35,6 +43,7 @@ The following is a description of the various options you can use with the `ng a
 *Note:* Default values will be applied if no option is passed to ng add @spartacus/fsa-schematics command.
 
 To have a clear picture on how some of these properties can be used, user can enter the following command that sets baseSite(s), currency(ies), and language(s):
+
 ```shell
 ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
 ```
@@ -44,7 +53,10 @@ ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd
 When you run `ng add @spartacus/fsa-schematics`, the command does the following:
 
 1. Adds the required dependencies.
-1. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration:
+1. Imports the FSA Spartacus modules in the `app.module` and sets up the default configuration.
+
+    The following is an example:
+
     ```shell
     FSStorefrontModule.withConfig({
       backend: {
@@ -70,9 +82,9 @@ When you run `ng add @spartacus/fsa-schematics`, the command does the following:
       }
     }),
     ```
-  1. Imports FSA Spartacus styles to `styles.scss`:
+
+1. Imports FSA Spartacus styles to `styles.scss`:
+
     ```shell
     @import '~@spartacus/fsa-styles/index
     ```
-
-

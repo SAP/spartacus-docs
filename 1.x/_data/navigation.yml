@@ -5,7 +5,7 @@ main:
     - title: Feedback
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
-      url: https://stackoverflow.com/questions/tagged/spartacus-storefront
+      url: /#how-to-obtain-support
     - title: Version 1.5
       url: /release-information/
 
@@ -49,6 +49,8 @@ docs:
             url: /building-the-spartacus-storefront-from-libraries/
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
+          - title: "Web Browser Support"
+            url: /browser-support/
           - title: "Snapshot Builds"
             url: /snapshot-builds/
           - title: "Configuring Feature Flags"

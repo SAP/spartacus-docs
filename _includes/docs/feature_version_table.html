@@ -1,7 +1,7 @@
 {% capture feature_names %}
 {% for items in site.pages %}
     {% for item in items.feature %}
-      |{{ item.name }}::{{ item.spa_version }}::{{ item.cx_version }}::{{ site.baseurl }}{{ items.url }}
+      |{{ item.name }}::{{ item.spa_version }}::{{ item.cx_version }}::{{ site.baseurl }}{{ items.url }}::{{ item.anchor }}
     {% endfor %}
 {% endfor %}
 {% endcapture %}
@@ -19,7 +19,7 @@
       {% for f in features_array offset:1 %}
         {% assign feat_name_versions = f | split: '::' %}
             <tr>
-              <td><a href="{{ feat_name_versions[3] }}">{{ feat_name_versions[0] }}</a></td>
+              <td><a href="{{ feat_name_versions[3] }}{{ feat_name_versions[4] }}">{{ feat_name_versions[0] }}</a></td>
               <td style="text-align:center">{{ feat_name_versions[1] }}</td>
               <td style="text-align:center">{{ feat_name_versions[2] }}</td>
             </tr>

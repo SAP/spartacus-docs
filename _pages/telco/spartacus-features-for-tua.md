@@ -7,6 +7,7 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 ## Release 3.0
 
 - [Contract Renewals]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %})
+- [Journey Management - Serviceability]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %})
 
 ## Release 2.0
 
@@ -17,7 +18,7 @@ This is a landing page for grouping together TUA Spartacus features. The TUA Spa
 ## Release 1.3
 
 - [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %})
-- [Journey Management - Serviceability (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %})
+- [Journey Management - Serviceability Check (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %})
 
 ## Release 1.2
 
