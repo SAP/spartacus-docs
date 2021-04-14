@@ -16,6 +16,7 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Cost Estimation]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %}) | 1.3.0 | 1905 | 2005 | 1.x, 2.0 |
 | [Consumption]({{ site.baseurl }}{% link _pages/telco/cost-estimation.md %}) | 1.1.0 | 1905 | 2003 | 1.x, 2.0 |
 | [Contract Renewals]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %}) | 3.0.0 | 2011 | 2102 | 3.0 |
+| [Contract Termination (Without Assurance)]({{ site.baseurl }}{% link _pages/telco/contract-termination.md %}) | 3.0.0 | 2011 | 2102 | 3.0 |
 | [Customer Product Inventory]({{ site.baseurl }}{% link _pages/telco/customer-product-inventory.md %}) | 1.1.0 | 1905 | 2003 | 1.x, 2.0 |
 | [Journey Management - Appointment Scheduling]({{ site.baseurl }}{% link _pages/telco/journey-management-appointment-scheduling.md %}) | 2.0 | 2005 | 2007 | 2.X, 2.0 |
 | [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}) | 1.2.0 | 1905 | 2003 | 1.x, 2.0 |
