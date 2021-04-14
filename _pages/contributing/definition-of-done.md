@@ -22,7 +22,9 @@ All new features for Spartacus must:
 
 - Provide necessary code deprecations for schematics. For more information, see [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
 
-- UI/UX guidelines (docs in progress).
+- Be compatible with modern browsers. For more information, see [Browser Compatibility](#browser-compatibility).
+
+- If applicable, function on Android and iOS devices. For more information, see [Device Compatibility](#device-compatibility).
 
 ## Coding guidelines
 
@@ -111,7 +113,31 @@ The coverage report can be found in `./coverage/index.html`.
 
 ## Accessibility
 
-The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
+
+For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+
+## Browser Compatibility
+
+For a new feature to meet the definition of done, at a minimum, a manual, happy-path test of the new feature must be successful, with no significant layout issues in the most recent major version of the following browsers:
+
+- Chrome
+- Firefox
+- Safari
+- Edge
+
+## Device Compatibility
+
+New features must be compatible with Safari on iOS, and Chrome on Android, and must be tested on a range of devices. To meet the DoD, a new feature must successfully pass a manual, happy-path test, with no significant layout issues, on the following platforms:
+
+- iPhone 8, 10, X ,11 (at least one)
+- iOS tablet (any)
+- Android mobile phone (such as the Samsung Galaxy)
+- Android tablet (any)
+
+**Note:** Phones and tablets should be running on the latest versions of their respective operating systems.
+
+If devices are not available, simulations with browser tools should be used instead.  
 
 ## End-To-End Tests are Passing
 

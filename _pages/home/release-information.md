@@ -4,11 +4,12 @@ title: Release Information for All Versions of Spartacus Libraries
 
 **Latest news: Final 3.0 published December 17, 2020**
 
-*Last updated December 18, 2020 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated February 25, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 Contents:
 
 - [Introduction](#introduction)
+- [Release 3.1](#release-31)
 - [Release 3.0](#release-30)
 - [Release 2.1](#release-21)
 - [Release 2.0](#release-20)
@@ -30,15 +31,61 @@ This document describes what is included in all Spartacus libraries since the in
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
+- For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **Disclaimer - Forward-Looking Statements**
 
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
-*The various documentation links provided point to SAP BTP or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+*The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+  
+  
+## Release 3.1
 
+*Release 3.1 libraries published February 25, 2020*
 
+- SAP Variant Configuration and Pricing
+- Qualtrics Embedded Feedback
+- New Events
+- Performance Improvements with Code Splitting
+ 
+### SAP Variant Configuration and Pricing
+
+We're happy to announce that the Spartacus library for SAP Variant Configuration and Pricing has been released. This library provides the following features:
+
+- Single-level and multilevel configurable products in your Spartacus storefront, where the product model resides in SAP ERP or SAP S/4HANA
+- A configuration page with the most commonly used characteristic types, such as radio buttons, checkboxes, drop-down listboxes, and images for characteristic values
+- A price summary at the bottom of the configuration page with the base price, the price of the selected options, and the total price of the configured product
+- An overview page with all user selections accessible at any time during configuration
+- Basic conflict handling
+- Inclusion of configurable products as part of storefront processes, such as catalog browsing, product detail page, add to cart, checkout, and order history
+
+The SAP Variant Configuration and Pricing add-on for Commerce provides the user interface (UI) with which configurable products can be configured and sold using SAP Variant Configuration and Pricing.
+
+**Note:** The SAP Variant Configuration and Pricing add-on for Commerce is not included with the Spartacus libraries.
+
+For more information, see [Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}) in the Spartacus documentation, and [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US) on the SAP Help Portal.
+
+### Qualtrics Embedded Feedback
+
+We're happy to also announce support for the Qualtrics Embedded Feedback feature. For more information, see [Spartacus Support for Qualtrics Embedded Feedback]({{ site.baseurl }}/qualtrics-integration#spartacus-support-for-qualtrics-embedded-feedback).
+
+**Note:** Starting with Spartacus 3.1, you must install the Qualtrics feature library to be able to use Qualtrics features. You can install the Qualtrics library by running the following command:
+
+```shell
+ ng add @spartacus/qualtrics
+ ```
+
+### New Events
+
+Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}).
+
+### Performance Improvements with Code Splitting / Lazy Loading
+
+The Spartacus code-based is being separated out into modules for better performance. The 3.1 release includes new libraries for Qualtrics and Variant Configuration. More modules will be split out in future releases. For more information, see [Lazy-Loaded CMS Components]({{ site.baseurl }}/customizing-cms-components/#lazy-loaded-cms-components-code-splitting).
+  
+  
 ## Release 3.0
 
 *Release 3.0 libraries published December 17, 2020*
@@ -303,7 +350,6 @@ Architectural and foundational features:
 | SEO                              | Stateful URLs for every part of the storefront; search engine indexing supported by way of SSR; configurable routing; page meta resolvers including title, description, image (og:image), and robots |
 | Cache-first networking           | Caching of shell app, with more to come in subsequent releases |
 | Localization                     | All front-end texts localizable (texts that are part of the storefront code only; some texts come from backend CMS components, translated in backend) |
-| SAP BTP Extension Factory | Connectivity supported                                      |
 | Builds with CCv2                 | JavaScript appiclications such as Spartacus-based storefronts can be built alongside SAP Commerce Cloud using Commerce Cloud v2 |
 
 ## About Spartacus Releases
@@ -313,7 +359,7 @@ Architectural and foundational features:
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- To be able to use all functionality in Spartacus 3.\*, release 2005 of SAP Commerce Cloud is required. For example, release 2005 contains the OCC APIs for B2B Commerce Organization. In addition, the latest patch release is required, or at least strongly recommended, because it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5, and the Save for Later feature requires 1905.11). Spartacus 3.\*  is also tested with and works with release 1905. Note, however, that Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available if you are using SAP Commerce Cloud 1905. For more information on which version of Spartacus and which version of SAP Commerce Cloud is required for a particular feature, see [Feature Release Versions]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
+- To be able to use all functionality in Spartacus 3.\*, release 2005 of SAP Commerce Cloud is required. For example, release 2005 contains the OCC APIs for B2B Commerce Organization. In addition, the latest patch release is required, or at least strongly recommended, because it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5, and the Save for Later feature requires 1905.11). Spartacus 3.\*  is also tested with and works with release 1905. Note, however, that Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available if you are using SAP Commerce Cloud 1905. For more information on which version of Spartacus and which version of SAP Commerce Cloud is required for a particular feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 
 ## How Spartacus is Versioned
 

@@ -3,42 +3,34 @@ title: Pre-Release Information
 ---
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated February 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
+_Last updated March 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
 For detailed release notes, see the [TUA Spartacus repository
 ](https://github.com/SAP/spartacus-tua/releases).
 
-## Release 3.0.0-next.1 - February 17, 2021
+## Release 3.0.0-next.2 - March 17, 2021
 
-The `3.0.0-next.1` library has been published. We are happy to announce our 3.0 Spartacus for TUA pre-release.
+The `3.0.0-next.2` library has been published. We are happy to announce our 3.0 Spartacus for TUA pre-release.
 
-In the `3.0.0-next.1` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
+In the `3.0.0-next.2` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
 
-**Complex Industry Cart**
+### Complex Industry Cart (first introduced in 3.0.0-next.1)
 
-The hierarchical representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchical manner making it easy to support the purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchical representation of the cart and order, the exact structure of a bundled product offering is retained and the selected components are together by the parent bundle in which they belong. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/d28406c672ff4cbca70dfb4b5748f8d8/2102/en-US/33005fa795d2425282ffe769737e27e7.html.html) in the TUA Help portal.
+The hierarchal representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchal structure, making it easy to support purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchal representation of the cart and order, the exact structure of a bundled product offering is retained. The components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html) on the SAP Help portal.
 
-**Contract Renewals**
+### Contract Renewals (first introduced in 3.0.0-next.1)
 
-A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire.  At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, a customer can renew eligible subscriptions resulting from a simple product offering.
+A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire. At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, customers can renew eligible subscriptions, resulting from a simple product offering.
 
-## Release 3.0.0-next.2 - March 3, 2021
+### Serviceability Check of Simple Product Offerings (SPOs)
 
-**Serviceability**
+In order to determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability check can be run for a specific product offering a customer is interested in, or it can be run at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability Check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) on the SAP Help portal.
 
-To determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability can be executed for a specific product offering a customer is interested in, or it can be executed at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) in the TUA Help portal.
+To set up Spartacus 3.0.0-next.2 and build the TUA Spartacus Storefront using 3.0.0-next.2 libraries, refer the following sections.
 
-**Contract Termination**
-
-A contract termination is described as a contract being brought to an early end for any number of reasons. The effect of termination is to bring the contract to an end at a certain point and absolve parties of the majority of all ongoing obligations. Based on rules defined in the accelerator, a customer is able to initiate a contract termination.
-
-### Pre-release Libraries for 3.0.0 and Earlier
-
-Pre-release libraries are no longer published for versions 3.0.0 and earlier, as the final releases of these libraries were published. Pre-release libraries are still available, but the final versions should be used. New pre-release libraries will be published as needed for 3.1, 3.2, and so on.
-
-### Installing SAP Commerce Cloud for use with TUA Spartacus
+## Installing SAP Commerce Cloud for use with TUA Spartacus
 
 Installation instructions are very similar to [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce Cloud (release 2011) with Telco and Utilities Accelerator (supports release 2102, latest patch) for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud with TUA is installed on your local computer, so `localhost` is used in the browser URLs.
 
@@ -272,14 +264,16 @@ Some of the steps in this procedure are derived from the documentation for insta
     baseSite: ['utilitiesspa']
     },
     ```
+
     Both:
 
     ```ts
     context: {
     baseSite: ['telcospa', ‘utilitiesspa’]
     },
-    ``` 
-## Building the TUA Spartacus Storefront Using 2.x Libraries
+    ```
+
+## Building the TUA Spartacus Storefront Using 3.x Libraries
 
 The following instructions describe how to build a telco and utilities storefront application using published Spartacus 3.X libraries.
 
@@ -328,7 +322,6 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     To make use of the modules shipped with `tua-spa` library, the `app.module.ts` must have the following structure:
 
     ```typescript
-
     import { BrowserModule } from '@angular/platform-browser';
     import { NgModule } from '@angular/core';
     import { AppComponent } from './app.component';
@@ -376,6 +369,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             premiseLookup: {
             baseUrl: 'http://localhost:9003',
             prefix: '/premise/v1/',
+            },
+            tmf_query_service_qualification: {
+            baseUrl: 'http://localhost:8080',
+            prefix: '/tmf-api'
             }
         },
         context: {
@@ -400,6 +397,9 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             requested_number_of_timeslots: 5,
             end_date_of_timeslots: 3,
             }
+        },
+        deliveryMode: {
+            default_delivery_mode: 'not-applicable'
         }
         }),
         ConfigModule.withConfig({ i18n: { resources: tmaTranslations } }),
@@ -433,7 +433,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@spartacus/core": "3.0.0",
     "@spartacus/storefront": "3.0.0",
     "@spartacus/styles": "3.0.0",
-    "@spartacus/tua-spa": "3.0.0-next.1",
+    "@spartacus/tua-spa": "3.0.0-next.2",
     "angular-oauth2-oidc": "^10.0.1",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.9.3",
@@ -491,6 +491,24 @@ For more information on setting up TUA Spartacus 2.0.0-next.2, see [Building the
 
 As always, feedback appreciated! Contact us through Slack or submit an [issue](https://github.com/SAP/spartacus/issues/new/choose).
 
+## Pre-release Libraries for 3.0.0 and Earlier
+
+Pre-release libraries are no longer published for versions 3.0.0 and earlier, as the final releases of these libraries were published. Pre-release libraries are still available, but the final versions should be used. New pre-release libraries will be published as needed for 3.1, 3.2, and so on.
+
+## Release 3.0.0-next.1 - February 17, 2021
+
+The `3.0.0-next.1` library has been published. We are happy to announce our 3.0 Spartacus for TUA pre-release.
+
+In the `3.0.0-next.1` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
+
+### **Complex Industry Cart**
+
+The hierarchical representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchical manner making it easy to support the purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchical representation of the cart and order, the exact structure of a bundled product offering is retained and the selected components are together by the parent bundle in which they belong. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/d28406c672ff4cbca70dfb4b5748f8d8/2102/en-US/33005fa795d2425282ffe769737e27e7.html.html) in the TUA Help portal.
+
+### **Contract Renewals**
+
+A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire.  At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, a customer can renew eligible subscriptions resulting from a simple product offering.
+
 ## Release 2.0.0-next.2 - November 25, 2020
 
 The `2.0.0-next.2` library has been published! We are happy to announce our second Spartacus for TUA pre-release. 
@@ -507,15 +525,15 @@ You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Bu
 
 The following features are included as part of this pre-release:
 
-**Composite Pricing**
+### Composite Pricing
 
 Composite Pricing brings forth a new way for handling operational processes for service providers that is clearer and more efficient. The underlying TUA data model has been enhanced to support the hierarchical structure of composite prices in a TM Forum compliant manner.  Product Offering Prices are now hierarchical; that is, they can be grouped together and they are also re-usable. For more information, see [Composite Pricing](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/2e0fa8602fff440ba756e1a0a8390ea3.html) in the TUA Help portal.
 
-**Price Alteration Discounts**
+### Price Alteration Discounts
 
 The Price Alteration Discounts works on top of the Composite Pricing data model and enables the ability to offer fixed-price and percentage discounts at any level in the composite price structure, and for any type of charge including one-time charges, recurring charges and usage-based charges. With price alteration discounts, customers can see discounts upfront before placing their order. For more information, see [Price Alteration Discounts](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/61b21155624e4a498632964bc566e1eb.html) in the TUA Help portal.
 
-### Pre-Release Libraries for 2.0 and Earlier
+## Pre-Release Libraries for 2.0 and Earlier
 
 Pre-release libraries are no longer actively updated for versions 1.0 and earlier, as the final release of these libraries was already published. Pre-release libraries are still available but the final versions should be used.
 

@@ -22,11 +22,25 @@ title: Cost Estimation
 
 ## Overview
 
-This feature determines and displays the average cost for a product offering considering the provided yearly consumption entered by a customer. 
+This feature determines and displays the average cost for a product offering considering the provided yearly consumption entered by a customer.
 
-Certain types of product offerings (i.e. commodity products - electricity and gas) are charged by consumption.  In order for customers to get an idea of how much these type of product offerings could potentially cost them on a monthly or yearly basis, customers will need to provide additional information regarding their anticipated usage. Once the customer enters their anticipated annual consumption information, the search result list of all applicable product offerings are displayed.
+Certain types of product offerings (that is, commodity products - electricity and gas) are charged by consumption. For customers to get an idea of how much these type of product offerings could potentially cost them on a monthly or yearly basis, customers will need to provide additional information regarding their anticipated usage. The estimated consumption entered by the customer is captured if third-party systems need to process it as illustrated in the following figures:
 
-Customers are able to view the average cost that each of the product offerings would cost them based on their anticipated usage. Additional pricing-related information for each product offering is available by expanding the offering. The products shown in the search result list must be properly configured for this scenario and have prices defined for maximum 1 usage unit (such as kWh, cubic meter etc). The **Average Cost** for a product offering is determined using the following algorithm:
+Electricity consumption:
+
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/electricity.png"></p>
+
+Gas consumption:
+
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/gas.png"></p>
+
+When the customer selects or enters anticipated annual consumption information and clicks **Get Available Offers**, the product listing page displays all applicable product offerings based on the annual consumption as illustrated in the following figures:
+
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-your-consumption.png"></p>
+
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-consumption.png"></p>
+
+Customers are able to view the average cost that each of the product offerings would cost them based on their anticipated usage. Additional pricing-related information for each product offering is available by expanding the offering. The products shown in the search result list must be properly configured for this scenario and have prices defined for maximum 1 usage unit (such as kWh and cubic meter for example). The **Average Cost** for a product offering is determined using the following algorithm:
 
 **Average Cost / Year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 

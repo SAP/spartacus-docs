@@ -20,7 +20,7 @@ The following example highlights the differences between a B2C and a B2B checkou
 
    <img src="{{ site.baseurl }}/assets/images/commerceorg/mark1_1b-methodofpayment-account.png" alt="Method of Payment step, Account selected" width="400" border="1px" />
 
-    With the **Account** payment method selected, the checkout steps change and the **Payment Method** step is removed. This is because there is no need to supply a credit card when paying by account. Invoicing is done separately, through an arrangement between the seller and buyer companies.
+    With the **Account** payment method selected, the checkout steps change and the **Payment Details** step is removed. This is because there is no need to supply a credit card when paying by account. Invoicing is done separately, through an arrangement between the seller and buyer companies.
 
 4. Mark clicks **Continue**.
 

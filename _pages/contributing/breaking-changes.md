@@ -30,3 +30,77 @@ Spartacus releases follow semantic versioning, which means breaking changes are 
 - Changing default configurations.
 - Changing any CSS or SCSS attributes, classes or selectors.
 - Changing anything that affects the rendering of the existing DOM.
+
+## Adding New Constructor Dependencies in Minor Versions
+
+The following describes what to do, and what not do do, when adding a new constructor dependency in a minor version.
+
+The following is an example of some code before a new constructor dependency is added:
+
+```ts
+  constructor(
+    protected promotionService: PromotionService,
+  ) {}
+```
+
+A new `cartItemContextSource` constructor dependency is then added, as follows:
+
+```ts
+  constructor(
+    protected promotionService: PromotionService,
+    protected cartItemContextSource: CartItemContextSource
+  ) {}
+
+  /* ... */
+
+  method() {
+    console.log(this.cartItemContextSource.item$);
+  }
+```
+
+This would cause a breaking change (specifically, a compilation error) for any customer who upgrades to the new minor version and who has previously extended our service in their codebase by calling the `super()` constructor with less parameters, such as in the following example:
+
+```ts
+   export class CustomService extends SpartacusService {
+     constructor(promotionService: PromotionService){
+       super(promotionService); // <--------- wrong constructor signature
+       /* customer's constructor logic here */
+     }
+   }
+   ```
+
+Instead, the new constructor dependency should be added as follows:
+
+```ts
+  // TODO(#10946): make CartItemContextSource a required dependency
+  constructor(
+    promotionService: PromotionService,
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
+    cartItemContextSource: CartItemContextSource
+  );
+  /**
+   * @deprecated since 3.1
+   */
+  constructor(promotionService: PromotionService);
+  constructor(
+    protected promotionService: PromotionService,
+    @Optional() protected cartItemContextSource?: CartItemContextSource
+  ) {}
+
+  /* ... */
+
+  method() {
+    console.log(this.cartItemContextSource?.item$);
+  }
+```
+
+When adding a new constructor dependency, you **must** do the following:
+
+- Add `?` to make the new constructor parameter optional. Otherwise, customers who pass less arguments will get a compilation error.
+- In the logic of your class, allow for the new constructor parameter to be null or undefined. You can do this by accessing any properties of the new dependency with optional chaining (`?.`), such as `this.cartItemContextSource?.item$`. If this is not done, a customer who extends our class and passes less parameters to the `super()` constructor will get a runtime error in our logic because the `this.cartItemContextSource` object would be undefined.
+- If your new constructor dependency might not be provided for your class (for example, the dependency service is not `providedIn: 'root'`, or is provided conditionally in the DOM), then precede the constructor dependency with `@Optional()`. Otherwise, when the dependency is not conditionally provided, customers will get an Angular runtime error that the dependency cannot be resolved. Preceding the constructor dependency with `@Optional()` tells Angular to fall back gracefully to `null` when the value cannot be injected.
+
+Aside from the above requirements, we also encourage you to do the following:
+
+- Add an inline comment, such as `// TODO(#ticket-number): make X a required dependency`, to reference planned work for the next major version.
+- Add two alternative declarations of the constructor above the implementation. **The top declaration must be the newest one**. This is because, in a production build using SSR, only the first declaration is used to resolve dependencies. It is also helpful to add `@deprecated since X.Y` to your JSDoc comment. When this is included, customers can be warned by their IDE that the old constructor signature they are using (with less parameters) is deprecated, and this can motivate them to migrate early to the new signature.
