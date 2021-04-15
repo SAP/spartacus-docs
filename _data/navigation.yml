@@ -141,8 +141,6 @@ docs:
             subchildren:
                 - title: "CSS Architecture"
                   url: /css-architecture/
-                - title: "Global Variables"
-                  url: /global-variables/
                 - title: "Icon Library"
                   url: /icon-library/
                 - title: "Page Layout"
