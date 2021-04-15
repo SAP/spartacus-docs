@@ -205,7 +205,7 @@ When a CMS component that is covered by a lazy-loaded module is instantiated, it
 
 If a feature needs to apply initialization logic at the moment the app is loaded, feature libs can still use the regular `APP_INITIALIZER` in their `@spartacus/{featurename}/root` entry point, which by convention is an entry point that is always eager looaded. 
 
-However, a lazy loaded features may need to run some initialization logic at moment the feature is lazy loaded, not at the time the app is iniitialized. Lazy loaded modules can not rely on Angular's `APP_INITIALIZER` mechanism for load time initializations because the application has already finished initializing by the time the lazy loading occurs.
+However, a lazy loaded feature may need to run some initialization logic at moment the feature is lazy loaded. Lazy loaded modules can not rely on Angular's `APP_INITIALIZER` mechanism for load time initializations because the application has already finished initializing by the time the lazy loading occurs.
 
 Spartacus 3.2 introduces the `MODULE_INITIALIZER` injection token that can be used to provide init functions in modules that are intended to be lazy loaded.  `MODULE_INITIALIZER` is supported by the Spartacus lazy loading mechanism which means that init functions provided via `MODULE_INITIALIZER` will run just before the module in which they are defined is lazy loaded. 
 
