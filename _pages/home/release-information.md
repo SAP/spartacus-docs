@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: Final 3.0 published December 17, 2020**
+**Latest news: 3.2.0 final published April 15, 2021**
 
-*Last updated February 25, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated April 15, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -17,7 +17,7 @@ title: Release Information for All Versions of Spartacus Libraries
 
 ## Introduction
 
-This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.0.
+This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.2.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
@@ -32,9 +32,30 @@ This document describes what is included in all Spartacus libraries since the in
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
   
   
+## Release 3.2
+
+*Release 3.2 libraries published April 15, 2021*
+
+- Tag Manager framework with support for Google and Adobe tag systems, and Google Analytics [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %})
+- New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency) [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %})
+- B2B Bulk Pricing [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/bulk-pricing.md %})
+- Saved Carts [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %})
+- New popover text component [(documentation)]({{ site.baseurl }}{% link _pages/dev/components/shared-components/popover-component.md %})
+- HTML tags [(documentation)]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
+- General improvements to B2B Commerce Organization user experience
+- Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
+- Dynamic configuration with support for site themes
+- Bug fixes
+
+Updates to documentation have been published for all topics, with additional updates to:
+
+- [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
+- [SEO Capabilities]({{ site.baseurl }}{% link _pages/dev/seo/seo-capabilities.md %})
+- [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %})
+  
 ## Release 3.1
 
-*Release 3.1 libraries published February 25, 2020*
+*Release 3.1 libraries published February 25, 2021*
 
 - SAP Variant Configuration and Pricing
 - Qualtrics Embedded Feedback
