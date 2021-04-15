@@ -40,7 +40,7 @@ This document describes what is included in all Spartacus libraries since the in
 - New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency) [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %})
 - B2B Bulk Pricing [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/bulk-pricing.md %})
 - Saved Carts [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %})
-- New popover text component [(documentation)]({{ site.baseurl }}{% link _pages/dev/components/popover-component.md %})
+- New popover text component [(documentation)]({{ site.baseurl }}{% link _pages/dev/components/shared-components/popover-component.md %})
 - HTML tags [(documentation)]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
 - General improvements to B2B Commerce Organization user experience
 - Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
@@ -48,9 +48,10 @@ This document describes what is included in all Spartacus libraries since the in
 - Bug fixes
 
 Updates to documentation have been published for all topics, with additional updates to:
-- [(Structured Data)]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
-- [(SEO Capabilities)]({{ site.baseurl }}{% link _pages/dev/seo/seo-capabilities.md %})
-- [(SmartEdit Setup Instructions for Spartacus)]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %})
+
+- [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
+- [SEO Capabilities]({{ site.baseurl }}{% link _pages/dev/seo/seo-capabilities.md %})
+- [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %})
   
 ## Release 3.1
 
