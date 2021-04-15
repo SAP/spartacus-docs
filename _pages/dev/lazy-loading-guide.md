@@ -203,7 +203,7 @@ When a CMS component that is covered by a lazy-loaded module is instantiated, it
 
 ### Use MODULE_INITIALIZER inistead of APP_INITIALIZER
 
-Lazy loaded features may need to run some initialization logic when they are loaded. However, lazy loaded modules can not rely on Angular's `APP_INITIALIZER` mechanism because the application has already finished initializing by the time the lazy loading occurs.
+Lazy loaded features may need to run some initialization logic when they are loaded. However, lazy loaded modules can not rely on Angular's `APP_INITIALIZER` mechanism for load time initializations because the application has already finished initializing by the time the lazy loading occurs.
 
 Spartacus 3.2 introduces the `MODULE_INITIALIZER` injection token that can be used to provide init functions in modules that are intended to be lazy loaded.  `MODULE_INITIALIZER` is supported by the Spartacus lazy loading mechanism which means that init functions provided via `MODULE_INITIALIZER` will run just before the module in which they are defined is lazy loaded. 
 
@@ -246,6 +246,8 @@ An init function provided by `MODULE_INITIALIZER` will only run when the module 
 If any of the init functions returns a Promise, app initialization or module loading does not complete until the Promise is resolved. If one Promise is rejected, the app initialization or module loading will be initerrupted.  The same beheviour applies if an init function throws an error: the app initialization or module loading will be initerrupted.
 
 `MODULE_INITIALIZER` is a feature of the Spartacus lazy loading mechanism described in this guide.  It will not work for other lazy loading mechanisms like the out of the box route based lazy loading from Angular.
+
+If a feature needs to apply initialization logic at the moment the app is loaded, feature libs can still use the regular `APP_INITIALIZER` in their `@spartacus/{featurename}/root` entry point, which by convention is an entry point that is always eager looaded. 
 
 ## Preparing Libraries to Work with Lazy Loading
 
