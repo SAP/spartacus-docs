@@ -7,17 +7,11 @@ This document describes what is included in the latest pre-release of Spartacus 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
   
-## Release 3.2.0-next.0 - February 25, 2021
+## Next release (after 3.2)
 
-- New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency)
-- Tag Manager framework with support for Google and Adobe tag systems, and Google Analytics
-- Code splitting continues with new libraries for SmartEdit, Events and Tag Management, 
-- Dynamic site themes
-- Bug fixes
-
-For more information, see `3.2.0-next.0` release entries in the [Spartacus Releases](https://github.com/SAP/spartacus/releases).
+- Watch our Slack channel for announcements
   
-## Pre-Release Libraries for 3.1 and Earlier
+## Pre-Release Libraries for 3.2 and Earlier
 
 Pre-release libraries are no longer published for libraries that are officially released. Pre-release libraries are still available but the final versions should be used. New pre-release libraries will be published as needed for future releases.
 
