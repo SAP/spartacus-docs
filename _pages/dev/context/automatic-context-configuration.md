@@ -160,6 +160,8 @@ If you are using automatic site configuration, can set up the Spartacus configur
 
     The following is an example:
 
+    **version < 3.2:**
+
     ```typescript
     @Injectable()
     export class CustomOccConfigLoaderService extends OccConfigLoaderService {
@@ -182,6 +184,31 @@ If you are using automatic site configuration, can set up the Spartacus configur
     }
     ```
 
+    **version >= 3.2:**
+
+    From version 3.2, `OccConfigLoaderService` was deprecated, and we can use `SiteContextConfigInitializer` instead.
+
+
+    ```typescript
+    @Injectable()
+    export class CustomSiteContextConfigInitializer extends SiteContextConfigInitializer {
+      protected getConfig(source: BaseSite): SiteContextConfig {
+        // get the site context config
+        const siteContextConfig = super.getConfig(source);
+
+        // define possible values of custom context deriving from ISO languages codes
+        const custom = siteContextConfig.context[LANGUAGE_CONTEXT_ID].map(
+            languageToCustom
+        );
+
+        const config =  {
+            context: {...siteContextConfig.context, custom}
+        }
+    
+        return config;
+      }
+}
+    ```
 #### Static Context Configuration
 
 If you are using static context configuration, you need to populate the `context.custom` with all possible valid values of the custom context. The following is an example from `app.module.ts`:
@@ -215,14 +242,39 @@ export function serviceMapFactory() {
       provide: ContextServiceMap,
       useFactory: serviceMapFactory,
     },
+    // version < 3.2
     {
       provide: OccConfigLoaderService,
       useClass: CustomOccConfigLoaderService,
+    },
+    // version >= 3.2
+    {
+      provide: SiteContextConfigInitializer,
+      useClass: CustomSiteContextConfigInitializer,
     },
   ],
 /*...*/
 ```
 
-**Note:** If you have implemented a custom `OccConfigLoaderService`, it also needs to be provided, as shown in the example above.
+**Note:** If you have implemented a custom `OccConfigLoaderService` (after version 3.2, it should be a custom `SiteContextConfigInitializer`), it also needs to be provided, as shown in the example above.
 
 You should now be able to see your URL with an uppercase ISO language code (for example, `www.site.com/EN`), while still being able to use standard lowercase languages in your application.
+
+
+## Theme
+
+In Version 3.2, we added `theme` into `SiteContextConfig`. You can statically config `theme` like this:
+
+```typescript
+providers: [
+  provideConfig({
+    context: { theme: ['your theme value'] }
+  })
+]
+```
+
+You can also set `theme` using automatic site configuration as follows:
+1. In Backoffice, open the **WCMS > Website** view and select the website that you want to update.
+1. In the **Properties** tab, scroll down to **Base Configuration** and select the theme from the list.
+
+Theme value is applied as a css class in the root component of the application. For example, if theme value is `sparta`, you should be able to see it in `<your-app class="... sparta ...">`.
