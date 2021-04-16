@@ -118,10 +118,10 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![alt text]({{ site.baseurl }}/path/to/image.png)
     ```
 
-    The following is an example from the [Designing Action Buttons](https://sap.github.io/spartacus-docs/designing-action-buttons/) page:
+    The following is an example from the [Cancellations and Returns](https://sap.github.io/spartacus-docs/cancellations-and-returns/) page:
 
     ```markdown
-    ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
+    ![Cancel Items Button]({{ site.baseurl }}/assets/images/cancel-items-button.png)
     ```
 
 - **Curly Braces:** When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!
