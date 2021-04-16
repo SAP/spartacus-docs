@@ -22,7 +22,7 @@ Code splitting is a technique that has to be done at application build time. Cod
 
 ## General Concepts
 
-The following sections offer some important information about how lazing loading works in Spartacus.
+The following sections offer some important information about how lazy loading works in Spartacus.
 
 ### Defining Dynamic Imports Only in the Main Application
 
@@ -52,7 +52,7 @@ This merging functionality is made possible by a compatibility mechanism that is
 
 Unified configuration provides a way to get a global configuration that includes both the root configuration and the configuration from already-loaded lazy-loaded modules.
 
-The `ConfigurationService.unifiedConfig$` exposes the unified configuration as an observable that emits the new configuration each time it changes. This happens, for example, every time a lazy-loaded module with a provided configuration is loaded and instantiated.  
+The `ConfigurationService.unifiedConfig$` exposes the unified configuration as an observable that emits the new configuration each time it changes. This happens, for example, every time a lazy-loaded module with a provided configuration is loaded and instantiated.
 
 All configuration parts are merged in a strict order, where the actual configuration always overrides the default one, and the configuration defined in the root module (that is, the app shell) has precedence.
 
@@ -63,7 +63,7 @@ The following is an example that shows the order in which different configuratio
 - default configuration from lazy-loaded module 2
 - configuration from lazy-loaded module 1
 - configuration from lazy-loaded module 2
-- root configuration (always takes precedence)  
+- root configuration (always takes precedence)
 
 ### Providers in Lazy-Loaded Modules
 
@@ -85,7 +85,7 @@ In general, the `HttpClientModule` should be imported in the root application, n
 
 Although technically it is possible to import the `HttpClientModule` in the library, in most cases it is not something that is expected, and it might cause errors that are difficult to explain, so please keep this in mind.
 
-## Lazy Loading of CMS components
+## Lazy Loading of CMS Components
 
 {% capture version_note %}
 {{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
@@ -201,18 +201,24 @@ When a CMS component that is covered by a lazy-loaded module is instantiated, it
 - The `ModuleInjector` hierarchy, starting from the feature module injector, and including dependency modules and the root injector
 - The `ElementInjector` hierarchy, which is created implicitly at each DOM element
 
-### Use MODULE_INITIALIZER inistead of APP_INITIALIZER
+### Initializing Lazy Loaded Modules
 
-Lazy loaded features may need to run some initialization logic when they are loaded. However, lazy loaded modules can not rely on Angular's `APP_INITIALIZER` mechanism for load time initializations because the application has already finished initializing by the time the lazy loading occurs.
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.2 {{ site.version_note_part2 }}
+{% endcapture %}
 
-Spartacus 3.2 introduces the `MODULE_INITIALIZER` injection token that can be used to provide init functions in modules that are intended to be lazy loaded.  `MODULE_INITIALIZER` is supported by the Spartacus lazy loading mechanism which means that init functions provided via `MODULE_INITIALIZER` will run just before the module in which they are defined is lazy loaded. 
+{% include docs/feature_version.html content=version_note %}
 
-A `MODULE_INITIALIZER` is configured in the same way you would configure an `APP_INITIALIZER`. For example:
+Spartacus provides a `MODULE_INITIALIZER` that should be used instead of the Angular `APP_INITIALIZER` for initializing lazy-loaded modules. The `APP_INITIALIZER` mechanism finishes initializing the application before any lazy loading occurs, so lazy-loaded features that may need to run initialization logic when they are loaded are unable to do so.
+
+The `MODULE_INITIALIZER` injection token can be used to provide initialization functions in modules that are intended to be lazy loaded. The `MODULE_INITIALIZER` is supported by the Spartacus lazy loading mechanism, and as a result, initialization functions that are provided using the `MODULE_INITIALIZER` will run just before the module they are defined in is lazy loaded.
+
+You configure a `MODULE_INITIALIZER` in the same way that you would configure an `APP_INITIALIZER`. The following is an example:
 
 ```typescript
 ...
 
-import { MODULE_INITIALIZER} from '@spartacus/core';
+import { MODULE_INITIALIZER } from '@spartacus/core';
 
 ...
 
@@ -239,15 +245,15 @@ export class MyLazyLoadedModule {}
 
 ```
 
-Even though the primary use case for `MODULE_INITIALIZER` is to run when a module is lazy loaded, the `MODULE_INITIALIZER` functions will still run if the module in which it is defined is configured to be eagerly loaded (loaded when the app starts, the default way to import modules). Should an eager loading configuration be applied on a module designed for lazy loading, the `MODULE_INITIALIZER` functions are run during the Angular app bootsrap sequence.
+Although the primary use case for the `MODULE_INITIALIZER` is to run when a module is lazy loaded, the `MODULE_INITIALIZER` function still runs if the module it is defined in is configured to be loaded eagerly (that is, loaded when the app starts, which is the default method for importing modules). If an eager-loading configuration is applied on a module that is designed for lazy loading, the `MODULE_INITIALIZER` functions are run during the Angular app bootstrap sequence.
 
-An init function provided by `MODULE_INITIALIZER` will only run when the module is loaded.  This means that if a module is lazy loaded, the init function will run before the module is loaded, but it will not run when the app is initialized.  If a module is configured for eager loading, the init function will only run when the app is initialized.
+An initialization function that is provided by the `MODULE_INITIALIZER` only runs when the module is loaded. This means that if a module is lazy loaded, the initialization function will run before the module is loaded, but it will not run when the app is initialized. If a module is configured for eager loading, the initialization function will only run when the app is initialized.
 
-If any of the init functions returns a Promise, app initialization or module loading does not complete until the Promise is resolved. If one Promise is rejected, the app initialization or module loading will be initerrupted.  The same beheviour applies if an init function throws an error: the app initialization or module loading will be initerrupted.
+If any of the initialization functions returns a promise, app initialization or module loading does not complete until the promise is resolved. If one promise is rejected, the app initialization or the module loading is interrupted. If an initialization function throws an error, the app initialization or module loading is also interrupted.
 
-`MODULE_INITIALIZER` is a feature of the Spartacus lazy loading mechanism described in this guide.  It will not work for other lazy loading mechanisms like the out of the box route based lazy loading from Angular.
+If a feature needs to apply initialization logic at the moment the app is loaded, feature libraries can still use the regular `APP_INITIALIZER` in their `@spartacus/{featurename}/root` entry point, which by convention is an entry point that is always eager loaded.
 
-If a feature needs to apply initialization logic at the moment the app is loaded, feature libs can still use the regular `APP_INITIALIZER` in their `@spartacus/{featurename}/root` entry point, which by convention is an entry point that is always eager looaded. 
+**Note:** The `MODULE_INITIALIZER` is a feature of the Spartacus lazy loading mechanism. It will not work for other lazy loading mechanisms, such as the default route-based lazy loading from Angular.
 
 ## Preparing Libraries to Work with Lazy Loading
 
@@ -262,7 +268,7 @@ For more information about support for secondary entry points in the Angular lib
 ### Separating Static Code from Lazy-Loaded Code
 
 When you work with Angular Dependency Injection, the list of providers in the injector should not change after the injector is initialized. This paradigm specifically applies to any multi-provided tokens, to handlers, and especially to any Angular-native multi-provided tokens, such as `HTTP_INTERCEPTOR`, `APP_INITIALIZER`, and so on.
-  
+
 The result is that any multi-provided token in a lazy-loaded module will not be visible to modules and services that are provided in the root, or in other lazy-loaded chunks, with the exception of multi-provided tokens that are injected using the unified injector.
 
 Some Spartacus features, such as `PageMetaService` or `ConverterService`, use the `UnifiedInjector` to be aware of tokens that can be lazy loaded, so that the global logic (such as SEO features) can work reliably even if the logic is lazy loaded with the feature. For example, the store locator page meta resolver can be lazy loaded with the store locator feature.
