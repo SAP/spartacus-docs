@@ -44,6 +44,7 @@ This document describes what is included in all Spartacus libraries since the in
 - HTML tags [(documentation)]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
 - General improvements to B2B Commerce Organization user experience
 - Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
+- New module initialization functionality for lazy-loaded features [(documentation)]({{ site.baseurl }}/lazy-loading-guide/#initializing-lazy-loaded-modules)
 - Dynamic configuration with support for site themes
 - Bug fixes
 
