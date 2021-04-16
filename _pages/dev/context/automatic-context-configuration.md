@@ -37,7 +37,7 @@ To allow the site to be identified on the server side, you need to provide the c
 
 ```typescript
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/core';
+import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
 
 export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 ```
