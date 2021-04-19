@@ -61,4 +61,4 @@ constructor(
 
 In Spartacus 3.0.2 and earlier, when using CCv2 or any other setup that uses proxy servers, the `SERVER_REQUEST_URL` and `SERVER_REQUEST_ORIGIN` tokens return the `localhost` request origin instead of the real website domain. This has been fixed in Spartacus 3.0.3.
 
-If you are using Spartacus 3.0.2 or earlier, and you are unable to upgrade to the latest version of Spartacus, you can fix this issue with the workaround described in the following Github issue's comment: https://github.com/SAP/spartacus/issues/11016#issuecomment-775245885
+If you are using Spartacus 3.0.2 or earlier, and you are unable to upgrade to the latest version of Spartacus, you can fix this issue with the workaround described in a comment in [GitHub issue 11016](https://github.com/SAP/spartacus/issues/11016#issuecomment-775245885).
