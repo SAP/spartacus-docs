@@ -1,5 +1,5 @@
 ---
-title: End to end (e2e) tests in Spartacus
+title: End-to-End Test Guidelines
 ---
 
 ## Tests for desktop and mobile
