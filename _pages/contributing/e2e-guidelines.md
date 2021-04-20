@@ -1,5 +1,5 @@
 ---
-title: Writing e2e tests in Spartacus
+title: End to end (e2e) tests in Spartacus
 ---
 
 ## Tests for desktop and mobile
