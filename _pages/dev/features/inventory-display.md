@@ -12,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Inventory Display allows Spartacus to notify users of availabile stock for products they wish to purchase. Spartacus supports configuration to now allow storefront owners to display available inventory for product in additional to a 'In Stock/Out of Stock' label.
+Inventory Display allows Spartacus to notify users of availabile stock for products they wish to purchase. Spartacus supports configuration to now allow storefront owners to display available inventory for a product in additional to a 'In Stock/Out of Stock' status.
 
 ## Enabling Inventory Display and Configuration
 
