@@ -1,7 +1,7 @@
 ---
-title: Bulk Pricing
+title: Inventory Display
 feature:
-  - name: Bulk Pricing
+  - name: Inventory Display
     spa_version: 3.4
     cx_version: 2005
 ---
