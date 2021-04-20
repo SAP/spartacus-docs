@@ -2,13 +2,11 @@
 title: Creating New Pages and Components
 ---
 
-The Spartacus storefront is based on Javascript, and accordingly, it is composed of a large number of fine-grained Javascript components. The components have an equivalent in the CMS and there is mapping to the Angular component.
+Spartacus is a single-page application, but it still uses the concept of pages to distinguish the different views within the app. Spartacus pages come from the CMS, and are constructed with slots and components. A page contains slots, and slots contain components. To organize common slots and components, Spartacus supports page templates. A page template contains a layout, as well as components that can be used globally, such as header and footer sections.
 
-This section will detail how to create a new Page or Component inside Spartacus. Despite Spartacus being a single-page application, Spartacus still follows the concept of page. The pages in Spartacus come from the CMS. These pages are constructed with slots and components. A page contains slots, and slots contain components. To organize common slots and components, Spartacus supports page templates. A page template contains layout and components that can be used globally, such as header and footer sections.
+Spartacus receives each page from the CMS with a list of slots and components, and this list is used to render the appropriate components.
 
-Spartacus receives the page with the list of slots and component and can use it to render the appropriate components.
-
-**Note:** if you want to replace an existing component please refer to [Configuring Custom Components]({{ site.baseurl }}/customizing-cms-components/#configuring-custom-components).
+**Note:** For information on replacing an existing component, see [Configuring Custom Components]({{ site.baseurl }}/customizing-cms-components/#configuring-custom-components).
 
 ***
 
@@ -21,17 +19,19 @@ Spartacus receives the page with the list of slots and component and can use it 
 
 ## Creating a New Page
 
-To create a new page in Spartacus it is first necessary to create the appropriate page in the CMS. Please refer to the `Experience Management` section of the `SAP Help Portal` for a more details on how to do this.
+To create a new page in Spartacus, first you need to create the relevant page in the CMS. For information on creating pages in the CMS, see [Creating Pages](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/ca0687d2796a44bb99ac59516ca87d20.html) on the SAP Help Portal.
 
-Once the page exists in CMS Spartacus will pick it up automatically without any configuration. The url of the page in Spartacus will match the CMS label.
+After you have created a new page in the CMS, Spartacus adds it automatically without any configuration. The URL of the page in Spartacus is the same as the CMS label.
 
 ## Creating a New Component
 
-In the case a new component has been created in the backend this new component needs to be mapped to a new Angular component.
+To create a new component in Spartacus, first you need to create the relevant component in the CMS. For information on creating components in the CMS, see [Creating Components from Component Types](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/fe7f25cd80ec42e5a197b322dc7aafbc.html) on the SAP Help Portal.
 
-Let's take the example of a new component called `wishlist` with the following file structure:
+After you have created a new component in the CMS, it needs to be mapped to a new Angular component.
 
-```
+The following example shows how to map a new wish list component. In this case, the wish list component has the following file structure:
+
+```text
 wishlist/
   wishlist.component.html
   wishlist.component.scss
@@ -39,7 +39,7 @@ wishlist/
   wishlist.module.ts
 ```
 
-In `wishlist.module.ts`:
+You can then map the wish list component in `wishlist.module.ts`, as follows:
 
 ```ts
 /*...*/
@@ -47,42 +47,45 @@ imports: [
   ConfigModule.withConfig({
     cmsComponents: {
       YOUR_NEW_COMPONENT_TYPE: {
-        component: WishlistComponent //The class of your Angular component
+        component: WishlistComponent // The class of your Angular component
       }
     }
   })
 ]
 ```
 
-The following logic will inject use the `WishlistComponent` wherever it is placed in the CMS. For more details on using CMS components see [Customizing CMS Components]({{ site.baseurl }}/customizing-cms-components).
+This logic injects the `WishlistComponent` wherever it is placed in the CMS. For more details on working with CMS components, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}).
 
 ## Static Pages
 
-Another way to create a custom page with custom components is to create it statically.
+You can also create a custom page with custom components by creating a static page.
 
-The first step to using a component "statically" is to create a static page and a static route. The following example will create a `Wishlist Page` :
+The following procedure describes how to create a static wish list page with a wish list component.
 
-In `wishlist-page.module.ts`
-```ts
-import { RouterModule, Routes } from '@angular/router';
-import { CmsPageGuard } from '@spartacus/storefront';
-/*...*/
+1. Create a static page and a static route.
 
-const staticRoutes: Routes = [{
-  path: 'wishlist',
-  component: WishlistPageComponent //Custom page component,
-  canActivate: [CmsPageGuard]
-}];
+    The following example creates a wish list page in `wishlist-page.module.ts`:
 
-/*...*/
-imports: [RouterModule.forChild(staticRoutes)];
-```
+    ```ts
+    import { RouterModule, Routes } from '@angular/router';
+    import { CmsPageGuard } from '@spartacus/storefront';
+    /*...*/
 
-Afterwards, you can add the component to the page in a standard Angular maner:
+    const staticRoutes: Routes = [{
+      path: 'wishlist',
+      component: WishlistPageComponent // Custom page component,
+      canActivate: [CmsPageGuard]
+    }];
 
-In `wishlist-page.component.html`
-```html
-  <!-- Selector of the component to use -->
-  <wishlist-component></wishlist-component>
-```
+    /*...*/
+    imports: [RouterModule.forChild(staticRoutes)];
+    ```
 
+2. Add the component to the page, just as you would for any regular Angular component.
+
+    In the following example, the component is added in `wishlist-page.component.html`:
+
+    ```html
+      <!-- Selector of the component to use -->
+      <wishlist-component></wishlist-component>
+    ```
