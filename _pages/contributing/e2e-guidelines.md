@@ -4,7 +4,7 @@ title: Writing e2e tests in Spartacus
 
 ## Tests for desktop and mobile
 
-It's a good practice to e2e test both desktop and mobile experience. There is no need to write duplicate code for mobile and desktop tests, since the following utils were introduced: `viewportContext()` and `cy.onMobile()`. The `viewportContext()` allows for easy running the same e2e tests for the given list of viewports: both [`'desktop', 'mobile']` or only `['mobile']` or only `['desktop']`. Moreover, if some part of the test is specific only to mobile, it can be wrapped inside a callback passed to the util function `cy.onMobile()`. See example:
+It's a good practice to e2e test both desktop and mobile experience. There is no need to write duplicate code for mobile and desktop tests, since the following utils were introduced: `viewportContext()` and `cy.onMobile()`. The `viewportContext()` allows for easy running the same e2e tests for the given list of viewports: both [`'desktop', 'mobile']` or only `['mobile']` or only `['desktop']`. Moreover, if some part of the test is specific only to mobile, it can be wrapped inside a callback passed to the util function `cy.onMobile()`. Analogically, part of the test that is specific only to desktop, should be wrapped in `cy.onDesktop()` See example:
 
 ```typescript
 describe('Added to cart modal', () => {
