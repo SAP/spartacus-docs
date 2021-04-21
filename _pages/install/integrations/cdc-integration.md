@@ -252,34 +252,59 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application:
 
    ```bash
-   npm i @spartacus/cdc
+   ng add @spartacus/cdc
    ```
 
-2. Import the `CdcModule` by adding the following line below the existing import statements at the top of `app.module.ts`:
+   Schematics will create module for CDC integration with all required imports and configuration. **Note**: Schematics will only work with apps following new [App structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+
+   Alternatively you can create module manually and import it into application:
 
    ```ts
-   import { CdcModule } from '@spartacus/cdc';
+   import { NgModule } from '@angular/core';
+   import { CdcConfig, CdcRootModule, CDC_FEATURE } from '@spartacus/cdc/root';
+   import { provideConfig } from '@spartacus/core';
+
+   @NgModule({
+     declarations: [],
+     imports: [CdcRootModule],
+     providers: [
+       provideConfig({
+         featureModules: {
+           [CDC_FEATURE]: {
+             module: () => import('@spartacus/cdc').then((m) => m.CdcModule),
+           },
+         },
+       }),
+       provideConfig(<CdcConfig>{
+         cdc: [
+           {
+             baseSite: 'electronics-spa',
+             javascriptUrl: '<paste-link-to-cdc-script>',
+             sessionExpiration: 3600,
+           },
+         ],
+       }),
+     ],
+   })
+   export class CdcFeatureModule {}
    ```
 
-3. Add the `CdcModule` to `app.module.ts`.
+2. Adjust CDC configuration in newly created module.
    The following is an example:
 
    ```ts
-   @NgModule({
-     imports: [
-       CdcModule.forRoot({
-           cdc: [
-               {
-                   baseSite: 'electronics-spa',
-                   javascriptUrl: 'https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>',
-                   sessionExpiration: 120,
-               },
-           ],
+   provideConfig(<CdcConfig>{
+         cdc: [
+           {
+             baseSite: 'electronics-spa',
+             javascriptUrl: 'https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>',
+             sessionExpiration: 3600,
+           },
+         ],
        }),
-       ...
    ```
 
-   The following is a summary of the parameters of the `CdcModule`:
+   The following is a summary of the options in CDC configuration:
 
    - **baseSite** refers to the CMS Site that the Customer Data Cloud Site configuration should be applied to. The same should be configured in SAP Commerce Cloud Backoffice as well.
 
@@ -287,4 +312,4 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
    - **sessionExpiration** is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce Cloud token live for the same time.
 
-4. Build and start the storefront app to verify your changes.
+3. Build and start the storefront app to verify your changes.
