@@ -104,6 +104,16 @@ The following are some examples of how the `add-cms-component` schematic can be 
 
 You need to first install the Spartacus core libraries before you can install additional Spartacus libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project](#adding-spartacus-core-libraries-and-features-to-your-angular-project).
 
+**Note:** To install additional Spartacus libraries using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+
+### Customer Data Cloud Integration Library
+
+You can install the Customer Data Cloud integration library by running the following command:
+
+```shell
+ng add @spartacus/cdc
+```
+
 ### Organization Library
 
 You can add the Organization library by running the following command:
