@@ -14,7 +14,7 @@ feature:
 
 SAP Customer Data Cloud allows you to enable customized registration and login, and also manage user profile and consent.
 
-For more information see, [SAP Customer Data Cloud Integration](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US) and [SAP Customer Data Cloud](https://developers.gigya.com/) on the SAP Help Portal.
+For more information see, [SAP Customer Data Cloud Integration](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US) and [SAP Customer Identity](https://developers.gigya.com/) on the SAP Help Portal.
 
 ***
 
@@ -27,7 +27,7 @@ For more information see, [SAP Customer Data Cloud Integration](https://help.sap
 
 ## Requirements
 
-To integrate SAP Customer Data Cloud with Spartacus, you must have either of the following:
+To integrate SAP Customer Data Cloud with Spartacus, you must have one of the following:
 
 - SAP Commerce Cloud 2011, along with SAP Commerce Cloud, Integration Extension Pack 2108
 - SAP Commerce Cloud 2005, along with SAP Commerce Cloud, Integration Extension Pack
@@ -43,11 +43,15 @@ The following steps describe how to configure the Commerce Cloud back end for in
 
 1. Follow the steps for [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
-2. Enable the SAP Customer Data Cloud extensions for B2C according to [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html) on the SAP Help Portal.
+2. Enable the SAP Customer Data Cloud extensions for B2C.
 
-3. Build and update the system so that the new functionality provided by the SAP Customer Data Cloud integration extension is available. This also creates sample cms data for `electronics-spaContentCatalog` content catalog.
+    For more information, see [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html) on the SAP Help Portal.
 
-  **Note:** The SAP Customer Data Cloud login page can be viewed by accessing the URL `<spartacus-site-url>/cdc/login`. This is done so that Customer Data Cloud screens and default login screens can be accessed together.
+3. Build and update the system so that the new functionality provided by the SAP Customer Data Cloud integration extension is available.
+
+    This step also creates sample CMS data for the `electronics-spaContentCatalog` content catalog.
+
+    **Note:** You can view the SAP Customer Data Cloud login page through the `<spartacus-site-url>/cdc/login` URL. This allows you to access the Customer Data Cloud pages and the default login page together.
 
 4. Update the `mobile_android` OAuth client (created in step 1) to support the `custom` authorization grant type, and remove the `refresh_token` grant type. The following ImpEx can be used to update the grant types:
 
@@ -58,21 +62,25 @@ The following steps describe how to configure the Commerce Cloud back end for in
 
    **Note:** Refresh tokens are not supported. This ensures that the token from Commerce Cloud and the SAP Customer Data Cloud login session are maintained for the same duration of time.
 
-5. Define the SAP Customer Data Cloud Site configuration and link it to the `electronics-spa` site. You can also define other configurations for the integration, such as Field Mapping and Consent Templates, according to [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html).
+5. Define the SAP Customer Data Cloud Site configuration and link it to the `electronics-spa` site.
+
+    You can also define other configurations for the integration, such as Field Mapping and Consent Templates. For more information, see [SAP Customer Data Cloud Integration Implementation](https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html) on the SAP Help Portal.
 
 ### Configuring Spartacus for SAP Customer Data Cloud Integration
 
 Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
-1. Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application:
+1. Install the SAP Customer Data Cloud integration library by running the following command from within the root directory of your storefront application:
 
    ```bash
    ng add @spartacus/cdc
    ```
 
-   Schematics will create module for CDC integration with all required imports and configuration. **Note**: Schematics will only work with apps following new [App structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+   When you run this command, the schematics create a module for the CDC integration that includes all of the required imports and configuration.
 
-   Alternatively you can create module manually and import it into application:
+   **Note**: To install the CDC integration library using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+
+   Alternatively, you can create the module manually and import it into your application, as shown in the following example:
 
    ```ts
    import { NgModule } from '@angular/core';
@@ -104,8 +112,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
    export class CdcFeatureModule {}
    ```
 
-2. Adjust CDC configuration in newly created module.
-   The following is an example:
+2. Adjust the CDC configuration in the newly created module, as shown in the following example:
 
    ```ts
    provideConfig(<CdcConfig>{
@@ -119,7 +126,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
        }),
    ```
 
-   The following is a summary of the options in CDC configuration:
+   The following is a summary of the options that are available in the CDC configuration:
 
    - **baseSite** refers to the CMS Site that the Customer Data Cloud Site configuration should be applied to. The same should be configured in SAP Commerce Cloud Backoffice as well.
 
