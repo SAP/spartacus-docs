@@ -68,7 +68,7 @@ Spartacus is a complete paradigm shift from the Accelerators in terms of technol
 
 ### How long does it take to get a Spartacus-based storefront up and running?
 
-Assuming a vanilla SAP Commerce Cloud B2C back end is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+Assuming a vanilla SAP Commerce Cloud B2C back end is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 ### Is there a demo of a Spartacus-based storefront available?
 
@@ -88,7 +88,7 @@ Spartacus releases are independent of the release cycle of SAP Commerce Cloud. G
 
 ### What technologies does Spartacus use?
 
-Spartacus uses a combination of languages, technologies and libraries, including Angular, TypeScript, RxJS, NgRx, SASS, and Bootstrap. The final output is pure JavaScript. Angular is currently used as our development framework, though the goal is to allow usage of other frameworks. Please see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for the correct versions required.
+Spartacus uses a combination of languages, technologies and libraries, including Angular, TypeScript, RxJS, NgRx, SASS, and Bootstrap. The final output is pure JavaScript. Angular is currently used as our development framework, though the goal is to allow usage of other frameworks. Please see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for the correct versions required.
 
 ### Does Spartacus implement Responsive Design?
 

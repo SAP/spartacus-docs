@@ -68,7 +68,7 @@ The following steps describe how to configure the Commerce Cloud back end for in
 
 ### Configuring Spartacus for SAP Customer Data Cloud Integration
 
-Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 1. Install the SAP Customer Data Cloud integration library by running the following command from within the root directory of your storefront application:
 

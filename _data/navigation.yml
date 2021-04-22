@@ -62,6 +62,10 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
+                - title: "Building the Spartacus Storefront from 3.2 Libraries"
+                  url: /building-the-spartacus-storefront-from-libraries-3-2/
+                - title: "Building the Spartacus Storefront from 3.1 Libraries"
+                  url: /building-the-spartacus-storefront-from-libraries-3-1/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
                 - title: "Reference App Structure"

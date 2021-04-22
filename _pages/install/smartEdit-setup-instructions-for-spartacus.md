@@ -35,7 +35,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
 
 1. Build your Angular app, adding Spartacus libraries as normal.
 
-   Make sure the app is working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+   Make sure the app is working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 1. Install the SmartEdit feature library by running the following schematics command:
 
@@ -95,7 +95,7 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 
 1. Build your Angular app, adding Spartacus libraries as normal.
 
-   Make sure the app is working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+   Make sure the app is working before continuing. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 1. Copy the `webApplicationInjector.js` SmartEdit file to the `src` folder of your Angular app.
 

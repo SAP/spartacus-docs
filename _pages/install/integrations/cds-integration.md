@@ -59,7 +59,7 @@ The following steps describe how to add custom headers to your CORS settings, as
 
 ### Configuring Spartacus for Context-Driven Services
 
-You can carry out all of the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+You can carry out all of the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 1. Install the Context-Driven Services library by running the following command from within the root directory of your storefront app:
 
