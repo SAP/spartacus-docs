@@ -105,7 +105,7 @@ Aside from the above requirements, we also encourage you to do the following:
 - Add an inline comment, such as `// TODO(#ticket-number): make X a required dependency`, to reference planned work for the next major version.
 - Add two alternative declarations of the constructor above the implementation. **The top declaration must be the newest one**. This is because, in a production build using SSR, only the first declaration is used to resolve dependencies. It is also helpful to add `@deprecated since X.Y` to your JSDoc comment. When this is included, customers can be warned by their IDE that the old constructor signature they are using (with less parameters) is deprecated, and this can motivate them to migrate early to the new signature.
 
-### Don't add multiple constructors declaration when using @Inject() for some dependency
+### Don't add multiple constructor declarations when using @Inject() for some dependency
 
 When building libs (i.e. `ng build --prod core`), `ng-packgr` uses only **the first constructor declaration** (instead of the constructor definition) to resolve the injected dependencies. Because the decorator `@Inject()` is not supported in constructor declarations, we cannot use it there. Therefore, `ng-packgr` will fail to resolve such a dependency, throwing an enigmatic error:
 
@@ -117,7 +117,7 @@ For example
 import { PLATFORM_ID } from '@angular/core';
 /*...*/
 
-  // Don't add multiple constructors declaration when using decorator @Inject() for some dependency
+  // Don't add multiple constructor declarations when using decorator @Inject() for some dependency
   constructor(
     platformId: any, // this dependency won't be resolved; Nor we can fix it with @Inject() - it's not supported here!
     newService?: NewService
