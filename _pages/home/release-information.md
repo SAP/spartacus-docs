@@ -208,7 +208,7 @@ What's new?
 - [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})  
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
-- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6)
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/token-revocation.md %}) (supports back end improvement added to 1905.6)
 - [Stacked Outlets]({{ site.baseurl }}/outlets/#stacked-outlets)
 - [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
