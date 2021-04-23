@@ -12,13 +12,13 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Inventory Display allows Spartacus to notify users of availabile stock for products they wish to purchase. Spartacus supports configuration to now allow storefront owners to display available inventory for a product in additional to a 'In Stock/Out of Stock' status.
+The inventory display feature lets you show customers how much of a given item is available for purchase on your storefront. When the inventory display feature is enabled, customers can see the quantity of items that are available for purchase. When the feature is disabled, customers see only that an item is either "In Stock" or "Out of Stock".
 
-## Enabling Inventory Display and Configuration
+## Enabling Inventory Display
 
-Enabling inventory display is very straightforward. Simply set the `inventoryDisplay` flag to `true | false` when you wish to render available inventory on a product's detail page. Configuration is found in the AddToCart module.
+To enable inventory display, set the `inventoryDisplay` flag to `true`, as shown in the following example from `add-to-cart.module.ts`:
 
-```javascript
+```ts
       cmsComponents: {
         ProductAddToCartComponent: {
           component: AddToCartComponent,
@@ -28,6 +28,10 @@ Enabling inventory display is very straightforward. Simply set the `inventoryDis
         },
       },
 ```
+
+## Configuring
+
+No special configuration is needed for this feature.
 
 ## Extending
 
