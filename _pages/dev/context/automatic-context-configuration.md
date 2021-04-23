@@ -268,7 +268,7 @@ In Version 3.2, we added `theme` into `SiteContextConfig`. You can statically co
 ```typescript
 providers: [
   provideConfig({
-    context: { theme: ['your theme value'] }
+    context: { theme: ['your-theme-value'] }
   })
 ]
 ```
