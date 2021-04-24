@@ -4,6 +4,10 @@ feature:
 - name: Automatic Multi-Site Configuration
   spa_version: 1.3
   cx_version: 1905
+- name: Automatic Theme Configuration
+  spa_version: 3.2
+  cx_version: 1905
+  anchor: "#automatic-theme-configuration"
 ---
 
 {% capture version_note %}
@@ -156,11 +160,32 @@ If you are using automatic site configuration, can set up the Spartacus configur
 1. In the **Properties** tab, scroll down to **URL Encoding Attributes** and click the plus (`+`) button.
 1. In the modal that appears, enter the name `custom` and click **Add**.
 1. Save your changes and exit Backoffice.
-1. In your Spartacus code, extend the dynamic Spartacus configuration of `context` to contain the `custom` key.
+1. In your Spartacus code, extend the dynamic configuration of `context` to contain the `custom` key.
 
-    The following is an example:
+    If you are using version 3.2 or newer of the Spartacus libraries, the `OccConfigLoaderService` is deprecated, and the `SiteContextConfigInitializer` can be used instead. The following is an example:
 
-    **version < 3.2:**
+    ```typescript
+    @Injectable()
+    export class CustomSiteContextConfigInitializer extends SiteContextConfigInitializer {
+      protected getConfig(source: BaseSite): SiteContextConfig {
+        // get the site context config
+        const siteContextConfig = super.getConfig(source);
+
+        // define possible values of custom context deriving from ISO languages codes
+        const custom = siteContextConfig.context[LANGUAGE_CONTEXT_ID].map(
+            languageToCustom
+        );
+
+        const config =  {
+            context: {...siteContextConfig.context, custom}
+        }
+    
+        return config;
+      }
+    }
+    ```
+
+    If you are using version 3.1 or earlier of the Spartacus libraries, you can extend the dynamic configuration of `context` to contain the `custom` key, as shown in the following example:
 
     ```typescript
     @Injectable()
@@ -184,31 +209,6 @@ If you are using automatic site configuration, can set up the Spartacus configur
     }
     ```
 
-    **version >= 3.2:**
-
-    From version 3.2, `OccConfigLoaderService` was deprecated, and we can use `SiteContextConfigInitializer` instead.
-
-
-    ```typescript
-    @Injectable()
-    export class CustomSiteContextConfigInitializer extends SiteContextConfigInitializer {
-      protected getConfig(source: BaseSite): SiteContextConfig {
-        // get the site context config
-        const siteContextConfig = super.getConfig(source);
-
-        // define possible values of custom context deriving from ISO languages codes
-        const custom = siteContextConfig.context[LANGUAGE_CONTEXT_ID].map(
-            languageToCustom
-        );
-
-        const config =  {
-            context: {...siteContextConfig.context, custom}
-        }
-    
-        return config;
-      }
-}
-    ```
 #### Static Context Configuration
 
 If you are using static context configuration, you need to populate the `context.custom` with all possible valid values of the custom context. The following is an example from `app.module.ts`:
@@ -242,28 +242,47 @@ export function serviceMapFactory() {
       provide: ContextServiceMap,
       useFactory: serviceMapFactory,
     },
-    // version < 3.2
-    {
-      provide: OccConfigLoaderService,
-      useClass: CustomOccConfigLoaderService,
-    },
     // version >= 3.2
     {
       provide: SiteContextConfigInitializer,
       useClass: CustomSiteContextConfigInitializer,
     },
+    // version < 3.2
+    {
+      provide: OccConfigLoaderService,
+      useClass: CustomOccConfigLoaderService,
+    },
   ],
 /*...*/
 ```
 
-**Note:** If you have implemented a custom `OccConfigLoaderService` (after version 3.2, it should be a custom `SiteContextConfigInitializer`), it also needs to be provided, as shown in the example above.
+**Note:** If you have implemented a custom `SiteContextConfigInitializer` (or a custom `OccConfigLoaderService` if you are using Spartacus 3.1 or earlier), this also needs to be provided, as shown in the example above.
 
 You should now be able to see your URL with an uppercase ISO language code (for example, `www.site.com/EN`), while still being able to use standard lowercase languages in your application.
 
+## Theme Configuration
 
-## Theme
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.2 {{ site.version_note_part2 }}
+{% endcapture %}
 
-In Version 3.2, we added `theme` into `SiteContextConfig`. You can statically config `theme` like this:
+{% include docs/feature_version.html content=version_note %}
+
+You can add a `theme` to your `SiteContextConfig`, either automatically or statically.
+
+### Automatic Theme Configuration
+
+You can set the `theme` by using the automatic site configuration, as described in the following procedure.
+
+1. In Backoffice, open the **WCMS > Website** view.
+1. Select the website that you want to update.
+1. In the **Properties** tab, scroll down to **Base Configuration** and select the desired theme from the list.
+
+    The theme value is applied as a CSS class in the root component of the application. For example, if the theme value is `sparta`, you should be able to see it in `<your-app class="... sparta ...">`.
+
+### Static Theme Configuration
+
+You can statically configuring your `theme`, as shown in the following example:
 
 ```typescript
 providers: [
@@ -272,9 +291,3 @@ providers: [
   })
 ]
 ```
-
-You can also set `theme` using automatic site configuration as follows:
-1. In Backoffice, open the **WCMS > Website** view and select the website that you want to update.
-1. In the **Properties** tab, scroll down to **Base Configuration** and select the theme from the list.
-
-Theme value is applied as a css class in the root component of the application. For example, if theme value is `sparta`, you should be able to see it in `<your-app class="... sparta ...">`.
