@@ -67,7 +67,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 
    - In Backoffice, in **WCMS > Website > *your site***, click the **WCMS Properties** tab.
-   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL must match what the default context uses, or errors will occur when using SmartEdit. The default context installed by Spartacus schematics is `https://localhost:4200/en/USD`.
+   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview url in its iframe.)
 
 1. Ensure that the Spartacus site is allowlisted in SmartEdit. The following is one example of how you can do this:
 
@@ -138,7 +138,7 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 
    - In Backoffice, in **WCMS > Website > *your site***, click the **WCMS Properties** tab.
-   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. For example, if you go to `https://localhost:4200`, you will see the default URL path (or context), such as `https://localhost:4200/en/USD`. The Preview URL must match what the default context uses, or errors will occur when using SmartEdit. The default context installed by Spartacus schematics is `https://localhost:4200/en/USD`.
+   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview url in its iframe.)
 
 1. Ensure that the Spartacus site is allowlisted in SmartEdit. The following is one example of how you can do this:
 
@@ -159,3 +159,37 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
    By starting your app in SSL mode, you avoid an `unsafe scripting` message from the browser.
 
    **Note:** If you start your application without using SSL mode, the two references to `https://localhost:4200` must be changed to `http://localhost:4200`.
+
+## Troubleshooting
+
+   If Spartacus is not launched in SmartEdit yet, all the issues you meet are not caused by Spartacus. For example, in `Your Site` page, Spartacus is not opened in this page. If you see some issues, such as base sites are empty in the site list, you can contact SmartEdit team for help.
+
+### 1. `webApplicationInjector.js` is not loaded
+
+   The perspective toolbar will be missing if `webApplicationInjector.js` is not loaded. In the previous steps, you can find how to copy and set `webApplicationInjector.js`.
+
+   ![webApplicationInjector.js]({{ site.baseurl }}/assets/images/webApplicationInjector.png)
+   
+### 2. `previewUrl` doesn not match your website url
+
+   SmartEdit opens the `previewUrl` in it iframe. You can open it in the browser to see whether it works. If your app is started without SSL mode, that's fine. You only need to make sure that the preview url matches your site url. 
+
+### 3. Add/Edit/Remove components, page is not refreshed
+
+   When adding/editing/removing components, the CMS pages data will be reloaded. If the page is not refreshed, you can consider whether it is caused by the caching in OCC. 
+   
+   Open `Network` in browser, then edit a component. You should see a new request to load CMS page data. Check the response of this request to see whether the edited component data is update. 
+
+   If only some operations do not make page refreshed, for example, editing a component works fine, but updating some images do not make page refreshed, then you can contact SmartEdit team for help.
+
+### 4. `allowOrigin` is not set correctly
+
+   If you see the error message of `... is not allowed to override this storefront.`, that means the `allowOrigin` is not set correctly. Check previous steps of how to set this value.
+
+### 5. Your website is not put in SmartEdit white list
+
+   If you see the error message of `disallowed storefront is tryijng to communicate with smarteditcontainer`, that means your storefront is not in the smartedit whitelist. Check previous steps of how to add site in smartedit whitelist.
+
+### 6. Smartedit slot contextual menu is missing
+
+   Please check this ticket: https://github.com/SAP/spartacus/issues/845
