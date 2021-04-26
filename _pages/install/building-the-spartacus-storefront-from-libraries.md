@@ -55,40 +55,33 @@ The following procedure describes how to create a new Angular application with t
 
 The easiest way to start a new project is to use Angular Schematics to quickly set up your application.
 
-For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
+For a full list of available parameters please visit Spartacus schematics [documentation]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
 
-### Setting up the Core B2C Project Using Schematics
+### Setting up the Project Using Schematics
 
 To install the latest official release of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics
+ng add @spartacus/schematics@latest
 ```
 
-**Notes:**
-
-- The `/schematics` command adds the core Spartacus (or B2C) configuration, to work with SAP Commerce Cloud Electronics or Apparel sample stores.
-- To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command.
-- To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
-- The store locator feature is no longer included with the core Spartacus libraries. You can enable it by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
-
-### Adding B2B Commerce Organization (Optional)
+Schematics will ask you first to choose Spartacus configuration (b2c or b2b). B2B configuration differs from B2C only with few occ endpoints and checkout configuration (additional `defaultB2bOccConfig` and `defaultB2bCheckoutConfig` from `@spartacus/setup`).
 
 **Note:** Spartacus does not support B2C and B2B storefronts running together in a single storefront application. When you enable B2B Commerce Organization, the B2C storefront will load but not work properly.
 
-**Note:** You need to first install the Spartacus core libraries before you can add B2B Commerce Organization. If you have not already done so, run the following command to install the Spartacus core libraries:
+Next prompt from schematics will ask you which additional features would you like to install in your storefront. This list doesn't show all spartacus features, but all the libraries. Some libraries have a single feature (eg. `@spartacus/smartedit`, `@spartacus/cdc`), where other contain smaller features (eg. `@spartacus/organization` with "Organization administration" and "Order approval" features).
 
-```bash
-ng add @spartacus/schematics
-```
+When you select libraries with multiple features you will see more prompts for each library to select features they contain.
 
-To get Spartacus to work with the SAP Commerce Cloud Powertools sample store, you must add the B2B Commerce Organization configuration to Spartacus using schematics, as follows:
+List of all the features libraries is [available here]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
 
-```bash
-ng add @spartacus/organization
-```
+**Notes:**
 
-The installer asks what to include (`Administration` and `Order-approval`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
+- When you select feature for b2b storefronts the schematics will automatically add required b2b configs if they are missing.
+- The command adds the core Spartacus files and configuration, to work with SAP Commerce Cloud sample stores.
+- To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command.
+- To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
+- More and more features are moved from the core libraries to dedicated feature libraries, so expect with each major release that scope of core libraries will shrink with features being extracted to separated packages.
 
 ### Installing Dependencies
 
@@ -97,10 +90,10 @@ Install dependencies needed by your Spartacus app with the following command:
 ```shell
 yarn install
 ```
-  
-### Checking app.module.ts for Base URL and Other Settings
 
-Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup.
+### Checking spartacus-configuration.module.ts for Base URL and Other Settings
+
+Open the `src\app\spartacus\spartacus-configuration.module.ts` file, and check for any changes you want to make for your setup.
 
 For example, check:
 

@@ -24,10 +24,10 @@ Before using Spartacus schematics, ensure that you have all of the necessary pre
 You can add Spartacus core libraries and features to your Angular project by running the following command from your project root:
 
 ```shell
-ng add @spartacus/schematics
+ng add @spartacus/schematics@latest
 ```
 
-The following is a description of the various options you can use with the `ng add @spartacus/schematics` command:
+The following is a description of the various options you can use with the `ng add @spartacus/schematics@latest` command:
 
 - `baseUrl` sets the base URL of your CX OCC back end.
 - `baseSite` is a comma-separated list of base site(s) to use with Spartacus.
@@ -35,7 +35,7 @@ The following is a description of the various options you can use with the `ng a
 - `language` is a comma-separated list of languages to use in Spartacus.
 - `occPrefix` sets the OCC API prefix, such as `/occ/v2/`, for example.
 - `useMetaTags` determines whether or not to configure the `baseUrl` and `mediaUrl` in the meta tags from `index.html`.
-- `featureLevel` sets the application feature level. The default value is `2.0`.
+- `featureLevel` sets the application feature level. The default value is equal to spartacus packages version (eg. for `@spartacus/schematics@3.2.0` it's `3.2`).
 - `overwriteAppComponent` overwrites the content of `app.component.html`. The default value is `true`.
 - `pwa` includes progressive web application (PWA) features when building the application.
 - `ssr` includes the server-side rendering (SSR) configuration.
@@ -43,13 +43,13 @@ The following is a description of the various options you can use with the `ng a
 The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the `baseUrl` and the `baseSite`, and that also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=electronics-spa --ssr
+ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=electronics-spa --ssr
 ```
 
 Another example is the following, which generates an application that is ready to be used with both an apparel storefront and an electronics storefront, that sets the `baseUrl`, `baseSite`, `currency`, and `language`, and also enables server-side rendering:
 
 ```shell
-ng add @spartacus/schematics --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
+ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
 ```
 
 ### Additional Commands for Core Libraries and Features
@@ -65,7 +65,7 @@ By default, the `ng add @spartacus/schematics` command adds only a basic configu
 When you run `ng add @spartacus/schematics`, the command does the following:
 
 1. Adds the required dependencies.
-2. Imports the Spartacus modules in the `app.module` and sets up the default configuration.
+2. [Set's up Spartacus modules in the project and configuration]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %})
 3. Imports Spartacus styles to `main.scss`.
 4. Adds the `cx-storefront` component to your `app.component`.
 5. Optionally updates `index.html` with the Spartacus URL endpoints in meta tags.
@@ -106,52 +106,19 @@ You need to first install the Spartacus core libraries before you can install ad
 
 **Note:** To install additional Spartacus libraries using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
-### Customer Data Cloud Integration Library
+### Integration and feature libraries
 
-You can install the Customer Data Cloud integration library by running the following command:
+- `@spartacus/cdc`: Customer Data Cloud integration
+- `@spartacus/tracking`: Tag management, personalization
+- `@spartacus/qualtrics`: Qualtrics integration
+- `@spartacus/cart`: Saved cart
+- `@spartacus/organization`: Organization administration, order approval
+- `@spartacus/smartedit`: Smartedit integration
+- `@spartacus/storefinder`: Storefinder
+- `@spartacus/cds`: CDS integration
+- `@spartacus/product`: Bulk pricing, variants
+- `@spartacus/asm`: ASM integration
+- `@spartacus/product-configurator`: Product configurators
+- `@spartacus/user`: User profile, account
 
-```shell
-ng add @spartacus/cdc
-```
-
-### Organization Library
-
-You can add the Organization library by running the following command:
-
-```shell
-ng add @spartacus/organization
-```
-
-When you run this command, you are presented with an interactive menu that allows you to select which Organization features you want to install. Both `organization` and `approvals` are required for B2B Commerce Organization to work.
-
-### Qualtrics Feature Library
-
-You can install the Qualtrics library by running the following command:
-
-```shell
-ng add @spartacus/qualtrics
-```
-
-### Saved Cart Feature Library
-
-You can install the Saved Cart library by running the following command:
-
-```shell
-ng add @spartacus/cart
-```
-
-### SmartEdit Feature Library
-
-You can install the SmartEdit feature library by running the following command:
-
-```shell
-ng add @spartacus/smartedit
-```
-
-### Storefinder Feature Library
-
-You can install the store locator feature by running the following command:
-
-```shell
-ng add @spartacus/storefinder
-```
+All feature libraries have schematics, so they can be installed with `ng add <package-name>`.
