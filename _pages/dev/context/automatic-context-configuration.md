@@ -4,6 +4,10 @@ feature:
 - name: Automatic Multi-Site Configuration
   spa_version: 1.3
   cx_version: 1905
+- name: Automatic Theme Configuration
+  spa_version: 3.2
+  cx_version: 1905
+  anchor: "#automatic-theme-configuration"
 ---
 
 {% capture version_note %}
@@ -54,7 +58,7 @@ When using PWA, the back end response that provides the base sites can be cached
     {
       "name": "basesites",
       "urls": [
-        "*/rest/v2/basesites?fields=baseSites\\(uid,defaultLanguage\\(isocode\\),urlEncodingAttributes,urlPatterns,stores\\(currencies\\(isocode\\),defaultCurrency\\(isocode\\),languages\\(isocode\\),defaultLanguage\\(isocode\\)\\)\\)*"
+        "*/rest/v2/basesites?fields=baseSites\\(uid,defaultLanguage\\(isocode\\),urlEncodingAttributes,urlPatterns,stores\\(currencies\\(isocode\\),defaultCurrency\\(isocode\\),languages\\(isocode\\),defaultLanguage\\(isocode\\)\\)*"
       ],
       "cacheConfig": {
         "maxSize": 1,
@@ -156,9 +160,32 @@ If you are using automatic site configuration, can set up the Spartacus configur
 1. In the **Properties** tab, scroll down to **URL Encoding Attributes** and click the plus (`+`) button.
 1. In the modal that appears, enter the name `custom` and click **Add**.
 1. Save your changes and exit Backoffice.
-1. In your Spartacus code, extend the dynamic Spartacus configuration of `context` to contain the `custom` key.
+1. In your Spartacus code, extend the dynamic configuration of `context` to contain the `custom` key.
 
-    The following is an example:
+    If you are using version 3.2 or newer of the Spartacus libraries, the `OccConfigLoaderService` is deprecated, and the `SiteContextConfigInitializer` can be used instead. The following is an example:
+
+    ```typescript
+    @Injectable()
+    export class CustomSiteContextConfigInitializer extends SiteContextConfigInitializer {
+      protected getConfig(source: BaseSite): SiteContextConfig {
+        // get the site context config
+        const siteContextConfig = super.getConfig(source);
+
+        // define possible values of custom context deriving from ISO languages codes
+        const custom = siteContextConfig.context[LANGUAGE_CONTEXT_ID].map(
+            languageToCustom
+        );
+
+        const config =  {
+            context: {...siteContextConfig.context, custom}
+        }
+    
+        return config;
+      }
+    }
+    ```
+
+    If you are using version 3.1 or earlier of the Spartacus libraries, you can extend the dynamic configuration of `context` to contain the `custom` key, as shown in the following example:
 
     ```typescript
     @Injectable()
@@ -215,6 +242,12 @@ export function serviceMapFactory() {
       provide: ContextServiceMap,
       useFactory: serviceMapFactory,
     },
+    // version >= 3.2
+    {
+      provide: SiteContextConfigInitializer,
+      useClass: CustomSiteContextConfigInitializer,
+    },
+    // version < 3.2
     {
       provide: OccConfigLoaderService,
       useClass: CustomOccConfigLoaderService,
@@ -223,6 +256,38 @@ export function serviceMapFactory() {
 /*...*/
 ```
 
-**Note:** If you have implemented a custom `OccConfigLoaderService`, it also needs to be provided, as shown in the example above.
+**Note:** If you have implemented a custom `SiteContextConfigInitializer` (or a custom `OccConfigLoaderService` if you are using Spartacus 3.1 or earlier), this also needs to be provided, as shown in the example above.
 
 You should now be able to see your URL with an uppercase ISO language code (for example, `www.site.com/EN`), while still being able to use standard lowercase languages in your application.
+
+## Theme Configuration
+
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.2 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+You can add a `theme` to your `SiteContextConfig`, either automatically or statically.
+
+### Automatic Theme Configuration
+
+You can set the `theme` by using the automatic site configuration, as described in the following procedure.
+
+1. In Backoffice, open the **WCMS > Website** view.
+1. Select the website that you want to update.
+1. In the **Properties** tab, scroll down to **Base Configuration** and select the desired theme from the list.
+
+    The theme value is applied as a CSS class in the root component of the application. For example, if the theme value is `sparta`, you should be able to see it in `<your-app class="... sparta ...">`.
+
+### Static Theme Configuration
+
+You can statically configuring your `theme`, as shown in the following example:
+
+```typescript
+providers: [
+  provideConfig({
+    context: { theme: ['your-theme-value'] }
+  })
+]
+```
