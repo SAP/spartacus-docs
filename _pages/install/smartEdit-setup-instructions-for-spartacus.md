@@ -53,16 +53,28 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
       }
    ```
 
-1. Add the following SmartEdit configuration to your application:
+1. Add the SmartEdit configuration to your application if you want to replace the default one:
+
+   A new configuration is introudced in the SmartEdit library. The default value of the configuration is this:
 
    ```ts
+   export const defaultSmartEditConfig: SmartEditConfig = {
       smartEdit: {
          storefrontPreviewRoute: 'cx-preview',
          allowOrigin: 'localhost:9002',
-      }
+      },
+   };
    ```
+   If you want to replace the value of `allowOrigin` or `storefrontPreviewRoute`, you can replace the configuration by adding this in your application.
 
-   The default values for `storefrontPreviewRoute` and `allowOrigin` can be modified as required.
+   ```ts
+   provideConfig(<SmartEditConfig>{
+      smartEdit: {
+        storefrontPreviewRoute: 'your-preview-route-value',
+        allowOrigin: 'your-origins',
+      },
+    })
+   ```
 
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 
