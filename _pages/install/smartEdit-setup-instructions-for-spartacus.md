@@ -173,7 +173,7 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 
 ## Troubleshooting
 
-When you are in SmartEdit, if you have not opened any actual Spartacus pages (such as the Homepage), then any issues you might encounter are not caused by Spartacus. For example, on the **Your Site** page, Spartacus is not actually opened on this page. If you see an issues (such as the site list not containing any base sites), please contact the SmartEdit team for help.
+When you are in SmartEdit, if you have not opened any actual Spartacus pages (such as the Homepage), then any issues you might encounter are not caused by Spartacus. For example, on the **Your Site** page, Spartacus is not actually opened on this page. If you see an issues (such as the site list not containing any base sites), please open a SNOW support ticket with the component set to SmartEdit.
 
 ### The Perspective Toolbar is Missing
 
@@ -193,7 +193,7 @@ When you add, edit, or remove components, the CMS page data is reloaded. If the 
 
 You can verify this by opening the **Network** tab in your browser (right-click > **Inspect**), and then editing a component. When you do this, you should see a new request to load CMS page data. Check the response of this request to see whether the edited component data is updated.
 
-If only some operations do not make the page refresh (for example, editing a component causes the page to refresh, but updating an image does not cause the page to refresh), then please contact the SmartEdit team for help.
+If only some operations do not make the page refresh (for example, editing a component causes the page to refresh, but updating an image does not cause the page to refresh), then try downloading the latest `webApplicationInjector.js` from the latest patch release of SAP Commerce Cloud and replace the one in your application's asset folder.
 
 ### Error Message: Not Allowed to Override This Storefront
 
