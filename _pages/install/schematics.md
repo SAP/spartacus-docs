@@ -39,6 +39,8 @@ The following is a description of the various options you can use with the `ng a
 - `overwriteAppComponent` overwrites the content of `app.component.html`. The default value is `true`.
 - `pwa` includes progressive web application (PWA) features when building the application.
 - `ssr` includes the server-side rendering (SSR) configuration.
+- `lazy` option will install features with lazy-loaded syntax. The default value is `true`.
+- `project` allows you to specify project in which you want to configure Spartacus application. The default is the workspace default project.
 
 The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the `baseUrl` and the `baseSite`, and that also enables server-side rendering:
 
@@ -122,3 +124,9 @@ You need to first install the Spartacus core libraries before you can install ad
 - `@spartacus/user`: User profile, account
 
 All feature libraries have schematics, so they can be installed with `ng add <package-name>`.
+
+Most of the feature libraries support these options you can use with `ng add` command:
+
+- `lazy` option will install features with lazy-loaded syntax. The default value is `true`.
+- `project` allows you to specify project in which you want to configure Spartacus feature library. The default is the workspace default project.
+- `features` option make it possible to select features without interactive prompt.
