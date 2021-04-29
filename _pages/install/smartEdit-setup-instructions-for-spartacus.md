@@ -46,11 +46,11 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
    If you install the SmartEdit library manually (that is, without schematics), then you also need to either copy the `webApplicationInjector.js` file from `node_modules/@spartacus/smartedit/assets` to your application's asset folder, or else add `node_modules/@spartacus/smartedit/assets` into the `assets` array in `angular.json`, as shown in the following example:
 
    ```ts
-      {
-         "glob": "**/*",
-         "input": "node_modules/@spartacus/smartedit/assets",
-         "output": "assets/"
-      }
+   {
+      "glob": "**/*",
+      "input": "node_modules/@spartacus/smartedit/assets",
+      "output": "assets/"
+   }
    ```
 
 1. Update the SmartEdit configuration in your application if you want to replace the default values, which are shown in the following example:
@@ -118,32 +118,33 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 
 1. In the root folder of your Angular app, edit the `angular.json` file by adding `src/webApplicationInjector.js` to `architect > build > option > assets`. The following is an example:
 
-      ```json
-      "architect": {
-      "build": {
-      "builder": "@angular-devk  build-angular:browser",
-      "options": {
-         "outputPath": "dist/mystore",
-         "index": "src/index.html",
-         "main": "src/main.ts",
-          "polyfills": "src/polyfills.ts",
-          "tsConfig": "src/tsconfig.app.json",
-         "assets": [
-            "src/favicon.ico",
-            "src/assets",
-            "src/webApplicationInjector.js"
-            ],
-      ```
+   ```json
+   "architect": {
+   "build": {
+   "builder": "@angular-devk  build-angular:browser",
+   "options": {
+      "outputPath": "dist/mystore",
+      "index": "src/index.html",
+      "main": "src/main.ts",
+       "polyfills": "src/polyfills.ts",
+       "tsConfig": "src/tsconfig.app.json",
+      "assets": [
+         "src/favicon.ico",
+         "src/assets",
+         "src/webApplicationInjector.js"
+         ],
+      ...
+   ```
 
 1. In the `HEAD` section of `src/index.html`, add the following line:
 
-      ```html
-      <script id="smartedit-injector" src="webApplicationInjector.js" data-smartedit-allow-origin="localhost:9002"></script>
-      ```
+   ```html
+   <script id="smartedit-injector"src="webApplicationInjector.js"data-smartedit-allow-origin="localhost:9002"><script>
+   ```
 
-      Replace `localhost:9002` with the domain of your server.
+   Replace `localhost:9002` with the domain of your server.
 
-      This line tells SmartEdit that Spartacus is allowed to be edited by SmartEdit.
+   This line tells SmartEdit that Spartacus is allowed to be edited by SmartEdit.
 
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 
