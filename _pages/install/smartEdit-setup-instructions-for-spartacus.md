@@ -133,7 +133,7 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
          "src/assets",
          "src/webApplicationInjector.js"
          ],
-      ...
+      
    ```
 
 1. In the `HEAD` section of `src/index.html`, add the following line:
