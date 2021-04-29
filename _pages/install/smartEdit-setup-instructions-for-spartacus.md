@@ -27,7 +27,7 @@ For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer
 
 ## Configuring SmartEdit to Work With a Spartacus Storefront
 
-The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries, and as a result, the steps for configuring SmartEdit to work with Spartacus are different, depending on whether or not you are using the SmartEdit feature library.
+The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries, and as a result, there are steps for [Configuring SmartEdit to work with Spartacus 3.2 or Newer](#configuring-smartedit-to-work-with-spartacus-32-or-newer), and steps for [Configuring SmartEdit to work with Spartacus 3.1 or Older](#configuring-smartedit-to-work-with-spartacus-31-or-older).
 
 ### Configuring SmartEdit to work with Spartacus 3.2 or Newer
 
@@ -53,9 +53,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
       }
    ```
 
-1. Add the SmartEdit configuration to your application if you want to replace the default one:
-
-   A new configuration is introudced in the SmartEdit library. The default value of the configuration is this:
+1. Update the SmartEdit configuration in your application if you want to replace the default values, which are shown in the following example:
 
    ```ts
    export const defaultSmartEditConfig: SmartEditConfig = {
@@ -65,13 +63,14 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
       },
    };
    ```
-   If you want to replace the value of `allowOrigin` or `storefrontPreviewRoute`, you can replace the configuration by adding this in your application.
+
+   If you want to change the value of `storefrontPreviewRoute` or `allowOrigin`, you can replace the default configuration by adding the following to your application:
 
    ```ts
    provideConfig(<SmartEditConfig>{
       smartEdit: {
         storefrontPreviewRoute: 'your-preview-route-value',
-        allowOrigin: 'your-origins',
+        allowOrigin: 'your-origin',
       },
     })
    ```
@@ -79,7 +78,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 
    - In Backoffice, in **WCMS > Website > *your site***, click the **WCMS Properties** tab.
-   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview url in its iframe.)
+   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview URL in its iframe.)
 
 1. Ensure that the Spartacus site is allowlisted in SmartEdit. The following is one example of how you can do this:
 
@@ -150,7 +149,7 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 
    - In Backoffice, in **WCMS > Website > *your site***, click the **WCMS Properties** tab.
-   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview url in its iframe.)
+   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview URL in its iframe.)
 
 1. Ensure that the Spartacus site is allowlisted in SmartEdit. The following is one example of how you can do this:
 
@@ -174,34 +173,36 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 
 ## Troubleshooting
 
-   If Spartacus is not launched in SmartEdit yet, all the issues you meet are not caused by Spartacus. For example, in `Your Site` page, Spartacus is not opened in this page. If you see some issues, such as base sites are empty in the site list, you can contact SmartEdit team for help.
+When you are in SmartEdit, if you have not opened any actual Spartacus pages (such as the Homepage), then any issues you might encounter are not caused by Spartacus. For example, on the **Your Site** page, Spartacus is not actually opened on this page. If you see an issues (such as the site list not containing any base sites), please contact the SmartEdit team for help.
 
-### 1. `webApplicationInjector.js` is not loaded
+### The Perspective Toolbar is Missing
 
-   The perspective toolbar will be missing if `webApplicationInjector.js` is not loaded. In the previous steps, you can find how to copy and set `webApplicationInjector.js`.
+The perspective toolbar will be missing if `webApplicationInjector.js` is not loaded. Please see the procedures above for information on how to copy and set `webApplicationInjector.js`.
 
-   ![webApplicationInjector.js]({{ site.baseurl }}/assets/images/webApplicationInjector.png)
-   
-### 2. `previewUrl` doesn not match your website url
+The following example shows the perspective toolbar not appearing when `webApplicationInjector.js` is not loaded.
 
-   SmartEdit opens the `previewUrl` in it iframe. You can open it in the browser to see whether it works. If your app is started without SSL mode, that's fine. You only need to make sure that the preview url matches your site url. 
+![webApplicationInjector.js]({{ site.baseurl }}/assets/images/webApplicationInjector.png)
 
-### 3. Add/Edit/Remove components, page is not refreshed
+### The Preview URL Does Not Match Your Website URL
 
-   When adding/editing/removing components, the CMS pages data will be reloaded. If the page is not refreshed, you can consider whether it is caused by the caching in OCC. 
-   
-   Open `Network` in browser, then edit a component. You should see a new request to load CMS page data. Check the response of this request to see whether the edited component data is update. 
+SmartEdit opens the `previewUrl` in its iframe. You can open the `previewUrl` in a browser to see whether it works. Although it is recommended to start the app in SSL mode, you are not required to do so. You only need to make sure that the preview URL matches your site URL.
 
-   If only some operations do not make page refreshed, for example, editing a component works fine, but updating some images do not make page refreshed, then you can contact SmartEdit team for help.
+### The Page is Not Refreshed When You Add, Edit, or Remove Components
 
-### 4. `allowOrigin` is not set correctly
+When you add, edit, or remove components, the CMS page data is reloaded. If the page does not refresh, it may be caused by the caching in OCC.
 
-   If you see the error message of `... is not allowed to override this storefront.`, that means the `allowOrigin` is not set correctly. Check previous steps of how to set this value.
+You can verify this by opening the **Network** tab in your browser (right-click > **Inspect**), and then editing a component. When you do this, you should see a new request to load CMS page data. Check the response of this request to see whether the edited component data is updated.
 
-### 5. Your website is not put in SmartEdit white list
+If only some operations do not make the page refresh (for example, editing a component causes the page to refresh, but updating an image does not cause the page to refresh), then please contact the SmartEdit team for help.
 
-   If you see the error message of `disallowed storefront is tryijng to communicate with smarteditcontainer`, that means your storefront is not in the smartedit whitelist. Check previous steps of how to add site in smartedit whitelist.
+### Error Message: Not Allowed to Override This Storefront
 
-### 6. Smartedit slot contextual menu is missing
+If you see an error message that says `... is not allowed to override this storefront.`, it means the `allowOrigin` is not set correctly. Please see the procedures above for information on how to set this value.
 
-   Please check this ticket: https://github.com/SAP/spartacus/issues/845
+### Your Website is Not in the SmartEdit Allowlist
+
+If you see an error message that says `disallowed storefront is trying to communicate with smarteditcontainer`, it means your storefront is not in the SmartEdit allowlist. Please see the procedures above for information on how to add you site to the SmartEdit allowlist.
+
+### The SmartEdit Slot Contextual Menu is Missing
+
+For information on how to resolve this issue, see [Spartacus GitHub issue #845](https://github.com/SAP/spartacus/issues/845).
