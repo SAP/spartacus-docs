@@ -118,23 +118,23 @@ The following steps are for configuring SmartEdit to work without the SmartEdit 
 
 1. In the root folder of your Angular app, edit the `angular.json` file by adding `src/webApplicationInjector.js` to `architect > build > option > assets`. The following is an example:
 
-   ```json
-   "architect": {
-   "build": {
-   "builder": "@angular-devk  build-angular:browser",
-   "options": {
-      "outputPath": "dist/mystore",
-      "index": "src/index.html",
-      "main": "src/main.ts",
-       "polyfills": "src/polyfills.ts",
-       "tsConfig": "src/tsconfig.app.json",
-      "assets": [
-         "src/favicon.ico",
-         "src/assets",
-         "src/webApplicationInjector.js"
-         ],
-      
-   ```
+      ```json
+      "architect": {
+      "build": {
+      "builder": "@angular-devk  build-angular:browser",
+      "options": {
+         "outputPath": "dist/mystore",
+         "index": "src/index.html",
+         "main": "src/main.ts",
+          "polyfills": "src/polyfills.ts",
+          "tsConfig": "src/tsconfig.app.json",
+         "assets": [
+            "src/favicon.ico",
+            "src/assets",
+            "src/webApplicationInjector.js"
+            ],
+         
+      ```
 
 1. In the `HEAD` section of `src/index.html`, add the following line:
 
