@@ -27,7 +27,9 @@ docs:
                       - title: "Technical Changes in Spartacus 3.0"
                         url: /technical-changes-version-3/
                       - title: "Changes to Styles in 3.0"
-                        url: /css-changes-in-version-3/    
+                        url: /css-changes-in-version-3/
+                      - title: "Changes to Styles in 4.0"
+                        url: /css-changes-in-version-4/
                 - title: "Updating to Version 2.0 ➢"
                   url: /updating-to-version-2/
                   underchildren:
