@@ -41,16 +41,16 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-  
 ## Release Date Notes
 
 - 3.2 released! See [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - As of April 30, current plans are:
-  3.3: Final early May (theme: CPQ integration for configurable products)
-  3.4: around end of May (theme: Cart API refatoring and improvements)
-  4.0 (new major): end of June (move to new Angular, cleanup of deprecated code, updates to schematics)
-  4.x: Every 6 weeks, new releases with new features end of Q2 and into Q3.
-    
+
+  - 3.3: Final early May (theme: CPQ integration for configurable products)
+  - 3.4: Around end of May (theme: Cart API refactoring and improvements)
+  - 4.0 (new major): End of June (move to new Angular, cleanup of deprecated code, updates to schematics)
+  - 4.x: Every 6 weeks, new releases with new features end of Q2 and into Q3.
+
 ## Planned for Q2 2021
 
 - **SAP CPQ Integration for Configurable Products**
@@ -76,12 +76,12 @@ For non-technical questions and roadmap feedback, you can reach us on our [Slack
 
 ## Future Outlook - Q3/Q4 2021 and Later
 
-The items in this section are planned for future but not yet have a specific date.
+The items in this section are planned for the future but do not yet have a specific date.
 
 - **Buy online pickup in store** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
 - **B2B Commerce Quotes** (requires API update planned for 2105) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
 - **Product bundles** (requires SAP Commerce Cloud 2011) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
-- **Cart Validation** More formal checking of carts before you proceed to checkout, for example, check if a product is in stock still
+- **Cart Validation** More formal checking of carts before you proceed to checkout, for example, check if a product is still in stock
 - **Image Zoom** on Product Details page (will be released in an incubator library)
 - **ASM customer list** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - **ASM Anonymous Cart Binding** (requires API introduced in 2005)
