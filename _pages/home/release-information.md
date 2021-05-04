@@ -46,7 +46,7 @@ This document describes what is included in all Spartacus libraries since the in
 - Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
 - New module initialization functionality for lazy-loaded features [(documentation)]({{ site.baseurl }}/lazy-loading-guide/#initializing-lazy-loaded-modules)
 - An official release of the SAP Customer Data Cloud integration library is now available [(documentation)]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
-- Dynamic configuration with support for site themes
+- Dynamic configuration with support for site themes [(documentation)]({{ site.baseurl }}/automatic-context-configuration/#theme-configuration)
 - Bug fixes
 
 Updates to documentation have been published for all topics, with additional updates to:
