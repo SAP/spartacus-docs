@@ -39,7 +39,7 @@ The following is a description of the various options you can use with the `ng a
 - `overwriteAppComponent` overwrites the content of `app.component.html`. The default value is `true`.
 - `pwa` includes progressive web application (PWA) features when building the application.
 - `ssr` includes the server-side rendering (SSR) configuration.
-- `lazy` installs features with lazy-loaded syntax. The default value is `true`.
+- `lazy` installs features with lazy loading configured for each of the feature modules. The default value is `true`.
 - `project` allows you to specify the project that you want to configure your Spartacus application in. The default is the workspace default project.
 
 The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the `baseUrl` and the `baseSite`, and that also enables server-side rendering:
