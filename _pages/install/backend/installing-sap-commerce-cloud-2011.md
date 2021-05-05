@@ -130,7 +130,7 @@ See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1
   
 ### All Done
 
-You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 ## Notes
 

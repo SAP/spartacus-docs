@@ -45,7 +45,7 @@ For more information, see [Configurator for Complex Products Module](https://hel
 
 ## Adding the Configurable Products Integration to Spartacus
 
-To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library. But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library. But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 After you have set up your Spartacus storefront, install the product configuration library by running the following command from the root directory of your storefront app:
 

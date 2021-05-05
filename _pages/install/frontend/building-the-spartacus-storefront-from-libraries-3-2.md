@@ -1,5 +1,5 @@
 ---
-title: Building the Spartacus Storefront Using 3.x Libraries
+title: Building the Spartacus Storefront Using 3.2 Libraries
 ---
 
 The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
