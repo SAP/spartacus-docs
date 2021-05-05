@@ -557,6 +557,8 @@ docs:
                 url: /reactive-programming/    
               - title: "Type Safety in Spartacus"
                 url: /type-safety-in-spartacus/
+              - title: "Writing Extensible and Customizable Code"
+                url: /extensible-customizable-coding-guidelines/
           - title: "Definition of Done ➢"
             url: /definition-of-done/
             subchildren:
