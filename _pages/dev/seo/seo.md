@@ -1,5 +1,9 @@
 ---
 title: Search Engine Optimization
+feature:
+- name: SEO
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 This is a landing page for grouping together the Search Engine Optimization (SEO) topics. The SEO topics include the following:

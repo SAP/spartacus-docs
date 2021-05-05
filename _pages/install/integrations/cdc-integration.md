@@ -2,12 +2,12 @@
 title: SAP Customer Data Cloud Integration
 feature:
 - name: Customer Data Cloud Integration
-  spa_version: 2.1
+  spa_version: 3.2
   cx_version: n/a
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 2.1 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 3.2 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}

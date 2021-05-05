@@ -1,5 +1,9 @@
 ---
 title: Configurable Routing
+feature:
+- name: Configurable Routing
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 ## Introduction
