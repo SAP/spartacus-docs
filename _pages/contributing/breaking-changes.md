@@ -130,7 +130,6 @@ import { PLATFORM_ID } from '@angular/core';
     protected platformId: any,
   ) {}
 
-  // Include only the constructor definition, with the `?` near the new dependency:
   constructor(
     @Inject(PLATFORM_ID) protected platformId: any,
     protected newService?: NewService
@@ -143,7 +142,6 @@ The following is a modification of the previous example that illustrates how you
 import { PLATFORM_ID } from '@angular/core';
 /*...*/
 
-  // Include only the constructor definition, with the `?` near the new dependency:
   constructor(
     @Inject(PLATFORM_ID) protected platformId: any,
     protected newService?: NewService
