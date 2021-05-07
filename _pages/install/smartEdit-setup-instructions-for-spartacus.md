@@ -209,7 +209,7 @@ The value of the `allow-origin` query parameter is a comma-separated list of dom
     You must specify a port.
 
     You can use the asterisk ( * ) as the wildcard. When using the wildcard, you must adhere to the following rules:
-        The wildcard must contain at least two subdomains, for example, *.x.y.
+        The host must contain at least two subdomains, for example, *.x.y.
         The wildcard can only replace one subdomain, that is, it cannot replace a '.' .
 
 ### Your Website is Not in the SmartEdit Allowlist
