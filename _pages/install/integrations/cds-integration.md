@@ -72,6 +72,46 @@ After you've met the prerequisites mentioned above, you can install CDS by runni
 
 After typing your answer to the questions above, the CDS feature will be properly configured.
 
+Alternatively, you can create the module manually and import it into your application, as shown in the following example:
+
+```ts
+import { NgModule } from '@angular/core';
+import { CdsConfig, CdsModule } from '@spartacus/cds';
+import { provideConfig } from '@spartacus/core';
+
+@NgModule({
+  imports: [CdsModule.forRoot()],
+  providers: [
+    provideConfig(<CdsConfig>{
+      cds: {
+        tenant: 'my-tenant',
+        baseUrl: 'https://my-tenant.api.us.context.cloud.sap',
+        endpoints: {
+          strategyProducts:
+            '/strategy/${tenant}/strategies/${strategyId}/products',
+        },
+        merchandising: {
+          defaultCarouselViewportThreshold: 80,
+        },
+      },
+    }),
+    provideConfig(<CdsConfig>{
+      cds: {
+        profileTag: {
+          javascriptUrl:
+            'https://tag.static.us.context.cloud.sap/js/profile-tag.js',
+          configUrl:
+            'https://tag.static.stage.context.cloud.sap/config/my-config123',
+          allowInsecureCookies: true,
+        },
+      },
+    }),
+  ],
+})
+export class CdsFeatureModule {}
+```
+
+
 The following is a summary of the parameters of the `CdsModule`:
 
 - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
