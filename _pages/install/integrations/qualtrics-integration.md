@@ -86,14 +86,21 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 If the component is loaded on a recurring page (such as the Product Details Page), the `QualtricsLoaderService` avoids reloading the deployment script and API.
 
-The Qualtrics integration adds the deployment code from the script you have captured from the Qualtrics platform. You must configure Spartacus with a reference to this file path, using the `ConfigModule`. The following is an example:
+The Qualtrics integration adds the deployment code from the script you have captured from the Qualtrics platform. You must configure Spartacus with a reference to this file path, using the `provideConfig`. The following is an example:
 
 ```typescript
-ConfigModule.withConfig({
-  qualtrics: {
+import {
+  QUALTRICS_FEATURE,
+} from '@spartacus/qualtrics/root';
+import { provideConfig } from '@spartacus/core';
+
+...
+
+provideConfig(<QualtricsConfig>{
+  [QUALTRICS_FEATURE]: {
     scriptSource: "assets/qualtrics.js",
   },
-} as QualtricsConfig);
+})
 ```
 
 The configuration is limited for multi-site applications, where each site requires a separate Qualtrics project.
