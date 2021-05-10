@@ -38,31 +38,4 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 ## Spartacus Configuration
 
-The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core`, as follows:
-
-```ts
-import { KymaModule } from '@spartacus/core';
-...
-@NgModule({
-  imports: [
-    ...
-    B2cStorefrontModule.withConfig({
-      ...
-      authentication: {
-        kyma_client_id: 'client4kyma',
-        kyma_client_secret: 'secret',
-      },
-      ...
-    }),
-    KymaModule,
-  ],
-  ...
-})
-export class AppModule {}
-```
-
-Note that `kyma_client_id` and `kyma_client_secret` values have to match the back end configuration mentioned [above](#prerequisites).
-
-## Getting the Open ID Token
-
-After configuring the Kyma integration, you can obtain the open ID token (that's being used for communicating with kyma) by calling `getOpenIdToken()` method from `KymaService` facade. Note that this token will be available only after a successful authentication (i.e. a user logs in or registers).
+Kyma integration doesn't require any special modules and libraries. The functionality can be achieved with [proper configuration of auth modules](https://sap.github.io/spartacus-docs/session-management/#configuring-openid).
