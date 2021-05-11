@@ -2,6 +2,15 @@
 title: Technical Changes in Spartacus 2.0
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Breaking Changes Introduced in 2.0
 
 ### CMS page guard has less dependencies and all are public

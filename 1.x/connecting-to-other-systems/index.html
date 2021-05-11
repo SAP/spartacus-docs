@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1277,7 +1273,7 @@
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Product</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="kr">interface</span> <span class="nx">CustomProduct</span> <span class="kd">extends</span> <span class="nx">Product</span> <span class="p">{</span>
-  <span class="nl">target</span><span class="p">?:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">target</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -1287,8 +1283,8 @@
 <span class="k">import</span> <span class="p">{</span> <span class="nx">Converter</span><span class="p">,</span> <span class="nx">Occ</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomProductNormalizer</span> <span class="kr">implements</span> <span class="nx">Converter</span><span class="o">&lt;</span><span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">CustomProduct</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="nx">convert</span><span class="p">(</span><span class="na">source</span><span class="p">:</span> <span class="nx">any</span><span class="p">,</span> <span class="na">target</span><span class="p">:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">CustomProduct</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomProductNormalizer</span> <span class="k">implements</span> <span class="nx">Converter</span><span class="o">&lt;</span><span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">CustomProduct</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="nx">convert</span><span class="p">(</span><span class="na">source</span><span class="p">:</span> <span class="kr">any</span><span class="p">,</span> <span class="na">target</span><span class="p">:</span> <span class="kr">any</span><span class="p">):</span> <span class="nx">CustomProduct</span> <span class="p">{</span>
     <span class="cm">/*...*/</span>
   <span class="p">}</span>
 <span class="p">}</span>

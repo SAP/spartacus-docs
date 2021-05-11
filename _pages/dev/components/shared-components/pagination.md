@@ -12,12 +12,16 @@ The pagination component is a low-level component that is used to navigate throu
 
 Each customer has different pagination requirements, especially with regards to the precise navigation options that you use. The pagination component is very flexible and can be adjusted to meet your needs, either through configuration, or by using custom styles.
 
-For the Product List in particular, the pagination component can be replaced by the infinite scroll feature. For more information, see [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %}).
+For the Product List in particular, the pagination component can be replaced by the infinite scroll feature. For more information, see [Infinite Scrolling]({{ site.baseurl }}{% link _pages/dev/features/infinite-scroll.md %}).
+
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Pagination Structure
 

@@ -826,10 +826,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1480,7 +1476,7 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 <h4 id="custom-service-1">Custom service</h4>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserAddressService</span> <span class="kd">extends</span> <span class="nx">UserAddressService</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1490,8 +1486,8 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserAddressService</span> <span class="kd">extends</span> <span class="nx">UserAddressService</span> <span class="p">{</span>
   <span class="kd">constructor</span><span class="p">(</span>
-    <span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-    <span class="kr">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
+    <span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
   <span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">authService</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1503,7 +1499,7 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 <h4 id="custom-service-2">Custom service</h4>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserConsentService</span> <span class="kd">extends</span> <span class="nx">UserConsentService</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1513,8 +1509,8 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserConsentService</span> <span class="kd">extends</span> <span class="nx">UserConsentService</span> <span class="p">{</span>
   <span class="kd">constructor</span><span class="p">(</span>
-    <span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-    <span class="kr">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
+    <span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
   <span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">authService</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1526,7 +1522,7 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 <h4 id="custom-service-3">Custom service</h4>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserOrderService</span> <span class="kd">extends</span> <span class="nx">UserOrderService</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1536,8 +1532,8 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserOrderService</span> <span class="kd">extends</span> <span class="nx">UserOrderService</span> <span class="p">{</span>
   <span class="kd">constructor</span><span class="p">(</span>
-    <span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-    <span class="kr">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
+    <span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
   <span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">authService</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1549,7 +1545,7 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 <h4 id="custom-service-4">Custom service</h4>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserPaymentService</span> <span class="kd">extends</span> <span class="nx">UserPaymentService</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1559,8 +1555,8 @@ For example, with the sample store, you can invoke the ASM UI on the home page w
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomUserPaymentService</span> <span class="kd">extends</span> <span class="nx">UserPaymentService</span> <span class="p">{</span>
   <span class="kd">constructor</span><span class="p">(</span>
-    <span class="kr">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-    <span class="kr">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
+    <span class="k">protected</span> <span class="nx">store</span><span class="p">:</span> <span class="nx">Store</span><span class="o">&lt;</span><span class="nx">StateWithUser</span> <span class="o">|</span> <span class="nx">StateWithProcess</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+    <span class="k">protected</span> <span class="nx">authService</span><span class="p">:</span> <span class="nx">AuthService</span>
   <span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">authService</span><span class="p">);</span>
   <span class="p">}</span>

@@ -2,27 +2,20 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated December 15, 2020 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated April 7, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
-## Release Contents
+***
 
-- [Introduction](#introduction)
-- [Release 2.0](#release-20)
-- [Release 1.3](#release-13)
-- [Release 1.2](#release-12)
-- [Release 1.1](#release-11)
-- [Release 1.0](#release-10)
-- [About Spartacus for TUA Releases](#about-spartacus-for-tua-releases)
-- [Upgrading TUA Spartacus Libraries to a New Minor Version](#upgrading-tua-spartacus-libraries-to-a-new-minor-version)
-- [Feature Releases](#feature-releases)
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Introduction
 
-This document describes what is included in all Spartacus 2.x libraries since 2.0.
-
-**Note:** Spartacus 2.x requires Angular 9. For more information, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}).
-
-For release information about Spartacus 1.x, see [Building the TUA Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries.md %}) and [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}) in 1.x documentation archive.
+This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.0.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-tua/releases).
 - For information about features published in pre-release libraries, see TUA [Pre-Release Information]({{ site.baseurl }}{% link _pages/telco/tua-pre-release-information.md %}).
@@ -34,6 +27,29 @@ For release information about Spartacus 1.x, see [Building the TUA Spartacus Sto
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 3.0
+
+*Release 3.0 libraries published April 7, 2021*
+
+As release 3.0 is a new major version, it contains breaking changes. To migrate to 3.0 from 2.x, please see the following documentation:
+
+- Uses Angular 10.
+- [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-3.md %}).
+- [Technical Changes in TUA Spartacus 3.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-3.md %}).
+
+Following features are introduced in release 3.0:
+
+- [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html?q=complex%20industry%20cart).
+- [Contract (subscription) renewal without assurance]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %}).
+- [Contract (subscription) termination without assurance]({{ site.baseurl }}{% link _pages/telco/contract-termination.md %}).
+- [Serviceability Check]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %}). This feature documentation covers serviceability check of a selected single product offering (SPO) and also serviceability check of all product offerings at the specified address.
+
+You can refer to the core [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}) for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 10 and related dependencies.
+
+**Note:** For information on core commerce Spartacus, see [Updating to Version 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/updating-to-version-3.md %}).
+
+We welcome your feedback. If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
 ## Release 2.0
 
@@ -140,7 +156,7 @@ Provide greater customer experiences by providing product offerings to customers
 - Similar to Spartacus: A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- Please visit our Spartacus for TUA Compatibility Matrix to understand requirements. For more information, see [Feature Release Versions]({{ site.baseurl }}{% link _pages/telco/tua-feature-release-versions.md %}).
+- Please visit our Spartacus for TUA Compatibility Matrix to understand requirements. For more information, see [Feature Compatibility Matrix]({{ site.baseurl }}{% link _pages/telco/tua-feature-release-versions.md %}).
 - To use all functionality in Spartacus 2.*, release 2005 of SAP Commerce Cloud and 2007 of Telco & Utilities Accelerator is required.
 - The latest patch release is required or at least strongly recommended, as it usually contains bug fixes that affect Spartacus
 

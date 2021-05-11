@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1356,11 +1352,11 @@ Please follow this guideline to decide, which feature flag you should use (if an
 
     <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">constructor</span><span class="p">(</span>
      <span class="c1">// ...</span>
-     <span class="kr">protected</span> <span class="nx">featureConfig</span><span class="p">:</span> <span class="nx">FeatureConfigService</span>
+     <span class="k">protected</span> <span class="nx">featureConfig</span><span class="p">:</span> <span class="nx">FeatureConfigService</span>
    <span class="p">)</span> <span class="p">{}</span>
     
    <span class="c1">// set a feature flag based on feature level</span>
-   <span class="nx">readonly</span> <span class="nx">isSomeNewFeatureEnabled</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">featureConfig</span><span class="p">.</span><span class="nx">isLevel</span><span class="p">(</span><span class="dl">'</span><span class="s1">1.1</span><span class="dl">'</span><span class="p">);</span>
+   <span class="k">readonly</span> <span class="nx">isSomeNewFeatureEnabled</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">featureConfig</span><span class="p">.</span><span class="nx">isLevel</span><span class="p">(</span><span class="dl">'</span><span class="s1">1.1</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li>

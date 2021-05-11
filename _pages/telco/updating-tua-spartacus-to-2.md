@@ -2,6 +2,15 @@
 title: Updating to Version 2.0
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Prerequisites
 
 Before updating your TUA Spartacus libraries to version 2.0, you must address the following prerequisites:

@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1401,7 +1397,7 @@ This feature is introduced with version 1.2 of the Spartacus libraries.
     <span class="na">routing</span><span class="p">:</span> <span class="p">{</span> <span class="na">internal</span><span class="p">:</span> <span class="p">[</span> <span class="cm">/*...*/</span> <span class="p">]</span> <span class="p">}</span>
   <span class="p">})</span>
 <span class="p">],</span>
-<span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+<span class="nx">providers</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span> <span class="na">provide</span><span class="p">:</span> <span class="nx">ExternalRoutesGuard</span><span class="p">,</span> <span class="na">useClass</span><span class="p">:</span> <span class="nx">CustomExternalRoutesGuard</span> <span class="p">}</span>
 <span class="p">],</span>
 </code></pre></div></div>
@@ -1410,7 +1406,7 @@ This feature is introduced with version 1.2 of the Spartacus libraries.
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomExternalRoutesGuard</span> <span class="kd">extends</span> <span class="nx">ExternalRoutesGuard</span> <span class="p">{</span>
-  <span class="kr">protected</span> <span class="nx">redirect</span><span class="p">(</span><span class="nx">_</span><span class="p">:</span> <span class="nx">ActivatedRouteSnapshot</span><span class="p">,</span> <span class="nx">state</span><span class="p">:</span> <span class="nx">RouterStateSnapshot</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">protected</span> <span class="nx">redirect</span><span class="p">(</span><span class="nx">_</span><span class="p">:</span> <span class="nx">ActivatedRouteSnapshot</span><span class="p">,</span> <span class="nx">state</span><span class="p">:</span> <span class="nx">RouterStateSnapshot</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nb">window</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">winRef</span><span class="p">.</span><span class="nx">nativeWindow</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="nb">window</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">)</span> <span class="p">{</span>

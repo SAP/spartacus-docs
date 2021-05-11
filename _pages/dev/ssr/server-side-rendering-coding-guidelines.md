@@ -4,6 +4,15 @@ title: Server-Side Rendering Coding Guidelines
 
 The following guidelines are highly recommended when working with server-side rendering (SSR).
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Working with Global Objects
 
 Do not access global objects that are available in the browser. For example, do not use the `window`, `document`, `navigator`, and other browser types, because they do not exist on the server. If you try to use them, or any library that uses them, it will not work. For most cases, it is better to inject `WindowRef` and then do additional checks. For example, you can check if `WindowRef.nativeWindow` is defined.
@@ -48,53 +57,12 @@ constructor(
 
 **Note:** The `@Optional()` decorator is necessary. If it is not included, the injection will crash for client-side rendering (CSR) because these tokens are not provided in CSR.
 
-### Workaround for Known Issue in Spartacus 3.0.2 and Earlier
+## Avoiding Memory Leaks in SSR
+
+In the SSR server, there is one long-living Node.js process that handles all HTTP requests. On each request, this process bootstraps the Angular application, returns the HTML to the client, and cleans up the application's resources. If any subscription that was created in any Angular (singleton) service is not disposed of on app destroy, this subscription remains pending, even after the app is destroyed, and this causes a memory leak. In SSR, Angular calls `ngOnDestroy` for services, so it is a good place to unsubscribe any pending RxJs subscriptions at the end of life of the service.
+
+## Workaround for Known Issue in Spartacus 3.0.2 and Earlier
 
 In Spartacus 3.0.2 and earlier, when using CCv2 or any other setup that uses proxy servers, the `SERVER_REQUEST_URL` and `SERVER_REQUEST_ORIGIN` tokens return the `localhost` request origin instead of the real website domain. This has been fixed in Spartacus 3.0.3.
 
-If you are using Spartacus 3.0.2 or earlier, and you are unable to upgrade to the latest version of Spartacus, you can fix this issue with the workaround described in the following steps.
-
-1. Copy the following code, preferably to a separate file alongside `app.server.module.ts`:
-
-    ```ts
-    import { StaticProvider } from '@angular/core';
-    import { REQUEST } from '@nguniversal/express-engine/   tokens';
-    import { Request } from 'express';
-    import { SERVER_REQUEST_ORIGIN, SERVER_REQUEST_URL } from     '@spartacus/core';
-
-    export const fixServerRequestProviders: StaticProvider[]    = [
-      {
-        provide: SERVER_REQUEST_URL,
-        useFactory: getRequestUrl,
-        deps: [REQUEST],
-      },
-      {
-        provide: SERVER_REQUEST_ORIGIN,
-        useFactory: getRequestOrigin,
-        deps: [REQUEST],
-      },
-    ];
-
-    function getRequestUrl(req: Request): string {
-      return getRequestOrigin(req) + req.originalUrl;
-    }
-
-    function getRequestOrigin(req: Request): string {
-      return req.protocol + '://' + req.hostname;
-    }
-    ```
-
-2. Add `fixServerRequestProviders` to the providers array in `app.server.module.ts `, as follows:
-
-    ```ts
-    providers: [
-      // ...
-      ...fixServerRequestProviders
-    ],
-    ```
-
-3. Enable the `trust proxy` option in `server.ts`, below the line containing `const server = express();`, as follows:
-
-    ```ts
-      server.set('trust proxy', 'loopback');
-    ```  
+If you are using Spartacus 3.0.2 or earlier, and you are unable to upgrade to the latest version of Spartacus, you can fix this issue with the workaround described in a comment in [GitHub issue 11016](https://github.com/SAP/spartacus/issues/11016#issuecomment-775245885).

@@ -8,18 +8,16 @@ title: Consumption
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Business Use Cases](#business-use-cases)
-- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Components](#components)
-- [TM Forum APIs](#tm-forum-apis)
-- [Further Reading](#further-reading)
-
-## Overview
-
 Customers can view their current consumption for their subscribed offerings based on the frequency of the current contract term (that is, monthly consumption). By understanding usage, the customers can manage their subscriptions with proper authorization. Entries for the usage consumption are created and updated from backend systems by average service usage for subscribed product. 
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Business Use Cases
 
@@ -30,7 +28,6 @@ From subscriptions, customers can drill down on subscribed offerings to view con
 ### Usage Consumption
 
 If enabled, consumption information for each subscribed product can be viewed in either grid format, pie chart format, or both.
-
 
 ## Frontend and Backend Dependencies
 

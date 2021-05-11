@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1404,15 +1400,15 @@
 <span class="cm">/*...*/</span>
 
 <span class="kd">constructor</span><span class="p">(</span>
-  <span class="kr">public</span> <span class="nx">componentData</span><span class="p">:</span> <span class="nx">CmsComponentData</span><span class="o">&lt;</span><span class="nx">CMSTabParagraphContainer</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="kr">private</span> <span class="nx">cmsService</span><span class="p">:</span> <span class="nx">CmsService</span>
+  <span class="k">public</span> <span class="nx">componentData</span><span class="p">:</span> <span class="nx">CmsComponentData</span><span class="o">&lt;</span><span class="nx">CMSTabParagraphContainer</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="k">private</span> <span class="nx">cmsService</span><span class="p">:</span> <span class="nx">CmsService</span>
 <span class="p">)</span> <span class="p">{}</span>
 
-<span class="nx">components$</span><span class="p">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">any</span><span class="p">[]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">componentData</span><span class="p">.</span><span class="nx">data$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+<span class="nx">components$</span><span class="p">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">any</span><span class="p">[]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">componentData</span><span class="p">.</span><span class="nx">data$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
   <span class="nx">switchMap</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span>
     <span class="nx">combineLatest</span><span class="p">(</span>
       <span class="nx">data</span><span class="p">.</span><span class="nx">components</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">component</span> <span class="o">=&gt;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">cmsService</span><span class="p">.</span><span class="nx">getComponentData</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">component</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">cmsService</span><span class="p">.</span><span class="nx">getComponentData</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">component</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
           <span class="nx">map</span><span class="p">(</span><span class="nx">tab</span> <span class="o">=&gt;</span> <span class="p">{</span>
             <span class="k">return</span> <span class="p">{</span>
               <span class="p">...</span><span class="nx">tab</span><span class="p">,</span>

@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1177,12 +1173,12 @@
 <p>The model is used in the configuration for setting the time after which the message should disappear.
 Omitting the type in the configuration causes that such messages will not disappear.</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">GlobalMessageTypeConfig</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">timeout</span><span class="p">?:</span> <span class="nx">number</span><span class="p">;</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">GlobalMessageTypeConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">timeout</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="nx">abstract</span> <span class="kd">class</span> <span class="nx">GlobalMessageConfig</span> <span class="p">{</span>
-  <span class="na">globalMessages</span><span class="p">:</span> <span class="p">{</span>
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nx">GlobalMessageConfig</span> <span class="p">{</span>
+  <span class="nl">globalMessages</span><span class="p">:</span> <span class="p">{</span>
     <span class="p">[</span><span class="nx">GlobalMessageType</span><span class="p">.</span><span class="nx">MSG_TYPE_CONFIRMATION</span><span class="p">]?:</span> <span class="nx">GlobalMessageTypeConfig</span><span class="p">;</span>
     <span class="p">[</span><span class="nx">GlobalMessageType</span><span class="p">.</span><span class="nx">MSG_TYPE_INFO</span><span class="p">]?:</span> <span class="nx">GlobalMessageTypeConfig</span><span class="p">;</span>
     <span class="p">[</span><span class="nx">GlobalMessageType</span><span class="p">.</span><span class="nx">MSG_TYPE_ERROR</span><span class="p">]?:</span> <span class="nx">GlobalMessageTypeConfig</span><span class="p">;</span>

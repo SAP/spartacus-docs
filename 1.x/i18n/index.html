@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1275,9 +1271,9 @@ Setting <code class="language-plaintext highlighter-rouge">fallbackLang</code> o
 
 <p>Translation resources have a structure:</p>
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">TranslationResources</span> <span class="p">{</span>
-  <span class="p">[</span><span class="nx">lang</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nx">chunkName</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="p">{</span>
-      <span class="p">[</span><span class="nx">key</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="nx">any</span><span class="p">;</span> <span class="c1">// value or nested object with keys</span>
+  <span class="p">[</span><span class="nx">lang</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">chunkName</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="p">{</span>
+      <span class="p">[</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">any</span><span class="p">;</span> <span class="c1">// value or nested object with keys</span>
     <span class="p">};</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -1466,7 +1462,7 @@ Setting <code class="language-plaintext highlighter-rouge">fallbackLang</code> o
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">TranslationService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="kd">constructor</span><span class="p">(</span>
-    <span class="kr">private</span> <span class="nx">translation</span><span class="p">:</span> <span class="nx">TranslationService</span>
+    <span class="k">private</span> <span class="nx">translation</span><span class="p">:</span> <span class="nx">TranslationService</span>
 <span class="p">)</span> <span class="p">{}</span>
 
 <span class="nx">getPaymentCardContent</span><span class="p">(</span><span class="nx">payment</span><span class="p">:</span> <span class="nx">PaymentDetails</span><span class="p">):</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">Card</span><span class="o">&gt;</span> <span class="p">{</span>

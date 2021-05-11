@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1288,27 +1284,27 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 
 <p>The following is an example of creating a service for a custom context where the ISO language code is formatted in uppercase:</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">languageToCustom</span><span class="p">(</span><span class="nx">lang</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">string</span> <span class="p">{</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">languageToCustom</span><span class="p">(</span><span class="nx">lang</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">lang</span> <span class="o">&amp;&amp;</span> <span class="nx">lang</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="k">export</span> <span class="kd">function</span> <span class="nx">custom2Language</span><span class="p">(</span><span class="nx">country</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">string</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">custom2Language</span><span class="p">(</span><span class="nx">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">country</span> <span class="o">&amp;&amp;</span> <span class="nx">country</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="p">@</span><span class="nd">Injectable</span><span class="p">({</span> <span class="na">providedIn</span><span class="p">:</span> <span class="dl">'</span><span class="s1">root</span><span class="dl">'</span> <span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomContextService</span> <span class="kr">implements</span> <span class="nx">SiteContext</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">protected</span> <span class="na">langService</span><span class="p">:</span> <span class="nx">LanguageService</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomContextService</span> <span class="k">implements</span> <span class="nx">SiteContext</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="na">langService</span><span class="p">:</span> <span class="nx">LanguageService</span><span class="p">)</span> <span class="p">{}</span>
 
-  <span class="nx">getActive</span><span class="p">():</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="nx">getActive</span><span class="p">():</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">langService</span><span class="p">.</span><span class="nx">getActive</span><span class="p">().</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">languageToCustom</span><span class="p">));</span>
   <span class="p">}</span>
 
-  <span class="nx">setActive</span><span class="p">(</span><span class="na">country</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">setActive</span><span class="p">(</span><span class="na">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">langService</span><span class="p">.</span><span class="nx">setActive</span><span class="p">(</span><span class="nx">custom2Language</span><span class="p">(</span><span class="nx">country</span><span class="p">));</span>
   <span class="p">}</span>
 
-  <span class="nx">getAll</span><span class="p">():</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">string</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="nx">getAll</span><span class="p">():</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">langService</span>
       <span class="p">.</span><span class="nx">getAll</span><span class="p">()</span>
       <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
@@ -1338,7 +1334,7 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 
     <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
  <span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomOccConfigLoaderService</span> <span class="kd">extends</span> <span class="nx">OccConfigLoaderService</span> <span class="p">{</span>
-   <span class="kr">protected</span> <span class="nx">getConfigChunks</span><span class="p">(</span>
+   <span class="k">protected</span> <span class="nx">getConfigChunks</span><span class="p">(</span>
      <span class="nx">externalConfig</span><span class="p">:</span> <span class="nx">OccLoadedConfig</span>
    <span class="p">):</span> <span class="p">(</span><span class="nx">I18nConfig</span> <span class="o">|</span> <span class="nx">SiteContextConfig</span><span class="p">)[]</span> <span class="p">{</span>
      <span class="c1">// calculate config chunks</span>

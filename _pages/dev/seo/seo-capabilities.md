@@ -6,17 +6,8 @@ Search engine optimization (SEO) is an important element of the Spartacus storef
 
 The SEO implementation in Spartacus includes the following:
 
-- Stateful URLs
-- Configurable URLs
-- Indexable Pages
-- Structured Data (schema.org)
-- HTML Tags
-  - Page Meta Resolvers
-  - Title Resolver
-  - Description Resolver
-  - Image Resolver
-  - Robots Tag
-  - Canonical URL
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Stateful URLs
 
@@ -46,7 +37,7 @@ For more information on SSR, see [Server–Side Rendering Coding Guidelines]({{ 
 
 ## Structured Data (schema.org)
 
-Structured Data provides a data structure for the web that makes web content more understandable for web crawlers. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+Structured data is a standardized way of describing the page content of a website to make it easier for web crawlers and search engines to understand. Spartacus supports various schemas natively. For more information, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 ## HTML Tags
 

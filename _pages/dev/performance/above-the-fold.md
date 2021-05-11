@@ -16,9 +16,18 @@ Above-the-fold loading is a technique that prioritizes the creation of component
 
 Above-the-fold loading requires the following important ingredients:
 
-1. Deferred loading, which is a technique that postpones the creation of components that are "below the fold". For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).
-2. The notion of the "page fold". The page fold is not static, and differs from device to device, from screen to screen, and even changes depending on the size of the browser.
-3. A couple of CSS rules that initially move components below the page fold.
+- Deferred loading, which is a technique that postpones the creation of components that are "below the fold". For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).
+- The notion of the "page fold". The page fold is not static, and differs from device to device, from screen to screen, and even changes depending on the size of the browser.
+- A couple of CSS rules that initially move components below the page fold.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Page Fold Configuration
 

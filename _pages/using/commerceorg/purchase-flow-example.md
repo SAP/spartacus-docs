@@ -4,6 +4,17 @@ title: Purchase Flow Example
 
 The following example highlights the differences between a B2C and a B2B checkout. The purchase flow is done with Mark Rivers (who is a "buyer"), and demonstrates how the checkout flow is influenced by B2B Commerce Organization settings.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
+## B2B Purchase Flow
+
 1. Mark has products in his cart, as shown in the following example:
 
    <img src="{{ site.baseurl }}/assets/images/commerceorg/mark1_0-cart.png" alt="Cart with one item" width="600" border="1px" />

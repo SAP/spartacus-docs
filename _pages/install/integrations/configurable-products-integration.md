@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Configurable Products integration provides a user interface for configuring and selling configurable products in Spartacus. The integration makes use of the *Product Configuration with SAP Variant Configuration and Pricing* AddOn, which is part of SAP Commerce Cloud. This AddOn is not included in the Spartacus libraries.
 
 The Spartacus product configuration library includes the following features:
@@ -28,6 +26,15 @@ With this integration, configurable products become a part of the storefront's s
 
 For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US/528b7395bc314999a01e3560f2bdc069.html) on the SAP Help Portal.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Requirements
 
 The Configurable Products integration requires SAP Commerce Cloud release **2005.6** or **2011.1** or newer.
@@ -38,7 +45,7 @@ For more information, see [Configurator for Complex Products Module](https://hel
 
 ## Installation
 
-1. Follow the instructions at [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+1. Follow the instructions at [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 After running `ng add @spartacus/schematics`, you'll be asked to select a number of optional features.
 1. Select **Product Configurator**.
 The system will ask which product configurator features you want to set up besides variant configurator.
@@ -61,7 +68,9 @@ You can either install the `@spartacus/product-configurator` library when you ar
 
 [Setting Up Your Project Using Schematics]({{ site.baseurl }}/building-the-spartacus-storefront-from-libraries-3-2/#setting-up-your-project-using-schematics)
 
-But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
+
+To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library. But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 After you have set up your Spartacus storefront, install the product configuration library by running the following command from the root directory of your storefront app:
 
@@ -126,6 +135,7 @@ The following features are currently not supported in the Configurable Products 
 - [Cart Validation](#cart-validation)
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
+- [Saved Cart](#saved-cart)
 
 ### Save for Later and Selective Cart
 
@@ -256,4 +266,8 @@ The following conditions and actions **do not** yet work on the Spartacus UI for
 
 ### Assisted Service Mode
 
-Assisted service mode (ASM) is currently not supported with the configurable products integration.
+Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
+
+### Saved Cart
+
+The saved cart feature is currently not supported with the Configurable Products integration.

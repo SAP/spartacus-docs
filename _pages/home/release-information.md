@@ -2,22 +2,27 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: Final 3.0 published December 17, 2020**
+**Latest news: 3.2.0 final published April 15, 2021**
 
-*Last updated February 25, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated April 15, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
 
+***
+
 ## Introduction
 
-This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.0.
+This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.2.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
+- For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **Disclaimer - Forward-Looking Statements**
@@ -26,10 +31,33 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
   
+## Release 3.2
+
+*Release 3.2 libraries published April 15, 2021*
+
+- The default behavior for schematics has been changed and Spartacus is now installed with a new app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %})
+- Tag Manager framework with support for Google and Adobe tag systems, and Google Analytics [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %})
+- New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency) [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %})
+- B2B Bulk Pricing [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/bulk-pricing.md %})
+- Saved Carts [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %})
+- New popover text component [(documentation)]({{ site.baseurl }}{% link _pages/dev/components/shared-components/popover-component.md %})
+- HTML tags [(documentation)]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
+- General improvements to B2B Commerce Organization user experience
+- Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
+- New module initialization functionality for lazy-loaded features [(documentation)]({{ site.baseurl }}/lazy-loading-guide/#initializing-lazy-loaded-modules)
+- An official release of the SAP Customer Data Cloud integration library is now available [(documentation)]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
+- Dynamic configuration with support for site themes [(documentation)]({{ site.baseurl }}/automatic-context-configuration/#theme-configuration)
+- Bug fixes
+
+Updates to documentation have been published for all topics, with additional updates to:
+
+- [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
+- [SEO Capabilities]({{ site.baseurl }}{% link _pages/dev/seo/seo-capabilities.md %})
+- [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %})
   
 ## Release 3.1
 
-*Release 3.1 libraries published February 25, 2020*
+*Release 3.1 libraries published February 25, 2021*
 
 - SAP Variant Configuration and Pricing
 - Qualtrics Embedded Feedback
@@ -65,7 +93,7 @@ We're happy to also announce support for the Qualtrics Embedded Feedback feature
 
 ### New Events
 
-Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}).
+Events now triggered when a customer logs in or logs out. For more information, see [Event Service]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %}).
 
 ### Performance Improvements with Code Splitting / Lazy Loading
 
@@ -90,8 +118,8 @@ As always, feedback appreciated! Contact us through Slack or submit an [issue](h
 
 - Make sure to use the latest sample data, which includes updates to CMS data for the out-of-the-box Powertools store. The latest sample data is published with the [Storefront library](https://github.com/SAP/spartacus/releases/tag/storefront-3.0.0), in the Assets section.
 - Spartacus 3.0 and later use the new Spartacus sample data extension (not the addon). For now we provide both for download. However, the sample data extension will be the only one updated in the future. 
-- The same backend can be used for hosting both B2C and B2B stores. However, Spartacus requires two different apps, with two different configurations, one for B2C stores, and one for B2B stores. (The ability to use one app for both B2C and B2B will be added in a future Spartacus release.) For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
-- Setting up a B2B Spartacus store follows the same process as for a B2C store, with one extra step for adding B2B Commerce Organization features using schematics (`ng add @spartacus/organization`). For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+- The same backend can be used for hosting both B2C and B2B stores. However, Spartacus requires two different apps, with two different configurations, one for B2C stores, and one for B2B stores. (The ability to use one app for both B2C and B2B will be added in a future Spartacus release.) For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
+- Setting up a B2B Spartacus store follows the same process as for a B2C store, with one extra step for adding B2B Commerce Organization features using schematics (`ng add @spartacus/organization`). For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 - Do not use a B2B Spartacus for a B2C base store. OCC API calls are different, and many aspects of the store will not work. For example, if you point a B2B store to Electronics base store, adding to cart does not work as the call is different.
 - B2B Commerce Organization allows you to configure units, users, budgets, cost centers, and spending limits, for the purposes of spend tracking and requiring approvals. For more information on how this feature works in SAP Commerce Cloud, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
 - SAP Commerce Cloud ships with all users disabled and no passwords defined. When exploring how to use Spartacus and SAP Commerce Cloud, one of the steps is to import sample users and passwords (see [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/latest/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html)). After that is done, you can use the default B2B users as defined in the [Powertools Extension](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae789ad86691014afcccba59ba613e9.html) in help.sap.com. For example, you can log in as linda.wolf@rustic-hw.com, who is an administrator for the Rustic Hardware set of units.
@@ -119,7 +147,7 @@ The following is a summary of the major changes introduced in 2.0:
 - [Schematics updated]({{ site.baseurl }}{% link _pages/install/schematics.md %})
 - [Accessibility Keyboarding features]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
 - [Lazy loading of CMS components]({{ site.baseurl }}/customizing-cms-components/#lazy-loaded-cms-components-code-splitting)
-- [Event Service]({{ site.baseurl }}{% link _pages/dev/event-service.md %}), with Add to Cart event
+- [Event Service]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %}), with Add to Cart event
 - [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %})
 - [Custom Angular URL Matching]({{ site.baseurl }}/adding-and-customizing-routes/#avoiding-static-url-segments-in-the-product-page-url-advanced)
 - Many components refactored
@@ -180,7 +208,7 @@ What's new?
 - [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})  
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
-- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/features/token-revocation.md %}) (supports back end improvement added to 1905.6)
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/token-revocation.md %}) (supports back end improvement added to 1905.6)
 - [Stacked Outlets]({{ site.baseurl }}/outlets/#stacked-outlets)
 - [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
@@ -231,15 +259,15 @@ Powertools sample data modified to work with Spartacus (requires latest spartacu
 What's new?
 
 - [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %})
-- [Guest Checkout]({{ site.baseurl }}{% link _pages/dev/guest-checkout.md %})
-- [Express Checkout]({{ site.baseurl }}{% link _pages/dev/express-checkout.md %})
-- [Infinite Scroll]({{ site.baseurl }}{% link _pages/dev/view_configuration/infinite-scroll.md %})
+- [Guest Checkout]({{ site.baseurl }}{% link _pages/dev/features/guest-checkout.md %})
+- [Express Checkout]({{ site.baseurl }}{% link _pages/dev/features/express-checkout.md %})
+- [Infinite Scroll]({{ site.baseurl }}{% link _pages/dev/features/infinite-scroll.md %})
 - Routing Migration
 - [Early Login]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %})
 - [Consignment Tracking]({{ site.baseurl }}{% link _pages/dev/features/consignment-tracking.md %})
 - Angular updated to 8.2.5; NgRx to 8.3.0; other dependency updates
 
-To update to 1.2.0, you must change your libraries in `package.json` and and dependencies inside `app.module.ts`. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+To update to 1.2.0, you must change your libraries in `package.json` and and dependencies inside `app.module.ts`. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 - To use 1.2 features, add these to `B2cStorefrontModule.withConfig({`
     ```
@@ -345,7 +373,7 @@ Architectural and foundational features:
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- To be able to use all functionality in Spartacus 3.\*, release 2005 of SAP Commerce Cloud is required. For example, release 2005 contains the OCC APIs for B2B Commerce Organization. In addition, the latest patch release is required, or at least strongly recommended, because it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5, and the Save for Later feature requires 1905.11). Spartacus 3.\*  is also tested with and works with release 1905. Note, however, that Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available if you are using SAP Commerce Cloud 1905. For more information on which version of Spartacus and which version of SAP Commerce Cloud is required for a particular feature, see [Feature Release Versions]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
+- To be able to use all functionality in Spartacus 3.\*, release 2005 of SAP Commerce Cloud is required. For example, release 2005 contains the OCC APIs for B2B Commerce Organization. In addition, the latest patch release is required, or at least strongly recommended, because it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5, and the Save for Later feature requires 1905.11). Spartacus 3.\*  is also tested with and works with release 1905. Note, however, that Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available if you are using SAP Commerce Cloud 1905. For more information on which version of Spartacus and which version of SAP Commerce Cloud is required for a particular feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 
 ## How Spartacus is Versioned
 

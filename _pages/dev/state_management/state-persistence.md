@@ -24,6 +24,15 @@ These options work as follows:
 - `storageType` specifies the storage type that is used. By default, the storage type is local storage, but you can change this to session storage, for example.
 - `onRead` is a callback that is invoked every time the context changes. To use the cart as an example, every time you change the base site, this callback is called with a value read from storage for that particular context. It will dispatch a value of `undefined` if there is nothing saved in storage.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Implementing Complete State Persistence for a Feature
 
 The following steps describe how to implement state persistence for a feature, using the cart as an example:

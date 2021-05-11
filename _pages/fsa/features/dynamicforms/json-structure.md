@@ -2,9 +2,16 @@
 title: JSON Structure
 ---
 
-## Overview
-
 In Dynamic Forms, form content, behavior and styling is defined by JSON definition. To create a form, we have to add controls and define it's properties such as control type, name, labels etc.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Form Definition Interface
 
@@ -93,7 +100,7 @@ export interface FieldOption {
 
 More details about interface structure can be found below:
 
-## FormDefinition 
+## FormDefinition
 
 Represents top level entity which hold group of form field.
 The FormDefinition contains the following properties:

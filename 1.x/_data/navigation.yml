@@ -128,8 +128,6 @@ docs:
           - title: "Styling and Page Layout ➢"
             url: /styling-and-page-layout/
             subchildren:
-                - title: "Global Variables"
-                  url: /global-variables/
                 - title: "CSS Architecture"
                   url: /css-architecture/
                 - title: "Icon Library"

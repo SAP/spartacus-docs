@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Text Field Configurator Template allows you to add simple, text field-based configuration forms to your products. For example, you can use this feature to allow your customers to enter a text for engraving.
 
 ## Requirements

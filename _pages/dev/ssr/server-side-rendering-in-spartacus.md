@@ -4,6 +4,15 @@ title: Server-Side Rendering
 
 In Spartacus, server-side rendering allows you to render static versions of pages on the server side. This speeds up response times, assists with SEO, and allows the application to render more quickly. After Angular has bootstrapped, users of your site will have the full experience.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Adding SSR Support Using Schematics (Recommended)
 
 The recommended way to add SSR support to your Spartacus application is to use schematics. With a single command, all required files are added automatically, and all modifications for SSR support are done automatically as well. To add SSR support to your Spartacus application, run the following command:
@@ -73,10 +82,10 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     ```
     and add `BrowserTransferStateModule` to `imports`.
 
-1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BASE_URL` with the URL of your back end instance, as follows:
+1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BACKEND_BASE_URL_VALUE` with the URL of your back end instance, as follows:
 
     ```html
-    <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
+    <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
     ```
 
 1. In `projects.<your-project-name>.architect.build.options` change following line:

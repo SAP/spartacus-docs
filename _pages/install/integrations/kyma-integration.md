@@ -2,6 +2,17 @@
 title: Kyma Integration
 ---
 
+The following steps describe how to integrate [Kyma](https://kyma-project.io) into your Spartacus storefront.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Prerequisites
 
 If your Spartacus application is running on Commerce Cloud, the following configs should already be in place:
@@ -17,7 +28,7 @@ oauth2.algorithm=RS256
 
 Add a new OAuth client using the following impex:
 
-```impex
+```text
 ### Kyma OAuth client
 INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope    ;autoApprove  ;authorizedGrantTypes         ;authorities  ;clientSecret   ;registeredRedirectUri      ;externalScopeClaimName ;issuer
                                  ;client4kyma           ;hybris        ;openid   ;openid       ;password,client_credentials  ;ROLE_CLIENT  ;secret         ;http://MY_APPLICATION/     ;scope                  ;ec
@@ -27,31 +38,4 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 ## Spartacus Configuration
 
-The Kyma integration is turned off by default. To enable it, import `KymaModule` from `@spartacus/core`, as follows:
-
-```ts
-import { KymaModule } from '@spartacus/core';
-...
-@NgModule({
-  imports: [
-    ...
-    B2cStorefrontModule.withConfig({
-      ...
-      authentication: {
-        kyma_client_id: 'client4kyma',
-        kyma_client_secret: 'secret',
-      },
-      ...
-    }),
-    KymaModule,
-  ],
-  ...
-})
-export class AppModule {}
-```
-
-Note that `kyma_client_id` and `kyma_client_secret` values have to match the back end configuration mentioned [above](#prerequisites).
-
-## Getting the Open ID Token
-
-After configuring the Kyma integration, you can obtain the open ID token (that's being used for communicating with kyma) by calling `getOpenIdToken()` method from `KymaService` facade. Note that this token will be available only after a successful authentication (i.e. a user logs in or registers).
+You can integrate Kyma functionality in Spartacus by providing an appropriate `authentication` configuration, as described in [Configuring OpenID]({{ site.baseurl }}/session-management/#configuring-openid).

@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 Variants are products that differ in some aspect from one another, but are based on the same basic model. An example for variants is color and size for t-shirts. When the variants feature is enabled in Spartacus, and products have been configured in SAP Commerce Cloud, then customers can select products in the storefront with the variant (or variants) of their choice.
 
 **Note:** This feature does not currently support multi-dimensional product variants.
@@ -23,10 +21,14 @@ For more information, see the following:
 - [Styles and Size Variants in the SAP Commerce Product Cockpit](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8af06a1b8669101483c085453d75849e.html)
 - [Modeling Product Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html)
 
+***
+
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Enabling Variants
 

@@ -9,6 +9,15 @@ feature:
 
 This page provides a high level overview of the CSS architecture in Spartacus.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Style Library
 
 Spartacus is provided as a set of standard components that are distributed in npm libraries. These libraries help to ensure that Spartacus remains both extensible and upgradable at the same time.

@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 Customers can view consignment tracking information to know the real-time status of their packages.
 
 On the order details page, if the consignment shows its status as **Shipped**, a **Track Package** button is viewable for this consignment. Click the **Track Package** button to get the tracking information for the selected consignment.

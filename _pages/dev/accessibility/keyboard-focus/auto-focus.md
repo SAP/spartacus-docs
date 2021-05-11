@@ -2,14 +2,24 @@
 title: Auto Focus
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 The `cxFocus` directive provides auto focus capabilities for a single-page experience. The native HTML5 `autofocus` attribute falls short in a single-page application experience, since this attribute is only applied when a page is loaded in the browser. In a single-page application, pages are built dynamically, and elements with an `autofocus` attribute are not focused automatically. Moreover, there are scenarios where the focus of an element should be driven dynamically. For example, when a dialog is opened, or a group of elements is "unlocked".
 
 The auto focus feature of the `cxFocus` directive focuses an element when the host element is focused. The element of choice that is focused is driven by configuration. Moreover, the previously focused element can be persisted, so that it will be refocused during the user session.
+
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Default Behavior
 

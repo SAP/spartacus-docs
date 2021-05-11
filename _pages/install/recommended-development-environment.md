@@ -2,6 +2,15 @@
 title: Recommended Development Environment
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## CLI tools
 
 There are a number of necessary CLI tools that you need to have installed in order to work with Spartacus, as follows:
@@ -80,7 +89,7 @@ Some other notable extensions:
 
 ## Project setup
 
-After [creating a new project and pulling Spartacus libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}), it's time to set up the project.
+After [creating a new project and pulling Spartacus libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}), it's time to set up the project.
 
 ### Code formatting
 

@@ -672,10 +672,6 @@
 
                      
                    
-                    
-
-                     
-                   
                  </ul>
                  
              </li>
@@ -1347,8 +1343,8 @@
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">MyProductCategoriesNormalizer</span>
-  <span class="kr">implements</span> <span class="nx">Converter</span><span class="o">&lt;</span><span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">Product</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="nx">convert</span><span class="p">(</span><span class="na">source</span><span class="p">:</span> <span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">target</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">any</span> <span class="p">{</span>
+  <span class="k">implements</span> <span class="nx">Converter</span><span class="o">&lt;</span><span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">Product</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="nx">convert</span><span class="p">(</span><span class="na">source</span><span class="p">:</span> <span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">target</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="kr">any</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">categories</span> <span class="o">&amp;&amp;</span> <span class="nx">source</span><span class="p">.</span><span class="nx">categories</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">target</span><span class="p">.</span><span class="nx">category</span> <span class="o">=</span> <span class="nx">source</span><span class="p">.</span><span class="nx">categories</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span> <span class="c1">//</span>
     <span class="p">}</span>

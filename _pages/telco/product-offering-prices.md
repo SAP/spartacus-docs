@@ -8,16 +8,16 @@ title: Pricing - Subscription Rate Plan
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Components](#components)
-- [Further Reading](#further-reading)
-
-## Overview
-
 A price could also encompass many different components. A typical introductory wireless offering, for example, will have an activation cost, a monthly cost, a number of free minutes, a cost for extra minutes, and some sort of promotional component. The offering might also include a corporate discount for business users. Each of these elements must be described in order to paint an accurate picture of the overall price charged for any Product Offering.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Components
 

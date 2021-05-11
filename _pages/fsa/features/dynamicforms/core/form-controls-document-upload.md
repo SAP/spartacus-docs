@@ -4,19 +4,20 @@ title: Document Upload
 
 **Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
 
-## Contents
-
-- [Overview](#overview)
-- [Document Upload Usage](#document-upload-usage)
-- [File Upload](#file-upload)
-
-## Overview
-
 The Document Upload feature is one of the many components implemented in the Dynamicforms library and is used to enable the user to upload one or multiple images, documents, audio, video, and other file types to a server.
 
 The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.
 
 Financial Services Accelerator offers insurance customers the possibility to upload documents during the FNOL process. Once the documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Document Upload Usage
 

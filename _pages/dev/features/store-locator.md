@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Spartacus store locator feature helps customers find brick-and-mortar retail locations. Customers can view a list of all stores, they can search for stores based on their location, or they can search for stores based on a postal code, a town, or an address that the customer provides.
 
 If the customer chooses to **Use My Location**, and allows their device to access their current location, a list of the nearest stores is displayed, sorted by distance in kilometers. By selecting any store in the list, the customer can view store details, such as address, phone number, opening hours, and store features.
@@ -21,6 +19,10 @@ If the customer chooses to **Use My Location**, and allows their device to acces
 If the customer chooses to **View All Stores**, a list of all stores is displayed, sorted by country, and with the number of stores in each country shown in parentheses. When the customer selects a country, a list of all the stores in the selected country is displayed, along with the address for each store. Customers also have the option to **Get Directions** for a particular store, which opens Google Maps in a separate browser window with directions from the customer's location to the selected store.
 
 The customer can also search for the nearest stores by entering an address, a town, or a postal code in the search bar. The search results indicate the nearest stores, based on the location provided by the customer.
+
+## Enabling the Store Locator
+
+You can enable the store locator by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
 ## Configuring the Store Locator
 
@@ -42,11 +44,7 @@ The following is a description of the `googleMaps` parameters:
 - `scale` takes the format of a number, and sets the initial zoom when the map is displayed.
 - `selectedMarkerScale` takes the format of a number, and sets the zoom on the map when a store location is selected.
 
-## Enabling the Store Locator
-
-You can enable the store locator by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
-
-### Disabling the Store Locator
+## Disabling the Store Locator
 
 You can disable the store locator by removing the **Find a Store** link in the header, and by deleting the **StoreFinder Page** in Backoffice, as described in the following procedure:
 

@@ -2,13 +2,14 @@
 title: Release Information for All Versions of FSA Spartacus Libraries
 ---
 
-Contents:
+***
 
-- [Introduction](#introduction)
-- [Release 2.0](#release-20)
-- [Release 1.0](#release-10)
-- [About FSA Spartacus Releases](#about-fsa-spartacus-releases)
-- [Future Releases](#future-releases)
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Introduction
 

@@ -4,8 +4,6 @@ title: Reference App Structure
 
 **Note:** The reference app structure is introduced with version 3.1 of the Spartacus libraries.
 
-## Overview
-
 This recommended Spartacus app structure is intended to act as a reference for when you are setting up your own Spartacus application.
 
 Spartacus is an Angular library, which means it can be used on its own in an Angular application, or it can be integrated into an existing Angular project. Conversely, you can add any other Angular solution or library to your Spartacus project.
@@ -19,6 +17,15 @@ By using the Spartacus reference app structure, you benefit the most from the au
 **Note:** In one of the 3.x releases that is after 3.1, the reference structure described in the following sections will be supported by schematics as the default structure. Until this update is made, if you are using release 3.1 or newer, you can already migrate to the reference structure, but you will have to do it manually.
 
 To see a working example that makes use of the reference app structure, see [this repository](https://github.com/dunqan/spartacus-reference-structure).
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Structure Overview
 

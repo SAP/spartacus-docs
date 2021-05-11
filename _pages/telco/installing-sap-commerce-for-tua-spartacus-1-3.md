@@ -12,9 +12,18 @@ However, installing the TUA Spartacus Sample Data is not required in all cases. 
 
 To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must complete the following procedures:
 
-1. [Setting up SAP Commerce with Telco & Utilities Accelerator](#setting-up-sap-commerce-with-telco--utilities-accelerator)
-2. [Configuring OCC credentials](#configuring-occ-credentials)
-3. [Configuring CORS](#configuring-cors)
+1. Setting up SAP Commerce with Telco & Utilities Accelerator
+2. Configuring OCC credentials
+3. Configuring CORS
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Setting Up SAP Commerce with Telco & Utilities Accelerator
 
