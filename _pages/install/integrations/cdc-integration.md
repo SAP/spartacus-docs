@@ -116,7 +116,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
    ```ts
    provideConfig(<CdcConfig>{
-         cdc: [
+         [CDC_FEATURE]: [
            {
              baseSite: 'electronics-spa',
              javascriptUrl: 'https://cdns.<data-center>.gigya.com/JS/gigya.js?apikey=<Site-API-Key>',
