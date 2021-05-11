@@ -102,6 +102,10 @@ The following is an example of the configuration menu showing visited sections, 
 
 When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
 
+## Saved Cart
+
+The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.
+
 ## Unsupported Features
 
 The following features are currently not supported in the Configurable Products integration with Spartacus:
@@ -109,7 +113,7 @@ The following features are currently not supported in the Configurable Products 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
 - [Cart Validation](#cart-validation)
 - [Assisted Service Mode](#assisted-service-mode)
-- [Saved Cart](#saved-cart)
+
 
 ### Save for Later and Selective Cart
 
@@ -215,6 +219,4 @@ Note that it will guarantee that the order is validated for product configuratio
 
 Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
 
-### Saved Cart
 
-The saved cart feature is currently not supported with the Configurable Products integration.
