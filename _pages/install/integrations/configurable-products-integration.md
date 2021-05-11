@@ -1,5 +1,9 @@
 ---
 title: Configurable Products Integration
+feature:
+- name: Configurable Products Integration
+  spa_version: 3.1
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -8,31 +12,145 @@ title: Configurable Products Integration
 
 {% include docs/feature_version.html content=version_note %}
 
-The Configurable Products integration with Spartacus lets you implement a Spartacus storefront in conjunction with SAP Variant Configuration and Pricing.
+The Configurable Products integration provides a user interface for configuring and selling configurable products in Spartacus. The integration makes use of the *Product Configuration with SAP Variant Configuration and Pricing* AddOn, which is part of SAP Commerce Cloud. This AddOn is not included in the Spartacus libraries.
+
+The Spartacus product configuration library includes the following features:
+
+- Single-level and multilevel configurable products in the Spartacus storefront, with the product model residing in SAP ERP or SAP S/4HANA
+- A configuration page, with the most commonly used characteristic types for characteristic values, such as radio buttons, checkboxes, dropdown listboxes, and images
+- A price summary at the bottom of the configuration page that includes the base price, the price of the selected options, and the overall total price of the configured product
+- An overview page with all user selections accessible at any time during configuration
+- Basic conflict handling
+
+With this integration, configurable products become a part of the storefront's standard processes, such as catalog browsing, viewing product details pages, adding items to the cart, checking out, and viewing order history pages.
+
+For more information, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US/528b7395bc314999a01e3560f2bdc069.html) on the SAP Help Portal.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
+## Requirements
+
+The Configurable Products integration requires SAP Commerce Cloud release **2005.6** or **2011.1** or newer.
+
+The integration also requires the `sapproductconfigocc` extension.
+
+For more information, see [Configurator for Complex Products Module](https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html) on the SAP Help Portal.
+
+## Adding the Configurable Products Integration to Spartacus
+
+To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library.
+
+You can either [install the product configurator library during initial setup of your Spartacus project](#installing-the-product-configurator-library-during-the-initial-setup-of-spartacus), or you can [add the product configurator library to an existing Spartacus project](#adding-the-product-configurator-library-to-an-existing-spartacus-project).
+
+### Installing the Product Configurator Library During the Initial Setup of Spartacus
+
+1. Follow the steps for setting up your Spartacus project, as described in [Building the Spartacus Storefront Using 3.2 Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-3-2.md %}).
+1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator`.
+1. Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
+
+   Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
+
+   Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [Text Field Configurator Template]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+
+### Adding the Product Configurator Library to an Existing Spartacus Project
+
+If you already have a Spartacus project up and running, you can add the product configurator library to your project by running the following command from the root directory of your storefront app:
+
+```bash
+ng add @spartacus/product-configurator
+```
+
+This command uses schematics to modify your application and add the modules needed to launch the library.
+
+After running this command, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
+
+Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
+
+Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [Text Field Configurator Template]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+
+## Saved Cart
+
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.
 
 ## Locales
 
-All available locales must be replicated into Spartacus. Locales in the back end and front end must be in sync.
-
-<!-- What exactly needs to be done on customer side? (This came up in relation to numeric formats) Could be that Spartacus core is going to document something on this. -->
+All available locales must be replicated in Spartacus. Locales in the back end and front end must be in sync.
 
 ## Conflict Solver
 
-The conflict solver as developed with the minimal viable product (MVP) version is quite rudimentary with regards to user navigation.
+For this initial (MVP) version of the Configurable Products integration, the user navigation for the conflict solver is still quite simple. For example, if a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
 
-In the MVP version, the following user navigation is currently implemented:
+For now, there is no navigation mode that guides the user from issue to issue until the configuration has no remaining issues. Instead, users have two options for navigating through conflicts, as described in the following procedures.
 
-- If the user is in a conflict group and changes a value there, after the update the UI displays the original group of the attribute for which she changed the value, i.e. the user is taken out of the conflict resolving context.
-- This happens every time she is changing a value in a conflict group, even if the value-change did not solve the conflict or if there are still other conflicts to be resolved.
-- If the user clicks on "Resolve Issues" link in overview/cart the user is taken to the first conflict group. But after changing a value in the conflict group the above behavior applies, i.e. there is currently no guided "resolve issue" mode where the user is taken from issue to issue until the configuration has no issues anymore.
+### Conflict Navigation Option 1
 
-<!-- For v2, we have created a BI to enhance the conflict solver: https://cxjira.sap.com/browse/TIGER-6778 -->
+1. Click on **Resolve Conflict** for a specific, conflicting attribute.
+1. Resolve the conflict.
+1. Return to the group that contained the conflict.
 
-## Save for Later / Selective Cart
+### Conflict Navigation Option 2
 
-This feature is not supported in MVP. To prevent the button from showing, customers should remove the relevant view (disable selective cart):
+1. Click on **Resolve Conflict** on the cart, the overview page, or the conflict group by using the group menu.
+1. Resolve the conflict.
+1. Navigate to the next conflict group.
+1. Resolve the last conflict, after which, you are taken to the first group.
 
-- Ensure that in the cart configuration, selective cart is disabled. The used configuration should contain the following:
+## RTL Support
+
+Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+
+## Group Status Handling
+
+Group statuses are interpreted as follows:
+
+|Group Status|Combination|Description|
+|------------|-----------|-----------|
+|COMPLETE|Visited + Complete + Consistent|The group is considered complete if it has been visited and there are no incomplete characteristics or conflicts.|
+|ERROR|Visited + Incomplete|The group gets an error icon if it has been visited and there are incomplete characteristics.|
+|WARNING|Inconsistent|The group is considered inconsistent if there are conflicting characteristics within the corresponding group.|
+
+The following is an example of the configuration menu showing visited sections, missing mandatory selections, and conflicts:
+
+![Spartacus group status icon alignment]({{ site.baseurl }}/assets/images/ccp/spartacus-group-status-icon-alignment.png)
+
+## Browser Refresh
+
+When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
+
+## Unsupported Features
+
+The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
+
+- [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
+- [Cart Validation](#cart-validation)
+- [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
+- [Assisted Service Mode](#assisted-service-mode)
+
+
+### Save for Later and Selective Cart
+
+This feature is currently not supported. To prevent the button from showing, you should remove the relevant view (disable selective cart), as follows:
+
+1. Ensure that selective cart is disabled in the cart configuration.
+
+    Your configuration should contain the following:
 
     ```ts
     cart: {
@@ -42,7 +160,9 @@ This feature is not supported in MVP. To prevent the button from showing, custom
     },
     ```
 
-- Deactivate the saveForLater component that is assigned to CMS component SaveForLaterComponent: Introduce a new module that clears the assigned SPA components for that CMS component. The following is an example:
+2. Deactivate the `saveForLater` component that is assigned to the `SaveForLaterComponent` CMS component, and introduce a new module that clears the assigned Spartacus components for that CMS component.
+
+    The following is an example:
 
     ```ts
     @NgModule({
@@ -60,15 +180,19 @@ This feature is not supported in MVP. To prevent the button from showing, custom
     })
     ```
 
-## Cart Validation
+### Cart Validation
 
-Cart validation is currently not supported, although you can implement your own workaround.
+Cart validation is currently not supported, although you can implement your own workaround by making the adjustments described in the following sections.
 
-### Spartacus
+#### Configuring Spartacus for Cart Validation
 
-- Introduce their own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one
-- Inject `ConfiguratorCartService` from `@spartacus/product/configurators/common` into the custom version of `cart-totals.component`
-- Introduce a component member. The following is an example:
+1. Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one.
+
+1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`
+
+1. Introduce a component member.
+
+    The following is an example:
 
     ```ts
     hasNoConfigurationIssues$: Observable<
@@ -78,7 +202,9 @@ Cart validation is currently not supported, although you can implement your own 
         .pipe(map((hasIssues) => !hasIssues));
     ```
 
-- Make use of this member in the component template. The following is an example:
+1. Make use of this member in the component template.
+
+    The following is an example:
 
     ```ts
     <ng-container *ngIf="cart$ | async as cart">
@@ -100,11 +226,13 @@ Cart validation is currently not supported, although you can implement your own 
     </ng-container>
     ```
 
-### Commerce
+#### Configuring SAP Commerce 2005 for Cart Validation
 
-The steps that can be done on the Spartacus side ensure that for a standard UI flow, configurations with issues cannot be ordered. Still it's needed to also block the creation of orders via OCC, otherwise an order containing such configurations can be created using e.g. the developer tools in the end-user's browser.
+**Note:** If you use SAP Commerce 2011, the following steps are not necessary.
 
-In your spring configuration, see that bean commerceWebServicesCartService refers to cartValidationStrategy instead of cartValidationWithoutCartAlteringStrategy. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
+The steps that can be done on the Spartacus side ensure that for a standard UI flow, a configuration cannot be ordered if it has issues. However, you still need to block the creation of orders that could be done through OCC. Otherwise, an order containing such configurations can be created using, for example, the developer tools in the end user's browser.
+
+In your spring configuration, ensure that the `commerceWebServicesCartService` bean refers to `cartValidationStrategy` instead of `cartValidationWithoutCartAlteringStrategy`. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
 
 ```xml
 <alias name="customWebServicesCartService" alias="commerceWebServicesCartService"/>
@@ -114,59 +242,35 @@ In your spring configuration, see that bean commerceWebServicesCartService refer
 </bean>
 ```
 
-Note that it will guarantee that the order is validated for product configuration issues before order submit, but it will not ensure that the error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. We plan to address this in SAP Commerce Cloud release 20.11.
+Note that it will guarantee that the order is validated for product configuration issues before an order is submitted, but it will not ensure that the error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
 
-## RTL Support
+### Commerce Business Rules in Combination with Configurable Products
 
-Right-to-left (RTL) is supported for product configuration in Spartacus.
+The following conditions and actions are supported in the Spartacus storefront:
 
-## Group Status Handling
+- Conditions:
+  - Product you are currently configuring
+  - Customers
+  - Customer groups
+- Actions:
+  - Set characteristic value for configurable product
+  - Hide assignable value for configurable product
+  - Hide characteristic for configurable product
+  - Display characteristic for configurable product as read-only
 
-There are three group statuses, which are interpreted as follows:
+The following conditions and actions are currently **not supported** in the Spartacus storefront:
 
-|Group Status|Combination|Description|
-|------------|-----------|-----------|
-|COMPLETE|Visited + Complete + Consistent|The group is *complete* if it has been visited and there are no incomplete characteristics or conflicts.|
-|ERROR|Visited + Incomplete|The group gets an *error* icon if it has been visited and there are incomplete characteristics.|
-|WARNING|Inconsistent|The group is *inconsistent* if there are conflicting characteristics within the corresponding group. The default configuration can contain inconsistent groups. It means by entering such configuration a conflicting groups should be displayed accordingly.|
+- Conditions:
+  - Product with specified configuration in the cart
+  - Customer support (ASM mode currently not supported for configurable products)
+- Actions:
+  - Display message at the product level
+  - Display message at the attribute level
+  - Display message at the value level
+  - Display promo message (promo applies)
+  - Display promo opportunity message (promo does not yet apply)
+  - Display discount message
 
-## Conflict Group Navigation
+### Assisted Service Mode
 
-After the conflict group has been updated, you are taken to the non-conflict group where the updated characteristic is located, regardless of whether the conflict has been resolved.
-
-In contrast, if you resolve a conflict in the Accelerator directly in the conflict group, you are taken to the first conflict group or the first non-conflict group within the configuration.  If the conflict has not been resolved, you remain in the corresponding conflict group until the conflict has been resolved or you explicitly leave the conflict group.
-
-### Conflict Navigation
-
-1. You click on **Resolve Conflict** for a specific, conflicting attribute.
-1. You resolve the conflict.
-1. You return to the group that contained the conflict.
-1. You click on **Resolve Conflict** on the cart, overview page, or conflict group via the group menu.
-1. You resolve the conflict.
-1. You navigate to the next conflict group.
-1. You resolve the last conflict.
-1. You are taken to the first group.
-
-### Icon Alignment
-
-The following is an example of the **Configuration Menu** showing errors and conflicts:
-
-<img src="{{ site.baseurl }}/assets/images/ccp/icon_alignment.png" alt="Configuration menu showing errors and conflicts" width="650" border="1px" />
-
-For reference, the Accelerator behaves as follows.
-
-Only a header of conflict groups gets a warning icon. In the Accelerator, the icons have the following meanings:
-
-|Group Status|Combination|Description|
-|------------|-----------|-----------|
-|COMPLETE|Visited + Complete|The group is *complete* if it has been visited and there are no incomplete characteristics.|
-|ERROR|Visited + Incomplete|The group gets an *error* icon with the total number of errors in the group if the group has been visited and there are incomplete characteristics. The conflicts within the corresponding group are not counted.|
-|WARNING|Inconsistent|Only the headers of conflict groups get a *warning* icon with the total number of conflicts in the configuration.|
-
-The following is an example of conflicts shown on the B2B Accelerator screen:
-
-![Conflicts shown on the B2B Accelerator screen]({{site.baseurl}}/assets/images/ccp/b2b_accelerator.png)
-
-## Browser Refresh
-
-When users refresh the browser, the product configuration is reset to the default configuration (unlike in the Accelerator). Users will therefore have to reconfigure their products after reloading the page.
+Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
