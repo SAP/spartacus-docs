@@ -2,6 +2,12 @@
 title: Lock Focus
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 The `cxFocus` directive provides locking of the focusable elements of a host element. The focusable elements receive a `tabindex` of `-1`, so that the default tabbing in the browser is temporarily disabled.
 
 The locked focus is used for groups of elements that should be skipped by keyboard users. A good example is a child navigation panel, or the facet navigation on the product listing page. Keyboard users can skip larger groups of focusable elements, until they unlock the group by pressing the `ENTER` or `SPACE` key.

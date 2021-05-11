@@ -22,6 +22,15 @@ The following examples illustrate how deferred loading improves the page load:
 
 Deferred loading is currently driven mainly by page slots. As soon as a page slot enters the viewport, all components of the slot are rendered. Additionally, embedded components in container components benefit from deferred loading.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Enable Deferred Loading
 
 Deferred loading is disabled by default. To enable deferred loading, you must configure the `DeferLoadingStrategy` in the `LayoutConfig` Configuration. The following strategies are available:

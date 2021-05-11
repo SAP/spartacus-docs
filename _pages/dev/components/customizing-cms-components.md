@@ -2,7 +2,7 @@
 title: Customizing CMS Components
 ---
 
-The Spartacus storefront is based on JavaScript, and accordingly, it is composed of a large number of fine-grained JavaScript components. However, there is a special kind of component to render CMS content. CMS components are dynamically added at runtime. The CMS component type, given by the back end, is mapped to an equivalent JS component. The mapping is provided in a configuration that can be customized. This allows you to configure a custom component to render a specific CMS component.
+The Spartacus storefront is based on JavaScript, and accordingly, it is composed of a large number of fine-grained JavaScript components. However, there is a special kind of component to render CMS content. CMS components are dynamically added at runtime. The CMS component type, provided by the back end, is mapped to an equivalent JavaScript component. The mapping is provided in a configuration that can be customized. This allows you to configure a custom component to render a specific CMS component.
 
 In addition, component-specific business logic can be customized. This requires an additional configuration where the custom service can be provided to the (default) component.
 
@@ -13,6 +13,15 @@ With this setup, CMS components can be customized in the following ways:
 | Customize style   | Add custom CSS rules<br/>(Out of scope for this doc) | Customize component style for the `LanguageSelector` |
 | Replace component | Configure a custom component                         | Provide a custom `BannerComponent`                   |
 | Customize logic   | Configure a custom service                           | Provide a custom `SearchBoxComponentService`         |
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Configuring Custom Components
 

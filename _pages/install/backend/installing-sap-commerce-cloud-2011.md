@@ -4,6 +4,15 @@ title: Installing SAP Commerce Cloud 2011 for use with Spartacus
 
 The following instructions describe how to install and configure SAP Commerce Cloud release 2011 for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Important Disclaimers
 
 - Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill orders with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/latest/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information and for a sample ImpEx that enables such users.
@@ -121,7 +130,7 @@ See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1
   
 ### All Done
 
-You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 ## Notes
 

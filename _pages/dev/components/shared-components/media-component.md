@@ -6,7 +6,8 @@ feature:
   cx_version: n/a
 - name: Image Lazy Loading
   spa_version: 3.0
-  cx_version: n/a  
+  cx_version: n/a
+  anchor: "#image-lazy-loading"
 ---
 
 {% capture version_note %}
@@ -20,6 +21,15 @@ The media component is a low-level component that is used to render a single med
 There are two main types of images that are rendered in Spartacus: product images and content images. Both types use the same technical implementation, but the semantics of the content is slightly different for each.
 
 **Note:** Icons are a special type of image and are not rendered with the media component. For more information, see [Icon Library]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %}).
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Responsive Media
 
@@ -94,7 +104,7 @@ Whenever a media item is unavailable, the `img` element is not written in the D
 
 If no matching image format is available in the media container, nor in the media configuration, Spartacus takes a random image from the container. This might not be an accurate format, but at least it helps to show content.
 
-## Lazy Loading
+## Image Lazy Loading
 
 {% capture version_note %}
 {{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}

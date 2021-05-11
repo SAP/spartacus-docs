@@ -8,25 +8,22 @@ title: Customer Product Inventory
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
-
-- [Overview](#overview)
-- [Business Use Cases](#business-use-cases)
-- [Frontend and Backend Dependencies](#frontend-and-backend-dependencies)
-- [Supported Backend Functionality](#supported-backend-functionality)
-- [Components](#components)
-- [TM Forum APIs](#tm-forum-apis)
-- [Further Reading](#further-reading)
-
-## Overview
-
 Customers use the Customer Product Inventory (CPI) feature to view their existing subscriptions and subscribed products information.  Customers can manage their subscriptions with proper authorization.  Entries in the Customer Product Inventory are created and updated from backend systems once the product offerings have been provisioned.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Business Use Cases
 
 ### Viewing Subscriptions
 
-From the **Account** drop-down menu, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information about each subscribed product can be viewed and managed.   
+From the **Account** drop-down menu, click **Subscriptions**. All subscriptions and respective subscribed products are displayed along with the contract start and end dates and status. Depending on user authorization, additional information about each subscribed product can be viewed and managed.
 
 ### Usage Consumption
 

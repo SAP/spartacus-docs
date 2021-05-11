@@ -9,6 +9,7 @@ This includes the following topics:
 
 - [JSON Structure]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/json-structure.md %})
 - [Form Controls]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-controls.md %})
+- [Document Upload]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-controls-document-upload.md %})
 - [Adding form to a simple page]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/adding-form.md %})
 - [Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 - [Form controls dependencies]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-control-dependencies.md %})

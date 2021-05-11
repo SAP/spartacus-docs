@@ -4,6 +4,15 @@ title: Purchase and Approval Flow Example
 
 In this purchase and approval flow example, we make use of the new buyer and approver that were set up with your new organization.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Purchase Flow Example
 
 In these steps, we are working with John Doe, the new buyer that we created in previous steps of this tutorial.

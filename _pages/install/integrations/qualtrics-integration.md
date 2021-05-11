@@ -20,6 +20,19 @@ Visitors to your Qualtrics-enabled website must have their Ad-Blocker disabled t
 
 For more information about Qualtrics, see [Getting Started with Website Feedback](https://www.qualtrics.com/support/website-app-feedback/getting-started-with-website-app-feedback/getting-started-with-website-feedback) in the Qualtrics documentation, and [SAP Qualtrics Integration Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/8a849c5254db460e8eea4d7b9af39bff.html) on the SAP Help Portal.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
+## Installing the Qualtrics Library
+
+To integrate Qualtrics with your Spartacus storefront, you need to first install the `@spartacus/qualtrics` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
+
 ## Qualtrics Projects
 
 Qualtrics recommends a single project for each application or page. Since Spartacus runs as a single-page application, it is recommended to use a single Qualtrics project in Spartacus. This might not be ideal, but the Qualtrics JavaScript API is not equipped to handle multiple projects. For example, the `QSI.API.unload` and `QSI.API.run` APIs have the side effect of applying across all projects at once. If you need to run multiple projects side by side, you should be prepared for side effects that will result from calling the `unload` API.
@@ -73,14 +86,21 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 If the component is loaded on a recurring page (such as the Product Details Page), the `QualtricsLoaderService` avoids reloading the deployment script and API.
 
-The Qualtrics integration adds the deployment code from the script you have captured from the Qualtrics platform. You must configure Spartacus with a reference to this file path, using the `ConfigModule`. The following is an example:
+The Qualtrics integration adds the deployment code from the script you have captured from the Qualtrics platform. You must configure Spartacus with a reference to this file path, using the `provideConfig`. The following is an example:
 
 ```typescript
-ConfigModule.withConfig({
-  qualtrics: {
+import {
+  QUALTRICS_FEATURE,
+} from '@spartacus/qualtrics/root';
+import { provideConfig } from '@spartacus/core';
+
+...
+
+provideConfig(<QualtricsConfig>{
+  [QUALTRICS_FEATURE]: {
     scriptSource: "assets/qualtrics.js",
   },
-} as QualtricsConfig);
+})
 ```
 
 The configuration is limited for multi-site applications, where each site requires a separate Qualtrics project.
@@ -131,6 +151,12 @@ export class DemoQualtricsLoaderService extends QualtricsLoaderService {
 ```
 
 ## Spartacus Support for Qualtrics Embedded Feedback
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 3.1 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 The Qualtrics Embedded Feedback feature relies on CSS selectors to display the Embedded Feedback component in a page. For more information, see [Embedded Feedback](https://www.qualtrics.com/support/website-app-feedback/creatives-tab/creative-types/embedded-feedback/) in the Qualtrics documentation.
 

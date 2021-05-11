@@ -2,20 +2,21 @@
 title: FSA Checkout
 ---
 
-## Contents
-
-- [Overview](#overview)
-- [Configuration](#configuration)
-- [Components](#components)
-
-## Overview
-
 Checkout in FSA Spartacus enables financial customers to buy insurance or banking products. It’s configurable for each product kind.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Configuration
 
 You can configure checkout steps over default-checkout-config.ts. There you can find a list of all possible steps that you can include in the checkout process.
-Interface FSCheckoutStep extends Checkout Step with one additional attribute - *restrictedCategories*. 
+Interface FSCheckoutStep extends Checkout Step with one additional attribute - *restrictedCategories*.
 
 ```ts
 export interface FSCheckoutStep extends CheckoutStep {
@@ -23,7 +24,7 @@ export interface FSCheckoutStep extends CheckoutStep {
 }
 ```
 
-This attribute is important for making the checkout process different for various groups of products. 
+This attribute is important for making the checkout process different for various groups of products.
 The following example of payment checkout step definition restricts payment step for all banking products:
 
 ```ts
@@ -43,7 +44,7 @@ The following example of payment checkout step definition restricts payment step
 
 ## Components
 
-FSCheckoutModule consists of multiple checkout components, guards and services, making the checkout process fully configurable. 
+FSCheckoutModule consists of multiple checkout components, guards and services, making the checkout process fully configurable.
 The following example shows step components inside the FSCheckoutModule:
 
 ```plaintext
@@ -59,7 +60,7 @@ The following example shows step components inside the FSCheckoutModule:
     MiniCartComponent,
 ```
 
-These components are fulfilled with logic from *FSCheckoutConfigService*, responsible for navigation by setting next and previous steps. 
+These components are fulfilled with logic from *FSCheckoutConfigService*, responsible for navigation by setting next and previous steps.
 If you want to extend your checkout with an additional step, you should add the step definition and route to *default-checkout-config.ts*, create a new component and place the logic for handling steps inside it.
 
 QuoteReviewComponent example of implementing nextCheckoutStep:  

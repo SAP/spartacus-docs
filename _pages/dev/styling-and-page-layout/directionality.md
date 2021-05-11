@@ -18,6 +18,15 @@ Directionality is driven by language. Many languages are read from left to right
 
 In Spartacus, the direction of the UI reflects the active language, so that directionality can work in a bidirectional experience. If your storefront contains both LTR and RTL languages, the active language is used to detect the direction automatically.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Breaking Changes
 
 The changes made to the DOM and CSS are considered breaking changes, so the directionality feature can only be used if you enable it with the 2.1 feature flag and the 2.1 CSS version. For more information about the CSS version, see [Versioning]({{ site.baseurl }}/css-architecture/#versioning) in CSS Architecture.

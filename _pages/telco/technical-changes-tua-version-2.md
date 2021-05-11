@@ -2,6 +2,15 @@
 title: Technical Changes in TUA Spartacus 2.0
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Components and Methods-related Changes Introduced in 2.0
 
 ### TmaCartPriceService

@@ -131,7 +131,7 @@
             </li><li class="masthead__menu-item">
               <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
             </li><li class="masthead__menu-item">
-              <a href="https://stackoverflow.com/questions/tagged/spartacus-storefront" >Support</a>
+              <a href="/spartacus-docs/2.x/#how-to-obtain-support" >Support</a>
             </li><li class="masthead__menu-item">
               <a href="/spartacus-docs/2.x/release-information/" >Version 2.1</a>
             </li></ul>
@@ -552,10 +552,6 @@
 
                 
                         <ul>
-                            
-                                    
-
-                                  
                             
                                     
 
@@ -994,8 +990,6 @@
                                         <li><a href="/spartacus-docs/2.x/styling-and-page-layout/">Styling and Page Layout ➢</a>
                                             
                                                 <ul>
-                                                    
-                                                          
                                                     
                                                           
                                                     
@@ -1531,10 +1525,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -1823,7 +1813,7 @@
 <p>A bit of explanation for this last step:</p>
 
 <ul>
-  <li>The hosting automation service expects a <code class="language-plaintext highlighter-rouge">server.ts</code> file in the <code class="language-plaintext highlighter-rouge">dist</code> folder, instead of <code class="language-plaintext highlighter-rouge">main.ts</code> in the ssr app folder. To fulfill this requirement, after the build is complete, the <code class="language-plaintext highlighter-rouge">dist/APPNAME-server/main.ts</code> file is moved to the <code class="language-plaintext highlighter-rouge">dist</code> folder and renamed to <code class="language-plaintext highlighter-rouge">server.ts</code>.</li>
+  <li>The hosting automation service expects a <code class="language-plaintext highlighter-rouge">server.js</code> file in the <code class="language-plaintext highlighter-rouge">dist</code> folder, instead of <code class="language-plaintext highlighter-rouge">main.js</code> in the ssr app folder. To fulfill this requirement, after the build is complete, the <code class="language-plaintext highlighter-rouge">dist/APPNAME-server/main.js</code> file is moved to the <code class="language-plaintext highlighter-rouge">dist</code> folder and renamed to <code class="language-plaintext highlighter-rouge">server.js</code>.</li>
   <li>To ensure the move command works on Windows computers, both <code class="language-plaintext highlighter-rouge">mv</code> and <code class="language-plaintext highlighter-rouge">move</code> are used, separated by <code class="language-plaintext highlighter-rouge">||</code>, in case <code class="language-plaintext highlighter-rouge">mv</code> fails.</li>
 </ul>
 

@@ -2,6 +2,15 @@
 title: Technical Changes in Spartacus 3.0
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Breaking Changes Introduced in 3.0
 
 ### Translations (i18n) changed

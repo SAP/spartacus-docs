@@ -9,7 +9,16 @@ The term approver is used in the following different contexts in B2B Commerce Or
 
 **Note:** Buyers can also be assigned their own approver on an individual basis.
 
-As stated above, a user with the role of approver who belongs to a unit is not necessarily an approver for that unit. A user must be assigned to the Approver list for that unit as well. This is the default behavior when creating users with the role of Approver.
+As stated above, a user with the role of approver who belongs to a unit is not necessarily an approver for that unit. A user must be assigned to the Approver list for that unit as well.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Spending Permissions Required for Approvers
 

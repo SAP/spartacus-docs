@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 When a coupon promotion has been created, customers apply the applicable coupon to activate the promotion during checkout to get discounts and/or rewards for their orders. 
 
 ## Requirements

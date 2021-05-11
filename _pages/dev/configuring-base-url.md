@@ -29,13 +29,14 @@ The corresponding `app.module.ts` file appears as follows:
 
 **Note**: The `content` attribute of the `meta` tag is ignored in the following cases:
 
-* When it's an empty string, such as in the following example:
+- When it's an empty string, such as in the following example:
 
-  ```
+  ```text
   <meta name="occ-backend-base-url" content="" />
   ```
-* When it contains a special placeholder, such as in the following example:
 
-  ```
+- When it contains a special placeholder, such as in the following example:
+
+  ```text
   <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
   ```

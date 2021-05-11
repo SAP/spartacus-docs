@@ -12,13 +12,20 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The scheduled replenishment feature allows you to set up orders that are fulfilled automatically on a recurring basis. For example, you might choose to set up an order that is fulfilled on the 15th day of every month. Each time a scheduled replenishment order is placed, the order shows up in the order history.
 
 **Note:** The scheduled replenishment feature is for B2B storefronts only.
 
 For more information, see [Replenishment and Order Scheduling](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c3aa31e86691014a3c085a0e9186e0c.html) on the SAP Help Portal.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Setting Up a Replenishment Order
 
