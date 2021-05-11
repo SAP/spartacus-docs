@@ -41,7 +41,7 @@ For more information, see [Configurator for Complex Products Module](https://hel
 
 ## Installation
 
-1. Follow the instructions at [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+1. Follow the instructions at [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 After running `ng add @spartacus/schematics`, you'll be asked to select a number of optional features.
 1. Select **Product Configurator**.
 The system will ask which product configurator features you want to set up besides variant configurator.
