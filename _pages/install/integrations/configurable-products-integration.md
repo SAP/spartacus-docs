@@ -60,7 +60,7 @@ This command uses schematics to modify your application and add the modules need
 ## Saved Cart
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 3.3 {{ site.version_note_part2 }}
+{{ site.version_note_part1a }} 3.3 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
