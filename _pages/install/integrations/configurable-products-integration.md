@@ -274,5 +274,3 @@ The following conditions and actions are currently **not supported** in the Spar
 ### Assisted Service Mode
 
 Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
-
-
