@@ -43,36 +43,27 @@ The integration also requires the `sapproductconfigocc` extension.
 
 For more information, see [Configurator for Complex Products Module](https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html) on the SAP Help Portal.
 
-## Installation
-
-1. Follow the instructions at [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-After running `ng add @spartacus/schematics`, you'll be asked to select a number of optional features.
-1. Select **Product Configurator**.
-The system will ask which product configurator features you want to set up besides variant configurator.
-1. Select **CPQ configurator** only if you have integrated [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US).
-1. Select **Textfield configurator** if you have products that are configurable in the sense of the textfield template configurator. For more information, see [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html).
-
-**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
-
 ## Adding the Configurable Products Integration to Spartacus
 
 To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library.
 
-You can either install the `@spartacus/product-configurator` library when you are first setting up Spartacus using schematics, or you can add the `@spartacus/product-configurator` library after you have already set up a Spartacus project, as described in the following procedures.
+You can either [install the product configurator library during initial setup of your Spartacus project](#installing-the-product-configurator-library-during-the-initial-setup-of-spartacus), or you can [add the product configurator library to an existing Spartacus project](#adding-the-product-configurator-library-to-an-existing-spartacus-project).
 
-### Installing the Product Configurator Library During Initial Setup of Spartacus
+### Installing the Product Configurator Library During the Initial Setup of Spartacus
 
-1. Follow the steps for setting up your Spartacus project, as described in 
+1. Follow the steps for setting up your Spartacus project, as described in [Building the Spartacus Storefront Using 3.2 Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-3-2.md %}).
+1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator`.
+1. Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
+
+   Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
+
+   Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [Text Field Configurator Template]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
 ### Adding the Product Configurator Library to an Existing Spartacus Project
 
-[Setting Up Your Project Using Schematics]({{ site.baseurl }}/building-the-spartacus-storefront-from-libraries-3-2/#setting-up-your-project-using-schematics)
-
-But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-
-To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library. But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-
-After you have set up your Spartacus storefront, install the product configuration library by running the following command from the root directory of your storefront app:
+If you already have a Spartacus project up and running, you can add the product configurator library to your project by running the following command from the root directory of your storefront app:
 
 ```bash
 ng add @spartacus/product-configurator
@@ -80,7 +71,13 @@ ng add @spartacus/product-configurator
 
 This command uses schematics to modify your application and add the modules needed to launch the library.
 
-**Note:** At runtime, most of the library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+After running this command, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
+
+Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
+
+Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [Text Field Configurator Template]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
 ## Locales
 
@@ -129,7 +126,7 @@ When you refresh the browser, the product configuration is reset to the default 
 
 ## Unsupported Features
 
-The following features are currently not supported in the Configurable Products integration with Spartacus:
+The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
 - [Cart Validation](#cart-validation)
@@ -239,30 +236,30 @@ Note that it will guarantee that the order is validated for product configuratio
 
 ### Commerce Business Rules in Combination with Configurable Products
 
-The following conditions and actions work on the Spartacus UI for configurable products:
+The following conditions and actions are supported in the Spartacus storefront:
 
 - Conditions:
-    - Product you are currently configuring
-    - Customers
-    - Customer groups
+  - Product you are currently configuring
+  - Customers
+  - Customer groups
 - Actions:
-    - Set characteristic value for configurable product
-    - Hide assignable value for configurable product
-    - Hide characteristic for configurable product
-    - Display characteristic for configurable product as read-only
+  - Set characteristic value for configurable product
+  - Hide assignable value for configurable product
+  - Hide characteristic for configurable product
+  - Display characteristic for configurable product as read-only
 
-The following conditions and actions **do not** yet work on the Spartacus UI for configurable products:
+The following conditions and actions are currently **not supported** in the Spartacus storefront:
 
 - Conditions:
-    - Product with specified configuration in the cart
-    - Customer support (ASM mode currently not supported for configurable products)
+  - Product with specified configuration in the cart
+  - Customer support (ASM mode currently not supported for configurable products)
 - Actions:
-    - Display message at the product level
-    - Display message at the attribute level
-    - Display message at the value level
-    - Display promo message (promo applies)
-    - Display promo opportunity message (promo does not yet apply)
-    - Display discount message
+  - Display message at the product level
+  - Display message at the attribute level
+  - Display message at the value level
+  - Display promo message (promo applies)
+  - Display promo opportunity message (promo does not yet apply)
+  - Display discount message
 
 ### Assisted Service Mode
 
