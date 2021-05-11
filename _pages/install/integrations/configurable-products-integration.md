@@ -79,6 +79,16 @@ Select `Textfield configurator` if you have products that can be configured usin
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Saved Cart
+
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.
+
 ## Locales
 
 All available locales must be replicated in Spartacus. Locales in the back end and front end must be in sync.
@@ -132,7 +142,7 @@ The following features are currently not supported (or in some cases, not fully 
 - [Cart Validation](#cart-validation)
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
-- [Saved Cart](#saved-cart)
+
 
 ### Save for Later and Selective Cart
 
@@ -265,6 +275,4 @@ The following conditions and actions are currently **not supported** in the Spar
 
 Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
 
-### Saved Cart
 
-The saved cart feature is currently not supported with the Configurable Products integration.
