@@ -8,7 +8,7 @@ The following instructions describe how to build an FSA storefront application u
 
 Before carrying out the procedures below, ensure the following front-end and back-end requirements are in place.
 
-## Front-End Development Requirements
+### Front-End Development Requirements
 
 Your Angular development environment should include the following:
 
@@ -16,7 +16,7 @@ Your Angular development environment should include the following:
 - node.js: The most recent 12.x version is recommended, < 13.
 - yarn: v1.15 or later.
 
-## Back-End Server Requirements
+### Back-End Server Requirements
 
 FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end and makes use of the sample data.
 
@@ -24,6 +24,25 @@ FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end and 
 - Financial Services Accelerator version: Release 2102 is required.
 
 For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}).
+
+### Windows Setup
+
+To successfully install the project in the Windows environment, first make sure that you have installed GitBash.
+
+Next, create the .npmrc file at the root of your Angular project.
+The .npmrc file should contain the following:
+
+```shell
+shell = "{instalation directory}\\Git\\bin\\bash.exe" 
+script-shell = "{instalation directory}\\Git\\bin\\bash.exe" 
+
+
+Example:
+shell = "C:\\Program Files\\Git\\bin\\bash.exe"
+script-shell = "C:\\Program Files\\Git\\bin\\bash.exe"
+```
+
+Once you have configured this, you should execute all the commands in the procedures that follow from the GitBash console.
 
 ## Creating a New Angular App
 
