@@ -49,7 +49,19 @@ The system will ask which product configurator features you want to set up besid
 
 ## Adding the Configurable Products Integration to Spartacus
 
-To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library. But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library.
+
+You can either install the `@spartacus/product-configurator` library when you are first setting up Spartacus using schematics, or you can add the `@spartacus/product-configurator` library after you have already set up a Spartacus project, as described in the following procedures.
+
+### Installing the Product Configurator Library During Initial Setup of Spartacus
+
+1. Follow the steps for setting up your Spartacus project, as described in 
+
+### Adding the Product Configurator Library to an Existing Spartacus Project
+
+[Setting Up Your Project Using Schematics]({{ site.baseurl }}/building-the-spartacus-storefront-from-libraries-3-2/#setting-up-your-project-using-schematics)
+
+But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
 After you have set up your Spartacus storefront, install the product configuration library by running the following command from the root directory of your storefront app:
 
