@@ -39,6 +39,19 @@ The CPQ Configurable Products integration also requires the following extension 
 
 For more information, see [Configurator for Complex Products Module](https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html) on SAP Help Portal.
 
+## Installation
+
+1. Follow the instructions at [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+After running `ng add @spartacus/schematics`, you'll be asked to select a number of optional features.
+1. Select **Product Configurator**.
+The system will ask which product configurator features you want to set up besides variant configurator.
+1. Select **CPQ configurator** only if you have integrated [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US).
+1. Select **Textfield configurator** if you have products that are configurable in the sense of the textfield template configurator. For more information, see [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html).
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+
+
+
 ## Early Login
 
 Early login is mandatory. For more information, see [Early Login]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %}).
