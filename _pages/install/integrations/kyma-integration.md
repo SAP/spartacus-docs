@@ -38,4 +38,4 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 ## Spartacus Configuration
 
-Kyma integration doesn't require any special modules and libraries. The functionality can be achieved with [proper configuration of auth modules](https://sap.github.io/spartacus-docs/session-management/#configuring-openid).
+You can integrate Kyma functionality in Spartacus by providing an appropriate `authentication` configuration, as described in [Configuring OpenID]({{ site.baseurl }}/session-management/#configuring-openid).

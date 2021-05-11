@@ -59,20 +59,26 @@ The following steps describe how to add custom headers to your CORS settings, as
 
 ### Configuring Spartacus for Context-Driven Services
 
-As of Spartacus 3.2, you can install and configured the CDS integration using our Schematics.
+If you are using Spartacus 3.2 or newer, you can install and configure the Context-Driven Services integration using Spartacus schematics. If you are using an older version of Spartacus, see [Configuring Spartacus for Context-Driven Services](https://sap.github.io/spartacus-docs/2.x/cds-integration/#configuring-spartacus-for-context-driven-services) in our archived documentation.
 
-To leverage the automatic setup using schematics, you need to first make sure you're using the 3.2 or above, and that you adhere to the [new app structure](/_pages/install/reference-app-structure.md).
+To take advantage of the automatic setup provided by Spartacus schematics, you need to first ensure that you are using Spartacus 3.2 or newer, and you also need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
-After you've met the prerequisites mentioned above, you can install CDS by running `ng add @spartacus/cds`. You will be prompted to answer a few questions:
+After you have met these prerequisites, you can install the Context-Driven Services integration by running the following command:
 
-- `tenant` - The tenant name (e.g. `my-tenant`)
-- `baseUrl` - The base URL for CDS back-end (e.g. [https://my-tenant.api.us.context.cloud.sap](https://my-tenant.api.us.context.cloud.sap))
-- `profileTagLoadUrl` - Where to load ProfileTag from (optional). E.g. [https://tag.static.us.context.cloud.sap/js/profile-tag.js](https://tag.static.us.context.cloud.sap/js/profile-tag.js)
-- `profileTagConfigUrl` - What is the ProfileTag configuration URL (optional). E.g. [https://tag.static.stage.context.cloud.sap/config/my-config123](https://tag.static.stage.context.cloud.sap/config/my-config123)
+```bash
+ng add @spartacus/cds
+```
 
-After typing your answer to the questions above, the CDS feature will be properly configured.
+After running the command, you are prompted to provide additional information, as follows:
 
-Alternatively, you can create the module manually and import it into your application, as shown in the following example:
+- `tenant` asks you to provide a tenant name (for example, `my-tenant`)
+- `baseUrl` asks you to provide the base URL for the Context-Driven Services back end (for example, `https://my-tenant.api.us.context.cloud.sap`)
+- `profileTagLoadUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
+- `profileTagConfigUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
+
+After you have provided this information, the schematics configure the Context-Driven Services integration for Spartacus.
+
+If you do not wish to use the schematics, you can create the Context-Driven Services module manually and import it into your application, as shown in the following example:
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -111,11 +117,10 @@ import { provideConfig } from '@spartacus/core';
 export class CdsFeatureModule {}
 ```
 
-
 The following is a summary of the parameters of the `CdsModule`:
 
 - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
-- **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment. In particular, replace `my-tenant` with your actual CDS tenant ID, and also replace `.us` with `.eu` if you are working with the EU environment of CDS.
+- **baseUrl:** Replace the value shown in the example with the base URL of your Context-Driven Services environment. In particular, replace `my-tenant` with your actual Context-Driven Services tenant ID, and also replace `.us` with `.eu` if you are working with the EU environment of Context-Driven Services.
 - **strategyProducts:** Set this value as shown in the example.
 - **defaultCarouselViewportThreshold:** With Commerce Cloud 1905.14 or newer, you can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Context-Driven Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.
 - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
