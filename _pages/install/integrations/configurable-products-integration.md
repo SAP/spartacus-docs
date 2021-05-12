@@ -143,7 +143,6 @@ The following features are currently not supported (or in some cases, not fully 
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
 
-
 ### Save for Later and Selective Cart
 
 This feature is currently not supported. To prevent the button from showing, you should remove the relevant view (disable selective cart), as follows:
@@ -188,7 +187,7 @@ Cart validation is currently not supported, although you can implement your own 
 
 1. Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one.
 
-1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`
+1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`.
 
 1. Introduce a component member.
 
@@ -205,6 +204,8 @@ Cart validation is currently not supported, although you can implement your own 
 1. Make use of this member in the component template.
 
     The following is an example:
+
+    {% raw %}
 
     ```ts
     <ng-container *ngIf="cart$ | async as cart">
@@ -226,6 +227,8 @@ Cart validation is currently not supported, although you can implement your own 
     </ng-container>
     ```
 
+    {% endraw %}
+
 #### Configuring SAP Commerce 2005 for Cart Validation
 
 **Note:** If you use SAP Commerce 2011, the following steps are not necessary.
@@ -242,7 +245,7 @@ In your spring configuration, ensure that the `commerceWebServicesCartService` b
 </bean>
 ```
 
-Note that it will guarantee that the order is validated for product configuration issues before an order is submitted, but it will not ensure that the error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
+Note that this adjustment will guarantee that order are validated for product configuration issues before they are submitted, but it will not ensure that any error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
 
 ### Commerce Business Rules in Combination with Configurable Products
 
