@@ -42,9 +42,11 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
 ## Release Date Notes
+
 3.3 released! See [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
 As of May 14, current plans are:
+
 - 3.4: Early June
   - Cart API refactoring and usage improvements
 - 4.0 (new major): End of June
@@ -55,6 +57,7 @@ As of May 14, current plans are:
 - 4.x: Every 6 weeks, new releases with new features end of Q2 and into Q3
 
 ### Q3 2021
+
 - **Code splitting for cart**
 - **B2B Inventory Display** - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 - **B2B Import Products to Saved Cart** and **Export from Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
@@ -91,4 +94,3 @@ The items in this section are planned for the future but do not yet have a speci
 - **B2B Account Summary** (requires API update not yet planned) for Commerce Org
 - **Site map**
 - **Extensibility 2.0** - finer-grained extensibility
- 
