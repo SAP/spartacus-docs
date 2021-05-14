@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 3.2.0 final published April 15, 2021**
+**Latest news: 3.3.0 final published May 13, 2021**
 
-*Last updated April 15, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated May 12, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -17,7 +17,7 @@ title: Release Information for All Versions of Spartacus Libraries
 
 ## Introduction
 
-This document describes what is included in all Spartacus libraries since the initial 1.0 release, up to 3.2.
+This document describes what is included in all Spartacus libraries since the initial 1.0 release.
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
@@ -31,23 +31,81 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
   
+## Release 3.3
+
+*Release 3.3 libraries published May 12, 2021*
+
+### SAP CPQ Integration for Configurable Products
+
+- Bundling and guided-selling scenarios where the bundle in Commerce contains simple (non-configurable) products. The dependencies within this bundle are controlled by the underlying CPQ configurable product
+- Single-level configurable products in your Commerce Spartacus storefront where the product model resides in SAP CPQ
+- Configuration page with the most commonly used attribute types, especially attributes with values that are linked to a (non-configurable) product. Attribute types with quantity on attribute or attribute value level are supported
+- Price summary at the bottom of the configuration page with the base price, the price of the selected options, and the overall total price of the configured product
+- Overview page with all user selections accessible at any time during configuration
+- Configurable bundles are part of storefront processes such as catalog browsing, product detail page, add to cart, checkout, and order history
+- For underlying functionality in detail and for features that are currently not supported, see [CPQ Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/cpq-configurable-products-integration.md %})
+
 ## Release 3.2
 
 *Release 3.2 libraries published April 15, 2021*
 
-- The default behavior for schematics has been changed and Spartacus is now installed with a new app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %})
-- Tag Manager framework with support for Google and Adobe tag systems, and Google Analytics [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %})
-- New events for Event Service: Search suggestion clicked, facet changed in search/category results, context change (language/currency) [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %})
-- B2B Bulk Pricing [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/bulk-pricing.md %})
-- Saved Carts [(documentation)]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %})
-- New popover text component [(documentation)]({{ site.baseurl }}{% link _pages/dev/components/shared-components/popover-component.md %})
-- HTML tags [(documentation)]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
-- General improvements to B2B Commerce Organization user experience
-- Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
-- New module initialization functionality for lazy-loaded features [(documentation)]({{ site.baseurl }}/lazy-loading-guide/#initializing-lazy-loaded-modules)
-- An official release of the SAP Customer Data Cloud integration library is now available [(documentation)]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
-- Dynamic configuration with support for site themes [(documentation)]({{ site.baseurl }}/automatic-context-configuration/#theme-configuration)
-- Bug fixes
+### Schematics Behavior Updated
+
+The default behavior for schematics has been changed and Spartacus is now installed with a new app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %})
+
+### Tag Manager framework
+
+[(Documentation)]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %})
+New Tag Manager framework with support for Google and Adobe tag systems, and Google Analytics 
+
+### New events for Event Service
+
+[(documentation)]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %})
+
+- Search suggestion clicked
+- Facet changed in search/category results
+- Context change (language/currency)
+
+### B2B Bulk Pricing
+
+[(Documentation)]({{ site.baseurl }}{% link _pages/dev/features/bulk-pricing.md %})
+
+### Saved Carts
+
+[(Documentation)]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %})
+
+### New popover text component
+
+[(Documentation)]({{ site.baseurl }}{% link _pages/dev/components/shared-components/popover-component.md %})
+
+### HTML tags
+
+[(Documentation)]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
+
+### General improvements to B2B Commerce Organization user experience
+
+### Code splitting for performance improvements
+
+Code splitting continues with new libraries for SmartEdit, Events, Tag Management, and saved carts - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
+
+### New module initialization functionality for lazy-loaded features
+
+[(Documentation)]({{ site.baseurl }}/lazy-loading-guide/#initializing-lazy-loaded-modules)
+
+### SAP Customer Data Cloud
+
+[(Documentation)]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
+Official release of the SAP Customer Data Cloud integration library.
+
+### Dynamic configuration with support for site themes
+
+[(Documentation)]({{ site.baseurl }}/automatic-context-configuration/#theme-configuration)
+
+### Bug fixes
+
+See [Commit Release Notes](https://github.com/SAP/spartacus/releases)
+
+### Updates to documentation
 
 Updates to documentation have been published for all topics, with additional updates to:
 
@@ -63,7 +121,7 @@ Updates to documentation have been published for all topics, with additional upd
 - Qualtrics Embedded Feedback
 - New Events
 - Performance Improvements with Code Splitting
- 
+
 ### SAP Variant Configuration and Pricing
 
 We're happy to announce that the Spartacus library for SAP Variant Configuration and Pricing has been released. This library provides the following features:
@@ -98,7 +156,6 @@ Events now triggered when a customer logs in or logs out. For more information, 
 ### Performance Improvements with Code Splitting / Lazy Loading
 
 The Spartacus code-based is being separated out into modules for better performance. The 3.1 release includes new libraries for Qualtrics and Variant Configuration. More modules will be split out in future releases. For more information, see [Lazy-Loaded CMS Components]({{ site.baseurl }}/customizing-cms-components/#lazy-loaded-cms-components-code-splitting).
-  
   
 ## Release 3.0
 
@@ -270,7 +327,8 @@ What's new?
 To update to 1.2.0, you must change your libraries in `package.json` and and dependencies inside `app.module.ts`. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 - To use 1.2 features, add these to `B2cStorefrontModule.withConfig({`
-    ```
+
+    ```ts
     features: {
         level: '1.2',
         consignmentTracking: true,
