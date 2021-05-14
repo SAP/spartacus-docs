@@ -2,9 +2,13 @@
 title: End-to-End Test Guidelines
 ---
 
-## Tests for desktop and mobile
+It is a good practice to write end-to-end tests for both desktop and mobile experiences. By using the `viewportContext()` and `cy.onMobile()` utils, you can avoid having to write duplicate code for both the mobile and desktop tests.
 
-It's a good practice to e2e test both desktop and mobile experience. There is no need to write duplicate code for mobile and desktop tests, since the following utils were introduced: `viewportContext()` and `cy.onMobile()`. The `viewportContext()` allows for easy running the same e2e tests for the given list of viewports: both [`'desktop', 'mobile']` or only `['mobile']` or only `['desktop']`. Moreover, if some part of the test is specific only to mobile, it can be wrapped inside a callback passed to the util function `cy.onMobile()`. Analogically, part of the test that is specific only to desktop, should be wrapped in `cy.onDesktop()` See example:
+The `viewportContext()` allows you to easily run the same e2e tests for a given set of viewports, whether it is both viewports (`['desktop', 'mobile']`), only `['mobile']`, or only `['desktop']`.
+
+Furthermore, if a part of a test is specific only to the mobile experience, you can wrap it inside a callback that is passed to the `cy.onMobile()` util function. And of course, the same can be done for the desktop experience with the `cy.onDesktop()` util function.
+
+The following is an example
 
 ```typescript
 describe('Added to cart modal', () => {
@@ -23,9 +27,9 @@ describe('Added to cart modal', () => {
 });
 ```
 
-### Debugging for only one viewport
+## Debugging for Only One Viewport
 
-For debugging purposes you might want to temporarily specify the only one viewport that should be used to run the tests. Then there is no need to modify the code of the tests. It suffices to set the Cypress env variable `'VIEWPORT'` in the appropriate `cypress.<...>.json` file. For example:
+For debugging purposes, you might want to temporarily use only one viewport to run your e2e tests. In this case, you just need to set the Cypress `'VIEWPORT'` env variable in the appropriate `cypress.<...>.json` file, as shown in the following example:
 
 ```json
 {
