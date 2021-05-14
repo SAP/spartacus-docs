@@ -570,6 +570,8 @@ docs:
             subchildren:
               - title: "Accessibility E2E Tests"
                 url: /a11y-e2e-tests/
+              - title: "End-to-End Test Guidelines"
+                url: /e2e-guidelines/
               - title: "Maintaining Public APIs"
                 url: /breaking-changes/
               - title: "Updating Schematics"

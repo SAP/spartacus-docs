@@ -26,13 +26,22 @@ All new features for Spartacus must:
 
 - If applicable, function on Android and iOS devices. For more information, see [Device Compatibility](#device-compatibility).
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Coding guidelines
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.
 
 ## TL;DR
 
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit and e2e tests, and so on.
+You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit tests and end-to-end tests, and so on.
 
 ## Code Standards
 
@@ -111,6 +120,34 @@ yarn test:core:lib
 
 The coverage report can be found in `./coverage/index.html`.
 
+## End-To-End Tests
+
+All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing.
+
+When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
+
+All newly written end-to-end tests must be reviewed, updated, or reused. They should also follow the [End-to-End Test Guidelines]({{ site.baseurl }}{% link _pages/contributing/e2e-guidelines.md %}).
+
+Run the following commands to perform end-to-end tests:
+
+```bash
+yarn e2e:cy:run # smoke tests
+yarn e2e:cy:run:mobile # mobile tests
+yarn e2e:cy:run:regression # regression tests
+```
+
+**Note:** Before running the end-to-end tests, make sure to install dependencies in `projects/storefrontapp-e2e-cypress`, and ensure the application is running.
+
+The objective of end-to-end tests is to make sure your feature works. For example, if you are implementing a simple login screen with two buttons (such as the `Login` and `Cancel` buttons), you could write the following tests:
+
+- Log in with valid credentials
+
+- Attempt to log in with invalid credentials
+
+- Fill in the input fields, then click on the `Cancel` button.
+
+**Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
+
 ## Accessibility
 
 The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
@@ -138,34 +175,6 @@ New features must be compatible with Safari on iOS, and Chrome on Android, and m
 **Note:** Phones and tablets should be running on the latest versions of their respective operating systems.
 
 If devices are not available, simulations with browser tools should be used instead.  
-
-## End-To-End Tests are Passing
-
-All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing.
-
-When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
-
-All newly written end-to-end tests must be reviewed, updated, or reused.
-
-Run the following commands to perform end-to-end tests:
-
-```bash
-yarn e2e:cy:run # smoke tests
-yarn e2e:cy:run:mobile # mobile tests
-yarn e2e:cy:run:regression # regression tests
-```
-
-**Note:** Before running the end-to-end tests, make sure to install dependencies in `projects/storefrontapp-e2e-cypress`, and ensure the application is running.
-
-The objective of end-to-end tests is to make sure your feature works. For example, if you are implementing a simple login screen with two buttons (such as the `Login` and `Cancel` buttons), you could write the following tests:
-
-- Log in with valid credentials
-
-- Attempt to log in with invalid credentials
-
-- Fill in the input fields, then click on the `Cancel` button.
-
-**Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
 
 ## The Library Builds Without Errors
 
