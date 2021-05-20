@@ -35,28 +35,6 @@ Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more i
 
 To enable Context-Driven Services in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
 
-### Configuring the Back End for Context-Driven Services
-
-The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.
-
-1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.commercewebservices.allowedHeaders`.
-
-    If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
-
-    **Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
-
-    For more information, see [Configuring CORS]({{ site.baseurl }}/installing-sap-commerce-cloud/#configuring-cors).
-
-2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.
-
-    You can define the consent template by importing the following ImpEx:
-
-    ```sql
-    $lang=en
-    INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=$lang];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,    default=electronics-spa];exposed
-    ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
-    ```
-
 ### Configuring Spartacus for Context-Driven Services
 
 If you are using Spartacus 3.2 or newer, you can install and configure the Context-Driven Services integration using Spartacus schematics. If you are using an older version of Spartacus, see [Configuring Spartacus for Context-Driven Services](https://sap.github.io/spartacus-docs/2.x/cds-integration/#configuring-spartacus-for-context-driven-services) in our archived documentation.
@@ -127,6 +105,28 @@ The following is a summary of the parameters of the `CdsModule`:
 - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
 - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
 - **gtmId:** This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see [Profile Tag](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html) on the SAP Help Portal.
+
+### Configuring the Back End for Context-Driven Services
+
+The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.
+
+1. Add the `x-profile-tag-debug` and `x-consent-reference` custom headers to `corsfilter.commercewebservices.allowedHeaders`.
+
+    If you are using the Assisted Service Module, add these custom headers to `corsfilter.assistedservicewebservices.allowedHeaders` as well.
+
+    **Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
+
+    For more information, see [Configuring CORS]({{ site.baseurl }}/installing-sap-commerce-cloud/#configuring-cors).
+
+2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.
+
+    You can define the consent template by importing the following ImpEx:
+
+    ```sql
+    $lang=en
+    INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=$lang];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,    default=electronics-spa];exposed
+    ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
+    ```
 
 ## Profile Tag
 
