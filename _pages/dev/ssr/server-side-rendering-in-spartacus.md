@@ -4,6 +4,15 @@ title: Server-Side Rendering
 
 In Spartacus, server-side rendering allows you to render static versions of pages on the server side. This speeds up response times, assists with SEO, and allows the application to render more quickly. After Angular has bootstrapped, users of your site will have the full experience.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Adding SSR Support Using Schematics (Recommended)
 
 The recommended way to add SSR support to your Spartacus application is to use schematics. With a single command, all required files are added automatically, and all modifications for SSR support are done automatically as well. To add SSR support to your Spartacus application, run the following command:
@@ -12,11 +21,11 @@ The recommended way to add SSR support to your Spartacus application is to use s
 ng add @spartacus/schematics --ssr
 ```
 
-The steps executed by this command are described in more detail in the following sections.
+You have now added SSR support to your Spartacus application. No further steps are required.
 
 ## Adding SSR Support Manually
 
-The following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
+For most situations and setups, is is best to add SSR support to your Spartacus application using schematics, as described in the previous section. However, if you are unable to add SSR support using schematics, the following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
 
 1. Add the following dependencies to `package.json`:
 
@@ -73,10 +82,10 @@ The following steps describe how to manually add SSR support so that your Sparta
     ```
     and add `BrowserTransferStateModule` to `imports`.
 
-1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BASE_URL` with the URL of your back end instance, as follows:
+1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BACKEND_BASE_URL_VALUE` with the URL of your back end instance, as follows:
 
     ```html
-    <meta name="occ-backend-base-url" content="OCC_BASE_URL" />
+    <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
     ```
 
 1. In `projects.<your-project-name>.architect.build.options` change following line:
@@ -213,7 +222,7 @@ The following steps describe how to manually add SSR support so that your Sparta
     export class AppServerModule {}
     ```
 
-    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering](https://sap.github.io/spartacus-docs/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
+    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
 
 1. Add the `server.ts` file to your existing shell app. The following is an example:
 
@@ -303,9 +312,11 @@ The following steps describe how to manually add SSR support so that your Sparta
     npm run build:ssr && npm run serve:ssr
     ```
 
-## Installation Steps for Spartacus Development
+## Installation Steps for Internal Spartacus Development
 
-If you are involved in Spartacus internal development, or wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.
+If you are involved in Spartacus internal development (for example, if you are contributing to the Spartacus core libraries), or if you wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.
+
+**Note:** You do not need to follow the steps in this section if your intention is to add SSR support to your Spartacus application. You can do that simply by running the schematics command, as described in [Adding SSR Support Using Schematics (Recommended)](#adding-ssr-support-using-schematics-recommended).
 
 1. Set the production server endpoint in your `environment.prod.ts` (dev mode) or `app.module.ts` (shell app mode), as follows:
 

@@ -20,6 +20,15 @@ In future releases of Spartacus, more top-level exports will be added, which wil
 
 For more information about type augmentation in general, see [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) in the TypeScript documentation.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Exporting Type for Augmentation
 
 The models that are most frequently customized are currently placed in `@spartacus/core`. The following is an example of module augmentation on the `CostCenter` model that is used in B2B Checkout:
@@ -95,3 +104,29 @@ import './cost-center.model';
 After that, anyone can safely use the new properties in the `@spartacus/organization` library, as well as in the app build that is based on this library. You can also augment the module in the app with your own properties. All these declarations are combined together, and in your application, you can use all the properties that are declared in `@spartacus/core`, `@spartacus/organization`, and in your module augmentation.
 
 **Note:** In each module augmentation declaration, you use the module name of the library that exposes the base type.
+
+## Augmenting Enums
+
+All of the examples above describe how to augment interfaces, but you can augment `enum` as well. In most cases, you use `const enum` to augment enum values. The following is an example:
+
+```ts
+declare module '@spartacus/core' {
+  const enum ProductScope {
+    BULK_PRICING = 'bulkPricing',
+  }
+}
+```
+
+The only times when you do not want to use `const enum` are when you are enumerating over enum values, or when you are dynamically assigning the enum value, such as when you map a property from a back end response to an enum value. In these cases, you augment `enum` instead of `const enum`.
+
+When you augment `const enum`, the values are inlined during the TypeScript compilation, but when you augment `enum`, you need to explicitly provide a value for the underlying object, as well as the type. The following is an example:
+
+```ts
+declare module '@spartacus/core' {
+  enum ProductScope {
+    BULK_PRICING = 'bulkPricing',
+  }
+}
+
+(ProductScope as any)['BULK_PRICING'] = 'bulkPricing';
+```

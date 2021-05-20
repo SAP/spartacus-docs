@@ -6,10 +6,14 @@ This document describes what is included in the latest pre-release of Spartacus 
 
 - For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
+  
+## Next release (after 3.2)
 
-## Pre-Release Libraries for 3.0.0 and earlier
+- Watch our Slack channel for announcements
+  
+## Pre-Release Libraries for 3.2 and Earlier
 
-Pre-release libraries are no longer published for versions 3.0.0 and earlier, as the final releases of these libraries were published. Pre-release libraries are still available but the final versions should be used. New pre-release libraries will be published as needed for 3.1, 3.2, and so on.
+Pre-release libraries are no longer published for libraries that are officially released. Pre-release libraries are still available but the final versions should be used. New pre-release libraries will be published as needed for future releases.
 
 ## Customer Data Cloud Pre-Release
 

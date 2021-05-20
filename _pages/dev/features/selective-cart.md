@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Selective Cart feature (also known as "save for later") allows customers to select which items in the cart they wish to purchase, and to leave other items in the cart for future consideration. This improves the shopping experience and increases the conversion rate.
 
 ## Requirements

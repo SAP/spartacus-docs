@@ -2,9 +2,16 @@
 title: Extending Checkout
 ---
 
-## Overview
-
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Routing and Configuration
 
@@ -88,7 +95,7 @@ Also, the order of the steps in the `steps` array determines which steps are "pr
 
 ## Components
 
-Every checkout component is a CMS component. Furthermore, in the default checkout, all components are [CMSFlexComponents](https://sap.github.io/spartacus-docs/customizing-cms-components/#placeholder-components). Compared to other CMS components, these components have more guards defined in the configuration, but are otherwise identical to regular CMS components.
+Every checkout component is a CMS component. Furthermore, in the default checkout, all components are [CMSFlexComponents]({{ site.baseurl }}/customizing-cms-components/#placeholder-components). Compared to other CMS components, these components have more guards defined in the configuration, but are otherwise identical to regular CMS components.
 
 ## Protecting Routes
 

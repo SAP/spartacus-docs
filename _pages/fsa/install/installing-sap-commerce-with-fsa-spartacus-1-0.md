@@ -1,32 +1,42 @@
 ---
-title: Installing SAP Commerce Cloud FSA for Use with FSA Spartacus 1.0
+title: Installing SAP Commerce Cloud for Use with FSA Spartacus 1.0
 ---
 
-## Overview
 The following instructions describe how to install and configure SAP Commerce (release 2005, patch 5) with Financial Services Accelerator (release 2008, latest patch) for use with FSA Spartacus storefront. In these instructions, SAP Commerce and Financial Services Accelerator are installed on your local computer, so localhost is used in the browser URLs.
 
-The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module. 
+The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Installation and Configuration Instructions
 
 Summary:
+
 - [Step 1: Setting up SAP Commerce with Financial Services Accelerator](#step-1setting-up-sap-commerce-with-financial-services-accelerator)
 - [Step 2: Configuring OCC credentials](#step-2-configuring-occ-credentials)
 - [Step 3: Configuring CORS](#step-3-configuring-cors)
 - [Step 4: Update system and user credentials (optional)](#step-4-update-system-and-user-credentials-optional)
 
-## Step 1: Setting up SAP Commerce with Financial Services Accelerator
+## Step 1: Setting up SAP Commerce with Financial Services Accelerator
 
-
-Some of the steps in this procedure are derived from the documentation for installing SAP Commerce using recipes. For more information, see <a href="https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/2011/en-US/8c46c266866910149666a0fe4caeee4e.html" target="_blank">Installing SAP Commerce Using Installer Recipes in the SAP Help Portal</a>.
+Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/2011/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
 
 1. Unzip the SAP Commerce and Financial Services Accelerator zip archives.
-**Note**: Use the SAP Commerce version 2005.5 and the latest patch of Financial Services Accelerator version 2008.
 
-1. In the "sap-commerce-folder/installer/recipes" folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
-**Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
+   **Note**: Use the SAP Commerce version 2005.5 and the latest patch of Financial Services Accelerator version 2008.
 
-1. In financial_spa, the build.gradle file should have the following content:
+1. In the "sap-commerce-folder/installer/recipes" folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
+
+   **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
+
+1. In financial_spa, the build.gradle file should have the following content:
 
     ```typescript
     apply plugin: 'installer-platform-plugin'
@@ -127,17 +137,20 @@ Some of the steps in this procedure are derived from the documentation for insta
 
     ```
 
-    **Note**: The FSA Spartacus Sample Data store extension (financialspastore) is already in the list of extensions for both financial_spa and financial_spa_integrations recipes.
+    **Note**: The FSA Spartacus Sample Data store extension (financialspastore) is already in the list of extensions for both financial_spa and financial_spa_integrations recipes.
 
-1. Open a terminal or command prompt window inside the "sap-commerce-folder/installer" folder.
+1. Open a terminal or command prompt window inside the "sap-commerce-folder/installer" folder.
 
 1. Set up the recipe using the following commands.
 
     For Unix:
+
     ```typescript
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
+
     For Windows:
+
     ```typescript
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
@@ -145,55 +158,64 @@ Some of the steps in this procedure are derived from the documentation for insta
 1. Initialize the system using the following commands.
 
     For Unix:
+
     ```typescript
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
+
     For Windows:
+
     ```typescript
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
-1. Start SAP Commerce with the following command. From the sap-commerce-folder>/installer folder, run the following commands.
+1. Start SAP Commerce running the following commands from the sap-commerce-folder>/installer folder.
 
     For Unix:
+
     ```typescript
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
+
     For Windows:
+
     ```typescript
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
 1. Verify that SAP Commerce Cloud is working. To do this, you can:
 
-    - Display the Admin Console: <a href="https://localhost:9002" target="_blank">https://localhost:9002</a> or
-    - Display the Backoffice: <a href="https://localhost:9002/backoffice" target="_blank">https://localhost:9002/backoffice</a> (note that starting the Backoffice for the first time can take 15-20 seconds).
+    - Display the Admin Console: [https://localhost:9002](https://localhost:9002)
+    - Display the Backoffice: [https://localhost:9002/backoffice](https://localhost:9002/backoffice) (note that starting the Backoffice for the first time can take 15-20 seconds).
 
 1. Verify that the FSA Spartacus versions of the sample store were created:
     - Display the Backoffice or
-    - Go to WCMS > Website. You should see the financial sample store.
+    - Go to **WCMS** > **Website**. You should see the financial sample store.
 
 ## Step 2: Configuring OCC credentials
 
 FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.
 
-1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: <a href="https://localhost:9002" target="_blank">https://localhost:9002</a>.
-1. Point to the Console tab, then click Impex Import.
-1. Copy-paste the following code into the Import content field.
-git push --set-upstream origin doc/GH-911
-```sql
-INSERT_UPDATE OAuthClientDetails;   clientId[unique=true];  resourceIds     ;scope;     authorizedGrantTypes         ;authorities             ;clientSecret    ;registeredRedirectUri
-;client-side              ;hybris            ;basic        ;implicit,client_credentials                                     ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_implicit_callback;
-;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
-```
-**Note**: The values for the client ID and the password are just samples. You can use different values for your production environments.
+1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: [https://localhost:9002](https://localhost:9002/backoffice).
+2. Navigate to the **Console** tab, then click **Impex Import**.
+3. Copy the following code into the **Import content** field.
 
-4. Click the **Import content** button. You have now added a client ID and password to your FSA Spartacus storefront configuration.
+    ```sql
+    INSERT_UPDATE OAuthClientDetails;   clientId[unique=true];  resourceIds     ;scope;     authorizedGrantTypes         ;authorities             ;clientSecret    ;registeredRedirectUri
+   ;client-side              ;hybris            ;basic        ;implicit,client_credentials                                     ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_implicit_callback;
+   ;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
+    ```
+
+   **Note**: The values for the client ID and the password are just samples. You can use different values for your production environments.
+
+4. Click **Import content**. You have now added a client ID and password to your FSA Spartacus storefront configuration.
 
 You can verify that the OAuth client has been successfully defined by entering the following curl command in a terminal or command prompt window:
+
 ```typescript
 curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
 ```
+
 The curl command sends a POST request for an access token, using the client ID and password that you added to the backend. The command should return something similar to the following:
 
 ```typescript
@@ -204,11 +226,12 @@ The curl command sends a POST request for an access token, using the client ID a
   "scope" : "basic openid"
 }
 ```
+
 ## Step 3: Configuring CORS
 
 CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain FSA Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
-To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the local.properties file of your config folder):
+To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the local.properties file of your config folder):
 
 ```typescript
 corsfilter.commercewebservices.allowedOrigins=http://localhost:4200
@@ -222,17 +245,17 @@ corsfilter.acceleratorservices.allowedHeaders=origin content-type accept authori
 corsfilter.acceleratorservices.exposedHeaders=x-anonymous-consents
 ```
 
-**Note**: The x-anonymous-consents custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see <a href="https://sap.github.io/spartacus-docs/anonymous-consent/" target="_blank">Anonymous Consent</a>.
+**Note**: The x-anonymous-consents custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 ## Step 4: Update system and user credentials (optional)
+
 As you are using SAP Commerce Cloud 2005, you may need to enable users and passwords for certain functionalities to work.
 
-See <a href="https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html" target="_blank">this help topic</a> for more information.
+For more information, see [Setting Passwords for Default Users](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html).
 
-**All Done!
-You can now start FSA Spartacus! **
+**All Done! You can now start FSA Spartacus!**
 
-After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See Building the FSA Spartacus Storefront Using 1.0 Libraries for more information.
+After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building FSA Spartacus storefront from 1.0 libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries-1-0.md %}) for more information.
 
 ## Alternate Method for Setting the SAP Commerce Admin Password
 
@@ -245,15 +268,16 @@ Instead of including the admin password in every install command, you can create
 Next time you run the recipe install command, the settings inside custom.properties will be used to build the `local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
 
 ## CORS Settings
+
 - CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator reviews these settings to suit your requirements, as the sample properties should not be used for production servers.
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 - You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
-- For information on Spartacus and CORS settings, see <a href="https://sap.github.io/spartacus-docs/cors/" target="_blank">this help topic</a>.
-- Several other Spartacus features also require additional CORS settings. For more information about CORS, see the <a href="https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html" target="_blank">ycommercewebservices Extension</a> in the SAP Help Portal.
+- For information on Spartacus and CORS settings, see [Cross-Origin Resource Sharing]({{ site.baseurl }}{% link _pages/install/cors.md %}).
+- Several other Spartacus features also require additional CORS settings. For more information about CORS, see the [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) on the SAP Help Portal.
 
 ## Troubleshooting
 
-**Failure at the Payment Step in the Checkout**
+### Failure at the Payment Step in the Checkout
 
 You may encounter the following error message:
 
@@ -263,4 +287,4 @@ POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 
 This issue is caused due to an incorrect configuration of the sop.post.url property.
 
-Make sure that this property is set to sop.post.url=<a href="https://localhost:9002/acceleratorservices/sop-mock/process" target="_blank">https://localhost:9002/acceleratorservices/sop-mock/process</a>.
+Make sure that this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.

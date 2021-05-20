@@ -8,15 +8,18 @@ title: Cart
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
+The cart works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage-based charges.   Amongst various charges, for the cart, Customers need to be aware of the pay now charges upon checkout as well as the monthly recurring charge commitment.
 
-- [Overview](#overview)
-- [Components](#components)
-- [Further Reading](#further-reading)
+**Note:**  With TUA Spartacus 3.0, the cart will leverage the [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2102/en-US/33005fa795d2425282ffe769737e27e7.html).
 
-## Overview
+***
 
-The cart works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage-based charges.   Amongst various charges, for the cart, Customers need to be aware of the pay now charges upon checkout as well as the monthly recurring charge commitment. 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Components
 

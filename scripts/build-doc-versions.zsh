@@ -32,7 +32,7 @@ build_dir="/tmp/$v-build_$last_SHA"
 echo $build_dir
 
 echo "Checking out $v branch"
-git checkout stable/$v
+git checkout version/$v
 
 # Create a configuration file that sets a new baseurl based on version
 echo "baseurl : /spartacus-docs/$v" > _config.$v.yml

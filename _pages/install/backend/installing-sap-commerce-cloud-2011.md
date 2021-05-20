@@ -4,9 +4,18 @@ title: Installing SAP Commerce Cloud 2011 for use with Spartacus
 
 The following instructions describe how to install and configure SAP Commerce Cloud release 2011 for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Important Disclaimers
 
-- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill orders with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/latest/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information and for a sample impex that enables such users.
+- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill orders with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/latest/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information and for a sample ImpEx that enables such users.
 
 - Starting with release 1905, SAP Commerce Cloud releases ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contain the default password `nimba`; we strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
 
@@ -121,7 +130,7 @@ See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1
   
 ### All Done
 
-You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 ## Notes
 
@@ -159,13 +168,14 @@ The following table summarizes the settings included in this file:
 
 ### Sample OCC credentials
 
-- By default, SAP Commerce Cloud successfully replies to OCC REST API calls that do not require authentication. For example, you can do the following:
-  - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
-  - Display information about the `Electronics` base store: https://localhost:9002/rest/v2/electronics/basestores/electronics
+By default, SAP Commerce Cloud successfully replies to OCC REST API calls that do not require authentication. For example, you can do the following:
+
+- Display Open API documentation: https://localhost:9002/occ/v2/swagger-ui.html
+- Display information about the `Electronics` base store: https://localhost:9002/occ/v2/electronics/basestores/electronics
 
 To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end.
 
-- When you import the OCC credentials impex, you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
+- When you import the OCC credentials ImpEx, you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
 - For more information on this topic, see [this help topic](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html).
 
 ### CORS Settings

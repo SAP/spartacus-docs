@@ -6,7 +6,8 @@ feature:
   cx_version: n/a
 - name: Image Lazy Loading
   spa_version: 3.0
-  cx_version: n/a  
+  cx_version: n/a
+  anchor: "#image-lazy-loading"
 ---
 
 {% capture version_note %}
@@ -20,6 +21,15 @@ The media component is a low-level component that is used to render a single med
 There are two main types of images that are rendered in Spartacus: product images and content images. Both types use the same technical implementation, but the semantics of the content is slightly different for each.
 
 **Note:** Icons are a special type of image and are not rendered with the media component. For more information, see [Icon Library]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %}).
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Responsive Media
 
@@ -94,7 +104,7 @@ Whenever a media item is unavailable, the `img` element is not written in the D
 
 If no matching image format is available in the media container, nor in the media configuration, Spartacus takes a random image from the container. This might not be an accurate format, but at least it helps to show content.
 
-## Lazy Loading
+## Image Lazy Loading
 
 {% capture version_note %}
 {{ site.version_note_part1 }} 3.0 {{ site.version_note_part2 }}
@@ -127,6 +137,6 @@ For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/de
 To ensure that crawlers get an optimized image from the `img` element, the main `src` of the `img` element is provided with the
 largest image available. This is done in `MediaService.resolveBestFormat()`, and you can further customize this behavior if needed.
 
-Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [Page Meta Resolvers](https://sap.github.io/spartacus-docs/seo-capabilities/#page-meta-resolvers) and [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [Page Meta Resolvers]({{ site.baseurl }}/seo-capabilities/#page-meta-resolvers) and [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 Another important aspect for SEO is the usage of the alternative (`alt`) text for images. The `alt` text is automatically selected by the `MediaService` if it is available in the media container data. However, you can also input a custom `alt` text through the component input.

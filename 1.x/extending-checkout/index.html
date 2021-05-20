@@ -131,7 +131,7 @@
             </li><li class="masthead__menu-item">
               <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
             </li><li class="masthead__menu-item">
-              <a href="https://stackoverflow.com/questions/tagged/spartacus-storefront" >Support</a>
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
             </li><li class="masthead__menu-item">
               <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
             </li></ul>
@@ -351,6 +351,19 @@
             
 
             <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
  
               
 
@@ -647,10 +660,6 @@
               
                 <ul>
                   
-                    
-
-                     
-                   
                     
 
                      
@@ -1500,12 +1509,12 @@
 <span class="p">@</span><span class="nd">Injectable</span><span class="p">({</span>
   <span class="na">providedIn</span><span class="p">:</span> <span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">,</span>
 <span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">ExpressCheckoutGuard</span> <span class="kr">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ExpressCheckoutGuard</span> <span class="k">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
   <span class="kd">constructor</span><span class="p">(</span>
-    <span class="kr">private</span> <span class="nx">router</span><span class="p">:</span> <span class="nx">Router</span><span class="p">,</span>
-    <span class="kr">private</span> <span class="nx">config</span><span class="p">:</span> <span class="nx">CheckoutConfig</span><span class="p">,</span>
-    <span class="kr">private</span> <span class="nx">routingConfigService</span><span class="p">:</span> <span class="nx">RoutingConfigService</span><span class="p">,</span>
-    <span class="kr">private</span> <span class="nx">checkoutConfigService</span><span class="p">:</span> <span class="nx">CheckoutConfigService</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">router</span><span class="p">:</span> <span class="nx">Router</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">config</span><span class="p">:</span> <span class="nx">CheckoutConfig</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">routingConfigService</span><span class="p">:</span> <span class="nx">RoutingConfigService</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">checkoutConfigService</span><span class="p">:</span> <span class="nx">CheckoutConfigService</span><span class="p">,</span>
   <span class="p">)</span> <span class="p">{}</span>
 
   <span class="nx">canActivate</span><span class="p">(</span><span class="nx">route</span><span class="p">:</span> <span class="nx">ActivatedRouteSnapshot</span><span class="p">):</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">boolean</span> <span class="o">|</span> <span class="nx">UrlTree</span><span class="o">&gt;</span> <span class="p">{</span>

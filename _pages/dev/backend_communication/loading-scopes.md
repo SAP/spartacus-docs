@@ -1,5 +1,5 @@
 ---
-title: Using Loading Scopes
+title: Loading Scopes
 feature:
 - name: Loading Scopes
   spa_version: 1.4
@@ -12,10 +12,18 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Product data payload is usually huge and required in multiple places, like the Product Detail Page, items in Product Carousels, etc. 
-Not all places need complete product payload, breaking product payload into pieces (called scopes), allows to specify which part of the payload is actually needed in a specific case.
+Product data payload is usually huge and required in multiple places, like the Product Detail Page, items in Product Carousels, etc. Not all places need complete product payload, breaking product payload into pieces (called scopes), allows to specify which part of the payload is actually needed in a specific case.
 
-Currently, Spartacus supports scopes for loading product data. 
+Currently, Spartacus supports scopes for loading product data.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Using default Product Scopes
 

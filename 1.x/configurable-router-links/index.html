@@ -131,7 +131,7 @@
             </li><li class="masthead__menu-item">
               <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
             </li><li class="masthead__menu-item">
-              <a href="https://stackoverflow.com/questions/tagged/spartacus-storefront" >Support</a>
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
             </li><li class="masthead__menu-item">
               <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
             </li></ul>
@@ -351,6 +351,19 @@
             
 
             <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
  
               
 
@@ -647,10 +660,6 @@
               
                 <ul>
                   
-                    
-
-                     
-                   
                     
 
                      
@@ -1478,7 +1487,7 @@
 
 <h3 id="simply-generation-of-the-path">Simply generation of the path</h3>
 
-<p>The <code class="language-plaintext highlighter-rouge">UrlService.generateUrl</code> method called with <code class="language-plaintext highlighter-rouge">{ cxRoute: &lt;route&gt; }</code> returns the generated path (just like <code class="language-plaintext highlighter-rouge">cxUrl</code> pipe in HTML templates). For example:</p>
+<p>The <code class="language-plaintext highlighter-rouge">SemanticPathService.transform</code> method called with <code class="language-plaintext highlighter-rouge">{ cxRoute: &lt;route&gt; }</code> returns the generated path (just like <code class="language-plaintext highlighter-rouge">cxUrl</code> pipe in HTML templates). For example:</p>
 
 <p>When config is:</p>
 
@@ -1491,7 +1500,7 @@
 <span class="p">})</span>
 </code></pre></div></div>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">urlService</span><span class="p">.</span><span class="nx">generateUrl</span><span class="p">({</span> <span class="na">cxRoute</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product</span><span class="dl">'</span><span class="p">,</span> <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">productCode</span><span class="p">:</span> <span class="mi">1234</span> <span class="p">}</span> <span class="p">});</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">semanticPathService</span><span class="p">.</span><span class="nx">transform</span><span class="p">({</span> <span class="na">cxRoute</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product</span><span class="dl">'</span><span class="p">,</span> <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">productCode</span><span class="p">:</span> <span class="mi">1234</span> <span class="p">}</span> <span class="p">});</span>
 
 <span class="c1">// ['/', 'p', 1234]</span>
 </code></pre></div></div>

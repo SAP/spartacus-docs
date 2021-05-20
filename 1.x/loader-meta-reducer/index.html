@@ -131,7 +131,7 @@
             </li><li class="masthead__menu-item">
               <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
             </li><li class="masthead__menu-item">
-              <a href="https://stackoverflow.com/questions/tagged/spartacus-storefront" >Support</a>
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
             </li><li class="masthead__menu-item">
               <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
             </li></ul>
@@ -351,6 +351,19 @@
             
 
             <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
  
               
 
@@ -647,10 +660,6 @@
               
                 <ul>
                   
-                    
-
-                     
-                   
                     
 
                      
@@ -1209,7 +1218,7 @@ This identifier will also be used in actions to connect each action to specific 
 
 <span class="k">export</span> <span class="kr">interface</span> <span class="nx">CartState</span> <span class="p">{</span>
   <span class="nl">content</span><span class="p">:</span> <span class="nx">Cart</span><span class="p">;</span>
-  <span class="nl">entries</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="na">code</span><span class="p">:</span> <span class="nx">string</span><span class="p">]:</span> <span class="nx">OrderEntry</span> <span class="p">};</span>
+  <span class="nl">entries</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="na">code</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="nx">OrderEntry</span> <span class="p">};</span>
   <span class="c1">// ...</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -1228,8 +1237,8 @@ In case all of your actions implements standard <code class="language-plaintext 
 <span class="c1">// action's result</span>
 <span class="c1">// - `loading` flag =&gt; true</span>
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">LoadCart</span> <span class="kd">extends</span> <span class="nx">StateLoaderActions</span><span class="p">.</span><span class="nx">LoaderLoadAction</span> <span class="p">{</span>
-  <span class="nx">readonly</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">LOAD_CART</span><span class="p">;</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">payload</span><span class="p">:</span> <span class="p">{</span> <span class="nl">userId</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span> <span class="nl">cartId</span><span class="p">:</span> <span class="nx">string</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="kd">type</span> <span class="o">=</span> <span class="nx">LOAD_CART</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">payload</span><span class="p">:</span> <span class="p">{</span> <span class="nl">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span> <span class="nl">cartId</span><span class="p">:</span> <span class="kr">string</span> <span class="p">})</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">CART_DATA</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1239,8 +1248,8 @@ In case all of your actions implements standard <code class="language-plaintext 
 <span class="c1">// - `loading` flag =&gt; false</span>
 <span class="c1">// - `success` flag =&gt; false</span>
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">LoadCartFail</span> <span class="kd">extends</span> <span class="nx">StateLoaderActions</span><span class="p">.</span><span class="nx">LoaderFailAction</span> <span class="p">{</span>
-  <span class="nx">readonly</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">LOAD_CART_FAIL</span><span class="p">;</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">payload</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="kd">type</span> <span class="o">=</span> <span class="nx">LOAD_CART_FAIL</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">payload</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">CART_DATA</span><span class="p">,</span> <span class="nx">payload</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1250,8 +1259,8 @@ In case all of your actions implements standard <code class="language-plaintext 
 <span class="c1">// - `loading` flag =&gt; false</span>
 <span class="c1">// - `error` flag =&gt; false</span>
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">LoadCartSuccess</span> <span class="kd">extends</span> <span class="nx">StateLoaderActions</span><span class="p">.</span><span class="nx">LoaderSuccessAction</span> <span class="p">{</span>
-  <span class="nx">readonly</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">LOAD_CART_SUCCESS</span><span class="p">;</span>
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">payload</span><span class="p">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">readonly</span> <span class="kd">type</span> <span class="o">=</span> <span class="nx">LOAD_CART_SUCCESS</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">payload</span><span class="p">:</span> <span class="kr">any</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">CART_DATA</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1261,7 +1270,7 @@ In case all of your actions implements standard <code class="language-plaintext 
 <span class="c1">// - `error` flag =&gt; false</span>
 <span class="c1">// - `success` flag =&gt; false</span>
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">ClearCart</span> <span class="kd">extends</span> <span class="nx">StateLoaderActions</span><span class="p">.</span><span class="nx">LoaderResetAction</span> <span class="p">{</span>
-  <span class="nx">readonly</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">CLEAR_CART</span><span class="p">;</span>
+  <span class="k">readonly</span> <span class="kd">type</span> <span class="o">=</span> <span class="nx">CLEAR_CART</span><span class="p">;</span>
   <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">super</span><span class="p">(</span><span class="nx">CART_DATA</span><span class="p">);</span>
   <span class="p">}</span>

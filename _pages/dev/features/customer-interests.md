@@ -12,8 +12,6 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Intro
-
 The customer interests feature provides a page under user account for customers to view, as well as managing registered product interests, such as removing product interests, and updating the notification receiving channels. 
 
 ## Requirements

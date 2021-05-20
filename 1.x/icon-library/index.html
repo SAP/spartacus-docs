@@ -131,7 +131,7 @@
             </li><li class="masthead__menu-item">
               <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
             </li><li class="masthead__menu-item">
-              <a href="https://stackoverflow.com/questions/tagged/spartacus-storefront" >Support</a>
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
             </li><li class="masthead__menu-item">
               <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
             </li></ul>
@@ -351,6 +351,19 @@
             
 
             <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
  
               
 
@@ -652,22 +665,8 @@
                      
                    
                     
-
-                     
-                   
-                    
                       
                         
-
-                          
-                          
-
-                          
-                          
-      
-                          <li><a href="/spartacus-docs/1.x/global-variables/" class="">Global Variables</a></li>
-                    
-                         
 
                           
                           
@@ -1215,7 +1214,7 @@
 
 <p>Icons are added to the storefront with a component called the <code class="language-plaintext highlighter-rouge">IconComponent</code>. The icon component requires a specific type, as shown in the following example:</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">cx</span><span class="o">-</span><span class="nx">icon</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">CART</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/cx-icon</span><span class="err">&gt;
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">cx</span><span class="o">-</span><span class="nx">icon</span> <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">CART</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/cx-icon</span><span class="err">&gt;
 </span></code></pre></div></div>
 
 <p>The type is used to find the relevant icon setup in the configuration. With this approach, the integration of icons in the UI is decoupled from the actual implementation. This makes it easy to replace icons without changing a UI component implementation.</p>
@@ -1233,7 +1232,7 @@
 
 <p>The enum is used when icons are added in the view. The following is an example:</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">cx</span><span class="o">-</span><span class="nx">icon</span> <span class="p">[</span><span class="nx">type</span><span class="p">]</span><span class="o">=</span><span class="dl">"</span><span class="s2">iconType.CART</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/cx-icon</span><span class="err">&gt;
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">cx</span><span class="o">-</span><span class="nx">icon</span> <span class="p">[</span><span class="kd">type</span><span class="p">]</span><span class="o">=</span><span class="dl">"</span><span class="s2">iconType.CART</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/cx-icon</span><span class="err">&gt;
 </span></code></pre></div></div>
 
 <h2 id="icon-configuration">Icon Configuration</h2>

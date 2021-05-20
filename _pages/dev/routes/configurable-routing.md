@@ -1,5 +1,9 @@
 ---
 title: Configurable Routing
+feature:
+- name: Configurable Routing
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 In a single-page application, you control what the user sees by showing different views of the app. Spartacus uses the Angular Router to take care of navigating from one view to another. The Router does this by treating each URL as an instruction to present a specific view.

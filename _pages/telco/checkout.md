@@ -8,15 +8,16 @@ title: Checkout
 
 {% include docs/feature_version.html content=version_note %}
 
-## Contents
+The checkout works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage charges.
 
-- [Overview](#overview)
-- [Components](#components)
-- [Further Reading](#further-reading)
+***
 
-## Overview
+**Table of Contents**
 
-The checkout works differently in TUA Spartacus than in core Commerce Spartacus and needs to support product offerings as well as the complex pricing structure to support multiple types of charges including one-time charges, recurring charges, and usage charges. 
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Components
 

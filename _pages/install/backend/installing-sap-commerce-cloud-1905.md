@@ -14,9 +14,18 @@ For more information about the changes that are implemented with the Spartacus S
 
 To install and configuring SAP Commerce Cloud for use with Spartacus, you must complete the following procedures:
 
-1. [Setting up SAP Commerce Cloud](#setting-up-sap-commerce-cloud)
-2. [Configuring OCC credentials](#configuring-occ-credentials)
-3. [Configuring CORS](#configuring-cors)
+1. Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon
+2. Configuring OCC credentials
+3. Configuring CORS
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Setting Up SAP Commerce Cloud with the Spartacus Sample Data Addon
 
@@ -164,7 +173,7 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
    }
    ```
 
-**You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+**You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 ## Configuring CORS
 

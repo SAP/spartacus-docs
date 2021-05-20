@@ -22,7 +22,18 @@ All new features for Spartacus must:
 
 - Provide necessary code deprecations for schematics. For more information, see [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
 
-- UI/UX guidelines (docs in progress).
+- Be compatible with modern browsers. For more information, see [Browser Compatibility](#browser-compatibility).
+
+- If applicable, function on Android and iOS devices. For more information, see [Device Compatibility](#device-compatibility).
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Coding guidelines
 
@@ -30,7 +41,7 @@ The Spartacus team adopted the following set of rules to keep the Spartacus code
 
 ## TL;DR
 
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit and e2e tests, and so on.
+You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit tests and end-to-end tests, and so on.
 
 ## Code Standards
 
@@ -109,17 +120,13 @@ yarn test:core:lib
 
 The coverage report can be found in `./coverage/index.html`.
 
-## Accessibility
-
-The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}). For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
-
-## End-To-End Tests are Passing
+## End-To-End Tests
 
 All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing.
 
 When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
 
-All newly written end-to-end tests must be reviewed, updated, or reused.
+All newly written end-to-end tests must be reviewed, updated, or reused. They should also follow the [End-to-End Test Guidelines]({{ site.baseurl }}{% link _pages/contributing/e2e-guidelines.md %}).
 
 Run the following commands to perform end-to-end tests:
 
@@ -140,6 +147,34 @@ The objective of end-to-end tests is to make sure your feature works. For exampl
 - Fill in the input fields, then click on the `Cancel` button.
 
 **Note:** E2E tests can currently only be run within SAP. We're working on exposing E2E tests to contributors.
+
+## Accessibility
+
+The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
+
+For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+
+## Browser Compatibility
+
+For a new feature to meet the definition of done, at a minimum, a manual, happy-path test of the new feature must be successful, with no significant layout issues in the most recent major version of the following browsers:
+
+- Chrome
+- Firefox
+- Safari
+- Edge
+
+## Device Compatibility
+
+New features must be compatible with Safari on iOS, and Chrome on Android, and must be tested on a range of devices. To meet the DoD, a new feature must successfully pass a manual, happy-path test, with no significant layout issues, on the following platforms:
+
+- iPhone 8, 10, X ,11 (at least one)
+- iOS tablet (any)
+- Android mobile phone (such as the Samsung Galaxy)
+- Android tablet (any)
+
+**Note:** Phones and tablets should be running on the latest versions of their respective operating systems.
+
+If devices are not available, simulations with browser tools should be used instead.  
 
 ## The Library Builds Without Errors
 

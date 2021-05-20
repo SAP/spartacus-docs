@@ -6,6 +6,15 @@ The following instructions describe how to build a TUA storefront application us
 
 **Note:** If you are building TUA Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Prerequisites
 
 Before carrying out the procedures below, ensure that you meet the following front-end and back-end requirements.
@@ -18,7 +27,7 @@ Before carrying out the procedures below, ensure that you meet the following fro
 
 ### Installing or Updating the Prerequisite Development Tools
 
-There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS, but also works on Linux and Windows 10 (through the Linux subsystem feature). 
+There are a few ways you can install Angular and other prerequisite software. The following example installs yarn, node.js, and Angular CLI using [Homebrew](https://brew.sh), which was created for MacOS, but also works on Linux and Windows 10 (through the Linux subsystem feature).
 
 To install the prerequisite development tools, install [Homebrew](https://brew.sh), and then run the following commands:
 

@@ -12,13 +12,11 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-## Overview
-
 The Cancellations and Returns feature in Spartacus allows customers to request a complete or partial cancellation for an order that has been placed, or a return for an order that has already been received. This allows customers to bypass having to call a customer service agent to cancel or return an order that was placed.
 
 For more information, see [Order Cancel Service ](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c1f345e866910148d68e6ad0f19d930.html) and [Return Service](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c446a3386691014817dd0941db58607.html) on the SAP Help Portal.
 
-### Back-End Requirements
+## Back-End Requirements
 
 The Cancellations and Returns feature in Spartacus requires SAP Commerce Cloud version 2005.0 or newer. The minimum version of 2005.0 is required because earlier versions do not include the endpoints related to this feature.
 

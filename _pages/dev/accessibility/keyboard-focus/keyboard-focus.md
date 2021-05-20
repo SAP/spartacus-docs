@@ -1,6 +1,16 @@
 ---
 title: Keyboard Focus
+feature:
+- name: Keyboard Focus
+  spa_version: 2.0
+  cx_version: n/a
 ---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 The `cxFocus` directive handles keyboard-specific features in Spartacus related to focus management. These features are essential for keyboard-only users.
 

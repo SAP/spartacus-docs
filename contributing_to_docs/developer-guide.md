@@ -118,10 +118,10 @@ Please adhere to the following conventions to ensure that your changes build suc
     ![alt text]({{ site.baseurl }}/path/to/image.png)
     ```
 
-    The following is an example from the [Designing Action Buttons](https://sap.github.io/spartacus-docs/designing-action-buttons/) page:
+    The following is an example from the [Cancellations and Returns](https://sap.github.io/spartacus-docs/cancellations-and-returns/) page:
 
     ```markdown
-    ![submit button]({{ site.baseurl }}/assets/images/ux/action_how/submit_button.png)
+    ![Cancel Items Button]({{ site.baseurl }}/assets/images/cancel-items-button.png)
     ```
 
 - **Curly Braces:** When a Jekyll build is run, double curly braces `{{` and `}}` are interpreted as Liquid filters, with the result that the contents between the curly braces are either removed, or sometimes even processed!
@@ -138,4 +138,4 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     If you have text that occurs more than once, you can create an include file and add it to `_includes/docs`. Note that include files are written in HTML, rather than markdown. To see an example, take a look at [frontend_requirements.html](https://github.com/SAP/spartacus-docs/blob/main/_includes/docs/frontend_requirements.html).
     
-    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/spartacus-docs/main/_pages/install/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".
+    To see an example of an `include` tag in use, take a look at the [Front-End Development Requirements](https://raw.githubusercontent.com/SAP/spartacus-docs/main/_pages/install/frontend/building-the-spartacus-storefront-from-libraries.md?token=AKKGMX26EXQQJVG7GGGHUNC5CKRI4) section of "Building the Spartacus Storefront from Libraries".

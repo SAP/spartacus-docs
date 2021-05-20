@@ -2,9 +2,16 @@
 title: JSON Structure
 ---
 
-## Overview
-
 In Dynamic Forms, form content, behavior and styling is defined by JSON definition. To create a form, we have to add controls and define it's properties such as control type, name, labels etc.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Form Definition Interface
 
@@ -93,14 +100,14 @@ export interface FieldOption {
 
 More details about interface structure can be found below:
 
-## FormDefinition 
+## FormDefinition
 
 Represents top level entity which hold group of form field.
 The FormDefinition contains the following properties:
 
 - [formGroups](#dynamicformgroup) - Defines array of form groups
 - formId - Attaches ID to the form
-- cssClass - Enables adding unique CSS class to the form wrapper. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
+- cssClass - Enables adding unique CSS class to the form wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 
 ## DynamicFormGroup
 
@@ -118,7 +125,7 @@ groupTwo:
 ```
 
 - fieldConfigs - Array of controls in this form group.
-- cssClass - Enables adding unique CSS class to the form group wrapper. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
+- cssClass - Enables adding unique CSS class to the form group wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 - dependsOn - With this property, we can define whole group`s visibility by defining control name on which group depends on.
 
 ## FieldConfig
@@ -131,8 +138,8 @@ The FieldConfig contains the following properties:
 - disabled - Defines if control is disabled (disabled fields are not submitted to back-end)
 - [label](#localizedstring) - Defines control label (supports localization)
 - options - Defines available options for the following input types: dropdown, radio button, checkbox
-- cssClass - Enables adding unique CSS class to the form control. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
-- gridClass - Enables adding Bootstrap class to the form control to create a grid behaviour in the form. More info can be found [here]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
+- cssClass - Enables adding unique CSS class to the form control. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
+- gridClass - Enables adding Bootstrap class to the form control to create a grid behaviour in the form. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 - apiValue - Used with 'dynamicSelect' controll type, to fetch options dynamically from defined URL
 - placeholder - Sets control placeholder text (if applicable)
 - fieldType - Defines type of the field (input, select, radio button, checkbox, datepicker, separator etc..)

@@ -12,6 +12,15 @@ The searchbox component allows you to search through the product catalog without
 
 The back end returns product items as well as product suggestions.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Component Mapping
 
 By default, the searchbox component is configured in the CMS as part of a page template. The CMS structure allows you to define the position and behavior of the searchbox with complete flexibility. However, this flexibility is not required for most customers, because in most storefronts, the searchbox is in the header of the page.

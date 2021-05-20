@@ -4,6 +4,15 @@ title: Icon Library
 
 Like most storefronts, Spartacus uses icons in the UI. You are welcome to use the Spartacus icons in your storefront, but of course, you can also replace them with other icons. The following sections describe how icons are integrated in the storefront, and also how you can replace them.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Technical Icon Format
 
 There are a a number of techniques to render icons on the web, including images, SVGs, fonts and native CSS.

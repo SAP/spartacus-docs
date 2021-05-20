@@ -2,6 +2,12 @@
 title: Escape focus
 ---
 
+{% capture version_note %}
+{{ site.version_note_part1 }} 2.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
 The `cxFocus` directive provides a feature to focus the host element when the `ESC` key is captured. This is useful for dialogs, as well as for larger parts of the UI that should trap the focus.
 
 When the `ESC` key is captured while the element is already focused, the event is let go, and will "bubble up" to the ancestor tree (this is how browsers treat certain UI events).
