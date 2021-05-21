@@ -4,6 +4,15 @@ title: Adding and Customizing Routes
 
 Spartacus includes default routes for accessing different views within your storefront app, but you can also add or customize any route that you want in Spartacus.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Page Types and Page Labels
 
 The CMS in SAP Commerce Cloud includes the following special page types: Product, Category, and Catalog. There is also a generic Content page type, which is used for all other kinds of pages, such as the login, order history, and FAQ pages.

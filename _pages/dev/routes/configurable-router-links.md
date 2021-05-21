@@ -6,6 +6,15 @@ While the [route configuration]({{ site.baseurl }}{% link _pages/dev/routes/rout
 
 Configured router links can be automatically generated in HTML templates using `cxUrl` pipe. It allows to transform **the name of the route** and **the params object** into the configured path
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Assumptions and limitations
 
 - the output path array is absolute by default (it contains the leading `'/'`)

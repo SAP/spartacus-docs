@@ -2,6 +2,15 @@
 title: Route Configuration
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Config
 
 All routes in Spartacus can be configured by importing `ConfigModule.withConfig()` with an object containing `routing` property: 

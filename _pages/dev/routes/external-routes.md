@@ -18,6 +18,15 @@ However many Customers may want to migrate step-by-step (route-by-route) from th
 
 Thanks to *external routes* feature of Spartacus, some routes can be loaded from backend or even redirected to a different domain.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## How to use Spartacus and other storefront systems at the same domain
 
 The URL patterns need to be defined to distinguish the storefront systems. Those patterns should be applied in 3 places: *backend server*, *Spartacus* configuration and *Angular service worker* (when PWA is enabled), because of the following reasons:
