@@ -1,10 +1,10 @@
 ---
-title: Workaround for Issue with Server-Side Rendering in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud
+title: Solution for Issue with Server-Side Rendering in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud
 ---
 
-This document describes a temporary workaround for a problem with running Spartacus 2.0 or later with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
+This document describes how to resolve a problem with running Spartacus 2.0 or later with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
 
-The problem has been resolved with a new `manifest.json` format described bellow. We strongly recommend updating your `manifest.json` so you no longer have to use the workaround.
+The problem has been resolved with a new `manifest.json` format that is described below. It is strongly recommended that you update your `manifest.json` so that you no longer need to use the workaround.
 
 ***
 
@@ -15,9 +15,9 @@ The problem has been resolved with a new `manifest.json` format described bellow
 
 ***
 
-## New Manifest.json format
+## Resolving the Issue
 
-The workaround is no longer required if your `manifest.json` is structured like the following example:
+The workaround is no longer required if your `manifest.json` is structured as follows:
 
 ```json
   "applications": [
@@ -35,13 +35,15 @@ The workaround is no longer required if your `manifest.json` is structured like 
   ]
 ```
 
-By adding the `csr` section with the `webroot` path, the hosting service is able to resolve your front-end file. The path we present is based on the Angular default configuration but it is customizable via the `angular.json` file.
+By adding the `csr` section with the `webroot` path, the hosting service is able to resolve your front end file. The path presented here is based on the Angular default configuration, but you can customize it in the `angular.json` file.
 
-**Note:** If you are updating your `manifest.json` from an older version and you applied a workaround, make sure to remove it before deploying again.
+**Note:** If you are updating your `manifest.json` from an older version and you applied a workaround, make sure to remove the workaround before deploying again.
 
-## Workarounds (no longer needed)
+## Previous Workarounds
 
-Choose a workaround depending on whether the `manifest.json` of your js-app uses the new manifest format or the old manifest format.
+**Note:** These workarounds are no longer needed because the issue can be resolved with a new `manifest.json` format, as described above. The following information is for reference purposes only.
+
+Prior to the current solution (see above), you would choose a workaround depending on whether the `manifest.json` of your js-app used the new manifest format or the old manifest format.
 
 ### Workaround for the New Manifest Format
 

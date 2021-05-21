@@ -264,7 +264,7 @@ docs:
                   url: /server-side-rendering-optimization/
                 - title: "How to Debug a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
-                - title: "Workaround for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
+                - title: "Solution for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
                   url: /ssr-ccv2-issue-spartacus-version-2/  
           - title: "Storefront Features ➢"
             url: /spartacus-features/
