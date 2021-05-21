@@ -311,7 +311,6 @@ DEPENDENCIES
   jekyll-sitemap
   jemoji
   minimal-mistakes-jekyll
-  nokogiri (>= 1.11.0.rc4)
 
 BUNDLED WITH
    2.2.17
