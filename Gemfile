@@ -10,7 +10,7 @@ gem "minimal-mistakes-jekyll"
 
 gem 'jemoji'
 
-gem "nokogiri", ">= 1.11.0.rc4"
+gem "nokogiri", ">= 1.11.4"
 
 group :jekyll_plugins do
     gem "jekyll-feed"
