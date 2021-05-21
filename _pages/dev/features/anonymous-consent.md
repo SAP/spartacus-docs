@@ -116,4 +116,6 @@ No special extensibility is available for this feature.
 
 Any user who registers is considered a new user. A user who logs in during the same session will have their anonymous consents transferred to registered consents. To no longer be considered a new user, the user then needs to refresh the page or close the page to end the current session.
 
+The MARKETING flag is always transferred between anonymous and registered users, unlike the rest of the anonymous consents. That is, if you consent to it as a registered user, it is a consent also when you sign out and remain on the site as an anonymous user.
+
 More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/spartacus/issues/6467).
