@@ -18,8 +18,8 @@ ConfigModule.withConfig({
 
 Predefined configurations are extended and overwritten as follows:
 
-- objects extend predefined objects
-- values (primitives, arrays, `null`) overwrite predefined values
+- objects *extend* predefined objects
+- values, such as primitives, arrays, and `null`, *overwrite* predefined values
 
 When you extend a predefined configuration, you must always use the route parameters from the predefined configuration, such as the `:productCode` parameter in the `product/:productCode` path. If you omit a route parameter, the storefront's components could break. The following is an example of what you should **not** do:
 

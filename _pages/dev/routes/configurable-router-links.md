@@ -2,9 +2,11 @@
 title: Configurable Router Links
 ---
 
-While the [route configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}) allows the application to listen to different routes, the links to those routes must take the route configuration into account as well.
+When you configure routes, the links to those routes must be configured accordingly. Configured router links can be automatically generated in HTML templates using the `cxUrl` pipe. This allows you to transform the name of the route and the `params` object into the configured path.
 
-Configured router links can be automatically generated in HTML templates using `cxUrl` pipe. It allows to transform **the name of the route** and **the params object** into the configured path
+To make use of the `cxUrl` pipe, you need to import `UrlModule` into every module that uses configurable router links.
+
+By default, the output path array is absolute and contains a leading forward slash `'/'`. However, the output path does not contain a leading forward slash `'/'` when the input starts with an element that is not an object with a `route` property, such as the string `'./'`, or `'../'`, or `{ not_route_property: ... }`. Also note, a route that cannot be resolved from the route's name and parameters will return the root URL `['/']`.
 
 ***
 
@@ -14,16 +16,6 @@ Configured router links can be automatically generated in HTML templates using `
 {:toc}
 
 ***
-
-## Assumptions and limitations
-
-- the output path array is absolute by default (it contains the leading `'/'`)
-- the output path doesn't contain the leading `/`, when the input starts with an element that is *not an object with `route` property*, i.e. string `'./'`, `'../'` or `{ not_route_property: ... }` 
-- the route that cannot be resolved from *a route's name and params* will return the root URL `['/']`
-
-## Prerequisites
-
-Import `UrlModule` in every module that uses configurable router links.
 
 ## Router links
 
