@@ -29,6 +29,7 @@ The following table lists many of the most common UI components, and the standar
 | Any focusable element | • <kbd>Tab</kbd> moves focus to the next focusable element<br>• <kbd>Shift</kbd> + <kbd>Tab</kbd> moves the focus to the previous focusable element (navigates backwards) |
 | Link | <kbd>Enter</kbd> activates the link |
 | Button | <kbd>Enter</kbd> or <kbd>Spacebar</kbd> activates the button |
+| Checkbox | <kbd>Spacebar</kbd> checks or unchecks a checkbox |
 | Radio buttons group | • <kbd>Tab</kbd> moves the focus to the first or selected radio button of a group, and throughout groups only<br>• <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> or <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> navigates and selects options within a group. |
 | Select menu | • <kbd>Tab</kbd> moves the focus to the `<select>` field<br>• <kbd>Spacebar</kbd> expands<br>• <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> navigates between the menu options |
 | Autocomplete | • Type to display options<br>• <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> navigates to an option<br>• <kbd>Enter</kbd> selects an option|
