@@ -75,6 +75,42 @@ The result is the following configured router link:
 <a [routerLink]="['/', 1234, 'custom', 'product-path']"></a>
 ```
 
+### Additional Route Parameters
+
+You can configure additional route parameters to make a URL more specific, which can be useful for SEO.
+
+The following is an example that adds a new `:productName` parameter:
+
+```typescript
+ConfigModule.withConfig({
+    routing: {
+        routes: {
+            product: { 
+                paths: [
+                    // :productCode is an obligatory parameter because it is present in default URL
+                    // :productName is a new parameter
+                    ':productCode/custom/product-path/:productName'
+                ] 
+            }
+        }
+    }
+})
+```
+
+You also need to include any additional parameters in `{ cxRoute: <route> }`, otherwise the path cannot be generated.
+
+The following is an example that adds the new `productName` parameter to `{ cxRoute: <route> }`:
+
+```html
+<a [routerLink]="{ cxRoute: 'product', params: { productName: 'ABC', productCode: 1234 } } | cxUrl"></a>
+```
+
+The result is the following configured router link:
+
+```html
+<a [routerLink]="['/', 1234, 'custom', 'product-path', 'ABC']"></a>
+```
+
 ## Linking to Nested Routes
 
 The following is an example of the Angular `Routes` array that contains `children` routes:

@@ -10,8 +10,8 @@ ConfigModule.withConfig({
         routes: {
             product: { 
                 paths: [
-                    // :productCode is an obligatory param, as it's present in default url
-                    // :productName is a new param
+                    // :productCode is an obligatory parameter because it is present in default URL
+                    // :productName is a new parameter
                     ':productCode/custom/product-path/:productName'
                 ] 
             }
