@@ -172,4 +172,4 @@ export class CustomExternalRoutesGuard extends ExternalRoutesGuard {
 
 ## Advanced cases
 
-For advanced custom cases, like multiple external routes hosted on multiple domains, you can extend the logic of the method `ExternalRoutesService.getRoutes()` to prepend custom Angular `Routes` with custom `UrlMatcher`s and guards (i.e. each `Route` can redirect to a different domain).
+For advanced custom cases, like multiple external routes hosted on multiple domains, you can extend the logic of the method `ExternalRoutesService.getRoutes()` to prepend custom Angular `Routes` with custom `UrlMatcher` functions and guards (i.e. each `Route` can redirect to a different domain).
