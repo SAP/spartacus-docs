@@ -12,11 +12,9 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-As long as we are in the scope of SPA, Spartacus performs only 'inside' navigations due to usage of Angular's `routerLink` directive, which  by design doesn't load pages from backend. 
+As a single-page application (SPA), Spartacus makes use of the Angular `routerLink` directive that, by design, does not load pages from the back end. As a result, Spartacus typically allows you to navigate only within the application itself. In other words, Spartacus typically only loads views that are within the single-page application.
 
-However many Customers may want to migrate step-by-step (route-by-route) from the old storefront system (i.e. Hybris accelerator) to the modern Spartacus SPA (single-page application), which means temporarily using different systems to drive parts of the storefronts at the same time. 
-
-Thanks to *external routes* feature of Spartacus, some routes can be loaded from backend or even redirected to a different domain.
+However, if you are migrating to Spartacus step-by-step (and route-by-route) from a legacy storefront system, such as SAP Commerce Accelerator, the external routes feature in Spartacus allows you to use different systems to drive different parts of the storefront at the same time. With external routes, you can designate which routes to load from the back end, and you can even redirect routes to a different domain.
 
 ***
 
