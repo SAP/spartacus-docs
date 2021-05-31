@@ -2,6 +2,8 @@
 title: Installing SAP Commerce Cloud 2105 for use with Spartacus
 ---
 
+**Note:** SAP Commerce Cloud 2105 requires version 3.3 or newer of the Spartacus libraries. In Commerce Cloud 2105, deprecated OCC endpoint methods were removed from `CartsController`, and the relevant adapters were updated in version 3.3 of the Spartacus libraries. For more information, see [issue 12092](https://github.com/SAP/spartacus/issues/12092) in the Spartacus GitHub repository.
+
 The following instructions describe how to install and configure SAP Commerce Cloud release 2105 for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud is installed to your local computer, so `localhost` is used in the browser URLs.
 
 ***
