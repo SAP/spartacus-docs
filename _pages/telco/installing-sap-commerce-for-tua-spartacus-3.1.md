@@ -300,8 +300,8 @@ By default, SAP  Cloud replies to OCC REST API calls that do not require authent
 
 - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
 - Display information about the `telcospa` base store: https://localhost:9002/occ/v2/telcospa/basestores/telcospa
-- Display information about the `utilitiesspa` base store: https://localhost:9002/rest/v2/utilitiesspa/basestores/utilitiesspa
-- Display information about the `mediaspa` base store: https://localhost:9002/rest/v2/mediaspa/basestores/mediaspa
+- Display information about the `utilitiesspa` base store: https://localhost:9002/occ/v2/utilitiesspa/basestores/utilitiesspa
+- Display information about the `mediaspa` base store: https://localhost:9002/occ/v2/mediaspa/basestores/mediaspa
 
 To register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
 For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
