@@ -6,7 +6,7 @@ When you configure routes, the links to those routes must be configured accordin
 
 To make use of the `cxUrl` pipe, you need to import `UrlModule` into every module that uses configurable router links.
 
-By default, the output path array is absolute and contains a leading forward slash `'/'`. However, the output path does not contain a leading forward slash `'/'` when the input starts with an element that is not an object with a `route` property, such as the string `'./'`, or `'../'`, or `{ not_route_property: ... }`. Also note, a route that cannot be resolved from the route's name and parameters will return the root URL `['/']`.
+By default, the output path array is absolute and contains a leading forward slash `'/'`. However, the output path does not contain a leading forward slash `'/'` when the input starts with an element that is not an object with a `cxRoute` property, such as the string `'./'`, or `'../'`, or `{ not_route_property: ... }`. Also note, a route that cannot be resolved from the route's name and parameters will return the root URL `['/']`.
 
 ***
 
@@ -198,9 +198,9 @@ The result is the following configured router link:
 <a [routerLink]="['../', 'child-path', 'value2']"></a>
 ```
 
-### Objects Without the "route" Property
+### Objects Without the "cxRoute" Property
 
-Any element that is not an object with the `route` property is not transformed when router links are generated. The following is an example that includes an element that is not an object with the `route` property:
+Any element that is not an object with the `cxRoute` property is not transformed when router links are generated. The following is an example that includes an element that is not an object with the `cxRoute` property:
 
 ```html
 <a [routerLink]="[
@@ -216,7 +216,7 @@ The result is the following router link:
 <a [routerLink]="['/', 'parent-path', 'value1', 'SOMETHING']"></a>
 ```
 
-If the first element in the array is not an object with the `route` property, the output path array will not have the forward slash `'/'` element by default. The following is an example where the first element in the array is not an object with the `route` property:
+If the first element in the array is not an object with the `cxRoute` property, the output path array will not have the forward slash `'/'` element by default. The following is an example where the first element in the array is not an object with the `cxRoute` property:
 
 
 ```html
