@@ -25,122 +25,115 @@ However, if you are migrating to Spartacus step-by-step (and route-by-route) fro
 
 ***
 
-## How to use Spartacus and other storefront systems at the same domain
+## Using Spartacus and Another System to Run a Single Storefront
 
-The URL patterns need to be defined to distinguish the storefront systems. Those patterns should be applied in 3 places: *backend server*, *Spartacus* configuration and *Angular service worker* (when PWA is enabled), because of the following reasons:
+To run a storefront at a single domain using Spartacus along with another system, you define URL patterns to distinguish between the two storefront systems. These patterns should be applied in the back end server, in the Spartacus configuration, and in the Angular service worker (when PWA is enabled). The patterns should be applied as follows:
 
-1. When accessing a deep link, the *backend server* should:
-    - serve Spartacus; **or**
-    - serve other storefront's page
-2. When navigating by the Angular's `routerLink`, *Spartacus* should:
-    - activate a SPA route; **or**
-    - full (re)load a page
-3. When full (re)loading page, *Angular service worker* should:
-    - intercept navigation request and return cached `index.html` of SPA; **or**
-    - bypass the cache - to let the backend serve the response
+- When accessing a deep link, the back end server should serve a Spartacus view, or it should serve a page from the other storefront system.
 
-### Configuration of backend server
+- When using the Angular `routerLink` to navigate, Spartacus should activate a SPA route, or it should fully load (or reload) the page.
 
-The configuration of URL patterns for backend server depends on the used backend technology. Please refer to its documentation.
+- When fully loading (or reloading) a page, the Angular service worker should intercept the navigation request and return the cached `index.html` of the single-page application, or it should bypass the cache so that the back end can serve the response.
 
-### Configuration of Spartacus
+### Configuring the Back End Server
 
-Provide the configuration with URL patterns for internal routes, i.e. by importing `ConfigModule.withConfig()`. 
+Configuring the URL patterns for the back end server depends on what technology you are using for your back end. Please refer to the relevant back end documentation for more information.
 
-> The URL patterns use a limited glob format:
->   * `**` matches 0 or more path segments
->   * `*` matches 0 or more characters excluding `/`
->   * `?` matches exactly one character excluding `/` 
->   * The `!` prefix marks the pattern as being negative, meaning that only URLs that don't match the pattern will be included
+### Configuring Spartacus
 
-Here are two examples:
+You can provide a configuration with the URL patterns for internal routes by importing `ConfigModule.withConfig()`.
 
-1. Let only the *homepage*, *cart* and *product details pages* be rendered in SPA, but all other URLs should be loaded from the backend:
+The URL patterns use a limited glob format, as follows:
 
-    ```typescript
-    ConfigModule.withConfig({
-      routing: {
-        internal: [
-          '/',
-          '/cart',
-          '/product/*/*',
-          '/**/p/**',
-        ]
-      }
-    })
-    ```
+- `**` matches 0 or more path segments
+- `*` matches 0 or more characters, excluding `/`
+- `?` matches exactly one character, excluding `/`
+- `!` is a prefix that marks the pattern as being negative, meaning that only URLs that do not match the pattern will be included
 
-2. Let any route render in SPA, but not the exceptions: *homepage*, *cart* and *product details pages*:
-  
-    ```typescript
-    ConfigModule.withConfig({
-      routing: {
-        internal: [
-          '/**', // wildcard
+**Note:** Each URL pattern must start with `/` or `!/`.
 
-          // exceptions:
-          '!/'
-          '!/cart',
-          '!/product/*/*',
-          '!/**/p/**',
-        ]
-      }
-    })
-    ```
+In the following example, only the homepage, the cart, and the product details pages are rendered in the SPA, and all other URLs are loaded from the back end:
 
-*Note: The pattern must start with `/` or `!/`*.
-
-## Configuration of Angular service worker (when PWA is enabled)
-
-To bypass the cache of the service worker and let the backend serve the response after full page (re)load, you need to define property `navigationUrls` of your service worker's config `ngsw-config.json` and specify the URL patterns for internal routes (similar to config of Spartacus). It uses the same glob-like syntax as Spartacus, so you can **almost** copy-paste it. 
-
-**Almost**, because those patterns take into account also the URL part with the site context, like. `/electronics/en/USD/...` (see docs of the [Context Configuration]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %}).
-
-Here are two examples (assuming that URL starts with configured three segments of the site context):
-
-1. Let only the *homepage*, *cart* and *product details pages* be rendered in SPA, but all other URLs should be loaded from the backend:
-
-    ```typescript
-    // ngsw-config.json
-
-    "navigationUrls": [
-      // prefix `/*/*/*/` handles 3 URL segments of site-context
-      '/*/*/*/',
-      '/*/*/*/cart',
-      '/*/*/*/product/*/*',
-      '/*/*/*/**/p/**',
+```typescript
+ConfigModule.withConfig({
+  routing: {
+    internal: [
+      '/',
+      '/cart',
+      '/product/*/*',
+      '/**/p/**',
     ]
-    ```
+  }
+})
+```
 
-2. Let any route render in SPA, but not the exceptions: *homepage*, *cart* and *product details pages*:
+In the following example, any route can be rendered in the SPA, except for the homepage, the cart, and the product details pages:
 
-    ```typescript
-    // ngsw-config.json
+```typescript
+ConfigModule.withConfig({
+  routing: {
+    internal: [
+      '/**', // wildcard
 
-    "navigationUrls": [
-      // wildcard:
-      "/**",
-
-      // your custom exceptions with the prefix `/*/*/*/`:
-      '!/*/*/*/',
-      '!/*/*/*/cart',
-      '!/*/*/*/product/*/*',
-      '!/*/*/*/**/p/**',
-
-      // re-define the default Angular's exceptions: 
-      "!/**/*.*",       // files with extensions
-      "!/**/*__*",      // paths containing `__`
-      "!/**/*__*/**",
+      // exceptions:
+      '!/'
+      '!/cart',
+      '!/product/*/*',
+      '!/**/p/**',
     ]
-    ```
+  }
+})
+```
 
-For more, see the official documentation of the Angular [service worker configuration](https://angular.io/guide/service-worker-config#navigationurls).
+## Configuration the Angular Service Worker
 
-## How to redirect to a different domain
+**Note:** You only need to configure the Angular service worker if PWA is enabled.
 
-It may happen that a part of the storefront is hosted on a different domain. Then we would like to redirect to a different domain instead of (re)loading the page, by extending the logic of `ExternalRoutesGuard`. Here is how to:
+To bypass the service worker cache and let the back end serve the response after a full page load (or a full page reload), you need to define the `navigationUrls` property of your service worker's `ngsw-config.json` configuration, and you need to specify the URL patterns for the internal routes. The service worker configuration uses the same glob-like syntax as Spartacus, but the URL patterns for the service worker configuration also take into account the site context aspect of the URL, such as `/electronics/en/USD/...`. For more information on site context, see [Multi-Site Configuration]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %}).
 
-Please provide in your app.module the internal routes config and the custom guard implementation:
+In the following examples, the URL patterns start with three configured segments for the site context.
+
+In the first example, the homepage, the cart, and the product details pages are rendered in the SPA, and all other URLs are loaded from the back end:
+
+```typescript
+// ngsw-config.json
+
+"navigationUrls": [
+  // prefix `/*/*/*/` handles the three site context URL segments
+  '/*/*/*/',
+  '/*/*/*/cart',
+  '/*/*/*/product/*/*',
+  '/*/*/*/**/p/**',
+]
+```
+
+In the following example, any route can be rendered in the SPA, except for the homepage, the cart, and the product details pages:
+
+```typescript
+// ngsw-config.json
+
+"navigationUrls": [
+  // wildcard:
+  "/**",
+
+  // your custom exceptions with the prefix `/*/*/*/`:
+  '!/*/*/*/',
+  '!/*/*/*/cart',
+  '!/*/*/*/product/*/*',
+  '!/*/*/*/**/p/**',
+
+  // re-define Angular's default exceptions: 
+  "!/**/*.*",       // files with extensions
+  "!/**/*__*",      // paths containing `__`
+  "!/**/*__*/**",
+]
+```
+
+For more information, see [Service worker configuration](https://angular.io/guide/service-worker-config#navigationurls) in the official Angular documentation.
+
+## Redirecting to a Different Domain
+
+If a part of your storefront is hosted on a different domain, then you need to redirect to the other domain for those parts of the storefront, instead of loading a page (or reloading a page). You can do this by extending the logic of `ExternalRoutesGuard`, which you can do by providing the internal routes configuration and the custom guard implementation in your `app.module`. The following is an example:
 
 ```typescript
 imports: [
@@ -153,7 +146,7 @@ providers: [
 ],
 ```
 
-... where the implementation is ...
+The following is an example of the relevant implementation:
 
 ```typescript
 @Injectable()
@@ -168,8 +161,8 @@ export class CustomExternalRoutesGuard extends ExternalRoutesGuard {
 }
 ```
 
-*Note: Similarly, for SEO, the backend server should perform http **30x redirects** to a different domain for specified URL patterns.*
+**Note:** For specified URL patterns, the back end server should perform URL forwarding to a different domain. This is similar to using HTTP redirect codes for SEO (such as `301`, `302`, and so on).
 
-## Advanced cases
+## Advanced Cases
 
-For advanced custom cases, like multiple external routes hosted on multiple domains, you can extend the logic of the method `ExternalRoutesService.getRoutes()` to prepend custom Angular `Routes` with custom `UrlMatcher` functions and guards (i.e. each `Route` can redirect to a different domain).
+For advanced custom cases, such as multiple external routes hosted on multiple domains, you can extend the logic of the `ExternalRoutesService.getRoutes()` method to prepend custom Angular `Routes` with custom `UrlMatcher` functions and guards. For example, each `Route` can redirect to a different domain.
