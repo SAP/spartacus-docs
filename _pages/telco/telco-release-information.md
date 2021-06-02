@@ -28,6 +28,12 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 3.1
+
+*Release 3.1 libraries published May 28, 2021*
+
+The 3.1 libraries for the accelerator provides a new Media spartacus storefront along with sample data. With 3.1, the TUA libraries support three storefronts: Telco, Utilities, and Media.
+
 ## Release 3.0
 
 *Release 3.0 libraries published April 7, 2021*
