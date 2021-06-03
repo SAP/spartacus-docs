@@ -17,7 +17,7 @@ For more information, see [ImpEx](https://help.sap.com/viewer/50c996852b32456c96
 
 ## How to create PageTemplates
 
-Step 1 - You would need to first create a PageTemplate, which define the layout for pages using the following fields below:
+Step 1: You would need to first create a PageTemplate, which define the layout for pages using the following fields below:
 
 ```text
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]

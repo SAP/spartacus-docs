@@ -1,12 +1,10 @@
 ---
-title: Workaround for Issue with Server-Side Rendering in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud
+title: Solution for Issue with Server-Side Rendering in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud
 ---
 
-This document describes a temporary workaround for a problem with running Spartacus 2.0 or later with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
+This document describes how to resolve a problem with running Spartacus 2.0 or later with Server-Side Rendering (SSR) on SAP Commerce Cloud in the Public Cloud.
 
-As of this writing (January 2021), Spartacus 2.0 (or later) with SSR does not work out of the box with SAP Commerce Cloud in the Public Cloud. This is because the hosting service expects a predefined structure for building Angular applications based on Angular 8 and ng-universal 8, which is used by Spartacus 1.x. However, Spartacus 2.0 uses Angular 9, and Spartacus 3.0 uses Angular 10, both of which have a slightly different file structure.
-
-This problem will be fixed in a release of SAP Commerce Cloud in the Public Cloud that is expected in 2021. For the moment, use one of the following workarounds for Spartacus 2.0 or later with SSR when hosting with SAP Commerce Cloud in the Public Cloud.
+The problem has been resolved with a new `manifest.json` format that is described below. It is strongly recommended that you update your `manifest.json` so that you no longer need to use the workaround.
 
 ***
 
@@ -17,9 +15,35 @@ This problem will be fixed in a release of SAP Commerce Cloud in the Public Clou
 
 ***
 
-## Workarounds
+## Resolving the Issue
 
-Choose a workaround depending on whether the `manifest.json` of your js-app uses the new manifest format or the old manifest format.
+The workaround is no longer required if your `manifest.json` is structured as follows:
+
+```json
+  "applications": [
+      {
+          "name": "<your storefrontapp name>",
+          "path": "<your storefrontapp path>",
+          "ssr": {
+               "enabled": true,
+               "path": "dist/<your storefrontapp name>/server/main.js"
+          },
+          "csr": {
+               "webroot": "dist/<your storefrontapp name>/browser/"
+          }
+      }
+  ]
+```
+
+By adding the `csr` section with the `webroot` path, the hosting service is able to resolve your front end file. The path presented here is based on the Angular default configuration, but you can customize it in the `angular.json` file.
+
+**Note:** If you are updating your `manifest.json` from an older version and you applied a workaround, make sure to remove the workaround before deploying again.
+
+## Previous Workarounds
+
+**Note:** These workarounds are no longer needed because the issue can be resolved with a new `manifest.json` format, as described above. The following information is for reference purposes only.
+
+Prior to the current solution (see above), you would choose a workaround depending on whether the `manifest.json` of your js-app used the new manifest format or the old manifest format.
 
 ### Workaround for the New Manifest Format
 
