@@ -23,7 +23,7 @@ npm install -D @types/node
 npm install -D ts-morph
 
 echo "Generating events CSV"
-ts-node ./scripts/generate-events-doc.ts
+npx ts-node ./scripts/generate-events-doc.ts
 
 cd -
 
