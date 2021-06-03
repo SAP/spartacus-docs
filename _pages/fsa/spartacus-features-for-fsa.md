@@ -4,6 +4,11 @@ title: FSA Spartacus Features
 
 This is a landing page for grouping together FSA Spartacus features. The FSA Spartacus features include the following:
 
+## Release 3.0
+- [Coupons]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})
+
+
+
 ## Release 2.0
 
 - [Additional Policy Changes]({{ site.baseurl }}{% link _pages/fsa/features/fsa-policy-change.md %})

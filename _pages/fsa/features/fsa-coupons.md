@@ -5,6 +5,7 @@ title: FSA Coupons
 **Note**: This feature is introduced with version 3.0 of the FSA Spartacus libraries.
 
 The Coupons feature allows financial customers to apply coupons during the quotation process and to obtain a discount. Coupons can be applied to both insurance and banking products. Customers can view their coupons in the **My Coupons** section of the **My Account** area.
+
 ***
 
 **Table of Contents**
@@ -18,20 +19,22 @@ The Coupons feature allows financial customers to apply coupons during the quota
 
 The following extension is required to enable coupons in FSA Spartacus:
 
-```java
+```xml
 <extension name="customercouponocc" />
 ```
 
 To be able to configure coupons in the Backoffice, you will also need the following two extensions: 
 
-```java
+```xml
 <extension name="customercouponbackoffice" />
 <extension name="couponbackoffice" />    
 ```
 
 ## Enabling Coupons
 
-Coupons in FSA Spartacus make use of the [Coupons]({{ site.baseurl }}{% link _pages/dev/features/coupons.md %}) and [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %}) features implemented in the core Commerce Spartacus. Coupons must be activated and their corresponding promotion rules must be published in the Backoffice before they can be applied in the storefront. See [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) for more details. Coupons are managed in the Backoffice. FSA Spartacus allows for the creation of single-code, multi-code, and customer coupons through Backoffice.  
+Coupons in FSA Spartacus make use of the [Coupons]({{ site.baseurl }}{% link _pages/dev/features/coupons.md %}) and [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %}) features implemented in the core Commerce Spartacus. Coupons must be activated and their corresponding promotion rules must be published in the Backoffice before they can be applied in the storefront. See [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) for more details. 
+
+Coupons are managed in the Backoffice. FSA Spartacus allows for the creation of single-code, multi-code, and customer coupons through Backoffice.  
 
 Once a customer coupon is created, it needs to be assigned to a customer. The customer can then preview the coupon in the **My Coupons** section of the **My Account** area.
 
@@ -39,7 +42,9 @@ Once a customer coupon is created, it needs to be assigned to a customer. The cu
 
 ## Coupon Promotion
 
-When you create a coupon code, you must also create a **promotion rule** that defines the discount that customers receive when they redeem the coupon. This can also be done through Backoffice. For more information, see [Coupon Promotions](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/df904660eed2407db94dc8b52b17ad2d.html) in the SAP Help Portal. After a coupon promotion has been created, customers apply the applicable coupon to activate the promotion during checkout to get discounts and/or rewards for their orders.
+When you create a coupon code, you must also create a **promotion rule** that defines the discount that customers receive when they redeem the coupon. This can also be done through Backoffice. For more information, see [Coupon Promotions](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/df904660eed2407db94dc8b52b17ad2d.html) in the SAP Help Portal. 
+
+After a coupon promotion has been created, customers apply the applicable coupon to activate the promotion during checkout to get discounts and/or rewards for their orders.
 
 In the following example, a sample single-code coupon FSA10DICS has been applied to the customer's mini cart during the Auto Insurance product checkout process.
 
