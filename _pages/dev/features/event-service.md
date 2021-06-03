@@ -181,3 +181,5 @@ If you are using a version of Spartacus that is older than release 3.1, for ever
 ```typescript
 eventService.get(HomePageEvent).subscribe(...), eventService.get(CartPageEvent).subscribe(...), eventService.get(ProductDetailsPageEvent).subscribe(...), eventService.get(CategoryPageResultsEvent).subscribe(...), eventService.get(SearchPageResultsEvent).subscribe(...)
 ```
+
+{{ site.data.events }}

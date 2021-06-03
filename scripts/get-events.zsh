@@ -9,6 +9,8 @@ else
     git clone https://github.com/SAP/spartacus.git temp-cx
 fi
 
+cp ./scripts/generate-events-doc.ts ./temp-cx/scripts/
+
 cd ./temp-cx
 
 npm install -D typescript
@@ -20,7 +22,7 @@ ts-node ./scripts/generate-events-doc.ts
 
 cd -
 
-mv ./temp-cx/events.csv events.csv
+mv ./temp-cx/events.csv ./_data/events.csv
 
 rm -rf temp-cx
 
