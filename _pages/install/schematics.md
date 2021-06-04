@@ -41,6 +41,7 @@ The following is a description of the various options you can use with the `ng a
 - `ssr` includes the server-side rendering (SSR) configuration.
 - `lazy` installs features with lazy loading configured for each of the feature modules. The default value is `true`.
 - `project` allows you to specify the project that you want to configure your Spartacus application in. The default is the workspace default project.
+- `interactive` instructs Angular to not show any prompts and use the default options.
 
 The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the `baseUrl` and the `baseSite`, and that also enables server-side rendering:
 
@@ -53,6 +54,14 @@ Another example is the following, which generates an application that is ready t
 ```shell
 ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=apparel-uk-spa,electronics-spa --currency=gbp,usd --language=uk,en --ssr
 ```
+
+This example shows how to run Spartacus schematics without any prompt:
+
+```shell
+ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=electronics-spa --interactive=false
+```
+
+This will install the pre-defined set of features. To see which features are pre-defined, refer to [features.default](https://github.com/SAP/spartacus/blob/develop/projects/schematics/src/add-spartacus/schema.json#L40)
 
 ### Additional Commands for Core Libraries and Features
 
@@ -123,7 +132,7 @@ During the initial set up of your storefront using schematics, you have the opti
 - `@spartacus/smartedit` includes the [SmartEdit Integration]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}).
 - `@spartacus/storefinder` includes the [Store Locator]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %}) feature.
 - `@spartacus/tracking` includes the [Tag Management System]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %}) feature and the [Personalization Integration]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %}).
-- `@spartacus/user` is not included in the list of libraries to install because it is included by default. It includes the Account and Profile features. The Account feature contains components such as the login form, and also exposes the general method for getting user details. The Profile feature is responsible for functionality such as closing an account, updating a profile, updating an email, updating a password, resetting a password, and registering. It is highly recommended to install both of these features.
+- `@spartacus/user` includes the Account and Profile features. The Account feature contains components such as the login form, and also exposes the general method for getting user details. The Profile feature is responsible for functionality such as closing an account, updating a profile, updating an email, updating a password, resetting a password, and registering. It is highly recommended to install both of these features.
 
 If you do not install a particular integration library or feature library during the initial set up of your storefront, you can always install any of these libraries later on using schematics. The command to install a library is the following:
 
