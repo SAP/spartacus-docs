@@ -22,7 +22,7 @@ All new features for Spartacus must:
 
 - Provide necessary code deprecations for schematics. For more information, see [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
 
-- Contain zero blocker, critical and major bugs to be accepted and released.
+- Contain no blocker, critical or major bugs to be accepted and released.
 
 - Be compatible with modern browsers. For more information, see [Browser Compatibility](#browser-compatibility).
 
