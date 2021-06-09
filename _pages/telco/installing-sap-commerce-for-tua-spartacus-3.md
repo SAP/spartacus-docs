@@ -31,7 +31,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
     - `b2ctelcospastore.zip`.
     - `utilitiesspastore.zip`.
-    - `mediaspastore.zip`.
+    - `mediaspastore.zip`. (available from 3.1)
 
 1. Unzip the sample data for 2007 or 2011 depending on the TUA backend version you want to use.
 
@@ -44,7 +44,7 @@ Some of the steps in this procedure are derived from the documentation for insta
         - `utilitiesspastore.zip`.
 
     - Sample data for Media is stored in the following archive files:
-        - `mediaspastore.zip`.   
+        - `mediaspastore.zip`. (available from 3.1)   
 
 1. Move:
     - the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
