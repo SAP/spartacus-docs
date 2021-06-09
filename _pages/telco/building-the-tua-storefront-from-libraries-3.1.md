@@ -148,7 +148,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             chunks: translationChunksConfig,
             fallbackLang: 'en',
         },
-        features: { level: '3.1' },
+        features: { level: '3.3' },
         journeyChecklist: {
             journeyChecklistSteps: ['APPOINTMENT', 'MSISDN', 'INSTALLATION_ADDRESS'],
             msisdn_reservation: {
@@ -193,10 +193,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@ngrx/effects": "~10.0.0",
     "@ngrx/router-store": "~10.0.0",
     "@ngrx/store": "~10.0.0",
-    "@spartacus/assets": "3.0.0",
-    "@spartacus/core": "3.0.0",
-    "@spartacus/storefront": "3.0.0",
-    "@spartacus/styles": "3.0.0",
+    "@spartacus/assets": "3.3.0",
+    "@spartacus/core": "3.3.0",
+    "@spartacus/storefront": "3.3.0",
+    "@spartacus/styles": "3.3.0",
     "@spartacus/tua-spa": "3.1.0",
     "angular-oauth2-oidc": "^10.0.1",
     "bootstrap": "^4.2.1",
@@ -212,7 +212,10 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.10.2"` so you need to add a comma after `0.10.2"`.
 
-5. Make sure that the following import is found in the  `mystore/src/styles.scss`:
+5. Update `@spartacus/schematics": "3.3.0` in `devDependencies` section in `package.json`.
+    
+
+6. Make sure that the following import is found in the  `mystore/src/styles.scss`:
 
     ```bash
    @import '~@spartacus/styles/index';
@@ -220,28 +223,28 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    @import '~material-design-icons/iconfont/material-icons.css';
     ```
 
-6. Add the following import in the `/mystore/src/polyfills.ts` file:
+7. Add the following import in the `/mystore/src/polyfills.ts` file:
 
    ```bash
    import '@angular/localize/init';
    import 'zone.js/dist/zone';
    ```
 
-7. From the terminal window, within `mystore`, install the dependencies by running the following command:
+8. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
    ```bash
    yarn install
    ```
   
-8. Start the angular client app. From the terminal window, within `mystore` start the application by running the following command:
+9. Start the angular client app. From the terminal window, within `mystore` start the application by running the following command:
 
    ```bash
    yarn start
    ```
   
-9. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
+10. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
 
-10. Your client application is accessible at the following locations in your local environment:
+11. Your client application is accessible at the following locations in your local environment:
 
     - Telco application: http://localhost:4200/telcospa/en/USD
     - Utilities application: http://localhost:4200/utilitiesspa/en/USD
