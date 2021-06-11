@@ -6,6 +6,7 @@ You can extend the Spartacus storefront with various SAP solutions. For more inf
 
 - [Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %})
 - [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
+- [CPQ Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/cpq-configurable-products-integration.md %})
 - [Customer Data Cloud Integration]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
 - [Kyma Integration]({{ site.baseurl }}{% link _pages/install/integrations/kyma-integration.md %})
 - [Payment Integration with CyberSource Example]({{ site.baseurl }}{% link _pages/install/integrations/cybersource-integration.md %})
