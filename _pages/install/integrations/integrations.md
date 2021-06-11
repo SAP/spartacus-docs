@@ -5,6 +5,7 @@ title: Integrations
 You can extend the Spartacus storefront with various SAP solutions. For more information, see the following:
 
 - [Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %})
+- [CPQ Configurable Products Integration]({{ site.baseurl }}{% link _pages/install/integrations/cpq-configurable-products-integration.md %})
 - [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
 - [Customer Data Cloud Integration]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
 - [Kyma Integration]({{ site.baseurl }}{% link _pages/install/integrations/kyma-integration.md %})
