@@ -1,5 +1,5 @@
 ---
-title: Components
+title: Spartacus Components
 ---
 
 This is a landing page for Spartacus components topics. This includes the following topics:

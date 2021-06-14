@@ -193,7 +193,7 @@ If increasing these values does not resolve the issue, it means the server canno
 - Ensure your server has a valid certificate. For more information, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
 - If your storefront is on CCv2, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked, in which case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue.
 
-If these solutions do not fix the SSR rendering issue, there may be a problem in the code. Review the [Server-Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}), and review your custom code to ensure you are not using any browser functions that are not available with SSR.
+If these solutions do not fix the SSR rendering issue, there may be a problem in the code. Review the [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}), and review your custom code to ensure you are not using any browser functions that are not available with SSR.
 
 ### SSR Issues with CCv2
 
@@ -214,13 +214,13 @@ If SSR is not functioning on CCv2, you can try running your Spartacus applicatio
 
     If you think certificate validity could be an issue, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
 
-    **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that CCv2 can use the `occ-backend-base-url` from the `index.html`. For more information, see [Configuring the Base URL]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
+    **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that CCv2 can use the `occ-backend-base-url` from the `index.html`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configuring-base-url.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
 
 2. Run `yarn dev:ssr`.
 
     This allows you to run a "development" SSR server that will pick up the changes you make in your source code.
 
-3. Refer to [How to Debug a Server–Side Rendered Storefront]({{ site.baseurl }}{% link _pages/dev/ssr/how-to-debug-server-side-rendered-storefront.md %}) for more information on debugging an SSR application.
+3. Refer to [{% assign linkedpage = site.pages | where: "name", "how-to-debug-server-side-rendered-storefront.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/how-to-debug-server-side-rendered-storefront.md %}) for more information on debugging an SSR application.
 
 ### Testing SSR With a Self-Signed or Untrusted SSL Certificate
 

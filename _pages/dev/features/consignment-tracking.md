@@ -36,7 +36,7 @@ features: {
 
 Consignment tracking is enabled automatically for feature level 1.2 and above.
 
-For more information on feature flags and feature levels, see [Configuring Feature Flags]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
+For more information on feature flags and feature levels, see [{% assign linkedpage = site.pages | where: "name", "configuring-feature-flags.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %}).
 
 ## Configuring
 

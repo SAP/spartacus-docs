@@ -327,14 +327,14 @@ docs:
             subchildren:
                 - title: "CSS Architecture"
                   url: /css-architecture/
+                - title: "Directionality"
+                  url: /directionality/
                 - title: "Icon Library"
                   url: /icon-library/
                 - title: "Outlets"
                   url: /outlets/        
                 - title: "Page Layout"
                   url: /page-layout/
-                - title: "Directionality"
-                  url: /directionality/
                 - title: "Skeleton Design"
                   url: /skeleton-design/  
 
