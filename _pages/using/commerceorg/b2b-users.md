@@ -13,5 +13,5 @@ You can create a user for a unit within the unit view, or separately, by display
 
 See the following pages for examples of creating users from within the units view:
 
-- [Buyers]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-buyers.md %})
-- [Approvers]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-approvers.md %})
+- [{% assign linkedpage = site.pages | where: "name", "b2b-buyers.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-buyers.md %})
+- [{% assign linkedpage = site.pages | where: "name", "b2b-approvers.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-approvers.md %})

@@ -1,5 +1,5 @@
 ---
-title: Spartacussampledata Extension
+title: Spartacus Sample Data Extension
 ---
 
 The `spartacussampledata` extension creates new WCMS base sites for Spartacus that share the same product catalog with the default `electronics`, `apparel`, and `powertools` sites, but with content catalogs that have been modified specifically for Spartacus requirements.
@@ -21,8 +21,7 @@ The Spartacus Sample Data extension is versioned and released with the Spartacus
 
 Of course, previous versions are also available. For example, to download the Spartacus Sample Data extension for the `3.0.0-RC.1` release, you can access the **Assets** section of the `@spartacus/storefront@3.0.0-rc.1` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-3.0.0-rc.1).
 
-For more information about installing the `spartacussampledata` extension, see [Installing SAP Commerce Cloud for use with Spartacus
-]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
+For more information about installing the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "installing-sap-commerce-cloud.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 ## Overview
 
@@ -152,7 +151,7 @@ INSERT_UPDATE SearchBoxComponent;uid;minCharactersBeforeRequest;maxProducts;maxS
 
 ### Making CMS Changes Related to Checkout
 
-The `spartacussampledata` extension makes a number of CMS changes that are related to checkout. For more information, see [Extending Checkout]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
+The `spartacussampledata` extension makes a number of CMS changes that are related to checkout. For more information, see [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
 
 ### Making the Product Details Page CMS-Driven
 

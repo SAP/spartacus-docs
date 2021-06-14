@@ -74,10 +74,10 @@ docs:
                   url: /schematics/  
                 - title: "Snapshot Builds"
                   url: /snapshot-builds/
-                - title: "Spartacussampledata Extension ➢"
+                - title: "Spartacus Sample Data Extension ➢"
                   url: /spartacussampledata-extension/
                   underchildren:
-                      - title: "Spartacussampledataaddon AddOn"
+                      - title: "Spartacus Sample Data AddOn"
                         url: /spartacussampledataaddon/
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
@@ -98,11 +98,11 @@ docs:
                   url: /kyma-integration/
                 - title: "Payment Integration with CyberSource Example"
                   url: /cybersource-integration/
-                - title: "Personalization Setup Instructions for Spartacus"
+                - title: "Personalization Integration"
                   url: /personalization-setup-instructions-for-spartacus/
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
-                - title: "SmartEdit Setup Instructions for Spartacus ➢"
+                - title: "SmartEdit Integration ➢"
                   url: /smartEdit-setup-instructions-for-spartacus/
                   underchildren:
                       - title: "SmartEdit Contract in Spartacus"
@@ -327,14 +327,14 @@ docs:
             subchildren:
                 - title: "CSS Architecture"
                   url: /css-architecture/
+                - title: "Directionality"
+                  url: /directionality/
                 - title: "Icon Library"
                   url: /icon-library/
                 - title: "Outlets"
                   url: /outlets/        
                 - title: "Page Layout"
                   url: /page-layout/
-                - title: "Directionality"
-                  url: /directionality/
                 - title: "Skeleton Design"
                   url: /skeleton-design/  
 

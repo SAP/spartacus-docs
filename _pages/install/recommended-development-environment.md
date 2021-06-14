@@ -89,7 +89,7 @@ Some other notable extensions:
 
 ## Project setup
 
-After [creating a new project and pulling Spartacus libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}), it's time to set up the project.
+After following the steps in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}), it's time to set up the project.
 
 ### Code formatting
 
