@@ -29,7 +29,7 @@ For more information, see [SAP Commerce Cloud, Context-Driven Services](https://
 
 To integrate Context-Driven Services with Spartacus, release **1905.9** of Commerce Cloud is required.
 
-Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
+Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see [{% assign linkedpage = site.pages | where: "name", "anonymous-consent.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 ## Enabling Context-Driven Services in Spartacus
 
@@ -39,7 +39,7 @@ To enable Context-Driven Services in Spartacus, you need to configure both the C
 
 If you are using Spartacus 3.2 or newer, you can install and configure the Context-Driven Services integration using Spartacus schematics. If you are using an older version of Spartacus, see [Configuring Spartacus for Context-Driven Services](https://sap.github.io/spartacus-docs/2.x/cds-integration/#configuring-spartacus-for-context-driven-services) in our archived documentation.
 
-To take advantage of the automatic setup provided by Spartacus schematics, you need to first ensure that you are using Spartacus 3.2 or newer, and you also need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+To take advantage of the automatic setup provided by Spartacus schematics, you need to first ensure that you are using Spartacus 3.2 or newer, and you also need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
 After you have met these prerequisites, you can install the Context-Driven Services integration by running the following command:
 
@@ -198,7 +198,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ### Adding a Merchandising Carousel with SmartEdit
 
-If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add a Context-Driven Merchandising carousel to a page, as follows:
+If you have followed the [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add a Context-Driven Merchandising carousel to a page, as follows:
 
 1. Launch SmartEdit.
 
@@ -228,7 +228,7 @@ If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.ba
 
 ## Context-Driven Services Shell Application
 
-**Note:** The Context-Driven Services Shell Application is for developers who are contributing to the Spartacus library sources. In other words, it is only available if you have cloned the Spartacus library sources and are working with a contributor set-up of Spartacus. For more information, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %})
+**Note:** The Context-Driven Services Shell Application is for developers who are contributing to the Spartacus library sources. In other words, it is only available if you have cloned the Spartacus library sources and are working with a contributor set-up of Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %})
 
 The following steps describe how to run the Context-Driven Services Shell Application:
 

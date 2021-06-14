@@ -27,7 +27,7 @@ There are multiple banner component types in the CMS, as follows:
 
 There is also a `RotatingImagesComponent`, which is a so-called container component. A container component holds multiple components. The `RotatingImagesComponent` is used to render multiple `BannerComponent` components in a carousel.
 
-The different banner component types have been created for historical reasons, but there is not much to distinguish them anymore: in Spartacus, there is only component implementation for banners. Spartacus renders the banner media using the media component, which includes lazy loading and loading specific media for specific dimensions. For more information, see [Media Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
+The different banner component types have been created for historical reasons, but there is not much to distinguish them anymore: in Spartacus, there is only component implementation for banners. Spartacus renders the banner media using the media component, which includes lazy loading and loading specific media for specific dimensions. For more information, see [{% assign linkedpage = site.pages | where: "name", "media-component.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
 
 The CMS banner component is mapped to the Spartacus implementation as follows:
 
@@ -51,7 +51,7 @@ You can use a similar component mapping to configure an alternative banner imple
 
 ## Adaptive and Responsive Images
 
-The banner component supports both responsive images and adaptive images. Responsive images are simply driven by CSS rules, which allow you to reuse the same images across different devices and screen sizes. Adaptive images can be used simultaneously, and are driven by the images provided by the back end. The back end provides different media items according to the media format. The `cx-media` component adds the different formats in a `srcset` so that the browser can decide when to use which image. Media items are rendered in the `cx-media` component. For more information, see [Media Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
+The banner component supports both responsive images and adaptive images. Responsive images are simply driven by CSS rules, which allow you to reuse the same images across different devices and screen sizes. Adaptive images can be used simultaneously, and are driven by the images provided by the back end. The back end provides different media items according to the media format. The `cx-media` component adds the different formats in a `srcset` so that the browser can decide when to use which image. Media items are rendered in the `cx-media` component. For more information, see [{% assign linkedpage = site.pages | where: "name", "media-component.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/media-component.md %}).
 
 ## Component Data
 

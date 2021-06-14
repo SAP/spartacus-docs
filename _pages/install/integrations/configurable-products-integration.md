@@ -51,13 +51,13 @@ You can either [install the product configurator library during initial setup of
 
 ### Installing the Product Configurator Library During the Initial Setup of Spartacus
 
-1. Follow the steps for setting up your Spartacus project, as described in [Building the Spartacus Storefront Using 3.2 Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-3-2.md %}).
+1. Follow the steps for setting up your Spartacus project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries-3-2.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-3-2.md %}).
 1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator`.
 1. Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
 
    Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
 
-   Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [Text Field Configurator Template]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+   Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [{% assign linkedpage = site.pages | where: "name", "text-field-configurator-template.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
@@ -75,7 +75,7 @@ After running this command, you are asked which product configurator features yo
 
 Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
 
-Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [Text Field Configurator Template]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [{% assign linkedpage = site.pages | where: "name", "text-field-configurator-template.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
@@ -114,7 +114,7 @@ For now, there is no navigation mode that guides the user from issue to issue un
 
 ## RTL Support
 
-Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "directionality.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
 ## Group Status Handling
 
