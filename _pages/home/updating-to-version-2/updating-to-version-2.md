@@ -37,8 +37,8 @@ When the update script has finished running, you then need to add the `@angular/
 ng add @angular/localize
 ```
 
-Finally, when this script has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each injected comment, see [Technical Changes in Spartacus 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/technical-changes-version-2.md %}).
+Finally, when this script has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each injected comment, see [{% assign linkedpage = site.pages | where: "name", "technical-changes-version-2.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/technical-changes-version-2.md %}).
 
 For more information about schematics, see the schematics project [README](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
-Various releases of Spartacus 1.x have contributed to the styling in Spartacus, which was grouped into a specific theme called "Calydon". This theme is no longer used in version 2.0 because the various styles have been merged into the standard styling. If you do use some (or all) of the styling from Spartacus, you might need to update your styles. For more information about the deprecated styles from Spartacus version 1.x, see [Changes to Styles in 2.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/css-changes-in-version-2.md %}).
+Various releases of Spartacus 1.x have contributed to the styling in Spartacus, which was grouped into a specific theme called "Calydon". This theme is no longer used in version 2.0 because the various styles have been merged into the standard styling. If you do use some (or all) of the styling from Spartacus, you might need to update your styles. For more information about the deprecated styles from Spartacus version 1.x, see [{% assign linkedpage = site.pages | where: "name", "css-changes-in-version-2.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/css-changes-in-version-2.md %}).
