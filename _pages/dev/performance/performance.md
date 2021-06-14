@@ -4,5 +4,5 @@ title: Performance Optimizations
 
 This is a landing page for performance-related topics. This includes the following topics:
 
-- [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
-- [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %})
+- [{% assign linkedpage = site.pages | where: "name", "deferred-loading.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
+- [{% assign linkedpage = site.pages | where: "name", "above-the-fold.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %})

@@ -8,6 +8,6 @@ feature:
 
 This is a landing page for grouping together the Search Engine Optimization (SEO) topics. The SEO topics include the following:
 
-- [SEO Capabilities]({{ site.baseurl }}{% link _pages/dev/seo/seo-capabilities.md %})
-- [HTML Tags]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
-- [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})
+- [{% assign linkedpage = site.pages | where: "name", "seo-capabilities.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/seo-capabilities.md %})
+- [{% assign linkedpage = site.pages | where: "name", "html-tags.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %})
+- [{% assign linkedpage = site.pages | where: "name", "structured-data.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %})

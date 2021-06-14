@@ -1,5 +1,5 @@
 ---
-title: Escape focus
+title: Escape Focus
 ---
 
 {% capture version_note %}

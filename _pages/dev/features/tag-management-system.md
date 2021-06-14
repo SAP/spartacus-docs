@@ -17,7 +17,7 @@ The Spartacus tag management system (TMS) allows you to set up a tag manager, an
 
 Spartacus supports running multiple tag manager integrations in parallel, and you can decide which events should be collected by each of the supported tag management solutions.
 
-**Note:** To work with the Spartacus tag management system, you should also be familiar with the Spartacus events service, which the TMS relies on. For more information, see [Events Service]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %}).
+**Note:** To work with the Spartacus tag management system, you should also be familiar with the Spartacus events service, which the TMS relies on. For more information, see [{% assign linkedpage = site.pages | where: "name", "event-service.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/event-service.md %}).
 
 **Disclaimer**
 
@@ -61,7 +61,7 @@ Although it is not possible to cover the set up instructions for every existing 
 <!-- End Google Tag Manager -->
 ```
 
-For see additional setup examples with Google Analytics and AEPL, see [Tag Management System Examples]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system-examples.md %}).
+For see additional setup examples with Google Analytics and AEPL, see [{% assign linkedpage = site.pages | where: "name", "tag-management-system-examples.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system-examples.md %}).
 
 ## Configuration
 

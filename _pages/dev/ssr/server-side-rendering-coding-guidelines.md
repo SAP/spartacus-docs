@@ -39,7 +39,7 @@ Using transfer state functionality is recommended. The application runs XHR requ
 
 Use a cache that is transferred from the server to the client.
 
-For more information, see [Configurable State Persistence and Rehydration]({{ site.baseurl }}{% link _pages/dev/configurable-state-persistence-and-rehydration.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "configurable-state-persistence-and-rehydration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configurable-state-persistence-and-rehydration.md %}).
 
 ## Getting the Request URL and Origin
 

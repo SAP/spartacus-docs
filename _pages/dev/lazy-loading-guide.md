@@ -118,7 +118,7 @@ Lazy loading of CMS code is achieved by specifying a dynamic import in place of 
 }
 ```
 
-For more information on CMS mapping, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}).
+For more information on CMS mapping, see [{% assign linkedpage = site.pages | where: "name", "customizing-cms-components.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}).
 
 ### Technical Details
 

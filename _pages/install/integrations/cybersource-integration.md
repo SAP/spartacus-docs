@@ -66,4 +66,4 @@ export class CybersourceCheckoutModule {}
 
 **Note:** If your checkout process has been heavily customized, you might also have to override other members of Spartacus, including the checkout process steps and orchestration.
 
-For more information, see [Extending Checkout]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
