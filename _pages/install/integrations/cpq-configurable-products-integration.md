@@ -288,3 +288,7 @@ In your spring configuration, ensure that the `commerceWebServicesCartService` b
 Commerce business rules that are specific to product configuration (for example, hiding a certain value if another value is selected) are not supported for CPQ configurable products.
 
 Other Commerce business rules (such as those for promotions) still work and apply (such as, 2% off if the cart value exceeds $4,000 USD, for example).
+
+## Browser Refresh
+
+When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
