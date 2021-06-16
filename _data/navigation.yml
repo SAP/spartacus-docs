@@ -250,6 +250,8 @@ docs:
                   url: /deferred-loading/
                 - title: "Above-the-Fold Loading"
                   url: /above-the-fold/
+                - title: "Performance Best Practices"
+                  url: /performance-best-practices/
           - title: "Security Best Practices ➢"
             url: /security-best-practices/
             subchildren:
