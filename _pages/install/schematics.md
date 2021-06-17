@@ -33,6 +33,7 @@ The following is a description of the various options you can use with the `ng a
 - `baseSite` is a comma-separated list of base site(s) to use with Spartacus.
 - `currency` is a comma-separated list of currencies to use in Spartacus.
 - `language` is a comma-separated list of languages to use in Spartacus.
+- `urlParameters` is a comma-separated list that represents the order of site-context parameters, such as `['baseSite', 'language', 'currency']`, for example.
 - `occPrefix` sets the OCC API prefix, such as `/occ/v2/`, for example.
 - `useMetaTags` determines whether or not to configure the `baseUrl` and `mediaUrl` in the meta tags from `index.html`.
 - `featureLevel` sets the application feature level. The default value is the same as the version of the Spartacus packages you are working with. For example, the `featureLevel` for `@spartacus/schematics@3.2.0` is `3.2`.
