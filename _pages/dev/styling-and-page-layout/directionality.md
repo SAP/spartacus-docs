@@ -58,7 +58,7 @@ ConfigModule.withConfig({
 } as DirectionConfig),
 ```
 
-For more information on configuration, see [Global Configuration in Spartacus]({{ site.baseurl }}{% link _pages/dev/global-configuration-in-spartacus.md %}).
+For more information on configuration, see [{% assign linkedpage = site.pages | where: "name", "global-configuration-in-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/global-configuration-in-spartacus.md %}).
 
 ## Implementation Details
 

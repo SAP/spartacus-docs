@@ -31,8 +31,8 @@ Some of the links provided in the following lists point to SAP Commerce Cloud Ac
   
 ### Other Release Documentation
 
-- For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
-- For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
+- For an overview of what was included in a specific release, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+- For information about features published in pre-release libraries, see [{% assign linkedpage = site.pages | where: "name", "pre-release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information on SAP Commerce Cloud, see the [SAP Commerce Cloud Roadmap](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=general&title=Roadmap).
   
 ### Questions?
@@ -43,7 +43,7 @@ For non-technical questions and roadmap feedback, you can reach us on our [Slack
   
 ## Release Date Notes
 
-3.3 released! See [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+3.3 released! See [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
 As of May 14, current plans are:
 

@@ -8,19 +8,21 @@ The Spartacus Definition of Done describes a series of requirements that must be
 
 All new features for Spartacus must:
 
-- Comply with Spartacus's architecture. For more information, see [Connecting to Other Systems]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
+- Comply with Spartacus's architecture. For more information, see [{% assign linkedpage = site.pages | where: "name", "connecting-to-other-systems.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
 
-- Follow our security best practices. For more information, see [Security Best Practices]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %}).
+- Follow our security best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "security-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %}).
 
-- Follow our accessibility best practices. For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+- Follow our accessibility best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
-- Ensure that new feature modules are lazy loaded. For more information, see [Lazy Loading Guide]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
+- Ensure that new feature modules are lazy loaded. For more information, see [{% assign linkedpage = site.pages | where: "name", "lazy-loading-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
 
-- Provide the necessary sample data. For more information, see [Spartacussampledata Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
+- Provide the necessary sample data. For more information, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
-- Ensure the CSS supports directionality for new features. For more information, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+- Ensure the CSS supports directionality for new features. For more information, see [{% assign linkedpage = site.pages | where: "name", "directionality.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
-- Provide necessary code deprecations for schematics. For more information, see [Updating Schematics]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
+- Provide necessary code deprecations for schematics. For more information, see [{% assign linkedpage = site.pages | where: "name", "updating-schematics.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/updating-schematics.md %}).
+
+- Contain no blocker, critical or major bugs to be accepted and released.
 
 - Be compatible with modern browsers. For more information, see [Browser Compatibility](#browser-compatibility).
 
@@ -45,7 +47,7 @@ You can run the `build.sh` script located in the root of the project. It will ru
 
 ## Code Standards
 
-There are several aspects to consider when writing code. Please review the [Coding Guidelines]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
+There are several aspects to consider when writing code. Please review the [{% assign linkedpage = site.pages | where: "name", "coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
 
 ## Linting
 
@@ -75,7 +77,7 @@ To format and prettify your codebase, run the following:
 yarn prettier:fix
 ```
 
-We also encourage to use the Prettier VS Code plugin. For more information, see [Development Tools for Spartacus]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
+We also encourage to use the Prettier VS Code plugin. For more information, see [{% assign linkedpage = site.pages | where: "name", "development-tools-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
 
 ## SCSS is Preprocessed (node-sass)
 
@@ -126,7 +128,7 @@ All new features in Spartacus require end-to-end tests written with [Cypress](ht
 
 When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
 
-All newly written end-to-end tests must be reviewed, updated, or reused. They should also follow the [End-to-End Test Guidelines]({{ site.baseurl }}{% link _pages/contributing/e2e-guidelines.md %}).
+All newly written end-to-end tests must be reviewed, updated, or reused. They should also follow the [{% assign linkedpage = site.pages | where: "name", "e2e-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/e2e-guidelines.md %}).
 
 Run the following commands to perform end-to-end tests:
 
@@ -152,7 +154,7 @@ The objective of end-to-end tests is to make sure your feature works. For exampl
 
 The UI of the feature complies with the Accessibility success criteria that are defined for the given released version. This includes writing [accessibility end-to-end tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
 
-For more information, see [Accessibility Best Practices]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
 ## Browser Compatibility
 
