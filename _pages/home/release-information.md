@@ -31,13 +31,12 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
-
 ## Release 3.4
 
 *Release 3.4 libraries published June 16, 2021*
 
 ### Cart API refactoring
-The Cart API was refactored to make development easier. For example, many classes were made protected and thus more extensible. (See https://github.com/SAP/spartacus/pull/12389 for more information.) Inline documentation was also improved. 
+The Cart API was refactored to make development easier. For example, many classes were made protected and thus more extensible. (See [here](https://github.com/SAP/spartacus/pull/12389) for more information.) Inline documentation was also improved.
 
 ### Code splitting for performance improvement
 Code splitting continues with new libraries for more modules, such as Context Driven Services, Store Finder, Account, Profile, and ASM - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
@@ -46,8 +45,7 @@ Code splitting continues with new libraries for more modules, such as Context Dr
 Installation selection when adding features using `ng add @spartacus/schematics@` was simplified. A single list is presented at the start, and dependencies or sub-coponents automatically determined by feature. The list of modules reflects the changes due to the code splitting initative.
 
 ### New events
-New events were added: Cart Remove Entry Success, Cart Remove Entry Fail, Cart Update Entry Fail (see https://github.com/SAP/spartacus/issues/12125). Event reference documentation is now auto-generated (see [this page]({{ site.baseurl }}{% link _pages/dev/features/event-service/#list-of-spartacus-events %}) for an example).
-
+New events were added: Cart Remove Entry Success, Cart Remove Entry Fail, Cart Update Entry Fail (see [GitHub issue 12125](https://github.com/SAP/spartacus/issues/12125)). Event reference documentation is now auto-generated (see [this page]({{ site.baseurl }}/event-service/#list-of-spartacus-events) for an example).
 
 ## Release 3.3
 
