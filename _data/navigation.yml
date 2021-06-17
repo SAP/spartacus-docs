@@ -246,10 +246,10 @@ docs:
           - title: "Performance Optimizations ➢"
             url: /performance/
             subchildren:
-                - title: "Deferred Loading"
-                  url: /deferred-loading/
                 - title: "Above-the-Fold Loading"
                   url: /above-the-fold/
+                - title: "Deferred Loading"
+                  url: /deferred-loading/
                 - title: "Performance Best Practices"
                   url: /performance-best-practices/
           - title: "Security Best Practices ➢"
