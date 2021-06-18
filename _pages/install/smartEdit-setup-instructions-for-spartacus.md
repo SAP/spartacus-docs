@@ -27,7 +27,7 @@ For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer
 
 ## Configuring SmartEdit to Work With a Spartacus Storefront
 
-The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries, and as a result, there are steps for [Configuring SmartEdit to work with Spartacus 3.2 or Newer](#configuring-smartedit-to-work-with-spartacus-32-or-newer), and steps for [Configuring SmartEdit to work with Spartacus 3.1 or Older](#configuring-smartedit-to-work-with-spartacus-31-or-older).
+The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries. If you are using version 3.2 or newer of the Spartacus libraries, see [Configuring SmartEdit to work with Spartacus 3.2 or Newer](#configuring-smartedit-to-work-with-spartacus-32-or-newer). If you are using version 3.1 or older of the Spartacus libraries, see [Configuring SmartEdit to work with Spartacus 3.1 or Older](#configuring-smartedit-to-work-with-spartacus-31-or-older).
 
 ### Configuring SmartEdit to work with Spartacus 3.2 or Newer
 
@@ -35,9 +35,9 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
 
 1. Build your Angular app, adding Spartacus libraries as normal.
 
-   Make sure the app is working before continuing. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
+   If you are using schematics to build your app, you have the option to install the SmartEdit library at the same time as the core libraries. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
-1. Install the SmartEdit feature library by running the following schematics command:
+1. If you did not install the SmartEdit feature library in the previous step, make sure the app is working before continuing. You can then install the SmartEdit library by running the following schematics command:
 
    ```bash
    ng add @spartacus/smartedit
