@@ -1,5 +1,5 @@
 ---
-title: Building the Spartacus Storefront Using 3.2 or 3.3 Libraries
+title: Building the Spartacus Storefront Using 3.2 Libraries
 ---
 
 The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
@@ -59,10 +59,10 @@ For a full list of available parameters, see [{% assign linkedpage = site.pages 
 
 ### Setting Up Your Project Using Schematics
 
-Run the following command to install the latest official release of Spartacus using schematics:
+Run the following command to install version 3.2 of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics@latest
+ng add @spartacus/schematics~3.2.0
 ```
 
 When you run this command, you are first asked to choose either a B2C or B2B configuration. The only difference between the two options is that the B2B configuration has a few additional OCC endpoints and a different checkout configuration. Specifically, the B2B configuration adds the `defaultB2bOccConfig` and `defaultB2bCheckoutConfig` from `@spartacus/setup`.
