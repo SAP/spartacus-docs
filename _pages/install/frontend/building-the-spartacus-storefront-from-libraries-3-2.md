@@ -62,7 +62,7 @@ For a full list of available parameters, see [{% assign linkedpage = site.pages 
 Run the following command to install version 3.2 of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics~3.2.0
+ng add @spartacus/schematics@~3.2.0
 ```
 
 When you run this command, you are first asked to choose either a B2C or B2B configuration. The only difference between the two options is that the B2B configuration has a few additional OCC endpoints and a different checkout configuration. Specifically, the B2B configuration adds the `defaultB2bOccConfig` and `defaultB2bCheckoutConfig` from `@spartacus/setup`.
