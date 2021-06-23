@@ -41,7 +41,6 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-  
 ## Release Date Notes
 
 3.4 released! See [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
@@ -55,12 +54,14 @@ As of June 23, current plans are:
 ### Q3 2021
 
 4.0:
+
 - Angular 12
 - Cleanup of deprecated code and updates to schematics
 - Code split of checkout
 - Blue theme
 
 4.x or 5.0:
+
 - **B2B Inventory Display** - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
 - **B2B Import Products to Saved Cart** and **Export from Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
 - **B2B Quick Order** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
@@ -70,14 +71,16 @@ As of June 23, current plans are:
 - **One app for running B2C and B2B stores**
 
 5.0:
+
 - **Buy online pickup in store** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
 - **B2B Commerce Quotes** (requires API update planned for 2105) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
-- **Accessibility Screen Reader** support 
+- **Accessibility Screen Reader** support
 - **Site map**
-  
-  
+
 ## Future Outlook - 2022 or later
+
 The items in this section are planned for 2022 but do not yet have a specific date. APIs already support these features.
+
 - **Product bundles** (requires SAP Commerce Cloud 2011) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
 - **ASM customer list** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
 - **ASM Anonymous Cart Binding** (requires API introduced in 2005)
@@ -89,11 +92,13 @@ The items in this section are planned for 2022 but do not yet have a specific da
 - **B2B Order Form Builder** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
   
 The following features are planned but depend on API updates, scheduled for the release-after-2105:
+
 - **B2B Re-order**
 - **B2B Multi-dimensional product support and order grid**
 - **B2B Registration**
 
 The following features are on our radar but depend on API updates not yet scheduled:
+
 - **Punchout** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1811/en-US/8ac40cf08669101486f5ce44920c3f91.html)
 - **Captcha** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
 - **ASM Customer 360°** (requires API update not yet planned)
