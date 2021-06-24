@@ -24,7 +24,6 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Journey Management - Serviceability Check (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %}) | 1.3.0 | 1905 | 2003 | 1.x, 2.0 |
 | [Journey Management - Serviceability]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %}) | 3.0 | 1905 | 2011 | 1.x, 2.0, 3.0 |
 | [Order]({{ site.baseurl }}{% link _pages/telco/order.md %}) | 1.0.0 | 1905 | 2003 | 1.x, 2.0 |
-| [Order]({{ site.baseurl }}{% link _pages/telco/order.md %}) | 1.0.0 | 1905 | 2003 | 1.x, 2.0 |
 | [Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %}) | 2.0.0 | 2005 | 2007 | 2.x |
 | [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %}) | 2.0.0 | 2005 | 2007 | 2.x |
 | [Pricing - Subscription Rate Plan]({{ site.baseurl }}{% link _pages/telco/product-offering-prices.md %}) | 1.0.0 | 1905 | 2003 | 1.x |
