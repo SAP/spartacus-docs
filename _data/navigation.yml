@@ -545,6 +545,8 @@ docs:
                   url: /fsa-invoice-payment/
                 - title: "Policy Change"
                   url: /fsa-policy-change/
+                - title: "Coupons"
+                  url: /fsa-coupons/
 
 
     - title: Contributing to Spartacus
