@@ -315,10 +315,10 @@ Some ASM behaviors can be configures through Spartacus.
 
 ### asm.agentSessionTimer.startingDelayInSeconds
 
-The start time for the customer support agent session timer has a default value of 600 seconds (10 minutes). This can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like so ( using the `B2cStorefrontModule` as an example ):
+The start time for the customer support agent session timer has a default value of 600 seconds (10 minutes). This can be configured. Specify the number of seconds for the timer staring delay via the property `asm.agentSessionTimer.startingDelayInSeconds` like this:
 
 ```ts
-B2cStorefrontModule.withConfig({
+provideConfig({
   asm: {
     agentSessionTimer: {
       startingDelayInSeconds: 600,
@@ -329,10 +329,10 @@ B2cStorefrontModule.withConfig({
 
 ### asm.customeSearch.maxResults
 
-The number of results in the asm customer search can be customized in spartacus via the property `asm.customeSearch.maxResults`. You define it like this ( using the `B2cStorefrontModule` as an example ):
+The number of results in the asm customer search can be customized in spartacus via the property `asm.customeSearch.maxResults`. You define it like this:
 
 ```ts
-B2cStorefrontModule.withConfig({
+provideConfig({
   asm: {
     customeSearch: {
       maxResults: 20,
