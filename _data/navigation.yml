@@ -537,8 +537,13 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/
-                - title: "Claims Integration"
-                  url: /claims-integration/
+                - title: "Claims ➢"
+                  url: /claims/
+                  underchildren:
+                    - title: "Claims Integration Enhancement"
+                      url: /claims-integration/
+                    - title: "Claims Details Page"
+                      url: /claims-details-page/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
                 - title: "Invoice Payment"

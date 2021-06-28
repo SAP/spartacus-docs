@@ -12,7 +12,7 @@ This is a landing page for grouping together FSA Spartacus features. The FSA Spa
 ## Release 2.0
 
 - [Additional Policy Changes]({{ site.baseurl }}{% link _pages/fsa/features/fsa-policy-change.md %})
-- [Claims Integration Enhancement]({{ site.baseurl }}{% link _pages/fsa/features/claims-integration.md %})  
+- [Claims Integration Enhancement]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-integration.md %})  
 - [Document Upload]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/form-controls-document-upload.md %})  
 - [Invoice Payment]({{ site.baseurl }}{% link _pages/fsa/features/fsa-invoice-payment.md %})  
 - [Order Splitting]({{ site.baseurl }}{% link _pages/fsa/features/fsa-order-splitting.md %})  
