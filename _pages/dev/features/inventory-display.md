@@ -2,12 +2,12 @@
 title: Inventory Display
 feature:
   - name: Inventory Display
-    spa_version: 4.0
+    spa_version: 4.1
     cx_version: 2005
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 4.0 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 4.1 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
