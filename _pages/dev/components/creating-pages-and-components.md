@@ -54,7 +54,7 @@ imports: [
 ]
 ```
 
-This logic injects the `WishlistComponent` wherever it is placed in the CMS. For more details on working with CMS components, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}).
+This logic injects the `WishlistComponent` wherever it is placed in the CMS. For more details on working with CMS components, see [{% assign linkedpage = site.pages | where: "name", "customizing-cms-components.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}).
 
 ## Static Pages
 

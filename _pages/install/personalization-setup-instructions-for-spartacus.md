@@ -1,5 +1,5 @@
 ---
-title: Personalization Setup Instructions for Spartacus
+title: Personalization Integration
 ---
 
 For the following steps, the Electronics sample site is used along with the Spartacus Sample Data extension.

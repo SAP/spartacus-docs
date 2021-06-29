@@ -1,8 +1,8 @@
 ---
-title: Building the Spartacus Storefront Using 3.2 or 3.3 Libraries
+title: Building the Spartacus Storefront Using 3.2 Libraries
 ---
 
-The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 ***
 
@@ -23,11 +23,11 @@ Before carrying out the procedures below, ensure the following front end and bac
 
 ## Back End Server Requirements
 
-Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus should only be used with SAP Commerce Cloud 1905 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs. For example, the B2B Commerce Organization API was added in release 2005. For more information on which back end releases contain which APIs, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
+Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus should only be used with SAP Commerce Cloud 1905 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs. For example, the B2B Commerce Organization API was added in release 2005. For more information on which back end releases contain which APIs, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 
 No matter the version, the latest patch is required, as important fixes are often added that affect Spartacus.
 
-For more information, see [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "installing-sap-commerce-cloud.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 ## Creating a New Angular App
 
@@ -53,16 +53,16 @@ The following procedure describes how to create a new Angular application with t
 
 ## Spartacus Project Setup
 
-The easiest way to start a new project is to use Angular Schematics to quickly set up your application.
+The easiest way to start a new project is to use Spartacus schematics to quickly set up your application.
 
-For a full list of available parameters please visit Spartacus schematics [documentation]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
+For a full list of available parameters, see [{% assign linkedpage = site.pages | where: "name", "schematics.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
 
 ### Setting Up Your Project Using Schematics
 
-Run the following command to install the latest official release of Spartacus using schematics:
+Run the following command to install the latest patch version of Spartacus 3.2 using schematics:
 
 ```bash
-ng add @spartacus/schematics@latest
+ng add @spartacus/schematics@3.2
 ```
 
 When you run this command, you are first asked to choose either a B2C or B2B configuration. The only difference between the two options is that the B2B configuration has a few additional OCC endpoints and a different checkout configuration. Specifically, the B2B configuration adds the `defaultB2bOccConfig` and `defaultB2bCheckoutConfig` from `@spartacus/setup`.

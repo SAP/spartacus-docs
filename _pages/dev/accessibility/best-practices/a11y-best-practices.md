@@ -15,10 +15,10 @@ Starting with version 2.0, Spartacus features comply with the following success 
 
 When combined all together, these criteria provide Spartacus with keyboard accessibility. To continue to comply with each of these criteria, it is recommended that you include the following features and best practices in your implementation when you are developing new features or fixing regressions:
 
-- [Keyboard Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
-- [Keyboard Focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
+- [{% assign linkedpage = site.pages | where: "name", "keyboard-accessibility.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
+- [{% assign linkedpage = site.pages | where: "name", "keyboard-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
 
-If you are a contributor to the Spartacus project, it is also important to ensure you run end-to-end tests for accessibility. For more information, see [Accessibility E2E Tests]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
+If you are a contributor to the Spartacus project, it is also important to ensure you run end-to-end tests for accessibility. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-e2e-tests.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
 
 ## Common Keyboard Interactions
 

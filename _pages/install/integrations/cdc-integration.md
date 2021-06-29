@@ -41,7 +41,7 @@ To enable SAP Customer Data Cloud Integration in Spartacus, you need to configur
 
 The following steps describe how to configure the Commerce Cloud back end for integration with SAP Customer Data Cloud.
 
-1. Follow the steps for [Installing SAP Commerce Cloud for use with Spartacus]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
+1. Follow the steps for [{% assign linkedpage = site.pages | where: "name", "installing-sap-commerce-cloud.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 2. Enable the SAP Customer Data Cloud extensions for B2C.
 
@@ -68,7 +68,7 @@ The following steps describe how to configure the Commerce Cloud back end for in
 
 ### Configuring Spartacus for SAP Customer Data Cloud Integration
 
-Perform the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
+Perform the following steps after you have set up your Spartacus Storefront. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 1. Install the SAP Customer Data Cloud integration library by running the following command from within the root directory of your storefront application:
 
@@ -78,7 +78,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
    When you run this command, the schematics create a module for the CDC integration that includes all of the required imports and configuration.
 
-   **Note**: To install the CDC integration library using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [Reference App Structure]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+   **Note**: To install the CDC integration library using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
    Alternatively, you can create the module manually and import it into your application, as shown in the following example:
 

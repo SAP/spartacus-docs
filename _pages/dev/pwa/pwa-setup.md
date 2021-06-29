@@ -44,8 +44,7 @@ You can add Progressive Web Application (PWA) support to the Spartacus app. Spar
 
     For testing purposes, we recommend that you install [http-server](https://www.npmjs.com/package/http-server) as a dev dependency, and that you serve the app using `http-server ./dist/your-app`
 
-    Double-check that the service worker is running and that the Add to Home Screen feature works. For more information, see [Adding the Spartacus App to the Home Screen]({{ site.baseurl }}{% link _pages/dev/pwa/add-to-home-pwa.md %}).
-
+    Double-check that the service worker is running and that the Add to Home Screen feature works. For more information, see [{% assign linkedpage = site.pages | where: "name", "add-to-home-pwa.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/pwa/add-to-home-pwa.md %}).
 
 ## Limitations
 
