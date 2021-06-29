@@ -106,7 +106,7 @@ Spartacus offers some configuration options that are encapsulated in `anonymousC
 
 ### Changing UI Labels
 
-In order to customize any UI message on the banner or in the dialog, you can refer to our i18n guide on how to override the existing translation keys. For more information, see [Internationalization]({{ site.baseurl }}{% link _pages/dev/i18n.md %}).
+You can customize any UI message on the banner or in the dialog by overriding the existing translation keys. For more information, see [{% assign linkedpage = site.pages | where: "name", "i18n.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/i18n.md %}).
 
 ## Extending Anonymous Consent
 
@@ -117,3 +117,5 @@ No special extensibility is available for this feature.
 Any user who registers is considered a new user. A user who logs in during the same session will have their anonymous consents transferred to registered consents. To no longer be considered a new user, the user then needs to refresh the page or close the page to end the current session.
 
 More information on the progress of this limitation can be found in our [Spartacus GitHub Issues](https://github.com/SAP/spartacus/issues/6467).
+
+**Note:** The `MARKETING` flag is always transferred between anonymous and registered users, unlike the rest of the anonymous consents. That is, if you consent to it as a registered user, it is a consent that is maintained even when you sign out and remain on the site as an anonymous user.

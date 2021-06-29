@@ -39,7 +39,7 @@ Using transfer state functionality is recommended. The application runs XHR requ
 
 Use a cache that is transferred from the server to the client.
 
-For more information, see [Configurable State Persistence and Rehydration]({{ site.baseurl }}{% link _pages/dev/configurable-state-persistence-and-rehydration.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "configurable-state-persistence-and-rehydration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configurable-state-persistence-and-rehydration.md %}).
 
 ## Getting the Request URL and Origin
 
@@ -57,7 +57,11 @@ constructor(
 
 **Note:** The `@Optional()` decorator is necessary. If it is not included, the injection will crash for client-side rendering (CSR) because these tokens are not provided in CSR.
 
-### Workaround for Known Issue in Spartacus 3.0.2 and Earlier
+## Avoiding Memory Leaks in SSR
+
+In the SSR server, there is one long-living Node.js process that handles all HTTP requests. On each request, this process bootstraps the Angular application, returns the HTML to the client, and cleans up the application's resources. If any subscription that was created in any Angular (singleton) service is not disposed of on app destroy, this subscription remains pending, even after the app is destroyed, and this causes a memory leak. In SSR, Angular calls `ngOnDestroy` for services, so it is a good place to unsubscribe any pending RxJs subscriptions at the end of life of the service.
+
+## Workaround for Known Issue in Spartacus 3.0.2 and Earlier
 
 In Spartacus 3.0.2 and earlier, when using CCv2 or any other setup that uses proxy servers, the `SERVER_REQUEST_URL` and `SERVER_REQUEST_ORIGIN` tokens return the `localhost` request origin instead of the real website domain. This has been fixed in Spartacus 3.0.3.
 

@@ -104,3 +104,46 @@ Aside from the above requirements, we also encourage you to do the following:
 
 - Add an inline comment, such as `// TODO(#ticket-number): make X a required dependency`, to reference planned work for the next major version.
 - Add two alternative declarations of the constructor above the implementation. **The top declaration must be the newest one**. This is because, in a production build using SSR, only the first declaration is used to resolve dependencies. It is also helpful to add `@deprecated since X.Y` to your JSDoc comment. When this is included, customers can be warned by their IDE that the old constructor signature they are using (with less parameters) is deprecated, and this can motivate them to migrate early to the new signature.
+
+### Using the Inject Decorator for Dependencies
+
+You should not include any constructor declarations when using `@Inject` for dependencies. Instead, you should only include the constructor definition.
+
+When you build libraries (for example, when you run `ng build --prod core`), the `ng-packagr` tool only uses the first constructor declaration to resolve injected dependencies, and the construction definition is ignored. However, the `Inject` decorator is not supported in constructor declarations, so it cannot be used to resolve dependencies there. If you include a constructor declaration with a dependency, the `ng-packagr` tool will fail to resolve the dependency and you will get an error, as follows:
+
+```shell
+> ERROR: Internal error: unknown identifier []
+```
+
+The following is an example that will give you this error:
+
+```typescript
+import { PLATFORM_ID } from '@angular/core';
+/*...*/
+
+  // Do not add any constructor declarations when using @Inject to resolve a dependency
+  constructor(
+    platformId: any, // this dependency will not be resolved, nor can it be fixed with @Inject, because the Inject decorator is not supported here!
+    newService?: NewService
+  ) {}
+   constructor(
+    protected platformId: any,
+  ) {}
+
+  constructor(
+    @Inject(PLATFORM_ID) protected platformId: any,
+    protected newService?: NewService
+  ) {}
+```
+
+The following is a modification of the previous example that illustrates how you can use the `Inject` decorator to handle a dependency:
+
+```typescript
+import { PLATFORM_ID } from '@angular/core';
+/*...*/
+
+  constructor(
+    @Inject(PLATFORM_ID) protected platformId: any,
+    protected newService?: NewService
+  ) {}
+```

@@ -36,8 +36,8 @@ List of features delivered with 2.0:
   : The Financial Services Accelerator is seamlessly integrated with SAP Claims Management. When a first notice of loss is submitted via the Financial Services Accelerator, it reaches SAP Claims Management, and if all data is valid, a claim is created. Besides form data, the customer can upload documents, and the document data will be forwarded to the SAP Claims Management. General information about the claim, e.g., claim number, status, and claim handler information, is then sent back to Financial Services Accelerator as a response to the first notice of loss call.  
 - **Document Upload**
  : Document upload offers the possibility to upload additional information in a certain process, which also helps banks and insurers to collect all needed information and documents during a process (e.g., application or quotations processes, claims process). The customer can upload one or more documents in the same process. During the document upload, customers can download or remove already uploaded documents. Two document storage strategies are provided:
-   - SAP Commerce Cloud, financial services accelerator
-   - External DMS by using provided integration mechanisms (prepackaged integration with SAP Cloud Platform Document Management available).
+    : - SAP Commerce Cloud, financial services accelerator
+    : - External DMS by using provided integration mechanisms (prepackaged integration with SAP Document Management service available).
 - **Invoice Payment**
   : During the quotation process, the customer can choose to pay either with a credit card or through an invoice in the Payment Details step. If an invoice method is selected, the customer proceeds to the Final Review step without adding any additional information. In the case of a credit card payment method, the customer first needs to register a new credit card.  
 - **Order Splitting**

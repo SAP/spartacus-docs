@@ -45,9 +45,25 @@ For more information, see [Configurator for Complex Products Module](https://hel
 
 ## Adding the Configurable Products Integration to Spartacus
 
-To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library. But before you can do that, you first need to install the Spartacus core libraries. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project) and [Building the Spartacus Storefront Using 3.x Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+To add the Configurable Products integration to Spartacus, you install the `@spartacus/product-configurator` library.
 
-After you have set up your Spartacus storefront, install the product configuration library by running the following command from the root directory of your storefront app:
+You can either [install the product configurator library during initial setup of your Spartacus project](#installing-the-product-configurator-library-during-the-initial-setup-of-spartacus), or you can [add the product configurator library to an existing Spartacus project](#adding-the-product-configurator-library-to-an-existing-spartacus-project).
+
+### Installing the Product Configurator Library During the Initial Setup of Spartacus
+
+1. Follow the steps for setting up your Spartacus project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries-3-2.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-3-2.md %}).
+1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator`.
+1. Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
+
+   Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
+
+   Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [{% assign linkedpage = site.pages | where: "name", "text-field-configurator-template.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+
+### Adding the Product Configurator Library to an Existing Spartacus Project
+
+If you already have a Spartacus project up and running, you can add the product configurator library to your project by running the following command from the root directory of your storefront app:
 
 ```bash
 ng add @spartacus/product-configurator
@@ -55,7 +71,23 @@ ng add @spartacus/product-configurator
 
 This command uses schematics to modify your application and add the modules needed to launch the library.
 
-**Note:** At runtime, most of the library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+After running this command, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
+
+Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
+
+Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [{% assign linkedpage = site.pages | where: "name", "text-field-configurator-template.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+
+**Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
+
+## Saved Cart
+
+{% capture version_note %}
+{{ site.version_note_part1a }} 3.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.
 
 ## Locales
 
@@ -82,7 +114,7 @@ For now, there is no navigation mode that guides the user from issue to issue un
 
 ## RTL Support
 
-Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "directionality.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
 ## Group Status Handling
 
@@ -104,12 +136,12 @@ When you refresh the browser, the product configuration is reset to the default 
 
 ## Unsupported Features
 
-The following features are currently not supported in the Configurable Products integration with Spartacus:
+The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
 - [Cart Validation](#cart-validation)
+- [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
-- [Saved Cart](#saved-cart)
 
 ### Save for Later and Selective Cart
 
@@ -155,7 +187,7 @@ Cart validation is currently not supported, although you can implement your own 
 
 1. Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one.
 
-1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`
+1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`.
 
 1. Introduce a component member.
 
@@ -172,6 +204,8 @@ Cart validation is currently not supported, although you can implement your own 
 1. Make use of this member in the component template.
 
     The following is an example:
+
+    {% raw %}
 
     ```ts
     <ng-container *ngIf="cart$ | async as cart">
@@ -193,6 +227,8 @@ Cart validation is currently not supported, although you can implement your own 
     </ng-container>
     ```
 
+    {% endraw %}
+
 #### Configuring SAP Commerce 2005 for Cart Validation
 
 **Note:** If you use SAP Commerce 2011, the following steps are not necessary.
@@ -209,12 +245,35 @@ In your spring configuration, ensure that the `commerceWebServicesCartService` b
 </bean>
 ```
 
-Note that it will guarantee that the order is validated for product configuration issues before an order is submitted, but it will not ensure that the error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
+Note that this adjustment will guarantee that order are validated for product configuration issues before they are submitted, but it will not ensure that any error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
+
+### Commerce Business Rules in Combination with Configurable Products
+
+The following conditions and actions are supported in the Spartacus storefront:
+
+- Conditions:
+  - Product you are currently configuring
+  - Customers
+  - Customer groups
+- Actions:
+  - Set characteristic value for configurable product
+  - Hide assignable value for configurable product
+  - Hide characteristic for configurable product
+  - Display characteristic for configurable product as read-only
+
+The following conditions and actions are currently **not supported** in the Spartacus storefront:
+
+- Conditions:
+  - Product with specified configuration in the cart
+  - Customer support (ASM mode currently not supported for configurable products)
+- Actions:
+  - Display message at the product level
+  - Display message at the attribute level
+  - Display message at the value level
+  - Display promo message (promo applies)
+  - Display promo opportunity message (promo does not yet apply)
+  - Display discount message
 
 ### Assisted Service Mode
 
 Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
-
-### Saved Cart
-
-The saved cart feature is currently not supported with the Configurable Products integration.

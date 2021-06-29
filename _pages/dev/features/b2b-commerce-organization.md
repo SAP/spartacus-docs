@@ -14,7 +14,7 @@ feature:
 
 B2B Commerce Organization for Spartacus allows companies to manage purchases made through a Spartacus commerce web site.
 
-The following sections describe how to customize and configure the Spartacus Organization feature library. For information about using B2B Commerce Organization in Spartacus, see [B2B Commerce Organization Tutorial]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
+The following sections describe how to customize and configure the Spartacus Organization feature library. For information about using B2B Commerce Organization in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "b2b-commerce-organization-tutorial.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/using/commerceorg/landing-page/b2b-commerce-organization-tutorial.md%}).
 
 For in-depth information on this feature, see [Commerce Organization](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac27d4d86691014a47588e9126fdf21.html) on the SAP Help Portal.
 
@@ -63,7 +63,7 @@ imports: [
 ]
 ```
 
-For more information on overriding routes, see [Route Configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md%}).
+For more information on overriding routes, see [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md%}).
 
 ## Customizing CMS Components
 
@@ -102,9 +102,9 @@ imports: [
 ]
 ```
 
-All of the list components in the Organization library use split view, which means all the components inside the split view component are ordered in a nested hierarchy. As a result, even small changes require overwriting the entire configuration. For more information, see [Split View Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
+All of the list components in the Organization library use split view, which means all the components inside the split view component are ordered in a nested hierarchy. As a result, even small changes require overwriting the entire configuration. For more information, see [{% assign linkedpage = site.pages | where: "name", "split-view.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md%}).
 
-For more information on overriding CMS configurations, see [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md%}).
+For more information on overriding CMS configurations, see [{% assign linkedpage = site.pages | where: "name", "customizing-cms-components.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md%}).
 
 ## Customizing Table Configurations
 
@@ -137,7 +137,7 @@ providers: [
 ],
 ```
 
-For more information, see [Table Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/table-component.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "table-component.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/table-component.md %}).
 
 ### Cell Components
 
@@ -311,7 +311,7 @@ The various elements in the structure are described as follows:
 - `permisions` stores IDs for a subsection, with keys based on the ID of the user group and query parameters
 - `pageSize=2147483647` indicates that Spartacus fetches all possible items, up to the maximum safe Java integer
 
-For more information, see [Loader Meta Reducer]({{ site.baseurl }}{% link _pages/dev/state_management/loader-meta-reducer.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "loader-meta-reducer.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/state_management/loader-meta-reducer.md %}).
 
 ## Homepage
 

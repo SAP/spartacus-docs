@@ -28,7 +28,7 @@ Page meta tags are written into the head of the HTML. In HTML5, you can use a va
 
 While page meta tags can be of great help to describe the page content, crawlers have started to leverage an alternative technique to better understand the content. This technique is called "structured data", and is also supported in Spartacus. You can use structured data and meta tags together on the same page. Each technique has its own specific purpose and use, with a fair amount of overlap. Crawlers use both techniques when they evaluate the page content.
 
-For more information on structured data in Spartacus, see [Structured Data]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
+For more information on structured data in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "structured-data.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 ## Supported Meta Tags
 

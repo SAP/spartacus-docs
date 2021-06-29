@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 3.2
+    - title: Version 3.4
       url: /release-information/
 
 # sidebar menu
@@ -62,6 +62,17 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
+                - title: "Building the Spartacus Storefront Using 3.x Libraries ➢"
+                  url: /building-the-spartacus-storefront-from-libraries-3-x/
+                  underchildren:
+                      - title: "Building the Spartacus Storefront Using 3.4 Libraries"
+                        url: /building-the-spartacus-storefront-from-libraries-3-4/
+                      - title: "Building the Spartacus Storefront Using 3.3 Libraries"
+                        url: /building-the-spartacus-storefront-from-libraries-3-3/
+                      - title: "Building the Spartacus Storefront Using 3.2 Libraries"
+                        url: /building-the-spartacus-storefront-from-libraries-3-2/
+                      - title: "Building the Spartacus Storefront Using 3.1 Libraries"
+                        url: /building-the-spartacus-storefront-from-libraries-3-1/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
                 - title: "Reference App Structure"
@@ -70,10 +81,10 @@ docs:
                   url: /schematics/  
                 - title: "Snapshot Builds"
                   url: /snapshot-builds/
-                - title: "Spartacussampledata Extension ➢"
+                - title: "Spartacus Sample Data Extension ➢"
                   url: /spartacussampledata-extension/
                   underchildren:
-                      - title: "Spartacussampledataaddon AddOn"
+                      - title: "Spartacus Sample Data AddOn"
                         url: /spartacussampledataaddon/
           - title: "Recommended Development Environment"
             url: /recommended-development-environment/
@@ -84,19 +95,21 @@ docs:
             subchildren:
                 - title: "Configurable Products Integration"
                   url: /configurable-products-integration/
+                - title: "CPQ Configurable Products Integration"
+                  url: /cpq-configurable-products-integration/
                 - title: "Context-Driven Services Integration"
                   url: /cds-integration/  
-                - title: "Customer Data Cloud Integration"
-                  url: /cdc-integration/              
                 - title: "Kyma Integration"
                   url: /kyma-integration/
                 - title: "Payment Integration with CyberSource Example"
                   url: /cybersource-integration/
-                - title: "Personalization Setup Instructions for Spartacus"
+                - title: "Personalization Integration"
                   url: /personalization-setup-instructions-for-spartacus/
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
-                - title: "SmartEdit Setup Instructions for Spartacus ➢"
+                - title: "SAP Customer Data Cloud Integration"
+                  url: /cdc-integration/              
+                - title: "SmartEdit Integration ➢"
                   url: /smartEdit-setup-instructions-for-spartacus/
                   underchildren:
                       - title: "SmartEdit Contract in Spartacus"
@@ -237,7 +250,32 @@ docs:
                   url: /loading-scopes/
                 - title: "Connecting to Other Systems"
                   url: /connecting-to-other-systems/
-          - title: "Features ➢"
+          - title: "Performance Optimizations ➢"
+            url: /performance/
+            subchildren:
+                - title: "Above-the-Fold Loading"
+                  url: /above-the-fold/
+                - title: "Deferred Loading"
+                  url: /deferred-loading/
+                - title: "Performance Best Practices"
+                  url: /performance-best-practices/
+          - title: "Security Best Practices ➢"
+            url: /security-best-practices/
+            subchildren:
+                - title: "Token Revocation"
+                  url: /token-revocation/
+          - title: "Server-Side Rendering ➢"
+            url: /server-side-rendering-in-spartacus/
+            subchildren:
+                - title: "Server–Side Rendering Coding Guidelines"
+                  url: /server-side-rendering-coding-guidelines/
+                - title: "Server-Side Rendering Optimization"
+                  url: /server-side-rendering-optimization/
+                - title: "How to Debug a Server–Side Rendered Storefront"
+                  url: /how-to-debug-server-side-rendered-storefront/
+                - title: "Solution for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
+                  url: /ssr-ccv2-issue-spartacus-version-2/  
+          - title: "Storefront Features ➢"
             url: /spartacus-features/
             subchildren:
                 - title: "Anonymous Consent"
@@ -295,42 +333,19 @@ docs:
                   url: /variants/  
                 - title: "Wish List"
                   url: /wish-list/  
-          - title: "Performance Optimizations ➢"
-            url: /performance/
-            subchildren:
-                - title: "Deferred Loading"
-                  url: /deferred-loading/
-                - title: "Above-the-Fold Loading"
-                  url: /above-the-fold/
-          - title: "Security Best Practices ➢"
-            url: /security-best-practices/
-            subchildren:
-                - title: "Token Revocation"
-                  url: /token-revocation/
-          - title: "Server-Side Rendering ➢"
-            url: /server-side-rendering-in-spartacus/
-            subchildren:
-                - title: "Server–Side Rendering Coding Guidelines"
-                  url: /server-side-rendering-coding-guidelines/
-                - title: "Server-Side Rendering Optimization"
-                  url: /server-side-rendering-optimization/
-                - title: "How to Debug a Server–Side Rendered Storefront"
-                  url: /how-to-debug-server-side-rendered-storefront/
-                - title: "Workaround for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
-                  url: /ssr-ccv2-issue-spartacus-version-2/  
           - title: "Styling and Page Layout ➢"
             url: /styling-and-page-layout/
             subchildren:
                 - title: "CSS Architecture"
                   url: /css-architecture/
+                - title: "Directionality"
+                  url: /directionality/
                 - title: "Icon Library"
                   url: /icon-library/
                 - title: "Outlets"
                   url: /outlets/        
                 - title: "Page Layout"
                   url: /page-layout/
-                - title: "Directionality"
-                  url: /directionality/
                 - title: "Skeleton Design"
                   url: /skeleton-design/  
 
@@ -559,11 +574,15 @@ docs:
                 url: /reactive-programming/    
               - title: "Type Safety in Spartacus"
                 url: /type-safety-in-spartacus/
+              - title: "Writing Extensible and Customizable Code"
+                url: /extensible-customizable-coding-guidelines/
           - title: "Definition of Done ➢"
             url: /definition-of-done/
             subchildren:
               - title: "Accessibility E2E Tests"
                 url: /a11y-e2e-tests/
+              - title: "End-to-End Test Guidelines"
+                url: /e2e-guidelines/
               - title: "Maintaining Public APIs"
                 url: /breaking-changes/
               - title: "Updating Schematics"

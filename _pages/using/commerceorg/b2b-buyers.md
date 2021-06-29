@@ -26,7 +26,7 @@ Users with the Customer (Buyer) role are permitted to place orders. Buyers can c
 
 5. Click **Save**.
 
-For the moment, this user's purchases are all subject to order approvals. This is because no spending permissions have been created yet. We'll do that later, in the step for setting [Purchasing Limits]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-purchasing-limits.md %}).
+For the moment, this user's purchases are all subject to order approvals. This is because no spending permissions have been created yet. We'll do that later, in the step for setting [{% assign linkedpage = site.pages | where: "name", "b2b-purchasing-limits.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/using/commerceorg/b2b-purchasing-limits.md %}).
 
 ## Assigning a Password to the New User
 

@@ -1,5 +1,9 @@
 ---
 title: Loader Meta Reducer
+feature:
+- name: Loader Meta Reducer
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 To give better feedback to users, based on their actions, we often have to keep information such as "cart is loading", "fetching user address failed", and so on.

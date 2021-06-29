@@ -130,7 +130,7 @@ See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1
   
 ### All Done
 
-You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+You can now start Spartacus. After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 ## Notes
 
@@ -143,7 +143,7 @@ You can now start Spartacus. After you have configured SAP Commerce Cloud to acc
 
 - The Spartacus Sample Data extension contains both sample data modifications used by Spartacus. The extension makes a copy of the Electronics and Apparel sample stores, if present (and Powertools in a future release). If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data extension is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like `commercewebservices`.
 - The Spartacus Sample Data extension copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe's `build.gradle` file.
-- For more information about the changes that are implemented with the Spartacus Sample Data extension, see [Spartacus Sample Data Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
+- For more information about the changes that are implemented with the Spartacus Sample Data extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
 ### Sample configuration properties
 
@@ -183,13 +183,13 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 - CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as the sample properties should not be used for production servers.
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
 - You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
-- For information on Spartacus and CORS settings, see [this help topic]({{ site.baseurl }}{% link _pages/install/cors.md %}).
+- For information on Spartacus and CORS settings, see [{% assign linkedpage = site.pages | where: "name", "cors.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 - There are a number of other Spartacus features that also require additional CORS settings. For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
 ## Troubleshooting
 
 - If SAP Commerce Cloud installer doesn't work, make sure there are no spaces in the path to the SAP Commerce Cloud folder.
-- If Spartacus starts or partially starts, check all CORS settings. For more information, see [this help topic]({{ site.baseurl }}{% link _pages/install/cors.md %}).
+- If Spartacus starts or partially starts, check all CORS settings. For more information, see [{% assign linkedpage = site.pages | where: "name", "cors.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 
 ## config.properties file
 

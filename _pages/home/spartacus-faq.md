@@ -26,7 +26,7 @@ You can view the Spartacus source code in this [GitHub repository](https://githu
 
 ### Does Spartacus require SAP Commerce Cloud?
 
-Spartacus is designed to work with SAP Commerce Cloud, although it is possible to use Spartacus with other systems. For more information, see [Connecting to Other Systems]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
+Spartacus is designed to work with SAP Commerce Cloud, although it is possible to use Spartacus with other systems. For more information, see [{% assign linkedpage = site.pages | where: "name", "connecting-to-other-systems.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
 
 Having said that, Spartacus relies on SAP Commerce Cloud APIs and CMS content to function out-of-the-box. However, if you’re using SAP Commerce Cloud, you are not required to use Spartacus. You can create your own JavaScript web application or you can use Accelerator templates.  
 
@@ -40,11 +40,11 @@ SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs 
 
 ### Does Spartacus integrate with any other SAP products?
 
-Yes. For more information, see [Integrations]({{ site.baseurl }}{% link _pages/install/integrations/integrations.md %}).
+Yes. For more information, see [{% assign linkedpage = site.pages | where: "name", "integrations.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/integrations.md %}).
 
 ### Which browsers does Spartacus support?
 
-Spartacus actively supports evergreen web browsers. Non-evergreen browsers that support the same standards as evergreen browsers will typically work as well. For older browsers that do not support these standards, you can add the necessary support with custom implementations. For more information, see [Web Browser Support]({{ site.baseurl }}{% link _pages/install/browser-support.md %}).
+Spartacus actively supports evergreen web browsers. Non-evergreen browsers that support the same standards as evergreen browsers will typically work as well. For older browsers that do not support these standards, you can add the necessary support with custom implementations. For more information, see [{% assign linkedpage = site.pages | where: "name", "browser-support.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/browser-support.md %}).
 
 ### How does Spartacus compare to the SAP Commerce Cloud Accelerators?
 
@@ -56,7 +56,7 @@ At the 1.0 release, Spartacus will not have feature parity when compared with al
 
 ### Can I run Spartacus and an Accelerator storefront at the same time?
 
-Yes. Spartacus-based storefronts are decoupled from SAP Commerce Cloud, so you can run both your Accelerator template-based store and Spartacus storefront. In SAP Commerce Cloud, this would be a matter of configuring your code, aspects, and endpoints correctly. For more information, see [External Routes]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %}) and [Backwards Compatibility with Accelerators]({{ site.baseurl }}/adding-and-customizing-routes/#backwards-compatibility-with-accelerators).
+Yes. Spartacus-based storefronts are decoupled from SAP Commerce Cloud, so you can run both your Accelerator template-based store and Spartacus storefront. In SAP Commerce Cloud, this would be a matter of configuring your code, aspects, and endpoints correctly. For more information, see [{% assign linkedpage = site.pages | where: "name", "external-routes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %}) and [Backwards Compatibility with Accelerators]({{ site.baseurl }}/adding-and-customizing-routes/#backwards-compatibility-with-accelerators).
 
 ### Does this mean the Accelerators will be deprecated?
 
@@ -68,7 +68,7 @@ Spartacus is a complete paradigm shift from the Accelerators in terms of technol
 
 ### How long does it take to get a Spartacus-based storefront up and running?
 
-Assuming a vanilla SAP Commerce Cloud B2C back end is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
+Assuming a vanilla SAP Commerce Cloud B2C back end is up and running and configured to accept OCC API calls, a developer can get create a Spartacus-based storefront within 10 minutes. See [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
 ### Is there a demo of a Spartacus-based storefront available?
 
@@ -88,7 +88,7 @@ Spartacus releases are independent of the release cycle of SAP Commerce Cloud. G
 
 ### What technologies does Spartacus use?
 
-Spartacus uses a combination of languages, technologies and libraries, including Angular, TypeScript, RxJS, NgRx, SASS, and Bootstrap. The final output is pure JavaScript. Angular is currently used as our development framework, though the goal is to allow usage of other frameworks. Please see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for the correct versions required.
+Spartacus uses a combination of languages, technologies and libraries, including Angular, TypeScript, RxJS, NgRx, SASS, and Bootstrap. The final output is pure JavaScript. Angular is currently used as our development framework, though the goal is to allow usage of other frameworks. Please see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for the correct versions required.
 
 ### Does Spartacus implement Responsive Design?
 
@@ -122,11 +122,11 @@ You can get support for Spartacus in the following ways:
 
 ### Is it possible to contribute to this open source project? How?
 
-Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our [feedback](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) channel in the Spartacus Slack space, or read the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}) and learn how to help others, report an issue, or contribute code to Spartacus.
+Yes. We welcome feedback, ideas, requests, and especially code contributions. If you have something to share, post comments to our [feedback](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ) channel in the Spartacus Slack space, or read the [{% assign linkedpage = site.pages | where: "name", "contributors-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}) and learn how to help others, report an issue, or contribute code to Spartacus.
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
-Yes. For more information, see [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}).
+Yes. For more information, see [{% assign linkedpage = site.pages | where: "name", "cds-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}).
 
 ------
 

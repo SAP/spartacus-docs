@@ -10,7 +10,7 @@ The installation procedure includes steps for creating and using a `b2c_for_spar
 
 However, installing the Spartacus Sample Data Addon is not required in all cases. The Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the `B2cStorefrontModule`. It is important to understand that this specific configuration is tightly coupled to the Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the `B2cStorefrontModule`, but instead, use the `StorefrontModule` that does not provide any layout configuration. The `StorefrontModule` is not dependent on the Spartacus sample data, and is most likely a good starting point for your custom project.
 
-For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [Spartacus Sample Data Addon]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
+For more information about the changes that are implemented with the Spartacus Sample Data AddOn, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledataaddon.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledataaddon.md %}).
 
 To install and configuring SAP Commerce Cloud for use with Spartacus, you must complete the following procedures:
 
@@ -173,7 +173,7 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
    }
    ```
 
-**You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}) for more information.
+**You can now start Spartacus!** After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}) for more information.
 
 ## Configuring CORS
 
@@ -189,13 +189,13 @@ corsfilter.ycommercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST D
 corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents
 ```
 
-**Note:** The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
+**Note:** The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [{% assign linkedpage = site.pages | where: "name", "anonymous-consent.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 There are a number of other Spartacus features that also require additional CORS settings. These features are not enabled by default, so you do not need to add these settings if you do not plan to enable these features. If you do intend to enable any of the following features, see the relevant documentation for more information:
 
-- [Assisted Service Module]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
-- [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
-- [Personalization Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
+- [{% assign linkedpage = site.pages | where: "name", "asm.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
+- [{% assign linkedpage = site.pages | where: "name", "cds-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
+- [{% assign linkedpage = site.pages | where: "name", "personalization-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
 
 For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 

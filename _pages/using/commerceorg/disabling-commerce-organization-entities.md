@@ -13,6 +13,20 @@ Another way of thinking about disabling and deleting entities is this:
 
 ## Warning When Disabling Units
 
-Many Commerce Organization entities are connected through units. For this reason, if you disable a unit, all children of the unit and related entities are disabled, including users, cost centers, and budgets.
+Many Commerce Organization entities are connected through (or "owned by") units. For this reason, if you disable a unit, all children of the unit and related entities are disabled, including users, cost centers, and budgets.
+
+Take the following example:
+
+- Unit A contains/owns User A, Budget B, and Cost Center C
+- Budget B is assigned to Cost Center C
+
+If you disable Unit A, then User A, Budget B, and Cost Center C are all disabled.
+
+However, the budget would not be disabled in the following situation:
+
+- Budget B is "owned" by Unit Z instead of Unit A
+- Budget B is still assigned to Cost Center C
+
+In this case, if you were to disable Unit A, Budget B would remain active because it is owned by Unit Z. The assignment to Cost Center C has no effect here.
 
 A warning message is displayed when disabling entities.

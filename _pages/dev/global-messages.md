@@ -1,5 +1,9 @@
 ---
 title: Global Messages
+feature:
+- name: Global Messages
+  spa_version: 1.0
+  cx_version: n/a
 ---
 
 ## Model
