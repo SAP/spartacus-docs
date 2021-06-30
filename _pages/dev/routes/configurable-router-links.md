@@ -6,7 +6,7 @@ When you configure routes, the links to those routes must be configured accordin
 
 To make use of the `cxUrl` pipe, you need to import `UrlModule` into every module that uses configurable router links.
 
-By default, the output path array is absolute and contains a leading forward slash `'/'`. However, the output path does not contain a leading forward slash `'/'` when the input starts with an element that is not an object with a `cxRoute` property, such as the string `'./'`, or `'../'`, or `{ not_route_property: ... }`. Also note, a route that cannot be resolved from the route's name and parameters will return the root URL `['/']`.
+By default, the output path array is absolute and contains a leading forward slash `'/'`. However, the output path does not contain a leading forward slash `'/'` when the input starts with an element that is not an object with a `cxRoute` property, such as the string `'./'`, or `'../'`, or `{ not_cxRoute_property: ... }`. Also note, a route that cannot be resolved from the route's name and parameters will return the root URL `['/']`.
 
 ***
 
