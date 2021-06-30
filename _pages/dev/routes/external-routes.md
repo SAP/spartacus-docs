@@ -89,7 +89,7 @@ ConfigModule.withConfig({
 
 **Note:** You only need to configure the Angular service worker if PWA is enabled.
 
-To bypass the service worker cache and let the back end serve the response after a full page load (or a full page reload), you need to define the `navigationUrls` property of your service worker's `ngsw-config.json` configuration, and you need to specify the URL patterns for the internal routes. The service worker configuration uses the same glob-like syntax as Spartacus, but the URL patterns for the service worker configuration also take into account the site context aspect of the URL, such as `/electronics/en/USD/...`. For more information on site context, see [Multi-Site Configuration]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %}).
+To bypass the service worker cache and let the back end serve the response after a full page load (or a full page reload), you need to define the `navigationUrls` property of your service worker's `ngsw-config.json` configuration, and you need to specify the URL patterns for the internal routes. The service worker configuration uses the same glob-like syntax as Spartacus, but the URL patterns for the service worker configuration also take into account the site context aspect of the URL, such as `/electronics/en/USD/...`. For more information on site context, see [{% assign linkedpage = site.pages | where: "name", "context-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/context/context-configuration.md %}).
 
 In the following examples, the URL patterns start with three configured segments for the site context.
 

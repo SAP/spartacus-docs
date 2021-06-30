@@ -12,13 +12,13 @@ Spartacus allows you to customize these URLs, giving you more control over SEO a
 
 For more information, see the following:
 
-- [Adding and Customizing Routes]({{ site.baseurl }}{% link _pages/dev/routes/adding-and-customizing-routes.md %})
-- [Route Configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %})
-- [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %})
-- [Disabling Standard Routes]({{ site.baseurl }}{% link _pages/dev/routes/disabling-standard-routes.md %})
-- [Route Aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %})
-- [External Routes]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %})
-- [Early Login]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %})
+- [{% assign linkedpage = site.pages | where: "name", "adding-and-customizing-routes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/adding-and-customizing-routes.md %})
+- [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %})
+- [{% assign linkedpage = site.pages | where: "name", "configurable-router-links.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %})
+- [{% assign linkedpage = site.pages | where: "name", "disabling-standard-routes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/disabling-standard-routes.md %})
+- [{% assign linkedpage = site.pages | where: "name", "route-aliases.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %})
+- [{% assign linkedpage = site.pages | where: "name", "external-routes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/external-routes.md %})
+- [{% assign linkedpage = site.pages | where: "name", "early-login.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %})
 
 ## Limitations
 
