@@ -2,33 +2,9 @@
 title: Route Configuration
 ---
 
-## Config
+Spartacus includes predefined route configurations in `default-routing-config.ts` that allow you to run your storefront app without needing to configure any routes at all. However, all routes in Spartacus can be configured by importing `ConfigModule.withConfig()` with an object containing the `routing` property, and every part of the predefined configurations can be extended or overwritten using `ConfigModule.withConfig()` as well.
 
-All routes in Spartacus can be configured by importing `ConfigModule.withConfig()` with an object containing `routing` property: 
-
-```typescript
-ConfigModule.withConfig({
-    routing: { /* ... */ },
-    /* ... */
-})
-```
-
-### Predefined config
-
-The routing in Spartacus is intended to run without any configuration by default, thanks to the predefined configuration, which can be found in `default-routing-config.ts`.
-
-```typescript
-// default-routing-config.ts
-product: { 
-    paths: ['product/:productCode'],
-    /* ... */
-}
-/* ... */
-```
-
-### Extending predefined config
-
-Every part of the predefined config can be extended or overwritten in the application, using `ConfigModule.withConfig`:
+The following is an example of extending a predefined configuration:
 
 ```typescript
 ConfigModule.withConfig({
@@ -40,14 +16,12 @@ ConfigModule.withConfig({
 })
 ```
 
-### How predefined config is extended and overwritten
+Predefined configurations are extended and overwritten as follows:
 
-- objects **extend** predefined objects
-- values (primitives, arrays, `null`) **overwrite** predefined values
+- objects *extend* predefined objects
+- values, such as primitives, arrays, and `null`, *overwrite* predefined values
 
-### Always use route parameters from the predefined config
-
-All route parameters that appear in predefined config (for example `:productCode` param in `product/:productCode` path) mustn't be omitted in overwritten paths. Otherwise Storefront's components may break. For example please **don't do**:
+When you extend a predefined configuration, you must always use the route parameters from the predefined configuration, such as the `:productCode` parameter in the `product/:productCode` path. If you omit a route parameter, the storefront's components could break. The following is an example of what you should **not** do:
 
 ```typescript
 ConfigModule.withConfig({
@@ -59,13 +33,13 @@ ConfigModule.withConfig({
 })
 ```
 
-### Why `paths` is an array
+**Note:** The `paths` property takes the form of an array to support route aliases. For more information, see [Route Aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %}).
 
-It's to support [route aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %}).
+## Working with Angular Routes
 
-## Angular's `Routes`
+For `Routes` to be configurable, they need to be named the same in the `data.cxRoute` property and in the route keys in the configuration.
 
-In order to have configurable `Routes` we need to name them (in `data.cxRoute` property) the same as the route keys in the config. For example:
+The following example shows the `data.cxRoute` property defining the name of the route as `'product'`:
 
 ```typescript
 const routes: Routes = [
@@ -80,7 +54,7 @@ const routes: Routes = [
 ];
 ```
 
-where config is:
+And in the following example, `product` is again used as the name for the route:
 
 ```typescript
 ConfigModule.withConfig({
@@ -94,13 +68,11 @@ ConfigModule.withConfig({
 })
 ```
 
-### Property `path` cannot be left `undefined`
+**Note:** The `path` property cannot be `undefined`. Angular requires a defined `path` at compilation time.
 
-Angular requires any defined `path` in compilation time.
+### Child Routes or Nested Routes
 
-### Children routes (nested routes)
-
-When an Angular's `Route` contains `children`:
+An Angular `Route` can contain `children` (also known as nested routes), as shown in the following example:
 
 ```typescript
 const routes: Routes = [
@@ -121,7 +93,7 @@ const routes: Routes = [
 ];
 ```
 
-then we need configuration for both parent and child routes:
+In this case, you need to configure both the parent and the child routes, as shown in the following example:
 
 ```typescript
 ConfigModule.withConfig({
