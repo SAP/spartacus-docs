@@ -31,9 +31,9 @@ To run a storefront at a single domain using Spartacus along with another system
 
 - When accessing a deep link, the back end server should serve a Spartacus view, or it should serve a page from the other storefront system.
 
-- When using the Angular `routerLink` to navigate, Spartacus should activate a SPA route, or it should fully load (or reload) the page.
+- When using the Angular `routerLink` to navigate, Spartacus should activate a SPA route, or it should fully load the page from the back end.
 
-- When fully loading (or reloading) a page, the Angular service worker should intercept the navigation request and return the cached `index.html` of the single-page application, or it should bypass the cache so that the back end can serve the response.
+- When PWA is enabled, the Angular service worker intercepts the navigation request. When fully loading (or reloading) a page, the service worker should return the cached `index.html` of the single-page application, or it should bypass the cache so that the back end can serve the page.
 
 ### Configuring the Back End Server
 
