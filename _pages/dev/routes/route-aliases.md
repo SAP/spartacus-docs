@@ -2,7 +2,9 @@
 title: Route Aliases
 ---
 
-Many route aliases can be configured in `paths` array. For example:
+Multiple route aliases can be configured in the `paths` array. Spartacus then generates router links using the first configured alias that can satisfy the parameters of the `paths` array with the `params` object. As a result, you need to order aliases from those that require the most specific parameters to those having the least parameters.
+
+In the following example, the configuration has the route aliases in the correct order:
 
 ```typescript
 ConfigModule.withConfig({
@@ -10,26 +12,7 @@ ConfigModule.withConfig({
         routes: {
             product: {
                 paths: [
-                    ':campaignName/product/:productCode',
-                    'product/:productCode'
-                ]
-            }
-        }
-    }
-})
-```
-
-Then a [configurable router link]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}) will use **the first configured path alias** from the `paths` array **that can satisfy its params** with given `params` object. So it's good to order aliases from those that require the most specific parametes to those having less parameters. For example:
-
-When config is:
-
-```typescript
-ConfigModule.withConfig({
-    routing: {
-        routes: {
-            product: {
-                paths: [
-                    ':campaignName/p/:productCode', /* this will be used when `campaignName` param is given */
+                    ':campaignName/p/:productCode', /* this will be used when the `campaignName` parameter is provided */
                     'p/:productCode' /* this will be used otherwise */
                 ]
             }
@@ -38,33 +21,35 @@ ConfigModule.withConfig({
 })
 ```
 
-1. when `campaignName` param **is** given:
+The following is an example where the `campaignName` parameter is provided:
 
-    ```html
-    <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234, campaignName: 'sale' } } | cxUrl"></a>
-    ```
+```html
+<a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234, campaignName: 'sale' } } | cxUrl"></a>
+```
 
-    result
+The result is the following configured router link:
 
-    ```html
-    <a [routerLink]="['/', 'sale', 'p', '1234']"></a>
-    ```
+```html
+<a [routerLink]="['/', 'sale', 'p', '1234']"></a>
+```
 
-2. when `campaignName` param **is not** given:
+The following is an example where the `campaignName` parameter is not provided:
 
-    ```html
-    <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>
-    ```
+```html
+<a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>
+```
 
-    result
+The result is the following configured router link:
 
-    ```html
-    <a [routerLink]="['/', 'p', '1234']"></a>
-    ```
+```html
+<a [routerLink]="['/', 'p', '1234']"></a>
+```
 
-## Wrong order of aliases
+## Wrong Order of Aliases
 
-When a path with less params (for example `/p/:productCode`) is put before a path that has the same params and more (for example `:campaignName/p/:productCode`), then the first path will **always** be used to generate the path (and the second will **never** be used). For example:
+When a path with less parameters, such as `/p/:productCode`, is listed in the configuration before a path that has the same number of parameters and more, such as `:campaignName/p/:productCode`, then the first alias will always be used to generate the path, and the second alias will never be used.
+
+In the following example, the configuration has the route aliases in the wrong order:
 
 ```typescript
 ConfigModule.withConfig({
@@ -77,7 +62,7 @@ ConfigModule.withConfig({
                     /* will always be used */
                     'p/:productCode', 
 
-                    /* will never be used, because (among others) contains the same params as above */
+                    /* will never be used, because (among others) it contains the same parameters as above */
                     ':campaignName/p/:productCode'
                 ]
             }
@@ -86,20 +71,20 @@ ConfigModule.withConfig({
 })
 ```
 
-All following examples result in the same:
+The following is an example where the `campaignName` parameter is provided:
+
+```html
+<a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234, campaignName: 'sale' } } | cxUrl"></a>
+```
+
+The following is an example where the `campaignName` parameter is not provided:
+
+ ```html
+ <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>
+ ```
+
+In both cases, the resulting configured router link is the same, and the `campaignName` parameter is not included:
 
 ```html
 <a [routerLink]="['/', 'p', '1234']"></a>
 ```
-
- 1. when `campaignName` param **is** given:
- 
-     ```html
-     <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234, campaignName: 'sale' } } | cxUrl"></a>
-     ```
-
- 2. when `campaignName` param **is not** given:
-
-     ```html
-     <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>
-     ```
