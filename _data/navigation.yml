@@ -159,8 +159,6 @@ docs:
                         url: /configurable-router-links/
                       - title: "Disabling Standard Routes"
                         url: /disabling-standard-routes/
-                      - title: "Additional Route Parameters"
-                        url: /additional-route-parameters/
                       - title: "Route Aliases"
                         url: /route-aliases/
                       - title: "External Routes"
