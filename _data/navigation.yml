@@ -62,7 +62,7 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
-                - title: "Building the Spartacus Storefront Using 4.x Libraries ➢"
+                - title: "Building the Spartacus Storefront Using 4.x Libraries"
                   url: /building-the-spartacus-storefront-from-libraries-4-x/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
