@@ -33,7 +33,7 @@ ConfigModule.withConfig({
 })
 ```
 
-**Note:** The `paths` property takes the form of an array to support route aliases. For more information, see [Route Aliases]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %}).
+**Note:** The `paths` property takes the form of an array to support route aliases. For more information, see [{% assign linkedpage = site.pages | where: "name", "route-aliases.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-aliases.md %}).
 
 ## Working with Angular Routes
 

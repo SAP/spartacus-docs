@@ -2,7 +2,7 @@
 title: Disabling Standard Routes
 ---
 
-Standard Angular routes in Spartacus, such as the route for the product details page, can be disabled through configuration. This can be useful, for example, when you want to provide custom routes instead. When you disable a route, the configuration of `paths` is used only to generate router links. For more information, see [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
+Standard Angular routes in Spartacus, such as the route for the product details page, can be disabled through configuration. This can be useful, for example, when you want to provide custom routes instead. When you disable a route, the configuration of `paths` is used only to generate router links. For more information, see [{% assign linkedpage = site.pages | where: "name", "configurable-router-links.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
 
 The following is an example of disabling the route for the product details page:
 
