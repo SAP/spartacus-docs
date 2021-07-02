@@ -56,6 +56,8 @@ origin content-type accept authorization occ-personalization-id occ-personalizat
 
 ## Enabling Personalization in Spartacus
 
+### Configuring Personalization in Spartacus 3.1 or Older
+
 In `app.module.ts`, add the following to the settings in the `B2cStorefrontModule.withConfig` section:
 
 ```ts
@@ -64,6 +66,37 @@ personalization: {
 },
 ```
 
+### Configuring Persaonlization in Spartacus 3.2 or Newer
+
+From 3.2, personlization is in `@spartacus/tracking` library. You can configure Personlization by add `PersonalizationConfig` in `personalization-feature.module.ts`:
+
+```ts
+  provideConfig(<PersonalizationConfig>{
+    personalization: {
+      enable: true,
+    },
+  }),
+```
+
+The `defaultPersonalizationConfig` is this:
+
+```ts
+export const defaultPersonalizationConfig: PersonalizationConfig = {
+  personalization: {
+    enabled: false,
+    httpHeaderName: {
+      id: 'Occ-Personalization-Id',
+      timestamp: 'Occ-Personalization-Time',
+    },
+    context: {
+      slotPosition: 'PlaceholderContentSlot',
+      componentId: 'PersonalizationScriptComponent',
+    },
+  },
+};
+```
+
+You can replace the default values by replacing them in the `personalization-feature.module.ts`.
 ## Testing Personalization
 
 To check if Spartacus Personalization is configured properly:
