@@ -173,3 +173,23 @@ For data that should be kept fresh and reloaded more often, you can use `maxAge`
 This configuration will result in a `list` scope reload as soon as it becomes older than 60 seconds. 
 
 Reload will only take place, when scope will be "in use", more specifically when some code will be subscribed to that data scope, which usually means that the data from the scope is currently used on a page. 
+
+## Reloading triggers
+
+There might be some cases when a product should be reloaded based on a specified event. For such cases, you can leverage the `reloadOn` configuration.
+
+```json
+{
+  backend: {
+    loadingScopes: {
+      product: {
+        detail: {
+          reloadOn: [MyEvent]
+        }
+      },
+    },
+  },
+}
+```
+
+For the given example, Spartacus will subscribe to the provided events, and reload the `detail` scope after `MyEvent` fires.
