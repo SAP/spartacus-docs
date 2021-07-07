@@ -191,3 +191,5 @@ There might be some cases when a product should be reloaded based on a specified
   },
 }
 ```
+
+For the given example, the `detail` scope will be reloaded when `MyEvent` fires.
