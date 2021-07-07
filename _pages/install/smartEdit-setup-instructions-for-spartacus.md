@@ -29,7 +29,7 @@ For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer
 
 The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries. If you are using version 3.2 or newer of the Spartacus libraries, see [Configuring SmartEdit to work with Spartacus 3.2 or Newer](#configuring-smartedit-to-work-with-spartacus-32-or-newer). If you are using version 3.1 or older of the Spartacus libraries, see [Configuring SmartEdit to work with Spartacus 3.1 or Older](#configuring-smartedit-to-work-with-spartacus-31-or-older).
 
-### Configuring SmartEdit to work with Spartacus 3.2 or Newer
+### Configuring SmartEdit to Work With Spartacus 3.2 or Newer
 
 The following steps are for configuring SmartEdit to work using the SmartEdit feature library.
 
@@ -100,7 +100,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
 
    **Note:** If you start your application without using SSL mode, the two references to `https://localhost:4200` must be changed to `http://localhost:4200`.
 
-### Configuring SmartEdit to work with Spartacus 3.1 or Older
+### Configuring SmartEdit to Work With Spartacus 3.1 or Older
 
 The following steps are for configuring SmartEdit to work without the SmartEdit feature library.
 
