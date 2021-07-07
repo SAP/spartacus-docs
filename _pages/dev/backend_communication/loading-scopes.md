@@ -191,5 +191,3 @@ There might be some cases when a product should be reloaded based on a specified
   },
 }
 ```
-
-For the given example, Spartacus will subscribe to the provided events, and reload the `detail` scope after `MyEvent` fires.
