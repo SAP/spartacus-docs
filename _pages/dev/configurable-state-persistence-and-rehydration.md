@@ -46,6 +46,38 @@ In the provided example, the state object with `auth.userToken.token` will be sy
 
 In case there is a need to sync multiple slices of the state, just specify the required properties in `storageSync`'s `keys` config and specify the storage type.
 
+### Excluding Properties
+
+As syncing the user's sensitive data (including refresh tokens) to the browser's `localStorage` is not secure, Spartacus also provides an exclusion mechanism for these kind of cases:
+
+```ts
+export function authStoreConfigFactory(): StateConfig {
+  const config: StateConfig = {
+    state: {
+      storageSync: {
+        keys: {
+          "auth.userToken.token": StorageSyncType.LOCAL_STORAGE
+        },
+        excludeKeys: {
+          "auth.userToken.token.refresh_token": StorageSyncType.LOCAL_STORAGE
+        }
+      }
+    }
+  };
+  return config;
+}
+@NgModule({
+  imports: [
+    ...
+    ConfigModule.withConfigFactory(authStoreConfigFactory),
+  ],
+  ...
+})
+export class AuthStoreModule {}
+```
+
+Here, the whole `auth.userToken.token` will be persisted to the `localStorage`, except the specified `refresh_token` property which will be omitted.
+
 ### Rehydration
 
 During the startup of the application, Spartacus checks for data stored in either `localStorage` or `sessionStorage`. If the data exists, Spartacus will use it to rehydrate the state. This is done automatically and there's no need to configure it.
