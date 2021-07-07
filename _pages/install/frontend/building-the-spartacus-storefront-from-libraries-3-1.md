@@ -62,7 +62,7 @@ For a full list of available parameters please visit Spartacus schematics [docum
 To install version 3.1 of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics~3.1.0
+ng add @spartacus/schematics@3.1
 ```
 
 **Notes:**
