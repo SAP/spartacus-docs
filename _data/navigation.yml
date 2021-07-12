@@ -297,6 +297,8 @@ docs:
                   url: /infinite-scroll/  
                 - title: "Notification Preferences"
                   url: /notification-preferences/
+                - title: "Santorini Theme"
+                  url: /santorini-theme/
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
