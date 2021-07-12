@@ -163,7 +163,7 @@ You can extend the default Spartacus styles with placeholder selectors in the fo
 
 - You can extend the default style in your `styles.scss`, and then define your custom styles in the component scss file.
 
-  The following is an example of `styles.scss` where `custom-product-intro` is the name of the custom component:
+  The following is an example of `styles.scss` where `custom-product-intro` is the selector of the custom component:
 
   ```scss
   // styles.scss
