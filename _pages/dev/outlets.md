@@ -46,11 +46,11 @@ Alternatively, you can use `OutletPosition.BEFORE` or `OutletPosition.AFTER`.
 
 ## Component-Driven Outlets
 
-While the usage of `ng-template` is convenient, it is limited when no `TemplateRef` is available. Also, there may be scenarios where you wish to add a component dynamically, outside the UI, using typescript.
+While the usage of `ng-template` is convenient, it is limited when no `TemplateRef` is available. Also, there may be scenarios where you wish to add a component dynamically, outside the UI, using TypeScript.
 
 Instead of using a template, you can provide a component to the outlet service by using the `provideOutlet` provider.
 
-The following will insert the `CustomHeaderComponent` in the `header` slot:
+In the following example, the `CustomHeaderComponent` is inserted in the `header` slot:
 
 ```typescript
 providers: [
@@ -63,7 +63,7 @@ providers: [
 ]
 ```
 
-The optional `position` field behaves in the same way as the `cxOutletPos` described in the section above.
+The optional `position` field behaves in the same way as the `cxOutletPos`, which is described in the [Template-Driven Outlets](#template-driven-outlets) section, above.
 
 ## Stacked Outlets
 
