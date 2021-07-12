@@ -48,16 +48,22 @@ Alternatively, you can use `OutletPosition.BEFORE` or `OutletPosition.AFTER`.
 
 While the usage of `ng-template` is convenient, it is limited when no `TemplateRef` is available. Also, there may be scenarios where you wish to add a component dynamically, outside the UI, using typescript.
 
-Instead of using a template, you can add a component factory to an outlet reference. With this technique, you can dynamically load a component and bring it into the UI. An actual example of this is the `AsmLoaderModule`, which loads the ASM experience dynamically in the `cx-storefront` outlet reference, but only when needed.
+Instead of using a template, you can provide a component to the outlet service by using the `provideOutlet` provider.
 
-The following is an example of adding UI dynamically by passing in a component factory:
+The following will insert the `CustomHeaderComponent` in the `header` slot:
 
 ```typescript
-const factory = this.componentFactoryResolver.resolveComponentFactory(MyComponent);
-this.outletService.add('cx-storefront', factory, OutletPosition.BEFORE);
+providers: [
+    ...,
+    provideOutlet({
+      id: 'header',
+      position: OutletPosition.REPLACE,
+      component: CustomHeaderComponent,
+    }),
+]
 ```
 
-**Note**: The component-driven outlets feature is introduced with version 1.3 of the Spartacus libraries. If you are using an earlier version, only template content can be added to outlets.
+The optional `position` field behaves in the same way as the `cxOutletPos` described in the section above.
 
 ## Stacked Outlets
 
