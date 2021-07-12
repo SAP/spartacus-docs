@@ -1,9 +1,9 @@
 ---
 title: Saved Cart
 feature:
-- name: Saved Cart
-  spa_version: 3.2
-  cx_version: 2005
+  - name: Saved Cart
+    spa_version: 3.2
+    cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -14,18 +14,16 @@ feature:
 
 The saved cart feature allows users to save one or more carts for later use. Users can benefit from the saved cart feature to enhance their online shopping experience. For example, they can create a saved cart for items that they purchase on a regular basis, or they can create different saved carts for specific types of purchases.
 
-**Note:** The saved cart feature currently works only with B2B storefronts.
-
 For more information, see [Multiple Saved Carts](https://help.sap.com/viewer/e1391e5265574bfbb56ca4c0573ba1dc/latest/en-US/4d094e78a5494963b2d66148167f0553.html) on the SAP Help Portal.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Enabling Saved Cart
 
@@ -112,19 +110,19 @@ You can only save a cart from the **Cart** page when you are logged in and you h
 
 1. Add one or more items to your cart, then open the **Cart** page:
 
-    <img src="{{ site.baseurl }}/assets/images/saved-carts-1.png" alt="Shopping Cart" width="800" border="1px" />
+<img src="{{ site.baseurl }}/assets/images/saved-carts-1.png" alt="Shopping Cart" width="800" border="1px" />
 
 1. Click **Save Cart For Later**.
 
-    The **Save for later** dialog box appears:
+   The **Save for later** dialog box appears:
 
-    <img src="{{ site.baseurl }}/assets/images/saved-carts-2.png" alt="Save For Later dialog box" width="800" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/saved-carts-2.png" alt="Save For Later dialog box" width="800" border="1px" />
 
 1. Add a name for your saved cart. You can also add a description.
 
 1. Click **Save**.
 
-    After saving the cart, your current active cart is no longer displayed because it has been saved.
+   After saving the cart, your current active cart is no longer displayed because it has been saved.
 
 ### Saved Cart History Page
 
@@ -138,7 +136,9 @@ The following is an example of the **Saved Carts** history page:
 
 <img src="{{ site.baseurl }}/assets/images/saved-carts-4.png" alt="Saved Carts History Page" width="800" border="1px" />
 
-When you click **Make Cart Active**, the selected saved cart becomes the active cart. After being made active, the saved cart disappears from the list of saved carts.
+When you click **Make Cart Active**, you will have the option to clone the selected saved cart. The selected saved cart becomes the active cart. After being made active, the selected saved cart disappears from the list of saved carts unless you have enabled the option to clone that selected saved cart. Enabling the option to clone the selected saved cart will allow the user to retain a copy and have it added to the list of saved carts and thereby making the selected cart an active cart too.
+
+<img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog.png" alt="Save For Later dialog box" width="800" border="1px" />
 
 **Note:** If you already have an active cart when you click **Make Cart Active**, your current cart becomes a saved cart, and the saved cart becomes the active cart. The name for the new saved cart is generated automatically from the cart ID.
 
