@@ -151,59 +151,60 @@ cx-link {
 }
 ```
 
-*Note*: the placeholder selector must be explicitly imported from the Spartacus library in the file where you extend the placeholder selector.
-
 The `optional` flag ensures that the code will not break during the build, whenever a specific import is not part of the imported styles.
 
 Spartacus generates the component by iterating over the configured component selectors.
 
+**Note**: The placeholder selector must be explicitly imported in the file where you extend the placeholder selector. Placeholder selectors are imported from the `@spartacus/styles` library.
 
-#### Extending default styles with placeholder selectors
+#### Extending Default Styles With Placeholder Selectors
 
-There are two ways to extend the out of the box Spartacus styles with placeholder selectors.
+You can extend the default Spartacus styles with placeholder selectors in the following ways:
 
-1. Extending the out of the box style in you `styles.scss` and defining your custom styles in the component scss file:
+- You can extend the default style in your `styles.scss`, and then define your custom styles in the component scss file.
 
-```
-// styles.scss
-$styleVersion: ...;
-@import "~@spartacus/styles/index";
+  The following is an example of `styles.scss` where `custom-product-intro` is the name of the custom component:
 
-custom-product-intro {
-  @extend %cx-product-intro !optional;
-}
-```
+  ```scss
+  // styles.scss
+  $styleVersion: ...;
+  @import "~@spartacus/styles/index";
 
-Here `custom-product-intro` is the name of the custom component.
-
-```
-// custom-product-intro.component.ts
-:host {
-  .code {
-    color: yellow;
+  custom-product-intro {
+    @extend %cx-product-intro !optional;
   }
-}
-```
+  ```
 
-The following example the `custom-product-intro` will use the style from Spartacus except the color of the `.code` class will now be yellow.
+  You then define your custom styles in the component scss file, as shown in the following example:
 
-2. Extending the placeholder selector and customizing the style in the component scss file:
-
-```
-// custom-product-intro.component.ts
-
-// Import required by the OOTB file
-@import "~@spartacus/styles/scss/cxbase/mixins";
-// Import the OOTB component style before importing it
-@import "~@spartacus/styles/scss/components/product/details/product-intro";
-
-:host {
-  .code {
-    color: yellow;
+  ```ts
+  // custom-product-intro.component.ts
+  :host {
+    .code {
+      color: yellow;
+    }
   }
-  @extend %cx-product-intro !optional;
-}
-```
+  ```
+
+  In the example above, the `custom-product-intro` uses the style from Spartacus, but the color of the `.code` class now becomes yellow.
+
+- You can extend the placeholder selector and customize the style in the component scss file. The following is an example:
+
+  ```ts
+  // custom-product-intro.component.ts
+
+  // Add the following import first (this import is required because most styles have a dependency on it)
+  @import "~@spartacus/styles/scss/cxbase/mixins";
+  // Then import the default component style before extending it
+  @import "~@spartacus/styles/scss/components/product/details/product-intro";
+
+  :host {
+    .code {
+      color: yellow;
+    }
+    @extend %cx-product-intro !optional;
+  }
+  ```
 
 ### Skipping Specific Component Styles
 
