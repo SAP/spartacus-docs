@@ -251,8 +251,8 @@ For a detailed list of all changes for 2.0 and previous 'next' releases of the S
   
 *Release 1.5 libraries published February 26, 2020*
 
-- [intelligent selling services for SAP Commerce Cloud]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
-Intelligent selling services for SAP Commerce Cloud provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the intelligent selling services feature itself, see the [intelligent selling services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+- [Intelligent Selling Services for SAP Commerce Cloud]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
+Intelligent Selling Services for SAP Commerce Cloud provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Intelligent Selling Services feature itself, see the [Intelligent Selling Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
 Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
