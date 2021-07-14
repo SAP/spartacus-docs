@@ -22,11 +22,13 @@ ADD SANTORINI SCREEN SHOT HERE
 
 1. Go to backoffice -> wcms -> website -> open the site, then select Santorini theme.
 
-1. In your `styles.scss` file, below the main Spartacus styles import, add the following:
+2. In your `styles.scss` file, below the main Spartacus styles import, add the following:
 
     ```scss
     @import '~@spartacus/styles/scss/theme/santorini';
     ```
+
+*Note*: If you are creating a new storefront you can use the `--theme=` flag in schematics to specify your desired theme. This will automatically add the styles import as shown above. The full command would look like: `ng add @spartacus/schematics --theme=santorini`.
 
 ## Configuring
 
