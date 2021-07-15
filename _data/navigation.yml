@@ -547,6 +547,8 @@ docs:
                   url: /fsa-policy-change/
                 - title: "Coupons"
                   url: /fsa-coupons/
+                - title: "Product Discovery"
+                  url: /fsa-product-discovery/
 
 
     - title: Contributing to Spartacus
