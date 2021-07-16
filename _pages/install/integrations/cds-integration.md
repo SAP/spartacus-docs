@@ -12,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The *Intelligent Selling Services for SAP Commerce Cloud* solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate *Intelligent Selling Services for SAP Commerce Cloud* with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.
+The Intelligent Selling Services for SAP Commerce Cloud solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate Intelligent Selling Services for SAP Commerce Cloud with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.
 
 For more information, see [Intelligent Selling Services for SAP Commerce Cloud](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) on the SAP Help Portal.
 
@@ -27,13 +27,13 @@ For more information, see [Intelligent Selling Services for SAP Commerce Cloud](
 
 ## Requirements
 
-To integrate *Intelligent Selling Services for SAP Commerce Cloud* with Spartacus, release **1905.9** of Commerce Cloud is required.
+To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release **1905.9** of Commerce Cloud is required.
 
 Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see [{% assign linkedpage = site.pages | where: "name", "anonymous-consent.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 ## Enabling Intelligent Selling Services for SAP Commerce Cloud in Spartacus
 
-To enable *Intelligent Selling Services for SAP Commerce Cloud* in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
+To enable Intelligent Selling Services for SAP Commerce Cloud in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
 
 ### Configuring Spartacus for Intelligent Selling Services for SAP Commerce Cloud
 
