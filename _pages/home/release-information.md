@@ -43,7 +43,7 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
    
 *Release 1.5 libraries published February 26, 2020*
 
-- [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
+- [Intelligent Selling Services for SAP Cloud]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
 Context-Driven Services provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Context-Driven Services feature itself, see the [Context-Driven Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
