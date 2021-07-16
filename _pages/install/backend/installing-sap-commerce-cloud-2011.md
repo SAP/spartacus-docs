@@ -15,9 +15,9 @@ The following instructions describe how to install and configure SAP Commerce Cl
 
 ## Important Disclaimers
 
-- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain backend functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill orders with Order Management as used in the default cx recipe. See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/latest/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information and for a sample ImpEx that enables such users.
+- Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain back end functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill orders with Order Management as used in the default cx recipe. For more information, and for a sample ImpEx that enables such users, see [Setting Passwords for Default Users](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) on the SAP Help Portal.
 
-- Starting with release 1905, SAP Commerce Cloud releases ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contain the default password `nimba`; we strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
+- Starting with release 1905, SAP Commerce Cloud ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` that is stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contains the default password `nimba`. We strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
 
 - The sample custom properties file and OCC credentials supplied here are for evaluation purposes only. Aside from a default password, for example, the CORS settings are permissive to prevent access issues. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as they should not be used for production servers.
   
@@ -28,17 +28,17 @@ Summary:
 - Step 1: Download, unzip, and create the new recipe
 - Step 2: Build and initialize the recipe
 - Step 3: Import OCC credentials
-- Step 4: Update system and user credentials (2011 only) (optional)
+- Step 4: Update system and user credentials (optional)
   
 ### Step 1: Download, unzip, and create the new recipe
 
 1. Download and unzip the following files:
-   - SAP Commerce Cloud (release 2011 recommended) from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE). 
+   - SAP Commerce Cloud 2011 from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE).
    - Spartacus Sample Data extension from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). 
-     - The zip file itself, `spartacussampledata.2005.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library. 
-     - [Direct link to spartacussampledata.2005.zip](https://github.com/SAP/spartacus/releases/download/storefront-3.0.0-rc.3/spartacussampledata.2005.zip) (newer versions of the sample data may be released in later releases)
+     - The zip file itself, `spartacussampledata.2011.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library.
+     - [Direct link to spartacussampledata.2011.zip](https://github.com/SAP/spartacus/releases/download/storefront-3.4.1/spartacussampledata.2011.zip) (newer versions of the sample data may be released in later releases)
 
-1. Move the file `custom.properties` from `spartacussampledata/resources/installer/customconfig` to `installer/customconfig`.
+1. Move the file `custom.properties` from `spartacussampledata/resources/installer/customconfig` to `hybris-commerce-suite-2011/installer/customconfig`.
 
    It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
    The contents of this file are listed at the end of this document for reference.
@@ -122,9 +122,9 @@ The curl command sends a POST request for an access token, using the client ID a
 }
 ```
 
-### Step 4: Update system and user credentials (2011 only) (optional)
+### Step 4: Update system and user credentials (optional)
 
-If you are using SAP Commerce Cloud 2011, you may need to enable users and passwords for certain functionality to work.
+You may need to enable users and passwords for certain functionality to work.
 
 See [this help topic](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/latest/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) for more information.
   
