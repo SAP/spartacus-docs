@@ -1,7 +1,7 @@
 ---
-title: Intelligent Selling Services for SAP Cloud Integration
+title: Intelligent Selling Services for SAP Commerce Cloud Integration
 feature:
-- name: Intelligent Selling Services for SAP Cloud Integration
+- name: Intelligent Selling Services for SAP Commerce Cloud Integration
   spa_version: 1.5
   cx_version: 1905.9
 ---
@@ -14,21 +14,21 @@ feature:
 
 ## Overview
 
-The SAP Commerce Cloud, Intelligent Selling Services for SAP Cloud solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate Intelligent Selling Services for SAP Cloud with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.
+The SAP Commerce Cloud, Intelligent Selling Services for SAP Commerce Cloud solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate Intelligent Selling Services for SAP Commerce Cloud with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.
 
-For more information, see [Intelligent Selling Services for SAP Cloud](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) on the SAP Help Portal.
+For more information, see [Intelligent Selling Services for SAP Commerce Cloud](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US) on the SAP Help Portal.
 
 ## Requirements
 
-To integrate Intelligent Selling Services for SAP Cloud with Spartacus, release **1905.9** of Commerce Cloud is required.
+To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release **1905.9** of Commerce Cloud is required.
 
 Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
-## Enabling Intelligent Selling Services for SAP Cloud in Spartacus
+## Enabling Intelligent Selling Services for SAP Commerce Cloud in Spartacus
 
-To enable Intelligent Selling Services for SAP Cloud in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
+To enable Intelligent Selling Services for SAP Commerce Cloud in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
 
-### Configuring the Back End for Intelligent Selling Services for SAP Cloud
+### Configuring the Back End for Intelligent Selling Services for SAP Commerce Cloud
 
 The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.
 
@@ -50,7 +50,7 @@ The following steps describe how to add custom headers to your CORS settings, as
     ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
     ```
 
-### Configuring Spartacus for Intelligent Selling Services for SAP Cloud
+### Configuring Spartacus for Intelligent Selling Services for SAP Commerce Cloud
 
 You can carry out all of the following steps after you have set up your Spartacus Storefront. For more information, see [Building the Spartacus Storefront from Libraries]({{ site.baseurl }}{% link _pages/install/building-the-spartacus-storefront-from-libraries.md %}).
 
@@ -196,7 +196,7 @@ If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.ba
 
 6. Click **Save** for the Merchandising carousel to appear on the page you are editing.
 
-## Intelligent Selling Services for SAP Cloud Shell Application
+## Intelligent Selling Services for SAP Commerce Cloud Shell Application
 
 **Note:** The Intelligent Selling Services Shell Application is for developers who are contributing to the Spartacus library sources. In other words, it is only available if you have cloned the Spartacus library sources and are working with a contributor set-up of Spartacus. For more information, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %})
 
@@ -241,7 +241,7 @@ The following steps describe how to run the Intelligent Selling Services Shell A
 
     **Note:** When using this command, you do not need to separately start a Spartacus instance; it is already done as part of the command. To run the Cypress end-to-end tests for Intelligent Selling Services in Spartacus, select `merchandising-carousel.e2e-spec.ts` in the Cypress user interface.
 
-## Other Commands for Intelligent Selling Services for SAP Cloud
+## Other Commands for Intelligent Selling Services for SAP Commerce Cloud
 
 All other Intelligent Selling Services commands have `:cds` as part of their name, and can be found in the `package.json` file of the Spartacus source code.
 
