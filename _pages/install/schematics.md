@@ -43,7 +43,7 @@ The following is a description of the various options you can use with the `ng a
 - `lazy` installs features with lazy loading configured for each of the feature modules. The default value is `true`.
 - `project` allows you to specify the project that you want to configure your Spartacus application in. The default is the workspace default project.
 - `interactive` allows you to bypass the schematics prompts and install Spartacus with a predefined set of features.
-- `theme` allows you to import the CSS for a built-in theme such as `santorini`. The default is the Sparta theme (default theme).
+- `theme` allows you to import the CSS for a built-in theme, such as `santorini`. If you do not set a value for this parameter, the default Sparta theme is used.
 
 The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the `baseUrl` and the `baseSite`, and that also enables server-side rendering:
 
