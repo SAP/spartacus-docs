@@ -69,7 +69,7 @@ docs:
           - title: "Integrations ➢"
             url: /integrations/
             subchildren:
-                - title: 'Context-Driven Services Integration'
+                - title: 'Intelligent Selling Services for SAP Cloud Integration'
                   url: /cds-integration/  
                 - title: 'Payment Integration with CyberSource Example'
                   url: /cybersource-integration/

@@ -117,7 +117,7 @@ Yes. We welcome feedback, ideas, requests, and especially code contributions. If
 
 ### Will Spartacus work with SAP Commerce Cloud, Context Driven Services?
 
-Yes. For more information, see [Context-Driven Services Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}).
+Yes. For more information, see [Intelligent Selling Services for SAP Cloud Integration]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}).
 
 ------
 
