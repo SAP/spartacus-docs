@@ -16,19 +16,31 @@ When you enable the Santorini theme, the colors and font sizes of your storefron
 
 The following is an example:
 
-ADD SANTORINI SCREEN SHOT HERE
+<img src="{{ site.baseurl }}/assets/images/santorini-home-page.png" alt="Santorini Theme Spartacus Home Page" width="750" border="1px" />
 
 ## Enabling the Santorini Theme
 
-1. Go to backoffice -> wcms -> website -> open the site, then select Santorini theme.
+1. Log in to Backoffice and click **WCMS -> Website**.
 
-2. In your `styles.scss` file, below the main Spartacus styles import, add the following:
+1. Select the Spartacus site that you want to apply the Santorini theme to.
+
+1. In the **Properties** panel that appears, scroll down to **Base Configuration**, and in the **Theme** dropdown list, select **Santorini**.
+
+1. Click **Save**.
+
+1. In your `styles.scss` file, below the main Spartacus styles import, add the following:
 
     ```scss
     @import '~@spartacus/styles/scss/theme/santorini';
     ```
 
-*Note*: If you are creating a new storefront you can use the `--theme=` flag in schematics to specify your desired theme. This will automatically add the styles import as shown above. The full command would look like: `ng add @spartacus/schematics --theme=santorini`.
+    You have now enabled the Santorini theme.
+
+**Note**: If you are creating a new storefront, you can use the schematics `--theme=` flag to specify the theme you want to apply to your storefront. This automatically adds the styles import to your `styles.scss` file. The following is an example of the schematics command using the `--theme` flag:
+
+```shell
+ng add @spartacus/schematics --theme=santorini
+```
 
 ## Configuring
 
