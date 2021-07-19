@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Context-Driven Services Integration - Spartacus Documentation</title>
+<!-- begin _includes/seo.html --><title>Intelligent Selling Services for SAP Commerce Cloud Integration - Spartacus Documentation</title>
 <meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
 
 
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Spartacus Documentation">
-<meta property="og:title" content="Context-Driven Services Integration">
+<meta property="og:title" content="Intelligent Selling Services for SAP Commerce Cloud Integration">
 <meta property="og:url" content="/spartacus-docs/2.x/cds-integration/">
 
 
@@ -494,7 +494,7 @@
                                                               
 
                                                                 
-                                                                <li><a href="/spartacus-docs/2.x/cds-integration/" class="active">Context-Driven Services Integration</a>
+                                                                <li><a href="/spartacus-docs/2.x/cds-integration/" class="active">Intelligent Selling Services for SAP Commerce Cloud Integration</a>
 
 
                                                                         
@@ -1502,7 +1502,7 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">Context-Driven Services Integration</h1>
+      <h1 id="page-title" class="page__title">Intelligent Selling Services for SAP Commerce Cloud Integration</h1>
     
     
 <p><b>Note: </b> 
@@ -1511,21 +1511,21 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
 
 <h2 id="overview">Overview</h2>
 
-<p>The SAP Commerce Cloud, Context-Driven Services solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate Context-Driven Services with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.</p>
+<p>The SAP Commerce Cloud, Intelligent Selling Services for SAP Commerce Cloud solution provides real-time customer experience personalization for SAP Commerce Cloud. You can integrate Intelligent Selling Services for SAP Commerce Cloud with your Spartacus Storefront, including the Profile Tag and the Merchandising Carousel features.</p>
 
-<p>For more information, see <a href="https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US">SAP Commerce Cloud, Context-Driven Services</a> on the SAP Help Portal.</p>
+<p>For more information, see <a href="https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES/SHIP/en-US">Intelligent Selling Services for SAP Commerce Cloud</a> on the SAP Help Portal.</p>
 
 <h2 id="requirements">Requirements</h2>
 
-<p>To integrate Context-Driven Services with Spartacus, release <strong>1905.9</strong> of Commerce Cloud is required.</p>
+<p>To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release <strong>1905.9</strong> of Commerce Cloud is required.</p>
 
 <p>Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see <a href="/spartacus-docs/2.x/anonymous-consent/">Anonymous Consent</a>.</p>
 
-<h2 id="enabling-context-driven-services-in-spartacus">Enabling Context-Driven Services in Spartacus</h2>
+<h2 id="enabling-intelligent-selling-services-for-sap-commerce-cloud-in-spartacus">Enabling Intelligent Selling Services for SAP Commerce Cloud in Spartacus</h2>
 
-<p>To enable Context-Driven Services in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.</p>
+<p>To enable Intelligent Selling Services for SAP Commerce Cloud in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.</p>
 
-<h3 id="configuring-the-back-end-for-context-driven-services">Configuring the Back End for Context-Driven Services</h3>
+<h3 id="configuring-the-back-end-for-intelligent-selling-services-for-sap-commerce-cloud">Configuring the Back End for Intelligent Selling Services for SAP Commerce Cloud</h3>
 
 <p>The following steps describe how to add custom headers to your CORS settings, as well as how to define a consent template that allows events to be sent.</p>
 
@@ -1551,19 +1551,19 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
   </li>
 </ol>
 
-<h3 id="configuring-spartacus-for-context-driven-services">Configuring Spartacus for Context-Driven Services</h3>
+<h3 id="configuring-spartacus-for-intelligent-selling-services-for-sap-commerce-cloud">Configuring Spartacus for Intelligent Selling Services for SAP Commerce Cloud</h3>
 
 <p>You can carry out all of the following steps after you have set up your Spartacus Storefront. For more information, see <a href="/spartacus-docs/2.x/building-the-spartacus-storefront-from-libraries/">Building the Spartacus Storefront from Libraries</a>.</p>
 
 <ol>
   <li>
-    <p>Install the Context-Driven Services library by running the following command from within the root directory of your storefront app:</p>
+    <p>Install the Intelligent Selling Services library by running the following command from within the root directory of your storefront app:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm i @spartacus/cds
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Import the Context-Driven Services module by adding the following line below the existing import statements at the top of <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
+    <p>Import the Intelligent Selling Services module by adding the following line below the existing import statements at the top of <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
 
     <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="p">{</span> <span class="nx">CdsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/cds</span><span class="dl">'</span><span class="p">;</span>
 </code></pre></div>    </div>
@@ -1598,11 +1598,11 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
 
     <ul>
       <li><strong>tenant:</strong> Set this to your testing or production tenant, as required. For more information, see <a href="https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html">Tenant Provisioning</a>.</li>
-      <li><strong>baseUrl:</strong> Replace the value shown in the example with the base URL of your Context-Driven Services environment.</li>
+      <li><strong>baseUrl:</strong> Replace the value shown in the example with the base URL of your Intelligent Selling Services environment.</li>
       <li><strong>strategyProducts:</strong> Set this value as shown in the example.</li>
-      <li><strong>defaultCarouselViewportThreshold:</strong> With Commerce Cloud 1905.14 or newer, you can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Context-Driven Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.</li>
+      <li><strong>defaultCarouselViewportThreshold:</strong> With Commerce Cloud 1905.14 or newer, you can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Intelligent Selling Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.</li>
       <li><strong>javascriptUrl:</strong> Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, <code class="language-plaintext highlighter-rouge">http://tag.static.us.context.cloud.sap/js/profile-tag.js</code>). For more information, see <a href="https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html">Deciding Which Profile Tag Link to Use</a> on the SAP Help Portal.</li>
-      <li><strong>configUrl:</strong> Specify the URL of the Profile Tag configuration that you have created in Context-Driven Services. For more information, see <a href="https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html">Profile Tag Overview</a> on the SAP Help Portal.</li>
+      <li><strong>configUrl:</strong> Specify the URL of the Profile Tag configuration that you have created in Intelligent Selling Services. For more information, see <a href="https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html">Profile Tag Overview</a> on the SAP Help Portal.</li>
       <li><strong>allowInsecureCookies:</strong> This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is <code class="language-plaintext highlighter-rouge">false</code>. If you are running on HTTP, set this parameter to <code class="language-plaintext highlighter-rouge">true</code>. For example, if you are using a local back end, <code class="language-plaintext highlighter-rouge">allowInsecureCookies</code> must be set to <code class="language-plaintext highlighter-rouge">true</code>. In production, it should always be set to <code class="language-plaintext highlighter-rouge">false</code>.</li>
       <li><strong>gtmId:</strong> This is an optional parameter (not show in the example above) that is used to integrate Profile Tag with Google Tag Manager. For more information, see <a href="https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/3bccaa4bd20441fd88dcfc1ade648591.html">Profile Tag</a> on the SAP Help Portal.</li>
     </ul>
@@ -1624,15 +1624,15 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
 
 <p>This ImpEx creates the component in the Staged catalog. To publish it, run a sync, or replace <code class="language-plaintext highlighter-rouge">Staged</code> with <code class="language-plaintext highlighter-rouge">Online</code> in the ImpEx.</p>
 
-<h2 id="context-driven-merchandising">Context-Driven Merchandising</h2>
+<h2 id="intelligent-selling-merchandising">Intelligent Selling Merchandising</h2>
 
-<p>Context-Driven Merchandising carousels enable a Spartacus storefront to display the results of Context-Driven Merchandising in the form of a product carousel.</p>
+<p>Intelligent Selling Merchandising carousels enable a Spartacus storefront to display the results of Intelligent Selling Merchandising in the form of a product carousel.</p>
 
-<p>For more information, see <a href="https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html">Context-Driven Merchandising</a> and <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html">Context-Driven Merchandising Module</a> on the SAP Help Portal.</p>
+<p>For more information, see <a href="https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html">Intelligent Selling Merchandising</a> and <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html">Intelligent Selling Merchandising Module</a> on the SAP Help Portal.</p>
 
-<h3 id="requirements-for-enabling-context-driven-merchandising">Requirements for Enabling Context-Driven Merchandising</h3>
+<h3 id="requirements-for-enabling-intelligent-selling-merchandising">Requirements for Enabling Intelligent Selling Merchandising</h3>
 
-<p>Context-Driven Merchandising carousels require the <code class="language-plaintext highlighter-rouge">merchandisingaddon</code> and <code class="language-plaintext highlighter-rouge">profiletagaddon</code> extensions. Once you install the extensions, follow the steps in <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb">Merchandising Configuration Setup</a> and <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160">Catalog Synchronization Configuration</a> to synchronize a product catalog with Context-Driven Services.</p>
+<p>Intelligent Selling Merchandising carousels require the <code class="language-plaintext highlighter-rouge">merchandisingaddon</code> and <code class="language-plaintext highlighter-rouge">profiletagaddon</code> extensions. Once you install the extensions, follow the steps in <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb">Merchandising Configuration Setup</a> and <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160">Catalog Synchronization Configuration</a> to synchronize a product catalog with Intelligent Selling Services.</p>
 
 <p>It is also recommended to follow the instructions in <a href="https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loio6f59fb60a3fd43f89c08e8ba28b9e2a2">Product Directory Configuration</a>.</p>
 
@@ -1672,7 +1672,7 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
 
 <h3 id="adding-a-merchandising-carousel-with-smartedit">Adding a Merchandising Carousel with SmartEdit</h3>
 
-<p>If you have followed the <a href="/spartacus-docs/2.x/smartEdit-setup-instructions-for-spartacus/">SmartEdit Setup Instructions for Spartacus</a>, you can use SmartEdit to add a Context-Driven Merchandising carousel to a page, as follows:</p>
+<p>If you have followed the <a href="/spartacus-docs/2.x/smartEdit-setup-instructions-for-spartacus/">SmartEdit Setup Instructions for Spartacus</a>, you can use SmartEdit to add a Intelligent Selling Merchandising carousel to a page, as follows:</p>
 
 <ol>
   <li>
@@ -1700,7 +1700,7 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
 
     <p>For the <strong>Strategy</strong> field, select a configured Merchandising strategy to be used in the carousel.</p>
 
-    <p>For the <strong>Viewport Percentage</strong> field, enter the percentage of the carousel that needs to be in the viewport for carousel view events to be sent to Context-Driven Services.</p>
+    <p>For the <strong>Viewport Percentage</strong> field, enter the percentage of the carousel that needs to be in the viewport for carousel view events to be sent to Intelligent Selling Services.</p>
 
     <p><strong>Note:</strong> This configuration option is only available in Commerce Cloud version 1905.14 or newer. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify.</p>
   </li>
@@ -1709,11 +1709,11 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
   </li>
 </ol>
 
-<h2 id="context-driven-services-shell-application">Context-Driven Services Shell Application</h2>
+<h2 id="intelligent-selling-services-for-sap-commerce-cloud-shell-application">Intelligent Selling Services for SAP Commerce Cloud Shell Application</h2>
 
-<p><strong>Note:</strong> The Context-Driven Services Shell Application is for developers who are contributing to the Spartacus library sources. In other words, it is only available if you have cloned the Spartacus library sources and are working with a contributor set-up of Spartacus. For more information, see <a href="/spartacus-docs/2.x/contributor-setup/">Contributor Setup</a></p>
+<p><strong>Note:</strong> The Intelligent Selling Services Shell Application is for developers who are contributing to the Spartacus library sources. In other words, it is only available if you have cloned the Spartacus library sources and are working with a contributor set-up of Spartacus. For more information, see <a href="/spartacus-docs/2.x/contributor-setup/">Contributor Setup</a></p>
 
-<p>The following steps describe how to run the Context-Driven Services Shell Application:</p>
+<p>The following steps describe how to run the Intelligent Selling Services Shell Application:</p>
 
 <ol>
   <li>
@@ -1752,13 +1752,13 @@ This feature is introduced with version 1.5 of the Spartacus libraries.
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yarn e2e:cy:cds:start-open
 </code></pre></div>    </div>
 
-    <p><strong>Note:</strong> When using this command, you do not need to separately start a Spartacus instance; it is already done as part of the command. To run the Cypress end-to-end tests for Context-Driven Services in Spartacus, select <code class="language-plaintext highlighter-rouge">merchandising-carousel.e2e-spec.ts</code> in the Cypress user interface.</p>
+    <p><strong>Note:</strong> When using this command, you do not need to separately start a Spartacus instance; it is already done as part of the command. To run the Cypress end-to-end tests for Intelligent Selling Services in Spartacus, select <code class="language-plaintext highlighter-rouge">merchandising-carousel.e2e-spec.ts</code> in the Cypress user interface.</p>
   </li>
 </ol>
 
-<h2 id="other-commands-for-context-driven-services">Other Commands for Context-Driven Services</h2>
+<h2 id="other-commands-for-intelligent-selling-services-for-sap-commerce-cloud">Other Commands for Intelligent Selling Services for SAP Commerce Cloud</h2>
 
-<p>All other Context-Driven Services commands have <code class="language-plaintext highlighter-rouge">:cds</code> as part of their name, and can be found in the <code class="language-plaintext highlighter-rouge">package.json</code> file of the Spartacus source code.</p>
+<p>All other Intelligent Selling Services commands have <code class="language-plaintext highlighter-rouge">:cds</code> as part of their name, and can be found in the <code class="language-plaintext highlighter-rouge">package.json</code> file of the Spartacus source code.</p>
 
 <h2 id="limitations">Limitations</h2>
 
