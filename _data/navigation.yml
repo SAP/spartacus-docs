@@ -297,8 +297,6 @@ docs:
                   url: /infinite-scroll/  
                 - title: "Notification Preferences"
                   url: /notification-preferences/
-                - title: "Santorini Theme"
-                  url: /santorini-theme/
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
@@ -336,7 +334,10 @@ docs:
                 - title: "Page Layout"
                   url: /page-layout/
                 - title: "Skeleton Design"
-                  url: /skeleton-design/  
+                  url: /skeleton-design/
+                - title: "Storefront Themes"
+                  url: /storefront-themes/
+
 
 
     - title: Using the Spartacus Storefront
