@@ -125,7 +125,7 @@ The following steps describe how to add custom headers to your CORS settings, as
     ```sql
     $lang=en
     INSERT_UPDATE ConsentTemplate;id[unique=true];name[lang=$lang];description[lang=$lang];version[unique=true];baseSite(uid)[unique=true,    default=electronics-spa];exposed
-    ;PROFILE;"Allow SAP Commerce Cloud, Context-Driven Services tracking";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
+    ;PROFILE;"Allow tracking for Intelligent Selling Services";"We would like to store your browsing behavior so that our website can dynamically present you with a personalized browsing experience and our customer support agents can provide you with contextual customer support.";1;;true
     ```
 
 ## Profile Tag
