@@ -36,15 +36,19 @@ This document describes what is included in all Spartacus libraries since the in
 *Release 3.4 libraries published June 16, 2021*
 
 ### Cart API refactoring
+
 The Cart API was refactored to make development easier. For example, many classes were made protected and thus more extensible. (See [here](https://github.com/SAP/spartacus/pull/12389) for more information.) Inline documentation was also improved.
 
 ### Code splitting for performance improvement
-Code splitting continues with new libraries for more modules, such as Context Driven Services, Store Finder, Account, Profile, and ASM - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
+
+Code splitting continues with new libraries for more modules, such as Intelligent Selling Services, Store Finder, Account, Profile, and ASM - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
 
 ### Simplified schematics installation
+
 Installation selection when adding features using `ng add @spartacus/schematics@` was simplified. A single list is presented at the start, and dependencies or sub-coponents automatically determined by feature. The list of modules reflects the changes due to the code splitting initative.
 
 ### New events
+
 New events were added: Cart Remove Entry Success, Cart Remove Entry Fail, Cart Update Entry Fail (see [GitHub issue 12125](https://github.com/SAP/spartacus/issues/12125)). Event reference documentation is now auto-generated (see [this page]({{ site.baseurl }}/event-service/#list-of-spartacus-events) for an example).
 
 ## Release 3.3
@@ -251,8 +255,8 @@ For a detailed list of all changes for 2.0 and previous 'next' releases of the S
   
 *Release 1.5 libraries published February 26, 2020*
 
-- [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
-Context-Driven Services provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Context-Driven Services feature itself, see the [Context-Driven Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+- [Intelligent Selling Services for SAP Commerce Cloud]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
+Intelligent Selling Services for SAP Commerce Cloud provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Intelligent Selling Services feature itself, see the [Intelligent Selling Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
 Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
