@@ -230,7 +230,7 @@ export function serviceMapFactory() {
 /*...*/
 ```
 
-**Note:** If you have implemented a custom `SiteContextConfigInitializer` (or a custom `OccConfigLoaderService` if you are using Spartacus 3.1 or earlier), this also needs to be provided, as shown in the example above.
+**Note:** If you have implemented a custom `SiteContextConfigInitializer`, this also needs to be provided, as shown in the example above.
 
 You should now be able to see your URL with an uppercase ISO language code (for example, `www.site.com/EN`), while still being able to use standard lowercase languages in your application.
 
