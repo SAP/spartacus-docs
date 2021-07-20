@@ -16,11 +16,10 @@ Spartacus supports guest checkout, which is a feature that allows users to check
 
 ## Enabling Guest Checkout
 
-Guest checkout is disabled by default, but can be enabled in `app.module.ts` by setting the `guest` flag to `true` in the `checkout` configuration. You can enable guest checkout, as shown in the following example:
+Guest checkout is disabled by default, but can be enabled in `spartacus-configuration.module.ts` by setting the `guest` flag to `true` in the `checkout` configuration. You can enable guest checkout, as shown in the following example:
 
 ```ts
-B2cStorefrontModule.withConfig({
-  [...]
+provideConfig({
   checkout: {
     guest: true
   }
