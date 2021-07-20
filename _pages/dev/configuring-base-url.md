@@ -2,7 +2,7 @@
 title: Configuring the Base URL
 ---
 
-You can configure the base URL with a special HTML `meta` tag, instead of hard coding it in the `withConfig` method of the B2cStorefrontModule. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
+You can configure the base URL with a special HTML `meta` tag, instead of hard coding it in the Spartacus configuration via `provideConfig()`. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
 
 The following example shows how the `meta` tag can be configured in the `index.html` file:
 
@@ -13,11 +13,11 @@ The following example shows how the `meta` tag can be configured in the `index.h
 The corresponding `app.module.ts` file appears as follows:
 
 ```typescript
-  imports: [
-    BrowserModule, B2cStorefrontModule.withConfig({
+  providers: [
+    provideConfig({
       backend: {
         occ: {
-          baseUrl: 'https://electronics.local:9002', // This value is overridden by the value from the meta tag.
+          baseUrl: 'https://electronics.local:9002',
           prefix: '/rest/v2/'
         }
       }
@@ -25,7 +25,7 @@ The corresponding `app.module.ts` file appears as follows:
   ],
 ```
 
-**Note**: The value of the `backend.occ.baseUrl` from the `withConfig` method takes precedence over the value from the `meta` tag.
+**Note**: The value of the `backend.occ.baseUrl` from the `provideConfig()` takes precedence over the value from the `meta` tag. So if you want to drive the base url dynamically by the meta tag, don't define it in the `provideConfig()`!
 
 **Note**: The `content` attribute of the `meta` tag is ignored in the following cases:
 
