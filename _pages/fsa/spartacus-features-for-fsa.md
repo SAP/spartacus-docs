@@ -6,6 +6,7 @@ This is a landing page for grouping together FSA Spartacus features. The FSA Spa
 
 ## Release 3.0
 - [Coupons]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})
+- [Product Discovery]({{ site.baseurl }}{% link _pages/fsa/features/fsa-product-discovery.md %})
 
 
 
