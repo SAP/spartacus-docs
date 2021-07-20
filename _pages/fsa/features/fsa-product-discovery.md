@@ -6,7 +6,7 @@ title: FSA Product Discovery
 
 This page clarifies the technical implementation of the product discovery feature in the FSA SPA application.
 
-Customers are guided through a structured process to identify the best suitable product for their needs. The main purpose of this feature is to help customers decide whether to choose Life or Savings Insurance, but it can be applied to other insurance or banking categories and products. 
+Customers are guided through a structured process to identify the best suitable product for their needs. The main purpose of this feature is to help customers decide between various Life and Savings Insurance products, but it can be applied to other insurance or banking categories and products. 
 
 More details regarding the Product Discovery feature from Financial Services Accelerator can be found on the
  [SAP Help Portal](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/19394e2a01f24ce6bd7b521454eae31f.html). 
