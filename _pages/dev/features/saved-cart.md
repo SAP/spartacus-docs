@@ -108,13 +108,15 @@ You can only save a cart from the **Cart** page when you are logged in and you h
 
 #### Creating a Saved Cart
 
-1. Add one or more items to your cart, then open the **Cart** page:
+1. Add one or more items to your cart, then open the **Cart** page.
 
-<img src="{{ site.baseurl }}/assets/images/saved-carts-1.png" alt="Shopping Cart" width="800" border="1px" />
+   The **Save Cart For Later** link appears next to the **Order Summary**, as shown in the following example:
+
+   <img src="{{ site.baseurl }}/assets/images/saved-carts-1.png" alt="Shopping Cart" width="800" border="1px" />
 
 1. Click **Save Cart For Later**.
 
-   The **Save for later** dialog box appears:
+   The **Save For Later** dialog box appears:
 
    <img src="{{ site.baseurl }}/assets/images/saved-carts-2.png" alt="Save For Later dialog box" width="800" border="1px" />
 
@@ -136,11 +138,9 @@ The following is an example of the **Saved Carts** history page:
 
 <img src="{{ site.baseurl }}/assets/images/saved-carts-4.png" alt="Saved Carts History Page" width="800" border="1px" />
 
-When you click **Make Cart Active**, you will have the option to clone the selected saved cart. The selected saved cart becomes the active cart. After being made active, the selected saved cart disappears from the list of saved carts unless you have enabled the option to clone that selected saved cart. Enabling the option to clone the selected saved cart will allow the user to retain a copy and have it added to the list of saved carts and thereby making the selected cart an active cart too.
+When you click **Make cart active**, you have the option to keep a copy of this saved cart before clicking **Restore**. Once you click **Restore**, the saved cart becomes the active cart. After being made active, the saved cart disappears from the list of saved carts, unless you have chosen to keep a copy of that saved cart. If you choose to keep a copy of the saved cart, it appears in your list of saved carts.
 
 <img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog.png" alt="Save For Later dialog box" width="800" border="1px" />
-
-**Note:** If you already have an active cart when you click **Make Cart Active**, your current cart becomes a saved cart, and the saved cart becomes the active cart. The name for the new saved cart is generated automatically from the cart ID.
 
 ### Saved Cart Details Page
 
