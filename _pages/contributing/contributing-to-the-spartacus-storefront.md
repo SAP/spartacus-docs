@@ -8,7 +8,7 @@ Here are some of the ways you can contribute to Spartacus:
 
 Note: This is a living document. Like the Spartacus code, this document will be improved over time with the help of our community. Feedback welcome.
 
-----
+***
 
 ## Helping Others
 
@@ -17,7 +17,14 @@ An easy way to start is by helping others who may have questions or need support
 * Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ)
 * [Stack Overflow posts tagged with 'spartacus-storefront'](https://stackoverflow.com/questions/tagged/spartacus-storefront)
 
-----
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Reporting Issues
 

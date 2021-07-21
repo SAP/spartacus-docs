@@ -10,6 +10,15 @@ Currently, the tests cover tabbing through the application. For every new featur
 
 To run a new test that you have added to `tabbing-order.e2e-spec.ts`, choose the `tabbing-order` test when you run Cypress.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Implementing a New A11y E2E Test
 
 You can create a new a11y e2e test by updating the existing set of tests, as described in the following procedure.
