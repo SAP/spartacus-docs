@@ -1,5 +1,5 @@
 ---
-title: Building the Spartacus Storefront Using 3.3 Libraries
+title: Building the Spartacus Storefront Using 4.x Libraries
 ---
 
 The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
@@ -59,31 +59,23 @@ For a full list of available parameters, see [{% assign linkedpage = site.pages 
 
 ### Setting Up Your Project Using Schematics
 
-Run the following command to install the latest patch version of Spartacus 3.3 using schematics:
+Run the following command to install the latest official release of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics@3.3
+ng add @spartacus/schematics@latest
 ```
 
-When you run this command, you are first asked to choose either a B2C or B2B configuration. The only difference between the two options is that the B2B configuration has a few additional OCC endpoints and a different checkout configuration. Specifically, the B2B configuration adds the `defaultB2bOccConfig` and `defaultB2bCheckoutConfig` from `@spartacus/setup`.
-
-**Note:** Spartacus does not support B2C and B2B storefronts running together in a single storefront application. When you enable B2B Commerce Organization, the B2C storefront will load but not work properly.
-
-After choosing `b2c` or `b2b`, the next prompt asks you which Spartacus features you want to set up in your storefront, and you are presented with a list of integration libraries and feature libraries to choose from.
-
-To set up a Spartacus feature, you first install the relevant [integration library or feature library]({{ site.baseurl }}/schematics/#integration-libraries-and-feature-libraries) by choosing it from the list. After the step for selecting which libraries you want to install, if you selected a library that contains multiple features, you are then prompted to select which features you want to install from that library. If you selected an integration library that requires additional information to complete the setup, you are also prompted to provide this information.
-
-The `@spartacus/user` library is not included in the list of libraries to install because it is included by default. After the step for selecting which libraries you want to install, the next prompt asks if you want to install the Account and Profile features from the `@spartacus/user` library. It is highly recommended to install both.
-
-For more information, see [Integration Libraries and Feature Libraries]({{ site.baseurl }}/schematics/#integration-libraries-and-feature-libraries).
+When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the `User - Account` feature.
 
 **Notes:**
 
+- Spartacus does not support B2C and B2B storefronts running together in a single storefront application. If you install  `Organization - Adminstration` or `Organization - Order Approval`, the B2C storefront will load but it will not work properly.
 - If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing.
 - The schematics add the core Spartacus files and configuration that are needed to work with the SAP Commerce Cloud sample stores.
 - To install the latest "next" release, you can add `@next` at the end of the command.
 - To install the latest release candidate, you can add `@rc` at the end of the command.
 - To verify what versions of Spartacus libraries were installed, open `package.json` and look for `@spartacus`.
+- To bypass the schematics prompts and install Spartacus with a predefined set of features, you can use the `--interactive=false` flag. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project).
 - With each release of Spartacus, existing features are moved out of the core libraries and into their own dedicated feature libraries. With time, the core libraries will shrink as features are extracted to their own, separate packages.
 
 ### Installing Dependencies

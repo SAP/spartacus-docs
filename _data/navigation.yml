@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 3.4
+    - title: Version 4.0
       url: /release-information/
 
 # sidebar menu
@@ -62,17 +62,8 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
-                - title: "Building the Spartacus Storefront Using 3.x Libraries ➢"
-                  url: /building-the-spartacus-storefront-from-libraries-3-x/
-                  underchildren:
-                      - title: "Building the Spartacus Storefront Using 3.4 Libraries"
-                        url: /building-the-spartacus-storefront-from-libraries-3-4/
-                      - title: "Building the Spartacus Storefront Using 3.3 Libraries"
-                        url: /building-the-spartacus-storefront-from-libraries-3-3/
-                      - title: "Building the Spartacus Storefront Using 3.2 Libraries"
-                        url: /building-the-spartacus-storefront-from-libraries-3-2/
-                      - title: "Building the Spartacus Storefront Using 3.1 Libraries"
-                        url: /building-the-spartacus-storefront-from-libraries-3-1/
+                - title: "Building the Spartacus Storefront Using 4.x Libraries"
+                  url: /building-the-spartacus-storefront-from-libraries-4-x/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
                 - title: "Reference App Structure"
@@ -159,8 +150,6 @@ docs:
                         url: /configurable-router-links/
                       - title: "Disabling Standard Routes"
                         url: /disabling-standard-routes/
-                      - title: "Additional Route Parameters"
-                        url: /additional-route-parameters/
                       - title: "Route Aliases"
                         url: /route-aliases/
                       - title: "External Routes"

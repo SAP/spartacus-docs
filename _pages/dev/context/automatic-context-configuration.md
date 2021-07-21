@@ -160,9 +160,7 @@ If you are using automatic site configuration, can set up the Spartacus configur
 1. In the **Properties** tab, scroll down to **URL Encoding Attributes** and click the plus (`+`) button.
 1. In the modal that appears, enter the name `custom` and click **Add**.
 1. Save your changes and exit Backoffice.
-1. In your Spartacus code, extend the dynamic configuration of `context` to contain the `custom` key.
-
-    If you are using version 3.2 or newer of the Spartacus libraries, the `OccConfigLoaderService` is deprecated, and the `SiteContextConfigInitializer` can be used instead. The following is an example:
+1. In your Spartacus code, extend the dynamic configuration of `context` to contain the `custom` key, as shown in the following example:
 
     ```typescript
     @Injectable()
@@ -181,30 +179,6 @@ If you are using automatic site configuration, can set up the Spartacus configur
         }
     
         return config;
-      }
-    }
-    ```
-
-    If you are using version 3.1 or earlier of the Spartacus libraries, you can extend the dynamic configuration of `context` to contain the `custom` key, as shown in the following example:
-
-    ```typescript
-    @Injectable()
-    export class CustomOccConfigLoaderService extends OccConfigLoaderService {
-      protected getConfigChunks(
-        externalConfig: OccLoadedConfig
-      ): (I18nConfig | SiteContextConfig)[] {
-        // calculate config chunks
-        const chunks = super.getConfigChunks(externalConfig);
-
-        // take the chunk with SiteContextConfig (which is the first one in the array)
-        const contextConfig = (chunks[0] as SiteContextConfig).context;
-
-        // define possible values of custom context deriving from ISO languages codes
-        contextConfig.custom = contextConfig[LANGUAGE_CONTEXT_ID].map(
-          languageToCustom
-        );
-
-        return chunks;
       }
     }
     ```

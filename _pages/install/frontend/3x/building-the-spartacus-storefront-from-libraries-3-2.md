@@ -1,4 +1,5 @@
 ---
+layout: building-from-3x-libs-redirect
 title: Building the Spartacus Storefront Using 3.2 Libraries
 ---
 
