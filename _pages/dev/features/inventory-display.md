@@ -16,7 +16,7 @@ The inventory display feature lets you show customers how much of a given item i
 
 ## Enabling Inventory Display
 
-By default, inventory display is disabled by default. To enable inventory display, set the `inventoryDisplay` flag to `true` by providing the configuration as shown below:
+Inventory display is disabled by default. To enable inventory display, set the `inventoryDisplay` flag to `true` by providing the configuration as shown below:
 
 ```ts
       provideConfig(<CmsConfig>{
