@@ -2,6 +2,17 @@
 title: Maintaining Public APIs
 ---
 
+The Spartacus public APIs are developed and maintained according to a set of best practices and procedures that are described in the following sections.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Keeping Public APIs Minimal
 
 It is a challenge to maintain stability in large APIs. If you are making changes to the API library, consider the broad consequences of your changes, and try to anticipate any issues that might arise. It is also a good idea to check the generated public API report with previous `develop` reports, and to make sure that only the things you explicitly want to export are publicly visible.

@@ -2,7 +2,16 @@
 title: Unit Testing Guidelines
 ---
 
-Here are some best practices that emerged in the Spartacus unit tests.
+The following are some best practices for writing Spartacus unit tests.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## General Guidelines
 
