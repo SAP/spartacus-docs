@@ -6,6 +6,15 @@ To contribute to the Spartacus project, the first steps are to clone the Spartac
 
 This guide shows how to build and run both in development mode and in production mode.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Prerequisites
 
 Before carrying out the procedures below, please ensure the following front end and back end requirements are in place.

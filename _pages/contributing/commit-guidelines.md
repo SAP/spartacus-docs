@@ -4,6 +4,15 @@ title: Committing Code to Spartacus
 
 We use git commit messages to generate the framework changelog. To that end, we have specific rules for how to format git commit messages. These rules are also intended to make the commit messages easier to read.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Settings
 
 If you are on Windows, set the Git `core.autocrlf` configuration property to "false", and make sure to use Unix-style linebreaks (LF-only).
