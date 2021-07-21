@@ -10,26 +10,11 @@ The following example shows how the `meta` tag can be configured in the `index.h
 <meta name="occ-backend-base-url" content="https://my-custom-backend-url:8080" />
 ```
 
-The corresponding `app.module.ts` file appears as follows:
-
-```typescript
-  providers: [
-    provideConfig({
-      backend: {
-        occ: {
-          baseUrl: 'https://electronics.local:9002',
-          prefix: '/rest/v2/'
-        }
-      }
-    })
-  ],
-```
-
-**Note**: The value of the `backend.occ.baseUrl` from the `provideConfig()` takes precedence over the value from the `meta` tag, so if you want the base URL to be driven dynamically by the meta tag, do not define it in the `provideConfig()`.
+**Note**: The value of the `backend.occ.baseUrl` from the `provideConfig()` in `app.module.ts` takes precedence over the value from the `meta` tag, so if you want the base URL to be driven dynamically by the meta tag, do not define the `baseUrl` in the `provideConfig()`.
 
 **Note**: The `content` attribute of the `meta` tag is ignored in the following cases:
 
-- When it's an empty string, such as in the following example:
+- When it is an empty string, such as in the following example:
 
   ```text
   <meta name="occ-backend-base-url" content="" />
