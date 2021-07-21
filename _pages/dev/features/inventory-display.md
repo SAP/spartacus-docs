@@ -16,18 +16,21 @@ The inventory display feature lets you show customers how much of a given item i
 
 ## Enabling Inventory Display
 
-To enable inventory display, set the `inventoryDisplay` flag to `true`, as shown in the following example from `add-to-cart.module.ts`:
+By default, inventory display is disabled by default. To enable inventory display, set the `inventoryDisplay` flag to `true` by providing the configuration as shown below:
 
 ```ts
-      cmsComponents: {
-        ProductAddToCartComponent: {
-          component: AddToCartComponent,
-          data: {
-            inventoryDisplay: 'true',
+      provideConfig(<CmsConfig>{
+        cmsComponents: {
+          ProductAddToCartComponent: {
+            data: {
+              inventoryDisplay: true,
+            },
           },
         },
-      },
+    }),
 ```
+
+For more information on providing a configuration, see [provideConfig](https://sap.github.io/spartacus-docs/global-configuration-in-spartacus/#provideconfig).
 
 ## Configuring
 
