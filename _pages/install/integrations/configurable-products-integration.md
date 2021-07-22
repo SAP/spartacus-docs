@@ -51,7 +51,7 @@ You can either [install the product configurator library during initial setup of
 
 ### Installing the Product Configurator Library During the Initial Setup of Spartacus
 
-1. Follow the steps for setting up your Spartacus project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries-3-2.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-3-2.md %}).
+1. Follow the steps for setting up your Spartacus project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator`.
 1. Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
 

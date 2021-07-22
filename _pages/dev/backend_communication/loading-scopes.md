@@ -170,6 +170,26 @@ For data that should be kept fresh and reloaded more often, you can use `maxAge`
 }
 ```
 
-This configuration will result in a `list` scope reload as soon as it becomes older than 60 seconds. 
+This configuration will result in a `list` scope reload as soon as it becomes older than 60 seconds.
 
-Reload will only take place, when scope will be "in use", more specifically when some code will be subscribed to that data scope, which usually means that the data from the scope is currently used on a page. 
+Reload will only take place, when scope will be "in use", more specifically when some code will be subscribed to that data scope, which usually means that the data from the scope is currently used on a page.
+
+## Reloading Triggers
+
+The `reloadOn` configuration allows you to reload a product when a specific event occurs. The following is an example:
+
+```json
+{
+  backend: {
+    loadingScopes: {
+      product: {
+        detail: {
+          reloadOn: [MyEvent]
+        }
+      },
+    },
+  },
+}
+```
+
+In this example, the `detail` scope is reloaded when `MyEvent` is emitted.

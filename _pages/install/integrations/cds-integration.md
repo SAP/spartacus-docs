@@ -37,9 +37,7 @@ To enable Intelligent Selling Services for SAP Commerce Cloud in Spartacus, you 
 
 ### Configuring Spartacus for Intelligent Selling Services for SAP Commerce Cloud
 
-If you are using Spartacus 3.2 or newer, you can install and configure the Intelligent Selling Services integration using Spartacus schematics. If you are using an older version of Spartacus, see [Configuring Spartacus for Intelligent Selling Services for SAP Commerce Cloud](https://sap.github.io/spartacus-docs/2.x/cds-integration/#configuring-spartacus-for-context-driven-services) in our archived documentation.
-
-To take advantage of the automatic setup provided by Spartacus schematics, you need to first ensure that you are using Spartacus 3.2 or newer, and you also need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+You can install and configure the Intelligent Selling Services integration using Spartacus schematics. To take advantage of the automatic setup provided by Spartacus schematics, you need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
 After you have met these prerequisites, you can install the Intelligent Selling Services integration by running the following command:
 
