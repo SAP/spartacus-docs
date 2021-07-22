@@ -19,7 +19,7 @@ The Claims Details page allows financial customers to view all the details relat
 
 The customer can preview their claims in the **Claims** section of the My Account area. Each claim is displayed as a card, similar to other sections of My Account (e.g. Quotes and Applications, Policies). The claims card contains general information about the claim, such as incident type, claim and policy numbers, claim handler's name and email address, date of loss. When the user clicks the Details button on the claim card, a separate Claim Details page opens. 
 
-**Note**: In the current implementation, the claim process is enabled for auto insurance.  
+**Note**: In the current implementation, the claim process is enabled for Auto Insurance.  
 
 ![Claims section in the My Account area]({{ site.baseurl }}/assets/images/fsa/claims/claims_section_in_my_account.png)  
 
@@ -55,7 +55,7 @@ The customer can have more than one sub-claim associated with a single claim. Ea
 
 #### Roles and Persons Involved
 
-A list of all persons involved in a claim is also presented on the Claims Details page. For each person, the following information is displayed: 
+A list of all persons involved in a claim can also be presented on the Claims Details page. For each person, the following information is displayed: 
 
 - Role (e.g. policyholder, claimant, payee)
 - Name 
