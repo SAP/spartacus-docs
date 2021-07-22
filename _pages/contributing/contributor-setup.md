@@ -2,18 +2,16 @@
 title: Contributor Setup
 ---
 
-To contribute to the Spartacus project, the first steps are to clone the Spartacus library sources, build, and then run the storefront from the library development workspace.
+This guide shows how to get up and running on Spartacus by building it and running it both in development mode and in production mode so that you can start contributing.
 
-This guide shows how to build and run both in development mode and in production mode.
+---
 
-***
-
-**Table of Contents**
+## Table of Contents
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Prerequisites
 
@@ -25,29 +23,33 @@ Before carrying out the procedures below, please ensure the following front end 
 
 ## Back End Requirements
 
-The Spartacus JavaScript Storefront uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator electronics storefront in particular.
+The Spartacus Storefront uses SAP Commerce Cloud for its back end, and makes use of the sample data from the B2C Accelerator electronics storefront in particular.
 
 For more information, see [{% assign linkedpage = site.pages | where: "name", "installing-sap-commerce-cloud.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 **Note:** The latest release of SAP Commerce Cloud is recommended.
 
-# Cloning the Sources
+## Getting the source code
 
 The first step is to clone the Spartacus GitHub repository on your local system.
 
-# Installing the Dependencies.
+```bash
+git clone https://github.com/SAP/spartacus
+```
 
-Install the dependencies by running the following yarn command:
+## Installing the Dependencies
+
+Install the npm dependencies. (We recommend using [yarn](https://yarnpkg.com/) but you can also use `npm`):
 
 ```bash
 yarn install
 ```
 
-# Building and Running in Development Mode
+## Building and Running Spartacus in Development Mode
 
-The simplest way to build and run from the source code is to work in development mode.
+The simplest way to start contributing is to build Spartacus and run it is to work in development mode.
 
-## Configuring Your Back End URL and Base Site
+### Configuring Your Back End URL and Base Site
 
 Carry out the following steps before you build and launch.
 
@@ -59,11 +61,11 @@ Carry out the following steps before you build and launch.
 
    ```typescript
    export const environment = {
-     occBaseUrl: "https://custom-backend-url"
+     occBaseUrl: "https://custom-backend-url",
    };
    ```
 
-3. In your `app.module.ts` file, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
+3. There are separate config files for _B2C_ (`spartacus-b2c-configuration-module.ts`) and _B2B_ (`spartacus-b2b-configuration-module.ts`) modes in Spartacus. On the one that you will use, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
 
    The following is an example:
 
@@ -74,9 +76,9 @@ Carry out the following steps before you build and launch.
    },
    ```
 
-## Launching the Storefront
+### Running Spartacus storefront
 
-Launch the storefront with the following command:
+Run the Spartacus storefront with the following command:
 
 ```bash
 yarn start
@@ -84,31 +86,39 @@ yarn start
 
 This is the most convenient way for a developer to run the storefront. It allows for hot-reloading of the library code as the code changes.
 
-# Building and Running in Production Mode
+## Building and Running in Production Mode
 
 Building in production mode has more restrictive rules about what kind of code is allowed, but it also allows you to generate a build that is optimized for production. Use this mode as your development cycle nears completion.
 
-## Building the @spartacus/storefront Library
+### Building the @spartacus/\* libraries
+
+In production mode, Spartacus is distributed as a set of Libraries. To build the libraries, use the following command:
+
+```bash
+yarn build:libs
+```
+
+This will build all of the Spartacus libraries and place them under the `/dist` folder
+
+### Building the @spartacus/storefront Library
 
 Contrary to development mode, in production mode you need to package and build a standalone storefront library. This is done with the following command:
 
 ```bash
-yarn build:core:lib
+yarn build
 ```
 
-## Configuring Your Back End URL and Base Site
+### Configuring Your Backend URL and BaseSite
 
-1. Configure your back end URL in the `projects/storefrontapp/environments/environment.prod.ts` file.
-
-2. Add your back end base URL to the `occBaseUrl` property, as follows:
+1. Configure your back end URL in the `projects/storefrontapp/environments/environment.prod.ts` file. Add your back end base URL to the `occBaseUrl` property, as follows:
 
    ```typescript
    export const environment = {
-     occBaseUrl: "https://custom-backend-url"
+     occBaseUrl: "https://custom-backend-url",
    };
    ```
 
-3. In your `app.module.ts` file, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
+2. There are separate config files for _B2C_ (`spartacus-b2c-configuration-module.ts`) and _B2B_ (`spartacus-b2b-configuration-module.ts`) modes in Spartacus. On the one that you will use, update `baseSite` parameter to point to the base site(s) that you have configured in your back end.
 
    The following is an example:
 
@@ -121,15 +131,15 @@ yarn build:core:lib
 
    **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
 
-## Launching the Storefront
+### Launching the Spartacus Storefront
 
-Launch the server with ng serve, as follows:
+Launch the Spartacus storefront with the following command:
 
 ```bash
 yarn start:prod
 ```
 
-## Launching the Storefront with SSR (and PWA) Enabled
+### Launching the Storefront with SSR (and PWA) Enabled
 
 1. Build the server-side rendering (SSR) version of the app (that is, the production build wrapped in the `express.js` server), as follows:
 
@@ -149,26 +159,46 @@ The app will be served with the production build, without using the webpack dev 
 
 In both development mode and production mode, the Spartacus storefront has default values for all of its configurations. However, you may need to override these values.
 
-To configure the storefront, use the `withConfig` method on the B2cStorefrontModule. The following is an example:
+To configure the storefront, use the `provideConfig` method from `@spartacus/core`. The following is an example:
 
 ```typescript
 @NgModule({
   imports: [
     BrowserModule,
-    B2cStorefrontModule.withConfig({
+    ...
+  ],
+  providers: [
+    provideConfig(<OccConfig>{
       backend: {
         occ: {
           baseUrl: environment.occBaseUrl,
-          prefix: '/rest/v2/',
-          legacy: false
-        }
-      }
-      authentication: {
-        client_id: 'mobile_android',
-        client_secret: 'secret'
-      }
+          prefix: environment.occApiPrefix,
+        },
+      },
     }),
-    ...devImports
+    provideConfig(<RoutingConfig>{
+      // custom routing configuration for e2e testing
+      routing: {
+        routes: {
+          product: {
+            paths: ['product/:productCode/:name', 'product/:productCode'],
+            paramsMapping: { name: 'slug' },
+          },
+        },
+      },
+    }),
+    provideConfig(<I18nConfig>{
+      // we bring in static translations to be up and running soon right away
+      i18n: {
+        resources: translations,
+        chunks: translationChunksConfig,
+        fallbackLang: 'en',
+      },
+    provideConfig(<FeaturesConfig>{
+      features: {
+        level: '4.0',
+      },
+    }),
   ],
   bootstrap: [StorefrontComponent]
 })
@@ -177,28 +207,20 @@ export class AppModule {}
 
 The occ back end `baseUrl` is pulled from the `environment.*.ts` file, but the rest of the properties in this example use the default values for the configs. You do not have to specify a config if you do not need to override the default value.
 
-For example, if you only need to override the `baseUrl` and the `client_secret`, and want to use the default values for other properties, you can use the following config:
+For example, if you only need to override the `baseUrl` and the `client_secret`, and want to use the default values for other properties, you can provide the following config:
 
 ```typescript
-@NgModule({
-  imports: [
-    BrowserModule,
-    B2cStorefrontModule.withConfig({
-      backend: {
+    provideConfig(<OccConfig>{
+     backend: {
         occ: {
           baseUrl: environment.occBaseUrl,
-          legacy: true
-        }
+          legacy: true,
+        },
       },
       authentication: {
-        client_secret: "secret"
-      }
+        client_secret: "secret",
+      },
     }),
-    ...devImports
-  ],
-  bootstrap: [StorefrontComponent]
-})
-export class AppModule {}
 ```
 
-Note: The `legacy` has a default value of false if it is not included. This means that the cms components is using a `GET` request for anyone using `19.05 and above`. Overriding `legacy` to true will make sure you will be using the `POST` request instead. This is recommended for anyone using `18.11 and below`. 
+Note: The `legacy` has a default value of false if it is not included. This means that the cms components is using a `GET` request for anyone using `19.05 and above`. Overriding `legacy` to true will make sure you will be using the `POST` request instead. This is recommended for anyone using `18.11 and below`.
