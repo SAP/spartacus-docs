@@ -62,16 +62,18 @@ enum DeliveryModePreferences {
 ```
 
 ### Own Configuration
-To provide your own configuration, you should extend B2cStorefrontModule config object like:
+
+To provide your own configuration, you can provide it in module providers with provideConfig function:
+
 ```typescript
-  B2cStorefrontModule.withConfig({
+provideConfig({
+  //...
+  checkout: {
     //...
-    checkout: {
-      //...
-      express: true,
-      defaultDeliveryMode: ['sample-code'],
-    }
-  })
+    express: true,
+    defaultDeliveryMode: ['sample-code'],
+  },
+});
 ```
 
 
