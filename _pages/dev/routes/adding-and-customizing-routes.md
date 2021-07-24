@@ -2,25 +2,42 @@
 title: Adding and Customizing Routes
 ---
 
+Spartacus includes default routes for accessing different views within your storefront app, but you can also add or customize any route that you want in Spartacus.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Page Types and Page Labels
 
-The CMS in SAP Commerce Cloud comes with the concept of three special page types: Product Page, Category Page, Catalog Page (Catalog is not supported for now) and one common type Content Page used for all other pages, i.e. login, order history or faq.
+The CMS in SAP Commerce Cloud includes the following special page types: Product, Category, and Catalog. There is also a generic Content page type, which is used for all other kinds of pages, such as the login, order history, and FAQ pages.
 
-Spartacus reflects that by defining a few Angular `Routes`:
+**Note:** The Catalog page type is currently not supported in Spartacus.
 
-- route with `:productCode` param - for Product Pages
-- route with `:categoryCode` param and route with `:brandCode` param - for Category Pages
-- wildcard `**` route - for all other, Content Pages
+Spartacus defines the following Angular `Routes` by default:
 
-The URLs of product, category and brand pages can be [configured only in Spartacus]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}). Content Pages have a configurable URL in the CMS, called *page label*.
+- Routes that contain the `:productCode` parameter are for Product pages
+- Routes that contain the `:categoryCode` parameter or the `:brandCode` parameter are for Category pages
+- Routes that contain the `**` wildcard are for Content pages (in other words, the wildcard is for all pages that are not Product or Category pages)
+
+Content pages have a configurable URL in the CMS, called a page label. However, the URLs for product, category, and brand pages can only be configured in Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}).
 
 ## Adding a Content Page Route
 
-To add new route, no development is required, it suffices to add in the CMS a new Content Page with *page label* starting with slash i.e. `/contact-us`. The Spartacus' wildcard `**` route with match it out of the box.
+To add a new route, you simply add a new Content page in the CMS, and give it a page label that begins with a slash, such as `/contact-us`. The Spartacus wildcard route (`**`) matches it without any configuration.
 
-## Customizing the Product Page Route
+## Customizing a Product or Category Page Route
 
-Product Page route can be configured only in Spartacus. It has to contain the `:productCode` param to identify the product. But for SEO you may want to also include more parameters that can be accessed in the product entity, i.e. product name, in `ConfigModule`:
+You can only configure Product and Category page routes in Spartacus.
+
+Product page routes must contain the `:productCode` parameter to identify the product. Category page routes must contain the `:categoryCode` or `:brandCode` parameter to identify the category.
+
+For SEO, you may want to include more parameters in your route. The following is an example `ConfigModule` that adds a product name to the Product page route:
 
 ```typescript
 routing: {
@@ -30,15 +47,13 @@ routing: {
 }
 ```
 
-**Note:** The optional `paramsMapping` config can be used for properties that have a different name than the route parameter (i.e. to map from `product.code` to `:productCode`). For more information, see [Configurable Router Links]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
-
-## Customizing the Category Page Route
-
-Similar to Product Page.
+**Note:** The optional `paramsMapping` configuration can be used for properties that have a different name than the route parameter. For example, you may wish to map from `product.code` to `:productCode`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configurable-router-links.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/configurable-router-links.md %}).
 
 ## Adding a Content Page with Dynamic Parameters
 
-Angular routes can contain dynamic *route parameters* that are consumed in the logic of Angular components. Although The SAP Commerce Cloud CMS doesn't support *page labels* with dynamic params, you can have dynamic params for Content Pages in Spartacus. You need to define your custom Angular `Route` with `path` and explicitly assign the CMS *page label*, for example in your `app.module.ts`:
+Angular routes can contain dynamic route parameters that are consumed by the logic of your Angular components. Although the SAP Commerce CMS does not support page labels with dynamic parameters, you can have dynamic parameters for Content pages in Spartacus.
+
+In `app.module.ts`, you define the URL path for your custom Angular `Route` with the `path` property, and you explicitly assign the CMS page label using the `data` property. The following is an example:
 
 ```typescript
 import { PageLayoutComponent, CmsPageGuard } from `@spartacus/storefront`;
@@ -48,13 +63,13 @@ import { PageLayoutComponent, CmsPageGuard } from `@spartacus/storefront`;
 imports: [
     RouterModule.forChild([
         {
-            // path with dynamic param:
+            // path with a dynamic parameter:
             path: 'order/:orderCode',
 
-            // page label without param, starting with slash:
+            // page label without a parameter, starting with slash:
             data: { pageLabel: '/order' },
 
-            // those are needed to display slots and components from CMS:
+            // the following are needed to display slots and components from the CMS:
             component: PageLayoutComponent,
             canActivate: [CmsPageGuard]
         }
@@ -64,7 +79,9 @@ imports: [
 
 ## Adding Angular Child Routes for a Content Page
 
-Angular can display components for child routes inside nested `<router-outlet>`. Although the SAP Commerce Cloud CMS doesn't support child pages, in Spartacus you can have child routes. You need to configure child routes for your CMS component, for example in `ConfigModule`:
+Angular can display components for child routes inside a nested `<router-outlet>`. Although the SAP Commerce CMS does not support child pages, in Spartacus you can have child routes.
+
+For example, you can configure child routes for your CMS component in the `ConfigModule`, as follows:
 
 ```typescript
 cmsComponents: {
@@ -80,7 +97,7 @@ cmsComponents: {
 }
 ```
 
-**Note:** Child routes for the Product and Category Pages are not supported.
+**Note:** Child routes for the Product and Category pages are not supported.
 
 ## Configuring the Category Name in the Product Page Route (Advanced)
 
@@ -160,9 +177,9 @@ The following procedure describes how to create this mapping in the `PRODUCT_NOR
 
 ## Backwards Compatibility with Accelerators
 
-The SAP Commerce Cloud Accelerators used routes `**/p/:productCode` and `**/c/:categoryCode` for Product and Category Page. For backwards compatibility, Spartacus also matches those routes, by simply numbering parameters.
+The SAP Commerce Accelerators use `**/p/:productCode` and `**/c/:categoryCode` as routes for the Product and Category pages, respectively. For backwards compatibility, Spartacus also matches these routes by numbering parameters.
 
-So for example URL `/some-catalogue/some-category/p/1234` will be recognized with parameters:
+For example, the URL `/some-catalogue/some-category/p/1234` is recognized with the following the parameters:
 
 ```typescript
 {
@@ -172,7 +189,7 @@ So for example URL `/some-catalogue/some-category/p/1234` will be recognized wit
 }
 ```
 
-If you want to have more semantic names of parameters, you can configure a route alias. For example in `ConfigModule`:
+To give your parameters more semantic names, you can configure a route alias in the `ConfigModule`, as shown in the following example:
 
 ```typescript
 routing: {
@@ -255,9 +272,9 @@ providers: [
 ],
 ```
 
-## Expected CMS page labels of Content Pages
+## Expected CMS Page Labels for Content Pages
 
-Spartacus expects the page label `homepage` to be configured in the CMS. For B2C Storefront recipe the list of expected CMS page labels by default is longer:
+Spartacus expects the `homepage` page label to be configured in the CMS. For the B2C storefront recipe, the default list of expected CMS page labels is longer, as shown in the following example:
 
 ```plaintext
 search
@@ -283,9 +300,9 @@ search
 /not-found
 ```
 
-### Fixed CMS page labels
+### Fixed CMS Page Labels
 
-For almost all Content Pages, Spartacus treats the URL as the CMS page label. It means that changing the config of route in Spartacus requires also a change of the page label in the CMS. However, there are few exceptions - when the configurable Spartacus' URL is mapped to a fixed CMS page label:
+For almost all Content Pages, Spartacus treats the URL as the CMS page label. This means that changing the configuration of the route in Spartacus also requires changing the page label in the CMS. However, as shown in the following table, there are a few exceptions, such as when a configurable URL for Spartacus is mapped to a fixed CMS page label.
 
 | Spartacus URL (configurable)                                         | Fixed CMS page label |
 | -------------------------------------------------------------------- | -------------------- |

@@ -8,6 +8,15 @@ title: Feature Flags and Code Deprecation
 
 {% include docs/feature_version.html content=version_note %}
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Code deprecation
 
 For complex and rapidly evolving libraries, maintaining backward compatibility while improving existing features can be challenging. 

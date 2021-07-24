@@ -5,7 +5,7 @@
 
 # Variables
 installed="bundle"
-for v in 1.x 2.x
+for v in 2.x
   do
 
 # Get the latest commit SHA in sourcedir branch
@@ -32,7 +32,7 @@ build_dir="/tmp/$v-build_$last_SHA"
 echo $build_dir
 
 echo "Checking out $v branch"
-git checkout version/$v
+git checkout stable/$v
 
 # Create a configuration file that sets a new baseurl based on version
 echo "baseurl : /spartacus-docs/$v" > _config.$v.yml

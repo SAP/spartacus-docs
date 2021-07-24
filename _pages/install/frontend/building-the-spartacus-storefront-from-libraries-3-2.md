@@ -59,10 +59,10 @@ For a full list of available parameters, see [{% assign linkedpage = site.pages 
 
 ### Setting Up Your Project Using Schematics
 
-Run the following command to install version 3.2 of Spartacus using schematics:
+Run the following command to install the latest patch version of Spartacus 3.2 using schematics:
 
 ```bash
-ng add @spartacus/schematics@~3.2.0
+ng add @spartacus/schematics@3.2
 ```
 
 When you run this command, you are first asked to choose either a B2C or B2B configuration. The only difference between the two options is that the B2B configuration has a few additional OCC endpoints and a different checkout configuration. Specifically, the B2B configuration adds the `defaultB2bOccConfig` and `defaultB2bCheckoutConfig` from `@spartacus/setup`.
@@ -131,7 +131,7 @@ Your app will be compiled and then started.
 
 To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. If you installed Electronics sample data and the Spartacus Sample Data extension, the Spartacus storefront for Electronics should appear.
 
-Note: If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/electronics/cms/pages` (or `../rest/..` if using 1905), and then accept the privacy certificate. This step is necessary because your browser will block calls the app will make to `localhost:9002` due to security settings. To see the browser message, right-click in your browser, select **Inspect**, then click **Console**.
+**Note:** If your storefront doesn't appear, likely you have to accept a privacy certificate. To do so, browse to `https://localhost:9002/occ/v2/electronics/cms/pages` (or `../rest/..` if using 1905), and then accept the privacy certificate. This step is necessary because your browser will block calls the app will make to `localhost:9002` due to security settings. To see the browser message, right-click in your browser, select **Inspect**, then click **Console**.
 
 - You can display the Apparel storefront through this URL: `http://localhost:4200/apparel-uk-spa/en/GBP`
 - You can display the Powertools storefront through this URL: `http://localhost:4200/powertools-spa/en/USD`

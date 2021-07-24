@@ -2,6 +2,15 @@
 title: Git Flow and Release Process
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Library Version Compatibility
 
 The Spartacus project is made up of a set of libraries. To make it easier to know which version of a library is compatible with another version, the library versions are synchronized across all packages. This means that when we want to release version `1.5.0`, we release all libraries under this version, even if some libraries do not have any changes since the previous release. In so doing, we can use a single version number to refer to the entire set of Spartacus libraries for any given release.

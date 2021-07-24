@@ -2,7 +2,7 @@
 title: Configuring the Base URL
 ---
 
-You can configure the base URL with a special HTML `meta` tag, instead of hard coding it in the `withConfig` method of the B2cStorefrontModule. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
+You can configure the base URL with a special HTML `meta` tag, instead of hard coding it with `provideConfig()` in the Spartacus configuration. This allows you to deploy to different environments with only one compiled JavaScript application, because you only need to modify the `meta` tag of the `index.html` file for each environment.
 
 The following example shows how the `meta` tag can be configured in the `index.html` file:
 
@@ -10,26 +10,11 @@ The following example shows how the `meta` tag can be configured in the `index.h
 <meta name="occ-backend-base-url" content="https://my-custom-backend-url:8080" />
 ```
 
-The corresponding `app.module.ts` file appears as follows:
-
-```typescript
-  imports: [
-    BrowserModule, B2cStorefrontModule.withConfig({
-      backend: {
-        occ: {
-          baseUrl: 'https://electronics.local:9002', // This value is overridden by the value from the meta tag.
-          prefix: '/rest/v2/'
-        }
-      }
-    })
-  ],
-```
-
-**Note**: The value of the `backend.occ.baseUrl` from the `withConfig` method takes precedence over the value from the `meta` tag.
+**Note**: The value of the `backend.occ.baseUrl` from the `provideConfig()` in `app.module.ts` takes precedence over the value from the `meta` tag, so if you want the base URL to be driven dynamically by the meta tag, do not define the `baseUrl` in the `provideConfig()`.
 
 **Note**: The `content` attribute of the `meta` tag is ignored in the following cases:
 
-- When it's an empty string, such as in the following example:
+- When it is an empty string, such as in the following example:
 
   ```text
   <meta name="occ-backend-base-url" content="" />

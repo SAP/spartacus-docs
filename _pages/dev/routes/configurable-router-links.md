@@ -2,35 +2,36 @@
 title: Configurable Router Links
 ---
 
-While the [route configuration]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}) allows the application to listen to different routes, the links to those routes must take the route configuration into account as well.
+When you configure routes, the links to those routes must be configured accordingly. Configured router links can be automatically generated in HTML templates using the `cxUrl` pipe. This allows you to transform the name of the route and the `params` object into the configured path.
 
-Configured router links can be automatically generated in HTML templates using `cxUrl` pipe. It allows to transform **the name of the route** and **the params object** into the configured path
+To make use of the `cxUrl` pipe, you need to import `UrlModule` into every module that uses configurable router links.
 
-## Assumptions and limitations
+By default, the output path array is absolute and contains a leading forward slash `'/'`. However, the output path does not contain a leading forward slash `'/'` when the input starts with an element that is not an object with a `cxRoute` property, such as the string `'./'`, or `'../'`, or `{ not_cxRoute_property: ... }`. Also note, a route that cannot be resolved from the route's name and parameters will return the root URL `['/']`.
 
-- the output path array is absolute by default (it contains the leading `'/'`)
-- the output path doesn't contain the leading `/`, when the input starts with an element that is *not an object with `route` property*, i.e. string `'./'`, `'../'` or `{ not_route_property: ... }` 
-- the route that cannot be resolved from *a route's name and params* will return the root URL `['/']`
+***
 
-## Prerequisites
+**Table of Contents**
 
-Import `UrlModule` in every module that uses configurable router links.
+- This will become a table of contents (this text will be scrapped).
+{:toc}
 
-## Router links
+***
 
-### Transform the name of the route and the params object
+## Router Links
+
+You can transform the name of the route and the `params` object as follows:
 
 ```typescript
 { cxRoute: <route> } | cxUrl
 ```
 
-Example:
+The following is an example:
 
 ```html
 <a [routerLink]="{ cxRoute: 'cart' } | cxUrl"></a>
 ```
 
-when config is:
+The following is an example of the related route configuration:
 
 ```typescript
 ConfigModule.withConfig({
@@ -42,21 +43,21 @@ ConfigModule.withConfig({
 })
 ```
 
-result in:
+The result is the following configured router link:
 
 ```html
 <a [routerLink]="['/', 'custom', 'cart-path']"></a>
 ```
 
-#### The route with parameters
+### Configuring Router Links with Parameters
 
-When the route needs parameters, the object with route's `name` and `params` can be passed instead of just simple string. For example:
+If you need to include parameters in the route, you can pass the route `name` and `params` objects, as shown in the following example:
 
 ```html
 <a [routerLink]="{ cxRoute: 'product', params: { productCode: 1234 } } | cxUrl"></a>
 ```
 
-where config is:
+The following is an example of the related route configuration:
 
 ```typescript
 ConfigModule.withConfig({
@@ -68,15 +69,51 @@ ConfigModule.withConfig({
 })
 ```
 
-result:
+The result is the following configured router link:
 
 ```html
 <a [routerLink]="['/', 1234, 'custom', 'product-path']"></a>
 ```
 
-## Links to nested routes
+### Additional Route Parameters
 
-When Angular's `Routes` contain **arrays** of `children` routes:
+You can configure additional route parameters to make a URL more specific, which can be useful for SEO.
+
+The following is an example that adds a new `:productName` parameter:
+
+```typescript
+ConfigModule.withConfig({
+    routing: {
+        routes: {
+            product: { 
+                paths: [
+                    // :productCode is an obligatory parameter because it is present in default URL
+                    // :productName is a new parameter
+                    ':productCode/custom/product-path/:productName'
+                ] 
+            }
+        }
+    }
+})
+```
+
+You also need to include any additional parameters in `{ cxRoute: <route> }`, otherwise the path cannot be generated.
+
+The following is an example that adds the new `productName` parameter to `{ cxRoute: <route> }`:
+
+```html
+<a [routerLink]="{ cxRoute: 'product', params: { productName: 'ABC', productCode: 1234 } } | cxUrl"></a>
+```
+
+The result is the following configured router link:
+
+```html
+<a [routerLink]="['/', 1234, 'custom', 'product-path', 'ABC']"></a>
+```
+
+## Linking to Nested Routes
+
+The following is an example of the Angular `Routes` array that contains `children` routes:
 
 ```typescript
 const routes: Routes = [
@@ -97,7 +134,7 @@ const routes: Routes = [
 ];
 ```
 
-then config should be:
+When the `Routes` array contains child routes, the configuration should be as follows:
 
 ```typescript
 ConfigModule.withConfig({
@@ -117,7 +154,7 @@ ConfigModule.withConfig({
 })
 ```
 
-In order to generate the path of parent and child route we need to pass them in an array. For example:
+To generate the path of the parent and child routes, you need to pass them in an array, as shown in the following example:
 
 ```html
 <a [routerLink]="[
@@ -127,42 +164,43 @@ In order to generate the path of parent and child route we need to pass them in 
 )"></a>
 ```
 
-result:
+The result is the following configured router link:
 
 ```html
 <a [routerLink]="['/', 'parent-path', 'value1', 'child-path', 'value2']"></a>
 ```
 
+### Configuring Relative Links
 
-### Relative links
-
-If you are already in the context of the activated parent route, you may want to only generate a relative link to the child route. Then you need to pass `'./'` string in the beginning of the input array . For example:
+If you are already in the context of the activated parent route, you may want to only generate a relative link to the child route. In this case, you need to pass `'./'` in the beginning of the input array. The following is an example:
 
 ```html
 <a [routerLink]="[ './', { cxRoute: 'child',  params: { param2: 'value2' } } ] | cxUrl"></a>
 ```
 
-result:
+The result is the following configured router link:
 
 ```html
 <a [routerLink]="['./', 'child-path', 'value2']"></a>
 ```
 
-### Relative links up
+### Navigating Up the Routes Tree
 
-If you want to go i.e. one one level up in the routes tree, you need to pass `../` to the array. For example:
+If you want to go, for example, one one level up in the routes tree, you need to pass `../` to the array. The following is an example:
 
 ```html
 <a [routerLink]="[ '../', { cxRoute: 'otherChild' } ] | cxUrl"></a>
 ```
 
-result:
+The result is the following configured router link:
 
 ```html
 <a [routerLink]="['../', 'child-path', 'value2']"></a>
 ```
 
-**NOTE:** *Every element that is **not an object with `route` property** won't be transformed. So for example:*
+### Objects Without the "cxRoute" Property
+
+Any element that is not an object with the `cxRoute` property is not transformed when router links are generated. The following is an example that includes an element that is not an object with the `cxRoute` property:
 
 ```html
 <a [routerLink]="[
@@ -172,13 +210,13 @@ result:
 )"></a>
 ```
 
-*will result in:*
+The result is the following router link:
 
 ```html
 <a [routerLink]="['/', 'parent-path', 'value1', 'SOMETHING']"></a>
 ```
 
-**NOTE:** *If the first element in the array is **not an object with `route` property**, the output path array won't have `'/'` element by default. So for example:*
+If the first element in the array is not an object with the `cxRoute` property, the output path array will not have the forward slash `'/'` element by default. The following is an example where the first element in the array is not an object with the `cxRoute` property:
 
 
 ```html
@@ -189,30 +227,30 @@ result:
 )"></a>
 ```
 
-*will result in:*
+The result is the following router link:
 
 ```html
 <a [routerLink]="['SOMETHING', 'parent-path', 'value1']"></a>
 ```
 
-## Parameters mapping
+## Mapping Parameters
 
-When properties of given `params` object do not match exactly to names of route parameters, they can be mapped using `paramsMapping` option in the configuration. For example:
+When the properties of a `params` object do not match exactly with the names of the route parameters, you can map them by using the `paramsMapping` option in the configuration.
 
-The `params` object below does not contain necessary property `productCode`, but it has `code`:
+In the following example, the `params` object does not contain the necessary `productCode` property, but it does have a `code` property:
 
 ```html
 <a [routerLink]="{ cxRoute: 'product', params: { code: 1234 } } | cxUrl"></a>
 ```
 
-Then `paramsMapping` needs to be configured:
+You can configure the `paramsMapping` as follows:
 
 ```typescript
 ConfigModule.withConfig({
     routing: {
         routes: {
             product: {
-                /* 'productCode' route parameter will be filled with value of 'code' property of 'params' object  */
+                /* The 'productCode' route parameter will be filled with the value of the 'code' property of the 'params' object  */
                 paramsMapping: { productCode: 'code' }
                 paths: [':productCode/custom/product-path']
             }
@@ -221,37 +259,21 @@ ConfigModule.withConfig({
 })
 ```
 
-result:
+The result is the following configured router link:
 
 ```html
 <a [routerLink]="['/', 1234, 'custom', 'product-path']"></a>
 ```
 
-### Predefined parameters mapping
-
-The routes of some storefront already have predefined `paramsMapping`. They can be found in `default-routing-config.ts`.
-
-```typescript
-// default-routing-config.ts
-
-product: {
-    paramsMapping: { productCode: 'code' }
-    /* ... */
-},
-category: {
-    paramsMapping: { categoryCode: 'code' }
-    /* ... */
-},
-/* ... */
-```
+**Note:** Spartacus includes a number of predefined `paramsMapping` configurations in `default-routing-config.ts`.
 
 ## Programmatic API
 
-### Navigation to the generated path
+### Navigation to the Generated Path
 
-The `RoutingService.go` method called with `{ cxRoute: <route> }` navigates to the generated path - similar like `routerLink` with `cxUrl` pipe in the HTML template. For example:
+The `RoutingService.go` method called with `{ cxRoute: <route> }` navigates to the generated path, similar to the `routerLink` with the `cxUrl` pipe in the HTML template.
 
-When config is:
+The following is an example configuration:
 
 ```typescript
 ConfigModule.withConfig({
@@ -262,18 +284,21 @@ ConfigModule.withConfig({
     }
 })
 ```
+
+You can then call the `RoutingService.go` method as follows:
 
 ```typescript
 routingService.go({ cxRoute: 'product', params: { productCode: 1234 } });
 
-// router navigates to ['/', 'p', 1234]
 ```
 
-### Simply generation of the path
+The result is that the router navigates to `['/', 'p', 1234]`.
 
-The `SemanticPathService.transform` method called with `{ cxRoute: <route> }` returns the generated path (just like `cxUrl` pipe in HTML templates). For example:
+### Path Generation
 
-When config is:
+The `SemanticPathService.transform` method called with `{ cxRoute: <route> }` returns the generated path, just like the `cxUrl` pipe in the HTML templates.
+
+The following is an example configuration:
 
 ```typescript
 ConfigModule.withConfig({
@@ -285,8 +310,14 @@ ConfigModule.withConfig({
 })
 ```
 
+You can then call the `SemanticPathService.transform` method as follows:
+
 ```typescript
 semanticPathService.transform({ cxRoute: 'product', params: { productCode: 1234 } });
+```
 
-// ['/', 'p', 1234]
+The result is the following generated path:
+
+```ts
+['/', 'p', 1234]
 ```
