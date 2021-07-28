@@ -81,6 +81,6 @@ There are a number of related techniques to be aware of:
 
 - Lazy loading of JS chunks: Deferred loading does not lazy-load the component JS bundles. Deferred loading is only concerned with the creation or rendering of components.
 
-- Above-the-fold loading: Deferred loading is tightly coupled to so-called "above-the-fold loading". For more information, see [Above-the-Fold Loading]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %}).
+- Above-the-fold loading: Deferred loading is tightly coupled to so-called "above-the-fold loading". For more information, see [{% assign linkedpage = site.pages | where: "name", "above-the-fold.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %}).
 
 - Native lazy loading of images: Deferred loading is not related to the native lazy loading of images that has recently been implemented in some browsers. This new API is not yet fully supported, but could be used in combination with deferred loading for CMS components.

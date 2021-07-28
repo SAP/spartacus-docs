@@ -46,18 +46,24 @@ Alternatively, you can use `OutletPosition.BEFORE` or `OutletPosition.AFTER`.
 
 ## Component-Driven Outlets
 
-While the usage of `ng-template` is convenient, it is limited when no `TemplateRef` is available. Also, there may be scenarios where you wish to add a component dynamically, outside the UI, using typescript.
+While the usage of `ng-template` is convenient, it is limited when no `TemplateRef` is available. Also, there may be scenarios where you wish to add a component dynamically, outside the UI, using TypeScript.
 
-Instead of using a template, you can add a component factory to an outlet reference. With this technique, you can dynamically load a component and bring it into the UI. An actual example of this is the `AsmLoaderModule`, which loads the ASM experience dynamically in the `cx-storefront` outlet reference, but only when needed.
+Instead of using a template, you can provide a component to the outlet service by using the `provideOutlet` provider.
 
-The following is an example of adding UI dynamically by passing in a component factory:
+In the following example, the `CustomHeaderComponent` is inserted in the `header` slot:
 
 ```typescript
-const factory = this.componentFactoryResolver.resolveComponentFactory(MyComponent);
-this.outletService.add('cx-storefront', factory, OutletPosition.BEFORE);
+providers: [
+    ...,
+    provideOutlet({
+      id: 'header',
+      position: OutletPosition.REPLACE,
+      component: CustomHeaderComponent,
+    }),
+]
 ```
 
-**Note**: The component-driven outlets feature is introduced with version 1.3 of the Spartacus libraries. If you are using an earlier version, only template content can be added to outlets.
+The optional `position` field behaves in the same way as the `cxOutletPos`, which is described in the [Template-Driven Outlets](#template-driven-outlets) section, above.
 
 ## Stacked Outlets
 
@@ -96,7 +102,7 @@ Data-driven outlets are provided by the CMS structure. There are three types, as
 
 - **CMS Page layout name:** Each page layout is available as an outlet reference.
 - **CMS page slot positions:** Each slot position is an outlet reference. Since slot positions are not necessarily unique throughout the CMS structure, an outlet template might occur more then once. There is currently no standard technique available to limit the outlet for a specific position or page.
-- **CMS Component type:** Each component type is available as an outlet. While component type-driven outlets can be used, it is generally considered best practice to leverage [Customizing CMS Components]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}) for introducing custom component UI.
+- **CMS Component type:** Each component type is available as an outlet. While component type-driven outlets can be used, it is generally considered best practice to leverage [{% assign linkedpage = site.pages | where: "name", "customizing-cms-components.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/customizing-cms-components.md %}) for introducing custom component UI.
 
 ### Software-Driven Outlet References
 
@@ -122,4 +128,4 @@ There are a number of outlet references that wrap specific sections of the Produ
 
 ## Deferred Loading
 
-Outlets are driven by deferred loading of the Spartacus UI, which is a technique that is used to postpone the initial rendering of CMS components. Any component that is outside the viewport is not rendered in advance. For more information, see [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).
+Outlets are driven by deferred loading of the Spartacus UI, which is a technique that is used to postpone the initial rendering of CMS components. Any component that is outside the viewport is not rendered in advance. For more information, see [{% assign linkedpage = site.pages | where: "name", "deferred-loading.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}).

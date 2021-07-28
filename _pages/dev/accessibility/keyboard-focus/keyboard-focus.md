@@ -22,12 +22,12 @@ The various features of the `cxFocus` directive are documented separately, as fo
 
 | Feature | Description |
 | --- | --- |
-| [Visible focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/visible-focus.md %}) | Limits the visible focus to keyboard users only. |
-| [Persist focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/persist-focus.md %}) | Refocuses an element based on its last focus state. |
-| [Escape focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/escape-focus.md %}) | Traps the focus of an element when the user presses the `ESC` key. |
-| [Auto focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/auto-focus.md %}) | Provides auto focus in a single-page experience. |
-| [Trap focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/trap-focus.md %}) | Traps the focus of a group of focusable elements, so that focus returns to the first element after leaving the last element. |
-| [Lock focus]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/lock-focus.md %}) | Locks and unlocks the focus of the focusable child elements of the host element. |
+| [{% assign linkedpage = site.pages | where: "name", "visible-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/visible-focus.md %}) | Limits the visible focus to keyboard users only. |
+| [{% assign linkedpage = site.pages | where: "name", "persist-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/persist-focus.md %}) | Refocuses an element based on its last focus state. |
+| [{% assign linkedpage = site.pages | where: "name", "escape-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/escape-focus.md %}) | Traps the focus of an element when the user presses the `ESC` key. |
+| [{% assign linkedpage = site.pages | where: "name", "auto-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/auto-focus.md %}) | Provides auto focus in a single-page experience. |
+| [{% assign linkedpage = site.pages | where: "name", "trap-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/trap-focus.md %}) | Traps the focus of a group of focusable elements, so that focus returns to the first element after leaving the last element. |
+| [{% assign linkedpage = site.pages | where: "name", "lock-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/lock-focus.md %}) | Locks and unlocks the focus of the focusable child elements of the host element. |
 
 All features have separate configuration typings, but all configurations are accessible through the `FocusConfig`.
 

@@ -4,7 +4,7 @@ title: Pre-Release Information
 
 This document describes what is included in the latest pre-release of Spartacus libraries, such as `next` and `rc` libraries.
 
-- For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+- For an overview of what is included in a specific release, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 - For detailed release notes, see the Spartacus repository [Releases page](https://github.com/SAP/spartacus/releases).
   
 ## Next release (after 3.2)
@@ -17,7 +17,7 @@ Pre-release libraries are no longer published for libraries that are officially 
 
 ## Customer Data Cloud Pre-Release
 
-The **Customer Data Cloud** (CDC, previously known as Gigya) integration library remains in pre-release and will likely be final Q1 2021. This new library provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud. For more information, see the [documentation]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %}).
+The **Customer Data Cloud** (CDC, previously known as Gigya) integration library remains in pre-release and will likely be final Q1 2021. This new library provides authentication and consent management through CDC instead of what’s out-of-the-box SAP Commerce Cloud. For more information, see [{% assign linkedpage = site.pages | where: "name", "cdc-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %}).
 
 ## Questions
 

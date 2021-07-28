@@ -155,6 +155,57 @@ The `optional` flag ensures that the code will not break during the build, whene
 
 Spartacus generates the component by iterating over the configured component selectors.
 
+**Note**: The placeholder selector must be explicitly imported in the file where you extend the placeholder selector. Placeholder selectors are imported from the `@spartacus/styles` library.
+
+#### Extending Default Styles With Placeholder Selectors
+
+You can extend the default Spartacus styles with placeholder selectors in the following ways:
+
+- You can extend the default style in your `styles.scss`, and then define your custom styles in the component scss file.
+
+  The following is an example of `styles.scss` where `custom-product-intro` is the selector of the custom component:
+
+  ```scss
+  // styles.scss
+  $styleVersion: ...;
+  @import "~@spartacus/styles/index";
+
+  custom-product-intro {
+    @extend %cx-product-intro !optional;
+  }
+  ```
+
+  You then define your custom styles in the component scss file, as shown in the following example:
+
+  ```ts
+  // custom-product-intro.component.ts
+  :host {
+    .code {
+      color: yellow;
+    }
+  }
+  ```
+
+  In the example above, the `custom-product-intro` uses the style from Spartacus, but the color of the `.code` class now becomes yellow.
+
+- You can extend the placeholder selector and customize the style in the component scss file. The following is an example:
+
+  ```ts
+  // custom-product-intro.component.ts
+
+  // Add the following import first (this import is required because most styles have a dependency on it)
+  @import "~@spartacus/styles/scss/cxbase/mixins";
+  // Then import the default component style before extending it
+  @import "~@spartacus/styles/scss/components/product/details/product-intro";
+
+  :host {
+    .code {
+      color: yellow;
+    }
+    @extend %cx-product-intro !optional;
+  }
+  ```
+
 ### Skipping Specific Component Styles
 
 Component styles are optional because they are pulled in from the style library. Accordingly, you might want to disable some standard component styles entirely. To disable standard component styles, you can add the component selectors to the `$skipComponentStyles` list. The following is an example that demonstrates skipping two standard components from the style library:
@@ -167,4 +218,4 @@ Skipping specific component styles might be beneficial if you need to create sty
 
 ## Page Layout Styles
 
-Global theming and component styles are most important to render components on the page. However, the overall layout that orchestrates components on a page is another important style layer. For more information about this layer, see [Page Layout]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/page-layout.md %}).
+Global theming and component styles are most important to render components on the page. However, the overall layout that orchestrates components on a page is another important style layer. For more information about this layer, see [{% assign linkedpage = site.pages | where: "name", "page-layout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/page-layout.md %}).

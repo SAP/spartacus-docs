@@ -8,7 +8,7 @@ Here are some of the ways you can contribute to Spartacus:
 
 Note: This is a living document. Like the Spartacus code, this document will be improved over time with the help of our community. Feedback welcome.
 
-----
+***
 
 ## Helping Others
 
@@ -17,7 +17,14 @@ An easy way to start is by helping others who may have questions or need support
 * Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ)
 * [Stack Overflow posts tagged with 'spartacus-storefront'](https://stackoverflow.com/questions/tagged/spartacus-storefront)
 
-----
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Reporting Issues
 
@@ -170,17 +177,17 @@ A contribution will be considered for inclusion in Spartacus if it meets the fol
 * The contribution truly improves the storefront
 * The contribution follows the applicable guidelines and standards.
 
-The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [Contributor's Guide]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}).
+The "guidelines and standards" requirement could fill entire books and still lack a 100% clear definition, but rest assured that you will receive feedback if something is not right. That being said, please consult the [{% assign linkedpage = site.pages | where: "name", "contributors-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/landing-page/contributors-guide.md %}).
 
 ### Contribution Process
 
 1. Make sure the change would be welcome, as described above.
 
-1. Create a fork of the Spartacus library sources. 
+1. Create a fork of the Spartacus library sources.
 
-1. Build and run the storefront from the library development workspace. 
+1. Build and run the storefront from the library development workspace.
 
-    For more information, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+    For more information, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 1. Work on the change in your fork (either on the `develop` branch or on a feature branch).
 
@@ -188,7 +195,7 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
     That you should also use the squash and merge feature when additional changes are required after code review.
 
-1. In the commit message, please follow the conventions described in [Committing Code to Spartacus]({{ site.baseurl }}{% link _pages/contributing/commit-guidelines.md %}).
+1. In the commit message, please follow the conventions described in [{% assign linkedpage = site.pages | where: "name", "commit-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/commit-guidelines.md %}).
 
     By following the guidelines, your work will be accurately captured in the release changelog.
 

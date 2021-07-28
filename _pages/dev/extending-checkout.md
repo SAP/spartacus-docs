@@ -20,7 +20,7 @@ In the checkout, you often have links from one step to another, which is the rea
 The following is the default route configuration for checkout:
 
 ```typescript
-B2cStorefrontModule.withConfig({
+provideConfig({
   routing: {
     routes: {
       checkout: {
@@ -52,7 +52,7 @@ For more information about the `CheckoutGuard`, see the [CheckoutGuard](#checkou
 Aside from the route configuration, you can also configure the checkout by defining the responsibility of each step, the route to the page, and the order of the steps. The following is the default configuration:
 
 ```typescript
-B2cStorefrontModule.withConfig({
+provideConfig({
   checkout: {
     steps: [
       {
@@ -81,7 +81,7 @@ B2cStorefrontModule.withConfig({
       },
     ],
   },
-})
+}),
 ```
 
 The attributes in the `steps` array work as follows:
@@ -138,7 +138,7 @@ Note that, on each checkout step, you can have multiple components. As a result,
 
 In the default checkout, Spartacus uses a modified `MultiStepCheckoutOrderSummaryPageTemplate`. In addition to `BodyContent` and `SideContent`, Spartacus includes `TopContent` and `BottomContent` for 100% of the sections above and below the `BodyContent` and `SideContent` page slots.
 
-For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the `spartacussampledata` extension. For more information, see [Spartacussampledata Extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %})
+For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the `spartacussampledata` extension. For more information, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %})
 
 ## Extensibility
 
@@ -151,63 +151,57 @@ The following scenario describes how to change the order of two steps. In the de
 To achieve this, you change the checkout configuration in the storefront configuration, and change the guards in the CMS components that are used on the checkout pages. The following is an example:
 
 ```ts
-@NgModule({
-  imports: [
-    B2cStorefrontModule.withConfig({
-      ...restOfConfig,
-      checkout: {
-        // You must specify all of the steps (this configuration is not merged with the default one)
-        steps: [
-          {
-            id: 'shippingAddress',
-            name: 'checkoutProgress.shippingAddress',
-            routeName: 'checkoutShippingAddress',
-            type: [CheckoutStepType.SHIPPING_ADDRESS],
-          },
-          // Change the payment details step to be before the delivery mode
-          {
-            id: 'paymentDetails',
-            name: 'checkoutProgress.paymentDetails',
-            routeName: 'checkoutPaymentDetails',
-            type: [CheckoutStepType.PAYMENT_DETAILS],
-          },
-          {
-            id: 'deliveryMode',
-            name: 'checkoutProgress.deliveryMode',
-            routeName: 'checkoutDeliveryMode',
-            type: [CheckoutStepType.DELIVERY_MODE],
-          },
-          {
-            id: 'reviewOrder',
-            name: 'checkoutProgress.reviewOrder',
-            routeName: 'checkoutReviewOrder',
-            type: [CheckoutStepType.REVIEW_ORDER],
-          },
-        ],
+provideConfig({
+  ...restOfConfig,
+  checkout: {
+    // You must specify all of the steps (this configuration is not merged with the default one)
+    steps: [
+      {
+        id: 'shippingAddress',
+        name: 'checkoutProgress.shippingAddress',
+        routeName: 'checkoutShippingAddress',
+        type: [CheckoutStepType.SHIPPING_ADDRESS],
       },
-      cmsComponents: {
-        CheckoutPaymentDetails: {
-          component: PaymentMethodsComponent,
-          // The default CheckoutPaymentDetails uses the DeliveryModeSetGuard, but in this case, the delivery mode details will not be set yet.
-          // Instead, override the component guards with a new set that does not include the DeliveryModeSetGuard
-          guards: [AuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
-        },
-        CheckoutDeliveryMode: {
-          component: DeliveryModeComponent,
-          // In the CheckoutDeliveryMode, we need to also check if the payment details are set, so we add the PaymentDetailsSetGuard
-          guards: [
-            AuthGuard,
-            CartNotEmptyGuard,
-            ShippingAddressSetGuard,
-            PaymentDetailsSetGuard,
-          ],
-        },
+      // Change the payment details step to be before the delivery mode
+      {
+        id: 'paymentDetails',
+        name: 'checkoutProgress.paymentDetails',
+        routeName: 'checkoutPaymentDetails',
+        type: [CheckoutStepType.PAYMENT_DETAILS],
       },
-    }),
-  ],
-  bootstrap: [StorefrontComponent],
-})
-export class AppModule {}
+      {
+        id: 'deliveryMode',
+        name: 'checkoutProgress.deliveryMode',
+        routeName: 'checkoutDeliveryMode',
+        type: [CheckoutStepType.DELIVERY_MODE],
+      },
+      {
+        id: 'reviewOrder',
+        name: 'checkoutProgress.reviewOrder',
+        routeName: 'checkoutReviewOrder',
+        type: [CheckoutStepType.REVIEW_ORDER],
+      },
+    ],
+  },
+  cmsComponents: {
+    CheckoutPaymentDetails: {
+      component: PaymentMethodsComponent,
+      // The default CheckoutPaymentDetails uses the DeliveryModeSetGuard, but in this case, the delivery mode details will not be set yet.
+      // Instead, override the component guards with a new set that does not include the DeliveryModeSetGuard
+      guards: [AuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
+    },
+    CheckoutDeliveryMode: {
+      component: DeliveryModeComponent,
+      // In the CheckoutDeliveryMode, we need to also check if the payment details are set, so we add the PaymentDetailsSetGuard
+      guards: [
+        AuthGuard,
+        CartNotEmptyGuard,
+        ShippingAddressSetGuard,
+        PaymentDetailsSetGuard,
+      ],
+    },
+  },
+}),
 ```
 
 ### Adding Another Checkout Step
@@ -215,56 +209,50 @@ export class AppModule {}
 To add an extra checkout step, the approach is similar to changing the order of the checkout flow: you provide the checkout configuration in the storefront configuration, and set the page, slots, and components in CMS. The following is an example:
 
 ```ts
-@NgModule({
-  imports: [
-    B2cStorefrontModule.withConfig({
-      ...restOfConfig,
-      routing: {
-        routes: {
-          // Create a route for your new checkout step
-          checkoutCharity: { paths: ['checkout/charity'] },
-        },
+provideConfig({
+  ...restOfConfig,
+  routing: {
+    routes: {
+      // Create a route for your new checkout step
+      checkoutCharity: { paths: ['checkout/charity'] },
+    },
+  },
+  checkout: {
+    steps: [
+      {
+        id: 'shippingAddress',
+        name: 'checkoutProgress.shippingAddress',
+        routeName: 'checkoutShippingAddress',
+        type: [CheckoutStepType.SHIPPING_ADDRESS],
       },
-      checkout: {
-        steps: [
-          {
-            id: 'shippingAddress',
-            name: 'checkoutProgress.shippingAddress',
-            routeName: 'checkoutShippingAddress',
-            type: [CheckoutStepType.SHIPPING_ADDRESS],
-          },
-          {
-            id: 'deliveryMode',
-            name: 'checkoutProgress.deliveryMode',
-            routeName: 'checkoutDeliveryMode',
-            type: [CheckoutStepType.DELIVERY_MODE],
-          },
-          {
-            id: 'paymentDetails',
-            name: 'checkoutProgress.paymentDetails',
-            routeName: 'checkoutPaymentDetails',
-            type: [CheckoutStepType.PAYMENT_DETAILS],
-          },
-          // Add the charity step here, before the review order step
-          {
-            id: 'charity',
-            name: 'checkoutProgress.charity', // Provide translation for this key
-            routeName: 'checkoutCharity',
-            type: [],
-          },
-          {
-            id: 'reviewOrder',
-            name: 'checkoutProgress.reviewOrder',
-            routeName: 'checkoutReviewOrder',
-            type: [CheckoutStepType.REVIEW_ORDER],
-          },
-        ],
+      {
+        id: 'deliveryMode',
+        name: 'checkoutProgress.deliveryMode',
+        routeName: 'checkoutDeliveryMode',
+        type: [CheckoutStepType.DELIVERY_MODE],
       },
-    }),
-  ],
-  bootstrap: [StorefrontComponent],
-})
-export class AppModule {}
+      {
+        id: 'paymentDetails',
+        name: 'checkoutProgress.paymentDetails',
+        routeName: 'checkoutPaymentDetails',
+        type: [CheckoutStepType.PAYMENT_DETAILS],
+      },
+      // Add the charity step here, before the review order step
+      {
+        id: 'charity',
+        name: 'checkoutProgress.charity', // Provide translation for this key
+        routeName: 'checkoutCharity',
+        type: [],
+      },
+      {
+        id: 'reviewOrder',
+        name: 'checkoutProgress.reviewOrder',
+        routeName: 'checkoutReviewOrder',
+        type: [CheckoutStepType.REVIEW_ORDER],
+      },
+    ],
+  },
+}),
 ```
 
 ### Combining Checkout Steps
@@ -279,56 +267,51 @@ Combining checkout steps is also very similar to the previous examples. In most 
 
 In addition to combining steps, the following example shows how to create a new component, which is very similar to the `DeliveryModeComponent` except that it has a **Save** button instead of a **Next** button. Note, this **Save** button only saves information, without a redirect.
 
-``` ts
-@NgModule({
-  imports: [
-    B2cStorefrontModule.withConfig({
-      routing: {
-        routes: {
-          // Add a new route for the combined step
-          checkoutDeliveryModePaymentDetails: {
-            paths: ['checkout/delivery-and-payment'],
-          },
-        },
+```ts
+provideConfig({
+  routing: {
+    routes: {
+      // Add a new route for the combined step
+      checkoutDeliveryModePaymentDetails: {
+        paths: ['checkout/delivery-and-payment'],
       },
-      checkout: {
-        steps: [
-          {
-            id: 'shippingAddress',
-            name: 'checkoutProgress.shippingAddress',
-            routeName: 'checkoutShippingAddress',
-            type: [CheckoutStepType.SHIPPING_ADDRESS],
-          },
-          // Replace two steps with one
-          {
-            id: 'deliveryModePaymentDetails',
-            name: 'checkoutProgress.deliveryModePaymentDetails', // Provide translation for this key
-            routeName: 'checkoutDeliveryModePaymentDetails',
-            // This step sets both the delivery mode and the payment details, so you have to define both of these types
-            type: [
-              CheckoutStepType.DELIVERY_MODE,
-              CheckoutStepType.PAYMENT_DETAILS,
-            ],
-          },
-          {
-            id: 'reviewOrder',
-            name: 'checkoutProgress.reviewOrder',
-            routeName: 'checkoutReviewOrder',
-            type: [CheckoutStepType.REVIEW_ORDER],
-          },
+    },
+  },
+  checkout: {
+    steps: [
+      {
+        id: 'shippingAddress',
+        name: 'checkoutProgress.shippingAddress',
+        routeName: 'checkoutShippingAddress',
+        type: [CheckoutStepType.SHIPPING_ADDRESS],
+      },
+      // Replace two steps with one
+      {
+        id: 'deliveryModePaymentDetails',
+        name: 'checkoutProgress.deliveryModePaymentDetails', // Provide translation for this key
+        routeName: 'checkoutDeliveryModePaymentDetails',
+        // This step sets both the delivery mode and the payment details, so you have to define both of these types
+        type: [
+          CheckoutStepType.DELIVERY_MODE,
+          CheckoutStepType.PAYMENT_DETAILS,
         ],
       },
-      cmsComponents: {
-        CheckoutPaymentDetails: {
-          component: PaymentMethodsComponent,
-          // DeliveryModeSetGuard is removed because it is set on the same page
-          guards: [AuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
-        },
+      {
+        id: 'reviewOrder',
+        name: 'checkoutProgress.reviewOrder',
+        routeName: 'checkoutReviewOrder',
+        type: [CheckoutStepType.REVIEW_ORDER],
       },
-    }),
-  ],
-  bootstrap: [StorefrontComponent],
-})
+    ],
+  },
+  cmsComponents: {
+    CheckoutPaymentDetails: {
+      component: PaymentMethodsComponent,
+      // DeliveryModeSetGuard is removed because it is set on the same page
+      guards: [AuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
+    },
+  },
+}),
 ```
 
 **Note:** You can use this same approach to combine all the steps into a single-step checkout.
@@ -341,7 +324,7 @@ Clicking the default checkout button redirects to the `/checkout` route. To invo
 
 The first step in setting up express checkout is to create an `ExpressCheckoutGuard`. The following is an example:
 
-``` ts
+```ts
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -350,9 +333,7 @@ import {
   ActivatedRouteSnapshot,
 } from '@angular/router';
 import { CheckoutConfig } from '../config/checkout-config';
-import {
-  RoutingConfigService,
-} from '@spartacus/core';
+import { RoutingConfigService } from '@spartacus/core';
 
 @Injectable({
   providedIn: 'root',
@@ -362,7 +343,7 @@ export class ExpressCheckoutGuard implements CanActivate {
     private router: Router,
     private config: CheckoutConfig,
     private routingConfigService: RoutingConfigService,
-    private checkoutConfigService: CheckoutConfigService,
+    private checkoutConfigService: CheckoutConfigService
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
@@ -372,15 +353,15 @@ export class ExpressCheckoutGuard implements CanActivate {
       // 1. Fetch the default delivery address, payment method and delivery mode.
       // 2. Set those defaults in the order.
       // 3. Watch for order details and return the review order URL.
-      const checkoutStep: CheckoutStep = this.checkoutConfigService.getCheckoutStep(
-        CheckoutStepType.REVIEW_ORDER
-      );
+      const checkoutStep: CheckoutStep =
+        this.checkoutConfigService.getCheckoutStep(
+          CheckoutStepType.REVIEW_ORDER
+        );
 
       return this.router.parseUrl(
         checkoutStep &&
-          this.routingConfigService.getRouteConfig(
-            checkoutStep.routeName
-          ).paths[0]
+          this.routingConfigService.getRouteConfig(checkoutStep.routeName)
+            .paths[0]
       );
     } else {
       // Redirect to the first step in the default checkout flow
@@ -398,21 +379,16 @@ export class ExpressCheckoutGuard implements CanActivate {
 
 Now that you have created the `ExpressCheckoutGuard`, you can use it in the Checkout Orchestrator. The following is an example:
 
-``` ts
-@NgModule({
-  imports: [
-    B2cStorefrontModule.withConfig({
-      cmsComponents: {
-        CheckoutOrchestrator: {
-          component: CheckoutOrchestratorComponent,
-          // Replace the CheckoutGuard with the ExpressCheckoutGuard for the Checkout Orchestrator
-          guards: [AuthGuard, CartNotEmptyGuard, ExpressCheckoutGuard],
-        },
-      },
-    }),
-  ],
-  bootstrap: [StorefrontComponent],
-})
+```ts
+provideConfig({
+  cmsComponents: {
+    CheckoutOrchestrator: {
+      component: CheckoutOrchestratorComponent,
+      // Replace the CheckoutGuard with the ExpressCheckoutGuard for the Checkout Orchestrator
+      guards: [AuthGuard, CartNotEmptyGuard, ExpressCheckoutGuard],
+    },
+  },
+}),
 ```
 
 Express checkout is now ready. The only steps that remain are to create express checkout links, and to place them on the page.

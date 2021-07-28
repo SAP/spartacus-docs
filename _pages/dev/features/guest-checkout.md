@@ -16,11 +16,10 @@ Spartacus supports guest checkout, which is a feature that allows users to check
 
 ## Enabling Guest Checkout
 
-Guest checkout is disabled by default, but can be enabled in `app.module.ts` by setting the `guest` flag to `true` in the `checkout` configuration. You can enable guest checkout, as shown in the following example:
+Guest checkout is disabled by default, but can be enabled in `spartacus-configuration.module.ts` by setting the `guest` flag to `true` in the `checkout` configuration. You can enable guest checkout, as shown in the following example:
 
 ```ts
-B2cStorefrontModule.withConfig({
-  [...]
+provideConfig({
   checkout: {
     guest: true
   }
@@ -31,8 +30,8 @@ B2cStorefrontModule.withConfig({
 
 Spartacus allows you to enable guest checkout and express checkout at the same time. When both features are enabled, guest checkout is not affected by any configurations for express checkout because express checkout is only available to registered users who are signed in.
 
-For more information on express checkout, see [Express Checkout]({{ site.baseurl }}{% link _pages/dev/features/express-checkout.md %}).
+For more information on express checkout, see [{% assign linkedpage = site.pages | where: "name", "express-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/express-checkout.md %}).
 
 ## Extending Guest Checkout
 
-Guest checkout leverages the existing pages and components from the standard checkout, so you can extend guest checkout in the same way that you can extend the standard checkout feature. For more information, see [Extending Checkout]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
+Guest checkout leverages the existing pages and components from the standard checkout, so you can extend guest checkout in the same way that you can extend the standard checkout feature. For more information, see [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).

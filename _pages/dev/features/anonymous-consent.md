@@ -106,7 +106,7 @@ Spartacus offers some configuration options that are encapsulated in `anonymousC
 
 ### Changing UI Labels
 
-In order to customize any UI message on the banner or in the dialog, you can refer to our i18n guide on how to override the existing translation keys. For more information, see [Internationalization]({{ site.baseurl }}{% link _pages/dev/i18n.md %}).
+You can customize any UI message on the banner or in the dialog by overriding the existing translation keys. For more information, see [{% assign linkedpage = site.pages | where: "name", "i18n.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/i18n.md %}).
 
 ## Extending Anonymous Consent
 

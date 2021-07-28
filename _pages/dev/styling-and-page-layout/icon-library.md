@@ -105,4 +105,4 @@ To load the font-related CSS file, a resource can be added for a specific icon t
 
 ## Directionality
 
-With release 2.1 of the Spartacus libraries, right-to-left (RTL) text and layout direction is supported in addition to left-to-right (LTR) orientation. Most icons are designed for LTR and do not change for RTL orientation. Some icons, however, should flip when in RTL mode. For more information, see [Directionality]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
+With release 2.1 of the Spartacus libraries, right-to-left (RTL) text and layout direction is supported in addition to left-to-right (LTR) orientation. Most icons are designed for LTR and do not change for RTL orientation. Some icons, however, should flip when in RTL mode. For more information, see [{% assign linkedpage = site.pages | where: "name", "directionality.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).

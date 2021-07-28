@@ -29,8 +29,8 @@ ng update @spartacus/schematics
 
 **Note:** If you do not have `@spartacus/schematics` installed, you will get the following error: `Package '@spartacus/schematics' is not a dependency.` For more information, see [Prerequisites](#prerequisites).
 
-When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each injected comment, see [Technical Changes in Spartacus 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/technical-changes-version-3.md %}).
+When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each injected comment, see [{% assign linkedpage = site.pages | where: "name", "technical-changes-version-3.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/technical-changes-version-3.md %}).
 
 For more information about schematics, see the schematics project [README](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
-For more information about the deprecated styles from Spartacus version 2.x, see [Changes to Styles in 3.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/css-changes-in-version-3.md %}).
+For more information about the deprecated styles from Spartacus version 2.x, see [{% assign linkedpage = site.pages | where: "name", "css-changes-in-version-3.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/css-changes-in-version-3.md %}).

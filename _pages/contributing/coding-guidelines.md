@@ -4,6 +4,15 @@ title: Coding Guidelines
 
 To keep the Spartacus code readable and maintainable, please follow our coding guidelines, even if you find them violated somewhere. If a file is consistently not following the guidelines, and adhering to the guidelines would make the code worse, then follow the local style.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Overall Angular Guidelines
 
 We follow [Google's Style Guide](https://angular.io/guide/styleguide).
@@ -105,7 +114,7 @@ If you answered "no" to these questions, then the test belongs in the `regressio
 
 Do not break server-side rendering (SSR).
 
-For more information, see the [Server–Side Rendering Coding Guidelines]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}).
+For more information, see the [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}).
 
 ### Protected and Private Methods
 

@@ -181,3 +181,9 @@ If you are using a version of Spartacus that is older than release 3.1, for ever
 ```typescript
 eventService.get(HomePageEvent).subscribe(...), eventService.get(CartPageEvent).subscribe(...), eventService.get(ProductDetailsPageEvent).subscribe(...), eventService.get(CategoryPageResultsEvent).subscribe(...), eventService.get(SearchPageResultsEvent).subscribe(...)
 ```
+
+## List of Spartacus Events
+
+The following table lists all of the available events in Spartacus, and where to find them in the Spartacus source code.
+
+{% include docs/events_table.html %}

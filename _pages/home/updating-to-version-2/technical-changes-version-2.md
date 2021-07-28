@@ -285,7 +285,7 @@ The HTML and accompanying CSS is refactored as well. A clean DOM consists of onl
 
 Using anchor links is the preferred action for pagination links, but action links (using `click` events) are still supported and used in various areas in Spartacus. The product listing page, however, is using anchor links.
 
-For more information, see [Pagination Component]({{ site.baseurl }}{% link _pages/dev/components/shared-components/pagination.md %}).
+For more information, see [{% assign linkedpage = site.pages | where: "name", "pagination.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/pagination.md %}).
 
 If you have used the pagination component directly, you should refactor the implementation, as the inputs have changed.
 
@@ -301,7 +301,7 @@ The component `AddressCardComponent` has been completely removed and is replaced
 
 The storage synchronization mechanism previously used to persist the active cart id had some limitations that caused bugs on multi-site stores (issue: [https://github.com/SAP/spartacus/issues/6215](https://github.com/SAP/spartacus/issues/6215)).
 
-The default storage sync configuration was removed from `MultiCartStoreModule`. Instead, a state persistence mechanism has been added for multi-cart to provide the same behavior and to support multi-site stores. It is build on top of `StatePersistenceService`. This is a new and recommended way to synchronize state to browser storage. For more information, see [State Persistence]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %}).
+The default storage sync configuration was removed from `MultiCartStoreModule`. Instead, a state persistence mechanism has been added for multi-cart to provide the same behavior and to support multi-site stores. It is build on top of `StatePersistenceService`. This is a new and recommended way to synchronize state to browser storage. For more information, see [{% assign linkedpage = site.pages | where: "name", "state-persistence.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/state_management/state-persistence.md %}).
 
 ### Cart state and selectors removed
 

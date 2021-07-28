@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 3.3.0 final published May 13, 2021**
+**Latest news: 3.4.0 final published June 16, 2021**
 
-*Last updated May 12, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated June 16, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -22,7 +22,7 @@ This document describes what is included in all Spartacus libraries since the in
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus/releases).
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
-- For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
+- For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 **Disclaimer - Forward-Looking Statements**
@@ -30,7 +30,27 @@ This document describes what is included in all Spartacus libraries since the in
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
-  
+
+## Release 3.4
+
+*Release 3.4 libraries published June 16, 2021*
+
+### Cart API refactoring
+
+The Cart API was refactored to make development easier. For example, many classes were made protected and thus more extensible. (See [here](https://github.com/SAP/spartacus/pull/12389) for more information.) Inline documentation was also improved.
+
+### Code splitting for performance improvement
+
+Code splitting continues with new libraries for more modules, such as Intelligent Selling Services, Store Finder, Account, Profile, and ASM - see schematics for installation [(documentation)]({{ site.baseurl }}{% link _pages/install/schematics.md %})
+
+### Simplified schematics installation
+
+Installation selection when adding features using `ng add @spartacus/schematics@` was simplified. A single list is presented at the start, and dependencies or sub-coponents automatically determined by feature. The list of modules reflects the changes due to the code splitting initative.
+
+### New events
+
+New events were added: Cart Remove Entry Success, Cart Remove Entry Fail, Cart Update Entry Fail (see [GitHub issue 12125](https://github.com/SAP/spartacus/issues/12125)). Event reference documentation is now auto-generated (see [this page]({{ site.baseurl }}/event-service/#list-of-spartacus-events) for an example).
+
 ## Release 3.3
 
 *Release 3.3 libraries published May 12, 2021*
@@ -235,8 +255,8 @@ For a detailed list of all changes for 2.0 and previous 'next' releases of the S
   
 *Release 1.5 libraries published February 26, 2020*
 
-- [Context Driven Services]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
-Context-Driven Services provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Context-Driven Services feature itself, see the [Context-Driven Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
+- [Intelligent Selling Services for SAP Commerce Cloud]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})  
+Intelligent Selling Services for SAP Commerce Cloud provides real-time customer experience personalization for SAP Commerce Cloud, now with support for Spartacus! Integration includes the Profile Tag and the Merchandising Carousel features. For more information on the Intelligent Selling Services feature itself, see the [Intelligent Selling Services documentation in the SAP Help Portal](https://help.sap.com/viewer/product/CONTEXT-DRIVEN_SERVICES).
 
 - [Customer Coupons]({{ site.baseurl }}{% link _pages/dev/features/customer-coupons.md %})  
 Increase conversion and customer loyalty with Customer Coupons. This feature provides a range of functionality for promotion campaigns, such as allowing customers to claim a coupon using the coupon’s campaign URL, turning on status notifications for a coupon, allowing users to view their coupons in the My Coupons section, and applying usable coupons during checkout.
@@ -422,7 +442,7 @@ Architectural and foundational features:
 | SEO                              | Stateful URLs for every part of the storefront; search engine indexing supported by way of SSR; configurable routing; page meta resolvers including title, description, image (og:image), and robots |
 | Cache-first networking           | Caching of shell app, with more to come in subsequent releases |
 | Localization                     | All front-end texts localizable (texts that are part of the storefront code only; some texts come from backend CMS components, translated in backend) |
-| Builds with CCv2                 | JavaScript appiclications such as Spartacus-based storefronts can be built alongside SAP Commerce Cloud using Commerce Cloud v2 |
+| Builds with CCv2                 | JavaScript applications such as Spartacus-based storefronts can be built alongside SAP Commerce Cloud using Commerce Cloud v2 |
 
 ## About Spartacus Releases
 
@@ -431,7 +451,7 @@ Architectural and foundational features:
 - A change in minor means we added new features, but they are configured to be off by default, so as not to cause compatibility issues. A new minor also means inclusion of changes or bug fixes that may affect compatibility, but these are also controlled by feature flags. So all significant changes are “opt-in”. See feature flag documentation for more information.
 - We will normally publish pre-release libraries labelled 'next' a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
 - If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug and we’ll assess and fix it. We encourage you to upgrade to latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- To be able to use all functionality in Spartacus 3.\*, release 2005 of SAP Commerce Cloud is required. For example, release 2005 contains the OCC APIs for B2B Commerce Organization. In addition, the latest patch release is required, or at least strongly recommended, because it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5, and the Save for Later feature requires 1905.11). Spartacus 3.\*  is also tested with and works with release 1905. Note, however, that Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available if you are using SAP Commerce Cloud 1905. For more information on which version of Spartacus and which version of SAP Commerce Cloud is required for a particular feature, see [Feature Compatibility]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
+- To be able to use all functionality in Spartacus 3.\*, release 2005 of SAP Commerce Cloud is required. For example, release 2005 contains the OCC APIs for B2B Commerce Organization. In addition, the latest patch release is required, or at least strongly recommended, because it usually contains bug fixes that affect Spartacus (for example, ASM requires 1905.5, and the Save for Later feature requires 1905.11). Spartacus 3.\*  is also tested with and works with release 1905. Note, however, that Spartacus features that rely on new APIs introduced in 2005 (such as cancellations and returns) are not available if you are using SAP Commerce Cloud 1905. For more information on which version of Spartacus and which version of SAP Commerce Cloud is required for a particular feature, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 
 ## How Spartacus is Versioned
 

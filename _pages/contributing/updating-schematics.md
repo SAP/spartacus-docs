@@ -1,11 +1,19 @@
 ---
 title: Updating Schematics
 ---
-## Introduction
 
 When upgrading Spartacus to a new major version (for example, from 3.x to 4.0), the Spartacus migration mechanism automatically implements fixes for code that is modified or removed in the new version.
 
 When you are working on a feature or a bug, or making any other change to the Spartacus source code, you need to update the schematics as part of the [Definition Of Done]({{ site.baseurl }}{% link _pages/contributing/definition-of-done.md %}). By making these updates iteratively as part of the DoD for each change to the source code, it saves you from having to spend a lot of time upgrading the migration mechanism at the end of the development cycle, and as a result, it makes it easier to prepare the Spartacus libraries for a new major version.
+
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 ## Migration Mechanism
 
