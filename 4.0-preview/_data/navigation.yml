@@ -21,6 +21,13 @@ docs:
                   url: /pre-release-information/
                 - title: "Feature Compatibility"
                   url: /feature-release-versions/
+                - title: "Updating to Version 4.0 ➢"
+                  url: /updating-to-version-4/
+                  underchildren:
+                      - title: "Technical Changes in Spartacus 4.0"
+                        url: /technical-changes-version-4/
+                      - title: "Changes to Styles in 4.0"
+                        url: /css-changes-in-version-4/    
                 - title: "Updating to Version 3.0 ➢"
                   url: /updating-to-version-3/
                   underchildren:
