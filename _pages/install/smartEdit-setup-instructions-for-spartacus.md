@@ -64,7 +64,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
    };
    ```
 
-   If you want to change the value of `storefrontPreviewRoute` or `allowOrigin`, you can replace the default configuration by adding the following to your application:
+   If you want to change the value of `storefrontPreviewRoute` or `allowOrigin`, you can replace the default configuration by adding the following to `smart-edit-feature.module.ts`:
 
    ```ts
    provideConfig(<SmartEditConfig>{
