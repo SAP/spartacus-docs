@@ -1,3 +1,0 @@
-# Hello Spartacus!
-
-Nothing more to see here...
