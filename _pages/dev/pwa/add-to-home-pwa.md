@@ -15,7 +15,7 @@ export const defaultPWAModuleConfig: PWAModuleConfig = {
 };
 ```
 
-To enable the Add to Home Screen feature, provide the configuration above in your app.module.ts file with both `pwa` parameters set to `true`, as follows:
+To enable the Add to Home Screen feature, provide the configuration above in your `app.module.ts` file with both `pwa` parameters set to `true`, as follows:
 
 ```typescript
   pwa: {
