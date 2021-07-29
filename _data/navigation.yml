@@ -67,7 +67,9 @@ docs:
                 - title: "Installing SAP Commerce Cloud 1905"
                   url: /installing-sap-commerce-cloud-1905/                
           - title: "Cross-Origin Resource Sharing (CORS)"
-            url: /cors/        
+            url: /cors/
+          - title: "Reference App Structure"
+            url: /reference-app-structure/
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
@@ -75,8 +77,6 @@ docs:
                   url: /building-the-spartacus-storefront-from-libraries-4-x/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
-                - title: "Reference App Structure"
-                  url: /reference-app-structure/
                 - title: "Schematics"
                   url: /schematics/  
                 - title: "Snapshot Builds"
