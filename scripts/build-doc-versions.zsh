@@ -5,7 +5,7 @@
 
 # Variables
 installed="bundle"
-for v in 4.0-preview
+for v in 3.x 4.0-preview
   do
 
 # Get the latest commit SHA in sourcedir branch
