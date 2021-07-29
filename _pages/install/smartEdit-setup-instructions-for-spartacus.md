@@ -27,9 +27,9 @@ For Spartacus to work with SmartEdit, you need SAP Commerce Cloud 1905 (or newer
 
 ## Configuring SmartEdit to Work With a Spartacus Storefront
 
-The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries. If you are using version 3.2 or newer of the Spartacus libraries, see [Configuring SmartEdit to work with Spartacus 3.2 or Newer](#configuring-smartedit-to-work-with-spartacus-32-or-newer). If you are using version 3.1 or older of the Spartacus libraries, see [Configuring SmartEdit to work with Spartacus 3.1 or Older](#configuring-smartedit-to-work-with-spartacus-31-or-older).
+The SmartEdit feature library is introduced with version 3.2 of the Spartacus libraries.
 
-### Configuring SmartEdit to Work With Spartacus 3.2 or Newer
+### Configuring SmartEdit to Work With Spartacus
 
 The following steps are for configuring SmartEdit to work using the SmartEdit feature library.
 
@@ -74,77 +74,6 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
       },
     })
    ```
-
-1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
-
-   - In Backoffice, in **WCMS > Website > *your site***, click the **WCMS Properties** tab.
-   - Set the **WCMS Cockpit Preview URL** to match your Spartacus web site. (SmartEdit opens the preview URL in its iframe.)
-
-1. Ensure that the Spartacus site is allowlisted in SmartEdit. The following is one example of how you can do this:
-
-   - Sign in to SmartEdit as the admin user.
-  
-   - Click the Settings icon in the top right.
-  
-   - In the Configuration Editor, scroll down to `whiteListedStorefronts` and add the exact URL of your Spartacus storefront. For this example, it is `["https://localhost:4200"]`.
-
-   For more information, see [Adding Storefronts to the Allowlist of Permitted Domains in the Configuration Editor](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/e954737efc4d4d72b090d7e27b005191.html) on the SAP Help Portal.
-  
-1. Start your Angular app in SSL mode, as follows:
-
-   ```plaintext
-   yarn start --ssl
-   ```
-
-   By starting your app in SSL mode, you avoid an `unsafe scripting` message from the browser.
-
-   **Note:** If you start your application without using SSL mode, the two references to `https://localhost:4200` must be changed to `http://localhost:4200`.
-
-### Configuring SmartEdit to Work With Spartacus 3.1 or Older
-
-The following steps are for configuring SmartEdit to work without the SmartEdit feature library.
-
-1. Build your Angular app, adding Spartacus libraries as normal.
-
-   Make sure the app is working before continuing. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-
-1. Copy the `webApplicationInjector.js` SmartEdit file to the `src` folder of your Angular app.
-
-   This file can be found in your SAP Commerce Cloud installation in the following folder:
-
-   ```plaintext
-   hybris/bin/modules/smartedit/smarteditaddon/acceleratoraddon/web/webroot/_ui/shared/common/js/webApplicationInjector.js
-   ```
-
-1. In the root folder of your Angular app, edit the `angular.json` file by adding `src/webApplicationInjector.js` to `architect > build > option > assets`. The following is an example:
-
-   ```json
-   "architect": {
-   "build": {
-   "builder": "@angular-devk  build-angular:browser",
-   "options": {
-      "outputPath": "dist/mystore",
-      "index": "src/index.html",
-      "main": "src/main.ts",
-       "polyfills": "src/polyfills.ts",
-       "tsConfig": "src/tsconfig.app.json",
-      "assets": [
-         "src/favicon.ico",
-         "src/assets",
-         "src/webApplicationInjector.js"
-         ],
-      ...
-   ```
-
-1. In the `HEAD` section of `src/index.html`, add the following line:
-
-   ```html
-   <script id="smartedit-injector"src="webApplicationInjector.js"data-smartedit-allow-origin="localhost:9002"><script>
-   ```
-
-   Replace `localhost:9002` with the domain of your server.
-
-   This line tells SmartEdit that Spartacus is allowed to be edited by SmartEdit.
 
 1. Ensure that the **WCMS Cockpit Preview URL** is set correctly by carrying out the following steps:
 

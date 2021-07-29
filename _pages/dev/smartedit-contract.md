@@ -135,7 +135,7 @@ private addSmartEditContract(slot: ContentSlotData): void {
 }
 ```
 
-**Note:** The `addDynamicAttributes` function is deprecated in version 3.2. If you are using Spartacus 3.2 or newer, use the `addAttributesToComponent` and `addAttributesToSlot` functions instead.
+**Note:** The `addDynamicAttributes` function is deprecated in version 3.2. You should use the `addAttributesToComponent` and `addAttributesToSlot` functions instead.
 
 #### 4. Rerendering Components and Content Slots After Editing
 

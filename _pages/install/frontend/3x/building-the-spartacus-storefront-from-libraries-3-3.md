@@ -1,5 +1,6 @@
 ---
-title: Building the Spartacus Storefront Using 3.4 Libraries
+layout: building-from-3x-libs-redirect
+title: Building the Spartacus Storefront Using 3.3 Libraries
 ---
 
 The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
@@ -59,10 +60,10 @@ For a full list of available parameters, see [{% assign linkedpage = site.pages 
 
 ### Setting Up Your Project Using Schematics
 
-Run the following command to install the latest official release of Spartacus using schematics:
+Run the following command to install the latest patch version of Spartacus 3.3 using schematics:
 
 ```bash
-ng add @spartacus/schematics@latest
+ng add @spartacus/schematics@3.3
 ```
 
 When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the `User - Account` feature.
