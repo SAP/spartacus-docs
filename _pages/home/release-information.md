@@ -2,7 +2,7 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 3.4.0 final published June 16, 2021**
+**Latest news: 4.0.0 final published July 29, 2021**
 
 *Last updated June 16, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
