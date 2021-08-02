@@ -14,7 +14,7 @@ This can be solved by defining and adhering to a standardized structure, such as
 
 By using the Spartacus reference app structure, you benefit the most from the automatic migrations that are available with each major Spartacus release, while also maintaining the flexibility to add customizations, and to build new features on top of those customizations. Using the reference app structure also makes it possible to take advantage of code splitting for features that are moved into separate libraries after the 3.0 release.  
 
-**Note:** In one of the 3.x releases that is after 3.1, the reference structure described in the following sections will be supported by schematics as the default structure. Until this update is made, if you are using release 3.1 or newer, you can already migrate to the reference structure, but you will have to do it manually.
+**Note:** In Spartacus 3.2, the reference structure described in the following sections is supported by schematics as the default structure. If you are using release 3.1, you can migrate to the reference structure, but you will have to do it manually.
 
 To see a working example that makes use of the reference app structure, see [this repository](https://github.com/dunqan/spartacus-reference-structure).
 
