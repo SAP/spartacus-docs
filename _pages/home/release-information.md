@@ -4,7 +4,7 @@ title: Release Information for All Versions of Spartacus Libraries
 
 **Latest news: 4.0.0 final published July 29, 2021**
 
-*Last updated June 16, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated August 2, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -31,6 +31,32 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 4.0
+
+*Release 4.0 libraries published July 29, 2021*
+
+As with every new major release, 4.0 contains breaking changes. Make sure to read the [Development Release Notes](https://github.com/SAP/spartacus/releases).
+
+Highlights include:
+
+### Angular 12
+With every new major, we upgrade Angular in order to be able to use new features and of course take advantage of security improvements and bug fixes. For a quick summary of what's new, see https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49.
+
+### Cleanup and removal of deprecated code
+Removal of deprecated code is performed every major release. Migration information is documented here: https://github.com/SAP/spartacus/blob/develop/docs/migration/4_0.md#detailed-list-of-changes.
+
+### Checkout moved to a library
+The move of checkout to its own library continues our process of breaking the big Spartacus core library into smaller libraries, which will allow Spartacus to become smaller in the browser, more modular, and will also allow customers to only import what they need when they need it.
+
+### Cloning option when restoring saved cart
+When restoring a saved cart, the option to keep a copy of the cart is now available.
+
+### Additionally...
+This release also includes partial but incomplete support for the following (see roadmap for completion dates):
+- new blue theme
+- screen readers
+  
+  
 ## Release 3.4
 
 *Release 3.4 libraries published June 16, 2021*
