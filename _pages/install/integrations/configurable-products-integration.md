@@ -66,7 +66,7 @@ ng add @spartacus/product-configurator
 
 This command uses schematics to modify your application and add the modules needed to launch the library.
 
-After running this command, you are asked which product configurator features you would like to set up. Choose `Variant Configurator`.
+After running this command, you are asked which product configurator features you would like to set up. Choose `Product Configurator - Variant Configurator`.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
