@@ -43,6 +43,10 @@ Highlights include the following:
 
 With every new major, we upgrade Angular in order to be able to use new features and of course take advantage of security improvements and bug fixes. For a quick summary of what's new, see the Angular blog post, [Angular v12 is now available](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49).
 
+### CPQ Configurable Products Integration: Display of Prices for Attribute Values
+
+The display of prices for individual options or attribute values is now supported, not only for bundle items (attributes linked to products), but also for simple attribute values (non-bundle items). For more information, see [{% assign linkedpage = site.pages | where: "name", "cpq-configurable-products-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cpq-configurable-products-integration.md %}).
+
 ### Cleanup and removal of deprecated code
 
 Removal of deprecated code is performed with every major release. Migration information is documented in the [{% assign linkedpage = site.pages | where: "name", "updating-to-version-4.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-4/updating-to-version-4.md %}) migration guide.
