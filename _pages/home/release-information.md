@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 3.4.0 final published June 16, 2021**
+**Latest news: 4.0.0 final published July 29, 2021**
 
-*Last updated June 16, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated August 2, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -31,6 +31,37 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 4.0
+
+*Release 4.0 libraries published July 29, 2021*
+
+As with every new major release, 4.0 contains breaking changes. Make sure to read the [Development Release Notes](https://github.com/SAP/spartacus/releases) and the [{% assign linkedpage = site.pages | where: "name", "technical-changes-version-4.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-4/technical-changes-version-4.md %}) migration guide.
+
+Highlights include the following:
+
+### Angular 12
+
+With every new major, we upgrade Angular in order to be able to use new features and of course take advantage of security improvements and bug fixes. For a quick summary of what's new, see the Angular blog post, [Angular v12 is now available](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49).
+
+### Cleanup and removal of deprecated code
+
+Removal of deprecated code is performed with every major release. Migration information is documented in the [{% assign linkedpage = site.pages | where: "name", "updating-to-version-4.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-4/updating-to-version-4.md %}) migration guide.
+
+### Checkout moved to a library
+
+The move of checkout to its own library continues our process of breaking the big Spartacus core library into smaller libraries, which will allow Spartacus to become smaller in the browser, more modular, and will also allow customers to only import what they need when they need it.
+
+### Cloning option when restoring saved cart
+
+When restoring a saved cart, the option to keep a copy of the cart is now available. For more information, see [{% assign linkedpage = site.pages | where: "name", "saved-cart.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %}).
+
+### Additionally...
+
+This release also includes partial but incomplete support for the following (see roadmap for completion dates):
+
+- screen readers
+- the new "blue" Santorini storefront theme. For more information, see [{% assign linkedpage = site.pages | where: "name", "storefront-themes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/storefront-themes.md %}).
+  
 ## Release 3.4
 
 *Release 3.4 libraries published June 16, 2021*
