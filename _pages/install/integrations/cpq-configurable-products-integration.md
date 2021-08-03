@@ -2,7 +2,7 @@
 title: CPQ Configurable Products Integration
 feature:
 - name: CPQ Configurable Products Integration
-  spa_version: 4.0
+  spa_version: 3.3
   cx_version: 2005
 ---
 
@@ -56,7 +56,7 @@ You can either [install the product configurator library during initial setup of
 ### Installing the Product Configurator Library During the Initial Setup of Spartacus
 
 1. Follow the steps for setting up your Spartacus project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator (b2b feature)`.
+1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator - CPQ Configurator (b2b feature)`.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
@@ -70,7 +70,7 @@ ng add @spartacus/product-configurator
 
 This command uses schematics to modify your application and add the modules needed to launch the library.
 
-After running this command, you are asked which product configurator features you would like to set up. Choose `CPQ Configurator (b2b feature)`.
+After running this command, you are asked which product configurator features you would like to set up. Choose `Product Configurator - CPQ Configurator (b2b feature)`.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
@@ -107,13 +107,13 @@ For single-select attributes (radio button group, DDLB), only quantities on the 
 
 ## Price on Attribute Value Level
 
-The display of prices for individual options or attribute values is supported for both bundle items (attributes linked to products) and for simple attirbute values (non-bundle items).
+The display of prices for individual options or attribute values is supported for both bundle items (attributes linked to products) and for simple attribute values (non-bundle items).
 
-If the attribute value allows a quantity to be entered, the resulting price is displayed in the form of a formula (for example: 3x70 EUR = 210 EUR).
+If the attribute value allows a quantity to be entered, the resulting price is displayed in the form of a formula (for example, `3x70 EUR = 210 EUR`).
 
 When a price-relevant attribute value is selected, the price of the attribute value is added to the total price of the product.
 
-Note that currently you can display the price information for attribute values only as an absolute (non-dynamic) price, not as delta price. This means that the same price is always displayed next to the attribute value, regardless of whether the attribute value is selected.
+**Note:** Currently, you can display the price information for attribute values only as an absolute (non-dynamic) price, not as a delta price. This means that the same price is always displayed next to the attribute value, regardless of whether the attribute value is selected.
 
 ## Text Labels for Attributes
 
