@@ -56,12 +56,7 @@ You can either [install the product configurator library during initial setup of
 ### Installing the Product Configurator Library During the Initial Setup of Spartacus
 
 1. Follow the steps for setting up your Spartacus project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator`.
-1. Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
-
-   Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
-
-   Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [{% assign linkedpage = site.pages | where: "name", "text-field-configurator-template.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+1. While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose `Product Configurator - CPQ Configurator (b2b feature)`.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
@@ -75,11 +70,7 @@ ng add @spartacus/product-configurator
 
 This command uses schematics to modify your application and add the modules needed to launch the library.
 
-After running this command, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.
-
-Select `CPQ configurator` only if you have set up the CPQ integration for configurable products. For more information, see [SAP CPQ Integration for Configurable Products](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US) on the SAP Help Portal.
-
-Select `Textfield configurator` if you have products that can be configured using text-field-based configuration forms. For more information, see [{% assign linkedpage = site.pages | where: "name", "text-field-configurator-template.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/text-field-configurator-template.md %}) in the Spartacus documentation, and [Text Field Configurator Template Module](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html) on the SAP Help Portal.
+After running this command, you are asked which product configurator features you would like to set up. Choose `Product Configurator - CPQ Configurator (b2b feature)`.
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
@@ -116,9 +107,13 @@ For single-select attributes (radio button group, DDLB), only quantities on the 
 
 ## Price on Attribute Value Level
 
-The display of prices for individual options or attribute values is initially only supported for bundle items (attributes linked to products).
+The display of prices for individual options or attribute values is supported for both bundle items (attributes linked to products) and for simple attribute values (non-bundle items).
 
-Note that a simple attribute value (non-bundle item) can still have a price attached to it that is considered correctly in the price calculation on the bottom of the page. However, the price will initially not be displayed together with the attribute.
+If the attribute value allows a quantity to be entered, the resulting price is displayed in the form of a formula (for example, `3x70 EUR = 210 EUR`).
+
+When a price-relevant attribute value is selected, the price of the attribute value is added to the total price of the product.
+
+**Note:** Currently, you can display the price information for attribute values only as an absolute (non-dynamic) price, not as a delta price. This means that the same price is always displayed next to the attribute value, regardless of whether the attribute value is selected.
 
 ## Text Labels for Attributes
 
@@ -288,3 +283,7 @@ In your spring configuration, ensure that the `commerceWebServicesCartService` b
 Commerce business rules that are specific to product configuration (for example, hiding a certain value if another value is selected) are not supported for CPQ configurable products.
 
 Other Commerce business rules (such as those for promotions) still work and apply (such as, 2% off if the cart value exceeds $4,000 USD, for example).
+
+## Browser Refresh
+
+When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
