@@ -2,46 +2,6 @@
 title: Technical Changes in Spartacus 4.0
 ---
 
-## Augmentable Config interface
-
-In spartacus we expose quite some number of methods that accepts configuration. Up until now we didn't do a great job of typing those methods. You might notice that usually when we provide configuration we use type assertions (eg. `provideConfig(<I18nConfig>{i18n: {...}})`) to improve type safety and autocomplete functionality.
-
-In version 4.0 we changed the way we work with `Config`. Now each feature contributes to this interface thanks to module augmentation TS feature. Thanks to that `Config` now correctly describe all configuration options you can pass to spartacus.
-
-With that changed we are able to change the type of all the methods that accept configuration from `any` to `Config`. You no longer have to use type assertion to benefit from better type safety and DX.
-
-We still keep the individual configs (eg. `I18nConfig`, `AsmConfig`, `AuthConfig`, etc.), but all those interfaces also contribute to `Config` interface.
-
-When you need to access configuration object you can still in constructor use following syntax: `protected config: AsmConfig` (this will only hint for you `AsmConfig` properties), but you now have the option to do it with `protected config: Config`. Using the latter is recommended when you want to access complete configuration with type safety (eg. `FeatureConfig` and `MediaConfig` at the same time).
-
-This change should be for painless for most of the users, but it will affect you if you have custom configuration in your application.
-
-Let's show it on an example with special configuration for theme:
-
-```ts
-// existing code
-@Injectable({
-  providedIn: 'root',
-  useExisting: Config,
-})
-export abstract class ThemeConfig {
-  theme?: {
-    dark?: boolean;
-  };
-}
-
-// required changes
-
-// You need to augment `Config` interface from `@spartacus/core` to be able to provide this config with `provideConfig` method
-declare module '@spartacus/core' {
-  interface Config extends ThemeConfig {}
-}
-```
-
-You don't need to change anything in a places where you use this config, but in a place where you declare you custom config you have to instruct Typescript that `Config` interface also have `theme` property with `dark` option. Without it Typescript will complain that you try to pass properties which are not part of `Config`.
-
-We still recommend making top-level configuration properties optional, so you can pass the configuration in multiple chunks and not in a single place.
-
 ## Detailed List of Changes
 
 #### Config providers
