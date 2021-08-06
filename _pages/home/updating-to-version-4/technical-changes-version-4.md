@@ -2,29 +2,74 @@
 title: Technical Changes in Spartacus 4.0
 ---
 
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+## Config Interface Augmentation
+
+In spartacus we expose quite some number of methods that accepts configuration. Up until now we didn't do a great job of typing those methods. You might notice that usually when we provide configuration we use type assertions (eg. `provideConfig(<I18nConfig>{i18n: {...}})`) to improve type safety and autocomplete functionality.
+
+In version 4.0 we changed the way we work with `Config`. Now each feature contributes to this interface thanks to module augmentation TS feature. Thanks to that `Config` now correctly describe all configuration options you can pass to spartacus.
+
+With that changed we are able to change the type of all the methods that accept configuration from `any` to `Config`. You no longer have to use type assertion to benefit from better type safety and DX.
+
+We still keep the individual configs (eg. `I18nConfig`, `AsmConfig`, `AuthConfig`, etc.), but all those interfaces also contribute to `Config` interface.
+
+When you need to access configuration object you can still in constructor use following syntax: `protected config: AsmConfig` (this will only hint for you `AsmConfig` properties), but you now have the option to do it with `protected config: Config`. Using the latter is recommended when you want to access complete configuration with type safety (eg. `FeatureConfig` and `MediaConfig` at the same time).
+
+This change should be for painless for most of the users, but it will affect you if you have custom configuration in your application.
+
+Let's show it on an example with special configuration for theme:
+
+```ts
+// existing code
+@Injectable({
+  providedIn: 'root',
+  useExisting: Config,
+})
+export abstract class ThemeConfig {
+  theme?: {
+    dark?: boolean;
+  };
+}
+
+// required changes
+
+// You need to augment `Config` interface from `@spartacus/core` to be able to provide this config with `provideConfig` method
+declare module '@spartacus/core' {
+  interface Config extends ThemeConfig {}
+}
+```
+
+You don't need to change anything in a places where you use this config, but in a place where you declare you custom config you have to instruct Typescript that `Config` interface also have `theme` property with `dark` option. Without it Typescript will complain that you try to pass properties which are not part of `Config`.
+
+We still recommend making top-level configuration properties optional, so you can pass the configuration in multiple chunks and not in a single place.
+
 ## Detailed List of Changes
 
-#### Config providers
+### Config providers
 
 - first parameter of function `provideConfig` changed from type `any` to `Config`
 - first parameter of function `provideDefaultConfig` changed from type `any` to `Config`
 
-#### ConfigModule
+### ConfigModule
 
 - parameter of method `withConfig` changed type from `object` to `Config`
 - parameter of method `forRoot` changed type from `any` to `Config`
 
-#### Config injection tokens
+### Config injection tokens
 
 - `Config` injection token was replaced with injectable `Config` abstract class.
 - `ConfigChunk` injection token is now of type `Config[]` (from `object[]`)
 - `DefaultConfigChunk` injection token is now of type `Config[]` (from `object[]`)
 
-#### StorefrontConfig
+### StorefrontConfig
 
 This type was removed, as it's purpose is now covered with augmentable `Config` interface. Replace usage of `StorefrontConfig` with `Config`.
 
-#### ConfigInitializerService
+### ConfigInitializerService
 
 - Constructor changed from:
 
@@ -53,16 +98,16 @@ This type was removed, as it's purpose is now covered with augmentable `Config` 
 - Method `getStable` return signature changed from `Observable<any>` to `Observable<Config>`.
 - Method `getStableConfig` return signature changed from `Promise<any>` to `Promise<Config>`.
 
-#### Config validators
+### Config validators
 
 - type `ConfigValidator` changed from `(config: any) => string | void` to `(config: Config) => string | void`
 - first parameter of function `validateConfig` changed from `any` to `Config`
 
-#### ConfigInitializer
+### ConfigInitializer
 
 - `ConfigInitializer.configFactory` signature changed from `() => Promise<any>` to `() => Promise<Config>`.
 
-#### ConfigurationService
+### ConfigurationService
 
 - `unifiedConfig$` type changed from `Observable<any>` to `Observable<Config>`
 - `config` type changed from `any` to `Config`
@@ -88,12 +133,12 @@ This type was removed, as it's purpose is now covered with augmentable `Config` 
     )
     ```
 
-#### Feature config utils
+### Feature config utils
 
 - `isFeatureLevel` first parameter type changed from `unknown` to `Config`
 - `isFeatureEnabled` first parameter type changed from `unknown` to `Config`
 
-#### MediaService
+### MediaService
 
 - constructor changed from
 
@@ -113,11 +158,9 @@ This type was removed, as it's purpose is now covered with augmentable `Config` 
     ```
 - `getMedia` now supports `role` attribute
 
-
-
 ### ModalService
-- `ModalService` no longer depends on `FeatureConfigService`. But `ApplicationRef` is now a new required dependency.
 
+- `ModalService` no longer depends on `FeatureConfigService`. But `ApplicationRef` is now a new required dependency.
 
 #### Product configurator configuration
 
@@ -141,6 +184,305 @@ This type was removed, as it's purpose is now covered with augmentable `Config` 
 #### PageComponentModule
 
 - Exposes `forRoot()` method, to minimize side-effects of frequent import in dependant modules. `PageComponentModule.forRoot()` is now imported in `BaseStorefrontModule`.
+
+## New Checkout Library
+
+Spartacus 4.0 introduces the checkout library.  The checkout related code is moved out of `@spartacus/core` and `@spartacus/storefrontlib` into one of the checkout lib's entry points.  The checkout library is split into the following entry points:
+
+```text
+@spartacus/checkout/assets 
+The checkout related i18n keys are moved here.
+
+@spartacus/checkout/components
+Checkout related UI code is moved here. This includes components, guards and ui services.
+
+@spartacus/checkout/core
+The checkout facade API implementation are moved here, as well as connectors, event builder, event listener, models, other services, and state management.
+
+@spartacus/checkout/occ
+The checkout related OCC code is moved here. This includes the checkout related adapters and converters.
+
+@spartacus/checkout/root
+The root entry point is, by convention, meant to always be eager loaded.  It contains the config, events, facades, http interceptors and models.
+
+@spartacus/checkout/styles
+The checkout related scss styles are moved here.
+```
+
+Most of the code is moved unchanged, but some classes required changes after they were moved.  See the section below for the list:
+
+## Changes in the Classes Carried Over to the @spartacus/checkout Library
+
+### Use Facades Instead of Services
+
+Some services are now available through facades. Facades should be used instead. The main advantage to use facades instead of their service implementation is that the facades support lazy loading. Facades are imported from `@spartacus/checkout/root`.
+
+- `CheckoutCostCenterFacade` should be used instead of `CheckoutCostCenterService`
+
+- `CheckoutDeliveryFacade` should be used instead of `CheckoutDeliveryService`
+
+- `CheckoutPaymentFacade` should be used instead of `CheckoutPaymentService`
+
+- `CheckoutFacade` should be used instead of `CheckoutService`
+
+- `PaymentTypeFacade` should be used instead of `PaymentTypeService`
+
+- `ClearCheckoutFacade` should be used instead of `ClearCheckoutService`
+
+#### ExpressCheckoutService
+
+- Service moved from `@spartacus/storefront` entry point to `@spartacus/checkout/components`.
+- `CheckoutDeliveryService` constructor parameter replaced with `CheckoutDeliveryFacade` from `@spartacus/checkout/root`.
+- `CheckoutPaymentService` constructor parameter replaced with `CheckoutPaymentFacade` from `@spartacus/checkout/root`.
+- `CheckoutDetailsService` constructor parameter is now imported from `@spartacus/checkout/components`.
+- `CheckoutConfigService` constructor parameter is now imported from `@spartacus/checkout/components`.
+- `ClearCheckoutService` constructor parameter replaced with required `ClearCheckoutFacade` from `@spartacus/checkout/root`.
+- Method `resetCheckoutProcesses` was removed, use method `resetCheckoutProcesses` from `ClearCheckoutFacade` instead.
+
+### CostCenterComponent
+
+constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
+constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
+
+### DeliveryModeComponent
+
+constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
+
+### PaymentMethodComponent
+
+constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
+constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
+constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
+
+### PaymentFormComponent
+
+constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
+constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
+PaymentFormComponent does not implement `OnDestroy` anymore
+method `ngOnDestroy()` removed.
+Address verification uses new `UserAddressService.verifyAddress` function instead of `CheckoutDeliveryService.verifyAddress`.
+expiration date has been wrapped to `fieldset` instead of `label`. `span` has been replaced with `legend` and there are new `label` instead of `div` per every form control (expiration month, expiration year).
+
+### PaymentTypeComponent
+
+constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
+
+### PlaceOrderComponent
+
+constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
+
+### ReviewSubmitComponent
+
+constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
+constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
+constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
+constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
+Removed constructor parameter `PromotionService`
+
+Removed the attribute orderPromotions$
+The component gets promotions directly from the cart in the html template.
+
+### ScheduleReplenishmentOrderComponent
+
+constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
+
+### ShippingAddressComponent
+
+constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
+constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
+constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
+
+### CheckoutEventModule
+
+Change: One new required constructor parameters `_checkoutEventListener: CheckoutEventListener`
+
+To split out the checkout code in the checkout lib, the address verification functionality
+was moved in `UserAddressService` in @spartacus/core.  The address verification related functions in `CheckoutDeliveryService` and ngrx supporting classes are not present in the checkout lib.
+
+### CheckoutDeliveryService
+
+New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+
+These functions are not present in the checkout lib:
+
+- `getAddressVerificationResults(): Observable<AddressValidation | string>`
+- `verifyAddress(address: Address): void`
+- `clearAddressVerificationResults(): void`
+
+These functions are also not present in the corresponding facade `CheckoutDeliveryFacade`
+
+### CheckoutState
+
+Property `addressVerification: AddressVerificationState` is removed from the `CheckoutState` class in the checkout lib.
+
+### AddressVerificationState
+
+The `AddressVerificationState` class is not carried over to the checkout lib.
+
+### CheckoutPaymentService
+
+New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+
+### CheckoutService
+
+New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+
+### PaymentTypeService
+
+New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+
+### OrderConfirmationItemsComponent
+
+Removed constructor parameter `PromotionService`
+Removed the attribute orderPromotions$
+The component gets promotions directly from the order in the html template.
+
+### OccCheckoutAdapter
+
+Protected method `getEndpoint` has been removed. There are new methods: `getPlaceOrderEndpoint`, `getRemoveDeliveryAddressEndpoint`, `getClearDeliveryModeEndpoint`, `getLoadCheckoutDetailsEndpoint`.
+
+### OccCheckoutPaymentAdapter
+
+Protected method`getCartEndpoint` has been removed. There are new methods: `getCardTypesEndpoint`, `getCreatePaymentDetailsEndpoint`, `getPaymentProviderSubInfoEndpoint`, `getSetPaymentDetailsEndpoint`.
+
+### OccCheckoutCostCenterAdapter
+
+Protected method`getCartEndpoint` has been removed. There is a new method: `getSetCartCostCenterEndpoint`.
+
+### OccCheckoutDeliveryAdapter
+
+Protected method`getCartEndpoint` has been removed. There are new methods: `getCreateDeliveryAddressEndpoint`, `getDeliveryModeEndpoint`, `getDeliveryModesEndpoint`, `getSetDeliveryAddressEndpoint`, `getSetDeliveryModeEndpoint`.
+
+### OccCheckoutPaymentTypeAdapter
+
+Protected method`getCartEndpoint` has been removed. There are new methods: `getPaymentTypesEndpoint`, `getSetCartPaymentTypeEndpoint`.
+
+### OccCheckoutReplenishmentOrderAdapter
+
+There is a new method: `getScheduleReplenishmentOrderEndpoint`.
+
+### CheckoutComponentModule
+
+`CheckoutComponentModule` was and renamed to `CheckoutComponentsModule`. It was moved to `@spartacus/checkout/components`.  The new module is, not exactly the same as the previous one, but the new one should essentially be a superset of the previous one.
+
+### CheckoutModule
+
+The `CheckoutModule` from `@spartacus/core` became `CheckoutCoreModule` in `@spartacus/checkout/core`.  `CheckoutCoreModule` from `@spartacus/checkout/core` fills a similar role as the previous `CheckoutModule` from `@spartacus/core`.  One exception is providing the `CheckoutCartInterceptor`, which is now done in `CheckoutRootModule` from `@spartacus/checkout/root` instead.
+(Note: The new `CheckoutCoreModule` doesn't have the method `forRoot()` - please just import `CheckoutCoreModule` instead.)
+
+There is still a `CheckoutModule` in `@spartacus/checkout`.  While its name is the same as the previous module from `@spartacus/core`,  his role is different.  It imports other new checkout lib modules: `CheckoutComponentsModule`, `CheckoutCoreModule`, `CheckoutOccModule`.  The new module naming changes might seem confusing at first sight, but the choice of the new names were made to align with the feature libs module naming convention in Spartacus.
+
+## Complete List of Symbols (class, interface, const) Moved to the Checkout Library
+
+Imports for these symbols must be updated in custom code.
+
+| Name  | Moved From | Moved To | Renamed To
+| ------------- | ------------- | ------------- | ------------- |
+| CheckoutLoginComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutLoginModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| OrderConfirmationModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| ReplenishmentOrderConfirmationModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| OrderConfirmationGuard | @spartacus/storefront | @spartacus/checkout/components | - |
+| GuestRegisterFormComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| OrderConfirmationItemsComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| OrderConfirmationOverviewComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| OrderConfirmationThankYouMessageComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| OrderConfirmationTotalsComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutComponentModule | @spartacus/storefront | @spartacus/checkout/components | CheckoutComponentsModule |
+| CheckoutOrchestratorComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutOrchestratorModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutOrderSummaryComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutOrderSummaryModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutProgressComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutProgressModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutProgressMobileBottomComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutProgressMobileBottomModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutProgressMobileTopComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutProgressMobileTopModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| DeliveryModeComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| DeliveryModeModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| PaymentMethodComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| PaymentMethodModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| PaymentFormComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| PaymentFormModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| PlaceOrderComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| PlaceOrderModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| ReviewSubmitComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| ReviewSubmitModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| ScheduleReplenishmentOrderComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| ScheduleReplenishmentOrderModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| CardWithAddress | @spartacus/storefront | @spartacus/checkout/components | - |
+| ShippingAddressComponent | @spartacus/storefront | @spartacus/checkout/components | - |
+| ShippingAddressModule | @spartacus/storefront | @spartacus/checkout/components | - |
+| DeliveryModePreferences | @spartacus/storefront | @spartacus/checkout/root | - |
+| CheckoutConfig | @spartacus/storefront | @spartacus/checkout/root | - |
+| CheckoutAuthGuard | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutStepsSetGuard | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutGuard | @spartacus/storefront | @spartacus/checkout/components | - |
+| NotCheckoutAuthGuard | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutStepType | @spartacus/storefront | @spartacus/checkout/root | - |
+| checkoutShippingSteps | @spartacus/storefront | @spartacus/checkout/root | - |
+| checkoutPaymentSteps | @spartacus/storefront | @spartacus/checkout/root | - |
+| CheckoutStep | @spartacus/storefront | @spartacus/checkout/root | - |
+| CheckoutConfigService | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutDetailsService | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutReplenishmentFormService | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutStepService | @spartacus/storefront | @spartacus/checkout/components | - |
+| ExpressCheckoutService | @spartacus/storefront | @spartacus/checkout/components | - |
+| CheckoutOccModule | @spartacus/core | @spartacus/checkout/occ | - |
+| OccCheckoutCostCenterAdapter | @spartacus/core | @spartacus/checkout/occ | - |
+| OccCheckoutDeliveryAdapter | @spartacus/core | @spartacus/checkout/occ | - |
+| OccCheckoutPaymentTypeAdapter | @spartacus/core | @spartacus/checkout/occ | - |
+| OccCheckoutPaymentAdapter | @spartacus/core | @spartacus/checkout/occ | - |
+| OccCheckoutReplenishmentOrderAdapter | @spartacus/core | @spartacus/checkout/occ | -  
+| OccCheckoutAdapter | @spartacus/core | @spartacus/checkout/occ | - |
+| OccReplenishmentOrderFormSerializer | @spartacus/core | @spartacus/checkout/occ | - |
+| CheckoutModule | @spartacus/core | @spartacus/checkout/core | CheckoutCoreModule |
+| CheckoutAdapter | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutConnector | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutCostCenterAdapter | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutCostCenterConnector | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutDeliveryAdapter | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutDeliveryConnector | @spartacus/core | @spartacus/checkout/core | - |
+| DELIVERY_MODE_NORMALIZER | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutPaymentAdapter | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutPaymentConnector | @spartacus/core | @spartacus/checkout/core | - |
+| PAYMENT_DETAILS_SERIALIZER | @spartacus/core | @spartacus/checkout/core | - |
+| CARD_TYPE_NORMALIZER | @spartacus/core | @spartacus/checkout/core | - |
+| PAYMENT_TYPE_NORMALIZER | @spartacus/core | @spartacus/checkout/core | - |
+| PaymentTypeAdapter | @spartacus/core | @spartacus/checkout/core | - |
+| PaymentTypeConnector | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutReplenishmentOrderAdapter | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutReplenishmentOrderConnector | @spartacus/core | @spartacus/checkout/core | - |
+| REPLENISHMENT_ORDER_FORM_SERIALIZER | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutEventBuilder | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutEventModule | @spartacus/core | @spartacus/checkout/core | - |
+| OrderPlacedEvent | @spartacus/core | @spartacus/checkout/root | - |
+| CheckoutCostCenterService | @spartacus/core | @spartacus/checkout/root | CheckoutCostCenterFacade |
+| CheckoutDeliveryService | @spartacus/core | @spartacus/checkout/root | CheckoutDeliveryFacade |
+| CheckoutPaymentService | @spartacus/core | @spartacus/checkout/root | CheckoutPaymentFacade |
+| CheckoutService | @spartacus/core | @spartacus/checkout/root | CheckoutFacade |
+| PaymentTypeService | @spartacus/core | @spartacus/checkout/root | PaymentTypeFacade |
+| ClearCheckoutService | @spartacus/core | @spartacus/checkout/root | ClearCheckoutFacade |
+| CheckoutDetails | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutPageMetaResolver | @spartacus/core | @spartacus/checkout/core | - |
+| CHECKOUT_FEATURE | @spartacus/core | @spartacus/checkout/core | - |
+| CHECKOUT_DETAILS | @spartacus/core | @spartacus/checkout/core | - |
+| SET_DELIVERY_ADDRESS_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| SET_DELIVERY_MODE_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| SET_SUPPORTED_DELIVERY_MODE_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| SET_PAYMENT_DETAILS_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| GET_PAYMENT_TYPES_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| SET_COST_CENTER_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| PLACED_ORDER_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - |
+| StateWithCheckout | @spartacus/core | @spartacus/checkout/core | - |
+| CardTypesState | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutStepsState | @spartacus/core | @spartacus/checkout/core | - |
+| PaymentTypesState | @spartacus/core | @spartacus/checkout/core | - |
+| OrderTypesState | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutState | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutActions | @spartacus/core | @spartacus/checkout/core | - |
+| CheckoutSelectors | @spartacus/core | @spartacus/checkout/core | - |
 
 ## Breaking Changes Introduced in 4.0
 
@@ -180,16 +522,18 @@ This type was removed, as it's purpose is now covered with augmentable `Config` 
 - `displayDays` variable has been removed. Use `weekDays` instead.
 - `StoreDataService` has been removed`.
 - Methods `getStoreOpeningTime()`, `getStoreClosingTime()`, `getInitialDate()` have been removed. Use `weekDayOpeningList` from `location` instead.
+
 ### PromotionService
+
 PromotionService is deleted.  The promotions can directly be found on the order or cart.  Use other existing services to retrieve the Order or cart.
 
 The order promotions are in the order/cart attributes `appliedOrderPromotions` and `potentialOrderPromotions`
 
 The product promotions for order/cart entries are now available via the attribute `entries[].promotions`
 
-
 ### SavedCartDetailsActionComponent
- - Removed `ClearCheckoutService` from constructor.
+
+- Removed `ClearCheckoutService` from constructor.
 
 ### SavedCartListComponent
 - Removed `ClearCheckoutService` from constructor.
@@ -210,7 +554,6 @@ Change: Two constructor parameters are removed.  First the constructor parameter
 AddressBookComponent does not call `CheckoutDeliveryService.clearCheckoutDeliveryDetails()` anymore when an address is changed.  Instead, `AddressBookComponentService` fires events.  See `AddressBookComponentService` migration doc.
 
 The second constructor parameters removed is `userAddressService: UserAddressService`. `UserAddressService` interactions are now encapsulated in `AddressBookComponentService`.
-
 
 ### AddressFormComponent
 Lib: @spartacus/core
@@ -239,285 +582,6 @@ ShippingAddressSetGuard was not used and is now removed.
 ### DeliveryModeSetGuard
 Lib: @spartacus/storefront
 DeliveryModeSetGuard was not used and is now removed.
-
-
-## New Checkout Library
-
-Spartacus 4.0 introduces the checkout library.  The checkout related code is moved out of `@spartacus/core` and `@spartacus/storefrontlib` into one of the checkout lib's entry points.  The checkout library is split into these entry points:
-
-```
-@spartacus/checkout/assets 
-The checkout related i18n keys are moved here.
-
-@spartacus/checkout/components
-Checkout related UI code is moved here. This includes components, guards and ui services.
-
-@spartacus/checkout/core
-The checkout facade API implementation are moved here, as well as connectors, event builder, event listener, models, other services, and state management.
-
-@spartacus/checkout/occ
-The checkout related OCC code is moved here. This includes the checkout related adapters and converters.
-
-@spartacus/checkout/root
-The root entry point is, by convention, meant to always be eager loaded.  It contains the config, events, facades, http interceptors and models.
-
-@spartacus/checkout/styles
-The checkout related scss styles are moved here.
-```
-
-Most of the code is moved unchanged, but some classes required changes after they were moved.  See the section below for the list:
-
-## (start) Changes in the classes carried over to the @spartacus/checkout lib
-
-### Use facades instead of services
-
-Some services are now available through facades. Facades should be used instead. The main advantage to use facades instead of their service implementation is that the facades support lazy loading. Facades are imported from `@spartacus/checkout/root`.
-
-- `CheckoutCostCenterFacade` should be used instead of `CheckoutCostCenterService`
-
-- `CheckoutDeliveryFacade` should be used instead of `CheckoutDeliveryService`
-
-- `CheckoutPaymentFacade` should be used instead of `CheckoutPaymentService`
-
-- `CheckoutFacade` should be used instead of `CheckoutService`
-
-- `PaymentTypeFacade` should be used instead of `PaymentTypeService`
-
-- `ClearCheckoutFacade` should be used instead of `ClearCheckoutService`
-
-#### ExpressCheckoutService
-
-- Service moved from `@spartacus/storefront` entry point to `@spartacus/checkout/components`.
-- `CheckoutDeliveryService` constructor parameter replaced with `CheckoutDeliveryFacade` from `@spartacus/checkout/root`.
-- `CheckoutPaymentService` constructor parameter replaced with `CheckoutPaymentFacade` from `@spartacus/checkout/root`.
-- `CheckoutDetailsService` constructor parameter is now imported from `@spartacus/checkout/components`.
-- `CheckoutConfigService` constructor parameter is now imported from `@spartacus/checkout/components`.
-- `ClearCheckoutService` constructor parameter replaced with required `ClearCheckoutFacade` from `@spartacus/checkout/root`.
-- Method `resetCheckoutProcesses` was removed, use method `resetCheckoutProcesses` from `ClearCheckoutFacade` instead.
-
-### CostCenterComponent
-constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
-
-### DeliveryModeComponent
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-
-### PaymentMethodComponent
-constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
-
-### PaymentFormComponent
-constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-PaymentFormComponent does not implement `OnDestroy` anymore
-method `ngOnDestroy()` removed.
-Address verification uses new `UserAddressService.verifyAddress` function instead of `CheckoutDeliveryService.verifyAddress`.
-expiration date has been wrapped to `fieldset` instead of `label`. `span` has been replaced with `legend` and there are new `label` instead of `div` per every form control (expiration month, expiration year).
-
-### PaymentTypeComponent    
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
-
-### PlaceOrderComponent
-constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
-
-### ReviewSubmitComponent
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
-constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
-Removed constructor parameter `PromotionService`
-
-Removed the attribute orderPromotions$
-The component gets promotions directly from the cart in the html template.
-
-### ScheduleReplenishmentOrderComponent
-constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
-
-### ShippingAddressComponent
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
-constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
-
-### CheckoutEventModule
-Change: One new required constructor parameters `_checkoutEventListener: CheckoutEventListener`
-
-To split out the checkout code in the checkout lib, the address verification functionality
-was moved in `UserAddressService` in @spartacus/core.  The address verification related functions in `CheckoutDeliveryService` and ngrx supporting classes are not present in the checkout lib.
-
-### CheckoutDeliveryService:
-These functions are not present in the checkout lib:
-- `getAddressVerificationResults(): Observable<AddressValidation | string>`
-- `verifyAddress(address: Address): void`
-- `clearAddressVerificationResults(): void`
-
-These functions are also not present in the corresponding facade `CheckoutDeliveryFacade`
-
-### CheckoutState
-Property `addressVerification: AddressVerificationState` is removed from the `CheckoutState` class in the checkout lib.
-
-### AddressVerificationState
-The `AddressVerificationState` class is not carried over to the checkout lib.
-
-### CheckoutDeliveryService
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
-
-### CheckoutPaymentService
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
-
-### CheckoutService
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
-
-### PaymentTypeService
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
-
-### OrderConfirmationItemsComponent
-Removed constructor parameter `PromotionService`
-Removed the attribute orderPromotions$
-The component gets promotions directly from the order in the html template.
-
-### OccCheckoutAdapter
-Protected method `getEndpoint` has been removed. There are new methods: `getPlaceOrderEndpoint`, `getRemoveDeliveryAddressEndpoint`, `getClearDeliveryModeEndpoint`, `getLoadCheckoutDetailsEndpoint`.
-
-### OccCheckoutPaymentAdapter
-Protected method`getCartEndpoint` has been removed. There are new methods: `getCardTypesEndpoint`, `getCreatePaymentDetailsEndpoint`, `getPaymentProviderSubInfoEndpoint`, `getSetPaymentDetailsEndpoint`.
-
-### OccCheckoutCostCenterAdapter
-Protected method`getCartEndpoint` has been removed. There is a new method: `getSetCartCostCenterEndpoint`.
-
-### OccCheckoutDeliveryAdapter
-Protected method`getCartEndpoint` has been removed. There are new methods: `getCreateDeliveryAddressEndpoint`, `getDeliveryModeEndpoint`, `getDeliveryModesEndpoint`, `getSetDeliveryAddressEndpoint`, `getSetDeliveryModeEndpoint`.
-
-### OccCheckoutPaymentTypeAdapter
-Protected method`getCartEndpoint` has been removed. There are new methods: `getPaymentTypesEndpoint`, `getSetCartPaymentTypeEndpoint`.
-
-### OccCheckoutReplenishmentOrderAdapter
-There is a new method: `getScheduleReplenishmentOrderEndpoint`.
-
-### CheckoutComponentModule
-`CheckoutComponentModule` was and renamed to `CheckoutComponentsModule`. It was moved to `@spartacus/checkout/components`.  The new module is, not exactly the same as the previous one, but the new one should essentially be a superset of the previous one.
-
-### CheckoutModule
-The `CheckoutModule` from `@spartacus/core` became `CheckoutCoreModule` in `@spartacus/checkout/core`.  `CheckoutCoreModule` from `@spartacus/checkout/core` fills a similar role as the previous `CheckoutModule` from `@spartacus/core`.  One exception is providing the `CheckoutCartInterceptor`, which is now done in `CheckoutRootModule` from `@spartacus/checkout/root` instead.
-(Note: The new `CheckoutCoreModule` doesn't have the method `forRoot()` - please just import `CheckoutCoreModule` instead.)
-
-There is still a `CheckoutModule` in `@spartacus/checkout`.  While its name is the same as the previous module from `@spartacus/core`,  his role is different.  It imports other new checkout lib modules: `CheckoutComponentsModule`, `CheckoutCoreModule`, `CheckoutOccModule`.  The new module naming changes might seem confusing at first sight, but the choice of the new names were made to align with the feature libs module naming convention in Spartacus.
-
-## Complete list of symbols (class, interface, const) moved to the checkout lib
-
-Imports for these symbols must be updated in custom code.
-
-| Name  | Moved From | Moved To | Renamed To
-| ------------- | ------------- | ------------- | ------------- |
-| CheckoutLoginComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutLoginModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| OrderConfirmationModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ReplenishmentOrderConfirmationModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| OrderConfirmationGuard | @spartacus/storefront | @spartacus/checkout/components | - | 
-| GuestRegisterFormComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| OrderConfirmationItemsComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| OrderConfirmationOverviewComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| OrderConfirmationThankYouMessageComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| OrderConfirmationTotalsComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutComponentModule | @spartacus/storefront | @spartacus/checkout/components | CheckoutComponentsModule | 
-| CheckoutOrchestratorComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutOrchestratorModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutOrderSummaryComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutOrderSummaryModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutProgressComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutProgressModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutProgressMobileBottomComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutProgressMobileBottomModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutProgressMobileTopComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutProgressMobileTopModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| DeliveryModeComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| DeliveryModeModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| PaymentMethodComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| PaymentMethodModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| PaymentFormComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| PaymentFormModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| PlaceOrderComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| PlaceOrderModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ReviewSubmitComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ReviewSubmitModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ScheduleReplenishmentOrderComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ScheduleReplenishmentOrderModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CardWithAddress | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ShippingAddressComponent | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ShippingAddressModule | @spartacus/storefront | @spartacus/checkout/components | - | 
-| DeliveryModePreferences | @spartacus/storefront | @spartacus/checkout/root | - | 
-| CheckoutConfig | @spartacus/storefront | @spartacus/checkout/root | - | 
-| CheckoutAuthGuard | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutStepsSetGuard | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutGuard | @spartacus/storefront | @spartacus/checkout/components | - | 
-| NotCheckoutAuthGuard | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutStepType | @spartacus/storefront | @spartacus/checkout/root | - | 
-| checkoutShippingSteps | @spartacus/storefront | @spartacus/checkout/root | - | 
-| checkoutPaymentSteps | @spartacus/storefront | @spartacus/checkout/root | - | 
-| CheckoutStep | @spartacus/storefront | @spartacus/checkout/root | - | 
-| CheckoutConfigService | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutDetailsService | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutReplenishmentFormService | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutStepService | @spartacus/storefront | @spartacus/checkout/components | - | 
-| ExpressCheckoutService | @spartacus/storefront | @spartacus/checkout/components | - | 
-| CheckoutOccModule | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccCheckoutCostCenterAdapter | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccCheckoutDeliveryAdapter | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccCheckoutPaymentTypeAdapter | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccCheckoutPaymentAdapter | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccCheckoutReplenishmentOrderAdapter | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccCheckoutAdapter | @spartacus/core | @spartacus/checkout/occ | - | 
-| OccReplenishmentOrderFormSerializer | @spartacus/core | @spartacus/checkout/occ | - | 
-| CheckoutModule | @spartacus/core | @spartacus/checkout/core | CheckoutCoreModule | 
-| CheckoutAdapter | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutConnector | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutCostCenterAdapter | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutCostCenterConnector | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutDeliveryAdapter | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutDeliveryConnector | @spartacus/core | @spartacus/checkout/core | - | 
-| DELIVERY_MODE_NORMALIZER | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutPaymentAdapter | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutPaymentConnector | @spartacus/core | @spartacus/checkout/core | - | 
-| PAYMENT_DETAILS_SERIALIZER | @spartacus/core | @spartacus/checkout/core | - | 
-| CARD_TYPE_NORMALIZER | @spartacus/core | @spartacus/checkout/core | - | 
-| PAYMENT_TYPE_NORMALIZER | @spartacus/core | @spartacus/checkout/core | - | 
-| PaymentTypeAdapter | @spartacus/core | @spartacus/checkout/core | - | 
-| PaymentTypeConnector | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutReplenishmentOrderAdapter | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutReplenishmentOrderConnector | @spartacus/core | @spartacus/checkout/core | - | 
-| REPLENISHMENT_ORDER_FORM_SERIALIZER | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutEventBuilder | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutEventModule | @spartacus/core | @spartacus/checkout/core | - | 
-| OrderPlacedEvent | @spartacus/core | @spartacus/checkout/root | - | 
-| CheckoutCostCenterService | @spartacus/core | @spartacus/checkout/root | CheckoutCostCenterFacade | 
-| CheckoutDeliveryService | @spartacus/core | @spartacus/checkout/root | CheckoutDeliveryFacade | 
-| CheckoutPaymentService | @spartacus/core | @spartacus/checkout/root | CheckoutPaymentFacade | 
-| CheckoutService | @spartacus/core | @spartacus/checkout/root | CheckoutFacade | 
-| PaymentTypeService | @spartacus/core | @spartacus/checkout/root | PaymentTypeFacade | 
-| ClearCheckoutService | @spartacus/core | @spartacus/checkout/root | ClearCheckoutFacade | 
-| CheckoutDetails | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutPageMetaResolver | @spartacus/core | @spartacus/checkout/core | - | 
-| CHECKOUT_FEATURE | @spartacus/core | @spartacus/checkout/core | - | 
-| CHECKOUT_DETAILS | @spartacus/core | @spartacus/checkout/core | - | 
-| SET_DELIVERY_ADDRESS_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| SET_DELIVERY_MODE_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| SET_SUPPORTED_DELIVERY_MODE_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| SET_PAYMENT_DETAILS_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| GET_PAYMENT_TYPES_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| SET_COST_CENTER_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| PLACED_ORDER_PROCESS_ID | @spartacus/core | @spartacus/checkout/core | - | 
-| StateWithCheckout | @spartacus/core | @spartacus/checkout/core | - | 
-| CardTypesState | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutStepsState | @spartacus/core | @spartacus/checkout/core | - | 
-| PaymentTypesState | @spartacus/core | @spartacus/checkout/core | - | 
-| OrderTypesState | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutState | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutActions | @spartacus/core | @spartacus/checkout/core | - | 
-| CheckoutSelectors | @spartacus/core | @spartacus/checkout/core | - | 
-
-## (end) Changes in the classes carried over to the @spartacus/checkout lib 
-
-
 
 ### AddedToCartDialogComponent
 - Removed constructor parameter `PromotionService`
@@ -611,51 +675,6 @@ The config property `backend.occ.endpoints.baseSitesForConfig` has been removed.
 #### NavigationUIComponent
 
 - Added `HamburgerMenuService` to constructor.
-
-
-### Changes to Styles in 4.0
-
-#### Changes in storefrontstyles components
-
-`$page-template-blacklist` scss variable name has been renamed to `$page-template-blocklist` in `_page-template.scss`.
-
-`$cart-components-whitelist` scss variable name has been renamed to `$cart-components-allowlist` in `cart/_index.scss`.
-
-`$cds-components-whitelist` scss variable name has been renamed to `$cds-components-allowlist` in `cds/index.scss`.
-
-`$store-finder-components-whitelist` scss variable name has been renamed to `$store-finder-components-allowlist` in `store-finder/index.scss`.
-
-`$checkout-components-whitelist` scss variable name has been renamed to `$checkout-components-allowlist` in `checkout/_index.scss`.
-
-`$content-components-whitelist` scss variable name has been renamed to `$content-components-allowlist` in `content/_index.scss`.
-
-`$layout-components-whitelist` scss variable name has been renamed to `$layout-components-allowlist` in `layout/_index.scss`.
-
-`$misc-components-whitelist` scss variable name has been renamed to `$misc-components-allowlist` in `misc/_index.scss `.
-
-`$myaccount-components-whitelist` scss variable name has been renamed to `$myaccount-components-allowlist` in `myaccount/_index.scss`.
-
-`$product-components-whitelist` scss variable name has been renamed to `$product-components-allowlist` in `product/index.scss`.
-
-`$product-list-whitelist` scss variable name has been renamed to `$product-list-allowlist` in `product/list/_index.scss`.
-
-`$pwa-components-whitelist` scss variable name has been renamed to `$pwa-components-allowlist` in `pwa/add-to-home-screen-banner/_index.scss`.
-
-`$user-components-whitelist` scss variable name has been renamed to `$user-components-allowlist` in `user/_index.scss`.
-
-`$wish-list-components-whitelist` scss variable name has been renamed to `$wish-list-components-allowlist` in `wish-list/index.scss`.
-
-#### Changes in Organization feature library
-
-`$page-template-blacklist-organization` scss variable name has been renamed to `$page-template-blocklist-organization`.
-
-`$page-template-whitelist-organization` scss variable name has been renamed to `$page-template-allowlist-organization`.
-
-#### Changes in Storefinder feature library
-
-`$page-template-blacklist-store-finder` scss variable name has been renamed to `$page-template-blocklist-store-finder`.
-
-`$page-template-whitelist-store-finder` scss variable name has been renamed to `$page-template-allowlist-store-finder`.
 
 ### Removal of grouping modules
 
