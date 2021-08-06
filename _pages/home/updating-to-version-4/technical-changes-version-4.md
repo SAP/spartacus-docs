@@ -211,8 +211,6 @@ The checkout related scss styles are moved here.
 
 Most of the code is moved unchanged, but some classes required changes after they were moved.  See the section below for the list:
 
-## Changes in the Classes Carried Over to the @spartacus/checkout Library
-
 ### Use Facades Instead of Services
 
 Some services are now available through facades. Facades should be used instead. The main advantage to use facades instead of their service implementation is that the facades support lazy loading. Facades are imported from `@spartacus/checkout/root`.
