@@ -93,7 +93,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 ### Cart Page
 
-You can use quick order form in the **Cart** page both for logged in users and anonymous.
+You can use the quick order form in the **Cart** page both for logged-in users and anonymous.
 
 Adding products to cart with cart quick order form:
 
@@ -109,29 +109,43 @@ Adding products to cart with cart quick order form:
 
 3. Click **Add To Cart**.
 
-   After adding to cart, globall alert appear, your current active cart will refresh and show new product or increase existing product quantity.
+   After adding to the cart, a global alert appear, your current active cart will refresh and show the new product or increase the existing product quantity.
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-3.png" alt="Cart Quick Order Form" width="800" border="1px" />
 
 #### Quick Order Page
 
-The **Quick Order** page shows a form to add new product and a list of added products to quick order with basic information about product like image, name, stock information, price and the quantities.
+The **Quick Order** page shows a form to add new products and a list of added products to quick order with basic information about the product like image, name, stock information, price and the quantities.
 
-On the list, you can modify products quantity or remove single product. Also at the bottom of the page thare are two action buttons. You can clear the list or add all products to the active cart.
+On the list, you can modify products quantity or remove a single product. Also at the bottom of the page, there are two action buttons. You can clear the list or add all products to the active cart.
 
-Adding product to the quick order list:
+Adding product to the quick order list and later to the cart:
 
 1. Enter product SKU in the form and press ENTER.
 
-   After success adding, product should appear on the list and form will reset.
+   After success adding, the product should appear on the list and the form will reset.
 
 The following is and example:
 
 <img src="{{ site.baseurl }}/assets/images/quick-order-4.png" alt="Quick Order Page" width="800" border="1px" />
 
+2. Click **Add To Cart** button.
+
+   After success adding, the global message should appear and the list will reset the state.
+
+The following is and example:
+
+<img src="{{ site.baseurl }}/assets/images/quick-order-5.png" alt="Quick Order Page" width="800" border="1px" />
+
+In case any product from the list is out of stock or only reduced value of products was able to add to the cart, you will be informed with an error message, located above the form and the list.
+
+The following is and example:
+
+<img src="{{ site.baseurl }}/assets/images/quick-order-6.png" alt="Quick Order Page With Errors" width="800" border="1px" />
+
 #### Limit Quick Order List
 
-By default, you can add up to **10** products to **Quick Order List**, but there is possibility to modify this value providing different config. There are two ways to modify list limit:
+By default, you can add up to **10** products to **Quick Order List**, but there is a possibility to modify this value by providing a different config. There are two ways to modify the list limit:
 
 1. Add new CMS component as **CmsQuickOrderComponent** with **quickOrderListLimit** attribute.
 
