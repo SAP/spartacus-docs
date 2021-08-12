@@ -5,10 +5,12 @@ title: FSA Spartacus Features
 This is a landing page for grouping together FSA Spartacus features. The FSA Spartacus features include the following:
 
 ## Release 3.0
+
 - [Coupons]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})
 - [Product Discovery]({{ site.baseurl }}{% link _pages/fsa/features/fsa-product-discovery.md %})
-- [Claims Details Page]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-details-page.md %})  
-
+- [Claims Details Page]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-details-page.md %})
+- [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-speak-to-agent.md %})
+- [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-agent-availability.md %})
 
 
 ## Release 2.0
