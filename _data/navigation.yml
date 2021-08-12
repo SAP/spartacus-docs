@@ -557,13 +557,13 @@ docs:
                   url: /fsa-product-discovery/
                 - title: "Insurance Agent Capabilities ➢"
                   url: /fsa-insurance-agent-capabilities/
-                    underchildren:
-                      - title: "Find an Agent"
-                        url: /fsa-find-agent/
-                      - title: "Speak to an Agent"
-                        url: /fsa-speak-to-agent/
-                      - title: "Agent Availability"
-                          url: /fsa-agent-availability/
+                  underchildren:
+                    - title: "Find an Agent"
+                      url: /fsa-find-agent/
+                    - title: "Speak to an Agent"
+                      url: /fsa-speak-to-agent/
+                    - title: "Agent Availability"
+                      url: /fsa-agent-availability/
 
 
     - title: Contributing to Spartacus
