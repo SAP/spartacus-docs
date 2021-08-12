@@ -3,7 +3,7 @@ title: Quick Order
 feature:
   - name: Quick Order
     spa_version: 4.1
-    cx_version: 2005
+    cx_version: 2011
 ---
 
 {% capture version_note %}
@@ -12,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The quick order feature allows customers to quickly add several products to a form, then add all those products to a cart, using SKUs.
+The quick order feature allows customers to quickly add several products to the list, then add all those products to a cart, using SKUs. Also, there is a possibility to add a single product using quick form through the cart page.
 
 For more information, see [Quick Order](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2011/en-US/caf95981aa174660b3faf839a9dddbef.html?q=quick%20order) on the SAP Help Portal.
 
@@ -93,7 +93,7 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 ### Cart Page
 
-You can use the quick order form in the **Cart** page both for logged-in users and anonymous.
+You can use the quick order form in the **Cart** page for both a logged-in and an anonymous user
 
 Adding products to cart with cart quick order form:
 
@@ -115,7 +115,7 @@ Adding products to cart with cart quick order form:
 
 #### Quick Order Page
 
-The **Quick Order** page shows a form to add new products and a list of added products to quick order with basic information about the product like image, name, stock information, price and the quantities.
+The **Quick Order** page shows a form to add new products and a list of added products containing information like the image, name, stock information, price, and the quantities.
 
 On the list, you can modify products quantity or remove a single product. Also at the bottom of the page, there are two action buttons. You can clear the list or add all products to the active cart.
 
