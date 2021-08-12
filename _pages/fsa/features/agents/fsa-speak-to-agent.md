@@ -5,6 +5,7 @@ title: Claims Details Page
 **Note**: This feature is introduced with version 3.0 of the FSA Spartacus libraries.
 
 The **Speak to an Agent** feature offers customers a possibility to easily start a live conversation with an insurance agent. It combines the advantages of an agent-driven approach (person-to-person interactions, no artificial dialogs via chatbot, flexibility in discussions, ability to explain and discuss complex matters) with the flexibility and cost advantages of online communication. This feature is available thanks to the integration of Financial Service Accelerator with SAP partner company SYNCPILOT and their solution Live Contract. Customers can enter the process of starting a live call with an agent by clicking the Speak to an Agent link on a product comparison table. This further leads them to the partner solution login page where they can continue with the process.
+
 ***
 
 **Table of Contents**
@@ -38,9 +39,9 @@ Once configured, the SyncPilot CMS Component will be visible on all product comp
 
 The customer must be logged in to be able to see the component. 
 
-![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/claims/claims_details_page_roles_section.png)
+![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents/speak_to_agent.png)
 
 When the customer clicks the Speak to an Agent link, they will be is redirected to the partner solution endpoint in the new tab. 
  
-![Live Contract Login Page]({{ site.baseurl }}/assets/images/fsa/claims/claims_details_page_roles_section.png)
+![Live Contract Login Page]({{ site.baseurl }}/assets/images/fsa/agents/sync_pilot_endpoint.png)
  

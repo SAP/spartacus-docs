@@ -5,6 +5,7 @@ title: Claims Details Page
 **Note**: This feature is introduced with version 3.0 of the FSA Spartacus libraries.
 
 The integration with Live Contract enabled another enhancement of the insurance agent capabilities - besides agent data, customers can also see if a certain agent is currently available. 
+
 ***
 
 **Table of Contents**
@@ -34,8 +35,8 @@ INSERT_UPDATE ConsumedDestination[impex.legacy.mode = true]; id[unique = true]; 
 ```
 Note that the integration server link is specific for each integration and in the ImpEx, you need to enter the one created specifically for your project.
 
-##User Interface
+## User Interface
 
 Once enabled, customers are able to see the agent availability on the Map View of the **Find an Agent** page. Below the agent profile image, the availability will be displayed as online or offline. Based on this, customers will know which agent they can contact.
 
-![Agent Availability on the Find an Agent Page]({{ site.baseurl }}/assets/images/fsa/claims/claims_section_in_my_account.png)  
+![Agent Availability on the Find an Agent Page]({{ site.baseurl }}/assets/images/fsa/agents/map_view_agent_availability.png)  
