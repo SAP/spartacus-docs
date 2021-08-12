@@ -8,4 +8,4 @@ The following pages describe Claims feature in FSA Spartacus:
 
 - [Find an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-find-agent.md %})
 - [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-speak-to-agent.md %})
-- [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/features/agents/claims/fsa-agent-availability.md %})
+- [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-agent-availability.md %})
