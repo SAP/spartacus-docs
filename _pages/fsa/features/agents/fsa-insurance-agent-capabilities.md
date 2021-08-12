@@ -7,5 +7,5 @@ Insurance agents are still one of the main channels for selling insurance produc
 The following pages describe Claims feature in FSA Spartacus: 
 
 - [Find an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-find-agent.md %})
-- [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/agents/claims/fsa-speak-to-agent.md %})
-- [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/agents/claims/fsa-agent-availability.md %})
+- [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/claims/fsa-speak-to-agent.md %})
+- [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/features/agents/claims/fsa-agent-availability.md %})

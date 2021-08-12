@@ -16,7 +16,7 @@ The integration with Live Contract enabled another enhancement of the insurance 
 
 ## Prerequisites
 
-To enable this feature, you need to integrate your project with Live Contract. For more information, see [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/agents/fsa-speak-to-agent.md %}).
+To enable this feature, you need to integrate your project with Live Contract. For more information, see [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-speak-to-agent.md %}).
 
 ## Integration
 

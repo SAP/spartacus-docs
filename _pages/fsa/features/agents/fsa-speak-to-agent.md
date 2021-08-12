@@ -20,7 +20,7 @@ To integrate your project with Live Contract, you first need to set the syncpilo
 
 ## Components
 
-To enable the **Speak to an Agent** feature and the integration with Live Contract, a new CMS component has been introduced. The CMSConnectionComponent has the following attributes:
+To enable the **Speak to an Agent** feature, and the integration with Live Contract, a new CMS component has been introduced. The CMSConnectionComponent has the following attributes:
 
 - **targetUrl** - The partner solution endpoint, in this case, https://partner.livecontract.de/.
 - **channel** - The channel of the partner solution endpoint.
