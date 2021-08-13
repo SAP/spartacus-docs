@@ -565,7 +565,7 @@ docs:
                     - title: "Agent Availability"
                       url: /fsa-agent-availability/
                 - title: "Quote Details Page"
-                    url: /fsa-quote-details-page/
+                  url: /fsa-quote-details-page/
 
 
     - title: Contributing to Spartacus
