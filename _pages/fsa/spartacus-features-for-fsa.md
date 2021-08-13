@@ -9,6 +9,7 @@ This is a landing page for grouping together FSA Spartacus features. The FSA Spa
 - [Coupons]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})
 - [Product Discovery]({{ site.baseurl }}{% link _pages/fsa/features/fsa-product-discovery.md %})
 - [Claims Details Page]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-details-page.md %})
+- [Quote Details Page]({{ site.baseurl }}{% link _pages/fsa/features/fsa-quote-details-page.md %})
 - [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-speak-to-agent.md %})
 - [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-agent-availability.md %})
 
