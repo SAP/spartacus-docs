@@ -21,7 +21,7 @@ The customer can preview their claims in the **Quotes & Applications** section o
 
 ![Quotes and Applications Section in the My Account Area]({{ site.baseurl }}/assets/images/fsa/quotes-and-applications-my-account.png)  
 
-A quote card contains general information about the quote, such as chosen product plan, quote status, expiry date, as well as the price and payment frequency details. From the Quote card, the customer can retrieve the quote or choose to see more details. When the user clicks the **Details** button on the quote card, a separate Quote Details page opens. 
+A quote card contains general information about the quote, such as chosen product plan, quote status, expiry date, as well as the price and payment frequency details. From the quote card, the customer can retrieve the quote or choose to see more details. When the user clicks the **Details** button, a separate Quote Details page opens. 
 
 ![Quote Details Card]({{ site.baseurl }}/assets/images/fsa/quote-details-card.png)  
 
