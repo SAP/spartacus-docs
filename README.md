@@ -1,5 +1,7 @@
 # Spartacus storefront docs
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/spartacus-docs)](https://api.reuse.software/info/github.com/SAP/spartacus-docs)
+
 This is the source for Spartacus documentation, which is hosted here:
 
 https://sap.github.io/spartacus-docs/
