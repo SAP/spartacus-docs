@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: spartacus-docs
+Upstream-Contact: gladius-mtl <matthew.burton@sap.com>
+Source: https://github.com/SAP/spartacus-docs/tree/main
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
