@@ -17,7 +17,7 @@ The export from cart feature allows users to download CSV file containing specif
 - cart details page
 - saved cart details page
 
-Export from cart feature is tightly connected with import to cart, because already downloaded CSV file can be re-imported back to the storefront. For more details see import to cart documentation.
+Export from cart feature is tightly connected with import to cart, because already downloaded CSV file can be re-imported back to the storefront. For more details see [Import to saved cart]({{ site.baseurl }}/features/import-to-saved-cart) documentation.
 
 Worth to notice is that exported file always should contain product code and quantity columns. Any other additional columns can be defined in configuration [see more](#additional-columns).
 
