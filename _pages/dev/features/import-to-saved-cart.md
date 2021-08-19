@@ -12,13 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-This feature allows a customer to create a saved cart, by importing a CSV file, that contains product codes and quantities.
-
-To use this feature log in as customer in Spartacus storefront and go to `Saved Carts` page using user menu. There should be the 'Import products' button available above the saved carts list.
-
-Then form in dialog should be filled: firstly, by selecting valid CSV file with products (it can be the one previously exported using [Export from cart feature]({{ site.baseurl }}/features/export-from-cart).
-
-Secondly, by providing cart name and description. For reference see [Saved Cart feature]({{ site.baseurl }}/features/saved-cart) documentation.
+This feature allows a customer to create saved cart, by importing a CSV file, that contains product codes and quantities.
 
 ---
 
@@ -28,6 +22,14 @@ Secondly, by providing cart name and description. For reference see [Saved Cart 
   {:toc}
 
 ---
+
+## Usage
+
+To use this feature log in as customer in Spartacus storefront and go to `Saved Carts` page using user menu. There should be the 'Import products' button available above the saved carts list.
+
+Then form in dialog should be filled: firstly, by selecting valid CSV file with products (it can be the one previously exported using [Export from cart feature]({{ site.baseurl }}/features/export-from-cart).
+
+Secondly, by providing cart name and description. For reference see [Saved Cart feature]({{ site.baseurl }}/features/saved-cart) documentation.
 
 ## Enabling Import to saved cart
 
@@ -46,9 +48,9 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 ;;BodyContent-saved-carts;Body content for Saved Carts History Slot;ImportProductsComponent,AccountSavedCartHistoryComponent
 ```
 
-## Configuration
+## Global Configuration
 
-Import feature uses described below configuration model:
+Import to saved cart and export features uses common described below configuration model:
 
 ```ts
 export abstract class ImportExportConfig {
@@ -62,9 +64,9 @@ export abstract class ImportExportConfig {
 
 - `separator` - determines which character is used to seperate values. The default separator is comma (",").
 
-### Additional config
+## CMS Configuration
 
-There is also possibility to specify validation for imported files like allowed type and size. To achieve this `fileValidaty` config needs to be added into `CmsConfig`:
+There is possibility to specify validation for imported files like allowed type and size. This can be set on CMS configuration level. To achieve this `fileValidaty` config needs to be added into `CmsConfig`:
 
 ```ts
 ConfigModule.withConfig(<CmsConfig>{
@@ -113,13 +115,22 @@ provideConfig(<CmsConfig>{
 }),
 ```
 
-- `source` - Is the enum and determines which value should be used as saved cart name by default. For possible values see `NameSource` type from `import-to-cart.model.ts`
+- `source` - is the enum and determines which value should be used as saved cart name by default. `NameSource` model looks like following:
 
-If `NameSource` was set to `DATE_TIME` it means that by default imported cart name will be set as current date according to `fromDateOptions` config.
+```ts
+export enum NameSource {
+  FILE_NAME = "fileName",
+  DATE_TIME = "dateTime",
+}
+```
+
+If `NameSource` has been set to `DATE_TIME` it means that by default imported cart name will be set as current date according to `fromDateOptions` config:
 
 - `mask` - transforms current date according to specified format.
 - `prefix` - adds text before the import date.
 - `suffix` - adds text after the import date.
+
+Otherwise file name of imported file will be used.
 
 ## Limitations
 

@@ -49,9 +49,9 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 ;;TopContent-cartPage;CartComponent,SaveForLaterComponent,ExportOrderEntriesComponent
 ```
 
-## Configuration
+## Global Configuration
 
-Export feature uses described below configuration model:
+Import to saved cart and export features uses common described below configuration model:
 
 ```ts
 export abstract class ImportExportConfig {
@@ -59,15 +59,26 @@ export abstract class ImportExportConfig {
     file: {
       separator: string;
     };
-    export?: {
-      additionalColumns?: ExportColumn[];
-    };
   };
 }
 ```
 
 - `separator` - determines which character is used to seperate values. The default separator is comma (",").
-- `additionalColumns` - optional array where additional columns to export can be specified. By default exported file contains **name** and **price** values as additional columns. More details about this property can be found [here](#additional-columns).
+
+However, such configuration offers also optional setting dedicated for export feature only.
+
+```ts
+export abstract class ImportExportConfig {
+  importExport?: {
+    ...
+    export: {
+      additionalColumns: string;
+    };
+  };
+}
+```
+
+- `additionalColumns` - is optional array where additional columns to export can be specified. By default exported file contains **name** and **price** values as additional columns. More details about this property can be found [here](#additional-columns).
 
 ### Additional columns
 
