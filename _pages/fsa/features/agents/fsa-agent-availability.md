@@ -26,12 +26,11 @@ To enable this particular functionality of the integration with Live Contract, a
 ```ts
 
 INSERT_UPDATE Endpoint; id[unique = true]; version[unique = true]; name; specUrl
-; syncPilot-agent-request ; unknown ; syncPilot-agent-request ; "https://sync-pilot-integration-server-url"
+; syncPilot-agent-request ; unknown ; syncPilot-agent-request ; "https://<URL_AGENT_SERVER>/beraterpoolServer/beraterpool/server/v1/owner/1/consultants-active"
 INSERT_UPDATE DestinationTarget; id[unique = true]
 ; syncpilot-agent-destination
 INSERT_UPDATE ConsumedDestination[impex.legacy.mode = true]; id[unique = true]; url; endpoint(id, version); destinationTarget(id);
-; FS-SyncPilot-Agent-Request ; "https://sync-pilot-integration-server-url" ; syncPilot-agent-request:unknown ; syncpilot-agent-destination ;
-
+; FS-SyncPilot-Agent-Request ; "https://<URL_AGENT_SERVER>/beraterpoolServer/beraterpool/server/v1/owner/1/consultants-active" ; syncPilot-agent-request:unknown ; syncpilot-agent-destination ;
 ```
 Note that the integration server link is specific for each integration and in the ImpEx, you need to enter the one created specifically for your project.
 

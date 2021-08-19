@@ -29,9 +29,17 @@ To enable the **Speak to an Agent** feature, and the integration with Live Contr
 
 The next step would be to create an instance of the CMSConnectionComponent, which will be used as an entry point to the partner solution. However, the easiest way to integrate with a partner solution is to use the existing instance created for this occasion - SyncPilotConnectionComponent - and configure it to suit your needs. 
 
-The SyncPilotConnectionComponent can be configured from the Backoffice or by adding an ImpEx file through the Administration Console. 
+The SyncPilotConnectionComponent can be configured from the Backoffice or by adding an ImpEx file through the Administration Console.
 
 For information on how to configure the SyncPilotConnectionComponent, refer to the [Speak to an Agent documentation on SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/LATEST/en-US/2b40d357decb414faee9e7da240bb5c9.html).
+
+With following snippet you can add component anywhere in your project:
+```typescript
+    <ng-container *ngIf="(user$ | async)?.uid">
+        <cx-fs-sync-pilot-connection-component></cx-fs-sync-pilot-connection-component> 
+    </ng-container>
+```
+Component is very simple. Target url is configured on the backend side of component so when user clicks on the link, new window will be opened with passed params: channel and currently logged-in user details.
 
 ## User Interface
 
