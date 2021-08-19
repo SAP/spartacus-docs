@@ -4,14 +4,14 @@ title: Schematics
 
 Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.clou
 This next example bypasses the schematics prompts and installs Spartacus with a predefined set of features:
 
 ```shell
- ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=electronics-spa --interactive=false
+ng add @spartacus/schematics@latest --baseUrl https://spartacus-demo.eastus.cloudapp.azure.com:8443/ --baseSite=electronics-spa --interactive=false
 ```
 
 To see which features are included when you use the `--interactive=false` flag, see [schema.json](https://github.com/SAP/spartacus/blob/develop/projects/schematics/src/add-spartacus/schema.json#L40).
