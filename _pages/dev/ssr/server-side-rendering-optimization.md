@@ -128,6 +128,9 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   The default value is `false`.
 
+- `maxRenderTime` is  the time for how long the render is expected to finish in.Exceeding this timeout will decrease the concurrency limit and allow for the new request to be server-side rendered. However, this may not release the rendering resources for the hanging render, which may cause additional memory usage on the server. It will log which render is exceeding the render time, which is useful for debugging issues. The value should always be higher than `timeout` and `forcedSsrTimeout`. Default value is 300 seconds (5 minutes).
+  **Note**: This property is available in version 3.0.x and later.
+
 ## Troubleshooting
 
 The following sections describe how to resolve potential issues with SSR.
