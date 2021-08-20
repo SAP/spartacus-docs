@@ -124,11 +124,14 @@ You can configure the SSR optimization engine with a number of parameters, which
 
 - `debug` is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
 
-  **Note**: This property is available in version 3.1.0 and later.
-
   The default value is `false`.
 
-- `maxRenderTime` is  the time for how long the render is expected to finish in.Exceeding this timeout will decrease the concurrency limit and allow for the new request to be server-side rendered. However, this may not release the rendering resources for the hanging render, which may cause additional memory usage on the server. It will log which render is exceeding the render time, which is useful for debugging issues. The value should always be higher than `timeout` and `forcedSsrTimeout`. Default value is 300 seconds (5 minutes).
+  **Note**: This property is available in version 3.1.0 and later.
+
+- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency limit is decreased, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout`.
+
+  The default value is 300 seconds (5 minutes).
+
   **Note**: This property is available in the latest patch versions of 3.1.x and later.
 
 ## Troubleshooting
