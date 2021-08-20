@@ -68,7 +68,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 You can enable Quick Order by adding the **Cart Quick Order Form** component with the following ImpEx:
 
 ```text
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
 ;;CartQuickOrderFormComponent;Cart Quick Order Form Component;CartQuickOrderFormComponent;CartQuickOrderFormComponent
 
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
