@@ -303,7 +303,9 @@ docs:
                 - title: "Guest Checkout"
                   url: /guest-checkout/
                 - title: "Infinite Scroll"
-                  url: /infinite-scroll/  
+                  url: /infinite-scroll/
+                - title: "Inventory Display"
+                  url: /inventory-display/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
                 - title: "Saved Cart"
