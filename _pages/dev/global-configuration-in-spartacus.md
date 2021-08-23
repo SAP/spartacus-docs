@@ -2,11 +2,7 @@
 title: Global Configuration in Spartacus
 ---
 
-Spartacus uses a configuration mechanism that provides global app configuration at app bootstrap and is not changed while the app is running.
-
-Each storefront module that is using configuration usually provides typing for its part of the configuration with some defaults.
-
-Any configuration provided can be overridden in the main app module.
+Spartacus uses a mechanism that provides global configurations for the application during app initialization (that is, when the application is bootstrapped). These configurations do not change while the application is running. Each storefront module that uses this configuration usually provides typing with some defaults for its part of the configuration. Any global configuration that is provided can be overridden in the main app module.
 
 ***
 
@@ -17,7 +13,9 @@ Any configuration provided can be overridden in the main app module.
 
 ***
 
-## How to use configuration
+## Providing Global Configurations in Spartacus
+
+The following sections describe the different ways you can provide global configurations in Spartacus.
 
 ### StorefrontLib.withConfig
 
@@ -89,27 +87,21 @@ Some example of configuration merging:
 
 - Simple merge:
 
-    Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
-
-    Chunk 2: `{ site: { base-site: 'electronics' } }`
-
-    Merged: `{ site: { occ-prefix: 'rest-api', base-site: 'electronics' } }`
+  - Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
+  - Chunk 2: `{ site: { base-site: 'electronics' } }`
+  - Merged: `{ site: { occ-prefix: 'rest-api', base-site: 'electronics' } }`
 
 - Merge with overwrite:
 
-    Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
-
-    Chunk 2: `{ site: { base-site: 'electronics', occ-prefix: 'aaa' } }`
-
-    Merged: `{ site: { occ-prefix: 'aaa', base-site: 'electronics' } }`
+  - Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
+  - Chunk 2: `{ site: { base-site: 'electronics', occ-prefix: 'aaa' } }`
+  - Merged: `{ site: { occ-prefix: 'aaa', base-site: 'electronics' } }`
 
 - Array overwrite:
 
-    Chunk 1: `{ config-values: ['a', 'b' ] }`
-
-    Chunk 2: `{ config-values: ['c'] }`
-
-    Merged: `{ config-values: ['c'] }`
+  - Chunk 1: `{ config-values: ['a', 'b' ] }`
+  - Chunk 2: `{ config-values: ['c'] }`
+  - Merged: `{ config-values: ['c'] }`
 
 ### Order of provided configuration chunks
 
