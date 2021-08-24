@@ -1,9 +1,9 @@
 ---
 title: Saved Cart
 feature:
-  - name: Saved Cart
-    spa_version: 3.2
-    cx_version: 2005
+- name: Saved Cart
+  spa_version: 3.2
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -142,7 +142,7 @@ When you click **Make cart active**, you have the option to keep a copy of this 
 
 <img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog.png" alt="Save For Later dialog box" width="800" border="1px" />
 
-<img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog-clone.png" alt="Save For Later dialog box with cloning enabled" width="800" border="1px" />
+<img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog-clone.png" alt="Save For Later dialog box with copy saved cart enabled" width="800" border="1px" />
 
 ### Saved Cart Details Page
 
