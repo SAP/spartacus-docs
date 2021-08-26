@@ -37,10 +37,9 @@ Summary:
 1. Download and unzip the following files:
 
    - SAP Commerce Cloud 2105 from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE).
-   - Spartacus Sample Data extension from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). 
-     - The zip file itself, `spartacussampledata.2011.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library.
-     - [Direct link to spartacussampledata.2011.zip](https://github.com/SAP/spartacus/releases/download/storefront-4.0.0/spartacussampledata.2011.zip) (newer versions of the sample data may be released in later releases)
-     - **Note:** You can safely use `spartacussampledata.2011.zip` with SAP Commerce Cloud 2015.
+   - Spartacus Sample Data extension from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases).
+     - The zip file itself, `spartacussampledata.2105.zip`, is found in the the **Assets** section of the most recent release of the `@spartacus/storefront` library.
+     - [Direct link to spartacussampledata.2105.zip](https://github.com/SAP/spartacus/releases/download/storefront-4.1.0-next.0/spartacussampledata.2105.zip) (newer versions of the sample data may be released in later releases).
 
 1. Move the file `custom.properties` from `spartacussampledata/resources/installer/customconfig` to `hybris-commerce-suite-2105/installer/customconfig`.
 
