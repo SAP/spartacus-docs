@@ -308,6 +308,8 @@ docs:
                   url: /inventory-display/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
+                - title: "Quick Order"
+                  url: /quick-order/
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
