@@ -165,8 +165,6 @@ docs:
                         url: /external-routes/
                       - title: "Early Login"
                         url: /early-login/
-                - title: "Configurable State Persistence and Rehydration"
-                  url: /configurable-state-persistence-and-rehydration/
                 - title: "Configuring the Base URL"
                   url: /configuring-base-url/
                 - title: "Extending Built-In Models"
@@ -210,7 +208,9 @@ docs:
                       - title: "Loader Meta Reducer"
                         url: /loader-meta-reducer/
                       - title: "State Persistence"
-                        url: /state-persistence/  
+                        url: /state-persistence/
+                      - title: "SSR Transfer State"
+                        url: /ssr-transfer-state/
           - title: "Customizing and Extending Spartacus ➢"
             url: /customizing-and-extending/
             subchildren:
