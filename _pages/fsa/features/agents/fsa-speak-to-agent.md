@@ -33,13 +33,14 @@ The SyncPilotConnectionComponent can be configured from the Backoffice or by add
 
 For information on how to configure the SyncPilotConnectionComponent, refer to the [Speak to an Agent documentation on SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/LATEST/en-US/2b40d357decb414faee9e7da240bb5c9.html).
 
-With following snippet you can add component anywhere in your project:
+With the following code snippet, you can add the component anywhere in your project:
+
 ```typescript
     <ng-container *ngIf="(user$ | async)?.uid">
         <cx-fs-sync-pilot-connection-component></cx-fs-sync-pilot-connection-component> 
     </ng-container>
 ```
-Component is very simple. Target url is configured on the backend side of component so when user clicks on the link, new window will be opened with passed params: channel and currently logged-in user details.
+The component is very simple. The target URL is configured on the back-end side of the component so when the user clicks on the link, a new window will open with passed parameters: channel and currently logged-in user details.
 
 ## User Interface
 
@@ -49,7 +50,7 @@ The customer must be logged in to be able to see the component.
 
 ![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents/speak_to_agent.png)
 
-When the customer clicks the Speak to an Agent link, they will be is redirected to the partner solution endpoint in the new tab. 
+When the customer clicks the 'Speak to an Agent' link, they will be is redirected to the partner solution endpoint in the new tab. 
  
 ![Live Contract Login Page]({{ site.baseurl }}/assets/images/fsa/agents/sync_pilot_endpoint.png)
  
