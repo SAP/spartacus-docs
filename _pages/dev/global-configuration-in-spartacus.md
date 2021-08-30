@@ -4,7 +4,7 @@ title: Global Configuration in Spartacus
 
 Spartacus uses a mechanism that provides global configuration during app initialization (that is, when the application is bootstrapped). This configuration does not change while the application is running. Each storefront module that uses this configuration usually provides typing with some defaults for its part of the configuration.
 
-If necessary, you can always override the global configuration in the main app module.
+**Note:** The configuration in the main app module takes precedence over other configurations, and can be used to override any configuration that has been provided elsewhere.
 
 ***
 
@@ -19,17 +19,21 @@ If necessary, you can always override the global configuration in the main app m
 
 The following sections describe the different ways you can provide global configuration in Spartacus.
 
-### StorefrontLib.withConfig
+### provideConfig
 
-If you import the `B2cStorefrontModule` in your app, the preferred and easiest method to provide a configuration is to use `B2cStorefrontModule.withConfig(config?: StorefrontModuleConfig)`. The `StorefrontModuleConfig` interface provides type safety and context-aware code completion that speeds up defining the configuration and helps to avoid any typos.
+Using `provideConfig` is the preferred way for providing global configuration in Spartacus.
+
+If you want to contribute to the global configuration without needing to import the `ConfigModule`, or you want to implement a module with providers and provide the configuration conditionally, then using `provideConfig` in a providers array is the best option.
 
 ### ConfigModule.withConfig
 
+Using `ConfigModule.withConfig` is the legacy method of providing global configuration in Spartacus.
+
 Importing `ConfigModule.withConfig(config: any)` is useful when you want to use the configuration in your module and contribute to it at the same time. The `config` parameter is not typed and can be an object of any shape, so it is recommended that you use either a typed `const`, or that you use `ConfigModule.withConfig(<ConfigType>{})` type casting to be able to use type safety.
 
-### provideConfig
+### StorefrontLib.withConfig
 
-If you want to contribute to the global configuration without needing to import the `ConfigModule`, or you want to implement a module with providers and provide the configuration conditionally, then using `provideConfig` in a providers array is the best option.
+Using `StorefrontLib.withConfig` is no longer supported in Spartacus.
 
 ### ConfigModule.withConfigFactory and provideConfigFactory
 
@@ -64,7 +68,7 @@ Each module typically provides a default configuration that is required for basi
 
 You do not need to provide defaults for all required configurations. For example, it may be difficult to choose reasonable defaults for some options. In this case, it is recommended to use config validators to validate the configuration and warn (in development mode) if a required config is missing.
 
-**Note:** Default configurations are provided in the same way as any other configuration.
+**Note:** Using `provideDefaultConfig` and `provideDefaultConfigFactory` are the preferred ways to provide default configurations in libraries. Using `provideDefaultConfig` inside libraries helps avoid issues with the default configuration overwriting the one that is provided in the shell app (which can occur because of the order of the imports).
 
 ## Overriding Values
 
