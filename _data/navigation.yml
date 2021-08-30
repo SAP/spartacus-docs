@@ -175,6 +175,8 @@ docs:
                   url: /global-messages/
                 - title: "HTTP Error Handling"
                   url: /http-error-handling/
+                - title: "Command and Queries"
+                  url: /command-query/
                 - title: "Lazy Loading"
                   url: /lazy-loading-guide/
                 - title: "Multi-Site Configuration ➢"
