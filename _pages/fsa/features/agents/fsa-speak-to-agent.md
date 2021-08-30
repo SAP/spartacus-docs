@@ -1,5 +1,5 @@
 ---
-title: Claims Details Page
+title: FSA Speak to an Agent
 ---
 
 **Note**: This feature is introduced with version 3.0 of the FSA Spartacus libraries.
@@ -23,7 +23,7 @@ To integrate your project with Live Contract, you first need to set the syncpilo
 
 To enable the **Speak to an Agent** feature, and the integration with Live Contract, a new CMS component has been introduced. The CMSConnectionComponent has the following attributes:
 
-- **targetUrl** - The partner solution endpoint, in this case, https://partner.livecontract.de/.
+- **targetUrl** - The partner solution endpoint.
 - **channel** - The channel of the partner solution endpoint.
 - **action** - The action executed in the channel.
 

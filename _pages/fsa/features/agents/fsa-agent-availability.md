@@ -1,5 +1,5 @@
 ---
-title: Claims Details Page
+title: FSA Agent Availability
 ---
 
 **Note**: This feature is introduced with version 3.0 of the FSA Spartacus libraries.
