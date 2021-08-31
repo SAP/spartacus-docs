@@ -23,7 +23,7 @@ The following sections describe the different ways you can provide global config
 
 Using `provideConfig` is the preferred way for providing global configuration in Spartacus.
 
-If you want to contribute to the global configuration without needing to import the `ConfigModule`, or you want to implement a module with providers and provide the configuration conditionally, then using `provideConfig` in a providers array is the best option.
+If you want to contribute to the global configuration using `provideConfig`, just add it to a providers array in an Angular module.
 
 ### ConfigModule.withConfig
 
