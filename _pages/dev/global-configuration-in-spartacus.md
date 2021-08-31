@@ -29,7 +29,7 @@ If you want to contribute to the global configuration without needing to import 
 
 Using `ConfigModule.withConfig` is the legacy method of providing global configuration in Spartacus.
 
-Importing `ConfigModule.withConfig(config: any)` is useful when you want to use the configuration in your module and contribute to it at the same time. The `config` parameter is not typed and can be an object of any shape, so it is recommended that you use either a typed `const`, or that you use `ConfigModule.withConfig(<ConfigType>{})` type casting to be able to use type safety.
+Importing `ConfigModule.withConfig(config: Config)` is useful when you want to use the configuration in your module and contribute to it at the same time. 
 
 ### StorefrontLib.withConfig
 
