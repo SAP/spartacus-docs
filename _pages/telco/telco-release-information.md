@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated April 7, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated September 1, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ***
 
@@ -30,9 +30,9 @@ This document describes what is included in all Spartacus libraries since the in
 
 ## Release 3.1
 
-*Release 3.1 libraries published May 28, 2021*
+*Release 3.1 libraries published September 1, 2021*
 
-The 3.1 libraries for the accelerator provides a new Media spartacus storefront along with sample data. With 3.1, the TUA libraries support three storefronts: Telco, Utilities, and Media.
+The 3.1 libraries for the accelerator provides a new Media Spartacus storefront along with sample data. With 3.1, the TUA libraries support three storefronts: Telco, Utilities, and Media.
 
 ## Release 3.0
 
