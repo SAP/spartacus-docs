@@ -555,8 +555,11 @@ docs:
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
-          - title: "Contributing to the Spartacus Storefront"
+          - title: "Contributing to the Spartacus </br>Storefront ➢"
             url: /contributing-to-the-spartacus-storefront/
+            subchildren:
+                - title: "Contributing Integration Libraries to Spartacus"
+                  url: /contributing-integrations-to-spartacus/
           - title: "Contributor Setup ➢"
             url: /contributor-setup/
             subchildren:
@@ -593,4 +596,4 @@ docs:
               - title: "Updating Schematics"
                 url: /updating-schematics/
           - title: "Continuous Integration"
-            url: /continuous-integration/ 
+            url: /continuous-integration/
