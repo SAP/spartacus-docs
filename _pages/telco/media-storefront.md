@@ -10,7 +10,7 @@ title: Media Storefront
 
 The Media Storefront feature enables customers browsing the Media SPA Store to see the product offerings and pricing details of the offerings that are defined by Business Administrators in the Backoffice. The product offerings are purchased from a dedicated product catalog.
 
-To see a working example of the Media Storefront, see [here](https://jsapps.cy8u-telcoacce1-s5-public.model-t.cc.commerce.ondemand.com/mediaspa/en/USD/).
+To see a working example of the Media Storefront, see our [public instance](https://jsapps.cy8u-telcoacce1-s5-public.model-t.cc.commerce.ondemand.com/mediaspa/en/USD/).
 
 ***
 
