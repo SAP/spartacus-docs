@@ -467,6 +467,8 @@ docs:
                         url: /journey-management-serviceability/
                       - title: "Journey Management - Serviceability"
                         url: /journey-management-serviceability-check-of-spo/                        
+                - title: "Media Storefront"
+                  url: /media-storefront/
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
