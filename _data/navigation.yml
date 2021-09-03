@@ -97,8 +97,10 @@ docs:
                   url: /configurable-products-integration/
                 - title: "CPQ Configurable Products Integration"
                   url: /cpq-configurable-products-integration/
+                - title: "Digital Payments Integration"
+                  url: /digital-payments-integration/
                 - title: "Intelligent Selling Services for SAP Commerce Cloud Integration"
-                  url: /cds-integration/  
+                  url: /cds-integration/
                 - title: "Kyma Integration"
                   url: /kyma-integration/
                 - title: "Payment Integration with CyberSource Example"
