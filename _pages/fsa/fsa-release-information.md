@@ -13,9 +13,9 @@ title: Release Information for All Versions of FSA Spartacus Libraries
 
 ## Introduction
 
-This document describes what is included in all FSA Spartacus since the initial 1.0 release. 
+This document describes what is included in all FSA Spartacus libraries since the initial 1.0 release. 
 
-**Note: FSA Spartacus 2.x requires Spartacus 3.0 and Angular 10. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
+**Note: FSA Spartacus 3.x requires Spartacus 4.1 and Angular 10.2.4. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-financial-services-accelerator/releases).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
@@ -25,6 +25,25 @@ This document describes what is included in all FSA Spartacus since the initial 
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 3.0
+*Release 3.0 libraries published September ??, 2021*
+
+List of features delivered with 3.0:
+- **Enablement of Coupons and Discounts**
+ : Customers can apply coupons during the quotation process and obtain a discount on the policy premium. When a customer adds the coupon code, the amount they saved is shown on the storefront. The customer can also remove the coupon during the quotation process. This process is also supported in the E2E Auto quotation process in integration with S4I and PQM. Customers can see their coupons in the dedicated section of the My Account area. 
+- **Product Discovery**
+ : Product Discovery Enhancement enables customers to find the best suitable product for their needs using a questionnaire. Customers respond to the questions related to their insurance targets and, based on their answers, products are filtered. The ones that suit best are recommended, and customers can start the quotation process. The questionnaire is configurable and can be easily changed. Life and Savings products are used as examples for implementation, but other products can also be added.
+- **Claims Details Page**
+ : This feature enables customers to see more details about their claims. Besides general information, customers can now see details about payments, persons involved, and associated documents.
+- **Document Accessibility**
+  : Customers can see all their received and uploaded documents at one glance on the My Documents page in the My Account area. Documents can be shown in two different accordions. Customers can download documents directly from this page.
+- **Address Management**
+ : Customers can manage their address at a central place in the My Account area. This address is then consistently used in quotation and application processes. If the customer adds an address during the quotation process, the address will be saved, and can later be changed in the My Account area.
+- **Live Contract Integration**
+ : Integration of SAP Commerce, financial services accelerator with LiveContract offers financial companies the possibility to create a new kind of sales channel, combining the advantages of an agent-driven approach with the flexibility and cost advantages of online communication. This integration enables agents to keep in contact with their customers in a personal and individual way. Both customers and agents can enter in person-to-person interaction, which gives them flexibility in discussions, and the ability to explain and discuss complex matters, unlike how it is done in artificial dialogs via chatbot. In addition to this, customers can now easily find the information about agent availability on the Find an Agent page. Besides agent data, customers can see if an agent is online or offline. 
+- **Quote Details Page**
+ : The Quote Details page allows financial customers to view all the details related to their quote on a separate page in the Quotes & Applications section of the My Account area. 
 
 ## Release 2.0
 *Release 2.0 libraries published March 17, 2021*
