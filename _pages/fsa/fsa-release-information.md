@@ -30,19 +30,19 @@ This document describes what is included in all FSA Spartacus libraries since th
 *Release 3.0 libraries published September ??, 2021*
 
 List of features delivered with 3.0:
-- **Enablement of Coupons and Discounts**
+- **[Enablement of Coupons and Discounts]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})**
  : Customers can apply coupons during the quotation process and obtain a discount on the policy premium. When a customer adds the coupon code, the amount they saved is shown on the storefront. The customer can also remove the coupon during the quotation process. This process is also supported in the E2E Auto quotation process in integration with S4I and PQM. Customers can see their coupons in the dedicated section of the My Account area. 
-- **Product Discovery**
+- **[Product Discovery]({{ site.baseurl }}{% link _pages/fsa/features/fsa-product-discovery.md %})**
  : Product Discovery Enhancement enables customers to find the best suitable product for their needs using a questionnaire. Customers respond to the questions related to their insurance targets and, based on their answers, products are filtered. The ones that suit best are recommended, and customers can start the quotation process. The questionnaire is configurable and can be easily changed. Life and Savings products are used as examples for implementation, but other products can also be added.
-- **Claims Details Page**
+- **[Claims Details Page]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-details-page.md %})**
  : This feature enables customers to see more details about their claims. Besides general information, customers can now see details about payments, persons involved, and associated documents.
 - **Document Accessibility**
   : Customers can see all their received and uploaded documents at one glance on the My Documents page in the My Account area. Documents can be shown in two different accordions. Customers can download documents directly from this page.
 - **Address Management**
  : Customers can manage their address at a central place in the My Account area. This address is then consistently used in quotation and application processes. If the customer adds an address during the quotation process, the address will be saved, and can later be changed in the My Account area.
 - **Live Contract Integration**
- : Integration of SAP Commerce, financial services accelerator with LiveContract offers financial companies the possibility to create a new kind of sales channel, combining the advantages of an agent-driven approach with the flexibility and cost advantages of online communication. This integration enables agents to keep in contact with their customers in a personal and individual way. Both customers and agents can enter in person-to-person interaction, which gives them flexibility in discussions, and the ability to explain and discuss complex matters, unlike how it is done in artificial dialogs via chatbot. In addition to this, customers can now easily find the information about agent availability on the Find an Agent page. Besides agent data, customers can see if an agent is online or offline. 
-- **Quote Details Page**
+ : The integration of the Financial Services Accelerator with LiveContract offers financial companies the possibility to create a new kind of sales channel, combining the advantages of an agent-driven approach with the flexibility and cost advantages of online communication. This integration enables agents to keep in contact with their customers in a personal and individual way. Both customers and agents can enter in person-to-person interaction, which gives them flexibility in discussions, and the ability to explain and discuss complex matters, unlike how it is done in artificial dialogs via chatbot. In addition to this, customers can now easily find the information about agent availability on the Find an Agent page. Besides agent data, customers can see if an agent is online or offline. For more information, see [Speak to an Agent]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-speak-to-agent.md %}) and [Agent Availability]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-agent-availability.md %}).
+- **[Quote Details Page]({{ site.baseurl }}{% link _pages/fsa/features/fsa-quote-details-page.md %})**
  : The Quote Details page allows financial customers to view all the details related to their quote on a separate page in the Quotes & Applications section of the My Account area. 
 
 ## Release 2.0
