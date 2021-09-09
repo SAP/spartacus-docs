@@ -217,31 +217,33 @@ The following steps describe how to migrate to the new reference app structure.
 
 ### Cleaning Up
 
-That's it. You migrated to new app structure. However there is one more thing that we recommend to do. All these huge modules that we just migrated were created to make it easy to create complete spartacus application. What we mean by "complete" is the spartacus with a lot of features enabled out of the box. You might've not even used those features and yet they landed in your application files making your app bigger and by that increasing your application initial load time. As we just replaced these bootstrap modules with granular modules it gives you a great opportunity to remove feature modules that you don't need.
+Now that you have migrated your application to the new app structure, you have the opportunity to remove feature modules that were originally included in the core Spartacus libraries, but which you may not have been using. By removing unused feature modules, you can make your application's initial load time faster.
 
-Here is a list of common features that you might not use:
+The following is a list of common Spartacus features that you may not be using, and which you can remove from your application:
 
-- if you don't use ASM feature you can remove from `SpartacusFeaturesModule` imports of `AsmModule` and `AsmOccModule`
-- if you don't use Smartedit you can remove from `SpartacusFeaturesModule` import of `SmartEditModule`
-- if you don't use Qualtrics you can remove from `SpartacusFeaturesModule` import of `QualtricsModule`
-- if you don't use product variants you can remove from `SpartacusFeaturesModule` imports of `ProductVariantsModule`
-- if you don't support replenishments order you can remove from `SpartacusFeaturesModule` imports of `ReplenishmentOrderHistoryModule`, `ReplenishmentOrderConfirmationModule` and `ReplenishmentOrderDetailsModule`
+- If you do not use ASM, you can remove the `AsmModule` and `AsmOccModule` imports from the `SpartacusFeaturesModule`.
+- If you do not use Smartedit, you can remove the `SmartEditModule` import from the `SpartacusFeaturesModule`.
+- If you do not use Qualtrics, you can remove the `QualtricsModule` import from the `SpartacusFeaturesModule`.
+- If you do not use product variants, you can remove the `ProductVariantsModule` import from the `SpartacusFeaturesModule`
+- If you do not support order replenishment, you can remove the  `ReplenishmentOrderHistoryModule`, `ReplenishmentOrderConfirmationModule` and `ReplenishmentOrderDetailsModule` imports from the `SpartacusFeaturesModule`.
 
-There are many more modules that you might not need, so we recommend just going through all the imports in `SpartacusFeaturesModule` and verifying if you use it or not. If not just remove it and make your application smaller.
+There are many more modules that you may not need, and it is recommended to go through all of the imports in the `SpartacusFeaturesModule` and verify if you are using them or not. If not, simply remove the import to make your application smaller.
 
 ## Upgrading Your Angular Libraries
 
-Before upgrading Spartacus to 4.0, you need first to upgrade Angular to the version 12 and upgrade Angular 3rd party dependencies like `@ng-bootstrap/ng-bootstrap` or `@ng-select/ng-select` to the versions compatible with Angular 12.
+Before upgrading Spartacus to 4.0, you first need to upgrade Angular to version 12, and upgrade Angular third party dependencies, such as `@ng-bootstrap/ng-bootstrap` and `@ng-select/ng-select`, to the version that is compatible with Angular 12.
+
+The following is an example command that upgrades Angular to version 12, and also upgrades the related dependencies:
 
 ```bash
 ng update @ng-bootstrap/ng-bootstrap@10 @ng-select/ng-select@7 @angular/core@12 @angular/cli@12
 ```
 
-For more, see [the official Angular upgrade guide](https://update.angular.io/).
+For more information, see the official[Angular Update Guide](https://update.angular.io/).
 
 ## Upgrading Spartacus to 3.4.x
 
-You must first upgrade all of your `@spartacus` libraries to the latest 3.4.x release before you begin upgrading to Spartacus 4.0. For more information, see [Upgrading Spartacus Libraries to a New Minor Version](https://sap.github.io/spartacus-docs/release-information/#upgrading-spartacus-libraries-to-a-new-minor-version).
+You must first upgrade all of your `@spartacus` libraries to the latest 3.4.x release before you begin upgrading to Spartacus 4.0. For more information, see [Upgrading Spartacus Libraries to a New Minor Version]({{ site.baseurl }}/release-information/#upgrading-spartacus-libraries-to-a-new-minor-version).
 
 ## Upgrading Spartacus to 4.0
 
@@ -253,4 +255,4 @@ To update to version 4.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics@4
 ```
 
-When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [Detailed List of Changes](#detailed-list-of-changes) below.
+When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see the [Detailed List of Changes]({{ site.baseurl }}/technical-changes-version-4/#detailed-list-of-changes).
