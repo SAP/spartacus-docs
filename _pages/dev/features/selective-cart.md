@@ -24,7 +24,7 @@ For more information, see [Selective Cart Architecture](https://help.sap.com/vie
 
 ## Enabling Selective Cart
 
-The Selective Cart feature has corresponding CMS-component data that allows you to enable or disable the feature. The configuration is provided in the `provideConfig`.
+The Selective Cart feature has corresponding CMS-component data that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
 
 Furthermore, you need to configure the `selectiveCart` in the cart configuration to enable or disable the feature. The following is an example:
 

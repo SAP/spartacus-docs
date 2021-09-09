@@ -24,7 +24,7 @@ For more information, see [Notification Architecture](https://help.sap.com/viewe
 
 ## Enabling Notification Preference
 
-The notification preferences feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
+The notification preferences feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
 
 ## Configuring
 
