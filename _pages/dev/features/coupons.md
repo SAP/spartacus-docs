@@ -26,7 +26,7 @@ For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d34
 
 ## Enabling Coupons
 
-The coupon feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
+The coupon feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
 
 
 ## Configuring
