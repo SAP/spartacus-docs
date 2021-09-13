@@ -181,3 +181,43 @@ INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=a
 ;allowCredentials;true
 ;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```
+
+### Troubleshooting cors issues
+
+The following section is a troubleshooting guideline for identifying a cors issue root cause and a what kind of backend configurratino might solve it.
+
+## Determine if a problem is caused by a cors issue
+
+To determine if a problem is cause by a cors issue, you can open the network tab from your browser's development tools and try to reproduce the problem with the network tab open. In this example we use Google Chrome.
+
+<img src="{{ site.baseurl }}/assets/images/cors/cors-error-01.png" alt="Network tab: request with cors error" width="600" border="1px" />
+
+In the image above we can see that two requests are highlighted in red and the `status` of one request is `CORS error`.
+
+## Determine the cause of a cors error
+
+To support cors, the browser makes a [preflight request](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) to the server to make sure the server will allow the real request to go through. It will often be the case that to cors issue is the result of an error with the preflight request. The pre-flight request has the same url than the associated real request, but the http method is `OPTIONS`. Chrome offers the convenient `Preflight` link in th `Method` column of the network tab. Clicking on the `Preflight` link for a request highlights the associated preflight request.
+
+<img src="{{ site.baseurl }}/assets/images/cors/cors-error-02.png" alt="Network tab: request with cors error" width="600" border="1px" />
+
+Select the preflight request to see the detailed info about the headers. In the request header info, look for headers that start with `Access-Control-Request-*`
+
+<img src="{{ site.baseurl }}/assets/images/cors/cors-error-03.png" alt="Network tab: request with cors error" width="600" border="1px" />
+
+There is a high probability that the root cause of the the error is the backend server not having the configuration to allow one of thee elements listed in one of the `Access-Control-Request-*` headers.
+
+If you see a legitimate header or http method being used, adding it to the server cors configuration should solve the issue.
+
+Http headers need to be added to at least one of the `corsfilter.*..allowedHeaders` properties (the one related to the backend extension that serves the request.)
+
+Http methods are allowd by adding them to the `corsfilter.*.allowedMethods`. Again, which property depends on which backend extension serrves the request.
+
+Too solve the error in the above screenshots, we need to add the `authorization` header in the backend configuration property `corsfilter.assistedservicewebservices.allowedHeaders`
+
+Too know which extension serves which url, here is a small table of urls and their corresponding extension for an out of the box Commerce Cloud deployment:
+
+| webservice url      | backend extension name |
+| ----------- | ----------- |
+| /authentication/*      | oauth2       |
+| /occ/v2/*   | commercewebservices        |
+| /assistedservicewebservices/*   | assistedservicewebservices        |
