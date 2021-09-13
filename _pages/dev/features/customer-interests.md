@@ -24,8 +24,7 @@ For more information, see [Customer Interests Architecture](https://help.sap.com
 
 ## Enabling Customer Interests
 
-The customer interests feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
-
+The customer interests feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
 
 ## Configuring
 

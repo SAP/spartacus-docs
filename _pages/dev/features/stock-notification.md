@@ -28,7 +28,7 @@ For more information, see [Stock Notification Architecture](https://help.sap.com
 
 ## Enabling Stock Notification
 
-Stock notification has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
+Stock notification has corresponding CMS-component data in the back end that allows you to enable or disable the feature. The configuration is provided in the `StockNotificationModule`.
 
 ## Configuring
 
