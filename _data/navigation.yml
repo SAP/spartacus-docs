@@ -476,7 +476,9 @@ docs:
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
-                  url: /product-offering-search/                                     
+                  url: /product-offering-search/
+                - title: "Sales Flow - Cross-Sell of an SPO"
+                  url: /sales-flow-cross-sell-of-an-spo/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
