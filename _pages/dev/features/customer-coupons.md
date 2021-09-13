@@ -22,7 +22,7 @@ For more information, see [Customer Coupon Architecture](https://help.sap.com/vi
 
 ## Enabling Customer Coupons
 
-The Customer Coupons feature has corresponding CMS-component data that allows you to enable or disable the feature. The configuration is provided in the `B2cStorefrontModule`.
+The Customer Coupons feature has corresponding CMS-component data that allows you to enable or disable the feature. The configuration is provided in the `MyCouponsModule`.
 
 ## Configuring
 
