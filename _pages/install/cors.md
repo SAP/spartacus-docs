@@ -208,7 +208,7 @@ The error is often caused by the back end server not being configured to allow o
 
 If you see that a legitimate header or HTTP method is being used, you should be able to resolve the issue by adding the header or HTTP method to the server's CORS configuration.
 
-HTTP headers need to be added to at least one of the `corsfilter.*..allowedHeaders` properties (that is, the one related to the back end extension that serves the request.)
+HTTP headers need to be added to at least one of the `corsfilter.*.allowedHeaders` properties (that is, the one related to the back end extension that serves the request.)
 
 HTTP methods are allowed by adding them to the `corsfilter.*.allowedMethods`. Again, which property you need to add depends on which back end extension serves the request.
 
