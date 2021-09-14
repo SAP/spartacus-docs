@@ -182,44 +182,44 @@ INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=a
 ;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```
 
-## Troubleshooting cors issues
+## Troubleshooting
 
-The following section is a troubleshooting guideline for identifying a cors issue root cause and a what kind of back end configuration might solve it.
+When troubleshooting a possible CORS issue, the first step is to determine if a CORS error is the source of the problem. If it is, you can determine what is causing the CORS error, and then resolve it.
 
-### Determine if a problem is caused by a cors issue
+### Determining If a Problem Is Caused by a CORS Issue
 
-To determine if a problem is cause by a cors issue, you can open the network tab from your browser's development tools and try to reproduce the problem with the network tab open. In this example we use Google Chrome.
+To determine if a problem is caused by a CORS issue, you can open the **Network** tab in your browser's development tools and try to reproduce the problem with the **Network** tab open. In the following example, there are two requests that are highlighted in red, and in the **Status** column, one of the requests is listed as having a `CORS error`:
 
 <img src="{{ site.baseurl }}/assets/images/cors/cors-error-01.png" alt="Network tab: request with cors error" width="950" border="1px" />
 
-In the image above we can see that two requests are highlighted in red and the `status` of one request is `CORS error`.
+### Determining the Cause of a CORS Error
 
-### Determine the cause of a cors error
-
-To support cors, the browser makes a [preflight request](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) to the server to make sure the server will allow the real request to go through. It will often be the case that to cors issue is the result of an error with the preflight request. The pre-flight request has the same url than the associated real request, but the http method is `OPTIONS`. Chrome offers the convenient `Preflight` link in th `Method` column of the network tab. Clicking on the `Preflight` link for a request highlights the associated preflight request.
+To support CORS, your browser makes a preflight request to the server to verify that the server will allow the real request to go through. It is often the case that the CORS issue is the result of an error with the preflight request. The preflight request has the same URL as the real request, but the HTTP method is `OPTIONS`. Google Chrome offers a convenient **Preflight** link in the **Method** column of the **Network** tab. When you click on the **Preflight** link of a request, the associated preflight request is highlighted, as show in the following example:
 
 <img src="{{ site.baseurl }}/assets/images/cors/cors-error-02.png" alt="Network tab: request with cors error" width="950" border="1px" />
 
-Select the preflight request to see the detailed info about the headers. In the request header info, look for headers that start with `Access-Control-Request-*`
+When you select the preflight request, you can see detailed information about the headers. In the request header info, look for headers that start with `Access-Control-Request-*`, such as in the following example:
 
 <img src="{{ site.baseurl }}/assets/images/cors/cors-error-03.png" alt="Network tab: request with cors error" width="950" border="1px" />
 
-There is a high probability that the root cause of the the error is the backend server not having the configuration to allow one of thee elements listed in one of the `Access-Control-Request-*` headers.
+The error is often caused by the back end server not being configured to allow one of the elements that is listed in one of the `Access-Control-Request-*` headers.
 
-### Resolve the cors error
+### Resolving the CORS Error
 
-If you see a legitimate header or http method being used, adding it to the server cors configuration should solve the issue.
+If you see that a legitimate header or HTTP method is being used, you should be able to resolve the issue by adding the header or HTTP method to the server's CORS configuration.
 
-Http headers need to be added to at least one of the `corsfilter.*..allowedHeaders` properties (the one related to the backend extension that serves the request.)
+HTTP headers need to be added to at least one of the `corsfilter.*..allowedHeaders` properties (that is, the one related to the back end extension that serves the request.)
 
-Http methods are allowd by adding them to the `corsfilter.*.allowedMethods`. Again, which property depends on which backend extension serrves the request.
+HTTP methods are allowed by adding them to the `corsfilter.*.allowedMethods`. Again, which property you need to add depends on which back end extension serves the request.
 
-Too solve the error in the above screenshots, we need to add the `authorization` header in the backend configuration property `corsfilter.assistedservicewebservices.allowedHeaders`
+To resolve the error in the above examples, you add the `authorization` header in the `corsfilter.assistedservicewebservices.allowedHeaders` back end configuration property.
 
-Too know which extension serves which url, here is a small table of urls and their corresponding extension for an out of the box Commerce Cloud deployment:
+To know which extension serves which URL, you can use the following table of URLS and their corresponding extensions for an out-of-the-box Commerce Cloud deployment:
 
-| webservice url      | backend extension name |
-| ----------- | ----------- |
+| Webservice URL      | Back End Extension Name |
+| --- | --- |
 | /authentication/*      | oauth2       |
 | /occ/v2/*   | commercewebservices        |
 | /assistedservicewebservices/*   | assistedservicewebservices        |
+
+For more information about preflight requests, see the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request).
