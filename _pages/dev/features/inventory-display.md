@@ -12,14 +12,14 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The B2B Inventory Display display allows sellers to control the maximum stock displayed for a given category or base site. This feature is only available for B2B channel. For example, if there are 200 of something in stock, and B2B Inventory Display for the site is 25, then "25 in stock" is displayed, despite the actual stock number. For more information on the Commerce Cloud feature, see https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2105/en-US/8ac35e1d866910148876ef95adde0c60.html.
+When inventory display is enabled on a Spartacus B2B site, it allows sellers to control the maximum stock displayed for a given category or base site. For example, if there are 200 units of an item in stock, and B2B Inventory Display for the site is set to `25`, then "25 in stock" is displayed, regardless of the actual stock number. For more information, see [B2B Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) on the SAP Help Portal.
 
-The changes to Spartacus to make this work are two independent settings:
+To make this functionality possible, changes were made to the following settings in Spartacus:
 
-1) Before this improvement, Spartacus only displayed either "in stock" or "out of stock". Spartacus was updated to allow display of actual stock numbers. This change works for any site (B2C or B2B).
-2) Setting the inventory display field for B2B sites in the backend will then display the maximum stock number.
+- Previously, Spartacus only displayed either "in stock" or "out of stock". Spartacus was updated to allow the display of actual stock numbers. This change works for any site (B2C or B2B).
+- It is then possible to set the inventory display field for B2B sites in the back end to display the maximum stock number.
 
-When the Spartacus inventory display feature is enabled, customers can see the quantity of items that are available for purchase (the actual number can be affected by the backend B2B Inventory Display feature). When the Spartacus feature is disabled, customers see only that an item is either "In Stock" or "Out of Stock".
+When the Spartacus inventory display feature is enabled, customers can see the quantity of items that are available for purchase (the actual number can be affected by the SAP Commerce Cloud B2B Inventory Display feature). When the Spartacus feature is disabled, customers see only that an item is either "In Stock" or "Out of Stock".
 
 ## Enabling Inventory Display in Spartacus
 
@@ -41,11 +41,11 @@ For more information on providing a configuration, see [provideConfig]({{ site.b
 
 **Note:** Inventory display is disabled by default.
 
-## Enabling B2B Inventory Display limits in backend using Backoffice
+## Enabling B2B Inventory Display Limits in the Back End using Backoffice
 
-See https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2105/en-US/8ac35e1d866910148876ef95adde0c60.html.
+If the B2B Inventory Display feature is disabled in Spartacus, setting a value in the back end has no effect on the front end. In other words, Spartacus will display "in stock" or "out of stock" only.
 
-If the Spartacus inventory display feature is disabled, setting a value in the backend will have no effect on frontend (Spartacus will display "in stock" or "out of stock" only).
+For more information, see [B2B Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2105/en-US/8ac35e1d866910148876ef95adde0c60.html) on the SAP Help Portal.
 
 ## Configuring
 
