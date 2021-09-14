@@ -38,20 +38,24 @@ This document describes what is included in all Spartacus libraries since the in
 Highlights include the following:
 
 ### SAP Digital Payments Integration
-SAP Digital Payments integration is an out-of-the-box alternative to current custom payment service provider (PSP) integrations. This integration uses SAP Digital Payments with ready-to-use PSP connectivity. For more information, see [SAP Digital Payments Integration]({{ site.baseurl }}{% link _pages/digital-payments-integration).
+
+SAP Digital Payments integration is an out-of-the-box alternative to current custom payment service provider (PSP) integrations. This integration uses SAP Digital Payments with ready-to-use PSP connectivity. For more information, see [{% assign linkedpage = site.pages | where: "name", "digital-payments-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/digital-payments-integration.md %}).
 
 ### Quick Order
-The Quick Order feature allows users to quickly add multiple items to their cart. There is also the option to quickly add a single product from the cart page. For more information, see [Quick Order]({{ site.baseurl }}{% link _pages/quick-order).
+
+The Quick Order feature allows users to quickly add multiple items to their cart. There is also the option to quickly add a single product from the cart page. For more information, see [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
 
 ### B2B Inventory Display
-The B2B Inventory Display feature allows sellers to control the display of the stock visible for a category of products or for the whole storefront. Spartacus now supports display of actual stock values, so when this feature is enabled in the backend, the page displays "## in stock". When the feature is disabled, customers see “In Stock” or “Out of Stock” as in previous versions of Spartacus libraries. For more information, see [Quick Order]({{ site.baseurl }}{% link _pages/inventory-display) and [B2B Inventory Display Commerce Cloud documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html).
 
-### Authentication improvements
-Several improvements were made to authentication that help make authentication expiry during checkout more reliable. These fixes were backported to 3.0>3.4 and 4.0.
+The B2B Inventory Display feature allows sellers to control the display of the stock visible for a category of products or for the whole storefront. Spartacus now supports display of actual stock values, so when this feature is enabled in the back end, the page displays "## in stock". When the feature is disabled, customers see “In Stock” or “Out of Stock”, as in previous versions of Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "inventory-display.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/inventory-display.md %}), as well as [B2B Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) on the SAP Help Portal.
 
-### SSR maxRenderTime option
-Adds the maxRenderTime setting, which is time for how long the render is expected to finish in. Exceeding this timeout will decrease the concurrency limit and allow for the new request to be server-side rendered. For more information, see https://github.com/SAP/spartacus/pull/13490.
-  
+### Authentication Improvements
+
+Several improvements were made to authentication that help make authentication expiry during checkout more reliable. These fixes were backported to 3.0 through to 3.4, as well as to 4.0.
+
+### SSR maxRenderTime Option
+
+The `maxRenderTime` setting is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. For more information, see [Configuring the SSR Optimization Engine]({{ site.baseurl }}/server-side-rendering-optimization/#configuring-the-ssr-optimization-engine).
   
 ## Release 4.0
 
