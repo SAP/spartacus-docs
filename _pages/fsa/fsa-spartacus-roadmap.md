@@ -2,7 +2,7 @@
 title: FSA Spartacus Roadmap
 ---
 
-This document describes what is planned for FSA Spartacus for Q3 2021 and later.
+This document describes what is planned for FSA Spartacus for Q1 2022 and later.
 
 ***
 
@@ -38,15 +38,12 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-## Features Planned for Version 3.0 / August 2021
+## Features Planned for Version 4.0 / February 2022
 
-- **Group Policy** - Opportunity for the insurance companies to offer a B2B2C portal to their group insurance customers and their employees. Through this portal, the B2B companies can manage their employees, create and maintain groups as well as assign employees and plans to these groups. B2B administrators can do this directly on the portal in the My Groups area.
-- **SAP Digital Payment Addon Integration** - This integration offers secure, end-to-end processing of digital payments.
-- **Document Accessibility** - Customers can see all their received and uploaded documents at one glance on the My Documents page in the My Account area.
-- **Claims Details Page** - Enablement of customers to see more details about their claims. Besides general information, details about payments, persons involved and associated documents are made available.
-- **Enablement of Coupons and Discounts** - Possibility to apply coupons during the quotation process and to obtain a discount on the policy premium.   
-- **Address Management** - Customers can manage their address at a central place in the My Account area. This address is then consistently used in quotation and application processes.  
-- **Product Discovery Enhancement** - Customers are guided through a structured process to identify the best suitable product for their needs.  
-- **Integration of Live Contract by SyncPilot** - Financial services products can be complex and require advisory of an agent. Now, customers can at any time engage with an agent and seamlessly move from a self-service into a collaborate journey.
-
+- **My Account Dashboard** - Customers can now see an overview of the most important information from the My Account area on a separate summary page called My Account Dashboard.
+- **Renewal Process** - The system notifies policyholders about their policy renewal options when their existing policies are about to expire. This helps customers decide about the new version of their policies while they are still valid.   
+- **Quote Comparison** - Customers can compare quotes they created in a separate comparison table, which facilitates the decision-making process when they need to choose between two similar options.
+- **On-Behalf-Of Framework** - This framework enables financial B2B customers to execute processes on behalf of their customers. At the same time, they have an overview of their customer's portfolio.
+- **Chatbot** - The Chatbot feature in Financial Services Accelerator allows financial companies to interact and coordinate with their customers in real-time and easy-to-use interface.
+- **Quote Replication** - Quotes created in another system (e.g., PQM) are replicated in the Financial Services Accelerator and shown to the customer. The customer can accept or decline the quote. The customer's decision is then replicated back to the originating system.
 
