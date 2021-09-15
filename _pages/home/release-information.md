@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 4.0.0 final published July 29, 2021**
+**Latest news: 4.1.0 final published September 14, 2021**
 
-*Last updated August 2, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated Sept 14, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -31,6 +31,32 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 4.1
+
+*Release 4.1 libraries published September 14, 2021*
+
+Highlights include the following:
+
+### SAP Digital Payments Integration
+
+SAP Digital Payments integration is an out-of-the-box alternative to current custom payment service provider (PSP) integrations. This integration uses SAP Digital Payments with ready-to-use PSP connectivity. For more information, see [{% assign linkedpage = site.pages | where: "name", "digital-payments-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/digital-payments-integration.md %}).
+
+### Quick Order
+
+The Quick Order feature allows users to quickly add multiple items to their cart. There is also the option to quickly add a single product from the cart page. For more information, see [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
+
+### B2B Inventory Display
+
+The B2B Inventory Display feature allows sellers to control the display of the stock visible for a category of products or for the whole storefront. Spartacus now supports display of actual stock values, so when this feature is enabled in the back end, the page displays "## in stock". When the feature is disabled, customers see “In Stock” or “Out of Stock”, as in previous versions of Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "inventory-display.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/inventory-display.md %}), as well as [B2B Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) on the SAP Help Portal.
+
+### Authentication Improvements
+
+Several improvements were made to authentication that help make authentication expiry during checkout more reliable. These fixes were backported to 3.0 through to 3.4, as well as to 4.0.
+
+### SSR maxRenderTime Option
+
+The `maxRenderTime` setting is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. For more information, see [Configuring the SSR Optimization Engine]({{ site.baseurl }}/server-side-rendering-optimization/#configuring-the-ssr-optimization-engine).
+  
 ## Release 4.0
 
 *Release 4.0 libraries published July 29, 2021*
@@ -42,6 +68,10 @@ Highlights include the following:
 ### Angular 12
 
 With every new major, we upgrade Angular in order to be able to use new features and of course take advantage of security improvements and bug fixes. For a quick summary of what's new, see the Angular blog post, [Angular v12 is now available](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49).
+
+### CPQ Configurable Products Integration: Display of Prices for Attribute Values
+
+The display of prices for individual options or attribute values is now supported, not only for bundle items (attributes linked to products), but also for simple attribute values (non-bundle items). For more information, see [{% assign linkedpage = site.pages | where: "name", "cpq-configurable-products-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cpq-configurable-products-integration.md %}).
 
 ### Cleanup and removal of deprecated code
 

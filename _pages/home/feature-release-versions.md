@@ -8,4 +8,6 @@ Spartacus is compatible with SAP Commerce Cloud version 1905 or higher, although
 
 **Note:** For the required version of SAP Commerce Cloud, some features do not rely on specific endpoints in the back end, so the version indicated in the table is `n/a` (that is, not applicable).
 
+**Note:** For versions that are indicated with an asterisk (*), see the relevant feature documentation for further details.
+
 {% include docs/feature_version_table.html %}

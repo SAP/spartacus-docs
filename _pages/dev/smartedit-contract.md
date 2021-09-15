@@ -6,7 +6,7 @@ The following sections describe how the SmartEdit Contract is implemented in Spa
 
 For information on setting up SmartEdit in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}).
 
-For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/86dd1373053a4c2da8f9885cc9fbe55d/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
+For general information on SmartEdit Contracts, see [SmartEdit Contract for Storefronts](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/622cebcb444b42e18de2147775430b9d.html).
 
 ***
 

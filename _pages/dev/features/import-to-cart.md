@@ -98,8 +98,8 @@ ConfigModule.withConfig(<CmsConfig>{
 }),
 ```
 
-- `maxSize` - determines how many megabytes is customer allowed to import.
-- `allowedExtensions` - is an array of allowed file types/mimes.
+- `maxSize` - determines how many megabytes is customer allowed to import. If a value is `undefined` the validator will do not check it.
+- `allowedExtensions` - is an array of allowed file types/mimes. For the configuration this property is not set, the allowed type `*` will be used.
 
 By default import process uses file name for already imported cart name. It can be changed in configuration as well, to do this `cartNameGeneration` should be defined:
 
