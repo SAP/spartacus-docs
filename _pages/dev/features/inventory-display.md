@@ -43,7 +43,7 @@ For more information on providing a configuration, see [provideConfig]({{ site.b
 
 ## Enabling B2B Inventory Display Limits in the Back End using Backoffice
 
-If the B2B Inventory Display feature is disabled in Spartacus, setting a value in the back end has no effect on the front end. In other words, Spartacus will display "in stock" or "out of stock" only.
+If the inventory display feature is disabled in Spartacus, setting a value in the back end has no effect on the front end. In other words, Spartacus will display "in stock" or "out of stock" only.
 
 For more information, see [B2B Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/2105/en-US/8ac35e1d866910148876ef95adde0c60.html) on the SAP Help Portal.
 
