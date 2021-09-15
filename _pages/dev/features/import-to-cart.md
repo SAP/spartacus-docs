@@ -1,18 +1,18 @@
 ---
-title: Import to Saved Cart
+title: Import to Cart
 feature:
-  - name: Import to Saved Cart
-    spa_version: 4.1
+  - name: Import to Cart
+    spa_version: 4.2
     cx_version: 2005
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 4.1 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 4.2 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
 
-This feature allows a customer to create saved cart, by importing a CSV file, that contains product codes and quantities.
+This feature allows a customer to create saved cart or update active cart, by importing CSV file containing product codes and quantities.
 
 ---
 
@@ -25,15 +25,23 @@ This feature allows a customer to create saved cart, by importing a CSV file, th
 
 ## Usage
 
+### Saved Cart
+
 To use this feature log in as customer in Spartacus storefront and go to `Saved Carts` page using user menu. There should be the 'Import products' button available above the saved carts list.
 
 Then form in dialog should be filled: firstly, by selecting valid CSV file with products (it can be the one previously exported using [Export from cart feature]({{ site.baseurl }}/features/export-from-cart).
 
 Secondly, by providing cart name and description. For reference see [Saved Cart feature]({{ site.baseurl }}/features/saved-cart) documentation.
 
-## Enabling Import to saved cart
+### Active Cart
 
-Import to saved cart feature can be enabled by installing the `@spartacus/cart` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
+Importing to active cart looks similar to [Saved Cart](#saved-cart) however is not needed to specify cart name and description.
+
+To start import process go to the cart page and if it is empty use 'Import products' link from suggestions. On the other hand if some products were added already into the cart import button will be available below cart entries list.
+
+## Enabling Import to cart
+
+Import to cart feature can be enabled by installing the `@spartacus/cart` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
 Also the import of following impex script is required to make feature work properly:
 
@@ -50,14 +58,15 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 ## Global Configuration
 
-Import to saved cart and export features uses common described below configuration model:
+Cart import/export features use common configuration model described below:
 
 ```ts
 export abstract class ImportExportConfig {
-  importExport?: {
+  cartImportExport?: {
     file: {
       separator: string;
     };
+    export?: ExportConfig;
   };
 }
 ```
@@ -92,7 +101,7 @@ ConfigModule.withConfig(<CmsConfig>{
 - `maxSize` - determines how many megabytes is customer allowed to import.
 - `allowedExtensions` - is an array of allowed file types/mimes.
 
-By default import to saved cart process uses file name for already imported cart name. It can be changed in configuration as well, to do this `cartNameGeneration` should be defined:
+By default import process uses file name for already imported cart name. It can be changed in configuration as well, to do this `cartNameGeneration` should be defined:
 
 ```ts
 provideConfig(<CmsConfig>{

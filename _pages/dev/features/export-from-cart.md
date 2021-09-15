@@ -2,12 +2,12 @@
 title: Export from Cart
 feature:
   - name: Export from Cart
-    spa_version: 4.1
+    spa_version: 4.2
     cx_version: 2005
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 4.1 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 4.2 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
@@ -17,7 +17,7 @@ The export from cart feature allows users to download CSV file containing specif
 - cart details page
 - saved cart details page
 
-Export from cart feature is tightly connected with import to cart, because already downloaded CSV file can be re-imported back to the storefront. For more details see [Import to saved cart]({{ site.baseurl }}/features/import-to-saved-cart) documentation.
+Export from cart feature is tightly connected with import to cart, because already downloaded CSV file can be re-imported back to the storefront. For more details see [Import to cart]({{ site.baseurl }}/features/import-to-cart) documentation.
 
 Worth to notice is that exported file always should contain product code and quantity columns. Any other additional columns can be defined in configuration [see more](#additional-columns).
 
@@ -51,14 +51,15 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 
 ## Global Configuration
 
-Import to saved cart and export features uses common described below configuration model:
+Cart import/export features use common configuration model described below:
 
 ```ts
 export abstract class ImportExportConfig {
-  importExport?: {
+  cartImportExport?: {
     file: {
       separator: string;
     };
+    export?: ExportConfig;
   };
 }
 ```
@@ -68,17 +69,21 @@ export abstract class ImportExportConfig {
 However, such configuration offers also optional setting dedicated for export feature only.
 
 ```ts
-export abstract class ImportExportConfig {
-  importExport?: {
-    ...
-    export: {
-      additionalColumns: string;
-    };
-  };
+export interface ExportConfig {
+  additionalColumns?: ExportColumn[];
+  messageEnabled?: boolean;
+  downloadDelay?: number;
+  fileName?: string;
 }
 ```
 
 - `additionalColumns` - is optional array where additional columns to export can be specified. By default exported file contains **name** and **price** values as additional columns. More details about this property can be found [here](#additional-columns).
+
+- `messageEnabled` - flag used to determine if global message informing about download starting proccess should be visible to customer.
+
+- `downloadDelay` - property dedicated to delay download starting process, mainly created to not spam customer by displaying global message and download pop-up same time.
+
+- `fileName` - here exported file name can be set.
 
 ### Additional columns
 
@@ -96,7 +101,7 @@ export interface ExportColumn {
 - `name` - is a `Translatable` object used to translate column heading to the language currently set in a storefront. If `key` value was provided it also requires to have a representation in trasnlation file.
 - `value` - is a dot notation string which refers to specified `OrderEntry` attribute (check available attributes in `order.model.ts`).
 
-Below can be found an example of default configuration:
+Here is an example of default configuration:
 
 ```ts
 export: {
