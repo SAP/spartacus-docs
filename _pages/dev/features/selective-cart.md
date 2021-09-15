@@ -18,7 +18,7 @@ The Selective Cart feature (also known as "save for later") allows customers to 
 
 The Selective Cart feature requires release **1905.11** of SAP Commerce Cloud.
 
-The `selectivecartaddon` AddOn is also required for the Selective Cart feature to work.
+The `selectivecartaddon` AddOn is also required.
 
 For more information, see [Selective Cart Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/923b6bd803734e168a6b2e7c1087caec.html) on the SAP Help Portal.
 

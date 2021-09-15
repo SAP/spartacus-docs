@@ -16,9 +16,9 @@ The notification preferences feature provides a page under user account for cust
 
 ## Requirements
 
-The notification preferences feature requires the following extension to work:
+The notification preferences feature requires the following extension:
 
-- notificationoccaddon AddOn
+- `notificationoccaddon` AddOn
 
 For more information, see [Notification Architecture](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/b090364cfbe94c6da1b69af62f585d79.html) in the SAP Help Portal.
 

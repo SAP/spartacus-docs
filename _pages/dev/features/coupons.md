@@ -16,7 +16,7 @@ The coupons feature allows you to create digital coupons that your customers can
 
 ## Requirements
 
-The coupon feature requires the following extensions to work:
+The coupon feature requires the following extensions:
 
 - `couponbackoffice` Extension
 - `couponfacades` Extension
