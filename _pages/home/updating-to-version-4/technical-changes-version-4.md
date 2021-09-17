@@ -13,7 +13,7 @@ In spartacus we expose quite some number of methods that accepts configuration. 
 
 In version 4.0 we changed the way we work with `Config`. Now each feature contributes to this interface thanks to module augmentation TS feature. Thanks to that `Config` now correctly describe all configuration options you can pass to spartacus.
 
-With that changed we are able to change the type of all the methods that accept configuration from `any` to `Config`. You no longer have to use type assertion to benefit from better type safety and DX.
+With that changed we are able to change the type of all the methods that accept configuration from `any` to `Config`. You no longer have to use type assertion to benefit from better type safety and developer experience.
 
 We still keep the individual configs (eg. `I18nConfig`, `AsmConfig`, `AuthConfig`, etc.), but all those interfaces also contribute to `Config` interface.
 
