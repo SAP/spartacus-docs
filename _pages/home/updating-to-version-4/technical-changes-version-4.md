@@ -9,19 +9,31 @@ title: Technical Changes in Spartacus 4.0
 
 ## Config Interface Augmentation
 
-In spartacus we expose quite some number of methods that accepts configuration. Up until now we didn't do a great job of typing those methods. You might notice that usually when we provide configuration we use type assertions (eg. `provideConfig(<I18nConfig>{i18n: {...}})`) to improve type safety and autocomplete functionality.
+Spartacus exposes a lot of methods that accept configuration, and with release 4.0, Spartacus improves the way it types those methods. In previous versions, configurations were often provided with type assertions (such as, `provideConfig(<I18nConfig>{i18n: {...}})`) to improve type safety and autocomplete functionality.
 
-In version 4.0 we changed the way we work with `Config`. Now each feature contributes to this interface thanks to module augmentation TS feature. Thanks to that `Config` now correctly describe all configuration options you can pass to spartacus.
+In version 4.0, Spartacus has changed the way it works with the `Config` interface, and each feature contributes to this interface using TypeScript module augmentation. As a result, the `Config` interface now correctly describes all of the configuration options that you can pass to Spartacus.
 
-With that changed we are able to change the type of all the methods that accept configuration from `any` to `Config`. You no longer have to use type assertion to benefit from better type safety and developer experience.
+Furthermore, the type for all methods that accept configuration has been changed from `any` to `Config`, and as a result, you no longer need to use type assertion to benefit from better type safety and a better developer experience.
 
-We still keep the individual configs (eg. `I18nConfig`, `AsmConfig`, `AuthConfig`, etc.), but all those interfaces also contribute to `Config` interface.
+The individual configs still exist (such as, `I18nConfig`, `AsmConfig`, `AuthConfig`, and so on), but all of these interfaces also contribute to the `Config` interface.
 
-When you need to access configuration object you can still in constructor use following syntax: `protected config: AsmConfig` (this will only hint for you `AsmConfig` properties), but you now have the option to do it with `protected config: Config`. Using the latter is recommended when you want to access complete configuration with type safety (eg. `FeatureConfig` and `MediaConfig` at the same time).
+When you need to access a configuration object, you still can by using the following syntax in the constructor:
 
-This change should be for painless for most of the users, but it will affect you if you have custom configuration in your application.
+```ts
+protected config: AsmConfig
+```
 
-Let's show it on an example with special configuration for theme:
+This will only provide hints about the `AsmConfig` properties, but you now have the option to do it as follows:
+
+```ts
+protected config: Config
+```
+
+Doing it this way is recommended when you want to access a complete configuration with type safety (for example, `FeatureConfig` and `MediaConfig` at the same time).
+
+This change should be seamless for most users, but it will affect you if you have custom configurations in your application.
+
+This can be illustrated by looking at an example with a special configuration for theme:
 
 ```ts
 // existing code
@@ -35,70 +47,74 @@ export abstract class ThemeConfig {
   };
 }
 
-// required changes
+// Required Changes
 
-// You need to augment `Config` interface from `@spartacus/core` to be able to provide this config with `provideConfig` method
+// You need to augment the `Config` interface from `@spartacus/core` to be able to
+// provide this config with the `provideConfig` method
+
 declare module '@spartacus/core' {
   interface Config extends ThemeConfig {}
 }
 ```
 
-You don't need to change anything in a places where you use this config, but in a place where you declare you custom config you have to instruct Typescript that `Config` interface also have `theme` property with `dark` option. Without it Typescript will complain that you try to pass properties which are not part of `Config`.
+You do not need to change anything in places where you use this config, but anywhere that you declare your custom config, you have to instruct TypeScript that the `Config` interface also has a `theme` property with a `dark` option. Otherwise, TypeScript complains that you are trying to pass properties that are not part of `Config`.
 
-We still recommend making top-level configuration properties optional, so you can pass the configuration in multiple chunks and not in a single place.
+It is recommended that you make top-level configuration properties optional, so that you can pass the configuration in multiple chunks, and not in a single place.
+
+For more information on module augmentation in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "type-augmentation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/type-augmentation.md %}).
 
 ## Detailed List of Changes
 
 ### Config providers
 
-- first parameter of function `provideConfig` changed from type `any` to `Config`
-- first parameter of function `provideDefaultConfig` changed from type `any` to `Config`
+- The first parameter of the `provideConfig` function changed type from `any` to `Config`
+- The first parameter of the `provideDefaultConfig` function changed type from `any` to `Config`
 
 ### ConfigModule
 
-- parameter of method `withConfig` changed type from `object` to `Config`
-- parameter of method `forRoot` changed type from `any` to `Config`
+- The parameter of the `withConfig` method changed type from `object` to `Config`
+- The parameter of the `forRoot` method changed type from `any` to `Config`
 
 ### Config injection tokens
 
-- `Config` injection token was replaced with injectable `Config` abstract class.
-- `ConfigChunk` injection token is now of type `Config[]` (from `object[]`)
-- `DefaultConfigChunk` injection token is now of type `Config[]` (from `object[]`)
+- The `Config` injection token was replaced with an injectable `Config` abstract class.
+- The `ConfigChunk` injection token is now of type `Config[]` (from `object[]`)
+- The `DefaultConfigChunk` injection token is now of type `Config[]` (from `object[]`)
 
 ### StorefrontConfig
 
-This type was removed, as it's purpose is now covered with augmentable `Config` interface. Replace usage of `StorefrontConfig` with `Config`.
+This type was removed, as its purpose is now covered with the augmentable `Config` interface. Replace usage of `StorefrontConfig` with `Config`.
 
 ### ConfigInitializerService
 
-- Constructor changed from:
+Prior to 4.0, the constructor appeared as follows:
 
-    ```ts
-    constructor(
-        @Inject(Config) protected config: any,
-        @Optional()
-        @Inject(CONFIG_INITIALIZER_FORROOT_GUARD)
-        protected initializerGuard,
-        @Inject(RootConfig) protected rootConfig: any
-      ) {}
-    ```
+```ts
+constructor(
+    @Inject(Config) protected config: any,
+    @Optional()
+    @Inject(CONFIG_INITIALIZER_FORROOT_GUARD)
+    protected initializerGuard,
+    @Inject(RootConfig) protected rootConfig: any
+  ) {}
+```
 
-    to
+The constructor now appears as follows:
 
-    ```ts
-    constructor(
-        protected config: Config,
-        @Optional()
-        @Inject(CONFIG_INITIALIZER_FORROOT_GUARD)
-        protected initializerGuard: any,
-        @Inject(RootConfig) protected rootConfig: Config
-      ) {}
-    ```
+```ts
+constructor(
+    protected config: Config,
+    @Optional()
+    @Inject(CONFIG_INITIALIZER_FORROOT_GUARD)
+    protected initializerGuard: any,
+    @Inject(RootConfig) protected rootConfig: Config
+  ) {}
+```
 
-- Method `getStable` return signature changed from `Observable<any>` to `Observable<Config>`.
-- Method `getStableConfig` return signature changed from `Promise<any>` to `Promise<Config>`.
+- The `getStable` method's return signature has changed from `Observable<any>` to `Observable<Config>`.
+- The `getStableConfig` method's return signature has changed from `Promise<any>` to `Promise<Config>`.
 
-### Config validators
+### Config Validators
 
 - type `ConfigValidator` changed from `(config: any) => string | void` to `(config: Config) => string | void`
 - first parameter of function `validateConfig` changed from `any` to `Config`
