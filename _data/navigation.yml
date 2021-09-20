@@ -262,6 +262,8 @@ docs:
           - title: "Security Best Practices ➢"
             url: /security-best-practices/
             subchildren:
+                - title: "Protection Against Denial of Service Attacks"
+                  url: /dos-protection/
                 - title: "Token Revocation"
                   url: /token-revocation/
           - title: "Server-Side Rendering ➢"
