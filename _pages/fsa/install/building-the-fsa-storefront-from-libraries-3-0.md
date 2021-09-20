@@ -146,7 +146,7 @@ export class AppModule { }
 For example, check:
 
 - `baseUrl`: Points to your SAP Commerce server.
-- `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2011.
+- `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2105.
 - `context`: Defines the site context such as base site, language, and currency.
 - `authentication`: Defines authorization of the financial customer.
 
