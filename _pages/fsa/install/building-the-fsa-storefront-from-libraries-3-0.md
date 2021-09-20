@@ -1,8 +1,8 @@
 ---
-title: Building the FSA Spartacus Storefront using 2.0 Libraries
+title: Building the FSA Spartacus Storefront using 3.0 Libraries
 ---
 
-The following instructions describe how to build an FSA storefront application using published FSA Spartacus 2.x libraries. If you are building Spartacus from source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+The following instructions describe how to build an FSA storefront application using published FSA Spartacus 3.x libraries. If you are building Spartacus from the source, see [Contributor Setup]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 ***
 
@@ -29,8 +29,8 @@ Your Angular development environment should include the following:
 
 FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end and makes use of the sample data.
 
-- SAP Commerce version: Release 2011 (the latest patch is recommended - 2011.1).
-- Financial Services Accelerator version: Release 2102 is required.
+- SAP Commerce version: Release 2105 (the latest patch is recommended).
+- Financial Services Accelerator version: Release 2108 is required.
 
 For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}).
 
