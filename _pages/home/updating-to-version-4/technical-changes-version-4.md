@@ -748,204 +748,207 @@ In release 4.0, a number of modules that grouped feature modules and provided so
 
 For more information, see [{% assign linkedpage = site.pages | where: "name", "updating-to-version-4.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-4/updating-to-version-4.md %}).
 
-### ViewConfigModule removed
+### ViewConfigModule Removed
 
-This module only provided empty default configuration that is not needed. This module was pretty much useless.
+- This module only provided empty default configuration that is not needed.
 
 ### EventService
 
-- `EventService` will now register event's parent as an event. For more, see [this docs page](https://sap.github.io/spartacus-docs/event-service/#event-type-inheritance).
+- The `EventService` now registers the parent of an event as an event. For more information, see [Event Type Inheritance]({{ site.baseurl }}/event-service/#event-type-inheritance).
 
-### Changes in product configurator feature library
+### Changes in the Product Configurator Feature Library
 
 #### MessageConfig
 
-Has been renamed to `ConfiguratorMessageConfig`
+The `MessageConfig` has been renamed to `ConfiguratorMessageConfig`.
 
 #### ConfiguratorAttributeDropDownComponent
 
-Method `onSelect` has been removed, it is no longer used. Use `onSelect` from super class which takes the value as argument
+The `onSelect` method has been removed and is no longer used. Use `onSelect` from the super class, which takes the value as an argument.
 
 #### ConfiguratorAttributeNumericInputFieldComponent
 
-Method `createEventFromInput` has been removed, it is no longer used
+The `createEventFromInput` method has been removed and is no longer used.
 
 #### ConfiguratorAttributeRadioButtonComponent
 
-Method `onDeselect` has been removed, it is no longer used
+The `onDeselect` method has been removed and is no longer used.
 
 #### ConfiguratorGroupMenuComponent
 
-Method `preventScrollingOnSpace`, `navigateUpOnEnter` and `clickOnEnter` have been removed, they are no longer used
+The `preventScrollingOnSpace`, `navigateUpOnEnter` and `clickOnEnter` methods have been removed and are no longer used.
 
 #### ConfiguratorProductTitleComponent
 
-Methods `getProductImageURL`, `getProductImageAlt` and `clickOnEnter` have been removed, they are no longer used
+The `getProductImageURL`, `getProductImageAlt` and `clickOnEnter` methods have been removed and are no longer used.
 
 #### ConfiguratorCartService
- 
-Change: The type of constructor parameter `checkoutService: CheckoutService` is changed to `checkoutFacade: CheckoutFacade` to adapt to the new checkout lib. 
-The constructor parameter `cartStore: Store<StateWithMultiCart>` has been removed.
 
-In addition, `ConfiguratorCartService` now also requires `ConfiguratorUtilsService`.
+- The `checkoutService: CheckoutService` constructor parameter type is changed to `checkoutFacade: CheckoutFacade` to adapt to the new checkout library.
+
+- The `cartStore: Store<StateWithMultiCart>` constructor parameter has been removed.
+
+- The `ConfiguratorCartService` now requires the `ConfiguratorUtilsService`.
 
 #### CommonConfiguratorUtilsService
 
-Method `getCartId` changes its signature from `getCartId(cart: Cart): string` to `getCartId(cart?: Cart): string`
+The signature of the `getCartId` method has changed from `getCartId(cart: Cart): string` to `getCartId(cart?: Cart): string`.
 
 #### ConfiguratorGroupsService
 
-Method `getFirstConflictGroup` changes return parameter from `Configurator.Group` to `Configurator.Group | undefined`
-Method `getMenuParentGroup` changes return parameter from `Configurator.Group` to `Configurator.Group | undefined`
-Method `getParentGroup` changes return parameter from `Configurator.Group` to `Configurator.Group | undefined`
-Method `getNextGroupId` changes return parameter from `Observable<string>` to `Observable<string | undefined>`
-Method `getPreviousGroupId` changes return parameter from `Observable<string>` to `Observable<string | undefined>`
-Method `getNeighboringGroupId` changes return parameter from `Observable<string>` to `Observable<string | undefined>`
+- The return parameter of the `getFirstConflictGroup` method has changed from `Configurator.Group` to `Configurator.Group | undefined`.
+- The return parameter of the `getMenuParentGroup` method has changed from `Configurator.Group` to `Configurator.Group | undefined`.
+- The return parameter of the `getParentGroup` method has changed from `Configurator.Group` to `Configurator.Group | undefined`.
+- The return parameter of the `getNextGroupId` method has changed from `Observable<string>` to `Observable<string | undefined>`.
+- The return parameter of the `getPreviousGroupId` method has changed from `Observable<string>` to `Observable<string | undefined>`.
+- The return parameter of the `getNeighboringGroupId` method has changed from `Observable<string>` to `Observable<string | undefined>`.
 
 #### ConfiguratorUtilsService
 
-Method `getParentGroup` changes return parameter from `Configurator.Group` to `Configurator.Group | undefined`
+- The return parameter of the `getParentGroup` method has changed from `Configurator.Group` to `Configurator.Group | undefined`.
 
-#### New and renamed dependencies
+#### New and Renamed Dependencies
 
-`ConfiguratorCartEntryInfoComponent` now also requires `CommonConfiguratorUtilsService`.
-`ConfiguratorAttributeCheckboxListComponent` now also requires `ConfiguratorAttributeQuantityService`.
-`ConfiguratorAttributeDropDownComponent` now also requires `ConfiguratorAttributeQuantityService`.
-`ConfiguratorAttributeInputFieldComponent` now also requires `ConfiguratorUISettingsConfig`.
-`ConfiguratorAttributeNumericInputFieldComponent` now also requires `ConfiguratorUISettingsConfig`.
-`ConfiguratorAttributeRadiButtonComponent` now also requires `ConfiguratorAttributeQuantityService`.
-`ConfiguratorGroupMenuComponent` now also requires `ConfiguratorGroupMenuService` and `DirectionService`.
-`ConfiguratorStorefrontUtilsService` now also requires `WindowRef` and `KeyboardFocusService`.
-`ConfiguratorFormComponent` now also requires `ConfiguratorStorefrontUtilsService`. 
-`ConfiguratorIssuesNotificationComponent` now also requires `CartItemContext`.
-`ConfiguratorOverviewAttributeComponent` now also requires `BreakpointService`.
-`ConfiguratorUpdateMessageComponent` now requires `ConfiguratorMessageConfig` instead of `MessageConfig`.
+- `ConfiguratorCartEntryInfoComponent` now also requires `CommonConfiguratorUtilsService`.
+- `ConfiguratorAttributeCheckboxListComponent` now also requires `ConfiguratorAttributeQuantityService`.
+- `ConfiguratorAttributeDropDownComponent` now also requires `ConfiguratorAttributeQuantityService`.
+- `ConfiguratorAttributeInputFieldComponent` now also requires `ConfiguratorUISettingsConfig`.
+- `ConfiguratorAttributeNumericInputFieldComponent` now also requires `ConfiguratorUISettingsConfig`.
+- `ConfiguratorAttributeRadiButtonComponent` now also requires `ConfiguratorAttributeQuantityService`.
+- `ConfiguratorGroupMenuComponent` now also requires `ConfiguratorGroupMenuService` and `DirectionService`.
+- `ConfiguratorStorefrontUtilsService` now also requires `WindowRef` and `KeyboardFocusService`.
+- `ConfiguratorFormComponent` now also requires `ConfiguratorStorefrontUtilsService`.
+- `ConfiguratorIssuesNotificationComponent` now also requires `CartItemContext`.
+- `ConfiguratorOverviewAttributeComponent` now also requires `BreakpointService`.
+- `ConfiguratorUpdateMessageComponent` now requires `ConfiguratorMessageConfig` instead of `MessageConfig`.
 
 ### LoginRegisterComponent
 
-Lib: @spartacus/user
-Class: LoginRegisterComponent
+Library: `@spartacus/user`
 
-Change: constructor parameter `checkoutConfigService: CheckoutConfigService` is removed.
-The display of the guest checkout button relies on the presence of the `forced` query param only.
+Class: `LoginRegisterComponent`
+
+Change: The `checkoutConfigService: CheckoutConfigService` constructor parameter is removed.
+
+The display of the guest checkout button relies on the presence of the `forced` query parameter only.
 
 ### NgbTabsetModule
 
 #### StoreFinderComponentsModule
 
-- Deprecated import `NgbTabsetModule` from `@ng-bootstrap/ng-bootstrap` has been replaced with `NgbNavModule` to support version 8 of the library.
+- The deprecated `NgbTabsetModule` import from `@ng-bootstrap/ng-bootstrap` has been replaced with `NgbNavModule` to support version 8 of the library.
 
 #### StoreFinderListComponent
 
-- Mobile template has been updated to use nav instead of tabs. [See changes.](https://github.com/SAP/spartacus/pull/12398/files#diff-1db586698a503ea500917fe4d734f84d0729f585aa7c4b56705d9171a38e7f55L64-L120)
+- The mobile template has been updated to use nav instead of tabs. For more information, see this Spartacus GitHub [pull request](https://github.com/SAP/spartacus/pull/12398/files#diff-1db586698a503ea500917fe4d734f84d0729f585aa7c4b56705d9171a38e7f55L64-L120).
 - Added styles for `ul.nav` to keep the same appearance.
 
-### ASM changes
+### ASM Changes
 
-- `AsmModule` was removed from storefrontlib, and renamed AsmComponentsModule. Use @spartacus/asm/components instead.
-- `AsmModule` was removed from core, and renamed AsmCoreModule. Use @spartacus/asm/core. instead.
-- `AsmOccModule` was removed from core. Use @spartacus/asm/occ instead.
-- `OccAsmAdapter` was removed from core. Use @spartacus/asm/occ instead.
-- `AsmConfig` was removed from core. Use @spartacus/asm/core.
-- `AsmAdapter` was removed. Use @spartacus/asm/core instead.
-- `AsmConnector` was removed. Use @spartacus/asm/core instead.
-- `CUSTOMER_SEARCH_PAGE_NORMALIZER` was removed. Use @spartacus/asm/core instead.
-- `AsmService` was removed. Use @spartacus/asm/core instead.
-- `CsAgentAuthService` was removed. Use @spartacus/asm/root instead.
-- `CustomerSearchPage` was removed. Use @spartacus/asm/core instead.
-- `CustomerSearchOptions` was removed. Use @spartacus/asm/core instead.
-- `AsmUi` was removed. Use @spartacus/asm/core instead.
-- `AsmAuthHttpHeaderService` was removed. Use @spartacus/asm/root instead.
-- `TOKEN_TARGET` was removed. Use @spartacus/asm/root instead.
-- `AsmAuthService` was removed. Use @spartacus/asm/root instead.
-- `AsmAuthStorageService` was removed. Use @spartacus/asm/root instead.
-- `SYNCED_ASM_STATE` was removed. Use @spartacus/asm/core instead.
-- `AsmStatePersistenceService` was removed. Use @spartacus/asm/core instead.
-- `ASM_UI_UPDATE` was removed. Use @spartacus/asm/core instead.
-- `AsmUiUpdate` was removed. Use @spartacus/asm/core instead.
-- `AsmUiAction` was removed. Use @spartacus/asm/core instead.
-- `CUSTOMER_SEARCH` was removed. Use @spartacus/asm/core instead.
-- `CUSTOMER_SEARCH_FAIL` was removed. Use @spartacus/asm/core instead.
-- `CUSTOMER_SEARCH_SUCCESS` was removed. Use @spartacus/asm/core instead.
-- `CUSTOMER_SEARCH_RESET` was removed. Use @spartacus/asm/core instead.
-- `CustomerSearch` was removed. Use @spartacus/asm/core instead.
-- `CustomerSearchFail` was removed. Use @spartacus/asm/core instead.
-- `CustomerSearchSuccess` was removed. Use @spartacus/asm/core instead.
-- `CustomerSearchReset` was removed. Use @spartacus/asm/core instead.
-- `CustomerAction` was removed. Use @spartacus/asm/core instead.
-- `LOGOUT_CUSTOMER_SUPPORT_AGENT` was removed. Use @spartacus/asm/core instead.
-- `LogoutCustomerSupportAgent` was removed. Use @spartacus/asm/core instead.
-- `ASM_FEATURE` was removed. Use @spartacus/asm/core instead.
-- `CUSTOMER_SEARCH_DATA` was removed. Use @spartacus/asm/core instead.
-- `StateWithAsm` was removed. Use @spartacus/asm/core instead.
-- `AsmState` was removed. Use @spartacus/asm/core instead.
-- `getAsmUi` was removed. Use @spartacus/asm/core instead.
-- `getCustomerSearchResultsLoaderState` was removed. Use @spartacus/asm/core instead.
-- `getCustomerSearchResults` was removed. Use @spartacus/asm/core instead.
-- `getCustomerSearchResultsLoading` was removed. Use @spartacus/asm/core instead.
-- `getAsmState` was removed. Use @spartacus/asm/core instead.
+- The `AsmModule` was removed from `@spartacus/storefrontlib`, and renamed to `AsmComponentsModule`. Use `@spartacus/asm/components` instead.
+- `AsmModule` was removed from `@spartacus/core`, and renamed to `AsmCoreModule`. Use `@spartacus/asm/core` instead.
+- `AsmOccModule` was removed from `@spartacus/core`. Use `@spartacus/asm/occ` instead.
+- `OccAsmAdapter` was removed from `@spartacus/core`. Use `@spartacus/asm/occ` instead.
+- `AsmConfig` was removed from `@spartacus/core`. Use `@spartacus/asm/core`.
+- `AsmAdapter` was removed. Use `@spartacus/asm/core` instead.
+- `AsmConnector` was removed. Use `@spartacus/asm/core` instead.
+- `CUSTOMER_SEARCH_PAGE_NORMALIZER` was removed. Use `@spartacus/asm/core` instead.
+- `AsmService` was removed. Use `@spartacus/asm/core` instead.
+- `CsAgentAuthService` was removed. Use `@spartacus/asm/root` instead.
+- `CustomerSearchPage` was removed. Use `@spartacus/asm/core` instead.
+- `CustomerSearchOptions` was removed. Use `@spartacus/asm/core` instead.
+- `AsmUi` was removed. Use `@spartacus/asm/core` instead.
+- `AsmAuthHttpHeaderService` was removed. Use `@spartacus/asm/root` instead.
+- `TOKEN_TARGET` was removed. Use `@spartacus/asm/root` instead.
+- `AsmAuthService` was removed. Use `@spartacus/asm/root` instead.
+- `AsmAuthStorageService` was removed. Use `@spartacus/asm/root` instead.
+- `SYNCED_ASM_STATE` was removed. Use `@spartacus/asm/core` instead.
+- `AsmStatePersistenceService` was removed. Use `@spartacus/asm/core` instead.
+- `ASM_UI_UPDATE` was removed. Use `@spartacus/asm/core` instead.
+- `AsmUiUpdate` was removed. Use `@spartacus/asm/core` instead.
+- `AsmUiAction` was removed. Use `@spartacus/asm/core` instead.
+- `CUSTOMER_SEARCH` was removed. Use `@spartacus/asm/core` instead.
+- `CUSTOMER_SEARCH_FAIL` was removed. Use `@spartacus/asm/core` instead.
+- `CUSTOMER_SEARCH_SUCCESS` was removed. Use `@spartacus/asm/core` instead.
+- `CUSTOMER_SEARCH_RESET` was removed. Use `@spartacus/asm/core` instead.
+- `CustomerSearch` was removed. Use `@spartacus/asm/core` instead.
+- `CustomerSearchFail` was removed. Use `@spartacus/asm/core` instead.
+- `CustomerSearchSuccess` was removed. Use `@spartacus/asm/core` instead.
+- `CustomerSearchReset` was removed. Use `@spartacus/asm/core` instead.
+- `CustomerAction` was removed. Use `@spartacus/asm/core` instead.
+- `LOGOUT_CUSTOMER_SUPPORT_AGENT` was removed. Use `@spartacus/asm/core` instead.
+- `LogoutCustomerSupportAgent` was removed. Use `@spartacus/asm/core` instead.
+- `ASM_FEATURE` was removed. Use `@spartacus/asm/core` instead.
+- `CUSTOMER_SEARCH_DATA` was removed. Use `@spartacus/asm/core` instead.
+- `StateWithAsm` was removed. Use `@spartacus/asm/core` instead.
+- `AsmState` was removed. Use `@spartacus/asm/core` instead.
+- `getAsmUi` was removed. Use `@spartacus/asm/core` instead.
+- `getCustomerSearchResultsLoaderState` was removed. Use `@spartacus/asm/core` instead.
+- `getCustomerSearchResults` was removed. Use `@spartacus/asm/core` instead.
+- `getCustomerSearchResultsLoading` was removed. Use `@spartacus/asm/core` instead.
+- `getAsmState` was removed. Use `@spartacus/asm/core` instead.
 
 ### LaunchDialogService
 
 #### SavedCartFormLaunchDialogService
 
-- Service has been removed. `openDialog` method is part of LaunchDialogService now.
+- The `SavedCartFormLaunchDialogService` service has been removed. The `openDialog` method is part of the `LaunchDialogService` now.
 
 #### AddToSavedCartComponent
 
-- Removed `SavedCartFormLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
+- The `SavedCartFormLaunchDialogService` was removed from the constructor.
+- The `LaunchDialogService` was added to the constructor.
 
 #### SavedCartDetailsActionComponent
 
-- Removed `SavedCartFormLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
+- The `SavedCartFormLaunchDialogService` was removed from the constructor.
+- The `LaunchDialogService` was added to the constructor.
 
 #### SavedCartDetailsOverviewComponent
 
-- Removed `SavedCartFormLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
+- The `SavedCartFormLaunchDialogService` was removed from the constructor.
+- The `LaunchDialogService` was added to the constructor.
 
 #### AnonymousConsentLaunchDialogService
 
-- Service has been removed. `openDialog` method is part of `LaunchDialogService` now.
+- The `AnonymousConsentLaunchDialogService` service has been removed. The `openDialog` method is part of `LaunchDialogService` now.
 
 #### AnonymousConsentManagementBannerComponent
 
-- Removed `AnonymousConsentLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
+- The `AnonymousConsentLaunchDialogService` was removed from the constructor.
+- The `LaunchDialogService` was added to the constructor.
 
 #### AnonymousConsentOpenDialogComponent
 
-- Removed `AnonymousConsentLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
+- The `AnonymousConsentLaunchDialogService` was removed from the constructor.
+- The `LaunchDialogService` was added to the constructor.
 
 #### ReplenishmentOrderCancellationLaunchDialogService
 
-- Service has been removed. `openDialog` method is part of LaunchDialogService now.
+- The `ReplenishmentOrderCancellationLaunchDialogService` service has been removed. The `openDialog` method is part of `LaunchDialogService` now.
 
 #### ReplenishmentOrderCancellationComponent
 
-- Removed `ReplenishmentOrderCancellationLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
+- The `ReplenishmentOrderCancellationLaunchDialogService` was removed from the constructor.
+- The `LaunchDialogService` was added to the constructor.
 
 #### OrderHistoryComponent
 
-- `div` which wrapped `cx-sorting` component has been changed to `label` and added `span` before field.
+- The `div` that wrapped the `cx-sorting` component has been changed to `label` and `span` was added before field.
 
 #### OrderReturnRequestListComponent
 
-- `div` which wrapped `cx-sorting` component has been changed to `label` and added `span` before field.
+- The `div` that wrapped the `cx-sorting` component has been changed to `label` and `span` was added before field.
 
 #### ReplenishmentOrderHistoryComponent
 
-- Removed `ReplenishmentOrderCancellationLaunchDialogService` from constructor.
-- Added `LaunchDialogService` to constructor.
-- `div` which wrapped `cx-sorting` component has been changed to `label` and added `span` before field.
+- The `ReplenishmentOrderCancellationLaunchDialogService` was removed from the constructor.
+- the `LaunchDialogService` was added to the constructor.
+- The `div` that wrapped the `cx-sorting` component has been changed to `label` and  `span` was added before field.
 
 #### ProductListComponent
 
-- Two elements `div` which wrapped `cx-sorting` component has been merged to one `label` and added `span` before field.
+- Two `div` elements that wrapped the `cx-sorting` component have been merged to one `label` and `span` was added before field.
 
 ### SmartEdit
 
@@ -962,73 +965,74 @@ The display of the guest checkout button relies on the presence of the `forced` 
 
 ### WindowRef
 
-- `platformId` is now required constructor dependency.
+- `platformId` is now a required constructor dependency.
 
 ### ProductListComponentService
 
 - `ProductListComponentService` now also requires `ViewConfig`.
-- The `defaultPageSize` property was removed. To modify default page size use `provideConfig(<ViewConfig>{ view: { defaultPageSize: <your_default_page_size_value }})` in module.
+- The `defaultPageSize` property was removed. To modify the default page size, use `provideConfig(<ViewConfig>{ view: { defaultPageSize: <your_default_page_size_value }})` in the module.
 
 ### Product reloading
 
-- `reload` method was removed from `ProductService`. Instead, use the [reloading triggers](https://sap.github.io/spartacus-docs/loading-scopes/#reloading-triggers).
-- `ProductLoadingService`'s constructor has changed - `EventService` from `@spartacus/core` was added as a parameter.
+- The `reload` method was removed from `ProductService`. Instead, use the [reloading triggers]({{ site.baseurl }}/loading-scopes/#reloading-triggers).
+- The `EventService` from `@spartacus/core` was added as a parameter to the constructor for the `ProductLoadingService`.
 
-### Product variants changes
+### Product Variants Changes
 
 #### Automated Migrations for Version 4.0
 
-- `ProductVariantsModule` was removed from @spartacus/storefront. Use `@spartacus/product/variants` feature-library instead.
-- `ProductVariantsComponent` was removed from @spartacus/storefront. Use `ProductVariantsContainerComponent` from `@spartacus/product/variants/components` as a replacement.
-- `VariantColorSelectorComponent` was removed from @spartacus/storefront. Use `ProductVariantColorSelectorComponent` from `@spartacus/product/variants/components` as a replacement.
-- `VariantColorSelectorModule` was removed from @spartacus/storefront. Use `ProductVariantColorSelectorModule` from `@spartacus/product/variants/components` as a replacement.
-- `VariantSizeSelectorComponent` was removed from @spartacus/storefront. Use `ProductVariantSizeSelectorComponent` from `@spartacus/product/variants/components` as a replacement.
-- `VariantSizeSelectorModule` was removed from @spartacus/storefront. Use `ProductVariantSizeSelectorModule` from `@spartacus/product/variants/components` as a replacement.
-- `VariantStyleSelectorComponent` was removed from @spartacus/storefront. Use `ProductVariantStyleSelectorComponent` from `@spartacus/product/variants/components` as a replacement.
-- `VariantStyleSelectorModule` was removed from @spartacus/storefront. Use `ProductVariantStyleSelectorModule` from `@spartacus/product/variants/components` as a replacement.
-- `VariantStyleIconsComponent` was removed from @spartacus/storefront. Use `ProductVariantStyleIconsComponent` from `@spartacus/product/variants/root` as a replacement.
+- `ProductVariantsModule` was removed from `@spartacus/storefront`. Use the `@spartacus/product/variants` feature library instead.
+- `ProductVariantsComponent` was removed from `@spartacus/storefront`. Use `ProductVariantsContainerComponent` from `@spartacus/product/variants/components` instead.
+- `VariantColorSelectorComponent` was removed from `@spartacus/storefront`. Use `ProductVariantColorSelectorComponent` from `@spartacus/product/variants/components` instead.
+- `VariantColorSelectorModule` was removed from `@spartacus/storefront`. Use `ProductVariantColorSelectorModule` from `@spartacus/product/variants/components` instead.
+- `VariantSizeSelectorComponent` was removed from `@spartacus/storefront`. Use `ProductVariantSizeSelectorComponent` from `@spartacus/product/variants/components` instead.
+- `VariantSizeSelectorModule` was removed from `@spartacus/storefront`. Use `ProductVariantSizeSelectorModule` from `@spartacus/product/variants/components` instead.
+- `VariantStyleSelectorComponent` was removed from `@spartacus/storefront`. Use `ProductVariantStyleSelectorComponent` from `@spartacus/product/variants/components` instead.
+- `VariantStyleSelectorModule` was removed from `@spartacus/storefront`. Use `ProductVariantStyleSelectorModule` from `@spartacus/product/variants/components` instead.
+- `VariantStyleIconsComponent` was removed from `@spartacus/storefront`. Use `ProductVariantStyleIconsComponent` from `@spartacus/product/variants/root` instead.
 - `ProductVariantStyleIconsComponent` was moved from `@spartacus/product/variants/components`to `@spartacus/product/variants/root` instead.
-- `VariantStyleIconsModule` was removed from @spartacus/storefront. Use `ProductVariantStyleIconsModule` from `@spartacus/product/variants/root` as a replacement.
+- `VariantStyleIconsModule` was removed from `@spartacus/storefront`. Use `ProductVariantStyleIconsModule` from `@spartacus/product/variants/root` instead.
 - `ProductVariantStyleIconsModule` was moved from `@spartacus/product/variants/components`to `@spartacus/product/variants/root` instead.
-- `ProductVariantGuard` was removed from @spartacus/storefront. Use `ProductVariantsGuard` from `@spartacus/product/variants/components` instead. Additionally method: `findVariant` was renamed to `findPurchasableProductCode`.
+- `ProductVariantGuard` was removed from `@spartacus/storefront`. Use `ProductVariantsGuard` from `@spartacus/product/variants/components` instead. Additionally, the `findVariant` method was renamed to `findPurchasableProductCode`.
 - `AuthHttpHeaderService` now requires `AuthRedirectService`.
 - `AsmAuthHttpHeaderService` now requires `AuthRedirectService`.
 - `AuthRedirectService` now requires `AuthFlowRoutesService`.
 - `RoutingService` now requires `Location` from `@angular/common`.
 - `ProtectedRoutesService` now requires `UrlParsingService`.
 - `EventService` no longer uses `FeatureConfigService`.
-- `PageEventModule` was removed. Instead, use `NavigationEventModule` from `@spartacus/storefront`
-- `PageEventBuilder` was removed. Instead, use `NavigationEventBuilder` from `@spartacus/storefront`
+- `PageEventModule` was removed. Instead, use `NavigationEventModule` from `@spartacus/storefront`.
+- `PageEventBuilder` was removed. Instead, use `NavigationEventBuilder` from `@spartacus/storefront`.
 - `CartPageEventBuilder` no longer uses `ActionsSubject` and `FeatureConfigService`
-- `HomePageEventBuilder` no longer uses `FeatureConfigService`
-- `ProductPageEventBuilder` no longer uses `FeatureConfigService`
-- `PageEvent` no longer contains `context`, `semanticRoute`, `url` and `params` properties. These are now contained in the `PageEvent.navigation` object
-- `EventsModule` was removed. Use individual imports instead. (e.g. CartPageEventModule, ProductPageEventModule, etc.)
+- `HomePageEventBuilder` no longer uses `FeatureConfigService`.
+- `ProductPageEventBuilder` no longer uses `FeatureConfigService`.
+- `PageEvent` no longer contains the `context`, `semanticRoute`, `url` and `params` properties. These are now contained in the `PageEvent.navigation` object.
+- `EventsModule` was removed. Use individual imports instead (for example, `CartPageEventModule`, `ProductPageEventModule`, and so on).
 
-#### Product variants i18n
+#### Product Variants i18n
 
-- translation namespace `variant` was removed from `@spartacus/assets`. Use namespace `productVariants` that can be imported with `productVariantsTranslations` and `productVariantsTranslationChunksConfig` from `@spartacus/product/variants/assets` instead. Translation keys from this namespace did not changed.
+- The `variant` translation namespace was removed from `@spartacus/assets`. Use the `productVariants` namespace that can be imported with `productVariantsTranslations` and `productVariantsTranslationChunksConfig` from `@spartacus/product/variants/assets` instead. Translation keys from this namespace did not changed.
 
-#### Product variants endpoint scope
+#### Product Variants Endpoint Scope
 
-- scope `variants` was removed from `defaultOccProductConfig`. It's now provided by `ProductVariantsOccModule` under `@spartacus/product/variants/occ` instead. Additionally the endpoint now uses `orgProducts` API instead of `products`.
+- The `variants` scope was removed from `defaultOccProductConfig`. It is now provided by `ProductVariantsOccModule` under `@spartacus/product/variants/occ` instead. Additionally, the endpoint now uses the `orgProducts` API instead of `products`.
 
 #### ProductVariantStyleIconsComponent
-`ProductVariantStyleIconsComponent` changed its constructor dependency from `ProductListItemContextSource` to `ProductListItemContext`.
 
-#### Product variants styles
+- `ProductVariantStyleIconsComponent` changed its constructor dependency from `ProductListItemContextSource` to `ProductListItemContext`.
 
-- styles for `cx-product-variants` were removed from `@spartacus/styles`. Use `@spartacus/product/variants` import instead.
+#### Product Variants Styles
 
-### Feature keys for product configurators
+- Styles for `cx-product-variants` were removed from `@spartacus/styles`. Use the `@spartacus/product/variants` import instead.
 
-The feature keys that are used to lazily load the product configurator libraries in app.module.ts were available as `rulebased` and `productConfiguratorRulebased` from 3.1 onwards (respective `textfield` and `productConfiguratorTextfield` for the textfield template configurator).
+### Feature Keys for Product Configurators
+
+The feature keys that are used to lazy load the product configurator libraries in `app.module.ts` were available as `rulebased` and `productConfiguratorRulebased` from 3.1 onwards (respective `textfield` and `productConfiguratorTextfield` for the textfield template configurator).
 
 In 4.0, only the longer versions `productConfiguratorRulebased` and `productConfiguratorTextfield` are possible.
 
-Example: A configuration
+The following is an example of a configuration for Spartacus prior to 4.0:
 
-```
+```ts
       featureModules: {
         rulebased: {
           module: () => import('@spartacus/product-configurator/rulebased').then(
@@ -1038,9 +1042,9 @@ Example: A configuration
       }
 ```
 
-needs to look like that in 4.0
+With Spartacus 4.0, the configuration needs to appear as follows:
 
-```
+```ts
       featureModules: {
         productConfiguratorRulebased: {
           module: () => import('@spartacus/product-configurator/rulebased').then(
@@ -1052,45 +1056,48 @@ needs to look like that in 4.0
 
 ### Translations (i18n) changed
 
-- Key `asm.standardSessionInProgress` was removed.
-- Key `pageMetaResolver.checkout.title_plurar` has been removed.
-- Value of `pageMetaResolver.checkout.title` has been changed to `Checkout`.
+- The `asm.standardSessionInProgress` key was removed.
+- The `pageMetaResolver.checkout.title_plurar` key was removed.
+- The value of `pageMetaResolver.checkout.title` has been changed to `Checkout`.
 
-### Storage Sync mechanism
+### Storage Sync Mechanism
 
-I version 4.0 we removed deprecated in version 3.0 storage sync mechanism. In previous major release we provided more powerful mechanism based on `StatePersistenceService` which can cover all use cases for synchronizing data to and from browser storage (eg. `localStorage`, `sessionStorage`) better than the removed storage sync.
+In version 4.0, the storage sync mechanism that was deprecated in version 3.0 has now been removed. In the previous major release, Spartacus provided a more powerful mechanism based on `StatePersistenceService`, which can cover all use cases for synchronizing data to and from the browser storage (such as `localStorage` and `sessionStorage`), and it does this better than the removed storage sync.
 
-What was removed:
+The following was removed:
 
-- core of the mechanism (reducer)
-- configuration (`storageSync` from `StateConfig`)
-- default config and default keys (`defaultStateConfig`, `DEFAULT_LOCAL_STORAGE_KEY` and `DEFAULT_SESSION_STORAGE_KEY`)
+- The core of the mechanism (reducer)
+- The configuration (`storageSync` from `StateConfig`)
+- The default config and default keys (`defaultStateConfig`, `DEFAULT_LOCAL_STORAGE_KEY` and `DEFAULT_SESSION_STORAGE_KEY`)
 
 ### DefaultScrollConfig
 
-- `defaultScrollConfig` was renamed to `defaultViewConfig`
+- The `defaultScrollConfig` was renamed to `defaultViewConfig`
 
 ### BaseSiteService
 
-- The method `BaseSiteService.initialize` was removed, please use `BaseSiteServiceInitializer.initialize` instead. A method `BaseSiteService.isInitialized` was added.
+- The `BaseSiteService.initialize` method was removed. Use `BaseSiteServiceInitializer.initialize` instead.
+- A `BaseSiteService.isInitialized` method was added.
 
 ### LanguageService
 
-- The method `LanguageService.initialize` was removed, please use `LanguageInitializer.initialize` instead. A method `LanguageService.isInitialized` was added.
+- The `LanguageService.initialize` method was removed. Use `LanguageInitializer.initialize` instead.
+- A `LanguageService.isInitialized` method was added.
 - `LanguageService` no longer uses `WindowRef`. The language initialization from the state was moved to `LanguageInitializer`.
-- `LanguageService` now validate the value passed to the method `setActive()` against the iso codes listed in the Spartacus `context` config, before setting the actual value in the ngrx store.
-- The initialization of the site context is scheduled a bit earlier than in before (now it's run in an observable stream instead of a Promise's callback). It's a very slight change, but might have side-effects in some custom implementations.
-- The active language is now persisted in the Local Storage instead of the Session Storage
+- `LanguageService` now validates the value passed to the `setActive()` method against the ISO codes listed in the Spartacus `context` config, before setting the actual value in the NgRx store.
+- The initialization of the site context is scheduled a bit earlier than it was before (now it is run in an observable stream instead of a Promise's callback). It is a very slight change, but might have side effects in some custom implementations.
+- The active language is now persisted in the Local Storage instead of the Session Storage.
 
 ### CurrencyService
 
-- The method `CurrencyService.initialize` was removed, please use `CurrencyInitializer.initialize` instead. A method `CurrencyService.isInitialized` was added.
+- The `CurrencyService.initialize` method was removed. Use `CurrencyInitializer.initialize` instead.
+- A `CurrencyService.isInitialized` method was added.
 - `CurrencyService` no longer uses `WindowRef`. The currency initialization from the state was moved to `CurrencyInitializer`.
-- `CurrencyService` now validate the value passed to the method `setActive()` against the iso codes listed in the Spartacus `context` config, before setting the actual value in the ngrx store.
-- The initialization of the site context is scheduled a bit earlier than in before (now it's run in an observable stream instead of a Promise's callback). It's a very slight change, but might have side-effects in some custom implementations.
+- `CurrencyService` now validates the value passed to the `setActive()` method against the ISO codes listed in the Spartacus `context` config, before setting the actual value in the RgRx store.
+- The initialization of the site context is scheduled a bit earlier than it was before (now it is run in an observable stream instead of a Promise's callback). It is a very slight change, but might have side effects in some custom implementations.
 - The active currency is now persisted in the LocalStorage instead of the Session Storage.
 
-### Page resolvers
+### Page Resolvers
 
 In 3.1 and 3.2 we've introduced a few changes on how the page meta data is collected. The resolvers are now configurable and whether they render on the client or server (SSR) is also configurable (by default description, image, robots and canonical url are resolved only in SSR). A few resolvers are changed or added, since most data is now configurable in the backend (description, robots). The robot information that was previously hardcoded in some resolvers, are now driven by backend data.
 
@@ -1251,6 +1258,7 @@ The following properties where removed in 4.0:
 ### CartItemComponent
 
 `CartItemComponent` now also requires `CartItemContextSource`. Moreover, a customized version of this component now also should provide locally `CartItemContextSource` and `CartItemContext` in the following way:
+
 ```typescript
 @Component({
   providers: [
@@ -1262,7 +1270,9 @@ The following properties where removed in 4.0:
 ```
 
 ### ProductListItemComponent and ProductGridItemComponent
+
 `ProductListItemComponent` and `ProductGridItemComponent` now require `ProductListItemContextSource`. Moreover, customized versions of those components now also should provide locally `ProductListItemContextSource` and `ProductListItemContext` in the following way:
+
 ```typescript
 @Component({
   providers: [
@@ -1273,10 +1283,9 @@ The following properties where removed in 4.0:
 })
 ```
 
-
 ### CartItemContext and CartItemContextSource
-- the property `promotionLocation$` has been removed, please use `location$` instead  
 
+- the property `promotionLocation$` has been removed, please use `location$` instead  
 
 ### User lib changes
 
@@ -1379,6 +1388,7 @@ The following properties where removed in 4.0:
 ### MyCouponsComponent
 
 - `div` which wrapped `cx-sorting` component has been changed to `label` and added `span` before.
+
 #### OccUserAdapter
 
 - `OccUserAdapter` was removed. Instead please use `OccUserAccountAdapter` from `@spartacus/user/account/occ` and `OccUserProfileAdapter` from `@spartacus/user/profile/occ`.
@@ -1442,7 +1452,7 @@ The following properties where removed in 4.0:
 
 - `UserSignUp` model was moved to `@spartacus/user/profile` lib.
 
-#### Ngrx state of the User feature
+#### NgRx State of the User Feature
 
 Some branches of the ngrx state for the User feature were removed: `'account'`, `'titles'`, and `'resetPassword'`. Please use the new approach with Queries and Commands defined in the new facades in  the library `@spartacus/user`:
 `UserAccountFacade` from '@spartacus/user/account/root'
@@ -1452,6 +1462,7 @@ Some branches of the ngrx state for the User feature were removed: `'account'`, 
 `UserRegisterFacade` from '@spartacus/user/profile/root' 
 
 The following items related to the ngrx state were removed from `@spartacus/core`:
+
 - Following actions `ForgotPasswordEmailRequest`, `ForgotPasswordEmailRequestFail`, `ForgotPasswordEmailRequestSuccess`, `ResetPassword`, `ResetPasswordFail`, `ResetPasswordSuccess`, `LoadTitles`, `LoadTitlesFail`, `LoadTitlesSuccess`, `UpdateEmailAction`, `UpdateEmailSuccessAction`, `UpdateEmailErrorAction`, `ResetUpdateEmailAction`, `UpdatePassword`, `UpdatePasswordFail`, `UpdatePasswordSuccess`, `UpdatePasswordReset`, `LoadUserDetails`, `LoadUserDetailsFail`, `LoadUserDetailsSuccess`, `UpdateUserDetails`, `UpdateUserDetailsFail`, `UpdateUserDetailsSuccess`, `ResetUpdateUserDetails`, `RegisterUser`, `RegisterUserFail`, `RegisterUserSuccess`, `ResetRegisterUserProcess`, `RegisterGuest`, `RegisterGuestFail`, `RegisterGuestSuccess`, `RemoveUser`, `RemoveUserFail`, `RemoveUserSuccess`, `RemoveUserReset` were removed.
 - Following effects `ForgotPasswordEffects`, `ResetPasswordEffects`, `TitlesEffects`, `UpdateEmailEffects`, `UpdatePasswordEffects`, `UserDetailsEffects`, `UserRegisterEffects` were removed.
 - Following selectors `getResetPassword`, `getDetailsState`, `getDetails`, `getTitlesState`, `getTitlesEntites`, `getAllTitles`, `titleSelectorFactory` were removed.
@@ -1503,9 +1514,10 @@ The following items related to the ngrx state were removed from `@spartacus/core
 
 #### CmsPageTitleComponent
 
-- New interface has been created 
+- New interface has been created
 
 #### CmsBreadcrumbsComponent
+
 - `CmsBreadcrumbsComponent` extends `CmsPageTitleComponent` now
 - `container` property has been moved to `CmsPageTitleComponent`
 
@@ -1608,7 +1620,9 @@ The following items related to the ngrx state were removed from `@spartacus/core
 - Key `productList.sortByMostRecent` has been removed. We use `productList.sortBy` now.
 
 ### Default routing config for the My Company feature
+
 The default routing config for the My Company pages was moved from various modules in `@spartacus/organization/administration/components` to `OrganizationAdministrationRootModule` in `@spartacus/organization/administration/root`. Therefore the default config is now provided eagerly, so it's available early on app start (but not only after the feature is lazy loaded). Also, the following objects were renamed and moved to `@spartacus/organization/administration/root`:
+
 - `budgetRoutingConfig` -> `defaultBudgetRoutingConfig`
 - `costCenterRoutingConfig` -> `defaultCostCenterRoutingConfig`
 - `permissionRoutingConfig` -> `defaultPermissionRoutingConfig`
@@ -1628,7 +1642,6 @@ related labels outside of checkout and the checkout lib is not used, you will ne
 - Key `checkoutAddress.enteredAddress` is moved to `addressSuggestion.enteredAddress`.
 - Key `checkoutAddress.editAddress` is moved to `addressSuggestion.editAddress`.
 - Key `checkoutAddress.saveAddress` is moved to `addressSuggestion.saveAddress`.
-
 - Key `checkoutOrderConfirmation.replenishmentNumber` is removed. You can use instead ``.
 - Key `checkoutOrderConfirmation.placedOn` is removed. You can use instead `orderDetails.placedOn`.
 - Key `checkoutOrderConfirmation.status` is removed. You can use instead `orderDetails.status`.
@@ -1648,11 +1661,14 @@ related labels outside of checkout and the checkout lib is not used, you will ne
 `AuthRedirectService` is a new, required constructor dependency.
 
 ### RoutingService
+
 - `RoutingService.go` - changed signature. Before 4.0, the object with query params could be passed in the 2nd argument. Now the 2nd argument is Angular `NavigationExtras` object (with `'queryParams'` property).
 - `RoutingService.navigate` - changed signature. Before 4.0, the object with query params could be passed in the 2nd argument. Now the 2nd argument is Angular `NavigationExtras` object (with `'queryParams'` property).
 
 ### RoutingActions ngrx
+
 The following ngrx actions have been removed:
+
 - `RoutingActions.RouteGo` (and `RoutingActions.ROUTER_GO`)
 - `RoutingActions.RouteGoByUrlAction` (and `RoutingActions.ROUTER_GO_BY_URL`)
 - `RoutingActions.RouteBackAction` (and `RoutingActions.ROUTER_BACK`)
@@ -1683,6 +1699,7 @@ Please use instead the methods of the `RoutingService`, respectively: `go()`, `g
 - The service was removed from core. Please use `ScriptLoader` instead.
 
 ### CxApi
+
 Removed public members of `CxApi`: `CheckoutService`, `CheckoutDeliveryService`, `CheckoutPaymentService`.
 
 ### TabParagraphContainerComponent
