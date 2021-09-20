@@ -67,19 +67,19 @@ For more information on module augmentation in Spartacus, see [{% assign linkedp
 
 ### Config providers
 
-- The first parameter of the `provideConfig` function changed type from `any` to `Config`
-- The first parameter of the `provideDefaultConfig` function changed type from `any` to `Config`
+- The first parameter of the `provideConfig` function changed type from `any` to `Config`.
+- The first parameter of the `provideDefaultConfig` function changed type from `any` to `Config`.
 
 ### ConfigModule
 
-- The parameter of the `withConfig` method changed type from `object` to `Config`
-- The parameter of the `forRoot` method changed type from `any` to `Config`
+- The parameter of the `withConfig` method changed type from `object` to `Config`.
+- The parameter of the `forRoot` method changed type from `any` to `Config`.
 
-### Config injection tokens
+### Config Injection Tokens
 
 - The `Config` injection token was replaced with an injectable `Config` abstract class.
-- The `ConfigChunk` injection token is now of type `Config[]` (from `object[]`)
-- The `DefaultConfigChunk` injection token is now of type `Config[]` (from `object[]`)
+- The `ConfigChunk` injection token changed type from `object[]` to `Config[]`.
+- The `DefaultConfigChunk` injection token changed type from `object[]` to `Config[]`.
 
 ### StorefrontConfig
 
@@ -116,47 +116,47 @@ constructor(
 
 ### Config Validators
 
-- type `ConfigValidator` changed from `(config: any) => string | void` to `(config: Config) => string | void`
-- first parameter of function `validateConfig` changed from `any` to `Config`
+- The `ConfigValidator` type changed from `(config: any) => string | void` to `(config: Config) => string | void`.
+- The first parameter of the `validateConfig` function changed from `any` to `Config`.
 
 ### ConfigInitializer
 
-- `ConfigInitializer.configFactory` signature changed from `() => Promise<any>` to `() => Promise<Config>`.
+- The `ConfigInitializer.configFactory` signature changed from `() => Promise<any>` to `() => Promise<Config>`.
 
 ### ConfigurationService
 
-- `unifiedConfig$` type changed from `Observable<any>` to `Observable<Config>`
-- `config` type changed from `any` to `Config`
-- constructor changed from
+- The `unifiedConfig$` type changed from `Observable<any>` to `Observable<Config>`.
+- The `config` type changed from `any` to `Config`.
+- Prior to 4.0, the constructor appeared as follows:
 
-    ```ts
-    constructor(
-      @Inject(RootConfig) protected rootConfig: any,
-      @Inject(DefaultConfig) protected defaultConfig: any,
-      protected unifiedInjector: UnifiedInjector,
-      @Inject(Config) config: any
-    )
-    ```
+   ```ts
+   constructor(
+     @Inject(RootConfig) protected rootConfig: any,
+     @Inject(DefaultConfig) protected defaultConfig: any,
+     protected unifiedInjector: UnifiedInjector,
+     @Inject(Config) config: any
+   )
+   ```
 
-    to
+- The constructor now appears as follows:
 
-    ```ts
-    constructor(
-      @Inject(RootConfig) protected rootConfig: Config,
-      @Inject(DefaultConfig) protected defaultConfig: Config,
-      protected unifiedInjector: UnifiedInjector,
-      config: Config
-    )
-    ```
+   ```ts
+   constructor(
+     @Inject(RootConfig) protected rootConfig: Config,
+     @Inject(DefaultConfig) protected defaultConfig: Config,
+     protected unifiedInjector: UnifiedInjector,
+     config: Config
+   )
+   ```
 
-### Feature config utils
+### Feature Config Utils
 
-- `isFeatureLevel` first parameter type changed from `unknown` to `Config`
-- `isFeatureEnabled` first parameter type changed from `unknown` to `Config`
+- The first parameter type of `isFeatureLevel` changed from `unknown` to `Config`.
+- The first parameter type of `isFeatureEnabled` changed from `unknown` to `Config`.
 
 ### MediaService
 
-- constructor changed from
+- Prior to 4.0, the constructor appeared as follows:
 
     ```ts
     constructor(
@@ -165,55 +165,56 @@ constructor(
     ) {}
     ```
 
-    to
+- The constructor now appears as follows:
 
     ```ts
     constructor(
       protected config: Config
     ) {}
     ```
-- `getMedia` now supports `role` attribute
+
+- The `getMedia` method now supports the `role` attribute
 
 ### ModalService
 
-- `ModalService` no longer depends on `FeatureConfigService`. But `ApplicationRef` is now a new required dependency.
+- The `ModalService` no longer depends on the `FeatureConfigService`, but the `ApplicationRef` is now a new required dependency.
 
-#### Product configurator configuration
+#### Product Configurator Configuration
 
-- `productConfigurator` configuration option is now optional (properties `updateDebounceTime` and `cpq` from this options are now also optional)
-- `backend.cpq` configuration option is now optional
+- The `productConfigurator` configuration option is now optional (the `updateDebounceTime` and `cpq` properties from this option are now also optional).
+- The `backend.cpq` configuration option is now optional.
 
 #### SmartEditConfig
 
-- `smartEdit` property is optional
-- `smartEdit.storefrontPreviewRoute` property is optional
-- `smartEdit.allowOrigin` property is optional
+- The `smartEdit` property is optional.
+- The `smartEdit.storefrontPreviewRoute` property is optional.
+- The `smartEdit.allowOrigin` property is optional.
 
 #### PersonalizationConfig
 
-- `personalization` property is optional
+- The `personalization` property is optional.
 
 #### CmsStructureConfig
 
-- `cmsStructure` property is optional
+- The `cmsStructure` property is optional.
 
 #### PageComponentModule
 
-- Exposes `forRoot()` method, to minimize side-effects of frequent import in dependant modules. `PageComponentModule.forRoot()` is now imported in `BaseStorefrontModule`.
+- The `forRoot()` method is exposed to minimize side-effects of frequent imports in dependant modules. The `PageComponentModule.forRoot()` is now imported in `BaseStorefrontModule`.
 
 ## New Checkout Library
 
-Spartacus 4.0 introduces the checkout library.  The checkout related code is moved out of `@spartacus/core` and `@spartacus/storefrontlib` into one of the checkout lib's entry points.  The checkout library is split into the following entry points:
+Spartacus 4.0 introduces the checkout library. The code related to checkout is moved out of `@spartacus/core` and `@spartacus/storefrontlib` and into one of the entry points of the new checkout library.  The checkout library is split into the following entry points:
 
 ```text
 @spartacus/checkout/assets 
 The checkout related i18n keys are moved here.
 
 @spartacus/checkout/components
-Checkout related UI code is moved here. This includes components, guards and ui services.
+The checkout related UI code is moved here. This includes components, guards and ui services.
 
 @spartacus/checkout/core
-The checkout facade API implementation are moved here, as well as connectors, event builder, event listener, models, other services, and state management.
+The checkout facade API implementation is moved here, as well as connectors, event builder, event listener, models, other services, and state management.
 
 @spartacus/checkout/occ
 The checkout related OCC code is moved here. This includes the checkout related adapters and converters.
@@ -225,168 +226,182 @@ The root entry point is, by convention, meant to always be eager loaded.  It con
 The checkout related scss styles are moved here.
 ```
 
-Most of the code is moved unchanged, but some classes required changes after they were moved.  See the section below for the list:
+Most of the code is moved unchanged, but some classes required changes after they were moved.  See the following sections for more details.
 
 ### Use Facades Instead of Services
 
-Some services are now available through facades. Facades should be used instead. The main advantage to use facades instead of their service implementation is that the facades support lazy loading. Facades are imported from `@spartacus/checkout/root`.
+Some services are now available through facades. Facades should be used instead. The main advantage to using facades instead of their service implementation is that the facades support lazy loading. Facades are imported from `@spartacus/checkout/root`.
 
-- `CheckoutCostCenterFacade` should be used instead of `CheckoutCostCenterService`
-
-- `CheckoutDeliveryFacade` should be used instead of `CheckoutDeliveryService`
-
-- `CheckoutPaymentFacade` should be used instead of `CheckoutPaymentService`
-
-- `CheckoutFacade` should be used instead of `CheckoutService`
-
-- `PaymentTypeFacade` should be used instead of `PaymentTypeService`
-
-- `ClearCheckoutFacade` should be used instead of `ClearCheckoutService`
+- `CheckoutCostCenterFacade` should be used instead of `CheckoutCostCenterService`.
+- `CheckoutDeliveryFacade` should be used instead of `CheckoutDeliveryService`.
+- `CheckoutPaymentFacade` should be used instead of `CheckoutPaymentService`.
+- `CheckoutFacade` should be used instead of `CheckoutService`.
+- `PaymentTypeFacade` should be used instead of `PaymentTypeService`.
+- `ClearCheckoutFacade` should be used instead of `ClearCheckoutService`.
 
 #### ExpressCheckoutService
 
-- Service moved from `@spartacus/storefront` entry point to `@spartacus/checkout/components`.
-- `CheckoutDeliveryService` constructor parameter replaced with `CheckoutDeliveryFacade` from `@spartacus/checkout/root`.
-- `CheckoutPaymentService` constructor parameter replaced with `CheckoutPaymentFacade` from `@spartacus/checkout/root`.
-- `CheckoutDetailsService` constructor parameter is now imported from `@spartacus/checkout/components`.
-- `CheckoutConfigService` constructor parameter is now imported from `@spartacus/checkout/components`.
-- `ClearCheckoutService` constructor parameter replaced with required `ClearCheckoutFacade` from `@spartacus/checkout/root`.
-- Method `resetCheckoutProcesses` was removed, use method `resetCheckoutProcesses` from `ClearCheckoutFacade` instead.
+- The service moved from the `@spartacus/storefront` entry point to `@spartacus/checkout/components`.
+- The `CheckoutDeliveryService` constructor parameter is replaced with the `CheckoutDeliveryFacade` from `@spartacus/checkout/root`.
+- The `CheckoutPaymentService` constructor parameter is replaced with the `CheckoutPaymentFacade` from `@spartacus/checkout/root`.
+- The `CheckoutDetailsService` constructor parameter is now imported from `@spartacus/checkout/components`.
+- The `CheckoutConfigService` constructor parameter is now imported from `@spartacus/checkout/components`.
+- The `ClearCheckoutService` constructor parameter is replaced with the required `ClearCheckoutFacade` from `@spartacus/checkout/root`.
+- The `resetCheckoutProcesses` method was removed. Use the `resetCheckoutProcesses` method from the `ClearCheckoutFacade` instead.
 
 ### CostCenterComponent
 
-constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
+- The constructor parameter changed type from `CheckoutCostCenterService` to `CheckoutCostCenterFacade`.
+- The constructor parameter changed type from `PaymentTypeService` to `PaymentTypeFacade`.
 
 ### DeliveryModeComponent
 
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
+- The constructor parameter changed type from `CheckoutDeliveryService` to `CheckoutDeliveryFacade`.
 
 ### PaymentMethodComponent
 
-constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
+- The constructor parameter changed type from `CheckoutService` to `CheckoutFacade`.
+- The constructor parameter changed type from `CheckoutDeliveryService` to `CheckoutDeliveryFacade`.
+- The constructor parameter changed type from `CheckoutPaymentService` to `CheckoutPaymentFacade`.
 
 ### PaymentFormComponent
 
-constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-PaymentFormComponent does not implement `OnDestroy` anymore
-method `ngOnDestroy()` removed.
-Address verification uses new `UserAddressService.verifyAddress` function instead of `CheckoutDeliveryService.verifyAddress`.
-expiration date has been wrapped to `fieldset` instead of `label`. `span` has been replaced with `legend` and there are new `label` instead of `div` per every form control (expiration month, expiration year).
+- The constructor parameter changed type `CheckoutPaymentService` to `CheckoutPaymentFacade`.
+- The constructor parameter changed type from `CheckoutDeliveryService` to `CheckoutDeliveryFacade`.
+- The `PaymentFormComponent` does not implement `OnDestroy` anymore.
+- The `ngOnDestroy()` method was removed.
+- Address verification uses a new `UserAddressService.verifyAddress` function instead of `CheckoutDeliveryService.verifyAddress`.
+- The expiration date has been wrapped to `fieldset` instead of `label`. The `span` has been replaced by `legend` and there are new `label` instead of `div` for every form control (expiration month, expiration year).
 
 ### PaymentTypeComponent
 
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
+- The constructor parameter changed type from `PaymentTypeService` to `PaymentTypeFacade`.
 
 ### PlaceOrderComponent
 
-constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
+- The constructor parameter changed type from `CheckoutService` to `CheckoutFacade`.
 
 ### ReviewSubmitComponent
 
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-constructor parameter of type `CheckoutPaymentService` is now of type `CheckoutPaymentFacade`
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
-constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
-Removed constructor parameter `PromotionService`
-
-Removed the attribute orderPromotions$
-The component gets promotions directly from the cart in the html template.
+- The constructor parameter changed type from `CheckoutDeliveryService` to `CheckoutDeliveryFacade`.
+- The constructor parameter changed type from `CheckoutPaymentService` to `CheckoutPaymentFacade`.
+- The constructor parameter changed type from `PaymentTypeService` to `PaymentTypeFacade`.
+- The constructor parameter changed type from `CheckoutCostCenterService` to `CheckoutCostCenterFacade`.
+- The `PromotionService` constructor parameter was removed.
+- The `orderPromotions$` attribute was removed.
+- The component gets promotions directly from the cart in the HTML template.
 
 ### ScheduleReplenishmentOrderComponent
 
-constructor parameter of type `CheckoutService` is now of type `CheckoutFacade`
+- The constructor parameter changed type from `CheckoutService` to `CheckoutFacade`.
 
 ### ShippingAddressComponent
 
-constructor parameter of type `CheckoutDeliveryService` is now of type `CheckoutDeliveryFacade`
-constructor parameter of type `PaymentTypeService` is now of type `PaymentTypeFacade`
-constructor parameter of type `CheckoutCostCenterService` is now of type `CheckoutCostCenterFacade`
+- The constructor parameter changed type from `CheckoutDeliveryService` to `CheckoutDeliveryFacade`.
+- The constructor parameter changed type from `PaymentTypeService` to `PaymentTypeFacade`.
+- The constructor parameter changed type from `CheckoutCostCenterService` to `CheckoutCostCenterFacade`.
 
 ### CheckoutEventModule
 
-Change: One new required constructor parameters `_checkoutEventListener: CheckoutEventListener`
+The `CheckoutEventModule` has one new required constructor parameter: `_checkoutEventListener: CheckoutEventListener`.
 
-To split out the checkout code in the checkout lib, the address verification functionality
-was moved in `UserAddressService` in @spartacus/core.  The address verification related functions in `CheckoutDeliveryService` and ngrx supporting classes are not present in the checkout lib.
+To split out the checkout code in the checkout library, the address verification functionality was moved to the `UserAddressService` in the `@spartacus/core` library. The address verification related functions in `CheckoutDeliveryService` and NgRx supporting classes are not present in the checkout library.
 
 ### CheckoutDeliveryService
 
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+A new `processStateStore: Store<StateWithCheckout>` property is added into the constructor.
 
-These functions are not present in the checkout lib:
+The following functions are not present in the checkout library:
 
 - `getAddressVerificationResults(): Observable<AddressValidation | string>`
 - `verifyAddress(address: Address): void`
 - `clearAddressVerificationResults(): void`
 
-These functions are also not present in the corresponding facade `CheckoutDeliveryFacade`
+These functions are also not present in the corresponding `CheckoutDeliveryFacade` facade.
 
 ### CheckoutState
 
-Property `addressVerification: AddressVerificationState` is removed from the `CheckoutState` class in the checkout lib.
+- The `addressVerification: AddressVerificationState` property is removed from the `CheckoutState` class in the checkout library.
 
 ### AddressVerificationState
 
-The `AddressVerificationState` class is not carried over to the checkout lib.
+- The `AddressVerificationState` class is not carried over to the checkout library.
 
 ### CheckoutPaymentService
 
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+A new `processStateStore: Store<StateWithCheckout>` property is added into the constructor.
 
 ### CheckoutService
 
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+A new `processStateStore: Store<StateWithCheckout>` property is added into the constructor.
 
 ### PaymentTypeService
 
-New property `processStateStore: Store<StateWithCheckout>` is added into the constructor.
+A new `processStateStore: Store<StateWithCheckout>` property is added into the constructor.
 
 ### OrderConfirmationItemsComponent
 
-Removed constructor parameter `PromotionService`
-Removed the attribute orderPromotions$
-The component gets promotions directly from the order in the html template.
+- The `PromotionService` constructor parameter was removed.
+- The `orderPromotions$` attribute was removed.
+- The component gets promotions directly from the order in the HTML template.
 
 ### OccCheckoutAdapter
 
-Protected method `getEndpoint` has been removed. There are new methods: `getPlaceOrderEndpoint`, `getRemoveDeliveryAddressEndpoint`, `getClearDeliveryModeEndpoint`, `getLoadCheckoutDetailsEndpoint`.
+- The protected `getEndpoint` method has been removed.
+- The following are new methods:
+  - `getPlaceOrderEndpoint`
+  - `getRemoveDeliveryAddressEndpoint`
+  - `getClearDeliveryModeEndpoint`
+  - `getLoadCheckoutDetailsEndpoint`
 
 ### OccCheckoutPaymentAdapter
 
-Protected method`getCartEndpoint` has been removed. There are new methods: `getCardTypesEndpoint`, `getCreatePaymentDetailsEndpoint`, `getPaymentProviderSubInfoEndpoint`, `getSetPaymentDetailsEndpoint`.
+- The protected `getCartEndpoint` method has been removed.
+- The following are new methods:
+  - `getCardTypesEndpoint`
+  - `getCreatePaymentDetailsEndpoint`
+  - `getPaymentProviderSubInfoEndpoint`
+  - `getSetPaymentDetailsEndpoint`
 
 ### OccCheckoutCostCenterAdapter
 
-Protected method`getCartEndpoint` has been removed. There is a new method: `getSetCartCostCenterEndpoint`.
+- The protected `getCartEndpoint` method has been removed.
+- The new method is `getSetCartCostCenterEndpoint`.
 
 ### OccCheckoutDeliveryAdapter
 
-Protected method`getCartEndpoint` has been removed. There are new methods: `getCreateDeliveryAddressEndpoint`, `getDeliveryModeEndpoint`, `getDeliveryModesEndpoint`, `getSetDeliveryAddressEndpoint`, `getSetDeliveryModeEndpoint`.
+- The protected `getCartEndpoint` method has been removed.
+- The following are new methods:
+  - `getCreateDeliveryAddressEndpoint`
+  - `getDeliveryModeEndpoint`
+  - `getDeliveryModesEndpoint`
+  - `getSetDeliveryAddressEndpoint`
+  - `getSetDeliveryModeEndpoint`
 
 ### OccCheckoutPaymentTypeAdapter
 
-Protected method`getCartEndpoint` has been removed. There are new methods: `getPaymentTypesEndpoint`, `getSetCartPaymentTypeEndpoint`.
+- The protected `getCartEndpoint` method has been removed.
+- The following are new methods:
+  - `getPaymentTypesEndpoint`
+  - `getSetCartPaymentTypeEndpoint`
 
 ### OccCheckoutReplenishmentOrderAdapter
 
-There is a new method: `getScheduleReplenishmentOrderEndpoint`.
+- The new method is `getScheduleReplenishmentOrderEndpoint`.
 
 ### CheckoutComponentModule
 
-`CheckoutComponentModule` was and renamed to `CheckoutComponentsModule`. It was moved to `@spartacus/checkout/components`.  The new module is, not exactly the same as the previous one, but the new one should essentially be a superset of the previous one.
+The `CheckoutComponentModule` was moved and renamed to `CheckoutComponentsModule`. It was moved to `@spartacus/checkout/components`.  The new module is not exactly the same as the previous one, but the new one should essentially be a superset of the previous one.
 
 ### CheckoutModule
 
-The `CheckoutModule` from `@spartacus/core` became `CheckoutCoreModule` in `@spartacus/checkout/core`.  `CheckoutCoreModule` from `@spartacus/checkout/core` fills a similar role as the previous `CheckoutModule` from `@spartacus/core`.  One exception is providing the `CheckoutCartInterceptor`, which is now done in `CheckoutRootModule` from `@spartacus/checkout/root` instead.
-(Note: The new `CheckoutCoreModule` doesn't have the method `forRoot()` - please just import `CheckoutCoreModule` instead.)
+The `CheckoutModule` from `@spartacus/core` became `CheckoutCoreModule` in `@spartacus/checkout/core`. The `CheckoutCoreModule` from `@spartacus/checkout/core` fills a similar role as the previous `CheckoutModule` from `@spartacus/core`.  One exception is providing the `CheckoutCartInterceptor`, which is now done in `CheckoutRootModule` from `@spartacus/checkout/root` instead.
 
-There is still a `CheckoutModule` in `@spartacus/checkout`.  While its name is the same as the previous module from `@spartacus/core`,  his role is different.  It imports other new checkout lib modules: `CheckoutComponentsModule`, `CheckoutCoreModule`, `CheckoutOccModule`.  The new module naming changes might seem confusing at first sight, but the choice of the new names were made to align with the feature libs module naming convention in Spartacus.
+**Note:** The new `CheckoutCoreModule` does not have the `forRoot()` method. Just import the `CheckoutCoreModule` instead.
 
-## Complete List of Symbols (class, interface, const) Moved to the Checkout Library
+There is still a `CheckoutModule` in `@spartacus/checkout`.  While its name is the same as the previous module from `@spartacus/core`,  it has a different role.  It imports other new checkout library modules: `CheckoutComponentsModule`, `CheckoutCoreModule`, `CheckoutOccModule`.  The new module naming changes might seem confusing at first sight, but the choice of the new names was made to align with the feature library module naming convention in Spartacus.
+
+## Complete List of Symbols (Class, Interface, Const) Moved to the Checkout Library
 
 Imports for these symbols must be updated in custom code.
 
@@ -502,208 +517,236 @@ Imports for these symbols must be updated in custom code.
 
 ### StoreFinderService
 
-- Added `platformId` injection to constructor.
-- Methods `getStoreLatitude()` and `getStoreLongitude()` have been moved to this service from removed `StoreDataService`.
+- The `platformId` injection was added to the constructor.
+- The `getStoreLatitude()` and `getStoreLongitude()` methods have been moved to this service from `StoreDataService`, which has been removed.
 
 ### StoreDataService
 
-- Service has been removed and functions moved to `StoreFinderService`.
+- The service has been removed and the functions have been moved to `StoreFinderService`.
 
 ### AbstractStoreItemComponent
 
-- `StoreDataService` has been replaced with `StoreFinderService`.
+- The `StoreDataService` has been replaced by the `StoreFinderService`.
 
 ### StoreFinderListItemComponent
 
-- `StoreDataService` has been replaced with `StoreFinderService`.
+- The `StoreDataService` has been replaced by the `StoreFinderService`.
 
 ### StoreFinderListComponent
 
-- `StoreDataService` has been replaced with `StoreFinderService`.
+- The `StoreDataService` has been replaced by the `StoreFinderService`.
 
 ### StoreFinderStoreDescriptionComponent
 
-- `StoreDataService` has been replaced with `StoreFinderService`.
+- The `StoreDataService` has been replaced by the `StoreFinderService`.
 
 ### GoogleMapRendererService
 
-- `StoreDataService` has been replaced with `StoreFinderService`.
-- `ExternalJsFileLoader` has been replaced with `ScriptLoader`.
+- The `StoreDataService` has been replaced by the `StoreFinderService`.
+- The `ExternalJsFileLoader` has been replaced by the `ScriptLoader`.
 
 ### ScheduleComponent
 
-- `ngOnChanges()` has been changed to `ngOnInit()` along with corresponding class implementations (ie. implements `OnChanges` to `OnInit`).
-- `displayDays` variable has been removed. Use `weekDays` instead.
-- `StoreDataService` has been removed`.
-- Methods `getStoreOpeningTime()`, `getStoreClosingTime()`, `getInitialDate()` have been removed. Use `weekDayOpeningList` from `location` instead.
+- The `ngOnChanges()` method has been changed to the `ngOnInit()` method, along with the corresponding class implementations (for example, implements `OnChanges` to `OnInit`).
+- The `displayDays` variable has been removed. Use `weekDays` instead.
+- The `StoreDataService` has been removed`.
+- The `getStoreOpeningTime()`, `getStoreClosingTime()`, and `getInitialDate()` methods have been removed. Use `weekDayOpeningList` from `location` instead.
 
 ### PromotionService
 
-PromotionService is deleted.  The promotions can directly be found on the order or cart.  Use other existing services to retrieve the Order or cart.
+The `PromotionService` is deleted. The promotions can directly be found on the order or cart. Use other existing services to retrieve the order or cart.
 
-The order promotions are in the order/cart attributes `appliedOrderPromotions` and `potentialOrderPromotions`
+The order promotions are in the order and cart attributes `appliedOrderPromotions` and `potentialOrderPromotions`.
 
-The product promotions for order/cart entries are now available via the attribute `entries[].promotions`
+The product promotions for order and cart entries are now available with the `entries[].promotions` attribute.
 
 ### SavedCartDetailsActionComponent
 
-- Removed `ClearCheckoutService` from constructor.
+- The `ClearCheckoutService` was removed from the constructor.
 
 ### SavedCartListComponent
-- Removed `ClearCheckoutService` from constructor.
+
+- The `ClearCheckoutService` was removed from the constructor.
 
 ### SavedCartFormDialogComponent
-- Removed `ClearCheckoutService` from constructor.
+
+- The `ClearCheckoutService` was removed from the constructor.
 
 ### AddressBookComponentService
-Lib: @spartacus/core
-Class: AddressBookComponentService
-Change: constructor parameter `checkoutDeliveryService: CheckoutDeliveryService` is removed.
-Instead, the `CheckoutEventListener` from the checkout lib listens for the new address change events and resets the checkout delivery accordingly.
+
+Library: `@spartacus/core`
+
+Class: `AddressBookComponentService`
+
+Change: The `checkoutDeliveryService: CheckoutDeliveryService` constructor parameter is removed.
+Instead, the `CheckoutEventListener` from the checkout library listens for the new address change events and resets the checkout delivery accordingly.
 
 ### AddressBookComponent
-Lib: @spartacus/core
-Class: AddressBookComponent
-Change: Two constructor parameters are removed.  First the constructor parameter `checkoutDeliveryService: CheckoutDeliveryService` is removed.
-AddressBookComponent does not call `CheckoutDeliveryService.clearCheckoutDeliveryDetails()` anymore when an address is changed.  Instead, `AddressBookComponentService` fires events.  See `AddressBookComponentService` migration doc.
 
-The second constructor parameters removed is `userAddressService: UserAddressService`. `UserAddressService` interactions are now encapsulated in `AddressBookComponentService`.
+Library: `@spartacus/core`
+
+Class: `AddressBookComponent`
+
+Change: Two constructor parameters are removed. The first is the `checkoutDeliveryService: CheckoutDeliveryService` constructor parameter that has been removed. The `AddressBookComponent` does not call `CheckoutDeliveryService.clearCheckoutDeliveryDetails()` anymore when an address is changed. Instead, the `AddressBookComponentService` fires events. See `AddressBookComponentService` entry above for more information.
+
+The second constructor parameter that is removed is `userAddressService: UserAddressService`. The `UserAddressService` interactions are now encapsulated in `AddressBookComponentService`.
 
 ### AddressFormComponent
-Lib: @spartacus/core
-Change: constructor parameter `checkoutDeliveryService: CheckoutDeliveryService` is removed.
-AddressFormComponent now uses the new address verification function from  `UserAddressService` called `verifyAddress` instead of the `verifyAddress` function from `CheckoutDeliveryService`.  `UserAddressService.verifyAddress` does not use the ngrx store under the hood.
+
+Library: `@spartacus/core`
+
+Change: The `checkoutDeliveryService: CheckoutDeliveryService` constructor parameter is removed.
+
+The `AddressFormComponent` now uses the new `verifyAddress` address verification function from  `UserAddressService`, instead of the `verifyAddress` function from `CheckoutDeliveryService`. The `UserAddressService.verifyAddress` does not use the NgRx store under the hood.
 
 Change: `TranslationService` is a new, required constructor dependency.
-AddressFormComponent now uses translations to show a configurable default title option instead of a hard coded title.
+
+The `AddressFormComponent` now uses translations to show a configurable default title option instead of a hard-coded title.
 
 ### UserAddressService
-Lib: @spartacus/core
-Change: Two new required constructor parameters `userAddressConnector: UserAddressConnector` and `command: CommandService`
+
+Library: `@spartacus/core`
+
+Change: There are two new required constructor parameters: `userAddressConnector: UserAddressConnector` and `command: CommandService`
 
 ### CheckoutDetailsLoadedGuard
-Lib: @spartacus/storefront
-CheckoutDetailsLoadedGuard was not used and is now removed.
+
+Library: `@spartacus/storefront`
+
+The `CheckoutDetailsLoadedGuard` was not used and is now removed.
 
 ### PaymentDetailsSetGuard
-Lib: @spartacus/storefront
-PaymentDetailsSetGuard was not used and is now removed.
+
+Library: `@spartacus/storefront`
+
+The `PaymentDetailsSetGuard` was not used and is now removed.
 
 ### ShippingAddressSetGuard
-Lib: @spartacus/storefront
-ShippingAddressSetGuard was not used and is now removed.
+
+Library: `@spartacus/storefront`
+
+The `ShippingAddressSetGuard` was not used and is now removed.
 
 ### DeliveryModeSetGuard
-Lib: @spartacus/storefront
-DeliveryModeSetGuard was not used and is now removed.
+
+Library: `@spartacus/storefront`
+
+The `DeliveryModeSetGuard` was not used and is now removed.
 
 ### AddedToCartDialogComponent
-- Removed constructor parameter `PromotionService`
-- Removed the attribute orderPromotions$
-- The component gets promotions directly from the cart in the html template.
-- The `increment` property was removed. Use property `numberOfEntriesBeforeAdd` instead.
 
+- The `PromotionService` constructor parameter was removed.
+- The `orderPromotions$` attribute was removed.
+- The component gets promotions directly from the cart in the HTML template.
+- The `increment` property was removed. Use the `numberOfEntriesBeforeAdd` property instead.
 
 ### CartDetailsComponent
-- Removed constructor parameter `PromotionService`
-- Removed the attributes `orderPromotions$` and `promotions$`.
-- The component gets promotions directly from the cart in the html template.
 
-
+- The `PromotionService` constructor parameter was removed.
+- The `orderPromotions$` and `promotions$` attributes were removed.
+- The component gets promotions directly from the cart in the HTML template.
 
 ### CartItemComponent
-- Removed constructor parameter `PromotionService`
-- The component gets product promotions directly from the cart entry data.
-- Removed the `ngOnInit()` method
-- Removed the attribute `appliedProductPromotions$`
 
+- The `PromotionService` constructor parameter was removed.
+- The component gets product promotions directly from the cart entry data.
+- The `ngOnInit()` method was removed
+- The `appliedProductPromotions$` attribute was removed.
 
 ### CartItemListComponent
-- removed constructor dependency `FeatureConfigService`
-- added new required constructor dependencies `UserIdService` and `MultiCartService`
+
+- The `FeatureConfigService` constructor dependency was removed.
+- New required constructor dependencies were added: `UserIdService` and `MultiCartService`.
 
 ### OrderDetailItemsComponent
-Removed constructor parameter `PromotionService`
-Removed the attribute orderPromotions$
-The component gets promotions directly from the order in the html template.
+
+- The `PromotionService` constructor parameter was removed.
+- The `orderPromotions$` attribute was removed.
+- The component gets promotions directly from the order in the HTML template.
 
 ### SuggestedAddressDialogComponent
 
-SuggestedAddressDialogComponent uses different translation label keys:
+The `SuggestedAddressDialogComponent` uses different translation label keys:
 
-- Key `checkoutAddress.verifyYourAddress` is replaced by `addressSuggestion.verifyYourAddress`.
-- Key `checkoutAddress.ensureAccuracySuggestChange` is replaced by `addressSuggestion.ensureAccuracySuggestChange`.
-- Key `checkoutAddress.chooseAddressToUse` is replaced by `addressSuggestion.chooseAddressToUse`.
-- Key `checkoutAddress.suggestedAddress` is replaced by `addressSuggestion.suggestedAddress`.
-- Key `checkoutAddress.enteredAddress` is replaced by `addressSuggestion.enteredAddress`.
-- Key `checkoutAddress.editAddress` is replaced by `addressSuggestion.editAddress`.
-- Key `checkoutAddress.saveAddress` is replaced by `addressSuggestion.saveAddress`.
+- The `checkoutAddress.verifyYourAddress` key is replaced by `addressSuggestion.verifyYourAddress`.
+- The `checkoutAddress.ensureAccuracySuggestChange` key is replaced by `addressSuggestion.ensureAccuracySuggestChange`.
+- The `checkoutAddress.chooseAddressToUse` key is replaced by `addressSuggestion.chooseAddressToUse`.
+- The `checkoutAddress.suggestedAddress` key is replaced by `addressSuggestion.suggestedAddress`.
+- The `checkoutAddress.enteredAddress` key is replaced by `addressSuggestion.enteredAddress`.
+- The `checkoutAddress.editAddress` key is replaced by `addressSuggestion.editAddress`.
+- The `checkoutAddress.saveAddress` key is replaced by `addressSuggestion.saveAddress`.
 
 ### OrderOverviewComponent
 
-OrderOverviewComponent uses different translation label keys:
+The `OrderOverviewComponent` uses different translation label keys:
 
-- Key `checkoutOrderConfirmation.replenishmentNumber` is replaced by `orderDetails.replenishmentId`.
-- Key `checkoutOrderConfirmation.status` is replaced by `orderDetails.status`.
-- Key `checkoutOrderConfirmation.active` is replaced by `orderDetails.active`.
-- Key `checkoutOrderConfirmation.cancelled` is replaced by `orderDetails.cancelled`.
-- Key `checkoutReview.startOn` is replaced by `orderDetails.startOn`.
-- Key `checkoutOrderConfirmation.frequency` is replaced by `orderDetails.frequency`.
-- Key `checkoutOrderConfirmation.nextOrderDate` is replaced by `orderDetails.nextOrderDate`.
-- Key `checkoutOrderConfirmation.orderNumber` is replaced by `orderDetails.orderNumber`.
-- Key `checkoutOrderConfirmation.placedOn` is replaced by `orderDetails.placedOn`.
-- Key `checkoutReview.poNumber` is replaced by `orderDetails.purchaseOrderNumber`.
-- Key `checkoutPO.noPoNumber` is replaced by `orderDetails.emptyPurchaseOrderId`.
-- Key `checkoutProgress.methodOfPayment` is replaced by `orderDetails.methodOfPayment`.
-- Key `checkoutPO.costCenter` is replaced by `orderDetails.costCenter`.
-- Key `checkoutShipping.shippingMethod` is replaced by `orderDetails.shippingMethod`.
-- The `getOrderCurrentDateCardContent` method requires `isoDate` parameter. It is no longer optional.
+- The `checkoutOrderConfirmation.replenishmentNumber` key is replaced by `orderDetails.replenishmentId`.
+- The `checkoutOrderConfirmation.status` key is replaced by `orderDetails.status`.
+- The `checkoutOrderConfirmation.active` key is replaced by `orderDetails.active`.
+- The `checkoutOrderConfirmation.cancelled` key is replaced by `orderDetails.cancelled`.
+- The `checkoutReview.startOn` key is replaced by `orderDetails.startOn`.
+- The `checkoutOrderConfirmation.frequency` key is replaced by `orderDetails.frequency`.
+- The `checkoutOrderConfirmation.nextOrderDate` key is replaced by `orderDetails.nextOrderDate`.
+- The `checkoutOrderConfirmation.orderNumber` key is replaced by `orderDetails.orderNumber`.
+- The `checkoutOrderConfirmation.placedOn` key is replaced by `orderDetails.placedOn`.
+- The `checkoutReview.poNumber` key is replaced by `orderDetails.purchaseOrderNumber`.
+- The `checkoutPO.noPoNumber` key is replaced by `orderDetails.emptyPurchaseOrderId`.
+- The `checkoutProgress.methodOfPayment` key is replaced by `orderDetails.methodOfPayment`.
+- The `checkoutPO.costCenter` key is replaced by `orderDetails.costCenter`.
+- The `checkoutShipping.shippingMethod` key is replaced by `orderDetails.shippingMethod`.
+- The `getOrderCurrentDateCardContent` method requires the `isoDate` parameter. It is no longer optional.
 
-### Qualtrics changes
+### Qualtrics Changes
 
-- `QualtricsConfig` was removed from storefrontlib. Use @spartacus/qualtrics/components instead.
-- `QUALTRICS_EVENT_NAME` was removed from storefrontlib. Use @spartacus/qualtrics/components instead.
-- `QualtricsLoaderService` was removed from storefrontlib. Use @spartacus/qualtrics/components instead.
-- `QualtricsLoaderService` from the feature-lib no longer requires `RendererFactory2`. It has been replaced with `ScriptLoader`.
-- `QualtricsComponent` was removed from storefrontlib. Use @spartacus/qualtrics/components instead.
-- `QualtricsModule` was removed from storefrontlib, and renamed QualtricsComponentsModule. Use @spartacus/qualtrics/components instead.
+- `QualtricsConfig` was removed from the `@spartacus/storefrontlib`. Use `@spartacus/qualtrics/components` instead.
+- `QUALTRICS_EVENT_NAME` was removed from the `@spartacus/storefrontlib`. Use `@spartacus/qualtrics/components` instead.
+- `QualtricsLoaderService` was removed from `@spartacus/storefrontlib`. Use `@spartacus/qualtrics/components` instead.
+- `QualtricsLoaderService` from the feature library no longer requires `RendererFactory2`. It has been replaced by `ScriptLoader`.
+- `QualtricsComponent` was removed from `@spartacus/storefrontlib`. Use `@spartacus/qualtrics/components` instead.
+- `QualtricsModule` was removed from `@spartacus/storefrontlib`, and renamed `QualtricsComponentsModule`. Use `@spartacus/qualtrics/components` instead.
 
 ### OccConfigLoaderModule
-- `OccConfigLoaderModule` was removed. Please use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
+
+- The `OccConfigLoaderModule` was removed. Use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
 
 ### OccConfigLoaderService
-- `OccConfigLoaderService` was removed. Please use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
+
+- The `OccConfigLoaderService` was removed. Use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
 
 ### OccLoadedConfigConverter
-- `OccLoadedConfigConverter` was removed. Please use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
 
-### OccLoadedConfig 
-- `OccLoadedConfig` was removed. Please use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
+- The `OccLoadedConfigConverter` was removed. Use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
 
-### OccSitesConfigLoader 
-- `OccSitesConfigLoader`was removed. Please use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
+### OccLoadedConfig
+
+- The `OccLoadedConfig` was removed. Use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
+
+### OccSitesConfigLoader
+
+- The `OccSitesConfigLoader`was removed. Use `SiteContextConfigInitializer` and `I18nConfigInitializer` instead.
 
 ### OccEndpoints
-The config property `backend.occ.endpoints.baseSitesForConfig` has been removed. Please use `backend.occ.endpoints.baseSites` instead.
+
+The `backend.occ.endpoints.baseSitesForConfig` config property has been removed. Use `backend.occ.endpoints.baseSites` instead.
 
 #### NavigationUIComponent
 
-- Added `HamburgerMenuService` to constructor.
+- The `HamburgerMenuService` was added to the constructor.
 
-### Removal of grouping modules
+### Removal of Grouping Modules
 
-In 4.0 release we removed few modules that were grouping feature modules and provided some default configuration.
+In release 4.0, a number of modules that grouped feature modules and provided some default configuration were removed.
 
-To migrate them check this section: `Before migrating to Spartacus 4.0`
+- The `B2cStorefrontModule` was removed from `@spartacus/storefront`
+- The `B2bStorefrontModule` was removed from `@spartacus/setup`
+- The `StorefrontModule` was removed from `@spartacus/storefront`
+- The `CmsLibModule` was removed from `@spartacus/storefront`
+- The `MainModule` was removed from `@spartacus/storefront`
+- The `StorefrontFoundationModule` was removed from `@spartacus/storefront`
+- The `OccModule` was removed from `@spartacus/core`
+- The `EventsModule` was removed from `@spartacus/storefront`
 
-- removed `B2cStorefrontModule` from `@spartacus/storefront`
-- removed `B2bStorefrontModule` from `@spartacus/setup`
-- removed `StorefrontModule` from `@spartacus/storefront`
-- removed `CmsLibModule` from `@spartacus/storefront`
-- removed `MainModule` from `@spartacus/storefront`
-- removed `StorefrontFoundationModule` from `@spartacus/storefront`
-- removed `OccModule` from `@spartacus/core`
-- removed `EventsModule` from `@spartacus/storefront`
+For more information, see [{% assign linkedpage = site.pages | where: "name", "updating-to-version-4.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-4/updating-to-version-4.md %}).
 
 ### ViewConfigModule removed
 
