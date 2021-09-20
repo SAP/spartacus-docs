@@ -23,7 +23,7 @@ When the Spartacus inventory display feature is enabled, customers can see the q
 
 ## Enabling Inventory Display in Spartacus
 
-To enable inventory display, set the `inventoryDisplay` flag to `true`, as shown in the following example:
+To enable inventory display, set the `inventoryDisplay` flag to `true` in `app.module.ts`, as shown in the following example:
 
 ```ts
       provideConfig(<CmsConfig>{
