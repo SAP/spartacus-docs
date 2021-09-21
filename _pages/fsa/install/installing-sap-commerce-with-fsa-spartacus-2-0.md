@@ -24,7 +24,7 @@ Summary:
 - [Step 3: Configuring CORS](#step-3-configuring-cors)
 - [Step 4: Update system and user credentials (optional)](#step-4-update-system-and-user-credentials-optional)
 
-## Step 1: Setting up SAP Commerce with Financial Services Accelerator
+### Step 1: Setting up SAP Commerce with Financial Services Accelerator
 
 Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/2011/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
 
@@ -182,7 +182,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     - Display the Backoffice or
     - Go to **WCMS** > **Website**. You should see the financial sample store.
 
-## Step 2: Configuring OCC credentials
+### Step 2: Configuring OCC credentials
 
 FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.
 
@@ -217,7 +217,7 @@ The curl command sends a POST request for an access token, using the client ID a
 }
 ```
 
-## Step 3: Configuring CORS
+### Step 3: Configuring CORS
 
 CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain FSA Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
@@ -237,7 +237,7 @@ corsfilter.acceleratorservices.exposedHeaders=x-anonymous-consents
 
 **Note**: The x-anonymous-consents custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
-## Step 4: Update system and user credentials (optional)
+### Step 4: Update system and user credentials (optional)
 
 As you are using SAP Commerce Cloud 2011, you may need to enable users and passwords for certain functionalities to work.
 

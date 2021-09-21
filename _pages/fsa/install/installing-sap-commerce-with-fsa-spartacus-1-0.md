@@ -24,7 +24,7 @@ Summary:
 - [Step 3: Configuring CORS](#step-3-configuring-cors)
 - [Step 4: Update system and user credentials (optional)](#step-4-update-system-and-user-credentials-optional)
 
-## Step 1: Setting up SAP Commerce with Financial Services Accelerator
+### Step 1: Setting up SAP Commerce with Financial Services Accelerator
 
 Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/2011/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
 
@@ -192,7 +192,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     - Display the Backoffice or
     - Go to **WCMS** > **Website**. You should see the financial sample store.
 
-## Step 2: Configuring OCC credentials
+### Step 2: Configuring OCC credentials
 
 FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.
 
@@ -227,11 +227,11 @@ The curl command sends a POST request for an access token, using the client ID a
 }
 ```
 
-## Step 3: Configuring CORS
+### Step 3: Configuring CORS
 
-CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain FSA Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
+CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain FSA Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
-To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the local.properties file of your config folder):
+To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the local.properties file of your config folder):
 
 ```typescript
 corsfilter.commercewebservices.allowedOrigins=http://localhost:4200
@@ -247,7 +247,7 @@ corsfilter.acceleratorservices.exposedHeaders=x-anonymous-consents
 
 **Note**: The x-anonymous-consents custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
-## Step 4: Update system and user credentials (optional)
+### Step 4: Update system and user credentials (optional)
 
 As you are using SAP Commerce Cloud 2005, you may need to enable users and passwords for certain functionalities to work.
 
@@ -261,17 +261,17 @@ After you have configured SAP Commerce to accept OCC REST API calls, you can set
 
 Instead of including the admin password in every install command, you can create a configuration file.
 
-1. Create a file named custom.properties inside the installer/customconfig folder of your SAP Commerce folder.
-1. Add the following line: initialpassword.admin=Y0urFav0r!tePassw0rd. Replace Y0urFav0r!tePassw0rd with the password you want to use.
+1. Create a file named custom.properties inside the installer/customconfig folder of your SAP Commerce folder.
+1. Add the following line: initialpassword.admin=Y0urFav0r!tePassw0rd. Replace Y0urFav0r!tePassw0rd with the password you want to use.
 1. Save the file.
 
-Next time you run the recipe install command, the settings inside custom.properties will be used to build the `local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
+Next time you run the recipe install command, the settings inside custom.properties will be used to build the `local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
 
 ## CORS Settings
 
-- CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator reviews these settings to suit your requirements, as the sample properties should not be used for production servers.
+- CORS settings **are very important for security**. We strongly recommend that a professional SAP Commerce Cloud administrator reviews these settings to suit your requirements, as the sample properties should not be used for production servers.
 - CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.
-- You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
+- You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 - For information on Spartacus and CORS settings, see [Cross-Origin Resource Sharing]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 - Several other Spartacus features also require additional CORS settings. For more information about CORS, see the [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) on the SAP Help Portal.
 
@@ -285,6 +285,6 @@ You may encounter the following error message:
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 
-This issue is caused due to an incorrect configuration of the sop.post.url property.
+This issue is caused due to an incorrect configuration of the sop.post.url property.
 
-Make sure that this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
+Make sure that this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
