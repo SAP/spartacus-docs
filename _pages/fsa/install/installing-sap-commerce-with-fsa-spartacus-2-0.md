@@ -36,7 +36,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
    **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
 
-3. In financial_spa, the build.gradle file should have the following content:
+3. In the financial_spa folder, the build.gradle file should have the following content:
 
     ```typescript
     apply plugin: 'installer-platform-plugin'
