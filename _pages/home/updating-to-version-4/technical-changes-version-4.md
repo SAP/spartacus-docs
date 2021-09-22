@@ -1099,13 +1099,13 @@ The following was removed:
 
 ### Page Resolvers
 
-In 3.1 and 3.2 we've introduced a few changes on how the page meta data is collected. The resolvers are now configurable and whether they render on the client or server (SSR) is also configurable (by default description, image, robots and canonical url are resolved only in SSR). A few resolvers are changed or added, since most data is now configurable in the backend (description, robots). The robot information that was previously hardcoded in some resolvers, are now driven by backend data.
+In 3.1 and 3.2, Spartacus introduced a few changes on how page meta data is collected. The resolvers are now configurable, and you can also configure whether the resolvers render on the client (CSR) or server (SSR). By default, description, image, robots and canonical URL are resolved only in SSR. A few resolvers have been changed or added, since most data is now configurable in the back end (such as description and robots). The robot information that was previously hardcoded in some resolvers is now driven by back end data.
 
-The feature of resolving the canonical URL has been enabled by default in 4.0. In case you want to opt-out, please change the Spartacus configuration of `pageMeta.resolvers`.
+Resolving the canonical URL has been enabled by default in 4.0. If you want to opt-out, change the Spartacus configuration of `pageMeta.resolvers`.
 
-A new feature has landed in the product and category resolvers for the canonical URL.
+A new feature has been added to the product and category resolvers for the canonical URL.
 
-The `BasePageMetaResolver` is leveraged to compose most of the generic page meta data. Most page resolvers now use the page data to create the description and robot tags. The changes have affected the following resolver classes:
+The `BasePageMetaResolver` is leveraged to compose most of the generic page meta data. Most page resolvers now use the page data to create the description and robot tags. The changes affect the following resolver classes:
 
 - The `PageMetaService` has a dependency on `UnifiedInjector`, `PageMetaConfig` and the `platformId`.
 - The `ContentPageMetaResolver` depends only on the `BasePageMetaResolver`.
@@ -1118,146 +1118,150 @@ The `BasePageMetaResolver` is leveraged to compose most of the generic page meta
 - The `RoutingService` uses the `Router` to resolve the full URL (used to resolve the canonical URL in the page meta resolvers)
 
 The `CmsPageTitleModule` is renamed to `PageMetaModule`.
-The `CartPageMetaResolver` is removed since all content is resolved by the generic `ContentPageMetaResolver`.
+
+The `CartPageMetaResolver` is removed because all content is resolved by the generic `ContentPageMetaResolver`.
 
 The following properties where removed in 4.0:
 
-- The `ContentPageMetaResolver` no longer supports the `homeBreadcrumb$`,`breadcrumb$`,`title$` and `cms$` as the content is resolved by the `BasePageMetaResolver`.
-- The `resolverMethods` property on the `PageMetaService` has changed to `resolvers$` since the resolvers are read from the configuration stream.
+- The `ContentPageMetaResolver` no longer supports the `homeBreadcrumb$`,`breadcrumb$`,`title$` and `cms$` because the content is resolved by the `BasePageMetaResolver`.
+- The `resolverMethods` property on the `PageMetaService` has changed to `resolvers$` because the resolvers are read from the configuration stream.
 
 ### SelectiveCartService
 
-- The `getLoaded` method was removed. Use `isStable` method instead.
+- The `getLoaded` method was removed. Use the `isStable` method instead.
 
 ### DynamicAttributeService
 
-- `DynamicAttributeService` doesn't depend anymore on the `SmartEditService`, but only on the `UnifiedInjector`.
--  The method `addDynamicAttributes` was removed. Please use functions `addAttributesToComponent` or `addAttributesToSlot` instead.
+- The `DynamicAttributeService` does not depend anymore on the `SmartEditService`, but only on the `UnifiedInjector`.
+- The `addDynamicAttributes` method was removed. Use the `addAttributesToComponent` or `addAttributesToSlot` functions instead.
 
 ### SearchBoxComponentService
 
-- `SearchBoxComponentService` now also requires `EventService`.
+- The `SearchBoxComponentService` now also requires the `EventService`.
 
 ### CartListItemComponent
 
-- Removed `FeatureConfigService` from constructor and added `UserIdService` and `MultiCartService` to constructor.
-- Property `form: FormGroup` is now initialized on component creation instead of in the `createForm()` method.
-- `ngOnInit()` method has been modified to fix an issue with rendering items.
-- `[class.is-changed]` template attribute on `<div>` tag now depends on method `control.get('quantity').disabled`.
+- The `FeatureConfigService` was removed from the constructor and the `UserIdService` and `MultiCartService` were added to the constructor.
+- The `form: FormGroup` property is now initialized on component creation instead of in the `createForm()` method.
+- The `ngOnInit()` method has been modified to fix an issue with rendering items.
+- The `[class.is-changed]` template attribute on `<div>` tag now depends on the `control.get('quantity').disabled` method.
 
 ### Models
 
 - The `Item` interface was removed. Use `OrderEntry` instead.
-- `sortCode` was removed from interface `TableHeader`.
+- `sortCode` was removed from the `TableHeader` interface.
 
 ### SearchBoxComponent
 
-- `RoutingService` is a new, required constructor dependency.
+- The `RoutingService` is a new, required constructor dependency.
 - `cx-icon[type.iconTypes.RESET]` has been changed to `button>cx-icon[type.iconTypes.Reset]`
-- `cx-icon[type.iconstypes.SEARCH]` has been changed to `div>cx-icon[type.iconstypes.SEARCH]` with rest of the attributes removed. The button is for presentation purpose only. 
+- `cx-icon[type.iconstypes.SEARCH]` has been changed to `div>cx-icon[type.iconstypes.SEARCH]` with the rest of the attributes removed. The button is for presentation purpose only.
 - `div.suggestions` has been changed to `ul>li>a` for better a11y support
 - `div.products` has been changed to `ul>li>a` for better a11y support
 - `winRef.document.querySelectorAll('.products > a, .suggestions > a')` has been changed to  `winRef.document.querySelectorAll('.products > li a, .suggestions > li a')`
 
-### Organization Administration breaking changes
+### Organization Administration Breaking Changes
 
 #### CardComponent (Administration)
 
-- In attribute `cxPopoverOptions` of element `button.hint-popover` property `displayCloseButton` has been set to `true`.
+- The `displayCloseButton` property in the `cxPopoverOptions` attribute of the `button.hint-popover` element has been set to `true`.
 
-#### ListComponent 
+#### ListComponent
 
-- In attribute `cxPopoverOptions` of element `button.hint-popover` property `displayCloseButton` has been set to `true`.
-- `ng-select` for sort has been wrapped by `label` and added `span` before.
+- The `displayCloseButton` property in the `cxPopoverOptions` attribute of the `button.hint-popover` element has been set to `true`.
+- `ng-select` for sort has been wrapped by `label` and `span` has been added before.
 
 #### UserGroupUserListComponent
 
-- Removed `MessageService` from constructor.
+- The `MessageService` was removed from the constructor.
 
 #### ToggleStatusComponent
 
-- Removed `FeatureConfigService` from constructor.
-- Added `DisableInfoService` to constructor.
+- The `FeatureConfigService` was removed from the constructor.
+- The `DisableInfoService` was added to the constructor.
 
 #### DeleteItemComponent
 
-- Removed `FeatureConfigService` from constructor.
+- The `FeatureConfigService` was removed from the constructor.
 
 #### UnitChildrenComponent
 
-- `CurrentUnitService` is now required parameter in component constructor.
+- The `CurrentUnitService` is now a required parameter in the component constructor.
 
 #### UnitCostCenterListComponent
 
-- `CurrentUnitService` is now required parameter in component constructor.
+- The `CurrentUnitService` is now a required parameter in the component constructor.
 
 #### UnitUserListComponent
 
-- `CurrentUnitService` is now required parameter in component constructor.
+- The `CurrentUnitService` is now a required parameter in the component constructor.
 
 #### UnitFormComponent
 
-- Renamed property `formGroup` to `form`.
-- Removed property `form$`.
+- The `formGroup` property was renamed to `form`.
+- The `form$` property was removed.
 
 #### OrganizationTableType
 
-- Removed unused `UNIT_ASSIGNED_ROLES` property from enum.
+- The unused `UNIT_ASSIGNED_ROLES` property was removed from the enum.
 
 #### HttpErrorModel
 
-- Removed `error` property from interface.
+- The `error` property was removed from the interface.
 
-#### Organization related Translations (i18n) changes
+#### Organization Related Translations (i18n) Changes
 
-- Change contents of:
-  `orgBudget.messages.deactivate`,
-  `orgCostCenter.messages.deactivate`,
-  `orgPurchaseLimit.messages.deactivate`,
-  `orgUnit.messages.deactivate`,
-  `orgUnitAddress.messages.delete`,
-  `orgUserGroup.messages.delete`,
-  `orgUser.messages.deactivate`
-- Removed unused keys:
-  `orgBudget.messages.deactivateBody`,
-  `orgBudget.byName`,
-  `orgBudget.byUnitName`,
-  `orgBudget.byCode`,
-  `orgBudget.byValue`,
-  `orgCostCenter.messages.deactivateBody`,
-  `orgCostCenter.byName`,
-  `orgCostCenter.byCode`,
-  `orgCostCenter.byUnitName`,
-  `orgPurchaseLimit.messages.deactivateBody`,
-  `orgPurchaseLimit.byName`,
-  `orgPurchaseLimit.byUnitName`,
-  `orgUnit.messages.deactivateBody`,
-  `orgUnitAddress.messages.deleteBody`,
-  `orgUserGroup.messages.deleteBody`,
-  `orgUserGroup.byName`,
-  `orgUserGroup.byUnitName`,
-  `orgUserGroup.byGroupID`,
-  `orgUser.messages.deactivateBody`,
-  `orgUser.byName`,
-  `orgUser.byUnitName`,
+The contents of the following were changed:
+
+- `orgBudget.messages.deactivate`
+- `orgCostCenter.messages.deactivate`
+- `orgPurchaseLimit.messages.deactivate`
+- `orgUnit.messages.deactivate`
+- `orgUnitAddress.messages.delete`
+- `orgUserGroup.messages.delete`
+- `orgUser.messages.deactivate`
+
+The following unused keys were removed:
+
+- `orgBudget.messages.deactivateBody`
+- `orgBudget.byName`
+- `orgBudget.byUnitName`
+- `orgBudget.byCode`
+- `orgBudget.byValue`
+- `orgCostCenter.messages.deactivateBody`
+- `orgCostCenter.byName`
+- `orgCostCenter.byCode`
+- `orgCostCenter.byUnitName`
+- `orgPurchaseLimit.messages.deactivateBody`
+- `orgPurchaseLimit.byName`
+- `orgPurchaseLimit.byUnitName`
+- `orgUnit.messages.deactivateBody`
+- `orgUnitAddress.messages.deleteBody`
+- `orgUserGroup.messages.deleteBody`
+- `orgUserGroup.byName`
+- `orgUserGroup.byUnitName`
+- `orgUserGroup.byGroupID`
+- `orgUser.messages.deactivateBody`
+- `orgUser.byName`
+- `orgUser.byUnitName`
   
-### Dependencies changes
+### Dependencies Changes
 
-- The peer dependency package `i18next-xhr-backend` was replaced with `i18next-http-backend`.
-- The peer dependency package `i18next` was upgraded to the version `20.2.2`
+- The `i18next-xhr-backend` peer dependency package was replaced with `i18next-http-backend`.
+- The `i18next` peer dependency package was upgraded to version `20.2.2`
 
 ### CmsFeaturesService
 
-- `CmsComponentsService` constructor is now using `CmsFeaturesService` (replacing `FeatureModulesService`) and `ConfigInitializerService`.
-- `FeatureModulesService` was removed. Was replaced by `CmsFeaturesService`.
+- The `CmsComponentsService` constructor is now using `CmsFeaturesService` (replacing `FeatureModulesService`) and `ConfigInitializerService`.
+- The `FeatureModulesService` was removed. It is replaced by the `CmsFeaturesService`.
 
 ### ConfigInitializerService
 
-- `getStableConfig` method was removed. Use the new equivalent method instead: `getStable`.
+- The `getStableConfig` method was removed. Use the new equivalent `getStable` method instead.
 
 ### CartItemComponent
 
-`CartItemComponent` now also requires `CartItemContextSource`. Moreover, a customized version of this component now also should provide locally `CartItemContextSource` and `CartItemContext` in the following way:
+The `CartItemComponent` now also requires `CartItemContextSource`. Furthermore, a customized version of this component now also should provide `CartItemContextSource` and `CartItemContext` locally as follows:
 
 ```typescript
 @Component({
@@ -1271,7 +1275,7 @@ The following properties where removed in 4.0:
 
 ### ProductListItemComponent and ProductGridItemComponent
 
-`ProductListItemComponent` and `ProductGridItemComponent` now require `ProductListItemContextSource`. Moreover, customized versions of those components now also should provide locally `ProductListItemContextSource` and `ProductListItemContext` in the following way:
+The `ProductListItemComponent` and `ProductGridItemComponent` now require `ProductListItemContextSource`. Furthermore, customized versions of those components now also should provide `ProductListItemContextSource` and `ProductListItemContext` locally as follows:
 
 ```typescript
 @Component({
@@ -1285,339 +1289,408 @@ The following properties where removed in 4.0:
 
 ### CartItemContext and CartItemContextSource
 
-- the property `promotionLocation$` has been removed, please use `location$` instead  
+- The `promotionLocation$` property has been removed. Use `location$` instead.
 
-### User lib changes
+### User Lib Changes
 
 #### CMS Components
 
-- Following modules `CloseAccountModule`, `ForgotPasswordModule`, `RegisterComponentModule`, `ResetPasswordModule`, `UpdateEmailModule`, `UpdatePasswordModule`, `UpdateProfileModule` were moved to `@spartacus/user/profile/components`.
-- Following modules `LoginModule`, `LoginFormModule`, `LoginRegisterModule` were moved to `@spartacus/user/account/components`.
-- Component `ResetPasswordFormComponent` was renamed to `ResetPasswordComponent` and now can be used from `@spartacus/user/profile/components`. Also logic for this component was changed. For details look on sections below.
-- Component `UpdateEmailFormComponent` was removed. For replacement `UpdateEmailComponent` from `@spartacus/user/profile/components` can be used.
-- Component `UpdatePasswordFormComponent` was removed. For replacement `UpdatePasswordComponent` from `@spartacus/user/profile/components` can be used.
-- Component `UpdateProfileFormComponent` was removed. For replacement `UpdateProfileComponent` from `@spartacus/user/profile/components` can be used.
-- Components `CloseAccountComponent`, `CloseAccountModalComponent`, `ForgotPasswordComponent`, `RegisterComponent`, `UpdateEmailComponent`, `UpdatePasswordComponent`, `UpdateProfileComponent` were moved to `@spartacus/user/profile/components`. Logic for those components was changed. For details look on sections below.
-- Components `LoginComponent`, `LoginFormComponent` were moved to `@spartacus/user/account/components`. Logic for those components was changed. For details look on sections below.
-- Component `LoginRegisterComponent` were moved to `@spartacus/user/account/components`.
+- The following modules were moved to `@spartacus/user/profile/components`:
+
+  - `CloseAccountModule`
+  - `ForgotPasswordModule`
+  - `RegisterComponentModule`
+  - `ResetPasswordModule`
+  - `UpdateEmailModule`
+  - `UpdatePasswordModule`
+  - `UpdateProfileModule`
+
+- The following modules were moved to `@spartacus/user/account/components`:
+
+  - `LoginModule`
+  - `LoginFormModule`
+  - `LoginRegisterModule`
+
+- The `ResetPasswordFormComponent` component was renamed to `ResetPasswordComponent` and can now be used from `@spartacus/user/profile/components`. The logic for this component was also changed. See below for more information.
+- The `UpdateEmailFormComponent` component was removed. Use `UpdateEmailComponent` from `@spartacus/user/profile/components` instead.
+- The `UpdatePasswordFormComponent` component was removed. Use `UpdatePasswordComponent` from `@spartacus/user/profile/components` instead.
+- The `UpdateProfileFormComponent` component was removed. Use `UpdateProfileComponent` from `@spartacus/user/profile/components` instead.
+- The `CloseAccountComponent`, `CloseAccountModalComponent`, `ForgotPasswordComponent`, `RegisterComponent`, `UpdateEmailComponent`, `UpdatePasswordComponent`, and `UpdateProfileComponent` components were moved to `@spartacus/user/profile/components`. The logic for these components was also changed. See below for more information.
+- The `LoginComponent` and `LoginFormComponent` components were moved to `@spartacus/user/account/components`. The logic for these components was also changed. See below for more information.
+- The `LoginRegisterComponent` component was moved to `@spartacus/user/account/components`.
 
 #### CloseAccountModalComponent
 
-- All services used in constructor have been changed to be `protected`.
-- Component is not using `UserService` anymore, `UserProfileFacade` was introduced.
-- Component is no longer using `Subscription` property, also `ngOnDestroy` method was removed.
+- All services used in the constructor have been changed to `protected`.
+- The component no longer uses the `UserService`.
+- The `UserProfileFacade` was introduced.
+- The component no longer uses the `Subscription` property.
+- The `ngOnDestroy` method was removed.
 
 #### ForgotPasswordComponent
 
-- Property `forgotPasswordForm` was renamed to `form`.
-- New observable property `isUpdating$` was added.
-- Methods `ngOnInit`, `requestForgotPasswordEmail` were removed. New method `onSubmit` was added.
-- Services `FormBuilder`, `UserService`, `RoutingService`, `AuthConfigService` are no longer used directly in component file. New service `ForgotPasswordComponentService` was introduced and used in constructor.
-- Change detection strategy for this component was set to `OnPush`.
-- There were slight changes in component template. Spinner component was added which relys on `isUpdating$` property, also form now is using `onSubmit` method on form submit event.
+- The `forgotPasswordForm` property was renamed to `form`.
+- A new observable `isUpdating$` property was added.
+- The `ngOnInit` and `requestForgotPasswordEmail` methods were removed. A new `onSubmit` method was added.
+- The `FormBuilder`, `UserService`, `RoutingService`, and `AuthConfigService` services are no longer used directly in the component file. A new `ForgotPasswordComponentService` service was added and is used in the constructor.
+- The change detection strategy for this component was set to `OnPush`.
+- There were slight changes in the component template. A spinner component was added which relies on the `isUpdating$` property. Also, the form is now using the `onSubmit` method for form submit events.
 
 #### RegisterComponent
 
-- Component is not using `UserService` anymore, `UserRegisterFacade` was introduced.
-- Property `loading$` was changed to `isLoading$` and type was change to `BehaviorSubject<boolean>` instead of `Observable<boolean>`.
-- Method `registerUserProcessInit` was removed.
+- The component no longer uses `UserService`.
+- The `UserRegisterFacade` was introduced.
+- The `loading$` property was changed to `isLoading$` and the type was changed from `Observable<boolean>` to `BehaviorSubject<boolean>`.
+- The `registerUserProcessInit` method was removed.
 
-#### ResetPasswordComponent (previously ResetPasswordFormComponent)
+#### ResetPasswordComponent (Previously ResetPasswordFormComponent)
 
-- Property `subscription` was removed.
-- Type of `token` property was changed from `string` to `Observable<string>`.
-- Property `resetPasswordForm` was renamed to `form`.
-- New observable property `isUpdating$` was added.
-- Methods `ngOnInit`, `resetPassword`, `ngOnDestroy` were removed. New method `onSubmit` was added.
-- Services `FormBuilder`, `UserService`, `RoutingService`, are no longer used directly in component file. New service `ResetPasswordComponentService` was introduced and used in constructor.
-- Change detection strategy for this component was set to `OnPush`.
-- Component template was adapted to the new logic.
-- Spinner component was added which relys on `isUpdating$` property.
+- The `subscription` property was removed.
+- The type of the `token` property was changed from `string` to `Observable<string>`.
+- The `resetPasswordForm` property was renamed to `form`.
+- A new observable `isUpdating$` property was added.
+- The `ngOnInit`, `resetPassword`, and `ngOnDestroy` methods were removed.
+- A new `onSubmit` method was added.
+- The `FormBuilder`, `UserService`, and `RoutingService` services are no longer used directly in the component file. A new `ResetPasswordComponentService` service was added and is used in the constructor.
+- The change detection strategy for this component was set to `OnPush`.
+- The component template was adapted to the new logic.
+- A spinner component was added which relies on the `isUpdating$` property.
 
 #### LoginComponent
 
-- Component is not using `UserService` anymore, `UserAccountFacade` was introduced.
-- Type of `user` property was changed to `Observable<User | undefined>` instead of `Observable<User>`.
+- The component no longer uses `UserService`.
+- The `UserAccountFacade` was introduced.
+- The `user` property type was changed from `Observable<User>` to `Observable<User | undefined>`.
 
 #### LoginFormComponent
 
-- Services `AuthService`, `GlobalMessageService`, `FormBuilder`, `WindowRef` are no longer used directly in component file. New service `LoginFormComponentService` was introduced and used in constructor.
-- Methods `ngOnInit`, `submitForm`, `loginUser` were removed from component file.
-- New properties `form`, `isUpdating$` were added.
-- New method `onSubmit` was added.
-- Change detection strategy for this component was set to `OnPush`.
-- Spinner component was added to the template which relys on `isUpdating$` property.
+- The `AuthService`, `GlobalMessageService`, `FormBuilder`, and `WindowRef` services are no longer used directly in the component file. A new `LoginFormComponentService` service was added and is used in the constructor.
+- The `ngOnInit`, `submitForm`, and `loginUser` methods were removed from the component file.
+- New `form` and `isUpdating$`properties were added.
+- New `onSubmit` method was added.
+- The change detection strategy for this component was set to `OnPush`.
+- A spinner component was added to the template which relies on the `isUpdating$` property.
 
 #### UpdateEmailComponent
 
-- Properties `subscription`, `newUid`, `isLoading$` were removed.
-- Methods `ngOnInit`, `onCancel`, `onSuccess`, `ngOnDestroy` were removed from component file.
-- Services `GlobalMessageService`, `UserService`, `RoutingService`, `AuthService` are no longer used directly in component file. New service `UpdateEmailComponentService` was introduced and used in constructor.
-- Logic for `onSubmit` method was changed. Now this method has no parameters.
-- New properties `form`, `isUpdating$` were added.
-- There were important change in component template. Since `UpdateEmailFormComponent` was removed `UpdateEmailComponent` contains now the template for update email form itself.
-- Change detection strategy for this component was set to `OnPush`.
-- Spinner component was added to the template which relays on `isUpdating$` property.
+- The `subscription`, `newUid`, and `isLoading$` properties were removed.
+- The `ngOnInit`, `onCancel`, `onSuccess`, and `ngOnDestroy` methods were removed from the component file.
+- The `GlobalMessageService`, `UserService`, `RoutingService`, and `AuthService` services are no longer used directly in the component file. A new `UpdateEmailComponentService` service was added and is used in the constructor.
+- The logic for the `onSubmit` method was changed. Now this method has no parameters.
+- New `form` and `isUpdating$` properties were added.
+- There were important change in the component template. Because the `UpdateEmailFormComponent` was removed, the `UpdateEmailComponent` now contains the template for the update email form itself.
+- The change detection strategy for this component was set to `OnPush`.
+- A spinner component was added to the template which relies on the `isUpdating$` property.
 
 #### UpdateEmailComponentService
 
-- `UpdateEmailComponentService` now also requires `AuthRedirectService`
+- The `UpdateEmailComponentService` now also requires the `AuthRedirectService`.
 
 #### UpdatePasswordComponent
 
-- Properties `subscription`, `loading$` were removed.
-- Methods `ngOnInit`, `onCancel`, `onSuccess`, `ngOnDestroy` were removed from component file.
-- Services `RoutingService`, `UserService`, `GlobalMessageService`, are no longer used directly in component file. New service `UpdatePasswordComponentService` was introduced and used in constructor.
-- Logic for `onSubmit` method was changed. Now this method has no parameters.
-- New properties `form`, `isUpdating$` were added.
-- There were important change in component template. Since `UpdatePasswordFormComponent` was removed `UpdatePasswordComponent` contains now the template for update password form itself.
-- Change detection strategy for this component was set to `OnPush`.
-- Spinner component was added to the template which relys on `isUpdating$` property.
+- The `subscription` and `loading$` properties were removed.
+- The `ngOnInit`, `onCancel`, `onSuccess`, and `ngOnDestroy` methods were removed from the component file.
+- The `RoutingService`, `UserService`, and `GlobalMessageService` services are no longer used directly in the component file. A new `UpdatePasswordComponentService` service was added and is used in the constructor.
+- The logic for the `onSubmit` method was changed. Now this method has no parameters.
+- New `form` and `isUpdating$` properties were added.
+- There were important change in the component template. Because the `UpdatePasswordFormComponent` was removed, the `UpdatePasswordComponent` now contains the template for the update password form itself.
+- The change detection strategy for this component was set to `OnPush`.
+- A spinner component was added to the template which relies on the `isUpdating$` property.
 
 #### UpdateProfileComponent
 
-- Properties `user$`, `loading$` were removed.
-- Methods `ngOnInit`, `onCancel`, `onSuccess`, `ngOnDestroy` were removed from component file.
-- Services `RoutingService`, `UserService`, `GlobalMessageService`, are no longer used directly in component file. New service `UpdateProfileComponentService` was introduced and used in constructor.
-- Logic for `onSubmit` method was changed. Now this method has no parameters.
-- New properties `form`, `isUpdating$` were added.
-- There were important change in component template. Since `UpdateProfileFormComponent` was removed `UpdateProfileComponent` contains now the template for update profile form itself.
-- Change detection strategy for this component was set to `OnPush`.
-- Spinner component was added to the template which relys on `isUpdating$` property.
+- THe `user$` and `loading$` properties were removed.
+- The `ngOnInit`, `onCancel`, `onSuccess`, and `ngOnDestroy` methods were removed from the component file.
+- The `RoutingService`, `UserService`, and `GlobalMessageService` services are no longer used directly in the component file. A new `UpdateProfileComponentService` service was added and is used in the constructor.
+- The logic for the `onSubmit` method was changed. Now this method has no parameters.
+- New `form` and `isUpdating$` properties were added.
+- There were important change in the component template. Because the `UpdateProfileFormComponent` was removed, the `UpdateProfileComponent` now contains the template for the update profile form itself.
+- The change detection strategy for this component was set to `OnPush`.
+- A spinner component was added to the template which relies on the `isUpdating$` property.
 
 ### MyCouponsComponent
 
-- `div` which wrapped `cx-sorting` component has been changed to `label` and added `span` before.
+- The `div` that wrapped the `cx-sorting` component has been changed to `label` with a `span` added before.
 
 #### OccUserAdapter
 
-- `OccUserAdapter` was removed. Instead please use `OccUserAccountAdapter` from `@spartacus/user/account/occ` and `OccUserProfileAdapter` from `@spartacus/user/profile/occ`.
-- The `remove` method was removed. Use `close` method instead.
+- The `OccUserAdapter` was removed. Use the `OccUserAccountAdapter` from `@spartacus/user/account/occ` and the `OccUserProfileAdapter` from `@spartacus/user/profile/occ` instead.
+- The `remove` method was removed. Use the `close` method instead.
 
 #### UserAdapter
 
-- `UserAdapter` was removed. Instead please use `UserAccountAdapter` from `@spartacus/user/account/core` and `UserProfileAdapter` from `@spartacus/user/profile/core`.
-- The `remove` method was removed. Use `close` method instead.
+- The `UserAdapter` was removed. Use the `UserAccountAdapter` from `@spartacus/user/account/core` and the `UserProfileAdapter` from `@spartacus/user/profile/core` instead.
+- The `remove` method was removed. Use the `close` method instead.
 
 #### UserConnector
 
-- `UserConnector` was removed. Instead please use equivalents: `UserAccountConnector` from `@spartacus/user/account/core` and `UserProfileConnector` from `@spartacus/user/profile/core` .
-- The `remove` method now returns `close` method from adapter (name change).
+- The `UserConnector` was removed. Use the `UserAccountConnector` from `@spartacus/user/account/core` and the `UserProfileConnector` from `@spartacus/user/profile/core` instead.
+- The `remove` method now returns the `close` method from the adapter (name change).
 
 #### OccEndpoints
 
-- Endpoint `user` was removed from the declaration in `@spartacus/core`. It's now provided with module augmentation from `@spartacus/user/account/occ`. Default value is also provided from this new entry point.
-- Endpoints `titles`, `userRegister`, `userForgotPassword`, `userResetPassword`, `userUpdateLoginId`, `userUpdatePassword`, `userUpdateProfile`, `userCloseAccount` were removed from the declaration in `@spartacus/core`. Those endpoints are now provided with module augmentation from `@spartacus/user/profile`. Default values are also provided from this new entry point.
+- The `user`endpoint was removed from the declaration in `@spartacus/core`. It is now provided through module augmentation from `@spartacus/user/account/occ`. The default value is also provided from this new entry point.
+- The `titles`, `userRegister`, `userForgotPassword`, `userResetPassword`, `userUpdateLoginId`, `userUpdatePassword`, `userUpdateProfile`, and `userCloseAccount` endpoints were removed from the declaration in `@spartacus/core`. These endpoints are now provided through module augmentation from `@spartacus/user/profile`. Default values are also provided from this new entry point.
 
 #### UserService
 
-- `get` method was changed, now fully relys on `UserAccountFacade.get()` from `@spartacus/user`.
-- `load` method was removed, instead please use `UserAccountFacade.get()` from `@spartacus/user`.
-- `register` method was removed, instead please use `UserRegisterFacade.register()` from `@spartacus/user`.
-- `registerGuest` method was removed, instead please use `UserRegisterFacade.registerGuest()` from `@spartacus/user`.
-- `getRegisterUserResultLoading` method was removed, instead please subscribe to `UserRegisterFacade.register()` from `@spartacus/user` to get the loading state.
-- `getRegisterUserResultSuccess` method was removed, instead please subscribe to `UserRegisterFacade.register()` from `@spartacus/user` to get the success state.
-- `getRegisterUserResultError` method was removed, instead please subscribe to `UserRegisterFacade.register()` from `@spartacus/user` to get the error state.
-- `resetRegisterUserProcessState` method was removed and no longer needed if `UserRegisterFacade.register()`from `@spartacus/user` was used.
-- `remove` method was removed, instead please use `UserProfileFacade.close()` from `@spartacus/user`.
-- `loadTitles` method was removed, instead please use `UserProfileFacade.getTitles()` from `@spartacus/user`.
-- `getRemoveUserResultLoading` method was removed, instead please subscribe to `UserProfileFacade.close()` from `@spartacus/user` to get the loading state.
-- `getRemoveUserResultSuccess` method was removed, instead please subscribe to `UserProfileFacade.close()` from `@spartacus/user` to get the success state.
-- `getRemoveUserResultError` method was removed, instead please subscribe to `UserProfileFacade.close()` from `@spartacus/user` to get the error state.
-- `resetRemoveUserProcessState` method was removed and no longer needed if `UserProfileFacade.close()`from `@spartacus/user` was used.
-- `isPasswordReset` method was removed, instead please subscribe to `UserPasswordFacade.reset()` from `@spartacus/user` to get the success state.
-- `updatePersonalDetails` method was removed, instead please use `UserProfileFacade.update()` from `@spartacus/user`.
-- `getUpdatePersonalDetailsResultLoading` method was removed, instead please subscribe to `UserProfileFacade.update()` from `@spartacus/user`to get the loading state.
-- `getUpdatePersonalDetailsResultError` method was removed, instead please subscribe to `UserProfileFacade.update()` from `@spartacus/user`to get the error state.
-- `getUpdatePersonalDetailsResultSuccess` method was removed, instead please subscribe to `UserProfileFacade.update()` from `@spartacus/user`to get the success state.
-- `resetUpdatePersonalDetailsProcessingState` method was removed and no longer needed if `UserProfileFacade.update()` from `@spartacus/user` was used.
-- `resetPassword` method was removed, instead please use `UserPasswordFacade.reset()` from `@spartacus/user`.
-- `requestForgotPasswordEmail` method was removed, instead please use `UserPasswordFacade.requestForgotPasswordEmail()` from `@spartacus/user`.
-- `updateEmail` method was removed, instead please use `UserEmailFacade.update()` from `@spartacus/user`.
-- `getUpdateEmailResultLoading` method was removed, instead please subscribe to `UserEmailFacade.update()` from `@spartacus/user`to get the loading state.
-- `getUpdateEmailResultSuccess` method was removed, instead please subscribe to `UserEmailFacade.update()` from `@spartacus/user`to get the success state.
-- `getUpdateEmailResultError` method was removed, instead please subscribe to `UserEmailFacade.update()` from `@spartacus/user`to get the error state.
-- `resetUpdateEmailResultState` method was removed and no longer needed if `UserEmailFacade.update()` from `@spartacus/user` was used.
-- `updatePassword` method was removed, instead please use `UserPasswordFacade.update()` from `@spartacus/user`.
-- `getUpdatePasswordResultLoading` method was removed, instead please subscribe to `UserPasswordFacade.update()` from `@spartacus/user`to get the loading state.
-- `getUpdatePasswordResultError` method was removed, instead please subscribe to `UserPasswordFacade.update()` from `@spartacus/user`to get the error state.
-- `getUpdatePasswordResultSuccess` method was removed, instead please subscribe to `UserPasswordFacade.update()` from `@spartacus/user`to get the success state.
-- `resetUpdatePasswordProcessState` method was removed and no longer needed if `UserPasswordFacade.update()` from `@spartacus/user` was used.
+- The `get` method was changed, and now fully relies on `UserAccountFacade.get()` from `@spartacus/user`.
+- The `load` method was removed. Use `UserAccountFacade.get()` from `@spartacus/user` instead.
+- The `register` method was removed. Use `UserRegisterFacade.register()` from `@spartacus/user` instead.
+- The `registerGuest` method was removed. Use `UserRegisterFacade.registerGuest()` from `@spartacus/user` instead.
+- The `getRegisterUserResultLoading` method was removed. Instead, subscribe to `UserRegisterFacade.register()` from `@spartacus/user` to get the loading state.
+- The `getRegisterUserResultSuccess` method was removed. Instead, subscribe to `UserRegisterFacade.register()` from `@spartacus/user` to get the success state.
+- The `getRegisterUserResultError` method was removed. Instead, subscribe to `UserRegisterFacade.register()` from `@spartacus/user` to get the error state.
+- The `resetRegisterUserProcessState` method was removed and is no longer needed if `UserRegisterFacade.register()`from `@spartacus/user` was used.
+- The `remove` method was removed. Use `UserProfileFacade.close()` from `@spartacus/user` instead.
+- The `loadTitles` method was removed. Use `UserProfileFacade.getTitles()` from `@spartacus/user` instead.
+- The `getRemoveUserResultLoading` method was removed. Instead, subscribe to `UserProfileFacade.close()` from `@spartacus/user` to get the loading state.
+- The `getRemoveUserResultSuccess` method was removed. Instead, subscribe to `UserProfileFacade.close()` from `@spartacus/user` to get the success state.
+- The `getRemoveUserResultError` method was removed. Instead, subscribe to `UserProfileFacade.close()` from `@spartacus/user` to get the error state.
+- The `resetRemoveUserProcessState` method was removed and is no longer needed if `UserProfileFacade.close()`from `@spartacus/user` was used.
+- The `isPasswordReset` method was removed. Instead, subscribe to `UserPasswordFacade.reset()` from `@spartacus/user` to get the success state.
+- The `updatePersonalDetails` method was removed. Use `UserProfileFacade.update()` from `@spartacus/user` instead.
+- The `getUpdatePersonalDetailsResultLoading` method was removed. Instead, subscribe to `UserProfileFacade.update()` from `@spartacus/user`to get the loading state.
+- The `getUpdatePersonalDetailsResultError` method was removed. Instead, subscribe to `UserProfileFacade.update()` from `@spartacus/user`to get the error state.
+- The `getUpdatePersonalDetailsResultSuccess` method was removed. Instead, subscribe to `UserProfileFacade.update()` from `@spartacus/user`to get the success state.
+- The `resetUpdatePersonalDetailsProcessingState` method was removed and is no longer needed if `UserProfileFacade.update()` from `@spartacus/user` was used.
+- The `resetPassword` method was removed. Use `UserPasswordFacade.reset()` from `@spartacus/user` instead.
+- The `requestForgotPasswordEmail` method was removed. Use `UserPasswordFacade.requestForgotPasswordEmail()` from `@spartacus/user` instead.
+- The `updateEmail` method was removed. Use `UserEmailFacade.update()` from `@spartacus/user` instead.
+- The `getUpdateEmailResultLoading` method was removed. Instead, subscribe to `UserEmailFacade.update()` from `@spartacus/user`to get the loading state.
+- The `getUpdateEmailResultSuccess` method was removed. Instead, subscribe to `UserEmailFacade.update()` from `@spartacus/user`to get the success state.
+- The `getUpdateEmailResultError` method was removed. Instead, subscribe to `UserEmailFacade.update()` from `@spartacus/user`to get the error state.
+- The `resetUpdateEmailResultState` method was removed and is no longer needed if `UserEmailFacade.update()` from `@spartacus/user` was used.
+- The `updatePassword` method was removed. Use `UserPasswordFacade.update()` from `@spartacus/user` instead.
+- The `getUpdatePasswordResultLoading` method was removed. Instead, subscribe to `UserPasswordFacade.update()` from `@spartacus/user`to get the loading state.
+- The `getUpdatePasswordResultError` method was removed. Instead, subscribe to `UserPasswordFacade.update()` from `@spartacus/user`to get the error state.
+- The `getUpdatePasswordResultSuccess` method was removed. Instead, subscribe to `UserPasswordFacade.update()` from `@spartacus/user`to get the success state.
+- The `resetUpdatePasswordProcessState` method was removed and is no longer needed if `UserPasswordFacade.update()` from `@spartacus/user` was used.
 
 #### UserModule
 
-- `UserModule` was removed. Main modules currently are `UserAccountModule` in `@spartacus/user/account` and `UserProfileModule` in `@spartacus/user/profile`.
+- The `UserModule` was removed. The main modules currently are `UserAccountModule` in `@spartacus/user/account` and `UserProfileModule` in `@spartacus/user/profile`.
 
 #### Occ Endpoint Models
 
-- `UserSignUp` model was moved to `@spartacus/user/profile` lib.
+- The `UserSignUp` model was moved to the `@spartacus/user/profile` library.
 
 #### NgRx State of the User Feature
 
-Some branches of the ngrx state for the User feature were removed: `'account'`, `'titles'`, and `'resetPassword'`. Please use the new approach with Queries and Commands defined in the new facades in  the library `@spartacus/user`:
-`UserAccountFacade` from '@spartacus/user/account/root'
-`UserEmailFacade` from '@spartacus/user/profile/root'
-`UserPasswordFacade` from '@spartacus/user/profile/root'
-`UserProfileFacade` from '@spartacus/user/profile/root'
-`UserRegisterFacade` from '@spartacus/user/profile/root' 
+The `'account'`, `'titles'`, and `'resetPassword'` branches of the NgRx state for the User feature were removed. Please use the new approach with Queries and Commands that is defined in the new facades in `@spartacus/user` the library, as follows:
 
-The following items related to the ngrx state were removed from `@spartacus/core`:
+- `UserAccountFacade` from `'@spartacus/user/account/root'`
+- `UserEmailFacade` from `'@spartacus/user/profile/root'`
+- `UserPasswordFacade` from `'@spartacus/user/profile/root'`
+- `UserProfileFacade` from `'@spartacus/user/profile/root'`
+- `UserRegisterFacade` from `'@spartacus/user/profile/root'`
 
-- Following actions `ForgotPasswordEmailRequest`, `ForgotPasswordEmailRequestFail`, `ForgotPasswordEmailRequestSuccess`, `ResetPassword`, `ResetPasswordFail`, `ResetPasswordSuccess`, `LoadTitles`, `LoadTitlesFail`, `LoadTitlesSuccess`, `UpdateEmailAction`, `UpdateEmailSuccessAction`, `UpdateEmailErrorAction`, `ResetUpdateEmailAction`, `UpdatePassword`, `UpdatePasswordFail`, `UpdatePasswordSuccess`, `UpdatePasswordReset`, `LoadUserDetails`, `LoadUserDetailsFail`, `LoadUserDetailsSuccess`, `UpdateUserDetails`, `UpdateUserDetailsFail`, `UpdateUserDetailsSuccess`, `ResetUpdateUserDetails`, `RegisterUser`, `RegisterUserFail`, `RegisterUserSuccess`, `ResetRegisterUserProcess`, `RegisterGuest`, `RegisterGuestFail`, `RegisterGuestSuccess`, `RemoveUser`, `RemoveUserFail`, `RemoveUserSuccess`, `RemoveUserReset` were removed.
-- Following effects `ForgotPasswordEffects`, `ResetPasswordEffects`, `TitlesEffects`, `UpdateEmailEffects`, `UpdatePasswordEffects`, `UserDetailsEffects`, `UserRegisterEffects` were removed.
-- Following selectors `getResetPassword`, `getDetailsState`, `getDetails`, `getTitlesState`, `getTitlesEntites`, `getAllTitles`, `titleSelectorFactory` were removed.
-- Reducers for following states `account`, `titles`, `resetPassword` were removed.
+The following items related to the NgRx state were removed from `@spartacus/core`:
+
+- Actions:
+  - `ForgotPasswordEmailRequest`
+  - `ForgotPasswordEmailRequestFail`
+  - `ForgotPasswordEmailRequestSuccess`
+  - `ResetPassword`
+  - `ResetPasswordFail`
+  - `ResetPasswordSuccess`
+  - `LoadTitles`
+  - `LoadTitlesFail`
+  - `LoadTitlesSuccess`
+  - `UpdateEmailAction`
+  - `UpdateEmailSuccessAction`
+  - `UpdateEmailErrorAction`
+  - `ResetUpdateEmailAction`
+  - `UpdatePassword`
+  - `UpdatePasswordFail`
+  - `UpdatePasswordSuccess`
+  - `UpdatePasswordReset`
+  - `LoadUserDetails`
+  - `LoadUserDetailsFail`
+  - `LoadUserDetailsSuccess`
+  - `UpdateUserDetails`
+  - `UpdateUserDetailsFail`
+  - `UpdateUserDetailsSuccess`
+  - `ResetUpdateUserDetails`
+  - `RegisterUser`
+  - `RegisterUserFail`
+  - `RegisterUserSuccess`
+  - `ResetRegisterUserProcess`
+  - `RegisterGuest`
+  - `RegisterGuestFail`
+  - `RegisterGuestSuccess`
+  - `RemoveUser`
+  - `RemoveUserFail`
+  - `RemoveUserSuccess`
+  - `RemoveUserReset`
+- Effects:
+  - `ForgotPasswordEffects`
+  - `ResetPasswordEffects`
+  - `TitlesEffects`
+  - `UpdateEmailEffects`
+  - `UpdatePasswordEffects`
+  - `UserDetailsEffects`
+  - `UserRegisterEffects`
+- Selectors:
+  - `getResetPassword`
+  - `getDetailsState`
+  - `getDetails`
+  - `getTitlesState`
+  - `getTitlesEntites`
+  - `getAllTitles`
+  - `titleSelectorFactory`
+- Reducers for the `account`, `titles`, and `resetPassword` states were removed.
 
 #### Connectors
 
 - `TITLE_NORMALIZER` was moved to `@spartacus/user/profile`.
 - `USER_SIGN_UP_SERIALIZER` was moved to `@spartacus/user/profile`.
-- `USER_SERIALIZER` was removed. For replacement please use `USER_ACCOUNT_SERIALIZER` from `@spartacus/user/account` and `USER_PROFILE_SERIALIZER` from `@spartacus/user/profile`.
-- `USER_NORMALIZER` was removed. For replacement please use `USER_ACCOUNT_NORMALIZER` from `@spartacus/user/account` and `USER_PROFILE_NORMALIZER` from `@spartacus/user/profile`.
+- `USER_SERIALIZER` was removed. Use `USER_ACCOUNT_SERIALIZER` from `@spartacus/user/account` and `USER_PROFILE_SERIALIZER` from `@spartacus/user/profile` instead.
+- `USER_NORMALIZER` was removed. Use `USER_ACCOUNT_NORMALIZER` from `@spartacus/user/account` and `USER_PROFILE_NORMALIZER` from `@spartacus/user/profile` instead.
 
 #### StoreFinderListItemComponent
 
-- `div[class.cx-store-name]` element has been changed to `h2[class.cx-store-name]`.
+- The `div[class.cx-store-name]` element was changed to `h2[class.cx-store-name]`.
 
 #### StoreFinderStoresCountComponent
 
-- `div[class.cx-title]` element has been changed to `h2[class.cx-title]`
+- The `div[class.cx-title]` element was changed to `h2[class.cx-title]`.
 
 #### StoreFinderListItemComponent
 
-- `div[class.cx-total]` element has been changed to `h4[class.cx-total]`
+- The `div[class.cx-total]` element was changed to `h4[class.cx-total]`.
 
 #### CartItemComponent
 
-- `{{item.product.name}}` element has been changed to `<h2>{{item.product.name}}</h2>`
+- The `{{item.product.name}}` element was changed to `<h2>{{item.product.name}}</h2>`.
 
 #### OrderSummaryComponent
 
-- `<h4>{{ 'orderCost.orderSummary' | cxTranslate }}</h4>` element has changed to `<h3>{{ 'orderCost.orderSummary' | cxTranslate }}</h3>`
+- The `<h4>{{ 'orderCost.orderSummary' | cxTranslate }}</h4>` element was changed to `<h3>{{ 'orderCost.orderSummary' | cxTranslate }}</h3>`.
 
 #### DeliveryModeComponent
 
-- `h3[class.cx-checkout-title]` element has changed to `h2[class.cx-checkout-title]`
+- The `h3[class.cx-checkout-title]` element was changed to `h2[class.cx-checkout-title]`.
 
 #### PaymentMethodComponent
 
-- `h3[class.cx-checkout-title]` element has changed to `h2[class.cx-checkout-title]`
+- The `h3[class.cx-checkout-title]` element was changed to `h2[class.cx-checkout-title]`.
 
 #### ReviewSubmitComponent
 
-- `h3[class.cx-review-title]` element changed to `h2[class.cx-review-title]`
-- `div[class.cx-review-cart-total]` element changed to `h4[class.cx-review-cart-total]`
+- The `h3[class.cx-review-title]` element was changed to `h2[class.cx-review-title]`.
+- The `div[class.cx-review-cart-total]` element was changed to `h4[class.cx-review-cart-total]`.
 
 #### ShippingAddressComponent
 
-- `h3[class.cx-checkout-title]` element changed to `h2[class.cx-checkout-title]`
+- The `h3[class.cx-checkout-title]` element was changed to `h2[class.cx-checkout-title]`.
 
 #### CmsPageTitleComponent
 
-- New interface has been created
+- A new interface has been created.
 
 #### CmsBreadcrumbsComponent
 
-- `CmsBreadcrumbsComponent` extends `CmsPageTitleComponent` now
-- `container` property has been moved to `CmsPageTitleComponent`
+- The `CmsBreadcrumbsComponent` now extends the `CmsPageTitleComponent`.
+- The `container` property has been moved to the `CmsPageTitleComponent`.
 
 #### BreadcrumbComponent
 
-- `BreadcrumbComponent` extends `PageTitleComponent` now
-- `setTitle()` function has been moved to `PageTitleComponent`
+- The `BreadcrumbComponent` now extends the `PageTitleComponent`.
+- The `setTitle()` function has been moved to the `PageTitleComponent`.
 
 #### PageTitleComponent
 
-- New component that sets page title if there is not one set by default 
+- The `PageTitleComponent` is a new component that sets the page title if there is not one set by default.
 
 #### NavigationUiComponent
 
-- `<h5><cx-icon ...></h5>` element was changed to `<span><cx-icon ...></span>`
-- `h5[attr.aria-label]="node.title"` element was was changed to `span[attr.aria-label]="node.title"`
+- The `<h5><cx-icon ...></h5>` element was changed to `<span><cx-icon ...></span>`.
+- The `h5[attr.aria-label]="node.title"` element was changed to `span[attr.aria-label]="node.title"`.
 
 #### ProductCarouselComponent
 
-- `<h4>{{item.name}}</h4>` element changed to `<h3>{{item.name}}</h3>`
+- The `<h4>{{item.name}}</h4>` element was changed to `<h3>{{item.name}}</h3>`.
 
 #### WishListItemComponent
 
-- `<a>{{ cartEntry.product.name }}</a>` element changed to `<a><h2>{{ cartEntry.product.name }}</h2></a>`
+- The `<a>{{ cartEntry.product.name }}</a>` element was changed to `<a><h2>{{ cartEntry.product.name }}</h2></a>`.
 
 #### CardComponent
 
-- `h4[class.cx-card-title]` element changed to `h3[class.cx-card-title]`
+- The `h4[class.cx-card-title]` element was changed to `h3[class.cx-card-title]`.
 
 #### CarouselComponent
 
-- `<h3 *ngIf="title">{{ title }}</h3>` element changed to `<h2 *ngIf="title">{{ title }}</h2>`
+- The `<h3 *ngIf="title">{{ title }}</h3>` element was changed to `<h2 *ngIf="title">{{ title }}</h2>`.
 
 #### AddedToCartDialogComponent
 
-- `[attr.aria-label]="'common.close' | cxTranslate"` element changed to `attr.aria-label="{{ 'addToCart.closeModal' | cxTranslate }}"`
+- The `[attr.aria-label]="'common.close' | cxTranslate"` element was changed to `attr.aria-label="{{ 'addToCart.closeModal' | cxTranslate }}"`.
 
 #### Translations (i18n) changes
 
-- Key `miniLogin.userGreeting` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `miniLogin.signInRegister` was moved to separated `@spartacus/user` lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.signIn` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.register` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.dontHaveAccount` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.guestCheckout` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.emailAddress.label` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.emailAddress.placeholder` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.password.label` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.password.placeholder` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.wrongEmailFormat` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `loginForm.forgotPassword` was moved to separated lib. Now is a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
-- Key `updateEmailForm.newEmailAddress.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.newEmailAddress.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.confirmNewEmailAddress.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.confirmNewEmailAddress.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.enterValidEmail` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.bothEmailMustMatch` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.password.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.password.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.pleaseInputPassword` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `updateEmailForm.emailUpdateSuccess` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.resetPassword` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.enterEmailAddressAssociatedWithYourAccount` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.emailAddress.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.emailAddress.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.enterValidEmail` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.passwordResetEmailSent` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `forgottenPassword.passwordResetSuccess` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.confirmPassword.action` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.confirmPassword.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.confirmPassword.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.managementInMyAccount` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.termsAndConditions` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.signIn` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.register` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.confirmNewPassword` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.resetPassword` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.createAccount` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.title` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.firstName.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.firstName.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.lastName.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.lastName.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.emailAddress.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.emailAddress.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.password.label` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.password.placeholder` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.newPassword` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.emailMarketing` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.confirmThatRead` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.selectTitle` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.passwordMinRequirements` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.bothPasswordMustMatch` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.titleRequired` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `register.postRegisterMessage` was moved to separated lib. Now is a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
-- Key `myCoupons.sortByMostRecent` has been removed. We use `myCoupons.sortBy` now.
-- Key `myInterests.sortByMostRecent` has been removed. We use `myInterests.sortBy` now.
-- Key `orderHistory.sortByMostRecent` has been removed. We use `orderHistory.sortBy` now.
-- Key `returnRequestList.sortByMostRecent` has been removed. We use `returnRequestList.sortBy` now.
-- Key `productList.sortByMostRecent` has been removed. We use `productList.sortBy` now.
+- The `miniLogin.userGreeting` key was moved to a separate library. It is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `miniLogin.signInRegister` key was moved to the separate `@spartacus/user` library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.signIn` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.register` key was moved to a separate library. It is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.dontHaveAccount` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.guestCheckout` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.emailAddress.label` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.emailAddress.placeholder` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.password.label` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.password.placeholder` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.wrongEmailFormat` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `loginForm.forgotPassword` key was moved to a separate library. Is is now a part of `userAccountTranslations`, `userAccountTranslationChunksConfig` from `@spartacus/user/account/assets`.
+- The `updateEmailForm.newEmailAddress.label` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.newEmailAddress.placeholder` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.confirmNewEmailAddress.label` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.confirmNewEmailAddress.placeholder` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.enterValidEmail` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.bothEmailMustMatch` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.password.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.password.placeholder` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.pleaseInputPassword` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `updateEmailForm.emailUpdateSuccess` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.resetPassword` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.enterEmailAddressAssociatedWithYourAccount` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.emailAddress.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.emailAddress.placeholder` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.enterValidEmail` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.passwordResetEmailSent` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `forgottenPassword.passwordResetSuccess` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.confirmPassword.action` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.confirmPassword.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.confirmPassword.placeholder` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.managementInMyAccount` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.termsAndConditions` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.signIn` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.register` key was moved to a separate library. Is is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.confirmNewPassword` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.resetPassword` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.createAccount` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.title` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.firstName.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.firstName.placeholder` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.lastName.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.lastName.placeholder` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.emailAddress.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.emailAddress.placeholder` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.password.label` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.password.placeholder` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.newPassword` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.emailMarketing` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.confirmThatRead` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.selectTitle` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.passwordMinRequirements` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.bothPasswordMustMatch` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.titleRequired` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `register.postRegisterMessage` key was moved to a separate library. It is now a part of `userProfileTranslations`, `userProfileTranslationChunksConfig` from `@spartacus/user/profile/assets`.
+- The `myCoupons.sortByMostRecent` key has been removed. Use `myCoupons.sortBy` instead.
+- The `myInterests.sortByMostRecent` key has been removed. Use `myInterests.sortBy` instead.
+- The `orderHistory.sortByMostRecent` key has been removed. Use `orderHistory.sortBy` instead.
+- The `returnRequestList.sortByMostRecent` key has been removed. Use `returnRequestList.sortBy` instead.
+- The `productList.sortByMostRecent` key has been removed. Use `productList.sortBy` instead.
 
 ### Default routing config for the My Company feature
 
