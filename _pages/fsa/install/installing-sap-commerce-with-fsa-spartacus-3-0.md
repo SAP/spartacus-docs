@@ -36,7 +36,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
    **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
 
-3. In financial_spa, the build.gradle file should have the following content:
+3. In the financial_spa recipe folder, the build.gradle file should have the following content:
 
     ```typescript
     apply plugin: 'installer-platform-plugin'
@@ -45,13 +45,11 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     def pl = platform {
         localProperties {
             property 'storefront.show.debug.info', 'false'
-            property 'promotions.legacy.mode', 'true'
         }
     
         extensions {
             extName 'financialspastore'
             extName 'financialprocess'
-            extName 'financialsmartedit'
             extName 'financialwebservices'
             extName 'financialb2bocc'
             extName 'financialb2bbackoffice'
@@ -66,13 +64,19 @@ Some steps in this procedure derive from the documentation for installing SAP Co
             extName 'adaptivesearchbackoffice'
             extName 'commerceservicesbackoffice'
             extName 'customersupportbackoffice'
+            extName 'promotionenginebackoffice'
+            extName 'rulebuilderbackoffice'
+            extName 'customercouponbackoffice'
     
             extName 'assistedservicewebservices'
     
             extName 'yacceleratorfulfilmentprocess'
             extName 'yacceleratorcore'
+   
+            extName 'promotionengineservices'
     
             extName 'cmsocc'
+            extName 'customercouponocc'
             extName 'acceleratorocc'
             extName 'cmswebservices'
             extName 'previewwebservices'
