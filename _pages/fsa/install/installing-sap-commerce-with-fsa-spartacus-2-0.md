@@ -159,7 +159,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
-7. Start SAP Commerce running the following commands from the sap-commerce-folder>/installer folder.
+7. Start the SAP Commerce running the following commands from the sap-commerce-folder>/installer folder.
 
     For Unix:
 
@@ -173,7 +173,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
-8. Verify that SAP Commerce Cloud is working. To do this, you can:
+8. Verify that the SAP Commerce Cloud is working. To do this, you can:
 
     - Display the Admin Console: [https://localhost:9002](https://localhost:9002) or
     - Display the Backoffice: [https://localhost:9002/backoffice](https://localhost:9002/backoffice) (note that starting the Backoffice for the first time can take 15-20 seconds).
@@ -184,9 +184,9 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
 ### Step 2: Configuring OCC credentials
 
-FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.
+FSA Spartacus uses OCC REST API calls to get information from and make changes to the back end. To do this, the back end must be configured with certain credentials.
 
-1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: [https://localhost:9002](https://localhost:9002).
+1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: [https://localhost:9002](https://localhost:9002).
 2. Navigate to the **Console** tab, then click **Impex Import**.
 3. Copy the following code into the **Import content** field.
 
@@ -200,13 +200,13 @@ FSA Spartacus uses OCC REST API calls to get information from and make changes t
 
 4. Click **Import content**. You have now added a client ID and password to your FSA Spartacus storefront configuration.
 
-You can verify that the OAuth client has been successfully defined by entering the following curl command in a terminal or command prompt window:
+You can verify that the OAuth client has been successfully defined by entering the following curl command in the terminal or the command prompt window:
 
 ```typescript
 curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
 ```
 
-The curl command sends a POST request for an access token, using the client ID and password that you added to the backend. The command should return something similar to the following:
+The curl command sends a POST request for an access token, using the client ID and password that you added to the back end. The command should return something similar to the following:
 
 ```typescript
 {
