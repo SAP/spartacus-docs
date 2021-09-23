@@ -1692,62 +1692,69 @@ The following items related to the NgRx state were removed from `@spartacus/core
 - The `returnRequestList.sortByMostRecent` key has been removed. Use `returnRequestList.sortBy` instead.
 - The `productList.sortByMostRecent` key has been removed. Use `productList.sortBy` instead.
 
-### Default routing config for the My Company feature
+### Default Routing Configuration for the My Company Feature
 
-The default routing config for the My Company pages was moved from various modules in `@spartacus/organization/administration/components` to `OrganizationAdministrationRootModule` in `@spartacus/organization/administration/root`. Therefore the default config is now provided eagerly, so it's available early on app start (but not only after the feature is lazy loaded). Also, the following objects were renamed and moved to `@spartacus/organization/administration/root`:
+The default routing configuration for the **My Company** pages was moved from various modules in `@spartacus/organization/administration/components` to `OrganizationAdministrationRootModule` in `@spartacus/organization/administration/root`. As a result, the default configuration is now provided eagerly, so it is available early on app start (but not only after the feature is lazy loaded). Also, the following objects were renamed and moved to `@spartacus/organization/administration/root`:
 
-- `budgetRoutingConfig` -> `defaultBudgetRoutingConfig`
-- `costCenterRoutingConfig` -> `defaultCostCenterRoutingConfig`
-- `permissionRoutingConfig` -> `defaultPermissionRoutingConfig`
-- `unitsRoutingConfig` -> `defaultUnitsRoutingConfig`
-- `userGroupRoutingConfig` -> `defaultUserGroupRoutingConfig`
-- `userRoutingConfig` -> `defaultUserRoutingConfig`
+- `budgetRoutingConfig` was renamed to `defaultBudgetRoutingConfig`
+- `costCenterRoutingConfig` was renamed to `defaultCostCenterRoutingConfig`
+- `permissionRoutingConfig` was renamed to `defaultPermissionRoutingConfig`
+- `unitsRoutingConfig` was renamed to `defaultUnitsRoutingConfig`
+- `userGroupRoutingConfig` was renamed to `defaultUserGroupRoutingConfig`
+- `userRoutingConfig` was renamed to `defaultUserRoutingConfig`
 
-#### Checkout Related Translations (i18n) changes
+#### Checkout-Related Translations (i18n) Changes
 
-The checkout related translation keys were moved to the `@spartacus/checkout/assets`.  If you use some checkout 
-related labels outside of checkout and the checkout lib is not used, you will need to use alternate translation labels.
+The checkout-related translation keys were moved to `@spartacus/checkout/assets`. If you use any checkout-related labels outside of checkout and the checkout library is not used, you will need to use alternate translation labels.
 
-- Key `checkoutAddress.verifyYourAddress` is moved to `addressSuggestion.verifyYourAddress`.
-- Key `checkoutAddress.ensureAccuracySuggestChange` is moved to `addressSuggestion.ensureAccuracySuggestChange`.
-- Key `checkoutAddress.chooseAddressToUse` is moved to `addressSuggestion.chooseAddressToUse`.
-- Key `checkoutAddress.suggestedAddress` is moved to `addressSuggestion.suggestedAddress`.
-- Key `checkoutAddress.enteredAddress` is moved to `addressSuggestion.enteredAddress`.
-- Key `checkoutAddress.editAddress` is moved to `addressSuggestion.editAddress`.
-- Key `checkoutAddress.saveAddress` is moved to `addressSuggestion.saveAddress`.
-- Key `checkoutOrderConfirmation.replenishmentNumber` is removed. You can use instead ``.
-- Key `checkoutOrderConfirmation.placedOn` is removed. You can use instead `orderDetails.placedOn`.
-- Key `checkoutOrderConfirmation.status` is removed. You can use instead `orderDetails.status`.
-- Key `checkoutOrderConfirmation.active` is removed. You can use instead `orderDetails.active`.
-- Key `checkoutOrderConfirmation.cancelled` is removed. You can use instead `orderDetails.cancelled`.
-- Key `checkoutOrderConfirmation.frequency` is removed. You can use instead `orderDetails.frequency`.
-- Key `checkoutOrderConfirmation.nextOrderDate` is removed. You can use instead `orderDetails.nextOrderDate`.
-- Key `checkoutOrderConfirmation.orderNumber` is removed. You can use instead `orderDetails.orderNumber`.
+- The `checkoutAddress.verifyYourAddress` key is moved to `addressSuggestion.verifyYourAddress`.
+- The `checkoutAddress.ensureAccuracySuggestChange` key is moved to `addressSuggestion.ensureAccuracySuggestChange`.
+- The `checkoutAddress.chooseAddressToUse` key is moved to `addressSuggestion.chooseAddressToUse`.
+- The `checkoutAddress.suggestedAddress` key is moved to `addressSuggestion.suggestedAddress`.
+- The `checkoutAddress.enteredAddress` key is moved to `addressSuggestion.enteredAddress`.
+- The `checkoutAddress.editAddress` key is moved to `addressSuggestion.editAddress`.
+- The `checkoutAddress.saveAddress` key is moved to `addressSuggestion.saveAddress`.
+- The `checkoutOrderConfirmation.replenishmentNumber` key is removed. You can use `` instead.
+- The `checkoutOrderConfirmation.placedOn` key is removed. You can use `orderDetails.placedOn` instead.
+- The `checkoutOrderConfirmation.status` key is removed. You can use `orderDetails.status` instead.
+- The `checkoutOrderConfirmation.active` key is removed. You can use `orderDetails.active` instead.
+- The `checkoutOrderConfirmation.cancelled` key is removed. You can use `orderDetails.cancelled` instead.
+- The `checkoutOrderConfirmation.frequency` key is removed. You can use `orderDetails.frequency` instead.
+- The `checkoutOrderConfirmation.nextOrderDate` key is removed. You can use `orderDetails.nextOrderDate` instead.
+- The `checkoutOrderConfirmation.orderNumber` key is removed. You can use `orderDetails.orderNumber` instead.
 
-#### Changes in styles
+#### Changes in Styles
 
-- Styles for following selectors `cx-close-account-modal`, `cx-close-account`, `cx-forgot-password`, `cx-register`, `cx-update-password-form`, `cx-user-form` were moved from `@spartacus/styles` to `@spartacus/user/profile/styles`.
-- Styles for following selectors `cx-login`, `cx-login-form` were moved from `@spartacus/styles` to `@spartacus/user/account/styles`.
+- The styles for the following selectors were moved from `@spartacus/styles` to `@spartacus/user/profile/styles`:
+
+  - `cx-close-account-modal`
+  - `cx-close-account`
+  - `cx-forgot-password`
+  - `cx-register`
+  - `cx-update-password-form`
+  - `cx-user-form`
+- The styles for the following selectors were moved from `@spartacus/styles` to `@spartacus/user/account/styles`:
+
+  - `cx-login`
+  - `cx-login-form`
 
 ### LogoutGuard
 
-`AuthRedirectService` is a new, required constructor dependency.
+- `AuthRedirectService` is a new, required constructor dependency.
 
 ### RoutingService
 
-- `RoutingService.go` - changed signature. Before 4.0, the object with query params could be passed in the 2nd argument. Now the 2nd argument is Angular `NavigationExtras` object (with `'queryParams'` property).
-- `RoutingService.navigate` - changed signature. Before 4.0, the object with query params could be passed in the 2nd argument. Now the 2nd argument is Angular `NavigationExtras` object (with `'queryParams'` property).
+- The `RoutingService.go` signature was changed. Prior to 4.0, an object with query params could be passed in the second argument. Now, the second argument is an Angular `NavigationExtras` object (with a `'queryParams'` property).
+- The `RoutingService.navigate` signature was changed. Prior to 4.0, an object with query params could be passed in the second argument. Now, the second argument is an Angular `NavigationExtras` object (with a `'queryParams'` property).
 
-### RoutingActions ngrx
+### RoutingActions RgRx
 
-The following ngrx actions have been removed:
+The following NgRx actions have been removed:
 
-- `RoutingActions.RouteGo` (and `RoutingActions.ROUTER_GO`)
-- `RoutingActions.RouteGoByUrlAction` (and `RoutingActions.ROUTER_GO_BY_URL`)
-- `RoutingActions.RouteBackAction` (and `RoutingActions.ROUTER_BACK`)
-- `RoutingActions.RouteForwardAction` (and `RoutingActions.ROUTER_FORWARD`).
-
-Please use instead the methods of the `RoutingService`, respectively: `go()`, `goByUrl()`, `back()`, `forward()`.
+- `RoutingActions.RouteGo` (and `RoutingActions.ROUTER_GO`). Use the `go()` method of the the `RoutingService` instead.
+- `RoutingActions.RouteGoByUrlAction` (and `RoutingActions.ROUTER_GO_BY_URL`). Use the `goByUrl()` method of the the `RoutingService` instead.
+- `RoutingActions.RouteBackAction` (and `RoutingActions.ROUTER_BACK`). Use the `back()` method of the the `RoutingService` instead.
+- `RoutingActions.RouteForwardAction` (and `RoutingActions.ROUTER_FORWARD`). Use the `forward()` method of the the `RoutingService` instead.
 
 ### AuthRedirectService
 
