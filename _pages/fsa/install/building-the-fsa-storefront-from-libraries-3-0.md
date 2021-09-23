@@ -21,7 +21,7 @@ Before carrying out the procedures below, ensure the following front-end and bac
 
 Your Angular development environment should include the following:
 
-- Angular CLI: Version 10.1 or later, < 11.
+- Angular CLI: Version 12.0.5 or later, < 13.
 - node.js: The most recent 12.x version is recommended, < 13.
 - yarn: v1.15 or later.
 
