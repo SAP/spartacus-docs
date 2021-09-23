@@ -1733,6 +1733,7 @@ The checkout-related translation keys were moved to `@spartacus/checkout/assets`
   - `cx-register`
   - `cx-update-password-form`
   - `cx-user-form`
+
 - The styles for the following selectors were moved from `@spartacus/styles` to `@spartacus/user/account/styles`:
 
   - `cx-login`
@@ -1758,74 +1759,89 @@ The following NgRx actions have been removed:
 
 ### AuthRedirectService
 
-- `#reportNotAuthGuard` - method not needed anymore. Every visited URL is now remembered automatically as redirect URL on `NavigationEnd` event.
-- `#reportAuthGuard` - method deprecated; use the new equivalent method instead: `#saveCurrentNavigationUrl`. It remembers the anticipated page, when being invoked during the navigation.
+- The `#reportNotAuthGuard` method is not needed anymore. Every visited URL is now remembered automatically as a redirect URL on a `NavigationEnd` event.
+- The `#reportAuthGuard` method is deprecated. Use the new `#saveCurrentNavigationUrl` method instead. It remembers the anticipated page when being invoked during the navigation.
 
 ### OccEndpointsService
 
-- The `getEndpoint` method was removed. Use `buildUrl` instead with the `endpoint` string and the `propertiesToOmit` matching your desired URL.
-- The `getOccEndpoint` method was removed. Use `buildUrl` instead with the `endpoint` string and the `propertiesToOmit` matching your desired URL.
-- The `getBaseEndpoint` method was removed. Use `buildUrl` method instead with configurable endpoint or the `getBaseUrl` method.
-- The `getUrl` method was removed. Use `buildUrl` method instead. The `buildUrl` method has the same first parameter as `getUrl`. The 2nd, 3rd and 4th parameters of `getUrl`, are merged into the second argument object of `buildUrl` with properties: `urlParams`, `queryParams` and `scope`.
-- The `getRawEndpoint` method was removed. Use `buildUrl` with configurable endpoints or `getRawEndpointValue` method instead.
+- The `getEndpoint` method was removed. Use `buildUrl` instead, with the `endpoint` string and the `propertiesToOmit` matching your desired URL.
+- The `getOccEndpoint` method was removed. Use `buildUrl` instead, with the `endpoint` string and the `propertiesToOmit` matching your desired URL.
+- The `getBaseEndpoint` method was removed. Use `buildUrl` method instead, with configurable endpoints or the `getBaseUrl` method.
+- The `getUrl` method was removed. Use the `buildUrl` method instead. The `buildUrl` method has the same first parameter as `getUrl`. The second, third and fourth parameters of `getUrl` are merged into the second argument object of `buildUrl` with the `urlParams`, `queryParams` and `scope` properties.
+- The `getRawEndpoint` method was removed. Use `buildUrl` with configurable endpoints or the `getRawEndpointValue` method instead.
 
 ### Modal Service
 
-- Removed `FeatureConfigService` from constructor.
+- The `FeatureConfigService` was removed from the constructor.
 - `ApplicationRef` is a new, required constructor dependency.
 
 ### ExternalJsFileLoader
 
-- The service was removed from core. Please use `ScriptLoader` instead.
+- The service was removed from `@spartacus/core`. Use `ScriptLoader` instead.
 
 ### CxApi
 
-Removed public members of `CxApi`: `CheckoutService`, `CheckoutDeliveryService`, `CheckoutPaymentService`.
+- The following public members of `CxApi` were removed:
+
+  - `CheckoutService`
+  - `CheckoutDeliveryService`
+  - `CheckoutPaymentService`
 
 ### TabParagraphContainerComponent
 
 - `WindowRef` and `BreakpointService` are now required parameters in the constructor.
-- All services used in constructor have been changed to be `protected`.
+- All services used in constructor have been changed to `protected`.
 
 ### b2cLayoutConfig
 
-- `b2cLayoutConfig` was removed from @spartacus/storefront, please use corresponding feature-lib specific layout.
+- `b2cLayoutConfig` was removed from `@spartacus/storefront`. Use the layout from the corresponding feature library instead.
 
 ### UnitAddressFormService
 
-- Param `UserService` imported from `@spartacus/core` was removed from constructor. Instead new param `UserAddressService` from `@spartacus/user/profile/root` was added.
+- The `UserService` param that was imported from `@spartacus/core` was removed from the constructor. Instead, a new `UserAddressService` param from `@spartacus/user/profile/root` was added.
 
 ### GuestRegisterFormComponent
 
-- Param `UserService` imported from `@spartacus/core` was removed from constructor. Instead new param `UserRegisterFacade` from `@spartacus/user/profile/root` was added.
+- The `UserService` param that was imported from `@spartacus/core` was removed from the constructor. Instead, a new `UserRegisterFacade` param from `@spartacus/user/profile/root` was added.
 
 ### UserIdService
 
-- `invokeWithUserId` method was removed. Use `takeUserId` instead.
+- The `invokeWithUserId` method was removed. Use `takeUserId` instead.
 
 ### PopoverDirective
 
-- `PopoverDirective` class now implements `ngOnInit`.
-- Removed `PositioningService` from constructor.
-- Event emitters `openPopover` and `closePopover` are no longer optional.
-- New property: `eventSubject: Subject<PopoverEvent>`.
-- Removed methods: `handleOpen`, `toggle`.
-- Added new methods: `handleEscape`, `handleClick`, `handlePress`, `handleTab`.
+- The `PopoverDirective` class now implements `ngOnInit`.
+- The `PositioningService` was removed from the constructor.
+- The `openPopover` and `closePopover` event emitters are no longer optional.
+- A new `eventSubject: Subject<PopoverEvent>` property was added.
+- The `handleOpen` and `toggle` methods were removed.
+- The following new methods were added:
+  - `handleEscape`
+  - `handleClick`
+  - `handlePress`
+  - `handleTab`
 
 ### PopoverService
 
-- Argument `event` of `getFocusConfig` method is now type `PopoverEvent` instead of `Event`
+- The `event` argument of the `getFocusConfig` method changed type from `Event` to `PopoverEvent`.
 
 ### PopoverComponent
 
-- Removed property`insideClicked`.
+- The `insideClicked` property was removed.
 - `button.close` has been moved into a `div.cx-close-row`
 
 ### OnNavigateFocusService
 
-- Removed `document` injection param from constructor.
-- Added `WindowRef` param into constructor.
+- The `document` injection param was removed from the constructor.
+- The `WindowRef` param was added into the constructor.
 
-### Facade factories are now inlined
+### Facade Factories Are Now Inlined
 
-Facade factories are now inlined into `@Injectable` decorator, the following symbols are not needed anymore and were removed: `userAccountFacadeFactory`, `UserEmailFacadeFactory`, `UserPasswordFacadeFactory`, `UserProfileFacadeFactory`, `UserRegisterFacadeFactory`, `savedCartFacadeFactory`, `cdcAuthFacadeFactory`.
+- Facade factories are now inlined into an `@Injectable` decorator. The following symbols are not needed anymore and were removed:
+  - `userAccountFacadeFactory`
+  - `UserEmailFacadeFactory`
+  - `UserPasswordFacadeFactory`
+  - `UserProfileFacadeFactory`
+  - `UserRegisterFacadeFactory`
+  - `savedCartFacadeFactory`
+  - `cdcAuthFacadeFactory`
