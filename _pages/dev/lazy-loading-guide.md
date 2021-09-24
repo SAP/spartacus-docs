@@ -266,6 +266,43 @@ If a feature needs to apply initialization logic at the moment the app is loaded
 
 **Note:** The `MODULE_INITIALIZER` is a feature of the Spartacus lazy loading mechanism. It will not work for other lazy loading mechanisms, such as the default route-based lazy loading from Angular.
 
+
+## Customizing the Lazy Loaded Modules
+- create a custom feature module in your app's code
+- provide a custom Spartacus config containing key `featureModules` for SOME_FEATURE_NAME - to point the SOME_FEATURE_NAME to your custom feature module (created above). Reference it via a dynamic import `import(./local/custom-feature.module.ts).then(m => m.CustomFeatureModule)`, for example:
+
+  ```ts
+  // custom-rulebased-configurator.module.ts
+  import { ConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
+
+  @NgModule({
+    
+    imports: [RulebasedConfiguratorModule], // import original Spartacus module
+    providers: [
+      // provide here customizations of classes from the original module
+      // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
+    ]
+  })
+  export class CustomConfiguratorModule {}
+  ```
+
+   ```ts
+   // e.g. app module
+    provideConfig({
+      featureModules: {
+        [PRODUCT_CONFIGURATOR_RULEBASED_FEATURE]: {
+          module: () =>
+            import('../custom-rulebased-configurator.module').then(
+              (m) => m.CustomRulebasedConfiguratorModule
+            ),
+        },
+      },
+    },
+   ```
+
+In the implementation of that custom feature module, import statically the original Spartacus feature module (which used to be lazy loaded, i.e. `FeatureXxModule`), as well as import/provide there all the customizations (e.g. provide the custom connector or service there).
+Thanks to that, Webpack will bundle a separate JS chunk for your custom feature module, and all the things it statically imports and customizations it contains.
+
 ## Preparing Libraries to Work with Lazy Loading
 
 ### Providing Fine-Grained Entry Points in Your Library
