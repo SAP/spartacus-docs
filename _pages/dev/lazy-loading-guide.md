@@ -273,7 +273,7 @@ If a feature needs to apply initialization logic at the moment the app is loaded
 
   ```typescript
   // custom-rulebased-configurator.module.ts
-  import { ConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
+  import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
 
   @NgModule({
     imports: [RulebasedConfiguratorModule], // import original Spartacus module
