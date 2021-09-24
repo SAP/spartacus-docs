@@ -276,7 +276,6 @@ If a feature needs to apply initialization logic at the moment the app is loaded
   import { ConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
 
   @NgModule({
-    
     imports: [RulebasedConfiguratorModule], // import original Spartacus module
     providers: [
       // provide here customizations of classes from the original module
