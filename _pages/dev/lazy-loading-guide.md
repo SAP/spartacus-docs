@@ -271,7 +271,7 @@ If a feature needs to apply initialization logic at the moment the app is loaded
 - create a custom feature module in your app's code
 - provide a custom Spartacus config containing key `featureModules` for SOME_FEATURE_NAME - to point the SOME_FEATURE_NAME to your custom feature module (created above). Reference it via a dynamic import `import(./local/custom-feature.module.ts).then(m => m.CustomFeatureModule)`, for example:
 
-  ```ts
+  ```typescript
   // custom-rulebased-configurator.module.ts
   import { ConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
 
@@ -283,10 +283,10 @@ If a feature needs to apply initialization logic at the moment the app is loaded
       // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
     ]
   })
-  export class CustomConfiguratorModule {}
+  export class CustomRulebasedConfiguratorModule {}
   ```
 
-   ```ts
+   ```typescript
    // e.g. app module
     provideConfig({
       featureModules: {
