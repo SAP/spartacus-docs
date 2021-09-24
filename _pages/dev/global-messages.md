@@ -6,47 +6,47 @@ feature:
   cx_version: n/a
 ---
 
-## Model
+There are several types of global messages that you can display in your storefront app. Each type of global message has its own default duration, which you can customize.
 
-Global messages have predefined types in model:
+Spartacus has the following predefined global message types, which are defined in `projects/core/src/global-message/models/global-message.model.ts`:
 
 ```typescript
-enum GlobalMessageType {
+export enum GlobalMessageType {
   MSG_TYPE_CONFIRMATION = '[GlobalMessage] Confirmation',
   MSG_TYPE_ERROR = '[GlobalMessage] Error',
   MSG_TYPE_INFO = '[GlobalMessage] Information',
+  MSG_TYPE_WARNING = '[GlobalMessage] Warning',
 }
 ```
 
-## Configuration Model
+The global messages model is used in `projects/core/src/global-message/config/global-message-config.ts` to set the time after which the message should disappear. If you omit a particular type in the configuration, the messages for that type will not disappear.
 
-The model is used in the configuration for setting the time after which the message should disappear.
-Omitting the type in the configuration causes that such messages will not disappear.
+The following is an example of the global message config:
 
 ```typescript
-type GlobalMessageTypeConfig = {
+export type GlobalMessageTypeConfig = {
   timeout?: number;
 };
 
-abstract class GlobalMessageConfig {
-  globalMessages: {
+@Injectable({
+  providedIn: 'root',
+  useExisting: Config,
+})
+export abstract class GlobalMessageConfig {
+  globalMessages?: {
     [GlobalMessageType.MSG_TYPE_CONFIRMATION]?: GlobalMessageTypeConfig;
     [GlobalMessageType.MSG_TYPE_INFO]?: GlobalMessageTypeConfig;
     [GlobalMessageType.MSG_TYPE_ERROR]?: GlobalMessageTypeConfig;
+    [GlobalMessageType.MSG_TYPE_WARNING]?: GlobalMessageTypeConfig;
   };
 }
 ```
 
 ## Configuration
 
-We used the default configuration setting the timeout:
+You can find the default timeout values that Spartacus uses for global messages in `projects/core/src/global-message/config/default-global-message-config.ts`. The values are set in milliseconds.
 
-* confirmation: 3s
-* info: 3s
-* error: 7s
-
-
-To maintain consistency of the configuration keys with the enum you should provide customized config by factory:
+If you wish to change any of the default timeout values, you should maintain consistency between the configuration keys and the enum by providing your customized config using a factory provider. The following is an example:
 
 ```typescript
 function yourGlobalMessageConfigFactory(): GlobalMessageConfig {
@@ -63,7 +63,10 @@ function yourGlobalMessageConfigFactory(): GlobalMessageConfig {
 }
 ```
 
+You then provide your customized config as follows:
+
 ```typescript
 ConfigModule.withConfigFactory(yourGlobalMessageConfigFactory),
 ```
-Due to the underdevelopment of Angular's mechanisms, ``withConfig`` requires keys in the form of string, enums are not accepted.
+
+**Note:** Due to a limitation with Angular's config mechanisms, `withConfig` requires keys to be in the form of a string. Enums are not accepted.

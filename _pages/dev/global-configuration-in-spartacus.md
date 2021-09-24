@@ -2,11 +2,9 @@
 title: Global Configuration in Spartacus
 ---
 
-Spartacus uses a configuration mechanism that provides global app configuration at app bootstrap and is not changed while the app is running.
+Spartacus uses a mechanism that provides global configuration during app initialization (that is, when the application is bootstrapped). This configuration does not change while the application is running. Each storefront module that uses this configuration usually provides typing with some defaults for its part of the configuration.
 
-Each storefront module that is using configuration usually provides typing for its part of the configuration with some defaults.
-
-Any configuration provided can be overridden in the main app module.
+**Note:** The configuration in the main app module takes precedence over other configurations, and can be used to override any configuration that has been provided elsewhere.
 
 ***
 
@@ -17,30 +15,33 @@ Any configuration provided can be overridden in the main app module.
 
 ***
 
-## How to use configuration
+## Providing Global Configurations in Spartacus
 
-### StorefrontLib.withConfig
-
-If you import B2cStorefrontModule in your app, preferred and easiest method to provide configuration is to use `B2cStorefrontModule.withConfig(config?: StorefrontModuleConfig)`.
-`StorefrontModuleConfig` interface provides type safety and context-aware code completion that speed ups defining configuration and helps to avoid any typos.
-
-### ConfigModule.withConfig
-
-Importing `ConfigModule.withConfig(config: any)` is useful, when we want to use the configuration in our module and, at the same time, contribute to it.
-`config` parameter is not typed, can be an object of any shape, so it suggested to either use typed const or use type casting `ConfigModule.withConfig(<ConfigType>{})` to utilize type safety.
+The following sections describe the different ways you can provide global configuration in Spartacus.
 
 ### provideConfig
 
-Using `provideConfig` in providers array is best used in case we want to contribute to the global configuration without the need of
-importing ConfigModule, or when we want to implement module with providers and provide config conditionally.
+Using `provideConfig` is the preferred way for providing global configuration in Spartacus.
 
-### ConfigModule.withConfigFactory / provideConfigFactory
+If you want to contribute to the global configuration using `provideConfig`, just add it to a providers array in an Angular module.
 
-Works the same as their counterparts (`ConfigModule.withConfig`, `provideConfig`), but use factory instead of plain object to contribute configuration. Useful when we need to do some config generation or composition.
+### ConfigModule.withConfig
+
+Using `ConfigModule.withConfig` is the legacy method of providing global configuration in Spartacus.
+
+Importing `ConfigModule.withConfig(config: Config)` is useful when you want to use the configuration in your module and contribute to it at the same time.
+
+### StorefrontLib.withConfig
+
+Using `StorefrontLib.withConfig` is no longer supported in Spartacus.
+
+### ConfigModule.withConfigFactory and provideConfigFactory
+
+The `ConfigModule.withConfigFactory` and `provideConfigFactory` work the same as their counterparts (that is, `ConfigModule.withConfig` and `provideConfig`, respectively), but they use the factory instead of a plain object to provide the configuration. This is useful in the case of config generation or config composition.
 
 ### Limitations
 
-It may be handy to decompose and merge some objects before providing them to the config. For example, one may want to use default translations, but customize only a few:
+It may be helpful to decompose and merge some objects before providing them to the config. For example, you may want to use default translations and only customize a few, as shown in the following example:
 
 ```typescript
 i18n: {
@@ -51,116 +52,103 @@ i18n: {
 }
 ```
 
-Unfortunately, the objects transformed with the object spread operator and passed to `ConfigModule.withConfig` (or `provideConfig`) disappear  in the AOT compilation due to a known Angular's issue (see [Angular issue](https://github.com/angular/angular/issues/28078) and [StackOverflow explanation](https://stackoverflow.com/questions/50141412/when-using-aot-changes-to-objects-passed-to-forroot-are-discarded-when-injected)). As a working alternative, `ConfigModule.withConfigFactory` / `provideConfigFactory` can be used.
+Unfortunately, the objects that are transformed with the object spread operator and then passed to `ConfigModule.withConfig` (or `provideConfig`) will disappear in the AOT compilation because of a known Angular issue. Instead, you can use `ConfigModule.withConfigFactory` or `provideConfigFactory`.
 
-## Modifying configuration at runtime (after app started)
+For more information, see [Angular issue #28078](https://github.com/angular/angular/issues/28078), as well as this [StackOverflow explanation](https://stackoverflow.com/questions/50141412/when-using-aot-changes-to-objects-passed-to-forroot-are-discarded-when-injected).
 
-Support for read/write configuration (that can be changed after app bootstrap) is not covered (and supported) by this mechanism, and usually
-should be implemented using other methods, either by putting that information in a store or expose it in a service,
-ideally as an observable stream (to easily react to changes).
-General advice would be, that any value that can change in time, should be a part of app state rather than part of the app configuration.
+## Modifying the Configuration at Runtime
+
+The global configuration mechanism in Spartacus is not designed to modify the configuration after the application has started. If you need to modify the configuration at runtime (that is, after bootstrap), you can put the configuration in a store, or expose it in a service, ideally as an observable stream that can easily react to changes.
+
+However, the general recommendation is that any value that can change over time should be part of the application state, rather than part of the application configuration.
 
 ## Default Values
 
-Each module usually provides adefault configuration that is needed for basic functionality. There is no special way to
-provide default configuration, it is provided in the same way as any other configuration.
-By default configuration we mean any configuration that is provided inside related module - usually it contains reasonable defaults or configuration that
-is required for a module to operate.
+Each module typically provides a default configuration that is required for basic functionality. A default configuration is any configuration that is provided inside the related module. It usually contains reasonable defaults or configurations that are required for a module to operate.
 
-Not all required configuration must be provided with defaults, for example, it might be hard to come up with some reasonable
-defaults for some options. In this case, it is recommended to use ConfigValidators to validate configuration and warn customer (in development mode)
-if required config is missing.
+You do not need to provide defaults for all required configurations. For example, it may be difficult to choose reasonable defaults for some options. In this case, it is recommended to use config validators to validate the configuration and warn (in development mode) if a required config is missing.
 
-## Overriding values
+**Note:** Using `provideDefaultConfig` and `provideDefaultConfigFactory` are the preferred ways to provide default configurations in libraries. Using `provideDefaultConfig` inside libraries helps avoid issues with the default configuration overwriting the one that is provided in the shell app (which can occur because of the order of the imports).
 
-Configuration mechanism used in spartacus is built upon and subject to the rules of standard Angular Dependency Injection mechanism,
-Each configuration chunk (default or override) is provided separately, with multi-provider feature and all chunks are merged
-in a factory used to inject configuration.
+## Overriding Values
 
-### How merging process works?
+The Spartacus configuration mechanism is built upon, and subject to, the rules of the standard Angular Dependency Injection mechanism. Each configuration chunk, whether default or overriding, is provided separately by Angular's multi provider feature, and all chunks are merged in a factory that is used to inject the configuration.
 
-Each configuration chunk is a plain JS object which contributes to one global configuration object, using deep object merging.
-Benefits of this solutions are: flexibility, ability to enhance configuration in feature modules, ability to easily provide defaults
-in modules, ability to override any part on the configuration on top (in shell app), ability to set configuration just before app bootstrap (e.g. using meta tags).
+### How the Merging Process Works
 
-Deep merging works only for objects, arrays are overwritten without merging.
+Each configuration chunk is a plain JS object that contributes to one global configuration object, using deep object merging. The benefits of this solution are the following:
 
-Some example of configuration merging:
+- flexibility
+- the ability to enhance the configuration in feature modules
+- the ability to easily provide defaults in modules
+- the ability to override any part on the configuration on top (in the shell app)
+- the ability to set the configuration just before app bootstrap (for example, using meta tags)
+
+**Note:** Deep merging works only for objects. Arrays are overwritten without merging.
+
+The following are some examples of configuration merging:
 
 - Simple merge:
 
-    Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
-
-    Chunk 2: `{ site: { base-site: 'electronics' } }`
-
-    Merged: `{ site: { occ-prefix: 'rest-api', base-site: 'electronics' } }`
+  - Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
+  - Chunk 2: `{ site: { base-site: 'electronics' } }`
+  - Merged: `{ site: { occ-prefix: 'rest-api', base-site: 'electronics' } }`
 
 - Merge with overwrite:
 
-    Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
-
-    Chunk 2: `{ site: { base-site: 'electronics', occ-prefix: 'aaa' } }`
-
-    Merged: `{ site: { occ-prefix: 'aaa', base-site: 'electronics' } }`
+  - Chunk 1: `{ site: { occ-prefix: 'rest-api' } }`
+  - Chunk 2: `{ site: { base-site: 'electronics', occ-prefix: 'aaa' } }`
+  - Merged: `{ site: { occ-prefix: 'aaa', base-site: 'electronics' } }`
 
 - Array overwrite:
 
-    Chunk 1: `{ config-values: ['a', 'b' ] }`
+  - Chunk 1: `{ config-values: ['a', 'b' ] }`
+  - Chunk 2: `{ config-values: ['c'] }`
+  - Merged: `{ config-values: ['c'] }`
 
-    Chunk 2: `{ config-values: ['c'] }`
+The order in which chunks are merged depends on the order in which they were provided. This has the following implications:
 
-    Merged: `{ config-values: ['c'] }`
+- With a configuration that is defined using the `ConfigModule.withConfig` import, the order of the imports also defines the order of the chunks. This also applies to modules that use `ConfigModule.withConfig` inside.
+- With direct providing (using `provideConfig` or a `ConfigChunk` token), this approach always overwrites the configuration from imported modules (both `ConfigModule.forRoot()` and feature modules with a default configuration). Each consecutive config chunk that is provided directly is able to overwrite the previous one.
 
-### Order of provided configuration chunks
+If the configuration is provided in a module that is two levels deep (for example, an imported module imports another module (a sub-module), which provides its configuration), then the sub-module configuration must actually be provided before the parent module is imported, so that any configuration that is defined in the upper level can still override it, if necessary.
 
-The order in which chunks are merged relies on the order in how they were provided, which basically means:
+## Config Validators
 
-- If the configuration was defined using import ConfigModule.withConfig, order of imports is also defines order of chunks.
-- The above also applies to modules that use ConfigModule.withConfig inside.
-- Direct providing (using provideConfig or ConfigChunk token), will always overwrite configuration from imported modules (both ConfigModule.forRoot() and feature modules with default configuration).
-- Each consecutive directly provided config chunk will be able to overwrite the previous one.
+Config validators can be used to implement runtime checks that warn you when the config is not valid. For example, you can receive a warning if some part of the configuration is missing, or if some parts are mutually exclusive, or if some parts have incorrect values.
 
-If the configuration is provided in a module two level deep, i.e. imported module imports anther module (sub-module), which provides its
-configuration, then sub-module configuration technically must be provided before parent module is actually imported, so any configuration defined in the upper level
-will always override it.
+**Note:** By default, config validators can only provide warnings in development mode.
 
-## Config validators
+The config validator is a simple function that only returns a validation error message if a validation fails. Each config validator should be provided using `provideConfigValidator`.
 
-Config validators can be easily used to implement runtime checks that will warn developers (by default, only in development mode)
-when the config not valid, i.e. some parts of the configuration are missing, some parts are mutually exclusive or some parts has wrong values.
+## Implementing Configuration in New Features
 
-Config validator is a simple function that just returns validation error message in case of validation fail.
-Each config validator should be provided using `provideConfigValidator`.
+Using the techniques describes in the previous sections, you can use the Spartacus global configuration out of the box, without any specific prerequisites. However, the following best practices explain how to implement a feature module that uses and contributes to the global configuration:
 
-### Implementing configuration in new features
+- Define an abstract class for your part of the configuration.
 
-Configuration can be used out of the box, without any specific perquisites, using techniques described above.
-However, below are the best practices explaining how to implement feature module that uses and contribute to global configuration:
+  It is recommended that you use an abstract class instead of an interface, not only to provide typings, but also to provide an injection token. This simplifies configuration usage inside your module, and in some advanced scenarios, can facilitate separate configuration for your module.
 
-1. Define an abstract class for your part of the configuration.
+  By convention, all Spartacus storefront modules use the `config` folder for this purpose, such as `my-module/config/my-module-config.ts`.
 
-    We recommend using an abstract class instead of an interface to not only provide typings but also an injection token, that will simplify configuration usage inside your module (and in some advanced scenarios, could facilitate separate configuration for your module).
+- Define defaults.
 
-    By convention, all Spartacus storefront modules are using `config` folder for this purpose, e.g. `my-module/config/my-module-config.ts`
+  Export the default configuration, preferably as a `const`-typed plain object value.  
 
-2. Define defaults
+  By convention, all Spartacus modules use the `config` folder for this purpose, such as `my-module/config/default-my-module-config.ts`.
 
-    Export default configuration, preferably as a const typed plain object value.  
+- Provide the default to the configuration.
 
-    By convention, all spartacus modules are using `config` folder for this purpose, e.g. `my-module/config/default-my-module-config.ts`
+  In your feature module, import `ConfigModule.withConfig(),` and pass the default config there (for example, `ConfigModule.withConfig(defaultMyModuleConfig),`).
 
-3. Provide default to configuration
+- Provide global configuration using your typed abstract class.
 
-    In you feature module import `ConfigModule.withConfig(),` and pass default config there, e.g. `ConfigModule.withConfig(defaultMyModuleConfig),`
+  This step is not technically needed, because you can always inject the global config. However, it is recommended because it defines proper config encapsulation, allows for easy injection, and provides type safety for your module. The following is an example:
 
-4. Provide global configuration using your typed abstract class
+  ```typescript
+  { provide: MyModuleConfig, useExisting: Config }
+  ```
 
-    This step is not technically needed, because you can always inject global config. However, it is recommended because defines proper config encapsulation, allows for easy injection and provides type safety for your module. The following is an example:
+- Add an interface to the `storefrontConfiguration` type.
 
-    ```typescript
-    { provide: MyModuleConfig, useExisting: Config }
-    ```
-
-5. Add interface to storefrontConfiguration type
-
-    If you are developing core storefront feature, to make your configuration options available to the customer to use with `B2cStorefrontModule.withConfig()`, import and include your new type to global `StorefrontModuleConfig` type in `projects/storefrontlib/src/lib/storefront-config.ts`.
+  If you are developing a core storefront feature and want to make your configuration options available to use with `B2cStorefrontModule.withConfig()`, import and include your new type to the global `StorefrontModuleConfig` type in `projects/storefrontlib/src/lib/storefront-config.ts`.
