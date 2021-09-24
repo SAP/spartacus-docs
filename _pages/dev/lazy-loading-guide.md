@@ -266,41 +266,45 @@ If a feature needs to apply initialization logic at the moment the app is loaded
 
 **Note:** The `MODULE_INITIALIZER` is a feature of the Spartacus lazy loading mechanism. It will not work for other lazy loading mechanisms, such as the default route-based lazy loading from Angular.
 
+## Customizing Lazy Loaded Modules
 
-## Customizing the Lazy Loaded Modules
-- create a custom feature module in your app's code
-- provide a custom Spartacus config containing key `featureModules` for SOME_FEATURE_NAME - to point the SOME_FEATURE_NAME to your custom feature module (created above). Reference it via a dynamic import `import(./local/custom-feature.module.ts).then(m => m.CustomFeatureModule)`, for example:
+To customize a lazy loaded module, you start by creating a custom feature module in your application code.
 
-  ```typescript
-  // custom-rulebased-configurator.module.ts
-  import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
+The following is an example:
 
-  @NgModule({
-    imports: [RulebasedConfiguratorModule], // import original Spartacus module
-    providers: [
-      // provide here customizations of classes from the original module
-      // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
-    ]
-  })
-  export class CustomRulebasedConfiguratorModule {}
-  ```
+```typescript
+// custom-rulebased-configurator.module.ts
 
-   ```typescript
-   // some static module, e.g. app module
-    provideConfig({
-      featureModules: {
-        [PRODUCT_CONFIGURATOR_RULEBASED_FEATURE]: {
-          module: () =>
-            import('../custom-rulebased-configurator.module').then(
-              (m) => m.CustomRulebasedConfiguratorModule
-            ),
-        },
-      },
+import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
+
+@NgModule({
+  imports: [RulebasedConfiguratorModule], // import the original Spartacus module
+  providers: [
+    // provide customizations of classes from the original module here, such as the following:
+    // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
+  ]
+})
+export class CustomRulebasedConfiguratorModule {}
+```
+
+You then provide a custom Spartacus configuration that contains the `featureModules` key for SOME_FEATURE_NAME. You point SOME_FEATURE_NAME to your custom feature module by referencing it with a dynamic import, such as `import(./local/custom-feature.module.ts).then(m) => m.CustomFeatureModule)`.
+
+You provide the configuration in a static module, such as the app module. The following is an example:
+
+```typescript
+provideConfig({
+  featureModules: {
+    [RULEBASED_PRODUCT_CONFIGURATOR_FEATURE]: {
+      module: () =>
+        import('../custom-rulebased-configurator.module').then(
+          (m) => m.CustomRulebasedConfiguratorModule
+        ),
     },
-   ```
+  },
+},
+```
 
-In the implementation of that custom feature module, import statically the original Spartacus feature module (which used to be lazy loaded, i.e. `FeatureXxModule`), as well as import/provide there all the customizations (e.g. provide a custom service there).
-Thanks to that, Webpack will bundle a separate JS chunk for your custom feature module, and all the things it statically imports and customizations it contains.
+In the implementation of this custom feature module, you statically import the original Spartacus feature module (which used to be lazy loaded), and then you import or provide all the customizations (for example, providing a custom service there). Once this is done, Webpack bundles a separate JS chunk for your custom feature module, which includes all the things it statically imports, as well as the customizations the custom feature module contains.
 
 ## Preparing Libraries to Work with Lazy Loading
 
