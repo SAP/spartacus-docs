@@ -299,7 +299,7 @@ If a feature needs to apply initialization logic at the moment the app is loaded
     },
    ```
 
-In the implementation of that custom feature module, import statically the original Spartacus feature module (which used to be lazy loaded, i.e. `FeatureXxModule`), as well as import/provide there all the customizations (e.g. provide the custom connector or service there).
+In the implementation of that custom feature module, import statically the original Spartacus feature module (which used to be lazy loaded, i.e. `FeatureXxModule`), as well as import/provide there all the customizations (e.g. provide a custom service there).
 Thanks to that, Webpack will bundle a separate JS chunk for your custom feature module, and all the things it statically imports and customizations it contains.
 
 ## Preparing Libraries to Work with Lazy Loading
