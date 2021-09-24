@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 4.0
+    - title: Version 4.1
       url: /release-information/
 
 # sidebar menu
@@ -97,8 +97,10 @@ docs:
                   url: /configurable-products-integration/
                 - title: "CPQ Configurable Products Integration"
                   url: /cpq-configurable-products-integration/
+                - title: "Digital Payments Integration"
+                  url: /digital-payments-integration/
                 - title: "Intelligent Selling Services for SAP Commerce Cloud Integration"
-                  url: /cds-integration/  
+                  url: /cds-integration/
                 - title: "Kyma Integration"
                   url: /kyma-integration/
                 - title: "Payment Integration with CyberSource Example"
@@ -165,8 +167,6 @@ docs:
                         url: /external-routes/
                       - title: "Early Login"
                         url: /early-login/
-                - title: "Configurable State Persistence and Rehydration"
-                  url: /configurable-state-persistence-and-rehydration/
                 - title: "Configuring the Base URL"
                   url: /configuring-base-url/
                 - title: "Extending Built-In Models"
@@ -210,7 +210,9 @@ docs:
                       - title: "Loader Meta Reducer"
                         url: /loader-meta-reducer/
                       - title: "State Persistence"
-                        url: /state-persistence/  
+                        url: /state-persistence/
+                      - title: "SSR Transfer State"
+                        url: /ssr-transfer-state/
           - title: "Customizing and Extending Spartacus ➢"
             url: /customizing-and-extending/
             subchildren:
@@ -260,6 +262,8 @@ docs:
           - title: "Security Best Practices ➢"
             url: /security-best-practices/
             subchildren:
+                - title: "Protection Against Denial of Service Attacks"
+                  url: /dos-protection/
                 - title: "Token Revocation"
                   url: /token-revocation/
           - title: "Server-Side Rendering ➢"
@@ -303,9 +307,13 @@ docs:
                 - title: "Guest Checkout"
                   url: /guest-checkout/
                 - title: "Infinite Scroll"
-                  url: /infinite-scroll/  
+                  url: /infinite-scroll/
+                - title: "Inventory Display"
+                  url: /inventory-display/
                 - title: "Notification Preferences"
                   url: /notification-preferences/
+                - title: "Quick Order"
+                  url: /quick-order/
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
@@ -424,6 +432,10 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 3.2 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-3-2-0/
+                      - title: "Building the TUA Spartacus Storefront using 3.1 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-3.1/
                       - title: "Building the TUA Spartacus Storefront using 3.x Libraries"
                         url: /building-the-tua-storefront-from-libraries-3/
                       - title: "Building the TUA Spartacus Storefront using 2.x Libraries"
@@ -469,6 +481,8 @@ docs:
                         url: /journey-management-serviceability/
                       - title: "Journey Management - Serviceability"
                         url: /journey-management-serviceability-check-of-spo/                        
+                - title: "Media Storefront"
+                  url: /media-storefront/
                 - title: "Order"
                   url: /order/
                 - title: "Pricing - Composite Pricing"
@@ -553,8 +567,11 @@ docs:
     - title: Contributing to Spartacus
       url: /contributors-guide/
       children:
-          - title: "Contributing to the Spartacus Storefront"
+          - title: "Contributing to the Spartacus </br>Storefront ➢"
             url: /contributing-to-the-spartacus-storefront/
+            subchildren:
+                - title: "Contributing Integration Libraries to Spartacus"
+                  url: /contributing-integrations-to-spartacus/
           - title: "Contributor Setup ➢"
             url: /contributor-setup/
             subchildren:
@@ -591,4 +608,4 @@ docs:
               - title: "Updating Schematics"
                 url: /updating-schematics/
           - title: "Continuous Integration"
-            url: /continuous-integration/ 
+            url: /continuous-integration/

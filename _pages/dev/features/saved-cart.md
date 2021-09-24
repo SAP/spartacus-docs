@@ -21,7 +21,7 @@ For more information, see [Multiple Saved Carts](https://help.sap.com/viewer/e13
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
 ***
 
@@ -138,9 +138,9 @@ The following is an example of the **Saved Carts** history page:
 
 <img src="{{ site.baseurl }}/assets/images/saved-carts-4.png" alt="Saved Carts History Page" width="800" border="1px" />
 
-When you click **Make cart active**, you have the option to keep a copy of this saved cart before clicking **Restore**. Once you click **Restore**, the saved cart becomes the active cart. After being made active, the saved cart disappears from the list of saved carts, unless you have chosen to keep a copy of that saved cart. If you choose to keep a copy of the saved cart, it appears in your list of saved carts.
+When you click **Make cart active**, you have the option to keep a copy of this saved cart before clicking **Restore**. Once you click **Restore**, the saved cart becomes the active cart. After being made active, the saved cart disappears from the list of saved carts, unless you have chosen to keep a copy of that saved cart. If you choose to keep a copy of the saved cart, it appears in your list of saved carts. By default, the name of this new saved cart is **Copy of *existing cart name***, but you can instead set the name of the saved cart in the **Name of copied cart** field, as shown in the following example:
 
-<img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog.png" alt="Save For Later dialog box" width="800" border="1px" />
+<img src="{{ site.baseurl }}/assets/images/saved-carts-4-dialog-clone.png" alt="Save For Later dialog box with copy saved cart enabled" width="800" border="1px" />
 
 ### Saved Cart Details Page
 

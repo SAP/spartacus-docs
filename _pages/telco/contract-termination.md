@@ -83,3 +83,4 @@ For further reading, see the following topics in the TUA Help portal.
 
 - [Eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html)
 - [Customer Product Inventory and Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/552515309dd545e7b7878eb081b56453.html)
+- [Termination Process](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2105/en-US/055c4059f8794d158e60bfdccb10424b.html)

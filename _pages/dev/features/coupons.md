@@ -12,29 +12,28 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-When a coupon promotion has been created, customers apply the applicable coupon to activate the promotion during checkout to get discounts and/or rewards for their orders. 
+The coupons feature allows you to create digital coupons that your customers can redeem for discounts on the storefront.
 
 ## Requirements
 
-The coupon feature requires the following extensions to work:
+The coupon feature requires the following extensions:
 
-- couponbackoffice Extension 
-- couponfacades Extension 
-- couponwebservices Extension 
+- `couponbackoffice` Extension
+- `couponfacades` Extension
+- `couponwebservices` Extension
 
-For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a3fab07560c94b8e9e5d8824c0d88580.html) in the SAP Help Portal.
+For more information, see [Coupon Architecture](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/a3fab07560c94b8e9e5d8824c0d88580.html) on the SAP Help Portal.
 
 ## Enabling Coupons
 
 The coupon feature has corresponding CMS-component data in the back end that allows you to enable or disable the feature.
 
-
 ## Configuring
 
-No special configuration needed.
+No special configuration is needed.
 
-Coupons are managed using Backoffice. See [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) for more information.
+Coupons are managed using Backoffice. For more information, see [Coupon Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/d35c247bac2d4c91a6ca4501b63cb2b4.html) on the SAP Help Portal.
 
 ## Extending
 
-No special extensibility available for this feature.
+No special extensibility is available for this feature.
