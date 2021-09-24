@@ -419,6 +419,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.2"
+                        url: /installing-sap-commerce-for-tua-spartacus-3-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
                         url: /installing-sap-commerce-for-tua-spartacus-3/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.x"
