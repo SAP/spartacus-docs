@@ -286,7 +286,7 @@ If a feature needs to apply initialization logic at the moment the app is loaded
   ```
 
    ```typescript
-   // e.g. app module
+   // some static module, e.g. app module
     provideConfig({
       featureModules: {
         [PRODUCT_CONFIGURATOR_RULEBASED_FEATURE]: {
