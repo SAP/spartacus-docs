@@ -21,19 +21,19 @@ We follow [Google's Style Guide](https://angular.io/guide/styleguide).
 
 Certain guideline violations can be detected automatically by a tool called codelyzer, which is bundled with the Angular CLI. You can analyze an angular app with the following command:
 
-```
-$ ng lint
+```bash
+ng lint
 ```
 
 The tool reports violations to the guidelines for the whole application. If there are no errors, it will output the following:
 
-```
+```text
 All files pass linting.
 ```
 
 Otherwise, issues will be listed. The following is an example:
 
-```
+```text
 ERROR: /SAPDevelop/AngularApp/src/app/myfeature/myfeature.component.ts[7, 14]: The name of the class MyFeature should end with the suffix Component (https://angular.io/styleguide#style-02-03)
 
 Lint errors found in the listed files.
@@ -59,22 +59,22 @@ If you are missing any of the recommended extensions, please install them.
 
 ## Spartacus-Specific Guidelines
 
-### NGRX in 'Core'
+### NgRx in 'Core'
 
-We use the NGRX store to manage the global application state in our features. Using NGRX has apparent advantages for performance, better testability, and ease of troubleshooting (with time travel and such).
+We use the NgRx store to manage the global application state in our features. Using NgRx has apparent advantages for performance, better testability, and ease of troubleshooting (with time travel and such).
 
 - Use the store for a feature unless there is a compelling reason not to. We want to keep it consistent throughout the app.
 - Use one common store for the whole app.
 
 **Note**: Using the store does not mean that we need to cache everything. Caching should be used with intent, and where it makes sense. In general, CMS data is a good candidate for caching, while application data is not.
 
-If a feature that use NGRX logic is meant to be called from UI components, facade service functions should be implemented ton expose features and encapsulate the NGRX code within the core lib.
+If a feature that use NgRx logic is meant to be called from UI components, facade service functions should be implemented ton expose features and encapsulate the NgRx code within the core lib.
 
-### NGRX in UI Components
+### NgRx in UI Components
 
-The complexity of NGRX is encapsulated in the core lib. Facade services are availbe from the core lib. The facade services expose the core lib features, but they hide the NGRX logic within their implemenation.
+The complexity of NgRx is encapsulated in the core lib. Facade services are availbe from the core lib. The facade services expose the core lib features, but they hide the NgRx logic within their implemenation.
 
-Built in Spartacus UI components should not contain NGRX logic. Instead, the UI components should call facade service functions.
+Built in Spartacus UI components should not contain NgRx logic. Instead, the UI components should call facade service functions.
 
 ### Site Context
 
@@ -140,12 +140,16 @@ this.element.nativeElement.style.color = 'yellow';
 this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
 ```
 
-#### Use Angular host element instead of `<body>`
-Some complex apps might place more elements in the `<body>` than just `<cx-storefront>`. So not to affect other sections of the page, Spartacus UI should be scoped only to the Angular host component (which is by default `<cx-storefront>`, but can be any custom app component).
-If you need for example to append a modal or to add a global CSS class, you'll need to obtain the reference to the Angular host element. You can do it in one of the following two ways:
+#### Using the Angular Host Element Instead of the Body Element
 
-1. from Angular `ApplicationRef` service, i.e. `this.applicationRef.components?.[0]` (note: this value is available only after the app bootstrap completes); OR
-2. from [Angular `APP_BOOTSTRAP_LISTENER` hook](https://angular.io/api/core/APP_BOOTSTRAP_LISTENER)
+Certain complex applications may place more elements inside the `<body>` element than just `<cx-storefront>`. To not affect other sections of the page, the Spartacus UI should only be scoped to the Angular host component.
+
+For example, if you need to append a modal, or to add a global CSS class, you would need to obtain the reference to the Angular host element. You can do this in one of the following ways:
+
+- from the Angular `ApplicationRef` service (for example, `this.applicationRef.components?.[0]`). **Note:** This value is only available after the app bootstrap has completed.
+- from the Angular `APP_BOOTSTRAP_LISTENER` hook. For more information, see [APP_BOOTSTRAP_LISTENER](https://angular.io/api/core/APP_BOOTSTRAP_LISTENER) in the official Angular documentation.
+
+By default, the Angular host component is `<cx-storefront>`, but it can be any custom app component.
 
 ### Services
 
