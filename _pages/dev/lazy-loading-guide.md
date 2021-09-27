@@ -304,7 +304,7 @@ provideConfig({
 },
 ```
 
-Once this is done, during the build Webpack bundles a separate JS chunk for your custom feature module, which includes all the things it statically imports, as well as the customizations the custom feature module contains.
+Once this is done, during the build, Webpack bundles a separate JS chunk for your custom feature module, which includes all the things it statically imports, as well as the customizations the custom feature module contains.
 
 ## Preparing Libraries to Work with Lazy Loading
 
