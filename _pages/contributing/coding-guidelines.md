@@ -140,6 +140,13 @@ this.element.nativeElement.style.color = 'yellow';
 this.renderer.setStyle(this.element.nativeElement, 'color', 'yellow');
 ```
 
+#### Use Angular host element instead of `<body>`
+Some complex apps might place more elements in the `<body>` than just `<cx-storefront>`. So Spartacus UI should be scoped only to the Angular host component (which is by default `<cx-storefront>`, but can be any custom app component).
+If you need to apply a global DOM change (e.g. to append a modal or to add a global CSS class), you can obtain the Angular host element in one of the following two ways:
+
+1. from Angular `ApplicationRef` service, i.e. `this.applicationRef.components?.[0]` (note: this value is available only after the app bootstrap completes); OR
+2. from [Angular `APP_BOOTSTRAP_LISTENER` hook](https://angular.io/api/core/APP_BOOTSTRAP_LISTENER)
+
 ### Services
 
 The information below will outline the best practices when creating a `service`.
