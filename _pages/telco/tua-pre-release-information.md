@@ -45,7 +45,7 @@ Some of the steps in this procedure are derived from the documentation for insta
 
     - `b2ctelcospastore.zip`
     - `utilitiesspastore.zip`
-    - `mediaspastore.zip` (available from 3.1)
+    - `mediaspastore.zip`
 
 1. Unzip the sample data.
 
@@ -56,7 +56,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     - Sample data for Utilities is stored in the following archive files:
         - `utilitiesspastore.zip`
     - Sample data for Media is stored in the following archive files: 
-        - `mediaspastore.zip` (available from 3.1)
+        - `mediaspastore.zip`
 
 1. Move:
     - the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
@@ -461,7 +461,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 4. Add the following dependencies to the end of the `dependencies` section of `package.json`.
 
     ```json
-     "@angular/localize": "^10.1.0",
+    "@angular/localize": "^10.1.0",
     "@angular/platform-server": "~10.1.0",
     "@angular/service-worker": "~10.1.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
@@ -563,11 +563,11 @@ The `3.0.0-next.1` library has been published. We are happy to announce our 3.0 
 
 In the `3.0.0-next.1` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
 
-### **Complex Industry Cart**
+### Complex Industry Cart
 
 The hierarchical representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchical manner making it easy to support the purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchical representation of the cart and order, the exact structure of a bundled product offering is retained and the selected components are together by the parent bundle in which they belong. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/d28406c672ff4cbca70dfb4b5748f8d8/2102/en-US/33005fa795d2425282ffe769737e27e7.html.html) in the TUA Help portal.
 
-### **Contract Renewals**
+### Contract Renewals
 
 A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire.  At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, a customer can renew eligible subscriptions resulting from a simple product offering.
 
