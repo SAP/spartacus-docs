@@ -266,6 +266,46 @@ If a feature needs to apply initialization logic at the moment the app is loaded
 
 **Note:** The `MODULE_INITIALIZER` is a feature of the Spartacus lazy loading mechanism. It will not work for other lazy loading mechanisms, such as the default route-based lazy loading from Angular.
 
+## Customizing Lazy Loaded Modules
+
+To customize a lazy loaded module, you start by creating a custom feature module in your application code.
+
+In the implementation of this custom feature module, you statically import the original Spartacus feature module (which used to be lazy loaded), and then you import or provide all the customizations (for example, providing a custom service there). The following is an example:
+
+```typescript
+// custom-rulebased-configurator.module.ts
+
+import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
+
+@NgModule({
+  imports: [RulebasedConfiguratorModule], // import the original Spartacus module
+  providers: [
+    // provide customizations of classes from the original module here, such as the following:
+    // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
+  ]
+})
+export class CustomRulebasedConfiguratorModule {}
+```
+
+You then provide a custom Spartacus configuration that contains the `featureModules` key for SOME_FEATURE_NAME. You point SOME_FEATURE_NAME to your custom feature module by referencing it with a dynamic import, such as `import(./local/custom-feature.module.ts).then(m) => m.CustomFeatureModule)`.
+
+You provide the configuration in a static module, such as the app module. The following is an example:
+
+```typescript
+provideConfig({
+  featureModules: {
+    [RULEBASED_PRODUCT_CONFIGURATOR_FEATURE]: {
+      module: () =>
+        import('../custom-rulebased-configurator.module').then(
+          (m) => m.CustomRulebasedConfiguratorModule
+        ),
+    },
+  },
+},
+```
+
+Once this is done, during the build, Webpack bundles a separate JS chunk for your custom feature module, which includes all the things it statically imports, as well as the customizations the custom feature module contains.
+
 ## Preparing Libraries to Work with Lazy Loading
 
 ### Providing Fine-Grained Entry Points in Your Library
