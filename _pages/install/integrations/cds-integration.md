@@ -272,7 +272,3 @@ The following steps describe how to run the Intelligent Selling Services Shell A
 ## Other Commands for Intelligent Selling Services for SAP Commerce Cloud
 
 All other Intelligent Selling Services commands have `:cds` as part of their name, and can be found in the `package.json` file of the Spartacus source code.
-
-## Limitations
-
-Login flow is currently not fully supported.
