@@ -270,7 +270,7 @@ If a feature needs to apply initialization logic at the moment the app is loaded
 
 To customize a lazy loaded module, you start by creating a custom feature module in your application code.
 
-The following is an example:
+In the implementation of this custom feature module, you statically import the original Spartacus feature module (which used to be lazy loaded), and then you import or provide all the customizations (for example, providing a custom service there). The following is an example:
 
 ```typescript
 // custom-rulebased-configurator.module.ts
@@ -304,7 +304,7 @@ provideConfig({
 },
 ```
 
-In the implementation of this custom feature module, you statically import the original Spartacus feature module (which used to be lazy loaded), and then you import or provide all the customizations (for example, providing a custom service there). Once this is done, Webpack bundles a separate JS chunk for your custom feature module, which includes all the things it statically imports, as well as the customizations the custom feature module contains.
+Once this is done, during the build Webpack bundles a separate JS chunk for your custom feature module, which includes all the things it statically imports, as well as the customizations the custom feature module contains.
 
 ## Preparing Libraries to Work with Lazy Loading
 
