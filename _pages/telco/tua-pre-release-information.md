@@ -237,7 +237,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
-    **Note:** Starting with release 2005, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
+    **Note:** Starting with release 1905, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
 
 1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands:
 
@@ -361,9 +361,8 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     import { AppComponent } from './app.component';
     import { translationChunksConfig, translations } from '@spartacus/assets';
     import { ConfigModule } from '@spartacus/core';
-    import { TmaB2cStorefrontModule } from '../../../tua-spa/src/storefrontlib/recipes';
-    import { tmaTranslations } from '../../../tua-spa/src/assets';
-
+    import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
+    
     @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -451,7 +450,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     export class AppModule {}
     ```
 
-2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
+2. Replace the entire contents of `mystore/src/app/app.component.html` with:
 
    ```html
    <cx-storefront>Loading...</cx-storefront>
@@ -518,7 +517,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    yarn start
    ```
   
-10. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
+10. Make sure your backend server is up and running (SAP Commerce with TUA).
 
 11. Your client application is accessible at the following locations in your local environment:
 
