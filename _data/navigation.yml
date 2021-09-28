@@ -499,6 +499,8 @@ docs:
           - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
             subchildren:
+                - title: "Updating to Version 3.0"
+                  url: /fsa-updating-to-version-3/
                 - title: "Updating to Version 2.0"
                   url: /fsa-updating-to-version-2/
           - title: "Roadmap for FSA Spartacus"

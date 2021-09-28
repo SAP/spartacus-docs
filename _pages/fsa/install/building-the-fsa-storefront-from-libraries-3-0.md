@@ -150,7 +150,7 @@ For example, check:
 - `context`: Defines the site context such as base site, language, and currency.
 - `authentication`: Defines authorization of the financial customer.
 
-**Note:** If your setup failed and for some reason your app.module.ts is not configured like described please check one more time requirements for fsa schematics usage - Angular CLI version should be > = 10.1!
+**Note:** If your setup failed and, for some reason, your app.module.ts is not configured like described, check one more time requirements for FSA schematics usage - Angular CLI version should be > = 10.1!
 
 ### Starting your Spartacus App
 
