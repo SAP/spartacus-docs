@@ -8,7 +8,7 @@ This will help in the prevention of XSS, code injection and clickjacking attacks
 
 Please follow recommendations for Commerce Suite backoffice as detailed [here](https://help.sap.com/viewer/5c9ea0c629214e42b727bf08800d8dfa/2105/en-US/f7bc40281c2c43479fcd1562b02e63e5.html?q=CSP#loiod0774212b4ae4b8bb3dcf39908ab5832)
 
-SAP's security standard 269 recommends the following best practices of Content Security Policy usage:
+SAP's security standards recommend the following best practices of Content Security Policy usage:
 
 ```
 Target policy
@@ -19,7 +19,7 @@ Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; i
 
 Proper usage of <script>:
 
-Scripts loaded from a white-listed source using the <script> tag is still allowed:
+Scripts loaded from an allow-listed source using the <script> tag is still allowed:
 
 <script src = "foo.js" type = "text/javascript" > </script >
 
@@ -27,7 +27,7 @@ Scripts loaded from a white-listed source using the <script> tag is still allowe
 
 Proper usage of onClick()
 
-To handle events, you can set the event handler attributes of elements, or call element.addEventListener(), from script that has been loaded from a white-listed site:
+To handle events, you can set the event handler attributes of elements, or call element.addEventListener(), from script that has been loaded from an allow-listed site:
 
 element.onclick = someFunction; element. addEventListener( "click" , someFunction, false ) ;
 
