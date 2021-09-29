@@ -9,7 +9,7 @@ The options listed in this page may block SmartEdit from working with Spartacus.
 Option 1. Set X-Frame-Option http header field to 'DENY' or 'SAMEORIGIN' in Commerce Suite used by Spartacus as backend. 
 Modify property xss.filter.header.X-Frame-Options accordingly. Follow detailed instructions [here](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2105/en-US/c8145542c2564bb29f6cf2fb6fe67b90.html)
 
-Option 2. SAP's security standard 264 recommends as one of its possible solutions: "Frame Buster Javascript (Embedded site only) for single domain solution.
+Option 2. SAP's security standards recommend as one of its possible solutions: "Frame Buster Javascript (Embedded site only) for single domain solution.
 Inclusion of javascript code in HTML pages can actively block pages to be embedded in a frame"
 Example of this is: 
 ```
