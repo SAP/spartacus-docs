@@ -26,11 +26,11 @@ Summary:
 
 ### Step 1: Setting up SAP Commerce with Financial Services Accelerator
 
-Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/2011/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
+Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
 
 1. Unzip the SAP Commerce and Financial Services Accelerator zip archives.
 
-   **Note**: Use the SAP Commerce version 2105.0 and Financial Services Accelerator version 2108.
+   **Note**: Use the SAP Commerce version 2105 and Financial Services Accelerator version 2108.
 
 2. In the "sap-commerce-folder/installer/recipes" folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
 

@@ -2,7 +2,7 @@
 title: FSA Spartacus Roadmap
 ---
 
-This document describes what is planned for FSA Spartacus for Q1 2022 and later.
+This document describes what is planned for FSA Spartacus for Q3 2021 and later.
 
 ***
 
@@ -23,8 +23,6 @@ This document describes what is planned for FSA Spartacus for Q1 2022 and later.
 
 Each release may contain bug fixes, improvements, and new features.
 
-When new features are available for release, we will normally publish a pre-release “next” version of the libraries with new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
-
 Some of the links provided in the following lists point to SAP Commerce Cloud Financial Services Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the FSA Spartacus implementation of features may not work exactly as in the Financial Services Accelerator.
 
 ### Other Release Documentation
@@ -38,7 +36,13 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
   
-## Features Planned for Version 4.0 / February 2022
+
+## Features Planned for Version 4.0 / October 2021
+
+- **SAP Digital Payment AddOn Integration** - This feature provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotatation and application processes.
+
+
+## Features Planned for Version 5.0 / February 2022
 
 - **My Account Dashboard** - Customers can now see an overview of the most important information from the My Account area on a separate summary page called My Account Dashboard.
 - **Renewal Process** - The system notifies policyholders about their policy renewal options when their existing policies are about to expire. This helps customers decide about the new version of their policies while they are still valid.   

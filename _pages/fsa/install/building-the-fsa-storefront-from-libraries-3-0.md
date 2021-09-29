@@ -21,7 +21,7 @@ Before carrying out the procedures below, ensure the following front-end and bac
 
 Your Angular development environment should include the following:
 
-- Angular CLI: Version 12.0.5 or later, < 13.
+- Angular CLI: Version 10.1 or later, < 11.
 - node.js: The most recent 12.x version is recommended, < 13.
 - yarn: v1.15 or later.
 
@@ -146,11 +146,11 @@ export class AppModule { }
 For example, check:
 
 - `baseUrl`: Points to your SAP Commerce server.
-- `prefix`: Defines the prefix to OCC calls; change `/rest/v2/` to `/occ/v2/` if using release 2105.
+- `prefix`: Defines the prefix to OCC calls; if you still haven't, change `/rest/v2/` to `/occ/v2/`.
 - `context`: Defines the site context such as base site, language, and currency.
 - `authentication`: Defines authorization of the financial customer.
 
-**Note:** If your setup failed and for some reason your app.module.ts is not configured like described please check one more time requirements for fsa schematics usage - Angular CLI version should be > = 10.1!
+**Note:** If your setup failed and, for some reason, your app.module.ts is not configured like described, check one more time requirements for FSA schematics usage - Angular CLI version should be > = 10.1!
 
 ### Starting your Spartacus App
 

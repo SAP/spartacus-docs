@@ -15,7 +15,7 @@ title: Release Information for All Versions of FSA Spartacus Libraries
 
 This document describes what is included in all FSA Spartacus libraries since the initial 1.0 release. 
 
-**Note: FSA Spartacus 3.x requires Spartacus 4.1 and Angular 10.2.4. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
+**Note: FSA Spartacus 3.x requires Spartacus 3.4 and Angular 10. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-financial-services-accelerator/releases).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
@@ -27,7 +27,7 @@ This document describes what is included in all FSA Spartacus libraries since th
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 ## Release 3.0
-*Release 3.0 libraries published September ??, 2021*
+*Release 3.0 libraries published September, 2021*
 
 List of features delivered with 3.0:
 - **[Enablement of Coupons and Discounts]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})**
@@ -87,12 +87,10 @@ List of features delivered with 1.0:
 
 ## About FSA Spartacus Releases
 
-- Libraries that are "released" are new, official, tested Spartacus libraries available to the public (hosted on npmjs.com).
-- A minor change means we added new features, but they are configured to be off by default, not to cause compatibility issues. A new minor can also include changes or bug fixes that may affect compatibility, but feature flags also control these. So all significant changes are “opt-in”. See feature flag documentation for more information.
-- We will normally publish pre-release libraries labelled ‘next’ a few weeks before a new minor release. The goal is to provide early access to new features and get feedback from the community.
-- If you choose not to use a new feature, you should have no problems upgrading to a new Major.# with features flag set to a previous Major.#. If you do see a problem, please report a bug, and we’ll assess and fix it. We encourage you to upgrade to the latest libraries frequently during development in order to take advantage of bug fixes and new features.
-- To use all functionalities in FSA Spartacus 2.*, release 2011 of SAP Commerce Cloud and 2102 of Financial Services Accelerator is required.
-- The latest patch release is strongly recommended, as it usually contains bug fixes that affect Spartacus.
+- Libraries that are "released" are new, official, tested FSA Spartacus libraries available to the public (hosted on npmjs.com).
+- A major change means that we added new features that are based on the latest versions of SAP Commerce Cloud and Financial Services Accelerator.
+- A minor change contains bug fixes and minor improvements, and they are configured not to cause any compatibility issues. 
+- To use all functionalities of the latest FSA Spartacus release, the latest patch releases of SAP Commerce Cloud and Financial Services Accelerator are strongly recommended, as they usually contain bug fixes that affect FSA Spartacus.
 
 ## Future Releases
 
