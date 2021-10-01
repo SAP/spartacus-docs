@@ -60,7 +60,7 @@ Commands are meant to be exposed as methods, that calls execute on the command c
 ## Query overview
 
 Query exposes some state of the system, usually by fetching it from the backend, caching for future use and keeping it fresh by reloading it when needed.
-Each query exposes loading flags zs part of the data stream.
+Each query exposes loading flags as part of the data stream.
 
 Load of the data is automatically triggered by first subscriber to the query.
 
