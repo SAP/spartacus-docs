@@ -3,7 +3,7 @@ title: Pre-Release Information
 ---
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated March 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
+_Last updated September 24, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
@@ -19,29 +19,17 @@ For detailed release notes, see the [TUA Spartacus repository
 
 ***
 
-## Release 3.0.0-next.2 - March 17, 2021
+## Release 3.2.0-next.1 - September 24, 2021
 
-The `3.0.0-next.2` library has been published. We are happy to announce our 3.0 Spartacus for TUA pre-release.
+The `3.2.0-next.1` library has been published. We are happy to announce our 3.2 Spartacus for TUA pre-release.
 
-In the `3.0.0-next.2` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
+In the `3.2.0-next.1` pre-release version, support is provided for the Spartacus 3.2 libraries with the 2105 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011. 
 
-### Complex Industry Cart (first introduced in 3.0.0-next.1)
-
-The hierarchal representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchal structure, making it easy to support purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchal representation of the cart and order, the exact structure of a bundled product offering is retained. The components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html) on the SAP Help portal.
-
-### Contract Renewals (first introduced in 3.0.0-next.1)
-
-A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire. At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, customers can renew eligible subscriptions, resulting from a simple product offering.
-
-### Serviceability Check of Simple Product Offerings (SPOs)
-
-In order to determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability check can be run for a specific product offering a customer is interested in, or it can be run at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability Check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) on the SAP Help portal.
-
-To set up Spartacus 3.0.0-next.2 and build the TUA Spartacus Storefront using 3.0.0-next.2 libraries, refer the following sections.
+To set up Spartacus 3.2.0-next.1 and build the TUA Spartacus Storefront using 3.0.0-next.2 libraries, refer the following sections.
 
 ## Installing SAP Commerce Cloud for use with TUA Spartacus
 
-Installation instructions are very similar to [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce Cloud (release 2011) with Telco and Utilities Accelerator (supports release 2102, latest patch) for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud with TUA is installed on your local computer, so `localhost` is used in the browser URLs.
+Installation instructions are very similar to [Installing SAP Commerce Cloud for use with TUA Spartacus]({{ site.baseurl }}{% link _pages/telco/installing-sap-commerce-for-tua-spartacus.md %}), except the following instructions that describe how to install and configure SAP Commerce Cloud (release 2011) with Telco and Utilities Accelerator (supports release 2108, latest patch) for use with a Spartacus storefront. In these instructions, SAP Commerce Cloud with TUA is installed on your local computer, so `localhost` is used in the browser URLs.
 
 The installation procedure includes steps for creating and using a `b2c_telco_spa` recipe that makes use of the TUA Spartacus Sample Data (`b2ctelcospastore`), but you can use your own sample data or recipe as long as it includes the `cmsocc`, `commercewebservices`, `acceleratorocc` extensions and TUA module.
 
@@ -49,24 +37,35 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the SAP Commerce and Telco & Utilities Accelerator zip archives.
 
-   **Note:** Use the latest patches for SAP Commerce Cloud version 2011 and Telco & Utilities Accelerator version 2102.
+   **Note:** Use the latest patches for SAP Commerce Cloud version 2011 and Telco & Utilities Accelerator version 2108.
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
     The TUA Spartacus Sample Data Store Extension is the extension provided in the following zip files:
 
-    - Sample data for Telco is stored in the following file: `b2ctelcospastore.zip`.
-    - Sample data for Utilities is stored in the following file: `utilitiesspastore.zip`.
+    - `b2ctelcospastore.zip`
+    - `utilitiesspastore.zip`
+    - `mediaspastore.zip`
 
-1. Unzip the TUA Spartacus sample data store from the preceding ZIP files.
+1. Unzip the sample data.
 
-    **Note:** You can use both the store extensions, or only one of them, depending on your needs (specific to telco or to utilities).
+    **Note:** You can either use both the store extensions, or only one of them, depending on your needs (specific to Telco or to Utilities).
 
-1. Move the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+    - Sample data for Telco is stored in the following archive files: 
+        - `b2ctelcospastore.zip`
+    - Sample data for Utilities is stored in the following archive files:
+        - `utilitiesspastore.zip`
+    - Sample data for Media is stored in the following archive files: 
+        - `mediaspastore.zip`
 
-1. Move the `utilitiesspastore` folder from extracted `utilitiesspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+1. Move:
+    - the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
-    **Note:** The `b2ctelcospastore` and `utilitiesspastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
+    - the `utilitiesspastore` folder from extracted `utilitiesspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+
+    - the `mediaspastore` folder from extracted `mediaspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+
+    **Note:** The `b2ctelcospastore`, `utilitiesspastore`, and `mediaspastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
 1. Unzip TUA cms extension for utilities:
 
@@ -84,131 +83,145 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```java
     apply plugin: 'installer-platform-plugin'
     apply plugin: 'installer-addon2-plugin'
+	
 
+	def pl = platform {
+	  localProperties {
+	    property 'kernel.events.cluster.jgroups.channel', 'disable'
+	    property 'datahub.publication.saveImpex', ''
+	    property 'commerceservices.default.desktop.ui.experience', 'responsive'
+	    property 'kernel.autoInitMode', 'update'
+	    property 'installed.tenants', 'junit'
+	}
+	afterSetup {
+	    ensureAdminPasswordSet()
+	}
+	
+	extensions {
+	    extName 'acceleratorcms'
+	    extName 'adaptivesearchbackoffice'
+	    extName 'adaptivesearchsolr'
+	    extName 'addonsupport'
+	    extName 'b2ctelcobackoffice'
+	    extName 'b2ctelcofulfillmentprocess'
+	    extName 'b2ctelcocms'
+	    extName 'b2ctelcospastore'
+	    extName 'utilitiesspastore'
+	    extName 'mediaspastore'
+	    extName 'b2ctelcotmfwebservices'
+	    extName 'b2ctelcowebservices'
+	
 
-    def pl = platform {
-    localProperties {
-        property 'kernel.events.cluster.jgroups.channel', 'disable'
-        property 'datahub.publication.saveImpex', ''
-        property 'commerceservices.default.desktop.ui.experience', 'responsive'
-        property 'kernel.autoInitMode', 'update'
-        property 'installed.tenants', 'junit'
-    }
-    afterSetup {
-        ensureAdminPasswordSet()
-    }
+	    extName 'b2ctelcocommercewebservicescommons'
+	    extName 'b2ctelcoocc'
+	    extName 'b2ctelcoserviceabilityclient'	
+	    extName 'commerceservicesbackoffice'
+	    extName 'solrfacetsearchbackoffice'
+	    extName 'solrserver'
+	    extName 'subscriptionbackoffice'
+	    extName 'yacceleratorcore'
+	    extName 'commercewebservices'
+	
 
-    extensions {
-        extName 'acceleratorcms'
-        extName 'adaptivesearchbackoffice'
-        extName 'adaptivesearchsolr'
-        extName 'addonsupport'
-        extName 'b2ctelcobackoffice'
-        extName 'b2ctelcofulfillmentprocess'
-        extName 'b2ctelcocms'
-        extName 'b2ctelcospastore'
-        extName 'utilitiesspastore'
-        extName 'b2ctelcotmfwebservices'
-        extName 'b2ctelcowebservices'
+	    extName 'cmsbackoffice'
+	    extName 'cmswebservices'
+	    extName 'previewwebservices'
+	    extName 'smarteditwebservices'
+	    extName 'cmssmarteditwebservices'
+	    extName 'permissionswebservices'
+	    extName 'cmssmartedit'
+	    extName 'cmsocc'
+	    extName 'acceleratorocc'
+	    extName 'customersupportbackoffice'
+	
 
-        extName 'b2ctelcocommercewebservicescommons'
-        extName 'b2ctelcoocc'
-        extName 'b2ctelcoserviceabilityclient'	
-        extName 'commerceservicesbackoffice'
-        extName 'solrfacetsearchbackoffice'
-        extName 'solrserver'
-        extName 'subscriptionbackoffice'
-        extName 'yacceleratorcore'
-        extName 'commercewebservices'
+	    extName 'personalizationwebservices'
+	    extName 'previewpersonalizationweb'
+	    extName 'personalizationcmsweb'
+	    extName 'personalizationsmartedit'
+	    extName 'personalizationservicesbackoffice'
+	    extName 'personalizationcmsbackoffice'
+	    extName 'personalizationservices'
+	    extName 'personalizationfacades'
+	
 
-        extName 'cmsbackoffice'
-        extName 'cmswebservices'
-        extName 'previewwebservices'
-        extName 'smarteditwebservices'
-        extName 'cmssmarteditwebservices'
-        extName 'permissionswebservices'
-        extName 'cmssmartedit'
-        extName 'cmsocc'
-        extName 'acceleratorocc'
-        extName 'customersupportbackoffice'
+	    extName 'acceleratorservices'
+	    extName 'assistedservicefacades'
+	
 
-        extName 'personalizationwebservices'
-        extName 'previewpersonalizationweb'
-        extName 'personalizationcmsweb'
-        extName 'personalizationsmartedit'
-        extName 'personalizationservicesbackoffice'
-        extName 'personalizationcmsbackoffice'
-        extName 'personalizationservices'
-        extName 'personalizationfacades'
+	    extName 'rulebuilderbackoffice'
+	    extName 'couponbackoffice'
+	    extName 'droolsruleengineservices'
+	    extName 'couponfacades'
+	    extName 'couponservices'
+	    extName 'b2ctelcoserviceabilityclient'
+	}
+	}
+	
 
-        extName 'acceleratorservices'
-        extName 'assistedservicefacades'
+	task setup () {
+	doLast {
+	
 
-        extName 'rulebuilderbackoffice'
-        extName 'couponbackoffice'
-        extName 'droolsruleengineservices'
-        extName 'couponfacades'
-        extName 'couponservices'
-    }
-    }
+	    pl.setup()
+	
 
-    task setup () {
-    doLast {
+	    copy {
+	      from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
+	      into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+	    }
+	    copy {
+	      from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
+	      into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+	      exclude "**/*.txt"
+	    }
+	}
+	}
+	
 
+	task buildSystem(dependsOn: setup) {
+	doLast {
+	    pl.build()
+	}
+	}
+	
 
-        pl.setup()
+	task initialize (dependsOn: buildSystem) {
+	doLast {
+	    pl.initialize()
+	}
+	}
+	
 
+	task start () {
+	doLast {
+	    pl.start()
+	}
+	}
+	
 
-        copy {
-        from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
-        into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-        }
-        copy {
-        from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
-        into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-        exclude "**/*.txt"
-        }
-    }
-    }
+	task startInBackground () {
+	doLast {
+	    pl.startInBackground()
+	}
+	}
+	
 
-    task buildSystem(dependsOn: setup) {
-    doLast {
-        pl.build()
-    }
-    }
-
-
-    task initialize (dependsOn: buildSystem) {
-    doLast {
-        pl.initialize()
-    }
-    }
-
-
-    task start () {
-    doLast {
-        pl.start()
-    }
-    }
-
-
-    task startInBackground () {
-    doLast {
-        pl.startInBackground()
-    }
-    }
-
-    task stopInBackground {
-    doLast {
-        pl.stopInBackground()
-    }
-    }
+	task stopInBackground {
+	doLast {
+	    pl.stopInBackground()
+	}
+	}
     ```
-    **Note:** If you want to use both sample data extensions, for telco and utilities, the `build.gradle` file should have the following structure:
 
-    - `extName 'utilitiesspastore'`
-    - `extName 'b2ctelcocms'`
+    **Note:** If you want to use only Telco sample data then remove the following lines from the `build.gradle` file::
 
+    ```bash
+    extName 'utilitiesspastore'
+    extName 'mediaspastore'
+    extName 'b2ctelcocms'
+    ```
+    
 1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
 1. Set up the recipe using the following commands: 
@@ -224,7 +237,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
-    **Note:** Starting with release 2005, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
+    **Note:** Starting with release 1905, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
 
 1. Initialize the system using the following command. From the `sap-commerce-folder>/installer` folder run the following commands:
 
@@ -238,6 +251,9 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```bash
    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
+
+    Initialization of the `b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.        
+
 1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands 
 
    For Windows:
@@ -256,7 +272,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    - Access Backoffice: https://localhost:9002/backoffice
    
 
-   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to telcospa and/or utilitiesspa depending on which sample data you want to use. Following are the samples:
+   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `telcospa` and/or `utilitiesspa` and/or `mediaspa` depending on which sample data you want to use. Following are the samples:
 
     Telco:
 
@@ -274,11 +290,20 @@ Some of the steps in this procedure are derived from the documentation for insta
     },
     ```
 
-    Both:
+    Media:
 
     ```ts
     context: {
-    baseSite: ['telcospa', ‘utilitiesspa’]
+    baseSite: ['mediaspa']
+    },
+    ```
+
+
+    All three:
+
+    ```ts
+    context: {
+    baseSite: ['telcospa', 'utilitiesspa’, 'mediaspa']
     },
     ```
 
@@ -337,7 +362,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     import { translationChunksConfig, translations } from '@spartacus/assets';
     import { ConfigModule } from '@spartacus/core';
     import { TmaB2cStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
-
+    
     @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -360,24 +385,30 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
                 prefix: '/b2ctelcotmfwebservices',
                 version: '/v3',
                 endpoint: '/productOffering/${id}'
+                },
+                getSelfcareSubscriptions: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/subscribedproducttmfwebservices',
+                version: '/v1',
+                endpoint: '/product'
                 }
             }
             },
             occ: {
             baseUrl: 'https://localhost:9002',
-            prefix: '/occ/v2/',
-            },
-            tmf_appointment: {
-            baseUrl: 'http://localhost:8080',
-            prefix: '/tmf-api',
+            prefix: '/occ/v2/'
             },
             tmf_resource_pool_management: {
             baseUrl: 'http://localhost:8080',
-            prefix: '/tmf-api',
+            prefix: '/tmf-api'
+            },
+            tmf_appointment: {
+            baseUrl: 'http://localhost:8080',
+            prefix: '/tmf-api'
             },
             premiseLookup: {
             baseUrl: 'http://localhost:9003',
-            prefix: '/premise/v1/',
+            prefix: '/premise/v1/'
             },
             tmf_query_service_qualification: {
             baseUrl: 'http://localhost:8080',
@@ -386,40 +417,40 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
         },
         context: {
             urlParameters: ['baseSite', 'language', 'currency'],
-            baseSite: ['telcospa', 'utilitiesspa'],
+            baseSite: ['telcospa', 'utilitiesspa', 'mediaspa']
         },
         i18n: {
             resources: translations,
             chunks: translationChunksConfig,
-            fallbackLang: 'en',
+            fallbackLang: 'en'
         },
-        features: { level: '3.0' },
+        features: {level: '3.3'},
         journeyChecklist: {
-            journeyChecklistSteps: ['APPOINTMENT', 'MSISDN', 'INSTALLATION_ADDRESS'],
+            journeyChecklistSteps: ['APPOINTMENT', 'MSISDN', 'INSTALLATION_ADDRESS' ],
             msisdn_reservation: {
             msisdn_qty: 1,
             msisdn_capacity_amount_demand: 1,
             msisdn_applied_capacity_amount: 5,
-            applied_capacity_amount_for_msisdn_reservation: 1,
+            applied_capacity_amount_for_msisdn_reservation: 1
             },
             appointment: {
             requested_number_of_timeslots: 5,
-            end_date_of_timeslots: 3,
+            end_date_of_timeslots: 3
             }
         },
         deliveryMode: {
-            default_delivery_mode: 'not-applicable'
+            default_delivery_mode: 'subscription-only-gross'
         }
         }),
-        ConfigModule.withConfig({ i18n: { resources: tmaTranslations } }),
+        ConfigModule.withConfig({ i18n: {resources: tmaTranslations}})
     ],
     providers: [],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
     })
     export class AppModule {}
     ```
 
-2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
+2. Replace the entire contents of `mystore/src/app/app.component.html` with:
 
    ```html
    <cx-storefront>Loading...</cx-storefront>
@@ -438,11 +469,11 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@ngrx/effects": "~10.0.0",
     "@ngrx/router-store": "~10.0.0",
     "@ngrx/store": "~10.0.0",
-    "@spartacus/assets": "3.0.0",
-    "@spartacus/core": "3.0.0",
-    "@spartacus/storefront": "3.0.0",
-    "@spartacus/styles": "3.0.0",
-    "@spartacus/tua-spa": "3.0.0-next.2",
+    "@spartacus/assets": "3.3.0",
+    "@spartacus/core": "3.3.0",
+    "@spartacus/storefront": "3.3.0",
+    "@spartacus/styles": "3.3.0",
+    "@spartacus/tua-spa": "3.2.0-next.1",
     "angular-oauth2-oidc": "^10.0.1",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.9.3",
@@ -457,7 +488,9 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.10.2"` so you need to add a comma after `0.10.2"`.
 
-5. Make sure that the following import is found in the  `mystore/src/styles.scss`:
+5. Update `@spartacus/schematics": "3.3.0` in `devDependencies` section in `package.json`.
+
+6. Make sure that the following import is found in the  `mystore/src/styles.scss`:
 
     ```bash
    @import '~@spartacus/styles/index';
@@ -465,30 +498,32 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    @import '~material-design-icons/iconfont/material-icons.css';
     ```
   
-6. Add the following import in the `/mystore/src/polyfills.ts` file:
+7. Add the following import in the `/mystore/src/polyfills.ts` file:
 
-   ```bash
+    ```bash
    import '@angular/localize/init';
    import 'zone.js/dist/zone';
+    ```
 
-7. From the terminal window, within `mystore`, install the dependencies by running the following command:
+8. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
    ```bash
    yarn install
    ```
   
-8. Start the angular client app. From the terminal window, within `mystore` start the application by running the following command:
+9. Start the angular client app. From the terminal window, within `mystore` start the application by running the following command:
 
    ```bash
    yarn start
    ```
   
-9. Make sure your backend server is up and running (SAP Commerce with TUA). When the backend server is properly started, point your browser to http://localhost:4200/telcospa/en/USD/.
+10. Make sure your backend server is up and running (SAP Commerce with TUA).
 
-10. Your client application is accessible at the following locations in your local environment:
+11. Your client application is accessible at the following locations in your local environment:
 
     - Telco application: http://localhost:4200/telcospa/en/USD
     - Utilities application: http://localhost:4200/utilitiesspa/en/USD
+    - Media application: http://localhost:4200/mediaspa/en/USD
 
 **Note:**
 
@@ -496,9 +531,27 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 
 (2) If you are updating an existing app, and changing dependencies, it is recommended to delete the `node_modules` folder before running the install command.
 
-For more information on setting up TUA Spartacus 2.0.0-next.2, see [Building the TUA Spartacus Storefront Using Libraries](https://github.com/SAP/spartacus-docs/blob/doc/GH-886/_pages/telco/building-the-tua-storefront-from-libraries-2-0.md).
-
 As always, feedback appreciated! Contact us through Slack or submit an [issue](https://github.com/SAP/spartacus/issues/new/choose).
+
+
+## Release 3.0.0-next.2 - March 17, 2021
+
+The `3.0.0-next.2` library has been published. We are happy to announce our 3.0 Spartacus for TUA pre-release.
+
+In the `3.0.0-next.2` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
+
+### Complex Industry Cart (first introduced in 3.0.0-next.1)
+
+The hierarchal representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchal structure, making it easy to support purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchal representation of the cart and order, the exact structure of a bundled product offering is retained. The components selected for the bundle are grouped accordingly, so that bundle in which the offerings belong to are known. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/33005fa795d2425282ffe769737e27e7.html) on the SAP Help portal.
+
+### Contract Renewals (first introduced in 3.0.0-next.1)
+
+A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire. At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, customers can renew eligible subscriptions, resulting from a simple product offering.
+
+### Serviceability Check of Simple Product Offerings (SPOs)
+
+In order to determine if a service is available to a residential or commercial address, a serviceability check is needed. Serviceability check can be run for a specific product offering a customer is interested in, or it can be run at a catalog level to see all of the available service offerings based on a given address. Checks and validations are performed to ensure that a customer makes a valid purchase that can be installed and provisioned by the provider. For more information, see [Serviceability Check](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/f17d331d62164ae686f2d4fdb437e9c4.html) on the SAP Help portal.
+
 
 ## Pre-release Libraries for 3.0.0 and Earlier
 
@@ -510,11 +563,11 @@ The `3.0.0-next.1` library has been published. We are happy to announce our 3.0 
 
 In the `3.0.0-next.1` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
 
-### **Complex Industry Cart**
+### Complex Industry Cart
 
 The hierarchical representation of the cart and order is now available to support complex bundled product offerings and pricing. The cart and order now functions in a hierarchical manner making it easy to support the purchasing of complex and nested (multi-layered) bundled product offerings. With the hierarchical representation of the cart and order, the exact structure of a bundled product offering is retained and the selected components are together by the parent bundle in which they belong. For more information, see [Complex Industry Cart](https://help.sap.com/viewer/d28406c672ff4cbca70dfb4b5748f8d8/2102/en-US/33005fa795d2425282ffe769737e27e7.html.html) in the TUA Help portal.
 
-### **Contract Renewals**
+### Contract Renewals
 
 A contract renewal is the stage in the contract lifecycle where the contract is scheduled to expire.  At this point, Operators or Service Providers may want to offer customers the ability to renew their contract as a retention scenario. Eligible customers are typically incentivized to renew with special promotional offering and price. In this scenario, based on the customer product inventory, a customer can renew eligible subscriptions resulting from a simple product offering.
 
