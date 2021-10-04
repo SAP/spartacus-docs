@@ -346,7 +346,7 @@ What's new?
 - [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})  
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
-- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/token-revocation.md %}) (supports back end improvement added to 1905.6)
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/security/token-revocation.md %}) (supports back end improvement added to 1905.6)
 - [Stacked Outlets]({{ site.baseurl }}/outlets/#stacked-outlets)
 - [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
@@ -531,9 +531,9 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 
 You can upgrade your Spartacus libraries to a new minor version, as follows:
 
-1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. In `package.json`, set your `@spartacus` libraries to `“~3.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-   If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
+   If you are upgrading from 3.x to the latest 3.4 release in order to then upgrade to 4.x, in `package.json`, set your `@spartacus` libraries to `“~3.4.4"`.
 
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
