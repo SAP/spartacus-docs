@@ -43,3 +43,20 @@ The following table lists many of the most common UI components, and the standar
 
 - A focusable element is an element that receives *visible* focus, either natively or through configuration.
 - Spartacus follows the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/#aria_ex). For more component examples, see the WAI-ARIA Authoring Practices documentation, and the "Keyboard Interactions" subsections for each component.
+
+##  Firefox and Safari setup for keyboard navigation
+
+Firefox and Safari for the Mac doesn't do tabbing by default. To turnit on, follow the instructions below.
+
+### Firefox
+
+- Open Firefox, go to _Preferences > Advanced > General_, then uncheck the _"Always use the cursor keys to navigate within pages"_ checkbox.
+- Next, open your Mac's **System Preferences**, go to _Keyboard > Shortcuts_, then check the _"Use keyboard navigation to move focus between controls"_ checkbox at the bottom.
+
+### Safari
+
+- Open Safari, go to _Preferences > Advanced > Accessibility_, then check _"Press Tab to highlight each item on a webpage"_.
+- Next, open your Mac's **System Preferences**, go to _Keyboard > Shortcuts_, then check the _"Use keyboard navigation to move focus between controls"_ checkbox at the bottom.
+
+
+
