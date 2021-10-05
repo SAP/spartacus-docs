@@ -262,6 +262,8 @@ docs:
           - title: "Security Best Practices ➢"
             url: /security-best-practices/
             subchildren:
+                - title: "Content Security Policy"
+                  url: /content-security-policy/
                 - title: "Protection Against Denial of Service Attacks"
                   url: /dos-protection/
                 - title: "Token Revocation"

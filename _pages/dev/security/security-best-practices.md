@@ -4,6 +4,7 @@ title: Security Best Practices
 
 When you are developing your Spartacus storefront, you can improve the security of your storefront application by implementing the security best practices described here and in the following pages:
 
+- [{% assign linkedpage = site.pages | where: "name", "content-security-policy.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/content-security-policy.md %})
 - [{% assign linkedpage = site.pages | where: "name", "dos-protection.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/dos-protection.md %})
 - [{% assign linkedpage = site.pages | where: "name", "token-revocation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/token-revocation.md %})
 
