@@ -21,7 +21,7 @@ For more information, see [Quick Order](https://help.sap.com/viewer/4c33bf189ab9
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
 ***
 
@@ -101,14 +101,30 @@ By default, you can add up to ten products to the **Quick Order List**, but you 
 
 ```ts
 provideConfig(<CmsConfig>{
-      cmsComponents: {
-        QuickOrderComponent: {
-          data: {
-            quickOrderListLimit: <yourValue>
-          }
-        },
-      },
-    }),
+  cmsComponents: {
+    QuickOrderComponent: {
+      data: {
+        quickOrderListLimit: <yourValue>
+      }
+    },
+  },
+}),
+```
+
+### Modifying Quick Order Form Config
+
+By default, suggestion box appears after 3 characters with maximum 5 products with images. You can modify this value by providing a different configuration.
+
+You can modify the default config, as shown in the following example:
+
+```ts
+provideConfig(<QuickOrderFormConfig>{
+  quickOrderForm: {
+    displayProductImages: <yourValue>,
+    maxProducts: <yourValue>,
+    displayProductImages: <yourValue>
+  }
+}),
 ```
 
 ## Using Quick Order
@@ -133,19 +149,29 @@ Even if you are not logged in, you can add products to the cart using the Quick 
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-3.png" alt="Cart Quick Order Form" width="700" border="1px" />
 
-### Adding Products with the Quick Order Page
+### Using the Quick Order Page
 
-The **Quick Order** page provides a form for adding new products, and displays a list of products that have already been added. The list includes information about the products that have been added to the Quick Order page, such as the product image, name, availability, price, and quantity that you want to add to your cart. The following is an example:
+The following sections describe how to use the Quick Order feature in the Spartacus storefront.
+
+## Adding Products with the Quick Order Page
+
+The **Quick Order** page provides a form for adding new products from suggestions, and displays a list of products that have already been added. The list includes information about the products that have been added to the Quick Order page, such as the product image, name, availability, price, and quantity that you want to add to your cart. The following is an example:
 
 <img src="{{ site.baseurl }}/assets/images/quick-order-4.png" alt="Quick Order Page" width="700" border="1px" />
 
 You can add products to the Quick Order list and then to your cart, as follows:
 
-1. Enter a product SKU in the form and press <kbd>Enter</kbd>.
+1. Enter a product name, SKU or any characters in the form and wait for suggestions box.
+
+   The suggestions box appears below the form after 3 characters (default value, it can be modify with `QuickOrderFormConfig` ).
+
+   <img src="{{ site.baseurl }}/assets/images/quick-order-8.png" alt="Quick Order Form Suggestion Box" width="700" border="1px" />
+
+2. If there is only one product in suggestions you can directly press <kbd>Enter</kbd> to add the product. If there are more products you can select product to add by clicking on it or you can navigate to the product using keyboard arrows <kbd>Up</kbd> or <kbd>Down</kbd> and to confirm selection press <kbd>Enter</kbd>.
 
    The newly-added product appears in the Quick Order list.
 
-1. Click **Add To Cart**.
+3. Click **Add To Cart**.
 
    A global message informs you that the items have been added to the cart, and the Quick Order list is reset to an empty state, as shown in the following example:
 
@@ -154,3 +180,17 @@ You can add products to the Quick Order list and then to your cart, as follows:
    If any product in the Quick Order list is out of stock, or if it was not possible to add the full quantity of a product to the cart, an error message is displayed at the top of the page, as shown in the following example:
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-6.png" alt="Quick Order Page With Errors" width="700" border="1px" />
+
+## Restore deleted product in the Quick Order Page
+
+This feature allows to restore deleted products from the Quick Order list. The following is an example:
+
+1. Add at least one product to the list and then click **Remove** on any row.
+
+A global message informs you that the product have been moved to trash. This message will disappear after 5 seconds _(This is the default value of timeout. It is possible to edit it by overwriting property **hardDeleteTimeout** in `QuickOrderService`)_.
+
+1. Click **Undo** to restore the product, before the global message disappears.
+
+Previously deleted product appears again in the Quick Order list.
+
+  <img src="{{ site.baseurl }}/assets/images/quick-order-7.png" alt="Quick Order Page With Deleted Product" width="700" border="1px" />
