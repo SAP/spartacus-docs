@@ -81,12 +81,6 @@ You can configure the feature level and feature flags at the same time, as shown
 }
 ```
 
-In the above example:
+In this example, the feature level is set to `1.1`. With `feature1` set to `false`, if `feature1` is normally a part of the version 1.1 feature set, you can selectively disable this feature while keeping the rest of the features from the 1.1 release. If `feature2` is part of the 1.5 release, by setting it to `true`, you can enable it while otherwise only enabling the features from the 1.1 release.
 
-    - feature level is set to `1.1`.
-    - If `feature1` is a part of `1.1` feature level, with feature flag you can selectively disable that feature while keeping '1.1' feature set.  
-    - If `feature2` is a part of `1.5` feature level, you can still enable it while keeping `1.1` feature set.
-    
-## Note
-
-It is advised to additionally test your application when selectively enabling features. While we try to use feature flags for separate features, we can't guarantee that all functionalities will work for all possible combinations of feature flags and feature levels.
+**Note:** It is recommended that you pay extra attention to testing your application if you are selectively enabling features. Although feature flags are used for a number of different Spartacus features, there is no guarantee that all functionalities will work for all possible combinations of feature flags and feature levels.
