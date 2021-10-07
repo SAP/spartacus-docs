@@ -1,8 +1,8 @@
 ---
-title: Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0
+title: Installing SAP Commerce Cloud for Use with FSA Spartacus 3.0
 ---
 
-The following instructions describe how to install and configure SAP Commerce (release 2011, patch 2) with Financial Services Accelerator (release 2102) for use with FSA Spartacus storefront. In these instructions, SAP Commerce and Financial Services Accelerator are installed on your local computer, so localhost is used in the browser URLs.
+The following instructions describe how to install and configure SAP Commerce (release 2105) with Financial Services Accelerator (release 2108) for use with FSA Spartacus storefront. In these instructions, SAP Commerce and Financial Services Accelerator are installed on your local computer, so localhost is used in the browser URLs.
 
 The installation procedure includes steps for installing and using a financial_spa and financial_spa_integrations recipes that make use of the FSA Spartacus Sample Data (*financialspastore*), but you can use your own sample data or recipe as long as it includes the *cmsocc*, *commercewebservices*, *acceleratorocc* extensions and the FSA module.
 
@@ -26,17 +26,17 @@ Summary:
 
 ### Step 1: Setting up SAP Commerce with Financial Services Accelerator
 
-Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/2011/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
+Some steps in this procedure derive from the documentation for installing SAP Commerce using recipes. For more information, see [Installing SAP Commerce Using Installer Recipes](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html) on the SAP Help Portal.
 
 1. Unzip the SAP Commerce and Financial Services Accelerator zip archives.
 
-   **Note**: Use the SAP Commerce version 2011.2 and Financial Services Accelerator version 2102.
+   **Note**: Use the SAP Commerce version 2105 and Financial Services Accelerator version 2108.
 
 2. In the "sap-commerce-folder/installer/recipes" folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
 
    **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
 
-3. In the financial_spa folder, the build.gradle file should have the following content:
+3. In the financial_spa recipe folder, the build.gradle file should have the following content:
 
     ```typescript
     apply plugin: 'installer-platform-plugin'
@@ -45,13 +45,11 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     def pl = platform {
         localProperties {
             property 'storefront.show.debug.info', 'false'
-            property 'promotions.legacy.mode', 'true'
         }
     
         extensions {
             extName 'financialspastore'
             extName 'financialprocess'
-            extName 'financialsmartedit'
             extName 'financialwebservices'
             extName 'financialb2bocc'
             extName 'financialb2bbackoffice'
@@ -66,13 +64,19 @@ Some steps in this procedure derive from the documentation for installing SAP Co
             extName 'adaptivesearchbackoffice'
             extName 'commerceservicesbackoffice'
             extName 'customersupportbackoffice'
+            extName 'promotionenginebackoffice'
+            extName 'rulebuilderbackoffice'
+            extName 'customercouponbackoffice'
     
             extName 'assistedservicewebservices'
     
             extName 'yacceleratorfulfilmentprocess'
             extName 'yacceleratorcore'
+   
+            extName 'promotionengineservices'
     
             extName 'cmsocc'
+            extName 'customercouponocc'
             extName 'acceleratorocc'
             extName 'cmswebservices'
             extName 'previewwebservices'
@@ -159,7 +163,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
-7. Start the SAP Commerce running the following commands from the sap-commerce-folder>/installer folder.
+7. Start SAP Commerce by running the following commands from the sap-commerce-folder>/installer folder.
 
     For Unix:
 
@@ -239,13 +243,13 @@ corsfilter.acceleratorservices.exposedHeaders=x-anonymous-consents
 
 ### Step 4: Update system and user credentials (optional)
 
-As you are using SAP Commerce Cloud 2011, you may need to enable users and passwords for certain functionalities to work.
+As you are using SAP Commerce Cloud 2105, you may need to enable users and passwords for certain functionalities to work.
 
-For more information, see [Setting Passwords for Default Users](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2011/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html).
+For more information, see [Setting Passwords for Default Users](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2105/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html).
 
 **All Done! You can now start FSA Spartacus!**
 
-After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building FSA Spartacus storefront from 2.0 libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries-2-0.md %}) for more information.
+After you have configured SAP Commerce to accept OCC REST API calls, you can set up and start your storefront. See [Building FSA Spartacus storefront from 3.0 libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries-3-0.md %}) for more information.
 
 ## Alternate Method for Setting the SAP Commerce Admin Password
 
@@ -255,7 +259,7 @@ Instead of including the admin password in every install command, you can create
 2. Add the following line: initialpassword.admin=Y0urFav0r!tePassw0rd. Replace Y0urFav0r!tePassw0rd with the password you want to use.
 3. Save the file.
 
-Next time you run the recipe install command, the settings inside custom.properties will be used to build the `local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
+Next time you run the recipe install command, the settings inside custom.properties will be used to build the local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
 
 ## CORS Settings
 
