@@ -16,14 +16,14 @@ The Quick Order feature allows users to quickly add multiple items to their cart
 
 For more information, see [Quick Order](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html) on the SAP Help Portal.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
   {:toc}
 
-***
+---
 
 ## Enabling Quick Order
 
@@ -194,3 +194,9 @@ A global message informs you that the product have been moved to trash. This mes
 Previously deleted product appears again in the Quick Order list.
 
   <img src="{{ site.baseurl }}/assets/images/quick-order-7.png" alt="Quick Order Page With Deleted Product" width="700" border="1px" />
+
+## Import/Export in the Quick Order Page
+
+This feature allows to import CSV files with products and them to the Quick Order list or export the current Quick Order list state to the CSV file. Import CSV file depends on the quick order list limit. That means it is not possible to add more products then quick order list limit even if there are more in the CSV file. The rest of the products will not be added.
+
+To use this feature there is required to install `Import/Export feature lib` and add required sample data. Here is more details. (URL to import export docs)
