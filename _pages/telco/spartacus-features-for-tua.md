@@ -4,6 +4,10 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 3.1
+
+- [Media Storefront]({{ site.baseurl }}{% link _pages/telco/media-storefront.md %})
+
 ## Release 3.0
 
 - [Contract Renewals]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %})
