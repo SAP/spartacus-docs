@@ -11,7 +11,7 @@ The Spartacus Sample Data AddOn is versioned and released with the Spartacus `st
 Of course, previous versions are also available. For example, to download the Spartacus Sample Data AddOn for the `2.0.0-next.3` release, you can access the **Assets** section of the `@spartacus/storefront@2.0.0-next.3` library [here](https://github.com/SAP/spartacus/releases/tag/storefront-2.0.0-next.3).
 
 For more information about installing the `spartacussampledataaddon` AddOn, see [Installing SAP Commerce Cloud for use with Spartacus
-]({{ site.baseurl }}/installing-sap-commerce-cloud/#setting-up-sap-commerce-cloud-with-the-spartacus-sample-data-addon).
+]({{ site.baseurl }}{% link _pages/install/backend/installing-sap-commerce-cloud.md %}).
 
 The following diagram demonstrates how the `Electronics-Spa` base site is created. The process is similar for all sample stores.
 
