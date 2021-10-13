@@ -12,6 +12,10 @@ gem 'jemoji'
 
 gem "nokogiri", ">= 1.11.0.rc4"
 
+gem 'rake'
+
+gem 'html-proofer'
+
 group :jekyll_plugins do
     gem "jekyll-feed"
     gem "jekyll-seo-tag"
