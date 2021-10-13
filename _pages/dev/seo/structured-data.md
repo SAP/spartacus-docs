@@ -26,7 +26,7 @@ There are various schemas for the web, and schemas can be extended as well. The 
 -   [Organization](https://schema.org/Organization)
 -   [BreadcrumbList](https://schema.org/BreadcrumbList)
 -   [Product](https://schema.org/Product)
--   [Reviews](https://schema.org/Reviews)
+-   [Reviews](https://schema.org/Review)
 -   [Offer](https://schema.org/Offer)
 -   [Rating](https://schema.org/Rating)
 
