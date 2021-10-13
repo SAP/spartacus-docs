@@ -456,6 +456,8 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
+                - title: "B2B Order Approval"
+                  url: /b2b-order-approval/
                 - title: "Cart"
                   url: /cart/
                 - title: "Checkout"
