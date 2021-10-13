@@ -66,7 +66,7 @@ If the bug does indeed apply to Spartacus code, please create an issue.
   * Any required username or password (but don't give us credentials that can be mis-used)
   * Screenshots if it helps us understand better.
 
-* Use our [issue template](https://github.com/SAP/spartacus/blob/develop/ISSUE_TEMPLATE.md).
+* Use our [issue template](https://github.com/SAP/spartacus/issues/new/choose).
 
   * Do not include more than one bug per issue created. This helps us to analyze bugs more easily.
 
