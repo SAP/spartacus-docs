@@ -150,7 +150,7 @@ This applies to all contributors, including those contributing on behalf of a co
 
 If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
-A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
+A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](https://github.com/SAP/spartacus/blob/develop/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
 
 Submit the form to us through one of the following methods:
 
