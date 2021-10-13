@@ -84,7 +84,7 @@ Please report issues in English.
 If you find a security issue, we'd rather you tell us directly instead of creating a public issue. This way we can fix it before it can be exploited.
 
 * SAP Customers: if you have discovered a security issue that is not covered by a published security note, please report it by creating a customer message at <https://launchpad.support.sap.com/#incident/solution.>
-* Researchers/non-Customers: please send the relevant information to secure@sap.com using [PGP for e-mail encryption](http://global.sap.com/pc/security/keyblock.txt).
+* Researchers/non-Customers can now use our vulnerability submission form to report findings to SAP. More information about how to report security issues to SAP can be found [here](https://www.sap.com/about/trust-center/security/incident-management.html).
 * Also refer to the general [SAP security information page](https://www.sap.com/corporate/en/company/security.html).
 
 ### How We Process Issues
