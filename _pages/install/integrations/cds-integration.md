@@ -52,11 +52,17 @@ After running the command, you are prompted to provide additional information, a
 - `profileTag.javascriptUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
 - `profileTag.configUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
 
-You can obtain the Profile Tag configuration URL from the SAP Commerce Cloud Configuration page in the ISS lounge. The direct link to it follows the pattern `https://<tenant>.<environment>.context.cloud.sap/lounge#/cds/sites/<site>/sap-commerce-cloud-config`, where you have to replace:
+  You can obtain the Profile Tag configuration URL from the SAP Commerce Cloud Configuration page in the ISS lounge. The following is an example of the link to access the SAP Commerce Cloud Configuration page:
 
-- `<tenant>` by your tenant id
-- `<environment>` by the ISS environment you want to work with (one of `stage`, `us`, `eu`)
-- `<site>` by your ISS site id
+  ```text
+  https://<tenant>.<environment>.context.cloud.sap/lounge#/cds/sites/<site>/sap-commerce-cloud-config
+  ```
+
+  To access your configuration page, update the placeholder elements in this link, as follows:
+
+  - `<tenant>` is your tenant id
+  - `<environment>` is the ISS environment you want to work with (such as `stage`, `us`, or `eu`)
+  - `<site>` is your ISS site id
 
 After you have provided this information, the schematics configure the Intelligent Selling Services integration for Spartacus.
 
