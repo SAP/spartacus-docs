@@ -10,10 +10,10 @@ Contents:
 
 - [Disclaimer - Forward-Looking Statements](#disclaimer---forward-looking-statements)
 - [Overview](#overview)
-- [Features Planned for Version 3.0 / December](#features-planned-for-version-30---december)
+- [Features Planned for Version 3.0 / December](#features-planned-for-version-30--december)
 - [Features Planned for Q1 2021](#features-planned-for-q1-2021)
 - [Features Planned for Q2 2021](#features-planned-for-q2-2021)
-- [Future Outlook](#future-outlook)
+- [Future Outlook](#future-outlook---q3-2021-and-later)
   
 ### Disclaimer - Forward-Looking Statements
 

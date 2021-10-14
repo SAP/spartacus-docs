@@ -11,7 +11,8 @@ The `projects/schematics/src/migrations/migrations.json` file contains all migra
   - _migration-feature-name_ is a short name that describes what the migration is doing.
   - _sequence-number_ is the sequence number in which the migrations should be executed
   - An example is _migration-v2-update-cms-component-state-02_.
-- _version_ is _really_ important for the Angular's update mechanism, as it is used to automatically execute the required migration scripts for the current project's version. For more information about this, please check [releasing update schematics](#releasing-update-schematics) section.
+- _version_ is _really_ important for the Angular's update mechanism, as it is used to automatically execute the required migration scripts for the current project's version. For more information, see the [Releasing Update Schematics](https://github.com/SAP/spartacus/tree/develop/projects/schematics#releasing-update-schematics) section of the schematics README.
+
 - _factory_ - points to the specific migration script.
 - _description_ - a short free-form description field for developers.
 
@@ -35,7 +36,7 @@ Some examples:
 
 ## Component Deprecation
 
-Similar to [constructor deprecation](#Constructor-deprecation), `projects/schematics/src/migrations/2_0/component-deprecations.ts` performs the component migration tasks, for both component _*.ts_ and _HTML_ templates. Usually, a developer does not need to touch this file, and they should rather describe the component deprecation in `projects/schematics/src/migrations/2_0/component-deprecations-data.ts`. The constant `COMPONENT_DEPRECATION_DATA` describes the deprecated components.
+Similar to [constructor deprecation](#constructor-deprecation), `projects/schematics/src/migrations/2_0/component-deprecations.ts` performs the component migration tasks, for both component _*.ts_ and _HTML_ templates. Usually, a developer does not need to touch this file, and they should rather describe the component deprecation in `projects/schematics/src/migrations/2_0/component-deprecations-data.ts`. The constant `COMPONENT_DEPRECATION_DATA` describes the deprecated components.
 
 ## CSS
 

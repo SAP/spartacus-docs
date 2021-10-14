@@ -166,8 +166,8 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Verify that SAP Commerce Cloud is working. To do this, you can:
 
-    - Display the Admin Console: <a href="https://localhost:9002" target="_blank">https://localhost:9002</a> or
-    - Display the Backoffice: <a href="https://localhost:9002/backoffice" target="_blank">https://localhost:9002/backoffice</a> (note that starting the Backoffice for the first time can take 15-20 seconds).
+    - Display the Admin Console: `https://localhost:9002` or
+    - Display the Backoffice: `https://localhost:9002/backoffice` (note that starting the Backoffice for the first time can take 15-20 seconds).
 
 1. Verify that the FSA Spartacus versions of the sample store were created:
     - Display the Backoffice or
@@ -177,15 +177,16 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.
 
-1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: <a href="https://localhost:9002" target="_blank">https://localhost:9002</a>.
+1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: `https://localhost:9002`.
 1. Point to the Console tab, then click Impex Import.
 1. Copy-paste the following code into the Import content field.
-git push --set-upstream origin doc/GH-911
+
 ```sql
 INSERT_UPDATE OAuthClientDetails;   clientId[unique=true];  resourceIds     ;scope;     authorizedGrantTypes         ;authorities             ;clientSecret    ;registeredRedirectUri
 ;client-side              ;hybris            ;basic        ;implicit,client_credentials                                     ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_implicit_callback;
 ;mobile_android           ;hybris            ;basic        ;authorization_code,refresh_token,password,client_credentials    ;ROLE_CLIENT             ;secret          ;http://localhost:9001/authorizationserver/oauth2_callback;
 ```
+
 **Note**: The values for the client ID and the password are just samples. You can use different values for your production environments.
 
 4. Click the **Import content** button. You have now added a client ID and password to your FSA Spartacus storefront configuration.
@@ -261,6 +262,6 @@ You may encounter the following error message:
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 
-This issue is caused due to an incorrect configuration of the sop.post.url property.
+This issue is caused by an incorrect configuration of the `sop.post.url` property.
 
-Make sure that this property is set to sop.post.url=<a href="https://localhost:9002/acceleratorservices/sop-mock/process" target="_blank">https://localhost:9002/acceleratorservices/sop-mock/process</a>.
+Make sure this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
