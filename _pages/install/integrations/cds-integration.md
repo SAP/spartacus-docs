@@ -116,7 +116,7 @@ The following steps describe how to add custom headers to your CORS settings, as
 
     **Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
 
-    For more information, see [Configuring CORS]({{ site.baseurl }}/installing-sap-commerce-cloud/#configuring-cors).
+    For more information, see [Cross-Origin Resource Sharing (CORS)]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 
 2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.
 
