@@ -12,7 +12,7 @@ As a result of Journey Management configuration, a product offerings may be defi
 
 Appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.
 
-This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured. It is applicable to product offerings sold as a simple product offering or bundled product offering through configurable guided selling. For more information, see [Configuring and Enabling the Appointment in TUA](#configuring-and-enabling-the-appointment-in-tua) in the TUA Help portal.
+This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured. It is applicable to product offerings sold as a simple product offering or bundled product offering through configurable guided selling. For more information, see [Configurable Guided Selling](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html) in the TUA Help portal.
 
 ***
 

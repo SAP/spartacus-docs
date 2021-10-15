@@ -29,7 +29,7 @@ In Spartacus, the direction of the UI reflects the active language, so that dire
 
 ## Breaking Changes
 
-The changes made to the DOM and CSS are considered breaking changes, so the directionality feature can only be used if you enable it with the 2.1 feature flag and the 2.1 CSS version. For more information about the CSS version, see [Versioning]({{ site.baseurl }}/css-architecture/#versioning) in CSS Architecture.
+The changes made to the DOM and CSS are considered breaking changes, so the directionality feature can only be used if you enable it with the 2.1 feature flag and the 2.1 CSS version. For more information about the CSS version, see [Style Versioning]({{ site.baseurl }}/css-architecture/#style-versioning) in CSS Architecture.
 
 ## Configuring Directionality
 

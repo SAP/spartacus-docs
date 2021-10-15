@@ -34,4 +34,4 @@ Initially, the budget is not assigned to any cost center.
 
    The budget **Bud1** was assigned to **Cost Center 2**, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/bud1-cc2.png" alt="" width="500" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/bud1-cc2.png" alt="Assigning a Budget to a Cost Center" width="500" border="1px" />

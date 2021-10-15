@@ -459,7 +459,7 @@ Release notes: [https://github.com/SAP/spartacus/releases](https://github.com/SA
 - Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
   - [Documentation for development]({{ site.baseurl }}{% link _pages/contributing/feature-flags-and-code-deprecation.md %})
   - [Documentation for consumption]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %})
-- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#endpoint-configuration)
+- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#configuring-endpoints)
 - [Change to registration and login flow: must log in after registering](https://github.com/SAP/spartacus/issues/2799#issuecomment-525679882)
 - Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
 

@@ -73,7 +73,7 @@ If the bug does indeed apply to Spartacus code, please create an issue.
   * Any required username or password (but don't give us credentials that can be mis-used)
   * Screenshots if it helps us understand better.
 
-* Use our [issue template](https://github.com/SAP/spartacus/blob/develop/ISSUE_TEMPLATE.md).
+* Use our [issue templates](https://github.com/SAP/spartacus/issues/new/choose).
 
   * Do not include more than one bug per issue created. This helps us to analyze bugs more easily.
 
@@ -84,7 +84,7 @@ Please report issues in English.
 If you find a security issue, we'd rather you tell us directly instead of creating a public issue. This way we can fix it before it can be exploited.
 
 * SAP Customers: if you have discovered a security issue that is not covered by a published security note, please report it by creating a customer message at <https://launchpad.support.sap.com/#incident/solution.>
-* Researchers/non-Customers: please send the relevant information to secure@sap.com using [PGP for e-mail encryption](http://global.sap.com/pc/security/keyblock.txt).
+* Researchers/non-Customers can now use our vulnerability submission form to report findings to SAP. More information about how to report security issues to SAP can be found [here](https://www.sap.com/about/trust-center/security/incident-management.html).
 * Also refer to the general [SAP security information page](https://www.sap.com/corporate/en/company/security.html).
 
 ### How We Process Issues
@@ -132,7 +132,7 @@ To view a list of open issues that require analysis, see the [list of open issue
 
 We welcome contributions to the Spartacus codebase. Before you start your first contribution, here are some things you should know:
 
-1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Contributors License Agreement](https://github.com/SAP/spartacus/blob/develop/LICENSE). This is common practice for most open source projects.
+1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Contributors License Agreement](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt). This is common practice for most open source projects.
 
     Note: You do not need to sign the CLA until you submit your first pull request. If you have not signed the CLA before, a link to the CLA assistant is provided on the PR status page.
 
@@ -157,7 +157,7 @@ This applies to all contributors, including those contributing on behalf of a co
 
 If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
-A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
+A company representative authorized to do so must fill out the following [Corporate Contributor License Agreement](https://github.com/SAP/spartacus/blob/develop/docs/SAP%20Corporate%20Contributor%20License%20Agreement.pdf) form. The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
 
 Submit the form to us through one of the following methods:
 

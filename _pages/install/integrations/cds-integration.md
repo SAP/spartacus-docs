@@ -49,8 +49,20 @@ After running the command, you are prompted to provide additional information, a
 
 - `tenant` asks you to provide a tenant name (for example, `my-tenant`)
 - `baseUrl` asks you to provide the base URL for the Intelligent Selling Services back end (for example, `https://my-tenant.api.us.context.cloud.sap`)
-- `profileTagLoadUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
-- `profileTagConfigUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
+- `profileTag.javascriptUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
+- `profileTag.configUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
+
+  You can obtain the Profile Tag configuration URL from the SAP Commerce Cloud Configuration page in the ISS lounge. The following is an example of the link to access the SAP Commerce Cloud Configuration page:
+
+  ```text
+  https://<tenant>.<environment>.context.cloud.sap/lounge#/cds/sites/<site>/sap-commerce-cloud-config
+  ```
+
+  To access your configuration page, update the placeholder elements in this link, as follows:
+
+  - `<tenant>` is your tenant id
+  - `<environment>` is the ISS environment you want to work with (such as `stage`, `us`, or `eu`)
+  - `<site>` is your ISS site id
 
 After you have provided this information, the schematics configure the Intelligent Selling Services integration for Spartacus.
 
@@ -114,7 +126,7 @@ The following steps describe how to add custom headers to your CORS settings, as
 
     **Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
 
-    For more information, see [Configuring CORS]({{ site.baseurl }}/installing-sap-commerce-cloud/#configuring-cors).
+    For more information, see [Cross-Origin Resource Sharing (CORS)]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 
 2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.
 

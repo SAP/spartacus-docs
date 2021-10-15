@@ -123,7 +123,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/spartacus-docs/2.x/"><img src="/spartacus-docs/2.x/assets/images/logo-blue_64x64.png" alt=""></a>
+          <a class="site-logo" href="/spartacus-docs/2.x/"><img src="/spartacus-docs/2.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
         
         <a class="site-title" href="/spartacus-docs/2.x/">Spartacus Documentation</a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -1635,8 +1635,8 @@
     <p>Verify that SAP Commerce Cloud is working. To do this, you can:</p>
 
     <ul>
-      <li>Display the Admin Console: <a href="https://localhost:9002" target="_blank">https://localhost:9002</a> or</li>
-      <li>Display the Backoffice: <a href="https://localhost:9002/backoffice" target="_blank">https://localhost:9002/backoffice</a> (note that starting the Backoffice for the first time can take 15-20 seconds).</li>
+      <li>Display the Admin Console: <code class="language-plaintext highlighter-rouge">https://localhost:9002</code> or</li>
+      <li>Display the Backoffice: <code class="language-plaintext highlighter-rouge">https://localhost:9002/backoffice</code> (note that starting the Backoffice for the first time can take 15-20 seconds).</li>
     </ul>
   </li>
   <li>
@@ -1653,16 +1653,19 @@
 <p>FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.</p>
 
 <ol>
-  <li>Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: <a href="https://localhost:9002" target="_blank">https://localhost:9002</a>.</li>
+  <li>Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: <code class="language-plaintext highlighter-rouge">https://localhost:9002</code>.</li>
   <li>Point to the Console tab, then click Impex Import.</li>
-  <li>Copy-paste the following code into the Import content field.
-git push –set-upstream origin doc/GH-911
-    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSERT_UPDATE</span> <span class="n">OAuthClientDetails</span><span class="p">;</span>   <span class="n">clientId</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span>  <span class="n">resourceIds</span>     <span class="p">;</span><span class="k">scope</span><span class="p">;</span>     <span class="n">authorizedGrantTypes</span>         <span class="p">;</span><span class="n">authorities</span>             <span class="p">;</span><span class="n">clientSecret</span>    <span class="p">;</span><span class="n">registeredRedirectUri</span>
+  <li>Copy-paste the following code into the Import content field.</li>
+</ol>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSERT_UPDATE</span> <span class="n">OAuthClientDetails</span><span class="p">;</span>   <span class="n">clientId</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span>  <span class="n">resourceIds</span>     <span class="p">;</span><span class="k">scope</span><span class="p">;</span>     <span class="n">authorizedGrantTypes</span>         <span class="p">;</span><span class="n">authorities</span>             <span class="p">;</span><span class="n">clientSecret</span>    <span class="p">;</span><span class="n">registeredRedirectUri</span>
 <span class="p">;</span><span class="n">client</span><span class="o">-</span><span class="n">side</span>              <span class="p">;</span><span class="n">hybris</span>            <span class="p">;</span><span class="n">basic</span>        <span class="p">;</span><span class="k">implicit</span><span class="p">,</span><span class="n">client_credentials</span>                                     <span class="p">;</span><span class="n">ROLE_CLIENT</span>             <span class="p">;</span><span class="n">secret</span>          <span class="p">;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9001</span><span class="o">/</span><span class="n">authorizationserver</span><span class="o">/</span><span class="n">oauth2_implicit_callback</span><span class="p">;</span>
 <span class="p">;</span><span class="n">mobile_android</span>           <span class="p">;</span><span class="n">hybris</span>            <span class="p">;</span><span class="n">basic</span>        <span class="p">;</span><span class="n">authorization_code</span><span class="p">,</span><span class="n">refresh_token</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">client_credentials</span>    <span class="p">;</span><span class="n">ROLE_CLIENT</span>             <span class="p">;</span><span class="n">secret</span>          <span class="p">;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9001</span><span class="o">/</span><span class="n">authorizationserver</span><span class="o">/</span><span class="n">oauth2_callback</span><span class="p">;</span>
-</code></pre></div>    </div>
-    <p><strong>Note</strong>: The values for the client ID and the password are just samples. You can use different values for your production environments.</p>
-  </li>
+</code></pre></div></div>
+
+<p><strong>Note</strong>: The values for the client ID and the password are just samples. You can use different values for your production environments.</p>
+
+<ol>
   <li>Click the <strong>Import content</strong> button. You have now added a client ID and password to your FSA Spartacus storefront configuration.</li>
 </ol>
 
@@ -1737,9 +1740,9 @@ You can now start FSA Spartacus! </strong></p>
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)</span>
 </code></pre></div></div>
 
-<p>This issue is caused due to an incorrect configuration of the sop.post.url property.</p>
+<p>This issue is caused by an incorrect configuration of the <code class="language-plaintext highlighter-rouge">sop.post.url</code> property.</p>
 
-<p>Make sure that this property is set to sop.post.url=<a href="https://localhost:9002/acceleratorservices/sop-mock/process" target="_blank">https://localhost:9002/acceleratorservices/sop-mock/process</a>.</p>
+<p>Make sure this property is set to <code class="language-plaintext highlighter-rouge">sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process</code>.</p>
 
 
 <!-- <h3 class="archive__subtitle">Recent posts</h3>

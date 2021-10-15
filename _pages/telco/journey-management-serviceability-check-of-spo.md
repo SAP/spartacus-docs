@@ -46,21 +46,21 @@ For refer different Business Scenarios, see [Serviceabiity Checklist](https://he
 
 This feature is enabled on the advertisement banner, by providing the **CHECK AVAILABILITY** button to check the availability of the single or multiple product offerings, which require a serviceability check as per the journey checklist configuration.
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/banner.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/banner.png" alt="Banner"></p>
 
  When you click **CHECK AVAILABILITY** button on the banner, the *Check Availability* screen is displayed to validate the provided site address:
 
- <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/check-availability.png"></p>
+ <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/check-availability.png" alt="Check Availability"></p>
  
  If the selected product offering is serviceable at the provided site address, the following screen is displayed to confirm that the site address can be serviced.
 
- <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/availability-successful.png"></p> 
+ <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/availability-successful.png" alt="Availability Successful"></p>
 
 If the selected product offering is not serviceable at the provided site address, an information message: *The selected product offering is currently unavailable at the provided address. Please provide a different address to proceed*  is displayed.
 
 To check the serviceability (availability) of a single or multiple product offerings at a specified address, click the **BROADBAND** menu and then click the **CHANGE ADDRESS** button.
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/change-address.png"></p> 
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/change-address.png" alt="Change Address Button"></p>
 
 ## Frontend and Backend Dependencies
 
