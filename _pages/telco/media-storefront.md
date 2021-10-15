@@ -48,18 +48,18 @@ As part of this feature, the customer can:
 -   Middle: Includes two banners
 -   Lower: Includes information related to **ACCELERATOR**, **HYBRIS**, **POLICIES**, and **FOLLOW US**.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/media-spa-hmepg.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/media-spa-hmepg.png" alt="Media SPA Storefront Homepage"></p>
 
 **View Account Section – Order History**
 
 1. Click the **Account** dropdown to view different sections that are listed.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/account-dropdown.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/account-dropdown.png" alt="Account"></p>
 
 2. Select **Order History** to view the details of an existing order.
 3. Select the required Order number from the list of orders displayed. The **Shipped** section displays detailed information of the selected order.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-history-shipped-1.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-history-shipped-1.png" alt="Order History: Shipped"></p>
 
 **View Account Section – Address Book**
 
@@ -68,15 +68,15 @@ As part of this feature, the customer can:
 1. Click **Edit** to update the existing address.
 1. Click **Delete** to delete the existing address.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/address-book.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/address-book.png" alt="Address Book"></p>
 
 **View Account Section – Payment Details**
 
-1. Select **Payment Details** to view if any payment related details are saved. 
-1. Payment details such as card details are saved during the checkout flow when the customer places an order. 
-1. Click **Delete** if the saved details need to be removed from this section. 
+1. Select **Payment Details** to view if any payment related details are saved.
+1. Payment details such as card details are saved during the checkout flow when the customer places an order.
+1. Click **Delete** if the saved details need to be removed from this section.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/payment-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/payment-details.png" alt="Payment Details"></p>
 
 **View Account Section – Personal Details, Password, Email Address**
 
@@ -96,22 +96,22 @@ As part of this feature, the customer can:
 
 **View Account Section – Subscription and Usage Details**
 
-1. Select **Subscriptions** to view the available subscriptions. 
+1. Select **Subscriptions** to view the available subscriptions.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription.png" alt="Subscription"></p>
 
-1. Click the required subscription to view details of the active plan such as contract start and end date, order number, contract duration, and order prices. 
+1. Click the required subscription to view details of the active plan such as contract start and end date, order number, contract duration, and order prices.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription-details.png" alt="Subscription Details"></p>
 
 1. Click **Go Back To Subscriptions** to go to the actual page from where the order was placed.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription-order-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription-order-details.png" alt="Subscription Order Details></p>
 
 1. Click **Usage Details** for the required subscriptions in the **MY SUBSCRIPTIONS** page. 
 1. The corresponding page displays usage related details in a pie chart format. 
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription-usage-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/subscription-usage-details.png" alt="Subscription Usage Details"></p>
 
 **Cart Product Offering - Add. Update, Remove**
 
@@ -119,13 +119,13 @@ To add a product offering to the cart:
 1. Click the top banner to view the price details. 
 1. Click **Add To Cart**.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/underworld-banner.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/underworld-banner.png" alt="Underworld Banner"></p>
 
 1. Add or remove the quantity, if required.
 1. Click **View Cart**.
 1. Click **Proceed to checkout**.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/proceed-to-checkout.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/proceed-to-checkout.png" alt="Proceed to Checkout"></p>
 
 **Checkout Flow and Order Placement**
 
@@ -147,30 +147,30 @@ The Shipping Address is selected by default. If required, you can add a new addr
 1. Select the check box in the **ORDER SUMMARY** section.
 1. Click **Place Order**. 
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/review-and-place-order.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/review-and-place-order.png" alt="Review and Place Order"></p>
 
 **Order Confirmation – Order List and Order Details**
 
 The order is placed and a confirmation page with the order details is displayed.
 
-   <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-list-and-order-details-of-placed-order.png"></p>
+   <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-list-and-order-details-of-placed-order.png" alt="Order List and Order Details of Placed Order"></p>
 
 **Purchase a BPO via a Guided Selling**
 
 1. Go to Homepage and click the second banner. The configured guided selling page is displayed where the **Tricast Channels** pack is configured. 
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/tricast-channel-page.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/tricast-channel-page.png" alt="Tricast Channel Page"></p>
 
 1. Click **Select** to add the **YTV Channel** to the channel.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/added-ytv-channel.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/added-ytv-channel.png" alt="Added YTV Channel"></p>
 
 1. Click **Tricast Channels Plans**.
 1. Click **Select** to add the **Tv Starter** to the channel plan.
 1. Click **Add To Cart**.
 1. Click **View Cart** to view the cart details.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cgs-cart-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cgs-cart-details.png" alt="CGS Cart Details"></p>
 
     These details can either be modified or deleted.
 1. Click **Proceed To Checkout**.
@@ -178,11 +178,11 @@ The order is placed and a confirmation page with the order details is displayed.
 1. In the **Review Order** tab, select the check box in the **ORDER SUMMARY** section.
 1. Click **Place Order**.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cgs-place-order.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cgs-place-order.png" alt="CGS Place Order"></p>
 
 The order is placed and a confirmation page with the order details is displayed.
 
-   <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cgs-order-confirmation.png"></p>
+   <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cgs-order-confirmation.png" alt="CGS Order Confirmation"></p>
 
 ## Frontend and Backend Dependencies
 

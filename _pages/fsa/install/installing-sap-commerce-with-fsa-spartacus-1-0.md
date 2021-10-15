@@ -19,7 +19,7 @@ The installation procedure includes steps for installing and using a financial_s
 
 Summary:
 
-- [Step 1: Setting up SAP Commerce with Financial Services Accelerator](#step-1setting-up-sap-commerce-with-financial-services-accelerator)
+- [Step 1: Setting up SAP Commerce with Financial Services Accelerator](#step-1-setting-up-sap-commerce-with-financial-services-accelerator)
 - [Step 2: Configuring OCC credentials](#step-2-configuring-occ-credentials)
 - [Step 3: Configuring CORS](#step-3-configuring-cors)
 - [Step 4: Update system and user credentials (optional)](#step-4-update-system-and-user-credentials-optional)
