@@ -64,7 +64,7 @@ The banner shows the contractual terms with prices and discount offers. After se
 
 **Note** The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules automatically determine if you are eligible for a renewal of one or more of your existing subscriptions. If you are not eligible, the banner does not display as depicted in the following figure:
 
- <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png"></p>
+ <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png" alt="No Renewal Eligibility"></p>
 
 ## Frontend and Backend Dependencies
 

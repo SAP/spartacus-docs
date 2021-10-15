@@ -33,13 +33,13 @@ Creation of a new buying organization along with a new administrator can be done
 
    A list of existing units appears, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createunit1-list.png" alt="" width="250" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createunit1-list.png" alt="List of Existing Units" width="250" border="1px" />
 
 5. To create a new unit, click the "plus" icon (`+`) at the top of the list.
 
    The **Create New B2B Unit** window appears, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createunit2-create-general.png" alt="" width="450" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createunit2-create-general.png" alt="Create New B2B Unit window" width="450" border="1px" />
 
 6. Enter the ID and name of your unit, then click **Done**.
 
@@ -61,7 +61,7 @@ Creation of a new buying organization along with a new administrator can be done
 
 3. Type the new user's email address into the **ID**, **Customer ID**, and **Email** fields, and type the new user's name in to the **Name** field, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser1-general.png" alt="" width="450" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser1-general.png" alt="Create New B2B Customer window" width="450" border="1px" />
 
    **Note:** Although the customer ID is not required to create the user, it is important for proper handling of all users in Spartacus.
 
@@ -71,7 +71,7 @@ Creation of a new buying organization along with a new administrator can be done
 
 6. In the **Default B2B Unit** field, select the unit you created previously, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser2-memberships.png" alt="" width="450" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser2-memberships.png" alt="Selecting Unit" width="450" border="1px" />
 
 7. Click **Done**.
 
@@ -83,20 +83,20 @@ Creation of a new buying organization along with a new administrator can be done
 
 9. Select your new user, and then click the **Password** tab, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser3-password.png" alt="" width="600" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser3-password.png" alt="Password Tab" width="600" border="1px" />
 
 10. Under **Change Password**, type the user's password into the **New Password** and **Confirm New Password** fields, and then click **Save**.
 
     The user can now log in. Browse to your Powertools store and log in as the new user, as shown in the following example:
 
-    <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser4-loggedon.png" alt="" width="500" border="1px" />
+    <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser4-loggedon.png" alt="Powertools Store" width="500" border="1px" />
 
     Since the user is the buying company's administrator, you should see **My Company** in the **My Account** menu, as shown in the following example:
 
-    <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser5-mycoinmenu.png" alt="" width="150" border="1px" />
+    <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser5-mycoinmenu.png" alt="My Company" width="150" border="1px" />
 
     Clicking **My Company** displays the Commerce Organization home page, as shown in the following example:
 
-    <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser6-mycohome.png" alt="" width="500" border="1px" />
+    <img src="{{ site.baseurl }}/assets/images/commerceorg/backoffice-createuser6-mycohome.png" alt="Commerce Organization Home Page" width="500" border="1px" />
 
     You are now ready to create your commerce organization!
