@@ -88,7 +88,7 @@ As part of this feature, the customer can:
 
 1. Select **Consent Management** to provide consent to store data and receive e-mails for marketing campaigns.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/consent-management.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/consent-management.png" alt="Consent Management"></p>
 
 **View Account Section – Close Account**
 

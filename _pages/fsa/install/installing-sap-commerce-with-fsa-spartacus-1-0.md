@@ -185,8 +185,8 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
 1. Verify that the SAP Commerce Cloud is working. To do this, you can:
 
-    - Display the Admin Console: [https://localhost:9002](https://localhost:9002)
-    - Display the Backoffice: [https://localhost:9002/backoffice](https://localhost:9002/backoffice) (note that starting the Backoffice for the first time can take 15-20 seconds).
+    - Display the Admin Console: `https://localhost:9002` or
+    - Display the Backoffice: `https://localhost:9002/backoffice` (note that starting the Backoffice for the first time can take 15-20 seconds).
 
 1. Verify that the FSA Spartacus versions of the sample store were created:
     - Display the Backoffice or
@@ -196,7 +196,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
 FSA Spartacus uses OCC REST API calls to get information from and make changes to the back end. To do this, the back end must be configured with certain credentials.
 
-1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: [https://localhost:9002](https://localhost:9002/backoffice).
+1. Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: `https://localhost:9002`.
 2. Navigate to the **Console** tab, then click **Impex Import**.
 3. Copy the following code into the **Import content** field.
 
@@ -285,6 +285,6 @@ You may encounter the following error message:
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 
-This issue is caused due to an incorrect configuration of the sop.post.url property.
+This issue is caused due to an incorrect configuration of the `sop.post.url` property.
 
-Make sure that this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
+Make sure this property is set to `sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process`.
