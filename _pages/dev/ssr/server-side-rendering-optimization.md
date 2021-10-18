@@ -167,6 +167,8 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   The default value is `false`.
 
+  Recommendation: turn off in production.
+
   **Note**: This option is available in version 3.1.0 and later.
 
 ## Troubleshooting
