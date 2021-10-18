@@ -109,9 +109,11 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
 
-- `concurrency` is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR.
+- `concurrency` is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR. If the `reuseCurrentRendering` is enabled, multiple requests for the same rendering key (i.e. request URL, by default) will take up only one concurrency slot.
 
   The default value is `20`.
+
+  Recommendation: it should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
 
 - `ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again.
 
