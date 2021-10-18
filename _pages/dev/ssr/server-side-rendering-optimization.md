@@ -105,7 +105,7 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   Recommendation: generally, it is _not_ recommended to use the `cache` option, as there are better ways to turn on the caching (e.g. having a CDN).
 
-- `cacheSize` is a number that limits the cache size to a specific number of entries. This property helps to keep memory usage under control.
+- `cacheSize` is a number that limits the cache size to a specific number of entries. This option helps to keep memory usage under control.
 
   The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
 
@@ -147,7 +147,7 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   Recommendation: strongly recommended to set. Adjust according to your needs and expectation.
 
-  **Note**: This property is available in the latest patch versions of 3.1.x and later.
+  **Note**: This option is available in the latest patch versions of 3.1.x and later.
 
 - `reuseCurrentRendering` - Instead of immediately falling back to CSR while a render for the same rendering key is in progress, this option will make the subsequent requests for this rendering key wait for the current render. All pending requests for the same rendering key will take up only _one_ concurrency slot, because there is only one actual rendering task being performed. Each request independently honors the `timeout` option.
 
@@ -159,11 +159,15 @@ You can configure the SSR optimization engine with a number of parameters, which
   - one second after the timeout, the current render finishes.
   - the 2nd request returns SSR after only 2s of waiting.
 
+  Recommendation: recommended to enable, as it will smartly use the serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
+
+  **Note**: This option is available in version 3.4.x and later.
+
 - `debug` is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
 
   The default value is `false`.
 
-  **Note**: This property is available in version 3.1.0 and later.
+  **Note**: This option is available in version 3.1.0 and later.
 
 ## Troubleshooting
 
