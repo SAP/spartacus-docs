@@ -141,6 +141,16 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   **Note**: This property is available in the latest patch versions of 3.1.x and later.
 
+- `reuseCurrentRendering` - Instead of immediately falling back to CSR while a render for the same rendering key is in progress, this option will make the subsequent requests for this rendering key wait for the current render. All pending requests for the same rendering key will take up only _one_ concurrency slot, because there is only one actual rendering task being performed. Each request independently honors the `timeout` option.
+
+  E.g., consider the following setup where `timeout` option is set to 3s, and the given request takes 4s to render. The flow is as follows:
+
+  - 1st request arrives and triggers the SSR.
+  - 2nd request for the same URL arrives 2s after the 1st one. Instead of falling back to CSR, it waits (with its own timeout) for the render of the first request.
+  - 1st request times out after 3s, and falls back to CSR.
+  - one second after the timeout, the current render finishes.
+  - the 2nd request returns SSR after only 2s of waiting.
+
 ## Troubleshooting
 
 The following sections describe how to resolve potential issues with SSR.
