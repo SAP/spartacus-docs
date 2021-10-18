@@ -1,9 +1,9 @@
 ---
 title: Scroll Position Restoration
 feature:
-  - name: Scroll Position Restoration
-    spa_version: 4.2
-    cx_version: n/a
+- name: Scroll Position Restoration
+  spa_version: 4.2
+  cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -12,67 +12,77 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-When scroll position restoration is enabled, it uses the same mechanism as done in the `RouterModule` for scrollPositionRestoration configuration in `@angular/router`. However, we have added some other configurations for flexibility as the out of the box mechanism for scroll position restoration may be too agressive for some, where you do not want the users to move to the top of the page for child routes and query strings.
+The Spartacus scroll position restoration feature uses the same mechanism that is used by the `scrollPositionRestoration` configuration option from the `RouterModule` of the `@angular/router`. However, Spartacus provides additional configuration options to make the scroll position restoration functionality more flexible. For example, you can configure scroll position restoration so that users do not have their scroll position set to the top of the page when they visit child routes, or when query strings are appended to the URL.
 
 ---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
 ---
 
-## Enabling scroll position restoration in Spartacus
+## Enabling Scroll Position Restoration
 
-To enable scroll position restoration, there are two options:
+You can enable scroll position restoration in one of two ways, as follows:
 
-1. Using the Spartacus custom scroll position restoration
+- The Spartacus scroll position restoration feature is enabled when you import the `AppRoutingModule` from `@spartacus/storefront` in your `AppModule`. The following is an example:
 
-Make sure the `AppRoutingModule` from `@spartacus/storefront` is imported in your `AppModule`.
+  ```ts
+   @NgModule({
+        imports: [
+          BrowserModule,
+          HttpClientModule,
+          AppRoutingModule,
+
+          // then the rest of your custom modules...
+        ],
+        ...
+  ```
+
+- You can instead use Angular's built-in scroll position restoration from the `ExtraOptions` of the `RouterModule` by enabling the `scrollPositionRestoration` option. The following is an example:
+
+  ```ts
+   @NgModule({
+        imports: [
+          BrowserModule,
+          HttpClientModule,
+          RouterModule.forRoot([], {
+              anchorScrolling: 'enabled',
+              relativeLinkResolution: 'corrected',
+              initialNavigation: 'enabled',
+              scrollPositionRestoration: 'enabled'
+          }),
+
+          // then the rest of your custom modules...
+        ],
+        ...
+  ```
+
+**Note:** You cannot have both options enabled at the same time in the `AppModule`.
+
+## Configuring
+
+The Spartacus scroll position restoration feature is enabled by default if the `AppRoutingModule` from `@spartacus/storefront` is imported to your `AppModule`.
+
+You can configure the feature using `OnNavigateConfig`, which contains the following properties:
 
 ```ts
- @NgModule({
-      imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-
-        // then the rest of your custom modules...
-      ],
-      ...
+enableResetViewOnNavigate?: {
+    active?: boolean;
+    ignoreQueryString?: boolean;
+    ignoreRoutes?: string[];
+  };
 ```
 
-1. Using Angular's built-in scroll position restoration from `RouterModule` ExtraOptions using `scrollPositionRestoration`.
+The properties are configured as follows:
 
-```ts
- @NgModule({
-      imports: [
-        BrowserModule,
-        HttpClientModule,
-        RouterModule.forRoot([], {
-            anchorScrolling: 'enabled',
-            relativeLinkResolution: 'corrected',
-            initialNavigation: 'enabled',
-            scrollPositionRestoration: 'enabled'
-        }),
+- `active` allows you to disable the custom Spartacus scroll position restoration functionality. If you have enabled the feature by importing the `AppRoutingModule` from `@spartacus/storefront` in your `AppModule`, you do not need to set this value.
+- `ignoreQueryString` allows you to avoid resetting the scroll position back to the top of the same page when query strings are appended to the URL, such as `url?query=spartacus`.
+- `ignoreRoutes` allows you to specify routes that should not scroll to the top of the page when the user visits a child route.
 
-        // then the rest of your custom modules...
-      ],
-      ...
-```
-
-**Note** You can not have both options at the same time in the AppModule.
-
-## Configuring the scroll position restoration behavior
-
-Spartacus custom position restoration is `enabled` by default, if the `AppRoutingModule` from `@spartacus/storefront` is imported to the `AppModule`.
-
-### OnNavigateConfig
-
-Represents the scroll position restoration control.
-
-The OnNavigateConfig contains the following properties:
+The following is an example configuration:
 
 ```ts
 provideConfig(<OnNavigateConfig>{
@@ -83,28 +93,16 @@ provideConfig(<OnNavigateConfig>{
 }
 ```
 
-```ts
-enableResetViewOnNavigate?: {
-    active?: boolean;
-    ignoreQueryString?: boolean;
-    ignoreRoutes?: string[];
-  };
-```
-
-- active - whether you want to enable Spartacus custom scroll position restoration
-- ignoreQueryString - whether you want to ignore back to top on the same page when things get appended to the url such as `url?query=spartacus`.
-- ignoreRoutes - define routes that should not scroll to the top of the page when it is on a child route. Example: `ignoreRoutes: ['Open-Catalogue', 'product']`
-
-**Note** You can set the active flag to `false` to not use the custom scroll position restoration from Spartacus and enable the out of the box mechanism from `@angular/router`.
+**Note:** You can set the `active` flag to `false` to disable the custom Spartacus functionality, and instead enable the out-of-the-box mechanism from `@angular/router`. The following is an example:
 
 ```ts
-    provideConfig(<OnNavigateConfig>{
-      enableResetViewOnNavigate: {
-        active: false,
-      },
-    }),
-    {
-      provide: ROUTER_CONFIGURATION,
-      useValue: { scrollPositionRestoration: 'enabled' },
-    },
+provideConfig(<OnNavigateConfig>{
+  enableResetViewOnNavigate: {
+    active: false,
+  },
+}),
+{
+  provide: ROUTER_CONFIGURATION,
+  useValue: { scrollPositionRestoration: 'enabled' },
+},
 ```
