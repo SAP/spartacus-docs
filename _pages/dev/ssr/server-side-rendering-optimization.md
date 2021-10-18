@@ -141,9 +141,11 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   Recommendation: adjust according to your needs.
 
-- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout`.
+- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout` options.
 
-  The default value is 300,000 milliseconds (5 minutes).
+  The default value is `300000` milliseconds (5 minutes).
+
+  Recommendation: strongly recommended to set. Adjust according to your needs and expectation.
 
   **Note**: This property is available in the latest patch versions of 3.1.x and later.
 
