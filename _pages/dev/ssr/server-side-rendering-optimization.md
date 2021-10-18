@@ -139,6 +139,8 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   The default value is `60000` milliseconds (that is, 60 seconds).
 
+  Recommendation: adjust according to your needs.
+
 - `debug` is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
 
   The default value is `false`.
