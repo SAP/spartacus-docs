@@ -133,6 +133,8 @@ You can configure the SSR optimization engine with a number of parameters, which
   - `DEFAULT` is the default behavior
   - `ALWAYS_SSR` aLways returns server-side rendered pages
 
+  Recommendation: it is recommended to provide a custom rendering strategy in cases when you want to serve SSR only to specific requests (e.g. server SSR only to crawling bots).
+
 - `forcedSsrTimeout` is a number that indicates the time (in milliseconds) to wait for rendered pages when the render strategy for the request is set to `ALWAYS_SSR`. This prevents SSR rendering from blocking resources for too long if the server is under heavy load, or if the page contains errors.
 
   The default value is `60000` milliseconds (that is, 60 seconds).
