@@ -1,9 +1,9 @@
 ---
 title: Server-Side Rendering Optimization
 feature:
-- name: Server-Side Rendering Optimization
-  spa_version: 3.0
-  cx_version: n/a
+  - name: Server-Side Rendering Optimization
+    spa_version: 3.0
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -24,22 +24,24 @@ Although these scenarios are fairly rare, they usually occur when the system is 
 The SSR optimization engine addresses these issues as follows:
 
 - The optimization engine queues incoming requests
-- Only a certain number of queued pages are rendered before the rest of the queue defaults to Client-Side Rendering (CSR)
+- Only a certain number of queued pages are rendered before the rest of the queue defaults to Client-Side Rendering (CSR). With a new option available from Spartacus 3.4, the incoming requests can wait for the current render to finish instead of falling back to CSR.
 - Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by a timeout)
 - If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request
-- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. 
+- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer.
+- If the render is taking too long to finish, the engine will release its concurrency slot and notify about the hanging render. However, it will not release the resources taken by the hanging render. Therefore, these warnings should be taken seriously, as the server's resources could be quickly depleted if the route of the problem is not addressed in the application code.
 
-  **Note:** CSR renders should never be cached.
-- The rendered SSR pages should be cached (for example, using CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible.
+  **Note:** CSR renders should _never_ be cached.
 
-***
+- The rendered SSR pages _should_ be cached (for example, using CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible.
+
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Enabling the SSR Optimization Engine
 
@@ -70,7 +72,8 @@ By default, the SSR optimization engine uses the following configuration:
 ```json
 {
   "concurrency": 20,
-  "timeout": 3000
+  "timeout": 3000,
+  "maxRenderTime": 300000
 }
 ```
 
@@ -88,7 +91,7 @@ You can configure the SSR optimization engine with a number of parameters, which
 
 - `timeout` is a number that indicates the amount of time (in milliseconds) during which the SSR server tries to render a page, before falling back to CSR. Once the delay has expired, the server returns the `index.html` of the CSR, which does not contain any pre-rendered markup. The CSR app (`index.html`) is served with a `Cache-Control:no-store` header. As a result, it is not stored by the cache layer. SSR pages do not contain this header because it is preferable to cache SSR pages.
 
-  In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. It is assumed that you are using an additional layer to cache pages externally.
+  In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. _It is assumed and recommended that you are using an additional layer to cache pages externally_.
 
   A value of 0 will instantly return the CSR page.
 
@@ -171,14 +174,14 @@ You can use your web browser's network tool to check if your storefront is rende
 4. Look for the very first request, which will be a `GET request for the page HTML`.
 5. Check if the response contains markup, such as the following example:
 
-    ```html
+   ```html
    [...]
    <app-root_nghost-sc293="" ng-version="10.1.6"><cx-storefront _ngcontent-sc293="" tabindex="0" s="LandingPage2Template    stop-navigating"><cx-skip-link><div tabindex="-1" class=""><button> Skip to Header </on><button> Skip to Main Content </  button><button> Skip to Footer </button><!----></div><!----></cx-skip-link><header iplink="cx-header" class=""     tabindex="-1"><cx-page-layout section="header" class="header"><cx-page-slot position="PreHeader" class="PreHeader     has-components"><cx-hamburger-menu><button type="button" aria-label="Menu" -controls="header-account-container,     header-categories-container, header-locale-container" class="cx-hamburger" -expanded="false"><span    class="hamburger-box"><span class="hamburger-inner"></span></span></button></hamburger-menu>
-    [...]
-    </app-root>
-    ```  
-  
-    If the `<app-root>` in your response is empty, it means SSR is not working correctly.
+   [...]
+   </app-root>
+   ```
+
+   If the `<app-root>` in your response is empty, it means SSR is not working correctly.
 
 ### Troubleshooting a Storefront That Is Not Running in SSR Mode
 
@@ -218,13 +221,13 @@ If SSR is not functioning on CCv2, you can try running your Spartacus applicatio
 
 1. Ensure the `baseUrl` configuration in your app module is pointing to an accessible back end that has a valid certificate.
 
-    If you think certificate validity could be an issue, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
+   If you think certificate validity could be an issue, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
 
-    **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that CCv2 can use the `occ-backend-base-url` from the `index.html`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configuring-base-url.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
+   **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that CCv2 can use the `occ-backend-base-url` from the `index.html`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configuring-base-url.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
 
 2. Run `yarn dev:ssr`.
 
-    This allows you to run a "development" SSR server that will pick up the changes you make in your source code.
+   This allows you to run a "development" SSR server that will pick up the changes you make in your source code.
 
 3. Refer to [{% assign linkedpage = site.pages | where: "name", "how-to-debug-server-side-rendered-storefront.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/how-to-debug-server-side-rendered-storefront.md %}) for more information on debugging an SSR application.
 
@@ -234,15 +237,16 @@ During development, it is possible to use self-signed certificates that, by defa
 
 1. Run `yarn add -D cross-env`.
 
-    This adds `cross-env` to your `devDependencies`.
+   This adds `cross-env` to your `devDependencies`.
+
 2. Add the following script to your `package.json`:
 
-    ```json
-    "dev:ssr:dev": "cross-env   NODE_TLS_REJECT_UNAUTHORIZED=0 ng run   YOU_STORE_NAME:serve-ssr"
-    ```
+   ```json
+   "dev:ssr:dev": "cross-env   NODE_TLS_REJECT_UNAUTHORIZED=0 ng run   YOU_STORE_NAME:serve-ssr"
+   ```
 
-    Replace `YOU_STORE_NAME` with your storefront's name, as specified at the top of your `package.json`.
+   Replace `YOU_STORE_NAME` with your storefront's name, as specified at the top of your `package.json`.
 
 3. Run `yarn dev:ssr:dev` to start your storefront in SSR mode.
 
-    **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
+   **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
