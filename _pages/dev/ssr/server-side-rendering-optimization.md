@@ -91,11 +91,13 @@ You can configure the SSR optimization engine with a number of parameters, which
 
 - `timeout` is a number that indicates the amount of time (in milliseconds) during which the SSR server tries to render a page, before falling back to CSR. Once the delay has expired, the server returns the `index.html` of the CSR, which does not contain any pre-rendered markup. The CSR app (`index.html`) is served with a `Cache-Control:no-store` header. As a result, it is not stored by the cache layer. SSR pages do not contain this header because it is preferable to cache SSR pages.
 
-  In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. _It is assumed and recommended that you are using an additional layer to cache pages externally_.
+  In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. _It is assumed and recommended that you are using an additional layer to cache pages externally (e.g. a CDN)_.
 
   A value of 0 will instantly return the CSR page.
 
   The default value is `3000` milliseconds.
+
+  Recommendation: depending on the applications needs. Can be relatively big, assuming there is a proper caching layer strategy in place (e.g. CDN).
 
 - `cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
 
