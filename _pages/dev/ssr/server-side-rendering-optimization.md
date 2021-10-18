@@ -117,7 +117,9 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   Recommendation: it should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
 
-- `ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again.
+- `ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again. This option is used regardless if the `cache` option is enabled.
+
+  Recommendation: should be set according to your business needs, and for how long you want to keep the stale render in cache before evicting it. Should be set regardless if the `cache` option is enabled.
 
 - `renderKeyResolver` is a function that accepts `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
 
