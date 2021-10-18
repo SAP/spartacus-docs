@@ -103,6 +103,8 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   **Note:** The cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this.
 
+  Recommendation: generally, it is _not_ recommended to use the `cache` option, as there are better ways to turn on the caching (e.g. having a CDN).
+
 - `cacheSize` is a number that limits the cache size to a specific number of entries. This property helps to keep memory usage under control.
 
   The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
