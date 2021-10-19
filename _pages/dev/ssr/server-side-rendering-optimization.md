@@ -229,12 +229,12 @@ If you see the following, it means something is preventing the SSR render from c
 SSR rendering exceeded timeout, falling back to CSR for ...
 ```
 
-In this case, you can try increasing the `timeout` and `concurrency` values of the SSR optimization engine to see if this solves the issue. For more information, see [Configuring the SSR Optimization Engine](#configuring-the-ssr-optimization-engine).
+In this case, you can try increasing the `timeout` values of the SSR optimization engine to see if this solves the issue. For more information, see [Configuring the SSR Optimization Engine](#configuring-the-ssr-optimization-engine).
 
-If increasing these values does not resolve the issue, it means the server cannot render the page. In this case, you can try the following:
+If adjusting these values does not resolve the issue, it means the server cannot render the page. In this case, you can try the following:
 
 - Ensure your server has a valid certificate. For more information, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
-- If your storefront is on CCv2, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked, in which case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue.
+- If your storefront is on CCv2, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked, in which case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue. If using a caching layer (e.g. CDN), you should check if it blocked the SSR server's IP due to possible many requests coming from it.
 
 If these solutions do not fix the SSR rendering issue, there may be a problem in the code. Review the [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}), and review your custom code to ensure you are not using any browser functions that are not available with SSR.
 
