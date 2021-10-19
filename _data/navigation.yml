@@ -319,7 +319,9 @@ docs:
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
-                  url: /scheduled-replenishment/  
+                  url: /scheduled-replenishment/
+                - title: "Scroll Position Restoration"
+                  url: /scroll-position-restoration/
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"
