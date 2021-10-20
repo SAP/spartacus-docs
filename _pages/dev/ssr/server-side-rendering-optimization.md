@@ -284,3 +284,21 @@ During development, it is possible to use self-signed certificates that, by defa
 3. Run `yarn dev:ssr:dev` to start your storefront in SSR mode.
 
    **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
+
+### Detecting a bot/crawler
+
+It is common question "how do we detect a bot, or a web crawler?".
+The recommended way of doing is to provide a custom `renderingStrategyResolver` option, in which you can inspect the request and based on certain parameters deduce which rendering strategy to use.
+
+The following is just an _example_, which may or may not be complete and fit your needs:
+
+```ts
+import { Request } from 'express';
+
+...
+
+const ssrOptions: SsrOptimizationOptions = {
+  ...,
+  renderingStrategyResolver: (req: Request) => req.get('User-Agent')?.match(/bot|crawl|slurp|spider|mediapartners/) ? RenderingStrategy.ALWAYS_SSR : RenderingStrategy.DEFAULT,
+};
+```
