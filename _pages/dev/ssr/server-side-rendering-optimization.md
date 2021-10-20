@@ -334,3 +334,7 @@ const ssrOptions: SsrOptimizationOptions = {
   renderingStrategyResolver: (req: Request) => req.get('User-Agent')?.match(/bot|crawl|slurp|spider|mediapartners/) ? RenderingStrategy.ALWAYS_SSR : RenderingStrategy.DEFAULT,
 };
 ```
+
+### Doing SSR only for certain pages
+
+If you want to perform SSR only for certain pages (i.e. routes), you achieve so by following the same principle as above - providing a custom `renderingStrategyResolver` function which can inspect the requested URL and return an appropriate rendering strategy.
