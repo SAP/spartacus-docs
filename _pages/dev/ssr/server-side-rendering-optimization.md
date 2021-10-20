@@ -301,6 +301,15 @@ import { ..., ɵangular_packages_router_router_h as RouterInitializer } from '@a
 
 The `ɵangular_packages_router_router_h` symbol might change in the future releases of Angular.
 
+### Wrong site information used when it is embedded in the domain
+
+If you are embedding the site information as part of the domain (e.g. language, base-site, etc.), and you are using `cache: true` option, then you might have stumbled upon an issues where:
+
+- a request for my.shop.**ca** triggers the render and successfully returns it to the client for the given site (_ca_ in this case)
+- the subsequent request for my.shop.**rs** hits the SSR node, but it wrongly receives the cached render for _ca_, instead a render for _rs_.
+
+To address this issue, we suggest to upgrade to the latest patch version, or implement [this workaround](https://stackoverflow.com/a/69527063/5252849).
+
 ### Detecting a bot/crawler
 
 It is common question "how do we detect a bot, or a web crawler?".
