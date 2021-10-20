@@ -21,6 +21,8 @@ The flow is as follows:
 
 5. An SSR node receives the request and starts the render. It issues OCC calls to the the OCC API.
 
+   It is _not_ recommended to expose the SSR servers / nodes directly to the users, as the rendering is slow and will not meet the expected response times.
+
 6. OCC API caching layer is responsible for caching the OCC API responses from the OCC API server. Generally, this means caching of GET and HEAD request's responses. If the OCC API caching layer has the response cached, it is returned immediately to the SSR node, without having the request reach the actual OCC API server, making it very fast for the SSR node to perform a render.
 
    It is recommended to setup some kind of a caching layer for the OCC API server, as this part takes the most time when server-side rendering.
