@@ -310,6 +310,13 @@ If you are embedding the site information as part of the domain (e.g. language, 
 
 To address this issue, we suggest to upgrade to the latest patch version, or implement [this workaround](https://stackoverflow.com/a/69527063/5252849).
 
+### SSR shows only a global error message
+
+If you are getting an SSR render which shows only a global error message, e.g. "You are not authorized to perform this action. Please contact your administrator if you think this is a mistake", please check the following:
+
+- if the API server whitelists the SSR server's IP
+- if using a caching layer (e.g. CDN), make sure it whitelists the SSR server's IP, as it might get blocked at some point due to many requests coming from it.
+
 ### Detecting a bot/crawler
 
 It is common question "how do we detect a bot, or a web crawler?".
