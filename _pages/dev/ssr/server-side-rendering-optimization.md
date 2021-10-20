@@ -285,6 +285,22 @@ During development, it is possible to use self-signed certificates that, by defa
 
    **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
 
+### URL / routes break SSR
+
+Often a malformed URL breaks the SSR (e.g. `http://localhost:4200/electronics-spa/en/USD/Brands/Canon/c/brand_10%20or%20(1,2)=(select*from(select%20name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1),name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1))a)%20--%20and%201%3D1`, making it never to finish the rendering, and causing it to never release the allocated resources.
+
+It is usually the case when Router option `initialNavigation` is `enabled` (which is the default start from Spartacus 3.0, but can be configured in the previous versions as well).
+
+This is a bug in angular's router, which never resolves the route on `NavigationError`.
+You can implement [this workaround](https://github.com/SAP/spartacus/pull/10541/files) in your application, which uses Angular's private API.
+Note the following
+
+```ts
+import { ..., ɵangular_packages_router_router_h as RouterInitializer } from '@angular/router';
+```
+
+The `ɵangular_packages_router_router_h` symbol might change in the future releases of Angular.
+
 ### Detecting a bot/crawler
 
 It is common question "how do we detect a bot, or a web crawler?".
