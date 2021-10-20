@@ -99,7 +99,7 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   Recommendation: depending on the applications needs. Can be relatively big, assuming there is a proper caching layer strategy in place (e.g. CDN).
 
-- `cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
+- `cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. This option is _not_ related to any kind of external caching layer (e.g. CDN). Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared). These temporarily cached responses are served with `cache-control: 'no-store'` HTTP header, in order to avoid caching them in an external caching layer.
 
   **Note:** The cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this.
 
