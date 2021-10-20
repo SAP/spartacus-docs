@@ -29,7 +29,17 @@ Administrators need to manage their organization-related tasks whenever required
 
 ## Business Use Case
 
-To be updated...:
+**Organization Structure**
+
+Following diagram represents an organization structure that is grouped into different units and business units. The **Total Protect** is the main unit of the organization and is further structured into three different child units such as Coordination Center, Operation Center, and HR.
+
+Each unit has separate users, who are employees of this organization, assigned to them. These users have different roles such as administrators or approvers or customers. In some cases, the user will have multiple roles such as an administrator and / or an approver. Such users are visible in the dashboard of the organization management that is accessible by the administrator who in turn can assign users to different units or can assign different roles to different users.
+
+Apart from the units and roles of users, there is also cost center and budgets that can be assigned to any on the units listed. The cost center or budgets could have been defined by either of these units. The company administrator oversees these data and manages them in the organization dashboard, which is available only for the company administrators.
+
+The dashboard link, under the main menu, is visible only to the administrator. For all other users, irrespective of their roles, the dashboard link is not visible and will not have access to this page.
+
+   <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/organization-structure.png"></p>
 
 1. Log in to the TUA Spartacus.
 
