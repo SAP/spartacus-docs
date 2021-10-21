@@ -304,10 +304,14 @@ docs:
                   url: /customer-interests/
                 - title: "Event Service"
                   url: /event-service/
+                - title: "Export From Cart"
+                  url: /export-from-cart/
                 - title: "Express Checkout"
                   url: /express-checkout/
                 - title: "Guest Checkout"
                   url: /guest-checkout/
+                - title: "Import to Cart"
+                  url: /import-to-cart/
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
                 - title: "Inventory Display"

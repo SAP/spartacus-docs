@@ -1,9 +1,9 @@
 ---
-title: Export from Cart
+title: Export From Cart
 feature:
-  - name: Export from Cart
-    spa_version: 4.2
-    cx_version: 2005
+- name: Export From Cart
+  spa_version: 4.2
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -12,37 +12,30 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The export from cart feature allows users to download CSV file containing specified cart product entries. Currently feature supports two places in storefront from which product list can be exported:
+The Export From Cart feature allows you to download a CSV file that contains a product list of all the items in your cart. You can export this product list from the Cart Details page or the Saved Cart Details page.
 
-- cart details page
-- saved cart details page
+The Export From Cart feature works together with the [{% assign linkedpage = site.pages | where: "name", "import-to-cart.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/import-to-cart.md %}) feature, which means you can export a CSV file, make changes to it, and then reimport it back into the storefront.
 
-Export from cart feature is tightly connected with import to cart, because already downloaded CSV file can be re-imported back to the storefront. For more details see [Import to cart]({{ site.baseurl }}/features/import-to-cart) documentation.
+**Note:** The exported file always contains the product code and quantity columns. You can include additional columns by defining them in the configuration. For more information, see [Additional Columns](#additional-columns).
 
-Worth to notice is that exported file always should contain product code and quantity columns. Any other additional columns can be defined in configuration [see more](#additional-columns).
-
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
-## Enabling Export from cart
+## Enabling Export From Cart
 
-Export from cart feature can be enabled by installing the `@spartacus/cart` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
+You can enable Export From Cart by installing the `@spartacus/cart` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
-### CMS Components
-
-Import/export is CMS-driven and consists of the one component named as `ImportExportComponent`.
-
-Whole feature can be disabled by turning off such component in backoffice or by using ImpEx query.
+The import and export functionality is CMS-driven, and consists of a single component, called the `ImportExportComponent`. You can disable the entire feature by turning off this component in Backoffice, or by turning off the component using an ImpEx query.
 
 ## Global Configuration
 
-Cart import/export features use common configuration model described below:
+The cart import and cart export features use a common configuration model. The following is an example:
 
 ```ts
 export abstract class ImportExportConfig {
@@ -56,9 +49,9 @@ export abstract class ImportExportConfig {
 }
 ```
 
-- `separator` - determines which character is used to seperate values. The default separator is comma (",").
+In this model, the `separator` designates which character is used to separate the values in the exported file. The default separator is a comma (`,`).
 
-However, such configuration offers also optional setting dedicated for export feature only.
+In addition to the common configuration settings, you can configure settings that are related only to the export feature. The following is an example from `export-entries.model.ts`:
 
 ```ts
 export interface ExportConfig {
@@ -70,21 +63,23 @@ export interface ExportConfig {
 }
 ```
 
-- `additionalColumns` - is optional array where additional columns to export can be specified. By default exported file contains **name** and **price** values as additional columns. More details about this property can be found [here](#additional-columns).
+The following is a description of the settings:
 
-- `messageEnabled` - flag used to determine if global message informing about download starting proccess should be visible to customer.
+- `additionalColumns` is an optional array that allows you to define additional columns to include in the exported file. By default, the exported file contains additional `name` and `price` columns. For more information, see [Additional Columns](#additional-columns).
 
-- `downloadDelay` - property dedicated to delay download starting process, mainly created to not spam customer by displaying global message and download pop-up same time.
+- `messageEnabled` is a flag that determines if customers see a global message informing them about the start of the download process.
 
-- `fileOptions` - metadata for exported file. For more information please look into `export-file-options.ts` file.
+- `downloadDelay` is a property that is dedicated to delaying the start of the download process. The main purpose of this property is avoid spamming customers by displaying the global message and the download pop-up at the same time.
 
-- `maxEntries` - determines entries limit in exported CSV file.
+- `fileOptions` is metadata for the exported file. For more information about the available options, see the `export-file-options.ts` file in the Spartacus source code.
 
-### Additional columns
+- `maxEntries` determines the maximum number of entries that can be included in the exported CSV file.
 
-`additionalColumns` is an array of `ExportColumn` elements. Allows customer to specify which columns besides code and quantity can be exported to CSV file.
+### Additional Columns
 
-`ExportColumn` model consists of two properties:
+By default, the exported CSV file contains product code and quantity columns. You can add `ExportColumn` elements to the `additionalColumns` to define which additional columns you want to include in the exported CSV file.
+
+The following is an example of the `ExportColumn` model:
 
 ```ts
 export interface ExportColumn {
@@ -93,10 +88,12 @@ export interface ExportColumn {
 }
 ```
 
-- `name` - is a `Translatable` object used to translate column heading to the language currently set in a storefront. If `key` value was provided it also requires to have a representation in trasnlation file.
-- `value` - is a dot notation string which refers to specified `OrderEntry` attribute (check available attributes in `order.model.ts`).
+The following is a description of the properties of the `ExportColumn` model:
 
-Here is an example of default configuration:
+- `name` is a `Translatable` object that is used to translate the column heading to the language that is currently set in the storefront. If the `key` value is provided, you must also have a representation of the key in the translation file.
+- `value` is a dot notation string that refers to a specific `OrderEntry` attribute. You can see the available attributes in the `order.model.ts` file in the Spartacus source code.
+
+The following is an example of the default configuration for `additionalColumns` in Spartacus:
 
 ```ts
 export: {
@@ -117,7 +114,7 @@ export: {
 },
 ```
 
-There are no limits with specyfing number of columns, also it is possible to change columns order by changing order in configuration:
+Your exported CSV file can contain as many columns as you would like. It is also possible to change the order of the columns in the exported file by changing the order of the columns in the configuration, as shown in the following example:
 
 ```ts
 export: {

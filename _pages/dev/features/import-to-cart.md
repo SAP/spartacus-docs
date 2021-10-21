@@ -1,9 +1,9 @@
 ---
 title: Import to Cart
 feature:
-  - name: Import to Cart
-    spa_version: 4.2
-    cx_version: 2005
+- name: Import to Cart
+  spa_version: 4.2
+  cx_version: 2005
 ---
 
 {% capture version_note %}
@@ -14,14 +14,14 @@ feature:
 
 This feature allows a customer to create saved cart or update active cart, by importing CSV file containing product codes and quantities.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Usage
 
