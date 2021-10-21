@@ -45,7 +45,7 @@ You can improve the performance of your storefront application with the followin
 The following recommendations can improve the performance of your Spartacus storefront app significantly:
 
 - Split your JavaScript code into multiple chunks (a technique known as lazy loading) to load only the JavaScript chunks that you need for each page. Spartacus has implemented lazy loading for a number of its own libraries, but you can further improve the performance of your storefront by using lazy loading techniques in your customized modules as well. Before implementing lazy loading in your customized modules, it is important to be aware of how lazy loading works in Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "lazy-loading-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
-- Take advantage of the SSR transfer state mechanism to avoid duplicated XHR calls. For more information, see [SSR Transfer State]({{ site.baseurl }}/configurable-state-persistence-and-rehydration/#ssr-transfer-state).
+- Take advantage of the SSR transfer state mechanism to avoid duplicated XHR calls. For more information, see [{% assign linkedpage = site.pages | where: "name", "ssr-transfer-state.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/state_management/ssr-transfer-state.md %}).
 
 ## SEO
 

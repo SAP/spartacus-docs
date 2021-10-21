@@ -346,7 +346,7 @@ What's new?
 - [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})  
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
-- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/token-revocation.md %}) (supports back end improvement added to 1905.6)
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/security/token-revocation.md %}) (supports back end improvement added to 1905.6)
 - [Stacked Outlets]({{ site.baseurl }}/outlets/#stacked-outlets)
 - [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
@@ -459,7 +459,7 @@ Release notes: [https://github.com/SAP/spartacus/releases](https://github.com/SA
 - Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
   - [Documentation for development]({{ site.baseurl }}{% link _pages/contributing/feature-flags-and-code-deprecation.md %})
   - [Documentation for consumption]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %})
-- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#endpoint-configuration)
+- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#configuring-endpoints)
 - [Change to registration and login flow: must log in after registering](https://github.com/SAP/spartacus/issues/2799#issuecomment-525679882)
 - Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
 
@@ -531,9 +531,9 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 
 You can upgrade your Spartacus libraries to a new minor version, as follows:
 
-1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. In `package.json`, set your `@spartacus` libraries to `“~3.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-   If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
+   If you are upgrading from 3.x to the latest 3.4 release in order to then upgrade to 4.x, in `package.json`, set your `@spartacus` libraries to `“~3.4.4"`.
 
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.

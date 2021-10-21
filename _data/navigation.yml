@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 4.1
+    - title: Version 4.2
       url: /release-information/
 
 # sidebar menu
@@ -262,6 +262,10 @@ docs:
           - title: "Security Best Practices ➢"
             url: /security-best-practices/
             subchildren:
+                - title: "Content Security Policy"
+                  url: /content-security-policy/
+                - title: "Protection Against Denial of Service Attacks"
+                  url: /dos-protection/
                 - title: "Token Revocation"
                   url: /token-revocation/
           - title: "Server-Side Rendering ➢"
@@ -315,7 +319,9 @@ docs:
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
-                  url: /scheduled-replenishment/  
+                  url: /scheduled-replenishment/
+                - title: "Scroll Position Restoration"
+                  url: /scroll-position-restoration/
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"
@@ -497,6 +503,8 @@ docs:
           - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
             subchildren:
+                - title: "Updating to Version 3.0"
+                  url: /fsa-updating-to-version-3/
                 - title: "Updating to Version 2.0"
                   url: /fsa-updating-to-version-2/
           - title: "Roadmap for FSA Spartacus"
@@ -509,6 +517,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus ➢"
                   url: /installing-sap-commerce-with-fsa-spartacus/
                   underchildren:
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 3.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-3-0/
                     - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0"
                       url: /installing-sap-commerce-with-fsa-spartacus-2-0/
                     - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 1.0"
@@ -516,6 +526,8 @@ docs:
                 - title: "Building the FSA Storefront from Libraries ➢"
                   url: /building-the-fsa-storefront-from-libraries/
                   underchildren:
+                    - title: "Building the FSA Spartacus Storefront using 3.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-3-0/
                     - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
                       url: /building-the-fsa-storefront-from-libraries-2-0/
                     - title: "Building the FSA Spartacus Storefront using 1.0 Libraries"
@@ -548,14 +560,34 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/
-                - title: "Claims Integration"
-                  url: /claims-integration/
+                - title: "Claims ➢"
+                  url: /claims/
+                  underchildren:
+                    - title: "Claims Integration Enhancement"
+                      url: /claims-integration/
+                    - title: "Claims Details Page"
+                      url: /claims-details-page/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
                 - title: "Invoice Payment"
                   url: /fsa-invoice-payment/
                 - title: "Policy Change"
                   url: /fsa-policy-change/
+                - title: "Coupons"
+                  url: /fsa-coupons/
+                - title: "Product Discovery"
+                  url: /fsa-product-discovery/
+                - title: "Insurance Agent Capabilities ➢"
+                  url: /fsa-insurance-agent-capabilities/
+                  underchildren:
+                    - title: "Find an Agent"
+                      url: /fsa-find-agent/
+                    - title: "Speak to an Agent"
+                      url: /fsa-speak-to-agent/
+                    - title: "Agent Availability"
+                      url: /fsa-agent-availability/
+                - title: "Quote Details Page"
+                  url: /fsa-quote-details-page/
 
 
     - title: Contributing to Spartacus
