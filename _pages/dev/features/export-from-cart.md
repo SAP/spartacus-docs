@@ -34,20 +34,11 @@ Worth to notice is that exported file always should contain product code and qua
 
 Export from cart feature can be enabled by installing the `@spartacus/cart` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
-Also the import of following impex script is required to make feature work properly:
+### CMS Components
 
-```
-$contentCatalog=electronics-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+Import/export is CMS-driven and consists of the one component named as `ImportExportComponent`.
 
-# Create CMSFlexComponents
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-;;ExportOrderEntriesComponent;Export Order Entries Component;ExportOrderEntriesComponent;ExportOrderEntriesComponent
-
-# Update slots
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;TopContent-cartPage;CartComponent,SaveForLaterComponent,ExportOrderEntriesComponent
-```
+Whole feature can be disabled by turning off such component in backoffice or by using ImpEx query.
 
 ## Global Configuration
 
@@ -59,7 +50,8 @@ export abstract class ImportExportConfig {
     file: {
       separator: string;
     };
-    export?: ExportConfig;
+    import?: ImportConfig;
+    export: ExportConfig;
   };
 }
 ```
@@ -73,7 +65,8 @@ export interface ExportConfig {
   additionalColumns?: ExportColumn[];
   messageEnabled?: boolean;
   downloadDelay?: number;
-  fileName?: string;
+  fileOptions: ExportFileOptions;
+  maxEntries?: number;
 }
 ```
 
@@ -83,7 +76,9 @@ export interface ExportConfig {
 
 - `downloadDelay` - property dedicated to delay download starting process, mainly created to not spam customer by displaying global message and download pop-up same time.
 
-- `fileName` - here exported file name can be set.
+- `fileOptions` - metadata for exported file. For more information please look into `export-file-options.ts` file.
+
+- `maxEntries` - determines entries limit in exported CSV file.
 
 ### Additional columns
 
