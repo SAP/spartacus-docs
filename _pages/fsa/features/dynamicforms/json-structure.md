@@ -1,8 +1,8 @@
 ---
-title: JSON Structure
+title: Form Definition - JSON Structure
 ---
 
-In Dynamic Forms, form content, behavior and styling is defined by JSON definition. To create a form, we have to add controls and define it's properties such as control type, name, labels etc.
+In Dynamic Forms, the content, behavior and styling of a form is defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels etc.
 
 ***
 
@@ -15,7 +15,7 @@ In Dynamic Forms, form content, behavior and styling is defined by JSON definiti
 
 ## Form Definition Interface
 
-Following interface is used to describe one JSON definition:
+The following interface is used to describe a JSON definition:
 
 ```typescript
 export interface FormDefinition {
@@ -100,7 +100,7 @@ export interface FieldOption {
 
 More details about interface structure can be found below:
 
-## FormDefinition
+### FormDefinition
 
 Represents top level entity which hold group of form field.
 The FormDefinition contains the following properties:
@@ -109,7 +109,7 @@ The FormDefinition contains the following properties:
 - formId - Attaches ID to the form
 - cssClass - Enables adding unique CSS class to the form wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 
-## DynamicFormGroup
+### DynamicFormGroup
 
 Represents group of form controls.
 The DynamicFormGroup contains the following properties:
@@ -128,7 +128,7 @@ groupTwo:
 - cssClass - Enables adding unique CSS class to the form group wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
 - dependsOn - With this property, we can define whole group`s visibility by defining control name on which group depends on.
 
-## FieldConfig
+### FieldConfig
 
 Represents individual control.
 The FieldConfig contains the following properties:
@@ -155,14 +155,14 @@ The FieldConfig contains the following properties:
 - maxFileSize - File upload property, sets maximum file size 
 - multiple - File upload property, sets if multiple uploads are allowed
 
-## LocalizedString
+### LocalizedString
 
 The LocalizedString contains the following properties:
 
 - default - Sets default label if no match is found for current language
 - [lang: string] - Sets label for specific language
 
-## DependsOn
+### DependsOn
 
 Represents configuration for defining dependency behavior.
 The DependsOn contains the following properties:
@@ -170,21 +170,21 @@ The DependsOn contains the following properties:
 - hide - Defines if dependant control/group should be hidden on the page
 - [controls](#controldependency) - Defines a list of controls and conditions on which control depends on
 
-## ControlDependency
+### ControlDependency
 
 The ControlDependency contains the following properties:
 
 - controlName - Control name on which we depend
 - [conditions](#validatorfunction) - Array of validator functions where conditions are defined
 
-## ValidatorFunction
+### ValidatorFunction
 
 The ValidatorFunction contains the following properties:
 
 - name - Name of the validator function
 - arguments - List of argument strings 
 
-## PrefillValue
+### PrefillValue
 
 The PrefillValue contains the following properties:
 
@@ -201,7 +201,7 @@ Current user first name is required for control prefill. We would configure Pref
 },
 ```
 
-## ApiConfig
+### ApiConfig
 
 The ApiConfig contains the following properties:
 
@@ -222,7 +222,7 @@ Example of "dynamic-select" component that uses ApiConfig to receive options fro
 }
 ```
 
-## FieldOption
+### FieldOption
 
 The FieldOption contains the following properties:
 
@@ -232,7 +232,7 @@ The FieldOption contains the following properties:
 
 ## Form Definition Example
 
-In code snipped below you can find one example of form definition used to collect information for life insurance:
+The following example illustrates a form definition used to collect user information for life insurance policy issuance:
 
 ```typescript
 {
@@ -530,6 +530,6 @@ In code snipped below you can find one example of form definition used to collec
 }
 ```
 
-## How it looks when rendered on UI
+This is how the form looks like when rendered on the user interface:
 
 ![rendered form on ui]({{ site.baseurl }}/assets/images/fsa/dynamicforms_ui_form.png)
