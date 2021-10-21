@@ -2,17 +2,23 @@
 title: Basic Form Validations
 ---
 
-Dynamic Forms library provides some basic validator functions by default. This page will explain how to use, override or add validations in Dynamic Forms library for end customers. Following things should be covered:
+Dynamicforms library provides some basic form validation functions out of the box. This page explains how to use, override or add validations in dynamicforms library for end customers.
+
+***
+
+**Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
 
-## How to invoke validation from JSON
+***
 
-In order to specify validations for certain field, JSON schema is enhanced by exposing property called "validations".  Property represents array of complex objects which are translated into dynamic forms validation functions and they consist of two properties:
+## How to Invoke Validation from JSON
 
-- validation name - corresponds the name for validation function defined in  Form Config on SPA side (ex: compareToCurrentDate)
-- validation input parameters - specify input parameter(s) which are acceptable by validation function (ex: shouldBeGreater, shouldBeLess)
+In order to specify validations for a certain field, the JSON schema is enhanced by exposing property called "validations". This property represents an array of complex objects which are translated into dynamicforms validation functions, and they consist of two properties:
+
+- validation name - corresponds to the name for validation function defined in Form Config on SPA side (ex: compareToCurrentDate)
+- validation input parameters - specifies input parameter(s) which are acceptable by validation function (ex: shouldBeGreater, shouldBeLess)
 
 Example of the field with multiple validations:
 
@@ -67,7 +73,7 @@ Example of the field with multiple validations:
 
 ## Existing validations
 
-- **compareToCurrentDate** - accepts one argument from list:
+- **compareToCurrentDate** - Accepts one argument from the following list:
   - shouldBeEqual
   - shouldBeGreater
   - shouldBeLess
@@ -89,12 +95,12 @@ JSON example:
 ],
 ```
 
-- **dateOfBirth** - Accepts argument of type number. It will trigger validation if input date is less than argument provided.
-- **compareDOBtoAge** - Compares date from other filed with input date. Accepts two arguments:
+- **dateOfBirth** - Accepts argument of type number. Triggers validation if the input date is less than the provided argument.
+- **compareDOBtoAge** - Compares date from another field with the input date. Accepts two arguments:
   - name of the field to compare (string)
-  - operator (string) can be 'shouldBeGreater' or 'shouldBeLess'
+  - operator (string) - can be 'shouldBeGreater' or 'shouldBeLess'
 
-JSON example, compare input to the value of the 'retirementAge' field:
+The following JSON example compares input to the value of the 'retirementAge' field:
 
 ```typescript
 "validations": [
@@ -112,13 +118,13 @@ JSON example, compare input to the value of the 'retirementAge' field:
 ],
 ```
 
-- **maxValue**, **minValue**, **maxLength**, **minLength** - Default Angular validators
-- **number** - Triggers error message if input type is not a number.
-- **compareDates** - Compares input date to the value of other field. Accepts two arguments:
+- **maxValue**, **minValue**, **maxLength**, **minLength** - Default Angular validators.
+- **number** - Triggers error message if the input type is not a number.
+- **compareDates** - Compares input date with the value of another field. Accepts two arguments:
   - name of the field to compare (string)
-  - operator (string) can be 'shouldBeGreater' or 'shouldBeLess'
+  - operator (string) - can be 'shouldBeGreater' or 'shouldBeLess'
 
-JSON example, compare input to the value of the 'vehiclePurchaseDate' field:
+The following JSON example compares input to the value of the 'vehiclePurchaseDate' field:
 
 ```typescript
 "validations": [
@@ -136,8 +142,9 @@ JSON example, compare input to the value of the 'vehiclePurchaseDate' field:
 ],
 ```
 
-- **checkValue** - Checks if input data matches any item from array of allowed values. Accepts one argument (array of strings)
-JSON example, field is valid only in case string "no" is added to the input:
+- **checkValue** - Checks if input data matches any item from an array of allowed values. Accepts one argument (array of strings).
+
+In the following JSON example, the field is valid only if the string "no" is added to the input:
 
 ```typescript
 "validations": [
@@ -154,7 +161,8 @@ JSON example, field is valid only in case string "no" is added to the input:
 ]
 ```
 
-- **containsValue** - Checks if input value contains string form argument array. Accepts one argument (array of strings) 
+- **containsValue** - Checks if input value contains string form argument array. Accepts one argument (array of strings).
+
 JSON example:
 
 ```typescript
@@ -170,7 +178,7 @@ JSON example:
 ]       
 ```
 
-- **compareNumbers** - Compares input value to other field. Accepts two arguments:
+- **compareNumbers** - Compares input value with another field. Accepts two arguments:
   - name of the field to compare (string)
   - operator (string) can be 'shouldBeGreater' or 'shouldBeLess' 
 
@@ -192,12 +200,13 @@ JSON example:
 ],
 ```
 
-- **email** - Checks if input data is valid email
-- **alphanumeric** - Allows only numbers and letters as input data 
+- **email** - Checks if the input data is a valid email.
+- **alphanumeric** - Allows only numbers and letters as input data. 
 
 ## How all this works
 
-Before Form gets rendered, all validations from JSON are processed and in case they have corresponding implementation defined  in config they are transferred to mapped **ValidationFn**. Name from validation object corresponds to the name defined in form configuration on SPA application. In this particular case it will be validation with name compareToCurrentDate :
+Before form gets rendered, all validations from JSON are processed and, in case they have corresponding implementation defined in configuration, they are transferred to mapped **ValidationFn**. Name from validation object corresponds to the name defined in form configuration on SPA application. 
+In this particular case, it will be validation with the name compareToCurrentDate:
 
 ```typescript
 DynamicFormsConfig
@@ -210,7 +219,7 @@ validators: {
 }
 ```
 
-All arguments defined in JSON file represent input parameters for compareToCurrentDate function from DefaultFormValidators and they are added to the function in run-time. In our example based on mapping defined in configuration we will find following validation function:
+All arguments defined in JSON file represent input parameters for compareToCurrentDate function from DefaultFormValidators, and they are added to the function in run-time. In our example, based on the mapping defined in the configuration, we will find the following validation function:
 
 ```typescript
 static compareToCurrentDate(operator) {

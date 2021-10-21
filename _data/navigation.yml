@@ -538,7 +538,7 @@ docs:
                 - title: "Dynamic Forms ➢"
                   url: /dynamicforms/
                   underchildren:
-                      - title: "Form Definition - JSON StructureJSON Structure"
+                      - title: "Form Definition - JSON Structure"
                         url: /json-structure/
                       - title: "Form Controls"
                         url: /form-controls/

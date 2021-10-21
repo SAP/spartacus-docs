@@ -37,8 +37,8 @@ Example:
           // controls defined here...
 ```
 
-- [Individual control]({{ site.baseurl }}/json-structure/#fieldconfig) - By default Dynamicforms will render "col-12" Bootstrap class here, which results in one column design by default. Defining **"cssClass"** property in control section of JSON will **add** default class.
-We can also **override** default bootstrap "col-12" class by defining **"gridClass"** property in same section of JSON definition.
+- [Individual control]({{ site.baseurl }}/json-structure/#fieldconfig) - By default, dynamicforms will render "col-12" Bootstrap class here, which results in one-column design. Defining **"cssClass"** property in control section of the JSON will **add** the default class.
+We can also **override** the default Bootstrap "col-12" class by defining a **"gridClass"** property in the same section of the JSON definition.
 
 Example:
 
@@ -60,7 +60,7 @@ Example:
 
 ## How HTML looks like
 
-If we consider a form with two sections and one control per section, basic html structure **by default** would consist of:
+If we consider a form with two sections and one control per section, basic HTML structure **by default** would consist of:
 
 ```typescript
 <form class=""> // Form class, empty by default
@@ -77,7 +77,7 @@ If we consider a form with two sections and one control per section, basic html 
 </form>
 ```
 
-Adding our classes from examples above would result in HTML :
+Adding our classes from examples above would result in the following HTML:
 
 ```typescript
 <form class="customFormClass">  // Custom class is added.
@@ -94,12 +94,12 @@ Adding our classes from examples above would result in HTML :
 </form>
 ```
 
-## UI
+## User Interface
 
-Default look of example form with two sections:
+Default look of the example form with two sections:
 
 ![default form look]({{ site.baseurl }}/assets/images/fsa/dynamicforms_default_look.png)
 
-Form look when default "col-12" class is overridden with "col-6" on each form control to create two column design:
+Form look when the default "col-12" class is overridden with "col-6" on each form control, to create a two-column design:
 
 ![two column design]({{ site.baseurl }}/assets/images/fsa/dynamicforms_two_column_layout.png)

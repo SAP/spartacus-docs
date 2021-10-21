@@ -2,11 +2,13 @@
 title: Configurable Form Field Pre-Populate
 ---
 
-This page will explain how to use configurable form field pre-populate in Dynamic forms library. Feature allows user to:
+This page explains how to use configurable form field pre-populate in dynamicforms library. 
 
-- Pre-populate form field on SPA side.
-- Populate field with any available SPA asset which is exposed for that purpose (user, cart, claim etc..)
-- Adjust/override already provided mechanism and add new logic on top of that.
+The feature allows you to:
+
+- Pre-populate form field on the SPA side.
+- Populate the field with any available SPA asset which is exposed for that purpose (user, cart, claim, etc.)
+- Adjust/override an already provided mechanism and add new logic on top of that.
 
 ***
 
@@ -19,9 +21,9 @@ This page will explain how to use configurable form field pre-populate in Dynami
 
 ## How to Use
 
-Let's say we want to pre-populate "Title" field on personal details form. We want to use existing user data, located in "User" state in our SPA. First we need to adjust our personal details form, and add JSON configuration to the title field.
+Let's assume we want to pre-populate the "Title" field on the Personal Details form. We want to use existing user data, located in "User" state in our SPA. First, we need to adjust our Personal Details form, and add JSON configuration to the "Title" field.
 
-Looking from JSON perspective it should look similar to this:
+Looking from JSON perspective, it should look similar to this:
 
 ```typescript
 {
@@ -39,7 +41,7 @@ Looking from JSON perspective it should look similar to this:
 }
 ```
 
-In given example targetObject - user signalizes that asset from SPA, which is accessed, is user and value should be taken from firstName field. Also, in the same way we can specify some more nested structure for example on cart object:
+In given example, targetObject - user signalizes that asset from SPA, which is accessed, is user and value should be taken from the firstName field. Also, in the same way we can specify some more nested structure, for example, on cart object:
 
 ```typescript
 "fieldConfigs": [
@@ -56,7 +58,7 @@ In given example targetObject - user signalizes that asset from SPA, which is ac
 
 ## How does this work?
 
-For every object that we want to offer for pre-populate functionality,  we will define one service that will take field name from JSON definition and return field value from state object. All services will implement same interface with dedicated method for value extraction, so they can be invoked in generic way.
+For every object that we want to offer for pre-populate functionality, we define one service that will take the field name from the JSON definition and return the field value from the state object. All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
 
 User resolver
 

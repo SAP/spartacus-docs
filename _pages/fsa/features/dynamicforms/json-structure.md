@@ -98,7 +98,7 @@ export interface FieldOption {
 
 ```
 
-More details about interface structure can be found below:
+More details about interface structure can be found below.
 
 ### FormDefinition
 
