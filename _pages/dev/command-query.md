@@ -9,7 +9,7 @@ Command and Queries are used in Spartacus to provide robust and simplified way t
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
 ***
 
