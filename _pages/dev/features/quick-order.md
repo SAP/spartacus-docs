@@ -118,11 +118,13 @@ By default, suggestion box appears after 3 characters with maximum 5 products wi
 You can modify the default config, as shown in the following example:
 
 ```ts
-provideConfig(<QuickOrderFormConfig>{
+provideConfig(<QuickOrderConfig>{
   quickOrderForm: {
-    displayProductImages: <yourValue>,
-    maxProducts: <yourValue>,
-    displayProductImages: <yourValue>
+    searchForm: {
+      displayProductImages: <yourValue>,
+      maxProducts: <yourValue>,
+      displayProductImages: <yourValue>
+    }
   }
 }),
 ```
@@ -163,7 +165,7 @@ You can add products to the Quick Order list and then to your cart, as follows:
 
 1. Enter a product name, SKU or any characters in the form and wait for suggestions box.
 
-   The suggestions box appears below the form after 3 characters (default value, it can be modify with `QuickOrderFormConfig` ).
+   The suggestions box appears below the form after 3 characters (default value, it can be modify with `QuickOrderConfig` ).
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-8.png" alt="Quick Order Form Suggestion Box" width="700" border="1px" />
 
