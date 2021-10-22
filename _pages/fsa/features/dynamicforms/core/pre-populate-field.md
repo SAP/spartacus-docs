@@ -56,7 +56,7 @@ In the example above, the targetObject (user) signalizes that the asset from SPA
    },
 ```
 
-## How Does This Work?
+## How Does This Work
 
 For every object that you want to offer for the prepopulate functionality, you need to define one service that will take the field name from the JSON definition and return the field value from the state object. All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
 
@@ -103,7 +103,7 @@ export interface PrefillResolver {
 }
 ```
 
-## How to Override the Resolver? 
+## How to Override the Resolver 
 
 With this approach, you can redefine some of the prefill resolvers by specifying a new service instance for the same key. Also, in case you decide you need to access some other object, you can easily inject that in the configuration. 
 
