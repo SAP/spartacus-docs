@@ -1,12 +1,12 @@
 ---
-title: Configurable Form Field Pre-Populate
+title: Configurable Prepopulate Form Field 
 ---
 
-This page explains how to use configurable form field pre-populate in dynamicforms library. 
+This page explains how to use the configurable "prepopulate" form field in the dynamicforms library. 
 
 The feature allows you to:
 
-- Pre-populate form field on the SPA side.
+- Prepopulate form field on the SPA side.
 - Populate the field with any available SPA asset which is exposed for that purpose (user, cart, claim, etc.)
 - Adjust/override an already provided mechanism and add new logic on top of that.
 
@@ -19,11 +19,11 @@ The feature allows you to:
 
 ***
 
-## How to Use
+## How to Use the Prepopulate Form Field
 
-Let's assume we want to pre-populate the "Title" field on the Personal Details form. We want to use existing user data, located in "User" state in our SPA. First, we need to adjust our Personal Details form, and add JSON configuration to the "Title" field.
+Let's assume you want to prepopulate the "Title" field on the Personal Details form. You want to use the existing user data, located in the "User" state in FSA SPA. First, you need to adjust the Personal Details form, and add JSON configuration to the "Title" field.
 
-Looking from JSON perspective, it should look similar to this:
+A JSON example that illustrates this:
 
 ```typescript
 {
@@ -41,7 +41,7 @@ Looking from JSON perspective, it should look similar to this:
 }
 ```
 
-In given example, targetObject - user signalizes that asset from SPA, which is accessed, is user and value should be taken from the firstName field. Also, in the same way we can specify some more nested structure, for example, on cart object:
+In the example above, the targetObject (user) signalizes that the asset from SPA which is accessed is the **user**, and the value should be taken from the **firstName** field. In the same way you can specify a more nested structure, for example, on cart object:
 
 ```typescript
 "fieldConfigs": [
@@ -56,9 +56,9 @@ In given example, targetObject - user signalizes that asset from SPA, which is a
    },
 ```
 
-## How does this work?
+## How Does This Work?
 
-For every object that we want to offer for pre-populate functionality, we define one service that will take the field name from the JSON definition and return the field value from the state object. All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
+For every object that you want to offer for the prepopulate functionality, you need to define one service that will take the field name from the JSON definition and return the field value from the state object. All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
 
 User resolver
 
@@ -85,7 +85,7 @@ export class UserPrefillResolver implements PrefillResolver {
 }
 ```
 
-As displayed above, UserPrefillResolver implements given interface and implements dedicated method, so it can take user object from state and find value by key defined as input parameter. All these resolver classes will be defined in dynamic forms configuration, so they can be easily extended and overridden:
+As displayed above, UserPrefillResolver implements the given interface and the dedicated method, so it can take the **user** object from the state and find value by the key defined as input parameter. All these resolver classes are defined in the dynamicforms configuration, so they can be easily extended and overridden:
 
 prefill-resolver.interface.ts
 
@@ -103,9 +103,9 @@ export interface PrefillResolver {
 }
 ```
 
-## How to override resolver ? 
+## How to Override the Resolver? 
 
-With such approach customer can redefine some of the prefill resolvers by specifying new service instance for same key. Also, in case customer decides they need to access some other object they can easily inject that into configuration. 
+With this approach, you can redefine some of the prefill resolvers by specifying a new service instance for the same key. Also, in case you decide you need to access some other object, you can easily inject that in the configuration. 
 
 config.ts
 
@@ -135,4 +135,4 @@ config.ts
 })
 ```
 
-Every field which has prefill attribute defined in JSON form definition will first find given resolver from configuration and then subscribe to method in order to get value.
+Every field that has the *prefill* attribute defined in the JSON form definition will first find the given resolver in the configuration and then subscribe to the method in order to get the value.
