@@ -12,23 +12,20 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-
-Cart validation feature provides functionality to validate users' cart and inform them about possible out-of-stock products or reduced quantities. In case of cart invalidity, user will be redirected to the cart page with a proper global message about issues found in the cart.
-
+The cart validation feature allows Spartacus to verify a user's cart at every step during checkout to ensure that the requested quantity of each item is available. If the quantity of an item is reduced, or an item is out of stock and no longer available, the user is redirected to the cart page, and Spartacus displays a global message about the change to the user's cart.
 
 ## Requirements
 
-The Cart validation feature requires release **2011** of SAP Commerce Cloud.
+The cart validation feature requires SAP Commerce Cloud 2011 or newer.
 
-## Enabling Cart validation
+## Enabling Cart Validation
 
-Cart validation is enabled by default since 4.2 release.
+Cart validation is enabled by default in version 4.2 and newer of the Spartacus libraries.
 
 ## Configuring
 
-Cart validation functionality is hooked to every checkout step. You can turn off validation for each step separately by removing `CartValidationGuard` class from CMS components configurations in checkout steps modules.
+Cart validation is enabled for every step in the checkout process. You can turn off validation for any individual step by removing the `CartValidationGuard` class from the CMS component configuration in the relevant checkout module.
 
 ## Extending
 
 No special extensibility is available for this feature.
-

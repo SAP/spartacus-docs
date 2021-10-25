@@ -293,7 +293,9 @@ docs:
                 - title: "Bulk Pricing"
                   url: /bulk-pricing/  
                 - title: "Cancellations and Returns"
-                  url: /cancellations-and-returns/  
+                  url: /cancellations-and-returns/
+                - title: "Cart Validation"
+                  url: /cart-validation/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
