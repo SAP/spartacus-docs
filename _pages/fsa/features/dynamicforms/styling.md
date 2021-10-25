@@ -68,7 +68,7 @@ Example:
             "validations": [
 ```
 
-### How HTML Looks Like
+### HTML
 
 If we consider a form with two sections and one control per section, a basic HTML structure **by default** would consist of:
 

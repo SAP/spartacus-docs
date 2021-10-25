@@ -83,7 +83,7 @@ export class UserPrefillResolver implements PrefillResolver {
 }
 ```
 
-As displayed above, UserPrefillResolver implements the given interface and the dedicated method, so it can take the **user** object from the state and find value by the key defined as input parameter. All these resolver classes are defined in the dynamicforms configuration, so they can be easily extended and overridden:
+As displayed above, UserPrefillResolver implements the given interface and the dedicated method, so it can take the **user** object from the state and find value by the key defined as input parameter. All these resolver classes are defined in the dynamicforms configuration, so they can be easily extended and overridden.
 
 prefill-resolver.interface.ts
 
