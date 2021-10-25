@@ -2,7 +2,7 @@
 title: Form Definition - JSON Structure
 ---
 
-In Dynamic Forms, the content, behavior and styling of a form is defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels etc.
+In Dynamic Forms, the content, behavior and styling of a form is defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels, etc.
 
 ***
 
@@ -108,7 +108,7 @@ The FormDefinition contains the following properties:
 
 - [formGroups](#dynamicformgroup) - Defines an array of form groups.
 - formId - Attaches ID to the form.
-- cssClass - Enables adding unique CSS class to the form wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
+- cssClass - Enables adding unique CSS class to the form wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %}).
 
 ### DynamicFormGroup
 
@@ -127,7 +127,7 @@ groupTwo:
 ```
 
 - fieldConfigs - Array of controls in this form group.
-- cssClass - Enables adding unique CSS class to the form group wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %})
+- cssClass - Enables adding unique CSS class to the form group wrapper. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %}).
 - dependsOn - With this property, you can define the visibility of the whole group by defining control name which the group depends on.
 
 ### FieldConfig
@@ -138,7 +138,7 @@ The FieldConfig contains the following properties:
 
 - name - Sets control name.
 - required - Defines if control is required.
-- disabled - Defines if control is disabled (disabled fields are not submitted to back end).
+- disabled - Defines if control is disabled (disabled fields are not submitted to the back end).
 - [label](#localizedstring) - Defines control label (supports localization).
 - options - Defines available options for the following input types: dropdown, radio button, checkbox.
 - cssClass - Enables adding unique CSS class to the form control. For more information, see [Dynamicforms Styling]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/styling.md %}).
@@ -151,12 +151,12 @@ The FieldConfig contains the following properties:
 - [error](#localizedstring) - Defines localized error message for this control.
 - validations - Defines validations.
 - [dependsOn](#dependson) - Here you can define if your control should be visible depending on other controls value.
-- [prefillValue](#prefillvalue) - Defines if field should be pre-filled with some data (user, cart data from SPA store).
-- readonly - Sets readonly property to the control (Disables control on the UI, the control data is submitted to back end).
+- [prefillValue](#prefillvalue) - Defines if the field should be prefilled with some data (user, cart data from the SPA store).
+- readonly - Sets readonly property to the control (Disables control on the UI, the control data is submitted to the back end).
 - maxUploads - File upload property, sets maximum number of files.
 - accept - File upload property, sets accepted file types.
 - maxFileSize - File upload property, sets maximum file size.
-- multiple - File upload property, sets if multiple uploads are allowed.
+- multiple - File upload property, defines if multiple uploads are allowed.
 
 ### LocalizedString
 
@@ -167,18 +167,18 @@ The LocalizedString contains the following properties:
 
 ### DependsOn
 
-Represents configuration for defining dependency behavior.
+Represents the configuration for defining dependency behavior.
 
 The DependsOn contains the following properties:
 
 - hide - Defines if dependant control/group should be hidden on the page.
-- [controls](#controldependency) - Defines a list of controls and conditions on which control depends.
+- [controls](#controldependency) - Defines a list of controls and conditions which the control depends on.
 
 ### ControlDependency
 
 The ControlDependency contains the following properties:
 
-- controlName - Control name on which we depend.
+- controlName - Control name which we depend on.
 - [conditions](#validatorfunction) - Array of validator functions where conditions are defined.
 
 ### ValidatorFunction
@@ -204,6 +204,7 @@ Let's assume that the current user's first name is required for control prefill.
     "targetValue": "firstName"
 },
 ```
+For more information, see [Configurable Prepopulate Form Field]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/pre-populate-field.md %}).
 
 ### ApiConfig
 
