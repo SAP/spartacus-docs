@@ -13,7 +13,7 @@ Dynamicforms library provides some basic form validation functions out of the bo
 
 ***
 
-## How to Invoke Validation from JSON
+## Invoking Validations from JSON
 
 In order to specify validations for a certain field, the JSON schema is enhanced by exposing property called "validations". This property represents an array of complex objects which are translated into dynamicforms validation functions, and they consist of two properties:
 
@@ -71,7 +71,7 @@ Example of the field with multiple validations:
 },
 ```
 
-## Existing validations
+### Existing Validations
 
 - **compareToCurrentDate** - Accepts one argument from the following list:
   - shouldBeEqual
@@ -203,10 +203,10 @@ JSON example:
 - **email** - Checks if the input data is a valid email.
 - **alphanumeric** - Allows only numbers and letters as input data. 
 
-## How all this works
+### How All This Works
 
-Before form gets rendered, all validations from JSON are processed and, in case they have corresponding implementation defined in configuration, they are transferred to mapped **ValidationFn**. Name from validation object corresponds to the name defined in form configuration on SPA application. 
-In this particular case, it will be validation with the name compareToCurrentDate:
+Before the form is rendered, all validations from the JSON are processed and, in case they have a corresponding implementation defined in the configuration, they are transferred to the mapped **ValidationFn**. Name from the validation object corresponds to the name defined in the form configuration on the SPA application. 
+In this particular case, it will be the validation with the name compareToCurrentDate:
 
 ```typescript
 DynamicFormsConfig
@@ -219,7 +219,7 @@ validators: {
 }
 ```
 
-All arguments defined in JSON file represent input parameters for compareToCurrentDate function from DefaultFormValidators, and they are added to the function in run-time. In our example, based on the mapping defined in the configuration, we will find the following validation function:
+All arguments defined in the JSON file represent input parameters for compareToCurrentDate function from DefaultFormValidators, and they are added to the function in run-time. In our example, based on the mapping defined in the configuration, we will find the following validation function:
 
 ```typescript
 static compareToCurrentDate(operator) {
@@ -240,11 +240,12 @@ static compareToCurrentDate(operator) {
  }
 ```
 
-and assign that function with input parameter 'shouldBeGreater' (operator in this case) to the corresponding field. In the same way we can pass multiple input parameters via arguments attribute in case function requires more and add them to the validation function respectively.
+and assign that function with input parameter 'shouldBeGreater' (operator in this case) to the corresponding field. In the same way, we can pass multiple input parameters via arguments attribute, in case the function requires more, and add them to the validation function respectively.
 
-## How to override existing validation in custom App
+## Overriding Existing Validation in Custom Application
 
-In order to override some predefined validation, customers should be able to do that in their modules by referencing their custom functions with the same name as existing ones. Let's try to override compareToCurrentDate function, so that it just logs customized message and returns always true for validation.  We will start in one of our modules by specifying following configuration:
+To override a predefined validation, in your modules you need to reference your custom functions with the same name as the existing ones. 
+Let's try to override compareToCurrentDate function, so that it just logs customized message and returns always true for validation.  We will start in one of our modules by specifying the following configuration:
 
 X-module.ts
 
@@ -271,7 +272,7 @@ X-module.ts
 })
 ```
 
-From the code snippet above we can see that for validation with name compareToCurrentDate we have a new function defined in CategoryFormsModule. Function has the following implementation:
+From the code snippet above you can see that for a validation with the name compareToCurrentDate we have a new function defined in CategoryFormsModule. Function has the following implementation:
 
 ```typescript
 static customFunction(regex) {
@@ -282,11 +283,13 @@ static customFunction(regex) {
 }
 ```
 
-As described in introduction, function has one console log and always returns true for validation. In this particular case, JSON file should not be edited since name of new function is the same as for old one.
+As described in introduction, function has one console log and always returns true for validation. In this particular case, JSON file should not be edited since the name of the new function is the same as the one of the default function.
 
-## How to add new validation in custom App and invoke that from JSON
+## Adding a New Validation
 
-Adding new functions is similar to overriding them. First, we need to define a new function and then we have to expose it via configuration.
+This section describes how to add a new validation in your custom application and invoke it from your JSON form definition.
+
+Adding new functions is similar to overriding them. First, you need to define a new function and then you have to expose it via configuration.
 
 New validation function
 
@@ -324,7 +327,7 @@ Mapping new validation function
 })
 ```
 
-Lastly, since this function is completely new we have to invoke it from our JSON form definition:
+Lastly, since this function is completely new, you have to invoke it from your JSON form definition:
 
 ```typescript
 
