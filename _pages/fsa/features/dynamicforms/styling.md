@@ -1,7 +1,7 @@
 ---
 title: Dynamicforms Styling
 ---
-Dynamic forms Library is shipped with default Bootstrap 4 CSS classes. These classes can be overridden with the custom JSON configuration through the Backoffice.
+Dynamicforms library is shipped with default Bootstrap 4 CSS classes. These classes can be overridden with the custom JSON configuration through the Backoffice.
 
 ***
 
