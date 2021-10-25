@@ -7,7 +7,7 @@ feature:
 ---
 
 {% capture version_note %}
-{{ site.version_note_part1 }} 1.3 {{ site.version_note_part2 }}
+{{ site.version_note_part1 }} 4.2 {{ site.version_note_part2 }}
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
