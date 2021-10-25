@@ -1,12 +1,22 @@
 ---
 title: Dynamicforms Styling
 ---
+Dynamic forms Library is shipped with default Bootstrap 4 CSS classes. These classes can be overridden with the custom JSON configuration through the Backoffice.
 
-Dynamic forms Library uses Bootstrap 4 classes for styling. **Custom** CSS classes can be added in four places while defining JSON form definition through Backoffice.
+***
 
-Custom CSS class can be defined for:
+**Table of Contents**
 
-- [Form tag]({{ site.baseurl }}/json-structure/#formdefinition) - By default empty. This class can be used for specific styling of each form. It can be added by defining **"cssClass"** property in JSON.
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
+## Adding Custom CSS Classes
+
+Dynamicforms library uses Bootstrap 4 classes for styling. A custom CSS class can be defined for:
+
+- [Form tag]({{ site.baseurl }}/json-structure/#formdefinition) - By default empty. This class can be used for specific styling of each form. It can be added by defining **"cssClass"** property in the JSON configuration.
 
 Example:
 
@@ -20,7 +30,7 @@ Example:
           // controls defined here...
 ```
 
-- [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup) (section) - By default Dynamicforms will render "row" Bootstrap class here. Defining cssClass in "formGroups" section of JSON will **add** class to default class. It can be added by defining **"cssClass"** property in JSON.
+- [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup) (section) - By default, dynamicforms library renders "row" Bootstrap class here. Defining cssClass in "formGroups" section of the JSON configuration will **add** class to the default class. It can be added by defining **"cssClass"** property in the JSON.
 
 Example:
 
@@ -37,8 +47,8 @@ Example:
           // controls defined here...
 ```
 
-- [Individual control]({{ site.baseurl }}/json-structure/#fieldconfig) - By default, dynamicforms will render "col-12" Bootstrap class here, which results in one-column design. Defining **"cssClass"** property in control section of the JSON will **add** the default class.
-We can also **override** the default Bootstrap "col-12" class by defining a **"gridClass"** property in the same section of the JSON definition.
+- [Individual control]({{ site.baseurl }}/json-structure/#fieldconfig) - By default, dynamicforms library renders "col-12" Bootstrap class here, which results in one-column design. Defining a **"cssClass"** property in the control section of the JSON will **add** the default class.
+You can also **override** the default Bootstrap "col-12" class by defining a **"gridClass"** property in the same section of the JSON definition.
 
 Example:
 
@@ -58,9 +68,9 @@ Example:
             "validations": [
 ```
 
-## How HTML looks like
+### How HTML Looks Like
 
-If we consider a form with two sections and one control per section, basic HTML structure **by default** would consist of:
+If we consider a form with two sections and one control per section, a basic HTML structure **by default** would consist of:
 
 ```typescript
 <form class=""> // Form class, empty by default
@@ -94,7 +104,7 @@ Adding our classes from examples above would result in the following HTML:
 </form>
 ```
 
-## User Interface
+### User Interface
 
 Default look of the example form with two sections:
 
