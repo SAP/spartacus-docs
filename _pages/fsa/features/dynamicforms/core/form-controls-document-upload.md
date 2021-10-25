@@ -2,13 +2,9 @@
 title: Document Upload
 ---
 
-**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+**Note**: This dynamicforms library feature is introduced with version 2.0 of the FSA Spartacus libraries.
 
-The Document Upload feature enables users to upload one or multiple images, documents, audio, video, and other file types to a server.
-
-The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.
-
-Financial Services Accelerator offers insurance customers the possibility to upload documents during the First Notice Of Loss (FNOL) process. After documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
+Document upload feature enables users to upload one or multiple images, documents, audio, video, and other file types to a server.
 
 ***
 
@@ -18,6 +14,12 @@ Financial Services Accelerator offers insurance customers the possibility to upl
 {:toc}
 
 ***
+
+## Introduction
+
+The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.
+
+Financial Services Accelerator offers insurance customers the possibility to upload documents during the First Notice Of Loss (FNOL) process. After documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
 
 ## Document Upload Usage
 

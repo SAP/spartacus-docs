@@ -19,7 +19,7 @@ The feature allows you to:
 
 ***
 
-## How to Use the Prepopulate Form Field
+## Using the Prepopulate Form Field
 
 Let's assume you want to prepopulate the "Title" field on the Personal Details form. You want to use the existing user data, located in the "User" state in FSA SPA. First, you need to adjust the Personal Details form, and add JSON configuration to the "Title" field.
 
@@ -55,8 +55,6 @@ In the example above, the targetObject (user) signalizes that the asset from SPA
      "hidden": true
    },
 ```
-
-## How Does This Work
 
 For every object that you want to offer for the prepopulate functionality, you need to define one service that will take the field name from the JSON definition and return the field value from the state object. All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
 
@@ -103,7 +101,7 @@ export interface PrefillResolver {
 }
 ```
 
-## How to Override the Resolver 
+## Overriding the Resolver 
 
 With this approach, you can redefine some of the prefill resolvers by specifying a new service instance for the same key. Also, in case you decide you need to access some other object, you can easily inject that in the configuration. 
 
