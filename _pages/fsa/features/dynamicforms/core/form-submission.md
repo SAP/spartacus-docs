@@ -4,15 +4,6 @@ title: Form Submission
 
 This page explains how to persist form-data content in a database when the submission of a form is triggered from the "outside".
 
-This means that you can submit a form from one component, although the submit button (i.e., the trigger for saving the form) is in a completely different and independent component. This approach allows you to implement different types of logic models after you submit the form. That logic can be as simple as a redirection to a web page, or something more complex such as calculation.
-
-In Angular, the most common way for a component to share data and information with another component is by passing **data** or **events**. There are two different approaches to this:
-
-- A component can be used inside another component, thus creating a hierarchy (e.g., child components using *@Input* and *@Output* decorators).
-- Communication can be established using *observable* and *subjects*. This is the most common way for communication between components when they are not aware of each other or do not share a direct parent/child relationship.
-
-In the FSA SPA application, the second approach has been used to implement form submission logic and this page explains that approach.
-
 ***
 
 **Table of Contents**
@@ -22,9 +13,21 @@ In the FSA SPA application, the second approach has been used to implement form 
 
 ***
 
+## Introduction
+
+Submitting a form from the "outside" means that you can submit a form from one component, although the submit button (i.e., the trigger for saving the form) is in a completely different, independent component. This approach allows you to implement different types of logic models after you submit the form. That logic can be as simple as a redirection to a web page, or something more complex such as calculation.
+
+In Angular, the most common way for a component to share data and information with another component is by passing **data** or **events**. There are two different approaches to this:
+
+- A component can be used inside another component, thus creating a hierarchy (e.g., child components using *@Input* and *@Output* decorators).
+- Communication can be established using *observable* and *subjects*. This is the most common way for communication between components when they are not aware of each other or do not share a direct parent/child relationship.
+
+In the FSA SPA application, the second approach has been used to implement form submission logic and this page explains that approach.
+
+
 ## Executing Form Data Submission
 
-The idea is to create a BehaviorSubject to pass values inside. Every time the stream changes, the observer will know about it and execute the callback function (update/save of formData). 
+The idea is to create a BehaviorSubject to pass values inside. Every time the stream changes, the observer will know about it and execute the callback function (update/save of formData). 
 
 We created a *submittedForm* BehaviorSubject in form data service and a method **submit()** which is used to add formData to the BehaviorSubject stream.
 
