@@ -15,7 +15,7 @@ In Dynamic Forms, the content, behavior and styling of a form is defined by JSON
 
 ## Form Definition Interface
 
-The following interface is used to describe a JSON definition:
+The following interface structure is used to describe a JSON definition:
 
 ```typescript
 export interface FormDefinition {

@@ -2,7 +2,7 @@
 title: Form Controls Dependencies
 ---
 
-This page will explain how to show/hide form controls that have a dependency on different form fields and how changes on "parent" fields will affect their visibility.
+This page explains how to show/hide form controls that have a dependency on different form fields and how changes on the "parent" fields affect their visibility.
 
 ***
 

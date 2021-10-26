@@ -1,14 +1,10 @@
 ---
-title: Configurable Prepopulate Form Field 
+title: Configurable *prefillValue* Form Field 
 ---
 
-This page explains how to use the configurable "prepopulate" form field in the dynamicforms library. 
+This page explains how to use the configurable *prefillValue* form field in the dynamicforms library. 
 
-The feature allows you to:
 
-- Prepopulate form field on the SPA side.
-- Populate the field with any available SPA asset which is exposed for that purpose (user, cart, claim, etc.)
-- Adjust/override an already provided mechanism and add new logic on top of that.
 
 ***
 
@@ -19,11 +15,17 @@ The feature allows you to:
 
 ***
 
-## Using the Prepopulate Form Field
+## Using the *prefillValue* Form Field
 
-Let's assume you want to prepopulate the "Title" field on the Personal Details form. You want to use the existing user data, located in the "User" state in FSA SPA. First, you need to adjust the Personal Details form, and add JSON configuration to the "Title" field.
+The *prefillValue* form field allows you to:
 
-A JSON example that illustrates this:
+- Prepopulate form field on the SPA side.
+- Populate the field with any available SPA asset which is exposed for that purpose (user, cart, claim, etc.)
+- Adjust/override an already provided mechanism and add new logic on top of that.
+
+Let's assume you want to prepopulate the "Title" field on the Personal Details form. You want to use the existing user data, located in the "User" state in FSA SPA. 
+
+First, you need to adjust the Personal Details form, and add JSON configuration to the "Title" field. The following JSON example illustrates this:
 
 ```typescript
 {
@@ -41,7 +43,7 @@ A JSON example that illustrates this:
 }
 ```
 
-In the example above, the targetObject (user) signalizes that the asset from SPA which is accessed is the **user**, and the value should be taken from the **firstName** field. In the same way you can specify a more nested structure, for example, on cart object:
+In the example above, the `targetObject` signalizes that the asset from the SPA which is accessed is the `user`, and the value should be taken from the `firstName` field. In the same way you can specify a more nested structure, for example, on `cart` object:
 
 ```typescript
 "fieldConfigs": [
@@ -56,7 +58,8 @@ In the example above, the targetObject (user) signalizes that the asset from SPA
    },
 ```
 
-For every object that you want to offer for the prepopulate functionality, you need to define one service that will take the field name from the JSON definition and return the field value from the state object. All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
+For every object that you want to offer for the prepopulate functionality, you need to define one service that will take the field name from the JSON definition and return the field value from the state object. 
+All services will implement the same interface with the dedicated method for value extraction, so they can be invoked in a generic way.
 
 User resolver
 
@@ -83,7 +86,7 @@ export class UserPrefillResolver implements PrefillResolver {
 }
 ```
 
-As displayed above, UserPrefillResolver implements the given interface and the dedicated method, so it can take the **user** object from the state and find value by the key defined as input parameter. All these resolver classes are defined in the dynamicforms configuration, so they can be easily extended and overridden.
+As displayed above, `UserPrefillResolver` implements the given interface and the dedicated method, so it can take the `user` object from the state and find value by the key defined as input parameter. All these resolver classes are defined in the dynamicforms configuration, so they can be easily extended and overridden.
 
 prefill-resolver.interface.ts
 
