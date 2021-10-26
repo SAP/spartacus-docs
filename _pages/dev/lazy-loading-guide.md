@@ -203,9 +203,9 @@ It is possible to extract some logic to a shared, lazy-loaded module that can be
 
 Such unnamed dependency modules are instantiated only once, when lazy loading the first feature that depends on it. Its providers contribute to the combined injector that is passed to the feature module, and as a result, all feature services and components have access to the services provided by the dependency modules.  
 
-### Dependency aliases
+### Dependency Aliases
 
-For greater flexibility it's possible to use string aliases for both dependencies and the whole features. If one feature depends on the another one, you can reference it as a dependency, like this: 
+For greater flexibility, it is possible to use string aliases for both dependencies and for whole features. If one feature depends on another one, you can reference it as a dependency, as shown in the following example: 
 
 ```typescript
 {
@@ -227,7 +227,7 @@ For greater flexibility it's possible to use string aliases for both dependencie
 }
 ```
 
-You can also alias the whole feature directly.
+You can also alias the entire feature directly, as shown in the following example:
 
 ```typescript
 {
@@ -243,11 +243,12 @@ You can also alias the whole feature directly.
 }
 ```
 
-In above case, `featureTwo` is just an alias for `featureOne`, so the same code will be loaded and initialized only once, whenever any of those features will be requested. This mechanism is used in Spartacus libraries to by default, expose components and core in one lazy-loaded chunk, but without sacrificing possibility to easily split it up, just by simple configuration. 
+In this case, `featureTwo` is just an alias of `featureOne`, so the same code is loaded and initialized only once, whenever either of these features is requested. This mechanism is used by default in Spartacus libraries to expose components and the core in one lazy-loaded chunk, without sacrificing the possibility to easily split them up through simple configuration.
 
-Two below examples are effectively equivalent, the difference is in number of dynamic imports (so number of lazy loaded chunks) and ability, to customize/replace selected parts by confugration only:
+The following two examples are effectively equivalent, with the difference being the number of dynamic imports (and as a result, the number of lazy loaded chunks), and the ability to customize or replace selected parts by configuration only.
 
-The default approach: 
+The following is an example of the default approach:
+
 ```typescript
 {
     featureModules: {
@@ -269,7 +270,8 @@ The default approach:
 }
 ```
 
-Decoupled, easier to customize approach:
+The following is an example of a decoupled approach that is easier to customize:
+
 ```typescript
 {
     featureModules: {
@@ -298,11 +300,11 @@ Decoupled, easier to customize approach:
   }
 ```
 
-### Exposing smart Proxy Facades from lazy loaded features
+### Exposing Smart Proxy Facades From lazy loaded Features
 
-Proxy Facades offers a flexible way to expose core functionality from lazy loaded features modules, in a way, that components consuming those facades, doesn't have to care if it's lazy loaded and has to be initialized, or not.    
-Any access to the method of property of Proxy Facade will trigger lazy loading and initialization of all related features. 
-For more details, see [{% assign linkedpage = site.pages | where: "name", "proxy-facades.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/proxy-facades.md %}). 
+Proxy facades offer a flexible way to expose core functionality from lazy-loaded feature modules in such a way that components consuming those facades do not have to know if it is lazy loaded and needs to be initialized, or not.
+
+Any access to a method or property of a proxy facade triggers the lazy loading and initialization of all related features. For more information, see [{% assign linkedpage = site.pages | where: "name", "proxy-facades.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/proxy-facades.md %}).
 
 ### Combined Injector
 
@@ -389,14 +391,14 @@ The Spartacus configuration, which is also defined by providing configuration ch
 
 If there are issues with lazy-loaded providers not being visible by the root services, it is always possible to include this kind of code in a statically-linked module that is available upfront. It is recommended to create a separate entry point in your library (by convention, named `root`, such as `my-library/root`) that contains minimal code, that will be included in the main bundle, and that will be available from the beginning.
 
-### Simple strategies of optimized and balanced code-splitting
+### Simple Strategies for Optimized and Balanced Code Splitting
 
-Each business feature is a bit different, but in general, for balanced approach you can consider:
-1. Most of the features offer range of UI components and accesing one component it's good sign, that other components will also be needed soon. To minimize network traffic and overhead of unnecessary granularity, it's an argument to bundle more than one component in the chunk.
-2. Most of the UI components for the feature, usually requires the Core logic (facade services, adapters). That's an argument to lazy load core with component.
-3. Some core services of the feature may also be used frequently by other features. That's an argument to split core code from UI components.
-4. Some parts of the feature are used very frequently (on every page, like eg. cart icon component) and some are used only in some specific scenarios (like Cart Summary). To achieve optimal experience, it's advised to split the feature to logical parts, based on the usage, and create separate entry points (and features) for the minimal, most needed parts, and another one, for less frequent used code.
+Each business feature is a bit different, but in general, for a balanced approach you can consider the following:
 
+- Most features offer a range of UI components, and if you access one component, it is likely that other components will soon be needed as well. To minimize network traffic and the overhead of unnecessary granularity, you can consider bundling more than one component in the chunk.
+- Most UI components for a feature usually require the core logic, such as facade services and adapters. In this case, you can consider lazy loading the core with the component.
+- Some core services of a feature may also be used frequently by other features. In this case, you can consider splitting the core code from the UI components.
+- Some parts of a feature are used very frequently (such as the cart icon component, which is used on every page), while some are used only in certain specific scenarios (such as the Cart Summary). To achieve an optimal experience, it is recommended to split the feature into logical parts based on the usage, and create separate entry points (and features) for the minimal, most needed parts, and another entry point for less frequently used code.
 
 ### Wrapping Library Code in a Lazy-Loaded Module
 
