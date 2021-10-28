@@ -177,6 +177,8 @@ docs:
                   url: /global-messages/
                 - title: "HTTP Error Handling"
                   url: /http-error-handling/
+                - title: "Commands and Queries"
+                  url: /commands-and-queries/
                 - title: "Lazy Loading"
                   url: /lazy-loading-guide/
                 - title: "Proxy Facades"
