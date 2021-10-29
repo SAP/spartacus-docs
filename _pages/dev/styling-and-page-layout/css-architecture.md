@@ -112,9 +112,9 @@ cx-link {
 
 CSS variables can be customized on the root of the document, or for specific selectors.
 
-### Customizing global variables in the styles.scss file
+### Customizing Global Variables
 
-The following is an example of how to easily customize the global CSS variables on the customer's end. To avoid using the `!important` CSS property in the `:root` use the `body` selector instead.
+You can customize global variables in the `styles.scss` file. To avoid using the `!important` CSS property in the `:root`, it is recommended that you use the `body` selector instead. The following is an example:
 
 ```scss
 // Always bump to the latest (breaking) styles during development.
@@ -129,7 +129,6 @@ body {
   --cx-color-dark: #a4f9c8;
 }
 ```
-
 
 ## Component Styles
 
