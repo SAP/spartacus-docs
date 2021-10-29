@@ -6,7 +6,7 @@ Spartacus 4.2 introduces the Order Library. This is the latest iteration of the 
 
 # Backwards compatibility for existing apps by default
 
-By default, if you upgrade to 4.2 from 4.x, the order library will not be used. Instead, your app will continue to use the old/current order related code. The non-lib ordr code is still present in Spartacus and will onoly be removed in 5.0. This allows Spartacus 4.2 to be backwards compatible with previous 4.x versions.
+By default, if you upgrade to 4.2 from 4.x, the order library will not be used. Instead, your app will continue to use the old/current order related code. The non-lib order code is still present in Spartacus and will only be removed in 5.0. This allows Spartacus 4.2 to be backwards compatible with previous 4.x versions.
 
 # Order lib used in new Spartcus Apps.
 
