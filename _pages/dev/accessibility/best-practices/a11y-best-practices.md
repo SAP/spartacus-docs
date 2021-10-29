@@ -44,19 +44,30 @@ The following table lists many of the most common UI components, and the standar
 - A focusable element is an element that receives *visible* focus, either natively or through configuration.
 - Spartacus follows the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/#aria_ex). For more component examples, see the WAI-ARIA Authoring Practices documentation, and the "Keyboard Interactions" subsections for each component.
 
-##  Firefox and Safari setup for keyboard navigation
+## Web Browser Setup for Keyboard Navigation
 
-Firefox and Safari for the Mac doesn't do tabbing by default. To turnit on, follow the instructions below.
+On macOS, both the Safari and Firefox web browsers do not have tabbing enabled by default. The following sections describe how to enable tabbing in these browsers.
 
-### Firefox
+### Enabling Tabbing in Firefox
 
-- Open Firefox, go to _Preferences > Advanced > General_, then uncheck the _"Always use the cursor keys to navigate within pages"_ checkbox.
-- Next, open your Mac's **System Preferences**, go to _Keyboard > Shortcuts_, then check the _"Use keyboard navigation to move focus between controls"_ checkbox at the bottom.
+The following steps describe how to enable tabbing for Firefox on macOS.
 
-### Safari
+1. In Firefox, select **Preferences** in the **Firefox** menu, or select **Settings** in the **Open Application Menu** in the top right of the browser window, and in the **General** settings section, scroll down to **Browsing**.
 
-- Open Safari, go to _Preferences > Advanced > Accessibility_, then check _"Press Tab to highlight each item on a webpage"_.
-- Next, open your Mac's **System Preferences**, go to _Keyboard > Shortcuts_, then check the _"Use keyboard navigation to move focus between controls"_ checkbox at the bottom.
+1. Uncheck the **Always use the cursor keys to navigate within pages** checkbox.
 
+1. In the Mac System Preferences, open the **Keyboard** preferences, and then select the **Shortcuts** tab.
 
+1. In the bottom of the **Shortcuts** pane, check the **Use keyboard navigation to move focus between controls** checkbox.
 
+### Enabling Tabbing in Safari
+
+The following steps describe how to enable tabbing for Safari on macOS.
+
+1. In Safari, select **Preferences** in the **Safari** menu, then select the **Advanced** tab.
+
+1. In the **Accessibility** section, check the **Press Tab to highlight each item on a webpage** checkbox.
+
+1. In the Mac System Preferences, open the **Keyboard** preferences, and then select the **Shortcuts** tab.
+
+1. In the bottom of the **Shortcuts** pane, check the **Use keyboard navigation to move focus between controls** checkbox.
