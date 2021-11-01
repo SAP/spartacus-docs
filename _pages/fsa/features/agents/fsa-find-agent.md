@@ -32,13 +32,13 @@ For more details on implementation of each of these views, see the [Find an Agen
 
 This view opens by default when the user clicks the **Find an Agent** link in the header. Full map view is available if the customer enables current location in the browser. In such case, the search is refined and the customer can see which agents are closest to them. Otherwise, they can search for an agent by typing their name or an insurance type they need. In the current implementation, up to 10 agents are displayed per page, but this can be changed through the Administration Console. 
 
-![Map View]({{ site.baseurl }}/assets/images/fsa/agents_fix/find_agent_map_view.png)
+![Map View]({{ site.baseurl }}/assets/images/fsa/agents/find_agent_map_view.png)
 
 ### List View
 
 By going to the list view, you can see a list of agents grouped by their respective areas of expertise. When the user clicks the + button on the selected insurance type accordion, agents who are experts in that area are displayed in form of cards.
 
-![List View]({{ site.baseurl }}/assets/images/fsa/agents_fix/find_agent_list_view.png)
+![List View]({{ site.baseurl }}/assets/images/fsa/agents/find_agent_list_view.png)
 
 Click on the email icon below agent image opens the Contact Agent form (see the section below), while the location icon opens map view for the selected agent only.
 
@@ -48,4 +48,4 @@ This view includes a contact form, displayed in a separate page for each agent. 
 
 Through this page, customers can provide the relevant details regarding their policy, or a quote, and request a contact with a specific insurance agent, in charge of a specific insurance category. As a result of this action, the contacted agent receives an email together with relevant contact details. Upon receiving the request, the agent can assist the customer by accessing their account through Assisted Service Mode.
 
-![Contact Agent Page]({{ site.baseurl }}/assets/images/fsa/agents_fix/contact_agent_form.png)
+![Contact Agent Page]({{ site.baseurl }}/assets/images/fsa/agents/contact_agent_form.png)
