@@ -38,4 +38,4 @@ Note that the integration server link is specific for each integration and in th
 
 Once enabled, customers are able to see the agent availability on the Map View of the **Find an Agent** page. Below the agent profile image, the availability will be displayed as online or offline. Based on this, customers will know which agent they can contact.
 
-![Agent Availability on the Find an Agent Page]({{ site.baseurl }}/assets/images/fsa/agents/map_view_agent_availability.png)  
+![Agent Availability on the Find an Agent Page]({{ site.baseurl }}/assets/images/fsa/agents_fix/map_view_agent_availability.png)  

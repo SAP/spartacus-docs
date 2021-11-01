@@ -48,9 +48,9 @@ Once configured, the SyncPilot CMS Component will be visible on all product comp
 
 The customer must be logged in to be able to see the component. 
 
-![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents/speak_to_agent.png)
+![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents_fix/speak_to_agent.png)
 
 When the customer clicks the 'Speak to an Agent' link, they will be is redirected to the partner solution endpoint in the new tab. 
  
-![Live Contract Login Page]({{ site.baseurl }}/assets/images/fsa/agents/sync_pilot_endpoint.png)
+![Live Contract Login Page]({{ site.baseurl }}/assets/images/fsa/agents_fix/sync_pilot_endpoint.png)
  
