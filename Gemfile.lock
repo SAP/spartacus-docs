@@ -336,7 +336,7 @@ DEPENDENCIES
   jekyll-sitemap
   jemoji
   minimal-mistakes-jekyll
-  nokogiri (>= 1.11.4)
+  nokogiri (>= 1.12.5)
   rake
 
 BUNDLED WITH
