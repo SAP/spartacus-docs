@@ -18,6 +18,7 @@ The **Find an Agent** feature allows customers to locate points of service and a
 ## Overview
 
 The Find an Agent feature consists of three separate views:
+
 - a Google map with all points of service listed, together with related agents (a map view: Agent Locator)
 - a list of insurance categories with agents related to them (a list view: Find an Agent)
 - a Contact Expert page to get in contact with an agent
