@@ -27,9 +27,9 @@ This document describes what is included in all FSA Spartacus libraries since th
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 ## Release 4.0
-Release 4.0 libraries published November 2021
+*Release 4.0 libraries published November 2021*
 
-- **SAP Digital Payments Integration** - With SAP Digital Payments Add-On integration, Financial Services Accelerator provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotation and application processes.
+- **SAP Digital Payments Integration** - With SAP Digital Payments integration, Financial Services Accelerator provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotation and application processes.
 
 ## Release 3.0
 *Release 3.0 libraries published October 7, 2021*

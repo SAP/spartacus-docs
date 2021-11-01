@@ -124,9 +124,10 @@ Besides specific components of checkout steps, there is one crucial component th
 
 ![checkout progress bar]({{ site.baseurl }}/assets/images/fsa/checkout_progress_bar.png)
 
-SAP Digital Payments Integration
+## Integration with SAP Digital Payments
 
 **Note**: This feature is introduced with version 4.0 of the FSA Spartacus libraries.
 
 FSA Spartacus supports integration with SAP Digital Payments, which enables customers to complete the checkout with credit card payments. 
+
 In the integration scenario, the user registers a new credit card during checkout and at the same time, a polling process is triggered to fetch the registered card details from SAP digital payments add-on. When the card details are successfully retrieved, the details are added to the Customer and Cart. Financial Services Accelerator then uses the tokenized card information to make the payment during order placement. Lastly, when the user places an order, an authorization call is made to SAP digital payments add-on to authorize the card payment. 
