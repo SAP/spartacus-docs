@@ -32,7 +32,7 @@ For more details on implementation of each of these views, see the [Find an Agen
 
 This view opens by default when the user clicks the **Find an Agent** link in the header. Full map view is available if the customer enables current location in the browser. In such case, the search is refined and the customer can see which agents are closest to them. Otherwise, they can search for an agent by typing their name or an insurance type they need. In the current implementation, up to 10 agents are displayed per page, but this can be changed through the Administration Console. 
 
-![Map Views]({{ site.baseurl }}/assets/images/fsa/agents/find_agent_map_views.png)
+![Map View]({{ site.baseurl }}/assets/images/fsa/agents/find_agent_map_view.png)
 
 ### List View
 
