@@ -10,7 +10,7 @@ gem "minimal-mistakes-jekyll"
 
 gem 'jemoji'
 
-gem "nokogiri", ">= 1.11.4"
+gem "nokogiri", ">= 1.12.5"
 
 gem 'rake'
 
