@@ -112,6 +112,24 @@ cx-link {
 
 CSS variables can be customized on the root of the document, or for specific selectors.
 
+### Customizing Global Variables
+
+You can customize global variables in the `styles.scss` file. To avoid using the `!important` CSS property in the `:root`, it is recommended that you use the `body` selector instead. The following is an example:
+
+```scss
+// Always bump to the latest (breaking) styles during development.
+$useLatestStyles: true;
+@import '@spartacus/styles';
+@import '@spartacus/styles/scss/theme/santorini';
+body {
+  --cx-color-primary: #a7fff6;
+  --cx-color-secondary: #8aa39b;
+  --cx-color-text: #5c6f68;
+  --cx-color-background: #95d9c3;
+  --cx-color-dark: #a4f9c8;
+}
+```
+
 ## Component Styles
 
 Spartacus consists of a large number of components that you can use to build your storefront experience. While commerce may be a commodity, styling is by nature a subjective topic. Not only the choices of colors and fonts, but also the real estate of components, as well as the backgrounds, the lines, and so on.
