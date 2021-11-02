@@ -141,7 +141,7 @@ You can configure the SSR optimization engine with a number of parameters, which
 
   Recommendation: adjust according to your needs.
 
-- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout` options.
+- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout` options. See also [this](#Rendering-of-${URL}-was-not-able-to-complete.-This-might-cause-memory-leaks!)
 
   The default value is `300000` milliseconds (5 minutes).
 
@@ -234,7 +234,7 @@ In this case, you can try increasing the `timeout` values of the SSR optimizatio
 If adjusting these values does not resolve the issue, it means the server cannot render the page. In this case, you can try the following:
 
 - Ensure your server has a valid certificate. For more information, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
-- If your storefront is on CCv2, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked, in which case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue. If using a caching layer (e.g. CDN), you should check if it blocked the SSR server's IP due to possible many requests coming from it.
+- If your storefront is on CCv2, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked, in which case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue. If using a caching layer (e.g. CDN), you should check if it blocked the SSR server's IP address due to possible many requests coming from it.
 
 If these solutions do not fix the SSR rendering issue, there may be a problem in the code. Review the [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}), and review your custom code to ensure you are not using any browser functions that are not available with SSR.
 
@@ -315,7 +315,7 @@ To address this issue, we suggest to upgrade to the latest patch version, or imp
 If you are getting an SSR render which shows only a global error message, e.g. "You are not authorized to perform this action. Please contact your administrator if you think this is a mistake", please check the following:
 
 - if the API server whitelists the SSR server's IP
-- if using a caching layer (e.g. CDN), make sure it whitelists the SSR server's IP, as it might get blocked at some point due to many requests coming from it.
+- if using a caching layer (e.g. CDN), make sure it whitelists the SSR server's IP address, as it might get blocked at some point due to many requests coming from it.
 
 ### Detecting a bot/crawler
 
@@ -338,3 +338,10 @@ const ssrOptions: SsrOptimizationOptions = {
 ### Doing SSR only for certain pages
 
 If you want to perform SSR only for certain pages (i.e. routes), you achieve so by following the same principle as above - providing a custom `renderingStrategyResolver` function which can inspect the requested URL and return an appropriate rendering strategy.
+
+### Rendering of ${URL} was not able to complete. This might cause memory leaks!
+
+`Rendering of ${URL} was not able to complete. This might cause memory leaks!` message appears if you have the `maxRenderTime` option enabled, and it means a render is hanging and it might or might not complete at some point in the future. Unfortunately, currently we are _not_ able to release the taken resources from [`@angular/universal`](https://github.com/angular/universal/), which will likely lead to memory overflow at some point. What you can do about this message:
+
+- maybe it will complete at some point in the future. You can look for `Rendering of ${URL} completed after the specified maxRenderTime, therefore it was ignored.`. NOTE - if using Spartacus less than 4.2 you will have to enable `debug` flag to see this message.
+- The OCC API is slow to respond. If using a CDN in front of the API, please check if the CDN has some kind of a rate limiter enabled for the SSR servers, or maybe it even completely blocked the SSR server's IP addresses (for more, see [this](#SSR-shows-only-a-global-error-message))
