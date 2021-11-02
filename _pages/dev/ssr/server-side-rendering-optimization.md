@@ -89,87 +89,109 @@ The full list of parameters is described in the following section.
 
 You can configure the SSR optimization engine with a number of parameters, which are described as follows:
 
-- `timeout` is a number that indicates the amount of time (in milliseconds) during which the SSR server tries to render a page, before falling back to CSR. Once the delay has expired, the server returns the `index.html` of the CSR, which does not contain any pre-rendered markup. The CSR app (`index.html`) is served with a `Cache-Control:no-store` header. As a result, it is not stored by the cache layer. SSR pages do not contain this header because it is preferable to cache SSR pages.
+### timeout
 
-  In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. _It is assumed and recommended that you are using an additional layer to cache pages externally (e.g. a CDN)_ (see [recommended SSR setup page](./server-side-rendering-setup.md)).
+`Timeout` is a number that indicates the amount of time (in milliseconds) during which the SSR server tries to render a page, before falling back to CSR. Once the delay has expired, the server returns the `index.html` of the CSR, which does not contain any pre-rendered markup. The CSR app (`index.html`) is served with a `Cache-Control:no-store` header. As a result, it is not stored by the cache layer. SSR pages do not contain this header because it is preferable to cache SSR pages.
 
-  A value of 0 will instantly return the CSR page.
+In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. _It is assumed and recommended that you are using an additional layer to cache pages externally (e.g. a CDN)_ (see [recommended SSR setup page](./server-side-rendering-setup.md)).
 
-  The default value is `3000` milliseconds.
+A value of 0 will instantly return the CSR page.
 
-  Recommendation: depending on the applications needs. Can be relatively big, assuming there is a proper caching layer strategy in place (e.g. CDN).
+The default value is `3000` milliseconds.
 
-- `cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. This option is _not_ related to any kind of external caching layer (e.g. CDN). Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared). These temporarily cached responses are served with `cache-control: 'no-store'` HTTP header, in order to avoid caching them in an external caching layer.
+Recommendation: depending on the applications needs. Can be relatively big, assuming there is a proper caching layer strategy in place (e.g. CDN).
 
-  **Note:** The cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this.
+### cache
 
-  Recommendation: generally, it is _not_ recommended to use the `cache` option, as there are better ways to turn on the caching (e.g. having a CDN).
+`cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. This option is _not_ related to any kind of external caching layer (e.g. CDN). Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared). These temporarily cached responses are served with `cache-control: 'no-store'` HTTP header, in order to avoid caching them in an external caching layer.
 
-- `cacheSize` is a number that limits the cache size to a specific number of entries. This option helps to keep memory usage under control.
+**Note:** The cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this.
 
-  The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
+Recommendation: generally, it is _not_ recommended to use the `cache` option, as there are better ways to turn on the caching (e.g. having a CDN).
 
-  Recommendation: should be set according to the server's resources (e.g. RAM). It is recommended to set it, regardless if the `cache` option is disabled.
+### cacheSize
 
-- `concurrency` is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR. If the `reuseCurrentRendering` is enabled, multiple requests for the same rendering key (i.e. request URL, by default) will take up only one concurrency slot.
+`cacheSize` is a number that limits the cache size to a specific number of entries. This option helps to keep memory usage under control.
 
-  The default value is `20`.
+The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
 
-  Recommendation: it should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
+Recommendation: should be set according to the server's resources (e.g. RAM). It is recommended to set it, regardless if the `cache` option is disabled.
 
-- `ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again. This option is used regardless if the `cache` option is enabled.
+### concurrency
 
-  Recommendation: should be set according to your business needs, and for how long you want to keep the stale render in cache before evicting it. Should be set regardless if the `cache` option is enabled.
+`concurrency` is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR. If the `reuseCurrentRendering` is enabled, multiple requests for the same rendering key (i.e. request URL, by default) will take up only one concurrency slot.
 
-- `renderKeyResolver` is a function that accepts `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
+The default value is `20`.
 
-  By default, `renderKeyResolver` it uses the full request URL.
+Recommendation: it should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
 
-  Recommendation: it is recommended to use the default Spartacus rendering key resolver, especially in cases when your domain contains a base site information (e.g. `my.site.au` or `my.site.rs`).
+### ttl
 
-- `renderingStrategyResolver` is a function that accepts `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
+`ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again. This option is used regardless if the `cache` option is enabled.
 
-  - `ALWAYS_CSR` always returns client-side rendered pages
-  - `DEFAULT` is the default behavior
-  - `ALWAYS_SSR` aLways returns server-side rendered pages
+Recommendation: should be set according to your business needs, and for how long you want to keep the stale render in cache before evicting it. Should be set regardless if the `cache` option is enabled.
 
-  Recommendation: it is recommended to provide a custom rendering strategy in cases when you want to serve SSR only to specific requests (e.g. server SSR only to crawling bots).
+### renderKeyResolver
 
-- `forcedSsrTimeout` is a number that indicates the time (in milliseconds) to wait for rendered pages when the render strategy for the request is set to `ALWAYS_SSR`. This prevents SSR rendering from blocking resources for too long if the server is under heavy load, or if the page contains errors.
+`renderKeyResolver` is a function that accepts `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
 
-  The default value is `60000` milliseconds (that is, 60 seconds).
+By default, `renderKeyResolver` it uses the full request URL.
 
-  Recommendation: adjust according to your needs.
+Recommendation: it is recommended to use the default Spartacus rendering key resolver, especially in cases when your domain contains a base site information (e.g. `my.site.au` or `my.site.rs`).
 
-- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout` options. See also [this](#Rendering-of-${URL}-was-not-able-to-complete.-This-might-cause-memory-leaks!)
+### renderingStrategyResolver
 
-  The default value is `300000` milliseconds (5 minutes).
+`renderingStrategyResolver` is a function that accepts `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
 
-  Recommendation: strongly recommended to set. Adjust according to your needs and expectation.
+- `ALWAYS_CSR` always returns client-side rendered pages
+- `DEFAULT` is the default behavior
+- `ALWAYS_SSR` aLways returns server-side rendered pages
 
-  **Note**: This option is available in the latest patch versions of 3.1.x and later.
+Recommendation: it is recommended to provide a custom rendering strategy in cases when you want to serve SSR only to specific requests (e.g. server SSR only to crawling bots).
 
-- `reuseCurrentRendering` - Instead of immediately falling back to CSR while a render for the same rendering key is in progress, this option will make the subsequent requests for this rendering key wait for the current render. All pending requests for the same rendering key will take up only _one_ concurrency slot, because there is only one actual rendering task being performed. Each request independently honors the `timeout` option.
+### forcedSsrTimeout
 
-  E.g., consider the following setup where `timeout` option is set to 3s, and the given request takes 4s to render. The flow is as follows:
+`forcedSsrTimeout` is a number that indicates the time (in milliseconds) to wait for rendered pages when the render strategy for the request is set to `ALWAYS_SSR`. This prevents SSR rendering from blocking resources for too long if the server is under heavy load, or if the page contains errors.
 
-  - 1st request arrives and triggers the SSR.
-  - 2nd request for the same URL arrives 2s after the 1st one. Instead of falling back to CSR, it waits (with its own timeout) for the render of the first request.
-  - 1st request times out after 3s, and falls back to CSR.
-  - one second after the timeout, the current render finishes.
-  - the 2nd request returns SSR after only 2s of waiting.
+The default value is `60000` milliseconds (that is, 60 seconds).
 
-  Recommendation: recommended to enable, as it will smartly use the serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
+Recommendation: adjust according to your needs.
 
-  **Note**: This option is available in version 3.4.x and later.
+### maxRenderTime
 
-- `debug` is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
+`maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout` options. See also [this](#Rendering-of-${URL}-was-not-able-to-complete.-This-might-cause-memory-leaks!)
 
-  The default value is `false`.
+The default value is `300000` milliseconds (5 minutes).
 
-  Recommendation: turn off in production.
+Recommendation: strongly recommended to set. Adjust according to your needs and expectation.
 
-  **Note**: This option is available in version 3.1.0 and later.
+**Note**: This option is available in the latest patch versions of 3.1.x and later.
+
+### reuseCurrentRendering
+
+`reuseCurrentRendering` - Instead of immediately falling back to CSR while a render for the same rendering key is in progress, this option will make the subsequent requests for this rendering key wait for the current render. All pending requests for the same rendering key will take up only _one_ concurrency slot, because there is only one actual rendering task being performed. Each request independently honors the `timeout` option.
+
+E.g., consider the following setup where `timeout` option is set to 3s, and the given request takes 4s to render. The flow is as follows:
+
+- 1st request arrives and triggers the SSR.
+- 2nd request for the same URL arrives 2s after the 1st one. Instead of falling back to CSR, it waits (with its own timeout) for the render of the first request.
+- 1st request times out after 3s, and falls back to CSR.
+- one second after the timeout, the current render finishes.
+- the 2nd request returns SSR after only 2s of waiting.
+
+Recommendation: recommended to enable, as it will smartly use the serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
+
+**Note**: This option is available in version 3.4.x and later.
+
+### debug
+
+`debug` is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
+
+The default value is `false`.
+
+Recommendation: turn off in production.
+
+**Note**: This option is available in version 3.1.0 and later.
 
 ## Troubleshooting
 
@@ -341,7 +363,7 @@ If you want to perform SSR only for certain pages (i.e. routes), you achieve so 
 
 ### Rendering of ${URL} was not able to complete. This might cause memory leaks!
 
-`Rendering of ${URL} was not able to complete. This might cause memory leaks!` message appears if you have the `maxRenderTime` option enabled, and it means a render is hanging and it might or might not complete at some point in the future. Unfortunately, currently we are _not_ able to release the taken resources from [`@angular/universal`](https://github.com/angular/universal/), which will likely lead to memory overflow at some point. What you can do about this message:
+`Rendering of ${URL} was not able to complete. This might cause memory leaks!` message appears if you have the [maxRenderTime](#maxRenderTime) option enabled, and it means a render is hanging and it might or might not complete at some point in the future. Unfortunately, currently we are _not_ able to release the taken resources from [`@angular/universal`](https://github.com/angular/universal/), which will likely lead to memory overflow at some point. What you can do about this message:
 
 - maybe it will complete at some point in the future. You can look for `Rendering of ${URL} completed after the specified maxRenderTime, therefore it was ignored.`. NOTE - if using Spartacus less than 4.2 you will have to enable `debug` flag to see this message.
 - The OCC API is slow to respond. If using a CDN in front of the API, please check if the CDN has some kind of a rate limiter enabled for the SSR servers, or maybe it even completely blocked the SSR server's IP addresses (for more, see [this](#SSR-shows-only-a-global-error-message))
