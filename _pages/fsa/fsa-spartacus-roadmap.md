@@ -46,4 +46,4 @@ For non-technical questions and roadmap feedback, you can reach us on our *#help
 - **On-Behalf-Of Framework** - This framework enables financial B2B customers to execute processes on behalf of their customers. At the same time, they have an overview of their customer's portfolio.
 - **Chatbot** - The Chatbot feature in Financial Services Accelerator allows financial companies to interact and coordinate with their customers in real-time and easy-to-use interface.
 - **Quote Replication** - Quotes created in another system (e.g., PQM) are replicated in the Financial Services Accelerator and shown to the customer. The customer can accept or decline the quote. The customer's decision is then replicated back to the originating system.
-
+- **Live Contract Integration Enhancement** - The integration between Financial Services Accelerator and Live Contract has been extended so that customers can now directly call an agent of choice from the Find an Agent page.
