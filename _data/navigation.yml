@@ -177,8 +177,12 @@ docs:
                   url: /global-messages/
                 - title: "HTTP Error Handling"
                   url: /http-error-handling/
+                - title: "Commands and Queries"
+                  url: /commands-and-queries/
                 - title: "Lazy Loading"
                   url: /lazy-loading-guide/
+                - title: "Proxy Facades"
+                  url: /proxy-facades/
                 - title: "Multi-Site Configuration ➢"
                   url: /context-configuration/
                   underchildren:
@@ -292,10 +296,12 @@ docs:
                   url: /b2b-commerce-organization/
                 - title: "Bulk Pricing"
                   url: /bulk-pricing/  
-                - title: "Cancellations and Returns"
-                  url: /cancellations-and-returns/  
                 - title: "Cart Import and Export"
                   url: /cart-import-and-export/
+                - title: "Cancellations and Returns"
+                  url: /cancellations-and-returns/  
+                - title: "Cart Validation"
+                  url: /cart-validation/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"

@@ -18,6 +18,7 @@ The **Find an Agent** feature allows customers to locate points of service and a
 ## Overview
 
 The Find an Agent feature consists of three separate views:
+
 - a Google map with all points of service listed, together with related agents (a map view: Agent Locator)
 - a list of insurance categories with agents related to them (a list view: Find an Agent)
 - a Contact Expert page to get in contact with an agent
@@ -29,7 +30,7 @@ For more details on implementation of each of these views, see the [Find an Agen
 
 ### Map View
 
-This view opens by default when the user clicks the **Find an Agent** link in the header. Full map view is available if the customer enables current location in the browser. In such case, the search is refined and the customer can see which agents are closest to them. Otherwise, they can search for an agent by typing their name or an insurance type they need. In the current implementation, up to 10 agents are displayed per page, but this can be changed through the Administration Console. 
+This view opens by default when the user clicks the **Find an Agent** link in the header. Full map view is available if the customer enables current location in the browser. In such case, the search is refined and the customer can see which agents are closest to them. Otherwise, they can search for an agent by typing their name or an insurance type they need. In the current implementation, up to 10 agents are displayed per page, but this can be changed through the Administration Console.
 
 ![Map View]({{ site.baseurl }}/assets/images/fsa/agents/find_agent_map_view.png)
 
