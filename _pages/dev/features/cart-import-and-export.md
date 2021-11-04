@@ -1,7 +1,7 @@
 ---
-title: Cart Import/Export
+title: Cart Import and Export
 feature:
-  - name: Cart Import/Export
+  - name: Cart Import and Export
     spa_version: 4.2
     cx_version: 2011
 ---
@@ -14,7 +14,7 @@ feature:
 
 This feature allows a customer to create saved cart or update active cart, by importing CSV file containing product codes and quantities.
 
-Analogical allows users to download CSV file containing specified cart product entries.
+Analogical allows users to download CSV file containing specified order entries.
 
 ---
 
@@ -25,15 +25,18 @@ Analogical allows users to download CSV file containing specified cart product e
 
 ---
 
-## Enabling Cart Import/Export
+## Enabling Cart Import and Export
 
 Cart Import/Export feature can be enabled by installing the `@spartacus/cart` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
 ### CMS Components
 
-Feature is CMS-driven and consists of the one component named as `ImportExportComponent`.
+Feature is CMS-driven and consists of the following components:
+`ImportOrderEntriesComponent` - allows to render button for import order entries
+`ExportOrderEntriesComponent` - allows to render button for export order entries
+`ImportExportOrderEntriesComponent`- allows to render both buttons in a row (for import and export)
 
-It can be disabled by turning off such component in backoffice or by using ImpEx query.
+Button rendering can be disabled by turning off such specific component in backoffice or by using ImpEx query.
 
 ## Global Configuration
 
@@ -66,7 +69,52 @@ export interface ImportConfig {
 }
 ```
 
-There is possibility to change validation for imported files like allowed type, size and maximum number of entries. To achieve this `fileValidaty` property should be overwritten:
+There is possibility to change validation for imported files like allowed type, size and maximum number of entries. To achieve this `fileValidaty` property should be overwritten.
+By default it looks like following:
+
+```ts
+export const defaultImportExportConfig: ImportExportConfig = {
+  cartImportExport: {
+    import: {
+      fileValidity: {
+        maxSize: 1,
+        maxEntries: {
+          [OrderEntriesSource.NEW_SAVED_CART]: 100,
+          [OrderEntriesSource.SAVED_CART]: 100,
+          [OrderEntriesSource.ACTIVE_CART]: 10,
+          [OrderEntriesSource.QUICK_ORDER]: 10,
+        },
+        allowedTypes: [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "application/vnd.ms-excel",
+          "text/csv",
+          ".csv",
+        ],
+      },
+    },
+  },
+};
+```
+
+- `maxSize` - determines maximum imported file size in megabytes.
+- `maxEntries` - determines limit number for imported entries per place specified as key from `OrderEntriesSource`.
+- `allowedTypes` - string array with file types/extensions allowed for import.
+
+Another config property is `CartNameGeneration`. By default new saved cart name during import is taken from imported file.
+
+```ts
+export const defaultImportExportConfig: ImportExportConfig = {
+  cartImportExport: {
+    import: {
+      cartNameGeneration: {
+        source: CartNameSource.FILE_NAME,
+      },
+    },
+  },
+};
+```
+
+However, this config allows to change a name source.
 
 ### ExportConfig
 

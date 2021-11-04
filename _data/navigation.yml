@@ -294,6 +294,8 @@ docs:
                   url: /bulk-pricing/  
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
+                - title: "Cart Import and Export"
+                  url: /cart-import-and-export/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
