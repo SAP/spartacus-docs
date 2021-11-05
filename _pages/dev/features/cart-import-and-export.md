@@ -80,11 +80,15 @@ Even if UI was prepared to go through the process smoothly, customer must be awa
 
 ### Saved Cart
 
-To use import to Saved Cart log in as customer in Spartacus storefront and go to `Saved Carts` page using user menu. There should be the 'Import products' button available above the saved carts list.
+To use import to Saved Cart log in as customer in Spartacus storefront and go to `Saved Carts` page using user menu. There should be the 'Import products' button available below the saved carts list.
 
 Then form in dialog should be filled: firstly, by selecting valid CSV file with products (it can be the one previously exported using export functionality.
 
 Secondly, by providing cart name and description. For reference see [Saved Cart feature]({{ site.baseurl }}/features/saved-cart) documentation.
+
+#### Shared contexts used for saved carts: ####
+- `NewSavedCartOrderEntriesContext` - for creation a new saved cart.
+- `SavedCartOrderEntriesContext` - for add more products to existing saved cart. It bases on `savedCartId` from routing params .
 
 ### Active Cart
 
@@ -92,13 +96,23 @@ Importing to active cart looks similar to [Saved Cart](#saved-cart) however is n
 
 To start import process go to the cart page and if it is empty use 'Import products' link from suggestions. On the other hand if some products were added already into the cart import button will be available below cart entries list.
 
+#### Shared contexts used for active cart: ####
+- `ActiveCartOrderEntriesContext` - used for import / export products to active cart. There are no contraindications to use it e.g. for export from checkout review order page. It is enough to provide the context for `checkoutReviewOrder` route.
+
 ### Quick Order
 
 The import / export feature supports also quick order functionality. Additional limitation while import is max count of products possible to import in one quick order.
 
+#### Shared contexts used for quick order: ####
+- `QuickOrderOrderEntriesContext`
+
 ### Others
 
-The configuration has been set up so that the export is also available on the order confirmation and order details pages. There are no contraindications to add it in checkout review order page. It is enough to provide him with the context from the active cart.
+The configuration has been set up so that the export is also available on the order confirmation and order details pages.
+
+#### Other shared contexts used in Spartacus: ####
+- `OrderConfirmationOrderEntriesContext` - for export order entries from order confirmation page based on latest checkout.
+- `OrderDetailsOrderEntriesContext` - for export products from existing order. It bases on `orderCode` from routing params .
 
 ### Limitations
 
