@@ -14,7 +14,7 @@ feature:
 
 This feature allows a customer to create saved cart or update active cart, by importing CSV file containing product codes and quantities.
 
-Analogical allows users to download CSV file containing specified order entries.
+And the other way, it allows users to download CSV file containing specified order entries.
 
 ---
 
@@ -32,15 +32,51 @@ Cart Import/Export feature can be enabled by installing the `@spartacus/cart` fe
 ### CMS Components
 
 Feature is CMS-driven and consists of the following components:
-`ImportOrderEntriesComponent` - allows to render button for import order entries
-`ExportOrderEntriesComponent` - allows to render button for export order entries
+
+`ImportOrderEntriesComponent` - allows rendering button for import order entries.
+
+`ExportOrderEntriesComponent` - allows rendering button for export order entries.
+
 `ImportExportOrderEntriesComponent`- allows to render both buttons in a row (for import and export)
 
 Button rendering can be disabled by turning off such specific component in backoffice or by using ImpEx query.
 
+
+### Order Entries Context
+
+Import/export feature uses page context provided by routing. In this case, used key is `ORDER_ENTRIES_CONTEXT`.
+Provided context should implement one or both of the following interfaces:
+- `AddOrderEntriesContext` - An interface for context which determinate import products destination. Implementation must contain `addEntries` method and `type` property.
+- `GetOrderEntriesContext` - An interface for context which determinate export products source. Implementation must involve `getEntries` method.
+  
+If only one of the interfaces is implemented, the other function button will be not displayed as a default.
+
+The export button will be hidden also in case when the order entries list is empty.
+
+### Routing configuration
+When one of the above CMS components is registered on the page, you can define your own routing configuration for the feature in the root module, containing the `cxContext` property.
+
+#### Example: ####
+```ts
+ RouterModule.forChild([
+   {
+     // @ts-ignore
+     path: null,
+     canActivate: [AuthGuard, CmsPageGuard],
+     component: PageLayoutComponent,
+     data: {
+       cxRoute: 'savedCartsDetails',
+       cxContext: {
+         [ORDER_ENTRIES_CONTEXT]: SavedCartOrderEntriesContext,
+       },
+     },
+   },
+   //...
+```
+
 ## Import process
 
-Even if UI was prepared to go thourgh the process smoothly, customer must be aware that products are imported one by one (not all at once), so it is potential risk that import process may be disturbed by no intentional browser tab closure or by losing the internet connection.
+Even if UI was prepared to go through the process smoothly, customer must be aware that products are imported one by one (not all at once), so it is potential risk that import process may be disturbed by no intentional browser tab closure or by losing the internet connection.
 
 ### Saved Cart
 
@@ -56,13 +92,21 @@ Importing to active cart looks similar to [Saved Cart](#saved-cart) however is n
 
 To start import process go to the cart page and if it is empty use 'Import products' link from suggestions. On the other hand if some products were added already into the cart import button will be available below cart entries list.
 
+### Quick Order
+
+The import / export feature supports also quick order functionality. Additional limitation while import is max count of products possible to import in one quick order.
+
+### Others
+
+The configuration has been set up so that the export is also available on the order confirmation and order details pages. There are no contraindications to add it in checkout review order page. It is enough to provide him with the context from the active cart.
+
 ### Limitations
 
 Current import logic takes CSV file content and go line by line to detect product code and quantity. Customer is notified in import summary view about import status.
 
 There are following kind of statuses so far:
 
-**success** - product code and qunatity are valid, and product is not out of stock.
+**success** - product code and quantity are valid, and product is not out of stock.
 
 **warning** - product code is valid, but quantity is higher than amount available in stock. In this case system will import maximum available quantity for such product.
 
