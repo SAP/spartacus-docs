@@ -18,9 +18,18 @@ The cart validation feature allows Spartacus to verify a user's cart at every st
 
 The cart validation feature requires SAP Commerce Cloud 2011 or newer.
 
+
 ## Enabling Cart Validation
 
-Cart validation is enabled by default in version 4.2 and newer of the Spartacus libraries.
+To enable cart validation you need to configure the `validation` in the cart configuration. The following is an example:
+
+```typescript
+cart: {
+  validation: {
+    enabled: true
+  }
+}
+```
 
 ## Configuring
 
