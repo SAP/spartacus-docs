@@ -314,6 +314,8 @@ docs:
                   url: /express-checkout/
                 - title: "Guest Checkout"
                   url: /guest-checkout/
+                - title: "Image Zoom"
+                  url: /image-zoom/
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
                 - title: "Inventory Display"
