@@ -80,16 +80,16 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 ## Disabling Cart Import and Export
 
-You can disable the rendering of the cart import or the cart export links by removig the relevant component from specific **Content Slot** in Backoffice, or through ImpEx.
+In Backoffice, you can disable the rendering of the cart import or cart export links by removing the relevant component from the **Content Slot** that contains the component. You can also remove a cart import or cart export component through ImpEx.
 
-**Note:** Here you can find an example how to override Saved Cart history content slot this time omitting `ImportOrderEntriesComponent`.
+The following is an example of how to remove the cart import component from the Saved Cart History page using ImpEx. In this example, the ImpEx query overrides the Saved Cart History content slot and omits `ImportOrderEntriesComponent`, which has the effect of removing the component:
 
 ```text
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
 ;;BodyContent-saved-carts;Body content for Saved Carts History Slot;AccountSavedCartHistoryComponent
 ```
 
-You are able to do it similarly for all queries mentioned in section [above](#adding-cart-import-and-export-components-through-impex).
+You can use the same query pattern to disable any cart import or cart export component using ImpEx.
 
 ## Global Configuration
 
