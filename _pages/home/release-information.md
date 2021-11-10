@@ -64,7 +64,7 @@ This improvement maintains the scroll position when moving forward and backward 
 
 ### Order History library
 
-The introduction of a separate library for order history functionality is part of a long-term performance improvement effort. By separating the codebase into smaller libraries, packages are smaller, allowing for better lazy loading and improved performance. For example, with the Order History library, the code is only loaded when customers want to view orders they have already submitted. The existing Order History code is deprecated and will be removed in a future major release. Note that when upgrading, the existing Order History code is used, but when installing from schematics, the new library is used.
+The introduction of a separate library for order history functionality is part of a long-term performance improvement effort. By separating the codebase into smaller libraries, packages are smaller, allowing for better lazy loading and improved performance. For example, with the Order History library, the code is only loaded when customers want to view orders they have already submitted. The existing Order History code is deprecated and will be removed in a future major release. Note that when upgrading, the existing Order History code is used, but when installing from schematics, the new library is used. For more information, see the [{% assign linkedpage = site.pages | where: "name", "order-library-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-notes/order-library-release-notes.md %}).
 
 ### Improvements Related to Support for Screen Readers
 

@@ -41,7 +41,12 @@ docs:
                       - title: "Technical Changes in Spartacus 2.0"
                         url: /technical-changes-version-2/
                       - title: "Changes to Styles in 2.0"
-                        url: /css-changes-in-version-2/    
+                        url: /css-changes-in-version-2/
+                - title: "Miscellaneous Release Notes ➢"
+                  url: /misc-release-notes/
+                  underchildren:
+                      - title: "Order Library Release Notes"
+                        url: /order-library-release-notes/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
