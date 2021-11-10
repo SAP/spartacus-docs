@@ -38,7 +38,7 @@ Quick order is CMS-driven and consists of the following CMS components:
 
 You can configure quick order by using SmartEdit to display the quick order components in Spartacus, or you can manually add them to content slots using ImpEx.
 
-If you are using the [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the quick order components are already enabled. However, if you decide not to use the spartacussampledata extension, you can enable the quick order components through ImpEx.
+If you are using the [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the quick order components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the quick order components through ImpEx.
 
 **Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
@@ -225,4 +225,4 @@ You can import a CSV file containing a list of products, and add these products 
 
 The functionality for importing a CSV file into the quick order list is dependent on the `quickOrderListLimit`. If there are more products in the CSV file than are permitted by the limit, any products that exceed the limit are not added. For information on configuring the `quickOrderListLimit`, see [Limiting the Quick Order List](#limiting-the-quick-order-list).
 
-**Note:** To import and export in the **Quick Order** page, you need to enable cart import and export. For more information, see [Cart Import and Export](link-to-come).
+**Note:** To import and export in the **Quick Order** page, you need to enable cart import and export. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
