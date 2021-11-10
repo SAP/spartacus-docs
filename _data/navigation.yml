@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 4.1
+    - title: Version 4.2
       url: /release-information/
 
 # sidebar menu
@@ -41,7 +41,12 @@ docs:
                       - title: "Technical Changes in Spartacus 2.0"
                         url: /technical-changes-version-2/
                       - title: "Changes to Styles in 2.0"
-                        url: /css-changes-in-version-2/    
+                        url: /css-changes-in-version-2/
+                - title: "Miscellaneous Release Notes ➢"
+                  url: /misc-release-notes/
+                  underchildren:
+                      - title: "Order Library Release Notes"
+                        url: /order-library-release-notes/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
@@ -298,6 +303,10 @@ docs:
                   url: /bulk-pricing/  
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
+                - title: "Cart Import and Export"
+                  url: /cart-import-export/
+                - title: "Cart Validation"
+                  url: /cart-validation/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
@@ -312,6 +321,8 @@ docs:
                   url: /express-checkout/
                 - title: "Guest Checkout"
                   url: /guest-checkout/
+                - title: "Image Zoom"
+                  url: /image-zoom/
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
                 - title: "Inventory Display"
@@ -323,7 +334,9 @@ docs:
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
-                  url: /scheduled-replenishment/  
+                  url: /scheduled-replenishment/
+                - title: "Scroll Position Restoration"
+                  url: /scroll-position-restoration/
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"
