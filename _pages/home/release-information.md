@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 4.1.0 final published September 14, 2021**
+**Latest news: 4.2.0 final published November 10, 2021**
 
-*Last updated Sept 14, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated November 10, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -30,6 +30,18 @@ This document describes what is included in all Spartacus libraries since the in
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 4.2
+
+*Release 4.2 libraries published November 10, 2021*
+
+Highlights include the following:
+
+### Order functionality moved to a new library
+
+Spartacus 4.2 introduces the `@spartacus/order` library. This is the latest iteration of the code splitting initiative. The main goal of code splitting is to reduce the initial download size of a Spartacus storefront app, which is achieved through lazy loading of the feature libraries. For more information, see the [{% assign linkedpage = site.pages | where: "name", "order-library-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-notes/order-library-release-notes.md %}).
+
+### More 4.2 release details to come...
 
 ## Release 4.1
 
