@@ -301,7 +301,7 @@ You can use the following values to define the context:
 - `SavedCartOrderEntriesContext` is used for adding more products to an existing saved cart. It is based on the routing parameters of the `savedCartId`.
 - `ActiveCartOrderEntriesContext` is used for importing and export products to and from the active cart. This context can be used on any page where the cart is active. For example, if you wanted to add an export link to the Review Order checkout page, you can simply provide the `ActiveCartOrderEntriesContext` context for the `checkoutReviewOrder` route.
 - `QuickOrderOrderEntriesContext` is used to provide the context when using import or export functionality with [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
-- `OrderConfirmationOrderEntriesContext` is used for exporting order entries from the order confirmation page, and is based on the latest checkout.
+- `OrderConfirmationOrderEntriesContext` is used for exporting order entries from the order confirmation page.
 - `OrderDetailsOrderEntriesContext` is used for exporting products from an existing order on the order details page. It is based on the routing parameters of the `orderCode`.
 
 The following is an example of how Spartacus defines the route and context for the cart import functionality on the Saved Cart Details page:
