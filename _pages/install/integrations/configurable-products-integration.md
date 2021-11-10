@@ -133,6 +133,7 @@ The following features are currently not supported (or in some cases, not fully 
 - [Cart Validation](#cart-validation)
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
+- [Cart Import and Export](#cart-import-and-export)
 
 ### Save for Later and Selective Cart
 
@@ -268,3 +269,7 @@ The following conditions and actions are currently **not supported** in the Spar
 ### Assisted Service Mode
 
 Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
+
+### Cart Import and Export
+
+Cart import and export is currently not supported with the Configurable Products integration.

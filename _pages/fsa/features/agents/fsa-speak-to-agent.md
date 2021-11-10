@@ -17,7 +17,7 @@ The **Speak to an Agent** feature offers customers a possibility to easily start
 
 ## Prerequisites
 
-To integrate your project with Live Contract, you first need to set the syncpilot.integration.active property to true in your local.properties file. 
+To integrate your project with Live Contract, you first need to set the syncpilot.integration.active property to true in your local.properties file.
 
 ## Components
 
@@ -40,17 +40,17 @@ With the following code snippet, you can add the component anywhere in your proj
         <cx-fs-sync-pilot-connection-component></cx-fs-sync-pilot-connection-component> 
     </ng-container>
 ```
+
 The component is very simple. The target URL is configured on the back-end side of the component so when the user clicks on the link, a new window will open with passed parameters: channel and currently logged-in user details.
 
 ## User Interface
 
 Once configured, the SyncPilot CMS Component will be visible on all product comparison pages. Although the default location of this component is the comparison table, you can place it on another location in your custom project.
 
-The customer must be logged in to be able to see the component. 
+The customer must be logged in to be able to see the component.
 
 ![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents/speak_to_agent.png)
 
 When the customer clicks the 'Speak to an Agent' link, they will be is redirected to the partner solution endpoint in the new tab. 
- 
+
 ![Live Contract Login Page]({{ site.baseurl }}/assets/images/fsa/agents/sync_pilot_endpoint.png)
- 

@@ -287,3 +287,7 @@ Other Commerce business rules (such as those for promotions) still work and appl
 ## Browser Refresh
 
 When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
+
+## Cart Import and Export
+
+Cart import and export is currently not supported with the CPQ Configurable Products integration.
