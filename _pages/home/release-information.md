@@ -38,31 +38,38 @@ This document describes what is included in all Spartacus libraries since the in
 
 Highlights include the following:
 
-### Import products to active or saved cart
-This feature allows customers to use a CSV (comma-seperated values) file to quickly import multiple products to the active cart or into a saved cart. The CSV file contains the product SKU and quantity. For more information, see the [feature documentation](link).
+### Import Products to Active or Saved Cart
 
-### Export products from active or saved cart
-This feature allows customers to export an active or saved cart to a CSV file. By default, the exported file contains the product SKU, quantity, name, and price, but this is configuable. For more information, see the [feature documentation](link).
+This feature allows customers to use a comma-separated values (CSV) file to quickly import multiple products to the active cart or into a saved cart. The CSV file contains the product SKU and quantity. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
+
+### Export Products From Active or Saved Cart
+
+This feature allows customers to export an active or saved cart to a CSV file. By default, the exported file contains the product SKU, quantity, name, and price, but this is configurable. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
 
 ### Product Image Zoom
-This feature allows customers to magnify product images when viewed from the Product Details page. Clicking a product image enters "zoom mode", at which point the customer can magnify the picture based on mouse location. For more information, see the [feature documentation](link).
 
-### Quick Order improvement: Search by product name
-The Quick Order feature was introduced in the 4.1 Spartacus libraries. With this improvement, customers using the form are now able to search by product name, not just SKU. The Quick Order field on the cart page is not affected. For more information, see the [feature documentation](link).
+This feature allows customers to magnify product images when viewed from the Product Details page. Clicking a product image enters "zoom mode", at which point the customer can magnify the picture based on mouse location. For more information, see [{% assign linkedpage = site.pages | where: "name", "image-zoom.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/image-zoom.md %}).
+
+### Quick Order Improvement: Search by Product Name
+
+The Quick Order feature was introduced in the 4.1 Spartacus libraries. With this improvement, customers using the form are now able to search by product name, not just SKU. The Quick Order field on the cart page is not affected. For more information, see [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
 
 ### Cart Validation
-This feature identifies issues with customer cart when opening the Cart page or when proceeding to check out, and is extensible. The typical use case is when a customer adds a product to cart today, and then tomorrow goes to check out, but there is no more stock. In this example, a message is displayed to the customer about what happened, and the product is removed from the cart. For more information, see the [feature documentation](link).
 
-### Scroll Restoration
-This improvement maintains the scroll position when moving forward and backward throughout a Spartacus-based site. The user experiernce is greatly improved when searching or viewing categories, reviewing product information, and going back. For more information, see the [feature documentation](link).
+This feature identifies issues with customer cart when opening the Cart page or when proceeding to check out, and is extensible. The typical use case is when a customer adds a product to the cart today, and then tomorrow goes to check out, but there is no more stock. In this example, a message is displayed to the customer about what happened, and the product is removed from the cart. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}).
+
+### Scroll Position Restoration
+
+This improvement maintains the scroll position when moving forward and backward throughout a Spartacus-based site. The user experience is greatly improved when searching or viewing categories, reviewing product information, and going back. For more information, see [{% assign linkedpage = site.pages | where: "name", "scroll-position-restoration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/scroll-position-restoration.md %}).
 
 ### Order History library
-The introduction of a separate library for order history functionality is part of a long-term performance improvement effort. By separating the codebase into smaller libraries, packages are smaller, allowing for better lazy loading and improvement performance. For example, with the Order History library, the code is only loaded when customers want to view orders they have already submitted. For more information, see the [feature documentation](link). The existing Order History code is deprecated and will be removed in a future major release. Note that when upgrading, the existing Order History code is used; but when instaling from schematics, the new library is used. For more information, see the [feature documentation](link).
 
-### Improvements related to support for Screen Readers
+The introduction of a separate library for order history functionality is part of a long-term performance improvement effort. By separating the codebase into smaller libraries, packages are smaller, allowing for better lazy loading and improved performance. For example, with the Order History library, the code is only loaded when customers want to view orders they have already submitted. The existing Order History code is deprecated and will be removed in a future major release. Note that when upgrading, the existing Order History code is used, but when installing from schematics, the new library is used. For more information, see the [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
+
+### Improvements Related to Support for Screen Readers
+
 If you dive into the source code, you may notice improvements in various places related to support for screen readers. This effort is not complete. We are planning to announce support for screen readers in the next major, 5.0, for most core features.
-  
-  
+
 ## Release 4.1
 
 *Release 4.1 libraries published September 14, 2021*
