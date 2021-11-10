@@ -296,10 +296,10 @@ docs:
                   url: /b2b-commerce-organization/
                 - title: "Bulk Pricing"
                   url: /bulk-pricing/  
-                - title: "Cart Import and Export"
-                  url: /cart-import-and-export/
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
+                - title: "Cart Import and Export"
+                  url: /cart-import-export/
                 - title: "Cart Validation"
                   url: /cart-validation/
                 - title: "Consignment Tracking"
