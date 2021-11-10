@@ -4,14 +4,14 @@ title: Schematics
 
 Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ You need to first install the Spartacus core libraries before you can install ad
 During the initial set up of your storefront using schematics, you have the option to install a number of Spartacus features, which is done by installing the relevant integration or feature libraries. The following is a list of the integration libraries and feature libraries that you can install, along with information about what is included in each package.
 
 - `@spartacus/asm` includes the [{% assign linkedpage = site.pages | where: "name", "asm.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/asm.md %}).
-- `@spartacus/cart` includes the [{% assign linkedpage = site.pages | where: "name", "saved-cart.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %}), [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}), [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}) features.
+- `@spartacus/cart` includes the [{% assign linkedpage = site.pages | where: "name", "saved-cart.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/saved-cart.md %}), [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}), and [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}) features.
 - `@spartacus/cdc` includes the [{% assign linkedpage = site.pages | where: "name", "cdc-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %}).
 - `@spartacus/cds` includes the [{% assign linkedpage = site.pages | where: "name", "cds-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %}).
 - `@spartacus/organization` includes the Organization Administration and Order Approval features. Both are required for [{% assign linkedpage = site.pages | where: "name", "b2b-commerce-organization.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/b2b-commerce-organization.md %}) to work.
