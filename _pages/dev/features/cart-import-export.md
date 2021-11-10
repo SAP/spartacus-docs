@@ -1,9 +1,9 @@
 ---
 title: Cart Import and Export
 feature:
-  - name: Cart Import and Export
-    spa_version: 4.2
-    cx_version: 2011
+- name: Cart Import and Export
+  spa_version: 4.2
+  cx_version: 2011
 ---
 
 {% capture version_note %}
@@ -18,14 +18,14 @@ Cart export allows you to download a CSV file that contains a list of all the it
 
 **Note:** The exported CSV file always contains the product code and quantity columns. You can include additional columns by defining them in the configuration. For more information, see [Adding Columns in the CSV File](#adding-columns-in-the-csv-file).
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Enabling Cart Import and Export
 
@@ -41,7 +41,7 @@ If you are using the [{% assign linkedpage = site.pages | where: "name", "sparta
 
 ### Adding Cart Import and Export Components Through ImpEx
 
-The following are some ImpEx examples that you can use to add cart import and export components to different pages. After adding a component, you must also define the route and context to enable the relevant functionality. For more information, see [Defining the Route and Context for Custom Configurations](#defining-the-route-and-context-for-custom-configurations).
+The following are some ImpEx examples that you can use to add cart import and export components to different pages. After adding a component, you must also define the route and context to enable the relevant functionality.  For more information, see [Defining the Route and Context for Custom Configurations](#defining-the-route-and-context-for-custom-configurations).
 
 **Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
@@ -329,8 +329,8 @@ If you are setting up a custom page and want to include cart import or cart expo
 
 - `AddOrderEntriesContext` is a context interface that determines the destination of the imported products. The implementation must include the `addEntries` method and the `type` property.
 - `GetOrderEntriesContext` is a context interface that determines the source of the product entries to be exported. The implementation must include the `getEntries` method.
-
-By default, if only one of the interfaces is implemented, the other function link is not displayed. Also note, the _Export to CSV_ link is hidden if the order entries list is empty.
+  
+By default, if only one of the interfaces is implemented, the other function link is not displayed. Also note, the *Export to CSV* link is hidden if the order entries list is empty.
 
 ## Using Cart Import and Export in the Storefront
 
