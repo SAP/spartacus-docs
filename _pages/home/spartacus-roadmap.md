@@ -6,7 +6,7 @@ This document describes what what is planned for Spartacus for Q1 2021 and later
 
 *Last updated November 9, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-4.2 released! See [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+4.2 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
 
 ***
