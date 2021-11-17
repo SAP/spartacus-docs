@@ -378,7 +378,7 @@ In the implementation of this custom feature module, you statically import the o
 ```typescript
 // custom-rulebased-configurator.module.ts
 
-import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rulebased`;
+import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rulebased';
 
 @NgModule({
   imports: [RulebasedConfiguratorModule], // import the original Spartacus module
