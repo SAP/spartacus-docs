@@ -1,9 +1,8 @@
 ---
-title: Configurable *prefillValue* Form Field 
+title: Configurable prefillValue Form Field 
 ---
 
 This page explains how to use the configurable *prefillValue* form field in the dynamicforms library. 
-
 
 
 ***

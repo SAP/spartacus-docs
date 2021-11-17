@@ -559,7 +559,7 @@ docs:
                         url: /json-structure/
                       - title: "Form Controls"
                         url: /form-controls/
-                      - title: "Adding a Form to a Simple Page"
+                      - title: "Adding Form to a Simple Page"
                         url: /adding-form/
                       - title: "Basic Form Validations"
                         url: /basic-form-validations/
@@ -569,7 +569,7 @@ docs:
                         url: /form-control-dependencies/
                       - title: "Form Submission"
                         url: /form-submission/
-                      - title: "Configurable *prefillValue* Form Field"
+                      - title: "Configurable prefillValue Form Field"
                         url: /pre-populate-field/
                       - title: "Document Upload"
                         url: /form-controls-document-upload

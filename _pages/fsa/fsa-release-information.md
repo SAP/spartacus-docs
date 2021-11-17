@@ -15,7 +15,7 @@ title: Release Information for All Versions of FSA Spartacus Libraries
 
 This document describes what is included in all FSA Spartacus libraries since the initial 1.0 release. 
 
-**Note: FSA Spartacus 3.x requires Spartacus 3.4 and Angular 10. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
+**Note: FSA Spartacus 4.x requires Spartacus 4.1 and Angular 12.0.5. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-financial-services-accelerator/releases).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
@@ -25,6 +25,11 @@ This document describes what is included in all FSA Spartacus libraries since th
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 4.0
+*Release 4.0 libraries published November 2021*
+
+- **SAP Digital Payments Integration** - With SAP Digital Payments integration, Financial Services Accelerator provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotation and application processes.
 
 ## Release 3.0
 *Release 3.0 libraries published October 7, 2021*

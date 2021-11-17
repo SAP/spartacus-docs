@@ -2,7 +2,7 @@
 title: FSA Spartacus Roadmap
 ---
 
-This document describes what is planned for FSA Spartacus for Q3 2021 and later.
+This document describes what is planned for FSA Spartacus in 2022.
 
 ***
 
@@ -35,14 +35,10 @@ Some of the links provided in the following lists point to SAP Commerce Cloud Fi
 If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
   
 For non-technical questions and roadmap feedback, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
-  
 
-## Features Planned for Version 4.0 / October 2021
+## Future Outlook / Features Planned for 2022
 
-- **SAP Digital Payment AddOn Integration** - This feature provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotatation and application processes.
-
-
-## Features Planned for Version 5.0 / February 2022
+### Features Planned for Version 5.0 / February 2022
 
 - **My Account Dashboard** - Customers can now see an overview of the most important information from the My Account area on a separate summary page called My Account Dashboard.
 - **Renewal Process** - The system notifies policyholders about their policy renewal options when their existing policies are about to expire. This helps customers decide about the new version of their policies while they are still valid.   
@@ -50,4 +46,4 @@ For non-technical questions and roadmap feedback, you can reach us on our *#help
 - **On-Behalf-Of Framework** - This framework enables financial B2B customers to execute processes on behalf of their customers. At the same time, they have an overview of their customer's portfolio.
 - **Chatbot** - The Chatbot feature in Financial Services Accelerator allows financial companies to interact and coordinate with their customers in real-time and easy-to-use interface.
 - **Quote Replication** - Quotes created in another system (e.g., PQM) are replicated in the Financial Services Accelerator and shown to the customer. The customer can accept or decline the quote. The customer's decision is then replicated back to the originating system.
-
+- **Live Contract Integration Enhancement** - The integration between Financial Services Accelerator and Live Contract has been extended so that customers can now directly call an agent of choice from the Find an Agent page.

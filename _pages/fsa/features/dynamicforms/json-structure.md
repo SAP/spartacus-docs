@@ -2,7 +2,7 @@
 title: Form Definition - JSON Structure
 ---
 
-In Dynamic Forms, the content, behavior and styling of a form is defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels, etc.
+In Dynamicforms, the content, behavior and styling of a form is defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels, etc.
 
 ***
 

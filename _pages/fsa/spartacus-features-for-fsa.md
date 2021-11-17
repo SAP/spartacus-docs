@@ -4,6 +4,9 @@ title: FSA Spartacus Features
 
 This is a landing page for grouping together FSA Spartacus features. The FSA Spartacus features include the following:
 
+## Release 4.0
+- [SAP Digital Payments Integration]({{ site.baseurl }}{% link _pages/fsa/features/fsa-checkout.md %})
+
 ## Release 3.0
 
 - [Coupons]({{ site.baseurl }}{% link _pages/fsa/features/fsa-coupons.md %})
