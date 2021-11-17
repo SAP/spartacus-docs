@@ -16,16 +16,14 @@ The Policy Change feature enables insurance carriers to provide their customers 
 
 ***
 
-##Overview
+## Initiating Policy Change Request 
 
-Existing customers can enter the policy change process on the Policy Details page in the My Account area. Financial Service Accelerator provides several sample policy change processes out of the box. Processes for changing mileage, adding or removing coverages, as well as adding additional drivers are made available, based on the sample Auto Insurance product. 
-After choosing what they wish to change on the first step, customers are presented with a preview of the new premium, which they can then compare with the existing one and if satisfied, submit the change request. The customer can cancel the policy change at any time during the change process, in which case the customer will be redirected to the 'Policy Details' page again.
+Existing customers can enter the policy change process on the **Policy Details** page in the **My Account** area. After choosing what they wish to change on the first step, customers are presented with a preview of the new premium, which they can then compare with the existing one and if satisfied, submit the change request. The customer can cancel the policy change at any time during the change process, in which case the customer will be redirected to the 'Policy Details' page again.
 
-##Implementation
 
-The policy change process is based on the User Request Framework, a flexible, lightweight framework for implementing various types of user requests, originating from the customer towards the company. Although the current implementation of the Financial Services Accelerator uses this framework for changing policies and reporting claims, it can be extended and reused for other request types (contact request, service request, etc.). All user request processes are fully configurable in the Backoffice. For more information, see [User Request Framework](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/e565d508786748b2a752b4faccf860d2.html) documentation on the SAP Help Portal.
+## Policy Change Sample Requests
 
-## Policy Change Sample Processes
+Financial Service Accelerator provides several sample policy change processes out of the box. Processes for changing mileage, adding or removing coverages, as well as adding additional drivers are made available, based on the sample Auto Insurance product. 
 
 ### Changing Mileage
 
@@ -41,9 +39,9 @@ A two-step change process is initiated - in the first step, the user is presente
 
 If satisfied with the new premium, the user applies the change by clicking the **SUBMIT** button. The new premium becomes effective immediately and can be seen on the **Policy Details** page.
 
-###Adding and Removing Coverages
+### Adding and Removing Coverages
 
-The user may wish to add additional coverage to the existing policy or remove coverage that is no longer wanted. The user can apply one or both changes within the same change process.
+The user may wish to add additional coverage to the existing policy or remove coverage that is no longer wanted. The user can make one or both of these changes within the same change process.
 
 This time the user initiates the change request process by clicking the **Edit** button in the ‘Optional Extras’ accordion.
 
@@ -62,19 +60,25 @@ After submitting the request for coverage change, the user can see the changes o
 
 ### Adding Additional Drivers
 
-By clicking  the **ADD** button in the Drivers section of the 'Who or What is Insured' accordion, the user initiate the Policy Change process for adding an additional driver to the policy. User is presented with the form requesting information about the additional driver. Note that 'Effective date' field is disabled and cannot be changed by the policyholder.
+By clicking  the **ADD** button in the Drivers section of the 'Who or What is Insured' accordion, the user initiates the policy change process for adding additional driver to the policy. The user is presented with the form requesting information about the additional driver. Note that 'Effective date' field is disabled and cannot be changed by the policyholder.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/additional_driver_form.png)
 
-Once all the required fields are filled in, the user can proceed to the final step of the Policy Change process for adding a driver.
-On this step, the user is presented with an overview of the change applied to the current Policy.
+After filling in all the required fields, the user can proceed to the Change Preview step.
+On this step, the user is presented with an overview of the change applied to the current policy.
 
-![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/change_preview.png)
+![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/add-driver-step2.png)
 
-When the user clicks **Submit**, a Confirmation page is displayed, indicating that the request has been submitted.
+When the user clicks **SUBMIT**, a confirmation page is displayed, indicating that the request has been submitted.
 
 ![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/cr_confirmation.png)
 
-The user can see the policy change by visiting the Policy Details page again. In the 'Who or What is Insured' accordion there should be an additional section containing information about the additional driver, with the headline 'Driver 2'.
+The user can see the policy change by visiting the **Policy Details** page again. In the 'Who or What is Insured' accordion, the user can see a new section with the headline 'Driver 2', containing information about the added additional driver.
 
-![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/driver_added.png)
+## Implementation
+
+The policy change process is based on the User Request Framework, a flexible, lightweight framework for implementing various types of user requests, originating from the customer towards the company. 
+
+Although the current implementation of the Financial Services Accelerator uses this framework for changing policies and reporting claims, it can be extended and reused for other request types (contact request, service request, etc.). All user request processes are fully configurable in the Backoffice. 
+
+For more information, see [User Request Framework](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/e565d508786748b2a752b4faccf860d2.html) documentation on the SAP Help Portal.
