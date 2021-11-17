@@ -47,7 +47,7 @@ In CCv2, or any other setup that uses proxy servers, the request origin may be m
 
 When working with SSR, to get the request URL or the origin, you should use the Spartacus `WindowRef.location.href` or `WindowRef.location.origin` properties. This works with CSR as well.
 
-**Note:** The `WindowRef.location` interface in SSR is able to mimic only some properties of the [Document Location Web API](https://developer.mozilla.org/en-US/docs/Web/API/Location), such as `href` and `origin`. However, when used with CSR, the `WindowRef.location` interface exposes all of the properties of the `Location` interface because it points to the original `Document.location` object.
+**Note:** The `WindowRef.location` property in SSR is able to mimic only some properties of the [Location](https://developer.mozilla.org/en-US/docs/Web/API/Location) interface, such as `href` and `origin`. However, when used with CSR, the `WindowRef.location` property exposes all of the properties of the `Location` interface because it points to the original `document.location` object.
 
 ## Avoiding Memory Leaks in SSR
 
