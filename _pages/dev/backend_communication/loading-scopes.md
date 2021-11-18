@@ -69,7 +69,7 @@ Spartacus  preprocesses these fields to optimize calls to the back end, especial
 
 Ideally, `fields` descriptions should be as specific as possible, and aliases such as `BASIC`, `DEFAULT` and `FULL` should be avoided, where possible.
 
-## Defining Custom Loading Scope
+## Defining Custom Loading Scopes
 
 You define a custom product scope by adding a new endpoint configuration with the specified `fields` parameter. In the following example, a new `price` scope is defined and made available:
 
@@ -107,7 +107,7 @@ productService.get(code, [ProductScope.DETAILS, ProductScope.ATTRIBUTES]) // ret
 
 With this example, you should expect multiple emissions that, in certain cases, could initially contain partial payloads, because the observable instantly delivers data for all scopes that are loaded, and lazy loads the missing ones.
 
-Partial payloads for each scope are merged into one payload according to the order in which the scopes were provided. If scope payloads overlap, then the scope that was specified later in the array can overwrite parts of the payload that were provided earlier. It is always preferable to provide scope definitions that do not overlap with each other, but it is certainly acceptable to do so, as long as you are aware of the merging order.
+Partial payloads for each scope are merged into one payload according to the order in which the scopes were provided. If scope payloads overlap, then the scope that was specified later in the array can overwrite parts of the payload that were provided earlier. It is always preferable to provide scope definitions that do not overlap with each other, but it is certainly acceptable to provide scope definitions that do overlap, as long as you are aware of the merging order.
 
 ## Scope Inclusions
 
@@ -116,7 +116,7 @@ Scope inclusions allow you to optimize the loading of data from multiple scopes.
 - you have the `list` scope, which contains only minimal data
 - you have the `details` scope, which contains product details, including data that is available in the `list` scope
 
-Scope inclusion allows you to load additional, detailed data if the list scope is already loaded. One simple use case is navigating to the product details page after clicking on a carousel item. You already have the basic product data available, which can be displayed instantly, and you only need to make a request for the missing details.
+Scope inclusion allows you to load additional, detailed data if the `list` scope is already loaded. One simple use case is navigating to the product details page after clicking on a carousel item. You already have the basic product data available, which can be displayed instantly, and you only need to make a request for the missing details.
 
 This is handled by removing payload parts from the `details` scope if they are already covered by the `list` scope, and by including the `list` scope in the `details` scope, as shown in the following example:
 
@@ -142,9 +142,9 @@ This configuration always results in an optimal call, as follows:
 
 The payload that is defined for the main scope (in this case, the `details` scope) always takes precedence when merging scopes. This means that if one of the included scopes (in this case, the `list` scope) contains the same payload parts as the `details` scope, it will be effectively overwritten by data from the `details` scope.
 
-It is possible to provide more than one scope in the `include` array configuration, and those scopes are merged using the same rules and order as described in [Merging Scopes](#merging-scopes).
+It is possible to provide more than one scope in the `include` array configuration, and those scopes are merged according to the same rules and order as described in [Merging Scopes](#merging-scopes).
 
-## Defining maxAge for the Scope
+## Keeping Scope Data Up To Date
 
 Working with scopes allows you to load only the part of the data that you need, and to load it efficiently, which usually means only once per session or context change. For data that should be kept fresh and reloaded more often, you can use the `maxAge` parameter to take care of data reloads when the data becomes obsolete.
 
@@ -186,4 +186,4 @@ The `reloadOn` configuration allows you to reload a product when a specific even
 }
 ```
 
-In this example, the `detail` scope is reloaded when `MyEvent` is emitted.
+In this example, the `details` scope is reloaded when `MyEvent` is emitted.
