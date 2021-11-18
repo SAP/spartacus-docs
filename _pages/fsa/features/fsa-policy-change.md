@@ -37,7 +37,12 @@ A two-step change process is initiated - in the first step, the user is presente
 
 ![Change Mileage - Change Preview]({{ site.baseurl }}/assets/images/fsa/policy-change/change-mileage-step2.png)
 
-If satisfied with the new premium, the user applies the change by clicking the **SUBMIT** button. The new premium becomes effective immediately and can be seen on the **Policy Details** page.
+If satisfied with the new premium, the user applies the change by clicking the **SUBMIT** button. 
+When the user submits the request, a confirmation page is displayed, indicating that the request has been submitted.
+
+![Change Confirmation Page]({{ site.baseurl }}/assets/images/fsa/policy-change/cr_confirmation.png)
+
+The new premium becomes effective immediately and can be seen on the **Policy Details** page.
 
 ### Adding and Removing Coverages
 
@@ -53,7 +58,13 @@ In the first step, the user can now choose whether to add or remove coverages. N
 
 In the final step, the user previews the changes made to the policy, and if satisfied, submits the change request.
 
-![Change Coverage Preview Step]({{ site.baseurl }}/assets/images/fsa/policy-change/removing_coverage_final_step.png)
+Example of a Change Preview page when the user adds additional coverage: 
+
+![Add Coverage Preview Step]({{ site.baseurl }}/assets/images/fsa/policy-change/add-coverage-step2.png)
+
+Example of a Change Preview page when the user removes existing coverage:
+
+![Remove Coverage Preview Step]({{ site.baseurl }}/assets/images/fsa/policy-change/remove-coverage-step2.png)
 
 After submitting the request for coverage change, the user can see the changes on the **Policy Details** page.
 
@@ -62,18 +73,18 @@ After submitting the request for coverage change, the user can see the changes o
 
 By clicking  the **ADD** button in the Drivers section of the 'Who or What is Insured' accordion, the user initiates the policy change process for adding additional driver to the policy. The user is presented with the form requesting information about the additional driver. Note that 'Effective date' field is disabled and cannot be changed by the policyholder.
 
-![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/additional_driver_form.png)
+![Form for Adding Additional Driver]({{ site.baseurl }}/assets/images/fsa/policy-change/additional_driver_form.png)
 
 After filling in all the required fields, the user can proceed to the Change Preview step.
 On this step, the user is presented with an overview of the change applied to the current policy.
 
-![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/add-driver-step2.png)
-
-When the user clicks **SUBMIT**, a confirmation page is displayed, indicating that the request has been submitted.
-
-![Policy details page]({{ site.baseurl }}/assets/images/fsa/policy-change/cr_confirmation.png)
+![Add Driver Change Preview Step]({{ site.baseurl }}/assets/images/fsa/policy-change/add-driver-step2.png)
 
 The user can see the policy change by visiting the **Policy Details** page again. In the 'Who or What is Insured' accordion, the user can see a new section with the headline 'Driver 2', containing information about the added additional driver.
+
+![Policy Details Page with Additional Driver Added]({{ site.baseurl }}/assets/images/fsa/policy-change/policy-details-driver-added.png)
+
+The user can add up to three additional drivers. The change procedure in this case needs to be done for each additional driver separately.
 
 ## Implementation
 
