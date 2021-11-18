@@ -127,7 +127,7 @@ This is handled by removing payload parts from the `details` scope if they are a
       product: {
         details: {
           include: ['list']
-          }
+        }
       },
     },
   },
@@ -177,7 +177,7 @@ The `reloadOn` configuration allows you to reload a product when a specific even
   backend: {
     loadingScopes: {
       product: {
-        detail: {
+        details: {
           reloadOn: [MyEvent]
         }
       },
