@@ -107,7 +107,7 @@ productService.get(code, [ProductScope.DETAILS, ProductScope.ATTRIBUTES]) // ret
 
 With this example, you should expect multiple emissions that, in certain cases, could initially contain partial payloads, because the observable instantly delivers data for all scopes that are loaded, and lazy loads the missing ones.
 
-Partial payloads for each scope are merged into one payload according to the order in which the scopes were provided. If scope payloads overlap, then the scope that was specified later can overwrite parts of the payload that were provided earlier. It is always preferable to provide scope definitions that do not overlap with each other, but it is certainly acceptable to do so, as long as you are aware of the merging order.
+Partial payloads for each scope are merged into one payload according to the order in which the scopes were provided. If scope payloads overlap, then the scope that was specified later in the array can overwrite parts of the payload that were provided earlier. It is always preferable to provide scope definitions that do not overlap with each other, but it is certainly acceptable to do so, as long as you are aware of the merging order.
 
 ## Scope Inclusions
 
