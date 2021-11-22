@@ -79,6 +79,10 @@ The default value for the `backend.occ.prefix` configuration option was changed 
 
 The new config `SeoConfig` is imported.
 
+### JSON-LD schemas
+
+To continue using JSON-LD schemas in Spartacus, or to start using JSON-LD schemas in Spartacus, you need to import the `JsonLdBuilderModule` to your application.
+
 ### ContentPageMetaResolver
 
 The `ContentPageMetaResolver` has a new required constructor dependency `RoutingPageMetaResolver`.
