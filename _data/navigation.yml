@@ -511,7 +511,9 @@ docs:
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
-                  url: /product-offering-search/                                     
+                  url: /product-offering-search/
+                - title: "Purchase POs with Configurable Characteristics"
+                  url: /purchase-po-with-configurable-characteristics/                                         
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
