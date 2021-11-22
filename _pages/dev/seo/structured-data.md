@@ -1,9 +1,9 @@
 ---
 title: Structured Data
 feature:
-- name: Structured Data
-  spa_version: 1.3
-  cx_version: n/a
+  - name: Structured Data
+    spa_version: 1.3
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -14,14 +14,14 @@ feature:
 
 Structured data is a standardized way of describing the page content of a website to make it easier for web crawlers and search engines to understand. For example, using HTML alone, an `img` element does not indicate whether the element represents a product or a person. When you use structured data, you provide various data sets to the page to make the content easier for web crawlers to classify. The data sets used in Spartacus are aligned with the standard schemas that are provided by the Schema.org community.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Tag Managers
 
@@ -54,6 +54,10 @@ Spartacus uses JSON-LD because it is an easier format to generate, and it is dec
 The creation of the JSON-LD schemas is completely separated from the UI components, so that whenever you replace a UI component, you can still benefit from the generated structured data.
 
 The schemas are only used by crawlers, so there is no need to build schemas for every page while end users are browsing the application. Therefore, the creation of schemas is limited to the Server-Side Rendering process. However, since developers are involved in evaluating and building the schemas, Spartacus also renders the schemas in development mode.
+
+## JSON-LD setup
+
+To setup the JSON-LD schemas feature in Spartacus, you need to import the `JsonLdBuilderModule` to your application.
 
 ## Schema Builders
 
@@ -92,9 +96,9 @@ This example JSON schema generates the following script tag:
 
 ```html
 <script type="application/ld+json">
-    {
-        "foo": "bar"
-    }
+  {
+    "foo": "bar"
+  }
 </script>
 ```
 
