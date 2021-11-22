@@ -19,7 +19,7 @@ Structured data is a standardized way of describing the page content of a websit
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
 ***
 
