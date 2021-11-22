@@ -255,10 +255,10 @@ docs:
           - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
-                - title: "Loading Scopes"
-                  url: /loading-scopes/
                 - title: "Connecting to Other Systems"
                   url: /connecting-to-other-systems/
+                - title: "Loading Scopes"
+                  url: /loading-scopes/
           - title: "Performance Optimizations ➢"
             url: /performance/
             subchildren:
