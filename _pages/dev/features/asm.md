@@ -12,9 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the storefront. For more information, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
-
-Spartacus now supports the ASM functionality that allows customer emulation by sales support agents through the Spartacus storefront.
+The Assisted Service Module (ASM) enables customer service personnel to provide real-time customer sales and service support using the Spartacus storefront. For more information, see [Assisted Service Module](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html) on the SAP Help Portal.
 
 ***
 
@@ -27,30 +25,27 @@ Spartacus now supports the ASM functionality that allows customer emulation by s
 
 ## Requirements
 
-For more information on to setup and configure ASM on your SAP Commerce Cloud, refer to the [ASM section on SAP Help Portal](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html).
+The Assisted Service Module feature in Spartacus requires SAP Commerce Cloud version 1905.5 or newer. The minimum version of 1905.5 is required to enable CORS in the `assistedservicewebservices` endpoints.
 
-Here are a few setup steps that are important and/or specific to get ASM working with Spartacus:
+ASM in Spartacus requires the following SAP Commerce Cloud extensions:
 
-### ASM Back End Requirements
+- `assistedservicewebservices` extension
+- `assistedservicestorefront` AddOn
 
-ASM in Spartacus requires SAP Commerce Cloud version 1905.5 or newer. The minimum version of 1905.5 is required to enable CORS in the `assistedservicewebservices` endpoints.
+## Enabling ASM in Spartacus
 
-The ASM feature in Spartacus requires the following extensions:
+To enable ASM in Spartacus, you need to carry out the steps in the following sections:
 
-- assistedservicewebservices Extension
-- assistedservicestorefront AddOn
+- [Granting CMS Permissions](#granting-cms-permissions)
+- [Configuring CORS](#configuring-cors)
 
-### Granting asagentgroup CMS Permissions
+### Granting CMS Permissions
 
-The user group `asagentgroup` needs specific rights to read CMS data from OCC.
+The `asagentgroup` user group needs specific rights to read CMS data from OCC.
 
-#### Option 1: Initialize from scratch with 1905.5
+If you start from scratch and initialize your SAP Commerce Cloud system with version 1905.5 or newer, the `asagentgroup` gets the required permissions to use CMS data through Spartacus and OCC. There is no further action to take.
 
-If you start from scratch and initialize your SAP Commerce Cloud system with version 1905.5 or newer, `asagentgroup` will get the required permissions to use cms data via Spartacus and OCC. There is no additional step to do.
-
-#### Option 2: Manual import in impex console
-
-If you upgrade from an earlier version than 1905.5, you need to grant the `asagentgroup` permissions by importing this impex data via the impex console:
+However, if you upgrade SAP Commerce Cloud from a version that is older than 1905.5, you need to grant the `asagentgroup` permissions by importing the following ImpEx data through the ImpEx console:
 
 ```text
 # Access rights for asagentgroup
@@ -84,10 +79,9 @@ UserGroup;asagentgroup;;;;;;;;
 $END_USERRIGHTS;;;;;
 ```
 
-### CORS Configuration
+### Configuring CORS
 
-The `assistedservicewebservices` extension requires CORS configuration, which is possible since SAP Commerce Cloud version 1905.5.  
-The cors configurations for `assistedservicewebservices` have default values specified in the `project.properties` file of the `assistedservicewebservices`. At the time of writing these lines, the default values are:
+The `assistedservicewebservices` extension requires CORS configuration, which is possible with SAP Commerce Cloud version 1905.5 or newer. The CORS configurations for `assistedservicewebservices` have default values that are specified in the `project.properties` file of the `assistedservicewebservices`. The default values are the following:
 
 ```text
 corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
@@ -95,65 +89,51 @@ corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT 
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization
 ```
 
-#### Customizing CORS Configuration
+#### Customizing the CORS Configuration
 
-CORS configurations are customized by overriding the default configuration via your `local.properties` file.
+CORS configurations are customized by overriding the default configuration through your `local.properties` file.
 
-Since configurations are _overridden_ in local.properties, if you want to add a configuration element without losing the default value, you need to add all the defaults in addition to the new element. For example, to add 'my-new-header' in the allowed header list in addition to the default ones, you need to add this in local.properties:
+Since configurations are _overridden_ in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all the defaults in addition to any new elements. For example, to add `my-new-header` in the `allowedHeaders` list, in addition to the default headers, you need to add the following to your `local.properties` file:
 
 ```text
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
 ```
 
-To customize `allowedMethods` and `allowedHeaders` you should add to the default values.
-To customize `allowedOrigins`, you will need to override the value with one that is relevant for your environment.
+To customize `allowedMethods` or `allowedHeaders`, you should add to the default values.
 
-#### allowedOrigins
-
-You need to customize the `allowedOrigins` property for `assistedservicewebservices` with host names that are relevant to your environment. As mentioned above, this is done by adding the propery yout `local.properties` with a new value:
+To customize the `allowedOrigins` property of `assistedservicewebservices`, you need to override (that is, replace) the default value in your `local.properties` file with a host name that is relevant to your environment. The following is an example:
 
 ```text
 corsfilter.assistedservicewebservices.allowedOrigins=https://my-new-host:4200
 ```
 
-For development purposes only, the value can be a wildcard:
+For development purposes only, you can set the value to a wildcard (`*`), as shown in the following example:
 
 ```text
 corsfilter.assistedservicewebservices.allowedOrigins=*
 ```
 
-Bear in mind this wildcard configuration is flexible for development environments but it is unsecured. A more restrictive configuration is required for production use.
+**Note:** This wildcard configuration is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
-## Invoke the ASM UI in the storefront
+## Updating Custom Services to Support ASM
 
-To invoke the ASM UI in the storefront, add the `?asm=true` suffix to the url.
-For example, with the sample store, you can invoke the ASM UI on the home page with this url.
+If you use a custom service that extends one of the following classes, you need to update the relevant constructor to support ASM in your storefront:
 
-```text
-https://{hostname}/electronics-spa/en/USD/?asm=true
-```
+- `UserService`
+- `UserAddressService`
+- `UserConsentService`
+- `UserOrderService`
+- `UserPaymentService`
 
-## Update custom services to support ASM.
+During customer emulation, the storefront may display the following error message: `Cannot find user with propertyValue 'current'`. If you see this message, it is very likely that you have a custom service that needs to be updated to support ASM.
 
-If you use a custom service that extends one of these classes:
+You can update your custom service by adding a dependency to the `AuthService` in the constructor, and passing it down to `super()`. Constructors that do not have `AuthService` are now deprecated.
 
-- UserService
-- UserAddressService
-- UserConsentService
-- UserOrderService
-- UserPaymentService
+In addition to updating the constructor, you may need to update your custom functions to support ASM as well. For more information, see [Writing ASM-Compatible Code](#writing-asm-compatible-code).
 
-You need to update their constructor in order to support ASM in your storefront.
+### Updating Subclasses
 
-If during customer emulation the storefront displays the error message: `Cannot find user with propertyValue 'current'`, it is very likely that you use custom services that need to be updated to support ASM.
-
-The update consists of adding a dependency to AuthService in the constructor and pass it down to super(). The constructors that don't have AuthService are now deprecated.
-
-Beyond the constructor update, you may need to update your custom functions to support ASM as well. See the section called `How to write ASM compatible code` for details.
-
-### Update UserService Subclasses
-
-#### Custom service
+If you use a custom service that extends the `UserService` class, your custom service may look like the following example:
 
 ```typescript
 export class CustomUserService extends UserService {
@@ -163,7 +143,7 @@ export class CustomUserService extends UserService {
 }
 ```
 
-#### Custom service updated to support ASM.
+You can update this custom service to support ASM as follows:
 
 ```typescript
 export class CustomUserService extends UserService {
@@ -176,9 +156,7 @@ export class CustomUserService extends UserService {
 }
 ```
 
-### Update UserAddressService Subclasses
-
-#### Custom service
+If you use a custom service that extends the `UserAddressService` class, your custom service may look like the following example:
 
 ```typescript
 export class CustomUserAddressService extends UserAddressService {
@@ -188,7 +166,7 @@ export class CustomUserAddressService extends UserAddressService {
 }
 ```
 
-#### Custom service updated to support ASM.
+You can update this custom service to support ASM as follows:
 
 ```typescript
 export class CustomUserAddressService extends UserAddressService {
@@ -201,47 +179,22 @@ export class CustomUserAddressService extends UserAddressService {
 }
 ```
 
-### Update UserConsentService Subclasses
+For custom services that extend the `UserConsentService`, `UserOrderService`, or `UserPaymentService` classes, the pattern for updating the custom service to support ASM is identical to the example shown for the `UserAddressService` class. The following is another example.
 
-#### Custom service
-
-```typescript
-export class CustomUserConsentService extends UserConsentService {
-  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
-    super(store);
-  }
-}
-```
-
-#### Custom service updated to support ASM.
+If you use a custom service that extends the `UserConsentService` class, your custom service may look like the following example:
 
 ```typescript
 export class CustomUserConsentService extends UserConsentService {
-  constructor(
-    protected store: Store<StateWithUser | StateWithProcess<void>>,
-    protected authService: AuthService
-  ) {
-    super(store, authService);
-  }
-}
-```
-
-### Update UserOrderService Subclasses
-
-#### Custom service
-
-```typescript
-export class CustomUserOrderService extends UserOrderService {
   constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
     super(store);
   }
 }
 ```
 
-#### Custom service updated to support ASM.
+You can update this custom service to support ASM as follows:
 
 ```typescript
-export class CustomUserOrderService extends UserOrderService {
+export class CustomUserConsentService extends UserConsentService {
   constructor(
     protected store: Store<StateWithUser | StateWithProcess<void>>,
     protected authService: AuthService
@@ -251,36 +204,11 @@ export class CustomUserOrderService extends UserOrderService {
 }
 ```
 
-### Update UserPaymentService Subclasses
+## Writing ASM-Compatible Code
 
-#### Custom service
+To write ASM-compatible code, you need to use the `getOccUserId()` function from the `AuthService` to determine the `userId` that is used in OCC calls. This is typically done in a service that dispatches an action that contains the `userId` in the payload.
 
-```typescript
-export class CustomUserPaymentService extends UserPaymentService {
-  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
-    super(store);
-  }
-}
-```
-
-#### Custom service updated to support ASM.
-
-```typescript
-export class CustomUserPaymentService extends UserPaymentService {
-  constructor(
-    protected store: Store<StateWithUser | StateWithProcess<void>>,
-    protected authService: AuthService
-  ) {
-    super(store, authService);
-  }
-}
-```
-
-## How to write ASM compatible code.
-
-Writing ASM compatible code is all about using the function `getOccUserId()` from the `AuthService` to determine the userId used in occ calls. This is typically done in a service that dispatches and action containing the userId in the payload.
-
-Before ASM was released, the occ userId in requests on the behalf of an authenticated user was the special occ user "current", represented by the constant `OCC_USER_ID_CURRENT`, like in this example:
+Prior to official ASM support in Spartacus, in requests sent on behalf of an authenticated user, the OCC `userId` was the special "current" OCC user, which was represented by the `OCC_USER_ID_CURRENT` constant. This can be seen in the following example:
 
 ```typescript
   load(): void {
@@ -288,7 +216,7 @@ Before ASM was released, the occ userId in requests on the behalf of an authenti
   }
 ```
 
-Now that Spartacus supports ASM, the correct way to determine the occ userId is to call AuthService.getOccUserId(). When we update the previous example, we get:
+With official ASM support in Spartacus, the correct way to determine the OCC `userId` is to call `AuthService.getOccUserId()`. Using the previous example as the starting point, Spartacus now determines the OCC `userId` as follows:
 
 ```typescript
 
@@ -303,42 +231,46 @@ Now that Spartacus supports ASM, the correct way to determine the occ userId is 
 
 ```
 
-The rule of thumb is, if `OCC_USER_ID_CURRENT` is used directly in a service, it should likely be replaced by a call to `getOccUserId()`.
+**Note:** If `OCC_USER_ID_CURRENT` is used directly in a service, it should likely be replaced by a call to `getOccUserId()`.
 
-In order to support ASM, and potentially other features in the future, the facade services can't simply use the "current" special userId when calling various actions. There needs to be some logic applied to determine the correct OCC userId to pass down to actions that will trigger a backend call.
+To support ASM in Spartacus, and potentially other features in the future, the facade services cannot simply use the "current" special `userId` when calling various actions. There needs to be some logic that is applied to determine the correct OCC `userId` to pass down to actions that trigger back end calls. As a result, the logic to determine the correct OCC `userId` is centralized in the `getOccUserId()` function of the `AuthService`.
 
-Therefore, the logic to determine the correct OCC userId given the context is centralized in the `AuthService` function `getOccUserId()`.
+## Configuring the Session Timer Duration
 
-## Configuring
-
-Some ASM behaviors can be configures through Spartacus.
-
-### asm.agentSessionTimer.startingDelayInSeconds
-
-The start time for the customer support agent session timer has a default value of 600 seconds (10 minutes). This can be configured. Specify the number of seconds for the timer starting delay via the property `asm.agentSessionTimer.startingDelayInSeconds`, as shown in the following example:
+When a customer support agent signs in, a **Session Timeout** timer appears in the ASM UI. The default value is 600 seconds (10 minutes), but you can change the session timeout duration, as shown in the following example:
 
 ```ts
 provideConfig({
   asm: {
     agentSessionTimer: {
-      startingDelayInSeconds: 600,
+      startingDelayInSeconds: 720,
     },
   },
 });
 ```
 
-### asm.customeSearch.maxResults
+In this example, the duration of the session timer has been set to 720 seconds (12 minutes).
 
-The number of results in the asm customer search can be customized in spartacus via the property `asm.customeSearch.maxResults`. You define it as follows:
+## Configuring the Number of Search Results
+
+The number of results in the ASM customer search can be customized, as shown in the following example:
 
 ```ts
 provideConfig({
   asm: {
-    customeSearch: {
+    customerSearch: {
       maxResults: 20,
     },
   },
 });
+```
+
+## Invoking the ASM UI in the Storefront
+
+To invoke the ASM UI in the Spartacus storefront, add the `?asm=true` suffix to the URL. For example, with the electronics sample store, you can invoke the ASM UI on the home page with the following URL:
+
+```text
+https://{hostname}/electronics-spa/en/USD/?asm=true
 ```
 
 ## Extending
@@ -347,9 +279,7 @@ No special extensibility is available for this feature.
 
 ## Limitations
 
-### CMS
-
-ASM customer emulation does not work with CMS content rules and restrictions in Spartacus. If there are content rules or restrictions that are normally applied based on a customer's ID, or the customer's group ID, these rules and restrictions will not be applied during an ASM customer emulation. The CMS endpoints instead provide content based on what the customer support agent is permitted to see.
+ASM customer emulation does not work with CMS content rules and restrictions in Spartacus. If there are content rules or restrictions that are normally applied based on a customer's ID, or the customer's group ID, these rules and restrictions are not applied during an ASM customer emulation. The CMS endpoints instead provide content based on what the customer support agent is permitted to see.
 
 To display CMS content, Spartacus relies on the CMS endpoints from OCC. When requests are sent, the CMS endpoints do not accept a `userId` parameter that could define the emulated user (that is, the customer). The CMS endpoints only recognize the authenticated user as the sender of requests, and in ASM customer emulation sessions, the authenticated user is the customer support agent.
 
