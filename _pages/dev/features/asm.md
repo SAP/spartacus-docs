@@ -235,19 +235,21 @@ With official ASM support in Spartacus, the correct way to determine the OCC `us
 
 To support ASM in Spartacus, and potentially other features in the future, the facade services cannot simply use the "current" special `userId` when calling various actions. There needs to be some logic that is applied to determine the correct OCC `userId` to pass down to actions that trigger back end calls. As a result, the logic to determine the correct OCC `userId` is centralized in the `getOccUserId()` function of the `AuthService`.
 
-## Configuring the Starting Timer Delay
+## Configuring the Session Timer Duration
 
-The start time for the customer support agent session timer has a default value of 600 seconds (10 minutes). You can configure this by specifying the number of seconds for the timer starting delay, as shown in the following example:
+When a customer support agent signs in, a **Session Timeout** timer appears in the ASM UI. The default value is 600 seconds (10 minutes), but you can change the session timeout duration, as shown in the following example:
 
 ```ts
 provideConfig({
   asm: {
     agentSessionTimer: {
-      startingDelayInSeconds: 600,
+      startingDelayInSeconds: 720,
     },
   },
 });
 ```
+
+In this example, the duration of the session timer has been set to 720 seconds (12 minutes).
 
 ## Configuring the Number of Search Results
 
