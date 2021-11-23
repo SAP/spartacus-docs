@@ -473,6 +473,8 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
+                - title: "B2B Telco Store"
+                  url: /b2b-telco-store/
                 - title: "Cart"
                   url: /cart/
                 - title: "Checkout"
