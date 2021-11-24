@@ -1,12 +1,14 @@
 ---
-title: How to Debug a Server–Side Rendered Storefront
+title: Debugging a Server–Side Rendered Storefront
 ---
 
-When a runtime error occurs in the server-side rendered Javascript application, it outputs only a stacktrace in the console of the Node.js process (not in the browser) and sometimes it can be difficult to deduce the cause cause of an error. But fortunately, you can use *Node.js debugging* to take advantage of standard debugging techniques like inspecting variables in code, breakpoints, etc.
+If a runtime error occurs in your server-side rendered JavaScript application (such as a Spartacus storefront), the application only outputs a stacktrace in the console of the Node.js process, not in the browser, and it can sometimes be difficult to determine the cause of the error. Fortunately, you can use Node.js debugging to take advantage of standard debugging techniques, such as inspecting variables in the code, inspecting breakpoints, and so on.
 
-## Node.js Debugging in VS Code
+## Debugging Node.js in VS Code
 
-1. Build your Javascript Storefront and start the Node server with it
+The following steps describe how to use Node.js debugging in the VS Code.
+
+1. Build your JavaScript storefront and start the Node server with it.
 1. In VS Code, open the `Debug` panel (Ctrl+Shift+D)
 1. Unless you have done it before, add a new configuration, as follows:
    1. from the dropdown choose option `Add configuration`
