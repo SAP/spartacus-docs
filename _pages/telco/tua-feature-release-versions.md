@@ -23,6 +23,7 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Journey Management - MSISDN]({{ site.baseurl }}{% link _pages/telco/journey-management-msisdn.md %}) | 1.2.0 | 2003 | 1.x, 2.0 |
 | [Journey Management - Serviceability Check (Premise Details)]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability.md %}) | 1.3.0 | 2003 | 1.x, 2.0 |
 | [Journey Management - Serviceability]({{ site.baseurl }}{% link _pages/telco/journey-management-serviceability-check-of-spo.md %}) | 3.0 | 2011 | 1.x, 2.0, 3.0 |
+| [Media Storefront]({{ site.baseurl }}{% link _pages/telco/media-storefront.md %}) | 3.1 | 2102 | 1.x, 1.2x, <3.0 |
 | [Order]({{ site.baseurl }}{% link _pages/telco/order.md %}) | 1.0.0 | 2003 | 1.x, 2.0 |
 | [Pricing - Composite Pricing]({{ site.baseurl }}{% link _pages/telco/composite-pricing.md %}) | 2.0.0 | 2007 | 2.x |
 | [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %}) | 2.0.0 | 2007 | 2.x |
