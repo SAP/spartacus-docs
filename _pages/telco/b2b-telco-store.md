@@ -45,7 +45,7 @@ The following image is the homepage of the B2B functionality that includes multi
 -	Wireless
 -	Special Offers: Includes banners that directs customers to the purchase journey over BPO, and each banner is specific to a BPO
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/homepage-mattfix.png" alt="Homepage"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/homepage.png" alt="Homepage"></p>
 
 **Category Page and Content Page**
 
