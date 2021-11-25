@@ -119,15 +119,15 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 This ImpEx creates the component in the Staged catalog. To publish it, run a sync, or replace `Staged` with `Online` in the ImpEx.
 
-## Intelligent Selling Merchandising
+## Merchandising
 
-Intelligent Selling Merchandising carousels enable a Spartacus storefront to display the results of Intelligent Selling Merchandising in the form of a product carousel.
+Merchandising carousels enable a Spartacus storefront to display the results of Merchandising in the form of a product carousel.
 
-For more information, see [Intelligent Selling Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Intelligent Selling Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
+For more information, see [Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
 
-### Requirements for Enabling Intelligent Selling Merchandising
+### Requirements for Enabling Merchandising
 
-Intelligent Selling Merchandising carousels require the `merchandisingaddon` and `profiletagaddon` extensions. Once you install the extensions, follow the steps in [Merchandising Configuration Setup](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb) and [Catalog Synchronization Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160) to synchronize a product catalog with Intelligent Selling Services.
+Merchandising carousels require the `merchandisingaddon` and `profiletagaddon` extensions. Once you install the extensions, follow the steps in [Merchandising Configuration Setup](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb) and [Catalog Synchronization Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160) to synchronize a product catalog with Intelligent Selling Services.
 
 It is also recommended to follow the instructions in [Product Directory Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loio6f59fb60a3fd43f89c08e8ba28b9e2a2).
 
@@ -168,7 +168,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ### Adding a Merchandising Carousel with SmartEdit
 
-If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add a Intelligent Selling Merchandising carousel to a page, as follows:
+If you have followed the [SmartEdit Setup Instructions for Spartacus]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add a Merchandising carousel to a page, as follows:
 
 1. Launch SmartEdit.
 
