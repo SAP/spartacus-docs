@@ -477,6 +477,8 @@ docs:
                   url: /b2b-order-approval/
                 - title: "B2B Organization Management"
                   url: /b2b-organization-management/
+                - title: "B2B Telco Store"
+                  url: /b2b-telco-store/
                 - title: "Cart"
                   url: /cart/
                 - title: "Checkout"
