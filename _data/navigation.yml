@@ -473,6 +473,8 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
+                - title: "B2B Order Approval"
+                  url: /b2b-order-approval/
                 - title: "B2B Organization Management"
                   url: /b2b-organization-management/
                 - title: "Cart"
