@@ -17,14 +17,13 @@ The Quote Details page allows financial customers to view all the details relate
 
 ## Accessing the Claims Details Page
 
-The customer can preview their claims in the **Quotes & Applications** section of the My Account area. Each claim is displayed as a card, similar to other sections of My Account (e.g. Claims, Policies). 
+The customer can preview their claims in the **Quotes & Applications** section of the My Account area. Each claim is displayed as a card, similar to other sections of My Account (e.g. Claims, Policies).
 
 ![Quotes and Applications Section in the My Account Area]({{ site.baseurl }}/assets/images/fsa/quotes-and-applications-my-account.png)  
 
-A quote card contains general information about the quote, such as chosen product plan, quote status, expiry date, as well as the price and payment frequency details. From the quote card, the customer can retrieve the quote or choose to see more details. When the user clicks the **Details** button, a separate Quote Details page opens. 
+A quote card contains general information about the quote, such as chosen product plan, quote status, expiry date, as well as the price and payment frequency details. From the quote card, the customer can retrieve the quote or choose to see more details. When the user clicks the **Details** button, a separate Quote Details page opens.
 
-![Quote Details Card]({{ site.baseurl }}/assets/images/fsa/quote-details-card-mattfix.png)  
-
+![Quote Details Card]({{ site.baseurl }}/assets/images/fsa/quote-details-card.png)  
 
 ## Quote Details Page Contents
 
@@ -36,4 +35,4 @@ The structure of this page is similar to the Policy Details page. On the Quotes 
 
 All the details on the Quote Details page are for preview only. If the customer wishes to change something, they need to retrieve the quote. They can do that by clicking the **Retrieve** button at the bottom of the page.
 
-![Quote Details Page]({{ site.baseurl }}/assets/images/fsa/quote-details-page-mattfix.png)
+![Quote Details Page]({{ site.baseurl }}/assets/images/fsa/quote-details-page.png)
