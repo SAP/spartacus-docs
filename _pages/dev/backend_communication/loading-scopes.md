@@ -12,9 +12,9 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Product data payload is usually huge and required in multiple places, like the Product Detail Page, items in Product Carousels, etc. Not all places need complete product payload, breaking product payload into pieces (called scopes), allows to specify which part of the payload is actually needed in a specific case.
+When Spartacus requests product data from the back end, the payload that is returned is often very large, and may be required in multiple places, such as in product carousels, the product details page, and so on. However, the complete payload is not necessarily required in all of these places. By breaking the payload into pieces, which we call *scopes*, you can specify which part of the payload is actually needed for each particular case.
 
-Currently, Spartacus supports scopes for loading product data.
+Spartacus currently supports scopes for the loading of product data.
 
 ***
 
@@ -25,9 +25,9 @@ Currently, Spartacus supports scopes for loading product data.
 
 ***
 
-## Using default Product Scopes
+## Using Default Product Scopes
 
-By default, Spartacus uses few predefined scopes. The list includes (but is not limited to):
+By default, Spartacus uses a number of predefined scopes. The predefined scopes include, but are not limited to, the following:
 
 ```typescript
 export enum ProductScope {
@@ -38,23 +38,23 @@ export enum ProductScope {
 }
 ```
 
-You can (and should) take advantage of those scopes when getting product data:
+It is recommended that you take advantage of these scopes when retrieving product data. The following is an example:
 
 ```typescript
-productService.get(code, ProductScope.LIST) // get minimal product data, suitable for listing, carousel items, etc.
-productService.get(code, ProductScope.DETAILS) // get detailed product data, suitable for using in product details page or for generating json-ld schema
+productService.get(code, ProductScope.LIST) // retrieves minimal product data, suitable for listing, carousel items, etc.
+productService.get(code, ProductScope.DETAILS) // retrieves detailed product data, suitable for using in the product details page or for generating json-ld schema
 ```
 
-## Configuring Payload for Scopes
+## Configuring the Payload for Scopes
 
-When using Occ Products Adapter you can configure scope payloads using `fields` parameter in the endpoint configuration, under `product_scopes` key:
+When you are working with the Spartacus `OccProductAdapter`, you can configure scope payloads by using the `fields` parameter in the endpoint configuration, under the `backend.occ.endpoints.product` key. The following is an example:
 
-```json
+```ts
 {
   backend: {
     occ: {
       endpoints: {
-        product_scopes: {
+        product: {
           list: 'products/${productCode}?fields=code,name,summary,price(formattedValue),images(DEFAULT,galleryIndex)',
           // ...
           attributes: 'products/${productCode}?fields=classifications',
@@ -65,20 +65,20 @@ When using Occ Products Adapter you can configure scope payloads using `fields` 
 }
 ```
 
-Spartacus will preprocess those fields to optimize backend calls, especially to limit the number of calls, if more that one scope will be requested at the same time.
-To make backend requests as optimal as possible fields description should be as specific as possible, using aliases like `BASIC`, `DEFAULT` or `FULL` should ideally be avoided. 
+Spartacus  preprocesses these fields to optimize calls to the back end, especially to limit the number of calls if more that one scope is requested at the same time.
 
+Ideally, `fields` descriptions should be as specific as possible, and aliases such as `BASIC`, `DEFAULT` and `FULL` should be avoided, where possible.
 
-## Defining Custom Loading Scope
+## Defining Custom Loading Scopes
 
-Defining custom product scopes is very simple and straightforward. To add new scope just add new endpoint configuration with specified fields parameter:
+You define a custom product scope by adding a new endpoint configuration with the specified `fields` parameter. In the following example, a new `price` scope is defined and made available:
 
-```json
+```ts
 {
   backend: {
     occ: {
       endpoints: {
-        product_scopes: {
+        product: {
           price: 'products/${productCode}?fields=price(FULL)',
         },
       },
@@ -87,76 +87,70 @@ Defining custom product scopes is very simple and straightforward. To add new sc
 }
 ```
 
-It will result in a new `price` scope being available. 
-
-With this, you can use your new scope by just passing its name. For example, to get price data for the product using the above configuration just do: 
+With this configuration, you can now use your new scope simply by passing its name. For example, you can get price data for the product as follows:
 
 ```typescript
 productService.get(code, 'price');
 ```
 
-Custom scopes work in the same way as default ones, i.e. can be merged, included, can have maxAge specified, etc.
+Custom scopes work in the same way as default ones, which means they can be merged, included, have a specified `maxAge`, and so on.
 
+## Merging Scopes
 
-## Merging of Scopes
+In some scenarios, it is beneficial to get data for more than one scope at the same time.
 
-In some scenarios, it's beneficial to get data for more than one scope at the same time.
-
-You can do it passing an array of scopes to `productService.get` method like below:
+You can do this by passing an array of scopes to the `productService.get` method. The following is an example:
 
 ```typescript
-productService.get(code, [ProductScope.DETAILS, ProductScope.ATTRIBUTES]) // with return product payload with merged data for both scopes
+productService.get(code, [ProductScope.DETAILS, ProductScope.ATTRIBUTES]) // returns a product payload with merged data for both scopes
 ```
 
-Using this you should expect multiple emissions in certain scenarios that could contain partial payloads initially, as observable will instantly deliver data for all scopes that are loaded and will lazy load the missing ones. 
-Partial payloads for each scope will be merged into one payload respecting the order in which scopes were provided. This means, that if scopes payloads overlap, then the scope that was specified later can overwrite parts of payload provided earlier. 
-It's always more optimal to provide scope definitions that don't overlap with each other but it's perfectly fine to not do as long as you are aware of the merging order. 
+With this example, you should expect multiple emissions that, in certain cases, could initially contain partial payloads, because the observable instantly delivers data for all scopes that are loaded, and lazy loads the missing ones.
 
+Partial payloads for each scope are merged into one payload according to the order in which the scopes were provided. If scope payloads overlap, then the scope that was specified later in the array can overwrite parts of the payload that were provided earlier. It is always preferable to provide scope definitions that do not overlap with each other, but it is certainly acceptable to provide scope definitions that do overlap, as long as you are aware of the merging order.
 
 ## Scope Inclusions
 
-It's possible to define scope inclusions, let's assume that:
-1) we have the `list` scope, that contains only minimal data
-2) we have the `details` scope that contains product details including data available in list scope
+Scope inclusions allow you to optimize the loading of data from multiple scopes. This can be illustrated with the following example:
 
-Using inclusion will allow as to load additional detailed data if the list scope was already loaded. One simple use case would be navigating to PDP from clicking on the carousel item. We already have basic product data available which we can display instantly and we only need to request for missing details.
+- you have the `list` scope, which contains only minimal data
+- you have the `details` scope, which contains product details, including data that is available in the `list` scope
 
-It's possible to make it work by:
-1) removing payload parts from details scope if they are covered by list scope
-2) including list scope in details scope, like below:
+Scope inclusion allows you to load additional, detailed data if the `list` scope is already loaded. One simple use case is navigating to the product details page after clicking on a carousel item. You already have the basic product data available, which can be displayed instantly, and you only need to make a request for the missing details.
 
-```json
+This is handled by removing payload parts from the `details` scope if they are already covered by the `list` scope, and by including the `list` scope in the `details` scope, as shown in the following example:
+
+```ts
 {
   backend: {
     loadingScopes: {
       product: {
         details: {
           include: ['list']
-          }
+        }
       },
     },
   },
 }
 ```
 
-With this configuration you will always get an optimal call, for example:
+This configuration always results in an optimal call, as follows:
 
-1. if only list scope will be required, only list scope will be loaded
-2. if details scope will be required, list and details scope will be loaded in one network request
-3. if defails scope will be required and list scope will be already available, only data from details scope will be loaded
+- If only the `list` scope is required, only the `list` scope is loaded.
+- If the `details` scope is required, the `list` scope and the `details` scope are both loaded in one network request.
+- If the `details` scope is required and the `list` scope is already available, only data from the `details` scope is loaded.
 
-Payload defined for main scope (`details` in the above example) will always take precedence when merging scopes, meaning that if one of the included scopes (`list`) contains the same payload parts as `details` it will be effectively overwritten by data from `details`.
-It's possible to provide more than one scope in `include` array configuration and those scopes will be merged using the same rules and order as described in __Merging of Scopes__.
+The payload that is defined for the main scope (in this case, the `details` scope) always takes precedence when merging scopes. This means that if one of the included scopes (in this case, the `list` scope) contains the same payload parts as the `details` scope, it will be effectively overwritten by data from the `details` scope.
 
+It is possible to provide more than one scope in the `include` array configuration, and those scopes are merged according to the same rules and order as described in [Merging Scopes](#merging-scopes).
 
-## Defining maxAge for the Scope
+## Keeping Scope Data Up To Date
 
-Using loading scopes allows loading only part of the data that we need and load it efficiently, which usually means only once per session / context change. 
-For data that should be kept fresh and reloaded more often, you can use `maxAge` parameter that will take care of data reloads when it becomes obsolete. 
+Working with scopes allows you to load only the part of the data that you need, and to load it efficiently, which usually means only once per session or context change. For data that should be kept fresh and reloaded more often, you can use the `maxAge` parameter to take care of data reloads when the data becomes obsolete.
 
-`maxAge` should be specified in seconds and can be defined for a scope like this:
+The `maxAge` is specified in seconds, and can be defined for a scope as shown in the following example:
 
-```json
+```ts
 {
   backend: {
     loadingScopes: {
@@ -170,20 +164,20 @@ For data that should be kept fresh and reloaded more often, you can use `maxAge`
 }
 ```
 
-This configuration will result in a `list` scope reload as soon as it becomes older than 60 seconds.
+This configuration results in a `list` scope that reloads as soon as it becomes older than 60 seconds.
 
-Reload will only take place, when scope will be "in use", more specifically when some code will be subscribed to that data scope, which usually means that the data from the scope is currently used on a page.
+A reload only takes place when the scope is "in use", which is to say, when a certain piece of code is subscribed to that data scope. In many cases, this is when the data from the scope is actually being used on a page.
 
 ## Reloading Triggers
 
 The `reloadOn` configuration allows you to reload a product when a specific event occurs. The following is an example:
 
-```json
+```ts
 {
   backend: {
     loadingScopes: {
       product: {
-        detail: {
+        details: {
           reloadOn: [MyEvent]
         }
       },
@@ -192,4 +186,4 @@ The `reloadOn` configuration allows you to reload a product when a specific even
 }
 ```
 
-In this example, the `detail` scope is reloaded when `MyEvent` is emitted.
+In this example, the `details` scope is reloaded when `MyEvent` is emitted.

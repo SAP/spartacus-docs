@@ -14,13 +14,13 @@ Users with the Customer (Buyer) role are permitted to place orders. Buyers can c
 
    No users exist yet, as shown in the following example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1a.png" alt="" width="500" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1a.png" alt="Creating a Buyer 1" width="500" border="1px" />
 
 4. Click **Create**, then fill in the **Title**, **First name**, **Last name**, and **Email** fields, and also check **Customer** for the **Roles**.
 
    The following is an example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1b-createuser.png" alt="" width="200" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1b-createuser.png" alt="Creating a Buyer 2" width="200" border="1px" />
 
    **Note:** For this example, the unit is not selectable because a user is being created within a unit.
 
