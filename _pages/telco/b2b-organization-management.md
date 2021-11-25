@@ -51,49 +51,49 @@ As per the organization structure, Lisa Richards is the B2B admin user and is as
 
 1. Click **My Company** to view the organization page that displays different entities such as **Users**, **Cost Centers**, **Units**, **Budgets**, **Purchase Limits**, and **User Groups**.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/my-company-homepage.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/my-company-homepage-mattfix.png"></p>
 
 1.  Click **Units** to view more details. The **Total Protect** organization structure includes the following three child units.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/total-protect-child-units.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/total-protect-child-units-mattfix.png"></p>
 
 1.  Administrator will be able to view the child units of the B2B parent unit, the users, approvers, and all other details relevant to a particular unit that is required to be updated by the administrator.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/total-protect-units-users-approvers.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/total-protect-units-users-approvers-mattfix.png"></p>
 
 1.  Click **Organization** to go back to the **My Company** home page.
 
 1.  Click **Users** to view all user details of the parent and child units. Administrator can enable or disable a user, update the password, and view the list of approvers for an user.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/users-list.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/users-list-mattfix.png"></p>
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/users-list-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/users-list-details-mattfix.png"></p>
 
 1.  The administrator can also assign a user to a particular user group or remove a user from a user group.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/assign-unsassign-usergroup.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/assign-unsassign-usergroup-mattfix.png"></p>
 
 1.  Click **ADD** to add a new user, assign a role and a unit.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/add-assign-role-unit-to-user.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/add-assign-role-unit-to-user-mattfix.png"></p>
 
 1.  Click **Cost Centers** from the **Organization** page.
 
 1.  Administrator will be able to add a new Unit and also check and modify the details of a cost center.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cost-center-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/cost-center-details-mattfix.png"></p>
 
 1.  Click **Budgets** from the **Organization** page.
 
 1.  The **Budgets** page is similar to the **Cost Center** page where the Administrator can add a new unit, check and modify the budget details, and change the cost center to which the budget needs to be assigned.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/budgets-page.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/budgets-page-mattfix.png"></p>
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/budget-page-cost-center-details.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/budget-page-cost-center-details-mattfix.png"></p>
 
 1.  Click **Purchase Limits** from the **Organization** page to view the list of purchase limits. The purchase limits can be enabled or disabled. Also, if required, modify the purchase limits code and type and assign it to a different B2B unit..
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/purchase-limits.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/purchase-limits-mattfix.png"></p>
 
 ## Feature Enablement
 
