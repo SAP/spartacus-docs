@@ -109,11 +109,11 @@ The following steps describe how to clone the Spartacus documentation repository
 
 GitHub has its own issue tracking system, called GitHub Issues. GitHub Issues is open source, just like the Spartacus code. Anyone can see the issues we're working on, and anyone with a GitHub account can create a new issue. Note, the Spartacus tribe uses the terms "issue" and "ticket" interchangeably.
 
-All open issues related to the Spartacus documentation repository can be viewed under the [Issues](https://github.com/SAP/spartacus-docs/issues) tab, which you can access at the top of any page in the repository, including the page you are currently reading.
+All open issues related to the Spartacus documentation repository can be viewed under the [Issues](https://github.com/SAP/spartacus-docs/issues) tab, which you can access at the top of any page in the repository, including this page that you are currently reading.
 
 You can create a new issue by clicking the green **New issue** button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the [New issue](https://github.com/SAP/spartacus-docs/issues/new) page.
 
-When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment,the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/spartacus-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/spartacus-docs/projects) tab at the top of any page in GitHub.
+When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment, the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/spartacus-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/spartacus-docs/projects) tab at the top of any page in GitHub.
 
 #### Creating a New Issue
 
