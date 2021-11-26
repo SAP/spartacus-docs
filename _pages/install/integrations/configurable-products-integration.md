@@ -107,6 +107,22 @@ For now, there is no navigation mode that guides the user from issue to issue un
 
 Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "directionality.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
+## Retract Option for Single-Select Characteristics
+
+By default, in drop-down and radio button lists for single-select characteristics, the customers can make a selection and change the selection, but they cannot retract it.
+
+Depending on product modeling, the customers might run into a deadlock situation so that they cannot complete the configuration. In this case, you can enable a retract option for the Spartacus UI, so that the selection can be retracted with **No option selected** entry, which can be customized, just like any other Spartacus UI text.
+
+To enable the retract option, you need to activate the rendering of the additional value by configuring your Spartacus configuration file as follows:
+
+```bash
+productConfigurator: { 
+      		addRetractOption: true,
+   	 } 
+```
+
+It depends on the product modeling and the configuration engine whether after retract the default setting is simply withdrawn and the attribute is unselected or whether the engine sets a default selection.
+
 ## Group Status Handling
 
 Group statuses are interpreted as follows:
