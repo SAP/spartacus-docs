@@ -111,7 +111,7 @@ Right-to-left (RTL) orientation is supported for product configuration in Sparta
 
 By default, in drop-down and radio button lists for single-select characteristics, the customers can make a selection and change the selection, but they cannot retract it.
 
-Depending on product modeling, the customers might run into a deadlock situation so that they cannot complete the configuration. In this case, you can enable a retract option for the Spartacus UI, so that the selection can be retracted with **No option selected** entry, which can be customized, just like any other Spartacus UI text.
+Depending on product modeling, the customers might run into a deadlock situation so that they cannot complete the configuration. In this case, you can enable a retract option, so that the selection can be retracted with **No option selected** entry, which can be customized, just like any other Spartacus UI text.
 
 To enable the retract option, you need to activate the rendering of the additional value by configuring your Spartacus configuration file as follows:
 
