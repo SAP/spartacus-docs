@@ -4,6 +4,17 @@ title: TUA Spartacus Features
 
 This is a landing page for grouping together TUA Spartacus features. The TUA Spartacus features include the following:
 
+## Release 3.2
+
+- [B2B Order Approval]({{ site.baseurl }}{% link _pages/telco/b2b-order-approval.md %})
+- [B2B Organization Management]({{ site.baseurl }}{% link _pages/telco/b2b-organization-management.md %})
+- [B2b Telco Store]({{ site.baseurl }}{% link _pages/telco/b2b-telco-store.md %})
+- [Purchase PO with Configurable Characteristics]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %})
+
+## Release 3.1
+
+- [Media Storefront]({{ site.baseurl }}{% link _pages/telco/media-storefront.md %})
+
 ## Release 3.0
 
 - [Contract Renewals]({{ site.baseurl }}{% link _pages/telco/renewal-of-standalone-spo.md %})
