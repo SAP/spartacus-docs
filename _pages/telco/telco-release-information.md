@@ -32,7 +32,7 @@ This document describes what is included in all Spartacus libraries since the in
 
 *Release 3.2 libraries published November 1, 2021*
 
-The 3.2 libraries for the accelerator provides a new Media Spartacus storefront along with sample data. With 3.2, the TUA libraries support three storefronts: Telco, Utilities, and Media.
+The 3.2 libraries for the accelerator provides B2B features along with sample data. Angular 10 is used in release 3.2.
 
 Following features are introduced in release 3.2:
 
@@ -45,7 +45,7 @@ Following features are introduced in release 3.2:
 
 *Release 3.1 libraries published September 1, 2021*
 
-The 3.1 libraries for the accelerator provides a new Media Spartacus storefront along with sample data. With 3.1, the TUA libraries support three storefronts: Telco, Utilities, and Media.
+The 3.1 libraries for the accelerator provides a new Media Spartacus storefront along with sample data. With 3.1, the TUA libraries support three storefronts: Telco, Utilities, and Media. Angular 10 is used in release 3.1.
 
 Following features are introduced in release 3.1:
 
