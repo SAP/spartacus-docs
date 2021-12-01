@@ -75,6 +75,6 @@ This feature is enabled through the B2B Telco SPA store implemented on top of TM
 | Dependency                                	| Detail                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
 | Spartacus                                     	| 3.2.0.0                                          	|
-| Telco & Utilities Accelerator	             	| Version 2102 (latest patch 21.02)            	|
+| Telco & Utilities Accelerator	             	| Version 2108 (latest patch)            	|
 | SAP Commerce Cloud 	| Version 2011 (latest patch) 	|
 
