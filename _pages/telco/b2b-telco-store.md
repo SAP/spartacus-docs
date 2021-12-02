@@ -25,10 +25,6 @@ Following is the structure of the B2B Telco Store:
 
 ***
 
-## Prerequisites
-
-To be updated
-
 ## Business Need
 
 The feature enables customers, browsing the B2B Telco SPA Store, to view product offerings that are configured by the Business Administrators in the Backoffice.
@@ -49,87 +45,72 @@ The following image is the homepage of the B2B functionality that includes multi
 
 **Category Page and Content Page**
 
-To view a category page, click **INTERNET** in the navigation section. The category page is display with all the filtering options on the left side and the sorting options at the top of search results section.
+Navigate to the **INTERNET** section to view the category page. The category page displays all  filtering options on the left side and the sorting options at the top of search results section.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/category-page.png" alt="Category Page"></p>
 
-To view the content page, select **Satellite Services** from the **SATELLITE OFFERS** option. The content page is displayed if the services are related to BPO. The following content page has two banners. The first banner takes the customer to the purchase journey of a BPO while the second banner takes the customer to the category page of terminals.
+Navigate to the **SATELLITE OFFERS** section and select **Satellite Services** to view the content page. The content page is displayed if the services are related to BPO. The following screenshot of the content page includes two banners. When the customer clicks the first banner, the purchase journey of a BPO page is displayed, and for the second banner, the category page of terminals is displayed.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/content-page.png" alt="Content Page"></p>
 
-**Purchase Process**
+**Purchase Process - Purchase Journey for a BPO**
 
-In the purchase journey for a BPO, in this case, the customer is required to select from different configurable characteristics.
+In the purchase journey for a BPO, in this case, the customer needs to select from different configurable characteristics.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/bpo-satellite-service.png" alt="BPO Satellite Service"></p>
 
 
-Apart from the **Connectivity services**, which is the main plan, there are other options such as **Speed plans**, **Terminals**, and **Addons**.
+Apart from the **Connectivity services**, which is the main plan, there are other options that the customer needs to select from such as **Speed plans**, **Terminals**, and **Addons**.
 
-1.  **Speed plans**: Select the required monthly speed plan.
+-   **Speed plans**: Monthly speed plan
 
     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/speed-plan.png" alt="Speed Plan"></p>
 
-1. **Terminals**: Select only if required. It is not a mandatory option.
+-   **Terminals**: Not a mandatory option
 
     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/terminals.png" alt="Terminals"></p>
 
-1. **Addons**: Select the required addon. 
+-   **Addons** 
 
     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/addons.png" alt="Addons"></p>
 
-1. Click **Add to Cart** after selecting all the required items. The popup window displays the list of all selected items.
-1. Click **View Cart**.
+When the customer selects all the required items and clicks **Add To Cart** and **View Cart**, the list of all selected items are displayed in a popup window.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/view-cart.png" alt="View Cart"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/view-cart.png" alt="View Cart"></p>
 
-1. The main difference in the purchase journey is that the customer needs to select the configurable characteristics values, which is mandatory, and it is displayed in the cart.
+The main difference in the purchase journey is that the customer needs to select the configurable characteristics values, which is mandatory, and it is displayed in the cart.
 
-    Similarly, for a purchase journey from the product details page, the customer needs to select the characteristics values for SPO. 
+**Purchase Process - Purchase Journey from the Product Details Page**
 
-1. Click **WIRELESS** -> **ADDONS**.   
-1. Select **Individual LATAM Country Add-ons**.
+Similarly, for a purchase journey from the product details page, the customer needs to select the characteristics values for SPO. 
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/individual-country-addons.png" alt="Individual Country Addons"></p>
+The customer navigates to the **WIRELESS** option and selects the required addon.
 
-    Here, the only difference is that to purchase the selected SPO, without selecting others, select the configurable characteristic value. In this case, select the required country from **Countries**.
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/individual-country-addons.png" alt="Individual Country Addons"></p>
 
-1. Click **Add To Cart**. In the **Shopping Cart** page, the customer performs the same actions that B2C customer does such add, edit, or remove the cart items.
-1. Click **SATELLITE OFFERS** -> **Terminals**.
-1. Select **Connect 50**.
-1. Click **Add To Cart**.
-1. Click **View Cart** to view the details.
-1. Click **WIRELESS** -> **Phones**.
-1. Select **Apple iphone 12 128Gb**.
-1. Click **Add To Cart**.
-1. Click **View Cart**. 
-1. Click **Proceed To Checkout**.
+Here, the only difference is that to purchase the selected Single Product Offering (SPO), without selecting others, the customer needs to select the configurable characteristic value and then add it to the cart. In this case, the configurable characteristic refers to the country that the customer needs to select from.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/proceed-to-checkout-cartitems.png" alt="Proceed to checkout Cartitems"></p>
+In the **Shopping Cart** page the customer performs the same actions that the B2C customer also performs such add, edit, or remove the cart items.
 
-    The B2B checkout page is different compared to earlier as now the Payment method has the following two options:
-    - Credit Card
-    - Account
+To continue updating the shopping cart, the customer navigates to the **SATELLITE OFFERS** and **WIRELESS** sections and adds the required items to the cart.
 
-    While purchasing an order within a company, select to pay with debit from your account or company account or with a credit card.
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/proceed-to-checkout-cartitems.png" alt="Proceed to checkout Cartitems"></p>
 
-1. Select **Credit Card**.
-1. Click **Continue**.
+The current B2B checkout page is different when compared to the earlier. The **Payment method** now includes the following options:
+-   Credit Card
+-   Account
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/b2b-checkout-page.png" alt="B2B Checkout Page"></p>
+While purchasing an order within a company, select to pay with debit from your account or company account or with a credit card. In this case, the **Credit Card** option is selected to proceed with checkout of selected items.
 
-1. Complete the **Shipping Address** details.
-1. Click **Continue**.
-1. Select the required **Shipping Method**.
-1. Click **Continue**.
-1. Complete the **Payment Details**.
-1. Click **Continue**. The new B2B review order page includes options such as **Auto Replenish Order** and when the order needs to be delivered.
-1. Click **Place Order**. 
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/b2b-checkout-page.png" alt="B2B Checkout Page"></p>
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/placeorder.png" alt="Place Order"></p>
-1. The Order Confirmation page is displayed with details of the order placed.
+As part of next steps, the customer updates the **Shipping Address**, **Delivery Mode**, and **Payment Details** sections and then places the order. 
 
-     <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/orderconfirmation.png" alt="Order Confirmation"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/placeorder.png" alt="Place Order"></p>
+
+The **Order Confirmation** page displays the details of the order placed.
+
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/orderconfirmation.png" alt="Order Confirmation"></p>
 
 ## Feature Enablement
 
@@ -140,26 +121,6 @@ This feature is enabled through the B2B Telco SPA Store. It is implemented on to
 | Dependency                                	| Detail                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
 | Spartacus                                     	| 3.2.0                                          	|
-| Telco & Utilities Accelerator	             	| Version 2105 (latest patch - 21.02)            	|
+| Telco & Utilities Accelerator	             	| Version 2108 (latest patch)            	|
 | SAP Commerce Cloud 	| Version 2011 (latest patch) 	|
 
-## Configuring and Enabling B2B Telco Store
-
-To be updated.
-
-## Supported Backend Functionality
-
-To be updated
-
-## Components
-
-| Component   Name                 	| Status  	| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
-|----------------------------------	|---------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| ...       	| New     	| ....                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        	|
-| ... 	| New     	| .... 	|
-| ...      	| New     	| ... |
-| ...              	| Updated 	| ... |
-
-## Further Reading
-
-To be updated.
