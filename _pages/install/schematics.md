@@ -27,7 +27,7 @@ You can add Spartacus core libraries and features to your Angular project by run
 ng add @spartacus/schematics@latest
 ```
 
-**Note:** If you are using schematics to set up your Spartacus project for the first time, there are important considerations to be aware of. For example, Spartacus does not support B2C and B2B storefronts running together in a single storefront application. For more information, see [Setting Up Your Project Using Schematics]({{ site.baseurl }}/building-the-spartacus-storefront-from-libraries-4-x/#setting-up-your-project-using-schematics).
+**Note:** If you are using schematics to set up your Spartacus project for the first time, there are important considerations to be aware of. For example, Spartacus does not support B2C and B2B storefronts running together in a single storefront application. For more information, see [Setting Up Your Project Using Schematics]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-4-x.md %}#setting-up-your-project-using-schematics).
 
 The following is a description of the various options you can use with the `ng add @spartacus/schematics@latest` command:
 
