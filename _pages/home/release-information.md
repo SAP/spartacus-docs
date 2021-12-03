@@ -32,6 +32,16 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 5.0
+
+*Release 5.0 libraries published January ??, 2022*
+
+Highlights include the following:
+
+### Retract Option for Single-Select Characteristics
+
+CPQ release note here...
+
 ## Release 4.2
 
 *Release 4.2 libraries published November 10, 2021*
