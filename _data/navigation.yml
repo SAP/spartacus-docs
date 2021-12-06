@@ -590,6 +590,8 @@ docs:
                   url: /fsa-invoice-payment/
                 - title: "Policy Change"
                   url: /fsa-policy-change/
+                - title: "Policy Renewal"
+                  url: /fsa-policy-renewal/
                 - title: "Coupons"
                   url: /fsa-coupons/
                 - title: "Product Discovery"
