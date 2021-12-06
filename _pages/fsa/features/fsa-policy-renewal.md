@@ -32,9 +32,11 @@ When a policy is up for renewal, the policyholder receives a notification about 
 
 ![Renewal Notification Text]({{ site.baseurl }}/assets/images/fsa/policy-renewal/inbox-notification-text.png)
 
-Following the link from the message, the customer lands directly to a quote comparison page, where one or more renewal offers are compared in a table view. The customer can examine the different product features and choose the plan that best fits their needs.
+Following the link from the message, the customer lands directly to a quote comparison page. The customer can see the renewal offers presented in a tabular view. If there is more than one offer, the customer can examine and compare the different product features and choose the plan that best fits their needs.
 
 ![Renewal Quotes Comparison View - Auto Insurance]({{ site.baseurl }}/assets/images/fsa/policy-renewal/comparison-table-view-auto.png)
+
+When there is a single renewal offer, for example, the customer is already subscribed to the best insurance plan. the purpose of this page is for the customer to preview the renewal offer before deciding whether to renew their policy or not.
 
 Besides the Inbox message, the customer can enter the renewal process from the Quotes and Applications page. After the renewal process is initiated and there is more than one renewal quote for the relevant policy, the customer can select the offered quotes and compare them. Usually, the customer can choose to continue with the existing product plan (which is highlighted in the UI) or renew their policy with an upgraded plan. The renewal quotes are marked with the relevant renewal flag so that they can be differentiated from regular quotes.
 
