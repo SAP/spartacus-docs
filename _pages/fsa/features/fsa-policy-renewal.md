@@ -49,7 +49,7 @@ Apart from the Inbox message, the customer can enter the renewal process from th
 Assuming there is more than one renewal offer for the relevant policy, the customer can select the offered quotes from this page and compare them.
 Renewal quotes are marked with the relevant flag on the back end and the UI to differentiate them from regular quotes.
 
-SCREENSHOT
+![Comparing Renewal Quotes from Quotes and Applications page]({{ site.baseurl }}/assets/images/fsa/policy-renewal/quotes-and-applications-select-and-compare.png)
 
 After examining the renewal offers, the customer opts for one of the offered options by clicking the **SELECT QUOTE** button.
 
