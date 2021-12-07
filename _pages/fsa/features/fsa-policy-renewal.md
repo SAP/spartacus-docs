@@ -67,7 +67,9 @@ After examining the renewal offers, the customer opts for one of the offered opt
 
 The customer then continues with the regular checkout steps, choosing the payment method and finalizing the purchase. 
 Soon after the purchase, the customer receives two new notifications: one to confirm the renewal, and another to confirm the new policy purchase. 
-The new policy can be seen on the **Policies** page of the **My Account** area, next to the current policy. The start day of the new policy is the end date of the current one.
+The new policy can be seen on the **Policies** page of the **My Account** area, next to the current policy. 
+The start day of the new policy is the end date of the current one.
+The quote that was not used is deleted.
 
 
 
