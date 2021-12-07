@@ -5,8 +5,7 @@ title: FSA Policy Renewal
 **Note**: This feature is introduced with version 4.0 of the FSA Spartacus libraries.
 
 The Policy Renewal process enables insurance carriers to provide their customers with the possibility to renew their policies online. 
-Customers are notified via Inbox message when their policy is up for renewal, and they are guided to a compare view of offered renewal options. 
-For more information, see Policy Renewal documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
+
 
 ***
 
@@ -20,10 +19,21 @@ For more information, see Policy Renewal documentation on the [SAP Help Portal](
 ## Overview
 
 The insurance company typically invites the policyholder to renew the policy near the end of its term.
+Customers are notified via Inbox message when their policy is up for renewal, and they are guided to a compare view of offered renewal options. 
 In the Financial Services Accelerator's default implementation, the policy renewal process is triggered 31 days before the expiry of the current policy. 
 This period is, however, configurable.
 
-The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products.  
+The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products.
+
+For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
+
+## Back-end Requirements
+
+For more details on the back-end implementation, see Policy Renewal documentation on the SAP Help Portal.   
+
+## Components
+
+The renewal process relies heavily on the FSA Spartacus' Quote Comparison feature. For more detailed information, see the [Quote Comparison] page. 
 
 ## User Journey
 
@@ -60,8 +70,6 @@ Soon after the purchase, the customer receives two new notifications: one to con
 The new policy can be seen on the **Policies** page of the **My Account** area, next to the current policy. The start day of the new policy is the end date of the current one.
 
 
-## Implementation
 
-The renewal process relies heavily on the Quote Comparison table. For more detailed information, see [Quote Comparison]. 
 
 
