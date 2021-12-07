@@ -40,7 +40,7 @@ Highlights include the following:
 
 ### Retract Option for Single-Select Characteristics
 
-By default, in drop-down and radio button lists for single-select characteristics, the customers can make a selection and change the selection, but they cannot retract it. You can now set the system up so that the single-selection can be retracted. This can be especially helpful in the situations where the domain restrictions hide values in other characteristics so that customers have difficulties completing the configuration.
+By default, in drop-down and radio button lists for single-select characteristics, the customers can make a selection and change the selection, but they cannot retract it. You can now set the system up so that the single-selection can be retracted. This can be especially helpful in the situations where the domain restrictions hide values in other characteristics so that customers have difficulties completing the configuration. For more information, see [link].
 
 ## Release 4.2
 
