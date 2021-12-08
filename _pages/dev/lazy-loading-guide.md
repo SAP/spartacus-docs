@@ -1,28 +1,28 @@
 ---
 title: Lazy Loading
 feature:
-- name: Lazy Loading of CMS components
-  spa_version: 2.0
-  cx_version: n/a
-  anchor: "#lazy-loading-of-cms-components"
-- name: Lazy Loading of Modules
-  spa_version: 2.1
-  cx_version: n/a
-  anchor: "#lazy-loading-of-modules"
+  - name: Lazy Loading of CMS components
+    spa_version: 2.0
+    cx_version: n/a
+    anchor: '#lazy-loading-of-cms-components'
+  - name: Lazy Loading of Modules
+    spa_version: 2.1
+    cx_version: n/a
+    anchor: '#lazy-loading-of-modules'
 ---
 
 Lazy loading, also known as code splitting, lets you divide your JavaScript code into multiple chunks. The result is that you do not have to load all the JavaScript of the full application when a user accesses the first page. Instead, only the chunks that are required for the given page are loaded. While navigating the storefront, additional chunks are loaded when needed.
 
 Such an approach can substantially improve "Time To Interactive", especially in the case of complex web applications being accessed by low-end mobile devices.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Spartacus Approach to Lazy Loading
 
@@ -39,7 +39,7 @@ The following sections offer some important information about how lazy loading w
 
 Dynamic imports, a technique that is used to facilitate lazy loading and that also allows code splitting, can only be used in the main application. It is not possible to define dynamic imports in the prebuilt libraries.
 
-This is an unfortunate limitation, which results in some application code that must be added by customers. Although the amount of custom code is limited to the bare minimum, we'll add a feature in a future version of the schematics library to automatically add lazy-loaded modules.
+This is an unfortunate limitation, which results in some application code that must be added by customers. Although the amount of custom code is limited to the bare minimum, we added a feature to the schematics library to automatically add lazy-loaded modules.
 
 ### Avoiding Static Imports for Lazy-Loaded Code
 
@@ -112,7 +112,8 @@ Lazy loading of CMS code is achieved by specifying a dynamic import in place of 
 {
   cmsComponents: {
     SimpleResponsiveBannerComponent: {
-      component: () => import('./lazy/lazy.component').then(m => m.LazyComponent)
+      component: () =>
+        import('./lazy/lazy.component').then((m) => m.LazyComponent);
     }
   }
 }
@@ -179,7 +180,7 @@ Spartacus is able to extract a CMS component mapping configuration from a lazy-l
 
 ### Defining Shared-Dependency Modules
 
-It is possible to extract some logic to a shared, lazy-loaded module that can be defined as a lazy-loaded dependency for a feature module by providing an array of dynamic imports in the `dependencies` property of the feature configuration. The following is an example:  
+It is possible to extract some logic to a shared, lazy-loaded module that can be defined as a lazy-loaded dependency for a feature module by providing an array of dynamic imports in the `dependencies` property of the feature configuration. The following is an example:
 
 ```typescript
 {
@@ -201,11 +202,11 @@ It is possible to extract some logic to a shared, lazy-loaded module that can be
 }
 ```
 
-Such unnamed dependency modules are instantiated only once, when lazy loading the first feature that depends on it. Its providers contribute to the combined injector that is passed to the feature module, and as a result, all feature services and components have access to the services provided by the dependency modules.  
+Such unnamed dependency modules are instantiated only once, when lazy loading the first feature that depends on it. Its providers contribute to the combined injector that is passed to the feature module, and as a result, all feature services and components have access to the services provided by the dependency modules.
 
 ### Dependency Aliases
 
-For greater flexibility, it is possible to use string aliases for both dependencies and for whole features. If one feature depends on another one, you can reference it as a dependency, as shown in the following example: 
+For greater flexibility, it is possible to use string aliases for both dependencies and for whole features. If one feature depends on another one, you can reference it as a dependency, as shown in the following example:
 
 ```typescript
 {
@@ -265,7 +266,7 @@ The following is an example of the default approach:
       ],
     },
     // Core to Feature alias is a part of default config, provided by UserAccountRootModule
-    // and usually can be ommited  
+    // and usually can be ommited
     [USER_ACCOUNT_CORE_FEATURE]: USER_ACCOUNT_FEATURE, // by default core is bundled together with components
 }
 ```
@@ -280,7 +281,7 @@ The following is an example of a decoupled approach that is easier to customize:
           import('@spartacus/user/account/components').then((m) => m.UserAccountComponentsModule),
       },
       // cmsComponents is a part of default config, bundled with UserAccountRootModule
-      // and usually can be ommited      
+      // and usually can be ommited
       cmsComponents: [
         'LoginComponent',
         'ReturningCustomerLoginComponent',
@@ -295,7 +296,7 @@ The following is an example of a decoupled approach that is easier to customize:
           import('@spartacus/user/account/occ').then(
               (m) => m.UserAccountOccModule
         ),
-    ]        
+    ]
   },
   }
 ```
@@ -385,7 +386,7 @@ import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rul
   providers: [
     // provide customizations of classes from the original module here, such as the following:
     // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
-  ]
+  ],
 })
 export class CustomRulebasedConfiguratorModule {}
 ```
