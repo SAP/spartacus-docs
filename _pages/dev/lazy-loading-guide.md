@@ -81,6 +81,7 @@ The following is an example that shows the order in which different configuratio
 Injection tokens provided in lazy-loaded modules are not visible to services provided in the root application. This applies especially to multi-provided tokens, such as `HttpInterceptors`, various handlers, and so on.
 
 To mitigate this drawback, some Spartacus features, such as the `PageMetaService` (which consumes `PageMetaResolver` tokens), or the `ConverterService` (which mostly consumes adapter serializers and normalizers), use the unified injector under the hood. In doing so, they have access to lazy-loaded tokens and can leverage them for global features.
+An exclusion from this are component guards provided in LL libraries, for which Spartacus uses the unified injector in order to apply them to components as soon as the library is lazy-loaded.
 
 For mechanisms that do not rely on the unified injector (for example, functionality from most non-Spartacus libraries, such as the core Angular libraries), it is recommended that you always eager load modules with these kinds of tokens.
 
