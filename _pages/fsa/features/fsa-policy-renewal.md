@@ -21,13 +21,11 @@ The Policy Renewal process enables insurance carriers to provide their customers
 The insurance company typically invites the policyholder to renew the policy near the end of its term.
 Customers are notified via Inbox message when their policy is up for renewal, and they are guided to a compare view of offered renewal options. 
 In the Financial Services Accelerator's default implementation, the policy renewal process is triggered 31 days before the expiry of the current policy. 
-This period is, however, configurable.
+This period is configurable. 
 
-The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products.
+The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products. For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
 
-For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
-
-## Back-end Requirements
+## Back-End Requirements
 
 For more details on the back-end implementation, see Policy Renewal documentation on the SAP Help Portal.   
 
