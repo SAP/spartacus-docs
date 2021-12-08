@@ -259,7 +259,7 @@ The following is an example of the default approach:
           import('@spartacus/user/account').then((m) => m.UserAccountModule),
       },
       // cmsComponents is a part of default config, provided by UserAccountRootModule
-      // and usually can be ommited
+      // and usually can be omitted
       cmsComponents: [
         'LoginComponent',
         'ReturningCustomerLoginComponent',
@@ -267,7 +267,7 @@ The following is an example of the default approach:
       ],
     },
     // Core to Feature alias is a part of default config, provided by UserAccountRootModule
-    // and usually can be ommited
+    // and usually can be omitted
     [USER_ACCOUNT_CORE_FEATURE]: USER_ACCOUNT_FEATURE, // by default core is bundled together with components
 }
 ```
