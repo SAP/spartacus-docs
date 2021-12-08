@@ -173,6 +173,32 @@ Configuration of the feature involves the following aspects:
   }
   ```
 
+### Order of Lazy Loaded features
+
+The order in which the lazy-loaded features are specified in the `spartacus/spartacus-features.module.ts` is important.
+Consider the following use case, where an app is using both _b2b_ and _base_ checkout:
+
+```ts
+import { CheckoutFeature } from '@spartacus/checkout/base';
+import { CheckoutB2BFeatureModule } from '@spartacus/checkout/b2b';
+...
+
+@NgModule({
+  imports: [
+    ...
+    CheckoutFeature,
+    CheckoutB2BFeatureModule,
+    ...
+  ],
+})
+export class SpartacusFeaturesModule {}
+```
+
+As `CheckoutB2BFeatureModule` is imported after `CheckoutFeature` it has to be specified _after_ it.
+
+The order in which the lazy-loaded features are imported also determines the order in which the overridden CMS components are lazy-loaded.
+For example, `B2BCheckoutShippingAddressComponent` from `@spartacus/checkout/b2b` extends the `CheckoutShippingAddressComponent` from `@spartacus/checkout/base` and overrides its CMS mapping.
+
 ### Component Mapping Configuration in Lazy-Loaded Modules
 
 Default CMS mapping configuration in lazy-loaded modules should be defined in exactly the same fashion as in statically-imported ones.
