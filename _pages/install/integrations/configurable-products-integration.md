@@ -109,19 +109,21 @@ Right-to-left (RTL) orientation is supported for product configuration in Sparta
 
 ## Retract Option for Single-Select Characteristics
 
-By default, in drop-down and radio button lists for single-select characteristics, the customers can make a selection and change the selection, but they cannot retract it.
+By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection.
 
-Depending on product modeling, the customers might run into a deadlock situation so that they cannot complete the configuration. In this case, you can enable a retract option, so that the selection can be retracted with **No option selected** entry, which can be customized, just like any other Spartacus UI text.
+Depending on the product modeling, customers could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable a "retract" option that allows customers to remove their selection, which they can do by selecting the special **No option selected** entry.
 
-To enable the retract option, you need to activate the rendering of the additional value by configuring your Spartacus configuration file as follows:
+**Note:** You can customize the `No option selected` label of this entry, just as you can with any UI text in Spartacus.
 
-```bash
+To enable the retract option, you need to activate the rendering of the option in your Spartacus configuration, as shown in the following example:
+
+```ts
 productConfigurator: { 
-      		addRetractOption: true,
-   	 } 
+    addRetractOption: true,
+  } 
 ```
 
-It depends on the product modeling and the configuration engine whether after retract the default setting is simply withdrawn and the attribute is unselected or whether the engine sets a default selection.
+Depending on the product modeling and the configuration engine, after the customer has retracted their selection, the default setting may be withdrawn with the attribute unselected, or the configuration engine may set a default selection.
 
 ## Group Status Handling
 
