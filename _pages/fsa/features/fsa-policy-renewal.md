@@ -21,7 +21,7 @@ The Policy Renewal process enables insurance carriers to provide their customers
 The insurance company typically invites the policyholder to renew the policy near the end of its term.
 Customers are notified via Inbox message when their policy is up for renewal, and they are guided to a compare view of offered renewal options. 
 In the Financial Services Accelerator's default implementation, the policy renewal process is triggered 31 days before the expiry of the current policy. 
-This period is configurable. 
+This period is configurable from the back-end side through FSPolicyRenewalCronJob. 
 
 The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products. For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
 
@@ -55,7 +55,11 @@ When there is a single renewal offer (for example, the customer already subscrib
 
 Apart from the Inbox message, the customer can enter the renewal process from the **Quotes and Applications** page. 
 Assuming there is more than one renewal offer for the relevant policy, the customer can select the offered quotes from this page and compare them.
-Renewal quotes are marked with the relevant flag on the back end and the UI to differentiate them from regular quotes.
+Renewal quotes carry the relevant flag both on the back end (renewal flag is set to true on InsuranceQuoteModel) as on the UI, to differentiate them from regular quotes.
+For easier and quicker management, the user can single out renewal quotes can be using the filter. 
+
+![Filtering Renewal Quotes on Quotes and Applications page]({{ site.baseurl }}/assets/images/fsa/policy-renewal/renewal-quotes-filter.png)
+
 
 ![Comparing Renewal Quotes from Quotes and Applications page]({{ site.baseurl }}/assets/images/fsa/policy-renewal/quotes-and-applications-select-and-compare.png)
 
@@ -67,7 +71,7 @@ The customer then continues with the regular checkout steps, choosing the paymen
 Soon after the purchase, the customer receives two new notifications: one to confirm the renewal, and another to confirm the new policy purchase. 
 The new policy can be seen on the **Policies** page of the **My Account** area, next to the current policy. 
 The start day of the new policy is the end date of the current one.
-The quote that was not used is deleted.
+After one quote offer is accepted and the policy is created, the second quote offer is automatically deleted.
 
 
 
