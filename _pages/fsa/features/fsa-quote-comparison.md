@@ -33,7 +33,7 @@ On the Quotes & Applications page, there are three main actions that the custome
 
 1. **Filter Quotes** - Initially all quotes are visible. Filtering helps customers to quickly find the ones needed for comparison. Customers can filter quotes by category (Auto, Travel, Renewal Quotes, etc.).
 2. **Compare Quotes** - Disabled until the customer selects two quotes for comparison. This action redirects the customer to the Quote Comparison page.
-3. **Clear All** - Disabled until the customer selects at least one quote. This action will reset all selected quotes.
+3. **Clear All** - Disabled until the customer selects at least one quote. This action resets all selected quotes.
 
 Below is an illustration of the default state (disabled) and the active state (enabled) for all three actions.
 
@@ -80,7 +80,7 @@ The link guides the customer to the checkout process where they can complete the
 
 ## Configuration
 
-The content of the quote comparison page can be configured to suit the company's needs. 
+The content of the Quote Comparison page can be configured to suit the company's needs. 
 To accomplish that, you need to set a configuration file:
 
 ```ts
