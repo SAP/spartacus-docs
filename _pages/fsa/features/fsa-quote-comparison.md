@@ -52,14 +52,14 @@ Next to each checkbox title, there is an info tooltip, with the purpose to infor
 
 ### Selecting Quotes from Quote Details Page
 
-As said, the customer can initiate the quote comparison from the Quote Details page as well.
+As previously mentioned, the customer can initiate the quote comparison from the Quote Details page as well.
 
-When the user clicks the **DETAILS** button on the quote card from the Quotes & Applications page, they are presented with an overview of the relevant information for the chosen quote. 
+By clicking the **DETAILS** button on the quote card from the Quotes & Applications page, the user is redirected to the Quote Details page to see an overview of the relevant information for the chosen quote.
 Beside retrieving the quote, the user can also choose to compare it with another quote of the same product category. 
 
 ![Compare Button on the Quote Details Page]({{ site.baseurl }}/assets/images/fsa/quote-comparison/quote-details-compare-button.png)
 
-When the user clicks **COMPARE**, they are redirected back to the Quotes & Applications page, where they can select other quotes for comparison. 
+By clicking the **COMPARE** button, the user is redirected back to the Quotes & Applications page, where they can select other quotes for comparison. 
 The quote whose details the user was seeing previously is already selected. 
 
 ## Quote Comparison Page Contents
