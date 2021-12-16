@@ -6,6 +6,8 @@ This is a landing page for grouping together FSA Spartacus features. The FSA Spa
 
 ## Release 4.0
 - [SAP Digital Payments Integration]({{ site.baseurl }}{% link _pages/fsa/features/fsa-checkout.md %})
+- [Policy Renewal]({{ site.baseurl }}{% link _pages/fsa/features/fsa-policy-renewal.md %})
+- [Quote Comparison]({{ site.baseurl }}{% link _pages/fsa/features/fsa-quote-comparison.md %})
 
 ## Release 3.0
 

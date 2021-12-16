@@ -607,6 +607,8 @@ docs:
                       url: /fsa-agent-availability/
                 - title: "Quote Details Page"
                   url: /fsa-quote-details-page/
+                - title: "Quote Comparison"
+                  url: /fsa-quote-comparison/
 
 
     - title: Contributing to Spartacus

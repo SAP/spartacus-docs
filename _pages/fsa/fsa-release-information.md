@@ -27,9 +27,17 @@ This document describes what is included in all FSA Spartacus libraries since th
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 ## Release 4.0
-*Release 4.0 libraries published November 2021*
+*Release 4.0 libraries published February 2022*
 
 - **SAP Digital Payments Integration** - With SAP Digital Payments integration, Financial Services Accelerator provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotation and application processes.
+- **My Account Dashboard** - Customers can now see an overview of the most important information from the My Account area on a separate summary page called My Account Dashboard.
+- **Renewal Process** - The system notifies policyholders about their policy renewal options when their existing policies are about to expire. This helps customers decide about the new version of their policies while they are still valid.   
+- **Quote Comparison** - Customers can compare quotes they created in a separate comparison table, which facilitates the decision-making process when they need to choose between two similar options.
+- **On-Behalf-Of Framework** - This framework enables financial B2B customers to execute processes on behalf of their customers. At the same time, they have an overview of their customer's portfolio.
+- **Chatbot** - The Chatbot feature in Financial Services Accelerator allows financial companies to interact and coordinate with their customers in real-time and easy-to-use interface.
+- **Quote Replication** - Quotes created in another system (e.g., PQM) are replicated in the Financial Services Accelerator and shown to the customer. The customer can accept or decline the quote. The customer's decision is then replicated back to the originating system.
+- **Live Contract Integration Enhancement** - The integration between Financial Services Accelerator and Live Contract has been extended so that customers can now directly call an agent of choice from the Find an Agent page.
+
 
 ## Release 3.0
 *Release 3.0 libraries published October 7, 2021*
