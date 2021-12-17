@@ -1,0 +1,1499 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Committing Code to Spartacus - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Committing Code to Spartacus">
+<meta property="og:url" content="/spartacus-docs/1.x/commit-guidelines/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/1.x/commit-guidelines/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/1.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/1.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/1.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Home</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/" class="">About Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/release-information/" class="">Release Information ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-videos/" class="">Spartacus Videos</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-roadmap/" class="">Spartacus Roadmap</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-faq/" class="">Spartacus FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/docs-archive/" class="">Documentation Archive</a>
+ 
+              
+
+                
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started with Spartacus Libraries</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/installing-sap-commerce-cloud/" class="">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/cors/" class="">Cross-Origin Resource Sharing (CORS)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/building-the-spartacus-storefront-from-libraries/" class="">Building the Spartacus Storefront from Libraries</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/snapshot-builds/" class="">Snapshot Builds</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-feature-flags/" class="">Configuring Feature Flags</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartEdit-setup-instructions-for-spartacus/" class="">SmartEdit Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/personalization-setup-instructions-for-spartacus/" class="">Personalization Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacussampledataaddon/" class="">Spartacussampledataaddon AddOn</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/integrations/" class="">Integrations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Storefront Development Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/storefront-development-faq/" class="">Storefront Development FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-api/" class="">Spartacus API</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-configuration-in-spartacus/" class="">Global Configuration in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-features/" class="">Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/security-best-practices/" class="">Security Best Practices</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/performance/" class="">Performance Optimizations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/outlets/" class="">Outlets</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/styling-and-page-layout/" class="">Styling and Page Layout ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-and-extending/" class="">Customizing and Extending Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/extending-checkout/" class="">Extending Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/express-checkout/" class="">Express Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/guest-checkout/" class="">Guest Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-routing/" class="">Configurable Routing ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-base-url/" class="">Configuring the Base URL</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/context-configuration/" class="">Multi-Site Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/pwa-home/" class="">PWA ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/seo/" class="">SEO ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/i18n/" class="">Internationalization (i18n)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/state-management/" class="">State Management ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartedit-contract/" class="">SmartEdit Contract in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-backend-communication/" class="">Customizing Back End Communication ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-messages/" class="">Global Messages</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/http-error-handling/" class="">HTTP Error Handling</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-state-persistence-and-rehydration/" class="">Configurable State Persistence and Rehydration</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/server-side-rendering-in-spartacus/" class="">Server-Side Rendering ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/view-configuration/" class="">View Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">Customer Experience Guidelines ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributing to Spartacus</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/contributors-guide/" class="">Contributor's Guide ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+                      
+                        
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/contributing-to-the-spartacus-storefront/" class="">Contributing to the Spartacus Storefront</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/development-tools-for-spartacus/" class="">Development Tools for Spartacus</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/contributor-setup/" class="">Contributor Setup</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/coding-guidelines/" class="">Coding Guidelines</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/breaking-changes/" class="">Maintaining Public APIs</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/continuous-integration/" class="">Continuous Integration</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/feature-flags-and-code-deprecation/" class="">Feature Flags and Code Deprecation</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/commit-guidelines/" class="active">Committing Code to Spartacus</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/type-safety-in-spartacus/" class="">Type Safety in Spartacus</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/definition-of-done/" class="">Definition of Done</a></li>
+                    
+                         
+                       
+                     
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Committing Code to Spartacus</h1>
+    
+    <h2 id="settings">Settings</h2>
+
+<p>If you are on Windows, set the Git <code class="language-plaintext highlighter-rouge">core.autocrlf</code> configuration property to “false”, and make sure to use Unix-style linebreaks (LF-only).</p>
+
+<h2 id="merging">Merging</h2>
+
+<p>When you are ready to merge your pull request, select GitHub’s <code class="language-plaintext highlighter-rouge">Squash and merge</code> option, as shown in the following image:</p>
+
+<p><img src="/spartacus-docs/1.x/assets/images/Squash_and_merge_button.png" alt="Squash and Merge Button" /></p>
+
+<p>For information on <code class="language-plaintext highlighter-rouge">Squash and merge</code>, see <a href="https://help.github.com/articles/about-pull-request-merges/">GitHub Help</a>.</p>
+
+<h1 id="commit-message-guidelines">Commit Message Guidelines</h1>
+
+<p>We use git commit messages to generate the framework changelog. To that end, we have specific rules for how to format git commit messages. These rules are also intended to make the commit messages easier to read.</p>
+
+<h2 id="commit-message-format">Commit Message Format</h2>
+
+<p>The commit message consists of a header, a body, and optionally, a footer. Each line in the commit message has a maximum length of 100 characters.</p>
+
+<p>When you click <code class="language-plaintext highlighter-rouge">Squash and merge</code>, two text fields appear. The first is for entering the header, and the second is for entering the body and footer, as shown in the following screenshot:</p>
+
+<p><img src="/spartacus-docs/1.x/assets/images/Squash_merge_header_body_footer.png" alt="Text fields for entering commit message" /></p>
+
+<p>The following is an example of a header you might enter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>feat: introduce new facade signature and generic ngrx store state for fine-grained control of loading state (GH-123)
+</code></pre></div></div>
+
+<p>The following is an example of the corresponding body and footer. The footer begins with <code class="language-plaintext highlighter-rouge">BREAKING CHANGE</code>. Note that the body and footer are separated by a blank line:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The product, language and currency facades have been refactored. A generic reducer has been introduced for all entities that require fine-grained load, success and error state.
+
+BREAKING CHANGE:
+
+Product, language and currency facades have a new public interface.
+
+Closes GH-123
+</code></pre></div></div>
+
+<h3 id="header">Header</h3>
+
+<p>The commit header is a brief summary of the work done.</p>
+
+<p>When you click <code class="language-plaintext highlighter-rouge">Squash and merge</code>, the header field is automatically populated. However, it does not match our commit guidelines format precisely. Please modify it to fit the following format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;type&gt;: &lt;subject&gt;&lt;issue number&gt;
+</code></pre></div></div>
+
+<h4 id="type">Type</h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">type</code> is mandatory, and must be one of the following:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">build</code>: for changes that affect the build system or external dependencies.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ci</code>: for changes to our CI configuration files and scripts.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">docs</code>: for changes to documentation only</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">feat</code>: for new feature work</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">fix</code>: for a bug fix</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">perf</code>: for a code change that improves performance</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">refactor</code>: for a code change that neither fixes a bug nor adds a feature</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">style</code>: for changes that do not affect the meaning of the code, such as white-space, formatting, missing semi-colons, and so on</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">test</code>: for adding missing tests or to correct existing tests.</p>
+  </li>
+</ul>
+
+<p>In the changelog, we only include commits that are of type <code class="language-plaintext highlighter-rouge">feat</code> or <code class="language-plaintext highlighter-rouge">fix</code>.</p>
+
+<h4 id="subject">Subject</h4>
+
+<p>The subject contains a succinct description of the change, and adheres to the following rules:</p>
+
+<ul>
+  <li>The subject is written in the present, imperative tense. For example, “add facades”, rather than “adds facades” or “added facades”.</li>
+  <li>The first letter of the subject message is in lower-case.</li>
+  <li>There is no period at the end of the subject message.</li>
+</ul>
+
+<h4 id="issue-number">Issue Number</h4>
+
+<p>At the end of the header, include the GitHub issue number in parentheses, as follows: <code class="language-plaintext highlighter-rouge">(GH-123)</code>.</p>
+
+<p>By default, GitHub includes the pull request number here, so be sure to change it to the issue number. After your commit message is submitted, GitHub converts the issue number into a link to the original issue, which can be convenient for anyone who is reading the changelog.</p>
+
+<h3 id="body">Body</h3>
+
+<p>The body is entered in the text field below the header field.</p>
+
+<p>The following are some guidelines for writing the body:</p>
+
+<ul>
+  <li>
+    <p>Describe the problem you are fixing. Whether your patch is a one-line bug fix, or is 5000 lines of new code, there must be an underlying problem that motivated you to do this work. Make the necessity of the fix clear to the reviewers, so they will continue reading.</p>
+  </li>
+  <li>
+    <p>Describe the effect that this change has from a user’s point of view. App crashes and lockups are pretty convincing, but not all bugs are that obvious; this information should be mentioned in the text. Even if the problem was spotted during code review, describe the impact you think it can have on users.</p>
+  </li>
+  <li>
+    <p>Describe the technical details of what you changed. It is important to describe the change as clearly as possible. This will help the reviewer to verify that the code is behaving as you intend it to.</p>
+  </li>
+</ul>
+
+<h3 id="footer">Footer</h3>
+
+<p>If your issue contains a breaking change, start the footer with <code class="language-plaintext highlighter-rouge">BREAKING CHANGE:</code> followed by a space or an empty line, and then a description of the breaking change. You can indicate one or more breaking changes in the footer with the following keywords:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BREAKING CHANGE</code></li>
+  <li><code class="language-plaintext highlighter-rouge">BREAKING CHANGES</code></li>
+</ul>
+
+<p>If your issue contains a deprecation, you use a similar approach to breaking changes, with the following keywords:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">DEPRECATION</code></li>
+  <li><code class="language-plaintext highlighter-rouge">DEPRECATED</code></li>
+  <li><code class="language-plaintext highlighter-rouge">DEPRECATIONS</code></li>
+</ul>
+
+<p>The footer is also where you can automatically close your issue with a keyword (such as <code class="language-plaintext highlighter-rouge">closes</code> or <code class="language-plaintext highlighter-rouge">fixes</code>). For information on the format, and a list of the available keywords, see <a href="https://help.github.com/articles/closing-issues-using-keywords/">GitHub Help</a>.</p>
+
+<h3 id="reverting-a-commit">Reverting a Commit</h3>
+
+<p>If your commit reverts a previous commit, begin the header with <code class="language-plaintext highlighter-rouge">revert:</code> and then include the header of the reverted commit. In the body, write “This reverts commit <em>hash</em>”, where <em>hash</em> is the SHA of the commit you are reverting.</p>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/1.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/1.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    searchParameters: {
+      facetFilters: ['tags:1.x']
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
