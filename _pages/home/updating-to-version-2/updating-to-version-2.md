@@ -42,3 +42,7 @@ Finally, when this script has finished running, inspect your code for comments t
 For more information about schematics, see the schematics project [README](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
 Various releases of Spartacus 1.x have contributed to the styling in Spartacus, which was grouped into a specific theme called "Calydon". This theme is no longer used in version 2.0 because the various styles have been merged into the standard styling. If you do use some (or all) of the styling from Spartacus, you might need to update your styles. For more information about the deprecated styles from Spartacus version 1.x, see [{% assign linkedpage = site.pages | where: "name", "css-changes-in-version-2.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-2/css-changes-in-version-2.md %}).
+
+## Migrating from Accelerator to Spartacus
+
+If you are considering migrating a project from Accelerator to Spartacus, see [Migrate Your Accelerator-based Storefront to Project Spartacus](https://www.sap.com/cxworks/article/2589632310/migrate_your_accelerator_based_storefront_to_project_spartacus) on the SAP CX Works website.
