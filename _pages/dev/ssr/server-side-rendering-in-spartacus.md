@@ -309,7 +309,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
 1. Build the SSR version of your Spartacus shell app by running the following command:
 
     ```bash
-    npm run build:ssr && npm run serve:ssr
+    yarn run build:ssr && yarn run serve:ssr
     ```
 
 ## Installation Steps for Internal Spartacus Development
