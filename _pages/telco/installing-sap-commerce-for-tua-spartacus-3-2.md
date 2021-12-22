@@ -23,15 +23,16 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. Unzip the SAP Commerce and Telco & Utilities Accelerator zip archives.
 
-   **Note:** Use the latest patches for SAP Commerce Cloud version 2005 and Telco & Utilities Accelerator version 2011 or Telco & Utilities Accelerator version 2108.
+   **Note:** Use the latest patches for SAP Commerce Cloud version 2011 and Telco & Utilities Accelerator version 2108.
 
 1. [Download](https://github.com/SAP/spartacus-tua/releases) the TUA Spartacus Sample Data Store Extension.
 
     The TUA Spartacus Sample Data is provided in the following zip files:
 
-    - `b2ctelcospastore.zip`.
-    - `utilitiesspastore.zip`.
-    - `mediaspastore.zip`.
+    - `b2ctelcospastore.zip`
+    - `utilitiesspastore.zip`
+    - `mediaspastore.zip`
+    - `b2btelcospastore.zip`
 
 1. Unzip the sample data.
 
@@ -46,6 +47,9 @@ Some of the steps in this procedure are derived from the documentation for insta
     - Sample data for Media is stored in the following archive files: 
         - `mediaspastore.zip`.
 
+    - Sample data for B2B Telco is stored in the following archive files: 
+        - `b2btelcospastore.zip`.
+
 1. Move:
     - the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
@@ -53,7 +57,9 @@ Some of the steps in this procedure are derived from the documentation for insta
 
     - the `mediaspastore` folder from extracted `mediaspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
-    **Note:** The `b2ctelcospastore`, `utilitiesspastore`, and `mediaspastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
+    - the `b2btelcospastore` folder from extracted `b2btelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+
+    **Note:** The `b2ctelcospastore`, `utilitiesspastore`, `mediaspastore`, and `b2btelcospastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
 1. Unzip TUA cms extension for utilities:
 
@@ -63,9 +69,9 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. In the `sap-commerce-folder>/installer/recipes` folder, create a copy of the `b2c_telco` folder.
 
-1. Rename the copy of the `b2c_telco` folder to `b2c_telco_spa`.
+1. Rename the copy of the `b2c_telco` folder to `b2b_b2c_telco_spa`.
 
-1. In `b2c_telco_spa`, the `build.gradle` file should have the following content:
+1. In `b2b_b2c_telco_spa`, the `build.gradle` file should have the following content:
 
     If you want to use the two sample data extensions, for Telco and Utilities, the `build.gradle` file must have the following structure:
 
@@ -81,6 +87,8 @@ Some of the steps in this procedure are derived from the documentation for insta
 	    property 'commerceservices.default.desktop.ui.experience', 'responsive'
 	    property 'kernel.autoInitMode', 'update'
 	    property 'installed.tenants', 'junit'
+        property 'occ.rewrite.overlapping.paths.enabled', 'true'
+        property 'api.compatibility.b2c.channels', 'B2B'
 	}
 	afterSetup {
 	    ensureAdminPasswordSet()
@@ -215,6 +223,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     extName 'utilitiesspastore'
     extName 'mediaspastore'
     extName 'b2ctelcocms'
+    extName 'b2btelcospastore'
     ```
 1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
 
@@ -223,12 +232,12 @@ Some of the steps in this procedure are derived from the documentation for insta
     For Windows:
 
     ```bash
-    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
+    install.bat -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
     For Unix:
 
     ```bash
-    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
+    ./install.sh -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
    **Note:** Starting with release 1905, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
@@ -238,27 +247,27 @@ Some of the steps in this procedure are derived from the documentation for insta
    For Windows:
 
    ```bash
-   install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
+   install.bat -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
    For Unix:
 
    ```bash
-   ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
+   ./install.sh -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
 
-   Initialization of the `b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
+   Initialization of the `b2b_b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
 
 1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands 
 
    For Windows:
 
    ```bash
-   install.bat -r b2c_telco_spa start
+   install.bat -r b2b_b2c_telco_spa start
    ```
    For Unix:
 
    ```bash
-   ./install.sh -r b2c_telco_spa start
+   ./install.sh -r b2b_b2c_telco_spa start
    ```
 
 1. Verify that the system is working.
@@ -267,7 +276,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    - Access Backoffice: https://localhost:9002/backoffice
    
 
-   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `telcospa` and/or `utilitiesspa` and/or `mediaspa` depending on which sample data you want to use. Following are the samples:
+   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `telcospa` and/or `utilitiesspa` and/or `mediaspa` and/or `b2btelcospa` depending on which sample data you want to use. Following are the samples:
 
     Telco:
 
@@ -293,11 +302,19 @@ Some of the steps in this procedure are derived from the documentation for insta
     },
     ```
 
-    All three:
+    B2B Telco:
 
     ```ts
     context: {
-    baseSite: ['telcospa', 'utilitiesspa’, 'mediaspa']
+    baseSite: ['b2btelcospa']
+    },
+    ```
+
+    All four:
+
+    ```ts
+    context: {
+    baseSite: ['telcospa', 'utilitiesspa’, 'mediaspa', 'b2btelcospa']
     },
     ```  
 
