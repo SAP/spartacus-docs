@@ -18,15 +18,15 @@ https://sap.github.io/spartacus-docs/keyboard-accessibility/
 
 ## Testing Keyboard A11Y with `domSnapshot()`
 
-You can place this method in any position in the test where you would like to verify that keyboard accessibility is functional. Calling this method will iterate through elements on the page via simulating pressing the TAB key at the given state of the test's execution. 
+You can place this method in any line of the test where you would like to verify that keyboard accessibility is functional. Calling this method will iterate through elements of the page via simulating pressing the TAB key at the given state of the test's execution. 
 
 ### Verifying the DOM Snapshot
 
-When this command is first called, it will fail the test and create a draft snapshot file as indicated by the error message that will be thrown during the test execution. This file is a "draft" snapshot that shows all iterable elements in the DOM at the given point. It is up to the developer to verify elements of the page at the current state are accessible by the TAB key and to match the elements with the draft snapshot created.
+When this command is first called, it will fail the test and create a draft snapshot file as indicated by the error message that will be thrown during the test execution. This file is a "draft" snapshot that shows all iterable accessible elements in the DOM at the given point. It is up to the developer to verify elements of the page at the current state are accessible by the TAB key and to match the elements with the draft snapshot created.
 
 Once verified, the developer can move the generated draft snapshot file into the snapshot folder for the test to pass this assertation as also indicated in the error message.
 
-#### Example
+### Example
 
 We have a simple template with a button on it and a paragraph of text.
 
