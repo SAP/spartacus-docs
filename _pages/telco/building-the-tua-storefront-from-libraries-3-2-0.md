@@ -184,7 +184,6 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     import { CmsConfig, ConfigModule, provideConfig } from '@spartacus/core';
     import { organizationTranslationChunksConfig, organizationTranslations } from '@spartacus/organization/administration/assets';
     import { orderApprovalTranslationChunksConfig, orderApprovalTranslations } from '@spartacus/organization/order-approval/assets';
-    import { TmaB2bStorefrontModule } from '../../../tua-spa/src/storefrontlib/recipes/b2b';
     import { TmaB2bStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
 
     @NgModule({
