@@ -69,9 +69,9 @@ Some of the steps in this procedure are derived from the documentation for insta
 
 1. In the `sap-commerce-folder>/installer/recipes` folder, create a copy of the `b2c_telco` folder.
 
-1. Rename the copy of the `b2c_telco` folder to `b2b_b2c_telco_spa`.
+1. Rename the copy of the `b2c_telco` folder to `b2c_telco_spa`.
 
-1. In `b2b_b2c_telco_spa`, the `build.gradle` file should have the following content:
+1. In `b2c_telco_spa`, the `build.gradle` file should have the following content:
 
     If you want to use the two sample data extensions, for Telco and Utilities, the `build.gradle` file must have the following structure:
 
@@ -232,12 +232,12 @@ Some of the steps in this procedure are derived from the documentation for insta
     For Windows:
 
     ```bash
-    install.bat -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
+    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
     For Unix:
 
     ```bash
-    ./install.sh -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
+    ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
 
    **Note:** Starting with release 1905, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the `custom.properties` file that is stored in `sap-commerce-folder>\installer\customconfig`. See the following [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password) procedure for information on setting a password in the `custom.properties` file.
@@ -247,27 +247,27 @@ Some of the steps in this procedure are derived from the documentation for insta
    For Windows:
 
    ```bash
-   install.bat -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
+   install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
    For Unix:
 
    ```bash
-   ./install.sh -r b2b_b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
+   ./install.sh -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
    ```
 
-   Initialization of the `b2b_b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
+   Initialization of the `b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
 
 1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands 
 
    For Windows:
 
    ```bash
-   install.bat -r b2b_b2c_telco_spa start
+   install.bat -r b2c_telco_spa start
    ```
    For Unix:
 
    ```bash
-   ./install.sh -r b2b_b2c_telco_spa start
+   ./install.sh -r b2c_telco_spa start
    ```
 
 1. Verify that the system is working.
