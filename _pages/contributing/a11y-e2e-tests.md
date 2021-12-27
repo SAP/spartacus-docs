@@ -2,13 +2,10 @@
 title: Accessibility E2E Tests
 ---
 
-Accessibility in Spartacus has its own set of end-to-end tests, which are located in `projects/storefrontapp-e2e-cypress/cypress/integration/accessibility/tabbing-order.e2e-spec.ts`.
+In Spartacus, keyboard accessibility is verified and maintained within feature-specific end-to-end tests. 
 
-These include tests that require a user to be logged in (for the My Account pages and the cart, for example), as well as tests that do not require a user to be logged in (for the Home page and Login page, for example).
-
-Currently, the tests cover tabbing through the application. For every new feature, a new test should be written manually that checks how the tabbing is intended to work. If some aspect of the tabbing does not work properly (for example, the tabbing order is not as intended, or an interactable element cannot be reached by tabbing), the test should fail.
-
-To run a new test that you have added to `tabbing-order.e2e-spec.ts`, choose the `tabbing-order` test when you run Cypress.
+Keyboard accessibility guidelines can be found here:
+https://sap.github.io/spartacus-docs/keyboard-accessibility/
 
 ***
 
@@ -19,95 +16,115 @@ To run a new test that you have added to `tabbing-order.e2e-spec.ts`, choose the
 
 ***
 
-## Implementing a New A11y E2E Test
+## Testing Keyboard A11Y with `domSnapshot()`
 
-You can create a new a11y e2e test by updating the existing set of tests, as described in the following procedure.
+You can place this method in any position in the test where you would like to verify that keyboard accessibility is functional. Calling this method will iterate through elements on the page via simulating pressing the TAB key at the given state of the test's execution. 
 
-1. Add a a new property to the config object in `projects/storefrontapp-e2e-cypress/cypress/helpers/accessibility/tabbing-order.config.ts`.
+### Verifying the DOM Snapshot
 
-    The name should be short and descriptive. The following is an example:
+When this command is first called, it will fail the test and create a draft snapshot file as indicated by the error message that will be thrown during the test execution. This file is a "draft" snapshot that shows all iterable elements in the DOM at the given point. It is up to the developer to verify elements of the page at the current state are accessible by the TAB key and to match the elements with the draft snapshot created.
 
-    ```ts
-    login: [
-        { value: 'userId', type: TabbingOrderTypes.FORM_FIELD },
-        { value: 'password', type: TabbingOrderTypes.FORM_FIELD },
-        { value: 'Forgot password?', type: TabbingOrderTypes.LINK },
-        { value: 'Sign In', type: TabbingOrderTypes.BUTTON },
-        { value: 'Register', type: TabbingOrderTypes.BUTTON },
-      ]
-    ```
+Once verified, the developer can move the generated draft snapshot file into the snapshot folder for the test to pass this assertation as also indicated in the error message.
 
-    The following are some details about the above example:
+#### Example
 
-    - The `login` is of type `TabElement[]`.
+We have a simple template with a button on it and a paragraph of text.
 
-    - The `type` is a `TabbingOrderTypes` enum, which supports many types of elements. You can see all the supported types by looking up the definition of the `TabbingOrderTypes` enum in the Spartacus source code.
+`.../test-page.html`
+```html
+<button> Test Button </button>
+<p> This button is a test button. </p>
+```
 
-1. Add a new helper file to `projects/storefrontapp-e2e-cypress/cypress/helpers/accessibility/tabbing-order/`.
+And a simple cypress test that clicks the button.
 
-    The following is an example of the `login.ts` helper file:
+`.../test-page.e2e-spec.ts.json`
 
-    ```ts
-    import { verifyTabbingOrder } from '../tabbing-order';
-    import { fillLoginForm } from '../../auth-forms';
-    import { user } from '../../../sample-data/checkout-flow';
-    import { TabElement } from '../tabbing-order.model';
+```ts
+describe('Test Page', () => {
 
-    const containerSelector = '.LoginPageTemplate';
+  ...
 
-    export function loginTabbingOrder(
-      config: TabElement[],
-      prefillForm: boolean = false
-    ) {
-      cy.visit('/login');
+  it('should click the button', () => {
+    cy.get('button').click();
+  })
 
-      if (prefillForm) {
-        const { email: username, password } = user;
-        fillLoginForm({ username, password });
-      }
+  ...
 
-      verifyTabbingOrder(containerSelector, config);
-    }
-    ```
+```
 
-    Some pages or views might require additional steps, and the helper file may be bigger or more complex than the example shown above. You can see other examples by looking at existing helper files in `projects/storefrontapp-e2e-cypress/cypress/helpers/accessibility/tabbing-order/`.
+Now we can add the `domSnapshot()` method to verify keyboard accessibility on this page.
 
-    The following are some details about the above example:
+##### Add `domSnapshot()` into a scenario
 
-    - With `const containerSelector`, you create a variable for holding your feature using a CSS-like selector.
-    - Exported functions, such as the `loginTabbingOrder` function in this example, should always have the `TabbingOrder` suffix, and should always take `config` as a parameter.
-    - `cy.visit` is an example of Cyprus functionality. In this example, it tells Cyprus to access a page where your feature is located.
-    - Your exported function should always use the predefined `verifyTabbingOrder(containerSelector, config)` function.
+This is a quick and easy way to drop in the check before we click the button.
 
-1. In `projects/storefrontapp-e2e-cypress/cypress/integration/accessibility/tabbing-order.e2e-spec.ts`, import the `TabbingOrder` function from the helper file you created in the previous step.
+`.../test-page.e2e-spec.ts`
 
-    The following is an example:
+```ts
+describe('Test Page', () => {
 
-    ```ts
-    import { loginTabbingOrder } from '../../helpers/accessibility/tabbing-order/login';
-    ```
+  ...
 
-1. In the same file (`tabbing-order.e2e-spec.ts`), add the test.
+  it('should click the button', () => {
+    cy.domSnapshot();
+    cy.get('button').click();
+  })
 
-    The following is an example:
+  ...
 
-    ```ts
-    context('Login page', () => {
-    it('should allow to navigate with tab key (empty form)', () => {
-      loginTabbingOrder(config.login);
-    });
+```
 
-    it('should allow to navigate with tab key (filled out form)', () => {
-      loginTabbingOrder(config.login, true);
-      });
-    });
-    ```
+##### Create a special scenario for `domSnapshot()` (easier to maintain)
 
-    The following are some details about the above example:
+It can be preferable to keep the accessibility verification logic in its own scenario to make maintaining e2e tests easier. However, this does not necessarily make sense in all test scenarios.
 
-    - The `context` should point to the page you want to test.
-    - The string `'should allow to navigate with tab key'` is used in every test and should be included in all new tests.
-    - The `loginTabbingOrder` is the function you created in your `login.ts` helper file, and `(config.login)` refers to the `login` property you added to the config object in `projects/storefrontapp-e2e-cypress/cypress/helpers/accessibility/tabbing-order.config.ts` (in step 1 of this procedure).
+`.../test-page.e2e-spec.ts`
+
+```ts
+describe('Test Page', () => {
+
+  ...
+
+  it('should verify keyboard accessibility', () => {
+    cy.domSnapshot();
+  })
+
+  it('should click the button', () => {
+    cy.get('button').click();
+  })
+
+  ...
+
+```
+
+##### Understanding the Output and Verification
+
+After running either test, the test will fail with an error message asking you to verify the generated draft snapshot. It should look something like this:
+
+`.../cypress/fixtures/a11y/tab/drafts/.../test-page.e2e-spec.ts.json`
+
+```json
+[
+  {
+    "element": "<button> Test Button </button>"
+  },
+]
+```
+
+Notice how the snapshot only contains the button element and not the paragraph element. This is because only the DOM element is accessible via the TAB key when using the keyboard. 
+
+However, if we were to see any other unexpected elements in this snapshot, we could conclude that there is something wrong with the accessibility on the page and we should fix it before creating another snapshot.
+
+If everything is in order, we can move the snapshot to the designated directory (ie. `.../cypress/fixtures/a11y/tab/snapshots/.../test-page.e2e-spec.ts.json`).
+
+Run the test again and it should now pass.
+
+Congratulations! You have now verified keyboard accessibility in your test. :)
+
+### Maintaining Keyboard Accessibility
+
+We monitor that pages remain keyboard accessible by checking for changes in the DOM at given states. Upon any DOM change that might affect the accessibility of the keyboard at the asserted state, the test will fail and a new draft snapshot will be generated to be verified once again.
 
 ## Group Skipping
 
@@ -139,3 +156,11 @@ The following are some details about the above example:
 ## Fixes
 
 If your tests fail, create a new GitHub issue with details about the error, and use the `feature/accessibility` label.
+
+## Deprecated A11Y E2E Tests
+
+Tabbing order e2e tests `tabbing-order.e2e-spec.ts` are being or have already been removed since Spartacus version `5.0` due to the migration of tests to utilize `domSnapshot()`.
+
+For information on how keyboarding was tested in previous versions of Spartacus, please check here:
+
+https://sap.github.io/spartacus-docs/4.x/a11y-e2e-tests/
