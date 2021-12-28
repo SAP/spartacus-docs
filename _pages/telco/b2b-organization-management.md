@@ -42,6 +42,8 @@ Apart from business units and user roles, there are cost centers and budgets tha
 As per the organization structure, Lisa Richards is the B2B admin user and is assigned to the **Total Protect** main parent unit. Being an administrator, Lisa will be able to see the **My Company** link under the **My Account** main menu. 
 
 1. Log in to the TUA Spartacus. 
+   -  User ID: lisa.richards@totalprotect.com
+   -  Password: 1234
 
 1. Click **My Account** to view the **My Company** link.
 
