@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated November 1, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated January 9, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ***
 
@@ -30,16 +30,14 @@ This document describes what is included in all Spartacus libraries since the in
 
 ## Release 3.2
 
-*Release 3.2 libraries published November 1, 2021*
+*Release 3.2 libraries published January 1, 2022*
 
-The 3.2 libraries for the accelerator provides B2B features along with sample data. Angular 10 is used in release 3.2.
+The 3.2 libraries for the accelerator provides a new B2B Telco Spartacus storefront along with sample data. Angular 10 is used in this release. B2B functionality supported includes:
 
-Following features are introduced in release 3.2:
-
-- [B2B Order Approval]({{ site.baseurl }}{% link _pages/telco/b2b-order-approval.md %})
-- [B2B Organization Management]({{ site.baseurl }}{% link _pages/telco/b2b-organization-management.md %})
-- [B2B Telco Store]({{ site.baseurl }}{% link _pages/telco/b2b-telco-store.md %})
-- [Purchase PO with Configurable Characteristic]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %})
+- [B2B Approval Workflow Processes]({{ site.baseurl }}{% link _pages/telco/b2b-order-approval.md %})
+- [B2B Organizational Management]({{ site.baseurl }}{% link _pages/telco/b2b-organization-management.md %})
+- [New B2B Telco Spartacus Storefront]({{ site.baseurl }}{% link _pages/telco/b2b-telco-store.md %})
+- [B2B Complex Product Offerings Inclusive of PSCVU's]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %})
 
 ## Release 3.1
 
