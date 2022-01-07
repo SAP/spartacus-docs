@@ -8,9 +8,9 @@ title: Purchase POs with Configurable Characteristics
 
 {% include docs/feature_version.html content=version_note %}
 
-A complex offering is a Product Offering (PO) with a significant number of Product Specification Characteristic Values (PSCs) and Product Specification Characteristic Values (PSCVs), configurable or static, also with dependencies between them. These POs need to be purchased in B2B SPA from the Product Details Page (PDP) page or through Configurable Guided Selling.
+A complex offering is a Product Offering (PO) with a significant number of Product Specification Characteristic (PSC) and Product Specification Characteristic Values (PSCVs), configurable or static, also with dependencies between them. These POs need to be purchased in B2B SPA from the Product Details Page (PDP) page or through Configurable Guided Selling.
 
-Customers can purchase complex offerings, standalone or within a bundle, by viewing the details of the offerings and then select the required purchase options that are assigned to these offerings. Customers use this feature to when they need to view PO details or purchase offerings, either SPO or BPO.
+Customers can purchase complex offerings, standalone or within a bundle, by viewing the details of the offerings and then select the required purchase options that are assigned to these offerings. Customers use this feature when they need to view product offering details or purchase offerings, either SPO or BPO.
 
 ***
 
@@ -20,10 +20,6 @@ Customers can purchase complex offerings, standalone or within a bundle, by view
 {:toc}
 
 ***
-
-## Prerequisites
-
-To be updated
 
 ## Business Need
 
@@ -64,27 +60,3 @@ This feature is enabled through the B2B Telco SPA Store. It is implemented on to
 | Spartacus                                     	| 3.2.0                                          	|
 | Telco & Utilities Accelerator	             	| Version 2105 (latest patch - 21.02)            	|
 | SAP Commerce Cloud 	| Version 2011 (latest patch) 	|
-
-## Configuring and Enabling Purchase of POs
-
-To be updated.
-
-## Supported Backend Functionality
-
-To be updated
-
-## Components
-
-The following components must be enabled in the TUA Backoffice to appear on the Spartacus TUA storefront:
-
-| Component   Name                 	| Status  	| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
-|----------------------------------	|---------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-|        	|      	|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         	|
-|  	| New     	|  	|
-|       	| New     	|  |
-|               	| Updated 	|  |
-
-## Further Reading
-
-For further reading, see the following topics in the TUA Help portal.
-
