@@ -38,7 +38,7 @@ A normal scenario might be that a standard approver can approve based on order a
 
    The following is an example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/spendlimits_1-perorder.png" alt="" width="500" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/spendlimits_1-perorder.png" alt="Creating a Purchase Limit" width="500" border="1px" />
 
 3. Click **Save**.
 
@@ -54,7 +54,7 @@ For the purposes of this tutorial, create the following purchase limits:
 
 Assign them all to your root unit. The following is an example:
 
-<img src="{{ site.baseurl }}/assets/images/commerceorg/spendlimits_1-listoflimits.png" alt="" width="450" border="1px" />
+<img src="{{ site.baseurl }}/assets/images/commerceorg/spendlimits_1-listoflimits.png" alt="List of Limits" width="450" border="1px" />
 
 ## Assigning Purchase Limits
 
@@ -80,7 +80,7 @@ For this example, we'll assign the following:
 
    In the following example, our buyer, John Doe (Customer role) has been assigned both a per-month and a per-order limit:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/spendlimits_2-buyerlimit.png" alt="" width="450" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/spendlimits_2-buyerlimit.png" alt="Buyer Limit" width="450" border="1px" />
 
 Repeat this process as follows:
 

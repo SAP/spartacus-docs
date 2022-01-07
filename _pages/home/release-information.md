@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 4.0.0 final published July 29, 2021**
+**Latest news: 4.2.0 final published Nov 10, 2021**
 
-*Last updated August 2, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated Nov 10, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -23,7 +23,8 @@ This document describes what is included in all Spartacus libraries since the in
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
 - For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
-- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
+- If you have technical or how-to questions about using Spartacus, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). 
+- If you would like to report an issue for assistance from SAP, please use the [SAP Launchpad reporting tool](https://launchpad.support.sap.com/)
 
 **Disclaimer - Forward-Looking Statements**
 
@@ -31,6 +32,70 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 4.2
+
+*Release 4.2 libraries published November 10, 2021*
+
+Highlights include the following:
+
+### Import Products to Active or Saved Cart
+
+This feature allows customers to use a comma-separated values (CSV) file to quickly import multiple products to the active cart or into a saved cart. The CSV file contains the product SKU and quantity. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
+
+### Export Products From Active or Saved Cart
+
+This feature allows customers to export an active or saved cart to a CSV file. By default, the exported file contains the product SKU, quantity, name, and price, but this is configurable. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
+
+### Product Image Zoom
+
+This feature allows customers to magnify product images when viewed from the Product Details page. Clicking a product image enters "zoom mode", at which point the customer can magnify the picture based on mouse location. For more information, see [{% assign linkedpage = site.pages | where: "name", "image-zoom.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/image-zoom.md %}).
+
+### Quick Order Improvement: Search by Product Name
+
+The Quick Order feature was introduced in the 4.1 Spartacus libraries. With this improvement, customers using the form are now able to search by product name, not just SKU. The Quick Order field on the cart page is not affected. For more information, see [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
+
+### Cart Validation
+
+This feature identifies issues with customer cart when opening the Cart page or when proceeding to check out, and is extensible. The typical use case is when a customer adds a product to the cart today, and then tomorrow goes to check out, but there is no more stock. In this example, a message is displayed to the customer about what happened, and the product is removed from the cart. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}).
+
+### Scroll Position Restoration
+
+This improvement maintains the scroll position when moving forward and backward throughout a Spartacus-based site. The user experience is greatly improved when searching or viewing categories, reviewing product information, and going back. For more information, see [{% assign linkedpage = site.pages | where: "name", "scroll-position-restoration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/scroll-position-restoration.md %}).
+
+### Order History Library
+
+The introduction of a separate library for order history functionality is part of a long-term performance improvement effort. By separating the codebase into smaller libraries, packages are smaller, allowing for better lazy loading and improved performance. For example, with the Order History library, the code is only loaded when customers want to view orders they have already submitted. The existing Order History code is deprecated and will be removed in a future major release. Note that when upgrading, the existing Order History code is used, but when installing from schematics, the new library is used. For more information, see the [{% assign linkedpage = site.pages | where: "name", "order-library-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-notes/order-library-release-notes.md %}).
+
+### Improvements Related to Support for Screen Readers
+
+If you dive into the source code, you may notice improvements in various places related to support for screen readers. This effort is not complete. We are planning to announce support for screen readers in the next major, 5.0, for most core features.
+
+## Release 4.1
+
+*Release 4.1 libraries published September 14, 2021*
+
+Highlights include the following:
+
+### SAP Digital Payments Integration
+
+SAP Digital Payments integration is an out-of-the-box alternative to current custom payment service provider (PSP) integrations. This integration uses SAP Digital Payments with ready-to-use PSP connectivity. For more information, see [{% assign linkedpage = site.pages | where: "name", "digital-payments-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/digital-payments-integration.md %}).
+
+### Quick Order
+
+The Quick Order feature allows users to quickly add multiple items to their cart. There is also the option to quickly add a single product from the cart page. For more information, see [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
+
+### B2B Inventory Display
+
+The B2B Inventory Display feature allows sellers to control the display of the stock visible for a category of products or for the whole storefront. Spartacus now supports display of actual stock values, so when this feature is enabled in the back end, the page displays "## in stock". When the feature is disabled, customers see “In Stock” or “Out of Stock”, as in previous versions of Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "inventory-display.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/inventory-display.md %}), as well as [B2B Inventory Display](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html) on the SAP Help Portal.
+
+### Authentication Improvements
+
+Several improvements were made to authentication that help make authentication expiry during checkout more reliable. These fixes were backported to 3.0 through to 3.4, as well as to 4.0.
+
+### SSR maxRenderTime Option
+
+The `maxRenderTime` setting is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. For more information, see [Configuring the SSR Optimization Engine]({{ site.baseurl }}/server-side-rendering-optimization/#configuring-the-ssr-optimization-engine).
+  
 ## Release 4.0
 
 *Release 4.0 libraries published July 29, 2021*
@@ -320,7 +385,7 @@ What's new?
 - [Back-in-Stock Notification]({{ site.baseurl }}{% link _pages/dev/features/stock-notification.md %})  
   - [Notification Preferences]({{ site.baseurl }}{% link _pages/dev/features/notification-preferences.md %})
   - [Customer Interests]({{ site.baseurl }}{% link _pages/dev/features/customer-interests.md %})
-- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/token-revocation.md %}) (supports back end improvement added to 1905.6)
+- [Token Revocation]({{ site.baseurl }}{% link _pages/dev/security/token-revocation.md %}) (supports back end improvement added to 1905.6)
 - [Stacked Outlets]({{ site.baseurl }}/outlets/#stacked-outlets)
 - [Product data performance improvements with loading scopes]({{ site.baseurl }}{% link _pages/dev/backend_communication/loading-scopes.md %}). You can also see [GitHub Issue 3666](https://github.com/SAP/spartacus/issues/3666) for more information.
 - [Deferred Loading]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %})
@@ -433,7 +498,7 @@ Release notes: [https://github.com/SAP/spartacus/releases](https://github.com/SA
 - Feature Flags (meant to allow setting feature level of releases for backwards compatibility)  
   - [Documentation for development]({{ site.baseurl }}{% link _pages/contributing/feature-flags-and-code-deprecation.md %})
   - [Documentation for consumption]({{ site.baseurl }}{% link _pages/install/configuring-feature-flags.md %})
-- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#endpoint-configuration)
+- [Configurable Endpoints]({{ site.baseurl }}/connecting-to-other-systems/#configuring-endpoints)
 - [Change to registration and login flow: must log in after registering](https://github.com/SAP/spartacus/issues/2799#issuecomment-525679882)
 - Also released: a beta of a new library, [Schematics](https://www.npmjs.com/package/@spartacus/schematics). Schematics allow for easy setup of Spartacus libraries with a new Angular project in one command. In the future, schematics will help in upgrading, maintaining, customizing, and building projects with Spartacus libraries (for example: template generators for custom cms components). A detailed description about schematics can be found [here](https://angular.io/guide/schematics).
 
@@ -505,9 +570,9 @@ We don't plan to introduce a new major release that frequently, unless an issue 
 
 You can upgrade your Spartacus libraries to a new minor version, as follows:
 
-1. In `package.json`, set your `@spartacus` libraries to `“~2.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
+1. In `package.json`, set your `@spartacus` libraries to `“~3.#.0"`, where `#` is replaced with the release version number you wish to upgrade to.
 
-   If you are upgrading from 1.x to the latest 1.5 release in order to then upgrade to 2.x, in `package.json`, set your `@spartacus` libraries to `“~1.5.5"`.
+   If you are upgrading from 3.x to the latest 3.4 release in order to then upgrade to 4.x, in `package.json`, set your `@spartacus` libraries to `“~3.4.4"`.
 
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.

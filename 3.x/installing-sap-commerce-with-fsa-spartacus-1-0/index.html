@@ -124,7 +124,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/spartacus-docs/3.x/"><img src="/spartacus-docs/3.x/assets/images/logo-blue_64x64.png" alt=""></a>
+          <a class="site-logo" href="/spartacus-docs/3.x/"><img src="/spartacus-docs/3.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
         
         <a class="site-title" href="/spartacus-docs/3.x/">Spartacus Documentation</a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -1544,7 +1544,7 @@
 <p>Summary:</p>
 
 <ul>
-  <li><a href="#step-1setting-up-sap-commerce-with-financial-services-accelerator">Step 1: Setting up SAP Commerce with Financial Services Accelerator</a></li>
+  <li><a href="#step-1-setting-up-sap-commerce-with-financial-services-accelerator">Step 1: Setting up SAP Commerce with Financial Services Accelerator</a></li>
   <li><a href="#step-2-configuring-occ-credentials">Step 2: Configuring OCC credentials</a></li>
   <li><a href="#step-3-configuring-cors">Step 3: Configuring CORS</a></li>
   <li><a href="#step-4-update-system-and-user-credentials-optional">Step 4: Update system and user credentials (optional)</a></li>
@@ -1714,8 +1714,8 @@
     <p>Verify that SAP Commerce Cloud is working. To do this, you can:</p>
 
     <ul>
-      <li>Display the Admin Console: <a href="https://localhost:9002">https://localhost:9002</a></li>
-      <li>Display the Backoffice: <a href="https://localhost:9002/backoffice">https://localhost:9002/backoffice</a> (note that starting the Backoffice for the first time can take 15-20 seconds).</li>
+      <li>Display the Admin Console: <code class="language-plaintext highlighter-rouge">https://localhost:9002</code></li>
+      <li>Display the Backoffice: <code class="language-plaintext highlighter-rouge">https://localhost:9002/backoffice</code> (note that starting the Backoffice for the first time can take 15-20 seconds).</li>
     </ul>
   </li>
   <li>
@@ -1732,7 +1732,7 @@
 <p>FSA Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.</p>
 
 <ol>
-  <li>Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: <a href="https://localhost:9002/backoffice">https://localhost:9002</a>.</li>
+  <li>Open the Hybris Administration Console for your local SAP Commerce Cloud in a web browser at the following address: <code class="language-plaintext highlighter-rouge">https://localhost:9002</code>.</li>
   <li>Navigate to the <strong>Console</strong> tab, then click <strong>Impex Import</strong>.</li>
   <li>
     <p>Copy the following code into the <strong>Import content</strong> field.</p>
@@ -1822,7 +1822,7 @@
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">POST</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)</span>
 </code></pre></div></div>
 
-<p>This issue is caused due to an incorrect configuration of the sop.post.url property.</p>
+<p>This issue is caused due to an incorrect configuration of the <code class="language-plaintext highlighter-rouge">sop.post.url</code> property.</p>
 
 <p>Make sure that this property is set to <code class="language-plaintext highlighter-rouge">sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process</code>.</p>
 
@@ -1906,6 +1906,7 @@
     debug: false // Set debug to true if you want to inspect the dropdown 
     }); 
     </script> 
+
 
     <script>
       anchors.options = {

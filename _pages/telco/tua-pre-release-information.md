@@ -496,7 +496,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 
 (2) If you are updating an existing app, and changing dependencies, it is recommended to delete the `node_modules` folder before running the install command.
 
-For more information on setting up TUA Spartacus 2.0.0-next.2, see [Building the TUA Spartacus Storefront Using Libraries](https://github.com/SAP/spartacus-docs/blob/doc/GH-886/_pages/telco/building-the-tua-storefront-from-libraries-2-0.md).
+For more information on setting up TUA Spartacus 2.0.0-next.2, see [Building the TUA Spartacus Storefront Using Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries-2.md %}).
 
 As always, feedback appreciated! Contact us through Slack or submit an [issue](https://github.com/SAP/spartacus/issues/new/choose).
 
@@ -530,7 +530,7 @@ The `2.0.0-next.1` library has been published! For more information, see [Releas
 
 We are happy to announce support for the TUA 2007 release.
 
-You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Building the TUA Spartacus Storefront Using Libraries](https://github.com/SAP/spartacus-docs/blob/doc/GH-886/_pages/telco/building-the-tua-storefront-from-libraries-2-0.md).
+You can set up TUA Spartacus 2.0.0-next.1 by following the instructions from [Building the TUA Spartacus Storefront Using Libraries]({{ site.baseurl }}{% link _pages/telco/building-the-tua-storefront-from-libraries-2.md %}).
 
 The following features are included as part of this pre-release:
 

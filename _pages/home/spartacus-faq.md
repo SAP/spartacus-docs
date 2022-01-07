@@ -134,15 +134,15 @@ Yes. For more information, see [{% assign linkedpage = site.pages | where: "name
 
 ### How much will Spartacus cost?
 
-Spartacus is free, whether you are using the libraries or forking the source code (though forking is not recommended for upgradability reasons). Spartacus does come with a [license](https://github.com/SAP/spartacus/blob/develop/LICENSE), which is based off the Apache Software License, v2.
+Spartacus is free, whether you are using the libraries or forking the source code (though forking is not recommended for upgradability reasons). Spartacus does come with a [license](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt), which is based off the Apache Software License, v2.
 
 ### Do I need to sign a contract to obtain a license?
 
-No. The [license](https://github.com/SAP/spartacus/blob/develop/LICENSE) is embedded in the libraries and code you use from the open source project.
+No. The [license](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt) is embedded in the libraries and code you use from the open source project.
 
 ### Are there any restrictions for using Spartacus? Can I sell a customized version of a Spartacus-based storefront?
 
-See the [license](https://github.com/SAP/spartacus/blob/develop/LICENSE). Generally, however, the Apache license is permissive and allows you to sell new works based off of Spartacus. See [this article](https://resources.whitesourcesoftware.com/blog-whitesource/top-10-apache-license-questions-answered) for more background information. (These answers do not constitute official legal advice.)
+See the [license](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt). Generally, however, the Apache license is permissive and allows you to sell new works based off of Spartacus. See [this article](https://resources.whitesourcesoftware.com/blog-whitesource/top-10-apache-license-questions-answered) for more background information. (These answers do not constitute official legal advice.)
 
 ------
 

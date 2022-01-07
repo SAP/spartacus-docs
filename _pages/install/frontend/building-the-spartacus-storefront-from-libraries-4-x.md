@@ -69,8 +69,12 @@ When you run this command, you are asked to choose which features you would like
 
 **Notes:**
 
-- Spartacus does not support B2C and B2B storefronts running together in a single storefront application. If you install  `Organization - Adminstration` or `Organization - Order Approval`, the B2C storefront will load but it will not work properly.
-- If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing.
+- **Spartacus does not support B2C and B2B storefronts running together in a single storefront application**. If you install  any of the B2B features, the B2C storefront will load but it will not work properly.
+- If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing. **If you install any of the following features, your Spartacus storefront will automatically become a B2B storefront**:
+  - `Organization - Adminstration`
+  - `Organization - Order Approval`
+  - `Product - Bulk Pricing`
+  - `Product Configurator - CPQ Configurator`
 - The schematics add the core Spartacus files and configuration that are needed to work with the SAP Commerce Cloud sample stores.
 - To install the latest "next" release, you can add `@next` at the end of the command.
 - To install the latest release candidate, you can add `@rc` at the end of the command.

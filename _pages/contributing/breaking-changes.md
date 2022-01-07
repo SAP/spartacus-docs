@@ -37,10 +37,10 @@ Spartacus releases follow semantic versioning, which means breaking changes are 
 - Changing the default value for function parameters. The default value should match the function behavior from before the change.
 - Making any changes to the class constructor signature. Note that `super` calls need to be updated in classes extending ours.
 - Changing the initial values of an exported class's `public` or `protected` fields, or changing them to read-only.
-- Changing or removing translation keys or values.
+- Changing or removing translation keys or values. **Note:** Adding new translation keys and values is not considered a breaking change.
 - Changing default configurations.
 - Changing any CSS or SCSS attributes, classes or selectors.
-- Changing anything that affects the rendering of the existing DOM.
+- Changing anything that affects the rendering of the existing DOM. **Note:** Additions, changes, or deletions of `aria` attributes (for screen readers) are not considered breaking changes.
 
 ## Adding New Constructor Dependencies in Minor Versions
 

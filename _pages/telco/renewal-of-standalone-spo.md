@@ -33,16 +33,16 @@ A customer wants to renew an existing subscription that is eligible for renewal.
 
     **Note:** The banner is displayed only if your subscription is eligible for renewal as per the [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rule.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-subscription- button.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-subscription-button.png" alt="Renew Subscription Button"></p>
 
 1. Navigate to **Account** -> **Subscriptions**. All subscriptions of the logged in customer are displayed.
 1. Click on the header of the subscription that you want to renew. For example, *internet_22341 (Fiber Internet)*. The banner shows the default 12 months monthly billing subscription.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/my-subscriptions.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/my-subscriptions.png" alt="My Subscriptions"></p>
 
 1. Select the monthly billing cycle from the drop-down to renew your subscription. For example, 18 months - monthly billing. The monthly renewal price and the discount offer is displayed.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-banner.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/renew-banner.png" alt="Renew Banner"></p>
 
 1. Click **Renew Subscription** on the banner to renew your subscription. The cart shows your subscription renewal information. For example, *Renew 18 months - monthly billing*.
 1. Click **View Cart**. The cart displays all relevant information about your new subscription, such as the new monthly billing cycle, product offering, and the price details.
@@ -64,7 +64,7 @@ The banner shows the contractual terms with prices and discount offers. After se
 
 **Note** The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules automatically determine if you are eligible for a renewal of one or more of your existing subscriptions. If you are not eligible, the banner does not display as depicted in the following figure:
 
- <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png"></p>
+ <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png" alt="No Renewal Eligibility"></p>
 
 ## Frontend and Backend Dependencies
 

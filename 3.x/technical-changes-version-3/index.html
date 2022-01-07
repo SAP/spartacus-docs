@@ -124,7 +124,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/spartacus-docs/3.x/"><img src="/spartacus-docs/3.x/assets/images/logo-blue_64x64.png" alt=""></a>
+          <a class="site-logo" href="/spartacus-docs/3.x/"><img src="/spartacus-docs/3.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
         
         <a class="site-title" href="/spartacus-docs/3.x/">Spartacus Documentation</a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -1510,6 +1510,7 @@
       <li><a href="#static-cms-structure-config-changes" id="markdown-toc-static-cms-structure-config-changes">Static CMS structure config changes</a></li>
       <li><a href="#occ-prefix" id="markdown-toc-occ-prefix">OCC prefix</a></li>
       <li><a href="#storefront-config" id="markdown-toc-storefront-config">Storefront config</a></li>
+      <li><a href="#json-ld-schemas" id="markdown-toc-json-ld-schemas">JSON-LD schemas</a></li>
       <li><a href="#contentpagemetaresolver" id="markdown-toc-contentpagemetaresolver">ContentPageMetaResolver</a></li>
       <li><a href="#loginformcomponent" id="markdown-toc-loginformcomponent">LoginFormComponent</a></li>
       <li><a href="#httpclientmodule-is-not-imported-in-feature-libraries" id="markdown-toc-httpclientmodule-is-not-imported-in-feature-libraries">HttpClientModule is not imported in feature libraries</a></li>
@@ -1690,6 +1691,10 @@
 <h3 id="storefront-config">Storefront config</h3>
 
 <p>The new config <code class="language-plaintext highlighter-rouge">SeoConfig</code> is imported.</p>
+
+<h3 id="json-ld-schemas">JSON-LD schemas</h3>
+
+<p>To continue using JSON-LD schemas in Spartacus, or to start using JSON-LD schemas in Spartacus, you need to import the <code class="language-plaintext highlighter-rouge">JsonLdBuilderModule</code> to your application.</p>
 
 <h3 id="contentpagemetaresolver">ContentPageMetaResolver</h3>
 
@@ -2361,6 +2366,7 @@ cause unexpected side effects regarding the visibility of <code class="language-
     debug: false // Set debug to true if you want to inspect the dropdown 
     }); 
     </script> 
+
 
     <script>
       anchors.options = {

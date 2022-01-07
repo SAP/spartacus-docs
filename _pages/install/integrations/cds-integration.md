@@ -49,8 +49,20 @@ After running the command, you are prompted to provide additional information, a
 
 - `tenant` asks you to provide a tenant name (for example, `my-tenant`)
 - `baseUrl` asks you to provide the base URL for the Intelligent Selling Services back end (for example, `https://my-tenant.api.us.context.cloud.sap`)
-- `profileTagLoadUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
-- `profileTagConfigUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
+- `profileTag.javascriptUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
+- `profileTag.configUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
+
+  You can obtain the Profile Tag configuration URL from the SAP Commerce Cloud Configuration page in the ISS lounge. The following is an example of the link to access the SAP Commerce Cloud Configuration page:
+
+  ```text
+  https://<tenant>.<environment>.context.cloud.sap/lounge#/cds/sites/<site>/sap-commerce-cloud-config
+  ```
+
+  To access your configuration page, update the placeholder elements in this link, as follows:
+
+  - `<tenant>` is your tenant id
+  - `<environment>` is the ISS environment you want to work with (such as `stage`, `us`, or `eu`)
+  - `<site>` is your ISS site id
 
 After you have provided this information, the schematics configure the Intelligent Selling Services integration for Spartacus.
 
@@ -114,7 +126,7 @@ The following steps describe how to add custom headers to your CORS settings, as
 
     **Note:** The `corsfilter.commercewebservices.allowedHeaders` setting is for SAP Commerce Cloud version 2005 or newer. For SAP Commerce Cloud version 1905 or older, use `corsfilter.ycommercewebservices.allowedHeaders` instead.
 
-    For more information, see [Configuring CORS]({{ site.baseurl }}/installing-sap-commerce-cloud/#configuring-cors).
+    For more information, see [Cross-Origin Resource Sharing (CORS)]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 
 2. Define a consent template with an ID of `PROFILE`, which will allow events to be sent.
 
@@ -142,20 +154,20 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 This ImpEx creates the component in the Staged catalog. To publish it, run a sync, or replace `Staged` with `Online` in the ImpEx.
 
-## Intelligent Selling Merchandising
+## Merchandising
 
-Intelligent Selling Merchandising carousels enable a Spartacus storefront to display the results of Intelligent Selling Merchandising in the form of a product carousel.
+Merchandising carousels enable a Spartacus storefront to display the results of Merchandising in the form of a product carousel.
 
-For more information, see [Intelligent Selling Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Intelligent Selling Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
+For more information, see [Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
 
 **Note:** Using the Profile Tag Data Layer for Merchandising Carousel Events requires Spartacus version 2.1.0 or newer. For more information, see the following:
 
 - [Merchandising Reporting](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/b130b714953b4a0eaae1f21279189a96.html)
 - [Configure Profile Tag for Merchandising](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/c45f9bc5bb0444d984362e9a02570777.html#loio306b155081b948558bfe9e1d2aeb2a47)
 
-### Requirements for Enabling Intelligent Selling Merchandising
+### Requirements for Enabling Merchandising
 
-Intelligent Selling Merchandising carousels require the `merchandisingaddon` and `profiletagaddon` extensions. Once you install the extensions, follow the steps in [Merchandising Configuration Setup](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb) and [Catalog Synchronization Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160) to synchronize a product catalog with Intelligent Selling Services.
+Merchandising carousels require the `merchandisingaddon` and `profiletagaddon` extensions. Once you install the extensions, follow the steps in [Merchandising Configuration Setup](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb) and [Catalog Synchronization Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160) to synchronize a product catalog with Intelligent Selling Services.
 
 It is also recommended to follow the instructions in [Product Directory Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loio6f59fb60a3fd43f89c08e8ba28b9e2a2).
 
@@ -196,7 +208,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ### Adding a Merchandising Carousel with SmartEdit
 
-If you have followed the [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add an Intelligent Selling Merchandising carousel to a page, as follows:
+If you have followed the [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add a Merchandising carousel to a page, as follows:
 
 1. Launch SmartEdit.
 
@@ -272,7 +284,3 @@ The following steps describe how to run the Intelligent Selling Services Shell A
 ## Other Commands for Intelligent Selling Services for SAP Commerce Cloud
 
 All other Intelligent Selling Services commands have `:cds` as part of their name, and can be found in the `package.json` file of the Spartacus source code.
-
-## Limitations
-
-Login flow is currently not fully supported.

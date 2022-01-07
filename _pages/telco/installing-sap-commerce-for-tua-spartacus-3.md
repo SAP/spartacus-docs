@@ -29,8 +29,9 @@ Some of the steps in this procedure are derived from the documentation for insta
 
     The TUA Spartacus Sample Data is provided in the following zip files:
 
-    - `b2ctelcospastore_2007.zip`.
-    - `utilitiesspastore_2007.zip`.
+    - `b2ctelcospastore.zip`.
+    - `utilitiesspastore.zip`.
+    - `mediaspastore.zip`. (available from 3.1)
 
 1. Unzip the sample data for 2007 or 2011 depending on the TUA backend version you want to use.
 
@@ -40,14 +41,19 @@ Some of the steps in this procedure are derived from the documentation for insta
         - `b2ctelcospastore.zip`.
 
     - Sample data for Utilities is stored in the following archive files:
-        - `utilitiesspastore_2007.zip`.
+        - `utilitiesspastore.zip`.
+
+    - Sample data for Media is stored in the following archive files:
+        - `mediaspastore.zip`. (available from 3.1)   
 
 1. Move:
     - the `b2ctelcospastore` folder from extracted `b2ctelcospastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
     - the `utilitiesspastore` folder from extracted `utilitiesspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
 
-    **Note:** The `b2ctelcospastore` folder and the `utilitiesspastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
+    - the `mediaspastore` folder from extracted `mediaspastore` folder to `<sap-commerce-folder>/hybris/bin/modules/b2c-telco-accelerator`.
+
+    **Note:** The `b2ctelcospastore`, `utilitiesspastore`, and `mediaspastore` folder can be stored anywhere in the modules folder. The `b2c-telco-accelerator` folder is chosen as it contains other TUA sample data.
 
 1. Unzip TUA cms extension for utilities:
 
@@ -66,139 +72,142 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```java
     apply plugin: 'installer-platform-plugin'
     apply plugin: 'installer-addon2-plugin'
+	
 
+	def pl = platform {
+	localProperties {
+	    property 'kernel.events.cluster.jgroups.channel', 'disable'
+	    property 'datahub.publication.saveImpex', ''
+	    property 'commerceservices.default.desktop.ui.experience', 'responsive'
+	    property 'kernel.autoInitMode', 'update'
+	    property 'installed.tenants', 'junit'
+	}
+	afterSetup {
+	    ensureAdminPasswordSet()
+	}
+	
 
-    def pl = platform {
-    localProperties {
-        property 'kernel.events.cluster.jgroups.channel', 'disable'
-        property 'datahub.publication.saveImpex', ''
-        property 'commerceservices.default.desktop.ui.experience', 'responsive'
-        property 'kernel.autoInitMode', 'update'
-        property 'installed.tenants', 'junit'
-    }
-    afterSetup {
-        ensureAdminPasswordSet()
-    }
+	extensions {
+	    extName 'acceleratorcms'
+	    extName 'adaptivesearchbackoffice'
+	    extName 'adaptivesearchsolr'
+	    extName 'addonsupport'
+	    extName 'b2ctelcobackoffice'
+	    extName 'b2ctelcofulfillmentprocess'
+	    extName 'b2ctelcocms'
+	    extName 'b2ctelcospastore'
+	    extName 'utilitiesspastore'
+	    extName 'mediaspastore'
+	    extName 'b2ctelcotmfwebservices'
+	    extName 'b2ctelcowebservices'
+	
 
+	    extName 'b2ctelcocommercewebservicescommons'
+	    extName 'b2ctelcoocc'
+	    extName 'b2ctelcoserviceabilityclient'	
+	    extName 'commerceservicesbackoffice'
+	    extName 'solrfacetsearchbackoffice'
+	    extName 'solrserver'
+	    extName 'subscriptionbackoffice'
+	    extName 'yacceleratorcore'
+	    extName 'commercewebservices'
+	
 
-    extensions {
-        extName 'acceleratorcms'
-        extName 'adaptivesearchbackoffice'
-        extName 'adaptivesearchsolr'
-        extName 'addonsupport'
-        extName 'b2ctelcobackoffice'
-        extName 'b2ctelcofulfillmentprocess'
-        extName 'b2ctelcocms'
-        extName 'b2ctelcospastore'
-        extName 'utilitiesspastore'
-        extName 'b2ctelcotmfwebservices'
-        extName 'b2ctelcowebservices'
+	    extName 'cmsbackoffice'
+	    extName 'cmswebservices'
+	    extName 'previewwebservices'
+	    extName 'smarteditwebservices'
+	    extName 'cmssmarteditwebservices'
+	    extName 'permissionswebservices'
+	    extName 'cmssmartedit'
+	    extName 'cmsocc'
+		extName 'acceleratorocc'
+	    extName 'customersupportbackoffice'
+	
 
+	    extName 'personalizationwebservices'
+	    extName 'previewpersonalizationweb'
+	    extName 'personalizationcmsweb'
+	    extName 'personalizationsmartedit'
+	    extName 'personalizationservicesbackoffice'
+	    extName 'personalizationcmsbackoffice'
+	    extName 'personalizationservices'
+	    extName 'personalizationfacades'
+	
 
-        extName 'b2ctelcocommercewebservicescommons'
-        extName 'b2ctelcoocc'
-        extName 'b2ctelcoserviceabilityclient'	
-        extName 'commerceservicesbackoffice'
-        extName 'solrfacetsearchbackoffice'
-        extName 'solrserver'
-        extName 'subscriptionbackoffice'
-        extName 'yacceleratorcore'
-        extName 'commercewebservices'
+	    extName 'acceleratorservices'
+	    extName 'assistedservicefacades'
+	
 
+	    extName 'rulebuilderbackoffice'
+	    extName 'couponbackoffice'
+	    extName 'droolsruleengineservices'
+	    extName 'couponfacades'
+	    extName 'couponservices'
+	    extName 'b2ctelcoserviceabilityclient'
+	}
+	}
+	
 
-        extName 'cmsbackoffice'
-        extName 'cmswebservices'
-        extName 'previewwebservices'
-        extName 'smarteditwebservices'
-        extName 'cmssmarteditwebservices'
-        extName 'permissionswebservices'
-        extName 'cmssmartedit'
-        extName 'cmsocc'
-        extName 'acceleratorocc'
-        extName 'customersupportbackoffice'
+	task setup () {
+	doLast {
+	
 
+	    pl.setup()
+	
 
-        extName 'personalizationwebservices'
-        extName 'previewpersonalizationweb'
-        extName 'personalizationcmsweb'
-        extName 'personalizationsmartedit'
-        extName 'personalizationservicesbackoffice'
-        extName 'personalizationcmsbackoffice'
-        extName 'personalizationservices'
-        extName 'personalizationfacades'
+	    copy {
+	    from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
+	    into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+	    }
+	    copy {
+	    from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
+	    into "${suiteHome}/hybris/bin/platform/tomcat/lib"
+	    exclude "**/*.txt"
+	    }
+	}
+	}
+	
 
+	task buildSystem(dependsOn: setup) {
+	doLast {
+	    pl.build()
+	}
+	}
+	
 
-        extName 'acceleratorservices'
-        extName 'assistedservicefacades'
+	task initialize (dependsOn: buildSystem) {
+	doLast {
+	    pl.initialize()
+	}
+	}
+	
 
+	task start () {
+	doLast {
+	    pl.start()
+	}
+	}
+	
 
-        extName 'rulebuilderbackoffice'
-        extName 'couponbackoffice'
-        extName 'droolsruleengineservices'
-        extName 'couponfacades'
-        extName 'couponservices'
-    }
-    }
+	task startInBackground () {
+	doLast {
+	    pl.startInBackground()
+	}
+	}
+	
 
-
-    task setup () {
-    doLast {
-
-
-        pl.setup()
-
-
-        copy {
-        from "${installerHome}/recipes/b2c_telco_spa/logback.xml"
-        into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-        }
-        copy {
-        from "${installerHome}/recipes/b2c_telco_spa/sbg_properties"
-        into "${suiteHome}/hybris/bin/platform/tomcat/lib"
-        exclude "**/*.txt"
-        }
-    }
-    }
-
-
-    task buildSystem(dependsOn: setup) {
-    doLast {
-        pl.build()
-    }
-    }
-
-
-    task initialize (dependsOn: buildSystem) {
-    doLast {
-        pl.initialize()
-    }
-    }
-
-
-    task start () {
-    doLast {
-        pl.start()
-    }
-    }
-
-
-    task startInBackground () {
-    doLast {
-        pl.startInBackground()
-    }
-    }
-
-
-    task stopInBackground {
-    doLast {
-        pl.stopInBackground()
-    }
-    }
+	task stopInBackground {
+	doLast {
+	    pl.stopInBackground()
+	}
+	}
     ```
     If you want to use only Telco sample data then remove the following lines from the `build.gradle` file:
 
     ```bash
     extName 'utilitiesspastore'
+    extName 'mediaspastore'
     extName 'b2ctelcocms'
     ```
 1. Open a terminal or command prompt window inside the `sap-commerce-folder>/installer` folder.
@@ -252,7 +261,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    - Access Backoffice: https://localhost:9002/backoffice
    
 
-   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to telcospa and/or utilitiesspa depending on which sample data you want to use. Following are the samples:
+   **Note:** When setting up your Spartacus storefront, set the base site in `app.module.ts` to `telcospa` and/or `utilitiesspa` and/or `mediaspa` depending on which sample data you want to use. Following are the samples:
 
     Telco:
 
@@ -269,11 +278,20 @@ Some of the steps in this procedure are derived from the documentation for insta
     baseSite: ['utilitiesspa']
     },
     ```
-    Both:
+
+    Media:
 
     ```ts
     context: {
-    baseSite: ['telcospa', ‘utilitiesspa’]
+    baseSite: ['mediasspa']
+    },
+    ```
+
+    All three:
+
+    ```ts
+    context: {
+    baseSite: ['telcospa', 'utilitiesspa', 'mediaspa']
     },
     ```  
 
@@ -283,7 +301,8 @@ By default, SAP  Cloud replies to OCC REST API calls that do not require authent
 
 - Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html
 - Display information about the `telcospa` base store: https://localhost:9002/occ/v2/telcospa/basestores/telcospa
-- Display information about the `utilitiesspa` base store: https://localhost:9002/rest/v2/utilitiesspa/basestores/utilitiesspa
+- Display information about the `utilitiesspa` base store: https://localhost:9002/occ/v2/utilitiesspa/basestores/utilitiesspa
+- Display information about the `mediaspa` base store: https://localhost:9002/occ/v2/mediaspa/basestores/mediaspa
 
 To register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
 For more information about OCC configuration, see [Defining OAuth Clients in an Impex File](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff) in the SAP Help Portal.
@@ -423,3 +442,5 @@ Make sure this property is set to `sop.post.url=https://localhost:9002/accelerat
 - `website.telcospa.https= https://localhost:9002`
 - `website.utilitiesspa.http=http://localhost:9001`  
 - `website.utilitiesspa.https=https://localhost:9002`
+- `website.mediaspa.http=http://localhost:9001`  
+- `website.mediaspa.https=https://localhost:9002`

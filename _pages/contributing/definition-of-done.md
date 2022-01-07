@@ -10,7 +10,7 @@ All new features for Spartacus must:
 
 - Comply with Spartacus's architecture. For more information, see [{% assign linkedpage = site.pages | where: "name", "connecting-to-other-systems.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/backend_communication/connecting-to-other-systems.md %}).
 
-- Follow our security best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "security-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security-best-practices.md %}).
+- Follow our security best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "security-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/security-best-practices.md %}).
 
 - Follow our accessibility best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 

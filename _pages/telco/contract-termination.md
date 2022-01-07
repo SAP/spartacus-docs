@@ -38,11 +38,11 @@ An eligible customer wants to terminate an existing and active subscription. The
 1. Navigate to **Account** -> **Subscriptions**. All subscriptions of the logged in customer are displayed.
 1. Click on the header of the active subscription that you want to terminate. For example, *internet_22341 (Fiber Internet)*. The details of the subscription are displayed below the banner with the **Terminate** button.
 
-    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/1banner-termination-button.png"></p>
+    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/1banner-termination-button.png" alt="Banner Termination Button"></p>
 
 -  Click **Terminate** to terminate your active subscription. A confirmation message, *Are you sure you want to terminate your subscription?* is displayed.
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/confirmation-message.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/confirmation-message.png" alt="Confirmation Message"></p>
 
 - Click **Yes**. The cart screen displays the Order Number, date on which termination was initiated, and the status of termination.
 
@@ -54,7 +54,7 @@ If you are eligible as per the configured The [eligibility](https://help.sap.com
 
 **Note** The [eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2102/en-US/602fadbbb42c40a68750d0dac7deba8a.html) rules automatically determine if you are eligible to terminate one or more of your active and existing subscriptions. If you are not eligible, the **Terminate** button does not display as depicted in the following figure:
 
- <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png"></p>
+ <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/No-renewal-eligibility.png" alt="No Renewal Eligibility"></p>
 
 ## Frontend and Backend Dependencies
 
@@ -83,3 +83,4 @@ For further reading, see the following topics in the TUA Help portal.
 
 - [Eligibility](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/602fadbbb42c40a68750d0dac7deba8a.html)
 - [Customer Product Inventory and Cart](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/552515309dd545e7b7878eb081b56453.html)
+- [Termination Process](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2105/en-US/055c4059f8794d158e60bfdccb10424b.html)

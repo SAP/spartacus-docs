@@ -123,7 +123,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/spartacus-docs/2.x/"><img src="/spartacus-docs/2.x/assets/images/logo-blue_64x64.png" alt=""></a>
+          <a class="site-logo" href="/spartacus-docs/2.x/"><img src="/spartacus-docs/2.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
         
         <a class="site-title" href="/spartacus-docs/2.x/">Spartacus Documentation</a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -1325,7 +1325,9 @@
       <li>An example is <em>migration-v2-update-cms-component-state-02</em>.</li>
     </ul>
   </li>
-  <li><em>version</em> is <em>really</em> important for the Angular’s update mechanism, as it is used to automatically execute the required migration scripts for the current project’s version. For more information about this, please check <a href="#releasing-update-schematics">releasing update schematics</a> section.</li>
+  <li>
+    <p><em>version</em> is <em>really</em> important for the Angular’s update mechanism, as it is used to automatically execute the required migration scripts for the current project’s version. For more information, see the <a href="https://github.com/SAP/spartacus/tree/develop/projects/schematics#releasing-update-schematics">Releasing Update Schematics</a> section of the schematics README.</p>
+  </li>
   <li><em>factory</em> - points to the specific migration script.</li>
   <li><em>description</em> - a short free-form description field for developers.</li>
 </ul>
@@ -1352,7 +1354,7 @@ The <code class="language-plaintext highlighter-rouge">projects/schematics/src/s
 
 <h2 id="component-deprecation">Component Deprecation</h2>
 
-<p>Similar to <a href="#Constructor-deprecation">constructor deprecation</a>, <code class="language-plaintext highlighter-rouge">projects/schematics/src/migrations/2_0/component-deprecations.ts</code> performs the component migration tasks, for both component <em>*.ts</em> and <em>HTML</em> templates. Usually, a developer does not need to touch this file, and they should rather describe the component deprecation in <code class="language-plaintext highlighter-rouge">projects/schematics/src/migrations/2_0/component-deprecations-data.ts</code>. The constant <code class="language-plaintext highlighter-rouge">COMPONENT_DEPRECATION_DATA</code> describes the deprecated components.</p>
+<p>Similar to <a href="#constructor-deprecation">constructor deprecation</a>, <code class="language-plaintext highlighter-rouge">projects/schematics/src/migrations/2_0/component-deprecations.ts</code> performs the component migration tasks, for both component <em>*.ts</em> and <em>HTML</em> templates. Usually, a developer does not need to touch this file, and they should rather describe the component deprecation in <code class="language-plaintext highlighter-rouge">projects/schematics/src/migrations/2_0/component-deprecations-data.ts</code>. The constant <code class="language-plaintext highlighter-rouge">COMPONENT_DEPRECATION_DATA</code> describes the deprecated components.</p>
 
 <h2 id="css">CSS</h2>
 

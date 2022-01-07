@@ -123,7 +123,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt=""></a>
+          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
         
         <a class="site-title" href="/spartacus-docs/1.x/">Spartacus Documentation</a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -1395,7 +1395,7 @@ Setting <code class="language-plaintext highlighter-rouge">fallbackLang</code> o
 
 <h4 id="count-parameter"><em>count</em> parameter</h4>
 
-<p>You can pass the <code class="language-plaintext highlighter-rouge">count</code> parameter to differ translations for the same key depending on the integer value of <code class="language-plaintext highlighter-rouge">count</code>. It takes the current language into consideration. Different languages have <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Localization/Localization_and_Plurals">different plural rules</a>. Languages as simple as English have only 2 forms: singular and plural, but other languages may have more. For example:</p>
+<p>You can pass the <code class="language-plaintext highlighter-rouge">count</code> parameter to differ translations for the same key depending on the integer value of <code class="language-plaintext highlighter-rouge">count</code>. It takes the current language into consideration. Different languages have <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules">different plural rules</a>. Languages as simple as English have only 2 forms: singular and plural, but other languages may have more. For example:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{{ 'miniCart.item' | cxTranslate : { count: cart.totalItem } }}<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>

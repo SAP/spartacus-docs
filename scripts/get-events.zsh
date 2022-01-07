@@ -2,6 +2,10 @@
 #
 # REQUIREMENTS: node, npm (any versions)
 #
+# To run the script against a particular branch, just add the branch name when running the script
+#
+# For example: scripts/get-events.zsh release/4.1.0
+#
 
 if [ ! -z "${1}" ]; then
     echo "Cloning Spartacus repo on branch ${1}"

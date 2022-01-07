@@ -45,8 +45,8 @@ Spartacus supports evergreen web browsers on mobile and tablet platforms.
 
 ### iOS Browsers
 
-On iOS-based devices, Spartacus is automatically tested on Chrome through end-to-end tests. Although other browsers are not tested, Spartacus should work with any iOS browser, because all iOS browsers use the Webkit-based iOS browser engine.
+On iOS-based devices, Spartacus supports Safari, Chrome, and other browsers. Although not every browser is tested, Spartacus should work with any iOS browser because all iOS browsers use the Webkit-based iOS browser engine.
 
 ### Android Browsers
 
-On Android-based devices, Spartacus is automatically tested on Chrome through end-to-end tests. Chrome is based on Chromium and the Blink layout engine. Any Android browser that uses the same engine will likely work with Spartacus. Other browsers using different browser engines are not tested, but those browsers that use Webkit should work as well.
+On Android-based devices, Spartacus is tested on Chrome, which is based on Chromium and the Blink layout engine. Any Android browser that uses the same engine will likely work with Spartacus. Other browsers using different browser engines are not tested, but those browsers that use Webkit should work as well.

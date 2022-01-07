@@ -23,23 +23,23 @@ Certain types of product offerings (that is, commodity products - electricity an
 
 Electricity consumption:
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/electricity.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/electricity.png" alt="Electricity"></p>
 
 Gas consumption:
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/gas.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/gas.png" alt="Gas"></p>
 
 When the customer selects or enters anticipated annual consumption information and clicks **Get Available Offers**, the product listing page displays all applicable product offerings based on the annual consumption as illustrated in the following figures:
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-your-consumption.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-your-consumption.png" alt="Update Your Consumption"></p>
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-consumption.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/update-consumption.png" alt="Update Consumption"></p>
 
 Customers are able to view the average cost that each of the product offerings would cost them based on their anticipated usage. Additional pricing-related information for each product offering is available by expanding the offering. The products shown in the search result list must be properly configured for this scenario and have prices defined for maximum 1 usage unit (such as kWh and cubic meter for example). The **Average Cost** for a product offering is determined using the following algorithm:
 
 **Average Cost / Year = PayNowPrices + YearlyRecurringCharges + (YearlyConsumption – YearlyIncluded) * UsageCharges**
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/average-cost-algorithm.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/average-cost-algorithm.png" alt="Average Cost Algorithm"></p>
 
 **IMPORTANT NOTES:**
 
@@ -47,7 +47,7 @@ Customers are able to view the average cost that each of the product offerings w
 
 2. Average Cost is determined for those product offerings that have prices defined **for a maximum of 1 usage unit**. In case the product offering has prices defined for more than 1 usage unit, the average cost cannot be properly determined, case in which it will not be displayed. Please see the following illustration.
 
-<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/average-cost-algorithm_2.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/assets/images/telco/average-cost-algorithm_2.png" alt="Average Cost Algorithm"></p>
 
 ## Prerequisites
 
@@ -171,21 +171,21 @@ Electricity specific slider option components
 
 | Component UID                                	| Name                                                 	| Value                                                 	| Media                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
-| OnePersonElectricitySliderOption                                     	| 1 person/ 1000 kwh                                          	|1000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-1.png">                                     	|
-| TwoPersonElectricitySliderOption             	| 2 person/ 2000 kwh           	|2000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-2.png">                                     	|
-| ThreePersonElectricitySliderOption 	| 3 person/ 3500 kwh 	|3500                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-3.png">                                     	|
-| FourPersonElectricitySliderOption                                     	| 4 person/ 6000 kwh                                          	|6000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-4.png">                                     	|
+| OnePersonElectricitySliderOption                                     	| 1 person/ 1000 kwh                                          	|1000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-1.png" alt="Electric-Specific Slider Option Component 1">                                     	|
+| TwoPersonElectricitySliderOption             	| 2 person/ 2000 kwh           	|2000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-2.png" alt="Electric-Specific Slider Option Component 2">                                     	|
+| ThreePersonElectricitySliderOption 	| 3 person/ 3500 kwh 	|3500                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-3.png" alt="Electric-Specific Slider Option Component 3">                                     	|
+| FourPersonElectricitySliderOption                                     	| 4 person/ 6000 kwh                                          	|6000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/electric-specific-slider-option-comp-4.png" alt="Electric-Specific Slider Option Component 4">                                     	|
 
 
 Gas-specific slider option components
 
 | Component UID                                	| Name                                                 	| Value                                                 	| Media                                                 	|
 |--------------------------------------------	|--------------------------------------------------------	|
-| ThirtyM2GasSliderOption                                     	| 30 square meters/ 800 cubic meters                                          	|800                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png">                                     	|
-| FiftyM2GasSliderOption             	| 50 square meters/ 1200 cubic meters                                     	|1200                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png">                                     	|
-| OneHundredM2GasSliderOption 	| 100 square meters/ 2500 cubic meters 	|2500                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png">                                     	|
-| OneHundredFiftyM2GasSliderOption                                     	| 150 square meters/ 4500 cubic meters                                          	|4500                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png">                                     	|
-| OneHundredEightyM2GasSliderOption                                     	| 180 square meters/ 6000 cubic meters                                          	|6000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png">                                     	|
+| ThirtyM2GasSliderOption                                     	| 30 square meters/ 800 cubic meters                                          	|800                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png" alt="Gas-Specific Slider Option Component">                                     	|
+| FiftyM2GasSliderOption             	| 50 square meters/ 1200 cubic meters                                     	|1200                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png" alt="Gas-Specific Slider Option Component">                                     	|
+| OneHundredM2GasSliderOption 	| 100 square meters/ 2500 cubic meters 	|2500                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png" alt="Gas-Specific Slider Option Component">                                     	|
+| OneHundredFiftyM2GasSliderOption                                     	| 150 square meters/ 4500 cubic meters                                          	|4500                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png" alt="Gas-Specific Slider Option Component">                                     	|
+| OneHundredEightyM2GasSliderOption                                     	| 180 square meters/ 6000 cubic meters                                          	|6000                                     	|<img src="{{ site.baseurl }}/assets/images/telco/gas-specific-slider-option-comp.png" alt="Gas-Specific Slider Option Component">                                     	|
 
 **PoSearchByConsumptionComponent components**
 

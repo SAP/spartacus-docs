@@ -6,6 +6,7 @@ You can extend the Spartacus storefront with various SAP solutions. For more inf
 
 - [{% assign linkedpage = site.pages | where: "name", "configurable-products-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %})
 - [{% assign linkedpage = site.pages | where: "name", "cpq-configurable-products-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cpq-configurable-products-integration.md %})
+- [{% assign linkedpage = site.pages | where: "name", "digital-payments-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/digital-payments-integration.md %})
 - [{% assign linkedpage = site.pages | where: "name", "cds-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cds-integration.md %})
 - [{% assign linkedpage = site.pages | where: "name", "kyma-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/kyma-integration.md %})
 - [{% assign linkedpage = site.pages | where: "name", "cybersource-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cybersource-integration.md %})

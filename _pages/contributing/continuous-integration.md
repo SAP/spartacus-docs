@@ -19,6 +19,6 @@ The configuration for Travis CI builds can be found in the `.travis.yml` file at
 
 ## End-to-End Tests
 
-When a build is triggered, a parallel process is also triggered on a [Jenkins server](https://jkmaster.test.c3po.b2c.ydev.hybris.com) that runs all of the end-to-end (E2E) tests for our libraries. The E2E test results are reported as pass or fail to the Pull Request checks on GitHub.
+When a build is triggered, a parallel process is also triggered on a [Travis server](https://app.travis-ci.com/github/SAP/spartacus/branches) that runs all of the end-to-end (E2E) tests for our libraries. The E2E test results are reported as pass or fail to the Pull Request checks on GitHub.
 
 Unfortunately, at the moment, the Jenkins server is not public, and as a result, external contributors cannot see the E2E test results. We hope to transition to a public server in the near future.

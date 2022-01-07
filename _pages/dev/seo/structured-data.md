@@ -55,6 +55,8 @@ The creation of the JSON-LD schemas is completely separated from the UI componen
 
 The schemas are only used by crawlers, so there is no need to build schemas for every page while end users are browsing the application. Therefore, the creation of schemas is limited to the Server-Side Rendering process. However, since developers are involved in evaluating and building the schemas, Spartacus also renders the schemas in development mode.
 
+**Note:** To set up JSON-LD schemas in Spartacus, you need to import the `JsonLdBuilderModule` to your application.
+
 ## Schema Builders
 
 The standard JSON-LD schemas are added to Spartacus during the initialization of the application. This is done in the `StructuredDataModule`, which is imported in the `SeoModule`.
@@ -92,9 +94,9 @@ This example JSON schema generates the following script tag:
 
 ```html
 <script type="application/ld+json">
-    {
-        "foo": "bar"
-    }
+  {
+    "foo": "bar"
+  }
 </script>
 ```
 

@@ -42,7 +42,7 @@ The choice of approval is a bubble-up method: when approval is required, SAP Com
 
    The following is an example:
 
-   <img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1c1-createapprover.png" alt="" width="200" border="1px" />
+   <img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1c1-createapprover.png" alt="Create Approver" width="200" border="1px" />
 
    **Note:** For this example, the unit is not selectable because a user is being created within a unit.
 
@@ -62,4 +62,4 @@ Remember that when you created the approver, you selected the check box **Add th
 
 If you go back and click **Approvers** for the unit, you will see that, indeed, this is the case. The following is an example:
 
-<img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1c2-approverlist.png" alt="" width="500" border="1px" />
+<img src="{{ site.baseurl }}/assets/images/commerceorg/unit_hh-1c2-approverlist.png" alt="Approver List" width="500" border="1px" />

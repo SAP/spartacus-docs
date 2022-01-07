@@ -19,7 +19,7 @@ The following instructions describe how to install and configure SAP Commerce Cl
 
 - Starting with release 2005, SAP Commerce Cloud ships with all users inactive and without passwords. These users may need to be restored for certain back end functionality to work. For example, although you will be able to add products to cart and check out, certain users are required to fulfill orders with Order Management as used in the default cx recipe. For more information, and for a sample ImpEx that enables such users, see [Setting Passwords for Default Users](https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html) on the SAP Help Portal.
 
-- Starting with release 1905, SAP Commerce Cloud ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` that is stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contains the default password `nimba`. We strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
+- Starting with release 1905, SAP Commerce Cloud ships without a default admin password. You must specify a password when running recipe commands, or you can specify a password in a file named `custom.properties` that is stored in `CXCOMM*\installer\customconfig`. The sample `custom.properties` file included in these instructions contains the default password `nimda`. We strongly recommend you change this password to suit your requirements, as it should not be used for production servers.
 
 - The sample custom properties file and OCC credentials supplied here are for evaluation purposes only. Aside from a default password, for example, the CORS settings are permissive to prevent access issues. We strongly recommend that a professional SAP Commerce Cloud administrator review these settings to suit your requirements, as they should not be used for production servers.
   
@@ -37,15 +37,13 @@ Summary:
 1. Download and unzip the following files:
 
    - SAP Commerce Cloud 2105 from the [SAP Software Downloads web site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=NEXT&HEADER=Y&FUNCTIONBAR=Y&EVENT=TREE&NE=NAVIGATE&ENR=67837800100800007216&V=MAINT&TA=ACTUAL/SAP%20COMMERCE).
-   - Spartacus Sample Data extension from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases). 
-     - The zip file itself, `spartacussampledata.2011.zip`, is found in the the **Assets** section of the most recent release of the `storefront` library.
-     - [Direct link to spartacussampledata.2011.zip](https://github.com/SAP/spartacus/releases/download/storefront-4.0.0/spartacussampledata.2011.zip) (newer versions of the sample data may be released in later releases)
-     - **Note:** You can safely use `spartacussampledata.2011.zip` with SAP Commerce Cloud 2015.
+   - Spartacus Sample Data extension from the [Spartacus GitHub Release page](https://github.com/SAP/spartacus/releases).
+     - The zip file itself, `spartacussampledata.2105.zip`, is found in the the **Assets** section of the most recent release of the `@spartacus/storefront` library.
+     - [Direct link to spartacussampledata.2105.zip](https://github.com/SAP/spartacus/releases/download/storefront-4.1.0/spartacussampledata.2105.zip) (newer versions of the sample data may be released in later releases).
 
-1. Move the file `custom.properties` from `spartacussampledata/resources/installer/customconfig` to `hybris-commerce-suite-2105/installer/customconfig`.
+1. Move the `custom.properties` file from `spartacussampledata/resources/installer/customconfig` to `hybris-commerce-suite-2105/installer/customconfig`.
 
-   It is strongly recommend that you inspect this file's settings using a text editor (see the notes below for more information).
-   The contents of this file are listed at the end of this document for reference.
+   **Note:** The sample custom properties file is meant for development and evaluation purposes only. It is strongly recommend that you inspect this file's settings using a text editor. For more information, see [Sample Configuration Properties](#sample-configuration-properties).
 
 1. In `hybris/bin`:
    - Create the folder `custom`.
@@ -149,10 +147,9 @@ You can now start Spartacus. After you have configured SAP Commerce Cloud to acc
 - The Spartacus Sample Data extension copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe's `build.gradle` file.
 - For more information about the changes that are implemented with the Spartacus Sample Data extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
-### Sample configuration properties
+### Sample Configuration Properties
 
-The sample custom properties file is meant for development and evaluation purposes only.
-Please be careful to at least review the following properties:
+The sample custom properties file is meant for development and evaluation purposes only. Please be careful to at least review the following properties:
 
 - The admin password (`initialpassword.admin`) (default is `nimda`).
 - CORS settings as described further in this document, and in the Spartacus documentation.
@@ -194,34 +191,3 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 
 - If SAP Commerce Cloud installer doesn't work, make sure there are no spaces in the path to the SAP Commerce Cloud folder.
 - If Spartacus starts or partially starts, check all CORS settings. For more information, see [{% assign linkedpage = site.pages | where: "name", "cors.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/cors.md %}).
-
-## config.properties file
-
-To use these settings, create a file named `custom.properties` inside the `spartacussampledata/resources/customconfig` folder, and then add the following to the file:
-
-   ```plaintext
-   initialpassword.admin=nimda
-   sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process
-   occ.rewrite.overlapping.paths.enabled=true
-   corsfilter.default.allowedOrigins=*
-   corsfilter.acceleratorservices.allowedOrigins=*
-   corsfilter.permissionswebservices.allowedOrigins=*
-   corsfilter.ycommercewebservices.allowedOrigins=*
-   corsfilter.ycommercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-   corsfilter.ycommercewebservices.exposedHeaders=x-anonymous-consents
-   corsfilter.commercewebservices.allowedOrigins=*
-   corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-   corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents
-   corsfilter.assistedservicewebservices.allowedOrigins=*
-   corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
-   corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents
-   mockup.payment.label.billTo.region=billTo_state
-   mockup.payment.label.billTo.phoneNumber=billTo_phoneNumber
-   yacceleratorordermanagement.fraud.scoreLimit=500000
-   yacceleratorordermanagement.fraud.scoreTolerance=500000
-   yacceleratorordermanagement.fraud.scoreLimitExternal=500000
-   yacceleratorordermanagement.fraud.scoreToleranceExternal=500000
-   task.polling.interval.min=0
-   smarteditaddon.dynamicattribute.enabled=true
-   build.parallel=true
-   ```

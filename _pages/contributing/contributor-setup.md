@@ -129,7 +129,7 @@ yarn build
    },
    ```
 
-   **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Context Configuration]({{ site.baseurl }}/context-configuration/#automatic-context-configuration).
+   **Note**: The base site and its context can also be detected automatically, based on URL patterns defined in the CMS. For more information, see [Automatic Multi-Site Configuration]({{ site.baseurl }}{% link _pages/dev/context/automatic-context-configuration.md %}).
 
 ### Launching the Spartacus Storefront
 

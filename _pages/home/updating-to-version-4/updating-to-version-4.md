@@ -25,16 +25,16 @@ For more information on the Spartacus reference app structure, see [{% assign li
 
 The following steps describe how to migrate to the new reference app structure.
 
-1. Create the `SpartacusModule` with the following filename and path: `app/spartacus/spartacus.module.ts`
+1. Create a module called `SpartacusModule` with the following path: `app/spartacus/spartacus.module.ts`.
 1. Add the `SpartacusModule` to the `imports` in `AppModule`.
-1. Add `BaseStorefrontModule` to the imports and exports of `SpartacusModule`. This module is exported from the `@spartacus/storefront` library.
-1. Create the `SpartacusFeaturesModule` with the following filename and path: `app/spartacus/spartacus-features.module.ts`
+1. Add `BaseStorefrontModule` to the imports and exports of the `SpartacusModule`. This module is exported from the `@spartacus/storefront` library.
+1. Create a module called `SpartacusFeaturesModule` with the following path: `app/spartacus/spartacus-features.module.ts`
 1. Add the `SpartacusFeaturesModule` to the `imports` in `SpartacusModule`.
-1. Create the `SpartacusConfigurationModule` with the following filename and path: `app/spartacus/spartacus-configuration.module.ts`.
-1. Add the `SpartacusConfigurationModule` to the `imports` in `SpartacusModule`.
+1. Create a module called `SpartacusConfigurationModule` with the following path: `app/spartacus/spartacus-configuration.module.ts`.
+1. Add the `SpartacusConfigurationModule` to the `imports` in the `SpartacusModule`.
 1. Move Spartacus configurations to the `SpartacusConfigurationModule`.
 
-    These are the configurations you pass with `provideConfig`, `provideConfigFactory`, or with the `withConfig` methods from some of the modules (such as `B2cStorefrontModule` and `ConfigModule`). It is recommended that you use `provideConfig` or `provideConfigFactory` in module providers to configure Spartacus.
+    These are the configurations you pass with `provideConfig`, `provideConfigFactory`, or with the `withConfig` methods from some of the modules (such as the `B2cStorefrontModule` and `ConfigModule`). It is recommended that you use `provideConfig` or `provideConfigFactory` in module providers to configure Spartacus.
 1. Configure the `AppRoutingModule`.
 
     If you do not have this module, first create it under `app/app-routing.module.ts`. Make sure you import this module in you `AppModule`. In the imports of `AppRoutingModule`, configure the `RouterModule` with the following options:
@@ -70,12 +70,12 @@ The following steps describe how to migrate to the new reference app structure.
 
 ### Migrating the B2cStorefrontModule
 
-1. From the steps above, the config from `B2cStorefrontModule.withConfig` should already be moved to `SpartacusConfigurationModule` and provided with `provideConfig`, but if not, then please do so now.
-1. Add `HttpClientModule` to the imports in your `AppModule` if it is not there.
-1. In the `SpartacusFeaturesModule` module imports, add the following modules from the `@spartacus/storefront` library: `StorefrontModule` and `CmsLibModule`.
+1. From the steps in the previous section, the configuration from `B2cStorefrontModule.withConfig` should already be moved to the `SpartacusConfigurationModule` and provided with `provideConfig`, but if not, then you can do so now.
+1. Add the `HttpClientModule` to the imports in your `AppModule` if it is not there.
+1. In the `SpartacusFeaturesModule` module imports, add the `StorefrontModule` and `CmsLibModule` from the `@spartacus/storefront` library.
 
     These modules are removed in 4.0, but it is better to migrate the modules step by step. The migration of these modules is covered in the next steps.
-1. The `B2cStorefrontModule` module provided a few default configs. If you rely on them, add them to your `SpartacusConfigurationModule`. The following is an example:
+1. The `B2cStorefrontModule` provided a few default configurations. If you rely on them, add them to your `SpartacusConfigurationModule`. The following is an example:
 
     ```ts
     provideConfig({
@@ -89,14 +89,17 @@ The following steps describe how to migrate to the new reference app structure.
     ...defaultCmsContentProviders,
     ```
 
-1. Remove any use of `B2cStorefrontModule` from your app.
+1. Remove any use of the `B2cStorefrontModule` from your app.
 
 ### Migrating the B2bStorefrontModule
 
-1. config from `B2bStorefrontModule.withConfig` should be already moved to `SpartacusConfigurationModule` and provided with `provideConfig`
-1. add `HttpClientModule` to imports in `AppModule` if it's not present there
-1. add in `SpartacusFeaturesModule` imports few modules: `StorefrontModule`, `CmsLibModule` from `@spartacus/storefront` (those modules are removed in 4.0, but we want to migrate the modules step by step. Migration of those modules will be covered in next steps) and `CostCenterModule.forRoot()` from `@spartacus/core`
-1. this module provided few default configs, so add them to your `SpartacusConfigurationModule` if you rely on them
+1. From the steps in the first section, the configuration from `B2bStorefrontModule.withConfig` should already be moved to the `SpartacusConfigurationModule` and provided with `provideConfig`, but if not, then you can do so now.
+1. Add the `HttpClientModule` to the imports in your `AppModule` if it is not there.
+1. In the `SpartacusFeaturesModule` module imports, add the `StorefrontModule` and `CmsLibModule` from the `@spartacus/storefront` library.
+
+    These modules are removed in 4.0, but it is better to migrate the modules step by step. The migration of these modules is covered in the next steps.
+1. In the `SpartacusFeaturesModule` module imports, add `CostCenterModule.forRoot()` from the `@spartacus/core` library.
+1. The `B2bStorefrontModule` provided a few default configurations. If you rely on them, add them to your `SpartacusConfigurationModule`. The following is an example:
 
     ```ts
     provideConfig(layoutConfig),
@@ -106,23 +109,23 @@ The following steps describe how to migrate to the new reference app structure.
     ...defaultCmsContentProviders,
     ```
 
-1. remove usage of `B2bStorefrontModule` from your app
+1. Remove any use of the `B2bStorefrontModule` from your app.
 
 ### Migrating the StorefrontModule
 
-1. you should have configured `RouterModule` in `AppRoutingModule`
-1. in `AppModule` you should already have `StoreModule.forRoot({})` and `EffectsModule.forRoot([])` present in `imports`
-1. add `AsmModule` from `@spartacus/storefront` to imports in `SpartacusFeaturesModule`
-1. add `StorefrontFoundationModule` to `SpartacusFeaturesModule` imports.
-1. Add `MainModule` to `SpartacusFeaturesModule` imports
-1. Add `SmartEditModule.forRoot()`, `PersonalizationModule.forRoot()` and `OccModule.forRoot()` from `@spartacus/core` to imports in `SpartacusFeaturesModule`
-1. Add `ProductDetailsPageModule` and `ProductListingPageModule` from `@spartacus/storefront` to imports in `SpartacusFeaturesModule`
-1. Add `ExternalRoutesModule.forRoot()` from `@spartacus/core` to imports in `SpartacusFeaturesModule`
-1. remove usage of `StorefrontModule` from you app
+1. From the steps in the first section, you should have already configured `RouterModule` in `AppRoutingModule`, but if not, then you can do so now.
+1. The `imports` of your `AppModule` should already include `StoreModule.forRoot({})` and `EffectsModule.forRoot([])`, but if not, you can add them now.
+1. In the `SpartacusFeaturesModule`, import the `AsmModule` from `@spartacus/storefront`.
+1. Add the `StorefrontFoundationModule` to the imports of the `SpartacusFeaturesModule`.
+1. Add the `MainModule` to the imports of the `SpartacusFeaturesModule`.
+1. In the `SpartacusFeaturesModule`, import `SmartEditModule.forRoot()`, `PersonalizationModule.forRoot()` and `OccModule.forRoot()` from `@spartacus/core`.
+1. In the `SpartacusFeaturesModule`, import the `ProductDetailsPageModule` and `ProductListingPageModule` from `@spartacus/storefront`.
+1. In the `SpartacusFeaturesModule`, import `ExternalRoutesModule.forRoot()` from `@spartacus/core`.
+1. Remove any use of the `StorefrontModule` from you app.
 
 ### Migrating the CmsLibModule
 
-1. add imports listed below from `@spartacus/storefront` directly to imports in `SpartacusFeaturesModule`:
+1. In the `SpartacusFeaturesModule`, import the following modules from `@spartacus/storefront`:
 
     ```ts
     AnonymousConsentManagementBannerModule,
@@ -177,55 +180,70 @@ The following steps describe how to migrate to the new reference app structure.
     ResetPasswordModule,
     ```
 
-1. remove usage of `CmsLibModule` from your app
+1. Remove any use of the `CmsLibModule` from your app.
 
 ### Migrating the MainModule
 
-1. add `AnonymousConsentsDialogModule` from `@spartacus/storefront` into imports in `SpartacusFeaturesModule`
-1. remove usage of `MainModule` from you app
+1. In the `SpartacusFeaturesModule`, import the `AnonymousConsentsDialogModule` from `@spartacus/storefront`.
+1. Remove any use of the `MainModule` from you app.
 
 ### Migrating the StorefrontFoundationModule
 
-1. add `AuthModule.forRoot()`, `AnonymousConsentsModule.forRoot()`, `CartModule.forRoot()`, `CheckoutModule.forRoot()`, `UserModule.forRoot()` and `ProductModule.forRoot()` from `@spartacus/core` into imports in `SpartacusFeaturesModule`
-1. add `CartPageEventModule`, `PageEventModule` and `ProductPageEventModule` from `@spartacus/storefront` into imports in `SpartacusFeaturesModule`
-1. remove usage of `StorefrontFoundationModule` from your app
+1. In the `SpartacusFeaturesModule`, import the following from `@spartacus/core`:
+   - `AuthModule.forRoot()`
+   - `AnonymousConsentsModule.forRoot()`
+   - `CartModule.forRoot()`
+   - `CheckoutModule.forRoot()`
+   - `UserModule.forRoot()`
+   - `ProductModule.forRoot()`
+1. In the `SpartacusFeaturesModule`, import the `CartPageEventModule`, `PageEventModule` and `ProductPageEventModule` from `@spartacus/storefront`.
+1. Remove any use of the `StorefrontFoundationModule` from your app.
 
 ### Migrating the OccModule
 
-1. add `AsmOccModule`, `CartOccModule`, `CheckoutOccModule`, `ProductOccModule`, `UserOccModule`, `CostCenterOccModule` from `@spartacus/core` to imports in `SpartacusFeaturesModule`
-1. remove usage of `OccModule` from your app
+1. In the `SpartacusFeaturesModule`, import the following modules from `@spartacus/core`:
+   - `AsmOccModule`
+   - `CartOccModule`
+   - `CheckoutOccModule`
+   - `ProductOccModule`
+   - `UserOccModule`
+   - `CostCenterOccModule`
+1. Remove any use of the `OccModule` from your app.
 
 ### Migrating the EventsModule
 
-1. add `CartPageEventModule`, `PageEventModule` and `ProductPageEventModule` from `@spartacus/storefront` to imports in `SpartacusFeaturesModule`
-1. remove usage of `EventsModule` from your app
+1. In the `SpartacusFeaturesModule`, import the `CartPageEventModule`, `PageEventModule` and `ProductPageEventModule` from `@spartacus/storefront`.
+1. Remove any use of the `EventsModule` from your app.
 
 ### Cleaning Up
 
-That's it. You migrated to new app structure. However there is one more thing that we recommend to do. All these huge modules that we just migrated were created to make it easy to create complete spartacus application. What we mean by "complete" is the spartacus with a lot of features enabled out of the box. You might've not even used those features and yet they landed in your application files making your app bigger and by that increasing your application initial load time. As we just replaced these bootstrap modules with granular modules it gives you a great opportunity to remove feature modules that you don't need.
+Now that you have migrated your application to the new app structure, you have the opportunity to remove feature modules that were originally included in the core Spartacus libraries, but which you may not have been using. By removing unused feature modules, you can make your application's initial load time faster.
 
-        Here is a list of common features that you might not use:
-          - if you don't use ASM feature you can remove from `SpartacusFeaturesModule` imports of `AsmModule` and `AsmOccModule`
-          - if you don't use Smartedit you can remove from `SpartacusFeaturesModule` import of `SmartEditModule`
-          - if you don't use Qualtrics you can remove from `SpartacusFeaturesModule` import of `QualtricsModule`
-          - if you don't use product variants you can remove from `SpartacusFeaturesModule` imports of `ProductVariantsModule`
-          - if you don't support replenishments order you can remove from `SpartacusFeaturesModule` imports of `ReplenishmentOrderHistoryModule`, `ReplenishmentOrderConfirmationModule` and `ReplenishmentOrderDetailsModule`
+The following is a list of common Spartacus features that you may not be using, and which you can remove from your application:
 
-        There are many more modules that you might not need, so we recommend just going through all the imports in `SpartacusFeaturesModule` and verifying if you use it or not. If not just remove it and make your application smaller.
+- If you do not use ASM, you can remove the `AsmModule` and `AsmOccModule` imports from the `SpartacusFeaturesModule`.
+- If you do not use Smartedit, you can remove the `SmartEditModule` import from the `SpartacusFeaturesModule`.
+- If you do not use Qualtrics, you can remove the `QualtricsModule` import from the `SpartacusFeaturesModule`.
+- If you do not use product variants, you can remove the `ProductVariantsModule` import from the `SpartacusFeaturesModule`
+- If you do not support order replenishment, you can remove the  `ReplenishmentOrderHistoryModule`, `ReplenishmentOrderConfirmationModule` and `ReplenishmentOrderDetailsModule` imports from the `SpartacusFeaturesModule`.
+
+There are many more modules that you may not need, and it is recommended to go through all of the imports in the `SpartacusFeaturesModule` and verify if you are using them or not. If not, simply remove the import to make your application smaller.
 
 ## Upgrading Your Angular Libraries
 
-Before upgrading Spartacus to 4.0, you need first to upgrade Angular to the version 12 and upgrade Angular 3rd party dependencies like `@ng-bootstrap/ng-bootstrap` or `@ng-select/ng-select` to the versions compatible with Angular 12.
+Before upgrading Spartacus to 4.0, you first need to upgrade Angular to version 12, and upgrade Angular third party dependencies, such as `@ng-bootstrap/ng-bootstrap` and `@ng-select/ng-select`, to the version that is compatible with Angular 12.
+
+The following is an example command that upgrades Angular to version 12, and also upgrades the related dependencies:
 
 ```bash
 ng update @ng-bootstrap/ng-bootstrap@10 @ng-select/ng-select@7 @angular/core@12 @angular/cli@12
 ```
 
-For more, see [the official Angular upgrade guide](https://update.angular.io/).
+For more information, see the official[Angular Update Guide](https://update.angular.io/).
 
 ## Upgrading Spartacus to 3.4.x
 
-You must first upgrade all of your `@spartacus` libraries to the latest 3.4.x release before you begin upgrading to Spartacus 4.0. For more information, see [Upgrading Spartacus Libraries to a New Minor Version](https://sap.github.io/spartacus-docs/release-information/#upgrading-spartacus-libraries-to-a-new-minor-version).
+You must first upgrade all of your `@spartacus` libraries to the latest 3.4.x release before you begin upgrading to Spartacus 4.0. For more information, see [Upgrading Spartacus Libraries to a New Minor Version]({{ site.baseurl }}/release-information/#upgrading-spartacus-libraries-to-a-new-minor-version).
 
 ## Upgrading Spartacus to 4.0
 
@@ -237,4 +255,8 @@ To update to version 4.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics@4
 ```
 
-When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [Detailed List of Changes](#detailed-list-of-changes) below.
+When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see the [Detailed List of Changes]({{ site.baseurl }}/technical-changes-version-4/#detailed-list-of-changes).
+
+## Migrating from Accelerator to Spartacus
+
+If you are considering migrating a project from Accelerator to Spartacus, see [Migrate Your Accelerator-based Storefront to Project Spartacus](https://www.sap.com/cxworks/article/2589632310/migrate_your_accelerator_based_storefront_to_project_spartacus) on the SAP CX Works website.
