@@ -32,5 +32,5 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Pricing - Price Alteration Discounts]({{ site.baseurl }}{% link _pages/telco/price-alteration-discounts.md %}) | 2.0.0 | 2007 | 2.x |
 | [Pricing - Subscription Rate Plan]({{ site.baseurl }}{% link _pages/telco/product-offering-prices.md %}) | 1.0.0 | 2003 | 1.x |
 | [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %}) | 1.0.0 | 2003 | 3.x |
-| [Purchase POs with Configurable Characteristics]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %}) | 3.2 | 2105 | 3.2 |
+| [Purchase PO with Configurable Characteristics]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %}) | 3.2 | 2105 | 3.2 |
 | [Simple Product Offerings]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %}) | 1.0.0 | 2003 | 1.x, 2.0 |
