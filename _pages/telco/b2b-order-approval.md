@@ -37,9 +37,13 @@ Following diagram represents an organization structure that is grouped into diff
 
 Each business unit has users or employees assigned. These users have different roles such as administrators, approvers, or customers. In some cases, the user will have multiple roles such as an administrator and an approver. The users are visible in the organization management dashboard that is accessible by the administrator. Administrators have the authorization assign users to different business units or can assign different roles to different users.
 
-For the Total Protect organization, Ross Carter is assigned the B2B approver role. Through the approval dashboard, Ross Carter can see all orders within the company. This is because the approver is assigned to the main unit, which displays all orders within the company irrespective of the units each order belongs to. Ross Carter can either approve or reject the listed orders for the company.
+For the Total Protect organization, Ross Carter is assigned the B2B approver role. Through the approval dashboard, Ross Carter can see all orders within the company. This is because the approver is assigned to the main unit, which displays all orders within the company irrespective of the units each order belongs to. Ross Carter can either approve or reject the listed orders for the company by logging into B2B Telco SPA using his credentials: 
+   -  User ID: ross.carter@totalprotect.com
+   -  Password: 1234
 
-For the Operation Center business unit, Mark Mann is assigned as the B2B approver.  Through the approval dashboard, Mark Mann can only view and either approve or reject the orders placed by users within Operation Center business unit.
+For the Operation Center business unit, Mark Mann is assigned as the B2B approver. Through the approval dashboard, Mark Mann can only view and either approve or reject the orders placed by users within Operation Center business unit. Mark will log into B2B Telco SPA with the following credentials:
+   -  User ID: mark.mann@totalprotect.com
+   -  Password: 1234
 
    <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/organization-structure2.png"></p>
 
@@ -51,19 +55,19 @@ The **Approval Dashboard** option is listed under the **My Account** main menu.
 
 The **Order Approval Dashboard Page** displays the list of orders that are pending for approval, approved, and rejected.
 
-The orders listed here are for Simon Peters who is from the same B2B unit, that is the Total Protect main unit, to which Ross Carter also belongs.
+The orders listed here are for Simon Peters who is from the same B2B unit, that is the Total Protect main unit, to which Ross Carter also belongs. Here, Ross Carter can either approve or reject the orders placed by Simon Peters.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-approval-dashboard-pg.png"></p>
 
-Details of a specific order can be viewed by clicking the required order.
+Ross Carter can view the details of a specific order by clicking a specific order from the list of orders.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-approval-dashboard-pg-order-details.png"></p>
 
-The following screenshot displays orders from different users from different business units such as Coordination Center, Operation Center, and Human Resources. These business units are the child units of the **Total Protect** main business unit.
+From the **Order Approval Dashboard Page**, Ross Carter can view orders from different users from different business units such as Coordination Center, Operation Center, and Human Resources. These business units are the child units of the **Total Protect** main business unit.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-approval-dashboard-pg2.png"></p>
 
-In case the approver is from a particular child unit such as Coordination Center, then the approver will be able to view and approve or reject orders pending for approval from users in this unit.
+If the approver is from a particular child unit such as Coordination Center, in this case it is Mark Mann, then the approver will be able to view and approve or reject orders pending for approval from users in this unit.
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/order-approval-dashboard-pg3.png"></p>
 
