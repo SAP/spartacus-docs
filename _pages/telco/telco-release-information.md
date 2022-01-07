@@ -36,8 +36,8 @@ The 3.2 libraries for the accelerator provides a new B2B Telco Spartacus storefr
 
 - [B2B Approval Workflow Processes]({{ site.baseurl }}{% link _pages/telco/b2b-order-approval.md %})
 - [B2B Organizational Management]({{ site.baseurl }}{% link _pages/telco/b2b-organization-management.md %})
-- [New B2B Telco Spartacus Storefront]({{ site.baseurl }}{% link _pages/telco/b2b-telco-store.md %})
-- [B2B Complex Product Offerings Inclusive of PSCVU's]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %})
+- [B2B Telco Spartacus Storefront]({{ site.baseurl }}{% link _pages/telco/b2b-telco-store.md %})
+- [Purchase PO with Configurable Characteristics]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %})
 
 ## Release 3.1
 
