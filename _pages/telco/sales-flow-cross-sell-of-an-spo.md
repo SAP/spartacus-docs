@@ -103,3 +103,4 @@ To support cross-selling, the Customer Product Inventory (CPI) is used to displa
 
 The above flowchart displays all steps that a customer will encounter while doing a Cross Sell Flow for additional product offerings (POs) as part of an existing Subscription Base (corresponding to a BPO).
 
+
