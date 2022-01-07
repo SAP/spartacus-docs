@@ -37,7 +37,9 @@ An existing customer is subscribed to a Quad-Play offering that includes interne
 
 The following procedure describes how to add more products to the subscription base:
 
-1. Log in to the TUA Spartacus.
+1. Log in to Telco SPA.
+    -   User ID: david.brown@hybris.com
+    -   Password: 1234
 
 1. Navigate to **Account** -> **Subscriptions**. All subscriptions of the logged in customer are displayed.
 
