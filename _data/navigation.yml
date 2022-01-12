@@ -518,7 +518,7 @@ docs:
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
                   url: /product-offering-search/
-                - title: "Purchase POs with Configurable Characteristics"
+                - title: "Purchase PO with Configurable Characteristics"
                   url: /purchase-po-with-configurable-characteristics/                                         
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
