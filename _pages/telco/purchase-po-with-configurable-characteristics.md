@@ -23,7 +23,21 @@ Customers can purchase complex offerings, standalone or within a bundle, by view
 
 ## Business Need
 
-The feature allows customers to purchase offerings for which they need to select the desired characteristics.
+Commercial offers, (product offerings) are offered to end customers in various contexts, are defined by respecting the definition of a specific type of product. For instance, a GSM product offering is defined by respecting the characteristics of a GSM product. A common set of characteristics of a GSM voice offer is represented by the number of minutes, SMS, and data volume that are included in the offer. These are the static characteristics that define an offer.
+
+Some characteristics are not necessarily static. Considering the GSM offer example, the 'favourite number' might be provided by the customer as input when purchasing a new GSM postpaid offer. At the product definition level, the 'favourite number' is defined as a configurable characteristic of the product offering (PO). It is also possible to have multiple other characteristics where the customer needs to provide and/or select the value while purchasing. Some values might be mandatory where the customer can proceed with purchasing the offer by providing only the value for those mandatory characteristics.
+
+In the B2B context, commercial offers that are offered to B2B customers are much more complex. In such case, the number of configurable characteristics is considerably higher than the context of B2C offers. Though it is not necessarily a rule, the number of configurable characteristics, sometimes, depends on the industry itself.
+
+This feature enables customers to purchase those POs having configurable characteristics by visualizing the list of configurable characteristics and provide or select the value for those where the value type is either of the following: 
+
+-   Text input
+-   Numeric input
+-   Date input
+-   Selection of values: Simple selection or multiple selection   
+-   Decision (true/ false)
+
+
 
 ## Business Use Case
 
