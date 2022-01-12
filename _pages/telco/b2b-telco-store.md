@@ -44,10 +44,6 @@ The following image is the B2B Telco homepage which has a similar structure to t
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/homepage.png" alt="Homepage"></p>
 
-**Logon**
--	Logon to view the catalog and pricing 
-
-
 **Category Page and Content Page**
 
 To view a category page, click **INTERNET** in the navigation section. The category page is display with all the filtering options on the left side and the sorting options at the top of search results section.
