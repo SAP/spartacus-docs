@@ -4,7 +4,7 @@ title: Spartacus Roadmap
 
 This document describes what what is planned for Spartacus for Q1 2021 and later.
 
-*Last updated November 9, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated January 13, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 4.2 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
@@ -49,9 +49,10 @@ If you would like to report an issue for assistance from SAP, please use the [SA
 ## Summary of Tentative Release Dates
 
 Current release plans are (dates are tentative):
-- 5.0 feature freeze planned for December 2021, final release end of January 2022
-- 5.x releases to follow in Q1/Q2 2022
-- 6.0 tentatively scheduled for late spring 2022
+- 5.0 planned for Q1 2022
+- 5.x releases to follow in Q1/Q2/Q3 2022
+- 6.0 tentatively scheduled for fall 2022
+- A 4.3 release will likely happen in Janurary containing EPD Visualization library.
 
 ## 2022
 
@@ -60,6 +61,8 @@ Current release plans are (dates are tentative):
 #### 5.0 (tentatively scheduled for January 2021)
 - **Screen Reader** support for all B2C/Core features
 - **Cart library** bringing performance by splitting modules into smaller libraries
+- **Checkout libraries** separating B2B checkout and scheduled replenishment code from main checkout library
+- **Command & Queries** for checkout library
 - **Angular 13**
 - **Removal of most deprecated code**
 
