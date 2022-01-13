@@ -8,7 +8,6 @@ This document describes what what is planned for Spartacus for Q1 2021 and later
 
 4.2 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
-
 ***
 
 **Table of Contents**
@@ -42,23 +41,25 @@ For roadmap information for all of SAP Commerce Cloud, including Spartacus topic
   
 ### Questions? Assistance needed?
 
-If you have technical or how-to questions about using Spartacus, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). 
+If you have technical or how-to questions about using Spartacus, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
 
 If you would like to report an issue for assistance from SAP, please use the [SAP Launchpad reporting tool](https://launchpad.support.sap.com/)
   
 ## Summary of Tentative Release Dates
 
 Current release plans are (dates are tentative):
+
 - 5.0 planned for Q1 2022
 - 5.x releases to follow in Q1/Q2/Q3 2022
 - 6.0 tentatively scheduled for fall 2022
-- A 4.3 release will likely happen in Janurary containing EPD Visualization library.
+- A 4.3 release will likely happen in January containing the EPD Visualization library.
 
 ## 2022
 
 ### H1 2022
 
 #### 5.0 (tentatively scheduled for January 2021)
+
 - **Screen Reader** support for all B2C/Core features
 - **Cart library** bringing performance by splitting modules into smaller libraries
 - **Checkout libraries** separating B2B checkout and scheduled replenishment code from main checkout library
@@ -67,6 +68,7 @@ Current release plans are (dates are tentative):
 - **Removal of most deprecated code**
 
 #### Planned for 5.x
+
 - **Buy online pickup in store** ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
 - **B2B Commerce Quotes** (requires API update released in 2105) ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
 - **Product bundles** (requires SAP Commerce Cloud 2011) ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html))
@@ -74,6 +76,7 @@ Current release plans are (dates are tentative):
 - **Toast option when adding to cart** - Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
 
 ### H2 2022
+
 - **One app for running B2C and B2B stores**
 - **Screen Readers**: Completion of support for B2B channel Spartacus storefront
 - **Accessibility**: WCAG 2.0 Level AA Storefront Support
@@ -86,4 +89,3 @@ Current release plans are (dates are tentative):
 - **Potential Promotions**
 - **Punchout support in Spartacus** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac40cf08669101486f5ce44920c3f91.html))
 - **Self-service customer support** through the Customer Service Module (requires release 2105) - ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html))
-
