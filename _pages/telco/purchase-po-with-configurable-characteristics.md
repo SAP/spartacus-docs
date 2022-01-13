@@ -8,9 +8,11 @@ title: Purchase PO with Configurable Characteristics
 
 {% include docs/feature_version.html content=version_note %}
 
-A complex offering is a Product Offering (PO) with a significant number of Product Specification Characteristic (PSC) and Product Specification Characteristic Values (PSCVs), configurable or static, also with dependencies between them. These POs need to be purchased in B2B SPA from the Product Details Page (PDP) page or through Configurable Guided Selling.
+This feature provides the ability for service providers to sell products that are more complex in nature. These products have a significant number of product specification characteristics with a number product specification characteristic values that can be configurable or static; and can also have dependencies between them.
 
-Customers can purchase complex offerings, standalone or within a bundle, by viewing the details of the offerings and then select the required purchase options that are assigned to these offerings. Customers use this feature when they need to view product offering details or purchase offerings, either SPO or BPO.
+Online customers can purchase such complex offerings standalone or within a bundle through configurable guided selling. By viewing the details of the product offering, customers can select the required purchase options that are assigned to the offerings, which may or may not have an impact on the final price.
+
+While this feature is applicable for both B2C and B2B, the feature has been set-up for the B2B telco storefront. These complex product offerings can be purchased from the Product Details Page (PDP) page or through Configurable Guided Selling.
 
 ***
 
@@ -23,47 +25,49 @@ Customers can purchase complex offerings, standalone or within a bundle, by view
 
 ## Business Need
 
-The feature enables customer to visualize the entire list of characteristics, not only the ones having a static assignment. For characteristics that have a configurable assignment to the PO, the customer can select and/or provide the corresponding value(s).
+The feature enables customer to visualize the entire list of characteristics for a product offering; not only the ones having a static or fixed assignment. For characteristics that have a configurable assignment, the customer can select their options and/or provide the corresponding value(s) to build the product to meet their specific needs. As the customer selects their options, the price as well as other options may be impacted.
 
-Commercial offers, (product offerings) are offered to end customers in various contexts, are defined by respecting the definition of a specific type of product. For instance, a GSM product offering is defined by respecting the characteristics of a GSM product. A common set of characteristics of a GSM voice offer is represented by the number of minutes, SMS, and data volume that are included in the offer. These are the static characteristics that define an offer.
+Product offerings are offered to end customers in various contexts and are defined by respecting the definition of a specific type of product. For example, a GSM product offering is defined by respecting the characteristics of a GSM product.  A common set of characteristics for a GSM product offering is represented by the number of minutes, SMS, and data volume that is included in the offer and are considered static characteristics.
 
-Some characteristics are not necessarily static. Considering the GSM offer example, the 'favourite number' might be provided by the customer as input when purchasing a new GSM postpaid offer. At the product definition level, the 'favourite number' is defined as a configurable characteristic of the product offering (PO). It is also possible to have multiple other characteristics where the customer needs to provide and/or select the value while purchasing. Some values might be mandatory where the customer can proceed with purchasing the offer by providing only the value for those mandatory characteristics.
+In this same example, there may also be some options that the customer may need to choose.  There may be an option for a customer to enter a special or favorite phone number when purchasing a new GSM postpaid offer.  At the product definition level, the favorite phone number is defined as a configurable characteristic of the product offering.  The product definition can support multiple configurable characteristics as well as mandatory characteristics.
 
-In the B2B context, commercial offers that are offered to B2B customers are much more complex. In such case, the number of configurable characteristics is considerably higher than the context of B2C offers. Though it is not necessarily a rule, the number of configurable characteristics, sometimes, depends on the industry itself.
+In the B2B context, commercial product offerings are more intricate.  The number of configurable characteristics is considerably higher than B2C offers.
 
-This feature enables customers to purchase those POs having configurable characteristics by visualizing the list of configurable characteristics and provide or select the value for those where the value type is either of the following: 
+For configurable options:
 
--   Text input
--   Numeric input
--   Date input
--   Selection of values: Simple selection or multiple selection   
+-   A list of values may be provided for single selection or multiple selection
+-   Customer input defined as:
+    -   Free text input
+    -   Numeric input
+    -   Date input
 -   Decision (TRUE/FALSE)
 
 ## Business Use Case
 
-**Purchase of a Satellite Service PO having characteristics for which customer has to provide input**
-
-The following use case is about how a customer benefits from this feature in the context where a PO has multiple configurable characteristics.
+**A B2B customer would like to purchase a Satellite Service product offering requiring several configuration options and input**
 
 **Satellite Service Definition**
 
 <p align="center"><img src="{{ site.baseurl }}/assets/images/telco/satellite-service-example.png" alt="Satellite Service"></p>
 
-The above image is of a Satellite Service PO that has the following PSCs and PSCVs assigned:
+The above image represents a Satellite Service product offering that has the following product specification characteristics and values assigned:
 
--   Static assignment of PSCs:
-    -   **Terminal Type**: the PO has the terminal type 'Portable'
-    -   **Installation Type**: the installation type is 'Self Installation'
--   Configurable assignment of PSCs:
-    -   **Start Date**: start date is an optional characteristic, customer being able to provide it at purchase time
-    -   **IP Address**: IP address is a mandatory characteristic and the value has to be provide by customer at purchase time
-    -   **Connected via**: connectivity info must be provided at purchase time. Customer is able to select up to 2 connectivity locations as per the definition above
-    -   **DHCP**: customer is able to choose if he wants DHCP or not (TRUE/ FALSE)
-
+-   Static assignment of product specification characteristics:
+    -   **Terminal Type**: The PO has the terminal type 'Portable'
+    -   **Installation Type**: The installation type is 'Self Installation'
+-   Configurable assignment of product specification characteristics:
+    -   **Start Date**: Optional characteristic. Customer can provide a (service) start date during the purchase flow.
+    -   **IP Address**: Mandatory characteristic. The value must be provided during the purchase flow.
+    -   **Connected via**: Mandatory characteristic. Connectivity info must be provided during the purchase flow.  Customer can select up to 2 connectivity locations as per the product definition.
+    -   **DHCP**: Customer is able to choose if he wants DHCP (TRUE/ FALSE)
 
 ## Feature Enablement
 
 This feature is enabled through the B2B Telco SPA Store. It is implemented on top of TM Forum and OCC APIs of the SAP Telco & Utilities Accelerator (2105 version).
+
+B2B Telco Storefront
+-   User ID:    lisa.richards@totalprotect.com
+-   Password:   1234
 
 ## Frontend and Backend Dependencies
 
