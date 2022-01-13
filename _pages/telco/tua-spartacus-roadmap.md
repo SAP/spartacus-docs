@@ -2,7 +2,7 @@
 title: Roadmap 2022 for TUA Spartacus
 ---
 
-*Last updated January 9, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated January 13, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 This document describes what what is planned for Spartacus for Q1 2022 and later.
 
