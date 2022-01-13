@@ -116,23 +116,17 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
                 version: '/v3',
                 endpoint: '/productOffering/${id}'
                 },
-                getSelfcareSubscriptions: {
-                baseUrl: 'https://localhost:9002',
-                prefix: '/subscribedproducttmfwebservices',
-                version: '/v1',
-                endpoint: '/product'
-                }
             }
             },
             occ: {
             baseUrl: 'https://localhost:9002',
             prefix: '/occ/v2/',
             },
-            tmf_appointment: {
-            baseUrl: 'http://localhost:8080',
-            prefix: '/tmf-api',
-            },
             tmf_resource_pool_management: {
+            baseUrl: 'http://localhost:8080',
+            prefix: '/tmf-api'
+            },
+            tmf_appointment: {
             baseUrl: 'http://localhost:8080',
             prefix: '/tmf-api',
             },
@@ -154,7 +148,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             chunks: translationChunksConfig,
             fallbackLang: 'en',
         },
-        features: { level: '3.3' },
+        features: { level: '3.2' },
         journeyChecklist: {
             journeyChecklistSteps: ['APPOINTMENT', 'MSISDN', 'INSTALLATION_ADDRESS'],
             msisdn_reservation: {
@@ -180,6 +174,122 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     export class AppModule {}
     ```
 
+    To use the B2B module coming up with `tua-spa` library, `app.module.ts` must have the following structure:
+
+    ```typescript
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+    import { AppComponent } from './app.component';
+    import { translationChunksConfig, translations } from '@spartacus/assets';
+    import { CmsConfig, ConfigModule, provideConfig } from '@spartacus/core';
+    import { organizationTranslationChunksConfig, organizationTranslations } from '@spartacus/organization/administration/assets';
+    import { orderApprovalTranslationChunksConfig, orderApprovalTranslations } from '@spartacus/organization/order-approval/assets';
+    import { TmaB2bStorefrontModule, tmaTranslations } from '@spartacus/tua-spa';
+
+    @NgModule({
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        TmaB2bStorefrontModule.withConfig({
+        backend: {
+            tmf: {
+            baseUrl: 'https://localhost:9002',
+            prefix: '/b2ctelcotmfwebservices',
+            version: '/v2',
+            endpoints: {
+                getProduct: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/b2ctelcotmfwebservices',
+                version: '/v3',
+                endpoint: '/product/${id}'
+            },
+                getProductOffering: {
+                baseUrl: 'https://localhost:9002',
+                prefix: '/b2ctelcotmfwebservices',
+                version: '/v3',
+                endpoint: '/productOffering/${id}'
+            }
+        }
+        },
+        occ: {
+        baseUrl: 'https://localhost:9002',
+        prefix: '/occ/v2/'
+        },
+        tmf_resource_pool_management: {
+        baseUrl: 'http://localhost:8080',
+        prefix: '/tmf-api'
+        },
+        tmf_appointment: {
+        baseUrl: 'http://localhost:8080',
+        prefix: '/tmf-api'
+        },
+        premiseLookup: {
+        baseUrl: 'http://localhost:9003',
+        prefix: '/premise/v1/'
+        },
+        tmf_query_service_qualification: {
+        baseUrl: 'http://localhost:8080',
+        prefix: '/tmf-api'
+        }
+    },
+        context: {
+        urlParameters: ['baseSite', 'language', 'currency'],
+        baseSite: ['b2btelcospa'],
+        currency: ['USD'],
+        language: ['en']
+    },
+        i18n: {
+        resources: translations,
+        chunks: translationChunksConfig,
+        fallbackLang: 'en'
+    },
+    features: {
+        level: '3.0'
+    }
+    }),
+    ConfigModule.withConfig({   i18n: { resources: tmaTranslations }
+    })
+    ],
+    providers: [
+    
+    provideConfig(<CmsConfig>{
+        featureModules: {
+        organizationAdministration: {
+            module: () =>
+            import('@spartacus/organization/administration').then(
+            (m) => m.AdministrationModule
+            ),
+        },
+    },
+    }),
+    provideConfig({
+        i18n: {
+        resources: organizationTranslations,
+        chunks: organizationTranslationChunksConfig
+        }
+    }),
+    provideConfig(<CmsConfig>{
+        featureModules: {
+        organizationOrderApproval: {
+            module: () =>
+            import('@spartacus/organization/order-approval').then(
+            (m) => m.OrderApprovalModule
+            ),
+        },
+    },
+    }),
+    provideConfig({
+        i18n: {
+        resources: orderApprovalTranslations,
+        chunks: orderApprovalTranslationChunksConfig
+      }
+    })],
+    bootstrap: [AppComponent]
+    })
+    export class AppModule {
+    }
+    ```
+
 2. Replace the entire contents of `mystore/src/app/app.component.html with <cx-storefront>Loading...</cx-storefront>` with:
 
    ```html
@@ -191,49 +301,77 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 4. Add the following dependencies to the end of the `dependencies` section of `package.json`.
 
     ```json
-    "@angular/localize": "^10.1.0",
-    "@angular/platform-server": "~10.1.0",
-    "@angular/service-worker": "~10.1.0",
+    "@angular/animations": "~10.2.4",
+    "@angular/common": "~10.2.4",
+    "@angular/compiler": "~10.2.4",
+    "@angular/core": "~10.2.4",
+    "@angular/forms": "~10.2.4",
+    "@angular/localize": "~10.2.4",
+    "@angular/platform-browser": "~10.2.4",
+    "@angular/platform-browser-dynamic": "~10.2.4",
+    "@angular/platform-server": "~10.2.4",
+    "@angular/router": "~10.2.4",
+    "@angular/service-worker": "~10.2.4",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
-    "@ng-select/ng-select": "^4.0.0",
+    "@ng-select/ng-select": "^5.1.0",
     "@ngrx/effects": "~10.0.0",
     "@ngrx/router-store": "~10.0.0",
     "@ngrx/store": "~10.0.0",
-    "@spartacus/assets": "3.3.0",
-    "@spartacus/core": "3.3.0",
-    "@spartacus/storefront": "3.3.0",
-    "@spartacus/styles": "3.3.0",
-    "@spartacus/tua-spa": "3.2.0-next.1",
+    "@spartacus/assets": "3.4.0",
+    "@spartacus/core": "3.4.0",
+    "@spartacus/organization": "3.4.0",
+    "@spartacus/setup": "3.4.0",
+    "@spartacus/storefront": "3.4.0",
+    "@spartacus/styles": "3.4.0",
+    "@spartacus/tua-spa": "3.2.0",
     "angular-oauth2-oidc": "^10.0.1",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.9.3",
-    "express": "^4.15.2",
+    "express": "^4.17.1",
     "i18next": "^19.3.4",
     "i18next-xhr-backend": "^3.2.2",
     "material-design-icons": "^3.0.1",
-    "ng2-charts": "^2.3.2",
+    "ng2-charts": "^2.4.2",
     "ngx-infinite-scroll": "^8.0.0",
-    "ngx-spinner": "^9.0.1"
+    "ngx-spinner": "^11.0.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2"
    ```
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.10.2"` so you need to add a comma after `0.10.2"`.
 
-5. Update `@spartacus/schematics": "3.3.0` in `devDependencies` section in `package.json`.
+5. Update `@spartacus/schematics": "3.4.0` in `devDependencies` section in `package.json`.
 
 6. Make sure that the following import is found in the  `mystore/src/styles.scss`:
 
+    For Telco, Utilities and Media:
     ```bash
    @import '~@spartacus/styles/index';
    @import '~@spartacus/tua-spa/storefrontstyles/index';
    @import '~material-design-icons/iconfont/material-icons.css';
     ```
 
+    For B2bTelco:
+    ```bash
+    @import '~@spartacus/styles/index';
+    @import '~@spartacus/organization';
+    @import '~@spartacus/tua-spa/storefrontstyles/index';
+    @import '~material-design-icons/iconfont/material-icons.css';
+    ```
+
 7. Add the following import in the `/mystore/src/polyfills.ts` file:
 
+    For Telco, Utilities and Media: 
    ```bash
    import '@angular/localize/init';
    import 'zone.js/dist/zone';
    ```
+
+    For B2bTelco:
+    ```bash
+    import 'zone.js/dist/zone';
+    ```
 
 8. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
@@ -254,6 +392,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     - Telco application: http://localhost:4200/telcospa/en/USD
     - Utilities application: http://localhost:4200/utilitiesspa/en/USD
     - Media application: http://localhost:4200/mediaspa/en/USD
+    - B2b Telco application: http://localhost:4200/b2btelcospa/en/USD
 
 **Note:**
 
@@ -281,7 +420,7 @@ This section describes how to validate your back-end installation and start the 
 
    The default is available at: `{server-base-url}/occ/v2/telcospa/cms/pages` or `{server-base-url}/occ/v2/utilitiesspa/cms/pages`.
 
-   For example, with a backend instance running from `https://localhost:9002`, you can access `https://localhost:9002/occ/v2/telcospa/cms/pages` or `https://localhost:9002/occ/v2/utilitiesspa/cms/pages` or `https://localhost:9002/occ/v2/mediaspa/cms/pages`.
+   For example, with a backend instance running from `https://localhost:9002`, you can access `https://localhost:9002/occ/v2/telcospa/cms/pages` or `https://localhost:9002/occ/v2/utilitiesspa/cms/pages` or `https://localhost:9002/occ/v2/mediaspa/cms/pages`or `http://localhost:9002/occ/v2/b2btelcospa/cms/pages`.
 
 2. Accept the security exception in your browser if you are running a development instance with a self-signed HTTPS certificate.
 
