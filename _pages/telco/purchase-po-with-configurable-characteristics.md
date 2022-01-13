@@ -65,10 +65,6 @@ The above image represents a Satellite Service product offering that has the fol
 
 This feature is enabled through the B2B Telco SPA Store. It is implemented on top of TM Forum and OCC APIs of the SAP Telco & Utilities Accelerator (2105 version).
 
-B2B Telco Storefront
--   User ID:    lisa.richards@totalprotect.com
--   Password:   1234
-
 ## Frontend and Backend Dependencies
 
 | Dependency                                	| Detail                                                 	|
