@@ -438,6 +438,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.2"
+                        url: /installing-sap-commerce-for-tua-spartacus-3-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
                         url: /installing-sap-commerce-for-tua-spartacus-3/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.x"
@@ -449,6 +451,8 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 3.2 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-3-2-0/
                       - title: "Building the TUA Spartacus Storefront using 3.1 Libraries"
                         url: /building-the-tua-storefront-from-libraries-3.1/
                       - title: "Building the TUA Spartacus Storefront using 3.x Libraries"
@@ -469,6 +473,12 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
+                - title: "B2B Order Approval"
+                  url: /b2b-order-approval/
+                - title: "B2B Organization Management"
+                  url: /b2b-organization-management/
+                - title: "B2B Telco Store"
+                  url: /b2b-telco-store/
                 - title: "Cart"
                   url: /cart/
                 - title: "Checkout"
@@ -507,7 +517,11 @@ docs:
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
-                  url: /product-offering-search/                                     
+                  url: /product-offering-search/
+                - title: "Purchase PO with Configurable Characteristics"
+                  url: /purchase-po-with-configurable-characteristics/
+                - title: "Sales Flow - Cross-Selling"
+                  url: /sales-flow-cross-sell-of-an-spo/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
