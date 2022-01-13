@@ -284,7 +284,7 @@ docs:
                   url: /server-side-rendering-coding-guidelines/
                 - title: "Server-Side Rendering Optimization"
                   url: /server-side-rendering-optimization/
-                - title: "How to Debug a Server–Side Rendered Storefront"
+                - title: "Debugging a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
                 - title: "Solution for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
                   url: /ssr-ccv2-issue-spartacus-version-2/  
@@ -519,7 +519,9 @@ docs:
                 - title: "Product Offering Search"
                   url: /product-offering-search/
                 - title: "Purchase PO with Configurable Characteristics"
-                  url: /purchase-po-with-configurable-characteristics/                                         
+                  url: /purchase-po-with-configurable-characteristics/
+                - title: "Sales Flow - Cross-Selling"
+                  url: /sales-flow-cross-sell-of-an-spo/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
