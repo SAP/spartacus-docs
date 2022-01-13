@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated January 12, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated January 13, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ***
 
@@ -30,7 +30,7 @@ This document describes what is included in all Spartacus libraries since the in
 
 ## Release 3.2
 
-*Release 3.2 libraries published January 12, 2022*
+*Release 3.2 libraries published January 13, 2022*
 
 The 3.2 libraries for the accelerator provides a new B2B Telco Spartacus storefront along with sample data. Angular 10 is used in this release. B2B functionality supported includes:
 
