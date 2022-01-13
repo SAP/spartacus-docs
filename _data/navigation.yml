@@ -518,7 +518,7 @@ docs:
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
                   url: /product-offering-search/
-                - title: "Purchase POs with Configurable Characteristics"
+                - title: "Purchase PO with Configurable Characteristics"
                   url: /purchase-po-with-configurable-characteristics/
                 - title: "Sales Flow - Cross-Selling"
                   url: /sales-flow-cross-sell-of-an-spo/                                       
