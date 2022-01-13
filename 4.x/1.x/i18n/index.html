@@ -1,0 +1,1630 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Internationalization (i18n) (DRAFT) - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Internationalization (i18n) (DRAFT)">
+<meta property="og:url" content="/spartacus-docs/1.x/i18n/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/1.x/i18n/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/1.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/1.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/1.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Home</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/" class="">About Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/release-information/" class="">Release Information ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-videos/" class="">Spartacus Videos</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-roadmap/" class="">Spartacus Roadmap</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-faq/" class="">Spartacus FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/docs-archive/" class="">Documentation Archive</a>
+ 
+              
+
+                
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started with Spartacus Libraries</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/installing-sap-commerce-cloud/" class="">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/cors/" class="">Cross-Origin Resource Sharing (CORS)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/building-the-spartacus-storefront-from-libraries/" class="">Building the Spartacus Storefront from Libraries</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/snapshot-builds/" class="">Snapshot Builds</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-feature-flags/" class="">Configuring Feature Flags</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartEdit-setup-instructions-for-spartacus/" class="">SmartEdit Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/personalization-setup-instructions-for-spartacus/" class="">Personalization Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacussampledataaddon/" class="">Spartacussampledataaddon AddOn</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/integrations/" class="">Integrations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Storefront Development Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/storefront-development-faq/" class="">Storefront Development FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-api/" class="">Spartacus API</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-configuration-in-spartacus/" class="">Global Configuration in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-features/" class="">Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/security-best-practices/" class="">Security Best Practices</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/performance/" class="">Performance Optimizations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/outlets/" class="">Outlets</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/styling-and-page-layout/" class="">Styling and Page Layout ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-and-extending/" class="">Customizing and Extending Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/extending-checkout/" class="">Extending Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/express-checkout/" class="">Express Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/guest-checkout/" class="">Guest Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-routing/" class="">Configurable Routing ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-base-url/" class="">Configuring the Base URL</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/context-configuration/" class="">Multi-Site Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/pwa-home/" class="">PWA ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/seo/" class="">SEO ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/i18n/" class="active">Internationalization (i18n)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/state-management/" class="">State Management ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartedit-contract/" class="">SmartEdit Contract in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-backend-communication/" class="">Customizing Back End Communication ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-messages/" class="">Global Messages</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/http-error-handling/" class="">HTTP Error Handling</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-state-persistence-and-rehydration/" class="">Configurable State Persistence and Rehydration</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/server-side-rendering-in-spartacus/" class="">Server-Side Rendering ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/view-configuration/" class="">View Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">Customer Experience Guidelines ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributing to Spartacus</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/contributors-guide/" class="">Contributor's Guide ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Internationalization (i18n) (DRAFT)</h1>
+    
+    <p>The storefront is driven by different content streams. Most of the content is driven by either the CMS or by the product content. There’s however a portion of content that is provided by so-called site labels (i.e. texts in buttons or form placeholders).</p>
+
+<p>Site labels are stored in separated files and can be translated into various languages.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>Under the hood Spartacus uses <code class="language-plaintext highlighter-rouge">i18next</code> library for translation mechanism and  <code class="language-plaintext highlighter-rouge">i18next-xhr-backend</code> for lazy loading of translation chunks. Those libraries have rich API, but we support only parts of it and treat as an implementation detail. In other words, Spartacus doesn’t support a custom usage of <code class="language-plaintext highlighter-rouge">i18next</code> in your application.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>For a quick start, just import predefined Spartacus translations (currently only in English) from <code class="language-plaintext highlighter-rouge">@spartacus/assets</code> and register them in the config of the <code class="language-plaintext highlighter-rouge">B2cStorefrontModule</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">translations</span><span class="p">,</span> <span class="nx">translationChunksConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/assets</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="nl">imports</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">B2cStorefrontModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+    <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">resources</span><span class="p">:</span> <span class="nx">translations</span><span class="p">,</span>
+        <span class="na">chunks</span><span class="p">:</span> <span class="nx">translationChunksConfig</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<h2 id="how-to-add-translations-for-other-languages">How to add translations for other languages</h2>
+
+<p>You can also provide your own English translations and add for other languages, for example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">translations</span><span class="p">,</span> <span class="nx">translationChunksConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/assets</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="nl">imports</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">B2cStorefrontModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+    <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">resources</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">en</span><span class="p">:</span> <span class="nx">translations</span><span class="p">,</span> <span class="c1">// or YOUR_ENGLISH_TRANSLATIONS,</span>
+            <span class="na">de</span><span class="p">:</span> <span class="nx">YOUR_GERMAN_TRANSLATIONS</span><span class="p">,</span>
+            <span class="p">...</span>
+        <span class="p">},</span>
+        <span class="na">chunks</span><span class="p">:</span> <span class="nx">translationChunksConfig</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>This will compile the translations in to your application JS bundle. While it’s a good way for a quick start, in production you would like to take advantage from lazy loading of translation chunks.</p>
+
+<h3 id="how-to-overwrite-individual-translations">How to overwrite individual translations</h3>
+
+<p>To overwrite individual translations, the object with overwrites needs to be provided after the default translations. For example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app.module</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">translations</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/assets</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">translationOverwrites</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">en</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// lang</span>
+    <span class="na">cart</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// chunk</span>
+      <span class="na">cartDetails</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// keys (nested)</span>
+        <span class="na">proceedToCheckout</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Let's checkout!</span><span class="dl">"</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="c1">// ...</span>
+
+<span class="nl">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">B2cStorefrontModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+        <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span> <span class="na">resources</span><span class="p">:</span> <span class="nx">translations</span> <span class="p">}</span>
+    <span class="p">}),</span>
+    <span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+        <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span> <span class="na">resources</span><span class="p">:</span> <span class="nx">translationOverwrites</span> <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="fallback-language">Fallback language</h2>
+
+<p>In case of translation missing for a particular key, storefront in production mode displays non-breaking space character. To make it easier to catch those missing keys in development mode you will see the translation key preceded with the chunk’s name and colon (eg. <code class="language-plaintext highlighter-rouge">[common:form.confirm]</code>).</p>
+
+<p>To provide better UX in case of missing translation you can specify a fallback language.
+Setting <code class="language-plaintext highlighter-rouge">fallbackLang</code> option ensures that for every missing translation equivalent from fallback language will be used.</p>
+
+<p>Example configuration with English as a fallback language:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">translations</span><span class="p">,</span> <span class="nx">translationChunksConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/assets</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+
+<span class="nl">imports</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">B2cStorefrontModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+    <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">resources</span><span class="p">:</span> <span class="nx">translations</span><span class="p">,</span>
+        <span class="na">chunks</span><span class="p">:</span> <span class="nx">translationChunksConfig</span><span class="p">,</span>
+        <span class="na">fallbackLang</span><span class="p">:</span> <span class="dl">'</span><span class="s1">en</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<h2 id="lazy-loading">Lazy loading</h2>
+
+<p>It makes a lot of sense to load translation resources only for the current language and only for the current page. That is why translations are structured by language and named chunks:</p>
+
+<p>Translation resources have a structure:</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">TranslationResources</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">lang</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">chunkName</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="p">{</span>
+      <span class="p">[</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">any</span><span class="p">;</span> <span class="c1">// value or nested object with keys</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To take advantage from lazy loading, you need to serve different JSON files, each for a specific language and chunk, and configure the URL to them using placeholders: <code class="language-plaintext highlighter-rouge">{{lng}}</code> for language and <code class="language-plaintext highlighter-rouge">{{ns}}</code> for chunk. For example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">imports</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">B2cStorefrontModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+    <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">backend</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">loadPath</span><span class="p">:</span> <span class="dl">'</span><span class="s1">assets/i18n-assets/{{lng}}/{{ns}}.json</span><span class="dl">'</span>
+            <span class="c1">// crossOrigin: true, - use this option when i18n assets come from a different domain</span>
+        <span class="p">},</span>
+        <span class="na">chunks</span><span class="p">:</span> <span class="nx">translationChunksConfig</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>You can find the predefined Spartacus’ JSON files with translations in the folder <code class="language-plaintext highlighter-rouge">/i18n-assets</code> of <code class="language-plaintext highlighter-rouge">@spartacus/storefront</code>. But you need to serve them: either from your custom endpoint, or simply by copying them into <code class="language-plaintext highlighter-rouge">/assets</code> folder of your Angular application. For example:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> ./node_modules/@spartacus/assets/i18n-assets ./src/assets <span class="nt">-r</span>
+</code></pre></div></div>
+<p><em>Note: <code class="language-plaintext highlighter-rouge">./src/assets</code> is a standard path for apps created by Angular CLI. Your path to assets may be different.</em></p>
+
+<h3 id="when-to-create-a-new-chunk">When to create a new chunk</h3>
+
+<p>One chunk should group texts used for one functionality in the user journey (i.e. product list/details, cart, checkout or my account section). When a new functionality is added, one should consider whether to add it’s texts into existing translation chunk or to create a new chunk for it. It’s all about optimization. Your decision will be subjective and related to your CMS components structure. Too fine-grained chunks may result in loading many JSONs only to display one page. On the other hand, too coarse chunks with not related parts won’t be effective.</p>
+
+<p>Things to consider when adding the feature with translation keys:</p>
+
+<ul>
+  <li>will it appear very often (i.e. header) or only in some specific pages (i.e. checkout)</li>
+  <li>will it appear only for signed in / privileged users (i.e. my account section) or for all users, etc.</li>
+</ul>
+
+<p>When a feature appears only under some conditions, it’s a sign it may be worth to have a separate chunk for it.</p>
+
+<p><em>Note: for smooth upgrade path, please avoid adding custom keys to existing chunks of Spartacus. See section <a href="#upgrading">Upgrading</a>.</em></p>
+
+<h2 id="using-translations-in-html">Using translations in HTML</h2>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">cxTranslate</code> pipe, for example:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">placeholder=</span><span class="s">"{{ 'searchBox.searchHere' | cxTranslate }}"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h3 id="config-of-chunks-and-namespaces-mapping">Config of chunks and namespaces mapping</h3>
+
+<p>Every key belongs to some named space (namespace). Each namespace is encapsulated in a chunk (<code class="language-plaintext highlighter-rouge">i18n.chunks</code> below). But in order to resolve which key is in which namespace and chunk, a config is needed:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">imports</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">B2cStorefrontModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+    <span class="na">i18n</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">backend</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">loadPath</span><span class="p">:</span> <span class="dl">'</span><span class="s1">assets/i18n-assets/{{lng}}/{{ns}}.json</span><span class="dl">'</span>
+        <span class="p">},</span>
+        <span class="na">chunks</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">...</span>
+            <span class="na">common</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">searchBox</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sorting</span><span class="dl">'</span><span class="p">,</span> <span class="p">...],</span>
+            <span class="na">cart</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">cartDetails</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cartItems</span><span class="dl">'</span><span class="p">,</span> <span class="p">...]</span>
+            <span class="na">product</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">productDetails</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">productList</span><span class="dl">'</span><span class="p">,</span> <span class="p">...]</span>
+            <span class="p">...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// common.json</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+    <span class="dl">"</span><span class="s2">searchBox</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">searchHere</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Search here...</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">sorting</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Date</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Order Number</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// cart.json</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">cartItems</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="p">...</span>
+        <span class="dl">"</span><span class="s2">itemPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Item price</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">...</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>Note: if the key namespace and chunk’s name are the same, no explicit chunk config is needed for it. So there is no need for:</em></p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">chunks</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">myAddon</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">myAddon</span><span class="dl">'</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>You can also pass parameters into the translation pipe, for example:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{{ 'miniLogin.hello' | cxTranslate : { name: person.name } }}<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// resources</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">miniLogin</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello, {{ name }}</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="special-parameters">Special parameters</h3>
+
+<p>There are two special parameters of translation pipe used for pluralization and conditional translations: <code class="language-plaintext highlighter-rouge">count</code> and <code class="language-plaintext highlighter-rouge">context</code>.</p>
+
+<h4 id="count-parameter"><em>count</em> parameter</h4>
+
+<p>You can pass the <code class="language-plaintext highlighter-rouge">count</code> parameter to differ translations for the same key depending on the integer value of <code class="language-plaintext highlighter-rouge">count</code>. It takes the current language into consideration. Different languages have <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules">different plural rules</a>. Languages as simple as English have only 2 forms: singular and plural, but other languages may have more. For example:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{{ 'miniCart.item' | cxTranslate : { count: cart.totalItem } }}<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>Translation resources:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// cart.en.json (ENGLISH)</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">miniCart</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">item</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{{count}} item currently in your cart</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">item_plural</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{{count}} items currently in your cart</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>But for languages with more than 2 forms, numeric suffixes are used <code class="language-plaintext highlighter-rouge">_0</code>, <code class="language-plaintext highlighter-rouge">_1</code>, … <code class="language-plaintext highlighter-rouge">_5</code>. For example in Polish there are 3 rules:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// cart.pl.json (POLISH)</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">miniCart</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">item</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Masz {{ count }} przedmiot w koszyku</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">item_2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Masz {{ count }} przedmioty w koszyku</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">item_5</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Masz {{ count }} przedmiotów w koszyku</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://jsfiddle.net/jamuhl/3sL01fn0/#tabs=result">Here is a small tool</a> which helps figuring out the correct plural suffixes for different languages.</p>
+
+<p>More about the special <code class="language-plaintext highlighter-rouge">count</code> parameter in the official <code class="language-plaintext highlighter-rouge">i18next</code> docs: https://www.i18next.com/translation-function/plurals</p>
+
+<h4 id="context-parameter"><em>context</em> parameter</h4>
+
+<p>You can pass the special parameter <code class="language-plaintext highlighter-rouge">context</code> to differ translations for the same key depending on the string value of <code class="language-plaintext highlighter-rouge">context</code>. It’s useful to translate enum values from backend. For example:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{{ 'order.status' | cxTranslate : { context: order.status } }}<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>Translation resources:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">order</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">status_processing</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">In process...</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status_completed</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Completed</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status_cancelled</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cancelled</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>More about the special <code class="language-plaintext highlighter-rouge">context</code> parameter in the official i18next docs: https://www.i18next.com/translation-function/plurals</p>
+
+<h3 id="other-special-parameters-unsupported">Other special parameters (unsupported)</h3>
+
+<p>There are few special parameters which interfere with the <code class="language-plaintext highlighter-rouge">i18next</code> translation mechanism, but Spartacus doesn’t support them and we recommend to avoid using them:</p>
+
+<p><code class="language-plaintext highlighter-rouge">defaultValue</code>, <code class="language-plaintext highlighter-rouge">replace</code>, <code class="language-plaintext highlighter-rouge">lng</code>, <code class="language-plaintext highlighter-rouge">lngs</code>, <code class="language-plaintext highlighter-rouge">fallbackLng</code>, <code class="language-plaintext highlighter-rouge">ns</code>, <code class="language-plaintext highlighter-rouge">keySeparator</code>, <code class="language-plaintext highlighter-rouge">nsSeparator</code>, <code class="language-plaintext highlighter-rouge">returnObjects</code>, <code class="language-plaintext highlighter-rouge">joinArrays</code>, <code class="language-plaintext highlighter-rouge">postProcess</code>, <code class="language-plaintext highlighter-rouge">interpolation</code>, <code class="language-plaintext highlighter-rouge">skipInterpolation</code></p>
+
+<p>That being said, here are official <code class="language-plaintext highlighter-rouge">i18next</code> docs for those <em>unsupported</em> parameters: https://www.i18next.com/translation-function/essentials#overview-options</p>
+
+<h2 id="using-translations-in-ts-code">Using translations in TS code</h2>
+
+<p>If you need to make use of translations before the template inject the translation service as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">TranslationService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">constructor</span><span class="p">(</span>
+    <span class="k">private</span> <span class="nx">translation</span><span class="p">:</span> <span class="nx">TranslationService</span>
+<span class="p">)</span> <span class="p">{}</span>
+
+<span class="nx">getPaymentCardContent</span><span class="p">(</span><span class="nx">payment</span><span class="p">:</span> <span class="nx">PaymentDetails</span><span class="p">):</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">Card</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="err">￼</span>   <span class="k">return</span> <span class="nx">combineLatest</span><span class="p">([</span>
+     <span class="k">this</span><span class="p">.</span><span class="nx">translation</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="dl">'</span><span class="s1">paymentForm.payment</span><span class="dl">'</span><span class="p">),</span>
+     <span class="k">this</span><span class="p">.</span><span class="nx">translation</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="dl">'</span><span class="s1">paymentCard.expires</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+       <span class="na">month</span><span class="p">:</span> <span class="nx">payment</span><span class="p">.</span><span class="nx">expiryMonth</span><span class="p">,</span>
+       <span class="na">year</span><span class="p">:</span> <span class="nx">payment</span><span class="p">.</span><span class="nx">expiryYear</span><span class="p">,</span>
+     <span class="p">}),</span>
+   <span class="p">]).</span><span class="nx">pipe</span><span class="p">(</span>
+     <span class="nx">map</span><span class="p">(([</span><span class="nx">textTitle</span><span class="p">,</span> <span class="nx">textExpires</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="p">{</span>
+         <span class="na">title</span><span class="p">:</span> <span class="nx">textTitle</span><span class="p">,</span>
+         <span class="na">textBold</span><span class="p">:</span> <span class="nx">payment</span><span class="p">.</span><span class="nx">accountHolderName</span><span class="p">,</span>
+         <span class="na">text</span><span class="p">:</span> <span class="p">[</span><span class="nx">payment</span><span class="p">.</span><span class="nx">cardType</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">payment</span><span class="p">.</span><span class="nx">cardNumber</span><span class="p">,</span> <span class="nx">textExpires</span><span class="p">],</span>
+       <span class="p">};</span>
+     <span class="p">})</span>
+   <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It is observable so please remember to add <code class="language-plaintext highlighter-rouge">async</code> pipe in the template:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;cx-card</span>
+    <span class="na">[content]=</span><span class="s">"getPaymentCardContent(order.paymentInfo) | async"</span>
+<span class="nt">&gt;&lt;/cx-card&gt;</span>
+</code></pre></div></div>
+
+<h2 id="upgrading">Upgrading</h2>
+
+<p>When Spartacus comes out with new features, it publishes new JSON files with predefined translations. Then any differences need to be taken into account in the JSON files translated into other languages.</p>
+
+<p>For easier upgrades, we recommend NOT to add any custom keys in the namespaces of Spartacus, but rather to create custom chunks and namespaces for your custom features. Otherwise on every new version of Spartacus shipping with new translations, you will have to add your custom keys to new Spartacus JSON files.</p>
+
+<h2 id="extending-translations">Extending translations</h2>
+
+<p>When you add new custom features and want to add new translations, there is the risk that in future Spartacus Storefront or other library from Spartacus’ ecosystem will come out with similar feature with the same translation key.
+To avoid conflicts of keys, we recommend prefixing your feature keys with your app/library abbreviation. For example a library called <code class="language-plaintext highlighter-rouge">Super Library</code> that has <code class="language-plaintext highlighter-rouge">custom feature</code>, can have key:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{{ 'slCustomFeature.subKey' | cxTranslate }}<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">slCustomFeature</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">subKey</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="localizing-and-formatting-dates">Localizing and formatting dates</h2>
+
+<p>You can format a date <strong>for the active language</strong> using the special pipe in the HTML template, for example:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ order.created | cxDate }}
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">cxDate</code> pipe is just a wrapper on the <a href="https://angular.io/api/common/DatePipe">Angular’s <code class="language-plaintext highlighter-rouge">date</code> pipe</a>, so it accepts the same arguments (format and timezone). For example:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ order.created | cxDate: 'longDate' }}
+</code></pre></div></div>
+
+<p><em>Note: <code class="language-plaintext highlighter-rouge">cxDate</code> pipe uses the Angular’s locale data - which comes only with English by default. For other locales, you need to <a href="https://angular.io/guide/i18n#i18n-pipes">register them explicitly</a> in your app.module. For example:</em></p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// app.module</span>
+
+<span class="k">import</span> <span class="nx">localeDe</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/common/locales/de</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">localeJa</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/common/locales/ja</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">registerLocaleData</span><span class="p">(</span><span class="nx">localeDe</span><span class="p">);</span>
+<span class="nx">registerLocaleData</span><span class="p">(</span><span class="nx">localeJa</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><em>Note: If locale is not registered for the active language, the <code class="language-plaintext highlighter-rouge">cxDate</code> pipe will fallback to English.</em></p>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/1.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/1.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'b6583768751462c6ee53d5a5720cda44', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:1.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
