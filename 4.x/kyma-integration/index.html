@@ -1827,7 +1827,10 @@ INSERT_UPDATE OpenIDClientDetails;clientId[unique=true] ;resourceIds   ;scope   
 
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script> 
-    <script type="text/javascript"> docsearch({ 
+    <script type="text/javascript">
+    import docsearch from '@docsearch/js';
+    import '@docsearch/css';
+    docsearch({ 
     container: '#docsearch', 
     appId: 'BNZEXRISC6',
     apiKey: '54a795a072ff713045038ee4ad33c990', 
