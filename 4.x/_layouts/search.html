@@ -38,20 +38,7 @@ layout: archive
         <div class="search-searchbar"></div>
         <div class="search-hits"></div>
       {%- when "docsearch" -%}
-      <div id="docsearch">
-        import docsearch from '@docsearch/js';
-
-        import '@docsearch/css';
-
-        docsearch({
-          appId: 'BNZEXRISC6',
-          apiKey: '54a795a072ff713045038ee4ad33c990', 
-          indexName: 'sap_spartacus', 
-          searchParameters: {
-            facetFilters: ['tags:4.x']
-            },
-              });
-      </div>
+      <div id="docsearch" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" ></div>
       <!-- <input type="text" id="docsearch" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />   -->
     {%- endcase -%}
   </div>
