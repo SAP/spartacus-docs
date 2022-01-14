@@ -22,7 +22,7 @@ layout: archive
 
     {{ content }}
 
-    {%- assign search_provider = site.search_provider | default: "lunr" -%}
+    {%- assign search_provider = site.search_provider | default: "docsearch" -%}
     {%- case search_provider -%}
       {%- when "lunr" -%}
         <input type="text" id="search" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />
@@ -38,7 +38,7 @@ layout: archive
         <div class="search-searchbar"></div>
         <div class="search-hits"></div>
       {%- when "docsearch" -%}
-      <div id="docsearch"></div>
+      <!-- <div id="docsearch"></div> -->
       <input type="text" id="docsearch" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />  
     {%- endcase -%}
   </div>
