@@ -1,5 +1,5 @@
 <div class="search-content__inner-wrap">
-{%- assign search_provider = site.search_provider | default: "lunr" -%}
+{%- assign search_provider = site.search_provider | default: "docsearch" -%}
 {%- case search_provider -%}
   {%- when "lunr" -%}
     <input type="search" id="search" aria-placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />
@@ -15,7 +15,9 @@
     <div class="search-searchbar"></div>
     <div class="search-hits"></div>
   {%- when "docsearch" -%}
-    <div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" /></div>
+    <div class="docsearch-container">
+      <input type="search" id="docsearch" aria-placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />
+    </div>
     <!-- <div id="results" class="results"></div> -->
 {%- endcase -%}
 </div>

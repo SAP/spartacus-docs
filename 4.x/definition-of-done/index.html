@@ -108,7 +108,7 @@
 
 <!-- end custom head snippets -->
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
   </head>
 
   <body class="layout--home">
@@ -1919,7 +1919,9 @@ yarn start
 
     
       <div class="search-content">
-        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+        <div class="search-content__inner-wrap"><div class="docsearch-container">
+      <input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    </div>
     <!-- <div id="results" class="results"></div> --></div>
 
       </div>
@@ -1982,21 +1984,20 @@ yarn start
 
 
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script> 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
     <script type="text/javascript">
-    import docsearch from '@docsearch/js';
-    import '@docsearch/css';
     docsearch({ 
-    inputSelector: '#docsearch', 
     appId: 'BNZEXRISC6',
     apiKey: '54a795a072ff713045038ee4ad33c990', 
     indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
     searchParameters: {
       facetFilters: ['tags:4.x']
       },
     debug: false // Set debug to true if you want to inspect the dropdown 
     }); 
-    </script> 
+  </script>
+
 
     <script>
       anchors.options = {
