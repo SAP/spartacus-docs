@@ -1,0 +1,1496 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Store Locator - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Store Locator">
+<meta property="og:url" content="/spartacus-docs/1.x/store-locator/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/1.x/store-locator/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/1.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/1.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/1.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Home</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/" class="">About Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/release-information/" class="">Release Information ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-videos/" class="">Spartacus Videos</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-roadmap/" class="">Spartacus Roadmap</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-faq/" class="">Spartacus FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/docs-archive/" class="">Documentation Archive</a>
+ 
+              
+
+                
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started with Spartacus Libraries</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/installing-sap-commerce-cloud/" class="">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/cors/" class="">Cross-Origin Resource Sharing (CORS)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/building-the-spartacus-storefront-from-libraries/" class="">Building the Spartacus Storefront from Libraries</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/snapshot-builds/" class="">Snapshot Builds</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-feature-flags/" class="">Configuring Feature Flags</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartEdit-setup-instructions-for-spartacus/" class="">SmartEdit Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/personalization-setup-instructions-for-spartacus/" class="">Personalization Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacussampledataaddon/" class="">Spartacussampledataaddon AddOn</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/integrations/" class="">Integrations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Storefront Development Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/storefront-development-faq/" class="">Storefront Development FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-api/" class="">Spartacus API</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-configuration-in-spartacus/" class="">Global Configuration in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-features/" class="">Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+                      
+                        
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/anonymous-consent/" class="">Anonymous Consent</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/asm/" class="">Assisted Service Module</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/cancellations-and-returns/" class="">Cancellations and Returns</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/consignment-tracking/" class="">Consignment Tracking</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/coupons/" class="">Coupons</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/customer-coupons/" class="">Customer Coupons</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/customer-interests/" class="">Customer Interests</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/notification-preferences/" class="">Notification Preferences</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/selective-cart/" class="">Selective Cart</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/skip-links/" class="">Skip Links</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/stock-notification/" class="">Stock Notification</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/store-locator/" class="active">Store Locator</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/token-revocation/" class="">Token Revocation</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/variants/" class="">Variants</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/wish-list/" class="">Wish List</a></li>
+                    
+                         
+                       
+                     
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/security-best-practices/" class="">Security Best Practices</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/performance/" class="">Performance Optimizations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/outlets/" class="">Outlets</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/styling-and-page-layout/" class="">Styling and Page Layout ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-and-extending/" class="">Customizing and Extending Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/extending-checkout/" class="">Extending Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/express-checkout/" class="">Express Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/guest-checkout/" class="">Guest Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-routing/" class="">Configurable Routing ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-base-url/" class="">Configuring the Base URL</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/context-configuration/" class="">Multi-Site Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/pwa-home/" class="">PWA ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/seo/" class="">SEO ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/i18n/" class="">Internationalization (i18n)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/state-management/" class="">State Management ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartedit-contract/" class="">SmartEdit Contract in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-backend-communication/" class="">Customizing Back End Communication ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-messages/" class="">Global Messages</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/http-error-handling/" class="">HTTP Error Handling</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-state-persistence-and-rehydration/" class="">Configurable State Persistence and Rehydration</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/server-side-rendering-in-spartacus/" class="">Server-Side Rendering ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/view-configuration/" class="">View Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">Customer Experience Guidelines ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributing to Spartacus</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/contributors-guide/" class="">Contributor's Guide ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Store Locator</h1>
+    
+    
+<p><b>Note: </b> 
+This feature is introduced with version 1.2 of the Spartacus libraries.
+ </p>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Spartacus store locator feature helps customers find brick-and-mortar retail locations. Customers can view a list of all stores, they can search for stores based on their location, or they can search for stores based on a postal code, a town, or an address that the customer provides.</p>
+
+<p>If the customer chooses to <strong>Use My Location</strong>, and allows their device to access their current location, a list of the nearest stores is displayed, sorted by distance in kilometers. By selecting any store in the list, the customer can view store details, such as address, phone number, opening hours, and store features.</p>
+
+<p>If the customer chooses to <strong>View All Stores</strong>, a list of all stores is displayed, sorted by country, and with the number of stores in each country shown in parentheses. When the customer selects a country, a list of all the stores in the selected country is displayed, along with the address for each store. Customers also have the option to <strong>Get Directions</strong> for a particular store, which opens Google Maps in a separate browser window with directions from the customer’s location to the selected store.</p>
+
+<p>The customer can also search for the nearest stores by entering an address, a town, or a postal code in the search bar. The search results indicate the nearest stores, based on the location provided by the customer.</p>
+
+<h2 id="configuring-the-store-locator">Configuring the Store Locator</h2>
+
+<p>The store locator is configured in <code class="language-plaintext highlighter-rouge">default-store-finder-config.ts</code>, as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">googleMaps</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">apiUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://maps.googleapis.com/maps/api/js</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">apiKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GOOGLE_MAPS_API_KEY</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">scale</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="nx">selectedMarkerScale</span><span class="p">:</span> <span class="mi">17</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The following is a description of the <code class="language-plaintext highlighter-rouge">googleMaps</code> parameters:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">apiUrl</code> takes the format of a string, and is the URL to Google Maps.</li>
+  <li><code class="language-plaintext highlighter-rouge">apiKey</code> take the format of a string, and is the unique Google Maps API key that belongs to the store owner.</li>
+  <li><code class="language-plaintext highlighter-rouge">scale</code> takes the format of a number, and sets the initial zoom when the map is displayed.</li>
+  <li><code class="language-plaintext highlighter-rouge">selectedMarkerScale</code> takes the format of a number, and sets the zoom on the map when a store location is selected.</li>
+</ul>
+
+<h2 id="enabling-the-store-locator">Enabling the Store Locator</h2>
+
+<p>The store locator is enabled by default.</p>
+
+<h3 id="disabling-the-store-locator">Disabling the Store Locator</h3>
+
+<p>You can disable the store locator by removing the <strong>Find a Store</strong> link in the header, and by deleting the <strong>StoreFinder Page</strong> in Backoffice, as described in the following procedure:</p>
+
+<ol>
+  <li>
+    <p>Log in to Backoffice as an administrator.</p>
+  </li>
+  <li>
+    <p>In the left sidebar of Backoffice, select <strong>WCMS ––&gt; Component</strong>.</p>
+  </li>
+  <li>
+    <p>Use the advanced search to find component with ID: <code class="language-plaintext highlighter-rouge">StoreFinderLink</code></p>
+  </li>
+  <li>
+    <p>Select the one in the appropriate catalog and set its visibility to: false.</p>
+
+    <p>This removes the <strong>Find a Store</strong> link from the header.</p>
+  </li>
+  <li>
+    <p>In the left sidebar of Backoffice, select <strong>WCMS ––&gt; Page</strong>.</p>
+  </li>
+  <li>
+    <p>Use the search bar to search for <code class="language-plaintext highlighter-rouge">storefinder</code>.</p>
+  </li>
+  <li>
+    <p>Select the <strong>StoreFinder Page</strong> that you wish to disable.</p>
+  </li>
+  <li>
+    <p>In the <strong>StoreFinder Page</strong> panel, click the <strong>Page Status</strong> dropdown list and select <strong>Deleted</strong>.</p>
+  </li>
+  <li>
+    <p>Click <strong>Save</strong>.</p>
+
+    <p>You have now disabled the store locator.</p>
+
+    <p>After you have disabled the store locator, if a customer tries to directly access the store locator URL, Spartacus returns a 404 error.</p>
+  </li>
+</ol>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>Consult the SAP Help Portal for more information on the following topics:</p>
+
+<ul>
+  <li><a href="https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8bee5297866910149854898187b16c96.html">ImpEx</a></li>
+  <li><a href="https://help.sap.com/viewer/5c9ea0c629214e42b727bf08800d8dfa/latest/en-US/8c17707686691014b72a8fb745de355a.html">Backoffice</a></li>
+  <li><a href="https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8aefbe4086691014bcc4feeef292c19d.html">Store Locator Configuration in Backoffice</a></li>
+</ul>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/1.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/1.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'b6583768751462c6ee53d5a5720cda44', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:1.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

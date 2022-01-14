@@ -1,0 +1,2603 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Technical Changes in Spartacus 2.0 - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Technical Changes in Spartacus 2.0">
+<meta property="og:url" content="/spartacus-docs/3.x/technical-changes-version-2/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/3.x/technical-changes-version-2/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/3.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/3.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/3.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/3.x/"><img src="/spartacus-docs/3.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/3.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/3.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/3.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/3.x/release-information/" >Version 3.4</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/3.x/release-information/">Release Information ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                    
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/3.x/pre-release-information/">Pre-Release Information</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/3.x/feature-release-versions/">Feature Compatibility</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/3.x/updating-to-version-3/">Updating to Version 3.0 ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/3.x/updating-to-version-2/">Updating to Version 2.0 ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/3.x/technical-changes-version-2/" class="active">Technical Changes in Spartacus 2.0</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/3.x/css-changes-in-version-2/" class="">Changes to Styles in 2.0</a></li>
+
+                                                                                       
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/3.x/spartacus-videos/">Spartacus Videos</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/3.x/spartacus-roadmap/">Spartacus Roadmap</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/3.x/spartacus-faq/">Spartacus FAQ</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/3.x/docs-archive/">Documentation Archive</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+                                        
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Technical Changes in Spartacus 2.0</h1>
+    
+    <hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#breaking-changes-introduced-in-20" id="markdown-toc-breaking-changes-introduced-in-20">Breaking Changes Introduced in 2.0</a>    <ul>
+      <li><a href="#cms-page-guard-has-less-dependencies-and-all-are-public" id="markdown-toc-cms-page-guard-has-less-dependencies-and-all-are-public">CMS page guard has less dependencies and all are public</a></li>
+      <li><a href="#config-validation-mechanism-is-now-a-separate-module" id="markdown-toc-config-validation-mechanism-is-now-a-separate-module">Config validation mechanism is now a separate module</a></li>
+      <li><a href="#selectors-removed-from-spartacuscore" id="markdown-toc-selectors-removed-from-spartacuscore">Selectors removed from @spartacus/core</a></li>
+      <li><a href="#factories-removed-from-spartacusstorefront-public-api" id="markdown-toc-factories-removed-from-spartacusstorefront-public-api">Factories removed from @spartacus/storefront public API</a></li>
+      <li><a href="#bad-request-handler" id="markdown-toc-bad-request-handler">Bad Request Handler</a></li>
+      <li><a href="#urlmatcherfactoryservice-was-renamed-to-urlmatcherservice-and-its-methods-were-renamed" id="markdown-toc-urlmatcherfactoryservice-was-renamed-to-urlmatcherservice-and-its-methods-were-renamed">UrlMatcherFactoryService was renamed to UrlMatcherService and its methods were renamed</a></li>
+      <li><a href="#new-way-to-opt-out-from-suffix-routes-for-pdp-and-plp" id="markdown-toc-new-way-to-opt-out-from-suffix-routes-for-pdp-and-plp">New way to opt out from suffix routes for PDP and PLP</a></li>
+      <li><a href="#dropped-functions-in-navigationuicomponent" id="markdown-toc-dropped-functions-in-navigationuicomponent">Dropped functions in NavigationUIComponent</a></li>
+      <li><a href="#anonymous-consents-feature-toggle" id="markdown-toc-anonymous-consents-feature-toggle">Anonymous consents feature toggle</a></li>
+      <li><a href="#changes-in-paymentmethodcomponent" id="markdown-toc-changes-in-paymentmethodcomponent">Changes in PaymentMethodComponent</a></li>
+      <li><a href="#changes-in-deliverymodecomponent" id="markdown-toc-changes-in-deliverymodecomponent">Changes in DeliveryModeComponent</a></li>
+      <li><a href="#removal-of-cmspageloadonce-feature-flag" id="markdown-toc-removal-of-cmspageloadonce-feature-flag">Removal of cmsPageLoadOnce feature flag</a></li>
+      <li><a href="#products-endpoint-configuration" id="markdown-toc-products-endpoint-configuration">Products endpoint configuration</a></li>
+      <li><a href="#launched-in-smart-edit-detection" id="markdown-toc-launched-in-smart-edit-detection">Launched in Smart Edit detection</a></li>
+      <li><a href="#dynamicattributeservice" id="markdown-toc-dynamicattributeservice">DynamicAttributeService</a></li>
+      <li><a href="#cmsactions-and-cmsselectors" id="markdown-toc-cmsactions-and-cmsselectors">CmsActions and CmsSelectors</a></li>
+      <li><a href="#default-occ-prefix" id="markdown-toc-default-occ-prefix">Default OCC prefix</a></li>
+      <li><a href="#cart-components-changes" id="markdown-toc-cart-components-changes">Cart components changes</a></li>
+      <li><a href="#skip-link-changes" id="markdown-toc-skip-link-changes">Skip link changes</a></li>
+      <li><a href="#product-list-component-service" id="markdown-toc-product-list-component-service">Product list component service</a></li>
+      <li><a href="#context-change-action-not-dispatched-on-the-initial-setting-of-the-value" id="markdown-toc-context-change-action-not-dispatched-on-the-initial-setting-of-the-value">Context change action not dispatched on the initial setting of the value</a></li>
+      <li><a href="#webcomponenthandler-is-not-provided-by-default" id="markdown-toc-webcomponenthandler-is-not-provided-by-default">WebComponentHandler is not provided by default</a></li>
+    </ul>
+  </li>
+  <li><a href="#automated-migrations-for-version-2" id="markdown-toc-automated-migrations-for-version-2">Automated Migrations for Version 2</a>    <ul>
+      <li><a href="#state-utility-changes" id="markdown-toc-state-utility-changes">State utility changes</a></li>
+      <li><a href="#automated-migrations-of-page-meta-resolvers" id="markdown-toc-automated-migrations-of-page-meta-resolvers">Automated migrations of page meta resolvers</a></li>
+    </ul>
+  </li>
+  <li><a href="#larger-refactoring-for-20" id="markdown-toc-larger-refactoring-for-20">Larger Refactoring for 2.0</a>    <ul>
+      <li><a href="#pagination-component" id="markdown-toc-pagination-component">Pagination Component</a></li>
+      <li><a href="#payment-form-component" id="markdown-toc-payment-form-component">Payment Form Component</a></li>
+      <li><a href="#address-card-component" id="markdown-toc-address-card-component">Address Card Component</a></li>
+      <li><a href="#storage-sync-mechanism-change-in-multi-cart" id="markdown-toc-storage-sync-mechanism-change-in-multi-cart">Storage sync mechanism change in multi-cart</a></li>
+      <li><a href="#cart-state-and-selectors-removed" id="markdown-toc-cart-state-and-selectors-removed">Cart state and selectors removed</a></li>
+      <li><a href="#typed-payloads-in-ngrx-actions" id="markdown-toc-typed-payloads-in-ngrx-actions">Typed payloads in NgRx actions</a></li>
+      <li><a href="#services-changes" id="markdown-toc-services-changes">Services changes</a></li>
+    </ul>
+  </li>
+  <li><a href="#new-deprecations" id="markdown-toc-new-deprecations">New Deprecations</a></li>
+  <li><a href="#forms-changes" id="markdown-toc-forms-changes">Forms Changes</a>    <ul>
+      <li><a href="#naming-convention" id="markdown-toc-naming-convention">Naming convention</a></li>
+      <li><a href="#new-formgroup-list" id="markdown-toc-new-formgroup-list">New FormGroup list</a></li>
+      <li><a href="#file-removals" id="markdown-toc-file-removals">File removals</a></li>
+    </ul>
+  </li>
+  <li><a href="#how-to-use-formerrorscomponent" id="markdown-toc-how-to-use-formerrorscomponent">How to Use FormErrorsComponent</a>    <ul>
+      <li><a href="#preface" id="markdown-toc-preface">Preface</a></li>
+      <li><a href="#useful-information" id="markdown-toc-useful-information">Useful information</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#changes-to-components-variables-methods-etc" id="markdown-toc-changes-to-components-variables-methods-etc">Changes to components’ variables, methods, etc</a></li>
+    </ul>
+  </li>
+  <li><a href="#store-finder-changes" id="markdown-toc-store-finder-changes">Store Finder Changes</a></li>
+  <li><a href="#save-for-later-configuration" id="markdown-toc-save-for-later-configuration">Save for Later Configuration</a></li>
+  <li><a href="#translations-updates" id="markdown-toc-translations-updates">Translations Updates</a></li>
+  <li><a href="#cds-library-breaking-changes" id="markdown-toc-cds-library-breaking-changes">CDS Library Breaking Changes</a></li>
+  <li><a href="#peer-dependencies" id="markdown-toc-peer-dependencies">Peer Dependencies</a></li>
+  <li><a href="#deprecated-since-15" id="markdown-toc-deprecated-since-15">Deprecated Since 1.5</a></li>
+  <li><a href="#deprecated-since-14" id="markdown-toc-deprecated-since-14">Deprecated Since 1.4</a></li>
+  <li><a href="#deprecated-since-13" id="markdown-toc-deprecated-since-13">Deprecated Since 1.3</a></li>
+  <li><a href="#deprecated-since-12" id="markdown-toc-deprecated-since-12">Deprecated Since 1.2</a></li>
+  <li><a href="#deprecated-since-11" id="markdown-toc-deprecated-since-11">Deprecated Since 1.1</a>    <ul>
+      <li><a href="#shipping-address-component-variables-and-methods-removed" id="markdown-toc-shipping-address-component-variables-and-methods-removed">Shipping Address component variables and methods removed</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="breaking-changes-introduced-in-20">Breaking Changes Introduced in 2.0</h2>
+
+<h3 id="cms-page-guard-has-less-dependencies-and-all-are-public">CMS page guard has less dependencies and all are public</h3>
+
+<p>Before 2.0, some dependencies of the <code class="language-plaintext highlighter-rouge">CmsPageGuard</code> were not public, so the guard was not easily customizable. Now most of the logic (and dependencies) are moved to a new service called <code class="language-plaintext highlighter-rouge">CmsPageGuardService</code>, and its dependencies are made public.</p>
+
+<h3 id="config-validation-mechanism-is-now-a-separate-module">Config validation mechanism is now a separate module</h3>
+
+<p>Previously, config validator logic was part of <code class="language-plaintext highlighter-rouge">ConfigModule</code>. If you are not using <code class="language-plaintext highlighter-rouge">StorefrontFoundationModule</code> or any of its descendants, it’s required to import <code class="language-plaintext highlighter-rouge">ConfigValidatorModule.forRoot()</code> in order to make config validators run.</p>
+
+<h3 id="selectors-removed-from-spartacuscore">Selectors removed from @spartacus/core</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">ProductSelectors.getSelectedProductsFactory</code> was removed because it was outdated.</p>
+
+<h3 id="factories-removed-from-spartacusstorefront-public-api">Factories removed from @spartacus/storefront public API</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">pwaConfigurationFactory</code>, <code class="language-plaintext highlighter-rouge">pwaFactory</code>, <code class="language-plaintext highlighter-rouge">getStructuredDataFactory</code> and <code class="language-plaintext highlighter-rouge">skipLinkFactory</code> were removed from the storefront library public API.</p>
+
+<h3 id="bad-request-handler">Bad Request Handler</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">BadRequestHandler</code> handles 400 errors. Previously, it was handling <code class="language-plaintext highlighter-rouge">not found</code> errors for OCC CMS pages because these were not returned as 404 errors. This was done in a generic way, by handling <em>all other errors</em>. Since the 1905 release of SAP Commerce Cloud, the OCC CMS returns a 404 error if a page is not found. Accordingly, we removed this special handling in the <code class="language-plaintext highlighter-rouge">BadRequestHandler</code>. This might affect custom implementations that relied on this behavior, and in these cases, it is recommended to throw 404 errors from your back end, or to customize the <code class="language-plaintext highlighter-rouge">BadRequestHandler</code>.</p>
+
+<h3 id="urlmatcherfactoryservice-was-renamed-to-urlmatcherservice-and-its-methods-were-renamed">UrlMatcherFactoryService was renamed to UrlMatcherService and its methods were renamed</h3>
+
+<p>The service <code class="language-plaintext highlighter-rouge">UrlMatcherFactoryService</code> was renamed to <code class="language-plaintext highlighter-rouge">UrlMatcherService</code> and its methods were renamed as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>UrlMatcherFactoryService (removed)</th>
+      <th>UrlMatcherService (new counterpart)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>getFalsyUrlMatcher</td>
+      <td>getFalsy</td>
+    </tr>
+    <tr>
+      <td>getMultiplePathsUrlMatcher</td>
+      <td>getFromPaths</td>
+    </tr>
+    <tr>
+      <td>getPathUrlMatcher</td>
+      <td>getFromPath</td>
+    </tr>
+    <tr>
+      <td>getOppositeUrlMatcher</td>
+      <td>getOpposite</td>
+    </tr>
+    <tr>
+      <td>getGlobUrlMatcher</td>
+      <td>getFromGlob</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="new-way-to-opt-out-from-suffix-routes-for-pdp-and-plp">New way to opt out from suffix routes for PDP and PLP</h3>
+
+<p>Before 2.0, the suffix routes <code class="language-plaintext highlighter-rouge">**/p/:productCode</code> and <code class="language-plaintext highlighter-rouge">**/c/:categoryCode</code> (added for backwards compatibility with Accelerators) were implemented in Spartacus using separate Angular <code class="language-plaintext highlighter-rouge">Routes</code> objects. To opt out from them, you needed to dismantle the <code class="language-plaintext highlighter-rouge">ProductDetailsPageModule</code> or the <code class="language-plaintext highlighter-rouge">ProductListingPageModule</code> (or both), and reassemble them again without defining suffix routes.</p>
+
+<p>Now that the separate objects for suffix routes were dropped, the suffix mechanism is now implemented in the original <code class="language-plaintext highlighter-rouge">product</code> and <code class="language-plaintext highlighter-rouge">category</code> routes, thanks to the support of the configurable Angular <code class="language-plaintext highlighter-rouge">UrlMatcher</code> that arrived in Spartacus 2.0.</p>
+
+<p>So the default config of Spartacus for the <code class="language-plaintext highlighter-rouge">product</code> route now contains a <code class="language-plaintext highlighter-rouge">matchers</code> property with an array containing <code class="language-plaintext highlighter-rouge">PRODUCT_DETAILS_URL_MATCHER</code>, and the config for the <code class="language-plaintext highlighter-rouge">category</code> route has <code class="language-plaintext highlighter-rouge">PRODUCT_LISTING_URL_MATCHER</code> in the <code class="language-plaintext highlighter-rouge">matchers</code> array by default. These matchers match both the <code class="language-plaintext highlighter-rouge">paths</code> from the routing config as well as the suffix patterns <code class="language-plaintext highlighter-rouge">**/p/:productCode</code> and <code class="language-plaintext highlighter-rouge">**/c/:categoryCode</code>. To opt out from suffix patterns, set the config of the <code class="language-plaintext highlighter-rouge">matchers</code> routes explicitly to <code class="language-plaintext highlighter-rouge">null</code>, or to an array containing your custom matcher (or matchers).</p>
+
+<h3 id="dropped-functions-in-navigationuicomponent">Dropped functions in NavigationUIComponent</h3>
+
+<p>Since <code class="language-plaintext highlighter-rouge">isTabbable</code> was never called, it no longer exists in the <code class="language-plaintext highlighter-rouge">NavigationUIComponent</code>. Also, the <code class="language-plaintext highlighter-rouge">getDepth</code> function was renamed to <code class="language-plaintext highlighter-rouge">getTotalDepth</code>.</p>
+
+<h3 id="anonymous-consents-feature-toggle">Anonymous consents feature toggle</h3>
+
+<p>The anonymous consents feature is now part of the core features, and the <code class="language-plaintext highlighter-rouge">anonymousConsents</code> feature toggle has been removed.</p>
+
+<h3 id="changes-in-paymentmethodcomponent">Changes in PaymentMethodComponent</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">PaymentMethodComponent</code> is now more similar to other checkout components, and the behavior is more aligned with the <code class="language-plaintext highlighter-rouge">ShippingAddressComponent</code>. The changes to the public API are as follows:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">setPaymentDetails</code> no longer has a third parameter. It should be used only for creating new payment details.</li>
+  <li><code class="language-plaintext highlighter-rouge">createCard</code> method now has a third parameter for selected payment details. Parameters are also now typed.</li>
+  <li><code class="language-plaintext highlighter-rouge">selectPaymentMethod</code> has different behavior now. It dispatches the <code class="language-plaintext highlighter-rouge">CheckoutPaymentService</code> method for selecting the payment. Previously, it only modified the local component state.</li>
+  <li><code class="language-plaintext highlighter-rouge">getCardContent</code> was removed and replaced with the <code class="language-plaintext highlighter-rouge">cards$</code> observable, which emits all payment details cards, along with the payment details for each one.</li>
+  <li><code class="language-plaintext highlighter-rouge">selectedPayment</code> variable was replaced with the <code class="language-plaintext highlighter-rouge">selectedMethod$</code> observable.</li>
+  <li><code class="language-plaintext highlighter-rouge">allowRouting</code> variable renamed to <code class="language-plaintext highlighter-rouge">shouldRedirect</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">deliveryAddress</code>, <code class="language-plaintext highlighter-rouge">checkoutStepUrlNext</code>, and <code class="language-plaintext highlighter-rouge">checkoutStepUrlPrevious</code> are now protected variables. Previously, the were private.</li>
+  <li><code class="language-plaintext highlighter-rouge">next</code> method has been removed. Use <code class="language-plaintext highlighter-rouge">goNext</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">back</code> method has been removed. Use <code class="language-plaintext highlighter-rouge">goPrevious</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">paymentMethodSelected</code> method has been removed. Use <code class="language-plaintext highlighter-rouge">selectPaymentMethod</code> instead.</li>
+</ul>
+
+<h3 id="changes-in-deliverymodecomponent">Changes in DeliveryModeComponent</h3>
+
+<p>The public API of this component has not been changed, but the behavior is now more aligned with other checkout components. Each change immediately triggers an update in the API. The default value is also set on the API during component initialization. As a result, the order summary is updated after every delivery mode change. On clicking the “next” button, the delivery mode is set one more time with the last selected value, and you get redirected to the next step only after an update has occurred on the API . When the delivery mode is set in the order summary component, you will see “shipping” instead of “estimated shipping”.</p>
+
+<h3 id="removal-of-cmspageloadonce-feature-flag">Removal of cmsPageLoadOnce feature flag</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">cmsPageLoadOnce</code> feature flag has been removed. The same behavior is now achievable by configuring <code class="language-plaintext highlighter-rouge">routing.loadStrategy</code> as <code class="language-plaintext highlighter-rouge">RouteLoadStrategy.ONCE</code>.</p>
+
+<h3 id="products-endpoint-configuration">Products endpoint configuration</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">backend.occ.endpoints.product_scopes</code> configuration key was merged into the <code class="language-plaintext highlighter-rouge">backend.occ.endpoints.product</code> key.</p>
+
+<h3 id="launched-in-smart-edit-detection">Launched in Smart Edit detection</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">isLaunchInSmartEdit</code> method was removed from <code class="language-plaintext highlighter-rouge">CmsService</code>. Instead, use the new <code class="language-plaintext highlighter-rouge">isLaunchedInSmartEdit</code> method from <code class="language-plaintext highlighter-rouge">SmartEditService</code>.</p>
+
+<h3 id="dynamicattributeservice">DynamicAttributeService</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">addDynamicAttributes</code> method now has a different parameter order. The <code class="language-plaintext highlighter-rouge">cmsRenderingContext</code> parameter is now the last parameter and it has a type.</p>
+
+<h3 id="cmsactions-and-cmsselectors">CmsActions and CmsSelectors</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">CmsActions</code> now have only parameter: <code class="language-plaintext highlighter-rouge">payload</code>. Other parameters are now part of <code class="language-plaintext highlighter-rouge">payload</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">getComponentState</code>, <code class="language-plaintext highlighter-rouge">getComponentEntities</code>, <code class="language-plaintext highlighter-rouge">componentStateSelectorFactory</code> and <code class="language-plaintext highlighter-rouge">componentSelectorFactory</code> were removed from <code class="language-plaintext highlighter-rouge">CmsSelectors</code>. Use CMS selector factories instead.</p>
+
+<h3 id="default-occ-prefix">Default OCC prefix</h3>
+
+<p>The default value for the <code class="language-plaintext highlighter-rouge">backend.occ.prefix</code> configuration key is now <code class="language-plaintext highlighter-rouge">/occ/v2/</code>. This is the default value for the 2005 release of SAP Commerce Cloud.</p>
+
+<h3 id="cart-components-changes">Cart components changes</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">removeEntry</code> and <code class="language-plaintext highlighter-rouge">updateEntry</code> methods were removed from the <code class="language-plaintext highlighter-rouge">AddedToCartDialogComponent</code> component. Its logic is now contained in the <code class="language-plaintext highlighter-rouge">getQuantityControl</code> method.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">updateItem</code> and <code class="language-plaintext highlighter-rouge">isSaveForLaterEnabled</code> methods were removed from the <code class="language-plaintext highlighter-rouge">CartItemComponent</code> component. The <code class="language-plaintext highlighter-rouge">remove</code> and <code class="language-plaintext highlighter-rouge">update</code> outputs were also removed. The <code class="language-plaintext highlighter-rouge">isReadOnly</code> input is renamed to <code class="language-plaintext highlighter-rouge">readonly</code>. The <code class="language-plaintext highlighter-rouge">cartIsLoading</code>, <code class="language-plaintext highlighter-rouge">parent</code> and <code class="language-plaintext highlighter-rouge">potentialProductPromotions</code> inputs were removed. The new <code class="language-plaintext highlighter-rouge">quantityControl</code>  input was added to this component.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">ngOnInit</code>, <code class="language-plaintext highlighter-rouge">isSaveForLaterEnabled</code>, <code class="language-plaintext highlighter-rouge">updateEntry</code> and <code class="language-plaintext highlighter-rouge">getPotentialProductPromotionsForItem</code> methods were removed from the <code class="language-plaintext highlighter-rouge">CartItemListComponent</code> component. The <code class="language-plaintext highlighter-rouge">potentialProductPromotions</code> input was removed.</p>
+
+<h3 id="skip-link-changes">Skip link changes</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">SkipLinkComponent</code> methods <code class="language-plaintext highlighter-rouge">blur</code>, <code class="language-plaintext highlighter-rouge">tabNext</code> and <code class="language-plaintext highlighter-rouge">tabPrev</code> were removed.</p>
+
+<p>The skip link default configuration was simplified. Previously, by default, there were skip links for the top header, bottom header, facets, product list, and footer. Now there are default skip links only for the header, main content, and footer.</p>
+
+<h3 id="product-list-component-service">Product list component service</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">clearSearchResults</code> method was removed from the <code class="language-plaintext highlighter-rouge">ProductListComponentService</code>. The method was not needed in the <code class="language-plaintext highlighter-rouge">ProductListComponent</code> anymore since the data will refresh on currency change. Instead, you can use <code class="language-plaintext highlighter-rouge">clearResults</code> in <code class="language-plaintext highlighter-rouge">ProductSearchService</code>.</p>
+
+<h3 id="context-change-action-not-dispatched-on-the-initial-setting-of-the-value">Context change action not dispatched on the initial setting of the value</h3>
+
+<p>Before 2.0, the <code class="language-plaintext highlighter-rouge">LanguageChange</code> NgRx action was dispatched on setting the initial value (as was also the case for <code class="language-plaintext highlighter-rouge">CurrencyChange</code>). Moreover, the language (and currency) sometimes was initialized multiple times by the competing sources of truth (for example, routing, session storage, default config), which caused fake multiple language change actions in some circumstances (combinations of configuration and user journey).</p>
+
+<p>Now the language change action is not dispatched on application start (and the same is true for currency). The language is initialized only once, using one source of truth. The first matched condition wins, according to the following order of priority:</p>
+
+<ol>
+  <li>If the SSR transferred state is present, take the value from there. If not, proceed to the next condition.</li>
+  <li>If the param was configured to be persisted from the URL, take the value from there. If not, proceed to the next condition. (When the value is not present in the current URL, the URL is updated using the default configured value and then we use this value.)</li>
+  <li>If the value can be retrieved from session storage, take the value from there. If not, proceed to the next condition.</li>
+  <li>Take the static default value from the config.</li>
+</ol>
+
+<p>The same order of priority holds for currency. For base sites, however, only the first, second and fourth conditions apply, because there is no session storage as source.</p>
+
+<h3 id="webcomponenthandler-is-not-provided-by-default">WebComponentHandler is not provided by default</h3>
+
+<p>To enable Web Components support for CMS components, you have to provide the support in your app. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="p">{</span>
+      <span class="nl">provide</span><span class="p">:</span> <span class="nx">ComponentHandler</span><span class="p">,</span>
+      <span class="nx">useExisting</span><span class="p">:</span> <span class="nx">WebComponentHandler</span><span class="p">,</span>
+      <span class="nx">multi</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+</code></pre></div></div>
+
+<h2 id="automated-migrations-for-version-2">Automated Migrations for Version 2</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutService</code> no longer uses <code class="language-plaintext highlighter-rouge">CartDataService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code> (and <code class="language-plaintext highlighter-rouge">AuthService</code>). These services needs to be provided to <code class="language-plaintext highlighter-rouge">CheckoutService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutPaymentService</code> no longer uses <code class="language-plaintext highlighter-rouge">CartDataService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code> (and <code class="language-plaintext highlighter-rouge">AuthService</code>). These services needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutPaymentService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutDeliveryService</code> no longer uses <code class="language-plaintext highlighter-rouge">CartDataService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code> (and <code class="language-plaintext highlighter-rouge">AuthService</code>). These services needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutDeliveryService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutGuard</code> no longer uses <code class="language-plaintext highlighter-rouge">CheckoutConfig</code>. This config usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">CheckoutConfigService</code>, <code class="language-plaintext highlighter-rouge">ExpressCheckoutService</code>, <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. These services needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutGuard</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">AddressBookComponentService</code> now uses <code class="language-plaintext highlighter-rouge">CheckoutDeliveryService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">AddressBookComponentService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PromotionService</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">PromotionService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutLoginComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutLoginComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutDetailsService</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutDetailsService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">NotCheckoutAuthGuard</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">NotCheckoutAuthGuard</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ShippingAddressComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">ShippingAddressComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutPageMetaResolver</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutPageMetaResolver</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">AddToCartComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">AddToCartComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartNotEmptyGuard</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CartNotEmptyGuard</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartTotalsComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CartTotalsComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">MiniCartComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">MiniCartComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutOrderSummaryComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutOrderSummaryComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutProgressMobileTopComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutProgressMobileTopComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentMethodComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">PaymentMethodComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutAuthGuard</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CheckoutAuthGuard</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartPageLayoutHandler</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. <code class="language-plaintext highlighter-rouge">ActiveCartService</code> and <code class="language-plaintext highlighter-rouge">SelectiveCartService</code> need to be provided in <code class="language-plaintext highlighter-rouge">CartPageLayoutHandler</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SpartacusEventService</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService.</code> This service needs to be provided for <code class="language-plaintext highlighter-rouge">SpartacusEventService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ClientAuthenticationTokenService</code> now uses <code class="language-plaintext highlighter-rouge">OccEndpointsService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">ClientAuthenticationTokenService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserAuthenticationTokenService</code> now uses <code class="language-plaintext highlighter-rouge">OccEndpointsService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserAuthenticationTokenService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OccCartEntryAdapter</code> no longer uses <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>. This service usage no longer uses the legacy methods: <code class="language-plaintext highlighter-rouge">legacyAdd</code>, <code class="language-plaintext highlighter-rouge">legacyRemove</code>, and <code class="language-plaintext highlighter-rouge">legacyUpdate</code>, and needs to be provided for <code class="language-plaintext highlighter-rouge">OccCartEntryAdapter</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OccCartAdapter</code> no longer uses <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>. This service usage no longer uses the legacy methods: <code class="language-plaintext highlighter-rouge">legacyLoadAll</code>, <code class="language-plaintext highlighter-rouge">legacyLoad</code>, and <code class="language-plaintext highlighter-rouge">legacyCreate</code>, and needs to be provided for <code class="language-plaintext highlighter-rouge">OccCartAdapter</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OccUserOrderAdapter</code> no longer uses <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>. This service usage no longer uses the legacy methods: <code class="language-plaintext highlighter-rouge">legacyLoad</code> and <code class="language-plaintext highlighter-rouge">legacyLoadHistory</code>, and needs to be provided for <code class="language-plaintext highlighter-rouge">OccUserOrderAdapter</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserConsentService</code> now uses <code class="language-plaintext highlighter-rouge">AuthService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserConsentService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserOrderService</code> now uses <code class="language-plaintext highlighter-rouge">AuthService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserOrderService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserPaymentService</code> now uses <code class="language-plaintext highlighter-rouge">AuthService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserPaymentService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserService</code> now uses <code class="language-plaintext highlighter-rouge">AuthService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">AddedToCartDialogComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. Also <code class="language-plaintext highlighter-rouge">PromotionService</code> is now a required parameter. These services need to be provided for <code class="language-plaintext highlighter-rouge">AddedToCartDialogComponent</code>. <code class="language-plaintext highlighter-rouge">FormBuilder</code> no longer needs to be provided for this component.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartDetailsComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code> and <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. <code class="language-plaintext highlighter-rouge">PromotionService</code>, <code class="language-plaintext highlighter-rouge">SelectiveCartService</code>, <code class="language-plaintext highlighter-rouge">AuthService</code> and  <code class="language-plaintext highlighter-rouge">RoutingService</code> are now required parameters. These services need to be provided for <code class="language-plaintext highlighter-rouge">CartDetailsComponent</code>. The deprecated method <code class="language-plaintext highlighter-rouge">isSaveForLaterEnabled()</code> was removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">ReviewSubmitComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">CartService</code>. This service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. <code class="language-plaintext highlighter-rouge">CheckoutConfigService</code> and <code class="language-plaintext highlighter-rouge">PromotionService</code> are now required parameters. These services need to be provided for <code class="language-plaintext highlighter-rouge">ReviewSubmitComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OrderDetailItemsComponent</code> now requires <code class="language-plaintext highlighter-rouge">PromotionService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">OrderDetailItemsComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OrderConfirmationItemsComponent</code> now requires <code class="language-plaintext highlighter-rouge">PromotionService</code>. This service needs to be provided for <code class="language-plaintext highlighter-rouge">OrderConfirmationItemsComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartVoucherService</code> now requires the new <code class="language-plaintext highlighter-rouge">ActiveCartService</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CartVoucherService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartCouponComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">AuthService</code>, <code class="language-plaintext highlighter-rouge">FeatureConfigService</code> and <code class="language-plaintext highlighter-rouge">CartService</code>. <code class="language-plaintext highlighter-rouge">CartService</code> service usage was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. Also, <code class="language-plaintext highlighter-rouge">CustomerCouponService</code> is now a required parameter. These services need to be provided for <code class="language-plaintext highlighter-rouge">CartCouponComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">LogoutGuard</code> no longer uses <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>, which was used previously to determine the feature flag.</li>
+  <li><code class="language-plaintext highlighter-rouge">LoginFormComponent</code> now requires the following new parameters: <code class="language-plaintext highlighter-rouge">WindowRef</code>, <code class="language-plaintext highlighter-rouge">ActivatedRoute</code> and <code class="language-plaintext highlighter-rouge">CheckoutConfigService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">RegisterComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>, <code class="language-plaintext highlighter-rouge">AuthService</code> and <code class="language-plaintext highlighter-rouge">AuthRedirectService</code>. Also <code class="language-plaintext highlighter-rouge">RoutingService</code>, <code class="language-plaintext highlighter-rouge">AnonymousConsentsService</code> and <code class="language-plaintext highlighter-rouge">AnonymousConsentsConfig</code> are now required parameters.</li>
+  <li><code class="language-plaintext highlighter-rouge">StarRatingComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">Renderer2</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">StarRatingComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductService</code> now requires <code class="language-plaintext highlighter-rouge">ProductLoadingService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductCarouselComponent</code> no longer requires <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CurrentProductService</code> no longer requires <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductPageMetaResolver</code> no longer requires <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductListComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">ViewConfig</code> parameter. This config needs to be provided for <code class="language-plaintext highlighter-rouge">ProductListComponent</code>. The <code class="language-plaintext highlighter-rouge">viewPage</code> method was removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">isSamePage</code> is removed from the <code class="language-plaintext highlighter-rouge">ProductScrollComponent</code> because it is a deprecated method.</li>
+  <li><code class="language-plaintext highlighter-rouge">ConfigurableRoutesService</code> no longer uses <code class="language-plaintext highlighter-rouge">UrlMatcherFactoryService</code>, but instead uses its counterpart, <code class="language-plaintext highlighter-rouge">UrlMatcherService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ExternalRoutesService</code> no longer uses <code class="language-plaintext highlighter-rouge">UrlMatcherFactoryService</code>, but instead uses its counterpart, <code class="language-plaintext highlighter-rouge">UrlMatcherService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OutletDirective</code> now requires new <code class="language-plaintext highlighter-rouge">DeferLoaderService</code> and <code class="language-plaintext highlighter-rouge">OutletRendererService</code> parameters. These services needs to be provided for <code class="language-plaintext highlighter-rouge">OutletDirective</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ConsentManagementComponent</code> now requires the <code class="language-plaintext highlighter-rouge">AnonymousConsentsConfig</code>, <code class="language-plaintext highlighter-rouge">AnonymousConsentsService</code> and <code class="language-plaintext highlighter-rouge">AuthService</code> parameters.</li>
+  <li><code class="language-plaintext highlighter-rouge">ConsentManagementComponent</code> no longer uses the <code class="language-plaintext highlighter-rouge">isLevel13</code> and <code class="language-plaintext highlighter-rouge">isAnonymousConsentsEnabled</code> properties.</li>
+  <li><code class="language-plaintext highlighter-rouge">ConsentManagementFormComponent</code> no longer uses the <code class="language-plaintext highlighter-rouge">isLevel13</code> and <code class="language-plaintext highlighter-rouge">isAnonymousConsentsEnabled</code> properties.</li>
+  <li><code class="language-plaintext highlighter-rouge">AnonymousConsentDialogComponent</code> no longer uses the <code class="language-plaintext highlighter-rouge">isLevel13</code> property.</li>
+  <li><code class="language-plaintext highlighter-rouge">PlaceOrderComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">FormBuilder</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">CustomerCouponService</code> now requires the new <code class="language-plaintext highlighter-rouge">AuthService</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">CustomerCouponService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserInterestsService</code> now requires the new <code class="language-plaintext highlighter-rouge">AuthService</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserInterestsService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserNotificationPreferenceService</code> now requires the new <code class="language-plaintext highlighter-rouge">AuthService</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserNotificationPreferenceService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UserAddressService</code> now requires the new <code class="language-plaintext highlighter-rouge">AuthService</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">UserAddressService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductReviewsComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">ChangeDetectorRef</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">ProductReviewsComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SearchBoxComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">WindowRef</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">SearchBoxComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">AddressBookComponent</code> now requires new <code class="language-plaintext highlighter-rouge">TranslationService</code>, <code class="language-plaintext highlighter-rouge">UserAddressService</code> and <code class="language-plaintext highlighter-rouge">CheckoutDeliveryService</code> parameters. These services need to be provided for <code class="language-plaintext highlighter-rouge">AddressBookComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartItemListComponent</code> no longer requires <code class="language-plaintext highlighter-rouge">FormBuilder</code>, <code class="language-plaintext highlighter-rouge">FeatureConfigService</code> and  <code class="language-plaintext highlighter-rouge">CartService</code>. <code class="language-plaintext highlighter-rouge">CartService</code> was replaced with corresponding methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. The deprecated method <code class="language-plaintext highlighter-rouge">isSaveForLaterEnabled()</code> was removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartItemComponent</code> no longer uses <code class="language-plaintext highlighter-rouge">FeatureConfigService</code>. The deprecated method <code class="language-plaintext highlighter-rouge">isSaveForLaterEnabled()</code> was removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentFormComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">UserAddressService</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">ComponentWrapperDirective</code> no longer uses the <code class="language-plaintext highlighter-rouge">CmsService</code> param.</li>
+  <li><code class="language-plaintext highlighter-rouge">DynamicAttributeService</code> requires the new <code class="language-plaintext highlighter-rouge">SmartEditService</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">NavigationUIComponent</code> no longer uses the <code class="language-plaintext highlighter-rouge">allowAlignToRight</code> property.</li>
+  <li><code class="language-plaintext highlighter-rouge">StoreFinderSearchResultComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">StoreFinderConfig</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">StoreFinderSearchResultComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PageSlotComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">CmsComponentsService</code> and <code class="language-plaintext highlighter-rouge">ChangeDetectorRef</code> parameters. The <code class="language-plaintext highlighter-rouge">CmsComponentsService</code> is used to read the configurable <em>page fold</em> from the layout configuration. The <code class="language-plaintext highlighter-rouge">ChangeDetectorRef</code> is needed to update the slot pending state asynchronously.</li>
+  <li><code class="language-plaintext highlighter-rouge">TabParagraphContainerComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">WindowRef</code> parameter. This service needs to be provided for <code class="language-plaintext highlighter-rouge">TabParagraphContainerComponent</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SelectiveCartService</code> now requires the new <code class="language-plaintext highlighter-rouge">CartConfigService</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">QualtricsLoaderService</code> now requires Angular’s core <code class="language-plaintext highlighter-rouge">RendererFactory2</code> and no longer uses the <code class="language-plaintext highlighter-rouge">QualtricsConfig</code>. The service has been refactored for better extensibility and reuse.</li>
+  <li><code class="language-plaintext highlighter-rouge">QualtricsComponent</code> now requires the <code class="language-plaintext highlighter-rouge">QualtricsConfig</code> to load the global qualtrics deployments script. This was a dependency in the <code class="language-plaintext highlighter-rouge">QualtricsLoaderService</code> in 1.x. Also, the component no longer uses the <code class="language-plaintext highlighter-rouge">qualtricsEnabled$</code> property.</li>
+  <li><code class="language-plaintext highlighter-rouge">AmendOrderActionsComponent</code> now requires the new <code class="language-plaintext highlighter-rouge">RoutingService</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">FooterNavigationComponent</code> no longer requires the <code class="language-plaintext highlighter-rouge">AnonymousConsentsConfig</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductFacetNavigationComponent</code> no longer requires <code class="language-plaintext highlighter-rouge">ModalService</code>, <code class="language-plaintext highlighter-rouge">ActivatedRoute</code> and <code class="language-plaintext highlighter-rouge">ProductListComponentService</code>. It now requires <code class="language-plaintext highlighter-rouge">BreakpointService</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">StoreFinderGridComponent</code> no longer requires <code class="language-plaintext highlighter-rouge">RoutingService</code>. The <code class="language-plaintext highlighter-rouge">viewStore</code> and <code class="language-plaintext highlighter-rouge">prepareRouteUrl</code> methods were removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">SkipLinkService</code> requires the new <code class="language-plaintext highlighter-rouge">KeyboardFocusService</code> parameter.</li>
+  <li><code class="language-plaintext highlighter-rouge">StorefrontComponent</code> requires the new <code class="language-plaintext highlighter-rouge">ElementRef</code> and <code class="language-plaintext highlighter-rouge">KeyboardFocusService</code> parameters.</li>
+  <li><code class="language-plaintext highlighter-rouge">AutoFocusDirective</code>, <code class="language-plaintext highlighter-rouge">AutoFocusDirectiveModule</code>, <code class="language-plaintext highlighter-rouge">OnlyNumberDirective</code>, <code class="language-plaintext highlighter-rouge">OnlyNumberDirectiveModule</code> and <code class="language-plaintext highlighter-rouge">FormUtils</code> were removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">authentication.kyma_enabled</code> configuration option has been removed. Kyma is now enabled by importing <code class="language-plaintext highlighter-rouge">KymaModule</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">features.anonymousConsents</code> configuration option has been removed. This feature is now part of the core set of features, and it is enabled by default.</li>
+</ul>
+
+<h3 id="state-utility-changes">State utility changes</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">LoaderState</code>, <code class="language-plaintext highlighter-rouge">ProcessesLoaderState</code>, <code class="language-plaintext highlighter-rouge">EntityState</code>, <code class="language-plaintext highlighter-rouge">EntityLoaderState</code>, <code class="language-plaintext highlighter-rouge">EntityProcessesLoaderState</code> were moved under the <code class="language-plaintext highlighter-rouge">StateUtils</code> namespace.</li>
+  <li><code class="language-plaintext highlighter-rouge">StateLoaderActions</code>, <code class="language-plaintext highlighter-rouge">StateProcessesLoaderActions</code>, <code class="language-plaintext highlighter-rouge">StateEntityActions</code>, <code class="language-plaintext highlighter-rouge">StateEntityLoaderActions</code>, <code class="language-plaintext highlighter-rouge">StateEntityProcessesLoaderActions</code> were removed. All actions are now accessible from <code class="language-plaintext highlighter-rouge">StateUtils</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">StateLoaderSelectors</code>, <code class="language-plaintext highlighter-rouge">StateProcessesLoaderSelectors</code>, <code class="language-plaintext highlighter-rouge">StateEntitySelectors</code>, <code class="language-plaintext highlighter-rouge">StateEntityLoaderSelectors</code>, <code class="language-plaintext highlighter-rouge">StateEntityProcessesLoaderSelectors</code> were removed. All selectors are now accessible from <code class="language-plaintext highlighter-rouge">StateUtils</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">loaderReducer</code>, <code class="language-plaintext highlighter-rouge">processesLoaderReducer</code>, <code class="language-plaintext highlighter-rouge">entityReducer</code>, <code class="language-plaintext highlighter-rouge">entityLoaderReducer</code>, <code class="language-plaintext highlighter-rouge">entityProcessesLoaderReducer</code>, <code class="language-plaintext highlighter-rouge">initialEntityState</code>, <code class="language-plaintext highlighter-rouge">initialLoaderState</code>, <code class="language-plaintext highlighter-rouge">initialProcessesState</code>, <code class="language-plaintext highlighter-rouge">getStateSlice</code> were moved under the <code class="language-plaintext highlighter-rouge">StateUtils</code> namespace.</li>
+  <li><code class="language-plaintext highlighter-rouge">ofLoaderLoad</code>, <code class="language-plaintext highlighter-rouge">ofLoaderFail</code>, <code class="language-plaintext highlighter-rouge">ofLoaderSuccess</code> methods were removed and are no longer available.</li>
+  <li><code class="language-plaintext highlighter-rouge">entityStateSelector</code> was renamed to <code class="language-plaintext highlighter-rouge">entityLoaderStateSelector</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">EntityResetAction</code> was renamed to <code class="language-plaintext highlighter-rouge">EntityLoaderResetAction</code>.</li>
+</ul>
+
+<h3 id="automated-migrations-of-page-meta-resolvers">Automated migrations of page meta resolvers</h3>
+
+<p>The implementation of page meta data resolvers has been changed with 2.0. Previously, each meta resolver implementation had been responsible for resolving all page data, by implementing the abstract <code class="language-plaintext highlighter-rouge">resolve</code> method from the abstract <code class="language-plaintext highlighter-rouge">PageMetaResolver</code>. To allow for more flexibility and to simplify customizations, the individual implementations no longer implement the <code class="language-plaintext highlighter-rouge">resolve</code> method. Only a specific <em>resolver</em> is required, such as the <code class="language-plaintext highlighter-rouge">PageTitleResolver</code>. The <code class="language-plaintext highlighter-rouge">PageMetaService</code> will invoke the specific resolvers when available. This is done by the registered <code class="language-plaintext highlighter-rouge">resolverMethods</code>. You can further extend the list of <code class="language-plaintext highlighter-rouge">resolverMethods</code> without changing the implementation of <code class="language-plaintext highlighter-rouge">PageMetaService.resolve</code>.</p>
+
+<p>These changes were introduced under a feature flag in version 1.3, and are standardized in 2.0. The <code class="language-plaintext highlighter-rouge">FeatureConfigService</code> was used for this feature flag, and has been dropped from all constructors with version 2.0. This change will be migrated automatically.</p>
+
+<p>The individual changes per class for 2.0 are the following:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PageMetaService</code><br />
+The <code class="language-plaintext highlighter-rouge">resolverMethods</code> access modifier changed from <em>public</em> to <em>protected</em>. The <code class="language-plaintext highlighter-rouge">resolve</code> method will invoke individual resolvers by iterating over the <code class="language-plaintext highlighter-rouge">resolverMethods</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ContentPageMetaResolver</code><br />
+The deprecated method <code class="language-plaintext highlighter-rouge">resolve</code> is removed in 2.0. This method is no longer supported because individual resolve methods (<code class="language-plaintext highlighter-rouge">resolveTitle</code> and <code class="language-plaintext highlighter-rouge">resolveBreadcrumbs</code>) are invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolvers no longer receive arguments, but use the local <code class="language-plaintext highlighter-rouge">cms$</code> observable to resolve the required data.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProductPageMetaResolver</code><br />
+The deprecated method <code class="language-plaintext highlighter-rouge">resolve</code> is removed in 2.0. This method is no longer supported because individual resolve methods (<code class="language-plaintext highlighter-rouge">resolveHeading</code>, <code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveDescription</code>, <code class="language-plaintext highlighter-rouge">resolveBreadcrumbs</code>, <code class="language-plaintext highlighter-rouge">resolveImage</code> and <code class="language-plaintext highlighter-rouge">resolveRobots</code>) are invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolvers no longer receive arguments, but use the local <code class="language-plaintext highlighter-rouge">product$</code> observable to resolve the required data.</li>
+  <li><code class="language-plaintext highlighter-rouge">CategoryPageMetaResolver</code>
+The deprecated method <code class="language-plaintext highlighter-rouge">resolve</code> is removed in 2.0. This method is no longer supported because individual resolve methods (<code class="language-plaintext highlighter-rouge">resolveTitle</code> and <code class="language-plaintext highlighter-rouge">resolveBreadcrumbs</code>) are invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolvers (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveBreadcrumbs</code>) no longer receive arguments, but use the local <code class="language-plaintext highlighter-rouge">searchPage$</code> observable to resolve the required data.</li>
+  <li><code class="language-plaintext highlighter-rouge">SearchPageMetaResolver</code>
+The deprecated method <code class="language-plaintext highlighter-rouge">resolve</code> is removed in 2.0. This method is no longer supported because the individual resolve method (<code class="language-plaintext highlighter-rouge">resolveTitle</code>) is invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolver (<code class="language-plaintext highlighter-rouge">resolveTitle</code>) no longer receives arguments, but uses the local <code class="language-plaintext highlighter-rouge">query$</code> observable to resolve the required data.</li>
+  <li><code class="language-plaintext highlighter-rouge">CartPageMetaResolver</code><br />
+The deprecated method <code class="language-plaintext highlighter-rouge">resolve</code> is removed in 2.0. This method is no longer supported because individual resolve methods (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveRobots</code>) are invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolvers (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveRobots</code>) no longer receive arguments, but use the local <code class="language-plaintext highlighter-rouge">cms$</code> observable to resolve the required data.</li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutPageMetaResolver</code><br />
+The deprecated method <code class="language-plaintext highlighter-rouge">resolve</code> is removed in 2.0. This method is no longer supported because individual resolve methods (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveRobots</code>) are invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolvers (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveRobots</code>) no longer receive arguments, but use the local <code class="language-plaintext highlighter-rouge">cart$</code> observable to resolve the required data.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">CouponSearchPageResolver</code> <del><code class="language-plaintext highlighter-rouge">FindProductPageMetaResolver</code></del><br />
+The <del><code class="language-plaintext highlighter-rouge">FindProductPageMetaResolver</code></del> was introduced in version 1.5, and has been renamed to <code class="language-plaintext highlighter-rouge">CouponSearchPageResolver</code> in version 2.0.</p>
+
+    <p>The deprecated <code class="language-plaintext highlighter-rouge">resolve</code> method is removed in 2.0. This method is no longer supported because individual resolve methods (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveBreadcrumbs</code>) are invoked by the <code class="language-plaintext highlighter-rouge">PageMetaService</code> directly. The individual resolvers (<code class="language-plaintext highlighter-rouge">resolveTitle</code>, <code class="language-plaintext highlighter-rouge">resolveBreadcrumbs</code>) no longer receive arguments, but use the local <code class="language-plaintext highlighter-rouge">total$</code> observable to resolve the required data.</p>
+
+    <p>The <code class="language-plaintext highlighter-rouge">score</code> method was refactored heavily to better cope with synchronize router state. This resulted in a change in the constructor which should be migrated automatically.</p>
+  </li>
+</ul>
+
+<h2 id="larger-refactoring-for-20">Larger Refactoring for 2.0</h2>
+
+<h3 id="pagination-component">Pagination Component</h3>
+
+<p>The reusable <code class="language-plaintext highlighter-rouge">PaginationComponent</code> has been completely refactored for 2.0. The pagination component had various flaws in version 1 and the implementation wasn’t great either. The new version is fully configurable and easily extensible as the <em>build</em> logic is solely delegated to the new <code class="language-plaintext highlighter-rouge">PaginationBuilder</code>.
+The default configuration is more concise and shows a maximum of three pages with a start and end link.</p>
+
+<p>The HTML and accompanying CSS is refactored as well. A clean DOM consists of only anchor links, nothing more. The availability and order of pagination links is driven by the configuration. The component is fully accessible and prepared for directionality as well.</p>
+
+<p>Using anchor links is the preferred action for pagination links, but action links (using <code class="language-plaintext highlighter-rouge">click</code> events) are still supported and used in various areas in Spartacus. The product listing page, however, is using anchor links.</p>
+
+<p>For more information, see <a href="/spartacus-docs/3.x/pagination/">Pagination Component</a>.</p>
+
+<p>If you have used the pagination component directly, you should refactor the implementation, as the inputs have changed.</p>
+
+<h3 id="payment-form-component">Payment Form Component</h3>
+
+<p>The method <code class="language-plaintext highlighter-rouge">isContinueButtonDisabled()</code> because been removed as the submission button is no longer disabled by default.</p>
+
+<h3 id="address-card-component">Address Card Component</h3>
+
+<p>The component <code class="language-plaintext highlighter-rouge">AddressCardComponent</code> has been completely removed and is replaced by <code class="language-plaintext highlighter-rouge">CardComponent</code>. Use <code class="language-plaintext highlighter-rouge">CardComponent</code> instead.</p>
+
+<h3 id="storage-sync-mechanism-change-in-multi-cart">Storage sync mechanism change in multi-cart</h3>
+
+<p>The storage synchronization mechanism previously used to persist the active cart id had some limitations that caused bugs on multi-site stores (issue: <a href="https://github.com/SAP/spartacus/issues/6215">https://github.com/SAP/spartacus/issues/6215</a>).</p>
+
+<p>The default storage sync configuration was removed from <code class="language-plaintext highlighter-rouge">MultiCartStoreModule</code>. Instead, a state persistence mechanism has been added for multi-cart to provide the same behavior and to support multi-site stores. It is build on top of <code class="language-plaintext highlighter-rouge">StatePersistenceService</code>. This is a new and recommended way to synchronize state to browser storage. For more information, see <a href="/spartacus-docs/3.x/state-persistence/">State Persistence</a>.</p>
+
+<h3 id="cart-state-and-selectors-removed">Cart state and selectors removed</h3>
+
+<p>We are replacing the old <code class="language-plaintext highlighter-rouge">cart</code> store feature (<code class="language-plaintext highlighter-rouge">CART_DATA</code>, <code class="language-plaintext highlighter-rouge">StateWithCart</code>, <code class="language-plaintext highlighter-rouge">CartsState</code>, <code class="language-plaintext highlighter-rouge">CART_FEATURE</code>, <code class="language-plaintext highlighter-rouge">CartState</code>), along with its selectors (<code class="language-plaintext highlighter-rouge">CartSelectors</code>), with a new cart state that was available in previous versions under <code class="language-plaintext highlighter-rouge">multi-cart</code>. We recommend working with <code class="language-plaintext highlighter-rouge">ActiveCartService</code> and <code class="language-plaintext highlighter-rouge">MultiCartService</code>, which use the new <code class="language-plaintext highlighter-rouge">cart</code> store feature under the hood. This allows us to support more carts (for example, wishlist, saved carts, and so on).</p>
+
+<h3 id="typed-payloads-in-ngrx-actions">Typed payloads in NgRx actions</h3>
+
+<p>To avoid one type of bug (missing parameters) when dispatching NgRx actions, we added types to their payload. We want to be sure that we always have all required parameters. Additionally, creating new actions is easier with types, as you get better editor support when specifying the payload.</p>
+
+<p>The following is a list of actions with changed payload type: <code class="language-plaintext highlighter-rouge">CartAddEntry</code>, <code class="language-plaintext highlighter-rouge">CartAddEntrySuccess</code>, <code class="language-plaintext highlighter-rouge">CartRemoveEntry</code>, <code class="language-plaintext highlighter-rouge">CartRemoveEntrySuccess</code>, <code class="language-plaintext highlighter-rouge">CartUpdateEntry</code>, <code class="language-plaintext highlighter-rouge">CartUpdateEntrySuccess</code>, <code class="language-plaintext highlighter-rouge">AddEmailToCartSuccess</code>, <code class="language-plaintext highlighter-rouge">MergeCartSuccess</code>, <code class="language-plaintext highlighter-rouge">CartAddEntryFail</code>, <code class="language-plaintext highlighter-rouge">CartRemoveEntryFail</code>, <code class="language-plaintext highlighter-rouge">CartUpdateEntryFail</code>, <code class="language-plaintext highlighter-rouge">CartRemoveVoucherFail</code>, <code class="language-plaintext highlighter-rouge">CartRemoveVoucherSuccess</code>, <code class="language-plaintext highlighter-rouge">CartAddVoucherFail</code>, <code class="language-plaintext highlighter-rouge">CartAddVoucherSuccess</code>, <code class="language-plaintext highlighter-rouge">CreateCart</code>, <code class="language-plaintext highlighter-rouge">CreateCartFail</code>, <code class="language-plaintext highlighter-rouge">CreateCartSuccess</code>, <code class="language-plaintext highlighter-rouge">LoadCart</code>, <code class="language-plaintext highlighter-rouge">LoadCartFail</code>, <code class="language-plaintext highlighter-rouge">LoadCartSuccess</code>, <code class="language-plaintext highlighter-rouge">LoadWishList</code>, <code class="language-plaintext highlighter-rouge">LoadWishListSuccess</code>, <code class="language-plaintext highlighter-rouge">AddEmailToCart</code>, <code class="language-plaintext highlighter-rouge">AddEmailToCartFail</code>, <code class="language-plaintext highlighter-rouge">MergeCart</code>, <code class="language-plaintext highlighter-rouge">DeleteCartFail</code>, <code class="language-plaintext highlighter-rouge">ClearCheckoutDeliveryModeFail</code>.</p>
+
+<p>The following are removed actions: <code class="language-plaintext highlighter-rouge">CreateMultiCart</code>, <code class="language-plaintext highlighter-rouge">CreateMultiCartFail</code>, <code class="language-plaintext highlighter-rouge">CreateMultiCartSuccess</code>, <code class="language-plaintext highlighter-rouge">LoadMultiCart</code>, <code class="language-plaintext highlighter-rouge">LoadMultiCartFail</code>, <code class="language-plaintext highlighter-rouge">LoadMultiCartSuccess</code>, <code class="language-plaintext highlighter-rouge">AddEmailToMultiCart</code>, <code class="language-plaintext highlighter-rouge">AddEmailToMultiCartSuccess</code>, <code class="language-plaintext highlighter-rouge">AddEmailToMultiCartFail</code>, <code class="language-plaintext highlighter-rouge">MergeMultiCart</code>, <code class="language-plaintext highlighter-rouge">MergeMultiCartSuccess</code>, <code class="language-plaintext highlighter-rouge">ResetMultiCartDetails</code>, <code class="language-plaintext highlighter-rouge">ClearCart</code>, <code class="language-plaintext highlighter-rouge">RemoveTempCart</code>, <code class="language-plaintext highlighter-rouge">ClearExpiredCoupons</code>.</p>
+
+<p>The following are renamed actions: <code class="language-plaintext highlighter-rouge">ClearMultiCartState</code> -&gt; <code class="language-plaintext highlighter-rouge">ClearCartState</code></p>
+
+<p>The following are new actions:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">LoadWishListFail</code><br />
+  A dedicated <code class="language-plaintext highlighter-rouge">LoadWishListFail</code> action was added to maintain consistency in the wishlist. It is dispatched in the wishlist effects instead of the <code class="language-plaintext highlighter-rouge">LoadCartFail</code> action.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">DeleteCartSuccess</code><br />
+  The <code class="language-plaintext highlighter-rouge">DeleteCartSuccess</code> action was added to maintain consistency in the delete cart effect. It will be dispatched after DeleteCart action will successfully delete cart in backend.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">SetActiveCartId</code><br />
+  The <code class="language-plaintext highlighter-rouge">SetActiveCartId</code> action was added to set the active cart id from the state persistence service.</p>
+  </li>
+</ul>
+
+<h3 id="services-changes">Services changes</h3>
+
+<p><code class="language-plaintext highlighter-rouge">MultiCartService.createCart</code> and <code class="language-plaintext highlighter-rouge">MultiCartService.mergeToCurrentCart</code> now have more strict types for parameters.</p>
+
+<h2 id="new-deprecations">New Deprecations</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ADD_VOUCHER_PROCESS_ID</code> const, <code class="language-plaintext highlighter-rouge">CartResetAddVoucher</code> action: we plan to migrate from the add voucher process to cart voucher events</li>
+  <li><code class="language-plaintext highlighter-rouge">CartProcessesIncrement</code> and <code class="language-plaintext highlighter-rouge">CartProcessesDecrement</code>: instead, extend EntityProcesses in actions</li>
+  <li><code class="language-plaintext highlighter-rouge">CartVoucherService</code> methods: <code class="language-plaintext highlighter-rouge">getAddVoucherResultError</code>, <code class="language-plaintext highlighter-rouge">getAddVoucherResultSuccess</code>, <code class="language-plaintext highlighter-rouge">getAddVoucherResultLoading</code> and <code class="language-plaintext highlighter-rouge">resetAddVoucherProcessingState</code>. These methods are replaced with event listeners.</li>
+</ul>
+
+<h2 id="forms-changes">Forms Changes</h2>
+
+<h3 id="naming-convention">Naming convention</h3>
+
+<p>From 2.0, <code class="language-plaintext highlighter-rouge">FormGroups</code> will be named according to the components they are used in. For example, <code class="language-plaintext highlighter-rouge">FormGroup</code> in <code class="language-plaintext highlighter-rouge">loginComponent</code> will be named <code class="language-plaintext highlighter-rouge">loginForm</code>.</p>
+
+<h3 id="new-formgroup-list">New FormGroup list</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component name</th>
+      <th>Old FormGroup</th>
+      <th>New FormGroup</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PlaceOrderComponent</code></td>
+      <td>-</td>
+      <td><code class="language-plaintext highlighter-rouge">checkoutSubmitForm</code></td>
+      <td>new FormGroup added</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AddressFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">address</code></td>
+      <td><code class="language-plaintext highlighter-rouge">addressForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">billingAddress</code></td>
+      <td><code class="language-plaintext highlighter-rouge">billingAddressForm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BillingAddressComponent</code> was removed (read more below)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">paymentForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RegisterComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">userRegistrationForm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CSAgentLoginFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">csAgentLoginForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CustomerSelectionComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customerSelectionForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartCouponComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">couponForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ForgotPasswordComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">forgotPasswordForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ResetPasswordFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">resetPasswordForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateEmailFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">updateEmailForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdatePasswordFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">updatePasswordForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateProfileFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">updateProfileForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CheckoutLoginComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">checkoutLoginForm</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LoginFormComponent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">form</code></td>
+      <td><code class="language-plaintext highlighter-rouge">loginForm</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-removals">File removals</h3>
+
+<p>Due to changes in forms and form-related functionalities, the <code class="language-plaintext highlighter-rouge">form-utils</code> file was removed completely, and its functionalities are now handled by <code class="language-plaintext highlighter-rouge">FormErrorsComponent</code>. Also due to the aforementioned changes, <code class="language-plaintext highlighter-rouge">BillingAddressFormComponent</code> was removed and its functionalities were moved to <code class="language-plaintext highlighter-rouge">PaymentFormComponent</code>. The same is true for the module: instead of <code class="language-plaintext highlighter-rouge">BillingAddressFormModule</code>, use <code class="language-plaintext highlighter-rouge">PaymentFormModule</code>.</p>
+
+<h2 id="how-to-use-formerrorscomponent">How to Use FormErrorsComponent</h2>
+
+<h3 id="preface">Preface</h3>
+
+<p>This component was created with easy usage in mind. The only thing you have to do is pass a form control to it as an attribute <code class="language-plaintext highlighter-rouge">[control]</code> and the component will handle everything for you, such as icon rendering, message, showing/hiding validation error, and so on.</p>
+
+<h3 id="useful-information">Useful information</h3>
+
+<ul>
+  <li>You can use the <code class="language-plaintext highlighter-rouge">FormErrors</code> component in any place you want, so you do not have to place it right after a related control element. For example, you can place it in a custom popup.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">FormErrors</code> component uses translation keys from the <code class="language-plaintext highlighter-rouge">common</code> chunk.</li>
+  <li>Each translation is mapped to specific validation error names, such as <code class="language-plaintext highlighter-rouge">cxPasswordsMustMatch</code>, for example.</li>
+  <li>The visuals of the controls (red border) are fully handled by CSS. They take advantage of the <code class="language-plaintext highlighter-rouge">ng-...</code> form CSS classes (valid, dirty, touched).</li>
+  <li><code class="language-plaintext highlighter-rouge">FormErrors</code> visibility is also relying on similar CSS classes (<code class="language-plaintext highlighter-rouge">.control-valid</code>, <code class="language-plaintext highlighter-rouge">.control-dirty</code>, <code class="language-plaintext highlighter-rouge">.control-touched</code>). As a result, you can use it in any place you want.</li>
+</ul>
+
+<h3 id="example">Example</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">[formGroup]=</span><span class="s">"testForm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">formControlName=</span><span class="s">"myInput"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;cx-form-errors</span> <span class="na">[control]=</span><span class="s">"testForm.get('myInput')"</span><span class="nt">&gt;</span> <span class="c">&lt;!-- pass the control --&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;cx-form-errors</span> <span class="na">[control]=</span><span class="s">"testForm.get('myInput')"</span><span class="nt">&gt;</span> <span class="c">&lt;!-- this will also work --&gt;</span>
+</code></pre></div></div>
+
+<h3 id="changes-to-components-variables-methods-etc">Changes to components’ variables, methods, etc</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Change type</th>
+      <th>Old value</th>
+      <th>New value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PlaceOrderComponent</code></td>
+      <td>variable</td>
+      <td><code class="language-plaintext highlighter-rouge">tAndCToggler</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PlaceOrderComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">toggleTAndC</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PlaceOrderComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">placeOrder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">submitForm</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ForgotPasswordComponent</code></td>
+      <td>variable</td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ResetPasswordFormComponent</code></td>
+      <td>variable</td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateEmailFormComponent</code></td>
+      <td>variable</td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateEmailFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isEmailConfirmNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateEmailFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdatePasswordFormComponent</code></td>
+      <td>output</td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdatePasswordFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdatePasswordFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isPasswordConfirmNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateProfileFormComponent</code></td>
+      <td>output</td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+      <td><code class="language-plaintext highlighter-rouge">submitted</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UpdateProfileFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CSAgentLoginFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CheckoutLoginComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isNotValid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CheckoutLoginComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">isEmailConfirmInvalid</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LoginFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">login</code></td>
+      <td><code class="language-plaintext highlighter-rouge">submitForm</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LoginFormComponent</code></td>
+      <td>method</td>
+      <td>-</td>
+      <td><code class="language-plaintext highlighter-rouge">loginUser</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RegisterComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">submit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">submitForm</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RegisterComponent</code></td>
+      <td>method</td>
+      <td>-</td>
+      <td><code class="language-plaintext highlighter-rouge">registerUser</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RegisterComponent</code></td>
+      <td>variable</td>
+      <td><code class="language-plaintext highlighter-rouge">isNewRegisterFlowEnabled</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RegisterComponent</code></td>
+      <td>variable</td>
+      <td><code class="language-plaintext highlighter-rouge">isAnonymousConsentEnabled</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CustomFormValidators</code></td>
+      <td>validator</td>
+      <td><code class="language-plaintext highlighter-rouge">emailDomainValidator</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CustomFormValidators</code></td>
+      <td>validator</td>
+      <td><code class="language-plaintext highlighter-rouge">matchPassword</code></td>
+      <td>removed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AmendOrderActionsComponent</code></td>
+      <td>input</td>
+      <td><code class="language-plaintext highlighter-rouge">isValid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amendOrderForm</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentFormComponent</code></td>
+      <td>method</td>
+      <td><code class="language-plaintext highlighter-rouge">showSameAsShippingAddressCheckbox</code></td>
+      <td>replaced with observable <code class="language-plaintext highlighter-rouge">showSameAsShippingAddressCheckbox$</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="store-finder-changes">Store Finder Changes</h2>
+
+<p>In <code class="language-plaintext highlighter-rouge">StoreFinderConfig</code>, the <code class="language-plaintext highlighter-rouge">radius</code> parameter of the <code class="language-plaintext highlighter-rouge">googleMaps?</code> parameter is now configurable.</p>
+
+<h2 id="save-for-later-configuration">Save for Later Configuration</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">saveForLater</code> feature flag was removed.</p>
+
+<p>Instead, use cart configuration to enable/disable saveForLater feature. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">cart</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">selectiveCart</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">enabled</span><span class="p">:</span> <span class="kc">true</span><span class="o">|</span><span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="translations-updates">Translations Updates</h2>
+
+<p>New translations have been added: small stylistic changes in the default values of <code class="language-plaintext highlighter-rouge">loginForm.dontHaveAccount</code>, <code class="language-plaintext highlighter-rouge">productList.appliedFilter</code>, and <code class="language-plaintext highlighter-rouge">productFacetNavigation.appliedFilter</code>, and a new <code class="language-plaintext highlighter-rouge">formErrors</code> translation group was added to the <code class="language-plaintext highlighter-rouge">common</code> chunk.</p>
+
+<h2 id="cds-library-breaking-changes">CDS Library Breaking Changes</h2>
+
+<ul>
+  <li>Enum <code class="language-plaintext highlighter-rouge">ProfileTagEventNames.LOADED</code> value was removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">ProfileTagEventService.addTracker</code> now returns <code class="language-plaintext highlighter-rouge">Observable&lt;string&gt;</code> instead of <code class="language-plaintext highlighter-rouge">Observable&lt;Event&gt;</code>.</li>
+</ul>
+
+<h2 id="peer-dependencies">Peer Dependencies</h2>
+
+<p>We updated peer dependencies for every library to correctly list all dependencies if you don’t use the storefront library. Previously, we only maintained this list for <code class="language-plaintext highlighter-rouge">@spartacus/storefront</code>.</p>
+
+<p>Now, during any library installation, you will see which other packages you have to install in the project.</p>
+
+<h2 id="deprecated-since-15">Deprecated Since 1.5</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Replacement</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>WishlistEffects, CartEffects, CartVoucherEffects, CartEntryEffects, effects</td>
+      <td>Create your own effects in a separate class and take into account the default behavior from effects</td>
+      <td>We didn’t plan to export effects in the first place. Cart effects in the public API were a mistake. If you extended this class, you should move your effects to a separate class and keep in mind that default effects will be working.</td>
+    </tr>
+    <tr>
+      <td>getReducers, reducerToken, reducerProvider, clearCartState, metaReducers, clearMultiCartState, multiCartMetaReducers, multiCartReducerToken, getMultiCartReducers, multiCartReducerProvider</td>
+      <td>Extend cart behavior in higher level (facade) or use custom actions for your specific use case</td>
+      <td>We didn’t plan to export reducers and utilities for reducers in the first place. Cart reducers in the public API were a mistake. Any changes to reducers should be handled in a different layer (facade) or separate store module. Keep in mind that default reducer behavior will be working under the hood.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartDetailsComponent.getAllPromotionsForCart</code> method removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">PromotionService</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PromotionService</code> is now the main promotion data source. Whenever you need promotions information, you should use this service.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OrderDetailItemsComponent.getConsignmentProducts</code> method removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">OrderConsignedEntriesComponent</code> instead</td>
+      <td>This functionality has been extracted into a separate component.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartItemComponent.potentialProductPromotions</code> input removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">PromotionService</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PromotionService</code> is now the main promotion data source. Whenever you need promotions information, you should use this service.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartItemListComponent.potentialProductPromotions</code> input removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">PromotionService</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PromotionService</code> is now the main promotion data source. Whenever you need promotions information, you should use this service.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartItemListComponent.getPotentialProductPromotionsForItem</code> method removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">PromotionService</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PromotionService</code> is now the main promotion data source. Whenever you need promotions information, you should use this service.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProductImagesComponent.isThumbsEmpty</code> property removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">thumbs$</code> observable instead</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">KymaServices</code> const removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">OpenIdAuthenticationTokenService</code> directly</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="deprecated-since-14">Deprecated Since 1.4</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Replacement</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>config <code class="language-plaintext highlighter-rouge">i18n.backend.crossDomain</code></td>
+      <td>-</td>
+      <td>It is not needed anymore since using Angular HttpClient for loading i18n assets</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartService</code> removed</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">ActiveCartService</code> instead</td>
+      <td><code class="language-plaintext highlighter-rouge">ActiveCartService</code> has exactly the same name, arguments and return type for most of the methods from <code class="language-plaintext highlighter-rouge">CartService</code>. One function was renamed: <code class="language-plaintext highlighter-rouge">getLoaded</code> is changed to <code class="language-plaintext highlighter-rouge">isStable</code> to better describe function behavior. Two methods are not present in <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. The <code class="language-plaintext highlighter-rouge">getCartMergeComplete</code> method was removed on purpose. Cart merging is an implementation detail of OCC and we don’t consider that information useful. Instead, you can rely on the <code class="language-plaintext highlighter-rouge">isStable</code> method that will correctly present the state of the cart. During cart merge, it will emit <code class="language-plaintext highlighter-rouge">false</code> values. A rule of thumb is to only dispatch cart modifications (for example, <code class="language-plaintext highlighter-rouge">addEntry</code>, <code class="language-plaintext highlighter-rouge">addEmail</code>) when <code class="language-plaintext highlighter-rouge">isStable</code> emits <code class="language-plaintext highlighter-rouge">true</code>. The <code class="language-plaintext highlighter-rouge">addVoucher</code> method is also not available in <code class="language-plaintext highlighter-rouge">ActiveCartService</code>. Instead, use the <code class="language-plaintext highlighter-rouge">CartVoucherService.addVoucher</code> method.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CartDataService</code> removed</td>
+      <td>Use methods from <code class="language-plaintext highlighter-rouge">ActiveCartService</code> and <code class="language-plaintext highlighter-rouge">AuthService</code></td>
+      <td>Our libraries are generally moving towards reactive programming and observables. <code class="language-plaintext highlighter-rouge">CartDataService</code> used completely different patterns and it was hard to follow if existing data was already updated, or represented a previous cart state. The following are replacements for <code class="language-plaintext highlighter-rouge">CartDataService</code> properties: <code class="language-plaintext highlighter-rouge">userId</code> -&gt; replace usage with <code class="language-plaintext highlighter-rouge">AuthService.getOccUserId()</code>; <code class="language-plaintext highlighter-rouge">cart</code> -&gt; replace usage with <code class="language-plaintext highlighter-rouge">ActiveCartService.getActive()</code>; <code class="language-plaintext highlighter-rouge">cartId</code> -&gt; replace usage with <code class="language-plaintext highlighter-rouge">ActiveCartService.getActiveCartId()</code>; <code class="language-plaintext highlighter-rouge">isGuestCart</code> -&gt; replace usage with <code class="language-plaintext highlighter-rouge">ActiveCartService.isGuestCart()</code>. The <code class="language-plaintext highlighter-rouge">hasCart</code> property doesn’t have a direct replacement. Instead, you can look into the <code class="language-plaintext highlighter-rouge">ActiveCartService.getActive()</code> method output to see if it emitted an empty object (which means that there is no cart).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProductService</code> and <code class="language-plaintext highlighter-rouge">CurrentProductService</code> use product scopes</td>
+      <td>-</td>
+      <td>In some cases, the current product won’t return the full product model. You should use scopes to optimize back end calls related to product data.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">withCredentialsInterceptorProvider</code></td>
+      <td>It is provided by default in <code class="language-plaintext highlighter-rouge">OccModule</code></td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="deprecated-since-13">Deprecated Since 1.3</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Replacement</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PageMetaResolver.resolve()</td>
+      <td>Use individual resolvers</td>
+      <td>The caller <code class="language-plaintext highlighter-rouge">PageMetaService</code> service is improved to expect all individual resolvers instead, so that the code is more easily extensible.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">initSiteContextRoutesHandler</code>, <code class="language-plaintext highlighter-rouge">siteContextParamsProviders</code></td>
+      <td>-</td>
+      <td>The constants were not meant to be exported in the public API.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">inititializeContext</code>, <code class="language-plaintext highlighter-rouge">contextServiceProviders</code></td>
+      <td>-</td>
+      <td>The constants were not meant to be exported in the public API.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="deprecated-since-12">Deprecated Since 1.2</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Replacement</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CheckoutActions.ClearCheckoutDeliveryModeSuccess()</td>
+      <td>CheckoutActions.ClearCheckoutDeliveryModeSuccess(payload)</td>
+      <td>The <code class="language-plaintext highlighter-rouge">ClearCheckoutDeliveryModeSuccess</code> action requires a payload. <code class="language-plaintext highlighter-rouge">CheckoutActions.ClearCheckoutDeliveryModeSuccess(payload: { userId: string; cartId: string })</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ANONYMOUS_USERID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OCC_USER_ID_ANONYMOUS</code></td>
+      <td>OCC constants are now available under the <code class="language-plaintext highlighter-rouge">OCC</code> prefix to make it more clear that these variables are related to <code class="language-plaintext highlighter-rouge">OCC</code>.</td>
+    </tr>
+    <tr>
+      <td>AddressBookComponentService.addUserAddress(userAddressService: UserAddressService)</td>
+      <td>AddressBookComponentService(userAddressService, checkoutDeliveryService)</td>
+      <td>The constructor now also uses the <code class="language-plaintext highlighter-rouge">CheckoutDeliveryService</code>. <code class="language-plaintext highlighter-rouge">AddressBookComponentService(userAddressService: UserAddressService, checkoutDeliveryService: CheckoutDeliveryService)</code></td>
+    </tr>
+    <tr>
+      <td>CheckoutGuard(router: Router, config: CheckoutConfig, routingConfigService: RoutingConfigService)</td>
+      <td>CheckoutGuard(router, routingConfigService, checkoutConfigService, expressCheckoutService, cartService)</td>
+      <td>The constructor now uses new dependencies. <code class="language-plaintext highlighter-rouge">CheckoutGuard(router: Router, routingConfigService: RoutingConfigService, checkoutConfigService: CheckoutConfigService, expressCheckoutService: ExpressCheckoutService, cartService: ActiveCartService)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="deprecated-since-11">Deprecated Since 1.1</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Replacement</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cxApi.CmsComponentData</code></td>
+      <td>cxApi.cmsComponentData</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OccCartEntryAdapter.getCartEndpoint</code></td>
+      <td>Use configurable endpoints</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OccCartAdapter.getCartEndpoint</code></td>
+      <td>Use configurable endpoints</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OccUserOrderAdapter.getOrderEndpoint</code></td>
+      <td>Use configurable endpoints</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="shipping-address-component-variables-and-methods-removed">Shipping Address component variables and methods removed</h3>
+
+<p>Support for declared variables dropped:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cards</code> This variable will no longer be in use. Use the <code class="language-plaintext highlighter-rouge">cards$</code> observable instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">goTo</code> This variable will no longer be in use. Avoid using it.</li>
+  <li><code class="language-plaintext highlighter-rouge">setAddress</code> This variable will no longer be in use. Use <code class="language-plaintext highlighter-rouge">selectAddress(address: Address)</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">setAddressSub</code> This variable will no longer be in use. Avoid using it.</li>
+  <li><code class="language-plaintext highlighter-rouge">selectedAddressSub</code> This variable will no longer be in use. Use the <code class="language-plaintext highlighter-rouge">selectedAddress$</code> observable instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">checkoutStepUrlNext</code> This variable will no longer be in use. Use <code class="language-plaintext highlighter-rouge">CheckoutConfigService.getNextCheckoutStepUrl(this.activatedRoute)</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">checkoutStepUrlPrevious</code> This variable will no longer be in use. Use <code class="language-plaintext highlighter-rouge">CheckoutConfigService.getPreviousCheckoutStepUrl(this.activatedRoute)</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">selectedAddress</code> This variable will no longer be in use. Use <code class="language-plaintext highlighter-rouge">selectedAddress$</code> observable instead.</li>
+</ul>
+
+<p>Support for functions dropped:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">addressSelected</code> This method will no longer be in use. Use <code class="language-plaintext highlighter-rouge">selectAddress(address: Address)</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">back</code> This method will no longer be in use. Use <code class="language-plaintext highlighter-rouge">goPrevious()</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">next</code> This method will no longer be in use. Use <code class="language-plaintext highlighter-rouge">goNext()</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">addNewAddress</code> This method will no longer be in use. Use <code class="language-plaintext highlighter-rouge">addAddress(address: Address)</code> instead.</li>
+  <li><code class="language-plaintext highlighter-rouge">ngOnDestroy</code> This method will no longer be in use. Remove.</li>
+</ul>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/3.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/3.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'b6583768751462c6ee53d5a5720cda44', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:3.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

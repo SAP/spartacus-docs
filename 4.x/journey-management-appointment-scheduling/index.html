@@ -1,0 +1,2254 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Journey Management - Appointment Scheduling - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Journey Management - Appointment Scheduling">
+<meta property="og:url" content="/spartacus-docs/4.x/journey-management-appointment-scheduling/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/4.x/journey-management-appointment-scheduling/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/4.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/4.x/"><img src="/spartacus-docs/4.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/4.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/release-information/" >Version 4.2</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/telco-release-information/">Release Information for TUA Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/tua-spartacus-roadmap/">Roadmap for TUA Spartacus</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-tua-faq/">TUA Spartacus FAQ</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/getting-started-with-tua-spartacus/">Getting Started with TUA Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-features-for-tua/">Spartacus Features for TUA ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/b2b-order-approval/" class="">B2B Order Approval</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/b2b-organization-management/" class="">B2B Organization Management</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/b2b-telco-store/" class="">B2B Telco Store</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cart/" class="">Cart</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/checkout/" class="">Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/configurable-guided-selling/" class="">Configurable Guided Selling</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/consumption/" class="">Consumption</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/renewal-of-standalone-spo/" class="">Contract Renewals</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/contract-termination/" class="">Contract Termination (Without Assurance)</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cost-estimation/" class="">Cost Estimation</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customer-product-inventory/" class="">Customer Product Inventory</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/journey-management-appointment-scheduling/" class="active">Journey Management - Appointment Scheduling</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/journey-management-msisdn/" class="">Journey Management - MSISDN</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/journey-management-serviceability-page/" class="">Journey Management - Serviceability Check ➢</a>
+
+
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/media-storefront/" class="">Media Storefront</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/order/" class="">Order</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/composite-pricing/" class="">Pricing - Composite Pricing</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/price-alteration-discounts/" class="">Pricing - Price Alteration Discounts</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/product-offering-prices/" class="">Pricing - Subscription Rate Plan</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/product-offering-search/" class="">Product Offering Search</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/purchase-po-with-configurable-characteristics/" class="">Purchase PO with Configurable Characteristics</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/sales-flow-cross-sell-of-an-spo/" class="">Sales Flow - Cross-Selling</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/simple-product-offering/" class="">Simple Product Offering</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Journey Management - Appointment Scheduling</h1>
+    
+    
+<p><b>Note: </b> 
+This feature is introduced with version 2.0 of the TUA Spartacus libraries.
+ </p>
+
+<p>As a result of Journey Management configuration, a product offerings may be defined with the requirement of an appointment to be scheduled. This means that an appointment reservation is required before the order can be successfully placed. The Journey Management appointment feature enables customers to make this reservation during the “Add to Cart” process.</p>
+
+<p>Appointment selection and reservation in a productive system requires third-party integration to the appropriate backend system. This feature can be adapted to work with a customer-specific business process flow.</p>
+
+<p>This feature applies to product offerings or product specifications that have a checklist policy for Appointment Reference and/or Installation Address configured. It is applicable to product offerings sold as a simple product offering or bundled product offering through configurable guided selling. For more information, see <a href="https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/fa22e16db2524c0bb9b12c6102ba1b5d.html">Configurable Guided Selling</a> in the TUA Help portal.</p>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
+  <li><a href="#business-use-cases" id="markdown-toc-business-use-cases">Business Use Cases</a></li>
+  <li><a href="#frontend-and-backend-dependencies" id="markdown-toc-frontend-and-backend-dependencies">Frontend and Backend Dependencies</a></li>
+  <li><a href="#configuring-and-enabling-installation-address-and-appointment-in-tua" id="markdown-toc-configuring-and-enabling-installation-address-and-appointment-in-tua">Configuring and Enabling Installation Address and Appointment in TUA</a></li>
+  <li><a href="#components" id="markdown-toc-components">Components</a></li>
+  <li><a href="#tm-forum-apis" id="markdown-toc-tm-forum-apis">TM Forum APIs</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ul>
+
+<hr />
+
+<h2 id="prerequisite">Prerequisite</h2>
+
+<p>To test this feature using a mockup service, follow the instructions to set-up soapUI. Ensure that the Appointment system is always up and running.</p>
+
+<p><strong>Note:</strong> The mockup service is not recommended for the production environments as it is intended only for demonstration purpose.</p>
+
+<ol>
+  <li>Download <a href="https://www.soapui.org/downloads/latest-release/">soapUI, version 5.6.0</a> as per your installed Operating System.</li>
+  <li>Navigate to the <a href="https://github.com/SAP/spartacus-tua/releases/tag/1.1.0">TUA Spartacus git repository</a> and download the <code class="language-plaintext highlighter-rouge">mock_services.zip</code> file.</li>
+  <li>Extract the <code class="language-plaintext highlighter-rouge">mock_services.zip</code> file. The content of the ZIP when extracted is the <code class="language-plaintext highlighter-rouge">Resource_Pool_Management_API.xml</code> file.</li>
+  <li>Click the <strong>Import</strong> icon on the soapUI toolbar. The <code class="language-plaintext highlighter-rouge">Select soapUI Project</code> file dialog box opens. Import the  <code class="language-plaintext highlighter-rouge">Resource_Pool_Management_API.xml</code> file into the soapUI.</li>
+  <li>Right-click <strong>Appointment</strong> and then click <strong>Start Minimized</strong>. When the mock service is up, you can see that the Appointment mock service is also up and running.</li>
+</ol>
+
+<h2 id="business-use-cases">Business Use Cases</h2>
+
+<p>The following business use cases are covered for this feature:</p>
+
+<ol>
+  <li>
+    <p>A customer wants to purchase a product offering that requires an installation service at a preferred address specified by the customer.  During the “Add to “Cart” process, the customer is prompted to specify the address and/or make an appointment reservation.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.</p>
+  </li>
+  <li>
+    <p>A customer enters <a href="https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/464d4b03d91442e9ac95f69808895a39.html">Configurable Guided Selling</a> and wants to purchase a product offering that requires an installation service at a preferred address specified by the customer. During the “Add to Cart” process, the customer is prompted to specify the address and/or make an appointment reservation. If multiple products requires installation, the end customer will only be prompted once to provide this information making the configurable guided selling journey seamless.  Behind the scenes, the installation address and appointment will be copied to all product offerings requiring this information.   If the product offering has only an installation address policy configured, the appointment selection screen will not display.</p>
+  </li>
+  <li>
+    <p>A customer has the ability to change the installation address and/or appointment from within the cart.</p>
+  </li>
+  <li>
+    <p>A customer may not immediately place the order but instead waits until the next day, or the customer completely abandons the cart. After a defined period of time, the cart times-out and the appointment is automatically cancelled, and the slot can be made available for another customer.</p>
+  </li>
+</ol>
+
+<h2 id="frontend-and-backend-dependencies">Frontend and Backend Dependencies</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dependency</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recipe</td>
+      <td>b2c_telco_spa</td>
+    </tr>
+    <tr>
+      <td>Minimum version of backend TUA</td>
+      <td>TUA Release 2007 or 2011 (latest patch is required)</td>
+    </tr>
+    <tr>
+      <td>Minimum   version of core commerce backend</td>
+      <td>SAP Commerce Cloud release 2005 (latest patch is recommended)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="configuring-and-enabling-installation-address-and-appointment-in-tua">Configuring and Enabling Installation Address and Appointment in TUA</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Installation address</code> and the <code class="language-plaintext highlighter-rouge">Appointment-Reference</code> checklist policy is configured in the Backoffice by the Product Manager. For more information, see <a href="https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/c3d274fb74074c70bec9cd6e9686d5a1.html">Journey Checklist Policy Configurations</a>.</p>
+
+<h2 id="components">Components</h2>
+
+<p>The following new and updated components must be enabled in the TUA backoffice to appear on the Spartacus TUA storefront:</p>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-pcvp{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><span style="font-weight:bold">Component   Name</span></th>
+    <th class="tg-0pky"><span style="font-weight:bold">Status</span></th>
+    <th class="tg-0pky"><span style="font-weight:bold">Description</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-pcvp">JourneyChecklistStepComponent</td>
+    <td class="tg-pcvp">Updated</td>
+    <td class="tg-pcvp">This component is updated to include:<br /><br />1. JourneyChecklistInstallationAddressComponent.<br />2. The <span style="font-weight:bold">Next</span> button to save the address in the address book of the user and to navigate to the next step, which can be either "Add to Cart" or the "Installation address" selection.<br /></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">JourneyChecklistAppointmentComponent</td>
+    <td class="tg-0pky">Updated</td>
+    <td class="tg-0pky">This component displays the available time slots for scheduling an appointment to the customer.<br /><br /><span style="font-weight:bold">Note:</span> The <span style="font-weight:bold">Please Call to Schedule</span> option shows selected by default. The other values are in the Month Date, Year, and Time (AM/PM) format. For Example: Sept 9, 2020 12:00 PM</td>
+  </tr>
+  <tr>
+    <td class="tg-pcvp">JourneyChecklistInstallationAddressComponent</td>
+    <td class="tg-pcvp">New</td>
+    <td class="tg-pcvp">This component wraps the <span style="font-weight:bold">TmaAddressFormComponent</span> for the checklist installation address. It is responsible for populating the installation address when the customer clicks the <span style="font-style:italic">Edit </span>pencil icon.</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">AppointmentComponent</td>
+    <td class="tg-0pky">Updated</td>
+    <td class="tg-0pky">This component displays the appointment details in the Order page, Order History page, the Cart summary, and the Add to Cart screen. <br /><br />It is in the following format: Appointment: Month Date and Year Time (AM/PM). For example, Appointment: Sept 9,2020 12:00 PM or  Appointment: Please Call to Schedule.</td>
+  </tr>
+  <tr>
+    <td class="tg-pcvp">InstallationAddressComponent</td>
+    <td class="tg-pcvp">New</td>
+    <td class="tg-pcvp">This component displays the the details of the installation address in the Order page, Order History page, the Crart summary page, and Add to Cart pop-up.<br /><br />It is in the following format: Installation Address : Building Number, Street Name, City, StateOrProvince(Optional), Country, and Postal Code</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">AppointmentDetailsComponent</td>
+    <td class="tg-0pky">New</td>
+    <td class="tg-0pky">This component is a wrapper for the <span style="font-style:italic">AppointmentComponent </span>and the <span style="font-style:italic">InstallationAddressComponent</span>. It enables editing of an appointment using the <span style="font-weight:bold">Edit </span>pencil icon. For more information, see <span style="font-style:italic">AppointmentComponent</span> and <span style="font-style:italic">InstallationAddressComponent</span>.</td>
+  </tr>
+  <tr>
+    <td class="tg-pcvp">TmaAddToCartComponent</td>
+    <td class="tg-pcvp">Updated</td>
+    <td class="tg-pcvp">This component displays the enhanced<span style="font-weight:bold"> Add to Cart </span>button to call the checklist actions and open the checklist action stepper, if any checklist actions for Appointment or Installation address are present.</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TmaAddressFormComponent</td>
+    <td class="tg-0pky">New</td>
+    <td class="tg-0pky">This component enables to input the following address details: House/Building Number, Street Apartment/Unit/Suite(Optional), City, Country, State/Province (appears only in case the country is US), Zip/Postal Code.<br /></td>
+  </tr>
+  <tr>
+    <td class="tg-pcvp">TmaAddedToCartDialogComponent</td>
+    <td class="tg-pcvp">Updated</td>
+    <td class="tg-pcvp">This component is updated to include the <span style="font-style:italic">AppointmentDetailsComponent</span> in the <span style="font-weight:bold">Add to Cart </span>screen<br /></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TmaCartItemComponent</td>
+    <td class="tg-0pky">Updated</td>
+    <td class="tg-0pky">This component is updated to include the <span style="font-style:italic">AppointmentDetailsComponent</span> on the Cart entry level. <br /><br />For example:<br />for SPO, it displays at the Cart and the Order entry Level<br />for BPO, it displays at the BPO level</td>
+  </tr>
+  <tr>
+    <td class="tg-pcvp">TmaCartItemComponent</td>
+    <td class="tg-pcvp">Updated</td>
+    <td class="tg-pcvp">This component has modified the display of the appointment details to move at the Cart entry level. For more information, see <span style="font-style:italic">TmaCartItemListComponent</span>.<br /></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">TmaGuidedSellingAddedToCartDialogComponent</td>
+    <td class="tg-0pky">Updated</td>
+    <td class="tg-0pky">This component is updated to display the<span style="font-style:italic"> AppointmentDetailsComponent</span>. For more information, see <span style="font-style:italic">AppointmentDetailsComponent.</span><br /></td>
+  </tr>
+  <tr>
+    <td class="tg-pcvp">TmaGuidedSellingCurrentSelectionComponent</td>
+    <td class="tg-pcvp">Updated</td>
+    <td class="tg-pcvp">This component displays the<span style="font-weight:bold"> Add to Cart</span> button for a BPO that calls the checklist action and opens the checklist action stepper, if any checklist actions for an appointment or for the installation address are present.</td>
+  </tr>
+</tbody>
+</table>
+
+<h2 id="tm-forum-apis">TM Forum APIs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>End Points</th>
+      <th>TMF</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POST appointment/searchTimeSlot</td>
+      <td>TMF-646</td>
+      <td>Displays the available list of time slots</td>
+    </tr>
+    <tr>
+      <td>POST /appointment</td>
+      <td>TMF-646</td>
+      <td>Creates an appointment for the customer</td>
+    </tr>
+    <tr>
+      <td>GET /appointment/{id}</td>
+      <td>TMF-646</td>
+      <td>Retrieves the  appointment details of a customer</td>
+    </tr>
+    <tr>
+      <td>PATCH /appointment/{id}</td>
+      <td>TMF-646</td>
+      <td>Updates the appointment details of a customer</td>
+    </tr>
+    <tr>
+      <td>GET /checklistAction</td>
+      <td>None</td>
+      <td>Retrieves applicable list of checklist policies for product offerings</td>
+    </tr>
+    <tr>
+      <td>PATCH /shoppingCart/{id}</td>
+      <td>TMF-633</td>
+      <td>Updates an existing entry in the shopping cart</td>
+    </tr>
+    <tr>
+      <td>POST /geographicAddress</td>
+      <td>TMF-673</td>
+      <td>Creates an installation address</td>
+    </tr>
+    <tr>
+      <td>PATCH /geographicAddress/{id}</td>
+      <td>TMF-673</td>
+      <td>Edits an installation address</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For more information, see <a href="https://help.sap.com/viewer/f59b0ac006d746caaa5fb599b4270151/latest/en-US/d46b30b30eca4d4d8ddd20ad833d77f9.html">TM Forum APIs</a>.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>For further reading, see the following topics in the TUA Help portal.</p>
+
+<ul>
+  <li><a href="https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/b685dbb837ca4ad7b6c86d0bbd8a7fd7.html">Checklist Policy</a>.</li>
+  <li><a href="https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/latest/en-US/464d4b03d91442e9ac95f69808895a39.html">Configurable Guided Selling (CGS)</a>.</li>
+  <li><a href="https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/1cea3b2cb3334fc085dda9cc070ad6ac.html">Making Components Visible</a>.</li>
+</ul>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/4.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/4.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'b6583768751462c6ee53d5a5720cda44', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:4.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

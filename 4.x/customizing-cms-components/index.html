@@ -1,0 +1,2234 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Customizing CMS Components - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Customizing CMS Components">
+<meta property="og:url" content="/spartacus-docs/4.x/customizing-cms-components/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/4.x/customizing-cms-components/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/4.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/4.x/"><img src="/spartacus-docs/4.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/4.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/release-information/" >Version 4.2</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/a11y/">Accessibility ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-api/">API</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/architecture/">Architecture ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-and-extending/">Customizing and Extending Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customizing-cms-components/" class="active">Customizing CMS Components</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/creating-pages-and-components/" class="">Creating New Pages and Components</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/extending-checkout/" class="">Extending Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/i18n/" class="">Internationalization (i18n)</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/product-details-page/" class="">Product Details Page</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/components/" class="">Spartacus Components ➢</a>
+
+
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-backend-communication/">Customizing Back End Communication ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/performance/">Performance Optimizations ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/security-best-practices/">Security Best Practices ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/server-side-rendering-in-spartacus/">Server-Side Rendering ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-features/">Storefront Features ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/styling-and-page-layout/">Styling and Page Layout ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Customizing CMS Components</h1>
+    
+    <p>The Spartacus storefront is based on JavaScript, and accordingly, it is composed of a large number of fine-grained JavaScript components. However, there is a special kind of component to render CMS content. CMS components are dynamically added at runtime. The CMS component type, provided by the back end, is mapped to an equivalent JavaScript component. The mapping is provided in a configuration that can be customized. This allows you to configure a custom component to render a specific CMS component.</p>
+
+<p>In addition, component-specific business logic can be customized. This requires an additional configuration where the custom service can be provided to the (default) component.</p>
+
+<p>With this setup, CMS components can be customized in the following ways:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Approach</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customize style</td>
+      <td>Add custom CSS rules<br />(Out of scope for this doc)</td>
+      <td>Customize component style for the <code class="language-plaintext highlighter-rouge">LanguageSelector</code></td>
+    </tr>
+    <tr>
+      <td>Replace component</td>
+      <td>Configure a custom component</td>
+      <td>Provide a custom <code class="language-plaintext highlighter-rouge">BannerComponent</code></td>
+    </tr>
+    <tr>
+      <td>Customize logic</td>
+      <td>Configure a custom service</td>
+      <td>Provide a custom <code class="language-plaintext highlighter-rouge">SearchBoxComponentService</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#configuring-custom-components" id="markdown-toc-configuring-custom-components">Configuring Custom Components</a>    <ul>
+      <li><a href="#custom-angular-cms-components" id="markdown-toc-custom-angular-cms-components">Custom Angular CMS Components</a></li>
+      <li><a href="#lazy-loaded-cms-components-code-splitting" id="markdown-toc-lazy-loaded-cms-components-code-splitting">Lazy-Loaded CMS Components (Code Splitting)</a></li>
+      <li><a href="#accessing-cms-data-in-cms-components" id="markdown-toc-accessing-cms-data-in-cms-components">Accessing CMS Data in CMS Components</a></li>
+      <li><a href="#using-web-components-as-cms-components-experimental-support" id="markdown-toc-using-web-components-as-cms-components-experimental-support">Using Web Components as CMS Components (Experimental Support)</a>        <ul>
+          <li><a href="#accessing-api-and-cms-data" id="markdown-toc-accessing-api-and-cms-data">Accessing API and CMS Data</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#customizing-services" id="markdown-toc-customizing-services">Customizing Services</a></li>
+  <li><a href="#guarding-components" id="markdown-toc-guarding-components">Guarding Components</a></li>
+  <li><a href="#controlling-server-side-rendering-ssr" id="markdown-toc-controlling-server-side-rendering-ssr">Controlling Server Side Rendering (SSR)</a></li>
+  <li><a href="#placeholder-components" id="markdown-toc-placeholder-components">Placeholder Components</a></li>
+  <li><a href="#handling-nested-cms-components" id="markdown-toc-handling-nested-cms-components">Handling Nested CMS Components</a></li>
+</ul>
+
+<hr />
+
+<h2 id="configuring-custom-components">Configuring Custom Components</h2>
+
+<p>There are two types of components that can be configured: angular components, and web components (for which we currently provide experimental support).</p>
+
+<h3 id="custom-angular-cms-components">Custom Angular CMS Components</h3>
+
+<p>You can provide a CMS component configuration to the <code class="language-plaintext highlighter-rouge">ConfigModule</code>, or directly to the <code class="language-plaintext highlighter-rouge">B2cStorefrontModule</code>. The following configuration shows how to configure a custom Angular component for the CMS <code class="language-plaintext highlighter-rouge">BannerComponent</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">BannerComponent</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="nx">CustomBannerComponent</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="lazy-loaded-cms-components-code-splitting">Lazy-Loaded CMS Components (Code Splitting)</h3>
+
+<p>It is possible to use dynamic imports in CMS mapping to achieve lazy-loaded CMS components and code splitting.</p>
+
+<p>The dynamic import should be defined as an arrow function, as shown in the following example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">BannerComponent</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+        <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">./lazy-banner/lazy-banner.component</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+          <span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">LazyBannerComponent</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Resolving chunks for code splitting is done at build time, and depends on how the code is imported. If there is at least one static import available in the main chunk, the code will be bundled statically, and separate chunks will not be generated.</p>
+
+<h3 id="accessing-cms-data-in-cms-components">Accessing CMS Data in CMS Components</h3>
+
+<p>The CMS data that is related to a component is provided to the component by the <code class="language-plaintext highlighter-rouge">CmsComponentData</code> service during instantiation. The <code class="language-plaintext highlighter-rouge">CmsComponentData</code> service contains the component <code class="language-plaintext highlighter-rouge">uid</code>, and also <code class="language-plaintext highlighter-rouge">data$</code>, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the <code class="language-plaintext highlighter-rouge">CmsComponentData</code>.</p>
+
+<h3 id="using-web-components-as-cms-components-experimental-support">Using Web Components as CMS Components (Experimental Support)</h3>
+
+<p><strong>Warning:</strong> This feature is experimental. Some functionality may not work as expected, and the API may mature or change in the future.</p>
+
+<p>Web components have a lot of benefits, and as soon as some of the fundamentals of Angular are ready for this, Spartacus will most likely begin to use them. Some preparation has already been made to allow for loading web components, but the current recommendation is to use Angular components.</p>
+
+<p>To configure a web component as a CMS component, the configuration must consist of the path to the JS file (web component implementation) and its tag name, separated by a hash symbol (<code class="language-plaintext highlighter-rouge">#</code>). The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">BannerComponent</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">component</span><span class="p">:</span> <span class="dl">'</span><span class="s1">path/to/banner/component/file.js#custom-banner</span><span class="dl">'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>If you prefer to load web component implementation script eagerly, you can manually include it in your index.html file using usual <code class="language-plaintext highlighter-rouge">script</code> tag, and skip it from mapping configuration:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">BannerComponent</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">component</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#custom-banner</span><span class="dl">'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>One JS file can contain more that one web component implementation, used as different CmsComponents.</p>
+
+<p>This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope for this documentation.</p>
+
+<h4 id="accessing-api-and-cms-data">Accessing API and CMS Data</h4>
+
+<p>Web components do not have access to the application DI system, regardless of whether they are built in Angular or not. They are isolated from the core application and can only interact with inputs and outputs. Therefore, they cannot access <code class="language-plaintext highlighter-rouge">CmsComponentData</code>, and would also suffer from not being able to reuse any of the services provided by Spartacus.</p>
+
+<p>For these reasons, Spartacus uses the <code class="language-plaintext highlighter-rouge">cxApi</code> input to provide web components with both component-related data, as well as a generic API to the core services of Spartacus.</p>
+
+<h2 id="customizing-services">Customizing Services</h2>
+
+<p>Spartacus CMS components that use (complex) business logic will delegate this to a service. This simplifies extensibility, and is also recommended for the following reasons:</p>
+
+<ul>
+  <li>components only depend on a single service</li>
+  <li>the service might have other dependencies</li>
+  <li>a custom service can be provided for custom business logic</li>
+</ul>
+
+<p>Component services are designed to be non-singleton services, scoped to the component, so that they have direct access to the <code class="language-plaintext highlighter-rouge">CmsComponentData</code> provided in the component scope. This design does not work well with the Angular DI system, because the DI system does not provide a mechanism to override component services without changing the component.</p>
+
+<p>However, to configure a custom component service, you can provide a service in a similar fashion. The configuration is done in-line with the component configuration. In the following example, the <code class="language-plaintext highlighter-rouge">SearchComponent</code> is provided with a custom <code class="language-plaintext highlighter-rouge">SearchBoxComponentService</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">SearchBoxComponent</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="na">provide</span><span class="p">:</span> <span class="nx">SearchBoxComponentService</span><span class="p">,</span>
+          <span class="na">useClass</span><span class="p">:</span> <span class="nx">CustomSearchBoxComponentService</span><span class="p">,</span>
+          <span class="na">deps</span><span class="p">:</span> <span class="p">[</span><span class="nx">CmsComponentData</span><span class="p">,</span> <span class="nx">ProductSearchService</span><span class="p">,</span> <span class="nx">RoutingService</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="guarding-components">Guarding Components</h2>
+
+<p>It’s often a case that some routes should be accessible only in certain conditions (i.e. Personal Details page should be opened only for signed-in user). For this purpose we can use Angular <a href="https://angular.io/guide/router#milestone-5-route-guards">Route Guards</a> to perform some logic before entering a route (i.e fetch data from backend or check if user is authenticated) and decide whether it can be opened or we should redirect to other page.</p>
+
+<p>The pages’ content is often CMS-driven, so in Spartacus comes up with <em>configuring guards per CMS component</em>. Just after loading CMS components for a page from backend, all Guards of those components are executed. It allows for redirecting to other page if at least one guard decides so (i.e. due to missing authentication).</p>
+
+<p><em>Note: When many components at the same page have the same guard (i.e. AuthGuard), it will be executed only once.</em></p>
+
+<p>Below there’s an example how to configure guards for CMS component:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">CheckoutProgress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="nx">CheckoutProgressComponent</span><span class="p">,</span>
+      <span class="na">guards</span><span class="p">:</span> <span class="p">[</span><span class="nx">AuthGuard</span><span class="p">,</span> <span class="nx">CartNotEmptyGuard</span><span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="controlling-server-side-rendering-ssr">Controlling Server Side Rendering (SSR)</h2>
+
+<p>You might not want to render all CMS components in the server. The following are some examples of when not to render a CMS component in the server:</p>
+
+<ul>
+  <li>a CMS component requires personalized input and should not, or cannot, be rendered without it</li>
+  <li>a CMS component is not required for SSR output, and for performance reasons, it will be removed from the rendering process</li>
+  <li>a CMS component interacts with external services (latency) and is not relevant for indexing and social sharing</li>
+</ul>
+
+<p>While it is possible to add conditional logic in a component to render (parts of) the view in SSR, Spartacus offers a configuration for components to make this more generic, and to avoid any specific logic in components. The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">SearchBoxComponent</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">disableSSR</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="placeholder-components">Placeholder Components</h2>
+
+<p>For Angular or web components that do not need any data from CMS (for example, login), you can use the CMS component of type <code class="language-plaintext highlighter-rouge">CMSFlexComponent</code> as a placeholder. This CMS component contains the special <code class="language-plaintext highlighter-rouge">flexType</code> attribute. Spartacus use the <code class="language-plaintext highlighter-rouge">flexType</code> attribute in its CMS mapping instead of the original component type.</p>
+
+<p>In the same manner, the <code class="language-plaintext highlighter-rouge">uid</code> attribute of <code class="language-plaintext highlighter-rouge">JspIncludeComponent</code> is used in the CMS mapping instead of the original component type.</p>
+
+<p><strong>Note:</strong> It is recommended to use <code class="language-plaintext highlighter-rouge">CMSFlexComponent</code> instead of <code class="language-plaintext highlighter-rouge">JspIncludeComponent</code>, because the <code class="language-plaintext highlighter-rouge">uid</code> attribute in <code class="language-plaintext highlighter-rouge">JspIncludeComponent</code> must be unique, which means you cannot have two instances of the same <code class="language-plaintext highlighter-rouge">JspIncludeComponent</code>.</p>
+
+<h2 id="handling-nested-cms-components">Handling Nested CMS Components</h2>
+
+<p>The CMS allows the creation of nested components inside so-called container components. An example of such component is the <code class="language-plaintext highlighter-rouge">TabPanelContainer</code> that is used in the product details page to display the tabs. In this case, the container contains the different tab components.</p>
+
+<p>Spartacus supports the dynamic rendering of nested components. This can be achieved by iterating over the list of child components and using the <code class="language-plaintext highlighter-rouge">cxComponentWrapper</code> directive to dynamically load each component. The list of child components is returned by the component container in the <code class="language-plaintext highlighter-rouge">components</code> field. Using the list of uids it’s possible to fetch their conent using the <code class="language-plaintext highlighter-rouge">CmsService</code>’s <code class="language-plaintext highlighter-rouge">getComponentData</code> method.</p>
+
+<p>The following example demontrate how the tabs are rendered in the product details page:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tab-paragraph-container.component.ts</span>
+
+<span class="cm">/*...*/</span>
+
+<span class="kd">constructor</span><span class="p">(</span>
+  <span class="k">public</span> <span class="nx">componentData</span><span class="p">:</span> <span class="nx">CmsComponentData</span><span class="o">&lt;</span><span class="nx">CMSTabParagraphContainer</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="k">private</span> <span class="nx">cmsService</span><span class="p">:</span> <span class="nx">CmsService</span>
+<span class="p">)</span> <span class="p">{}</span>
+
+<span class="nx">components$</span><span class="p">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">any</span><span class="p">[]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">componentData</span><span class="p">.</span><span class="nx">data$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+  <span class="nx">switchMap</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span>
+    <span class="nx">combineLatest</span><span class="p">(</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">components</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">component</span> <span class="o">=&gt;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">cmsService</span><span class="p">.</span><span class="nx">getComponentData</span><span class="o">&lt;</span><span class="kr">any</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">component</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+          <span class="nx">map</span><span class="p">(</span><span class="nx">tab</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span>
+              <span class="p">...</span><span class="nx">tab</span><span class="p">,</span>
+              <span class="na">title</span><span class="p">:</span> <span class="s2">`CMSTabParagraphContainer.tabs.</span><span class="p">${</span><span class="nx">tab</span><span class="p">.</span><span class="nx">uid</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="c1">//Custom mapping to pass additional data to the HTML. If not required the map can be omitted.</span>
+            <span class="p">};</span>
+          <span class="p">})</span>
+        <span class="p">)</span>
+      <span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>In container component HTML file</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- tab-paragraph-container.component.html --&gt;</span>
+
+<span class="nt">&lt;ng-container</span> <span class="na">*ngFor=</span><span class="s">"let component of (components$ | async)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>
+    
+  <span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="c">&lt;!-- Renders the child component--&gt;</span>
+    <span class="nt">&lt;ng-template</span> <span class="na">[cxComponentWrapper]=</span><span class="s">"component"</span><span class="nt">&gt;</span> <span class="nt">&lt;/ng-template&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/ng-container&gt;</span>
+</code></pre></div></div>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/4.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/4.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'b6583768751462c6ee53d5a5720cda44', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:4.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

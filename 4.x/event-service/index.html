@@ -1,0 +1,2618 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Event Service - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Event Service">
+<meta property="og:url" content="/spartacus-docs/4.x/event-service/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/4.x/event-service/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/4.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/4.x/"><img src="/spartacus-docs/4.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/4.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/release-information/" >Version 4.2</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/a11y/">Accessibility ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-api/">API</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/architecture/">Architecture ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-and-extending/">Customizing and Extending Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-backend-communication/">Customizing Back End Communication ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/performance/">Performance Optimizations ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/security-best-practices/">Security Best Practices ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/server-side-rendering-in-spartacus/">Server-Side Rendering ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-features/">Storefront Features ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/anonymous-consent/" class="">Anonymous Consent</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/applied-promotions/" class="">Applied Promotions</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/asm/" class="">Assisted Service Module</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/b2b-commerce-organization/" class="">B2B Commerce Organization</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/bulk-pricing/" class="">Bulk Pricing</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cancellations-and-returns/" class="">Cancellations and Returns</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cart-import-export/" class="">Cart Import and Export</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cart-validation/" class="">Cart Validation</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/consignment-tracking/" class="">Consignment Tracking</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/coupons/" class="">Coupons</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customer-coupons/" class="">Customer Coupons</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customer-interests/" class="">Customer Interests</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/event-service/" class="active">Event Service</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/express-checkout/" class="">Express Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/guest-checkout/" class="">Guest Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/image-zoom/" class="">Image Zoom</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/infinite-scroll/" class="">Infinite Scroll</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/inventory-display/" class="">Inventory Display</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/notification-preferences/" class="">Notification Preferences</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/quick-order/" class="">Quick Order</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/saved-cart/" class="">Saved Cart</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/scheduled-replenishment/" class="">Scheduled Replenishment</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/scroll-position-restoration/" class="">Scroll Position Restoration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/selective-cart/" class="">Selective Cart</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/skip-links/" class="">Skip Links</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/stock-notification/" class="">Stock Notification</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/store-locator/" class="">Store Locator</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/tag-management-system/" class="">Tag Management System ➢</a>
+
+
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/text-field-configurator-template/" class="">Text Field Configurator Template</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/variants/" class="">Variants</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/wish-list/" class="">Wish List</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/styling-and-page-layout/">Styling and Page Layout ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Event Service</h1>
+    
+    <p>The Spartacus event service provides a stream of events that you can consume without a tight integration to specific components or modules. The event system is used in Spartacus to build integrations to third party systems, such as tag managers and web trackers.</p>
+
+<p>The event service also allows you to decouple certain components. For example, you might have a component that dispatches an event, and another component that reacts to this event, without requiring any hard dependency between the components.</p>
+
+<p>The event service leverages RxJs Observables to drive the streams of events.</p>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#event-types" id="markdown-toc-event-types">Event Types</a></li>
+  <li><a href="#observing-events" id="markdown-toc-observing-events">Observing Events</a></li>
+  <li><a href="#pulling-additional-data-from-facades" id="markdown-toc-pulling-additional-data-from-facades">Pulling Additional Data From Facades</a>    <ul>
+      <li><a href="#no-performance-cost-for-unused-events" id="markdown-toc-no-performance-cost-for-unused-events">No Performance Cost for Unused Events</a></li>
+    </ul>
+  </li>
+  <li><a href="#registering-event-sources" id="markdown-toc-registering-event-sources">Registering Event Sources</a>    <ul>
+      <li><a href="#avoiding-certain-candidates-for-an-event-stream" id="markdown-toc-avoiding-certain-candidates-for-an-event-stream">Avoiding Certain Candidates for an Event Stream</a></li>
+      <li><a href="#avoiding-memory-leaks-and-unregistering-event-sources" id="markdown-toc-avoiding-memory-leaks-and-unregistering-event-sources">Avoiding Memory Leaks and Unregistering Event Sources</a></li>
+    </ul>
+  </li>
+  <li><a href="#dispatching-individual-events" id="markdown-toc-dispatching-individual-events">Dispatching Individual Events</a></li>
+  <li><a href="#event-type-inheritance" id="markdown-toc-event-type-inheritance">Event Type Inheritance</a>    <ul>
+      <li><a href="#observing-events-in-older-versions-of-spartacus" id="markdown-toc-observing-events-in-older-versions-of-spartacus">Observing Events in Older Versions of Spartacus</a></li>
+    </ul>
+  </li>
+  <li><a href="#list-of-spartacus-events" id="markdown-toc-list-of-spartacus-events">List of Spartacus Events</a></li>
+</ul>
+
+<hr />
+
+<h2 id="event-types">Event Types</h2>
+
+<p>Events are driven by TypeScript classes, which are signatures for a given event and can be instantiated. The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">CxEvent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@spartacus/core</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CartAddEntryEvent</span> <span class="kd">extends</span> <span class="nx">CxEvent</span> <span class="p">{</span>
+  <span class="nl">cartId</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">userId</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">productCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">quantity</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="observing-events">Observing Events</h2>
+
+<p>To observe events of a given type, you can get the stream for the event type, and then subscribe to it whenever you need. The following is an example for the <code class="language-plaintext highlighter-rouge">CartAddEntryEvent</code> call:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span><span class="nx">events</span><span class="p">:</span> <span class="nx">EventService</span><span class="p">){}</span>
+<span class="cm">/* ... */</span>
+
+<span class="kd">const</span> <span class="nx">result$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">CartAddEntrySuccessEvent</span><span class="p">);</span>
+<span class="nx">result$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h2 id="pulling-additional-data-from-facades">Pulling Additional Data From Facades</h2>
+
+<p>If you need more data than what is contained in a particular event, you can combine this data with other streams. For example, you can collect additional data from facades.</p>
+
+<p>The following is an example of reacting to an “added to cart event”, followed by waiting for the cart to be stable (because the OCC cart needs to be reloaded from the back end), and then appending all of the cart data to the data from the event:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span>
+    <span class="nx">events</span><span class="p">:</span> <span class="nx">EventService</span><span class="p">,</span>
+    <span class="nx">cartService</span><span class="p">:</span> <span class="nx">ActiveCartService</span>
+    <span class="p">){}</span>
+<span class="cm">/* ... */</span>
+
+<span class="kd">const</span> <span class="nx">result$</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">CartAddEntrySuccessEvent</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+    <span class="c1">// When the above event is captured, wait for the cart to be stable</span>
+    <span class="c1">// (because OCC reloads the cart after any cart operation)...</span>
+    <span class="nx">switchMap</span><span class="p">((</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">cartService</span><span class="p">.</span><span class="nx">isStable</span><span class="p">().</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">),</span> <span class="nx">mapTo</span><span class="p">(</span><span class="nx">event</span><span class="p">))</span>
+    <span class="p">),</span>
+    <span class="c1">// Merge the state snapshot of the cart with the data from the event:</span>
+    <span class="nx">withLatestFrom</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">cartService</span><span class="p">.</span><span class="nx">getActive</span><span class="p">()),</span>
+    <span class="nx">map</span><span class="p">(([</span><span class="nx">event</span><span class="p">,</span> <span class="nx">cart</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="p">...</span><span class="nx">event</span><span class="p">,</span> <span class="nx">cart</span> <span class="p">}))</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="no-performance-cost-for-unused-events">No Performance Cost for Unused Events</h3>
+
+<p>Since the event service leverages RxJs Observables, event streams are lazy. This means that no defined computations happen (such as pulling data from facades) until someone subscribes to the particular stream of events. The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">result$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// &lt; log the event (for example, to a tag manager) &gt;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="registering-event-sources">Registering Event Sources</h2>
+
+<p>In theory, any RxJs Observable can be a source of events as soon as it emits objects of the declared class type. In practice, there are some limitations, as described in <a href="#avoiding-certain-candidates-for-an-event-stream">Avoiding Certain Candidates for an Event Stream</a>, below.</p>
+
+<p>The following is an example of how to register an RxJs <code class="language-plaintext highlighter-rouge">Subject</code> as a source of events of type <code class="language-plaintext highlighter-rouge">CustomEvent</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">subject$</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Subject</span><span class="o">&lt;</span><span class="nx">CustomEvent</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">unregister</span> <span class="o">=</span> <span class="nx">eventService</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">CustomEvent</span><span class="p">,</span> <span class="nx">subject$</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> It is possible to register multiple sources to a single event type, even without knowing it, because multiple decoupled features can attach sources to the same event type. The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">eventService</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">CustomEvent</span><span class="p">,</span> <span class="nx">subject1$</span><span class="p">);</span>
+<span class="nx">eventService</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">CustomEvent</span><span class="p">,</span> <span class="nx">subject2$</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="avoiding-certain-candidates-for-an-event-stream">Avoiding Certain Candidates for an Event Stream</h3>
+
+<p>Not all RxJs Observables are good candidates for an event stream. For example, the NgRx selectors are not good candidates for an event stream. The Observable of the NgRx selector replays the latest updated value at the moment of the subscription, regardless of when the value was updated. But a valid event stream should emit a value only when the actual event happens.</p>
+
+<p>Examples of candidates to avoid for event sources are the following Observables and their derivatives, including Spartacus facades that use the following under the hood:</p>
+
+<ul>
+  <li>NgRx state selectors</li>
+  <li><code class="language-plaintext highlighter-rouge">BehaviorSubject</code> and <code class="language-plaintext highlighter-rouge">ReplaySubject</code> from RxJs</li>
+  <li>Observables with the piped operators <code class="language-plaintext highlighter-rouge">replay()</code> and <code class="language-plaintext highlighter-rouge">shareReplay()</code> from RxJs</li>
+  <li>Observables created by the operators <code class="language-plaintext highlighter-rouge">of()</code> and <code class="language-plaintext highlighter-rouge">from()</code> from RxJs</li>
+  <li>anything that emits a value simply because a subscription was made.</li>
+</ul>
+
+<p>A pure RxJs <code class="language-plaintext highlighter-rouge">Subject</code> is a good candidate for the event source.</p>
+
+<h3 id="avoiding-memory-leaks-and-unregistering-event-sources">Avoiding Memory Leaks and Unregistering Event Sources</h3>
+
+<p>To avoid memory leaks, every event source Observable should be unregistered from the <code class="language-plaintext highlighter-rouge">EventService</code> when it is no longer needed. To unregister an event source, you can call the “tear down” function that is returned by the <code class="language-plaintext highlighter-rouge">register()</code> method. The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">unregister</span> <span class="o">=</span> <span class="nx">eventService</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">CustomEvent</span><span class="p">,</span> <span class="nx">subject$</span><span class="p">);</span>
+<span class="cm">/* ... */</span>
+<span class="nx">unregister</span><span class="p">();</span> <span class="c1">// Calling the handler assigned from `eventService.register(...)` in the example above</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Completed Observables must be unregistered manually. They will not be unregistered automatically on stream completion.</p>
+
+<h2 id="dispatching-individual-events">Dispatching Individual Events</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">register()</code> method is intended to register RxJs Observables. However, event instances can also be dispatched individually, using the <code class="language-plaintext highlighter-rouge">dispatch()</code> method. For example, in your component logic, you could call the following:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span><span class="nx">events</span><span class="p">:</span> <span class="nx">EventService</span><span class="p">){}</span>
+<span class="cm">/* ... */</span>
+
+<span class="nx">onClick</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">CustomUIEvent</span><span class="p">(...));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="event-type-inheritance">Event Type Inheritance</h2>
+
+<p><b>Note: </b> 
+This functionality is introduced with version 3.1 of the Spartacus libraries.
+ </p>
+
+<p>Parent events allow you to group similar events under one common event. The parent event can be an abstract class or a regular class. By subscribing to the parent event, you get emissions from all of the child events that inherit it.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">PageEvent</code> from <code class="language-plaintext highlighter-rouge">@spartacus/storefrontlib</code> is a parent event, and all of the child page events, such as <code class="language-plaintext highlighter-rouge">HomePageEvent</code>, <code class="language-plaintext highlighter-rouge">CartPageEvent</code>, and <code class="language-plaintext highlighter-rouge">ProductDetailsPageEvent</code>, inherit from this parent. If you subscribe to <code class="language-plaintext highlighter-rouge">PageEvent</code>, you will get emissions from all of the child page events that inherit from <code class="language-plaintext highlighter-rouge">PageEvent</code>. The following is an example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">PageEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...)</span> <span class="c1">// receives all page events</span>
+</code></pre></div></div>
+
+<p>All events should inherit from the <code class="language-plaintext highlighter-rouge">CxEvent</code> that is in <code class="language-plaintext highlighter-rouge">@spartacus/core</code>, as shown in the following example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">CxEvent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@spartacus/core</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyEvent</span> <span class="kd">extends</span> <span class="nx">CxEvent</span> <span class="p">{...}</span>
+</code></pre></div></div>
+
+<p>Although this is not required for events to work properly, if all events inherit from <code class="language-plaintext highlighter-rouge">CxEvent</code>, it allows you to observe all events at once, as shown in the following example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">CxEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...)</span> <span class="c1">// receives all Spartacus events.</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Observing all Spartacus events at once may have significant effects on performance, so it should be done with care.</p>
+
+<h3 id="observing-events-in-older-versions-of-spartacus">Observing Events in Older Versions of Spartacus</h3>
+
+<p>If you are using a version of Spartacus that is older than release 3.1, for every event that you wish to observe, you must subscribe to it individually, as shown in the following example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">HomePageEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...),</span> <span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">CartPageEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...),</span> <span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">ProductDetailsPageEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...),</span> <span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">CategoryPageResultsEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...),</span> <span class="nx">eventService</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">SearchPageResultsEvent</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(...)</span>
+</code></pre></div></div>
+
+<h2 id="list-of-spartacus-events">List of Spartacus Events</h2>
+
+<p>The following table lists all of the available events in Spartacus, and where to find them in the Spartacus source code.</p>
+
+<table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>File Path</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>OrderPlacedEvent</td>
+          <td>feature-libs/checkout/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartPageEvent</td>
+          <td>projects/storefrontlib/events/cart/cart-page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>HomePageEvent</td>
+          <td>projects/storefrontlib/events/home/home-page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>NavigationEvent</td>
+          <td>projects/storefrontlib/events/navigation/navigation.event.ts</td>
+        </tr>
+      
+        <tr>
+          <td>PageEvent</td>
+          <td>projects/storefrontlib/events/page/page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>ProductDetailsPageEvent</td>
+          <td>projects/storefrontlib/events/product/product-page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CategoryPageResultsEvent</td>
+          <td>projects/storefrontlib/events/product/product-page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SearchPageResultsEvent</td>
+          <td>projects/storefrontlib/events/product/product-page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>UserAccountEvent</td>
+          <td>feature-libs/user/account/root/events/user-account.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>UserAccountChangedEvent</td>
+          <td>feature-libs/user/account/root/events/user-account.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartAddEntryEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartAddEntrySuccessEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartAddEntryFailEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartRemoveEntryFailEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartRemoveEntrySuccessEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartUpdateEntrySuccessEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartUpdateEntryFailEvent</td>
+          <td>projects/core/src/cart/event/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>ModuleInitializedEvent</td>
+          <td>projects/core/src/lazy-loading/events/module-initialized-event.ts</td>
+        </tr>
+      
+        <tr>
+          <td>FacetChangedEvent</td>
+          <td>projects/core/src/product/event/product.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>LanguageSetEvent</td>
+          <td>projects/core/src/site-context/events/site-context.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CurrencySetEvent</td>
+          <td>projects/core/src/site-context/events/site-context.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>UserAddressEvent</td>
+          <td>projects/core/src/user/events/user.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>UpdateUserAddressEvent</td>
+          <td>projects/core/src/user/events/user.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>DeleteUserAddressEvent</td>
+          <td>projects/core/src/user/events/user.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>AddUserAddressEvent</td>
+          <td>projects/core/src/user/events/user.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SearchBoxSuggestionSelectedEvent</td>
+          <td>projects/storefrontlib/cms-components/navigation/search-box/search-box.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SearchBoxProductSelectedEvent</td>
+          <td>projects/storefrontlib/cms-components/navigation/search-box/search-box.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>LogoutEvent</td>
+          <td>projects/core/src/auth/user-auth/events/user-auth.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>LoginEvent</td>
+          <td>projects/core/src/auth/user-auth/events/user-auth.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>ComponentEvent</td>
+          <td>projects/storefrontlib/cms-structure/page/component/events/component.event.ts</td>
+        </tr>
+      
+        <tr>
+          <td>ComponentCreateEvent</td>
+          <td>projects/storefrontlib/cms-structure/page/component/events/component.event.ts</td>
+        </tr>
+      
+        <tr>
+          <td>ComponentDestroyEvent</td>
+          <td>projects/storefrontlib/cms-structure/page/component/events/component.event.ts</td>
+        </tr>
+      
+    </tbody>
+</table>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/4.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/4.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    apiKey: 'b6583768751462c6ee53d5a5720cda44', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:4.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
