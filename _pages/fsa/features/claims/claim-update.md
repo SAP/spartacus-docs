@@ -1,5 +1,5 @@
 ---
-title: Claims Update
+title: Claim Update
 ---
 
 **Note**: This feature is introduced with version 4.0 of the FSA Spartacus libraries.
@@ -31,7 +31,7 @@ The customer adds documents by clicking the **ADD DOCUMENTS** button on the clai
 
 ![Adding documents through claim card]({{ site.baseurl }}/assets/images/fsa/claims/claim-update-claims-page.png)
 
-The same button can be found on the Claims Details page in the Documents section.
+The same button can be found on the Claim Details page, in the Documents section.
 
 ![Adding documents from Claims Details page]({{ site.baseurl }}/assets/images/fsa/claims/claim-update-claims-details-page.png)
 
