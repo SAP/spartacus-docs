@@ -23,15 +23,16 @@ Customers are notified via Inbox message when their policy is up for renewal, an
 In the Financial Services Accelerator's default implementation, the policy renewal process is triggered 31 days before the expiry of the current policy. 
 This period is configurable from the back-end side through FSPolicyRenewalCronJob. 
 
-The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products. For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
+The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products. 
+For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/6ac05cfc1e2a41dca9cfa29de18cd01a/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
 
 ## Back-End Requirements
 
-For more details on the back-end implementation, see Policy Renewal documentation on the SAP Help Portal.   
+For more details on the back-end implementation, see Policy Renewal documentation on the [SAP Help Portal](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/06822db0248747e08464ab82501c9879.html).   
 
 ## Components
 
-The renewal process relies heavily on the FSA Spartacus' Quote Comparison feature. For more detailed information, see the [Quote Comparison] page. 
+The renewal process relies heavily on the FSA Spartacus' Quote Comparison feature. For more detailed information, see [Quote Comparison]({{ site.baseurl }}{% link _pages/fsa/features/fsa-quote-comparison.md %}). 
 
 ## User Journey
 
