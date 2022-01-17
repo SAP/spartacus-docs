@@ -598,6 +598,8 @@ docs:
                       url: /claims-integration/
                     - title: "Claims Details Page"
                       url: /claims-details-page/
+                    - title: "Claim Update"
+                      url: /claim-update/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
                 - title: "Invoice Payment"
