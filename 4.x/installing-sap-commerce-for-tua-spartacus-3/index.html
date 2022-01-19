@@ -1,0 +1,2343 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Installing SAP Commerce Cloud for use with TUA Spartacus 3.x - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Installing SAP Commerce Cloud for use with TUA Spartacus 3.x">
+<meta property="og:url" content="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-3/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-3/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/4.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/4.x/"><img src="/spartacus-docs/4.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/4.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/release-information/" >Version 4.2</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/4.x/telco-release-information/">Release Information for TUA Spartacus ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/4.x/tua-spartacus-roadmap/">Roadmap for TUA Spartacus</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/4.x/spartacus-tua-faq/">TUA Spartacus FAQ</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/4.x/getting-started-with-tua-spartacus/">Getting Started with TUA Spartacus ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                    
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/4.x/updating-tua-spartacus/">Updating TUA Spartacus ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus/">Installing SAP Commerce Cloud for use with TUA Spartacus ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-3-2/" class="">Installing SAP Commerce Cloud for use with TUA Spartacus 3.2</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-3/" class="active">Installing SAP Commerce Cloud for use with TUA Spartacus 3.x</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-2/" class="">Installing SAP Commerce Cloud for use with TUA Spartacus 2.x</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-1-3/" class="">Installing SAP Commerce Cloud for use with TUA Spartacus 1.3</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/4.x/installing-sap-commerce-for-tua-spartacus-1-2/" class="">Installing SAP Commerce Cloud for use with TUA Spartacus 1.2</a></li>
+
+                                                                                       
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/4.x/building-the-tua-storefront-from-libraries/">Building the TUA Storefront from Libraries ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/4.x/technical-changes/">Technical Changes in TUA Spartacus ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/4.x/spartacus-features-for-tua/">Spartacus Features for TUA ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+                                        
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Installing SAP Commerce Cloud for use with TUA Spartacus 3.x</h1>
+    
+    <p>The following instructions describe how to install and configure SAP Commerce Cloud (release 2011) with Telco &amp; Utilities Accelerator (supports both release 2102, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco &amp; Utilities Accelerator are installed on your local computer, so <code class="language-plaintext highlighter-rouge">localhost</code> is used in the browser URLs.</p>
+
+<p>The installation procedure includes steps for creating and using a <code class="language-plaintext highlighter-rouge">b2c_telco_spa</code> recipe that makes use of the TUA Spartacus Sample Data (<code class="language-plaintext highlighter-rouge">b2ctelcospastore</code>), but you can use your own sample data or recipe as long as it includes the <code class="language-plaintext highlighter-rouge">cmsocc</code>, <code class="language-plaintext highlighter-rouge">commercewebservices</code>, <code class="language-plaintext highlighter-rouge">acceleratorocc</code> extensions and TUA module.</p>
+
+<p><strong>Note:</strong> If you are trying out TUA Spartacus for the first time and intend to use the default sample data, you must use the TUA Spartacus Sample Data store extension (should be part of your list of extensions). The TUA Spartacus Sample Data is a set of data (product offerings and content) for the telco industry.</p>
+
+<p>However, installing the TUA Spartacus Sample Data is not required in all cases. The TUA Spartacus layout is CMS driven as much as possible, but there are a few areas where the CMS structure does not provide enough information. To address this, TUA Spartacus includes a layout configuration that provides additional information for the layout rendering of the CMS content (specifically, the order of the page slots). This configuration is provided in the <code class="language-plaintext highlighter-rouge">TmaB2cStorefrontModule</code>. It is important to understand that this specific configuration is tightly coupled to the TUA Spartacus sample data, and that whenever you change the sample data (something that happens in all projects), you should introduce your own layout configuration. When you are ready to introduce your own layout configuration, do not import the <code class="language-plaintext highlighter-rouge">TmaB2cStorefrontModule</code>, but instead, use the <code class="language-plaintext highlighter-rouge">StorefrontModule</code> that does not provide any layout configuration. The <code class="language-plaintext highlighter-rouge">StorefrontModule</code> is not dependent on the TUA Spartacus sample data, and is most likely a good starting point for your custom project.</p>
+
+<p>To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must complete the following procedures:</p>
+
+<ol>
+  <li><a href="#setting-up-sap-commerce-cloud-with-tua-using-the-tua-spartacus-sample-data-store-extension">Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension</a></li>
+  <li><a href="#configuring-occ-credentials">Configuring OCC credentials</a></li>
+  <li><a href="#updating-system-and-user-credentials">Updating System and User Credentials</a></li>
+  <li><a href="#configuring-cors">Configuring CORS</a></li>
+</ol>
+
+<h2 id="setting-up-sap-commerce-cloud-with-tua-using-the-tua-spartacus-sample-data-store-extension">Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension</h2>
+
+<p>Some of the steps in this procedure are derived from the documentation for installing SAP Commerce using recipes. For more information, see <a href="https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/latest/en-US/8c46c266866910149666a0fe4caeee4e.html">Installing SAP Commerce Using Installer Recipes</a> in the SAP Help Portal.</p>
+
+<ol>
+  <li>
+    <p>Unzip the SAP Commerce and Telco &amp; Utilities Accelerator zip archives.</p>
+
+    <p><strong>Note:</strong> Use the latest patches for SAP Commerce Cloud version 2005 and Telco &amp; Utilities Accelerator version 2011 or Telco &amp; Utilities Accelerator version 2102.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/SAP/spartacus-tua/releases">Download</a> the TUA Spartacus Sample Data Store Extension.</p>
+
+    <p>The TUA Spartacus Sample Data is provided in the following zip files:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">b2ctelcospastore.zip</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">utilitiesspastore.zip</code>.</li>
+      <li><code class="language-plaintext highlighter-rouge">mediaspastore.zip</code>. (available from 3.1)</li>
+    </ul>
+  </li>
+  <li>
+    <p>Unzip the sample data for 2007 or 2011 depending on the TUA backend version you want to use.</p>
+
+    <p><strong>Note:</strong> You can either use both the store extensions, or only one of them, depending on your needs (specific to Telco or to Utilities).</p>
+
+    <ul>
+      <li>Sample data for Telco is stored in the following archive files:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">b2ctelcospastore.zip</code>.</li>
+        </ul>
+      </li>
+      <li>Sample data for Utilities is stored in the following archive files:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">utilitiesspastore.zip</code>.</li>
+        </ul>
+      </li>
+      <li>Sample data for Media is stored in the following archive files:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">mediaspastore.zip</code>. (available from 3.1)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Move:
+    <ul>
+      <li>
+        <p>the <code class="language-plaintext highlighter-rouge">b2ctelcospastore</code> folder from extracted <code class="language-plaintext highlighter-rouge">b2ctelcospastore</code> folder to <code class="language-plaintext highlighter-rouge">&lt;sap-commerce-folder&gt;/hybris/bin/modules/b2c-telco-accelerator</code>.</p>
+      </li>
+      <li>
+        <p>the <code class="language-plaintext highlighter-rouge">utilitiesspastore</code> folder from extracted <code class="language-plaintext highlighter-rouge">utilitiesspastore</code> folder to <code class="language-plaintext highlighter-rouge">&lt;sap-commerce-folder&gt;/hybris/bin/modules/b2c-telco-accelerator</code>.</p>
+      </li>
+      <li>
+        <p>the <code class="language-plaintext highlighter-rouge">mediaspastore</code> folder from extracted <code class="language-plaintext highlighter-rouge">mediaspastore</code> folder to <code class="language-plaintext highlighter-rouge">&lt;sap-commerce-folder&gt;/hybris/bin/modules/b2c-telco-accelerator</code>.</p>
+      </li>
+    </ul>
+
+    <p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">b2ctelcospastore</code>, <code class="language-plaintext highlighter-rouge">utilitiesspastore</code>, and <code class="language-plaintext highlighter-rouge">mediaspastore</code> folder can be stored anywhere in the modules folder. The <code class="language-plaintext highlighter-rouge">b2c-telco-accelerator</code> folder is chosen as it contains other TUA sample data.</p>
+  </li>
+  <li>
+    <p>Unzip TUA cms extension for utilities:</p>
+
+    <ul>
+      <li>
+        <p>If you want to use utilities sample data then also unzip the <code class="language-plaintext highlighter-rouge">b2ctelcocms.zip</code>.</p>
+      </li>
+      <li>
+        <p>Move the <code class="language-plaintext highlighter-rouge">b2ctelcocms</code> folder in the same location with <code class="language-plaintext highlighter-rouge">utilitiesspastore</code> folder.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>In the <code class="language-plaintext highlighter-rouge">sap-commerce-folder&gt;/installer/recipes</code> folder, create a copy of the <code class="language-plaintext highlighter-rouge">b2c_telco</code> folder.</p>
+  </li>
+  <li>
+    <p>Rename the copy of the <code class="language-plaintext highlighter-rouge">b2c_telco</code> folder to <code class="language-plaintext highlighter-rouge">b2c_telco_spa</code>.</p>
+  </li>
+  <li>
+    <p>In <code class="language-plaintext highlighter-rouge">b2c_telco_spa</code>, the <code class="language-plaintext highlighter-rouge">build.gradle</code> file should have the following content:</p>
+
+    <p>If you want to use the two sample data extensions, for Telco and Utilities, the <code class="language-plaintext highlighter-rouge">build.gradle</code> file must have the following structure:</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">apply</span> <span class="nl">plugin:</span> <span class="err">'</span><span class="n">installer</span><span class="o">-</span><span class="n">platform</span><span class="o">-</span><span class="n">plugin</span><span class="err">'</span>
+ <span class="n">apply</span> <span class="nl">plugin:</span> <span class="err">'</span><span class="n">installer</span><span class="o">-</span><span class="n">addon2</span><span class="o">-</span><span class="n">plugin</span><span class="err">'</span>
+	
+
+ <span class="n">def</span> <span class="n">pl</span> <span class="o">=</span> <span class="n">platform</span> <span class="o">{</span>
+ <span class="n">localProperties</span> <span class="o">{</span>
+     <span class="n">property</span> <span class="err">'</span><span class="n">kernel</span><span class="o">.</span><span class="na">events</span><span class="o">.</span><span class="na">cluster</span><span class="o">.</span><span class="na">jgroups</span><span class="o">.</span><span class="na">channel</span><span class="err">'</span><span class="o">,</span> <span class="err">'</span><span class="n">disable</span><span class="err">'</span>
+     <span class="n">property</span> <span class="err">'</span><span class="n">datahub</span><span class="o">.</span><span class="na">publication</span><span class="o">.</span><span class="na">saveImpex</span><span class="err">'</span><span class="o">,</span> <span class="err">''</span>
+     <span class="n">property</span> <span class="err">'</span><span class="n">commerceservices</span><span class="o">.</span><span class="na">default</span><span class="o">.</span><span class="na">desktop</span><span class="o">.</span><span class="na">ui</span><span class="o">.</span><span class="na">experience</span><span class="err">'</span><span class="o">,</span> <span class="err">'</span><span class="n">responsive</span><span class="err">'</span>
+     <span class="n">property</span> <span class="err">'</span><span class="n">kernel</span><span class="o">.</span><span class="na">autoInitMode</span><span class="err">'</span><span class="o">,</span> <span class="err">'</span><span class="n">update</span><span class="err">'</span>
+     <span class="n">property</span> <span class="err">'</span><span class="n">installed</span><span class="o">.</span><span class="na">tenants</span><span class="err">'</span><span class="o">,</span> <span class="err">'</span><span class="n">junit</span><span class="err">'</span>
+ <span class="o">}</span>
+ <span class="n">afterSetup</span> <span class="o">{</span>
+     <span class="n">ensureAdminPasswordSet</span><span class="o">()</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">extensions</span> <span class="o">{</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">acceleratorcms</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">adaptivesearchbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">adaptivesearchsolr</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">addonsupport</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcobackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcofulfillmentprocess</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcocms</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcospastore</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">utilitiesspastore</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">mediaspastore</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcotmfwebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcowebservices</span><span class="err">'</span>
+	
+
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcocommercewebservicescommons</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcoocc</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcoserviceabilityclient</span><span class="err">'</span>	
+     <span class="n">extName</span> <span class="err">'</span><span class="n">commerceservicesbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">solrfacetsearchbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">solrserver</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">subscriptionbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">yacceleratorcore</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">commercewebservices</span><span class="err">'</span>
+	
+
+     <span class="n">extName</span> <span class="err">'</span><span class="n">cmsbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">cmswebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">previewwebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">smarteditwebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">cmssmarteditwebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">permissionswebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">cmssmartedit</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">cmsocc</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">acceleratorocc</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">customersupportbackoffice</span><span class="err">'</span>
+	
+
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationwebservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">previewpersonalizationweb</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationcmsweb</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationsmartedit</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationservicesbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationcmsbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">personalizationfacades</span><span class="err">'</span>
+	
+
+     <span class="n">extName</span> <span class="err">'</span><span class="n">acceleratorservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">assistedservicefacades</span><span class="err">'</span>
+	
+
+     <span class="n">extName</span> <span class="err">'</span><span class="n">rulebuilderbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">couponbackoffice</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">droolsruleengineservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">couponfacades</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">couponservices</span><span class="err">'</span>
+     <span class="n">extName</span> <span class="err">'</span><span class="n">b2ctelcoserviceabilityclient</span><span class="err">'</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">task</span> <span class="nf">setup</span> <span class="o">()</span> <span class="o">{</span>
+ <span class="n">doLast</span> <span class="o">{</span>
+	
+
+     <span class="n">pl</span><span class="o">.</span><span class="na">setup</span><span class="o">()</span>
+	
+
+     <span class="n">copy</span> <span class="o">{</span>
+     <span class="n">from</span> <span class="s">"${installerHome}/recipes/b2c_telco_spa/logback.xml"</span>
+     <span class="n">into</span> <span class="s">"${suiteHome}/hybris/bin/platform/tomcat/lib"</span>
+     <span class="o">}</span>
+     <span class="n">copy</span> <span class="o">{</span>
+     <span class="n">from</span> <span class="s">"${installerHome}/recipes/b2c_telco_spa/sbg_properties"</span>
+     <span class="n">into</span> <span class="s">"${suiteHome}/hybris/bin/platform/tomcat/lib"</span>
+     <span class="n">exclude</span> <span class="s">"**/*.txt"</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">task</span> <span class="nf">buildSystem</span><span class="o">(</span><span class="nl">dependsOn:</span> <span class="n">setup</span><span class="o">)</span> <span class="o">{</span>
+ <span class="n">doLast</span> <span class="o">{</span>
+     <span class="n">pl</span><span class="o">.</span><span class="na">build</span><span class="o">()</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">task</span> <span class="nf">initialize</span> <span class="o">(</span><span class="nl">dependsOn:</span> <span class="n">buildSystem</span><span class="o">)</span> <span class="o">{</span>
+ <span class="n">doLast</span> <span class="o">{</span>
+     <span class="n">pl</span><span class="o">.</span><span class="na">initialize</span><span class="o">()</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">task</span> <span class="nf">start</span> <span class="o">()</span> <span class="o">{</span>
+ <span class="n">doLast</span> <span class="o">{</span>
+     <span class="n">pl</span><span class="o">.</span><span class="na">start</span><span class="o">()</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">task</span> <span class="nf">startInBackground</span> <span class="o">()</span> <span class="o">{</span>
+ <span class="n">doLast</span> <span class="o">{</span>
+     <span class="n">pl</span><span class="o">.</span><span class="na">startInBackground</span><span class="o">()</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+	
+
+ <span class="n">task</span> <span class="n">stopInBackground</span> <span class="o">{</span>
+ <span class="n">doLast</span> <span class="o">{</span>
+     <span class="n">pl</span><span class="o">.</span><span class="na">stopInBackground</span><span class="o">()</span>
+ <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div>    </div>
+    <p>If you want to use only Telco sample data then remove the following lines from the <code class="language-plaintext highlighter-rouge">build.gradle</code> file:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> extName <span class="s1">'utilitiesspastore'</span>
+ extName <span class="s1">'mediaspastore'</span>
+ extName <span class="s1">'b2ctelcocms'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Open a terminal or command prompt window inside the <code class="language-plaintext highlighter-rouge">sap-commerce-folder&gt;/installer</code> folder.</p>
+  </li>
+  <li>
+    <p>Set up the recipe using the following commands:</p>
+
+    <p>For Windows:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> install.bat <span class="nt">-r</span> b2c_telco_spa <span class="nt">-A</span> local_property:initialpassword.admin<span class="o">=</span>Y0urFav0r!tePassw0rd
+</code></pre></div>    </div>
+    <p>For Unix:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ./install.sh <span class="nt">-r</span> b2c_telco_spa <span class="nt">-A</span> local_property:initialpassword.admin<span class="o">=</span>Y0urFav0r!tePassw0rd
+</code></pre></div>    </div>
+
+    <p><strong>Note:</strong> Starting with release 1905, SAP  Cloud releases do not ship with a default admin password. You must specify a password when running the preceding recipe commands, or you can specify a password in the <code class="language-plaintext highlighter-rouge">custom.properties</code> file that is stored in <code class="language-plaintext highlighter-rouge">sap-commerce-folder&gt;\installer\customconfig</code>. See the following <a href="#alternate-method-for-setting-the-sap-commerce-admin-password">Alternate Method for Setting the SAP Commerce Admin Password</a> procedure for information on setting a password in the <code class="language-plaintext highlighter-rouge">custom.properties</code> file.</p>
+  </li>
+  <li>
+    <p>Initialize the system using the following command. From the <code class="language-plaintext highlighter-rouge">sap-commerce-folder&gt;/installer</code> folder run the following commands:</p>
+
+    <p>For Windows:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install.bat <span class="nt">-r</span> b2c_telco_spa <span class="nt">-A</span> local_property:initialpassword.admin<span class="o">=</span>Y0urFav0r!tePassw0rd initialize
+</code></pre></div>    </div>
+    <p>For Unix:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./install.sh <span class="nt">-r</span> b2c_telco_spa <span class="nt">-A</span> local_property:initialpassword.admin<span class="o">=</span>Y0urFav0r!tePassw0rd initialize
+</code></pre></div>    </div>
+
+    <p>Initialization of the <code class="language-plaintext highlighter-rouge">b2c_telco_spa</code> recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.</p>
+  </li>
+  <li>
+    <p>Start SAP Commerce Cloud with the following command. From the <code class="language-plaintext highlighter-rouge">sap-commerce-folder&gt;/installer</code> folder, run the following commands</p>
+
+    <p>For Windows:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install.bat <span class="nt">-r</span> b2c_telco_spa start
+</code></pre></div>    </div>
+    <p>For Unix:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./install.sh <span class="nt">-r</span> b2c_telco_spa start
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Verify that the system is working.</p>
+
+    <ul>
+      <li>Access Admin Console: https://localhost:9002</li>
+      <li>Access Backoffice: https://localhost:9002/backoffice</li>
+    </ul>
+
+    <p><strong>Note:</strong> When setting up your Spartacus storefront, set the base site in <code class="language-plaintext highlighter-rouge">app.module.ts</code> to <code class="language-plaintext highlighter-rouge">telcospa</code> and/or <code class="language-plaintext highlighter-rouge">utilitiesspa</code> and/or <code class="language-plaintext highlighter-rouge">mediaspa</code> depending on which sample data you want to use. Following are the samples:</p>
+
+    <p>Telco:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">context</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nl">baseSite</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">telcospa</span><span class="dl">'</span><span class="p">]</span>
+ <span class="p">},</span>
+</code></pre></div>    </div>
+
+    <p>Utilities:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">context</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nl">baseSite</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">utilitiesspa</span><span class="dl">'</span><span class="p">]</span>
+ <span class="p">},</span>
+</code></pre></div>    </div>
+
+    <p>Media:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">context</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nl">baseSite</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">mediasspa</span><span class="dl">'</span><span class="p">]</span>
+ <span class="p">},</span>
+</code></pre></div>    </div>
+
+    <p>All three:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">context</span><span class="p">:</span> <span class="p">{</span>
+ <span class="nl">baseSite</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">telcospa</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utilitiesspa</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">mediaspa</span><span class="dl">'</span><span class="p">]</span>
+ <span class="p">},</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="configuring-occ-credentials">Configuring OCC Credentials</h2>
+
+<p>By default, SAP  Cloud replies to OCC REST API calls that do not require authentication. For example, you can do the following:</p>
+
+<ul>
+  <li>Display Open API documentation: https://localhost:9002/rest/v2/swagger-ui.html</li>
+  <li>Display information about the <code class="language-plaintext highlighter-rouge">telcospa</code> base store: https://localhost:9002/occ/v2/telcospa/basestores/telcospa</li>
+  <li>Display information about the <code class="language-plaintext highlighter-rouge">utilitiesspa</code> base store: https://localhost:9002/occ/v2/utilitiesspa/basestores/utilitiesspa</li>
+  <li>Display information about the <code class="language-plaintext highlighter-rouge">mediaspa</code> base store: https://localhost:9002/occ/v2/mediaspa/basestores/mediaspa</li>
+</ul>
+
+<p>To register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your TUA Spartacus storefront sends this client ID and password when communicating with the backend. 
+For more information about OCC configuration, see <a href="https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html#loio4079b4327ac243b6b3bd507cda6d74ff">Defining OAuth Clients in an Impex File</a> in the SAP Help Portal.</p>
+
+<p>The following procedure describes how to configure SAP Commerce Cloud to accept OCC REST API calls.</p>
+
+<ol>
+  <li>
+    <p>Open the Hybris Administration Console in a web browser at the following address: <code class="language-plaintext highlighter-rouge">https://localhost:9002</code>.</p>
+  </li>
+  <li>
+    <p>Hover your mouse over the <strong>Console</strong> tab, then click <strong>Impex Import</strong>.</p>
+  </li>
+  <li>
+    <p>Copy-paste the following code into the <strong>Import content</strong> field.</p>
+
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSERT_UPDATE</span> <span class="n">OAuthClientDetails</span><span class="p">;</span><span class="n">clientId</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">]</span>    <span class="p">;</span><span class="n">resourceIds</span>       <span class="p">;</span><span class="k">scope</span>        <span class="p">;</span><span class="n">authorizedGrantTypes</span>                                            <span class="p">;</span><span class="n">authorities</span>             <span class="p">;</span><span class="n">clientSecret</span>    <span class="p">;</span><span class="n">registeredRedirectUri</span>
+                                <span class="p">;</span><span class="n">client</span><span class="o">-</span><span class="n">side</span>              <span class="p">;</span><span class="n">hybris</span>            <span class="p">;</span><span class="n">basic</span>        <span class="p">;</span><span class="k">implicit</span><span class="p">,</span><span class="n">client_credentials</span>                                     <span class="p">;</span><span class="n">ROLE_CLIENT</span>             <span class="p">;</span><span class="n">secret</span>          <span class="p">;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9001</span><span class="o">/</span><span class="n">authorizationserver</span><span class="o">/</span><span class="n">oauth2_implicit_callback</span><span class="p">;</span>
+                                <span class="p">;</span><span class="n">mobile_android</span>           <span class="p">;</span><span class="n">hybris</span>            <span class="p">;</span><span class="n">basic</span>        <span class="p">;</span><span class="n">authorization_code</span><span class="p">,</span><span class="n">refresh_token</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">client_credentials</span>    <span class="p">;</span><span class="n">ROLE_CLIENT</span>             <span class="p">;</span><span class="n">secret</span>          <span class="p">;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9001</span><span class="o">/</span><span class="n">authorizationserver</span><span class="o">/</span><span class="n">oauth2_callback</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>When you import this sample (which is the same as the sample that is provided in the SAP Commerce Cloud documentation), you add the following client ID and password:</p>
+
+    <ul>
+      <li>client ID: <code class="language-plaintext highlighter-rouge">mobile_android</code></li>
+      <li>password (or secret): <code class="language-plaintext highlighter-rouge">secret</code></li>
+    </ul>
+
+    <p><strong>Note:</strong> The values for client ID and password are just samples. You would use different values for your production environments.</p>
+  </li>
+  <li>
+    <p>Click the <strong>Import content</strong> button.</p>
+
+    <p>You have now added a client ID and password to your TUA Spartacus storefront configuration.</p>
+  </li>
+  <li>
+    <p>You can verify that the OAuth client has been successfully defined by entering the following curl command in a terminal or command prompt window:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-k</span> <span class="nt">-d</span> <span class="s2">"client_id=mobile_android&amp;client_secret=secret&amp;grant_type=client_credentials"</span> <span class="nt">-X</span> POST https://localhost:9002/authorizationserver/oauth/token
+</code></pre></div>    </div>
+
+    <p>The curl command sends a POST request for an access token, using the client ID and password that you added to the backend. The command should return something similar to the following:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+  <span class="s2">"access_token"</span> : <span class="s2">"zOM6rJ-TnoUM8xvibfy-VK-m8Xw"</span>,
+  <span class="s2">"token_type"</span> : <span class="s2">"bearer"</span>,
+  <span class="s2">"expires_in"</span> : 43170,
+  <span class="s2">"scope"</span> : <span class="s2">"basic openid"</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+
+    <p><strong>You can now start TUA Spartacus!</strong> After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. See <a href="/spartacus-docs/4.x/building-the-tua-storefront-from-libraries/">Building the TUA Spartacus Storefront from Libraries</a> for more information.</p>
+  </li>
+</ol>
+
+<h2 id="updating-system-and-user-credentials">Updating System and User Credentials</h2>
+
+<p><strong>Note:</strong> Updating system and user credentials (2005 only) is optional.</p>
+
+<p>If you are using SAP Commerce Cloud 2005, you may need to enable users and passwords for certain functionality to work. For more information, see <a href="https://help.sap.com/viewer/9433604f14ac4ed98908c6d4e7d8c1cc/2005/en-US/c5d463ec2fbb45b2a7aef664df42d2dc.html">Setting Passwords for Default Users</a>.</p>
+
+<p>You can now start Spartacus! After you have configured SAP Commerce Cloud to accept OCC REST API calls, you can set up and start your storefront. <a href="/spartacus-docs/4.x/building-the-tua-storefront-from-libraries/">Building the TUA Spartacus Storefront from Libraries</a> for more information.</p>
+
+<h2 id="configuring-cors">Configuring CORS</h2>
+
+<p>CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain TUA Spartacus functionality, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce Cloud.</p>
+
+<p>You can add these settings using the Hybris Administration Console. Hover your mouse over the <strong>Platform</strong> tab, click <strong>Configuration</strong>, then update the CORS settings.</p>
+
+<p>To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce Cloud configuration (<code class="language-plaintext highlighter-rouge">local.properties</code> file of your config folder):</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">corsfilter</span><span class="p">.</span><span class="n">commercewebservices</span><span class="p">.</span><span class="n">allowedOrigins</span><span class="o">=*</span>
+<span class="n">corsfilter</span><span class="p">.</span><span class="n">commercewebservices</span><span class="p">.</span><span class="n">allowedMethods</span><span class="o">=</span><span class="k">GET</span> <span class="n">HEAD</span> <span class="k">OPTIONS</span> <span class="n">PATCH</span> <span class="n">PUT</span> <span class="n">POST</span> <span class="k">DELETE</span>
+<span class="n">corsfilter</span><span class="p">.</span><span class="n">commercewebservices</span><span class="p">.</span><span class="n">allowedHeaders</span><span class="o">=</span><span class="n">origin</span> <span class="n">content</span><span class="o">-</span><span class="k">type</span> <span class="n">accept</span> <span class="k">authorization</span> <span class="k">cache</span><span class="o">-</span><span class="n">control</span> <span class="n">if</span><span class="o">-</span><span class="k">none</span><span class="o">-</span><span class="k">match</span> <span class="n">x</span><span class="o">-</span><span class="n">anonymous</span><span class="o">-</span><span class="n">consents</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">corsfilter</span><span class="p">.</span><span class="n">b2ctelcotmfwebservices</span><span class="p">.</span><span class="n">allowedOrigins</span><span class="o">=*</span>
+<span class="n">corsfilter</span><span class="p">.</span><span class="n">b2ctelcotmfwebservices</span><span class="p">.</span><span class="n">allowedMethods</span><span class="o">=</span><span class="k">GET</span> <span class="n">HEAD</span> <span class="k">OPTIONS</span> <span class="n">PATCH</span> <span class="n">PUT</span> <span class="n">POST</span> <span class="k">DELETE</span>
+<span class="n">corsfilter</span><span class="p">.</span><span class="n">b2ctelcotmfwebservices</span><span class="p">.</span><span class="n">allowedHeaders</span><span class="o">=</span><span class="n">origin</span> <span class="n">content</span><span class="o">-</span><span class="k">type</span> <span class="n">accept</span> <span class="k">authorization</span> <span class="k">cache</span><span class="o">-</span><span class="n">control</span> <span class="n">if</span><span class="o">-</span><span class="k">none</span><span class="o">-</span><span class="k">match</span> <span class="n">x</span><span class="o">-</span><span class="n">anonymous</span><span class="o">-</span><span class="n">consents</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">corsfilter</span><span class="p">.</span><span class="n">acceleratorservices</span><span class="p">.</span><span class="n">allowedOrigins</span><span class="o">=*</span>
+<span class="n">corsfilter</span><span class="p">.</span><span class="n">acceleratorservices</span><span class="p">.</span><span class="n">allowedMethods</span><span class="o">=</span><span class="k">GET</span> <span class="n">HEAD</span> <span class="k">OPTIONS</span> <span class="n">PATCH</span> <span class="n">PUT</span> <span class="n">POST</span> <span class="k">DELETE</span>
+<span class="n">corsfilter</span><span class="p">.</span><span class="n">acceleratorservices</span><span class="p">.</span><span class="n">allowedHeaders</span><span class="o">=</span><span class="n">origin</span> <span class="n">content</span><span class="o">-</span><span class="k">type</span> <span class="n">accept</span> <span class="k">authorization</span> <span class="k">cache</span><span class="o">-</span><span class="n">control</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">x-anonymous-consents</code> custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see <a href="/spartacus-docs/4.x/anonymous-consent/">Anonymous Consent</a>.</p>
+
+<p>For more information about CORS, see <a href="https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/2005/en-US/8b85a20586691014bacda05068f9c842.html">commerceservices Extension</a> in the SAP Help Portal.</p>
+
+<h2 id="alternate-method-for-setting-the-sap-commerce-admin-password">Alternate Method for Setting the SAP Commerce Admin Password</h2>
+
+<p>Instead of including the admin password in every install command as required for release 2005, you can create a configuration file that is used each time.</p>
+
+<ol>
+  <li>
+    <p>Create a file named <code class="language-plaintext highlighter-rouge">custom.properties</code> inside the <code class="language-plaintext highlighter-rouge">installer/customconfig</code> folder of your SAP Commerce folder.</p>
+  </li>
+  <li>
+    <p>Add the following line: <code class="language-plaintext highlighter-rouge">initialpassword.admin=Y0urFav0r!tePassw0rd</code></p>
+
+    <p>Change <code class="language-plaintext highlighter-rouge">Y0urFav0r!tePassw0rd</code> to the password you’d like to use.</p>
+  </li>
+  <li>
+    <p>Save the file.</p>
+  </li>
+</ol>
+
+<p>The next time you run the recipe install command, the settings inside <code class="language-plaintext highlighter-rouge">custom.properties</code> are used to build the <code class="language-plaintext highlighter-rouge">local.properties</code> file, and there’s no need to include <code class="language-plaintext highlighter-rouge">-A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd</code>.</p>
+
+<h2 id="supporting-regions-in-the-billing-address">Supporting Regions in the Billing Address</h2>
+
+<p>A specific configuration can be entered if the payment provider requires the <code class="language-plaintext highlighter-rouge">regions</code> field as part of the billing address data.</p>
+
+<p>TUA Spartacus automatically picks up on the configuration and displays the <code class="language-plaintext highlighter-rouge">regions</code> field in the form.</p>
+
+<ol>
+  <li>
+    <p>If you do not have a <code class="language-plaintext highlighter-rouge">custom.properties</code> file, create a file named <code class="language-plaintext highlighter-rouge">custom.properties</code> inside the <code class="language-plaintext highlighter-rouge">installer/customconfig</code> folder of your SAP Commerce folder.</p>
+  </li>
+  <li>
+    <p>Add the following line to your <code class="language-plaintext highlighter-rouge">custom.properties</code> file:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mockup.payment.label.billTo.region=billTo_state
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Save the file.</p>
+  </li>
+</ol>
+
+<p>The next time you run the recipe install command, the settings inside <code class="language-plaintext highlighter-rouge">custom.properties</code> are used to build the <code class="language-plaintext highlighter-rouge">local.properties</code>.</p>
+
+<p><strong>Note:</strong> If you wish this configuration to be present without reinstalling, you can add the property to your <code class="language-plaintext highlighter-rouge">local.properties</code> file.</p>
+
+<h2 id="possible-issues">Possible Issues</h2>
+
+<h3 id="failure-at-the-payment-step-in-checkout">Failure at the Payment Step in Checkout</h3>
+
+<p>You may encounter the following error message:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
+</code></pre></div></div>
+
+<p>This issue is caused by an incorrect configuration of the <code class="language-plaintext highlighter-rouge">sop.post.url</code> property.</p>
+
+<p>Make sure this property is set to <code class="language-plaintext highlighter-rouge">sop.post.url=https://localhost:9002/acceleratorservices/sop-mock/process</code>.</p>
+
+<p><strong>Note:</strong> Please make sure that you have the website properties properly set for your <code class="language-plaintext highlighter-rouge">telcospa</code> base site to point to your environment. For your <strong>localhost</strong> environment, they should have the following values:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">website.telcospa.http=http://localhost:9001</code></li>
+  <li><code class="language-plaintext highlighter-rouge">website.telcospa.https= https://localhost:9002</code></li>
+  <li><code class="language-plaintext highlighter-rouge">website.utilitiesspa.http=http://localhost:9001</code></li>
+  <li><code class="language-plaintext highlighter-rouge">website.utilitiesspa.https=https://localhost:9002</code></li>
+  <li><code class="language-plaintext highlighter-rouge">website.mediaspa.http=http://localhost:9001</code></li>
+  <li><code class="language-plaintext highlighter-rouge">website.mediaspa.https=https://localhost:9002</code></li>
+</ul>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/4.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/4.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    searchParameters: {
+      facetFilters: ["tags:4.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,2695 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Cart Import and Export - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Cart Import and Export">
+<meta property="og:url" content="/spartacus-docs/4.x/cart-import-export/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/4.x/cart-import-export/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/4.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/4.x/"><img src="/spartacus-docs/4.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/4.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/release-information/" >Version 4.2</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/a11y/">Accessibility ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-api/">API</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/architecture/">Architecture ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-and-extending/">Customizing and Extending Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-backend-communication/">Customizing Back End Communication ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/performance/">Performance Optimizations ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/security-best-practices/">Security Best Practices ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/server-side-rendering-in-spartacus/">Server-Side Rendering ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-features/">Storefront Features ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/anonymous-consent/" class="">Anonymous Consent</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/applied-promotions/" class="">Applied Promotions</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/asm/" class="">Assisted Service Module</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/b2b-commerce-organization/" class="">B2B Commerce Organization</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/bulk-pricing/" class="">Bulk Pricing</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cancellations-and-returns/" class="">Cancellations and Returns</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cart-import-export/" class="active">Cart Import and Export</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/cart-validation/" class="">Cart Validation</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/consignment-tracking/" class="">Consignment Tracking</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/coupons/" class="">Coupons</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customer-coupons/" class="">Customer Coupons</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customer-interests/" class="">Customer Interests</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/event-service/" class="">Event Service</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/express-checkout/" class="">Express Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/guest-checkout/" class="">Guest Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/image-zoom/" class="">Image Zoom</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/infinite-scroll/" class="">Infinite Scroll</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/inventory-display/" class="">Inventory Display</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/notification-preferences/" class="">Notification Preferences</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/quick-order/" class="">Quick Order</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/saved-cart/" class="">Saved Cart</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/scheduled-replenishment/" class="">Scheduled Replenishment</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/scroll-position-restoration/" class="">Scroll Position Restoration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/selective-cart/" class="">Selective Cart</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/skip-links/" class="">Skip Links</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/stock-notification/" class="">Stock Notification</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/store-locator/" class="">Store Locator</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/tag-management-system/" class="">Tag Management System ➢</a>
+
+
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/text-field-configurator-template/" class="">Text Field Configurator Template</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/variants/" class="">Variants</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/wish-list/" class="">Wish List</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/styling-and-page-layout/">Styling and Page Layout ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Cart Import and Export</h1>
+    
+    
+<p><b>Note: </b> 
+This feature is introduced with version 4.2 of the Spartacus libraries.
+ </p>
+
+<p>Cart import allows you to create a saved cart, or to update an active cart, by importing a CSV file that contains product codes and product quantities.</p>
+
+<p>Cart export allows you to download a CSV file that contains a list of all the items in your cart. You can export this list from the Cart Details page or from the Saved Cart Details page. Cart export works together with cart import, which means you can export a CSV file, make changes to it, and then reimport it back into the storefront.</p>
+
+<p><strong>Note:</strong> The exported CSV file always contains the product code and quantity columns. You can include additional columns by defining them in the configuration. For more information, see <a href="#adding-columns-in-the-csv-file">Adding Columns in the CSV File</a>.</p>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#enabling-cart-import-and-export" id="markdown-toc-enabling-cart-import-and-export">Enabling Cart Import and Export</a>    <ul>
+      <li><a href="#adding-cart-import-and-export-components-through-impex" id="markdown-toc-adding-cart-import-and-export-components-through-impex">Adding Cart Import and Export Components Through ImpEx</a></li>
+    </ul>
+  </li>
+  <li><a href="#disabling-cart-import-and-export" id="markdown-toc-disabling-cart-import-and-export">Disabling Cart Import and Export</a></li>
+  <li><a href="#global-configuration" id="markdown-toc-global-configuration">Global Configuration</a></li>
+  <li><a href="#configuring-cart-import" id="markdown-toc-configuring-cart-import">Configuring Cart Import</a></li>
+  <li><a href="#configuring-cart-export" id="markdown-toc-configuring-cart-export">Configuring Cart Export</a>    <ul>
+      <li><a href="#adding-columns-in-the-csv-file" id="markdown-toc-adding-columns-in-the-csv-file">Adding Columns in the CSV File</a></li>
+    </ul>
+  </li>
+  <li><a href="#defining-the-route-and-context-for-custom-configurations" id="markdown-toc-defining-the-route-and-context-for-custom-configurations">Defining the Route and Context for Custom Configurations</a>    <ul>
+      <li><a href="#implementing-context-for-a-custom-page" id="markdown-toc-implementing-context-for-a-custom-page">Implementing Context for a Custom Page</a></li>
+    </ul>
+  </li>
+  <li><a href="#using-cart-import-and-export-in-the-storefront" id="markdown-toc-using-cart-import-and-export-in-the-storefront">Using Cart Import and Export in the Storefront</a>    <ul>
+      <li><a href="#import-status" id="markdown-toc-import-status">Import Status</a></li>
+      <li><a href="#importing-to-a-saved-cart" id="markdown-toc-importing-to-a-saved-cart">Importing to a Saved Cart</a></li>
+      <li><a href="#importing-to-an-active-cart" id="markdown-toc-importing-to-an-active-cart">Importing to an Active Cart</a></li>
+      <li><a href="#importing-and-exporting-with-quick-order" id="markdown-toc-importing-and-exporting-with-quick-order">Importing and Exporting with Quick Order</a></li>
+      <li><a href="#exporting-from-the-order-confirmation-and-order-details-pages" id="markdown-toc-exporting-from-the-order-confirmation-and-order-details-pages">Exporting from the Order Confirmation and Order Details Pages</a></li>
+    </ul>
+  </li>
+  <li><a href="#limitations" id="markdown-toc-limitations">Limitations</a></li>
+</ul>
+
+<hr />
+
+<h2 id="enabling-cart-import-and-export">Enabling Cart Import and Export</h2>
+
+<p>You can enable cart import and export by installing the <code class="language-plaintext highlighter-rouge">@spartacus/cart</code> feature library. For more information, see <a href="/spartacus-docs/4.x/schematics/#installing-additional-spartacus-libraries">Installing Additional Spartacus Libraries</a>.</p>
+
+<p>Cart import and export is CMS-driven and consists of the following components:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ImportOrderEntriesComponent</code>, which allows the link for importing order entries to be rendered.</li>
+  <li><code class="language-plaintext highlighter-rouge">ExportOrderEntriesComponent</code>, which allows the link for exporting order entries to be rendered.</li>
+  <li><code class="language-plaintext highlighter-rouge">ImportExportOrderEntriesComponent</code>, which allows both import and export links to be rendered in a row.</li>
+</ul>
+
+<p>If you are using the <a href="/spartacus-docs/4.x/spartacussampledata-extension/">Spartacus Sample Data Extension</a>, the cart import and export components are already enabled. However, if you decide not to use the <code class="language-plaintext highlighter-rouge">spartacussampledata</code> extension, you can enable the cart import and export components through ImpEx.</p>
+
+<h3 id="adding-cart-import-and-export-components-through-impex">Adding Cart Import and Export Components Through ImpEx</h3>
+
+<p>The following are some ImpEx examples that you can use to add cart import and export components to different pages. After adding a component, you must also define the route and context to enable the relevant functionality.  For more information, see <a href="#defining-the-route-and-context-for-custom-configurations">Defining the Route and Context for Custom Configurations</a>.</p>
+
+<p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">$contentCV</code> variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+</code></pre></div></div>
+
+<p>You can add the <code class="language-plaintext highlighter-rouge">ImportOrderEntriesComponent</code> to the Saved Carts page with the following ImpEx:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContent-saved-carts;Body content for Saved Carts History Slot;AccountSavedCartHistoryComponent,ImportOrderEntriesComponent
+</code></pre></div></div>
+
+<p>You can add the <code class="language-plaintext highlighter-rouge">ImportExportOrderEntriesComponent</code> to the Saved Cart Details page with the following ImpEx:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContent-savedCartDetailsPage;Body content for Saved Carts Details Slot;SavedCartDetailsOverviewComponent,SavedCartDetailsItemsComponent,ImportExportOrderEntriesComponent,SavedCartDetailsActionComponent
+</code></pre></div></div>
+
+<p>You can add the <code class="language-plaintext highlighter-rouge">ImportExportOrderEntriesComponent</code> to the Cart page with the following ImpEx:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;TopContent-cartPage;Top content for Cart Slot;AddToSavedCartsComponent,CartComponent,SaveForLaterComponent,ImportExportOrderEntriesComponent
+</code></pre></div></div>
+
+<p>You can add the <code class="language-plaintext highlighter-rouge">ExportOrderEntriesComponent</code> to the Review Order checkout page with the following ImpEx:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutReviewOrder;Checkout Review Order Slot;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,CheckoutReviewOrderComponent,ExportOrderEntriesComponent,CheckoutProgressMobileBottomComponent
+</code></pre></div></div>
+
+<h2 id="disabling-cart-import-and-export">Disabling Cart Import and Export</h2>
+
+<p>In Backoffice, you can disable the rendering of the cart import or cart export links by removing the relevant component from the <strong>Content Slot</strong> that contains the component. You can also remove a cart import or cart export component through ImpEx.</p>
+
+<p>The following is an example of how to remove the cart import component from the Saved Cart History page using ImpEx. In this example, the ImpEx query overrides the Saved Cart History content slot and omits <code class="language-plaintext highlighter-rouge">ImportOrderEntriesComponent</code>, which has the effect of removing the component:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContent-saved-carts;Body content for Saved Carts History Slot;AccountSavedCartHistoryComponent
+</code></pre></div></div>
+
+<p>You can use the same query pattern to disable any cart import or cart export component using ImpEx.</p>
+
+<h2 id="global-configuration">Global Configuration</h2>
+
+<p>The cart import and cart export features use a common configuration model. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nx">ImportExportConfig</span> <span class="p">{</span>
+  <span class="nl">cartImportExport</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">file</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">separator</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nl">import</span><span class="p">?:</span> <span class="nx">ImportConfig</span><span class="p">;</span>
+    <span class="nl">export</span><span class="p">:</span> <span class="nx">ExportConfig</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In this model, the <code class="language-plaintext highlighter-rouge">separator</code> designates which character is used to separate the values in the exported file. The default separator is a comma (<code class="language-plaintext highlighter-rouge">,</code>).</p>
+
+<p>In addition to the common configuration settings, you can configure settings that are related only to the import functionality or export functionality of the feature. For more information, see <a href="#configuring-cart-import">Configuring Cart Import</a> and <a href="#configuring-cart-export">Configuring Cart Export</a>.</p>
+
+<h2 id="configuring-cart-import">Configuring Cart Import</h2>
+
+<p>You can configure settings that are related only to the import functionality, such as special file rules and attributes. The following is an example from <code class="language-plaintext highlighter-rouge">import-entries.config.ts</code>:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">ImportConfig</span> <span class="p">{</span>
+  <span class="nl">fileValidity</span><span class="p">?:</span> <span class="nx">FileValidity</span><span class="p">;</span>
+  <span class="nl">cartNameGeneration</span><span class="p">?:</span> <span class="nx">CartNameGeneration</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can change the validation of imported files by overwriting the settings of the <code class="language-plaintext highlighter-rouge">fileValidaty</code> property. The following is an example of the default settings for <code class="language-plaintext highlighter-rouge">fileValidaty</code>:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">defaultImportExportConfig</span><span class="p">:</span> <span class="nx">ImportExportConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">cartImportExport</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">import</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">fileValidity</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">maxSize</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="na">maxEntries</span><span class="p">:</span> <span class="p">{</span>
+          <span class="p">[</span><span class="nx">OrderEntriesSource</span><span class="p">.</span><span class="nx">NEW_SAVED_CART</span><span class="p">]:</span> <span class="mi">100</span><span class="p">,</span>
+          <span class="p">[</span><span class="nx">OrderEntriesSource</span><span class="p">.</span><span class="nx">SAVED_CART</span><span class="p">]:</span> <span class="mi">100</span><span class="p">,</span>
+          <span class="p">[</span><span class="nx">OrderEntriesSource</span><span class="p">.</span><span class="nx">ACTIVE_CART</span><span class="p">]:</span> <span class="mi">10</span><span class="p">,</span>
+          <span class="p">[</span><span class="nx">OrderEntriesSource</span><span class="p">.</span><span class="nx">QUICK_ORDER</span><span class="p">]:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="na">allowedTypes</span><span class="p">:</span> <span class="p">[</span>
+          <span class="dl">"</span><span class="s2">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">application/vnd.ms-excel</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">text/csv</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">.csv</span><span class="dl">"</span><span class="p">,</span>
+        <span class="p">],</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The following is a description of the settings of the <code class="language-plaintext highlighter-rouge">fileValidaty</code> property:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">maxSize</code> determines the maximum size of the imported file in megabytes.</li>
+  <li><code class="language-plaintext highlighter-rouge">maxEntries</code> sets the limit for the number of imported entries that are allowed for each source that is specified with the <code class="language-plaintext highlighter-rouge">OrderEntriesSource</code> key.</li>
+  <li><code class="language-plaintext highlighter-rouge">allowedTypes</code> is a string array that identifies the file types and extensions that are allowed to be imported.</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">ImportConfig</code> also includes the <code class="language-plaintext highlighter-rouge">CartNameGeneration</code> property. By default, during import, the new saved cart name is taken from the imported file. This configuration is shown in the following example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">defaultImportExportConfig</span><span class="p">:</span> <span class="nx">ImportExportConfig</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">cartImportExport</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">import</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">cartNameGeneration</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">source</span><span class="p">:</span> <span class="nx">CartNameSource</span><span class="p">.</span><span class="nx">FILE_NAME</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>However, the <code class="language-plaintext highlighter-rouge">CartNameSource</code> configuration provides different options for choosing the source of the saved cart name, as shown in the following example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">enum</span> <span class="nx">CartNameSource</span> <span class="p">{</span>
+  <span class="nx">FILE_NAME</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">fileName</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">DATE_TIME</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">dateTime</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">source: CartNameSource</code> is set to <code class="language-plaintext highlighter-rouge">DATE_TIME</code>, each new saved cart name is generated using the current date. You can use the options of the <code class="language-plaintext highlighter-rouge">fromDateOptions</code> property to further configure how the cart name is generated, as follows:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">CartNameGeneration</span> <span class="p">{</span>
+  <span class="nl">fromDateOptions</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="nx">prefix</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">suffix</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">mask</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The following is a description of the settings of the <code class="language-plaintext highlighter-rouge">fromDateOptions</code> property:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">prefix</code> adds text before the import date.</li>
+  <li><code class="language-plaintext highlighter-rouge">suffix</code> adds text after the import date.</li>
+  <li><code class="language-plaintext highlighter-rouge">mask</code> is a pattern that transforms the current date according to a specified format.</li>
+</ul>
+
+<h2 id="configuring-cart-export">Configuring Cart Export</h2>
+
+<p>You can configure settings that are related only to the export functionality. The following is an example from <code class="language-plaintext highlighter-rouge">export-entries.model.ts</code>:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">ExportConfig</span> <span class="p">{</span>
+  <span class="nl">additionalColumns</span><span class="p">?:</span> <span class="nx">ExportColumn</span><span class="p">[];</span>
+  <span class="nl">messageEnabled</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">downloadDelay</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">fileOptions</span><span class="p">:</span> <span class="nx">ExportFileOptions</span><span class="p">;</span>
+  <span class="nl">maxEntries</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The following is a description of the settings:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">additionalColumns</code> is an optional array that allows you to define additional columns to include in the exported file. By default, the exported file contains additional <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">price</code> columns. For more information, see <a href="#adding-columns-in-the-csv-file">Adding Columns in the CSV File</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">messageEnabled</code> is a flag that determines if customers see a global message informing them about the start of the download process.</li>
+  <li><code class="language-plaintext highlighter-rouge">downloadDelay</code> is a property that is dedicated to delaying the start of the download process. The main purpose of this property is avoid spamming customers by displaying the global message and the download pop-up at the same time.</li>
+  <li><code class="language-plaintext highlighter-rouge">fileOptions</code> is metadata for the exported file. For more information about the available options, see the <code class="language-plaintext highlighter-rouge">export-file-options.ts</code> file in the Spartacus source code.</li>
+  <li><code class="language-plaintext highlighter-rouge">maxEntries</code> determines the maximum number of entries that can be included in the exported CSV file.</li>
+</ul>
+
+<h3 id="adding-columns-in-the-csv-file">Adding Columns in the CSV File</h3>
+
+<p>By default, the exported CSV file contains product code and quantity columns. You can add <code class="language-plaintext highlighter-rouge">ExportColumn</code> elements to the <code class="language-plaintext highlighter-rouge">additionalColumns</code> to define which additional columns you want to include in the exported CSV file.</p>
+
+<p>The following is an example of the <code class="language-plaintext highlighter-rouge">ExportColumn</code> model:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">ExportColumn</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="nx">Translatable</span><span class="p">;</span>
+  <span class="nl">value</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The following is a description of the properties of the <code class="language-plaintext highlighter-rouge">ExportColumn</code> model:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code> is a <code class="language-plaintext highlighter-rouge">Translatable</code> object that is used to translate the column heading to the language that is currently set in the storefront. If the <code class="language-plaintext highlighter-rouge">key</code> value is provided, you must also have a representation of the key in the translation file.</li>
+  <li><code class="language-plaintext highlighter-rouge">value</code> is a dot notation string that refers to a specific <code class="language-plaintext highlighter-rouge">OrderEntry</code> attribute. You can see the available attributes in the <code class="language-plaintext highlighter-rouge">order.model.ts</code> file in the Spartacus source code.</li>
+</ul>
+
+<p>The following is an example of the default configuration for <code class="language-plaintext highlighter-rouge">additionalColumns</code> in Spartacus:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">additionalColumns</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product.name</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">price</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">totalPrice.formattedValue</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p>Your exported CSV file can contain as many columns as you would like. It is also possible to change the order of the columns in the exported file by changing the order of the columns in the configuration, as shown in the following example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">additionalColumns</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">stockStatus</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product.stock.stockLevelStatus</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product.name</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">price</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">totalPrice.formattedValue</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">thumbnail</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">product.images.PRIMARY.thumbnail.url</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<h2 id="defining-the-route-and-context-for-custom-configurations">Defining the Route and Context for Custom Configurations</h2>
+
+<p>As mentioned in <a href="#enabling-cart-import-and-export">Enabling Cart Import and Export</a>, this feature makes use of the <code class="language-plaintext highlighter-rouge">ImportOrderEntriesComponent</code>, the <code class="language-plaintext highlighter-rouge">ExportOrderEntriesComponent</code> and the <code class="language-plaintext highlighter-rouge">ImportExportOrderEntriesComponent</code>.</p>
+
+<p>If you have one of these CMS components registered on a page, you can use the <code class="language-plaintext highlighter-rouge">cxContext</code> property to define your own routing configuration for the feature in the root module. You also need the page context that is provided by the routing, which you define with the <code class="language-plaintext highlighter-rouge">ORDER_ENTRIES_CONTEXT</code> key.</p>
+
+<p>You can use the following values to define the context:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">NewSavedCartOrderEntriesContext</code> is used for creating a new saved cart.</li>
+  <li><code class="language-plaintext highlighter-rouge">SavedCartOrderEntriesContext</code> is used for adding more products to an existing saved cart. It is based on the routing parameters of the <code class="language-plaintext highlighter-rouge">savedCartId</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ActiveCartOrderEntriesContext</code> is used for importing and export products to and from the active cart. This context can be used on any page where the cart is active. For example, if you wanted to add an export link to the Review Order checkout page, you can simply provide the <code class="language-plaintext highlighter-rouge">ActiveCartOrderEntriesContext</code> context for the <code class="language-plaintext highlighter-rouge">checkoutReviewOrder</code> route.</li>
+  <li><code class="language-plaintext highlighter-rouge">QuickOrderOrderEntriesContext</code> is used to provide the context when using import or export functionality with <a href="/spartacus-docs/4.x/quick-order/">Quick Order</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OrderConfirmationOrderEntriesContext</code> is used for exporting order entries from the order confirmation page.</li>
+  <li><code class="language-plaintext highlighter-rouge">OrderDetailsOrderEntriesContext</code> is used for exporting products from an existing order on the order details page. It is based on the routing parameters of the <code class="language-plaintext highlighter-rouge">orderCode</code>.</li>
+</ul>
+
+<p>The following is an example of how Spartacus defines the route and context for the cart import functionality on the Saved Cart Details page:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forChild</span><span class="p">([</span>
+   <span class="p">{</span>
+     <span class="c1">// @ts-ignore</span>
+     <span class="na">path</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+     <span class="na">canActivate</span><span class="p">:</span> <span class="p">[</span><span class="nx">AuthGuard</span><span class="p">,</span> <span class="nx">CmsPageGuard</span><span class="p">],</span>
+     <span class="na">component</span><span class="p">:</span> <span class="nx">PageLayoutComponent</span><span class="p">,</span>
+     <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+       <span class="na">cxRoute</span><span class="p">:</span> <span class="dl">'</span><span class="s1">savedCartsDetails</span><span class="dl">'</span><span class="p">,</span>
+       <span class="na">cxContext</span><span class="p">:</span> <span class="p">{</span>
+         <span class="p">[</span><span class="nx">ORDER_ENTRIES_CONTEXT</span><span class="p">]:</span> <span class="nx">SavedCartOrderEntriesContext</span><span class="p">,</span>
+       <span class="p">},</span>
+     <span class="p">},</span>
+   <span class="p">},</span>
+   <span class="c1">//...</span>
+</code></pre></div></div>
+
+<h3 id="implementing-context-for-a-custom-page">Implementing Context for a Custom Page</h3>
+
+<p>If you are setting up a custom page and want to include cart import or cart export functionality, you need to set the target destination for the import, or the source of the product entries for the export. You can do this by implementing one or both of the following interfaces in your context:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">AddOrderEntriesContext</code> is a context interface that determines the destination of the imported products. The implementation must include the <code class="language-plaintext highlighter-rouge">addEntries</code> method and the <code class="language-plaintext highlighter-rouge">type</code> property.</li>
+  <li><code class="language-plaintext highlighter-rouge">GetOrderEntriesContext</code> is a context interface that determines the source of the product entries to be exported. The implementation must include the <code class="language-plaintext highlighter-rouge">getEntries</code> method.</li>
+</ul>
+
+<p>By default, if only one of the interfaces is implemented, the other function link is not displayed. Also note, the <em>Export to CSV</em> link is hidden if the order entries list is empty.</p>
+
+<h2 id="using-cart-import-and-export-in-the-storefront">Using Cart Import and Export in the Storefront</h2>
+
+<p>The following sections describe how the cart import and export feature works in the storefront.</p>
+
+<h3 id="import-status">Import Status</h3>
+
+<p>The import logic processes the content of the CSV file one line at a time. You can see the import status in the <strong>Import Products</strong> status window. The import status can be one of the following:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">success</code> indicates the product code and quantity are valid, and that the product is not out of stock.</li>
+  <li><code class="language-plaintext highlighter-rouge">warning</code> indicates the product code is valid, but that the quantity in the CSV file is higher than the amount that is available in stock. In this case, Spartacus imports the maximum available quantity for this product.</li>
+  <li><code class="language-plaintext highlighter-rouge">error</code> indicates the product code and quantity are invalid, or that the product with the indicated SKU does not exist in the database.</li>
+</ul>
+
+<p><strong>Note:</strong> Products are imported one line at a time, so the process can be interrupted if your browser tab is closed before the import has completed, or if your internet connection is lost.</p>
+
+<h3 id="importing-to-a-saved-cart">Importing to a Saved Cart</h3>
+
+<p>The following steps require you to be logged in to the Spartacus storefront.</p>
+
+<ol>
+  <li>
+    <p>In the <strong>My Account</strong> menu, click <strong>Saved Carts</strong>.</p>
+
+    <p>The <strong>Saved Cart</strong> page appears.</p>
+  </li>
+  <li>
+    <p>Below the <strong>Saved Carts</strong> list, click <strong>Import Products</strong>.</p>
+
+    <p>The <strong>Import Products</strong> dialog appears.</p>
+  </li>
+  <li>
+    <p>Click <strong>Select File</strong> and choose the file to upload.</p>
+  </li>
+  <li>
+    <p>Provide a name for the cart in the <strong>Saved Cart Name</strong> field, and an optional description in the <strong>Saved Cart Description</strong> field, then click <strong>Upload</strong>.</p>
+
+    <p>The <strong>Import Products</strong> status window appears and updates the status of the import process as each line from the CSV file is processed.</p>
+  </li>
+  <li>
+    <p>When the process is complete, close the <strong>Import Products</strong> status window.</p>
+
+    <p>You can now see your newly added saved cart in the <strong>Saved Carts</strong> list.</p>
+  </li>
+</ol>
+
+<p>For more information about saved carts, see <a href="/spartacus-docs/4.x/saved-cart/">Saved Cart</a>.</p>
+
+<h3 id="importing-to-an-active-cart">Importing to an Active Cart</h3>
+
+<p>The <strong>Import Products</strong> link appears below the product entries in the cart page, or below the <strong>Suggestions</strong> when the cart is empty.</p>
+
+<ol>
+  <li>
+    <p>Open the cart page and click <strong>Import Products</strong>.</p>
+
+    <p>The <strong>Import Products</strong> dialog appears.</p>
+  </li>
+  <li>
+    <p>Click <strong>Select File</strong>, choose the file to upload, then click <strong>Upload</strong>.</p>
+
+    <p>The <strong>Import Products</strong> status window appears and updates the status of the import process as each line from the CSV file is processed.</p>
+  </li>
+  <li>
+    <p>When the process is complete, close the <strong>Import Products</strong> status window.</p>
+
+    <p>You can now see the imported items in your cart.</p>
+  </li>
+</ol>
+
+<h3 id="importing-and-exporting-with-quick-order">Importing and Exporting with Quick Order</h3>
+
+<p>The quick order feature supports cart import and export. By default, cart import is enabled. The process for importing products with quick order is the same as <a href="#importing-to-an-active-cart">importing products to an active cart</a>.</p>
+
+<p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">quickOrderListLimit</code> attribute affects the number of items you can add to the <strong>Quick Order</strong> page. If there are more products in the CSV file than are permitted by the limit, any products that exceed the limit are not added. For more information, see <a href="/spartacus-docs/4.x/quick-order/">Quick Order</a>.</p>
+
+<h3 id="exporting-from-the-order-confirmation-and-order-details-pages">Exporting from the Order Confirmation and Order Details Pages</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">OrderConfirmationOrderEntriesContext</code> context is provided to allow you to add export functionality to the Order Confirmation page.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">OrderDetailsOrderEntriesContext</code> context is provided to allow you to add export functionality to the Order Details page.</p>
+
+<p>For more information, see <a href="#defining-the-route-and-context-for-custom-configurations">Defining the Route and Context for Custom Configurations</a>.</p>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>Cart import and export works with most products, but is not supported by the <a href="/spartacus-docs/4.x/configurable-products-integration/">Configurable Products Integration</a>, nor the <a href="/spartacus-docs/4.x/cpq-configurable-products-integration/">CPQ Configurable Products Integration</a>.</p>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/4.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/4.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    searchParameters: {
+      facetFilters: ["tags:4.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

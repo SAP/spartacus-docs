@@ -1,0 +1,2410 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Extending Checkout - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Extending Checkout">
+<meta property="og:url" content="/spartacus-docs/4.x/extending-checkout/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/4.x/extending-checkout/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/4.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/4.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/4.x/"><img src="/spartacus-docs/4.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/4.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/4.x/release-information/" >Version 4.2</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/a11y/">Accessibility ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-api/">API</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/architecture/">Architecture ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-and-extending/">Customizing and Extending Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/customizing-cms-components/" class="">Customizing CMS Components</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/creating-pages-and-components/" class="">Creating New Pages and Components</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/extending-checkout/" class="active">Extending Checkout</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/i18n/" class="">Internationalization (i18n)</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/product-details-page/" class="">Product Details Page</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/4.x/components/" class="">Spartacus Components ➢</a>
+
+
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/customizing-backend-communication/">Customizing Back End Communication ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/performance/">Performance Optimizations ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/security-best-practices/">Security Best Practices ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/server-side-rendering-in-spartacus/">Server-Side Rendering ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/spartacus-features/">Storefront Features ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/4.x/styling-and-page-layout/">Styling and Page Layout ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/4.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Extending Checkout</h1>
+    
+    <p>The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.</p>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#routing-and-configuration" id="markdown-toc-routing-and-configuration">Routing and Configuration</a></li>
+  <li><a href="#components" id="markdown-toc-components">Components</a></li>
+  <li><a href="#protecting-routes" id="markdown-toc-protecting-routes">Protecting Routes</a>    <ul>
+      <li><a href="#checkoutguard" id="markdown-toc-checkoutguard">CheckoutGuard</a></li>
+      <li><a href="#configuring-where-guards-redirect-to" id="markdown-toc-configuring-where-guards-redirect-to">Configuring Where Guards Redirect To</a></li>
+    </ul>
+  </li>
+  <li><a href="#cms-catalog-content-and-default-template" id="markdown-toc-cms-catalog-content-and-default-template">CMS Catalog Content and Default Template</a></li>
+  <li><a href="#extensibility" id="markdown-toc-extensibility">Extensibility</a>    <ul>
+      <li><a href="#changing-the-order-of-the-checkout-flow" id="markdown-toc-changing-the-order-of-the-checkout-flow">Changing the Order of the Checkout Flow</a></li>
+      <li><a href="#adding-another-checkout-step" id="markdown-toc-adding-another-checkout-step">Adding Another Checkout Step</a></li>
+      <li><a href="#combining-checkout-steps" id="markdown-toc-combining-checkout-steps">Combining Checkout Steps</a></li>
+      <li><a href="#express-checkout" id="markdown-toc-express-checkout">Express Checkout</a></li>
+    </ul>
+  </li>
+  <li><a href="#b2b-checkout" id="markdown-toc-b2b-checkout">B2B Checkout</a>    <ul>
+      <li><a href="#known-issues" id="markdown-toc-known-issues">Known Issues</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="routing-and-configuration">Routing and Configuration</h2>
+
+<p>In the checkout, you often have links from one step to another, which is the reason for registering each checkout page as a semantic page in the storefront configuration.</p>
+
+<p>The following is the default route configuration for checkout:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">({</span>
+  <span class="na">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">routes</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">checkout</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout</span><span class="dl">'</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="na">checkoutShippingAddress</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout/shipping-address</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="na">checkoutDeliveryMode</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout/delivery-mode</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="na">checkoutPaymentDetails</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout/payment-details</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">},</span>
+      <span class="na">checkoutReviewOrder</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout/review-order</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}),</span>
+</code></pre></div></div>
+
+<p>Although the default checkout has four steps, the default configuration defines five semantic pages. This additional page has a general <code class="language-plaintext highlighter-rouge">checkout</code> route that is linked to from every component that should redirect to the checkout. From this general checkout page, Spartacus redirects to the correct checkout step.</p>
+
+<p>If you want to link to the checkout, always point to this general checkout page, regardless of how your checkout is set up. For example, with a multi-step checkout, you can use your <code class="language-plaintext highlighter-rouge">CheckoutGuard</code> to take care of redirecting to the correct checkout step. With a single-step checkout, you can set all components on this <code class="language-plaintext highlighter-rouge">checkout</code> route and remove the <code class="language-plaintext highlighter-rouge">CheckoutGuard</code> from the component configuration.</p>
+
+<p>For more information about the <code class="language-plaintext highlighter-rouge">CheckoutGuard</code>, see the <a href="#checkoutguard">CheckoutGuard</a> section below.</p>
+
+<p>Aside from the route configuration, you can also configure the checkout by defining the responsibility of each step, the route to the page, and the order of the steps. The following is the default configuration:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">({</span>
+  <span class="na">checkout</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">steps</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutShippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">SHIPPING_ADDRESS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">deliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.deliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutDeliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">DELIVERY_MODE</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">paymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.paymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutPaymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">PAYMENT_DETAILS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutReviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">REVIEW_ORDER</span><span class="p">],</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">},</span>
+<span class="p">}),</span>
+</code></pre></div></div>
+
+<p>The attributes in the <code class="language-plaintext highlighter-rouge">steps</code> array work as follows:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">id</code> attribute should have a unique value. You can use <code class="language-plaintext highlighter-rouge">id</code> when you need to identify a specific step in the configuration.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">name</code> attribute is used in the <code class="language-plaintext highlighter-rouge">CheckoutProgress</code> component to indicate which checkout steps have been completed. The <code class="language-plaintext highlighter-rouge">name</code> is also used as a translation key.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">routeName</code> attribute specifies the semantic page for each step.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">type</code> attribute is used by the checkout guards. For more information, see <a href="#protecting-routes">Protecting Routes</a>.</li>
+</ul>
+
+<p>Also, the order of the steps in the <code class="language-plaintext highlighter-rouge">steps</code> array determines which steps are “previous” and “next” for the navigation buttons in the checkout flow. For example, based on the default configuration, the <strong>Back</strong> button for the delivery mode component points to the previous <code class="language-plaintext highlighter-rouge">shippingAddress</code> step, while the <strong>Next</strong> button points to the <code class="language-plaintext highlighter-rouge">paymentDetails</code> step. If you change the order of the steps in the configuration, the navigation buttons automatically update to link to the correct pages.</p>
+
+<h2 id="components">Components</h2>
+
+<p>Every checkout component is a CMS component. Furthermore, in the default checkout, all components are <a href="/spartacus-docs/4.x/customizing-cms-components/#placeholder-components">CMSFlexComponents</a>. Compared to other CMS components, these components have more guards defined in the configuration, but are otherwise identical to regular CMS components.</p>
+
+<h2 id="protecting-routes">Protecting Routes</h2>
+
+<p>The checkout uses component guards instead of page guards. You protect routes by applying guards in the CMS component mapping.</p>
+
+<p>Component guards have the same API as page guards. Spartacus exposes the following guards as part of the checkout:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ShippingAddressSetGuard</code></li>
+  <li><code class="language-plaintext highlighter-rouge">DeliveryModeSetGuard</code></li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentDetailsSetGuard</code></li>
+  <li><code class="language-plaintext highlighter-rouge">CheckoutGuard</code></li>
+</ul>
+
+<p>As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the shipping address, delivery mode and payment details were correctly set, you would set guards for the review order component to <code class="language-plaintext highlighter-rouge">guards: [ShippingAddressSetGuard, DeliveryModeSetGuard, PaymentDetailsSetGuard]</code>. Then, when you try to access the Review Order page, Spartacus first checks the guards for every component on that page, and only displays the page if every guard returns <code class="language-plaintext highlighter-rouge">true</code>. If one of the guard returns <code class="language-plaintext highlighter-rouge">false</code>, or returns a redirect URL, Spartacus redirects to the provided URL.</p>
+
+<p>The following is an example scenario:</p>
+
+<ol>
+  <li>A user sets the shipping address.</li>
+  <li>The user comes back to shop after a few days, and the browser auto-suggests the Review Order page from a previous order.</li>
+  <li>The user follows the suggestion.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">ShippingAddressSetGuard</code> returns <code class="language-plaintext highlighter-rouge">true</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">DeliveryModeSetGuard</code> returns <code class="language-plaintext highlighter-rouge">checkout/delivery-mode</code> redirect.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">PaymentDetailsSetGuard</code> returns <code class="language-plaintext highlighter-rouge">checkout/payment-details</code> redirect.</li>
+  <li>The user is redirected to the Delivery Mode selection page.</li>
+</ol>
+
+<p>The order of the guards is important because the first redirect is used. In general, you should define guards in the same order as the checkout flow.</p>
+
+<h3 id="checkoutguard">CheckoutGuard</h3>
+
+<p>A special <code class="language-plaintext highlighter-rouge">CheckoutGuard</code> is responsible for redirecting to the correct step. The default implementation redirects every checkout request to the first step. You can replace this with your own guard (for example, you could redirect users to the first step that is not set). A custom example is provided in the <a href="#express-checkout">Express Checkout</a> section, below.</p>
+
+<h3 id="configuring-where-guards-redirect-to">Configuring Where Guards Redirect To</h3>
+
+<p>In the checkout configuration, for each step, you specify a <code class="language-plaintext highlighter-rouge">type</code> attribute and the type of data that should be set. A guard looks for the first step that contains the specific <code class="language-plaintext highlighter-rouge">type</code> and then redirects to this step.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">ShippingAddressSetGuard</code> searches the checkout configuration for the first step with a <code class="language-plaintext highlighter-rouge">type</code> containing <code class="language-plaintext highlighter-rouge">CheckoutStepType.shippingAddress</code>, then reads the step route and redirects to that page.</p>
+
+<p>Note that, on each checkout step, you can have multiple components. As a result, the <code class="language-plaintext highlighter-rouge">type</code> property is an array.</p>
+
+<h2 id="cms-catalog-content-and-default-template">CMS Catalog Content and Default Template</h2>
+
+<p>In the default checkout, Spartacus uses a modified <code class="language-plaintext highlighter-rouge">MultiStepCheckoutOrderSummaryPageTemplate</code>. In addition to <code class="language-plaintext highlighter-rouge">BodyContent</code> and <code class="language-plaintext highlighter-rouge">SideContent</code>, Spartacus includes <code class="language-plaintext highlighter-rouge">TopContent</code> and <code class="language-plaintext highlighter-rouge">BottomContent</code> for 100% of the sections above and below the <code class="language-plaintext highlighter-rouge">BodyContent</code> and <code class="language-plaintext highlighter-rouge">SideContent</code> page slots.</p>
+
+<p>For the default checkout flow, Spartacus includes an impex file with all pages, slots, components and relations configured. This impex is available as part of the <code class="language-plaintext highlighter-rouge">spartacussampledata</code> extension. For more information, see <a href="/spartacus-docs/4.x/spartacussampledata-extension/">Spartacus Sample Data Extension</a></p>
+
+<h2 id="extensibility">Extensibility</h2>
+
+<p>The following sections describe some common ways to modify the checkout. Of course, you can also extend checkout services and components like any other services and components that are shipped with the Spartacus libraries.</p>
+
+<h3 id="changing-the-order-of-the-checkout-flow">Changing the Order of the Checkout Flow</h3>
+
+<p>The following scenario describes how to change the order of two steps. In the default configuration, the checkout flow starts with setting a shipping address, followed by setting the delivery mode, and finally by filling in the payment details. In this scenario, the configuration is modified so that the payment details step occurs before the delivery mode step.</p>
+
+<p>To achieve this, you change the checkout configuration in the storefront configuration, and change the guards in the CMS components that are used on the checkout pages. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">({</span>
+  <span class="p">...</span><span class="nx">restOfConfig</span><span class="p">,</span>
+  <span class="na">checkout</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// You must specify all of the steps (this configuration is not merged with the default one)</span>
+    <span class="na">steps</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutShippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">SHIPPING_ADDRESS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="c1">// Change the payment details step to be before the delivery mode</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">paymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.paymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutPaymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">PAYMENT_DETAILS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">deliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.deliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutDeliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">DELIVERY_MODE</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutReviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">REVIEW_ORDER</span><span class="p">],</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">},</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">CheckoutPaymentDetails</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="nx">PaymentMethodsComponent</span><span class="p">,</span>
+      <span class="c1">// The default CheckoutPaymentDetails uses the DeliveryModeSetGuard, but in this case, the delivery mode details will not be set yet.</span>
+      <span class="c1">// Instead, override the component guards with a new set that does not include the DeliveryModeSetGuard</span>
+      <span class="na">guards</span><span class="p">:</span> <span class="p">[</span><span class="nx">AuthGuard</span><span class="p">,</span> <span class="nx">CartNotEmptyGuard</span><span class="p">,</span> <span class="nx">ShippingAddressSetGuard</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="na">CheckoutDeliveryMode</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="nx">DeliveryModeComponent</span><span class="p">,</span>
+      <span class="c1">// In the CheckoutDeliveryMode, we need to also check if the payment details are set, so we add the PaymentDetailsSetGuard</span>
+      <span class="na">guards</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nx">AuthGuard</span><span class="p">,</span>
+        <span class="nx">CartNotEmptyGuard</span><span class="p">,</span>
+        <span class="nx">ShippingAddressSetGuard</span><span class="p">,</span>
+        <span class="nx">PaymentDetailsSetGuard</span><span class="p">,</span>
+      <span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}),</span>
+</code></pre></div></div>
+
+<h3 id="adding-another-checkout-step">Adding Another Checkout Step</h3>
+
+<p>To add an extra checkout step, the approach is similar to changing the order of the checkout flow: you provide the checkout configuration in the storefront configuration, and set the page, slots, and components in CMS. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">({</span>
+  <span class="p">...</span><span class="nx">restOfConfig</span><span class="p">,</span>
+  <span class="na">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">routes</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// Create a route for your new checkout step</span>
+      <span class="na">checkoutCharity</span><span class="p">:</span> <span class="p">{</span> <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout/charity</span><span class="dl">'</span><span class="p">]</span> <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="na">checkout</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">steps</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutShippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">SHIPPING_ADDRESS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">deliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.deliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutDeliveryMode</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">DELIVERY_MODE</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">paymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.paymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutPaymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">PAYMENT_DETAILS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="c1">// Add the charity step here, before the review order step</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">charity</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.charity</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Provide translation for this key</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutCharity</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutReviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">REVIEW_ORDER</span><span class="p">],</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">},</span>
+<span class="p">}),</span>
+</code></pre></div></div>
+
+<h3 id="combining-checkout-steps">Combining Checkout Steps</h3>
+
+<p>Combining checkout steps is also very similar to the previous examples. In most cases, the required steps are the following:</p>
+
+<ul>
+  <li>Configure new pages, slots, and components in CMS</li>
+  <li>Adjust the configuration of the steps (for example, add/combine/remove steps)</li>
+  <li>Map your own Angular components to the CMS components</li>
+  <li>Review the component guards and adjust if needed</li>
+  <li>Check for missing translations</li>
+</ul>
+
+<p>In addition to combining steps, the following example shows how to create a new component, which is very similar to the <code class="language-plaintext highlighter-rouge">DeliveryModeComponent</code> except that it has a <strong>Save</strong> button instead of a <strong>Next</strong> button. Note, this <strong>Save</strong> button only saves information, without a redirect.</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">({</span>
+  <span class="na">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">routes</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// Add a new route for the combined step</span>
+      <span class="na">checkoutDeliveryModePaymentDetails</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">checkout/delivery-and-payment</span><span class="dl">'</span><span class="p">],</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="na">checkout</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">steps</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.shippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutShippingAddress</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">SHIPPING_ADDRESS</span><span class="p">],</span>
+      <span class="p">},</span>
+      <span class="c1">// Replace two steps with one</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">deliveryModePaymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.deliveryModePaymentDetails</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Provide translation for this key</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutDeliveryModePaymentDetails</span><span class="dl">'</span><span class="p">,</span>
+        <span class="c1">// This step sets both the delivery mode and the payment details, so you have to define both of these types</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span>
+          <span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">DELIVERY_MODE</span><span class="p">,</span>
+          <span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">PAYMENT_DETAILS</span><span class="p">,</span>
+        <span class="p">],</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutProgress.reviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">routeName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">checkoutReviewOrder</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">REVIEW_ORDER</span><span class="p">],</span>
+      <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">},</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">CheckoutPaymentDetails</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="nx">PaymentMethodsComponent</span><span class="p">,</span>
+      <span class="c1">// DeliveryModeSetGuard is removed because it is set on the same page</span>
+      <span class="na">guards</span><span class="p">:</span> <span class="p">[</span><span class="nx">AuthGuard</span><span class="p">,</span> <span class="nx">CartNotEmptyGuard</span><span class="p">,</span> <span class="nx">ShippingAddressSetGuard</span><span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}),</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> You can use this same approach to combine all the steps into a single-step checkout.</p>
+
+<h3 id="express-checkout">Express Checkout</h3>
+
+<p>The following scenario describes how to provide express checkout for users who have previously ordered from this store. In this example, when the <strong>Express Checkout</strong> button is clicked, the user is brought directly to the Review Order page, which is populated with the default address, the default payment method, and the fastest shipping method.</p>
+
+<p>Clicking the default checkout button redirects to the <code class="language-plaintext highlighter-rouge">/checkout</code> route. To invoke express checkout, you need to pass the additional <code class="language-plaintext highlighter-rouge">express</code> query param.</p>
+
+<p>The first step in setting up express checkout is to create an <code class="language-plaintext highlighter-rouge">ExpressCheckoutGuard</code>. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">CanActivate</span><span class="p">,</span>
+  <span class="nx">Router</span><span class="p">,</span>
+  <span class="nx">UrlTree</span><span class="p">,</span>
+  <span class="nx">ActivatedRouteSnapshot</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/router</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../config/checkout-config</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">RoutingConfigService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Injectable</span><span class="p">({</span>
+  <span class="na">providedIn</span><span class="p">:</span> <span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ExpressCheckoutGuard</span> <span class="k">implements</span> <span class="nx">CanActivate</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span>
+    <span class="k">private</span> <span class="nx">router</span><span class="p">:</span> <span class="nx">Router</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">config</span><span class="p">:</span> <span class="nx">CheckoutConfig</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">routingConfigService</span><span class="p">:</span> <span class="nx">RoutingConfigService</span><span class="p">,</span>
+    <span class="k">private</span> <span class="nx">checkoutConfigService</span><span class="p">:</span> <span class="nx">CheckoutConfigService</span>
+  <span class="p">)</span> <span class="p">{}</span>
+
+  <span class="nx">canActivate</span><span class="p">(</span><span class="nx">route</span><span class="p">:</span> <span class="nx">ActivatedRouteSnapshot</span><span class="p">):</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">boolean</span> <span class="o">|</span> <span class="nx">UrlTree</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// Check for the express query param</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">queryParams</span><span class="p">.</span><span class="nx">express</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// To avoid a long example, the following are only steps, instead of real code:</span>
+      <span class="c1">// 1. Fetch the default delivery address, payment method and delivery mode.</span>
+      <span class="c1">// 2. Set those defaults in the order.</span>
+      <span class="c1">// 3. Watch for order details and return the review order URL.</span>
+      <span class="kd">const</span> <span class="na">checkoutStep</span><span class="p">:</span> <span class="nx">CheckoutStep</span> <span class="o">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">checkoutConfigService</span><span class="p">.</span><span class="nx">getCheckoutStep</span><span class="p">(</span>
+          <span class="nx">CheckoutStepType</span><span class="p">.</span><span class="nx">REVIEW_ORDER</span>
+        <span class="p">);</span>
+
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">parseUrl</span><span class="p">(</span>
+        <span class="nx">checkoutStep</span> <span class="o">&amp;&amp;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">routingConfigService</span><span class="p">.</span><span class="nx">getRouteConfig</span><span class="p">(</span><span class="nx">checkoutStep</span><span class="p">.</span><span class="nx">routeName</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Redirect to the first step in the default checkout flow</span>
+      <span class="k">return</span> <span class="k">of</span><span class="p">(</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">parseUrl</span><span class="p">(</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">routingConfigService</span><span class="p">.</span><span class="nx">getRouteConfig</span><span class="p">(</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">checkout</span><span class="p">.</span><span class="nx">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">routeName</span>
+          <span class="p">).</span><span class="nx">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now that you have created the <code class="language-plaintext highlighter-rouge">ExpressCheckoutGuard</code>, you can use it in the Checkout Orchestrator. The following is an example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">({</span>
+  <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">CheckoutOrchestrator</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">component</span><span class="p">:</span> <span class="nx">CheckoutOrchestratorComponent</span><span class="p">,</span>
+      <span class="c1">// Replace the CheckoutGuard with the ExpressCheckoutGuard for the Checkout Orchestrator</span>
+      <span class="na">guards</span><span class="p">:</span> <span class="p">[</span><span class="nx">AuthGuard</span><span class="p">,</span> <span class="nx">CartNotEmptyGuard</span><span class="p">,</span> <span class="nx">ExpressCheckoutGuard</span><span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">}),</span>
+</code></pre></div></div>
+
+<p>Express checkout is now ready. The only steps that remain are to create express checkout links, and to place them on the page.</p>
+
+<h2 id="b2b-checkout">B2B Checkout</h2>
+
+<p>In the Spartacus B2B storefront, the checkout includes the same steps as the B2C storefront, with the addition of a step for selecting the payment method. This step allows you to choose if you want to pay with an account or with a credit card, and also allows you to enter an optional PO number.</p>
+
+<p>With the credit card payment option, the B2B checkout is configured to work the same as the B2C checkout.</p>
+
+<p>With the account payment option, you can only select the addresses of cost centers that you are assigned to as a purchaser. Also, when you select the account payment option, it allows you to skip the payment details step.</p>
+
+<h3 id="known-issues">Known Issues</h3>
+
+<p>When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using <code class="language-plaintext highlighter-rouge">spartacussampledata</code> version 3.0.0 or newer, and that you are using SAP Commerce Cloud 2005 or newer.</p>
+
+<p>If you only want to add the payment method step, you can do so by running the following ImpEx:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;CheckoutPaymentType;Checkout Payment Type Page;MultiStepCheckoutSummaryPageTemplate;/checkout/payment-type
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutPaymentType;Checkout Payment Type Slot;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,CheckoutPaymentTypeComponent,CheckoutProgressMobileBottomComponent
+;;SideContentSlot-checkoutPaymentType;Order Summary Slot;CheckoutOrderSummaryComponent
+
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;CheckoutPaymentTypeComponent;Checkout Payment Type Component;CheckoutPaymentType
+</code></pre></div></div>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/4.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/4.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    searchParameters: {
+      facetFilters: ["tags:4.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
