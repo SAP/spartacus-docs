@@ -39,6 +39,8 @@ To enable the SAP Enterprise Product Development Visualization Integration, you 
 
 ### Configuring Spartacus
 
+*Configuring Spartacus Using Schematics*
+
 You can install and configure the SAP Enterprise Product Development Visualization Integration using Spartacus schematics. To take advantage of the automatic setup provided by Spartacus schematics, you need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
 To use schematics to perform a full configuration, run the following command:
@@ -53,7 +55,11 @@ Later in the schematic execution, when you will be prompted with `[EPD Visualiza
 
 After you have provided this information, the schematic will configure the SAP Enterprise Product Development Visualization integration for Spartacus.
 
-If you do not wish to use the schematics, you can create the SAP Enterprise Product Development Visualization integration library feature module manually and add it into your application, as shown in the following example:
+*Configuring Spartacus Manually*
+
+If you do not wish to use the schematics, you can manually add the SAP Enterprise Product Development Visualization integration library into your application as described below.
+
+Add a `src/app/spartacus/features/epd-visualization/epd-visualization-feature.module.ts` feature module for the SAP Enterprise Product Development Visualization integration library, as shown in the following example:
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -89,6 +95,61 @@ import { EpdVisualizationConfig, EpdVisualizationRootModule } from "@spartacus/e
 })
 export class EpdVisualizationFeatureModule { }
 ```
+
+Include the `EpdVisualizationFeatureModule` module in the `import` array of the `@NgModule` decorator in the `spartacus-features.module.ts` file.
+
+Create a `src/styles/spartacus/epd-visualization.scss` file containing the following:
+
+```scss
+@import "@spartacus/epd-visualization";
+```
+
+To use the `powertools-epdvisualization-spa` site created by the `epdvisualizationspartacussampledata` extension, ensure that the `@NgModule` decorator in the `src/app/spartacus/spartacus-configuration.module.ts` has:
+
+- a `providers` array that includes `provideConfig(defaultB2bOccConfig)` and `provideConfig(defaultB2bCheckoutConfig)`
+- a `baseSite` value of `powertools-epdvisualization-spa` in the `context` object of the `SiteContextConfig` configuration
+
+An example `spartacus-configuration.module.ts` file is shown below.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { translationChunksConfig, translations } from "@spartacus/assets";
+import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
+import { defaultB2bCheckoutConfig, defaultB2bOccConfig } from "@spartacus/setup";
+import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
+
+@NgModule({
+  declarations: [],
+  imports: [
+  ],
+  providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
+    backend: {
+      occ: {
+        baseUrl: 'https://localhost:9002',
+      }
+    },
+  }), provideConfig(<SiteContextConfig>{
+    context: {
+      currency: ['USD'],
+      language: ['en'],
+      baseSite: ['powertools-epdvisualization-spa'],
+    },
+  }), provideConfig(<I18nConfig>{
+    i18n: {
+      resources: translations,
+      chunks: translationChunksConfig,
+      fallbackLang: 'en'
+    },
+  }), provideConfig(<FeaturesConfig>{
+    features: {
+      level: '4.3'
+    }
+  }), provideConfig(defaultB2bOccConfig), provideConfig(defaultB2bCheckoutConfig)]
+})
+export class SpartacusConfigurationModule { }
+```
+
+*Default/Custom Configuration*
 
 The root module of the SAP Enterprise Product Development Visualization Integration library provides the following default configuration:
 
