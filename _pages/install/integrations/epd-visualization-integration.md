@@ -43,23 +43,37 @@ To enable the SAP Enterprise Product Development Visualization Integration, you 
 
 You can install and configure the SAP Enterprise Product Development Visualization Integration using Spartacus schematics. To take advantage of the automatic setup provided by Spartacus schematics, you need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
-To use schematics to perform a full configuration, run the following command:
+To use schematics to perform a full configuration, run the following command from within the root directory of your storefront application:
 
 ```bash
 ng add @spartacus/schematics --baseSite=powertools-epdvisualization-spa
 ```
+If you are using a Commerce Cloud server that is not a local server, the base URL of the Commerce Cloud OCC backend can be specified with a `baseUrl` command line argument:
+
+```bash
+ng add @spartacus/schematics --baseSite=powertools-epdvisualization-spa --baseUrl=https://my-cc-server.example.com
+```
 
 When you are prompted to choose which feature modules to include, ensure that the `EPD Visualization Integration` feature is included (along with any other features that you require).
 
-Later in the schematic execution, when you will be prompted with `[EPD Visualization] What is the base URL (origin) of your EPD Fiori Launchpad? e.g. https://mytenant.epd.cfapps.eu20.hana.ondemand.com`, enter the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) portion of the URL that you use to access the EPD Fiori Launchpad for your tenant.
+Later, when you are prompted with `[EPD Visualization] What is the base URL (origin) of your EPD Fiori Launchpad? e.g. https://mytenant.epd.cfapps.eu20.hana.ondemand.com`, enter the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) portion of the URL that you use to access the EPD Fiori Launchpad for your tenant.
 
 After you have provided this information, the schematic will configure the SAP Enterprise Product Development Visualization integration for Spartacus.
+
+If you want to add the EPD Visualization Integration library to an existing storefront application without performing a full configuration, it is possible to execute just the schematic for the EPD Visualization Integration library as below.
+
+```bash
+ng add @spartacus/epd-visualization
+```
+
+It is not possible to specify the base site for the storefront or the Commerce Cloud OCC backend URL when running the `@spartacus/epd-visualization` schematic on its own.
+The (#configuring-spartacus-manually) section describes how to manually update these values.
 
 *Configuring Spartacus Manually*
 
 If you do not wish to use the schematics, you can manually add the SAP Enterprise Product Development Visualization integration library into your application as described below.
 
-Add a `src/app/spartacus/features/epd-visualization/epd-visualization-feature.module.ts` feature module for the SAP Enterprise Product Development Visualization integration library, as shown in the following example:
+Add a feature module file for the SAP Enterprise Product Development Visualization integration library to your application, as shown in the following example:
 
 ```ts
 import { NgModule } from '@angular/core';
