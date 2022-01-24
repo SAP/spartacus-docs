@@ -114,7 +114,7 @@ The dependencies in this procedure are required by the Spartacus storefront.
    "ngx-infinite-scroll": "^8.0.0",
    "bootstrap": "^4.2.1",
    "i18next": "^15.0.6",
-   "i18next-http-backend": "^2.0.1",
+   "i18next-xhr-backend": "^2.0.1",
 
     "@spartacus/core": "~1.3.0",
     "@spartacus/styles": "~1.3.0",
