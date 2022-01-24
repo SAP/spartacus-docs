@@ -14,7 +14,7 @@ feature:
 
 The SAP Enterprise Product Development Visualization integration provides capabilities for viewing 2D and 3D content within a Spartacus storefront, allowing for visual spare part picking.
 
-For more information, see [Integrating Visualization with SAP Commerce Cloud](https://help.sap.com/viewer/e56465f22e564c9690725351432cc906/Cloud/en-US) on the SAP Help Portal.
+For more information, see [Integrating Visualization with SAP Commerce Cloud](https://help.sap.com/viewer/eea9df7c0c9545cc82768477a98e56ac/Cloud/en-US) on the SAP Help Portal.
 
 ***
 
@@ -83,7 +83,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
    import { EpdVisualizationModule } from "@spartacus/epd-visualization";
    import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslations } from "@spartacus/epd-visualization/assets";
    import { EpdVisualizationConfig, EpdVisualizationRootModule } from "@spartacus/epd-visualization/root";
-   
+
    @NgModule({
      declarations: [],
      imports: [
@@ -101,7 +101,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
          ui5: {
            bootstrapUrl: "https://sapui5.hana.ondemand.com/1.97.0/resources/sap-ui-core.js"
          },
-   
+
          apis: {
            baseUrl: "https://epd-acc-eu20-consumer.epdacc.cfapps.eu20.hana.ondemand.com"
          }
@@ -133,7 +133,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
    import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
    import { defaultB2bCheckoutConfig, defaultB2bOccConfig } from "@spartacus/setup";
    import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
-   
+
    @NgModule({
      declarations: [],
      imports: [
@@ -330,11 +330,11 @@ For a SAP Commerce Cloud server, you can install the `epdvisualizationspartacuss
 
 ### Configuring the SAP Enterprise Product Development Visualization Back End
 
-The following help topic and its subtopics describe the configuration required in the SAP Enterprise Product Development tenant: [Configure Visualization Backend](https://help.sap.com/viewer/e56465f22e564c9690725351432cc906/Cloud/en-US/2a9de0ae0d4245c4b6599fe9cf66d51f.html)
+The following help topic and its subtopics describe the configuration required in the SAP Enterprise Product Development tenant: [Configure Visualization Backend](https://help.sap.com/viewer/eea9df7c0c9545cc82768477a98e56ac/Cloud/en-US/2a9de0ae0d4245c4b6599fe9cf66d51f.html)
 
-The following help topic describes how to prepare visualizations in the SAP Enterprise Product Development system: [Prepare Visualizations for Storefront Part Picking](https://help.sap.com/viewer/e56465f22e564c9690725351432cc906/Cloud/en-US/d981e39ae1bb40a2b97cb93ff039b0be.html)
+The following help topic describes how to prepare visualizations in the SAP Enterprise Product Development system: [Prepare Visualizations for Storefront Part Picking](https://help.sap.com/viewer/eea9df7c0c9545cc82768477a98e56ac/Cloud/en-US/d981e39ae1bb40a2b97cb93ff039b0be.html)
 
-The following topic provides specific information related to creating and preparing visualizations that correspond with the sample product data created by the `epdvisualizationspartacussampledata` extension: [Prepare Sample Visualizations](https://help.sap.com/viewer/e56465f22e564c9690725351432cc906/Cloud/en-US/ba46273cec114d0393ad3ad798a9be61.html)
+The following topic provides specific information related to creating and preparing visualizations that correspond with the sample product data created by the `epdvisualizationspartacussampledata` extension: [Prepare Sample Visualizations](https://help.sap.com/viewer/eea9df7c0c9545cc82768477a98e56ac/Cloud/en-US/ba46273cec114d0393ad3ad798a9be61.html)
 
 ## Accessing the Sample Data
 
