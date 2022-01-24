@@ -39,60 +39,255 @@ To enable the SAP Enterprise Product Development Visualization Integration, you 
 
 ### Configuring Spartacus
 
-You can install and configure the SAP Enterprise Product Development Visualization Integration using Spartacus schematics. To take advantage of the automatic setup provided by Spartacus schematics, you need to ensure that your storefront app adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+The following sections describe how to configure Spartacus, either using [schematics](#configuring-spartacus-using-schematics) or [manually](#configuring-spartacus-manually). For information about customizing the default configuration, see [Default and Custom Configurations](#default-and-custom-configurations).
 
-To use schematics to perform a full configuration, run the following command:
+#### Configuring Spartacus Using Schematics
+
+You can install and configure the SAP Enterprise Product Development Visualization Integration using Spartacus schematics. To take advantage of the automatic setup provided by Spartacus schematics, you need to ensure that your storefront application adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+
+To use schematics to perform a full configuration, run the following command from within the root directory of your storefront application:
 
 ```bash
 ng add @spartacus/schematics --baseSite=powertools-epdvisualization-spa
 ```
 
+If you are using a SAP Commerce Cloud server that is not a local server, the base URL of the Commerce Cloud OCC back end can be specified with a `baseUrl` command line argument. The following is an example:
+
+```bash
+ng add @spartacus/schematics --baseSite=powertools-epdvisualization-spa --baseUrl=https://my-cc-server.example.com
+```
+
 When you are prompted to choose which feature modules to include, ensure that the `EPD Visualization Integration` feature is included (along with any other features that you require).
 
-Later in the schematic execution, when you will be prompted with `[EPD Visualization] What is the base URL (origin) of your EPD Fiori Launchpad? e.g. https://mytenant.epd.cfapps.eu20.hana.ondemand.com`, enter the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) portion of the URL that you use to access the EPD Fiori Launchpad for your tenant.
+Later, when you are prompted with `[EPD Visualization] What is the base URL (origin) of your EPD Fiori Launchpad? e.g. https://mytenant.epd.cfapps.eu20.hana.ondemand.com`, enter the [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) portion of the URL that you use to access the EPD Fiori Launchpad for your tenant.
 
 After you have provided this information, the schematic will configure the SAP Enterprise Product Development Visualization integration for Spartacus.
 
-If you do not wish to use the schematics, you can create the SAP Enterprise Product Development Visualization integration library feature module manually and add it into your application, as shown in the following example:
+If you want to add the EPD Visualization Integration library to an existing storefront application without performing a full configuration, it is possible to execute just the schematic for the EPD Visualization Integration library with the following command:
 
-```ts
-import { NgModule } from '@angular/core';
-import { I18nConfig, provideConfig } from "@spartacus/core";
-import { EpdVisualizationModule } from "@spartacus/epd-visualization";
-import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslations } from "@spartacus/epd-visualization/assets";
-import { EpdVisualizationConfig, EpdVisualizationRootModule } from "@spartacus/epd-visualization/root";
-
-@NgModule({
-  declarations: [],
-  imports: [
-    EpdVisualizationRootModule,
-    EpdVisualizationModule
-  ],
-  providers: [provideConfig(<I18nConfig>{
-    i18n: {
-      resources: epdVisualizationTranslations,
-      chunks: epdVisualizationTranslationChunksConfig,
-    },
-  }),
-  provideConfig(<EpdVisualizationConfig>{
-    epdVisualization: {
-      ui5: {
-        bootstrapUrl: "https://sapui5.hana.ondemand.com/1.97.0/resources/sap-ui-core.js"
-      },
-
-      apis: {
-        baseUrl: "https://epd-acc-eu20-consumer.epdacc.cfapps.eu20.hana.ondemand.com"
-      }
-    }
-  })
-  ]
-})
-export class EpdVisualizationFeatureModule { }
+```bash
+ng add @spartacus/epd-visualization
 ```
 
-The default configuration for the SAP Enterprise Product Development Visualization Integration library is provided in `epd-visualization-default-config.ts`. The values in this configuration can be overridden, but otherwise do not need to be specified.
+It is not possible to specify the base site for the storefront or the SAP Commerce Cloud OCC back end URL when running the `@spartacus/epd-visualization` schematic on its own. Information on how to manually update these values is provided in the following section.
 
-Information about the options defined by the `EpdVisualizationConfig` can be found in `epd-visualization-config.ts` in the `epd-visualization` library.
+#### Configuring Spartacus Manually
+
+If you do not wish to use the schematics, you can manually add the SAP Enterprise Product Development Visualization integration library into your application, as follows.
+
+1. Add a feature module file for the SAP Enterprise Product Development Visualization integration library to your application, as shown in the following example:
+
+   ```ts
+   import { NgModule } from '@angular/core';
+   import { I18nConfig, provideConfig } from "@spartacus/core";
+   import { EpdVisualizationModule } from "@spartacus/epd-visualization";
+   import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslations } from "@spartacus/epd-visualization/assets";
+   import { EpdVisualizationConfig, EpdVisualizationRootModule } from "@spartacus/epd-visualization/root";
+   
+   @NgModule({
+     declarations: [],
+     imports: [
+       EpdVisualizationRootModule,
+       EpdVisualizationModule
+     ],
+     providers: [provideConfig(<I18nConfig>{
+       i18n: {
+         resources: epdVisualizationTranslations,
+         chunks: epdVisualizationTranslationChunksConfig,
+       },
+     }),
+     provideConfig(<EpdVisualizationConfig>{
+       epdVisualization: {
+         ui5: {
+           bootstrapUrl: "https://sapui5.hana.ondemand.com/1.97.0/resources/sap-ui-core.js"
+         },
+   
+         apis: {
+           baseUrl: "https://epd-acc-eu20-consumer.epdacc.cfapps.eu20.hana.ondemand.com"
+         }
+       }
+     })
+     ]
+   })
+   export class EpdVisualizationFeatureModule { }
+   ```
+
+1. Include the `EpdVisualizationFeatureModule` module in the `import` array of the `@NgModule` decorator in the `spartacus-features.module.ts` file.
+
+1. Create a `src/styles/spartacus/epd-visualization.scss` file containing the following:
+
+   ```scss
+   @import "@spartacus/epd-visualization";
+   ```
+
+1. To use the `powertools-epdvisualization-spa` site created by the `epdvisualizationspartacussampledata` extension, ensure that the `@NgModule` decorator in the `src/app/spartacus/spartacus-configuration.module.ts` has the following:
+
+   - a `providers` array that includes `provideConfig(defaultB2bOccConfig)` and `provideConfig(defaultB2bCheckoutConfig)`
+   - a `baseSite` value of `powertools-epdvisualization-spa` in the `context` object of the `SiteContextConfig` configuration.
+
+   The following is an example:
+
+   ```typescript
+   import { NgModule } from '@angular/core';
+   import { translationChunksConfig, translations } from "@spartacus/assets";
+   import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
+   import { defaultB2bCheckoutConfig, defaultB2bOccConfig } from "@spartacus/setup";
+   import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
+   
+   @NgModule({
+     declarations: [],
+     imports: [
+     ],
+     providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
+       backend: {
+         occ: {
+           baseUrl: 'https://localhost:9002',
+         }
+       },
+     }), provideConfig(<SiteContextConfig>{
+       context: {
+         currency: ['USD'],
+         language: ['en'],
+         baseSite: ['powertools-epdvisualization-spa'],
+       },
+     }), provideConfig(<I18nConfig>{
+       i18n: {
+         resources: translations,
+         chunks: translationChunksConfig,
+         fallbackLang: 'en'
+       },
+     }), provideConfig(<FeaturesConfig>{
+       features: {
+         level: '4.3'
+       }
+     }), provideConfig(defaultB2bOccConfig), provideConfig(defaultB2bCheckoutConfig)]
+   })
+   export class SpartacusConfigurationModule { }
+   ```
+
+#### Default and Custom Configurations
+
+The default configuration for the SAP Enterprise Product Development Visualization Integration library is provided in `epd-visualization-default-config.ts`. The values in this configuration can be overridden, but otherwise do not need to be specified. The following is an example:
+
+```ts
+import { EpdVisualizationConfig } from '../config/epd-visualization-config';
+
+export function getEpdVisualizationDefaultConfig(): EpdVisualizationConfig {
+  return {
+    epdVisualization: {
+      usageIds: {
+        folderUsageId: {
+          name: 'CommerceCloud-Folder',
+          keys: [
+            {
+              name: 'Function',
+              value: 'Online',
+            },
+          ],
+        },
+        productUsageId: {
+          name: 'CommerceCloud-SparePart',
+          source: 'CommerceCloud',
+          category: 'SpareParts',
+          keyName: 'ProductCode',
+        },
+      },
+      visualPicking: {
+        productReferenceType: 'SPAREPART',
+      },
+    },
+  };
+}
+```
+
+Information about the options defined by the `EpdVisualizationConfig` can be found in `epd-visualization-config.ts` in the `epd-visualization` library. The following is an example:
+
+```ts
+import { Injectable } from '@angular/core';
+import { Config } from '@spartacus/core';
+import { UsageId } from '../models/usage-ids/usage-id';
+import { UsageIdDefinition } from '../models/usage-ids/usage-id-definition';
+
+@Injectable({
+  providedIn: 'root',
+  useExisting: Config,
+})
+export abstract class EpdVisualizationConfig implements Config {
+  /**
+   * This field introduces a namespace for EPD Visualization to avoid collisions when configuration merging occurs.
+   */
+  public epdVisualization?: EpdVisualizationInnerConfig;
+}
+
+export interface EpdVisualizationInnerConfig {
+  /**
+   * UI5 configuration
+   */
+  ui5?: Ui5Config;
+  /**
+   * SAP Enterprise Product Development Visualization API endpoint configuration.
+   */
+  apis?: VisualizationApiConfig;
+  /**
+   * SAP Enterprise Product Development Visualization Usage ID configuration.
+   */
+  usageIds?: UsageIdConfig;
+  /**
+   * Configuration for the visual picking scenario.
+   */
+  visualPicking?: VisualPickingConfig;
+}
+
+export interface Ui5Config {
+  /**
+   * This is the URL that SAPUI5 is bootstrapped from.
+   * The value that is configured by default in a given Spartacus release is the SAPUI5 version supported for that Spartacus release.
+   *
+   * Important: Please check the *End of Cloud Provisioning* column in https://sapui5.hana.ondemand.com/versionoverview.html
+   * When the Cloud Provisioning period ends for a particular SAPUI5 version, that version will no longer be available on https://sapui5.hana.ondemand.com
+   */
+  bootstrapUrl: string;
+}
+
+export interface VisualizationApiConfig {
+  /**
+   * This is the base URL that is used to access the EPD Visualization APIs.
+   * Use the origin portion of the URL for your EPD Fiori Launchpad.
+   * i.e. https://mytenantsubdomain.epd.cfapps.eu20.hana.ondemand.com
+   */
+  baseUrl: string;
+}
+
+export interface UsageIdConfig {
+  /**
+   * Folders in the configured SAP EPD Visualization tenant that have anonymous access enabled and have this Usage ID
+   * value applied will be searched for visualizations.
+   * This configuration option allows for a separation between staging visualization data and production visualization data.
+   */
+  folderUsageId: UsageId;
+
+  /**
+   * Defines the EPD Visualization usage ID to use to refer to a product in SAP Commerce Cloud.
+   * This Usage ID is used on:
+   * - Visualizations to allow a visualization to be linked with a product.
+   *   This allows a visualization to be found and loaded for the current product in a product details page.
+   * - Scene nodes to allow a scene node to be linked with a product.
+   *   This allows two way linking between scene nodes and products (which typically represent spare parts).
+   */
+  productUsageId: UsageIdDefinition;
+}
+
+export interface VisualPickingConfig {
+  /**
+   * This is the type of product reference to list for the active product (typically SPAREPART)
+   */
+  productReferenceType: string;
+}
+
+declare module '@spartacus/core' {
+  interface Config extends EpdVisualizationConfig {}
+}
+```
 
 ### Configuring SAP Commerce Cloud
 
