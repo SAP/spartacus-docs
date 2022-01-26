@@ -71,7 +71,7 @@ ng add @spartacus/epd-visualization
 
 It is not possible to specify the base site for the storefront or the SAP Commerce Cloud OCC back end URL when running the `@spartacus/epd-visualization` schematic on its own. Information on how to manually update these values is provided in the following section.
 
-When using the `powertools-epdvisualization-spa` site, check the `src/app/spartacus/spartacus-configuration.module.ts` file and ensure the `providers` array includes `provideConfig(defaultB2bOccConfig)` and `provideConfig(defaultB2bCheckoutConfig)` as described in the following section.
+When using the `powertools-epdvisualization-spa` site, check `src/app/spartacus/spartacus-configuration.module.ts` to ensure the `providers` array includes `provideConfig(defaultB2bOccConfig)` and `provideConfig(defaultB2bCheckoutConfig)`, as described in the following section.
 
 #### Configuring Spartacus Manually
 
