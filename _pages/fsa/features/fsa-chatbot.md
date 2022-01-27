@@ -71,17 +71,7 @@ The customer can submit another request. Otherwise, the conversation ends with t
 
 ## Other Chatbot Functionalities
 
-Besides helping customer create support ticker, the Financial Services Accelerator bot can also perform other actions, such as provide basic information about products, direct customers to Product Discovery questionairre, or to the Contact an Agent page.
+Besides helping customer create support ticker, the Financial Services Accelerator bot can also perform other actions, such as provide basic information about products, direct customers to Product Discovery questionnaire or to the Contact an Agent page.
 In your custom implementation, you can add other skills and intents and train your bot to recognize it. 
 
 ![Chatbot Product Info]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_product_info.png)
-
-
-
-
-
-
-
-
-
-
