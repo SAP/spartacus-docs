@@ -30,7 +30,7 @@ In the default implementation, the customer starts the conversation with the cha
 
 ![Accessing Chatbot from the Homepage]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_homepage.png)
 
-When the customer opens the dialog box, the bot greets him with a welcome message. 
+When the customer opens the dialog box, the bot greets them with a welcome message. 
 
 ![Chatbot Welcome Message]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_welcome_message.png)
 
@@ -47,31 +47,31 @@ For more information, see Bot Builder documentation on the [SAP Help Portal](htt
 The Financial Services Accelerator bot guides the customer through the ticket creation procedure with a set of open and multiple-choice questions.
 The bot created for this purpose has a set of skills and intents defined, and is trained to recognize expressions related to ticket creation.
 
-When the customer types in that she would like to create a ticket, the bot recognizes her intent, and responds with an adequate message, according to the defined conversation flow.
-In this case, the bot first asks the customer to provide her e-mail address, and then prompts her to choose one of the offered subjects for her ticket.  
+When the customer types in the request for the ticket in the dialog box, the bot recognizes customer's intent, and responds with an adequate message, according to the defined conversation flow.
+In this case, the bot first asks for an e-mail address, and then prompts the customer to choose one of the offered ticket subjects.  
 
 ![Beginning of the Customer Ticket Creation Flow]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_create_customer_ticket_flow.png)
 
-After selecting the subject title, the customer can describe her request. Each time she enters a part of the message, the bot asks her if she's finished writing.
+After selecting the subject title, the customer can proceed with describing their request. Each time the customer enters a part of the message, the bot asks if the writing is finished.
 When the customer answers affirmatively, the bot presents the whole content for the customer to review it and submit the request. 
 
 ![Customer Writing Flow in Chatbot]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_customer_ticket_flow_claim_information.png)
 
-Customer can also choose to edit the message or the subject of the ticket.
+The customer can also edit the message or the subject of the ticket.
 
 ![Editing Ticket Content in Chatbot]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_customer_ticket_flow_edit.png)
 
-When the customer submits the ticket, the bot ask for the medium of communication she wishes to be contacted with. 
-If the customer chooses phone over e-mail, she needs to enter the phone number.
-Finally, the bot send the request to the back end where the customer ticket is then created.
+When the customer submits the ticket, the bot ask for the medium of communication the customer wishes to be contacted with. 
+If the customer chooses phone over e-mail, they need to provide the phone number.
+Finally, the bot sends the request to the back end where the customer ticket is created.
 
-The customer can submit another request. Otherwise, the conversation ends with the closing thank you note from the bot. 
+The customer can submit another request. Otherwise, the conversation ends with the closing "thank you" note from the bot. 
 
 ![End of Conversation in Chatbot]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_customer_ticket_flow_end.png)
 
 ## Other Chatbot Functionalities
 
-Besides helping customer create support ticker, the Financial Services Accelerator bot can also perform other actions, such as provide basic information about products, direct customers to Product Discovery questionnaire or to the Contact an Agent page.
-In your custom implementation, you can add other skills and intents and train your bot to recognize it. 
+Besides helping customer create support ticket, the Financial Services Accelerator bot can also perform other actions, such as provide basic information about products, direct customers to Product Discovery questionnaire or to the Contact an Agent page.
+In your custom implementation, you can add other skills and intents, and train your bot to recognize it. 
 
 ![Chatbot Product Info]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_product_info.png)
