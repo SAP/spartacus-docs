@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 4.2
+    - title: Version 4.3
       url: /release-information/
 
 # sidebar menu
@@ -115,7 +115,9 @@ docs:
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
                 - title: "SAP Customer Data Cloud Integration"
-                  url: /cdc-integration/              
+                  url: /cdc-integration/
+                - title: "SAP Enterprise Product Development Visualization Integration"
+                  url: /epd-visualization-integration/           
                 - title: "SmartEdit Integration ➢"
                   url: /smartEdit-setup-instructions-for-spartacus/
                   underchildren:
