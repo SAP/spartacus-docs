@@ -621,6 +621,8 @@ docs:
                       url: /fsa-speak-to-agent/
                     - title: "Agent Availability"
                       url: /fsa-agent-availability/
+                - title: "Chatbot"
+                  url: /fsa-chatbot/
                 - title: "Quote Details Page"
                   url: /fsa-quote-details-page/
                 - title: "Quote Comparison"
