@@ -2,9 +2,9 @@
 title: FSA Agent Availability
 ---
 
-**Note**: This feature is introduced with version 3.0 of the FSA Spartacus libraries.
+**Note**: This feature is introduced with version 3.0 of and enhanced in version 4.0 of the FSA Spartacus libraries.
 
-The integration with Live Contract enabled another enhancement of the insurance agent capabilities - besides agent data, customers can also see if a certain agent is currently available. 
+The integration with Live Contract enables another enhancement of the insurance agent capabilities - besides agent data, customers can also see if a certain agent is currently available. 
 
 ***
 
@@ -21,21 +21,35 @@ To enable this feature, you need to integrate your project with Live Contract. F
 
 ## Integration
 
-To enable this particular functionality of the integration with Live Contract, add the following ImPex file through the Administration Console:
+To enable this particular functionality of the integration with Live Contract, add the following ImpEx file through the Administration Console:
 
 ```ts
 
 INSERT_UPDATE Endpoint; id[unique = true]; version[unique = true]; name; specUrl
-; syncPilot-agent-request ; unknown ; syncPilot-agent-request ; "https://<URL_AGENT_SERVER>/beraterpoolServer/beraterpool/server/v1/owner/1/consultants-active"
+; syncPilot-agent-request ; unknown ; syncPilot-agent-request ; "https://sync-pilot-integration-server-url"
 INSERT_UPDATE DestinationTarget; id[unique = true]
 ; syncpilot-agent-destination
 INSERT_UPDATE ConsumedDestination[impex.legacy.mode = true]; id[unique = true]; url; endpoint(id, version); destinationTarget(id);
-; FS-SyncPilot-Agent-Request ; "https://<URL_AGENT_SERVER>/beraterpoolServer/beraterpool/server/v1/owner/1/consultants-active" ; syncPilot-agent-request:unknown ; syncpilot-agent-destination ;
+; FS-SyncPilot-Agent-Request ; "https://sync-pilot-integration-server-url" ; syncPilot-agent-request:unknown ; syncpilot-agent-destination ;
+
 ```
-Note that the integration server link is specific for each integration and in the ImpEx, you need to enter the one created specifically for your project.
+Note that the integration server link is specific for each integration. In the ImpEx, enter the one created for your project.
 
 ## User Interface
 
-Once enabled, customers are able to see the agent availability on the Map View of the **Find an Agent** page. Below the agent profile image, the availability will be displayed as online or offline. Based on this, customers will know which agent they can contact.
+With this functionality enabled, logged-in customers can see the agent availability on both the Map and the List View of the **Find an Agent** page. 
+Based on this, customers will know which agent they can contact.
 
-![Agent Availability on the Find an Agent Page]({{ site.baseurl }}/assets/images/fsa/agents/map_view_agent_availability.png)  
+![Agent Availability on the Map View]({{ site.baseurl }}/assets/images/fsa/agents/find-agent-map-view-agent-availability-2202.png) 
+
+When the agent is online, on the Map view, their profile image is circled with a blue line with a green dot. 
+Also, the phone icon indicates that the agent is available for a call.
+
+![Online Agent on Map View]({{ site.baseurl }}/assets/images/fsa/agents/online-agent-card-map-2202.png) 
+
+On the List view, the phone icon inside the agent card shows that the agent is online.
+
+![Online Agent on the List View]({{ site.baseurl }}/assets/images/fsa/agents/online-agent-list-view-2202.png)  
+ 
+
+ 
