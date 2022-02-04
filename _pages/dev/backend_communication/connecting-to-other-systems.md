@@ -21,7 +21,7 @@ Spartacus delivers view logic that binds to (complex) commerce data and logic in
 - UI components do not store response data from observables locally, which means destroy logic can be avoided. RxJS pipeable logic can be applied to implement any logic when data is observed.
 - Back-end data is stored in a central data store, provided by a state management system. Spartacus uses NgRx.
 - The complexity of the state management system is hidden by a facade layer to provide a simple API to component developers.
-- You can configure the back-end system by using connector, adapter, and convertor logic. Customers can provide alternative implementations to work with a specific back end.
+- You can configure the back-end system by using connector, adapter, and converter logic. Customers can provide alternative implementations to work with a specific back end.
 
 This data binding design involves multiple layers, as follows:
 
@@ -40,7 +40,7 @@ The connector logic sits between the in-memory data store and the back end. A sp
 
 To provide optimal flexibility, there are three entities involved in connecting to a back-end system: a connector, an adapter, and a converter. Note, however, that not all entities are necessarily involved when you work with a third-party system.
 
-This is a common pattern across different frameworks and technology stacks, although different names are used (for example, populator or serializer instead of convertor).
+This is a common pattern across different frameworks and technology stacks, although different names are used (for example, populator or serializer instead of converter).
 
 A fine-grained setup helps to separate concerns, and simplifies further customization. That being said, when you bind to an alternative data source, nothing stops you from further simplifying your setup.
 
@@ -52,22 +52,22 @@ The main task of the connector is to delegate the loading and conversion of back
 
 ### Adapter
 
-The adapter layer is responsible for loading and submitting data to a source system. By default, Spartacus works with OCC, the standard REST API of SAP Commerce Cloud. The adapters (and convertors) are shipped and provided in separate modules, so that they become optional in the final build, in case you wish to work with an alternative system.
+The adapter layer is responsible for loading and submitting data to a source system. By default, Spartacus works with OCC, the standard REST API of SAP Commerce Cloud. The adapters (and converters) are shipped and provided in separate modules, so that they become optional in the final build, in case you wish to work with an alternative system.
 
 The endpoints used in OCC adapters can be configured, so that the customization of Spartacus can be very light-weight. Only if you work with another system might it be necessary to provide a custom adapter. 
 
 For more information on OCC endpoint configuration, see [Configuring Endpoints](#configuring-endpoints), below.
 
-### Convertor
+### Converter
 
-Convertors are used to convert data from the back end to the UI, and vice versa. Spartacus uses the following to distinguish the two flows:
+Converters are used to convert data from the back end to the UI, and vice versa. Spartacus uses the following to distinguish the two flows:
 
 - **Normalize** is the conversion from back-end models to UI models
 - **Serialize** is the conversion of UI models to back-end models, in the case of submitting data to the back end.
 
-To provide optional conversion, the convertors are so-called "multi-providers", which allows Spartacus to provide specific convertors. A good example of an optional normalizer is the one that is used for the additional data required by SmartEdit integrations. This integration requires some additional attributes on the final DOM. Spartacus provides an optional convertor that normalizes additional data from the back-end source to the UI model.
+To provide optional conversion, the converters are so-called "multi-providers", which allows Spartacus to provide specific converters. A good example of an optional normalizer is the one that is used for the additional data required by SmartEdit integrations. This integration requires some additional attributes on the final DOM. Spartacus provides an optional converter that normalizes additional data from the back-end source to the UI model.
 
-Convertors are optional: when no convertor is found for the given domain, the source data is returned. Furthermore, whenever the back-end model is equal to the UI model, or in the case of a simple conversion, the adapter can easily take care of this.
+Converters are optional: when no converter is found for the given domain, the source data is returned. Furthermore, whenever the back-end model is equal to the UI model, or in the case of a simple conversion, the adapter can easily take care of this.
 
 ### Providing Custom Converters
 
