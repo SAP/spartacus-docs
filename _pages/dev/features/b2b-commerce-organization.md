@@ -223,7 +223,7 @@ The following adapters are used in the Organization library:
 
 For more information, see [Adapter]({{ site.baseurl }}/connecting-to-other-systems/#adapter)
 
-## Convertors
+## Converters
 
 The Organization library uses the following core serializers:
 
@@ -260,7 +260,7 @@ The following are normalizers in the Organization library:
 - `B2B_USER_NORMALIZER`
 - `B2B_USERS_NORMALIZER`
 
-For more information, see [Convertor]({{ site.baseurl }}/connecting-to-other-systems/#convertor).
+For more information, see [Converter]({{ site.baseurl }}/connecting-to-other-systems/#converter).
 
 ## Store
 
