@@ -384,7 +384,7 @@ import { RulebasedConfiguratorModule } from '@spartacus/product-configurator/rul
   imports: [RulebasedConfiguratorModule], // import the original Spartacus module
   providers: [
     // provide customizations of classes from the original module here, such as the following:
-    // { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
+    { provide: ConfiguratorCartService, useClass: CustomConfiguratorCartService }
   ]
 })
 export class CustomRulebasedConfiguratorModule {}
