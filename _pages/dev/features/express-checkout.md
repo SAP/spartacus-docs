@@ -43,9 +43,7 @@ By default, the `express` flag is set to `false`.
 
 ## Configuring Express Checkout
 
-The configuration model for express checkout includes two properties: `express` and `defaultDeliveryMode`. These properties are defined in `checkout.config.ts`.
-
-Spartacus also provides some default delivery mode preferences, as shown in the following example:
+The configuration model for express checkout is defined in `checkout.config.ts`. This includes some default delivery mode preferences, as shown in the following example:
 
 ```typescript
 enum DeliveryModePreferences {
