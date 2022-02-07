@@ -12,13 +12,9 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Express checkout allows the user to skip all steps and sees the review summary page instantly after click "Go to checkout".
+The express checkout feature in Spartacus allows customers to go directly to the Order Summary page when they click or tap **Proceed to Checkout**. Spartacus uses default values from the customer's account, as well as from the Spartacus configuration, to set the values for delivery address, delivery mode, and payment method. When the customer arrives at the Order Summary page, they have the option to edit any of the values that have been automatically selected.
 
-The guard will check that the user has at least 1 shipping address and 1 payment method - if there are more it will choose default. After setup address, it will choose the default delivery mode for current configuration. 
-
-If everything has been successful, the user should be redirected to review summary. Else, he will go through the checkout steps. 
-
-In the review summary step, the user will see pre-set data, there is also the possibility to update step.
+The delivery address and payment method are set with values that are saved in the customer's account. Spartacus uses a guard to check if the customer has at least one saved delivery address and one saved payment method. If not, the customer proceeds through the multi-step checkout. If more than one value is available for the delivery address or payment method, Spartacus uses the default value that is set in the customer's account. The delivery mode is automatically selected based on the settings that you configure in Spartacus.
 
 ***
 
@@ -29,20 +25,25 @@ In the review summary step, the user will see pre-set data, there is also the po
 
 ***
 
-## Configuration
+## Enabling Express Checkout
 
-Functionality is steering by 2 new optional properties:
+To enable express checkout, you set the `express` flag to `true` in a configuration module, such as `spartacus-configuration.module.ts`. The following is an example:
 
-* Flag `express`: Allow for express checkout when default shipping method and payment method are available.
-* Array `defaultDeliveryMode`: Default delivery mode for i.a. for express checkout. Set preferences in order with general preferences (eg. DeliveryModePreferences.LEAST_EXPENSIVE) or specific delivery codes.
-
-```typescript
-  checkout?: {
+```ts
+provideConfig({
+  //...
+  checkout: {
     //...
-    express?: boolean;
-    defaultDeliveryMode?: Array<DeliveryModePreferences | string>;
-  };
+    express: true,
+  },
+});
 ```
+
+By default, the `express` flag is set to `false`.
+
+## Configuring Express Checkout
+
+The configuration model for express checkout is defined in `checkout.config.ts`. This includes some default delivery mode preferences, as shown in the following example:
 
 ```typescript
 enum DeliveryModePreferences {
@@ -52,18 +53,7 @@ enum DeliveryModePreferences {
 }
 ```
 
-### Default Configuration
-```typescript
-  checkout: {
-    //...
-    express: false,
-    defaultDeliveryMode: [DeliveryModePreferences.FREE],
-  };
-```
-
-### Own Configuration
-
-To provide your own configuration, you can provide it in module providers with provideConfig function:
+You use the `defaultDeliveryMode` array to set the delivery modes in order of preference, as shown in the following example:
 
 ```typescript
 provideConfig({
@@ -71,20 +61,32 @@ provideConfig({
   checkout: {
     //...
     express: true,
-    defaultDeliveryMode: ['sample-code'],
+    defaultDeliveryMode: [DeliveryModePreferences.FREE, DeliveryModePreferences.MOST_EXPENSIVE],
   },
 });
 ```
 
+You can also provide your own custom delivery codes, as shown in the following example:
 
-### Configuration Specification
+```typescript
+provideConfig({
+  //...
+  checkout: {
+    //...
+    express: true,
+    defaultDeliveryMode: ['custom-code'],
+  },
+});
+```
 
-For default delivery mode we provide an array of values.
+By default, the `defaultDeliveryMode` is set to `DeliveryModePreferences.FREE`.
 
-The algorithm will choose the first matched option from available.
+## Choosing the Delivery Mode During Checkout
 
-### Examples
-We have sample data:
+During express checkout, Spartacus chooses the first match from the delivery modes that you have provided in the `defaultDeliveryMode` array.
+
+To show how this works in practice, let's use the following example data:
+
 ```typescript
 const [FREE_CODE, STANDARD_CODE, PREMIUM_CODE] = [
   'free-gross',
@@ -98,65 +100,60 @@ const [freeMode, standardMode, premiumMode] = [
 ];
 ```
 
-* For ```defaultDeliveryMode: [DeliveryModePreferences.FREE]```
-we can expect behavior:
+If you have set `defaultDeliveryMode: [DeliveryModePreferences.FREE]`, you can expect the following behavior:
 
-```
-availableDeliveryModes: [freeMode, standardMode, premiumMode]
-result: FREE_CODE
-```
+- ```text
+  availableDeliveryModes: [freeMode, standardMode, premiumMode]
+  result: FREE_CODE
+  ```
 
-```
-availableDeliveryModes: [standardMode, premiumMode]
-result: STANDARD_CODE
-```
+- ```text
+  availableDeliveryModes: [standardMode, premiumMode]
+  result: STANDARD_CODE
+  ```
 
-```
-availableDeliveryModes: [premiumMode]
-result: PREMIUM_CODE
-```
+- ```text
+  availableDeliveryModes: [premiumMode]
+  result: PREMIUM_CODE
+  ```
 
+If you have set `defaultDeliveryMode: [DeliveryModePreferences.LEAST_EXPENSIVE]`, you can expect the following behavior:
 
-* For ```defaultDeliveryMode: [DeliveryModePreferences.LEAST_EXPENSIVE]```
-we can expect behavior:
+- ```text
+  availableDeliveryModes: [freeMode, standardMode, premiumMode]
+  result: STANDARD_CODE
+  ```
 
-```
-availableDeliveryModes: [freeMode, standardMode, premiumMode]
-result: STANDARD_CODE
-```
+- ```text
+  availableDeliveryModes: [standardMode, premiumMode]
+  result: STANDARD_CODE
+  ```
 
-```
-availableDeliveryModes: [standardMode, premiumMode]
-result: STANDARD_CODE
-```
+- ```text
+  availableDeliveryModes: [premiumMode]
+  result: PREMIUM_CODE
+  ```
 
-```
-availableDeliveryModes: [premiumMode]
-result: PREMIUM_CODE
-```
+If you have set `defaultDeliveryMode: [DeliveryModePreferences.FREE, DeliveryModePreferences.MOST_EXPENSIVE]`, you can expect the following behavior:
 
-* For ```defaultDeliveryMode: [DeliveryModePreferences.FREE, DeliveryModePreferences.MOST_EXPENSIVE]```
-we can expect behavior:
+- ```text
+  availableDeliveryModes: [freeMode, standardMode, premiumMode]
+  result: FREE_CODE
+  ```
 
-```
-availableDeliveryModes: [freeMode, standardMode, premiumMode]
-result: FREE_CODE
-```
+- ```text
+  availableDeliveryModes: [standardMode, premiumMode]
+  result: PREMIUM_CODE
+  ```
 
-```
-availableDeliveryModes: [standardMode, premiumMode]
-result: PREMIUM_CODE
-```
+- ```text
+  availableDeliveryModes: [standardMode]
+  result: STANDARD_CODE
+  ```
 
-```
-availableDeliveryModes: [standardMode]
-result: STANDARD_CODE
-```
+If you are using a custom code and have set ```defaultDeliveryMode: [STANDARD_CODE]```, you can expect the following behavior:
 
-* For specified codes ```defaultDeliveryMode: [STANDARD_CODE]```
-we can expect behavior:
-
-```
-availableDeliveryModes: [freeMode, standardMode, premiumMode]
-result: STANDARD_CODE
-```
+- ```text
+  availableDeliveryModes: [freeMode, standardMode, premiumMode]
+  result: STANDARD_CODE
+  ```

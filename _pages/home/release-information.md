@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 4.2.0 final published Nov 10, 2021**
+**Latest news: 4.3.0 final published January 21, 2022**
 
-*Last updated Nov 10, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated January 21, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -31,6 +31,16 @@ This document describes what is included in all Spartacus libraries since the in
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 4.3
+
+ *Release 4.3 libraries published January 21, 2022*
+
+ Highlights include the following:
+
+### SAP Enterprise Product Development Visualization Integration
+
+ The SAP Enterprise Product Development Visualization Integration provides support for visual picking of spare parts using 2D or 3D models of the relevant products. For more information, see [{% assign linkedpage = site.pages | where: "name", "epd-visualization-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/epd-visualization-integration.md %}).
 
 ## Release 4.2
 
