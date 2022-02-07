@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 4.2.0 final published Nov 10, 2021**
+**Latest news: 4.3.0 final published January 21, 2022**
 
-*Last updated Nov 10, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated January 21, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -41,6 +41,15 @@ Highlights include the following:
 ### Retract Option for Single-Select Characteristics
 
 By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection. You can now set the system up so that the single-selection can be retracted. This can be especially helpful in situations where the domain restrictions hide values in other characteristics, which can make it difficult for customers to completing the configuration. For more information, see [Retract Option for Single-Select Characteristics]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}#retract-option-for-single-select-characteristics).
+## Release 4.3
+
+ *Release 4.3 libraries published January 21, 2022*
+
+ Highlights include the following:
+
+### SAP Enterprise Product Development Visualization Integration
+
+ The SAP Enterprise Product Development Visualization Integration provides support for visual picking of spare parts using 2D or 3D models of the relevant products. For more information, see [{% assign linkedpage = site.pages | where: "name", "epd-visualization-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/epd-visualization-integration.md %}).
 
 ## Release 4.2
 
