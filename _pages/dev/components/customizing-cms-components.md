@@ -64,7 +64,22 @@ ConfigModule.withConfig({
 
 ### Accessing CMS Data in CMS Components
 
-The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
+The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`. For example:
+
+```typescript
+export class BannerComponent {
+  constructor(protected component: CmsComponentData<CmsBannerComponent>) {}
+
+  data$: Observable<CmsBannerComponent> = this.component.data$;
+}
+```
+
+```html
+<ng-container *ngIf="data$ | async as data">
+  Access `data` here, for example:
+  <pre>{{ data | json }}</pre>
+</ng-container>
+```
 
 ### Using Web Components as CMS Components (Experimental Support)
 
