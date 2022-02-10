@@ -29,10 +29,10 @@ There are two types of components that can be configured: Angular components, an
 
 ### Custom Angular CMS Components
 
-You can provide a CMS component configuration to the `ConfigModule`, or directly to the `B2cStorefrontModule`. The following configuration shows how to configure a custom Angular component for the CMS `BannerComponent`:
+You can provide a CMS component configuration using `provideConfig`. The following configuration shows how to configure a custom Angular component for the CMS `BannerComponent`:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     BannerComponent: {
       component: CustomBannerComponent;
@@ -48,7 +48,7 @@ It is possible to use dynamic imports in CMS mapping to achieve lazy-loaded CMS 
 The dynamic import should be defined as an arrow function, as shown in the following example:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     BannerComponent: {
       component: () =>
@@ -92,7 +92,7 @@ Web components have a lot of benefits, and as soon as some of the fundamentals o
 To configure a web component as a CMS component, the configuration must consist of the path to the JS file (web component implementation) and its tag name, separated by a hash symbol (`#`). The following is an example:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     BannerComponent: {
         component: 'path/to/banner/component/file.js#custom-banner'
@@ -104,7 +104,7 @@ ConfigModule.withConfig({
 If you prefer to load a web component implementation script eagerly, you can manually include it in your `index.html` file using the usual `script` tag, and skip it from the mapping configuration. The following is an example:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     BannerComponent: {
         component: '#custom-banner'
@@ -136,7 +136,7 @@ Component services are designed to be non-singleton services, scoped to the comp
 However, to configure a custom component service, you can provide a service in a similar fashion. The configuration is done in-line with the component configuration. In the following example, the `SearchComponent` is provided with a custom `SearchBoxComponentService`:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     SearchBoxComponent: {
         providers: [
@@ -162,7 +162,7 @@ The content of each page is often CMS-driven, so Spartacus allows you to configu
 The following is an example of how to configure guards for a CMS component:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     CheckoutProgress: {
       component: CheckoutProgressComponent,
@@ -183,7 +183,7 @@ There may be cases where you do not want to use SSR to render all CMS components
 Although it is possible to add conditional logic in a component to render (parts of) the view in SSR, Spartacus offers a configuration for components to make this more generic, and to avoid any specific logic in components. The following is an example:
 
 ```typescript
-ConfigModule.withConfig({
+provideConfig({
   cmsComponents: {
     SearchBoxComponent: {
       disableSSR: true
