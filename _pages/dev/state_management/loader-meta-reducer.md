@@ -6,10 +6,7 @@ feature:
   cx_version: n/a
 ---
 
-To give better feedback to users, based on their actions, we often have to keep information such as "cart is loading", "fetching user address failed", and so on.
-For every separate application state, we have to keep that meta data beside. Separate for cart, user information, product data and so on. Implementing this logic in all of these places manually would result in having different solutions to the same problem across the codebase.
-That's why in spartacus `loaderReducer` was created. This reducer standardizes meta data handling in the whole state tree.
-You are able to use it on any depth of the tree, wherever you need it. Apart from the reducer, we also provide utilities for actions and selectors.
+When a user interacts with a Spartacus storefront, the storefront application often provides feedback, such as "Cart is loading", or "Fetching the user address failed", and so on. Spartacus handles this kind of meta data for every separate application state, as well as for each relevant aspect of the application, such as cart, user information, product data, and so on. To handle this requirement efficiently across the codebase, Spartacus uses the `loaderReducer`. This reducer standardizes the handling of meta data across the whole state tree. You can use it at any depth of the tree, wherever you need it. In addition to the reducer, Spartacus also provides utilities for actions and selectors.
 
 ***
 
@@ -22,7 +19,7 @@ You are able to use it on any depth of the tree, wherever you need it. Apart fro
 
 ## Applying the Meta Reducer
 
-Wrapping part of state tree with loader utility is quite simple:
+You can wrap a part of the state tree with the loader utility, as shown in the following example:
 
 ``` ts
 import { loaderReducer } from '@spartacus/core';
@@ -36,14 +33,13 @@ export function getReducers(): ActionReducerMap<CartsState> {
 }
 ```
 
-To `loaderReducer` you have to provide unique identifier. In case above it is `CART_DATA` variable.
-This identifier will also be used in actions to connect each action to specific state tree.
+You provide a unique identifier to the `loaderReducer`, which in this example is the `CART_DATA` variable. This identifier is also used in actions to connect each action to a specific state tree.
 
-For keeping simple state (one property), you don't have to provide reducer. Loader success action will set `value` with passed payload.
+To maintain a simple state (that is, with one property), you do not have to provide a reducer. The loader success action sets the `value` with the passed payload.
 
 ## Defining the State Interface
 
-To correctly set type definitions on your state use `LoaderState` interface.
+To correctly set type definitions on your state, use the `LoaderState` interface, as shown in the following example:
 
 ``` ts
 import { LoaderState } from '@spartacus/core';
@@ -67,10 +63,9 @@ export interface CartState {
 
 ## Creating Actions
 
-To manipulate meta data for loading states `loading`, `success` or `error`, actions created should extend loaders actions. It is very important to extend those actions or make sure to set proper meta on action (preferably using provided meta helpers).
-In case all of your actions implements standard `Action`, loader flags won't work correctly.
+To manipulate meta data for the `loading`, `success` or `error` loading states, the actions that you create should extend the loader actions. It is very important to extend those actions, or to ensure that you set proper meta on the actions, preferably using the provided meta helpers. Note that if all of your actions implement the standard `Action`, the loader flags will not work correctly.
 
-Example below will describe it the best:
+The following is an example of how to create a set of actions for the cart:
 
 ``` ts
 import { StateLoaderActions } from '@spartacus/core';
@@ -122,17 +117,16 @@ export class ClearCart extends StateLoaderActions.LoaderResetAction {
 
 ## Working With Selectors
 
-Applying loader reducer changes state shape with additional flags and `value` which contains wrapped state.
-Because of that `ngrx` selectors needs to be adjusted. Spartacus provides utility functions for extracting `value` key or meta data (`loading`, `error`, `success`).
+When you apply the loader reducer, it changes the state shape with additional flags and a `value` that contains the wrapped state. As a result, the `ngrx` selectors need to be adjusted. Spartacus provides utility functions for extracting the `value` key or meta data (`loading`, `error`, `success`).
 
-Available functions:
+The following are the available functions:
 
-- loaderValueSelector
-- loaderLoadingSelector
-- loaderErrorSelector
-- loaderSuccessSelector
+- `loaderValueSelector`
+- `loaderLoadingSelector`
+- `loaderErrorSelector`
+- `loaderSuccessSelector`
 
-Example selectors from cart feature that makes use of those utility functions:
+This following is an example of selectors from the cart feature that makes use of these utility functions:
 
 ``` ts
 import { StateLoaderSelectors } from '@spartacus/core';
