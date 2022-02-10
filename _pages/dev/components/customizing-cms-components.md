@@ -25,7 +25,7 @@ With this setup, CMS components can be customized in the following ways:
 
 ## Configuring Custom Components
 
-There are two types of components that can be configured: angular components, and web components (for which we currently provide experimental support).
+There are two types of components that can be configured: Angular components, and web components (for which we currently provide experimental support).
 
 ### Custom Angular CMS Components
 
@@ -60,11 +60,13 @@ ConfigModule.withConfig({
 });
 ```
 
-**Note:** Resolving chunks for code splitting is done at build time, and depends on how the code is imported. If there is at least one static import available in the main chunk, the code will be bundled statically, and separate chunks will not be generated.
+**Note:** Resolving chunks for code splitting is done at build time, and depends on how the code is imported. If there is even one static import included in the main chunk, the code will be bundled statically, and separate chunks will not be generated.
 
 ### Accessing CMS Data in CMS Components
 
-The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`. For example:
+The CMS data that is related to a component is provided to the component by the `CmsComponentData` service during instantiation. The `CmsComponentData` service contains the component `uid`, and also `data$`, which is an observable to the component payload. By making use of the Angular dependency injection (DI) system, components and component-specific services can use the `CmsComponentData`.
+
+The following is an example:
 
 ```typescript
 export class BannerComponent {
@@ -99,7 +101,7 @@ ConfigModule.withConfig({
 });
 ```
 
-If you prefer to load web component implementation script eagerly, you can manually include it in your index.html file using usual `script` tag, and skip it from mapping configuration:
+If you prefer to load a web component implementation script eagerly, you can manually include it in your `index.html` file using the usual `script` tag, and skip it from the mapping configuration. The following is an example:
 
 ```typescript
 ConfigModule.withConfig({
@@ -111,10 +113,9 @@ ConfigModule.withConfig({
 });
 ```
 
-One JS file can contain more that one web component implementation, used as different CmsComponents.
+One JS file can contain more that one web component implementation, with each implementation used as a different `CmsComponent`.
 
-This requires a separate build process to generate the JS chunk that holds the web component(s), which is out of scope for this documentation.
-
+This requires a separate build process to generate the JS chunk that holds the web component (or components), which is out of scope for this documentation.
 
 #### Accessing API and CMS Data
 
@@ -152,13 +153,13 @@ ConfigModule.withConfig({
 
 ## Guarding Components
 
-It's often a case that some routes should be accessible only in certain conditions (i.e. Personal Details page should be opened only for signed-in user). For this purpose we can use Angular [Route Guards](https://angular.io/guide/router#milestone-5-route-guards) to perform some logic before entering a route (i.e fetch data from backend or check if user is authenticated) and decide whether it can be opened or we should redirect to other page.
+It is often the case that certain routes should only be accessible under certain conditions (for example, the account details page should only be accessible to a user who is signed in). Accordingly, you can use [Angular Route Guards](https://angular.io/guide/router#milestone-5-route-guards) to execute logic before loading a route (such as fetching data from the back end, or checking whether a user is authenticated), and then decide if the page should be opened, or whether Spartacus should redirect to another page.
 
-The pages' content is often CMS-driven, so in Spartacus comes up with *configuring guards per CMS component*. Just after loading CMS components for a page from backend, all Guards of those components are executed. It allows for redirecting to other page if at least one guard decides so (i.e. due to missing authentication).
+The content of each page is often CMS-driven, so Spartacus allows you to configuring guards for each CMS component. Immediately after loading the CMS components for a page from the back end, all the relevant guards for those components are executed. This allows Spartacus to redirect to another page if even a single guard requires it (for example, because of missing authentication).
 
-*Note: When many components at the same page have the same guard (i.e. AuthGuard), it will be executed only once.*
+**Note:** When many components on the same page have the same guard (such as AuthGuard), the guard is executed only once.
 
-Below there's an example how to configure guards for CMS component:
+The following is an example of how to configure guards for a CMS component:
 
 ```typescript
 ConfigModule.withConfig({
@@ -171,16 +172,15 @@ ConfigModule.withConfig({
 });
 ```
 
+## Controlling Server-Side Rendering
 
-## Controlling Server Side Rendering (SSR)
+There may be cases where you do not want to use SSR to render all CMS components on the server. The following are some examples of when you should not render a CMS component on the server:
 
-You might not want to render all CMS components in the server. The following are some examples of when not to render a CMS component in the server:
+- a CMS component requires personalized input and should not, or cannot, be rendered without this input
+- a CMS component is not required for SSR output, and for performance reasons, it is removed from the rendering process
+- a CMS component interacts with external services (latency) and is not relevant for indexing and social sharing.
 
-- a CMS component requires personalized input and should not, or cannot, be rendered without it
-- a CMS component is not required for SSR output, and for performance reasons, it will be removed from the rendering process
-- a CMS component interacts with external services (latency) and is not relevant for indexing and social sharing
-
-While it is possible to add conditional logic in a component to render (parts of) the view in SSR, Spartacus offers a configuration for components to make this more generic, and to avoid any specific logic in components. The following is an example:
+Although it is possible to add conditional logic in a component to render (parts of) the view in SSR, Spartacus offers a configuration for components to make this more generic, and to avoid any specific logic in components. The following is an example:
 
 ```typescript
 ConfigModule.withConfig({
@@ -194,19 +194,19 @@ ConfigModule.withConfig({
 
 ## Placeholder Components
 
-For Angular or web components that do not need any data from CMS (for example, login), you can use the CMS component of type `CMSFlexComponent` as a placeholder. This CMS component contains the special `flexType` attribute. Spartacus use the `flexType` attribute in its CMS mapping instead of the original component type.
+For Angular or web components that do not need any data from CMS (for example, login), you can use the `CMSFlexComponent` as a placeholder. This CMS component contains the special `flexType` attribute. Spartacus uses the `flexType` attribute in its CMS mapping instead of the original component type.
 
 In the same manner, the `uid` attribute of `JspIncludeComponent` is used in the CMS mapping instead of the original component type.
 
-**Note:** It is recommended to use `CMSFlexComponent` instead of `JspIncludeComponent`, because the `uid` attribute in `JspIncludeComponent` must be unique, which means you cannot have two instances of the same `JspIncludeComponent`.
+**Note:** It is recommended to use `CMSFlexComponent` instead of `JspIncludeComponent` because the `uid` attribute in `JspIncludeComponent` must be unique, which means you cannot have two instances of the same `JspIncludeComponent`.
 
 ## Handling Nested CMS Components
 
-The CMS allows the creation of nested components inside so-called container components. An example of such component is the `TabPanelContainer` that is used in the product details page to display the tabs. In this case, the container contains the different tab components.
+The CMS allows the creation of nested components inside so-called container components. An example of such a component is the `TabPanelContainer`, which is used in the product details page to display the tabs. In this case, the container contains the different tab components.
 
-Spartacus supports the dynamic rendering of nested components. This can be achieved by iterating over the list of child components and using the `cxComponentWrapper` directive to dynamically load each component. The list of child components is returned by the component container in the `components` field. Using the list of uids it's possible to fetch their conent using the `CmsService`'s `getComponentData` method.
+Spartacus supports the dynamic rendering of nested components. This can be achieved by iterating over the list of child components and using the `cxComponentWrapper` directive to dynamically load each component. The list of child components is returned by the component container in the `components` field. Using the list of `uid` attributes, it is possible to fetch their content using the `getComponentData` method of the `CmsService`.
 
-The following example demontrate how the tabs are rendered in the product details page:
+The following example demonstrates how a container component TypeScript file and a container component HTML file are used together to render the tabs in the product details page:
 
 ```typescript
 // tab-paragraph-container.component.ts
@@ -235,8 +235,6 @@ components$: Observable<any[]> = this.componentData.data$.pipe(
   )
 );
 ```
-
-In container component HTML file
 
 ```html
 <!-- tab-paragraph-container.component.html -->
