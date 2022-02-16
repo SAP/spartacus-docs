@@ -76,12 +76,14 @@ export class BannerComponent {
 }
 ```
 
+{% raw %}
 ```html
 <ng-container *ngIf="data$ | async as data">
   Access `data` here, for example:
   <pre>{{ data | json }}</pre>
 </ng-container>
 ```
+{% endraw %}
 
 ### Using Web Components as CMS Components (Experimental Support)
 
