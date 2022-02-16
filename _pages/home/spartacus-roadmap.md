@@ -4,7 +4,7 @@ title: Spartacus Roadmap
 
 This document describes what what is planned for Spartacus for Q1 2022 and later.
 
-*Last updated January 13, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated February 16, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 4.2 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
@@ -66,20 +66,19 @@ Current release plans are (dates are tentative):
 - **Command & Queries** for checkout library
 - **Angular 13**
 - **Removal of most deprecated code**
-
-#### Planned for 5.x
-
-- **Buy online pickup in store** ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
-- **B2B Commerce Quotes** (requires API update released in 2105) ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
-- **Product bundles** (requires SAP Commerce Cloud 2011) ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html))
 - **Support for new PDF and Video component types**
 - **Toast option when adding to cart** - Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
+- **Clear Cart** command on cart page
+
 
 ### H2 2022
 
-- **One app for running B2C and B2B stores**
+#### Planned for 5.x releases
+
 - **Screen Readers**: Completion of support for B2B channel Spartacus storefront
-- **Accessibility**: WCAG 2.0 Level AA Storefront Support
+- **Buy online pickup in store** ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
+- **B2B Commerce Quotes** (requires API update released in 2105) ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
+- **Product bundles** (requires SAP Commerce Cloud 2011) ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html))
 - **B2B Registration** (requires backend API improvement planned for release in 2022)
 - **B2B Future Stock** (requires backend API improvement planned for release in 2022)
 - **B2B Multi-Dimensional Products** (requires backend API improvement planned for release in 2022)
@@ -88,4 +87,5 @@ Current release plans are (dates are tentative):
 - **ASM Search Autocomplete** (requires release 2005)
 - **Potential Promotions**
 - **Punchout support in Spartacus** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac40cf08669101486f5ce44920c3f91.html))
-- **Self-service customer support** through the Customer Service Module (requires release 2105) - ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html))
+- **One app for running B2C and B2B stores**
+- **Accessibility**: WCAG 2.0 Level AA Storefront Support
