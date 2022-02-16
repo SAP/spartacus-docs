@@ -6,7 +6,7 @@ This document describes what what is planned for Spartacus for Q1 2022 and later
 
 *Last updated February 16, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
-4.2 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+4.3 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
 ***
 
@@ -58,7 +58,7 @@ Current release plans are (dates are tentative):
 
 ### H1 2022
 
-#### 5.0 (tentatively scheduled for January 2022)
+#### 5.0 (tentatively scheduled for May 2022)
 
 - **Screen Reader** support for all B2C/Core features
 - **Cart library** bringing performance by splitting modules into smaller libraries
