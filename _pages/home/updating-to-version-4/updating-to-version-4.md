@@ -257,8 +257,9 @@ ng update @spartacus/schematics@4
 
 When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see the [Detailed List of Changes]({{ site.baseurl }}/technical-changes-version-4/#detailed-list-of-changes).
 
-### Import `AppRoutingModule` from `@spartacus/storefront` instead of local module
-After bumping to 4.0 you can drop your local file `app-routing.module` (if it exists). Instead of importing the local `AppRoutingModule` in your `AppModule`, please import the `AppRoutingModule` from `@spartacus/storefront`.
+### Importing the App Routing Module from the Storefront Library
+
+After upgrading to 4.0, you can delete your local `app-routing.module` file, if it exists. Instead of importing the local `AppRoutingModule` into your `AppModule`, you should import the `AppRoutingModule` from `@spartacus/storefront`.
 
 ## Migrating from Accelerator to Spartacus
 
