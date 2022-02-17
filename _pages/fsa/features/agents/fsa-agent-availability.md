@@ -51,5 +51,3 @@ On the List view, the phone icon inside the agent card shows that the agent is o
 
 ![Online Agent on the List View]({{ site.baseurl }}/assets/images/fsa/agents/online-agent-list-view-2202.png)  
  
-
- 
