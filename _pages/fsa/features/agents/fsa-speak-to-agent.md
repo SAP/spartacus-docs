@@ -146,25 +146,4 @@ The default icon configuration with available defined icon classes for all FS_IC
      AGENT = 'AGENT',
    }
 ```
-To add your icons, override this default configuration and create your own. 
-
-
-
-------- OLD ---------
-
-
-With the following code snippet, you can add the component anywhere in your project:
-
-```typescript
-    <ng-container *ngIf="(user$ | async)?.uid">
-        <cx-fs-sync-pilot-connection-component></cx-fs-sync-pilot-connection-component> 
-    </ng-container>
-```
-
-The component is very simple. The target URL is configured on the back-end side of the component so when the user clicks on the link, a new window will open with passed parameters: channel and currently logged-in user details.
-
-The customer must be logged in to be able to see the component.
-
-![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents/speak_to_agent.png)
-
-When the customer triggers the call on the storefront, they are redirected to the partner solution endpoint in the new tab. 
+If you wish to add other icons, override this default configuration and create your own. 
