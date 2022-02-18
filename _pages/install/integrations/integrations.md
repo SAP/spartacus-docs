@@ -13,4 +13,5 @@ You can extend the Spartacus storefront with various SAP solutions. For more inf
 - [{% assign linkedpage = site.pages | where: "name", "personalization-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %})
 - [{% assign linkedpage = site.pages | where: "name", "qualtrics-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/qualtrics-integration.md %})
 - [{% assign linkedpage = site.pages | where: "name", "cdc-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/cdc-integration.md %})
+- [{% assign linkedpage = site.pages | where: "name", "epd-visualization-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/epd-visualization-integration.md %})
 - [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %})

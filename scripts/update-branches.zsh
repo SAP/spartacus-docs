@@ -3,7 +3,7 @@
 
 git pull
 
-for branch in develop staging-4.3 tua-develop fsa
+for branch in develop tua-develop fsa develop-4.4
   do
 
 git checkout $branch
