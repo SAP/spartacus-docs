@@ -105,7 +105,7 @@ Recommendation: depending on the applications needs. Can be relatively big, assu
 
 `cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. This option is _not_ related to any kind of external caching layer (e.g. CDN). Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared). These temporarily cached responses are served with `cache-control: 'no-store'` HTTP header, in order to avoid caching them in an external caching layer.
 
-**Note:** The cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this.
+**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this. However, the in-memory cache _consumes the server's memory_, and if there are any memory leaks it could cause the server to stall or even crash due to running out of memory.
 
 Recommendation: generally, it is _not_ recommended to use the `cache` option, as there are better ways to turn on the caching (e.g. having a CDN).
 
