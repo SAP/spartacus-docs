@@ -28,7 +28,7 @@ The SSR optimization engine addresses these issues as follows:
 - Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by a timeout)
 - If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request
 - The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer.
-- If the render is taking too long to finish, the engine will release its concurrency slot and notify about the hanging render. However, it will not release the resources taken by the hanging render. Therefore, these warnings should be taken seriously, as the server's resources could be quickly depleted if the route of the problem is not addressed in the application code.
+- If the render is taking too long to finish, the engine will release its concurrency slot and notify about the hanging render. **WARNING**: However, it will not release the resources taken by the hanging render. Therefore, these warnings should be taken seriously, as the server's resources could be quickly depleted if the root of the problem is not addressed in the application code.
 
   **Note:** CSR renders should _never_ be cached.
 
