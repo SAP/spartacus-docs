@@ -5,11 +5,14 @@ title: FSA Spartacus Features
 This is a landing page for grouping together FSA Spartacus features. The FSA Spartacus features include the following:
 
 ## Release 4.0
+
 - [SAP Digital Payments Integration]({{ site.baseurl }}{% link _pages/fsa/features/fsa-checkout.md %})
 - [Policy Renewal]({{ site.baseurl }}{% link _pages/fsa/features/fsa-policy-renewal.md %})
 - [Quote Comparison]({{ site.baseurl }}{% link _pages/fsa/features/fsa-quote-comparison.md %})
 - [Claim Update]({{ site.baseurl }}{% link _pages/fsa/features/claims/claim-update.md %})
 - [Chatbot]({{ site.baseurl }}{% link _pages/fsa/features/fsa-chatbot.md %})
+- [Live Contract Integration Enhancements]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-insurance-agent-capabilities.md %})
+
 
 
 ## Release 3.0
