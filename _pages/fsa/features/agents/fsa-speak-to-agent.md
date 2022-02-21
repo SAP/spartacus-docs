@@ -69,9 +69,8 @@ This component can be used for:
   
   In this scenario, the component is used without passing the `agent` attribute.
   This usage is similar to the `CmsSyncPilotComponent`, except that in this case, the component has a fixed design which cannot be modified.
-  The component in this case contains a title, a headphone icon, and a link, which are not configurable.
+  The component in this case contains a title, a headphone icon, and a link. You can change only the icon element (see example below). 
   In the default implementation, the component is used on the product comparison page, taking into consideration that this is the moment when the customer might be in doubt about which product to choose, and therefore need support. 
-  The customer can then call any agent and ask for help.
   In your custom implementation, you can place the component wherever it suits your needs. 
   
 ![Speak to an Agent Component]({{ site.baseurl }}/assets/images/fsa/agents/speak_to_agent.png)  
