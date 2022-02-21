@@ -468,6 +468,8 @@ docs:
                 - title: "Technical Changes in TUA Spartacus ➢"
                   url: /technical-changes/
                   underchildren:
+                      - title: "Technical Changes in TUA Spartacus 3.1"
+                        url: /technical-changes-tua-version-3-1/
                       - title: "Technical Changes in TUA Spartacus 3.0"
                         url: /technical-changes-tua-version-3/
                       - title: "Technical Changes in TUA Spartacus 2.0"
