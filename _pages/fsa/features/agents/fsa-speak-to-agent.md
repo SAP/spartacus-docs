@@ -33,11 +33,11 @@ When customers trigger the call on the storefront, they are redirected to the pa
 
 The available components are:
 
-- `CmsSyncPilotComponent` - a reusable component created for business users who can easily enable and configure the component through the Backoffice. 
+- `CmsSyncPilotComponent` - a reusable component created for business users, who can easily enable and configure the component through the Backoffice. 
 When triggered, calls the first available agent. 
-In the default implementation, it is used throughout the steps of the quotation and application processes.
+In the default implementation, it is used throughout the quotation and application processes.
 - `GenericSyncPilotComponent` - a more restricted component, meant to be used by developers, who can configure it through HTML.
-When triggered, the component calls the first available agent, or, if the `agent` parameter is included in the request, that specific agent.
+When triggered, the component calls the first available agent, or a specific agent, if the `agent` parameter is included in the request.
 In the default implementation, this component is used on the product comparison table and on the **Find an Agent** page. 
 
 ## Configuration
@@ -54,7 +54,7 @@ The elements of the component that can be configured are the title and the icon 
 
 ![CmsSyncPilotComponent]({{ site.baseurl }}/assets/images/fsa/agents/CmsSyncPilotComponent2.png)
 
-For detailed information on how to configure the `CmsSyncPilotComponent`, see the [Speak to an Agent](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/LATEST/en-US/2b40d357decb414faee9e7da240bb5c9.html) documentation on the SAP Help Portal.
+For detailed information on how to configure the `CmsSyncPilotComponent`using Backoffice, see the [Speak to an Agent](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/LATEST/en-US/2b40d357decb414faee9e7da240bb5c9.html) documentation on the SAP Help Portal.
 
 
 ### GenericSyncPilotComponent
@@ -83,16 +83,16 @@ This component can be used for:
   It is placed inside the agent information card, on both Map and List views. 
   The component, in this case, contains a phone icon element, which you can change.
  
-  *GenericSyncPilotComponent on the Agent Card in Map View*
+*GenericSyncPilotComponent on the Agent Card in Map View*
   
 ![GenericSyncPilotComponent on the Agent Card in Map View]({{ site.baseurl }}/assets/images/fsa/agents/CmsSyncPilotComponent-agent-map-full.png)  
 
-  *GenericSyncPilotComponent on the Agent Card in List View*
+*GenericSyncPilotComponent on the Agent Card in List View*
 
 ![GenericSyncPilotComponent on the Agent Card in List View]({{ site.baseurl }}/assets/images/fsa/agents/CmsSyncPilotComponent-agent-list-full.png)  
 
 
-The following code example demonstrates how to pass the `agent` attribute to the GenericSyncPilotComponent:
+The following code example demonstrates how to pass the `agent` attribute to the `GenericSyncPilotComponent`:
 
 ```html
     <cx-fs-generic-sync-pilot [agent]="agent"></cx-fs-generic-sync-pilot>
