@@ -15,16 +15,11 @@ In Spartacus, server-side rendering allows you to render static versions of page
 
 ## Which pages to server-side render?
 
-It is generally recommended to server-side render pages which don't change very frequently and don't contain a notion of personalization. In the e-commerce world, this usually means that you shouldn't SSR the following pages:
+It is generally recommended to server-side render the following pages:
 
-- homepage - often contains personalized content (e.g. products, carousels, etc.)
-- user profile / account management pages / cart / checkout - very user-oriented pages
-
-These are the pages that you can consider to server-side render, depending on yor needs:
-
-- faq, about us - these pages rarely change
-- product details pages - it usually doesn't change often. But, in some cases some data might be changing frequently (price, stock, etc.). Therefore, if caching the SSR responses, please make sure to have proper cache invalidation strategy in place.
-- product listing pages - search, category / brand listing pages - depending on the rate at which products appear / disappear on your site, you can decide if you want to support server-side render for these pages
+- Pages that will be crawled by site indexers or bots for search engine indexing and SEO purposes
+- Pages with static content which don't change often
+- Pages that will not contain personalized content
 
 ## Adding SSR Support Using Schematics (Recommended)
 
