@@ -19,7 +19,7 @@ title: Updating to Version 4.0
 
 ## Overview
 
-Patch version 3.0.1 of FSA Spartacus Libraries contains a fix related to missing dependencies detected in version 3.0.0 of FSA Spartacus libraries.
+Patch version 3.0.1 of FSA Spartacus Libraries contains a fix related to missing dependencies detected in version 3.0.0.
 
 
 ### Prerequisites
@@ -85,12 +85,18 @@ For more information, see the official [Angular Update Guide](https://update.ang
 
 Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address the following prerequisites:
 
-- Angular CLI: Version [12.0.5](https://update.angular.io/) or later
-- node.js: Version 14.18.1 or later
-- Spartacus: Minimum version [4.0](https://sap.github.io/spartacus-docs/updating-to-version-4/), the latest minor/patch version is recommended.
+- **Angular CLI**: Version [12.0.5](https://update.angular.io/) or later
+- **node.js**: Version 14.18.1 or later
+- **Spartacus**: Minimum version [4.0](https://sap.github.io/spartacus-docs/updating-to-version-4/), the latest minor/patch version is recommended.
+
+**NOTE**: In order for this upgrade to proceed without any errors, you need to have the new Spartacus app directory structure in place. 
+Simply changing the version in `package.json` file is not enough. 
+For instructions on how to create new app directory structure, see [Spartacus documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
 
 
 ### Updating FSA Spartacus
+
+
 
 1. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
 
@@ -153,9 +159,6 @@ Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address
     "rxjs": "^6.6.0",
     "ts-loader": "^6.0.4",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4" 
-
-**NOTE**: In order for this upgrade to proceed without any errors, you need to have the new Spartacus app directory structure in place. 
-Simply changing the version in `package.json` file is not enough. 
-For instructions on how to upgrade to Spartacus 4.0 release and create new app directory structure, see [Spartacus upgrade documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
+    "zone.js": "~0.11.4"
+    ```
 
