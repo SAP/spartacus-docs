@@ -2,24 +2,37 @@
 title: Updating to Version 4.0
 ---
 
+**NOTE:**  We strongly recommend you upgrade your FSA Spartacus libraries to version 3.0.1 first, and then upgrade to version 4.0.0.
 
-# Updating from version 3.0.0 to 3.0.1
+***
 
-**NOTE:** Patch version 3.0.1 brings the fix for ... 
-You can also upgrade your FSA Spartacus libraries directly to version 4.0.0.
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
 
 
-## Prerequisites
+## Upgrading FSA Spartacus Libraries from Version 3.0.0 to 3.0.1
+
+
+## Overview
+
+Patch version 3.0.1 of FSA Spartacus Libraries contains a fix related to missing dependencies detected in version 3.0.0 of FSA Spartacus libraries.
+
+
+### Prerequisites
 
 Before upgrading your FSA Spartacus libraries to version 3.0.1, you must address the following prerequisites:
 
-- Make sure that all of your `@spartacus` libraries are upgraded to **Spartacus 3.4.0**. 
-Note that this version of Spartacus requires **Angular version 10.2.4**. 
+- Make sure all of your `@spartacus` libraries are upgraded to **Spartacus 3.4.0**. 
+- Note that this version of Spartacus requires **Angular version 10.2.4**. 
 If your Angular version is <10.2.4, you must update it before updating Spartacus. 
-For more information, see [Angular Update Guide](https://update.angular.io/).
+For more information, see the official [Angular Update Guide](https://update.angular.io/).
   
 
-## Updating FSA Spartacus
+### Updating FSA Spartacus
 
 1. Depending on whether you use yarn or npm for installations, delete `yarn.lock` file or `package-lock.json` file from your project.
 
@@ -49,30 +62,37 @@ For more information, see [Angular Update Guide](https://update.angular.io/).
     yarn install
     yarn start
     ```
+
+***
    
-**NOTE**: If you get errors relating to font-icons, run the following command:
+**NOTE**: If you get errors related to font-icons, perform the following steps:
+
+1. Run the following command:
 
     `ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr`
 
-You will be prompted to enter your basesite URL, so please enter your back-end server URL.
-After that you should be able to run `ng serve` or `yarn start` without any errors.
+2. When prompted, enter your base site URL (that is, your back-end server URL).
 
+3. After that, you should be able to run `ng serve` or `yarn start` without any errors.
+
+***
 
    
-# Updating from version 3.0.1 to 4.0.0
+## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.0.0
 
-## Prerequisites
+
+### Prerequisites
 
 Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address the following prerequisites:
 
 - Angular CLI: Version [12.0.5](https://update.angular.io/) or later
 - node.js: Version 14.18.1 or later
-- Spartacus: Minimum version [4.0](https://sap.github.io/spartacus-docs/updating-to-version-4/), the latest  is recommended.
+- Spartacus: Minimum version [4.0](https://sap.github.io/spartacus-docs/updating-to-version-4/), the latest minor/patch version is recommended.
 
-## Updating FSA Spartacus
+
+### Updating FSA Spartacus
 
 1. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
-
 
     ```shell
     "dependencies": {
@@ -136,6 +156,6 @@ Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address
     "zone.js": "~0.11.4" 
 
 **NOTE**: In order for this upgrade to proceed without any errors, you need to have the new Spartacus app directory structure in place. 
-Simply changing the version in package.json is not enough. 
-For instructions on how to upgrade to Spartacus 4.0 release and create new app directory structure, see [Spartacus documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
+Simply changing the version in `package.json` file is not enough. 
+For instructions on how to upgrade to Spartacus 4.0 release and create new app directory structure, see [Spartacus upgrade documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
 
