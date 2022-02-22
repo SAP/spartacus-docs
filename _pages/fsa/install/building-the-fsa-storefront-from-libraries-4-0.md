@@ -85,9 +85,9 @@ You can add FSA Spartacus libraries to your Spartacus Angular project by running
 ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
 ```
 
-For a detailed explanation, visit [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
+For a detailed explanation, see [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
 
-For a full list of available parameters, please visit Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
+For a full list of available parameters, see Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
 ### Installing Dependencies
 
@@ -101,7 +101,7 @@ yarn install
 
 Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup.
 
-After the FSA is installed, your `app.module.ts` should look like following:
+After the FSA is installed, your `app.module.ts` should look like the following:
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
