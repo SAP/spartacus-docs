@@ -57,15 +57,17 @@ Page route: /seller-dashboard
 
 ## User Journey 
 
-### Creating Customer Account
+### Accessing the Seller Dashboard
 
 After logging in, the seller can access the Dashboard by clicking the link in the upper right corner, next to the My Account. 
 
+### Creating Customer Account
 
+To create a new customer account, seller clicks the **ADD** button on the Dashboard
 
 ![Accessing Chatbot from the Homepage]({{ site.baseurl }}/assets/images/fsa/chatbot/chatbot_homepage.png)
 
-## Performing Actions On-Behalf-of the Customer
+### Performing Actions On-Behalf-of the Customer
 
 
 
