@@ -23,8 +23,8 @@ Before carrying out the procedures below, ensure the following front-end and bac
 Your Angular development environment should include the following:
 
 - **Angular CLI**: Version 12.0.5 or later.
-- **node.js**: The most recent 14.x version is recommended.
-- **yarn**: v1.15 or later.
+- **node.js**: Version 14.x is recommended.
+- **yarn**: Version 1.22.x or later.
 
 ### Back-End Server Requirements
 
@@ -89,7 +89,12 @@ For a detailed explanation, see [FSA Schematics]({{ site.baseurl }}{% link _page
 
 For a full list of available parameters, see Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
+**NOTE**: After you finish this step, you need to upgrade your FSA Spartacus application to version 4.0. 
+For instructions, see ???
+
 ### Installing Dependencies
+
+**NOTE**: If you installed dependencies during upgrade to version 4.0, you can skip this step.
 
 Install dependencies needed by your FSA Spartacus app with the following command:
 
@@ -97,63 +102,9 @@ Install dependencies needed by your FSA Spartacus app with the following command
 yarn install
 ```
 
-### Checking app.module.ts for base URL and Other Settings
-
-Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup.
-
-After the FSA is installed, your `app.module.ts` should look like the following:
-
-```ts
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
-import { AppComponent } from './app.component';
-import { FSStorefrontModule } from '@spartacus/fsa-storefront';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FSStorefrontModule.withConfig({
-      backend: {
-        occ: {
-          baseUrl: '/--path to the server---/',
-          prefix: '/occ/v2/'
-        }
-      },
-      context: {
-        currency: ['EUR'],
-        language: ['en', 'de'],
-        urlParameters: ['baseSite', 'language', 'currency'],
-        baseSite: ['financial']
-      },
-      authentication: {
-        client_id: 'financial_customer',
-        client_secret: 'secret'
-      },
-      features: {
-        consignmentTracking: true,
-      }
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-For example, check:
-
-- `baseUrl`: Points to your SAP Commerce server.
-- `prefix`: Defines the prefix to OCC calls; if you still haven't, change `/rest/v2/` to `/occ/v2/`.
-- `context`: Defines the site context such as base site, language, and currency.
-- `authentication`: Defines authorization of the financial customer.
-
-**Note:** If your setup failed and, for some reason, your `app.module.ts` is not configured like described, check one more time requirements for FSA schematics usage - Angular CLI version should be > = 10.1!
-
 ### Starting your Spartacus App
+
+**NOTE**: If you started the app during upgrade to version 4.0, you can skip this step.
 
 Start your app with the following command:
 
@@ -170,7 +121,6 @@ If you installed the Financial SPA Sample Data with the *financialprocess* exten
 To do so, browse to `https://localhost:9002/occ/v2/financial/cms/pages`, and then accept the privacy certificate. 
 This step is necessary because your browser will block calls to the app which makes calls to `localhost:9002`, due to security settings. 
 To see the browser message, right-click in your browser, select **Inspect**, then click **Console**.
-
 
 
 Congratulations! You've built your first FSA Spartacus storefront.

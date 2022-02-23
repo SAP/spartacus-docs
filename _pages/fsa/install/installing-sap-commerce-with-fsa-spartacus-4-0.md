@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce Cloud for Use with FSA Spartacus 3.0
+title: Installing SAP Commerce Cloud for Use with FSA Spartacus 4.0
 ---
 
 The following instructions describe how to install and configure SAP Commerce (release 2105) with Financial Services Accelerator (release 2202) for use with FSA Spartacus storefront. 
