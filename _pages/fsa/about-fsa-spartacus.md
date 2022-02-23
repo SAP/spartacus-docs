@@ -8,7 +8,7 @@ In addition to supporting Commerce REST APIs, the Financial Services Accelerator
 
 For more information, see [SAP Commerce, Financial Services Accelerator](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/latest/en-US) documentation on the SAP Help Portal.
 
-## Contents
+In the navigation pane on the left of this page, you can find topics related to FSA Spartacus storefront, including the following:
 
 - [Release Information]({{ site.baseurl }}{% link _pages/fsa/fsa-release-information.md %})
 - [Roadmap]({{ site.baseurl }}{% link _pages/fsa/fsa-spartacus-roadmap.md %})
