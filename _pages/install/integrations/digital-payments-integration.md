@@ -46,7 +46,7 @@ For more information, see [SAP Digital Payments Integration](https://help.sap.co
 1. Build and update the system so that the new functionality provided by the SAP Digital Payments integration extensions is available.
 This step also creates sample CMS data for the `electronics-spaContentCatalog` content catalog.
 
-### Configuring Spartacus for SAP Digital Payments Integration
+### Configuring Spartacus for SAP Digital Payments Integration (version < 5.0)
 
 Perform the following steps after you have set up your Spartacus Storefront. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
@@ -80,6 +80,58 @@ Perform the following steps after you have set up your Spartacus Storefront. For
      })]
    })
    export class DigitalPaymentsFeatureModule { }
+   ```
+
+1. Build and start the storefront app to verify your changes.
+
+### Configuring Spartacus for SAP Digital Payments Integration (version >= 5.0)
+
+From 5.0, a new entry point was created in Digital Payments for assets. The Digital Payments feature can be lazy loaded.
+
+Perform the following steps after you have set up your Spartacus Storefront. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
+
+1. Install the SAP Digital Payments integration library by running the following command from within the root directory of your storefront application:
+
+   ```text
+   ng add @spartacus/digital-payments
+   ```
+
+   When you run this command, the schematics create a module for the Digital Payments integration that includes all of the required imports and configuration.
+
+   **Note:** To install the Digital Payments integration library using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+
+   Alternatively, you can create the module manually and import it into your application, as shown in the following example:
+
+   ```ts
+   import { NgModule } from '@angular/core';
+   import { CHECKOUT_FEATURE } from '@spartacus/checkout/base/root';
+   import { CmsConfig, I18nConfig, provideConfig } from '@spartacus/core';
+   import {
+     dpTranslationChunksConfig,
+     dpTranslations,
+   } from '@spartacus/digital-payments/assets';
+   @NgModule({
+     providers: [
+       provideConfig(<CmsConfig>{
+         featureModules: {
+           [CHECKOUT_FEATURE]: {
+             module: () =>
+               import('@spartacus/digital-payments').then(
+                 (m) => m.DigitalPaymentsModule
+               ),
+           },
+         },
+       }),
+       provideConfig(<I18nConfig>{
+         i18n: {
+           resources: dpTranslations,
+           chunks: dpTranslationChunksConfig,
+           fallbackLang: 'en',
+         },
+       }),
+     ],
+   })
+   export class DigitalPaymentsFeatureModule {}
    ```
 
 1. Build and start the storefront app to verify your changes.
