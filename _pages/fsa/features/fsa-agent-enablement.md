@@ -5,7 +5,7 @@ title: FSA Agent Enablement
 **Note**: This feature is introduced with version 4.0 of the FSA Spartacus libraries.
 
 Financial Services Accelerator provides a framework that enables business users to execute processes on behalf of their customers. 
-For this purpose, we have introduced the On-Behalf-of (OBO) framework. 
+For this purpose, we have introduced the On-behalf-of Framework (OBO framework). 
 
 ***
 
@@ -18,7 +18,7 @@ For this purpose, we have introduced the On-Behalf-of (OBO) framework.
 
 ## Overview
 
-The On-Behalf-Of Framework is based on the On-Behalf-Of consent (`OBOConsent`), and a new user group named Seller Group (`sellergroup`).
+The On-behalf-of Framework is based on the on-behalf-of consent (`OBOConsent`), and a new user group named Seller Group (`sellergroup`).
 
 To make use of this feature, business users first need to be added to the Seller Group. 
 Every member of this user group is defined as a **Seller** and can create new customers and perform actions on their behalf in the portal.
@@ -26,7 +26,7 @@ Adding users to Seller Group is done through the Backoffice.
 
 When sellers create customers, they are automatically given the `OBOConsent` with full permissions to execute business actions in name of the created customer. 
 Currently, the seller can prepare quotes for a customer and get a preview of their activities and insured objects (quotes, policies, claims). 
-The central place of the On-Behalf-Of Consent feature is the Seller Dashboard page. 
+The central place of the OBO framework is the Seller Dashboard page. 
 
 For more information on back-end implementation, see [Agent Enablement](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/cbf7b289a4414090a26e23077e2e4e1f.html) documentation on the SAP Help Portal. 
 
