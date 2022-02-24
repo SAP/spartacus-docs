@@ -93,12 +93,39 @@ Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address
 Simply changing the version in `package.json` file is not enough. 
 For instructions on how to create new app directory structure, see [Spartacus documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
 
+### Specifying configuration options for FSA Spartacus
+
+Once you have created new App directory structure as described in the previous step, you need to specify configuration options necessary for FSA. This configuration should be declared after all other Spartacus modules and should contain the following:
+
+```ts
+provideConfig(<OccConfig | SiteContextConfig>{
+    backend: {
+    occ: {
+        prefix: '/occ/v2/',
+        baseUrl: '/--path to the server--/',
+    },
+    },
+    context: {
+    baseSite: ['financial'],
+    language: ['en', 'de'],
+    currency: ['EUR'],
+    urlParameters: ['baseSite', 'language', 'currency'],
+    },
+    authentication: {
+    client_id: 'financial_customer',
+    client_secret: 'secret',
+    },
+    features: {
+    consignmentTracking: true,
+    },
+}),
+```
 
 ### Updating FSA Spartacus
 
+1. Depending on whether you use yarn or npm for installations, delete `yarn.lock` file or `package-lock.json` file from your project.
 
-
-1. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
+2. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
 
     ```shell
     "dependencies": {
@@ -162,3 +189,9 @@ For instructions on how to create new app directory structure, see [Spartacus do
     "zone.js": "~0.11.4"
     ```
 
+3. To complete the update, run the following commands:
+
+    ```shell
+    yarn install
+    yarn start
+    ```
