@@ -93,9 +93,10 @@ Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address
 Simply changing the version in `package.json` file is not enough. 
 For instructions on how to create new app directory structure, see [Spartacus documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
 
-### Specifying configuration options for FSA Spartacus
+### Specifying Configuration Options for FSA Spartacus
 
-Once you have created new App directory structure as described in the previous step, you need to specify configuration options necessary for FSA. This configuration should be declared after all other Spartacus modules and should contain the following:
+Once you have created the new app directory structure as described in the previous step, you need to specify configuration options necessary for FSA. 
+This configuration should be declared after all other Spartacus modules, and should contain the following:
 
 ```ts
 provideConfig(<OccConfig | SiteContextConfig>{
