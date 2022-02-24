@@ -627,6 +627,8 @@ docs:
                   url: /fsa-chatbot/
                 - title: "Agent Enablement"
                   url: /fsa-agent-enablement/
+                - title: "My Dashboard"
+                  url: /fsa-my-dashboard/
                 - title: "Quote Details Page"
                   url: /fsa-quote-details-page/
                 - title: "Quote Comparison"

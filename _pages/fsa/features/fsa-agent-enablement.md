@@ -30,26 +30,7 @@ The central place of the OBO framework is the Seller Dashboard page.
 
 For more information on back-end implementation, see [Agent Enablement](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/cbf7b289a4414090a26e23077e2e4e1f.html) documentation on the SAP Help Portal. 
 
-## Seller Dashboard
-
-To support this feature on the storefront, Seller Dashboard has been introduced.
-
-![Seller Dashboard Preview]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-overview.png)
-
-### Components
-
-Seller Dashboard is a content page with ID *seller-dashboard*, consisted of two content slots. 
-The first content slot contains `SellerDashboardTitleParagraph` which is responsible for rendering the title of the page. 
-The second content slot contains `SellerDashboardFlexComponent`, which maps to the FSA Spartacus `SellerDashboardComponent`, responsible for rendering the seller dashboard details. 
-`SellerDashboardComponent` displays seller's photo and personal details (name, e-mail, date of birth), as well as the paginated list of seller's customers. 
-
-![Seller Dashboard Content Slots]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-content-slots.png)
-
-### Guards
-
-The Seller Dashboard page is guarded by the guards implemented by Spartacus, like `AuthGuard` and `CmsPageGuard`, and by a custom `SellerDashboardGuard`. 
-`SellerDashboardGuard` will allow access to the page only if the currently logged-in customer is part of the seller user group. 
-If not, the appropriate message is displayed, informing the user that they do not have sufficient permissions.
+To support this feature on the storefront, a Seller Dashboard has been introduced.
 
 ## User Journey 
 
@@ -60,6 +41,8 @@ After logging in, the business user with the seller role can access the Seller D
 ![Accessing Seller Dashboard]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-access-link.png)
 
 After they land on the Dashboard, sellers can see their personal details on the right, while in the Dashboard Options section on the left, they can see number of existing customers, as well as options for adding a new customer and previewing the list of existing customers. 
+
+![Seller Dashboard Preview]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-overview.png)
 
 The page route is */seller-dashboard*.
 
@@ -81,21 +64,48 @@ After saving the changes, seller can see the newly created customer in their lis
 ### Performing Actions On-Behalf-of the Customer
 
 In the default implementation, besides creating an account for the customer, the seller can create quotes and applications. 
-The quotation and application process is similar to the one initiated by the customer, except that the seller fills in the forms with data provided by the customer. 
-After selecting the insurance type, the seller fills in the initial form, chooses the cover, adds options if required, and, on the ***Personal Details** step, enters customer personal information.
-So far the steps follow the usual quotation and application procedure. 
-On the **Quote Review step**, the seller is prompted to choose the customer for whom they wish to create the quote/application. 
+The seller starts the quotation and application process as if they were logged in to the portal as the customer, filling in the forms with data previously obtained from the customer. 
+For the seller, one additional sequence has been added on the **Quote Review step**.
+Namely, on this steo, the seller is prompted to select the customer for whom they wish to create the quote/application. 
 The seller selects the customer by clicking the **Select** link next to the customer's name. 
 
-![Customer List]({{ site.baseurl }}/assets/images/fsa/OBO/seller-customer-selected.png)
+![Customer List on Quote Review Step]({{ site.baseurl }}/assets/images/fsa/OBO/seller-customer-selected.png)
 
-The seller can select only one customer. Clicking again on a **Select** link next to another customer deselects the previously selected customer.
-After that, the seller confirms the quote, which then becomes bound.
+The seller can select only one customer at the time. 
+Clicking again on the **Select** link next to another customer's name will deselect the previously selected customer.
+After selecting the customer, the seller confirms the quote, which then becomes bound.
+The system informs the seller that the quote has been successfully created with a toast message and returns them to the homepage.
 
-The seller can create several quotes or applications for the same customer. 
+![Toast Message Informing the Seller that the Quote is Created]({{ site.baseurl }}/assets/images/fsa/OBO/seller-creates-quote-for-customer-notification.png)
 
-The customer on whose behalf the seller was acting can then log in to their account, access the created quotes on the **Quotes and Applications** page of the **My Account** area.
-The customer can then finish the checkout by entering the payment details.
+The seller can create as many quotes or applications for the customer as found necessary. 
+After creating the quote, the seller can check if the quote they just created appears on the Customer Dashboard.
+To do that, the seller navigates to Dashboard, opens the list of customers and selects the customer on whose behalf they just created the quote. 
+Click on the arrow opens the Customer Dashboard, where the seller chooses to check customer's quotes and applications. 
+The newly created quote appears in the list. 
+
+![Seller Dashboard Preview]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-overview.png)
+
+For more information about customer dashboard, see [My Dashboard]({{ site.baseurl }}/pages/fsa/features/fsa-my-dashboard.png)
+ documentation. 
+
+The customer on whose behalf the seller was acting can then log in to their account and access the created quotes on the **Quotes and Applications** page of the **My Account** area.
+The customer then retrieves the quote or application, enters payment details and completes the checkout.
+
+## Components
+
+Seller Dashboard is a content page (ID *seller-dashboard*), which consists of two content slots. 
+The first content slot contains `SellerDashboardTitleParagraph` which is responsible for rendering the title of the page. 
+The second content slot contains `SellerDashboardFlexComponent`, which maps to the FSA Spartacus `SellerDashboardComponent`, responsible for rendering the seller dashboard details. 
+`SellerDashboardComponent` displays seller's photo and personal details (name, e-mail, date of birth), as well as the paginated list of seller's customers. 
+
+![Seller Dashboard Content Slots]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-content-slots.png)
+
+## Guards
+
+The Seller Dashboard page is guarded by the guards implemented by Spartacus, like `AuthGuard` and `CmsPageGuard`, and by a custom `SellerDashboardGuard`. 
+`SellerDashboardGuard` will allow access to the page only if the currently logged-in customer is part of the seller user group. 
+If not, the appropriate message is displayed, informing the user that they do not have sufficient permissions.
 
 
 

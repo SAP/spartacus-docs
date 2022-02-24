@@ -12,6 +12,7 @@ This is a landing page for grouping together FSA Spartacus features. The FSA Spa
 - [Claim Update]({{ site.baseurl }}{% link _pages/fsa/features/claims/claim-update.md %})
 - [Chatbot]({{ site.baseurl }}{% link _pages/fsa/features/fsa-chatbot.md %})
 - [Agent Enablement - On-Behalf-of Framework]({{ site.baseurl }}{% link _pages/fsa/features/fsa-agent-enablement.md %})
+- [My Dashboard]({{ site.baseurl }}{% link _pages/fsa/features/fsa-my-dashboard.md %})
 - [Live Contract Integration Enhancements]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-insurance-agent-capabilities.md %})
 
 
