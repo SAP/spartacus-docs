@@ -30,8 +30,8 @@ Your Angular development environment should include the following:
 
 FSA Spartacus uses SAP Commerce and Financial Services Accelerator back end and makes use of the sample data.
 
-- **SAP Commerce version**: Release **2105** (the latest patch is recommended).
-- **Financial Services Accelerator version**: Release **2202** is required.
+- **SAP Commerce Cloud**: Release **2105** is required. Patch version **2105.5** is recommended
+- **Financial Services Accelerator**: Version **2202** is required.
 
 For more information, see [Installing SAP Commerce Cloud FSA for use with FSA Spartacus]({{ site.baseurl }}{% link _pages/fsa/install/installing-sap-commerce-with-fsa-spartacus.md %}).
 
