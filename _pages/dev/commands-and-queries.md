@@ -21,9 +21,6 @@ Commands and queries provide a robust and simplified way to handle state (in oth
 
 Commands represent an action that can change the state of the system, usually by issuing a REST call to the back end. Commands can return a result, and can be executed while taking an execution strategy into consideration. Each command execution returns an observable, which emits (with an optional success result) and then completes when the command finishes, or throws an error when the command execution results in an error.
 
-Subscribing to the result observable does not determine command execution, so it is optional.
-However, for unit testing purposes, it's a good idea to still subscribe to the command. Depending on your unit test's setup, you may mock the command with a fake stream which requires the subscription to be made in order to run it.
-
 ## Command Definition
 
 A command can be defined as a property of a class by storing the result of the `CommandService.create` factory method call.
@@ -57,12 +54,32 @@ The available strategies are the following:
 
 ## Exposing Commands in Facade Services
 
-Commands are meant to be exposed as methods that calls can execute on the command class, and that return a result observable. As mentioned earlier, the call can simply invoke a method to execute the command. Subscribing to the result is optional. The following is an example:
+Commands are meant to be exposed as methods that calls can execute on the command class, and that return a result observable. As mentioned earlier, the call can simply invoke a method to execute the command. The following is an example:
 
 ```typescript
   update(details: User): Observable<unknown> {
     return this.updateCommand.execute({ details });
   }
+```
+
+## Subscribing to commands
+
+Subscribing to the result observables does not determine command execution, so it is optional.
+
+However, for unit testing purposes, it's a good idea to still subscribe to the command. Depending on your unit test's setup, you may mock the command with a fake stream which requires the subscription to be made in order to run it.
+
+Another good reason for subscribing to commands is the case when you need to compose commands with commands and / or streams.
+
+```ts
+const command1 = this.userFacade
+  .update({})
+  .pipe(
+    switchMap((result) => {
+      // this won't be executed unless there's a subscription.
+      return result$;
+    })
+  )
+  .subscribe();
 ```
 
 ## Queries Overview
