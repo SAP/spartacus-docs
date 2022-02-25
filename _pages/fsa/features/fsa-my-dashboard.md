@@ -19,11 +19,11 @@ Financial Services Accelerator introduces a single information place for custome
 
 ## User Journey 
 
-After logging in, the customer can access the Dashboard by clicking the **Dashboard** link in the upper right corner, next to **My Account**. 
+After logging in, customers can access the Dashboard by clicking the **Dashboard** link in the upper right corner, next to **My Account**. 
 
 ![Accessing My Dashboard]({{ site.baseurl }}/assets/images/fsa/OBO/my-dashboard-access-link.png)
 
-After they land on the Dashboard, customer can see their personal details on the right, while in the Dashboard Options section on the left, they can see number of existing insurance objects, such as Quotes and Applications, Policies, and Claims. 
+After they land on the Dashboard, customers can see their personal details on the right, while in the Dashboard Options section on the left, they can see number of existing insurance objects, such as quotes and applications, policies, and claims. 
 
 ![My Dashboard Preview]({{ site.baseurl }}/assets/images/fsa/OBO/my-dashboard-policies.png)
 
