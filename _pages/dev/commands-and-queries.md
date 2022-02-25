@@ -66,21 +66,10 @@ Commands are meant to be exposed as methods that calls can execute on the comman
 
 Subscribing to the result observables does not determine command execution, so it is optional.
 
-However, for unit testing purposes, it's a good idea to still subscribe to the command. Depending on your unit test's setup, you may mock the command with a fake stream which requires the subscription to be made in order to run it.
+However, there are still good reasons for subscribing to commands:
 
-Another good reason for subscribing to commands is the case when you need to compose commands with commands and / or streams.
-
-```ts
-const command1 = this.userFacade
-  .update({})
-  .pipe(
-    switchMap((result) => {
-      // this won't be executed unless there's a subscription.
-      return result$;
-    })
-  )
-  .subscribe();
-```
+- When you need to compose command streams with other streams (e.g. `switchMap`ping to another stream) won't work unless you subscribe to the command.
+- Depending on your unit test setup, you may mock the command with a fake stream which requires the subscription to be made in order to run it.
 
 ## Queries Overview
 
