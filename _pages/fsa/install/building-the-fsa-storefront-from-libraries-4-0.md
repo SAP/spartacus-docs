@@ -90,7 +90,8 @@ For a detailed explanation, see [FSA Schematics]({{ site.baseurl }}{% link _page
 For a full list of available parameters, see Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
 **NOTE**: After you finish this step, you need to upgrade your FSA Spartacus application to version 4.0. 
-For instructions, see ???
+For instructions, see [Updating to Version 4.0]({{ site.baseurl }}{% link _pages/fsa/fsa-updating-to-version-4.md %}).
+
 
 ### Installing Dependencies
 
