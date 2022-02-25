@@ -1,21 +1,21 @@
 ---
 title: Commands and Queries
 feature:
-- name: Commands and Queries
-  spa_version: 3.2
-  cx_version: n/a
+  - name: Commands and Queries
+    spa_version: 3.2
+    cx_version: n/a
 ---
 
 Commands and queries provide a robust and simplified way to handle state (in other words, loading and caching), and to execute actions against the back end system. This is similar to the way that libraries such as React Query and SWR approach the problem of handling the state coming from the API in a single page application. A large part of the front end application state comes from the back end. Redux architecture, which is often used for state management, was not created with this type of state in mind, and requires a lot of boilerplate to support it. Different types of state require different solutions, and commands and queries are designed to handle the state coming from the API in Spartacus. In a lot of cases, commands and queries will replace NgRx for default Spartacus libraries, and will make most implementations simpler, with better, more consistent error handling, while also leveraging the Spartacus events framework.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Commands Overview
 
