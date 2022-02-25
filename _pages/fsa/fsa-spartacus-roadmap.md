@@ -15,7 +15,15 @@ This document describes what is planned for FSA Spartacus in 2022.
   
 ### Disclaimer - Forward-Looking Statements
 
-*This document contains forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence. The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+*This document contains forward-looking statements. 
+All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. 
+Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. 
+Any information is subject to change for any reason without notice. 
+The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality.  
+This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. 
+This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence. 
+The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. 
+These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
   
 ## Overview
 
@@ -23,12 +31,14 @@ This document describes what is planned for FSA Spartacus in 2022.
 
 Each release may contain bug fixes, improvements, and new features.
 
-Some of the links provided in the following lists point to SAP Commerce Cloud Financial Services Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the FSA Spartacus implementation of features may not work exactly as in the Financial Services Accelerator.
+Some links provided in the following lists point to the SAP Commerce Cloud Financial Services Accelerator documentation, to give you an idea of what the feature is about. 
+These links are for context only. 
+While we strive for feature parity, the FSA Spartacus implementation of features may not work exactly as in the Financial Services Accelerator.
 
 ### Other Release Documentation
 
 - For an overview of what was included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/fsa/fsa-release-information.md %}).
-- For information on SAP Commerce Cloud Financial Services Accelerator, see the [FSA documentation on SAP Help Portal](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/2102/en-US).
+- For information on SAP Commerce Cloud Financial Services Accelerator, see the [FSA documentation on the SAP Help Portal](https://help.sap.com/viewer/product/FINANCIAL_SERVICES_ACCELERATOR/2102/en-US).
   
 ### Questions?
 
