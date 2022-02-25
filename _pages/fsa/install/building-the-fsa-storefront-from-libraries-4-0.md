@@ -77,21 +77,74 @@ The following procedure describes how to create a new Angular application with t
 
 ## FSA Spartacus Project Setup
 
-The easiest way to start a new project is to use Angular Schematics to set up your application quickly.
+1. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
 
-You can add FSA Spartacus libraries to your Spartacus Angular project by running the following command from your project root:
+    ```shell
+    "dependencies": {
+    "@angular/animations": "~12.0.5",
+    "@angular/common": "~12.0.5",
+    "@angular/compiler": "~12.0.5",
+    "@angular/core": "~12.0.5",
+    "@angular/forms": "~12.0.5",
+    "@angular/platform-browser": "~12.0.5",
+    "@angular/platform-browser-dynamic": "~12.0.5",
+    "@angular/platform-server": "~12.0.5",
+    "@angular/pwa": "~12.0.5",
+    "@angular/router": "~12.0.5",
+    "@angular/service-worker": "~12.0.5",
+    "@compodoc/compodoc": "^1.1.10",
+    "@ng-bootstrap/ng-bootstrap": "~10.0.0",
+    "@ng-select/ng-select": "~7.0.1",
+    "@ngrx/effects": "~12.1.0",
+    "@ngrx/router-store": "~12.1.0",
+    "@ngrx/store": "~12.1.0",
+    "@nguniversal/express-engine": "~12.0.2",
+    "@spartacus/dynamicforms": "4.0.0",
+    "@spartacus/fsa-storefront": "4.0.0",
+    "@spartacus/fsa-styles": "3.0.0",
+    "@spartacus/asm": "4.2.1",
+    "@spartacus/assets": "4.2.0",
+    "@spartacus/cart": "4.2.1",
+    "@spartacus/cds": "4.2.1",
+    "@spartacus/checkout": "4.2.1",
+    "@spartacus/core": "4.3.0",
+    "@spartacus/digital-payments": "4.2.1",
+    "@spartacus/organization": "4.2.1",
+    "@spartacus/product": "4.2.1",
+    "@spartacus/product-configurator": "4.2.1",
+    "@spartacus/smartedit": "4.2.1",
+    "@spartacus/storefinder": "4.2.1",
+    "@spartacus/storefront": "4.2.0",
+    "@spartacus/styles": "4.2.1",
+    "@spartacus/tracking": "4.2.1",
+    "@spartacus/user": "4.2.1",
+    "@syncpilot/bpool-guest-lib": "^0.2.6",
+    "@types/googlemaps": "^3.37.5",
+    "angular-oauth2-oidc": "~10.0.1",
+    "blob-util": "^2.0.2",
+    "bootstrap": "^4.3.1",
+    "comment-json": "^4.1.0",
+    "echarts": "^5.0.2",
+    "express": "^4.15.2",
+    "file-saver": "^2.0.2",
+    "hamburgers": "^1.1.3",
+    "i18next": "^20.2.2",
+    "i18next-http-backend": "^1.2.2",
+    "i18next-xhr-backend": "^3.2.2",
+    "ngx-echarts": "^6.0.1",
+    "ngx-infinite-scroll": "^8.0.0",
+    "parse5": "^6.0.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "rxjs": "^6.6.0",
+    "ts-loader": "^6.0.4",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+    ```
 
-```shell
-ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
-```
-
-For a detailed explanation, see [FSA Schematics]({{ site.baseurl }}{% link _pages/fsa/install/fsa-schematics.md %}).
-
-For a full list of available parameters, see Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
-
-**NOTE**: After you finish this step, you need to upgrade your FSA Spartacus application to version 4.0. 
-For instructions, see [Updating to Version 4.0]({{ site.baseurl }}{% link _pages/fsa/fsa-updating-to-version-4.md %}).
-
+In order for the installation to proceed without any errors, you need to have the latest Spartacus app directory structure in place. 
+Simply changing the version in `package.json` file is not enough.
+FSA Spartacus 4.0 requires Spartacus version 4.x. 
+For instructions on how to set up Spartacus project, see [Spartacus documentation](https://sap.github.io/spartacus-docs/building-the-spartacus-storefront-from-libraries-4-x/)
 
 ### Installing Dependencies
 
