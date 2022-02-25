@@ -49,7 +49,7 @@ If you would like to report an issue for assistance from SAP, please use the [SA
 
 Current release plans are (dates are tentative):
 
-- 5.0 planned for Q1 2022
+- 5.0 planned for Q2 2022
 - 5.x releases to follow in Q1/Q2/Q3 2022
 - 6.0 tentatively scheduled for fall 2022
 - A 4.3 release will likely happen in January containing the EPD Visualization library.
