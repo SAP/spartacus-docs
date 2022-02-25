@@ -22,6 +22,7 @@ Commands and queries provide a robust and simplified way to handle state (in oth
 Commands represent an action that can change the state of the system, usually by issuing a REST call to the back end. Commands can return a result, and can be executed while taking an execution strategy into consideration. Each command execution returns an observable, which emits (with an optional success result) and then completes when the command finishes, or throws an error when the command execution results in an error.
 
 Subscribing to the result observable does not determine command execution, so it is optional.
+However, for unit testing purposes, it's a good idea to still subscribe to the command. Depending on your unit test's setup, you may mock the command with a fake stream which requires the subscription to be made in order to run it.
 
 ## Command Definition
 
