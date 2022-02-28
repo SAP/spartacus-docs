@@ -46,8 +46,17 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
   
 For non-technical questions and roadmap feedback, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
-## Future Outlook / Features Planned for 2022
-
 ### Features Planned for Version 5.0 / Q3 2022
+
+- **Commissions Dashboards** - Visualisation of Commission Dashboards for Sales Agents retrieved from SAP Commissions.
+- **Personalisation** - Support for personalized call-to-actions for customers e.g., to create a quote or a claim.
+- **Sales Illustration** - Enablement of Sales Illustration for Savings product.
+- **On-Behalf-of Framework Enhancements** - Support for additional processes that sellers can perform on behalf of their customers, such as policy change, FNOL process, claim change. Improvements related to consent management and the quotation process.
+- **Chatbot Enhancements** - Enablement of anonymous quote process for travel insurance via chatbot (powered by SAP Conversational AI).
+- **Integration with SAP Customer Data Platform** - Integration with SAP CDP related to FS-specific information.
+- **Form Experience Improvements** - Amplification of Dynamicforms with additional form fields and different form styles.
+- **Appointment Scheduling** - Introducing a framework for scheduling appointments with agents. Integration with a partner solution SyncoTime planned to be used in this process.
+- **Insured Asset Perspective** - Alternative perspective offer in the *My Account* area, to show insured assets instead of policies. 
+- **Service Ticket Insight** - Support for customers' follow-up on the status and feedback for submitted tickets.
 
 
