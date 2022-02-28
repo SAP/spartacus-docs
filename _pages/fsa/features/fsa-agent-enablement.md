@@ -5,7 +5,7 @@ title: FSA Agent Enablement
 **Note**: This feature is introduced with version 4.0 of the FSA Spartacus libraries.
 
 Financial Services Accelerator provides a framework that enables business users to execute processes on behalf of their customers. 
-For this purpose, we have introduced the On-behalf-of Framework (OBO framework). 
+For this purpose, we have introduced the On-Behalf-of Framework (OBO framework). 
 
 ***
 
@@ -18,7 +18,7 @@ For this purpose, we have introduced the On-behalf-of Framework (OBO framework).
 
 ## Overview
 
-The On-behalf-of Framework is based on the on-behalf-of consent (`OBOConsent`), and a new user group named Seller Group (`sellergroup`).
+The On-Behalf-of Framework is based on the on-behalf-of consent (`OBOConsent`), and a new user group named Seller Group (`sellergroup`).
 
 To make use of this feature, business users first need to be added to the Seller Group. 
 Every member of this user group is defined as a **Seller** and can create new customers and perform actions on their behalf in the portal.
@@ -26,11 +26,10 @@ Adding users to Seller Group is done through the Backoffice.
 
 When sellers create customers, they are automatically given the `OBOConsent` with full permissions to execute business actions in name of the created customer. 
 Currently, the seller can prepare quotes for a customer and get a preview of their activities and insured objects (quotes, policies, claims). 
-The central place of the OBO framework is the Seller Dashboard page. 
 
 For more information on back-end implementation, see [Agent Enablement](https://help.sap.com/viewer/a7d0f0c5faa44002bf81e1a9a91c77e2/latest/en-US/cbf7b289a4414090a26e23077e2e4e1f.html) documentation on the SAP Help Portal. 
 
-To support this feature on the storefront, a Seller Dashboard has been introduced.
+The central place of the OBO framework on the FSA Spartacus is the Seller Dashboard page, introduced for this occasion. 
 
 ## User Journey 
 
@@ -40,14 +39,14 @@ After logging in, the business user with the seller role can access the Seller D
 
 ![Accessing Seller Dashboard]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-access-link.png)
 
-After they land on the Dashboard, sellers can see their personal details on the right, while in the Dashboard Overview section on the left, they can see number of existing customers, as well as options for adding a new customer and previewing the list of existing customers. 
+After they land on the Dashboard, sellers can see their personal details on the right, while in the *Dashboard Overview* section on the left, they can see number of existing customers, as well as options for adding a new customer and previewing the list of existing customers. 
 
 ![Seller Dashboard Preview]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-overview.png)
 
 
 ### Creating Customer Account
 
-To create a new customer account, seller clicks the **Add a Customer** button in the Dashboard Overview section.
+To create a new customer account, seller clicks the **Add a Customer** card in the Dashboard Overview section.
 
 ![Adding New Customer]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-add-customer.png)
 
@@ -77,14 +76,14 @@ The system informs the seller that the quote has been successfully created with 
 
 The seller can create as many quotes or applications for the customer as found necessary. 
 After creating the quote, the seller can check if the quote they just created appears on the Customer Dashboard.
-To do that, the seller navigates to Dashboard, opens the list of customers and selects the customer on whose behalf they just created the quote. 
-Click on the arrow opens the Customer Dashboard, where the seller chooses to check customer's quotes and applications. 
-The newly created quote appears in the list. 
+To do that, the seller navigates to Dashboard, opens the list of customers (Step 1 in the figure below) and selects the customer on whose behalf they just created the quote (2). 
+Click on the arrow opens the Customer Dashboard, where the seller chooses to check customer's quotes and applications (3). 
+The newly created quote appears in the list (4). 
 
-![Seller Dashboard Preview]({{ site.baseurl }}/assets/images/fsa/OBO/seller-dashboard-overview.png)
+![Seller Accessing Customer Dashboard]({{ site.baseurl }}/assets/images/fsa/OBO/agent-dashboard-to-customer-dashboard.png)
 
 The customer on whose behalf the seller was acting can then log in to their account and access the created quotes on the **Quotes and Applications** page of the **My Account** area.
-The customer then retrieves the quote or application, enters payment details and completes the checkout.
+The customer retrieves the quote or application, enters payment details and completes the checkout.
 
 ## Components
 
@@ -99,31 +98,20 @@ The second content slot contains `SellerDashboardFlexComponent`, which maps to t
 
 `SellerDashboardComponent`, `SellerDashboardListComponent` and `CreateOBOCustomerComponent` are declared and exported in main `SellerDashboardModule`.
 
-Page route: */seller-dashboard*.
-Page route for Create Customer page: */seller-dashboard/create-customer*.
+Page route: `/seller-dashboard`.
 
-The Seller Dashboard page is guarded by the guards implemented by Spartacus, like `AuthGuard` and `CmsPageGuard`, and by a custom `SellerDashboardGuard`. 
-`SellerDashboardGuard` will allow access to the page only if the currently logged-in customer is part of the seller user group. 
+Page route for Create Customer page: `/seller-dashboard/create-customer`.
+
+The Seller Dashboard page is protected with guards provided by Spartacus, like `AuthGuard` and `CmsPageGuard`, and with a custom `SellerDashboardGuard`. 
+`SellerDashboardGuard` will allow access to the page only if the currently logged-in customer is part of the Seller user group. 
 If not, the appropriate message is displayed, informing the user that they do not have sufficient permissions.
 
 ### Customer Dashboard
 
-The Customer Dashboard page is used to display details about customers created by the seller. 
-Content page with ID `user-profile` contains a content slot that contains `UserProfileFlexComponent` which is mapped to Spartacus `UserProfileComponent`, responsible for rendering the customer's details.  
-The `UserProfileComponent` displays customer's personal details (name, e-mail, date of birth, and avatar), and it also displays the paginated list of customer's insurance objects (claims, quotes and applications, policies). 
+The Customer Dashboard page is used to display details about customers created by the seller.
+Customer dashboard relies heavily on the *My Dashboard* feature. 
+For more information, see [My Dashboard]({{ site.baseurl }}/pages/fsa/features/fsa-my-dashboard.png). 
 
-`UserProfileComponent` is declared and exported in `UserProfileModule`.
+Page route: `/user-profile/:customerId`.
 
-Page route: */user-profile/:customerId*
-
-Page is guarded by `AuthGuard` and `CmsPageGuard`.
-
-Customer dashboard relies heavily on *My Dashboard* feature.
-For more information, see [My Dashboard]({{ site.baseurl }}/pages/fsa/features/fsa-my-dashboard.png) documentation. 
-
-
-
-
-
-
-
+Customer Dashboard page is guarded by `AuthGuard` and `CmsPageGuard`.
