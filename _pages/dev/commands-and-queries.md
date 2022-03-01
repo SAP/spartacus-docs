@@ -56,13 +56,35 @@ The available strategies are the following:
 
 ## Exposing Commands in Facade Services
 
-Commands are meant to be exposed as methods that calls can execute on the command class, and that return a result observable. As mentioned earlier, the call can simply invoke a method to execute the command. Subscribing to the result is optional. The following is an example:
+Commands are meant to be exposed as methods that calls can execute on the command class, and that return a result observable. As mentioned earlier, the call can simply invoke a method to execute the command. The following is an example:
 
 ```typescript
   update(details: User): Observable<unknown> {
     return this.updateCommand.execute({ details });
   }
 ```
+
+## Subscribing to Commands
+
+Subscribing to the result observables does not determine command execution, so it is optional.
+
+However, there are still good reasons for subscribing to commands, such as the following:
+
+- To compose command streams with other streams (for example, by using `switchMap` to switch to another stream), you need to subscribe to the command, otherwise it will not work. In the following example, the `switchMap` runs because, in the final line, there is a subscription to the `update` command:
+
+  ```ts
+  this.userFacade
+    .update({})
+    .pipe(
+      switchMap(() => {
+        // this would be ignored without a subscription
+        return someStream$;
+      })
+    )
+    .subscribe();
+  ```
+
+- Depending on your unit test setup, you could be mocking the command with a fake stream. This requires you to make a subscription for it to run.
 
 ## Queries Overview
 
