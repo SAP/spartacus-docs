@@ -15,7 +15,7 @@ title: Release Information for All Versions of FSA Spartacus Libraries
 
 This document describes what is included in all FSA Spartacus libraries since the initial 1.0 release. 
 
-**Note: FSA Spartacus 4.x requires Spartacus 4.1 and Angular 12.0.5. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
+**Note: FSA Spartacus 4.x requires Spartacus 4.x and Angular 12.0.5. For more information, see [Building FSA Spartacus storefront from libraries]({{ site.baseurl }}{% link _pages/fsa/install/building-the-fsa-storefront-from-libraries.md %}).**
 
 - For information on specific code changes for a particular release, see the [Development Release Notes](https://github.com/SAP/spartacus-financial-services-accelerator/releases).
 - If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our *#help-fsa* channel of [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
@@ -27,16 +27,16 @@ This document describes what is included in all FSA Spartacus libraries since th
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
 ## Release 4.0
-*Release 4.0 libraries published February 2022*
+*Release 4.0 libraries published March 2022*
 
-- **SAP Digital Payments Integration** - With SAP Digital Payments integration, Financial Services Accelerator provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotation and application processes.
-- **My Account Dashboard** - Customers can now see an overview of the most important information from the My Account area on a separate summary page called My Account Dashboard.
-- **Renewal Process** - The system notifies policyholders about their policy renewal options when their existing policies are about to expire. This helps customers decide about the new version of their policies while they are still valid.   
-- **Quote Comparison** - Customers can compare quotes they created in a separate comparison table, which facilitates the decision-making process when they need to choose between two similar options.
-- **On-Behalf-Of Framework** - This framework enables financial B2B customers to execute processes on behalf of their customers. At the same time, they have an overview of their customer's portfolio.
-- **Chatbot** - The Chatbot feature in Financial Services Accelerator allows financial companies to interact and coordinate with their customers in real-time and easy-to-use interface.
-- **Quote Replication** - Quotes created in another system (e.g., PQM) are replicated in the Financial Services Accelerator and shown to the customer. The customer can accept or decline the quote. The customer's decision is then replicated back to the originating system.
-- **Live Contract Integration Enhancement** - The integration between Financial Services Accelerator and Live Contract has been extended so that customers can now directly call an agent of choice from the Find an Agent page.
+- **[SAP Digital Payments Integration]({{ site.baseurl }}{% link _pages/fsa/features/fsa-checkout.md %})** - With SAP Digital Payments integration, Financial Services Accelerator provides digital payment capabilities to insurance and banking customers, by enabling credit card payments in quotation and application processes.
+- **My Dashboard** - Customers can now see an overview of the most important information from My Account area on a separate summary page called My Dashboard.
+- **[Policy Renewal Process]({{ site.baseurl }}{% link _pages/fsa/features/fsa-policy-renewal.md %})** - The system notifies policyholders about their policy renewal options when their existing policies are about to expire. This helps customers decide about the new version of their policies while they are still valid.   
+- **[Quote Comparison]({{ site.baseurl }}{% link _pages/fsa/features/fsa-quote-comparison.md %})** - Customers can compare quotes they created in a separate comparison table, which facilitates the decision-making process when they need to choose between two similar options.
+- **Agent Enablement** - The On-Behalf-of framework enables financial B2B customers to execute processes on behalf of their customers. At the same time, they have an overview of their customer's portfolio, as well as their own seller portfolio, on the newly added Seller Dashboard and Customer Dashboard.
+- **[Chatbot]({{ site.baseurl }}{% link _pages/fsa/features/fsa-chatbot.md %})** - The Chatbot feature in Financial Services Accelerator allows financial companies to interact and coordinate with their customers in real-time and easy-to-use interface.
+- **[Quote Replication](https://help.sap.com/viewer/DRAFT/a7d0f0c5faa44002bf81e1a9a91c77e2/2202/en-US/6ca7731b90404da6b863814377b3fe3e.html)** - Quotes created in another system (e.g., PQM) are replicated in the Financial Services Accelerator and shown to the customer. The customer can accept or decline the quote. The customer's decision is then replicated back to the originating system.
+- **[Live Contract Integration Enhancement]({{ site.baseurl }}{% link _pages/fsa/features/agents/fsa-insurance-agent-capabilities.md %})** - The integration between Financial Services Accelerator and Live Contract has been extended so that customers can now directly call an agent of choice from the Find an Agent page.
 
 
 ## Release 3.0
