@@ -142,13 +142,13 @@ For more information, see [Installing SAP Commerce Using Installer Recipes](http
 
     For Unix:
 
-    ```typescript
+    ```bash
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
 
     For Windows:
 
-    ```typescript
+    ```bash
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
 
@@ -156,13 +156,13 @@ For more information, see [Installing SAP Commerce Using Installer Recipes](http
 
     For Unix:
 
-    ```typescript
+    ```bash
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
     For Windows:
 
-    ```typescript
+    ```bash
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
@@ -170,13 +170,13 @@ For more information, see [Installing SAP Commerce Using Installer Recipes](http
 
     For Unix:
 
-    ```typescript
+    ```bash
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
     For Windows:
 
-    ```typescript
+    ```bash
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
@@ -206,13 +206,14 @@ FSA Spartacus uses OCC REST API calls to get information from and make changes t
 
 4. Click **Import content**. You have now added a client ID and password to your FSA Spartacus storefront configuration.
 
-You can verify that the OAuth client has been successfully defined by entering the following curl command in the terminal or the command prompt window:
+You can verify that the OAuth client has been successfully defined with the following `curl` command:
 
 ```typescript
 curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
 ```
 
-The curl command sends a POST request for an access token, using the client ID and password that you added to the back end. The command should return something similar to the following:
+The `curl` command sends a POST request for an access token, using the client ID and password that you added to the back end. 
+The command should return something similar to the following:
 
 ```typescript
 {

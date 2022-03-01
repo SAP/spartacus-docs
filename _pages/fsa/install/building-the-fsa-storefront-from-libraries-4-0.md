@@ -79,7 +79,7 @@ The following procedure describes how to create a new Angular application with t
 
 1. Go to the `package.json` file at the root of your project and add the following dependencies and their respective versions:
 
-    ```shell
+    ```json
     "dependencies": {
     "@angular/service-worker": "^12.0.5",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
@@ -132,11 +132,11 @@ yarn install
 
 4. In your `style.css` file add the following code:
 
-```bash
+```typescript
 @import "~@spartacus/fsa-styles/index";
 ```
 
-5. Copy the fonts directory from `node_modules` to your `src/assets` directory.
+5. Copy the `fonts` directory from `node_modules` to your `src/assets` directory.
 
 6. Start the server with the following command:
 
