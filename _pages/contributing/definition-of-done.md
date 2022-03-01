@@ -176,7 +176,7 @@ New features must be compatible with Safari on iOS, and Chrome on Android, and m
 
 **Note:** Phones and tablets should be running on the latest versions of their respective operating systems.
 
-If devices are not available, simulations with browser tools should be used instead.  
+If devices are not available, simulations with browser tools should be used instead.
 
 ## The Library Builds Without Errors
 
