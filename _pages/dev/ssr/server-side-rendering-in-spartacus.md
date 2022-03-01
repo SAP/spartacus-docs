@@ -65,7 +65,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     });
     ```
 
-1. Replace the following lines in `app.module.ts`:
+1. Update the `app.module.ts` file, as follows:
 
     ```typescript
     //from:
@@ -73,14 +73,17 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     //to
     BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
     ```
-    and
+
+1. Additionally, update the `app.module.ts` file, as follows:
+
     ```typescript
     //from
     import { BrowserModule } from '@angular/platform-browser';
     //to
     import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
     ```
-    and add `BrowserTransferStateModule` to `imports`.
+
+1. Also in the `app.module.ts` file, add `BrowserTransferStateModule` to the `imports` array of the `@NgModule` decorator.
 
 1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BACKEND_BASE_URL_VALUE` with the URL of your back end instance, as follows:
 
@@ -88,7 +91,8 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
     ```
 
-1. In `projects.<your-project-name>.architect.build.options` change following line:
+1. Update `projects.<your-project-name>.architect.build.options`, as follows:
+
     ```json
     //from
     "outputPath": "dist/<your-project-name>",
@@ -96,7 +100,8 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     "outputPath": "dist/<your-project-name>/browser",
     ```
 
-1. In `projects.<your-project-name>.architect.lint.options.tsConfig` add:
+1. In `projects.<your-project-name>.architect.lint.options.tsConfig`, add the following line:
+
     ```json
     "tsconfig.server.json"
     ```
@@ -222,7 +227,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
     export class AppServerModule {}
     ```
 
-    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
+    For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering).
 
 1. Add the `server.ts` file to your existing shell app. The following is an example:
 

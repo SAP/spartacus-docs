@@ -114,7 +114,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
    export class EpdVisualizationFeatureModule { }
    ```
 
-1. Include the `EpdVisualizationFeatureModule` module in the `import` array of the `@NgModule` decorator in the `spartacus-features.module.ts` file.
+1. Include the `EpdVisualizationFeatureModule` module in the `imports` array of the `@NgModule` decorator in the `spartacus-features.module.ts` file.
 
 1. Create a `src/styles/spartacus/epd-visualization.scss` file containing the following:
 
