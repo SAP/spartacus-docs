@@ -28,6 +28,8 @@ All new features for Spartacus must:
 
 - If applicable, function on Android and iOS devices. For more information, see [Device Compatibility](#device-compatibility).
 
+- Pass a security review during the initial POC phase. For more information, see [Security Review](#security-review).
+
 ***
 
 **Table of Contents**
@@ -177,6 +179,10 @@ New features must be compatible with Safari on iOS, and Chrome on Android, and m
 **Note:** Phones and tablets should be running on the latest versions of their respective operating systems.
 
 If devices are not available, simulations with browser tools should be used instead.
+
+## Security Review
+
+Any feature that starts out as a proof of concept (POC) must include a security review when the POC is finished and before further development of the feature continues. The security review is carried out by the designated Spartacus security expert, and involves sharing information about the POC with the wider SAP security community. This is done at the POC stage to ensure there is enough time to evaluate potential security risks before the feature needs to be released. In some cases, you may think your POC does not require a security review, and you may be right. However, it is still important to contact the Spartacus security expert and let them know about your POC. If they agree with you that no further security review is required, then you have fulfilled your requirement for the DoD. In the end, however, the security expert should be the one to make the final decision about whether a review is required or not.
 
 ## The Library Builds Without Errors
 
