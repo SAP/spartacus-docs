@@ -128,7 +128,7 @@ yarn install
 
 3. Once the installation is finished, delete your app folder and then, on the same location, unpack the following ZIP file, which contains a new app folder with the required structure:
 
-[Download app.zip](https://github.com/SAP/spartacus-financial-services-accelerator/releases)
+[Download app.zip](https://github.com/SAP/spartacus-financial-services-accelerator/releases/download/fsa-storefront-4.0.0/app.zip)
 
 4. In your `style.css` file add the following code:
 
