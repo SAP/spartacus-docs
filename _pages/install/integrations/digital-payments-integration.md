@@ -136,6 +136,10 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
 1. Build and start the storefront app to verify your changes.
 
+  **Note:** `DigitalPaymentsModule` is a wrapper module which imports `CheckoutModule`. So, we want `DigitalPaymentsModule` to override `CheckoutModule` for feature "Checkout". To do so:
+   1. config the feature "CHECKOUT_FEATURE" for Digital Payments lazy loading
+   2. import `DigitalPaymentsFeatureModule` after `CheckoutFeatureModule`
+
 ### Configuring SAP Digital Payments with B2B checkout (version >= 5.0)
 
 Schematics installing the Digital Payments integration library will automatically generate the `DigitalPaymentsFeatureModule`, which works with our base checkout feature. To make Digital Payments work with B2B or Schedule Replenishement checkout, you can create the wrapper module manually, and update `DigitalPaymentsFeatureModule`.
