@@ -2,14 +2,25 @@
 title: Form Controls Dependencies
 ---
 
-This page will explain how to show/hide form controls that have a dependency on different form fields and how changes on "parent" fields will affect their visibility.
+This page explains how to show/hide form controls that have a dependency on different form fields and how changes on the "parent" fields affect their visibility.
 
-In order to specify dependencies for a certain field, JSON schema is enhanced by exposing the property called "**dependsOn**".  The property represents array of complex objects  and it consists of two properties:
+***
 
-- controlName - reflects the name of **parent** form field
-- conditions - The conditions of parent control that need to be fulfilled. Conditions are validation functions of the parent field. If conditions are met then form control will be visible
+**Table of Contents**
 
-Parent control - form control from which the specific abstract control (with defined dependsOn property) is dependant.
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
+## Introduction
+
+In order to specify dependencies for a certain field, JSON schema is enhanced by exposing the property called **dependsOn**. This property represents an array of complex objects, and it consists of two properties:
+
+- controlName - Reflects the name of **parent** form field.
+- conditions - The conditions of parent control that need to be fulfilled. Conditions are validation functions of the parent field. If conditions are met, the form control will be visible.
+
+**Note:** The parent control is the form control on which the specific abstract control (with defined *dependsOn* property) is dependant.
 
 This logic can be applied to both single form control or form group.
 
@@ -32,11 +43,11 @@ export interface ControlDependency {
 }
 ```
 
-It is necessary to constantly track value and validity of parent form controls and based on it, show/hide some form controls (group or specific field). For tracking validity, dynamic forms uses already defined validator functions. See [this page]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/basic-form-validations.md %}) for more info.
+It is necessary to constantly track value and validity of parent form controls and based on it, show/hide some form controls (group or specific field). For tracking validity, dynamicforms library uses already defined validator functions. For more information, see [Basic Form Validations]({{ site.baseurl }}{% link _pages/fsa/features/dynamicforms/core/basic-form-validations.md%}).
 
-## Example and Explanation
+## Examples
 
-- Form field with the name "dependantField" is dependant on the form control with name "controlField" and condition for its visibility is that minimum value of "controlField" is 1.
+- Form field with the name "dependantField" is dependant on the form control with the name "controlField", and the condition for its visibility is that minimum value of the "controlField" is 1.
 
 ```typescript
 {
@@ -61,7 +72,7 @@ It is necessary to constantly track value and validity of parent form controls a
 }
 ```
 
-- FormGroup with the name "dependantGroup" and all of the form fields that are defined in that group won't be visible if the form control with name "controlField" is not equal or higher than 2.
+- FormGroup with the name "dependantGroup" and all form fields that are defined in that group will not be visible if the form control with the name "controlField" is not equal or higher than 2.
 
 ```typescript
 {
@@ -85,7 +96,7 @@ It is necessary to constantly track value and validity of parent form controls a
 }
 ```
 
-- FormGroup with the name "dependantGroup" and all of form fields that are defined in that group won't be visible if form control with name "controlField" doesn't match values "test" or "test2"
+- FormGroup with the name "dependantGroup" and all form fields that are defined in that group will not be visible if form control with the name "controlField" doesn't match values "test" or "test2"
 
 ```typescript
 {
@@ -113,4 +124,4 @@ It is necessary to constantly track value and validity of parent form controls a
 }
 ```
 
-If hiding dependant filed is not desired, it can be only disabled using this functionality by setting "**hide**" property to false.
+If you do not want to hide the dependant field, you can only disable it by setting the **hide** property to false.

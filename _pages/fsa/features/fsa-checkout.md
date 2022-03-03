@@ -2,7 +2,9 @@
 title: FSA Checkout
 ---
 
-Checkout in FSA Spartacus enables financial customers to buy insurance or banking products. It’s configurable for each product kind.
+**Note**: This feature is introduced with version 1.0 of the FSA Spartacus libraries.
+
+Checkout in FSA Spartacus enables financial customers to buy insurance or banking products. It is configurable for each product kind.
 
 ***
 
@@ -16,7 +18,7 @@ Checkout in FSA Spartacus enables financial customers to buy insurance or bankin
 ## Configuration
 
 You can configure checkout steps over default-checkout-config.ts. There you can find a list of all possible steps that you can include in the checkout process.
-Interface FSCheckoutStep extends Checkout Step with one additional attribute - *restrictedCategories*.
+The `FSCheckoutStep` interface extends `CheckoutStep` with an additional attribute - `restrictedCategories`.
 
 ```ts
 export interface FSCheckoutStep extends CheckoutStep {
@@ -25,7 +27,7 @@ export interface FSCheckoutStep extends CheckoutStep {
 ```
 
 This attribute is important for making the checkout process different for various groups of products.
-The following example of payment checkout step definition restricts payment step for all banking products:
+The following example of payment checkout step definition restricts the payment step for all banking products:
 
 ```ts
      {
@@ -44,8 +46,8 @@ The following example of payment checkout step definition restricts payment step
 
 ## Components
 
-FSCheckoutModule consists of multiple checkout components, guards and services, making the checkout process fully configurable.
-The following example shows step components inside the FSCheckoutModule:
+`FSCheckoutModule` consists of multiple checkout components, guards and services, making the checkout process fully configurable.
+The following example shows step components inside the `FSCheckoutModule`:
 
 ```plaintext
     AddOptionsComponent,
@@ -60,10 +62,11 @@ The following example shows step components inside the FSCheckoutModule:
     MiniCartComponent,
 ```
 
-These components are fulfilled with logic from *FSCheckoutConfigService*, responsible for navigation by setting next and previous steps.
+These components are fulfilled with logic from `FSCheckoutConfigService`, responsible for navigation by setting the next and the previous step.
+
 If you want to extend your checkout with an additional step, you should add the step definition and route to *default-checkout-config.ts*, create a new component and place the logic for handling steps inside it.
 
-QuoteReviewComponent example of implementing nextCheckoutStep:  
+The following example illustrates the implementation of the `nextCheckoutStep` in the `QuoteReviewComponent`:  
 
 ```ts
 @Component({
@@ -117,6 +120,16 @@ The following guards have been implemented to prevent access to restricted or un
 - QuoteNotBoundGuard
 - ReferredQuoteGuard
 
-Besides specific components of checkout steps, there is one crucial component that connects them - the FSCheckoutProgressComponent. This component is responsible for filtering the checkout steps, setting the active index, and indicating the step status by styling. A checkout step can be disabled, active or visited.
+Besides specific components of checkout steps, there is one crucial component that connects them - the `FSCheckoutProgressComponent`. This component is responsible for filtering the checkout steps, setting the active index, and indicating the step status by styling. A checkout step can be disabled, active or visited.
 
 ![checkout progress bar]({{ site.baseurl }}/assets/images/fsa/checkout_progress_bar.png)
+
+## Integration with SAP Digital Payments
+
+**Note**: This feature is introduced with version 4.0 of the FSA Spartacus libraries.
+
+FSA Spartacus supports integration with SAP Digital Payments, which enables customers to complete the checkout with credit card payments. 
+
+In the integration scenario, the user registers a new credit card during checkout and at the same time, a polling process is triggered to fetch the registered card details from SAP digital payments add-on. When the card details are successfully retrieved, the details are added to the Customer and Cart. Financial Services Accelerator then uses the tokenized card information to make the payment during order placement. Lastly, when the user places an order, an authorization call is made to SAP digital payments add-on to authorize the card payment. 
+
+For more information on how to enable integration with SAP Digital Payments, see [Digital Payments Integration](https://sap.github.io/spartacus-docs/digital-payments-integration/). 
