@@ -17,16 +17,32 @@ In addition to creating different entrypoints in order to reduce the bundle size
   - commands are built in a more reactive way, and return the execution result as part of the same method call.
   - similarly to the commands, listening to loading, error, and data state changes are as simple as calling one method and getting all the results in one call.
 
-Finally, the business logic for placing an order or scheduling a replenishment order was moved to the Order library. The reason for this decision is that the logic to place an order was coupled with a normalizer that existed in the order library, which would break the lazy loading mechanism we have in place. Therefore, we concluded to move the place order business logic in the order library as [one of the features of our lazy loading mechanism](https://sap.github.io/spartacus-docs/lazy-loading-guide/#exposing-smart-proxy-facades-from-lazy-loaded-features) is that we can programatically lazy load a feature when calling a method or property from the proxy facades.
+Finally, the business logic for placing an order or scheduling a replenishment order was moved to the Order library. The reason for this decision is that the logic to place an order was coupled with a normalizer that existed in the Order library, which would break the lazy loading mechanism we have in place. Therefore, we concluded to move the place order business logic in the Order library as [one of the features of our lazy loading mechanism](https://sap.github.io/spartacus-docs/lazy-loading-guide/#exposing-smart-proxy-facades-from-lazy-loaded-features) is that we can programatically lazy load a feature when calling a method or property from the proxy facades.
 
 ### General changes
 
 - Majority of old checkout imports (`@spartacus/checkout`) are now spread across the new entry points, and its secondary entry points.
 - `normalizeHttpError()` is moved from the effects to the adapter layer
+- order confirmation components listed below were moved to the Order library
+  - OrderConfirmationThankYouMessageComponent
+  - OrderConfirmationItemsComponent
+  - OrderConfirmationTotalsComponent
+  - GuestRegisterFormComponent
+- Checkout flow has a better transition experience due to enhanced smoothing, less requests and less duplicated requests, and a uniform spinner for every step.
+- Most checkout components from Spartacus 4.0 has been re-named to be prefixed with Checkout. For example, CheckoutPlaceOrderComponent.
 
 ### New functionality
 
 - `backOff` pattern is now added to the OCC adapters, and configured to retry on OCC-specific JALO errors.
 - validation and error handling - the commands now perform various precondition checks. At the same time, commands will throw errors if the execution fails. Previously, effects were dispatching Fail actions, which usually were't handled.
+
+### Sample data changes
+
+- CheckoutShippingAddress `ContentPage` has been renamed to CheckoutDeliveryAddress
+  - title of the content page has also been changed from `Checkout Shipping Address` to `Checkout Delivery Address`
+  - page route has been also been changed from `/checkout/shipping-address` to `/checkout/delivery-address`
+- CheckoutShippingAddressComponent `CMSComponent` has been renamed to CheckoutDeliveryAddress
+- BodyContentSlot-checkoutShippingAddress `ContentSlot` has been renamed to BodyContentSlot-checkoutDeliveryAddress
+- SideContent-checkoutShippingAddress `ContentSlot` has been renamed to SideContent-checkoutDeliveryAddress
 
 Note: The new checkout library is not backwards compatible. This library is intended to be used with new applications that are created with Spartacus 5.0 libraries. With the version 5.0 libraries, if you generate a new storefront app using schematics, the app will use the new order library by default. For more information, see [Integration Libraries and Feature Libraries]({{ site.baseurl }}/schematics/#integration-libraries-and-feature-libraries).
