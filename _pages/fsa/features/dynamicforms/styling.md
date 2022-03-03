@@ -1,12 +1,22 @@
 ---
 title: Dynamicforms Styling
 ---
+Dynamicforms library is shipped with default Bootstrap 4 CSS classes. These classes can be overridden with the custom JSON configuration through the Backoffice.
 
-Dynamic forms Library uses Bootstrap 4 classes for styling. **Custom** CSS classes can be added in four places while defining JSON form definition through Backoffice.
+***
 
-Custom CSS class can be defined for:
+**Table of Contents**
 
-- [Form tag]({{ site.baseurl }}/json-structure/#formdefinition) - By default empty. This class can be used for specific styling of each form. It can be added by defining **"cssClass"** property in JSON.
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
+## Adding Custom CSS Classes
+
+Dynamicforms library uses Bootstrap 4 classes for styling. A custom CSS class can be defined for:
+
+- [Form tag]({{ site.baseurl }}/json-structure/#formdefinition) - By default empty. This class can be used for specific styling of each form. It can be added by defining **"cssClass"** property in the JSON configuration.
 
 Example:
 
@@ -20,7 +30,7 @@ Example:
           // controls defined here...
 ```
 
-- [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup) (section) - By default Dynamicforms will render "row" Bootstrap class here. Defining cssClass in "formGroups" section of JSON will **add** class to default class. It can be added by defining **"cssClass"** property in JSON.
+- [Form group]({{ site.baseurl }}/json-structure/#dynamicformgroup) (section) - By default, dynamicforms library renders "row" Bootstrap class here. Defining cssClass in "formGroups" section of the JSON configuration will **add** class to the default class. It can be added by defining **"cssClass"** property in the JSON.
 
 Example:
 
@@ -37,8 +47,8 @@ Example:
           // controls defined here...
 ```
 
-- [Individual control]({{ site.baseurl }}/json-structure/#fieldconfig) - By default Dynamicforms will render "col-12" Bootstrap class here, which results in one column design by default. Defining **"cssClass"** property in control section of JSON will **add** default class.
-We can also **override** default bootstrap "col-12" class by defining **"gridClass"** property in same section of JSON definition.
+- [Individual control]({{ site.baseurl }}/json-structure/#fieldconfig) - By default, dynamicforms library renders "col-12" Bootstrap class here, which results in one-column design. Defining a **"cssClass"** property in the control section of the JSON will **add** the default class.
+You can also **override** the default Bootstrap "col-12" class by defining a **"gridClass"** property in the same section of the JSON definition.
 
 Example:
 
@@ -58,9 +68,9 @@ Example:
             "validations": [
 ```
 
-## How HTML looks like
+### HTML
 
-If we consider a form with two sections and one control per section, basic html structure **by default** would consist of:
+If we consider a form with two sections and one control per section, a basic HTML structure **by default** would consist of:
 
 ```typescript
 <form class=""> // Form class, empty by default
@@ -77,7 +87,7 @@ If we consider a form with two sections and one control per section, basic html 
 </form>
 ```
 
-Adding our classes from examples above would result in HTML :
+Adding our classes from examples above would result in the following HTML:
 
 ```typescript
 <form class="customFormClass">  // Custom class is added.
@@ -94,12 +104,12 @@ Adding our classes from examples above would result in HTML :
 </form>
 ```
 
-## UI
+### User Interface
 
-Default look of example form with two sections:
+Default look of the example form with two sections:
 
 ![default form look]({{ site.baseurl }}/assets/images/fsa/dynamicforms_default_look.png)
 
-Form look when default "col-12" class is overridden with "col-6" on each form control to create two column design:
+Form look when the default "col-12" class is overridden with "col-6" on each form control, to create a two-column design:
 
 ![two column design]({{ site.baseurl }}/assets/images/fsa/dynamicforms_two_column_layout.png)

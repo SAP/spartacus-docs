@@ -534,6 +534,8 @@ docs:
           - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
             subchildren:
+                - title: "Updating to Version 4.0"
+                  url: /fsa-updating-to-version-4/
                 - title: "Updating to Version 3.0"
                   url: /fsa-updating-to-version-3/
                 - title: "Updating to Version 2.0"
@@ -548,6 +550,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus ➢"
                   url: /installing-sap-commerce-with-fsa-spartacus/
                   underchildren:
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 4.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-4-0/
                     - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 3.0"
                       url: /installing-sap-commerce-with-fsa-spartacus-3-0/
                     - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0"
@@ -557,6 +561,8 @@ docs:
                 - title: "Building the FSA Storefront from Libraries ➢"
                   url: /building-the-fsa-storefront-from-libraries/
                   underchildren:
+                    - title: "Building the FSA Spartacus Storefront using 4.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-4-0/
                     - title: "Building the FSA Spartacus Storefront using 3.0 Libraries"
                       url: /building-the-fsa-storefront-from-libraries-3-0/
                     - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
@@ -571,22 +577,24 @@ docs:
                 - title: "Dynamic Forms ➢"
                   url: /dynamicforms/
                   underchildren:
-                      - title: "JSON Structure"
-                        url: /json-structure/
-                      - title: "Form Controls"
-                        url: /form-controls/
-                      - title: "Document Upload"
-                        url: /form-controls-document-upload/
-                      - title: "Adding a Form to a Simple Page"
-                        url: /adding-form/
-                      - title: "Styling"
-                        url: /styling/
-                      - title: "Form Control Dependencies"
-                        url: /form-control-dependencies/
-                      - title: "Basic Form Validations"
-                        url: /basic-form-validations/
-                      - title: "Configurable Form Field Pre-Populate"
-                        url: /pre-populate-field/
+                    - title: "Form Definition - JSON Structure"
+                      url: /json-structure/
+                    - title: "Form Controls"
+                      url: /form-controls/
+                    - title: "Adding Form to a Simple Page"
+                      url: /adding-form/
+                    - title: "Basic Form Validations"
+                      url: /basic-form-validations/
+                    - title: "Styling"
+                      url: /styling/
+                    - title: "Form Control Dependencies"
+                      url: /form-control-dependencies/
+                    - title: "Form Submission"
+                      url: /form-submission/
+                    - title: "Configurable prefillValue Form Field"
+                      url: /pre-populate-field/
+                    - title: "Document Upload"
+                      url: /form-controls-document-upload/
                 - title: "Inbox"
                   url: /fsa-inbox/
                 - title: "Checkout"
@@ -598,12 +606,16 @@ docs:
                       url: /claims-integration/
                     - title: "Claims Details Page"
                       url: /claims-details-page/
+                    - title: "Claim Update"
+                      url: /claim-update/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
                 - title: "Invoice Payment"
                   url: /fsa-invoice-payment/
                 - title: "Policy Change"
                   url: /fsa-policy-change/
+                - title: "Policy Renewal"
+                  url: /fsa-policy-renewal/
                 - title: "Coupons"
                   url: /fsa-coupons/
                 - title: "Product Discovery"
@@ -617,8 +629,16 @@ docs:
                       url: /fsa-speak-to-agent/
                     - title: "Agent Availability"
                       url: /fsa-agent-availability/
+                - title: "Chatbot"
+                  url: /fsa-chatbot/
+                - title: "Agent Enablement"
+                  url: /fsa-agent-enablement/
+                - title: "My Dashboard"
+                  url: /fsa-my-dashboard/
                 - title: "Quote Details Page"
                   url: /fsa-quote-details-page/
+                - title: "Quote Comparison"
+                  url: /fsa-quote-comparison/
 
 
     - title: Contributing to Spartacus

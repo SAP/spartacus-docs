@@ -2,13 +2,9 @@
 title: Document Upload
 ---
 
-**Note**: This feature is introduced with version 2.0 of the FSA Spartacus libraries.
+**Note**: This dynamicforms library feature is introduced with version 2.0 of the FSA Spartacus libraries.
 
-The Document Upload feature is one of the many components implemented in the Dynamicforms library and is used to enable the user to upload one or multiple images, documents, audio, video, and other file types to a server.
-
-The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.
-
-Financial Services Accelerator offers insurance customers the possibility to upload documents during the FNOL process. Once the documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
+Document upload feature enables users to upload one or multiple images, documents, audio, video, and other file types to a server.
 
 ***
 
@@ -18,6 +14,12 @@ Financial Services Accelerator offers insurance customers the possibility to upl
 {:toc}
 
 ***
+
+## Introduction
+
+The Document Upload API creates a document that is assigned to a specified user. The API response is the newly created document. As the document is uploaded for a specific customer, the client needs to obtain an access token before the actual upload and gain access to the Upscale Service APIs. OAuth Client Security is implemented in order for a client application to securely access the Document Upload API. When using the OAuth 2.0 client, data will always be secure, because an HTTPS connection secures the communication between the OAuth 2.0 client and the server.
+
+Financial Services Accelerator offers insurance customers the possibility to upload documents during the First Notice Of Loss (FNOL) process. After documents are uploaded, the customer can download and check them, or delete them. Although the document upload is implemented in the FNOL process, it can be used in any other process (e.g. application/quotations, change request process).
 
 ## Document Upload Usage
 
@@ -62,11 +64,11 @@ The following table describes the properties used in the document upload form co
 
 ## File Upload
 
-The previous example demonstrates how to upload the files to the server. Users have the possibility to upload images, Microsoft Office, PDF, and plain text files that are up to 5.0 MB in size. This sample limits the maximum number of files that can be uploaded to 4. The cx-upload component allows you to validate the file type and limit the file size using the maxFileSize property.
+The example above illustrates how to upload files to the server. Users have the possibility to upload images, Microsoft Office, PDF, and plain text files that are up to 5.0 MB in size. This sample limits the maximum number of files that can be uploaded to 4. The cx-upload component allows you to validate the file type and limit the file size using the maxFileSize property.
 
 ![document upload]({{ site.baseurl }}/assets/images/fsa/document-upload.png)
 
-The component displays a built-in progress bar (progress indicator) with the progress percentage during each file upload. Once the upload is finished, the user should be able to download the uploaded file, and the file will be marked with a check icon.
+The component displays a built-in progress bar (progress indicator) showing progress percentage during each file upload. When the upload is finished, the file is marked with a check icon and the user can download it.
 
 ![progress bar during document upload]({{ site.baseurl }}/assets/images/fsa/document-upload-progress-bar.png)
 
