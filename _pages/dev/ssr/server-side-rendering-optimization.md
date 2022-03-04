@@ -145,7 +145,7 @@ Recommendation: it is recommended to use the default Spartacus rendering key res
 
 - `ALWAYS_CSR` always returns client-side rendered pages
 - `DEFAULT` is the default behavior - obeys the provided `SsrOptimizationOptions`.
-- `ALWAYS_SSR` aLways returns server-side rendered pages
+- `ALWAYS_SSR` attempts to always return the server-side rendered pages, with the exception of `forcedSsrTimeout` option, in which case the rendering falls back to CSR if it is exceeded.
 
 Recommendation: it is recommended to provide a custom rendering strategy in cases when you want to serve SSR only to specific requests (e.g. server SSR only to crawling bots).
 
