@@ -138,7 +138,7 @@ During the initial set up of your storefront using schematics, you have the opti
 - `@spartacus/storefinder` includes the [{% assign linkedpage = site.pages | where: "name", "store-locator.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/store-locator.md %}) feature.
 - `@spartacus/tracking` includes the [{% assign linkedpage = site.pages | where: "name", "tag-management-system.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/tag-management-system.md %}) feature and the [{% assign linkedpage = site.pages | where: "name", "personalization-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/personalization-setup-instructions-for-spartacus.md %}).
 - `@spartacus/user` includes the Account and Profile features. The Account feature contains components such as the login form, and also exposes the general method for getting user details. The Profile feature is responsible for functionality such as closing an account, updating a profile, updating an email, updating a password, resetting a password, and registering. It is highly recommended to install both of these features.
-- `@spartacus/checkout` - includes basic checkout, b2b checkout, and b2b scheduled replenishment functionalities.
+- `@spartacus/checkout` - includes basic checkout, b2b checkout, and b2b scheduled replenishment checkout functionalities.
 
 If you do not install a particular integration library or feature library during the initial set up of your storefront, you can always install any of these libraries later on using schematics. The command to install a library is the following:
 
