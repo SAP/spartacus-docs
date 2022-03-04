@@ -135,7 +135,7 @@ Recommendation: should be set according to your business needs, and for how long
 
 `renderKeyResolver` is a function with the signature `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
 
-By default, `renderKeyResolver` it uses the full request URL.
+By default, `renderKeyResolver` uses the full request URL.
 
 Recommendation: it is recommended to use the default Spartacus rendering key resolver, especially in cases when your domain contains a base site information (e.g. `my.site.au` or `my.site.rs`).
 
