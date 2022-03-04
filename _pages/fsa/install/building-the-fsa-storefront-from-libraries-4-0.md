@@ -77,10 +77,9 @@ The following procedure describes how to create a new Angular application with t
 
 ## FSA Spartacus Project Setup
 
-1. Go to the `package.json` file at the root of your project and add the following dependencies and their respective versions:
+1. Go to the `package.json` file at the root of your project and add the following dependencies:
 
     ```json
-    "dependencies": {
     "@angular/service-worker": "^12.0.5",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@ng-select/ng-select": "^7.0.1",
@@ -94,9 +93,9 @@ The following procedure describes how to create a new Angular application with t
     "@spartacus/checkout": "4.2.1",
     "@spartacus/core": "4.3.0",
     "@spartacus/digital-payments": "4.2.1",
-    "@spartacus/dynamicforms": "^3.0.1",
-    "@spartacus/fsa-storefront": "^3.0.1",
-    "@spartacus/fsa-styles": "^3.0.0",
+    "@spartacus/dynamicforms": "^4.0.0",
+    "@spartacus/fsa-storefront": "^4.0.0",
+    "@spartacus/fsa-styles": "^4.0.0",
     "@spartacus/organization": "4.2.1",
     "@spartacus/product": "4.2.1",
     "@spartacus/product-configurator": "4.2.1",
@@ -117,41 +116,50 @@ The following procedure describes how to create a new Angular application with t
     "ngx-echarts": "6.0.1",
     "ngx-infinite-scroll": "^8.0.0",
     "resize-observer-polyfill": "^1.5.1",
-   }
     ```
 
-2. Install the added dependencies:
+2. Install the dependencies:
 
-```bash
-yarn install
-```
+    ```bash
+    yarn install
+    ```
 
-3. Once the installation is finished, delete your app folder and then, on the same location, unpack the following ZIP file, which contains a new app folder with the required structure:
+3. After the installation is completed, the app structure needs to be updated to meet Spartacus requirements. 
+To do that, you need to replace the existing `app` folder with the one that contains the required structure.
+You can download a ready-made `app` folder with the new structure on link provided below.
+Perform the following steps:
+    - [Download new app.zip](https://github.com/SAP/spartacus-financial-services-accelerator/releases/download/fsa-storefront-4.0.0/app.zip).
+    - Navigate to `mystore/src/`.
+    - Delete the existing `app` folder.
+    - Unpack the downloaded `app.zip` folder to that same location (`mystore/src/`).
 
-[Download app.zip](https://github.com/SAP/spartacus-financial-services-accelerator/releases/download/fsa-storefront-4.0.0/app.zip)
+4. Now that you have the new app structure, you need to set the `baseUrl`:
+  - Navigate to `app/spartacus`.
+  - Find and open `fs-configuration.module.ts`, which holds the configuration necessary for the FSA to function properly.
+  - Edit `baseUrl` property so that it points to your back-end server.
 
-4. In your `style.css` file add the following code:
+5. Return to `src` folder, open `style.scss` file and add the following line:
 
-```typescript
-@import "~@spartacus/fsa-styles/index";
-```
+    ```typescript
+    @import "~@spartacus/fsa-styles/index";
+    ```
 
-5. Copy the `fonts` directory from `node_modules` to your `src/assets` directory.
+6. Copy the `fonts` directory from `node_modules/@spartacus/fsa-styles` to `src/assets` directory.
 
-6. Start the server with the following command:
+7. Start the server:
 
-```bash
-ng serve
-```
+    ```bash
+    ng serve
+    ```
 
 Your app will be compiled and then started.
 
 To display your storefront, assuming everything is installed locally, browse to `http://localhost:4200`. 
 If you installed Financial SPA sample data with the *financialprocess* extension, the FSA Spartacus storefront for Financial services should appear.
 
-**Note**: If your storefront doesn’t appear, you likely have to accept a privacy certificate. 
+**Note**: If your storefront doesn’t appear, you probably need to accept a privacy certificate. 
 To do so, browse to `https://localhost:9002/occ/v2/financial/cms/pages`, and then accept the privacy certificate. 
-This step is necessary because your browser will block calls to the app which makes calls to `localhost:9002` due to security settings. 
+This step is necessary because your browser will block calls to the app which makes calls to `localhost:9002`, due to security settings. 
 To see the browser message, right-click in your browser, select **Inspect**, and then click **Console**.
 
 **Congratulations! You've built your first FSA Spartacus storefront.**
