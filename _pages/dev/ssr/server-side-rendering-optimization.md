@@ -179,7 +179,7 @@ E.g., consider the following setup where `timeout` option is set to 3s, and the 
 - one second after the timeout, the current render finishes.
 - the 2nd request returns SSR after only 2s of waiting.
 
-Recommendation: recommended to enable, as it will smartly use the serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
+Recommendation: recommended to enable, as it will smartly serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
 
 **Note**: This option is available in version 3.4.x and later.
 
