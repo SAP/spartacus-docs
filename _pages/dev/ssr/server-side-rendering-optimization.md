@@ -123,7 +123,7 @@ Recommendation: `cacheSize` should be set according to the server's resources (e
 
 The default value is `20`.
 
-Recommendation: it should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
+Recommendation: `concurrency` should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
 
 ### ttl
 
