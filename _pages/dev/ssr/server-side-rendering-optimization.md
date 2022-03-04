@@ -336,8 +336,8 @@ To address this issue, we suggest to upgrade to the latest patch version, or imp
 
 If you are getting an SSR render which shows only a global error message, e.g. "You are not authorized to perform this action. Please contact your administrator if you think this is a mistake", please check the following:
 
-- if the API server whitelists the SSR server's IP
-- if using a caching layer (e.g. CDN), make sure it whitelists the SSR server's IP address, as it might get blocked at some point due to many requests coming from it.
+- if the API server has the SSR server's IP on its allowed IP list
+- if using a caching layer (e.g. CDN), make sure it allows the SSR server's IP address, as it might get blocked at some point due to many requests coming from it.
 
 ### Detecting a bot/crawler
 
