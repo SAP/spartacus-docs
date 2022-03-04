@@ -155,7 +155,7 @@ Recommendation: it is recommended to provide a custom rendering strategy in case
 
 The default value is `60000` milliseconds (that is, 60 seconds).
 
-Recommendation: adjust according to your needs.
+Recommendation: adjust `forcedSsrTimeout` according to your needs.
 
 ### maxRenderTime
 
@@ -163,7 +163,7 @@ Recommendation: adjust according to your needs.
 
 The default value is `300000` milliseconds (5 minutes).
 
-Recommendation: strongly recommended to set. Adjust according to your needs and expectation.
+Recommendation: strongly recommended to set `maxRenderTime` to `true`. Adjust according to your needs and expectation.
 
 **Note**: This option is available in the latest patch versions of 3.1.x and later.
 
@@ -179,7 +179,7 @@ E.g., consider the following setup where `timeout` option is set to 3s, and the 
 - one second after the timeout, the current render finishes.
 - the 2nd request returns SSR after only 2s of waiting.
 
-Recommendation: recommended to enable, as it will smartly serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
+Recommendation: recommended to enable `reuseCurrentRendering`, as it will smartly serve the server-side renders to multiple requests for the same URL. Might require more server resources (e.g. RAM).
 
 **Note**: This option is available in version 3.4.x and later.
 
@@ -189,7 +189,7 @@ Recommendation: recommended to enable, as it will smartly serve the server-side 
 
 The default value is `false`.
 
-Recommendation: turn off in production.
+Recommendation: turn off in production the `debug` flag.
 
 **Note**: This option is available in version 3.1.0 and later.
 
