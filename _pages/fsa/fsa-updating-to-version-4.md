@@ -2,7 +2,7 @@
 title: Updating to Version 4.0
 ---
 
-**NOTE:**  We strongly recommend you upgrade your FSA Spartacus libraries to version 3.0.1 first, and then upgrade to version 4.0.0.
+**NOTE:**  We strongly recommend you upgrade your FSA Spartacus libraries to version 3.0.1 first, and then upgrade to version 4.x.
 
 ***
 
@@ -83,7 +83,7 @@ For more information, see the official [Angular Update Guide](https://update.ang
 
 ### Prerequisites
 
-Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address the following prerequisites:
+Before upgrading your FSA Spartacus libraries to version 4.x, you must address the following prerequisites:
 
 - **Angular CLI**: Version [12.0.5](https://update.angular.io/) or later
 - **node.js**: Version 14.18.1 or later
@@ -150,7 +150,7 @@ provideConfig(<OccConfig | SiteContextConfig>{
     "@nguniversal/express-engine": "~12.0.2",
     "@spartacus/dynamicforms": "4.0.0",
     "@spartacus/fsa-storefront": "4.0.0",
-    "@spartacus/fsa-styles": "3.0.0",
+    "@spartacus/fsa-styles": "4.0.0",
     "@spartacus/asm": "4.2.1",
     "@spartacus/assets": "4.2.0",
     "@spartacus/cart": "4.2.1",
