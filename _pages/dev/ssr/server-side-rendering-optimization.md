@@ -129,7 +129,7 @@ Recommendation: `concurrency` should be set according to the server's resources 
 
 `ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a cached page is considered stale and needs to be rendered again on the next request. This option is used regardless if the `cache` option is enabled.
 
-Recommendation: should be set according to your business needs, and for how long you want to keep the stale render in cache before evicting it. Should be set regardless if the `cache` option is enabled.
+Recommendation: `ttl` should be set according to your business needs, and for how long you want to keep the stale render in cache before evicting it. Should be set regardless if the `cache` option is enabled.
 
 ### renderKeyResolver
 
