@@ -133,7 +133,7 @@ Recommendation: should be set according to your business needs, and for how long
 
 ### renderKeyResolver
 
-`renderKeyResolver` is a function that accepts `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
+`renderKeyResolver` is a function with the signature `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
 
 By default, `renderKeyResolver` it uses the full request URL.
 
