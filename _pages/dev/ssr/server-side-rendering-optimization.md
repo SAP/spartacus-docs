@@ -141,7 +141,7 @@ Recommendation: it is recommended to use the default Spartacus rendering key res
 
 ### renderingStrategyResolver
 
-`renderingStrategyResolver` is a function that accepts `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
+`renderingStrategyResolver` is a function with the signature `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
 
 - `ALWAYS_CSR` always returns client-side rendered pages
 - `DEFAULT` is the default behavior
