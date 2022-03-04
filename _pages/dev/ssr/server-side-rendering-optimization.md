@@ -133,15 +133,15 @@ Recommendation: `ttl` should be set according to your business needs, and for ho
 
 ### renderKeyResolver
 
-`renderKeyResolver` is a function that accepts `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
+`renderKeyResolver` is a function with the signature `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
 
-By default, `renderKeyResolver` it uses the full request URL.
+By default, `renderKeyResolver` uses the full request URL.
 
 Recommendation: it is recommended to use the default Spartacus rendering key resolver, especially in cases when your domain contains a base site information (e.g. `my.site.au` or `my.site.rs`).
 
 ### renderingStrategyResolver
 
-`renderingStrategyResolver` is a function that accepts `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
+`renderingStrategyResolver` is a function with the signature `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
 
 - `ALWAYS_CSR` always returns client-side rendered pages
 - `DEFAULT` is the default behavior
