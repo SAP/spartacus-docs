@@ -51,7 +51,17 @@ For more information on the tags supported by Spartacus, including how data is r
 
 The content that is used for meta tags is driven by back end (runtime) data wherever possible. The image tag for the product details page, for example, uses the main product image. Another example is the title for the product details page, which is constructed from the product title, the (first) category, and the brand.
 
-If you want to further customize the creation of meta tags, you can implement custom `PageMetaResolvers`. Page resolvers generate the content for the meta data for a specific page. The list of standard page resolvers can be further adjusted to meet your needs.
+If you want to further customize the creation of meta tags, you can implement a custom `PageMetaResolver` and add it into your module's providers. The following is an example:
+
+```ts
+    {
+      provide: PageMetaResolver,
+      useExisting: YourCustomPageMetaResolver,
+      multi: true,
+    },
+```
+
+Page resolvers generate the content for the meta data for a specific page. The list of standard page resolvers can be further adjusted to meet your needs.
 
 From version 3.1 onwards, page resolvers are configurable, and this allows you to extend resolvers more easily to meet your needs. The resolvers are taken into account by the `PageMetaService` to construct the `PageMeta` object. The `PageMeta` object is primarily used by the `SeoMetaService` for the creation of the actual tags.
 

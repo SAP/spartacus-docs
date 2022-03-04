@@ -8,3 +8,4 @@ The following pages describe Claims feature in FSA Spartacus:
 
 - [Claims Integration Enhancement]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-integration.md %})
 - [Claims Details Page]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims-details-page.md %})
+- [Claim Update]({{ site.baseurl }}{% link _pages/fsa/features/claims/claim-update.md %})

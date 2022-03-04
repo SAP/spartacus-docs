@@ -6,7 +6,7 @@ main:
       url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
-    - title: Version 4.1
+    - title: Version 5.0
       url: /release-information/
 
 # sidebar menu
@@ -41,7 +41,12 @@ docs:
                       - title: "Technical Changes in Spartacus 2.0"
                         url: /technical-changes-version-2/
                       - title: "Changes to Styles in 2.0"
-                        url: /css-changes-in-version-2/    
+                        url: /css-changes-in-version-2/
+                - title: "Miscellaneous Release Notes ➢"
+                  url: /misc-release-notes/
+                  underchildren:
+                      - title: "Order Library Release Notes"
+                        url: /order-library-release-notes/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
@@ -110,7 +115,9 @@ docs:
                 - title: "Qualtrics Integration"
                   url: /qualtrics-integration/
                 - title: "SAP Customer Data Cloud Integration"
-                  url: /cdc-integration/              
+                  url: /cdc-integration/
+                - title: "SAP Enterprise Product Development Visualization Integration"
+                  url: /epd-visualization-integration/           
                 - title: "SmartEdit Integration ➢"
                   url: /smartEdit-setup-instructions-for-spartacus/
                   underchildren:
@@ -177,8 +184,12 @@ docs:
                   url: /global-messages/
                 - title: "HTTP Error Handling"
                   url: /http-error-handling/
+                - title: "Commands and Queries"
+                  url: /commands-and-queries/
                 - title: "Lazy Loading"
                   url: /lazy-loading-guide/
+                - title: "Proxy Facades"
+                  url: /proxy-facades/
                 - title: "Multi-Site Configuration ➢"
                   url: /context-configuration/
                   underchildren:
@@ -246,10 +257,10 @@ docs:
           - title: "Customizing Back End Communication ➢"
             url: /customizing-backend-communication/
             subchildren:
-                - title: "Loading Scopes"
-                  url: /loading-scopes/
                 - title: "Connecting to Other Systems"
                   url: /connecting-to-other-systems/
+                - title: "Loading Scopes"
+                  url: /loading-scopes/
           - title: "Performance Optimizations ➢"
             url: /performance/
             subchildren:
@@ -275,7 +286,7 @@ docs:
                   url: /server-side-rendering-coding-guidelines/
                 - title: "Server-Side Rendering Optimization"
                   url: /server-side-rendering-optimization/
-                - title: "How to Debug a Server–Side Rendered Storefront"
+                - title: "Debugging a Server–Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
                 - title: "Solution for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
                   url: /ssr-ccv2-issue-spartacus-version-2/  
@@ -294,6 +305,10 @@ docs:
                   url: /bulk-pricing/  
                 - title: "Cancellations and Returns"
                   url: /cancellations-and-returns/  
+                - title: "Cart Import and Export"
+                  url: /cart-import-export/
+                - title: "Cart Validation"
+                  url: /cart-validation/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
@@ -308,6 +323,8 @@ docs:
                   url: /express-checkout/
                 - title: "Guest Checkout"
                   url: /guest-checkout/
+                - title: "Image Zoom"
+                  url: /image-zoom/
                 - title: "Infinite Scroll"
                   url: /infinite-scroll/
                 - title: "Inventory Display"
@@ -319,7 +336,9 @@ docs:
                 - title: "Saved Cart"
                   url: /saved-cart/
                 - title: "Scheduled Replenishment"
-                  url: /scheduled-replenishment/  
+                  url: /scheduled-replenishment/
+                - title: "Scroll Position Restoration"
+                  url: /scroll-position-restoration/
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"
@@ -421,6 +440,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.2"
+                        url: /installing-sap-commerce-for-tua-spartacus-3-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
                         url: /installing-sap-commerce-for-tua-spartacus-3/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 2.x"
@@ -432,6 +453,8 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 3.2 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-3-2-0/
                       - title: "Building the TUA Spartacus Storefront using 3.1 Libraries"
                         url: /building-the-tua-storefront-from-libraries-3.1/
                       - title: "Building the TUA Spartacus Storefront using 3.x Libraries"
@@ -452,6 +475,12 @@ docs:
           - title: "Spartacus Features for TUA ➢"
             url: /spartacus-features-for-tua/ 
             subchildren:
+                - title: "B2B Order Approval"
+                  url: /b2b-order-approval/
+                - title: "B2B Organization Management"
+                  url: /b2b-organization-management/
+                - title: "B2B Telco Store"
+                  url: /b2b-telco-store/
                 - title: "Cart"
                   url: /cart/
                 - title: "Checkout"
@@ -490,7 +519,11 @@ docs:
                 - title: "Pricing - Subscription Rate Plan"
                   url: /product-offering-prices/ 
                 - title: "Product Offering Search"
-                  url: /product-offering-search/                                     
+                  url: /product-offering-search/
+                - title: "Purchase PO with Configurable Characteristics"
+                  url: /purchase-po-with-configurable-characteristics/
+                - title: "Sales Flow - Cross-Selling"
+                  url: /sales-flow-cross-sell-of-an-spo/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
@@ -501,6 +534,8 @@ docs:
           - title: "Release Information for FSA Spartacus ➢"
             url: /fsa-release-information/
             subchildren:
+                - title: "Updating to Version 4.0"
+                  url: /fsa-updating-to-version-4/
                 - title: "Updating to Version 3.0"
                   url: /fsa-updating-to-version-3/
                 - title: "Updating to Version 2.0"
@@ -515,6 +550,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus ➢"
                   url: /installing-sap-commerce-with-fsa-spartacus/
                   underchildren:
+                    - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 4.0"
+                      url: /installing-sap-commerce-with-fsa-spartacus-4-0/
                     - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 3.0"
                       url: /installing-sap-commerce-with-fsa-spartacus-3-0/
                     - title: "Installing SAP Commerce Cloud for Use with FSA Spartacus 2.0"
@@ -524,6 +561,8 @@ docs:
                 - title: "Building the FSA Storefront from Libraries ➢"
                   url: /building-the-fsa-storefront-from-libraries/
                   underchildren:
+                    - title: "Building the FSA Spartacus Storefront using 4.0 Libraries"
+                      url: /building-the-fsa-storefront-from-libraries-4-0/
                     - title: "Building the FSA Spartacus Storefront using 3.0 Libraries"
                       url: /building-the-fsa-storefront-from-libraries-3-0/
                     - title: "Building the FSA Spartacus Storefront using 2.0 Libraries"
@@ -538,22 +577,24 @@ docs:
                 - title: "Dynamic Forms ➢"
                   url: /dynamicforms/
                   underchildren:
-                      - title: "JSON Structure"
-                        url: /json-structure/
-                      - title: "Form Controls"
-                        url: /form-controls/
-                      - title: "Document Upload"
-                        url: /form-controls-document-upload/
-                      - title: "Adding a Form to a Simple Page"
-                        url: /adding-form/
-                      - title: "Styling"
-                        url: /styling/
-                      - title: "Form Control Dependencies"
-                        url: /form-control-dependencies/
-                      - title: "Basic Form Validations"
-                        url: /basic-form-validations/
-                      - title: "Configurable Form Field Pre-Populate"
-                        url: /pre-populate-field/
+                    - title: "Form Definition - JSON Structure"
+                      url: /json-structure/
+                    - title: "Form Controls"
+                      url: /form-controls/
+                    - title: "Adding Form to a Simple Page"
+                      url: /adding-form/
+                    - title: "Basic Form Validations"
+                      url: /basic-form-validations/
+                    - title: "Styling"
+                      url: /styling/
+                    - title: "Form Control Dependencies"
+                      url: /form-control-dependencies/
+                    - title: "Form Submission"
+                      url: /form-submission/
+                    - title: "Configurable prefillValue Form Field"
+                      url: /pre-populate-field/
+                    - title: "Document Upload"
+                      url: /form-controls-document-upload/
                 - title: "Inbox"
                   url: /fsa-inbox/
                 - title: "Checkout"
@@ -565,12 +606,16 @@ docs:
                       url: /claims-integration/
                     - title: "Claims Details Page"
                       url: /claims-details-page/
+                    - title: "Claim Update"
+                      url: /claim-update/
                 - title: "Order Splitting"
                   url: /fsa-order-splitting/
                 - title: "Invoice Payment"
                   url: /fsa-invoice-payment/
                 - title: "Policy Change"
                   url: /fsa-policy-change/
+                - title: "Policy Renewal"
+                  url: /fsa-policy-renewal/
                 - title: "Coupons"
                   url: /fsa-coupons/
                 - title: "Product Discovery"
@@ -584,8 +629,16 @@ docs:
                       url: /fsa-speak-to-agent/
                     - title: "Agent Availability"
                       url: /fsa-agent-availability/
+                - title: "Chatbot"
+                  url: /fsa-chatbot/
+                - title: "Agent Enablement"
+                  url: /fsa-agent-enablement/
+                - title: "My Dashboard"
+                  url: /fsa-my-dashboard/
                 - title: "Quote Details Page"
                   url: /fsa-quote-details-page/
+                - title: "Quote Comparison"
+                  url: /fsa-quote-comparison/
 
 
     - title: Contributing to Spartacus

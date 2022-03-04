@@ -45,17 +45,9 @@ For more information, see [{% assign linkedpage = site.pages | where: "name", "s
 
 In CCv2, or any other setup that uses proxy servers, the request origin may be modified on the fly to something else, such as `localhost` or `127.0.0.1`. Also, the `document.location` behaves differently in the browser as compared to SSR, where Angular Universal creates a DOM that is more limited in functionality.
 
-When working with SSR, to get the request URL or origin, you should use the Spartacus `SERVER_REQUEST_URL` and `SERVER_REQUEST_ORIGIN` injection tokens. The following is an example:
+When working with SSR, to get the request URL or the origin, you should use the Spartacus `WindowRef.location.href` or `WindowRef.location.origin` properties. This works with CSR as well.
 
-```ts
-constructor(
-  /* ... */
-  @Optional() @Inject(SERVER_REQUEST_URL) protected serverRequestUrl: string | null,
-  @Optional() @Inject(SERVER_REQUEST_ORIGIN) protected serverRequestOrigin: string | null
-)
-```
-
-**Note:** The `@Optional()` decorator is necessary. If it is not included, the injection will crash for client-side rendering (CSR) because these tokens are not provided in CSR.
+**Note:** The `WindowRef.location` property in SSR is able to mimic only some properties of the [Location](https://developer.mozilla.org/en-US/docs/Web/API/Location) interface, such as `href` and `origin`. However, when used with CSR, the `WindowRef.location` property exposes all of the properties of the `Location` interface because it points to the original `document.location` object.
 
 ## Avoiding Memory Leaks in SSR
 

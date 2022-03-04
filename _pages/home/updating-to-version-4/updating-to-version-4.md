@@ -256,3 +256,11 @@ ng update @spartacus/schematics@4
 ```
 
 When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see the [Detailed List of Changes]({{ site.baseurl }}/technical-changes-version-4/#detailed-list-of-changes).
+
+### Importing the App Routing Module from the Storefront Library
+
+After upgrading to 4.0, you can delete your local `app-routing.module` file, if it exists. Instead of importing the local `AppRoutingModule` into your `AppModule`, you should import the `AppRoutingModule` from `@spartacus/storefront`.
+
+## Migrating from Accelerator to Spartacus
+
+If you are considering migrating a project from Accelerator to Spartacus, see [Migrate Your Accelerator-based Storefront to Project Spartacus](https://www.sap.com/cxworks/article/2589632310/migrate_your_accelerator_based_storefront_to_project_spartacus) on the SAP CX Works website.

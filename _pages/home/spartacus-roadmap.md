@@ -2,9 +2,11 @@
 title: Spartacus Roadmap
 ---
 
-This document describes what what is planned for Spartacus for Q3 2021 and later.
+This document describes what what is planned for Spartacus for Q1 2022 and later.
 
-*Last updated August 5, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated February 16, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
+
+4.3 released! For more information, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
 
 ***
 
@@ -27,71 +29,63 @@ New Spartacus libraries are usually published every week. Each release may conta
 
 When new features are available for release, normally we will publish a pre-release "next" version of the libraries with the new features, in order to get feedback. When the final, new, minor version is ready, we usually publish a release candidate (RC), with the final new x.y.0 a few days or weeks later.
 
-Some of the links provided in the following lists point to SAP Commerce Cloud Accelerator documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
+Some of the links provided in the following lists point to SAP Commerce Cloud Accelerator or platform documentation, to give an idea of what the feature is about. These links are for context only. While we strive for feature parity, the Spartacus implementation of features may not work exactly as in Accelerator.
   
 ### Other Release Documentation
 
-- For an overview of what was included in a specific release, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
-- For information about features published in pre-release libraries, see [{% assign linkedpage = site.pages | where: "name", "pre-release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
-- For information on SAP Commerce Cloud, see the [SAP Commerce Cloud Roadmap](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=general&title=Roadmap).
+For an overview of what was included in a specific release, see [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+
+For information about features published in pre-release libraries, see [{% assign linkedpage = site.pages | where: "name", "pre-release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
+
+For roadmap information for all of SAP Commerce Cloud, including Spartacus topics, see the [SAP Roadmap Tool](https://roadmaps.sap.com/board?PRODUCT=089E017A62AB1EDA94C15F5EDB33E0E1).
   
-### Questions?
+### Questions? Assistance needed?
 
-If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
+If you have technical or how-to questions about using Spartacus, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront).
+
+If you would like to report an issue for assistance from SAP, please use the [SAP Launchpad reporting tool](https://launchpad.support.sap.com/)
   
-For non-technical questions and roadmap feedback, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
-  
-## Release Date Notes
+## Summary of Tentative Release Dates
 
-4.0 released! See [{% assign linkedpage = site.pages | where: "name", "release-information.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-information.md %}).
+Current release plans are (dates are tentative):
 
-Current release plans are:
-- 4.x: Every 6 weeks - new releases with new features end of Q2 and into Q3
-- 5.0: Planned for December 2021
+- 5.0 planned for Q2 2022
+- 5.x releases to follow in Q1/Q2/Q3 2022
+- 6.0 tentatively scheduled for fall 2022
+- A 4.3 release will likely happen in January containing the EPD Visualization library.
 
-### Q3 2021
+## 2022
 
-4.x:
+### H1 2022
 
-- **B2B Inventory Display** (includes option to display actual stock number instead of "in stock") - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac35e1d866910148876ef95adde0c60.html)
-- **B2B Import Products to Saved Cart** and **Export from Cart** (\*) (from/to files) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/1a13b9c4f0fb4367a14006f77f479c86.html)
-- **B2B Quick Order** (dedicated form and from cart page) - For more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html)
-- **Cart Validation** More formal checking of carts before you proceed to checkout, for example, check if a product is still in stock
-- **Image Zoom** on Product Details page (will be released in an incubator library)
-- **One app for running B2C and B2B stores**
+#### 5.0 (tentatively scheduled for May 2022)
+
+- **Screen Reader** support for all B2C/Core features
+- **Cart library** bringing performance by splitting modules into smaller libraries
+- **Checkout libraries** separating B2B checkout and scheduled replenishment code from main checkout library
+- **Command & Queries** for checkout library
+- **Angular 13**
+- **Removal of most deprecated code**
+- **Support for new PDF and Video component types**
 - **Toast option when adding to cart** - Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
-- **Product bundles** (requires SAP Commerce Cloud 2011) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html)
-- **SAP Digital Payments** support
+- **Clear Cart** command on cart page
 
-5.0:
 
-- **Buy online pickup in store** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html)
-- **Accessibility - Screen Readers** support
-- **Site map**
-- **Code splitting for cart**
+### H2 2022
 
-## Future Outlook - 2022 or later
+#### Planned for 5.x releases
 
-The items in this section are planned for 2022 but do not yet have a specific date. APIs already support these features.
-
-- **B2B Commerce Quotes** (requires API update released in 2105) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html)
-- **ASM customer list** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html)
-- **ASM Anonymous Cart Binding** (requires API introduced in 2005)
-- **ASM Search Autocomplete** (requires API introduced in 2005)
+- **Screen Readers**: Completion of support for B2B channel Spartacus storefront
+- **Buy online pickup in store** ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
+- **B2B Commerce Quotes** (requires API update released in 2105) ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
+- **Product bundles** (requires SAP Commerce Cloud 2011) ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html))
+- **B2B Registration** (requires backend API improvement planned for release in 2022)
+- **B2B Future Stock** (requires backend API improvement planned for release in 2022)
+- **B2B Multi-Dimensional Products** (requires backend API improvement planned for release in 2022)
+- **ASM customer list** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html))
+- **ASM Anonymous Cart Binding** (requires release 2005)
+- **ASM Search Autocomplete** (requires release 2005)
 - **Potential Promotions**
-- **Self-service customer support** through the Customer Service Module (requires API update planned for 2105) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/aa039c46e5eb4c7da752afc0e05947e5.html)
-- **Buy it again** (add to cart from existing order)
-- **Social sharing** of product information
-- **B2B Order Form Builder** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac1a3d586691014911dd58c04389cc3.html)
-  
-The following features are planned but depend on API updates, scheduled for the release-after-2105:
-- **B2B Re-order**
-- **B2B Multi-dimensional product support and order grid**
-- **B2B Registration**
-
-The following features are on our radar but depend on API updates not yet scheduled:
-- **Punchout** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/1811/en-US/8ac40cf08669101486f5ce44920c3f91.html)
-- **Captcha** - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac8663086691014ab34b77436f85412.html)
-- **ASM Customer 360°** (requires API update not yet planned)
-- **B2B Future Stock** (requires API update not yet planned) - for more information, see the [SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac331e086691014bfdb96ba9faf7c86.html)
-- **B2B Account Summary** (requires API update not yet planned) for Commerce Org
+- **Punchout support in Spartacus** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac40cf08669101486f5ce44920c3f91.html))
+- **One app for running B2C and B2B stores**
+- **Accessibility**: WCAG 2.0 Level AA Storefront Support

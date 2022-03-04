@@ -47,8 +47,8 @@ ng add @spartacus/cds
 
 After running the command, you are prompted to provide additional information, as follows:
 
-- `tenant` asks you to provide a tenant name (for example, `my-tenant`)
-- `baseUrl` asks you to provide the base URL for the Intelligent Selling Services back end (for example, `https://my-tenant.api.us.context.cloud.sap`)
+- `tenant` asks you to provide a tenant name (for example, `mytenant`)
+- `baseUrl` asks you to provide the base URL for the Intelligent Selling Services back end (for example, `https://mytenant-siteid.api.us.context.cloud.sap`)
 - `profileTag.javascriptUrl` is optional, and asks where to load the Profile Tag from (for example, `https://tag.static.us.context.cloud.sap/js/profile-tag.js`)
 - `profileTag.configUrl` is optional, and asks for the Profile Tag configuration URL (for example, `https://tag.static.stage.context.cloud.sap/config/my-config123`)
 
@@ -78,8 +78,8 @@ import { provideConfig } from '@spartacus/core';
   providers: [
     provideConfig(<CdsConfig>{
       cds: {
-        tenant: 'my-tenant',
-        baseUrl: 'https://my-tenant.api.us.context.cloud.sap',
+        tenant: 'mytenant',
+        baseUrl: 'https://mytenant-siteid.api.us.context.cloud.sap',
         endpoints: {
           strategyProducts:
             '/strategy/${tenant}/strategies/${strategyId}/products',
@@ -108,7 +108,7 @@ export class CdsFeatureModule {}
 The following is a summary of the parameters of the `CdsModule`:
 
 - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
-- **baseUrl:** Replace the value shown in the example with the base URL of your Intelligent Selling Services environment. In particular, replace `my-tenant` with your actual Intelligent Selling Services tenant ID, and also replace `.us` with `.eu` if you are working with the EU environment of Intelligent Selling Services.
+- **baseUrl:** Replace the value shown in the example with the base URL of your Intelligent Selling Services environment. In particular, replace `mytenant` with your actual Intelligent Selling Services tenant ID, and `siteid` with the ID of your site. You also need to replace `.us` with `.eu` if you are working with the EU environment of Intelligent Selling Services.
 - **strategyProducts:** Set this value as shown in the example.
 - **defaultCarouselViewportThreshold:** With Commerce Cloud 1905.14 or newer, you can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Intelligent Selling Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.
 - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
@@ -154,20 +154,20 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 This ImpEx creates the component in the Staged catalog. To publish it, run a sync, or replace `Staged` with `Online` in the ImpEx.
 
-## Intelligent Selling Merchandising
+## Merchandising
 
-Intelligent Selling Merchandising carousels enable a Spartacus storefront to display the results of Intelligent Selling Merchandising in the form of a product carousel.
+Merchandising carousels enable a Spartacus storefront to display the results of Merchandising in the form of a product carousel.
 
-For more information, see [Intelligent Selling Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Intelligent Selling Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
+For more information, see [Merchandising](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/fda52c18718648dcbd57515e7c6fefaf.html) and [Merchandising Module](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/3bf7fa520667450499d3e04560659568.html) on the SAP Help Portal.
 
 **Note:** Using the Profile Tag Data Layer for Merchandising Carousel Events requires Spartacus version 2.1.0 or newer. For more information, see the following:
 
 - [Merchandising Reporting](https://help.sap.com/viewer/26c27f420a2946e19aaf1518849f932d/SHIP/en-US/b130b714953b4a0eaae1f21279189a96.html)
 - [Configure Profile Tag for Merchandising](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/c45f9bc5bb0444d984362e9a02570777.html#loio306b155081b948558bfe9e1d2aeb2a47)
 
-### Requirements for Enabling Intelligent Selling Merchandising
+### Requirements for Enabling Merchandising
 
-Intelligent Selling Merchandising carousels require the `merchandisingaddon` and `profiletagaddon` extensions. Once you install the extensions, follow the steps in [Merchandising Configuration Setup](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb) and [Catalog Synchronization Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160) to synchronize a product catalog with Intelligent Selling Services.
+Merchandising carousels require the `merchandisingaddon` and `profiletagaddon` extensions. Once you install the extensions, follow the steps in [Merchandising Configuration Setup](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/57bd76612cea4fddb2d62d2b29d0effb.html#loio57bd76612cea4fddb2d62d2b29d0effb) and [Catalog Synchronization Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loioa13f4af6daa24d66b4c9a2b0e5544160) to synchronize a product catalog with Intelligent Selling Services.
 
 It is also recommended to follow the instructions in [Product Directory Configuration](https://help.sap.com/viewer/50c996852b32456c96d3161a95544cdb/latest/en-US/a13f4af6daa24d66b4c9a2b0e5544160.html#loio6f59fb60a3fd43f89c08e8ba28b9e2a2).
 
@@ -208,7 +208,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ### Adding a Merchandising Carousel with SmartEdit
 
-If you have followed the [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add an Intelligent Selling Merchandising carousel to a page, as follows:
+If you have followed the [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}), you can use SmartEdit to add a Merchandising carousel to a page, as follows:
 
 1. Launch SmartEdit.
 

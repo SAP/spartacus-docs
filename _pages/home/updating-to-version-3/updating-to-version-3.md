@@ -34,3 +34,7 @@ When the update has finished running, inspect your code for comments that begin 
 For more information about schematics, see the schematics project [README](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
 
 For more information about the deprecated styles from Spartacus version 2.x, see [{% assign linkedpage = site.pages | where: "name", "css-changes-in-version-3.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-3/css-changes-in-version-3.md %}).
+
+## Migrating from Accelerator to Spartacus
+
+If you are considering migrating a project from Accelerator to Spartacus, see [Migrate Your Accelerator-based Storefront to Project Spartacus](https://www.sap.com/cxworks/article/2589632310/migrate_your_accelerator_based_storefront_to_project_spartacus) on the SAP CX Works website.

@@ -107,6 +107,24 @@ For now, there is no navigation mode that guides the user from issue to issue un
 
 Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "directionality.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/directionality.md %}).
 
+## Retract Option for Single-Select Characteristics
+
+By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection.
+
+Depending on the product modeling, customers could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable a "retract" option that allows customers to remove their selection, which they can do by selecting the special **No option selected** entry.
+
+**Note:** You can customize the `No option selected` label of this entry, just as you can with any UI text in Spartacus.
+
+To enable the retract option, you need to activate the rendering of the option in your Spartacus configuration, as shown in the following example:
+
+```ts
+productConfigurator: { 
+    addRetractOption: true,
+  } 
+```
+
+Depending on the product modeling and the configuration engine, after the customer has retracted their selection, the default setting may be withdrawn with the attribute unselected, or the configuration engine may set a default selection.
+
 ## Group Status Handling
 
 Group statuses are interpreted as follows:
@@ -133,6 +151,7 @@ The following features are currently not supported (or in some cases, not fully 
 - [Cart Validation](#cart-validation)
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
+- [Cart Import and Export](#cart-import-and-export)
 
 ### Save for Later and Selective Cart
 
@@ -268,3 +287,7 @@ The following conditions and actions are currently **not supported** in the Spar
 ### Assisted Service Mode
 
 Assisted service mode (ASM) is currently not supported with the Configurable Products integration.
+
+### Cart Import and Export
+
+Cart import and export is currently not supported with the Configurable Products integration.

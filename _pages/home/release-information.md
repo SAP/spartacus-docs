@@ -2,9 +2,9 @@
 title: Release Information for All Versions of Spartacus Libraries
 ---
 
-**Latest news: 4.1.0 final published September 14, 2021**
+**Latest news: 4.3.0 final published January 21, 2022**
 
-*Last updated Sept 14, 2021 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated January 21, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -23,13 +23,72 @@ This document describes what is included in all Spartacus libraries since the in
 - For information about features published in pre-release libraries, see [Pre-Release Information]({{ site.baseurl }}{% link _pages/home/pre-release-information.md %}).
 - For information about upgrading, see [Upgrading Spartacus Libraries to a New Minor Version](#upgrading-spartacus-libraries-to-a-new-minor-version).
 - For information about which versions of the Spartacus libraries and SAP Commerce Cloud are required for a specific feature, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
-- If you have technical questions, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
+- If you have technical or how-to questions about using Spartacus, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). 
+- If you would like to report an issue for assistance from SAP, please use the [SAP Launchpad reporting tool](https://launchpad.support.sap.com/)
 
 **Disclaimer - Forward-Looking Statements**
 
 *This document contains or may contain forward-looking statements. All forward-looking statements are subject to various risks and uncertainties that could cause actual results to differ materially from expectations. Readers are cautioned not to place undue reliance on these forward-looking statements, which speak only as of their dates, and they should not be relied upon in making purchasing decisions. Any information is subject to change for any reason without notice. The information in this document is not a commitment, promise or legal obligation to deliver any material, code or functionality. This document is provided without a warranty of any kind, either express or implied, including but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement. This document is for informational purposes and may not be incorporated into a contract. SAP assumes no responsibility for errors or omissions in this document, except if such damages were caused by SAP’s intentional or gross negligence.*
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
+
+## Release 5.0
+
+*Release 5.0 libraries published January ??, 2022*
+
+Highlights include the following:
+
+### Retract Option for Single-Select Characteristics
+
+By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection. You can now set the system up so that the single-selection can be retracted. This can be especially helpful in situations where the domain restrictions hide values in other characteristics, which can make it difficult for customers to completing the configuration. For more information, see [Retract Option for Single-Select Characteristics]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}#retract-option-for-single-select-characteristics).
+
+## Release 4.3
+
+ *Release 4.3 libraries published January 21, 2022*
+
+ Highlights include the following:
+
+### SAP Enterprise Product Development Visualization Integration
+
+ The SAP Enterprise Product Development Visualization Integration provides support for visual picking of spare parts using 2D or 3D models of the relevant products. For more information, see [{% assign linkedpage = site.pages | where: "name", "epd-visualization-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/epd-visualization-integration.md %}).
+
+## Release 4.2
+
+*Release 4.2 libraries published November 10, 2021*
+
+Highlights include the following:
+
+### Import Products to Active or Saved Cart
+
+This feature allows customers to use a comma-separated values (CSV) file to quickly import multiple products to the active cart or into a saved cart. The CSV file contains the product SKU and quantity. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
+
+### Export Products From Active or Saved Cart
+
+This feature allows customers to export an active or saved cart to a CSV file. By default, the exported file contains the product SKU, quantity, name, and price, but this is configurable. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-import-export.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-import-export.md %}).
+
+### Product Image Zoom
+
+This feature allows customers to magnify product images when viewed from the Product Details page. Clicking a product image enters "zoom mode", at which point the customer can magnify the picture based on mouse location. For more information, see [{% assign linkedpage = site.pages | where: "name", "image-zoom.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/image-zoom.md %}).
+
+### Quick Order Improvement: Search by Product Name
+
+The Quick Order feature was introduced in the 4.1 Spartacus libraries. With this improvement, customers using the form are now able to search by product name, not just SKU. The Quick Order field on the cart page is not affected. For more information, see [{% assign linkedpage = site.pages | where: "name", "quick-order.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/quick-order.md %}).
+
+### Cart Validation
+
+This feature identifies issues with customer cart when opening the Cart page or when proceeding to check out, and is extensible. The typical use case is when a customer adds a product to the cart today, and then tomorrow goes to check out, but there is no more stock. In this example, a message is displayed to the customer about what happened, and the product is removed from the cart. For more information, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}).
+
+### Scroll Position Restoration
+
+This improvement maintains the scroll position when moving forward and backward throughout a Spartacus-based site. The user experience is greatly improved when searching or viewing categories, reviewing product information, and going back. For more information, see [{% assign linkedpage = site.pages | where: "name", "scroll-position-restoration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/scroll-position-restoration.md %}).
+
+### Order History Library
+
+The introduction of a separate library for order history functionality is part of a long-term performance improvement effort. By separating the codebase into smaller libraries, packages are smaller, allowing for better lazy loading and improved performance. For example, with the Order History library, the code is only loaded when customers want to view orders they have already submitted. The existing Order History code is deprecated and will be removed in a future major release. Note that when upgrading, the existing Order History code is used, but when installing from schematics, the new library is used. For more information, see the [{% assign linkedpage = site.pages | where: "name", "order-library-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/release-notes/order-library-release-notes.md %}).
+
+### Improvements Related to Support for Screen Readers
+
+If you dive into the source code, you may notice improvements in various places related to support for screen readers. This effort is not complete. We are planning to announce support for screen readers in the next major, 5.0, for most core features.
 
 ## Release 4.1
 

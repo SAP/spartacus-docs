@@ -1951,6 +1951,8 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 
 <p>The schemas are only used by crawlers, so there is no need to build schemas for every page while end users are browsing the application. Therefore, the creation of schemas is limited to the Server-Side Rendering process. However, since developers are involved in evaluating and building the schemas, Spartacus also renders the schemas in development mode.</p>
 
+<p><strong>Note:</strong> To set up JSON-LD schemas in Spartacus, you need to import the <code class="language-plaintext highlighter-rouge">JsonLdBuilderModule</code> to your application.</p>
+
 <h2 id="schema-builders">Schema Builders</h2>
 
 <p>The standard JSON-LD schemas are added to Spartacus during the initialization of the application. This is done in the <code class="language-plaintext highlighter-rouge">StructuredDataModule</code>, which is imported in the <code class="language-plaintext highlighter-rouge">SeoModule</code>.</p>
@@ -2047,7 +2049,7 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
 
       </footer>
     </div>
@@ -2076,6 +2078,7 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
     debug: false // Set debug to true if you want to inspect the dropdown 
     }); 
     </script> 
+
 
     <script>
       anchors.options = {
