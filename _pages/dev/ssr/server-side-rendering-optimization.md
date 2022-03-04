@@ -115,7 +115,7 @@ Recommendation: generally, it is _not_ recommended to use the `cache` option, as
 
 The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
 
-Recommendation: should be set according to the server's resources (e.g. RAM). It is recommended to set it, regardless if the `cache` option is disabled.
+Recommendation: `cacheSize` should be set according to the server's resources (e.g. RAM). It is recommended to set it, regardless if the `cache` option is disabled.
 
 ### concurrency
 
