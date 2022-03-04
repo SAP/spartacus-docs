@@ -115,7 +115,7 @@ Recommendation: generally, it is _not_ recommended to use the `cache` option, as
 
 The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
 
-Recommendation: should be set according to the server's resources (e.g. RAM). It is recommended to set it, regardless if the `cache` option is disabled.
+Recommendation: `cacheSize` should be set according to the server's resources (e.g. RAM). It is recommended to set it, regardless if the `cache` option is disabled.
 
 ### concurrency
 
@@ -123,11 +123,11 @@ Recommendation: should be set according to the server's resources (e.g. RAM). It
 
 The default value is `20`.
 
-Recommendation: it should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
+Recommendation: `concurrency` should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
 
 ### ttl
 
-`ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again. This option is used regardless if the `cache` option is enabled.
+`ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a cached page is considered stale and needs to be rendered again on the next request. This option is used regardless if the `cache` option is enabled.
 
 Recommendation: should be set according to your business needs, and for how long you want to keep the stale render in cache before evicting it. Should be set regardless if the `cache` option is enabled.
 
