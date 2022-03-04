@@ -36,7 +36,7 @@ To integrate SAP Digital Payments with Spartacus, you must have one of the follo
 
 To enable SAP Digital Payments Integration in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.
 
-### Configuring the Back End for SAP Digital Payments Integration
+### Configuring SAP Commerce Cloud
 
 The following steps describe how to configure the Commerce Cloud back end for integration with SAP Digital Payments.
 
@@ -46,47 +46,9 @@ For more information, see [SAP Digital Payments Integration](https://help.sap.co
 1. Build and update the system so that the new functionality provided by the SAP Digital Payments integration extensions is available.
 This step also creates sample CMS data for the `electronics-spaContentCatalog` content catalog.
 
-### Configuring Spartacus for SAP Digital Payments Integration (version < 5.0)
+### Configuring Spartacus 5.0 or Newer
 
-Perform the following steps after you have set up your Spartacus Storefront. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-
-1. Install the SAP Digital Payments integration library by running the following command from within the root directory of your storefront application:
-
-   ```text
-   ng add @spartacus/digital-payments
-   ```
-
-   When you run this command, the schematics create a module for the Digital Payments integration that includes all of the required imports and configuration.
-
-   **Note:** To install the Digital Payments integration library using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
-
-   Alternatively, you can create the module manually and import it into your application, as shown in the following example:
-
-   ```ts
-   import { NgModule } from '@angular/core';
-   import { I18nConfig, provideConfig } from "@spartacus/core";
-   import { DigitalPaymentsModule, dpTranslationChunksConfig, dpTranslations } from "@spartacus/digital-payments";
-   
-   @NgModule({
-     declarations: [],
-     imports: [
-       DigitalPaymentsModule
-     ],
-     providers: [provideConfig(<I18nConfig>{
-       i18n: {
-         resources: dpTranslations,
-         chunks: dpTranslationChunksConfig,
-       },
-     })]
-   })
-   export class DigitalPaymentsFeatureModule { }
-   ```
-
-1. Build and start the storefront app to verify your changes.
-
-### Configuring Spartacus for SAP Digital Payments Integration (version >= 5.0)
-
-From 5.0, a new entry point was created in Digital Payments for assets. The Digital Payments feature can be lazy loaded.
+**Note:** The following procedure requires Spartacus 5.0 or newer. Spartacus 5.0 includes an entry point for Digital Payments assets that allows the Digital Payments feature to be lazy loaded.
 
 Perform the following steps after you have set up your Spartacus Storefront. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
 
@@ -136,66 +98,104 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
 1. Build and start the storefront app to verify your changes.
 
-  **Note:** `DigitalPaymentsModule` is a wrapper module which imports `CheckoutModule`. So, we want `DigitalPaymentsModule` to override `CheckoutModule` for feature "Checkout". To do so:
-   1. config the feature "CHECKOUT_FEATURE" for Digital Payments lazy loading
-   2. import `DigitalPaymentsFeatureModule` after `CheckoutFeatureModule`
+   **Note:** The `DigitalPaymentsModule` is a wrapper module that imports the `CheckoutModule`. As a result, it is necessary for the `DigitalPaymentsModule` to override the `CheckoutModule` for the checkout feature. For this to work properly, you need to configure the `CHECKOUT_FEATURE` to lazy load Digital Payments (as shown in the example above), and then in your storefront app, you need to ensure the `DigitalPaymentsFeatureModule` is imported *after* the `CheckoutModule`.
 
-### Configuring SAP Digital Payments with B2B checkout (version >= 5.0)
+### Configuring SAP Digital Payments for B2B Checkout and Scheduled Replenishment
 
-Schematics installing the Digital Payments integration library will automatically generate the `DigitalPaymentsFeatureModule`, which works with our base checkout feature. To make Digital Payments work with B2B or Schedule Replenishement checkout, you can create the wrapper module manually, and update `DigitalPaymentsFeatureModule`.
+**Note:** The following configuration options require Spartacus 5.0 or newer.
 
-    Digital Payments with B2B Checkout:
+When you use schematics to install the Digital Payments integration library, the schematics automatically generate the `DigitalPaymentsFeatureModule`, which works with the base Spartacus checkout feature. To make Digital Payments work with the B2B checkout or scheduled replenishment, you can create the necessary wrapper module manually, and update the `DigitalPaymentsFeatureModule`, as shown below.
 
-    ```ts
-    import { NgModule } from '@angular/core';
-    import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
-    import { DigitalPaymentsModule } from '@spartacus/digital-payments';
+The following is an example of the wrapper module that is needed for Digital Payments to work with the B2B checkout:
 
-    @NgModule({
-      imports: [DigitalPaymentsModule, CheckoutB2BModule],
-    })
-    export class B2BDigitalPaymentsModule {}
-    ```
+```ts
+import { NgModule } from '@angular/core';
+import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
+import { DigitalPaymentsModule } from '@spartacus/digital-payments'
+@NgModule({
+  imports: [DigitalPaymentsModule, CheckoutB2BModule],
+})
+export class B2BDigitalPaymentsModule {}
+```
 
-    In `DigitalPaymentsFeatureModule`, update the feature configuration as:
+The following is an example of the updated `DigitalPaymentsFeatureModule` that is configured to work with the B2B checkout:
 
-    ```ts
-    provideConfig(<CmsConfig>{
-      featureModules: {
-        [CHECKOUT_FEATURE]: {
-          module: () =>
-            import('./b2b-digital-payments.module').then(
-              (m) => m.B2BDigitalPaymentsModule
-            ),
-        },
-      },
-    }),
-    ```
+```ts
+provideConfig(<CmsConfig>{
+  featureModules: {
+    [CHECKOUT_FEATURE]: {
+      module: () =>
+        import('./b2b-digital-payments.module').then(
+          (m) => m.B2BDigitalPaymentsModule
+        ),
+    },
+  },
+}),
+```
 
-    Digital Payments with Scheduled Replenishment Checkout:
+The following is an example of the wrapper module that is needed for Digital Payments to work with scheduled replenishment:
 
-    ```ts
-    import { NgModule } from '@angular/core';
-    import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
-    import { DigitalPaymentsModule } from '@spartacus/digital-payments';
+```ts
+import { NgModule } from '@angular/core';
+import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
+import { DigitalPaymentsModule } from '@spartacus/digital-payments'
+@NgModule({
+  imports: [DigitalPaymentsModule, CheckoutScheduledReplenishmentModule],
+})
+export class ReplenishmentDigitalPaymentsModule {}
+```
 
-    @NgModule({
-      imports: [DigitalPaymentsModule, CheckoutScheduledReplenishmentModule],
-    })
-    export class ReplenishmentDigitalPaymentsModule {}
-    ```
+The following is an example of the updated `DigitalPaymentsFeatureModule` that is configured to work with scheduled replenishment:
 
-    In `DigitalPaymentsFeatureModule`, update the feature configuration as:
+```ts
+provideConfig(<CmsConfig>{
+  featureModules: {
+    [CHECKOUT_FEATURE]: {
+      module: () =>
+        import('./replenishment-digital-payments.module').then(
+          (m) => m.ReplenishmentDigitalPaymentsModule
+        ),
+    },
+  },
+}),
+```
 
-    ```ts
-    provideConfig(<CmsConfig>{
-      featureModules: {
-        [CHECKOUT_FEATURE]: {
-          module: () =>
-            import('./replenishment-digital-payments.module').then(
-              (m) => m.ReplenishmentDigitalPaymentsModule
-            ),
-        },
-      },
-    }),
-    ```
+### Configuring Spartacus 4.x
+
+**Note:** The following procedure is for Spartacus 4.x. If you are using Spartacus 5.0 or newer, see [Configuring Spartacus 5.0 or Newer](#configuring-spartacus-50-or-newer).
+
+Perform the following steps after you have set up your Spartacus Storefront. For more information, see [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
+
+1. Install the SAP Digital Payments integration library by running the following command from within the root directory of your storefront application:
+
+   ```text
+   ng add @spartacus/digital-payments
+   ```
+
+   When you run this command, the schematics create a module for the Digital Payments integration that includes all of the required imports and configuration.
+
+   **Note:** To install the Digital Payments integration library using schematics, your app structure needs to match the Spartacus reference app structure. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
+
+   Alternatively, you can create the module manually and import it into your application, as shown in the following example:
+
+   ```ts
+   import { NgModule } from '@angular/core';
+   import { I18nConfig, provideConfig } from "@spartacus/core";
+   import { DigitalPaymentsModule, dpTranslationChunksConfig, dpTranslations } from "@spartacus/digital-payments";
+   
+   @NgModule({
+     declarations: [],
+     imports: [
+       DigitalPaymentsModule
+     ],
+     providers: [provideConfig(<I18nConfig>{
+       i18n: {
+         resources: dpTranslations,
+         chunks: dpTranslationChunksConfig,
+       },
+     })]
+   })
+   export class DigitalPaymentsFeatureModule { }
+   ```
+
+1. Build and start the storefront app to verify your changes.
