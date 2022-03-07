@@ -175,7 +175,7 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
    
  5. Now that you have the new app structure, you need to set the `baseUrl`:
      - Navigate to `app/spartacus`.
-     - Find and open `fs-configuration.module.ts`, which holds the configuration necessary for the FSA to function properly.
+     - Find and open `fs-configuration.module.ts`, which holds the configuration necessary for the FSA to function correctly.
      - Edit `baseUrl` property so that it points to your back-end server.
 
 6. To complete the update, run the following command:
