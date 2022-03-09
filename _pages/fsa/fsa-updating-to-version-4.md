@@ -97,7 +97,6 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
 2. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
 
     ```shell
-    "dependencies": {
     "@angular/animations": "~12.0.5",
     "@angular/common": "~12.0.5",
     "@angular/compiler": "~12.0.5",
@@ -157,7 +156,9 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
     ```
-
+   
+   **NOTE:** Make sure that all Angular packages that you may already have under `devDependencies` in your `package.json` file match the version of the `@angular/corelibrary`, which is **~12.0.5**.  
+   
 3. Next, install dependencies with the following command:
 
     ```shell
