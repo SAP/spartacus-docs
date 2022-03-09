@@ -12,7 +12,7 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
@@ -39,7 +39,7 @@
 
     {% include scripts.html %}
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script> 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
     <script type="text/javascript"> docsearch({ 
     appId: 'BNZEXRISC6',
     apiKey: '54a795a072ff713045038ee4ad33c990', 
