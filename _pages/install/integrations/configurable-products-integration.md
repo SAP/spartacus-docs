@@ -80,6 +80,12 @@ After running this command, you are asked which product configurator features yo
 
 The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.
 
+## Cart Validation
+
+Cart validation needs to be enabled explicitly, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}). That is possible only if the commerce release is 2011 or higher. If cart validation is enabled, it’s not possible to checkout carts with configurations that are conflicting or that contain mandatory attributes without values selected. 
+In case your commerce release is 2005 or lower, consider to disable the checkout button, see `cart-totals.component`, depending on possible issues of the cart bound configurations. Use `ConfiguratorCartServiceactiveCartHasIssues` for that.
+
+
 ## Locales
 
 All available locales must be replicated in Spartacus. Locales in the back end and front end must be in sync.
@@ -148,7 +154,6 @@ When you refresh the browser, the product configuration is reset to the default 
 The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
-- [Cart Validation](#cart-validation)
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
 - [Cart Import and Export](#cart-import-and-export)
@@ -188,74 +193,6 @@ This feature is currently not supported. To prevent the button from showing, you
       entryComponents: [SaveForLaterComponent],
     })
     ```
-
-### Cart Validation
-
-Cart validation is currently not supported, although you can implement your own workaround by making the adjustments described in the following sections.
-
-#### Configuring Spartacus for Cart Validation
-
-1. Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one.
-
-1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`.
-
-1. Introduce a component member.
-
-    The following is an example:
-
-    ```ts
-    hasNoConfigurationIssues$: Observable<
-        boolean
-      > = this.configuratorCartService
-        .activeCartHasIssues()
-        .pipe(map((hasIssues) => !hasIssues));
-    ```
-
-1. Make use of this member in the component template.
-
-    The following is an example:
-
-    {% raw %}
-
-    ```ts
-    <ng-container *ngIf="cart$ | async as cart">
-      <ng-container *ngIf="entries$ | async as entries">
-        <cx-order-summary [cart]="cart"></cx-order-summary>
-        <ng-container
-          *ngIf="hasNoConfigurationIssues$ | async as   hasNoConfigurationIssues"
-        >
-          <button
-            [routerLink]="{ cxRoute: 'checkout' } | cxUrl"
-            *ngIf="entries.length"
-            class="btn btn-primary btn-block"
-            type="button"
-          >
-            {{ 'cartDetails.proceedToCheckout' | cxTranslate }}
-          </button>
-        </ng-container>
-      </ng-container>
-    </ng-container>
-    ```
-
-    {% endraw %}
-
-#### Configuring SAP Commerce 2005 for Cart Validation
-
-**Note:** If you use SAP Commerce 2011, the following steps are not necessary.
-
-The steps that can be done on the Spartacus side ensure that for a standard UI flow, a configuration cannot be ordered if it has issues. However, you still need to block the creation of orders that could be done through OCC. Otherwise, an order containing such configurations can be created using, for example, the developer tools in the end user's browser.
-
-In your spring configuration, ensure that the `commerceWebServicesCartService` bean refers to `cartValidationStrategy` instead of `cartValidationWithoutCartAlteringStrategy`. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
-
-```xml
-<alias name="customWebServicesCartService" alias="commerceWebServicesCartService"/>
-<bean id="customWebServicesCartService" parent="defaultCommerceCartService">
-    <property name="cartValidationStrategy" ref="cartValidationStrategy"/>
-    <property name="productConfigurationStrategy" ref="productConfigurationStrategy"/>
-</bean>
-```
-
-Note that this adjustment will guarantee that order are validated for product configuration issues before they are submitted, but it will not ensure that any error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
 
 ### Commerce Business Rules in Combination with Configurable Products
 
