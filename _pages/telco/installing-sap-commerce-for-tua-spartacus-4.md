@@ -1,5 +1,5 @@
 ---
-title: Installing SAP Commerce Cloud for use with TUA Spartacus 3.2
+title: Installing SAP Commerce Cloud for use with TUA Spartacus 4.0
 ---
 
 The following instructions describe how to install and configure SAP Commerce Cloud (release 2011) with Telco & Utilities Accelerator (supports both release 2108, latest patch) for use with a TUA Spartacus storefront. In these instructions, SAP Commerce and Telco & Utilities Accelerator are installed on your local computer, so `localhost` is used in the browser URLs.
@@ -256,21 +256,6 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```
 
    Initialization of the `b2c_telco_spa` recipe can take about 20 minutes. Sample data for this recipe includes telco-specific data and content.
-
-1. Default header size for solr server requests and responds is set to 8192, because of this the product search can fail, in order to prevent that, the following changes should be made for the SOLR_OPTS variable:
-
-    For Windows:
-    ```bash
-    set SOLR_OPTS=-Dsolr.jetty.request.header.size=65536
-    set SOLR_OPTS=%SOLR_OPTS% -Dsolr.jetty.response.header.size=65536
-    echo %SOLR_OPTS%
-    ```
-
-    For Linux:
-    ```bash
-    export SOLR_OPTS="-Dsolr.jetty.request.header.size=65536 -Dsolr.jetty.response.header.size=65536"
-    echo $SOLR_OPTS
-    ```
 
 1. Start SAP Commerce Cloud with the following command. From the `sap-commerce-folder>/installer` folder, run the following commands 
 
