@@ -433,6 +433,8 @@ docs:
                 - title: "Updating TUA Spartacus ➢"
                   url: /updating-tua-spartacus/
                   underchildren:
+                      - title: "Updating to Version 4.0"
+                        url: /updating-tua-spartacus-to-4/
                       - title: "Updating to Version 3.0"
                         url: /updating-tua-spartacus-to-3/
                       - title: "Updating to Version 2.0"
@@ -440,6 +442,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 4.0"
+                        url: /installing-sap-commerce-for-tua-spartacus-4/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.2"
                         url: /installing-sap-commerce-for-tua-spartacus-3-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
@@ -453,6 +457,8 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 4.0 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-4/
                       - title: "Building the TUA Spartacus Storefront using 3.2 Libraries"
                         url: /building-the-tua-storefront-from-libraries-3-2-0/
                       - title: "Building the TUA Spartacus Storefront using 3.1 Libraries"
@@ -468,6 +474,8 @@ docs:
                 - title: "Technical Changes in TUA Spartacus ➢"
                   url: /technical-changes/
                   underchildren:
+                      - title: "Technical Changes in TUA Spartacus 4.0"
+                        url: /technical-changes-tua-version-4/
                       - title: "Technical Changes in TUA Spartacus 3.0"
                         url: /technical-changes-tua-version-3/
                       - title: "Technical Changes in TUA Spartacus 2.0"
