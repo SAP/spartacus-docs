@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated February 28, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated March 15, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ***
 
@@ -30,7 +30,7 @@ This document describes what is included in all Spartacus libraries since the in
 
 ## Release 4.0
 
-*Release 4.0 libraries published February 21, 2022*
+*Release 4.0 libraries published March 15, 2022*
 
 As release 4.0 is a new major version, it contains breaking changes. To migrate to 4.0 from 3.0, please see the following documentation:
 
