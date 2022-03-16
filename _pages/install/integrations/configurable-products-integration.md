@@ -143,15 +143,14 @@ The following is an example of the configuration menu showing visited sections, 
 
 When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
 
-## Performance/Session Affinity
+## Performance and Session Affinity
 
-In order to communicate with the configurator in a performant way, the commerce backend caches session cookies that are sent along to CPS for 
-every configurator interaction. This allows CPS to read a runtime configuration from its cache instead from the database.
+To communicate with the configurator in a performant way, the Commerce Cloud back end caches session cookies that are sent to the configurator for every interaction. This allows the configurator to read a runtime configuration from its cache instead of from the database.
 
-As a consequence, Spartacus should always contact the same commerce node when doing configuration read and updates (which is called ‘session 
-affinity’. This can be achieved like that: 
-On commerce backend side, set configuration parameter `corsfilter.commercewebservices.allowCredentials=true`.
-On Spartacus side, set configuration parameter `backend.occ.useWithCredentials=true`.
+To ensure session affinity, Spartacus should always contact the same Commerce node when doing configuration reads and updates. You can ensure session affinity by setting the following configuration parameters:
+
+- In SAP Commerce Cloud: `corsfilter.commercewebservices.allowCredentials=true`
+- In Spartacus: `backend.occ.useWithCredentials=true`
 
 ## Unsupported Features
 
