@@ -82,9 +82,15 @@ The saved cart feature is generally supported with the Configurable Products int
 
 ## Cart Validation
 
-Cart validation needs to be enabled explicitly, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}). That is possible only if the commerce release is 2011 or higher. If cart validation is enabled, it’s not possible to checkout carts with configurations that are conflicting or that contain mandatory attributes without values selected. 
-In case your commerce release is 2005 or lower, consider to disable the checkout button, see `cart-totals.component`, depending on possible issues of the cart bound configurations. Use `ConfiguratorCartServiceactiveCartHasIssues` for that.
+When cart validation is enabled, it is not possible to check out a cart that has configurations which are conflicting, nor is it possible to check out a cart that contains mandatory attributes if values have not been selected.
 
+If you are using SAP Commerce Cloud 2005 or older, you should consider disabling the checkout button because of possible issues with cart bound configurations. In `cart-totals.component.ts`, you can disable the checkout button using `ConfiguratorCartService.activeCartHasIssues`.
+
+ In case your commerce release is 2005 or lower, consider to disable the checkout button, see `cart-totals.component`, depending on possible issues of the cart bound configurations. Use `ConfiguratorCartServiceactiveCartHasIssues` for that.
+
+To enable cart validation, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}).
+
+**Note:** Cart validation requires SAP Commerce Cloud 2011 or newer.
 
 ## Locales
 
