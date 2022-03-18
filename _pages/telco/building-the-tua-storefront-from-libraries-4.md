@@ -148,7 +148,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
             chunks: translationChunksConfig,
             fallbackLang: 'en',
         },
-        features: { level: '3.2' },
+        features: { level: '4.0' },
         journeyChecklist: {
             journeyChecklistSteps: ['APPOINTMENT', 'MSISDN', 'INSTALLATION_ADDRESS'],
             msisdn_reservation: {
@@ -244,7 +244,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
         fallbackLang: 'en'
     },
     features: {
-        level: '3.0'
+        level: '4.0'
     }
     }),
     ConfigModule.withConfig({   i18n: { resources: tmaTranslations }
@@ -317,13 +317,13 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
     "@ngrx/effects": "~10.0.0",
     "@ngrx/router-store": "~10.0.0",
     "@ngrx/store": "~10.0.0",
-    "@spartacus/assets": "3.4.0",
-    "@spartacus/core": "3.4.0",
-    "@spartacus/organization": "3.4.0",
-    "@spartacus/setup": "3.4.0",
-    "@spartacus/storefront": "3.4.0",
-    "@spartacus/styles": "3.4.0",
-    "@spartacus/tua-spa": "3.2.0",
+    "@spartacus/assets": "4.0.0",
+    "@spartacus/core": "4.0.0",
+    "@spartacus/organization": "4.0.0",
+    "@spartacus/setup": "4.0.0",
+    "@spartacus/storefront": "4.0.0",
+    "@spartacus/styles": "4.0.0",
+    "@spartacus/tua-spa": "4.0.0",
     "angular-oauth2-oidc": "^10.0.1",
     "bootstrap": "^4.2.1",
     "chart.js": "^2.9.3",
@@ -341,7 +341,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 
     **Note:** Make sure to add a comma to the end of the last dependency statement listed in this section. For example, the last statement in your new app might be `"zone.js": "~0.10.2"` so you need to add a comma after `0.10.2"`.
 
-5. Update `@spartacus/schematics": "3.4.0` in `devDependencies` section in `package.json`.
+5. Update `@spartacus/schematics": "4.0.0` in `devDependencies` section in `package.json`.
 
 6. Make sure that the following import is found in the  `mystore/src/styles.scss`:
 
