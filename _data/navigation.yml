@@ -47,6 +47,8 @@ docs:
                   underchildren:
                       - title: "Order Library Release Notes"
                         url: /order-library-release-notes/
+                - title: "Known Issues"
+                  url: /known-issues/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
