@@ -82,11 +82,9 @@ The saved cart feature is generally supported with the Configurable Products int
 
 ## Cart Validation
 
-When cart validation is enabled, it is not possible to check out a cart that has configurations which are conflicting, nor is it possible to check out a cart that contains mandatory attributes if values have not been selected.
+When cart validation is enabled, it ensures that users cannot check out a cart that has configurations which are conflicting, nor can users check out a cart that contains mandatory attributes if values have not been selected.
 
-If you are using SAP Commerce Cloud 2005 or older, you should consider disabling the checkout button because of possible issues with cart bound configurations. In `cart-totals.component.ts`, you can disable the checkout button using `ConfiguratorCartService.activeCartHasIssues`.
-
- In case your commerce release is 2005 or lower, consider to disable the checkout button, see `cart-totals.component`, depending on possible issues of the cart bound configurations. Use `ConfiguratorCartServiceactiveCartHasIssues` for that.
+If you are using SAP Commerce Cloud 2005 or older, you should consider disabling the checkout button in `cart-proceed-to-checkout.component.html` if `ConfiguratorCartService#activeCartHasIssues` emits `true`.
 
 To enable cart validation, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}).
 
