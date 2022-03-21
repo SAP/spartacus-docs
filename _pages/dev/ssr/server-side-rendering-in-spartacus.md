@@ -23,6 +23,8 @@ ng add @spartacus/schematics --ssr
 
 You have now added SSR support to your Spartacus application. No further steps are required.
 
+If you are experiencing issues, you can refer to the SSR Troubleshooting section at the bottom of the <a href="{{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-optimization.md %}">Server-Side Rendering Optimization</a> page.
+
 ## Adding SSR Support Manually
 
 For most situations and setups, is is best to add SSR support to your Spartacus application using schematics, as described in the previous section. However, if you are unable to add SSR support using schematics, the following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.
