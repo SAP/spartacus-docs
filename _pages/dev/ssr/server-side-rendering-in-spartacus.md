@@ -23,7 +23,7 @@ ng add @spartacus/schematics --ssr
 
 You have now added SSR support to your Spartacus application. No further steps are required.
 
-If you are experiencing issues, you can refer to the SSR Troubleshooting section at the bottom of the <a href="{{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-optimization.md %}">Server-Side Rendering Optimization</a> page.
+If you experience any issues, see [Troubleshooting]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-optimization.md %}#troubleshooting) for more information.
 
 ## Adding SSR Support Manually
 
