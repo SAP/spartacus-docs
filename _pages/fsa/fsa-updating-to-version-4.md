@@ -78,7 +78,7 @@ For more information, see the official [Angular Update Guide](https://update.ang
 ***
 
    
-## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.0.0
+## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.x
 
 
 ### Prerequisites
