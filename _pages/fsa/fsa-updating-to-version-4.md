@@ -157,7 +157,7 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
     "zone.js": "~0.11.4"
     ```
    
-   **NOTE:** Make sure that all Angular packages that you may already have under `devDependencies` in your `package.json` file match the version of the `@angular/corelibrary`, which is **~12.0.5**.  
+   **NOTE:** Make sure that all Angular packages that you already have under `devDependencies` in your `package.json` file match the version of the `@angular/corelibrary`, which is **~12.0.5**.  
    
 3. Next, install dependencies with the following command:
 
