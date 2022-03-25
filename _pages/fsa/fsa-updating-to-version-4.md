@@ -78,7 +78,7 @@ For more information, see the official [Angular Update Guide](https://update.ang
 ***
 
    
-## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.0.0
+## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.x
 
 
 ### Prerequisites
@@ -97,7 +97,6 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
 2. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
 
     ```shell
-    "dependencies": {
     "@angular/animations": "~12.0.5",
     "@angular/common": "~12.0.5",
     "@angular/compiler": "~12.0.5",
@@ -116,9 +115,9 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
     "@ngrx/router-store": "~12.1.0",
     "@ngrx/store": "~12.1.0",
     "@nguniversal/express-engine": "~12.0.2",
-    "@spartacus/dynamicforms": "4.0.0",
-    "@spartacus/fsa-storefront": "4.0.0",
-    "@spartacus/fsa-styles": "4.0.0",
+    "@spartacus/dynamicforms": "^4.0.0",
+    "@spartacus/fsa-storefront": "^4.0.0",
+    "@spartacus/fsa-styles": "^4.0.0",
     "@spartacus/asm": "4.2.1",
     "@spartacus/assets": "4.2.0",
     "@spartacus/cart": "4.2.1",
@@ -157,7 +156,9 @@ Before upgrading your FSA Spartacus libraries to version 4.x, you must address t
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
     ```
-
+   
+   **NOTE:** Make sure that all Angular packages that you already have under `devDependencies` in your `package.json` file match the version of the `@angular/corelibrary`, which is **~12.0.5**.  
+   
 3. Next, install dependencies with the following command:
 
     ```shell
