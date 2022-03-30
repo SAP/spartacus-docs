@@ -34,5 +34,5 @@ For features that do not rely on specific endpoints in the back end, the version
 | [Product Offering Search]({{ site.baseurl }}{% link _pages/telco/product-offering-search.md %}) | 1.0.0 | 2003 | 3.x |
 | [Purchase PO with Configurable Characteristics]({{ site.baseurl }}{% link _pages/telco/purchase-po-with-configurable-characteristics.md %}) | 3.2 | 2105 | 3.2 |
 | [Sales Flow - Cross-Selling]({{ site.baseurl }}{% link _pages/telco/sales-flow-cross-sell-of-an-spo.md %}) | 3.2.0 | 2102 | 1.x, 2.0 |
+| [Selfcare - Subscribed Product Inventory, Billing Account, and Billing Agreement]({{ site.baseurl }}{% link _pages/telco/selfcare-subscriptions-billingaccount-agreements.md %}) | 4.1.0 | 2105 | 4.1.0 |
 | [Simple Product Offerings]({{ site.baseurl }}{% link _pages/telco/simple-product-offering.md %}) | 1.0.0 | 2003 | 1.x, 2.0 |
-| [Selfcare - Subscribed Product Inventory, Billing Account, and Billing Agreement] | 4.1.0 | 2105 | 4.1.0 |

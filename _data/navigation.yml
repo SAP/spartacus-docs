@@ -537,7 +537,9 @@ docs:
                 - title: "Purchase PO with Configurable Characteristics"
                   url: /purchase-po-with-configurable-characteristics/
                 - title: "Sales Flow - Cross-Selling"
-                  url: /sales-flow-cross-sell-of-an-spo/                                       
+                  url: /sales-flow-cross-sell-of-an-spo/
+                - title: "Selfcare - View Subscriptions, Billing Account, Billing Agreements"
+                  url: /selfcare-subscriptions-billingaccount-agreements/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 

@@ -34,7 +34,7 @@ This document describes what is included in all Spartacus libraries since the in
 
 Release 4.1 uses Angular 12, and the following feature is introduced:
 
-- [Selfcare - Subscribed Product Inventory, Billing Account, and Billing Agreement]
+- [Selfcare - Viewing Subscriptions, Billing Account, and Billing Agreement]({{ site.baseurl }}{% link _pages/telco/selfcare-subscriptions-billingaccount-agreements.md %})
 
 ## Release 4.0
 
