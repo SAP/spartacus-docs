@@ -52,22 +52,24 @@ Current release plans are (dates are tentative):
 
 ## 2022
 
-#### 5.0 (tentatively scheduled for September 2022)
+### 5.0 (tentatively scheduled for September 2022)
 
-The Spartacus 5.0 has been delayed from May 2022 to September 2022. 
+The Spartacus 5.0 has been delayed from May 2022 to September 2022.
 
 5.0 will feature:
+
 - **Screen Reader** support for all B2C/Core features
 - **Cart library** bringing performance by splitting modules into smaller libraries
 - **Checkout libraries** separating B2B checkout and scheduled replenishment code from main checkout library
 - **Command & Queries** for checkout library
-- **Newest Angular framework** (currently 13, might be 14 depending on release schedule
+- **Newest Angular framework** (currently 13, might be 14 depending on release schedule)
 - **Removal of most deprecated code**
 - **Support for new PDF and Video component types**
 - **Toast option when adding to cart** - Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
 - **Clear Cart** command on cart page
 
 With the extra time, the following features are also being considered for 5.0, or soon after in 5.x release:
+
 - **Screen Readers**: Completion of support for B2B channel Spartacus storefront
 - **Buy online pickup in store** ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
 - **B2B Commerce Quotes** (requires API update released in 2105) ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
@@ -76,9 +78,9 @@ With the extra time, the following features are also being considered for 5.0, o
 - **B2B Future Stock** (requires backend API improvement planned for release in 2022)
 - Further code splitting (modules to be determined)
 - Performance improvements
-- Extensibility of lazy loaded components
+- Extensibility of lazy-loaded components
 
-#### H1 2023 Plans
+### H1 2023 Plans
 
 - **ASM customer list** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html))
 - **ASM Anonymous Cart Binding** (requires release 2005)
