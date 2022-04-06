@@ -2,7 +2,7 @@
 title: Roadmap 2022 for TUA Spartacus
 ---
 
-*Last updated January 13, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated April 1, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 This document describes what what is planned for Spartacus for Q1 2022 and later.
 
@@ -42,51 +42,50 @@ If you have technical questions, you can get in touch with us on [Stack Overflow
 
 For non-technical questions and roadmap feedback, you can reach us on our dedicated #help-tua [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ).
 
-## Future Outlook / Features Planned for Q1 2022 and Later
+## Summary of Tentative Release Dates
 
-The items in this section are on our future roadmap, not necessarily yet planned for a specific quarter. Some features require new OCC REST APIs, not yet planned and still considered to be done.
+Current release plans are (dates are tentative):
 
-### Technical Upgrade to Spartacus 4.0 Libraries / Angular 12
-### B2C Storefront Features Planned
+- 5.0 Spartacus upgrade planned for Q3/Q4 2022 - dependency on Spartacus for Commerce Cloud
+- 5.x releases to follow end of 2022
 
-- Provide the ability for a customer to purchase a fixed Bundled Product Offering
-- One-click Order Placement for services
-- One-click activation/deactivation of services
+## 2022
 
-### Retention Process Flows Without Assurance
+**Note:** Some features require new OCC REST APIs and/or TM Forum APIs for feature support.
 
-- **Tariff Change - Upgrade:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
-- **Tariff Change - Upsell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
-- **Tariff Change - Cross-Sell:** For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/latest/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html).
+### 5.0 Release
 
-### Pricing Features
+Technical Upgrade to Spartacus 5.0 for all TUA storefronts
 
-- **Price Alteration Credits:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/latest/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html).
-- **Grid pricing on Cart, Checkout, and Order:** For more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html).
+Sample data improvements supporting all use case scenarios / improved documentation with talk-track to execute scenarios
 
-### B2C Self-Care Asset Management and Assurance (next generation customer product inventory for customer self-management of assets (that is, subscriptions) with taking contractual terms into consideration)
+With the extra time, the following features are also being considered for 5.0, or soon after in a 5.x release
 
-TM Forum-compliant Customer Product Inventory to support retention-based purchase flows as well as services management:
+- **Fixed Bundles:** Provide the ability for a customer to purchase a fixed Bundled Product Offering
+- **One-Click Order Placement:** Provide the ability for a customer to make a One-Click Order Placement for a service
+- **One-Click Activation:** One-click activation of a service
+- **One-Click Deactivation:** One-click deactivation of a service
+- **Top-Up Account:** Top-up a prepaid account with additional minutes given a low-balance trigger
+- **Tariff Change - Upgrade:** Part of self-care asset management and assurance.  For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/b0c9085e723a4f289df9d83d7b2a52ba.html)
+- **Tariff Change - Upsell:** Part of self-care asset management and assurance..  For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
+- **Tariff Change - Cross-Sell:** Part of self-care asset management and assurance..  For more information, see [Assignments to Existing Subscribed Products](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2007/en-US/db4426fef46d4db5996f8ed8501052a4.html)
+- **Price Alteration Credits:** For more information, see [Create Product Offerings from Product Specifications View](https://help.sap.com/viewer/62583a7386514befa5d2821f6f9a40e5/2011/en-US/1deb71eb8ac54f469ef558ac67dbf3e8.html)
+- **Grid pricing on Cart, Checkout, and Order:** For more information, see [Pricing at Cart and Order Level](https://help.sap.com/viewer/c762d9007c5c4f38bafbe4788446983e/2007/en-US/91a9faae27bb4a7f8baa46a57078cd61.html)
+- **Renew Subscription:** Part of self-care asset management and assurance.
 
-- Renew contract (subscription)
-- Tariff Change - upgrade
-- Tariff Change - upsell
-- Tariff Change - cross-sell
-- Tariff Change - downgrade
-- Tariff Change - regrade/move home
-- Prepaid to Postpaid
-- Postpaid to Prepaid
-- Merge Accounts
-- Split Accounts
-- Cancel contract
-- Terminate contract (move out)
-- Place subscription "on hold"
-- Suspend Subscription (via provider)
-- Activate Service
-- Deactivate Service
-- Top-up Account
+## 2023 plans
 
-### TUA Business-to-Business Storefront 
+- **Tariff Change - downgrade:** Part of self-care asset management and assurance.
+- **Tariff Change - regrade / move home:** Part of self-care asset management and assurance.
+- **Prepaid to Postpaid:** Part of self-care asset management and assurance.
+- **Postpaid to Prepaid:** Part of self-care asset management and assurance.
+- **Merge Accounts:** Part of self-care asset management and assurance.
+- **Split Accounts:** Part of self-care asset management and assurance.
+- **Cancel contract:** Part of self-care asset management and assurance.
+- **Terminate contract (move out):** Part of self-care asset management and assurance.
+- **Place subscription "on hold":** Part of self-care asset management and assurance.
+- **Suspend Subscription (via provider):** Part of self-care asset management and assurance.
+- **B2B Enhanced Roles and Permissions Management**
+- **B2B Self-Care Asset Management and Assurance**
 
-- Enhanced Roles and Permissions Management
-- B2B Self-Care Asset Management and Assurance
+Other features related to Spartacus/Accelerator parity and architectural improvements are also in the plans but no timeline yet, stay tuned!
