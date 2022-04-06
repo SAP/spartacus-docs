@@ -444,6 +444,8 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 4.1"
+                        url: /installing-sap-commerce-for-tua-spartacus-4.1/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 4.0"
                         url: /installing-sap-commerce-for-tua-spartacus-4/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.2"
@@ -459,6 +461,8 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 4.1 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-4.1/
                       - title: "Building the TUA Spartacus Storefront using 4.0 Libraries"
                         url: /building-the-tua-storefront-from-libraries-4/
                       - title: "Building the TUA Spartacus Storefront using 3.2 Libraries"
@@ -533,7 +537,9 @@ docs:
                 - title: "Purchase PO with Configurable Characteristics"
                   url: /purchase-po-with-configurable-characteristics/
                 - title: "Sales Flow - Cross-Selling"
-                  url: /sales-flow-cross-sell-of-an-spo/                                       
+                  url: /sales-flow-cross-sell-of-an-spo/
+                - title: "Selfcare - View Subscriptions, Billing Account, Billing Agreements"
+                  url: /selfcare-subscriptions-billingaccount-agreements/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
