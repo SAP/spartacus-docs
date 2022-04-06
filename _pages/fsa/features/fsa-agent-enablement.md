@@ -110,7 +110,7 @@ If not, the appropriate message is displayed, informing the user that they do no
 
 The Customer Dashboard page is used to display details about customers created by the seller.
 Customer dashboard relies heavily on the *My Dashboard* feature. 
-For more information, see [My Dashboard]({{ site.baseurl }}/pages/fsa/features/fsa-my-dashboard.png). 
+For more information, see [My Dashboard]({{ site.baseurl }}/pages/fsa/features/fsa-my-dashboard.md). 
 
 Page route: `/user-profile/:customerId`.
 
