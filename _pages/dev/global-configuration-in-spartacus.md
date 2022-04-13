@@ -39,23 +39,6 @@ Using `StorefrontLib.withConfig` is no longer supported in Spartacus.
 
 The `ConfigModule.withConfigFactory` and `provideConfigFactory` work the same as their counterparts (that is, `ConfigModule.withConfig` and `provideConfig`, respectively), but they use the factory instead of a plain object to provide the configuration. This is useful in the case of config generation or config composition.
 
-### Limitations
-
-It may be helpful to decompose and merge some objects before providing them to the config. For example, you may want to use default translations and only customize a few, as shown in the following example:
-
-```typescript
-i18n: {
-    resources: {
-        ...translations,
-        ...customTranslations
-    }
-}
-```
-
-Unfortunately, the objects that are transformed with the object spread operator and then passed to `ConfigModule.withConfig` (or `provideConfig`) will disappear in the AOT compilation because of a known Angular issue. Instead, you can use `ConfigModule.withConfigFactory` or `provideConfigFactory`.
-
-For more information, see [Angular issue #28078](https://github.com/angular/angular/issues/28078), as well as this [StackOverflow explanation](https://stackoverflow.com/questions/50141412/when-using-aot-changes-to-objects-passed-to-forroot-are-discarded-when-injected).
-
 ## Modifying the Configuration at Runtime
 
 The global configuration mechanism in Spartacus is not designed to modify the configuration after the application has started. If you need to modify the configuration at runtime (that is, after bootstrap), you can put the configuration in a store, or expose it in a service, ideally as an observable stream that can easily react to changes.
