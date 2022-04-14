@@ -1,0 +1,111 @@
+---
+title: Scroll to Top
+feature:
+  - name: Scroll to Top
+    spa_version: 5.0
+    cx_version: 2105
+---
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 5.0 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+The scroll to top feature allows users to quickly scroll back to the top of the page.
+
+---
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+---
+
+## Enabling Scroll to Top
+
+Scroll to top is part of the `@spartacus/storefront` library, and installed during the initial setup. To enable this feature in your storefront add the scroll to top CMS data to a content slot using ImpEx. 
+
+### CMS Component
+
+Scroll to top is CMS-driven and consists of the following CMS component:
+
+- `ScrollToTopComponent`
+
+If you are using the version 5.0 or greater of [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the scroll to top component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable scroll to top through ImpEx.
+
+**Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
+
+```text
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+```
+
+#### Adding Scroll to Top CMS Component Manually
+
+This section describes how to add the scroll to top CMS component to Spartacus using ImpEx.
+
+You can enable the **Scroll to Top** component by adding the CMS data with the following ImpEx:
+
+```text
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
+;;ScrollToTopComponent;Scroll To Top Component;ScrollToTopComponent;ScrollToTopComponent
+```
+
+You can add the **Scroll to Top** component by inserting the CMS component in the **Footer** slot with the following ImpEx:
+
+```text
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent,ProfileTagComponent,ScrollToTopComponent 
+```
+
+## Configuring Scroll to Top
+
+Scroll to top has two configurable properties, scroll behavior and display threshold, as shown in the following interface:
+
+```ts
+export interface CmsScrollToTopComponent extends CmsComponent {
+  scrollBehavior?: ScrollBehavior;
+  displayThreshold?: number;
+}
+```
+
+### Scroll Behavior
+
+By default, the scrolling behavior is set to `smooth` scroll, but you can modify this value to `auto` by providing a different configuration. You can provide your configuration as shown in the following example:
+
+```ts
+provideConfig(<CmsConfig>{
+  cmsComponents: {
+    ScrollToTopComponent: {
+      data: {
+        scrollBehavior: ScrollBehavior.AUTO,
+      }
+    },
+  },
+}),
+```
+
+In the above example, `ScrollBehavior.AUTO`, is part of an `enum` located in `@spartacus/core`.
+
+### Display Threshold
+
+Display threshold determines at which scroll position (0 at the top and increases as user scrolls down) will the button be displayed on the screen. By default, the display threshold is set to half the height of the window, but you can modify this value to by providing a different configuration. You can provide your configuration as shown in the following example:
+
+```ts
+provideConfig(<CmsConfig>{
+  cmsComponents: {
+    ScrollToTopComponent: {
+      data: {
+        displayThreshold: 1000,
+      }
+    },
+  },
+}),
+```
+
+In the above example, display threshold is fixed and will display the scroll to top button at a `window.scrollY` value of 1000.
+
+Both of these examples can be combined into a single configuration.
+
