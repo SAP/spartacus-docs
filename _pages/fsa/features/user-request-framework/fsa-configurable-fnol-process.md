@@ -29,23 +29,28 @@ However, the Financial Services Accelerator enables you to create a tailor-made 
 To create a tailor-made FNOL process for an insurance product:
 
 - **Configure the process in the Backoffice**
+  
   To do this, follow the instructions given in the [FSA Help Portal documentation](https://help.sap.com/docs/FINANCIAL_SERVICES_ACCELERATOR/087aa07411e34eb38c86d49ce2aaf73b/b940fe76a2eb47c1b84e02693074ca0a.html?version=2202). 
   The tutorial on the Help Portal uses the Travel Insurance FNOL process as an example.
   
 - **Enable the FNOL process on the SPA side**
+  
   After you complete all the steps from the tutorial, you need to expose the routes of your newly created FNOL process in your FSA Spartacus application. 
   For instructions on how to do that and an example for the Travel Insurance FNOL process explained in the trail, see the steps in the next section.
 
 - **Test your FNOL Process on the Storefront**
+  
   Check if the process you created is visible on the Storefront and test it out.
 
 
 ## Enabling FNOL Process in your Custom Application
 
-Learn how to expose routes of your customized FNOL page to make it visible on the storefront.
+To complete the creation of your custom FNOL process, which you previously configured in the Backoffice, you need to expose the routes of your customized FNOL page to make it visible on the storefront.
 
-1. Go to the `app.module.ts` file of your application. 
-2. Enter the following code: 
+To do that: 
+
+1. Go to the `app.module.ts` file of your application (`spartacus-financial-services-accelerator/src/app`). 
+2. Enter the following code, having in mind that we used the travel insurance example in this tutorial: 
 
 ```typescript
 const routes: Routes = [
@@ -78,8 +83,6 @@ export const routingConfig: RoutingConfig = {
   ],
 ```
 
-3. Check if your process is visible on the storefront. (screenshot)
-
 ## Test your FNOL Process on the Storefront
 
 In order to test your FNOL process, perform the following steps:
@@ -88,9 +91,12 @@ In order to test your FNOL process, perform the following steps:
 2. Navigate to the Backoffice and do the following:
   - Under **Policies**, find the travel policy you created (screenshot).
   - Change the start and the effective date of the policy to be in the past (screenshot). 
-    This is necessary for the FNOL process to be visible on the storefront.
+    This is necessary for the FNOL process to be visible on the storefront immediately.
 3. Go back to the storefront and navigate to the **My Policies** page. You should see the **Make a Claim** button on the travel policy (screenshot).
 4. Click on the **Make a Claim** button to start the FNOL process.
+5. Check if all the forms and steps are as you configured them in the Backoffice. 
+
+Congratulations! You successfully created a custom FNOL process for your insurance website. 
 
     
 
