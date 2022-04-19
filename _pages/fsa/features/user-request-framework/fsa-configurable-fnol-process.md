@@ -88,13 +88,20 @@ export const routingConfig: RoutingConfig = {
 In order to test your FNOL process, perform the following steps:
 
 1. On the storefront, create a travel policy and check if it is available in the **My Policies** section of the **My Account** area (screenshot).
-2. Navigate to the Backoffice and do the following:
-  - Under **Policies**, find the travel policy you created (screenshot).
-  - Change the start and the effective date of the policy to be in the past (screenshot). 
-    This is necessary for the FNOL process to be visible on the storefront immediately.
-3. Go back to the storefront and navigate to the **My Policies** page. You should see the **Make a Claim** button on the travel policy (screenshot).
-4. Click on the **Make a Claim** button to start the FNOL process.
-5. Check if all the forms and steps are as you configured them in the Backoffice. 
+2. Log into the Backoffice, then navigate to **Financial Services** > **Insurance** > **Policies** node.
+3. Find the travel policy you created and then click on it to open the context menu.
+4. Change the start date and the effective date of the policy to be in the past. This is necessary for the FNOL process to be visible on the storefront immediately.
+5. Go back to the storefront and navigate to the **Policies** page in the **My Account** area. You should see the **Make a Claim** button on the travel policy.    
+6. Click on the **Make a Claim** button to start the FNOL process.
+7. Check if all the forms and steps are as you configured them in the Backoffice. 
+
+    ![Travel FNOL Process - First Step]({{ site.baseurl }}/assets/images/fsa/travel-fnol-first-step.png)
+
+    ![Travel FNOL Process - Second Step]({{ site.baseurl }}/assets/images/fsa/travel-fnol-second-step.png)
+
+8. Fill out the forms and submit the claim. 
+
+    ![Travel FNOL Process - Claim Created]({{ site.baseurl }}/assets/images/fsa/travel-fnol-claim-created.png)
 
 Congratulations! You successfully created a custom FNOL process for your insurance website. 
 
