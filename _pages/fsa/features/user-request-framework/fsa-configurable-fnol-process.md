@@ -4,13 +4,13 @@ title: FSA Configurable FNOL Process (Financial Services Accelerator Trail)
 
 **Note**: This trail has been written for and tested on the 4.0 version of the FSA Spartacus libraries.
 
-Financial Services Accelerator offer several trails to help you get more familiar with some of the features. 
-The Customized FNOL Process trail demonstrates how to create a new user request process in Financial Services Accelerator, using as an example the First Notice of Loss process for Travel Insurance.
+Financial Services Accelerator offers several trails to help you get more familiar with some of the features. 
+The Customized FNOL Process Trail demonstrates how to create a new user request process in Financial Services Accelerator, using as an example the First Notice of Loss (FNOL) process for Travel Insurance.
 
-The process of creating a custom FNOL process is almost fully configurable in the Backoffice. 
+Making a custom FNOL process is almost fully available from the Backoffice. 
 The last step, however, in which you enable your Backoffice-configured process to be seen and tested on the storefront, needs to be done in the FSA Spartacus application itself. 
 
-The purpose of this document is to provide those final instructions and show how the newly created FNOL process for travel insurance can look like on the storefront.
+The purpose of this document is to provide those final instructions and show how the newly created FNOL process for Travel Insurance can look like on the storefront.
 
 ***
 
@@ -23,7 +23,7 @@ The purpose of this document is to provide those final instructions and show how
 
 ## Introduction
 
-The First Notice of Loss (FNOL) sample process has been implemented in the Financial Services Accelerator on the Auto Insurance product. 
+The First Notice of Loss sample process has been implemented in the Financial Services Accelerator on the Auto Insurance product. 
 However, the Financial Services Accelerator enables you to create a tailor-made FNOL process for your insurance products using the User Request Framework.
 
 To create a tailor-made FNOL process for an insurance product:
@@ -36,7 +36,7 @@ To create a tailor-made FNOL process for an insurance product:
 - **Enable the FNOL process on the SPA side**
   
   After you complete all the steps from the tutorial, you need to expose the routes of your newly created FNOL process in your FSA Spartacus application. 
-  For instructions on how to do that and an example for the Travel Insurance FNOL process explained in the trail, see the steps in the next section.
+  For instructions on how to do that, see the steps in the next section.
 
 - **Test your FNOL Process on the Storefront**
   
@@ -49,8 +49,8 @@ To complete the creation of your custom FNOL process, which you previously confi
 
 To do that: 
 
-1. Go to the `app.module.ts` file of your application (`spartacus-financial-services-accelerator/src/app`). 
-2. Enter the following code, having in mind that we used the travel insurance example in this tutorial: 
+1. Go to the `app.module.ts` file of your FSA Spartacus application (`[your-fsa-spa-root-folder]/src/app`). 
+2. Enter the following code, having in mind that we used the Travel Insurance example in this tutorial: 
 
 ```typescript
 const routes: Routes = [
