@@ -3,7 +3,7 @@ title: Clear Cart
 feature:
   - name: Clear Cart
     spa_version: 5.0
-    cx_version: 2105
+    cx_version: 1905
 ---
 
 {% capture version_note %}
