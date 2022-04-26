@@ -12,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The scroll to top feature allows you to enable a button that lets users quickly return to the top of the page they are viewing.
+The scroll to top feature allows users to quickly return to the top of the page they are viewing.
 
 ---
 
@@ -25,11 +25,11 @@ The scroll to top feature allows you to enable a button that lets users quickly 
 
 ## Enabling Scroll to Top
 
-Scroll to top is CMS-driven and consists of one CMS component, called the `ScrollToTopComponent`.
+Scroll to top is CMS-driven and consists of one CMS component, named `ScrollToTopComponent`.
 
 To enable the scroll to top feature in your storefront, add the `ScrollToTopComponent` to a content slot on each page where you wish to make this feature available. To add the scroll to top feature to every page in your storefront, you can add the `ScrollToTopComponent` to a shared content slot, such as the footer.
 
-If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ScrollToTopComponent` is already enabled. If you wish to enable to the scroll to top feature and you are are not using the `spartacussampledata` extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.
+If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ScrollToTopComponent` is already enabled. If you wish to enable the scroll to top feature and you are are not using the `spartacussampledata` extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.
 
 For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
@@ -84,7 +84,7 @@ In the above example, `ScrollBehavior.AUTO` is part of the `ScrollBehavior` enum
 
 ### Configuring the Display Threshold
 
-The display threshold property determines how far down a page a user must scroll before the scroll to top button appears. By default, the display threshold is set to half the height of the page, but you can change this display threshold to an absolute number of pixels. For example, if you set the value to 1000 pixels, the scroll to top button appears only when the user has scrolled down 1000 pixels from the top of the page.
+The display threshold property determines how far down the page a user must scroll before the scroll to top button appears. By default, the display threshold is set to half the height of the page, but you can change this display threshold to an absolute number measured in pixels. For example, if you set the value to 1000, the scroll to top button appears only when the user has scrolled down 1000 pixels from the top of the page.
 
 The following is an example of how to set the `displayThreshold` property to an absolute value of pixels:
 
