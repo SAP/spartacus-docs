@@ -1,8 +1,9 @@
 ---
 title: Scroll to Top
 feature:
-  - name: Scroll to Top
-    spa_version: 5.0
+- name: Scroll to Top
+  spa_version: 5.0
+  cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -11,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The scroll to top feature allows users to quickly scroll back to the top of the page.
+The scroll to top feature allows you to enable a button that lets users quickly return to the top of the page they are viewing.
 
 ---
 
@@ -24,55 +25,48 @@ The scroll to top feature allows users to quickly scroll back to the top of the 
 
 ## Enabling Scroll to Top
 
-To enable this feature in your storefront, add the scroll to top CMS component to a content slot in the web site pages you wish to use the feature with. To add Scroll to Top to the whole web site, you can add the scroll to top component in a shared content slot, like the footer. 
+Scroll to top is CMS-driven and consists of one CMS component, called the `ScrollToTopComponent`.
 
-### CMS Component
+To enable the scroll to top feature in your storefront, add the `ScrollToTopComponent` to a content slot on each page where you wish to make this feature available. To add the scroll to top feature to every page in your storefront, you can add the `ScrollToTopComponent` to a shared content slot, such as the footer.
 
-Scroll to top is CMS-driven and consists of the following CMS component:
+If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ScrollToTopComponent` is already enabled. If you wish to enable to the scroll to top feature and you are are not using the `spartacussampledata` extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.
 
-- `ScrollToTopComponent`
+For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
-If you are using the version 5.0 or greater of [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the scroll to top component is already enabled. However, If you decide not to use the spartacussampledata extension, you can create the scroll to top CMS component with ImpEx.
+### Adding the Scroll to Top CMS Component Manually
 
-**Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
+You can add the `ScrollToTopComponent` CMS component to Spartacus using ImpEx.
+
+**Note:** The `$contentCV` variable that is used in the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 ```
 
-#### Adding Scroll to Top CMS Component Manually
+1. Create the `ScrollToTopComponent` CMS component with the following ImpEx:
 
-This section describes how to add the scroll to top CMS component to Spartacus using ImpEx.
+   ```text
+   INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
+   ;;ScrollToTopComponent;Scroll To Top Component;ScrollToTopComponent;ScrollToTopComponent
+   ```
 
-You can create the **Scroll to Top** component with the following ImpEx:
+1. Enable the scroll to top feature by adding the `ScrollToTopComponent` to the footer slot with the following ImpEx:
 
-```text
-INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-;;ScrollToTopComponent;Scroll To Top Component;ScrollToTopComponent;ScrollToTopComponent
-```
-
-You can enable the **Scroll to Top** feature by adding the scroll to top component in the **Footer** slot with the following ImpEx:
-
-```text
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent,ProfileTagComponent,ScrollToTopComponent 
-```
+   ```text
+   INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+   ;;FooterSlot;FooterNavigationComponent,AnonymousConsentOpenDialogComponent,NoticeTextParagraph,AnonymousConsentManagementBannerComponent,ProfileTagComponent,ScrollToTopComponent 
+   ```
 
 ## Configuring Scroll to Top
 
-Scroll to top has two configurable properties, scroll behavior and display threshold, as shown in the following interface:
+You can configure the scroll to top feature using the `scrollBehavior` and `displayThreshold` properties of the `CmsScrollToTopComponent` interface.
 
-```ts
-export interface CmsScrollToTopComponent extends CmsComponent {
-  scrollBehavior?: ScrollBehavior;
-  displayThreshold?: number;
-}
-```
+### Configuring the Scroll Behavior
 
-### Scroll Behavior
+You can adjust the experience of the scroll to top feature by setting the scroll behavior to `smooth` or `auto`. When the scroll behavior is set to `smooth`, the page scrolls quickly upward through the contents of the page until it reaches the top. When the scroll behavior is set to `auto`, the page jumps instantly from the current position to the top of the page.
 
-By default, the scrolling behavior is set to `smooth` scroll, but you can modify this value to `auto` by providing a different configuration. You can provide your configuration as shown in the following example:
+By default, the scrolling behavior is set to `smooth`, but you can change this value to `auto`, as shown in the following example:
 
 ```ts
 provideConfig(<CmsConfig>{
@@ -86,11 +80,13 @@ provideConfig(<CmsConfig>{
 }),
 ```
 
-In the above example, `ScrollBehavior.AUTO`, is part of an `enum` located in `@spartacus/core`.
+In the above example, `ScrollBehavior.AUTO` is part of the `ScrollBehavior` enum that is defined in `cms.model.ts` in the `@spartacus/core` library.
 
-### Display Threshold
+### Configuring the Display Threshold
 
-Display threshold determines after how many pixels from the top of the page will the button be displayed on the screen. By default, the display threshold is set to half the height of the window, but you can modify this value by providing an absolute number via configuration. You can provide your configuration as shown in the following example:
+The display threshold property determines how far down a page a user must scroll before the scroll to top button appears. By default, the display threshold is set to half the height of the page, but you can change this display threshold to an absolute number of pixels. For example, if you set the value to 1000 pixels, the scroll to top button appears only when the user has scrolled down 1000 pixels from the top of the page.
+
+The following is an example of how to set the `displayThreshold` property to an absolute value of pixels:
 
 ```ts
 provideConfig(<CmsConfig>{
@@ -104,9 +100,9 @@ provideConfig(<CmsConfig>{
 }),
 ```
 
-In the above example, display threshold is fixed and will display the scroll to top button at a `window.scrollY` value of 1000.
+In this example, the scroll to top button appears when the page's `window.scrollY` value reaches `1000`.
 
-Both of these examples can be combined into a single configuration as shown in the following example:
+**Note:** You can provide values for both the `scrollBehavior` and `displayThreshold` properties in a single configuration. The following is an example:
 
 ```ts
 provideConfig(<CmsConfig>{
@@ -120,4 +116,3 @@ provideConfig(<CmsConfig>{
   },
 }),
 ```
-
