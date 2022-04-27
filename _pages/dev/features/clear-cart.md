@@ -14,14 +14,14 @@ feature:
 
 The clear cart feature allows users to quickly clear their active shopping cart. This feature works for registered as well as guest users.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
 
----
+***
 
 ## Enabling Clear Cart
 You can enable clear cart by installing the `@spartacus/cart` feature library and inserting the CMS component through ImpEx. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
