@@ -14,14 +14,14 @@ feature:
 
 The scroll to top feature allows users to quickly return to the top of the page they are viewing.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
 
----
+***
 
 ## Enabling Scroll to Top
 
