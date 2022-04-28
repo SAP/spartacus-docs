@@ -311,6 +311,8 @@ docs:
                   url: /cart-import-export/
                 - title: "Cart Validation"
                   url: /cart-validation/
+                - title: "Clear Cart"
+                  url: /clear-cart/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
