@@ -29,7 +29,7 @@ Scroll to top is CMS-driven and consists of one CMS component, called the `Scrol
 
 To enable the scroll to top feature in your storefront, add the `ScrollToTopComponent` to a content slot on each page where you wish to make the scroll to top button available. To add the scroll to top button to every page in your storefront, you can add the `ScrollToTopComponent` to a shared content slot, such as the footer.
 
-If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ScrollToTopComponent` is already enabled. If you wish to enable the scroll to top feature and you are are not using the `spartacussampledata` extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.
+If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ScrollToTopComponent` is already enabled. If you wish to enable the scroll to top feature and you are not using the `spartacussampledata` extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.
 
 For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 

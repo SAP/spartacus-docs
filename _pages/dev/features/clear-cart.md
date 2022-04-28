@@ -29,7 +29,7 @@ Clear cart is CMS-driven and consists of one CMS component, called the `ClearCar
 
 You can enable the clear cart feature by installing the `@spartacus/cart` feature library and inserting the CMS component through ImpEx.
 
-If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ClearCartComponent` is already enabled. If you wish to enable the clear cart feature and you are are not using the `spartacussampledata` extension, you can create the clear cart CMS component using ImpEx, as described in the following section.
+If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ClearCartComponent` is already enabled. If you wish to enable the clear cart feature and you are not using the `spartacussampledata` extension, you can create the clear cart CMS component using ImpEx, as described in the following section.
 
 For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
