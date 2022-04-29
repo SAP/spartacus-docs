@@ -6,7 +6,7 @@ The Spartacus library gives us great opportunities. Many Spartacus elements can 
 
 Extending the elements should be the basic action we will perform in Spartacus implementation projects.
 
-Each time you will have to implement a new feature or just a single functionality, find it or something similar in the Spartacus Code and analyze how much you can reuse it.
+Each time you have to implement a new feature or a single functionality, find it or something similar in the Spartacus Code and analyse how much you can reuse.
 
 ### Extending components
 
