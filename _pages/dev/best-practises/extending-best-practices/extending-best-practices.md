@@ -34,6 +34,11 @@ export class CustomCartTotalsComponent extends CartTotalsComponent implements On
   customMethod(): void {
     // custom method
   }
+
+  customMethodWithActiveCartService(): Observable<Cart> {
+    // Custom method
+    // return this.activeCartService.getActive();
+  }
 }
 ```
 
@@ -65,7 +70,7 @@ If we need to extend any adapter/service/serializer/guard we should do it in a s
     },
   ]
 })
-export class CartTotalModule { }
+export class CustomCartTotalModule { }
 ```
 
 ### Extending pageMetaResolvers and normalizers
@@ -90,5 +95,5 @@ Extending Page Meta Resolvers or Normalizer looks the same as with adapters, the
     },
   ]
 })
-export class CartTotalModule { }
+export class CustomCartTotalModule { }
 ```

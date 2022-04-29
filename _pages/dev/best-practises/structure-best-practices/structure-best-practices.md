@@ -10,11 +10,11 @@ Spartacus schematics installation gives us the basic structure of folder structu
 
 Under `app`, create `shared` folder. This folder will contain all elements used globally in the project like cms-components, components, adapters, connectors, guards, configs, directives, pipes, etc.
 
-We will suggest creating a separate folder for each of the above examples. We will recommend also dividing the folder for components into: `components` and `cms-components`, the first one is to keep shared components, but the second one is to keep all shared components with cms mapping.
+We suggest creating a separate folder for each of the above examples. We recommend also dividing the folder for components into: `components` and `cms-components`, the first one is to keep shared components, but the second one is to keep all shared components with cms mapping.
 
 ### Features folder
 
-Next folder we will recommand to create is `features` folder next to the `shared`. This folder will containt all page main features/modules. For each page funcionality/module we should create seperate folder, including following folders:
+Next folder we recommand to create is `features` folder next to the `shared`. This folder will containt all page main features/modules. For each page funcionality/module we should create seperate folder, including following folders:
 - components
 - services
 - adapters
@@ -33,7 +33,7 @@ For each feature module, we are recommending to provide all configs in main feat
 ```
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartTotalModule } from './components/cart-total/cart-total.module';
+import { CustomCartTotalModule } from './components/cart-total/cart-total.module';
 import {
   cartCmsConfig,
   cartOccConfig,
@@ -43,7 +43,7 @@ import {
 import { provideConfig } from '@spartacus/core';
 
 @NgModule({
-  imports: [CommonModule, CartTotalModule],
+  imports: [CommonModule, CustomCartTotalModule],
   providers: [
     provideConfig(cartCmsConfig),
     provideConfig(cartOccConfig),

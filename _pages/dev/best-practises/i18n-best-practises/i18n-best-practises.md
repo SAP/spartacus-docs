@@ -11,7 +11,7 @@ For global translations use create `i18n-assets` inside `assets` and than create
 `i18n.ts` example:
 
 ```
-export const customi18nConfig: I18nConfig = {
+export const customI18nConfig: I18nConfig = {
     i18n: {
         backend: {
             loadPath: 'assets/i18n-assets/{{lng}}/{{ns}}.json',
@@ -31,5 +31,5 @@ Once we will create the file and provide our own customization we have to provid
 @NgModule({
     ...
     providers: [
-        provideConfig(customi18nConfig),
+        provideConfig(customI18nConfig),
     ...

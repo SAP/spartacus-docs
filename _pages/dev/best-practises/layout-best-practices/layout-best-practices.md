@@ -15,20 +15,16 @@ Another very common case is adding additional layouts to the configuration and a
 ```export const customLayoutConfig: LayoutConfig = {
   layoutSlots: {
     prologue: {
-      xl: {
-        slots: [
+      slots: [
           'PreHeader',
           'SearchBox',
           'SiteLogo',
         ],
-      },
-      lg: {
-        slots: ['PreHeader'', 'SearchBox'],
-      },
-      slots: ['PreHeader', 'SiteLogo'],
     },
   }
 };
+
+There is a possibility to add breakpoints in the layout config, but it affects performance and causes flickering in SSR. If it is possible, responsiveness should be achieved via CSS whenever it is possible.
 
 Once we will create the file and provide our own customization we have to provide it in `src/app/spartacus/spartacus-configuration.module.ts`:
 
@@ -45,14 +41,14 @@ Once we will create the file and provide our own customization we have to provid
 
 In many projects the cx-storefront directive usage will be sufficient, but it is highly probable that to facilitate the work on spartacus it will be easier for us to slightly modify the default storefront layout.
 
-In this case we will recommend to:
+In this case we recommend to:
 1. Create module with component `<our-own-name>-storefront` in `src/app/<our-own-name>-storefront` folder.
 2. Extend our own `<our-own-name>StorefrontComponent` with Spartacus `StorefrontComponent`.
 3. Copy Spartacus Storefron Component template and paste it in our own Storefront template with our own customization. We can here:
     - modify elements order
     - add custom elements
-4. Import in our Storefront Module all required modules
-5. Import our Storefront module in `AppModule`
+4. Import in your Storefront Module all required modules
+5. Import your Storefront module in `AppModule`
 
 Example custom storefront template:
 
