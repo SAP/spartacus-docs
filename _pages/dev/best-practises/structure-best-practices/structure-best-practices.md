@@ -2,7 +2,7 @@
 title: Structure Best Practices
 ---
 
-Spartacus schematics installation gives us the basic structure of folder structure. It is adding `spartacus` folder with required modules and `feature` folder with feature libs and their modules. We are recommending to not modify `spartacus` folder with any own folder/files because of schematics installation and possible conflicts in the future. The only once modification we can recommend is about `configuration` folder describe in `layout-best-practices.md` and `i18n-best-practices.md`.
+Spartacus schematics installation gives us the basic structure of folder structure. It is adding `spartacus` folder with required modules and `feature` folder with feature libs and their modules. We are suggesting to not modify `spartacus` folder with any own folder/files because of schematics installation and possible conflicts in the future. The only once modification we can suggest is about `configuration` folder describe in `layout-best-practices.md` and `i18n-best-practices.md`.
 
 ## Our structure recommandations:
 
@@ -10,7 +10,7 @@ Spartacus schematics installation gives us the basic structure of folder structu
 
 Under `app`, create `shared` folder. This folder will contain all elements used globally in the project like cms-components, components, adapters, connectors, guards, configs, directives, pipes, etc.
 
-We suggest creating a separate folder for each of the above examples. We recommend also dividing the folder for components into: `components` and `cms-components`, the first one is to keep shared components, but the second one is to keep all shared components with cms mapping.
+We suggest creating a separate folder for each of the above examples. Then divide the folder for components into: `components` and `cms-components`, the first one is to keep shared components, but the second one is to keep all shared components with cms mapping.
 
 ### Features folder
 
@@ -28,7 +28,7 @@ Below there is an example of the structure:
 
 ### Features module
 
-For each feature module, we are recommending to provide all configs in main feature module:
+For each feature module, we are suggesting to provide all configs in main feature module:
 
 ```
 import { NgModule } from '@angular/core';

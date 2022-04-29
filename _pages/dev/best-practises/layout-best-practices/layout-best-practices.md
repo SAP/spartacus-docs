@@ -41,7 +41,7 @@ Once we will create the file and provide our own customization we have to provid
 
 In many projects the cx-storefront directive usage will be sufficient, but it is highly probable that to facilitate the work on spartacus it will be easier for us to slightly modify the default storefront layout.
 
-In this case we recommend to:
+In this case we suggest to:
 1. Create module with component `<our-own-name>-storefront` in `src/app/<our-own-name>-storefront` folder.
 2. Extend our own `<our-own-name>StorefrontComponent` with Spartacus `StorefrontComponent`.
 3. Copy Spartacus Storefron Component template and paste it in our own Storefront template with our own customization. We can here:
