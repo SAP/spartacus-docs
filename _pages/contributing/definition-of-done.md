@@ -30,6 +30,8 @@ All new features for Spartacus must:
 
 - Pass a security review during the initial POC phase. For more information, see [Security Review](#security-review).
 
+- Avoid breaking changes.  For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes) 
+
 ***
 
 **Table of Contents**
