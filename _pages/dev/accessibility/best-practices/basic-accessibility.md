@@ -20,3 +20,5 @@ Basic Accessibility is mostly theme-related. Both Spartacus themes, Sparta and S
 - 3.2.4, Level AA, Consistent Use of Identical UI-Elements.
 
 Client's customizations may remove conformance to these criteria.
+
+Note to Matt: still not sure how to call this section, other alternatives could be "Basic Theme Accessibility", "Core Theme Accessibility", "UI Basic Accessibility"
