@@ -20,6 +20,14 @@ When combined all together, these criteria provide Spartacus with keyboard acces
 
 If you are a contributor to the Spartacus project, it is also important to ensure you run end-to-end tests for accessibility. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-e2e-tests.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
 
+Note to Matt: Perhaps all the above should be transferred to keyboard-accessibility.md ... or regrouped as follows to reflect the A11Y Roadmap milestones https://wiki.wdf.sap.corp/wiki/display/spar/Accessibility+Roadmap ... and since we are adding many section now and almost done with a11y coverage... should we add the 3 success criteria we still haven't addressed? like a "Planned Accessibility" section (see GH-132), or do we just wait until released?
+
+- Basic accessibility (link to basic-accessibility.md)
+- Keyboard accessibility (link to keyboard-accessibility.md)
+- Screen Reader accessibility (link to screen-reader-accessibility.md)
+- Media accessibility (link to media-accessibility.md)
+- Conformance by no-content (link to conformance-by-no-content.md)
+- Planned Accessibility?
 ## Common Keyboard Interactions
 
 The following table lists many of the most common UI components, and the standard keystrokes for interacting with those components.
