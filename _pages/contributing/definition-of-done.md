@@ -30,7 +30,7 @@ All new features for Spartacus must:
 
 - Pass a security review during the initial POC phase. For more information, see [Security Review](#security-review).
 
-- Avoid breaking changes.  If they can't be avoided, they need to be handled in a way that depends on the the kind of release (major version vs minor/patch).  For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes) 
+- Avoid breaking changes. If you cannot avoid introducing a breaking change, ensure the breaking change is handled in a way that corresponds to the type of release you are working on, whether it is a major release (**X**.y.z), a minor release (x.**Y**.z), or a patch release (x.y.**Z**). For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes).
 
 ***
 
