@@ -70,6 +70,24 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Supported Attribute Types and Display Types
+
+The following CPQ attributes types are supported in the storefront:
+
+- User input or computed (string)
+- User input or computed (number)
+- User selection
+- User selection with quantity for each attribute value
+- User selection with attribute quantity input
+- Numeric attributes with interval domain (as of Spartacus version 5.0)
+
+The following CPQ display types are supported in the storefront:
+
+- Checkbox
+- Dropdown
+- Radio button
+- Free input, no matching (string or number)
+
 ## Saved Cart
 
 {% capture version_note %}
