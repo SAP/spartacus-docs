@@ -12,7 +12,7 @@ All new features for Spartacus must:
 
 - Follow our security best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "security-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/security-best-practices.md %}).
 
-- Follow our accessibility best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+- Follow our accessibility best practices. New features and fixes must be thoroughly tested with JAWS and AMP before they are merged, in accordance with SAP practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
 - Ensure that new feature modules are lazy loaded. For more information, see [{% assign linkedpage = site.pages | where: "name", "lazy-loading-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
 

@@ -4,30 +4,23 @@ title: Accessibility Best Practices
 
 This is a landing page for grouping together topics about accessibility (a11y) best practices.
 
-Starting with version 2.0, Spartacus features comply with the following success criteria of the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/):
+## Accessibility Compliance
 
-- 2.1.1, Level A, Keyboard
-- 2.1.2, Level A, No Keyboard Trap
-- 2.4.1, Level A, Bypass Blocks
-- 2.4.3, Level A, Focus Order
-- 2.4.7, Level AA, Focus Visible
-- 3.2.3, Level AA, Consistent Navigation
+Spartacus ensures accessibility by adhering to the success criteria of the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/) in the following categories:
 
-When combined all together, these criteria provide Spartacus with keyboard accessibility. To continue to comply with each of these criteria, it is recommended that you include the following features and best practices in your implementation when you are developing new features or fixing regressions:
+- [Core Theme Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#core-theme-accessibility)
+- [Keyboard Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#keyboard-accessibility)
+- [Screen Reader Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#screen-reader-accessibility)
+- [Media Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#media-accessibility)
+- [Other Accessibility Conformance]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#other-accessibility-conformance)
+
+When you are developing new features or fixing regressions, it is recommended that you include the following features and best practices in your implementation to continue to comply with the relevant accessibility criteria:
 
 - [{% assign linkedpage = site.pages | where: "name", "keyboard-accessibility.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
 - [{% assign linkedpage = site.pages | where: "name", "keyboard-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
 
 If you are a contributor to the Spartacus project, it is also important to ensure you run end-to-end tests for accessibility. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-e2e-tests.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/a11y-e2e-tests.md %}).
 
-Note to Matt: Perhaps all the above should be transferred to keyboard-accessibility.md ... or regrouped as follows to reflect the A11Y Roadmap milestones https://wiki.wdf.sap.corp/wiki/display/spar/Accessibility+Roadmap ... and since we are adding many section now and almost done with a11y coverage... should we add the 3 success criteria we still haven't addressed? like a "Planned Accessibility" section (see GH-132), or do we just wait until released?
-
-- Basic accessibility (link to basic-accessibility.md)
-- Keyboard accessibility (link to keyboard-accessibility.md)
-- Screen Reader accessibility (link to screen-reader-accessibility.md)
-- Media accessibility (link to media-accessibility.md)
-- Conformance by no-content (link to conformance-by-no-content.md)
-- Planned Accessibility?
 ## Common Keyboard Interactions
 
 The following table lists many of the most common UI components, and the standard keystrokes for interacting with those components.
