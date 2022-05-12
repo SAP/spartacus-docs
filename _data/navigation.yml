@@ -619,6 +619,11 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/
+                - title: "User Request Framework ➢"
+                  url: /fsa-user-request-framework/
+                  underchildren:
+                    - title: "Configurable FNOL Process"
+                      url: /fsa-configurable-fnol-process/
                 - title: "Claims ➢"
                   url: /claims/
                   underchildren:
