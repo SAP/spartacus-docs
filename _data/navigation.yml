@@ -134,6 +134,8 @@ docs:
           - title: "Accessibility ➢"
             url: /a11y/
             subchildren:
+                - title: "Accessibility Compliance"
+                  url: /a11y-compliance/
                 - title: "Best Practices ➢"
                   url: /a11y-best-practices/
                   underchildren:

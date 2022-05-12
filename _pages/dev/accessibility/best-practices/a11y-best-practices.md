@@ -4,16 +4,17 @@ title: Accessibility Best Practices
 
 This is a landing page for grouping together topics about accessibility (a11y) best practices.
 
-Starting with version 2.0, Spartacus features comply with the following success criteria of the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/):
+## Accessibility Compliance
 
-- 2.1.1, Level A, Keyboard
-- 2.1.2, Level A, No Keyboard Trap
-- 2.4.1, Level A, Bypass Blocks
-- 2.4.3, Level A, Focus Order
-- 2.4.7, Level AA, Focus Visible
-- 3.2.3, Level AA, Consistent Navigation
+Spartacus ensures accessibility by adhering to the success criteria of the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/) in the following categories:
 
-When combined all together, these criteria provide Spartacus with keyboard accessibility. To continue to comply with each of these criteria, it is recommended that you include the following features and best practices in your implementation when you are developing new features or fixing regressions:
+- [Core Theme Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#core-theme-accessibility)
+- [Keyboard Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#keyboard-accessibility)
+- [Screen Reader Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#screen-reader-accessibility)
+- [Media Accessibility]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#media-accessibility)
+- [Other Accessibility Conformance]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-compliance.md %}#other-accessibility-conformance)
+
+When you are developing new features or fixing regressions, it is recommended that you include the following features and best practices in your implementation to continue to comply with the relevant accessibility criteria:
 
 - [{% assign linkedpage = site.pages | where: "name", "keyboard-accessibility.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/keyboard-accessibility.md %})
 - [{% assign linkedpage = site.pages | where: "name", "keyboard-focus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/keyboard-focus/keyboard-focus.md %})
