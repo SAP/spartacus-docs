@@ -11,3 +11,4 @@ This is a landing page for Spartacus components topics. This includes the follow
 - [{% assign linkedpage = site.pages | where: "name", "searchbox-component.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/searchbox-component.md %})
 - [{% assign linkedpage = site.pages | where: "name", "split-view.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/split-view.md %})
 - [{% assign linkedpage = site.pages | where: "name", "table-component.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/table-component.md %})
+- [{% assign linkedpage = site.pages | where: "name", "toggle-password-visibility-component.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/components/shared-components/toggle-password-visibility-component.md %})
