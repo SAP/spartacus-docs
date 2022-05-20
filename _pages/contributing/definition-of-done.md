@@ -12,7 +12,7 @@ All new features for Spartacus must:
 
 - Follow our security best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "security-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/security-best-practices.md %}).
 
-- Follow our accessibility best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+- Follow our accessibility best practices. New features and fixes must be thoroughly tested with JAWS and AMP before they are merged, in accordance with SAP practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
 - Ensure that new feature modules are lazy loaded. For more information, see [{% assign linkedpage = site.pages | where: "name", "lazy-loading-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
 
@@ -29,6 +29,8 @@ All new features for Spartacus must:
 - If applicable, function on Android and iOS devices. For more information, see [Device Compatibility](#device-compatibility).
 
 - Pass a security review during the initial POC phase. For more information, see [Security Review](#security-review).
+
+- Avoid breaking changes. If you cannot avoid introducing a breaking change, ensure the breaking change is handled in a way that corresponds to the type of release you are working on, whether it is a major release (**X**.y.z), a minor release (x.**Y**.z), or a patch release (x.y.**Z**). Breaking changes are permitted in major releases, but must be accompanied by migration documentation and schematics. Breaking changes are never allowed in minor or patch releases, and must be handled through deprecation and the use of feature flags. For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes).
 
 ***
 

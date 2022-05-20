@@ -70,6 +70,24 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Supported Attribute Types and Display Types
+
+The following CPQ attributes types are supported in the storefront:
+
+- User input or computed (string)
+- User input or computed (number)
+- User selection
+- User selection with quantity for each attribute value
+- User selection with attribute quantity input
+- Numeric attributes with interval domain (as of Spartacus version 5.0)
+
+The following CPQ display types are supported in the storefront:
+
+- Checkbox
+- Dropdown
+- Radio button
+- Free input, no matching (string or number)
+
 ## Saved Cart
 
 {% capture version_note %}
@@ -96,7 +114,7 @@ All available locales must be replicated in Spartacus. Locales in the back end a
 
 ## Conflict Solver
 
-For this initial (MVP) version of the Configurable Products integration, the user navigation for the conflict solver is still quite simple. For example, if a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
+The user navigation for solving conflicts is nearly the same as in Accelerator, except that in Spartacus, users are not yet guided from issue to issue. If a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
 
 For now, there is no navigation mode that guides the user from issue to issue until the configuration has no remaining issues. Instead, users have two options for navigating through conflicts, as described in the following procedures.
 
@@ -119,13 +137,11 @@ Right-to-left (RTL) orientation is supported for product configuration in Sparta
 
 ## Retract Option for Single-Select Characteristics
 
-By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection.
+By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, users can change their selection, but they cannot simply undo it. This means that, depending on the product modeling, users could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable the "retract" feature in your Spartacus configuration that allows users to undo their selection, which they can do by selecting the special **No option selected** entry.
 
-Depending on the product modeling, customers could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable a "retract" option that allows customers to remove their selection, which they can do by selecting the special **No option selected** entry.
+This feature is valuable if your product modeling relies on VC/AVC automatically generating a **No option selected** value. By enabling the retract feature, you can also have Commerce generate the additional **No option selected** value, if needed. In this case, the system interprets the characteristic as not having been selected.
 
-**Note:** You can customize the `No option selected` label of this entry, just as you can with any UI text in Spartacus.
-
-To enable the retract option, you need to activate the rendering of the option in your Spartacus configuration, as shown in the following example:
+You can activate the retract feature as follows:
 
 ```ts
 productConfigurator: { 
@@ -133,7 +149,14 @@ productConfigurator: {
   } 
 ```
 
+**Note:** You can customize the `No option selected` label of this entry, just as you can with any UI text in Spartacus.
+
 Depending on the product modeling and the configuration engine, after the customer has retracted their selection, the default setting may be withdrawn with the attribute unselected, or the configuration engine may set a default selection.
+
+If you do not activate the retract feature, a read-only value might get involved in a conflict, where users cannot change or undo their selection. In this case, you can allow customers to undo the selection under the following conditions:
+
+- You have set the attribute in your model in the back end system as follows: `retractBlocked = false`
+- The attribute setting has not been set by the system.
 
 ## Group Status Handling
 

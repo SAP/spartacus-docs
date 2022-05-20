@@ -134,6 +134,8 @@ docs:
           - title: "Accessibility ➢"
             url: /a11y/
             subchildren:
+                - title: "Accessibility Compliance"
+                  url: /a11y-compliance/
                 - title: "Best Practices ➢"
                   url: /a11y-best-practices/
                   underchildren:
@@ -311,6 +313,8 @@ docs:
                   url: /cart-import-export/
                 - title: "Cart Validation"
                   url: /cart-validation/
+                - title: "Clear Cart"
+                  url: /clear-cart/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
@@ -617,6 +621,11 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/
+                - title: "User Request Framework ➢"
+                  url: /fsa-user-request-framework/
+                  underchildren:
+                    - title: "Configurable FNOL Process"
+                      url: /fsa-configurable-fnol-process/
                 - title: "Claims ➢"
                   url: /claims/
                   underchildren:
