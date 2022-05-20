@@ -38,7 +38,7 @@ The password visibility toggle component can be added to any `<input>` HTML elem
 1. Insert the `cxPasswordVisibilitySwitch` directive in an input HTML element to bind the password visibility toggle component to the target input.
     
     ```html
-     <input
+    <input
       type="password"
       cxPasswordVisibilitySwitch
     />
@@ -48,7 +48,7 @@ The password visibility toggle component can be added to any `<input>` HTML elem
 
 By default, all password inputs within the Spartacus libraries use the password visibility toggle. This feature can be disabled by providing a configuration for the `FormConfig`, as shown in the following example:
 
-**Note:** this is a gobal configuration and when it's provided it will enable or disable all password visibility toggles across the storefront. Also, if this feature is disabled, the `cxPasswordVisibilitySwitch` directive does not create the password visibility toggle component in the template.
+**Note:** this is a global configuration and when it's provided it will enable or disable all password visibility toggles across the storefront. Also, if this feature is disabled, the `cxPasswordVisibilitySwitch` directive does not create the password visibility toggle component in the template.
 
 ```ts
 @NgModule({
@@ -64,5 +64,5 @@ By default, all password inputs within the Spartacus libraries use the password 
 
 ## Extending Password Visibility Toggle
 
-The password visibility toggle component has two states, `showState` and `hideState`. You can configure these states using the properties `icon` , `inputType`, and `ariaLabel` of the `PasswordInputState` interface.
+The password visibility toggle component has two states, `showState` and `hideState`. You can configure these states using the properties `icon`, `inputType`, and `ariaLabel` of the `PasswordInputState` interface.
 
