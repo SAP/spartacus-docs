@@ -137,11 +137,11 @@ Right-to-left (RTL) orientation is supported for product configuration in Sparta
 
 ## Retract Option for Single-Select Characteristics
 
-By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, users can change their selection, but they cannot take it back altogether. This means that - depending on the product modeling -, users could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable the 'retract' feature in your Spartacus configuration that allows users to take back their selection, which they can do by selecting the special **No option selected** entry.`
+By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, users can change their selection, but they cannot simply undo it. This means that, depending on the product modeling, users could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable the "retract" feature in your Spartacus configuration that allows users to undo their selection, which they can do by selecting the special **No option selected** entry.
 
-This feature is valuable if your product modeling relies on VC/AVC automatically generating a **No option selected** value. By enabling the retract feature, you can also have Commerce generate the additional **No option selected** value, if needed. In this case, the system interprets the characteristic as not having been selected. 
+This feature is valuable if your product modeling relies on VC/AVC automatically generating a **No option selected** value. By enabling the retract feature, you can also have Commerce generate the additional **No option selected** value, if needed. In this case, the system interprets the characteristic as not having been selected.
 
-You can activate the retract feature as follows: 
+You can activate the retract feature as follows:
 
 ```ts
 productConfigurator: { 
@@ -153,10 +153,10 @@ productConfigurator: {
 
 Depending on the product modeling and the configuration engine, after the customer has retracted their selection, the default setting may be withdrawn with the attribute unselected, or the configuration engine may set a default selection.
 
-If you don't activate the retract feature, a read-only value might get involved in a conflict, where users cannot change or take back their selection. In this case, you can enable customers to take back the selection under the following conditions:
+If you do not activate the retract feature, a read-only value might get involved in a conflict, where users cannot change or undo their selection. In this case, you can allow customers to undo the selection under the following conditions:
 
-- You have set the attribute in your model in the back-end system as follows: retractBlocked = false,
-- The attribute setting has not been set by the system. 
+- You have set the attribute in your model in the back end system as follows: `retractBlocked = false`
+- The attribute setting has not been set by the system.
 
 ## Group Status Handling
 
