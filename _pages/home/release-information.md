@@ -38,9 +38,21 @@ This document describes what is included in all Spartacus libraries since the in
 
 Highlights include the following:
 
-### Retract Option for Single-Select Characteristics
+### Retract User Selections
 
-By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection. You can now set the system up so that the single-selection can be retracted. This can be especially helpful in situations where the domain restrictions hide values in other characteristics, which can make it difficult for customers to completing the configuration. For more information, see [Retract Option for Single-Select Characteristics]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}#retract-option-for-single-select-characteristics).
+For configurable products, OCC now supports a retract feature for single-select attributes in Spartacus for VC products.
+
+When users make selections on the configuration page, certain dependencies might hide values in other attributes or might set them to read-only. For the user it is sometimes impossible to tell how to show those other choices that they just saw a minute ago or to find that other option (or combination of options) that made the undesired value read-only.
+
+This kind of modelling has its origin in the fact that VC/AVC automatically generates a "no option selected" value for single-select non-mandatory characteristics, which means that product modelers never had to model such a value into the product model. Up to now, this value was not automatically generated on the Commerce UI. For customers who are using legacy product models, this is sometimes painful because their testers, consultants, and customers get caught in dead ends that they cannot resolve.
+
+If the retract feature is activated, the configuration UI in Commerce automatically generates an additional value called "no option selected" for single-select attributes. This enables users to always undo a selection they have made, thereby saving them from getting caught in a dead end.
+
+If  the retract feature is not activated, a read-only value might get involved in a conflict, where customers cannot change or undo their selection. It is possible now to allow customers to undo the selection they made for the conflicting read-only value. For more information, see [Retract Option for Single-Select Characteristics]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}#retract-option-for-single-select-characteristics).
+
+### Numeric Attributes with Interval Domain
+
+The attribute type numeric attribute with interval domain is supported in the storefront now. For more information, see [Supported Attribute Types and Display Types]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}#supported-attribute-types-and-display-types).
 
 ## Release 4.3
 
