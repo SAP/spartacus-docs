@@ -114,7 +114,7 @@ All available locales must be replicated in Spartacus. Locales in the back end a
 
 ## Conflict Solver
 
-The user navigation for solving conflicts is nearly the same as in Accelerator, except that in Spartacus users are not yet guided from issue to issue. If a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
+The user navigation for solving conflicts is nearly the same as in Accelerator, except that in Spartacus, users are not yet guided from issue to issue. If a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
 
 For now, there is no navigation mode that guides the user from issue to issue until the configuration has no remaining issues. Instead, users have two options for navigating through conflicts, as described in the following procedures.
 
