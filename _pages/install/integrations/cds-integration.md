@@ -216,7 +216,7 @@ If you have followed the [{% assign linkedpage = site.pages | where: "name", "sm
 
 3. Click the **+ Component** button in SmartEdit.
 
-   You should see the **SAP CONTEXT-DRIVEN MERCHANDISING** carousel component. If you do not see it, use the search box.
+   You should see the **Merchandising Carousel** component. If you do not see it, use the search box.
 
 4. Drag and drop the component onto a content slot on the page.
 
