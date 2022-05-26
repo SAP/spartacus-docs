@@ -250,6 +250,8 @@ docs:
                         url: /media-component/  
                       - title: "Pagination Component"
                         url: /pagination/
+                      - title: "Password Visibility Component"
+                        url: /password-visibility-component/
                       - title: "Popover Component"
                         url: /popover-component/
                       - title: "Searchbox Component"
