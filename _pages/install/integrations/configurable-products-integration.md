@@ -72,10 +72,9 @@ After running this command, you are asked which product configurator features yo
 
 ## Supported Attribute Types
 
-The following attributes types are supported on the Spartacus UI:
+The following attributes types are supported in Spartacus:
 
-|Attribute Type|Technical Representation in 
-de.hybris.platform.sap.productconfig.facades.UiType|
+|Attribute Type|Technical Representation in de.hybris.platform.sap.productconfig.facades.UiType|
 |------------|-----------|
 |User input (string)|STRING|
 |User input (numeric)|NUMERIC|
