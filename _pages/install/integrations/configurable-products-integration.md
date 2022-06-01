@@ -70,23 +70,24 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
-## Supported Attribute Types and Display Types
+## Supported Attribute Types
 
-The following CPQ attributes types are supported in the storefront:
+The following attributes types are supported on the Spartacus UI:
 
-- User input or computed (string)
-- User input or computed (number)
-- User selection
-- User selection with quantity for each attribute value
-- User selection with attribute quantity input
-- Numeric attributes with interval domain (as of Spartacus version 5.0)
-
-The following CPQ display types are supported in the storefront:
-
-- Checkbox
-- Dropdown
-- Radio button
-- Free input, no matching (string or number)
+|Attribute Type|Technical Representation in 
+de.hybris.platform.sap.productconfig.facades.UiType|
+|------------|-----------|
+|User input (string)|STRING|
+|User input (numeric)|NUMERIC|
+|Boolean value|CHECKBOX|
+|Single selection, rendered as radio button group|RADIO_BUTTON|
+|Single selection, rendered as radio button group, with additional input|RADIO_BUTTON_ADDITIONAL_INPUT|
+|Single selection, rendered as drop down listbox|DROPDOWN|
+|Single selection, rendered as drop down listbox, with additional input |DROPDOWN_ADDITIONAL_INPUT|
+|Single selection, rendered as image list|SINGLE_SELECTION_IMAGE|
+|Read-only |READ_ONLY|
+|Multi selection, rendered as checkbox list|CHECKBOX_LIST|
+|Multi selection, rendered as image list|MULTI_SELECTION_IMAGE|
 
 ## Saved Cart
 
