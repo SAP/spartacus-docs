@@ -122,8 +122,11 @@ To write ASM-compatible code, you need to use the `takeUserId()` function from t
 Prior to official ASM support in Spartacus, in requests sent on behalf of an authenticated user, the OCC `userId` was the special "current" OCC user, which was represented by the `OCC_USER_ID_CURRENT` constant. This can be seen in the following example:
 
 ```typescript
-  load(): void {
-    this.store.dispatch(new UserActions.LoadUserDetails(OCC_USER_ID_CURRENT));
+  /**
+   * Retrieves user's addresses
+   */
+  loadAddresses(): void {
+    this.store.dispatch(new UserActions.LoadUserAddresses(OCC_USER_ID_CURRENT));
   }
 ```
 
