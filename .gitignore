@@ -5,3 +5,4 @@ _site/
 .vs/
 vendor/
 .idea/
+.DS_Store
