@@ -193,7 +193,7 @@ A [command](https://sap.github.io/spartacus-docs/commands-and-queries/#commands-
 
 1. Commands can dispatch events (for other side effects)
 
-The following snippet is taken from the `createDeliveryAddressCommand`, which can be found in the source code under the [checkout-delivery-address.service.ts](https://github.com/SAP/spartacus/blob/develop/feature-libs/checkout/base/core/facade/checkout-delivery-address.service.ts#L29). After successfully creating an address, we are [dispatching events](https://sap.github.io/spartacus-docs/event-service/#dispatching-individual-events) under the tap operator in order to be caught by our event listeners to perform additional actions.
+The following snippet is taken from the `createDeliveryAddressCommand`, which can be found in the source code under the [checkout-delivery-address.service.ts](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/core/facade/checkout-delivery-address.service.ts#L29). After successfully creating an address, we are [dispatching events](https://sap.github.io/spartacus-docs/event-service/#dispatching-individual-events) under the tap operator in order to be caught by our event listeners to perform additional actions.
 
 ```typescript
 return this.checkoutDeliveryAddressConnector
@@ -206,7 +206,7 @@ return this.checkoutDeliveryAddressConnector
       ...
     }),
     tap((address) =>
-      this.eventService.dispatch( <-- Event dispatching
+      this.eventService.dispatch( // <-- Event dispatching
         {
           userId,
           cartId,
@@ -217,7 +217,7 @@ return this.checkoutDeliveryAddressConnector
     )
 ```
 
-After an event that was dispatched during a command or query, our event listener that listened for [CheckoutDeliveryAddressCreatedEvent](#checkoutdeliveryaddresscreatedevent) fires a global message to let the user know that they have successfully created the delivery address.
+**_ TODO reminder. Put link to updated event page here _**
 
 Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as [CheckoutResetDeliveryModesEvent](#checkoutresetdeliverymodesevent) and [CheckoutResetQueryEvent](#checkoutresetqueryevent).
 
@@ -247,7 +247,7 @@ The example for `CheckoutResetQueryEvent` being fired is to reset our checkout d
 
 ### How to properly make use of queries in checkout
 
-Example: [CheckoutQueryFacade](https://github.com/SAP/spartacus/blob/develop/feature-libs/checkout/base/core/facade/checkout-query.service.ts) and [CheckoutDeliveryAddressComponent](https://github.com/SAP/spartacus/blob/develop/feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts)
+Example: [CheckoutQueryFacade](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/core/facade/checkout-query.service.ts) and [CheckoutDeliveryAddressComponent](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts)
 
 The 'checkout details query' that is injected in other checkout 'facade' services is used to get the current checkout details, which contains information on `delivery address, delivery mode, and payment information` when using base checkout. When using b2b checkout, you will have additional data like `purchase order number`, `cost centers`, and `payment type`.
 
@@ -279,7 +279,7 @@ The getCheckoutDetailsState returns the entire state, which is an object compose
     }
 ```
 
-When using queries are used to get the state, it is important to filter the loading state, and to consider using the `distinctUntilChanged` operator in order to reduce the number of emissions. Using the following snippet as an example, we are making sure to get the selected address when the data state is not loading. Moreover, we are making sure that we get distinct emissions instead to reduce the number of emissions.
+When queries are used to get the state, it is recommended to filter the loading state, and to consider using the RxJS' `distinctUntilChanged` operator in order to reduce the number of emissions. Using the following snippet as an example, we are making sure to get the selected address when the data state is not loading. Moreover, we are making sure that we get distinct emissions instead to reduce the number of emissions.
 
 ```typescript
  get selectedAddress$(): Observable<Address | undefined> {
