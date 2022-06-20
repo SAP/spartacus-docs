@@ -49,6 +49,10 @@ The `spartacussampledata` extension includes the `SpaSampleAddOnSampleDataImport
 - gives permission to the `cmsmanager` to do the synchronization
 - imports email data
 
+**Note:** To ensure these actions are performed during a system update, you must check the box next to the relevant storefront(s) you wish to update before pressing **Update** in the *hybris administration console*, as shown in the following example:
+
+<img src="{{ site.baseurl }}/assets/images/system-update-button.png" alt="System Update Button" width="400" border="1px" />
+
 ## CMS Changes Specific to the Spartacus Project
 
 As `[samplestore]ContentCatalog:Staged` is synchronized to `[samplestore]-spaContentCatalog:Staged`, the initial data is the same in both content catalogs. But, to make Spartacus work better, the `-spa` versions contain different CMS data. Changes are made on the `[samplestore]-spaContentCatalog`, which are described in the following sections.
