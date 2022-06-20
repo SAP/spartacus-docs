@@ -106,4 +106,4 @@ Because `OrgUserRegistrationData` API model for B2B Registration exposes only "f
   Message: {{message}}`
 ```
 
-Additionaly this format can be easily replaced by overriding `messageToApproverTemplate` translation key. For more information please take a look into this [section](https://sap.github.io/spartacus-docs/i18n/#overwriting-individual-translations).
+Additionally this format can be easily replaced by overriding `messageToApproverTemplate` translation key. For more information please take a look into this [section](https://sap.github.io/spartacus-docs/i18n/#overwriting-individual-translations).
