@@ -3,7 +3,7 @@
 
 git pull
 
-for branch in develop tua-develop fsa
+for branch in develop develop-6.0 tua-develop fsa
   do
 
 git checkout $branch
