@@ -420,7 +420,9 @@ docs:
                 - title: "Purchase and Approval Flow Example"
                   url: /purchase-and-approval-flow-example/
                 - title: "Disabling and Deleting Commerce Organization Entities"
-                  url: /disabling-commerce-organization-entities/         
+                  url: /disabling-commerce-organization-entities/
+                - title: "Organization User Registration"
+                  url: /organization-user-registration/        
 
 
     - title: Telco & Utilities Storefront Development Guide
