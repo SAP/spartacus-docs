@@ -307,6 +307,8 @@ docs:
                   url: /asm/
                 - title: "B2B Commerce Organization"
                   url: /b2b-commerce-organization/
+                - title: "B2B Organization User Registration"
+                  url: /b2b-organization-user-registration/        
                 - title: "Bulk Pricing"
                   url: /bulk-pricing/  
                 - title: "Cancellations and Returns"
@@ -421,8 +423,6 @@ docs:
                   url: /purchase-and-approval-flow-example/
                 - title: "Disabling and Deleting Commerce Organization Entities"
                   url: /disabling-commerce-organization-entities/
-                - title: "Organization User Registration"
-                  url: /organization-user-registration/        
 
 
     - title: Telco & Utilities Storefront Development Guide

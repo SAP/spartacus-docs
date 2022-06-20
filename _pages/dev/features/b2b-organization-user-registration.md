@@ -18,14 +18,14 @@ New registrations are approved or rejected by the Backoffice Administration Cock
 
 For in-depth information on this feature, see [New Account Requests](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/8ac2d88f86691014858efbd2faa52a92.html) on the SAP Help Portal.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Enabling B2B Organization User Registration
 
