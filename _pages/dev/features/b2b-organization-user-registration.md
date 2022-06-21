@@ -33,33 +33,61 @@ B2B User registration is enabled by default and requires following things to wor
 
 ### Sample Data
 
-To render registration form component and other related compontents ensure that following impex script has been imported properly to your backend:
+If you are using the [spartacussampledata extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the Organization User Registration components are already enabled. However, if you decide not to use the extension, you can enable them through ImpEx.
+
+**Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
+
+```
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+```
+
+#### Adding CMS Components Manually
+
+You can enable the **B2B Organization User Registration** page and add the content slot with the following ImpEx:
 
 ```
 INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
 ;;register;Register Page;AccountPageTemplate;/login/register
 
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
-;;BodyContentSlot-register;Body Content Slot for Register;true;OrganizationUserRegistrationComponent
-
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
 ;;BodyContent-register;BodyContent;register;BodyContentSlot-register
+```
 
+You can enable the **B2B Organization User Registration** component with the following ImpEx:
+
+```
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
 ;;OrganizationUserRegistrationComponent;Organization User Registration Component;OrganizationUserRegistrationComponent;OrganizationUserRegistrationComponent
 
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
+;;BodyContentSlot-register;Body Content Slot for Register;true;OrganizationUserRegistrationComponent
+```
+
+You can enable the "no account?" paragraph component with the following ImpEx:
+
+```
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;content
 ;;NoAccountParagraphComponent;No Account Paragraph Component;"<p class='cx-section-title'>Don't have an account?</p>"
+```
 
+You can create Register link component with the following ImpEx:
+
+```
 INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;styleClasses;&linkRef;&componentRef;target(code)[default='sameWindow'];
 ;;OrganizationUserRegistrationLink;Organization User Registration Link;/login/register;cx-organization-user-register-button;OrganizationUserRegistrationLink;OrganizationUserRegistrationLink;
+```
 
-UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
-;;OrganizationUserRegistrationLink;"Register"
+You can add **DisabledRegistrationParagraphComponent** (inactive by default) with the following ImpEx:
 
+```
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;visible;content
 ;;DisabledRegistrationParagraphComponent;Disabled Registration Paragraph Component;false;"<p>You can request a login from your account representative. Send a message to <strong>email@domain.com</strong>.</p>"
+```
 
+You add register link component and paragraph components into login page content slot with the following ImpEx:
+
+```
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
 ;;LeftContentSlot-login;ReturningCustomerLoginComponent, NoAccountParagraphComponent, OrganizationUserRegistrationLink, DisabledRegistrationParagraphComponent
 ```
