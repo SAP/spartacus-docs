@@ -67,6 +67,7 @@ The Spartacus 5.0 has been delayed from May 2022 to September 2022.
 - **Support for new PDF and Video component types**
 - **Toast option when adding to cart** - Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
 - **Clear Cart** command on cart page
+- **S4 Order Management Schedule Lines** on cart page
 
 With the extra time, the following features are also being considered for 5.0, or soon after in 5.x release:
 
