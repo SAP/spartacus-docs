@@ -33,9 +33,14 @@ B2B User registration is enabled by default and requires following things to wor
 
 ### Sample Data
 
-To render registration form component and other related compontents ensure that following impex script has been imported properly to your backend:
+If you are using the [spartacussampledata extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the Organization User Registration components are already enabled. However, if you decide not to use the extension, you can enable them through ImpEx.
+
+**Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
 ```
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
 INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
 ;;register;Register Page;AccountPageTemplate;/login/register
 
