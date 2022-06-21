@@ -93,7 +93,7 @@ Instead of link there is also an option to display information for customer that
 
 As the result of those activities customer will see following text on login page:
 
-<img src="{{ site.baseurl }}/assets/images/b2b-user-registration-disabled.png" alt="Disabled B2B User Registration" border="1px" />
+<img src="{{ site.baseurl }}/assets/images/b2b-user-registration-disabled.png" alt="Disabled B2B User Registration" width="500" border="1px" />
 
 ## Limitations
 
