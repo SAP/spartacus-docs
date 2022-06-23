@@ -1,9 +1,9 @@
 ---
 title: B2B Organization User Registration
 feature:
-  - name: B2B Organization User Registration
-    spa_version: 6.0
-    cx_version: 2205
+- name: B2B Organization User Registration
+  spa_version: 6.0
+  cx_version: 2205
 ---
 
 {% capture version_note %}
@@ -12,11 +12,11 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-B2B Organization User Registration allows user to request a new account. Once registration is enabled and customers are able to provide their information in a form and send it through to create an account.
+B2B Organization User Registration allows users to request a new account. Once registration is enabled, users can use a form to provide their information and submit their request for a new account.
 
-New registrations are approved or rejected by the Backoffice Administration Cockpit by a merchant user who belongs to the `b2bregistrationapprovergroup` group.
+New registrations are approved or rejected through the Backoffice Administration Cockpit by a merchant user who belongs to the `b2bregistrationapprovergroup` group.
 
-For in-depth information on this feature, see [New Account Requests](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/8ac2d88f86691014858efbd2faa52a92.html) on the SAP Help Portal.
+For more information, see [B2B Early Login User Experience](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/8ac2d88f86691014858efbd2faa52a92.html) on the SAP Help Portal.
 
 ***
 
@@ -29,24 +29,41 @@ For in-depth information on this feature, see [New Account Requests](https://hel
 
 ## Enabling B2B Organization User Registration
 
-B2B User registration is enabled by default and requires following things to work properly in Spartacus.
+You can enable B2B organization user registration by installing the `@spartacus/organization` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
-### Sample Data
+### CMS Components
 
-If you are using the [spartacussampledata extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the Organization User Registration components are already enabled. However, if you decide not to use the extension, you can enable them through ImpEx.
+B2B organization user registration is CMS driven, and consists of the following CMS components:
+
+- `OrganizationUserRegistrationComponent`
+- `NoAccountParagraphComponent`
+- `DisabledRegistrationParagraphComponent`
+- `OrganizationUserRegistrationLink`
+
+If you are using the [spartacussampledata extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the B2B organization user registration components are already enabled in Spartacus. However, if you decide not to use the extension, you can enable them through ImpEx.
+
+You also need to ensure the following CMS components have the `active` property set to `true` in Backoffice:
+
+- `OrganizationUserRegistrationComponent`
+- `NoAccountParagraphComponent`
+- `OrganizationUserRegistrationLink`
+
+Also be aware that the `DisabledRegistrationParagraphComponent` should have the `active` property set to `false`.
+
+### Adding CMS Components Using ImpEx
+
+This section describes how to add the various B2B organization user registration components to Spartacus using ImpEx.
 
 **Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
-```
+```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 ```
 
-#### Adding CMS Components Manually
+You can enable the **B2B Organization User Registration** page and add the required content slot with the following ImpEx:
 
-You can enable the **B2B Organization User Registration** page and add the content slot with the following ImpEx:
-
-```
+```text
 INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
 ;;register;Register Page;AccountPageTemplate;/login/register
 
@@ -54,9 +71,9 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ;;BodyContent-register;BodyContent;register;BodyContentSlot-register
 ```
 
-You can enable the **B2B Organization User Registration** component with the following ImpEx:
+You can enable the `Organization User Registration Component` with the following ImpEx:
 
-```
+```text
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
 ;;OrganizationUserRegistrationComponent;Organization User Registration Component;OrganizationUserRegistrationComponent;OrganizationUserRegistrationComponent
 
@@ -64,74 +81,52 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;BodyContentSlot-register;Body Content Slot for Register;true;OrganizationUserRegistrationComponent
 ```
 
-You can enable the "no account?" paragraph component with the following ImpEx:
+You can enable the `No Account Paragraph Component` with the following ImpEx:
 
-```
+```text
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;content
 ;;NoAccountParagraphComponent;No Account Paragraph Component;"<p class='cx-section-title'>Don't have an account?</p>"
 ```
 
-You can create Register link component with the following ImpEx:
+You can create the `Organization User Registration Link` component with the following ImpEx:
 
-```
+```text
 INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;styleClasses;&linkRef;&componentRef;target(code)[default='sameWindow'];
 ;;OrganizationUserRegistrationLink;Organization User Registration Link;/login/register;cx-organization-user-register-button;OrganizationUserRegistrationLink;OrganizationUserRegistrationLink;
 ```
 
-You can add **DisabledRegistrationParagraphComponent** (inactive by default) with the following ImpEx:
+You can add the `Disabled Registration Paragraph Component` (which is inactive by default) with the following ImpEx:
 
-```
+```text
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;visible;content
 ;;DisabledRegistrationParagraphComponent;Disabled Registration Paragraph Component;false;"<p>You can request a login from your account representative. Send a message to <strong>email@domain.com</strong>.</p>"
 ```
 
-You add register link component and paragraph components into login page content slot with the following ImpEx:
+You add the `ReturningCustomerLoginComponent`, `NoAccountParagraphComponent`, `OrganizationUserRegistrationLink`, and `DisabledRegistrationParagraphComponent` to the **Login** page content slot with the following ImpEx:
 
-```
+```text
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
 ;;LeftContentSlot-login;ReturningCustomerLoginComponent, NoAccountParagraphComponent, OrganizationUserRegistrationLink, DisabledRegistrationParagraphComponent
 ```
 
-### Feature library
+### Disabling B2B Organization User Registration
 
-B2B Organization User Registration feature library can be installed by Schematics and is a part of Organization feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
+You can completely disable the user registration feature through Backoffice. You must disable the rendering of the registration form by deactivating the `OrganizationUserRegistrationComponent` component, and you also need to deactivate the `OrganizationUserRegistrationLink` so that the register link is not visible to users.
 
-## CMS Components
+There is also the option of displaying information to users that registration is not available. You can do this by activating the `DisabledRegistrationParagraphComponent` paragraph component.
 
-The organization user registration feature is CMS driven, and consists of the following:
-
-- `OrganizationUserRegistrationComponent`
-- `NoAccountParagraphComponent`
-- `DisabledRegistrationParagraphComponent`
-- `OrganizationUserRegistrationLink`
-
-By default CMS related data is set to enable registration feature.
-
-If you want to ensure that feature is enabled the following CMS components: `OrganizationUserRegistrationComponent`, `NoAccountParagraphComponent`, `OrganizationUserRegistrationLink` should have property `active` set to `true` whereas `DisabledRegistrationParagraphComponent` should has it set to `false`.
-
-### Disabling the feature
-
-You can disable the registration feature by using CMS.
-
-There is possiblity to completely disable rendering registration form in Spartacus. To achieve this please deactivate `OrganizationUserRegistrationComponent` component.
-
-However it is not enough, because on the login page the register link still will be visible to customer. For consistency the recommendation is to deactivate `OrganizationUserRegistrationLink` as well.
-
-Instead of link there is also an option to display information for customer that registration is not available. It requires only to activate `DisabledRegistrationParagraphComponent` paragraph component.
-
-As the result of those activities customer will see following text on login page:
+The following is an example of what users see on the **Login** page when `OrganizationUserRegistrationComponent` and `OrganizationUserRegistrationLink` are deactivated, and `DisabledRegistrationParagraphComponent` is activated:
 
 <img src="{{ site.baseurl }}/assets/images/b2b-user-registration-disabled.png" alt="Disabled B2B User Registration" width="500" border="1px" />
 
 ## Limitations
 
-Because `OrgUserRegistrationData` API model for B2B Registration exposes only "firstname", "lastname",
-"email" and the "message" field to provide extra info for approver, the idea is to serialize all collected information in the form (like: address information, phone number etc.) to the "message" and send them in following format as part of the message:
+The `OrgUserRegistrationData` API model for B2B registration only exposes the `firstname`, `lastname`, `email` and `message` fields. To be able to provide additional information to the approver, you can serialize all of the collected information in the form to the `Message` field (such as `Address` and `Phone number`) and send this information as part of the message in the following format: {% raw %}
 
-```
+```text
 `Phone number: {{phoneNumber}},
-  Address: {{addresLine}} {{secondAddressLine}} {{city}} {{state}} {{postalCode}} {{country}},
+  Address: {{addressLine}} {{secondAddressLine}} {{city}} {{state}} {{postalCode}} {{country}},
   Message: {{message}}`
 ```
 
-Additionally this format can be easily replaced by overriding `messageToApproverTemplate` translation key. For more information please take a look into this [section](https://sap.github.io/spartacus-docs/i18n/#overwriting-individual-translations).
+Furthermore, this format can be easily replaced by overriding the `messageToApproverTemplate` translation key. For more information, see [Overwriting Individual Translations](https://sap.github.io/spartacus-docs/i18n/#overwriting-individual-translations).{% endraw %}
