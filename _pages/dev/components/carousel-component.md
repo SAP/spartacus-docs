@@ -49,7 +49,7 @@ The buttons use icons by default, but the icons are configurable. This is a resu
 @Input() nextIcon = ICON_TYPE.CARET_RIGHT;
 ```
 
-When there are no slides to navigate, the buttons do not appear. When a button interaction is not available (for example, there is no previous button on the first slide), the button moves into a disabled state. Additionally, the `indicatorIcon` navigation can be turned off completely by setting the `hideIndicators` to `false`.
+When there are no slides to navigate, the buttons do not appear. When a button interaction is not available (for example, there is no previous button on the first slide), the button moves into a disabled state. Additionally, the `indicatorIcon` navigation can be turned off completely by setting the `hideIndicators` to `true`.
 
 ## Responsive Calculation of Items in Each Slide
 
