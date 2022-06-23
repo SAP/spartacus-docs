@@ -70,6 +70,14 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Product Variants
+
+With Commerce Cloud 2205, the Spartacus UI supports the display and configuration of product variants, both fully and partially specified.
+
+From a business point of view, product variants represent the configurations that sell best; vendors might want to have them in stock to make them readily available to customers at a favorable price. Web shop customers might prefer a matching product variant over an individually configured product, with a view to benefiting from shorter delivery times and more favorable prices.
+
+For more information about product variants and how to set them up in the SAP Commerce Cloud, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/docs/SAP_COMMERCE_INTEGRATIONS/80c3212d1d4646c5b91db43b84e9db47/ecdb7e2f02124e6c816f029af1f6762e.html?version=2205)
+
 ## Saved Cart
 
 {% capture version_note %}
