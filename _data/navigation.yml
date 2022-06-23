@@ -246,6 +246,8 @@ docs:
                   underchildren:
                       - title: "Banner Component"
                         url: /banner-component/
+                      - title: "Carousel Component"
+                        url: /carousel-component/
                       - title: "Media Component"
                         url: /media-component/  
                       - title: "Pagination Component"
