@@ -42,13 +42,15 @@ B2B organization user registration is CMS driven, and consists of the following 
 
 If you are using the [spartacussampledata extension]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the B2B organization user registration components are already enabled in Spartacus. However, if you decide not to use the extension, you can enable them through ImpEx.
 
-You also need to ensure the following CMS components have the `active` property set to `true` in Backoffice:
+Whether you use the sample data extension or the ImpEx examples provided below, the following CMS components have the `visible` property set to `true` by default:
 
 - `OrganizationUserRegistrationComponent`
 - `NoAccountParagraphComponent`
 - `OrganizationUserRegistrationLink`
 
-Also be aware that the `DisabledRegistrationParagraphComponent` should have the `active` property set to `false`.
+And by default, the `DisabledRegistrationParagraphComponent` has the `visible` property set to `false`.
+
+You can change the status of the `visibility` property for any of these components in Backoffice.
 
 ### Adding CMS Components Using ImpEx
 
@@ -111,11 +113,11 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $
 
 ### Disabling B2B Organization User Registration
 
-You can completely disable the user registration feature through Backoffice. You must disable the rendering of the registration form by deactivating the `OrganizationUserRegistrationComponent` component, and you also need to deactivate the `OrganizationUserRegistrationLink` so that the register link is not visible to users.
+You can completely disable the user registration feature through Backoffice. You must disable the rendering of the registration form by setting the visibility to `false` for the `OrganizationUserRegistrationComponent` component, and you also need to set the visibility to `false` for the `OrganizationUserRegistrationLink` so that the register link is not visible to users.
 
-There is also the option of displaying information to users that registration is not available. You can do this by activating the `DisabledRegistrationParagraphComponent` paragraph component.
+There is also the option of displaying information to users that registration is not available. You can do this by setting the visibility to `true` for the `DisabledRegistrationParagraphComponent` paragraph component.
 
-The following is an example of what users see on the **Login** page when `OrganizationUserRegistrationComponent` and `OrganizationUserRegistrationLink` are deactivated, and `DisabledRegistrationParagraphComponent` is activated:
+The following is an example of what users see on the **Login** page when `OrganizationUserRegistrationComponent` and `OrganizationUserRegistrationLink` have visibility set to `false`, and the visibility for `DisabledRegistrationParagraphComponent` is set to `true`:
 
 <img src="{{ site.baseurl }}/assets/images/b2b-user-registration-disabled.png" alt="Disabled B2B User Registration" width="500" border="1px" />
 
