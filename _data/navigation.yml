@@ -86,8 +86,6 @@ docs:
                   url: /configuring-feature-flags/
                 - title: "Schematics"
                   url: /schematics/  
-                - title: "Snapshot Builds"
-                  url: /snapshot-builds/
                 - title: "Spartacus Sample Data Extension ➢"
                   url: /spartacussampledata-extension/
                   underchildren:
