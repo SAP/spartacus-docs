@@ -58,7 +58,7 @@ The given item width (`itemWidth`) can be specified in pixels or percentages. Th
 
 ### Configuring Slide Actions
 
-You can configure the actions for a slide. For example, adding Add-to-Cart buttons directly within your Merchandising Carousel to make it more efficient for consumers to add certain recommended products to their cart.
+For the `ProductCarouselComponent` only, you can configure the actions for a slide. For example, you can add Add-to-Cart buttons to each slide to make it more efficient for consumers to add certain recommended products to their cart.
 
 You can configure which CMS components render with a product with this code:
 
