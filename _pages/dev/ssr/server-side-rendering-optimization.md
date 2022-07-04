@@ -71,12 +71,9 @@ By default, the SSR optimization engine uses the following configuration:
 
 ```json
 {
-  "concurrency": 10,
-  "timeout": 3_000,
-  "forcedSsrTimeout": 60_000,
-  "maxRenderTime": 300_000,
-  "reuseCurrentRendering": true,
-  "debug": false
+  "concurrency": 20,
+  "timeout": 3000,
+  "maxRenderTime": 300000
 }
 ```
 
@@ -124,7 +121,7 @@ Recommendation: `cacheSize` should be set according to the server's resources (e
 
 `concurrency` is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR. If the `reuseCurrentRendering` is enabled, multiple requests for the same rendering key (i.e. request URL, by default) will take up only one concurrency slot.
 
-The default value is `10`.
+The default value is `20`.
 
 Recommendation: `concurrency` should be set according to the server's resources available (i.e. CPU). The high concurrency number could have a negative impact on the performance, as the CPU will try to render a large number of requests concurrently, effectively slowing down the response times.
 
