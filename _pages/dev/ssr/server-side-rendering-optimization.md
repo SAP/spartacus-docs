@@ -76,7 +76,8 @@ By default, the SSR optimization engine uses the following configuration:
   "forcedSsrTimeout": 60_000,
   "maxRenderTime": 300_000,
   "reuseCurrentRendering": true,
-  "forcedSsrTimeout": 60_000
+  "forcedSsrTimeout": 60_000,
+  "debug": false
 }
 ```
 
