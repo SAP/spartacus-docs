@@ -66,7 +66,7 @@ After running the command, you are prompted to provide additional information, a
 
 After you have provided this information, the schematics configure the Intelligent Selling Services integration for Spartacus.
 
-If you do not wish to use the schematics, you can create the Intelligent Selling Services module manually and import it into your application, as shown in the following example:
+If you do not wish to use the schematics, you can create `spartacus/projects/storefrontapp/src/app/spartacus/features/cds-feature.module.ts` manually and import it into your application, as shown in the following example:
 
 ```ts
 import { NgModule } from '@angular/core';
