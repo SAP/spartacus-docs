@@ -4,18 +4,18 @@ title: Continuous Integration
 
 Before code is integrated to our main line of development, a continuous integration process runs to certify that the changes can be safely integrated.
 
-We use [Github Actions](https://github.com/features/actions) for our continuous integration service.
+We use [GitHub Actions](https://github.com/features/actions) for our continuous integration service.
 
-Every time code is pushed to the Spartacus repository (regardless of whether a pull requests has been made), a build in our [Github Actions CI workflow](https://github.com/SAP/spartacus/actions/workflows/ci.yml) is triggered. For all of our libraries, the build executes the following steps:
+Every time code is pushed to the Spartacus repository (regardless of whether a pull requests has been made), a build in our [GitHub Actions CI workflow](https://github.com/SAP/spartacus/actions/workflows/ci.yml) is triggered. For all of our libraries, the build executes the following steps:
 
 - Builds the Spartacus libraries from sources
 - Checks for eslint compliance
 - Checks for prettier compliance
 - Runs all the unit tests
-- Runs all cypress end-to-end tests
-- Plus other additional checks
+- Runs all Cypress end-to-end tests
+- Performs other, additional checks
 
-The configuration for Github actions based builds can be found in the `.ci.yml` file in the folder `./github/workflows`.
+The configuration for GitHub actions based builds can be found in the `.ci.yml` file in the folder `./github/workflows`.
 
 ## End-to-End Tests
 
