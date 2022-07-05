@@ -8,16 +8,18 @@ We use [Github Actions](https://github.com/features/actions) for our continuous 
 
 Every time code is pushed to the Spartacus repository (regardless of whether a pull requests has been made), a build in our [Github Actions CI workflow](https://github.com/SAP/spartacus/actions/workflows/ci.yml) is triggered. For all of our libraries, the build executes the following steps:
 
-- Checks for prettier compliance
+- Builds the Spartacus libraries from sources
 - Checks for eslint compliance
+- Checks for prettier compliance
 - Runs all the unit tests
-- Runs all integration and end-to-end tests
-- Builds the Spartacus project sources
+- Runs all cypress end-to-end tests
+- Plus other additional checks
 
-The configuration for Travis CI builds can be found in the `.ci.yml` file in the GitHub convention folder `./github/workflows`.
+The configuration for Github actions based builds can be found in the `.ci.yml` file in the folder `./github/workflows`.
 
 ## End-to-End Tests
 
-When a build is triggered, [GitHub](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners) runs it on their virtual machines that run all of the end-to-end (E2E) tests for our libraries. The E2E test results are reported as pass or fail to the Pull Request checks on GitHub.
+When a build is triggered, [GitHub](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners) runs it on their virtual machines that run the end-to-end (E2E) tests for our libraries. The E2E test results are reported as pass or fail to the Pull Request checks on GitHub.
 
-Unfortunately, at the moment, the Jenkins server is not public, and as a result, external contributors cannot see the E2E test results. We hope to transition to a public server in the near future.
+We use [Cypress](https://www.cypress.io/) as our E2E test framework. E2E test results are reported to the [Cypress Dashboard](https://dashboard.cypress.io/projects/k3nmep/runs).
+
