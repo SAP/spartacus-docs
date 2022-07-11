@@ -54,6 +54,10 @@ If  the retract feature is not activated, a read-only value might get involved i
 
 The attribute type numeric attribute with interval domain is supported in the storefront now. For more information, see [Supported Attribute Types and Display Types]({{ site.baseurl }}{% link _pages/install/integrations/configurable-products-integration.md %}#supported-attribute-types-and-display-types).
 
+### 1:1 Value Prices
+
+As of Spartacus 4.0, 1:1 value prices were visible on the interactive configuration page. As of this release, they are also supported on the configuration overview page.
+
 ## Release 4.3
 
  *Release 4.3 libraries published January 21, 2022*
