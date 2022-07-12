@@ -58,9 +58,9 @@ The given item width (`itemWidth`) can be specified in pixels or percentages. Th
 
 ### Configuring Slide Actions
 
-For the `ProductCarouselComponent` only, you can configure the actions for a slide. For example, you can add Add-to-Cart buttons to each slide to make it more efficient for consumers to add certain recommended products to their cart.
+For the `ProductCarouselComponent`, you can configure the actions for a slide. For example, you can add Add-to-Cart buttons to each slide to make it more efficient for customers to add certain recommended products to their cart.
 
-You can configure which CMS components render with a product with this code:
+You can configure which CMS components render with a product, as shown in the following example:
 
 ```typescript
 provideConfig({
@@ -78,4 +78,4 @@ provideConfig({
 })
 ```
 
-To get the specific product’s data, your CMS component must inject `ProductListItemContext` for data.
+To get the specific product’s data, your CMS component must inject `ProductListItemContext` to retrieve the relevant data.
