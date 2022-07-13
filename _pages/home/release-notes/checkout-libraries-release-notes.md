@@ -279,7 +279,7 @@ The getCheckoutDetailsState returns the entire state, which is an object compose
     }
 ```
 
-When queries are used to get the state, it is recommended to filter the loading state, and to consider using the RxJS' `distinctUntilChanged` operator in order to reduce the number of emissions. Using the following snippet as an example, we are making sure to get the selected address when the data state is not loading. Moreover, we are making sure that we get distinct emissions instead to reduce the number of emissions.
+When queries are used to get the state, it is recommended to filter the loading state. Moreover, you should also consider using the RxJS' `distinctUntilChanged` operator in order to reduce the number of emissions. Using the following snippet as an example, we are making sure to get the selected delivery address when only when the data state is not loading; we are also making sure we get only the distinct emissions.
 
 ```typescript
  get selectedAddress$(): Observable<Address | undefined> {
