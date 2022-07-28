@@ -131,7 +131,7 @@ The following is an example of the configuration menu showing visited sections, 
 
 ## Browser Refresh
 
-When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
+When you refresh the browser, if you are logged in, the product configuration is persisted. If you are not logged in, the product configuration is reset to the default configuration, and you therefore have to reconfigure your products after reloading the page.
 
 ## Unsupported Features
 
