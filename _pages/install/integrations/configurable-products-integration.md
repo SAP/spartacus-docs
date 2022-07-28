@@ -183,6 +183,7 @@ The following is an example of the configuration menu showing visited sections, 
 ## Browser Refresh
 
 When you refresh the browser, if you are logged in, the product configuration is persisted. If you are not logged in, the product configuration is reset to the default configuration, and you therefore have to reconfigure your products after reloading the page.
+<<<<<<< HEAD
 
 ## Performance and Session Affinity
 
@@ -192,6 +193,8 @@ To ensure session affinity, Spartacus should always contact the same Commerce no
 
 - In SAP Commerce Cloud: `corsfilter.commercewebservices.allowCredentials=true`
 - In Spartacus: `backend.occ.useWithCredentials=true`
+=======
+>>>>>>> main
 
 ## Unsupported Features
 
