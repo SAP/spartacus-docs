@@ -72,6 +72,8 @@ After running this command, you are asked which product configurator features yo
 
 ## Product Variants
 
+**Note:** This feature is introduced with version 4.3 of the Spartacus libraries.
+
 With Commerce Cloud 2205, the Spartacus UI supports the display and configuration of product variants, both fully and partially specified.
 
 From a business point of view, product variants represent the configurations that sell best; vendors might want to have them in stock to make them readily available to customers at a favorable price. Web shop customers might prefer a matching product variant over an individually configured product, with a view to benefiting from shorter delivery times and more favorable prices.
