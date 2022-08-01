@@ -92,9 +92,27 @@ The following attributes types are supported in Spartacus:
 
 With Commerce Cloud 2205, the Spartacus UI supports the display and configuration of product variants, both fully and partially specified.
 
+When a web shop customer configures a product, the system simultaneously looks for matching product variants and offers them as preconfigured versions at the bottom of the page. The customer can display the configuration details of the product variant and decide to abandon the individual configuration and to place the product variant in the shopping cart instead.
 From a business point of view, product variants represent the configurations that sell best; vendors might want to have them in stock to make them readily available to customers at a favorable price. Web shop customers might prefer a matching product variant over an individually configured product, with a view to benefiting from shorter delivery times and more favorable prices.
 
 For more information about product variants and how to set them up in the SAP Commerce Cloud, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/docs/SAP_COMMERCE_INTEGRATIONS/80c3212d1d4646c5b91db43b84e9db47/ecdb7e2f02124e6c816f029af1f6762e.html?version=2205)
+
+In addition, when a web shop customer configures a product, the system simultaneously looks for matching product variants and offers them as preconfigured versions at the bottom of the page. The customer can display the configuration details of the product variant and decide to abandon the individual configuration and to place the product variant in the shopping cart instead.
+
+To activate this feature, set the configuration setting `productConfigurator.enableVariantSearch` to `true`, as shown in the example:
+
+```ts  
+providers: [
+  ... 
+    provideConfig(<Config>{
+      productConfigurator: {
+        enableVariantSearch: true,
+      },
+    }),
+  ...]  
+```
+
+For more information on how to set up the search to find matching variants, see [Creating Index Properties for Feature Values](https://help.sap.com/docs/SAP_COMMERCE_INTEGRATIONS/80c3212d1d4646c5b91db43b84e9db47/197021f2a8bd4175acbaaab4b551fb84.html?version=2205)
 
 ## Saved Cart
 
