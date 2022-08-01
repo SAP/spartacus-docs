@@ -117,7 +117,7 @@ To ignore some files from being formatted, create `.prettierignore` in the proje
 
 To avoid collision between `tslint` and `prettier`, it's recommended to remove formatting rules from the `tslint.json` and leave the formatting to `prettier`. This is a diff version of rules that should be removed from the `tslint.json`:
 
-```diff
+```json
 {
   "rulesDirectory": [
     "node_modules/codelyzer"
@@ -285,7 +285,7 @@ To improve linting, add the following to the `tsconfig.json` located in the proj
 
 If you switched from using `npm` to `yarn`, it's wise to delete `package-lock.json` file that `npm` generates, and add this file to `.gitignore`:
 
-```git
+```json
 package-lock.json
 ```
 

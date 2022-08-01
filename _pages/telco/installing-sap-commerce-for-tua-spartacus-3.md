@@ -12,10 +12,14 @@ However, installing the TUA Spartacus Sample Data is not required in all cases. 
 
 To install and configure SAP Commerce Cloud for use with TUA Spartacus, you must complete the following procedures:
 
-1. [Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension](#setting-up-sap-commerce-cloud-with-tua-using-the-tua-spartacus-sample-data-store-extension)
-2. [Configuring OCC credentials](#configuring-occ-credentials)
-3. [Updating System and User Credentials](#updating-system-and-user-credentials)
-4. [Configuring CORS](#configuring-cors)
+- [Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension](#setting-up-sap-commerce-cloud-with-tua-using-the-tua-spartacus-sample-data-store-extension)
+- [Configuring OCC Credentials](#configuring-occ-credentials)
+- [Updating System and User Credentials](#updating-system-and-user-credentials)
+- [Configuring CORS](#configuring-cors)
+- [Alternate Method for Setting the SAP Commerce Admin Password](#alternate-method-for-setting-the-sap-commerce-admin-password)
+- [Supporting Regions in the Billing Address](#supporting-regions-in-the-billing-address)
+- [Possible Issues](#possible-issues)
+  - [Failure at the Payment Step in Checkout](#failure-at-the-payment-step-in-checkout)
 
 ## Setting Up SAP Commerce Cloud with TUA using the TUA Spartacus Sample Data Store Extension
 
@@ -413,7 +417,7 @@ TUA Spartacus automatically picks up on the configuration and displays the `regi
 
 2. Add the following line to your `custom.properties` file:
 
-    ```
+    ```text
     mockup.payment.label.billTo.region=billTo_state
     ```
 
@@ -429,7 +433,7 @@ The next time you run the recipe install command, the settings inside `custom.pr
 
 You may encounter the following error message:
 
-```
+```text
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 

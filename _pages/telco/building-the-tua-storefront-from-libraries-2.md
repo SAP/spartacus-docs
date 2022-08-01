@@ -31,7 +31,7 @@ There are a few ways you can install Angular and other prerequisite software. Th
 
 To install the prerequisite development tools, install [Homebrew](https://brew.sh), and then run the following commands:
 
-```
+```text
 brew install yarn
 brew install node@12
 brew install angular-cli
