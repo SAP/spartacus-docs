@@ -90,7 +90,7 @@ Content Manager updates the homepage by including the desired `ConsumptionListCo
 
 Configure default consumption values for PO types and usage units: Consumption values are stored based on the product specification of the product offering and the `usageUnit` in the following format:
 
-    ```
+    ```text
     consumption_<productSpecification>_<usage_Unit> : <value>
     ```
 
