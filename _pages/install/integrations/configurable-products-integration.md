@@ -72,7 +72,11 @@ After running this command, you are asked which product configurator features yo
 
 ## Product Variants
 
-**Note:** This feature is introduced with version 4.3 of the Spartacus libraries.
+{% capture version_note %}
+{{ site.version_note_part1 }} 4.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
 
 With Commerce Cloud 2205, the Spartacus UI supports the display and configuration of product variants, both fully and partially specified.
 
