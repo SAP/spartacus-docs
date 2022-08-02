@@ -11,7 +11,7 @@ With this setup, CMS components can be customized in the following ways:
 | Scenario          | Approach                                             | Example                                              |
 | ----------------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | Customize style   | Add custom CSS rules<br/>(Out of scope for this doc) | Customize component style for the `LanguageSelector` |
-| Replace component | Configure a custom component                         | Provide a custom `BannerComponent`                   |
+| Replace component | Configure a custom component                         | Provide a custom `BannerComponent`                   |
 | Customize logic   | Configure a custom service                           | Provide a custom `SearchBoxComponentService`         |
 
 ***
