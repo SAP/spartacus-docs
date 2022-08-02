@@ -70,6 +70,19 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Configuring Time for User Entries
+
+For complicated user entries it can happen that the system starts validating the entry bevor the user has finished typing. To avoid such situations, you can adjust the entry time (default: 500 ms) in the customer app as follows:
+
+```ts
+provideConfig(<Config>{
+    productConfigurator: {
+      updateDebounceTime: {        
+        input: 2500         
+      }
+    },
+  }),
+    ```
 ## Product Variants
 
 {% capture version_note %}
