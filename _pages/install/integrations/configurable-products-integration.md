@@ -88,6 +88,20 @@ The following attributes types are supported in Spartacus:
 |Multi selection, rendered as checkbox list|CHECKBOX_LIST|
 |Multi selection, rendered as image list|MULTI_SELECTION_IMAGE|
 
+## Configuring the Input Time for User Entries
+
+For complicated user entries, it is possible that the system starts validating the entry before the user has finished typing. To avoid this, you can adjust the default input time of 500 ms in the customer app, as shown in the following example:
+
+```ts
+provideConfig(<Config>{
+    productConfigurator: {
+      updateDebounceTime: {        
+        input: 2500         
+      }
+    },
+  }),
+```
+
 ## Product Variants
 
 {% capture version_note %}
@@ -189,7 +203,6 @@ The following is an example of the configuration menu showing visited sections, 
 ## Browser Refresh
 
 When you refresh the browser, if you are logged in, the product configuration is persisted. If you are not logged in, the product configuration is reset to the default configuration, and you therefore have to reconfigure your products after reloading the page.
-<<<<<<< HEAD
 
 ## Performance and Session Affinity
 
@@ -199,17 +212,17 @@ To ensure session affinity, Spartacus should always contact the same Commerce no
 
 - In SAP Commerce Cloud: `corsfilter.commercewebservices.allowCredentials=true`
 - In Spartacus: `backend.occ.useWithCredentials=true`
-=======
->>>>>>> main
 
 ## Unsupported Features
 
 The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
 
-- [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
-- [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
-- [Assisted Service Mode](#assisted-service-mode)
-- [Cart Import and Export](#cart-import-and-export)
+- [- In Spartacus: `backend.occ.useWithCredentials=true`](#--in-spartacus-backendoccusewithcredentialstrue)
+  - [Unsupported Features](#unsupported-features)
+    - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
+    - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
+    - [Assisted Service Mode](#assisted-service-mode)
+    - [Cart Import and Export](#cart-import-and-export)
 
 ### Save for Later and Selective Cart
 

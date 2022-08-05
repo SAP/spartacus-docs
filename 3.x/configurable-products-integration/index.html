@@ -1596,6 +1596,7 @@ This feature is introduced with version 3.1 of the Spartacus libraries.
       <li><a href="#adding-the-product-configurator-library-to-an-existing-spartacus-project" id="markdown-toc-adding-the-product-configurator-library-to-an-existing-spartacus-project">Adding the Product Configurator Library to an Existing Spartacus Project</a></li>
     </ul>
   </li>
+  <li><a href="#configuring-the-input-time-for-user-entries" id="markdown-toc-configuring-the-input-time-for-user-entries">Configuring the Input Time for User Entries</a></li>
   <li><a href="#saved-cart" id="markdown-toc-saved-cart">Saved Cart</a></li>
   <li><a href="#locales" id="markdown-toc-locales">Locales</a></li>
   <li><a href="#conflict-solver" id="markdown-toc-conflict-solver">Conflict Solver</a>    <ul>
@@ -1667,6 +1668,19 @@ This feature is introduced with version 3.1 of the Spartacus libraries.
 <p>Select <code class="language-plaintext highlighter-rouge">Textfield configurator</code> if you have products that can be configured using text-field-based configuration forms. For more information, see <a href="/spartacus-docs/3.x/text-field-configurator-template/">Text Field Configurator Template</a> in the Spartacus documentation, and <a href="https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html">Text Field Configurator Template Module</a> on the SAP Help Portal.</p>
 
 <p><strong>Note:</strong> At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.</p>
+
+<h2 id="configuring-the-input-time-for-user-entries">Configuring the Input Time for User Entries</h2>
+
+<p>For complicated user entries, it is possible that the system starts validating the entry before the user has finished typing. To avoid this, you can adjust the default input time of 500 ms in the customer app, as shown in the following example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Config</span><span class="o">&gt;</span><span class="p">{</span>
+    <span class="na">productConfigurator</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">updateDebounceTime</span><span class="p">:</span> <span class="p">{</span>        
+        <span class="na">input</span><span class="p">:</span> <span class="mi">2500</span>         
+      <span class="p">}</span>
+    <span class="p">},</span>
+  <span class="p">}),</span>
+</code></pre></div></div>
 
 <h2 id="saved-cart">Saved Cart</h2>
 
