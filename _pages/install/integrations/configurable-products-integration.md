@@ -83,6 +83,7 @@ provideConfig(<Config>{
     },
   }),
     ```
+
 ## Product Variants
 
 {% capture version_note %}
