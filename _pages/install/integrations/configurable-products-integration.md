@@ -82,7 +82,7 @@ provideConfig(<Config>{
       }
     },
   }),
-    ```
+```
 
 ## Product Variants
 
