@@ -72,7 +72,7 @@ After running this command, you are asked which product configurator features yo
 
 ## Configuring Time for User Entries
 
-For complicated user entries it can happen that the system starts validating the entry bevor the user has finished typing. To avoid such situations, you can adjust the entry time (default: 500 ms) in the customer app as follows:
+For complicated user entries, it is possible that the system starts validating the entry before the user has finished typing. To avoid this, you can adjust the default entry time of 500 ms in the customer app, as shown in the following example:
 
 ```ts
 provideConfig(<Config>{
