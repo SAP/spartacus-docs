@@ -1,7 +1,7 @@
 ---
 title: Carousel Component
 feature:
-- name: Banner Component
+- name: Carousel Component
   spa_version: 1.0
   cx_version: n/a
 ---
