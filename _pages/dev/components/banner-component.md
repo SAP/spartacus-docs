@@ -75,7 +75,7 @@ There is no component logic in the banner component. The component simply render
 
 The component styles are provided by the `%cx-banner` placeholder selector in the styles library. The media style is made available in the default `sparta` theme. You can opt out of the banner styles by adding the selector to the list of `skipComponentStyles`.
 
-## Known limitations
+## Known Limitations
 
 The banner component currently only renders images, including SVGs. There is no support yet for video.
 
@@ -112,18 +112,23 @@ The easiest way to add new links to the Organization homepage is to create a new
 
     This allows you display the new banner by assigning it to an appropriate content slot.
     
-    ### Adding a New Banner using impex
+ ### Adding a New Banner Using ImpEx
     
-    It is possible to create a banner by exporting impex statement via **Hybris administration console** or by editing sample data scripts.
+You can also use ImpEx to create a banner component. To add a banner, you can export the following ImpEx header statement in the **Hybris Administration Console**:
     
-    **Impex statement**
+     
+ ```text
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name;headline;media(code, $contentCV);slots(uid,$contentCV);
+```
+  The following is an ImpEx example that you can use to create a banner component with a headline and image on the electronics storefront homepage:
+
     
-    INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name;headline;media(code, $contentCV);slots(uid,$contentCV);
-    
-    Example:
-    
-    INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name;headline;media(code, $contentCV);slots(uid,$contentCV);
-    ;;MyBannerComponent4;My Banner Component 4;My headline;Elec_240x180_HomeKid_EN_01_240W.jpg;Section1Slot-Homepage
+```text
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name;headline;media(code, $contentCV);slots(uid,$contentCV);
+;;MyBannerComponent4;My Banner Component 4;My headline;Elec_240x180_HomeKid_EN_01_240W.jpg;Section1Slot-Homepage
+```
+
+Alternatively, you can modify the sample data scripts, adding the ImpEx statement above to the `cms-responsive-content.impex` file under `hybris/bin/custom/spartacussampledata/resources/spartacussampledata/import/contentCatalogs/electronicsContentCatalog`.
 
 ## Hiding a Banner
 
