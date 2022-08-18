@@ -75,6 +75,6 @@ There is no component logic in the banner component. The component simply render
 
 The component styles are provided by the `%cx-banner` placeholder selector in the styles library. The media style is made available in the default `sparta` theme. You can opt out of the banner styles by adding the selector to the list of `skipComponentStyles`.
 
-## Known limitations
+## Known Limitations
 
 The banner component currently only renders images, including SVGs. There is no support yet for video.
