@@ -59,7 +59,7 @@ The banner component renders the following properties:
 
 | Config     | Description                                                                                                          |
 | --- | --- |
-| `urlLink` | An optional link to an internal or external page. |
+| `urlLink` | A link to an internal or external page. |
 | `external` | If set to true, the URL will not use the Angular routerLink, but an ordinary href instead. |
 | `media` | The `media` contains different media items for each format, so that an optimized media item can be used for the given space and usage. |
 | `headline` | The `headline` is rendered as a paragraph tag before the media. |
@@ -74,6 +74,23 @@ There is no component logic in the banner component. The component simply render
 ## Component Styling
 
 The component styles are provided by the `%cx-banner` placeholder selector in the styles library. The media style is made available in the default `sparta` theme. You can opt out of the banner styles by adding the selector to the list of `skipComponentStyles`.
+
+## Adding a New Banner Using ImpEx
+
+You can use ImpEx to create a banner component by exporting the following ImpEx header statement in the **Hybris Administration Console**:
+
+```text
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name;headline;media(code, $contentCV);slots(uid,$contentCV);
+```
+
+The following is an ImpEx example that you can use to create a banner component with a headline and an image on the electronics storefront homepage:
+
+```text
+INSERT_UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];name;headline;media(code, $contentCV);slots(uid,$contentCV);
+;;MyBannerComponent4;My Banner Component 4;My headline;Elec_240x180_HomeKid_EN_01_240W.jpg;Section1Slot-Homepage
+```
+
+Alternatively, you can modify the sample data scripts, adding the ImpEx statement above to the `cms-responsive-content.impex` file under `hybris/bin/custom/spartacussampledata/resources/spartacussampledata/import/contentCatalogs/electronicsContentCatalog`.
 
 ## Known Limitations
 
