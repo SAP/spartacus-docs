@@ -343,8 +343,8 @@ The easiest way to add new links to the Organization homepage is to create a new
 
 1. In the **Unbound** section of the **Administration** tab, fill in the following fields:
 
-   - **Headline** is title of the link.
-   - **Content** is the text displayed below link title.
+   - **Headline** is the title of the link.
+   - **Content** is the text displayed below the link title.
    - **Media** is a reference to a specific media object that has been added to the media library. In this case, it is used to define a banner icon. For more information, see [Adding a Custom Icon]({{ site.baseurl }}#adding-a-custom-icon), below.
    - **URL link** is the target URL address.
 

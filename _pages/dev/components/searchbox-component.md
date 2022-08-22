@@ -43,7 +43,7 @@ You can use the component mapping to configure an alternative searchbox implemen
 
 The CMS component data provides several configuration properties that can be used to influence the behavior of the searchbox. You can use the `CmsSearchBoxComponent` component-typing for type safety. Whenever the searchbox is provided by the CMS structure, the configuration is provided with the CMS component data. However, if the searchbox is used without CMS data, the default values are used, as follows:
 
-| config                 | default |
+| Config                 | Default |
 | ---------------------- | ------- |
 | `displayProducts`      | true    |
 | `maxProducts`          | 5       |
