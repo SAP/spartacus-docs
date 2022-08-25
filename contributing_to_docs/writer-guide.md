@@ -59,11 +59,22 @@ If you are new to GitHub, have a look at Jonathan McGlone's [Creating and Hostin
 
 The following sections are intended to help you get up and running with those aspects of GitHub that you need to contribute to the Spartacus project:
 
-- [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
-- [Cloning the Documentation Repository](#cloning-the-documentation-repository)
-- [Working with GitHub Issues](#working-with-github-issues)
-- [Working with Branches](#working-with-branches)
-- [Further Reading About Git](#further-reading-about-git)
+- [Writers: Contributing to Documentation](#writers-contributing-to-documentation)
+  - [Working with Markdown](#working-with-markdown)
+  - [Working with Visual Studio Code](#working-with-visual-studio-code)
+  - [Working with Jekyll](#working-with-jekyll)
+    - [Useful Links](#useful-links)
+  - [Working with GitHub](#working-with-github)
+    - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
+    - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
+    - [Working with GitHub Issues](#working-with-github-issues)
+      - [Creating a New Issue](#creating-a-new-issue)
+      - [Further Links](#further-links)
+    - [Working with Branches](#working-with-branches)
+    - [Further Reading About Git](#further-reading-about-git)
+  - [Making Updates to the Documentation Repository](#making-updates-to-the-documentation-repository)
+  - [Updating the Sidebar](#updating-the-sidebar)
+  - [Documentation Conventions](#documentation-conventions)
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
@@ -113,7 +124,9 @@ All open issues related to the Spartacus documentation repository can be viewed 
 
 You can create a new issue by clicking the green **New issue** button on the upper-right side of the **Issues** page. Since creating issues is a frequent activity when working in GitHub, you may want to bookmark the [New issue](https://github.com/SAP/spartacus-docs/issues/new) page.
 
-When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment, the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/spartacus-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team. **Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/spartacus-docs/projects) tab at the top of any page in GitHub.
+When you create a new issue, you also need to assign it to a project. The Spartacus tribe uses project boards for tracking work on a sprint-by-sprint basis, and should look familiar to you with its various columns, such as **To Do**, **In Progress**, and **Done**. At the moment, the Spartacus docs repo has only one project: the [Spartacus Documentation project](https://github.com/SAP/spartacus-docs/projects/1). When you start to contribute documentation to Spartacus, it might make sense to create a project specific to the work for your team.
+
+**Note:** You can access all projects for a particular repo by clicking on the [Projects](https://github.com/SAP/spartacus-docs/projects) tab at the top of any page in GitHub.
 
 #### Creating a New Issue
 

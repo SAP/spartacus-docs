@@ -264,7 +264,9 @@ The `AsmAuthService` was renamed to `CsAgentAuthService`. This service is now re
 - `AsmAuthService.startCustomerEmulationSession` was moved to `CsAgentAuthService`. Behavior has not changed.
 - `AsmAuthService.isCustomerEmulationToken` was removed. To check the token, use `AuthStorageService.getToken`, and to check if it belongs to the CS agent, use `AsmAuthStorageService.getTokenTarget`.
 - `AsmAuthService.getCustomerSupportAgentToken` was removed. To check the token, use `AuthStorageService.getToken` and to check if it belongs to the CS agent, use `AsmAuthStorageService.getTokenTarget`.
-- `AsmAuthService.getCustomerSupportAgentTokenLoading` was moved to `CsAgentAuthService`. **Note:** It is not implemented there yet.
+- `AsmAuthService.getCustomerSupportAgentTokenLoading` was moved to `CsAgentAuthService`.
+
+  **Note:** It is not implemented there yet.
 - `AsmAuthService.logoutCustomerSupportAgent` was moved to `CsAgentAuthService`. It performs the logout procedure for the CS agent and resolves when it completes.
 
 ### CDC library
