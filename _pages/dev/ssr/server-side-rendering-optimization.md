@@ -27,7 +27,7 @@ The SSR optimization engine addresses these issues as follows:
 - Only a certain number of queued pages are rendered before the rest of the queue defaults to Client-Side Rendering (CSR)
 - Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by a timeout)
 - If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request
-- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. 
+- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer.
 
   **Note:** CSR renders should never be cached.
 - The rendered SSR pages should be cached (for example, using CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible.

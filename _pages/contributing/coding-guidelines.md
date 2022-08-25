@@ -146,7 +146,9 @@ Certain complex applications may place more elements inside the `<body>` element
 
 For example, if you need to append a modal, or to add a global CSS class, you would need to obtain the reference to the Angular host element. You can do this in one of the following ways:
 
-- from the Angular `ApplicationRef` service (for example, `this.applicationRef.components?.[0]`). **Note:** This value is only available after the app bootstrap has completed.
+- from the Angular `ApplicationRef` service (for example, `this.applicationRef.components?.[0]`).
+  
+  **Note:** This value is only available after the app bootstrap has completed.
 - from the Angular `APP_BOOTSTRAP_LISTENER` hook. For more information, see [APP_BOOTSTRAP_LISTENER](https://angular.io/api/core/APP_BOOTSTRAP_LISTENER) in the official Angular documentation.
 
 By default, the Angular host component is `<cx-storefront>`, but it can be any custom app component.
