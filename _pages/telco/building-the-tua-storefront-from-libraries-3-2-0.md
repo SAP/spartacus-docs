@@ -346,7 +346,8 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 6. Make sure that the following import is found in the  `mystore/src/styles.scss`:
 
     For Telco, Utilities and Media:
-    ```bash
+
+   ```bash
    @import '~@spartacus/styles/index';
    @import '~@spartacus/tua-spa/storefrontstyles/index';
    @import '~material-design-icons/iconfont/material-icons.css';
