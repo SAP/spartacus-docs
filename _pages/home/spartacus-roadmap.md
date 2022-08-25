@@ -2,9 +2,9 @@
 title: Spartacus Roadmap
 ---
 
-This document describes what what is planned for Spartacus for Q1 2022 and later.
+This document describes what what is planned for Spartacus for Q4 2022 and later.
 
-*Last updated March 30, 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
+*Last updated August 2022 by Bill Marcotte, Senior Product Manager, Spartacus*
 
 ***
 
@@ -45,52 +45,48 @@ If you would like to report an issue for assistance from SAP, please use the [SA
   
 ## Summary of Tentative Release Dates
 
-Current release plans are (dates are tentative):
+### 5.0 (scheduled for Q4 2022)
 
-- 5.0 planned for September
-- 5.x releases to follow end of 2022
+User experience and feature improvements:
 
-## 2022
+- Screen Reader support for all B2C/Core features, plus addition of other accessibility requirements related to contract, labels, and more
+- Support for new PDF and Video component types introduced in SAP Commerce Cloud 2205
+- Toast option when adding to cart: Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
+- Clear Cart command on cart page
 
-### 5.0 (tentatively scheduled for September 2022)
+Architecture-related improvements:
 
-The Spartacus 5.0 has been delayed from May 2022 to September 2022.
+- Angular 13 framework
+- Cart and B2B Checkout libraries bringing performance by splitting modules into smaller libraries
+- Command & Queries for the checkout library, for improved developer experience
+- Schematics for "wrapper" modules
+- Strict compilation enabled
+- Removal of most deprecated code
 
-5.0 will feature:
+### Post-5.0 (end of 2022 and into 2023)
 
-- **Screen Reader** support for all B2C/Core features
-- **Cart library** bringing performance by splitting modules into smaller libraries
-- **Checkout libraries** separating B2B checkout and scheduled replenishment code from main checkout library
-- **Command & Queries** for checkout library
-- **Newest Angular framework** (currently 13, might be 14 depending on release schedule)
-- **Removal of most deprecated code**
-- **Support for new PDF and Video component types**
-- **Toast option when adding to cart** - Displays temporary confirmation message in top right corner, after adding to cart, instead of modal that must be closed
-- **Clear Cart** command on cart page
-- **S4 Order Management Schedule Lines** on cart page: Estimated delivery schedules for the items in cart for S/4HANA-based Order Management
+User experience and feature improvements:
 
-With the extra time, the following features are also being considered for 5.0, or soon after in 5.x release:
+- B2B Registration
+- B2B Future Stock: Allow customers to see when future stock is to be delivered to seller
+- ASM Anonymous Cart Binding
+- ASM Customer List ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html))
+- Configurable Bundles (requires SAP Commerce Cloud 2011) ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html))
+- Customer Ticketing (as described in [SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/docs/SAP_COMMERCE/9d346683b0084da2938be8a285c0c27a/8ba078758669101498e4f89f5e4f5ea1.html))
+- Buy online pickup in store ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
+- Account Summary for Commerce Organization (as described in [SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/0075e2910fc64079bc1baa4a5b0e510a.html))
+- Captcha support (similar to what's described in [SAP Commerce Cloud Documentation](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/8ac8663086691014ab34b77436f85412.html))
+- Multi-site user support (to correspond with feature planned for SAP Commerce Cloud 2211)
+- yForms support (to correspond with feature planned for SAP Commerce Cloud 2211)
+- Completion of Screen Reader support for B2B channel Spartacus storefront
+- Punchout support in Spartacus ([SAP Commerce Cloud Documentation](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/60fbb8dccb7a45949c570b6b1c272f10.html?version=latest))
+- B2B Commerce Quotes ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
+- S4 Order Management Schedule Lines on cart page: Estimated delivery schedules for the items in cart for S/4HANA-based Order Management
 
-- **Screen Readers**: Completion of support for B2B channel Spartacus storefront
-- **Buy online pickup in store** ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ae75e2086691014a64bf7cdd7ed5fd6.html))
-- **B2B Commerce Quotes** (requires API update released in 2105) ([SAP Commerce Cloud Accelerator Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/a795b4722f6942c091ef716c66ddb37d.html))
-- **Product bundles** (requires SAP Commerce Cloud 2011) ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b6eec0286691014a041e59dc69dc185.html))
-- **B2B Registration** (requires backend API improvement planned for release in 2022)
-- **B2B Future Stock** (requires backend API improvement planned for release in 2022)
+Note that certain features require specific SAP Commerce Cloud backend releases, including future releases. For example, B2B Registration requires  SAP Commerce Cloud 2105. Requirements will be documented when the feature is released.
+
+Architecture-related improvements:
+
+- Lazy loading for outlets and CSS styles (performance improvement)
 - Further code splitting (modules to be determined)
-- Performance improvements
-- Extensibility of lazy-loaded components
-
-### H1 2023 Plans
-
-- **ASM customer list** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8b571515866910148fc18b9e59d3e084.html))
-- **ASM Anonymous Cart Binding** (requires release 2005)
-- **ASM Search Autocomplete** (requires release 2005)
-- **Potential Promotions**
-- **Punchout support in Spartacus** ([SAP Commerce Cloud Documentation](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/8ac40cf08669101486f5ce44920c3f91.html))
-- **One app for running B2C and B2B stores**
-- **Accessibility**: WCAG 2.0 Level AA Storefront Support
-- **Command and Queries** extended throughout the rest of the product
-- **B2B Multi-Dimensional Products** delayed from 5.0 (depends on API improvement not yet planned)
-
-Other features related to Spartacus/Accelerator parity and architectural improvements are also in the plans but no timeline yet, stay tuned!
+- Update of Angular framework as available
