@@ -157,11 +157,11 @@ Even if you are not logged in, you can add products to the cart using the quick 
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-3.png" alt="Cart Quick Order Form" width="700" border="1px" />
 
-### Using the Quick Order Page
+## Using the Quick Order Page
 
 The following sections describe how to use the quick order feature in the Spartacus storefront.
 
-## Adding Products with the Quick Order Page
+### Adding Products with the Quick Order Page
 
 The **Quick Order** page provides a form for adding new products, and displays a list of products that have already been added. The list includes information about the products that have been added to the **Quick Order** page, such as the product image, name, availability, price, and quantity that you want to add to your cart. The following is an example:
 
@@ -191,7 +191,7 @@ You can add products to the quick order list and then to your cart, as follows:
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-6.png" alt="Quick Order Page With Errors" width="700" border="1px" />
 
-## Restoring a Deleted Product in the Quick Order Page
+### Restoring a Deleted Product in the Quick Order Page
 
 {% capture version_note %}
 {{ site.version_note_part1a }} 4.2 {{ site.version_note_part2 }}
@@ -213,7 +213,7 @@ You can restore deleted products from the quick order list, as described in the 
 
    After clicking **Undo**, the previously deleted product appears again in the quick order list.
 
-## Importing and Exporting in the Quick Order Page
+### Importing and Exporting in the Quick Order Page
 
 {% capture version_note %}
 {{ site.version_note_part1a }} 4.2 {{ site.version_note_part2 }}
