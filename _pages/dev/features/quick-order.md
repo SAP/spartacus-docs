@@ -16,14 +16,14 @@ The quick order feature allows users to quickly add multiple items to their cart
 
 For more information, see [Quick Order](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html) on the SAP Help Portal.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
 
----
+***
 
 ## Enabling Quick Order
 
