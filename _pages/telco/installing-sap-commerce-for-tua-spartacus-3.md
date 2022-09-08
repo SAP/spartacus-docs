@@ -297,7 +297,7 @@ Some of the steps in this procedure are derived from the documentation for insta
     context: {
     baseSite: ['telcospa', 'utilitiesspa', 'mediaspa']
     },
-    ```  
+    ```
 
 ## Configuring OCC Credentials
 

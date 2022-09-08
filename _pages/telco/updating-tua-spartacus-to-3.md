@@ -145,7 +145,8 @@ You can upgrade your TUA Spartacus libraries to a new minor version, as follows:
     bootstrap: [AppComponent],
     })
     export class AppModule {}
-    ``` 
+    ```
+
 1. Add the following import `/mystore/src/polyfills.ts` in the file:
 
     ```bash
