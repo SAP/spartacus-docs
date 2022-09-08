@@ -240,7 +240,7 @@ For Unix:
    context: {
    baseSite: ['telcospa']
    },
-   ```  
+   ```
 
 ## Configuring OCC Credentials
 

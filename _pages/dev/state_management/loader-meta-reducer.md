@@ -21,7 +21,7 @@ When a user interacts with a Spartacus storefront, the storefront application of
 
 You can wrap a part of the state tree with the loader utility, as shown in the following example:
 
-``` ts
+```ts
 import { loaderReducer } from '@spartacus/core';
 
 export const CART_DATA = '[Cart] Cart Data';
@@ -41,7 +41,7 @@ To maintain a simple state (that is, with one property), you do not have to prov
 
 To correctly set type definitions on your state, use the `LoaderState` interface, as shown in the following example:
 
-``` ts
+```ts
 import { LoaderState } from '@spartacus/core';
 
 export const CART_FEATURE = 'cart';
@@ -67,7 +67,7 @@ To manipulate meta data for the `loading`, `success` or `error` loading states, 
 
 The following is an example of how to create a set of actions for the cart:
 
-``` ts
+```ts
 import { StateLoaderActions } from '@spartacus/core';
 
 // ...
@@ -128,7 +128,7 @@ The following are the available functions:
 
 This following is an example of selectors from the cart feature that makes use of these utility functions:
 
-``` ts
+```ts
 import { StateLoaderSelectors } from '@spartacus/core';
 
 export const getCartsState: MemoizedSelector<

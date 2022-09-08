@@ -434,7 +434,7 @@ The `saveForLater` feature flag was removed.
 
 Instead, use cart configuration to enable/disable saveForLater feature. The following is an example:
 
-``` ts
+```ts
 cart: {
   selectiveCart: {
     enabled: true|false
