@@ -110,7 +110,7 @@ Please adhere to the following conventions to ensure that your changes build suc
 
     ```markdown
     [Controlling Server-Side Rendering]({{ site.baseurl }}/customizing-cms-components/#controlling-server-side-rendering-ssr)
-    ``` 
+    ```
 
 - **Images:** Images reside in the `/assets/images/` folder. The format for including an image in your topic is the following:
 

@@ -177,13 +177,15 @@ You can upgrade your TUA Spartacus libraries to a new minor version, as follows:
   bootstrap: [AppComponent],
   })
   export class AppModule {}
-    ``` 
+    ```
+
 1. Add the following import `/mystore/src/polyfills.ts` in the file:
 
     ```bash
     import '@angular/localize/init';    
     import 'zone.js/dist/zone';    
     ```
+
 1. Delete your `node_modules` folder.
 1. Run `yarn install`.
 

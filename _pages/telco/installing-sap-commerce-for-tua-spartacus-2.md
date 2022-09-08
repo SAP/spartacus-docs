@@ -269,13 +269,14 @@ Some of the steps in this procedure are derived from the documentation for insta
     baseSite: ['utilitiesspa']
     },
     ```
+
     Both:
 
     ```ts
     context: {
     baseSite: ['telcospa', ‘utilitiesspa’]
     },
-    ```  
+    ```
 
 ## Configuring OCC Credentials
 
