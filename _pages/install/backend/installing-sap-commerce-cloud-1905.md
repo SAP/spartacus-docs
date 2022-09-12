@@ -147,8 +147,8 @@ The following procedure describes how to configure SAP Commerce Cloud to accept 
 
    When you import this sample (which is the same as the sample that is provided in the SAP Commerce Cloud documentation), you add the following client ID and password:
 
-    - client ID: `mobile_android`
-    - password (or secret): `secret`
+   - client ID: `mobile_android`
+   - password (or secret): `secret`
 
    **Note:** The values for client ID and password are just samples. You would use different values for your production environments.
 
