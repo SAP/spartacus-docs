@@ -32,22 +32,18 @@ All new features for Spartacus must:
 
 - Avoid breaking changes. If you cannot avoid introducing a breaking change, ensure the breaking change is handled in a way that corresponds to the type of release you are working on, whether it is a major release (**X**.y.z), a minor release (x.**Y**.z), or a patch release (x.y.**Z**). Breaking changes are permitted in major releases, but must be accompanied by migration documentation and schematics. Breaking changes are never allowed in minor or patch releases, and must be handled through deprecation and the use of feature flags. For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes).
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Coding guidelines
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.
-
-## TL;DR
-
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit tests and end-to-end tests, and so on.
 
 ## Code Standards
 
