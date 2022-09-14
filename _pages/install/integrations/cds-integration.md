@@ -27,7 +27,7 @@ For more information, see [Intelligent Selling Services for SAP Commerce Cloud](
 
 ## Requirements
 
-To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release **1905.9** of Commerce Cloud is required.
+To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release **2105** of Commerce Cloud is required.
 
 Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see [{% assign linkedpage = site.pages | where: "name", "anonymous-consent.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
