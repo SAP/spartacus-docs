@@ -45,10 +45,6 @@ All new features for Spartacus must:
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.
 
-## TL;DR
-
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit tests and end-to-end tests, and so on.
-
 ## Code Standards
 
 There are several aspects to consider when writing code. Please review the [{% assign linkedpage = site.pages | where: "name", "coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/coding-guidelines.md %}).
