@@ -217,12 +217,10 @@ To ensure session affinity, Spartacus should always contact the same Commerce no
 
 The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
 
-- [- In Spartacus: `backend.occ.useWithCredentials=true`](#--in-spartacus-backendoccusewithcredentialstrue)
-  - [Unsupported Features](#unsupported-features)
-    - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
-    - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
-    - [Assisted Service Mode](#assisted-service-mode)
-    - [Cart Import and Export](#cart-import-and-export)
+- [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
+- [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
+- [Assisted Service Mode](#assisted-service-mode)
+- [Cart Import and Export](#cart-import-and-export)
 
 ### Save for Later and Selective Cart
 
