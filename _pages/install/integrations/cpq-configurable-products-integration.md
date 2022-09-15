@@ -42,8 +42,8 @@ The CPQ Configurable Products integration requires the `cpqproductconfigocc` ext
 
 The CPQ Configurable Products integration also requires the following releases of SAP Commerce Cloud:
 
-- SAP Commerce Cloud 2005 (minimum) or 2011 (recommended)
-- SAP Commerce Cloud, Integration Extension Pack 2005.2 (minimum) or 2102 (recommended)
+- SAP Commerce Cloud 2105 or newer
+- SAP Commerce Cloud, Integration Extension Pack 2108 or newer
 
 If you want to use the minimum required releases, make sure that you have read [Cart and Checkout Validation](https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/2005/en-US/69abc7f904b14d6a999ae00f274d3d2d.html) on the SAP Help Portal.
 

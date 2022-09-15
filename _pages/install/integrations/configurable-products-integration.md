@@ -37,7 +37,7 @@ For more information, see [Product Configuration with SAP Variant Configuration 
 
 ## Requirements
 
-The Configurable Products integration requires SAP Commerce Cloud release **2005.6** or **2011.1** or newer.
+The Configurable Products integration requires SAP Commerce Cloud release **2105** or newer.
 
 The integration also requires the `sapproductconfigocc` extension.
 
