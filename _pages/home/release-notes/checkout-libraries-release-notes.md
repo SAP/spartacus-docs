@@ -357,3 +357,9 @@ export class CustomCheckoutStoreEventListener implements OnDestroy {
   }
 }
 ```
+
+### How to migrate reducers?
+
+The logic in reducers mostly populates the state based on the action's payload.
+
+You can extend the appropriate facade, override the relevant method and perform and move the reducer logic there.
