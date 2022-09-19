@@ -66,107 +66,6 @@ Checkout events are essential as they are used to cause additional side-effects.
 
 Note: All events can be found in our [Spartacus events table](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
 
-### CheckoutReloadQueryEvent
-
-Event is used to:
-
-- 'reload' the existing checkout details data state with new data.
-
-### CheckoutResetQueryEvent
-
-Event is used to:
-
-- 'clear' the existing checkout details data state.
-
-### CheckoutDeliveryAddressEvent
-
-Event is just an abstract event to define all related delivery address events.
-
-### CheckoutDeliveryAddressSetEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetDeliveryModesEvent](#checkoutresetdeliverymodesevent) and [CheckoutResetQueryEvent](#checkoutresetqueryevent) events.
-- reset the `OrderType` when using `@spartacus/checkout/scheduled-replenishment`. `OrderType` is an enum which helps define the current checkout state to know if users want to place an order or to schedule a replenishment.
-
-### CheckoutDeliveryAddressCreatedEvent
-
-Event is used to:
-
-- display a global message upon successfully creating a new delivery address in checkout.
-- dispatch [CheckoutResetDeliveryModesEvent](#checkoutresetdeliverymodesevent) and [CheckoutResetQueryEvent](#checkoutresetqueryevent) events.
-
-### CheckoutClearDeliveryAddressEvent
-
-Event is used clear the currently set delivery address tied to your cart.
-
-### CheckoutDeliveryAddressClearedEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetQueryEvent](#checkoutresetqueryevent) event.
-
-### CheckoutDeliveryModeEvent
-
-Event is just an abstract event to define all related delivery mode events.
-
-### CheckoutReloadDeliveryModesEvent
-
-Event is used to:
-
-- 'reload' the existing supported delivery modes data state with new data.
-
-### CheckoutResetDeliveryModesEvent
-
-Event is used to:
-
-- 'clear' the existing supported delivery modes data state.
-- re-load the cart to make sure cart is up-to-date.
-
-### CheckoutDeliveryModeSetEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetQueryEvent](#checkoutresetqueryevent) event.
-- reset the `OrderType` when using `@spartacus/checkout/scheduled-replenishment`. `OrderType` is an enum which helps define the current checkout state to know if users want to place an order or to schedule a replenishment.
-
-### CheckoutDeliveryModeClearedEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetQueryEvent](#checkoutresetqueryevent) event.
-- reset the `OrderType` when using `@spartacus/checkout/scheduled-replenishment`. `OrderType` is an enum which helps define the current checkout state to know if users want to place an order or to schedule a replenishment.
-
-### CheckoutPaymentDetailsEvent
-
-Event is just an abstract event to define all related payment details events.
-
-### CheckoutPaymentDetailsSetEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetQueryEvent](#checkoutresetqueryevent)` event.
-- reset the `OrderType` when using `@spartacus/checkout/scheduled-replenishment`. `OrderType` is an enum which helps define the current checkout state to know if users want to place an order or to schedule a replenishment.
-
-### CheckoutPaymentDetailsCreatedEvent
-
-Event is used to:
-
-- display a global message upon successfully creating a new payment method in checkout.
-- dispatch [CheckoutResetQueryEvent](#checkoutresetqueryevent) event.
-
-### CostCenterSetEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetDeliveryModesEvent](#checkoutresetdeliverymodesevent) and [CheckoutResetQueryEvent](#checkoutresetqueryevent) events
-
-### PaymentTypeSetEvent
-
-Event is used to:
-
-- dispatch [CheckoutResetDeliveryModesEvent](#checkoutresetdeliverymodesevent) and [CheckoutResetQueryEvent](#checkoutresetqueryevent) events
-
 ## Commands and Queries example in Checkout
 
 As mentioned, the new checkout libraries have mostly removed ngrx dependencies while adapting to our commands and queries pattern.
@@ -217,9 +116,7 @@ return this.checkoutDeliveryAddressConnector
     )
 ```
 
-**_ TODO reminder. Put link to updated event page here _**
-
-Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as [CheckoutResetDeliveryModesEvent](#checkoutresetdeliverymodesevent) and [CheckoutResetQueryEvent](#checkoutresetqueryevent).
+Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as `CheckoutResetDeliveryModesEvent` and `CheckoutResetQueryEvent`.
 
 ```typescript
   protected onDeliveryAddressChange(): void {
@@ -299,7 +196,7 @@ TBD (wrappers / new schematics mechanism)
 
 Our schematics helps alleviate the migrations in order to help make the transition from your current version to 5.0 better.
 
-Take a look at the migration [doc](path-to-patrick's-md), where you can find a high-level overview on what has changed.
+Take a look at the migration [doc](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md), where you can find a high-level overview on what has changed.
 
 ### General idea of manually updating from old checkout facades in @spartacus/checkout/root
 
@@ -334,3 +231,19 @@ Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spa
     ) {}
   }
 ```
+
+### Consider using the newly created checkout components
+
+You should consider using our new checkout components, such as `CheckoutPaymentTypeComponent` compared to the old `PaymentTypeComponent`.
+
+If you do not want to use our newly created components that is using the facades with commands and queries under the hood, you can always import our new facade into your existing components and adapt the necessary data accordingly.
+
+### Example of removing NgRx by using our commands and query
+
+Context: Setting a payment type
+Old (PaymentTypesEffects.setPaymentType$)
+New (CheckoutPaymentTypeFacade.setPaymentType)
+
+1. Stop using PaymentTypesEffects as it is part of the NgRx ecosystem and start using CheckoutPaymentTypeFacade, which uses commands and queries
+2. instead of dispatching an action `new CheckoutActions.SetPaymentType` to set the payment type, use `CheckoutPaymentTypeFacade.setPaymentType` to fire a command to set a new payment type.
+   1. If there is additional logic that was added to the effects of setting a new payment type, you can extend from `CheckoutPaymentTypeFacade` and override `setPaymentTypeCommand` to add additional logic before calling the connector.
