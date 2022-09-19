@@ -199,15 +199,14 @@ Our schematics helps alleviate the migrations in order to help make the transiti
 
 Take a look at the migration [doc](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md), where you can find a high-level overview on what has changed.
 
-### General idea of manually updating from old checkout facades in @spartacus/checkout/root
+### General idea of manually updating from old checkout facades
 
-Make sure to change the type in the constructor if applicable and import from the new checkout library
+Most of components will need to be updated to use the new checkout facades.
+To do so, make sure to change the type in the constructor if applicable and import from the new checkout library.
 
-For example:
+If you had a component like this:
 
-OLD (importing from old checkout)
-
-```typescript
+```ts
   import { CheckoutPaymentFacade } from '@spartacus/checkout/root';
 
   class SomeOldCheckoutComponent {
@@ -218,11 +217,9 @@ OLD (importing from old checkout)
   }
 ```
 
-NEW (importing from 'new' checkout)
+You can just do the following:
 
-Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spartacus/checkout/b2b/root`, or `@spartacus/checkout/scheduled-replenishment/root`.
-
-```typescript
+```ts
   import { CheckoutPaymentFacade } from '@spartacus/checkout/base/root';
 
   class SomeOldCheckoutComponent {
@@ -232,6 +229,8 @@ Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spa
     ) {}
   }
 ```
+
+Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spartacus/checkout/b2b/root`, or `@spartacus/checkout/scheduled-replenishment/root`.
 
 ### Consider using the newly created checkout components
 
