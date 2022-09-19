@@ -309,3 +309,52 @@ export class CustomCheckoutPaymentTypeComponent {
   ...
 }
 ```
+
+### Mixing NgRX with commands and queries
+
+Why would you mix the NgRX with command and queries:
+
+- synchronizing the other parts of the (custom) state after the Checkout state changes
+- gradually moving your custom NgRX-based logic to commands and queries during a transitional period
+
+You can achieve this by using the relevant Checkout events and NgRX actions.
+
+If you would like to dispatch a custom NgRX action after a Checkout event happens, you can either override the existing event listener, and alter the default behavior,
+or you can create a new listener and do something like this:
+
+```ts
+import { Injectable, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import {
+  EventService,
+  LoadUserAddressesEvent,
+  UserActions,
+} from '@spartacus/core';
+import { Subscription } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CustomCheckoutStoreEventListener implements OnDestroy {
+  protected subscriptions = new Subscription();
+
+  constructor(
+    protected eventService: EventService,
+    protected store: Store<unknown>
+  ) {
+    this.onUserAddressAction();
+  }
+
+  protected onUserAddressAction(): void {
+    this.subscriptions.add(
+      this.eventService.get(LoadUserAddressesEvent).subscribe(({ userId }) => {
+        this.store.dispatch(new UserActions.LoadUserAddresses(userId));
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+}
+```
