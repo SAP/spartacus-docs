@@ -235,16 +235,77 @@ Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spa
 
 ### Consider using the newly created checkout components
 
-You should consider using our new checkout components, such as `CheckoutPaymentTypeComponent` compared to the old `PaymentTypeComponent`.
+You can consider using Spartacus new checkout components, such as `CheckoutPaymentTypeComponent` compared to the old `PaymentTypeComponent`.
 
-If you do not want to use our newly created components that is using the facades with commands and queries under the hood, you can always import our new facade into your existing components and adapt the code accordingly.
+If you do not want to use Spartacus' newly created components which are consuming the new facades with commands and queries under the hood, you can always import our new facade into your existing components and adapt the code accordingly.
 
 ### Example of removing NgRx by using our commands and query
 
-Context: Setting a payment type
-Old (PaymentTypesEffects.setPaymentType$)
-New (CheckoutPaymentTypeFacade.setPaymentType)
+Let's imagine a use case where you customized the set payment type step.
 
-1. Stop using PaymentTypesEffects as it is part of the NgRx ecosystem and start using CheckoutPaymentTypeFacade, which uses commands and queries
-2. instead of dispatching an action `new CheckoutActions.SetPaymentType` to set the payment type, use `CheckoutPaymentTypeFacade.setPaymentType` to fire a command to set a new payment type.
-   1. If there is additional logic that was added to the effects of setting a new payment type, you can extend from `CheckoutPaymentTypeFacade` and override `setPaymentTypeCommand` to add additional logic before calling the connector.
+Previously, to achieve this you had to dismantle the checkout module(s) and replace the default Spartacus store modules (usually the `effect`s and `reducer`s).
+If you wanted to add a custom logic, you could also "tap" into the NgRX's actions stream, and listen for relevant actions in order to perform additional logic.
+
+E.g., if you had a custom effect:
+
+```ts
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { CheckoutActions } from '@spartacus/checkout/core';
+import { switchMap } from 'rxjs/operators';
+
+@Injectable()
+export class CustomPaymentTypesEffects {
+  @Effect()
+  loadPaymentTypes$ = this.actions$.pipe(
+    ofType(CheckoutActions.LOAD_PAYMENT_TYPES_SUCCESS),
+    switchMap((action) => {
+      // ... custom logic ...
+    })
+  );
+
+  ...
+
+  constructor(private actions$: Actions) {}
+
+  ...
+}
+```
+
+You can now simply extend the relevant facade (e.g. `CheckoutPaymentTypeFacade`) and override the relevant method (e.g. `getPaymentTypes()`), and add the custom logic in one central place. Another benefit of this approach is the fact the custom logic applies to all the callers.
+
+Alternatively, if you have a use case where you need to apply the custom logic _only to one place_ without affecting other callers, you can just do the following:
+
+```ts
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PaymentType } from '@spartacus/cart/base/root';
+import { CheckoutPaymentTypeFacade } from '@spartacus/checkout/b2b/root';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+@Component({
+  selector: 'cx-payment-type',
+  templateUrl: './custom-checkout-payment-type.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class CustomCheckoutPaymentTypeComponent {
+  ...
+
+  paymentTypes$: Observable<PaymentType[]> = this.checkoutPaymentTypeFacade
+    .getPaymentTypes()
+    .pipe(
+      tap(
+        // handle next / success case
+        (paymentTypes) => {
+          // custom logic
+        },
+        // handle error
+        (error) => {}
+      )
+    );
+
+  constructor(protected checkoutPaymentTypeFacade: CheckoutPaymentTypeFacade) {}
+
+  ...
+}
+```
