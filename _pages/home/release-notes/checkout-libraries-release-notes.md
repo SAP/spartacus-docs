@@ -196,7 +196,7 @@ TBD (wrappers / new schematics mechanism)
 
 Our schematics helps alleviate the migrations in order to help make the transition from your current version to 5.0 better.
 
-Take a look at the migration [doc](path-to-patrick's-md), where you can find a high-level overview on what has changed.
+Take a look at the migration [doc](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md), where you can find a high-level overview on what has changed.
 
 ### General idea of manually updating from old checkout facades in @spartacus/checkout/root
 
@@ -231,3 +231,19 @@ Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spa
     ) {}
   }
 ```
+
+### Consider using the newly created checkout components
+
+You should consider using our new checkout components, such as `CheckoutPaymentTypeComponent` compared to the old `PaymentTypeComponent`.
+
+If you do not want to use our newly created components that is using the facades with commands and queries under the hood, you can always import our new facade into your existing components and adapt the necessary data accordingly.
+
+### Example of removing NgRx by using our commands and query
+
+Context: Setting a payment type
+Old (PaymentTypesEffects.setPaymentType$)
+New (CheckoutPaymentTypeFacade.setPaymentType)
+
+1. Stop using PaymentTypesEffects as it is part of the NgRx ecosystem and start using CheckoutPaymentTypeFacade, which uses commands and queries
+2. instead of dispatching an action `new CheckoutActions.SetPaymentType` to set the payment type, use `CheckoutPaymentTypeFacade.setPaymentType` to fire a command to set a new payment type.
+   1. If there is additional logic that was added to the effects of setting a new payment type, you can extend from `CheckoutPaymentTypeFacade` and override `setPaymentTypeCommand` to add additional logic before calling the connector.
