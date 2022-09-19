@@ -237,7 +237,7 @@ Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spa
 
 You should consider using our new checkout components, such as `CheckoutPaymentTypeComponent` compared to the old `PaymentTypeComponent`.
 
-If you do not want to use our newly created components that is using the facades with commands and queries under the hood, you can always import our new facade into your existing components and adapt the necessary data accordingly.
+If you do not want to use our newly created components that is using the facades with commands and queries under the hood, you can always import our new facade into your existing components and adapt the code accordingly.
 
 ### Example of removing NgRx by using our commands and query
 
