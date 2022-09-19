@@ -116,8 +116,6 @@ return this.checkoutDeliveryAddressConnector
     )
 ```
 
-**_ TODO reminder. Put link to updated event page here _**
-
 Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as `CheckoutResetDeliveryModesEvent` and `CheckoutResetQueryEvent`.
 
 ```typescript
