@@ -62,7 +62,7 @@ Note: The new checkout library is not backwards compatible. This library is inte
 
 ## Events
 
-Checkout events are essential as they are used to cause additional side-effects. These events help remove the side effects done from `effects` when using ngrx. Events are caught either by event listeners (classes ending with `-event.listener`) or [queries to reset/reload data state](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
+Checkout events are essential as they are used to perform side-effects. These events help remove the side effects done from `effects` when using ngrx. Events are caught either by event listeners (classes ending with `-event.listener`) or [queries to reset/reload data state](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
 
 Note: All events can be found in our [Spartacus events table](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
 
@@ -116,7 +116,7 @@ return this.checkoutDeliveryAddressConnector
     )
 ```
 
-Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as `CheckoutResetDeliveryModesEvent` and `CheckoutResetQueryEvent`.
+Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as [`CheckoutResetDeliveryModesEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) and [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
 
 ```typescript
   protected onDeliveryAddressChange(): void {
@@ -140,7 +140,7 @@ Event listeners are flexible as we can inject any number of dependencies to perf
     ...
 ```
 
-The example for `CheckoutResetQueryEvent` being fired is to reset our checkout details query from `CheckoutQueryFacade` due to the nature of our commands and queries, where we can [reload or reset a query](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
+The example for [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) being fired is to reset our checkout details query from `CheckoutQueryFacade` due to the nature of our commands and queries, where we can [reload or reset a query](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
 
 ### How to properly make use of queries in checkout
 
