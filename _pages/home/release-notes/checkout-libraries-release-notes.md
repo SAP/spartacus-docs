@@ -188,9 +188,10 @@ When queries are used to get the state, it is recommended to filter the loading 
   }
 ```
 
-## How to add additional logic to existing features
+## How to add customize the lazy loaded checkout?
 
-TBD (wrappers / new schematics mechanism)
+The principle for customizing the lazy loaded checkout feature is the same as for any other feature.
+Please read more about it [here](_pages/dev/lazy-loading-guide.md#Customizing-Lazy-Loaded-Modules).
 
 ## Migrations
 
