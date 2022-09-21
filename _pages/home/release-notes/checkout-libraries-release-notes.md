@@ -374,5 +374,5 @@ export class CustomCheckoutStoreEventListener implements OnDestroy {
 ### How to migrate reducers?
 
 The reducers update the state based on the action's payload.
-To customize the state in the new checkout, you can override you can extend the appropriate facade, and override the relevant method which return the result of the query.
+To customize the state in the new checkout, you can extend the appropriate facade, and override the relevant method which return the result of the query.
 As all queries are plain observables, you can compose multiple streams if needed, and use `rxjs`'s `map` operator.
