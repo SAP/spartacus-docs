@@ -187,16 +187,6 @@ To be able to register users and check out, SAP Commerce Cloud must be configure
 - For information on Spartacus and CORS settings, see [{% assign linkedpage = site.pages | where: "name", "cors.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/cors.md %}).
 - There are a number of other Spartacus features that also require additional CORS settings. For more information about CORS, see [ycommercewebservices Extension](https://help.sap.com/viewer/9d346683b0084da2938be8a285c0c27a/latest/en-US/8c91f3a486691014b085fb11c44412ff.html) in the SAP Help Portal.
 
-### Assisted Service Module
-
-If your storefront is using the Assisted Service Module (ASM), you will need to allow a specific header for customer emulation to fully work.
-
-1. Add the value `sap-commerce-cloud-user-id` to the values of the key `corsfilter.commercewebservices.allowedHeaders` in a properties file.
-
-2. In a `FeaturesConfig` provider, set a key `enableCommerceCloudUserIdHeader` with the value `true`.
-
-By configuring Spartacus in such a way, the storefront will send requests with the header `sap-commerce-cloud-user-id` with the emulated user's ID as its value. This is to prevent ambiguity errors when making requests to the OCC.
-
 ## Troubleshooting
 
 - If SAP Commerce Cloud installer doesn't work, make sure there are no spaces in the path to the SAP Commerce Cloud folder.

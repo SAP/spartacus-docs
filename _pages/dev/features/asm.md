@@ -113,6 +113,29 @@ For development purposes only, you can set the value to a wildcard (`*`), as sho
 corsfilter.assistedservicewebservices.allowedOrigins=*
 ```
 
+### Additional CORS Configuration for Customer Emulation
+
+You will need to allow a specific header for customer emulation to fully work.
+
+1. Add the `sap-commerce-cloud-user-id` to the values of the key `corsfilter.commercewebservices.allowedHeaders` in a properties file. For example:
+
+```
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference x-dtpc sap-commerce-cloud-user-id
+```
+
+2. In a `FeaturesConfig` provider, set a key `enableCommerceCloudUserIdHeader` with the value `true`.
+
+```
+provideConfig(<FeaturesConfig>{
+  features: {
+    level: '*',
+    enableCommerceCloudUserIdHeader: true,
+  },
+}),
+```
+
+By configuring Spartacus in such a way, the storefront will send requests with the header `sap-commerce-cloud-user-id` with the emulated user's ID as its value. This is to prevent ambiguity errors when making requests to the OCC.
+
 **Note:** This wildcard configuration is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
 ## Writing ASM-Compatible Code
