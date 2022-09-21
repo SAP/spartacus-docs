@@ -240,10 +240,10 @@ If you do not want to use Spartacus' newly created components which are consumin
 
 ### Example of removing NgRx by using our commands and query
 
-Let's imagine a use case where you customized the set payment type step.
+Let's imagine a use case where you customized the loading of payment types in the checkout payment type step.
 
-Previously, to achieve this you had to dismantle the checkout module(s) and replace the default Spartacus store modules (usually the `effect`s and `reducer`s).
-If you wanted to add a custom logic, you could also "tap" into the NgRX's actions stream, and listen for relevant actions in order to perform additional logic.
+With the old checkout implementation that uses NgRx prior to the refactor, you would need to dismantle the checkout module(s) and replace the default Spartacus store modules (usually the `effect`s and `reducer`s).
+Additionally, if you wanted to add a custom logic in the old implementation, you could also "tap" into the NgRx's actions stream, and listen for relevant actions in order to perform additional logic.
 
 E.g., if you had a custom effect:
 
@@ -271,7 +271,7 @@ export class CustomPaymentTypesEffects {
 }
 ```
 
-You can now simply extend the relevant facade (e.g. `CheckoutPaymentTypeFacade`) and override the relevant method (e.g. `getPaymentTypes()`), and add the custom logic in one central place. Another benefit of this approach is the fact the custom logic applies to all the callers.
+With the newly refactor checkout that uses commands and queries, you can now simply extend the relevant facade (e.g. `CheckoutPaymentTypeFacade`) and override the relevant method (e.g. `getPaymentTypes()`), which enables the use of adding a custom logic in a central place. Another benefit of this approach is the fact the custom logic applies to all the callers.
 
 Alternatively, if you have a use case where you need to apply the custom logic _only to one place_ without affecting other callers, you can just do the following:
 
