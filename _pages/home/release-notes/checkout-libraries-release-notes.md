@@ -188,10 +188,10 @@ When queries are used to get the state, it is recommended to filter the loading 
   }
 ```
 
-## How to add customize the lazy loaded checkout?
+## How to customize a lazy loaded module like checkout?
 
 The principle for customizing the lazy loaded checkout feature is the same as for any other feature.
-Please read more about it [here](_pages/dev/lazy-loading-guide.md#Customizing-Lazy-Loaded-Modules).
+Please read more about it [here](https://sap.github.io/spartacus-docs/lazy-loading-guide/#customizing-lazy-loaded-modules).
 
 ## Migrations
 
