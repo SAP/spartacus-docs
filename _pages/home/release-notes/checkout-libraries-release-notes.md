@@ -19,10 +19,10 @@ The release of Spartacus 5.0 introduces three different entrypoints for the `@sp
 
 Originally, [Spartacus 4.0 released the new code splitted checkout library](https://sap.github.io/spartacus-docs/technical-changes-version-4/#new-checkout-library), which had only a single entrypoint that contained all checkout flows even if it would not be used, for example, [scheduling a replenishment](https://sap.github.io/spartacus-docs/scheduled-replenishment/#setting-up-a-replenishment-order). However, in Spartacus 5.0, we further decoupled the library into different business logic features in order to have a smaller bundle size.
 
-In addition to creating different entrypoints to reduce the bundle size, we have mostly removed ngrx dependencies, with the exception of a few ngrx actions that are isolated within an event listener, by replacing them with [commands and queries](https://sap.github.io/spartacus-docs/commands-and-queries/#page-title). It is currently not possible to fully separate ngrx from checkout until other libraries from Spartacus get refactored, such as Cart or User libraries.
+In addition to creating different entrypoints to reduce the bundle size, we have mostly removed NgRx dependencies, with the exception of a few NgRx actions that are isolated within an event listener, by replacing them with [commands and queries](https://sap.github.io/spartacus-docs/commands-and-queries/#page-title). It is currently not possible to fully separate NgRx from checkout until other libraries from Spartacus get refactored, such as Cart or User libraries.
 
 - Benefits of converting to `command and queries`:
-  - as all functionality is in classes, it is easier to extend, as opposed to ngrx where you can not really extend a reducer or an effect (without dismantling deeply nested Spartacus' ngrx modules).
+  - as all functionality is in classes, it is easier to extend, as opposed to NgRx where you can not really extend a reducer or an effect (without dismantling deeply nested Spartacus' NgRx modules).
   - commands are built in a more reactive way, and return the execution result as part of the same method call.
   - similarly to the commands, listening to loading, error, and data state changes are as simple as calling one method and getting all the results in one call through queries.
   - simply put, it is much simpler to compose streams with commands and queries as we are able to chain / pipe to the execution of the action.
@@ -33,7 +33,7 @@ Finally, the business logic for placing an order or scheduling a replenishment o
 ## General changes
 
 - Majority of old checkout imports (`@spartacus/checkout`) are now spread across the new entry points (`@spartacus/checkout/base`, `@spartacus/checkout/b2b`, `@spartacus/checkout/scheduled-replenishment`), and their secondary entry points (ex: `@spartacus/checkout/base/core`, `@spartacus/checkout/base/occ`, `@spartacus/checkout/base/components`).
-- Services are now using commands and queries instead of making use of ngrx for state management.
+- Services are now using commands and queries instead of making use of NgRx for state management.
 - `normalizeHttpError()` is moved from the effects to the adapter layer.
 - Order confirmation components listed below are moved to the Order library.
   - OrderConfirmationThankYouMessageComponent
@@ -62,13 +62,13 @@ Note: The new checkout library is not backwards compatible. This library is inte
 
 ## Events
 
-Checkout events are essential as they are used to perform side-effects. These events help remove the side effects done from `effects` when using ngrx. Events are caught either by event listeners (classes ending with `-event.listener`) or [queries to reset/reload data state](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
+Checkout events are essential as they are used to perform side-effects. These events help remove the side effects done from `effects` when using NgRx. Events are caught either by event listeners (classes ending with `-event.listener`) or [queries to reset/reload data state](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
 
 Note: All events can be found in our [Spartacus events table](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
 
 ## Commands and Queries example in Checkout
 
-As mentioned, the new checkout libraries have mostly removed ngrx dependencies while adapting to our commands and queries pattern.
+As mentioned, the new checkout libraries have mostly removed NgRx dependencies while adapting to our commands and queries pattern.
 
 1. Components inject facades (example: [CheckoutDeliveryAddressComponent](https://github.com/SAP/spartacus/blob/develop/feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts))
 
@@ -249,7 +249,7 @@ E.g., if you had a custom effect:
 
 ```ts
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@NgRx/effects';
 import { CheckoutActions } from '@spartacus/checkout/core';
 import { switchMap } from 'rxjs/operators';
 
@@ -309,21 +309,21 @@ export class CustomCheckoutPaymentTypeComponent {
 }
 ```
 
-### Mixing NgRX with commands and queries
+### Mixing NgRx with commands and queries
 
-Why would you mix the NgRX with command and queries:
+Why would you mix the NgRx with command and queries:
 
 - synchronizing the other parts of the (custom) state after the Checkout state changes
-- gradually moving your custom NgRX-based logic to commands and queries during a transitional period
+- gradually moving your custom NgRx-based logic to commands and queries during a transitional period
 
-You can achieve this by using the relevant Checkout events and NgRX actions.
+You can achieve this by using the relevant Checkout events and NgRx actions.
 
-If you would like to dispatch a custom NgRX action after a Checkout event happens, you can either override the existing event listener, and alter the default behavior,
+If you would like to dispatch a custom NgRx action after a Checkout event happens, you can either override the existing event listener, and alter the default behavior,
 or you can create a new listener and do something like this:
 
 ```ts
 import { Injectable, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store } from '@NgRx/store';
 import {
   EventService,
   LoadUserAddressesEvent,
