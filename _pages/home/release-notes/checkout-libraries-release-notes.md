@@ -43,6 +43,19 @@ Finally, the business logic for placing an order or scheduling a replenishment o
 - Place order and scheduling a replenishment business logic are moved to the order library.
 - Checkout flow has a better transition experience due to enhanced smoothing, less requests and less duplicated requests, and a uniform spinner for every step.
 - Most checkout components from Spartacus 4.0 have been re-named to be prefixed with Checkout. For example, CheckoutPlaceOrderComponent.
+- `defaultB2bCheckoutConfig` was moved to `@spartacus/checkout/b2b/root`, and renamed to `defaultB2BCheckoutConfig` (notice the capital `B2B`).
+- if you are using OOTB checkout feature, and lazily loading `CheckoutModule` from `@spartacus/checkout`, you need to change the dynamic import path to `@spartacus/checkout/base`. It should look like something like this:
+
+```ts
+provideConfig({
+  featureModules: {
+    [CHECKOUT_FEATURE]: {
+      module: () =>
+        import('@spartacus/checkout/base').then((m) => m.CheckoutModule),
+    },
+  },
+});
+```
 
 ## New functionality
 
