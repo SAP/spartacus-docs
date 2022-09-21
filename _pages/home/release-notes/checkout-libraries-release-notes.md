@@ -249,7 +249,7 @@ E.g., if you had a custom effect:
 
 ```ts
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@NgRx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { CheckoutActions } from '@spartacus/checkout/core';
 import { switchMap } from 'rxjs/operators';
 
@@ -323,7 +323,7 @@ or you can create a new listener and do something like this:
 
 ```ts
 import { Injectable, OnDestroy } from '@angular/core';
-import { Store } from '@NgRx/store';
+import { Store } from '@ngrx/store';
 import {
   EventService,
   LoadUserAddressesEvent,
