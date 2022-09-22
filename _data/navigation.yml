@@ -21,6 +21,11 @@ docs:
                   url: /pre-release-information/
                 - title: "Feature Compatibility"
                   url: /feature-release-versions/
+                - title: "Updating to Version 5.0 ➢"
+                  url: /updating-to-version-5/
+                  underchildren:
+                      - title: "Checkout Libraries Release Notes"
+                        url: /checkout-libraries-release-notes/
                 - title: "Updating to Version 4.0 ➢"
                   url: /updating-to-version-4/
                   underchildren:

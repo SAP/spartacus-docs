@@ -2,20 +2,22 @@
 title: Checkout Libraries Release Notes
 ---
 
-The release of Spartacus 5.0 introduces three different entrypoints for the `@spartacus/checkout` library:
+The release of Spartacus 5.0 introduces three different entry points for the `@spartacus/checkout` library.
 
-- `@spartacus/checkout/base` - includes basic checkout functionalities, which are more catered to business to consumer (b2c).
-- `@spartacus/checkout/b2b` - includes the basic checkout functionalities from base, and additional checkout flow that are catered to business to business (b2b).
-- `@spartacus/checkout/scheduled-replenishment` - includes both the base and b2b checkout functionalities, but it allows the user to either place a regular or schedule a replenishment order.
+The new entry points for the `@spartacus/checkout` library are the following:
 
----
+- `@spartacus/checkout/base`, which includes basic checkout functionalities that cater especially to business-to-consumer (B2C) checkout flows.
+- `@spartacus/checkout/b2b`, which includes the basic checkout functionalities from the base library, as well as additional checkout flows that cater to business-to-business (B2B) scenarios.
+- `@spartacus/checkout/scheduled-replenishment`includes the functionalities of both the base and b2b checkout libraries, and also allows the user to either place a regular order, or schedule a replenishment order.
+
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 Originally, [Spartacus 4.0 released the new code splitted checkout library](https://sap.github.io/spartacus-docs/technical-changes-version-4/#new-checkout-library), which had only a single entrypoint that contained all checkout flows even if it would not be used, for example, [scheduling a replenishment](https://sap.github.io/spartacus-docs/scheduled-replenishment/#setting-up-a-replenishment-order). However, in Spartacus 5.0, we further decoupled the library into different business logic features in order to have a smaller bundle size.
 
@@ -79,81 +81,82 @@ Checkout events are essential as they are used to perform side-effects. These ev
 
 Note: All events can be found in our [Spartacus events table](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
 
-## Commands and Queries example in Checkout
+## Commands and Queries Example in Checkout
 
 As mentioned, the new checkout libraries have mostly removed NgRx dependencies while adapting to our commands and queries pattern.
 
 1. Components inject facades (example: [CheckoutDeliveryAddressComponent](https://github.com/SAP/spartacus/blob/develop/feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts))
 
-The following describes the dependency injection to the [proxy facade](https://sap.github.io/spartacus-docs/proxy-facades/#defining-proxy-facades), where the actual implementation is provided using a dependency provider. In the case of checkout, the facade service contains the business logic executed by commands and queries.
+   The following describes the dependency injection to the [proxy facade](https://sap.github.io/spartacus-docs/proxy-facades/#defining-proxy-facades), where the actual implementation is provided using a dependency provider. In the case of checkout, the facade service contains the business logic executed by commands and queries.
 
-```typescript
-  constructor(
-    ...
-    protected checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
-    protected checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
-    ...
-  ) {}
-```
+   ```typescript
+     constructor(
+       ...
+       protected checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+       protected checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+       ...
+     ) {}
+   ```
 
 1. Facades execute commands and queries (example: [CheckoutDeliveryAddressFacade](https://github.com/SAP/spartacus/blob/develop/feature-libs/checkout/base/core/facade/checkout-delivery-address.service.ts))
 
-Most of the time, each facade service injects both the `CommandService` and `QueryService`.
-In `CheckoutQueryFacade` we have created a checkout details query which serves as a single source of truth for the checkout state, and is updated after each change the user does during the checkout.
+   Most of the time, each facade service injects both the `CommandService` and `QueryService`.
 
-A [command](https://sap.github.io/spartacus-docs/commands-and-queries/#commands-overview) is created in order to execute an action. In this case, it is for creating a delivery address. As seen in the snippet below, the command type is of `Command<Address, unknown>`. Address is for the input and unknown is for the output. The input for this case is required for the command to execute while the output 'may' be unknown.
+   In `CheckoutQueryFacade` we have created a checkout details query which serves as a single source of truth for the checkout state, and is updated after each change the user does during the checkout.
+
+   A [command](https://sap.github.io/spartacus-docs/commands-and-queries/#commands-overview) is created in order to execute an action. In this case, it is for creating a delivery address. As seen in the snippet below, the command type is of `Command<Address, unknown>`. Address is for the input and unknown is for the output. The input for this case is required for the command to execute while the output 'may' be unknown.
 
 1. Commands can dispatch events (for other side effects)
 
-The following snippet is taken from the `createDeliveryAddressCommand`, which can be found in the source code under the [checkout-delivery-address.service.ts](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/core/facade/checkout-delivery-address.service.ts#L29). After successfully creating an address, we are [dispatching events](https://sap.github.io/spartacus-docs/event-service/#dispatching-individual-events) under the tap operator in order to be caught by our event listeners to perform additional actions.
+   The following snippet is taken from the `createDeliveryAddressCommand`, which can be found in the source code under the [checkout-delivery-address.service.ts](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/core/facade/checkout-delivery-address.service.ts#L29). After successfully creating an address, we are [dispatching events](https://sap.github.io/spartacus-docs/event-service/#dispatching-individual-events) under the tap operator in order to be caught by our event listeners to perform additional actions.
 
-```typescript
-return this.checkoutDeliveryAddressConnector
-  .createAddress(userId, cartId, payload)
-  .pipe(
-    tap(() => {
-      ...
-    }),
-    map((address) => {
-      ...
-    }),
-    tap((address) =>
-      this.eventService.dispatch( // <-- Event dispatching
-        {
-          userId,
-          cartId,
-          address,
-        },
-        CheckoutDeliveryAddressCreatedEvent
-      )
-    )
-```
+   ```typescript
+   return this.checkoutDeliveryAddressConnector
+     .createAddress(userId, cartId, payload)
+     .pipe(
+       tap(() => {
+         ...
+       }),
+       map((address) => {
+         ...
+       }),
+       tap((address) =>
+         this.eventService.dispatch( // <-- Event dispatching
+           {
+             userId,
+             cartId,
+             address,
+           },
+           CheckoutDeliveryAddressCreatedEvent
+         )
+       )
+   ```
 
-Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as [`CheckoutResetDeliveryModesEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) and [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
+   Event listeners are flexible as we can inject any number of dependencies to perform certain actions. Moreover, in this case, it fires additional events, such as [`CheckoutResetDeliveryModesEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) and [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events).
 
-```typescript
-  protected onDeliveryAddressChange(): void {
-    this.subscriptions.add(
-      this.eventService
-        .get(CheckoutDeliveryAddressCreatedEvent)
-        .subscribe(({ userId, cartId }) => {
-          this.globalMessageService.add(
-            { key: 'addressForm.userAddressAddSuccess' },
-            GlobalMessageType.MSG_TYPE_CONFIRMATION
-          );
+   ```typescript
+     protected onDeliveryAddressChange(): void {
+       this.subscriptions.add(
+         this.eventService
+           .get(CheckoutDeliveryAddressCreatedEvent)
+           .subscribe(({ userId, cartId }) => {
+             this.globalMessageService.add(
+               { key: 'addressForm.userAddressAddSuccess' },
+               GlobalMessageType.MSG_TYPE_CONFIRMATION
+             );
+   
+             this.eventService.dispatch(
+               { userId, cartId },
+               CheckoutResetDeliveryModesEvent
+             );
+   
+             this.eventService.dispatch({}, CheckoutResetQueryEvent);
+           })
+       );
+       ...
+   ```
 
-          this.eventService.dispatch(
-            { userId, cartId },
-            CheckoutResetDeliveryModesEvent
-          );
-
-          this.eventService.dispatch({}, CheckoutResetQueryEvent);
-        })
-    );
-    ...
-```
-
-The example for [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) being fired is to reset our checkout details query from `CheckoutQueryFacade` due to the nature of our commands and queries, where we can [reload or reset a query](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
+   The example for [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) being fired is to reset our checkout details query from `CheckoutQueryFacade` due to the nature of our commands and queries, where we can [reload or reset a query](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
 
 ### How to properly make use of queries in checkout
 
@@ -243,7 +246,7 @@ You can just do the following:
   }
 ```
 
-Note: 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spartacus/checkout/b2b/root`, or `@spartacus/checkout/scheduled-replenishment/root`.
+**Note:** 'new' checkout would be from either `@spartacus/checkout/base/root`, `@spartacus/checkout/b2b/root`, or `@spartacus/checkout/scheduled-replenishment/root`.
 
 ### Consider using the newly created checkout components
 
