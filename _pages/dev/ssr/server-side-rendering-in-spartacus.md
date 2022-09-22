@@ -341,18 +341,18 @@ If you are involved in Spartacus internal development (for example, if you are c
 
     1. Turn PWA off in your app module configuration, as follows:
 
-        ```json
-        StorefrontModule.withConfig({
-              backend: {
-                occ: {
-                  baseUrl: 'https://[your_enpdoint],
-                },
-              },
-              pwa: {
-                enabled: false,
-              },
-        };
-        ```
+       ```json
+       StorefrontModule.withConfig({
+             backend: {
+               occ: {
+                 baseUrl: 'https://[your_enpdoint],
+               },
+             },
+             pwa: {
+               enabled: false,
+             },
+       };
+       ```
 
 1. Rebuild your local Spartacus libraries by running the following command:
 

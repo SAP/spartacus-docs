@@ -26,15 +26,15 @@ When the Spartacus inventory display feature is enabled, customers can see the q
 To enable inventory display, set the `inventoryDisplay` flag to `true` in `app.module.ts`, as shown in the following example:
 
 ```ts
-      provideConfig(<CmsConfig>{
-        cmsComponents: {
-          ProductAddToCartComponent: {
-            data: {
-              inventoryDisplay: true,
-            },
-          },
-        },
-    }),
+provideConfig(<CmsConfig>{
+  cmsComponents: {
+    ProductAddToCartComponent: {
+      data: {
+        inventoryDisplay: true,
+      },
+    },
+  },
+}),
 ```
 
 For more information on providing a configuration, see [provideConfig]({{ site.baseurl }}/global-configuration-in-spartacus/#provideconfig).
