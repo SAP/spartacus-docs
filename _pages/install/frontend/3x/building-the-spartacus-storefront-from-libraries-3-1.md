@@ -48,9 +48,9 @@ The following procedure describes how to create a new Angular application with t
 
 3. Access the newly created `mystore` folder with the following command:
 
-     ```shell
-     cd mystore
-     ```
+   ```shell
+   cd mystore
+   ```
 
 ## Spartacus Project Setup
 
