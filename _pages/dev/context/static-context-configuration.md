@@ -17,9 +17,9 @@ The `baseSite`, `language`, and `currency` properties are arrays that take the f
 For example, the `language` property is defined as follows:
 
 ```typescript
- context: {
-   language: ['en', 'de', 'ja', 'zh'],
-   ...
+context: {
+  language: ['en', 'de', 'ja', 'zh'],
+  ...
 ```
 
 In this case, the first element is `en`, so English is set as the default language for the application. The other elements in the array indicate the potential values that can be used by the application.
@@ -29,20 +29,20 @@ The `urlParameters` property takes the values of the other `context` properties 
 For example, if your storefront URL is `https://localhost:4200`, then it becomes `https://localhost:4200/electronics-spa/en/USD/` with the following `context` configuration:
 
 ```typescript
-  context: {
-    baseSite: [
-      'electronics-spa', //Selected by default because it is the first element in the list
-      'electronics',
-    ],
-    language: [
-      'en'
-    ],
-    currency: [
-      'USD'
-    ],
-    urlParameters: ['baseSite', 'language', 'currency']
-  },
- ...
+context: {
+  baseSite: [
+    'electronics-spa', //Selected by default because it is the first element in the list
+    'electronics',
+  ],
+  language: [
+    'en'
+  ],
+  currency: [
+    'USD'
+  ],
+  urlParameters: ['baseSite', 'language', 'currency']
+},
+...
 ```
 
 **Note:** You can change the structure of the context in the URL by changing the order of the elements in the `urlParameters` property. For example, if you change the `urlParameters` property to `urlParameters: ['currency', 'language', 'baseSite']`, then the URL becomes `https://localhost:4200/USD/en/electronics-spa/`.
