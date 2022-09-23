@@ -1535,12 +1535,12 @@
 
 <p>The following is an example that generates an application that is ready to be used with the electronics storefront, that sets the <code class="language-plaintext highlighter-rouge">baseUrl</code> and the <code class="language-plaintext highlighter-rouge">baseSite</code>, and that also enables server-side rendering:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics <span class="nt">--baseUrl</span> https://spartacus-demo.eastus.cloudapp.azure.com:8443/ <span class="nt">--baseSite</span><span class="o">=</span>electronics-spa <span class="nt">--ssr</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics <span class="nt">--base-url</span> https://spartacus-demo.eastus.cloudapp.azure.com:8443/ <span class="nt">--base-site</span><span class="o">=</span>electronics-spa <span class="nt">--ssr</span>
 </code></pre></div></div>
 
 <p>Another example is the following, which generates an application that is ready to be used with both an apparel storefront and an electronics storefront, that sets the <code class="language-plaintext highlighter-rouge">baseUrl</code>, <code class="language-plaintext highlighter-rouge">baseSite</code>, <code class="language-plaintext highlighter-rouge">currency</code>, and <code class="language-plaintext highlighter-rouge">language</code>, and also enables server-side rendering:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics <span class="nt">--baseUrl</span> https://spartacus-demo.eastus.cloudapp.azure.com:8443/ <span class="nt">--baseSite</span><span class="o">=</span>apparel-uk-spa,electronics-spa <span class="nt">--currency</span><span class="o">=</span>gbp,usd <span class="nt">--language</span><span class="o">=</span>uk,en <span class="nt">--ssr</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics <span class="nt">--base-url</span> https://spartacus-demo.eastus.cloudapp.azure.com:8443/ <span class="nt">--base-site</span><span class="o">=</span>apparel-uk-spa,electronics-spa <span class="nt">--currency</span><span class="o">=</span>gbp,usd <span class="nt">--language</span><span class="o">=</span>uk,en <span class="nt">--ssr</span>
 </code></pre></div></div>
 
 <h3 id="additional-commands">Additional Commands</h3>
@@ -1577,10 +1577,10 @@
 <p>The following is a description of the available options for the CMS component schematic:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">--declareCmsModule</code> specifies which module the newly-generated CMS component is added to. If no module is specified, a new module is generated.</li>
-  <li><code class="language-plaintext highlighter-rouge">--cmsComponentData</code>, alias <code class="language-plaintext highlighter-rouge">--cms</code>, injects the <code class="language-plaintext highlighter-rouge">CmsComponentData</code> into the new component. By default, this option is set to <code class="language-plaintext highlighter-rouge">true</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">--cmsComponentDataModel</code>, alias <code class="language-plaintext highlighter-rouge">--cms-model</code>, specifies the model class for the <code class="language-plaintext highlighter-rouge">CmsComponentData</code>, such as <code class="language-plaintext highlighter-rouge">MyModel</code>, for example. This argument is required if <code class="language-plaintext highlighter-rouge">--cmsComponentData</code> is set to <code class="language-plaintext highlighter-rouge">true</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">--cmsComponentDataModelPath</code>, alias <code class="language-plaintext highlighter-rouge">--cms-model-path</code>, specifies the import path for the <code class="language-plaintext highlighter-rouge">CmsComponentData</code>. The default is <code class="language-plaintext highlighter-rouge">@spartacus/core</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">--declare-cms-module</code> specifies which module the newly-generated CMS component is added to. If no module is specified, a new module is generated.</li>
+  <li><code class="language-plaintext highlighter-rouge">--cms-component-data</code>, alias <code class="language-plaintext highlighter-rouge">--cms</code>, injects the <code class="language-plaintext highlighter-rouge">CmsComponentData</code> into the new component. By default, this option is set to <code class="language-plaintext highlighter-rouge">true</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">--cms-component-data-model</code>, alias <code class="language-plaintext highlighter-rouge">--cms-model</code>, specifies the model class for the <code class="language-plaintext highlighter-rouge">CmsComponentData</code>, such as <code class="language-plaintext highlighter-rouge">MyModel</code>, for example. This argument is required if <code class="language-plaintext highlighter-rouge">--cms-component-data</code> is set to <code class="language-plaintext highlighter-rouge">true</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">--cms-component-data-model-path</code>, alias <code class="language-plaintext highlighter-rouge">--cms-model-path</code>, specifies the import path for the <code class="language-plaintext highlighter-rouge">CmsComponentData</code>. The default is <code class="language-plaintext highlighter-rouge">@spartacus/core</code>.</li>
 </ul>
 
 <p>Aside from these custom options, the <code class="language-plaintext highlighter-rouge">add-cms-component</code> supports almost all options that are available for the Angular component and module schematics. The full list can be seen in this <a href="https://github.com/SAP/spartacus/blob/develop/projects/schematics/src/add-cms-component/schema.json">schema.json</a> file.</p>
@@ -1589,8 +1589,8 @@
 
 <ul>
   <li>Deprecated options.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">--module</code> option for components. If you want to specify an existing module for a component, use <code class="language-plaintext highlighter-rouge">--declareCmsModule</code>. The <code class="language-plaintext highlighter-rouge">module</code> option is only applied to the Angular <code class="language-plaintext highlighter-rouge">module</code> schematic.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">--skipImport</code> option.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">--module</code> option for components. If you want to specify an existing module for a component, use <code class="language-plaintext highlighter-rouge">--declare-cms-module</code>. The <code class="language-plaintext highlighter-rouge">module</code> option is only applied to the Angular <code class="language-plaintext highlighter-rouge">module</code> schematic.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">--skip-import</code> option.</li>
 </ul>
 
 <h3 id="using-the-add-cms-component-schematic">Using the ‘add-cms-component’ Schematic</h3>
@@ -1599,9 +1599,9 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel</code> generates the <code class="language-plaintext highlighter-rouge">my-awesome-cms.component.ts</code> component and the <code class="language-plaintext highlighter-rouge">my-awesome-cms.module.ts</code> module.</li>
-  <li><code class="language-plaintext highlighter-rouge">ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --declareCmsModule=my-cms-path/my-cms</code> generates the <code class="language-plaintext highlighter-rouge">my-awesome-cms.component.ts</code> component and adds it to the specified CMS mapping for <code class="language-plaintext highlighter-rouge">my-cms-path/my-cms.module.ts</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --declare-cms-module=my-cms-path/my-cms</code> generates the <code class="language-plaintext highlighter-rouge">my-awesome-cms.component.ts</code> component and adds it to the specified CMS mapping for <code class="language-plaintext highlighter-rouge">my-cms-path/my-cms.module.ts</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app</code> generates the <code class="language-plaintext highlighter-rouge">my-awesome-cms.component.ts</code> component and the <code class="language-plaintext highlighter-rouge">my-awesome-cms.module.ts</code> module, and imports them to the specified <code class="language-plaintext highlighter-rouge">app.module.ts</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app --declareCmsModule=my-cms-path/my-cms</code> generates the <code class="language-plaintext highlighter-rouge">my-awesome-cms.component.ts</code> component and adds it to the specified <code class="language-plaintext highlighter-rouge">my-cms-path/my-cms.module.ts</code> module. It also imports <code class="language-plaintext highlighter-rouge">my-cms.module.ts</code> to the specified <code class="language-plaintext highlighter-rouge">app.module.ts</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">ng g @spartacus/schematics:add-cms-component myAwesomeCms --cms-model=MyModel --module=app --declare-cms-module=my-cms-path/my-cms</code> generates the <code class="language-plaintext highlighter-rouge">my-awesome-cms.component.ts</code> component and adds it to the specified <code class="language-plaintext highlighter-rouge">my-cms-path/my-cms.module.ts</code> module. It also imports <code class="language-plaintext highlighter-rouge">my-cms.module.ts</code> to the specified <code class="language-plaintext highlighter-rouge">app.module.ts</code>.</li>
 </ul>
 
 

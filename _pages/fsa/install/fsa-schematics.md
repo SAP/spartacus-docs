@@ -54,7 +54,7 @@ The following is a description of the various options you can use with the `ng a
 To have a clear picture on how some of these properties can be used, user can enter the following command that sets baseSite(s), currency(ies), and language(s):
 
 ```shell
-ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr
+ng add @spartacus/fsa-schematics --base-site=sample-financial-site --currency=usd,eur --language=en,de,fr
 ```
 
 ## How FSA Spartacus Schematics Work

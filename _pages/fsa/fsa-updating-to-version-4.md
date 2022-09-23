@@ -69,7 +69,7 @@ For more information, see the official [Angular Update Guide](https://update.ang
 
 1. Run the following command:
 
-    `ng add @spartacus/fsa-schematics --baseSite=sample-financial-site --currency=usd,eur --language=en,de,fr`
+    `ng add @spartacus/fsa-schematics --base-site=sample-financial-site --currency=usd,eur --language=en,de,fr`
 
 2. When prompted, enter your base site URL (that is, your back-end server URL).
 

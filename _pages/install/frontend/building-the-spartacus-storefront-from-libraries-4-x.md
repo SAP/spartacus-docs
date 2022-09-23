@@ -79,7 +79,7 @@ When you run this command, you are asked to choose which features you would like
 - To install the latest "next" release, you can add `@next` at the end of the command.
 - To install the latest release candidate, you can add `@rc` at the end of the command.
 - To verify what versions of Spartacus libraries were installed, open `package.json` and look for `@spartacus`.
-- To bypass the schematics prompts and install Spartacus with a predefined set of features, you can use the `--interactive=false` flag. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project).
+- To bypass the schematics prompts and install Spartacus with a predefined set of features, you can use the `--no-interactive` flag. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project).
 - With each release of Spartacus, existing features are moved out of the core libraries and into their own dedicated feature libraries. With time, the core libraries will shrink as features are extracted to their own, separate packages.
 
 ### Installing Dependencies
