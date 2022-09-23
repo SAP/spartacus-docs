@@ -93,7 +93,7 @@ corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept 
 
 CORS configurations are customized by overriding the default configuration through your `local.properties` file.
 
-Since configurations are _overridden_ in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all the defaults in addition to any new elements. For example, to add `my-new-header` in the `allowedHeaders` list, in addition to the default headers, you need to add the following to your `local.properties` file:
+Since configurations are `overridden` in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all the defaults in addition to any new elements. For example, to add `my-new-header` in the `allowedHeaders` list, in addition to the default headers, you need to add the following to your `local.properties` file:
 
 ```text
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.

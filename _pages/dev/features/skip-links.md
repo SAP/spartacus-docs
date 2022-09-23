@@ -14,7 +14,7 @@ feature:
 
 Skip links allow users to quickly navigate to important areas of a page using the keyboard. You activate skip links by pressing the tab key when a page is loaded, and before any other user interaction takes place.
 
-When a user presses the tab key, a button appears at the top of the page, with the label "Skip to _section_". Each time the user presses the tab key, the text updates to indicate the next available section to skip to. The user can then select a section to skip to by pressing the return key. When all sections have been skipped through, pressing the tab key again closes the skip link button. Users can navigate forward and backward through the available skip links by using the tab key and shift+tab key combination, respectively.
+When a user presses the tab key, a button appears at the top of the page, with the label "Skip to *section*". Each time the user presses the tab key, the text updates to indicate the next available section to skip to. The user can then select a section to skip to by pressing the return key. When all sections have been skipped through, pressing the tab key again closes the skip link button. Users can navigate forward and backward through the available skip links by using the tab key and shift+tab key combination, respectively.
 
 With skip links, users can access important content on a page without needing to tab through every element on a page to reach the specific element they wish to interact with.
 
