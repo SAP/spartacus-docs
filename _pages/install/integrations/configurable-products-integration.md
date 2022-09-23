@@ -70,6 +70,10 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Early Login
+
+Early login is mandatory. For more information, see [{% assign linkedpage = site.pages | where: "name", "early-login.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %}).
+
 ## Supported Attribute Types
 
 The following attributes types are supported in Spartacus:
