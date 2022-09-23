@@ -18,7 +18,7 @@ Token revocation works as follows:
 
 - When a customer signs out of the storefront, a token revocation request is sent.
 - When an ASM customer support agent signs out, a token revocation request is sent.
-- When a customer who is emulated with ASM signs out, a token revocation is _not_ sent. The customer support agent's token is used in emulation sessions, so Spartacus only revokes the token when the agent signs out.
+- When a customer who is emulated with ASM signs out, a token revocation is *not* sent. The customer support agent's token is used in emulation sessions, so Spartacus only revokes the token when the agent signs out.
 
 If the token revocation request fails, Spartacus fails silently, because there is no action it can make to recover. For example, requesting the revocation of an already-expired token results in an HTTP 401 response. Even if the server sends an error response, Spartacus will fail silently.
 

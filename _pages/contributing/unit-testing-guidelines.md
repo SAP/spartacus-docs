@@ -65,7 +65,7 @@ Mocking the NGRX store has proven to be quite a challenge. The NGRX store is the
 
 To perform a unit test on a piece of code that reads from the store, populate the store by calling explicitly the relevant success actions with the data to set up the test.
 
-Here is an example where we dispatch _LoadUserAddressesSuccess_ to set up the test data:
+Here is an example where we dispatch *LoadUserAddressesSuccess* to set up the test data:
 
 ```typescript
 it('should be able to get user addresses', () => {
@@ -150,7 +150,7 @@ expect(result).toBeFalsy();
 
 In the above example, the assertion will be true even if the `hasPage` function is never called (or does nothing). Instead, initialize the result variable to a value that will fail the assertions. This way, we can be sure the action we are testing performed some processing.
 
-In the example below, the value _true_ will fail the assertion unless the process is called and provides the expected falsy result.
+In the example below, the value *true* will fail the assertion unless the process is called and provides the expected falsy result.
 
 ```typescript
 let result = true;
