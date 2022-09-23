@@ -25,7 +25,7 @@ There are a number of necessary CLI tools that you need to have installed in ord
 
 ## Editor
 
-Spartacus team recommends a highly extensible and open source editor - _VSCode_, which can be downloaded from [here](https://code.visualstudio.com/Download).
+Spartacus team recommends a highly extensible and open source editor - *VSCode*, which can be downloaded from [here](https://code.visualstudio.com/Download).
 
 ### VSCode settings
 

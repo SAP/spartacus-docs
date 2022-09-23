@@ -45,7 +45,7 @@ If you are using SAP Commerce Cloud 1905 or older, add the `x-anonymous-consents
 
 #### Consent Data
 
-Besides having consent defined on the back end, they need to be marked as _exposed_, which can be done by executing an ImpEx file similar to this:
+Besides having consent defined on the back end, they need to be marked as *exposed*, which can be done by executing an ImpEx file similar to this:
 
 ```sql
 $siteUid=electronics-spa
@@ -56,7 +56,7 @@ INSERT_UPDATE ConsentTemplate;id[unique=true];name;description;version[unique=tr
 ;STORE_USER_INFORMATION;"I approve to this sample STORE USER INFORMATION consent";"This is a sample store user information consent description that will need to be updated or replaced.";0;;true
 ```
 
-Notice that the last column named _exposed_ is set to _true_ for the consents that should be exposed to the anonymous users.
+Notice that the last column named `exposed` is set to `true` for the consents that should be exposed to the anonymous users.
 
 ### CMS Components
 
@@ -99,7 +99,7 @@ After changing the `*.properties` files, don't forget to run `ant build` and the
 Spartacus offers some configuration options that are encapsulated in `anonymousConsents` configuration object. The following options are available:
 
 - `registerConsent` - specify a consent template ID that should be rendered on the registration page. By default, `MARKETING_NEWSLETTER` is being rendered.
-- `showLegalDescriptionInDialog` - set to _false_ if the legal description shouldn't be visible on the anonymous consents dialog. By default, this has _true_ value.
+- `showLegalDescriptionInDialog` - set to `false` if the legal description shouldn't be visible on the anonymous consents dialog. By default, this has `true` value.
 - `requiredConsents` - specify an array of consent template IDs that are going to be required for the end users. These consents are given by default, and users can't toggle them. By default, this array is empty.
 - `consentManagementPage.showAnonymousConsents` - specify whether to show anonymous consents on the registered consent management page. By default, this is set to `true`, and setting it to `false` will hide all consents from consents management page that have `exposed` property set to `true`. In case you don't want to hide all anonymous consents from the consents management page, refer to `consentManagementPage.hideConsents` below.
 - `consentManagementPage.hideConsents` - an array of consent template IDs that should be hidden on the consents management page. By default, this array is empty, and adding consent template IDs to it will hide them from the consents management page.
