@@ -187,7 +187,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
 1. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
-    /*
+    /**
     * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
     */
     import '@angular/localize/init';
@@ -234,7 +234,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
 1. Add the `server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
-    /*
+    /**
      * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
     */
     import '@angular/localize/init';
