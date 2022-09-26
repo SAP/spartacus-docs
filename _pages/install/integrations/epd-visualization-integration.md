@@ -48,13 +48,13 @@ You can install and configure the SAP Enterprise Product Development Visualizati
 To use schematics to perform a full configuration, run the following command from within the root directory of your storefront application:
 
 ```bash
-ng add @spartacus/schematics --baseSite=powertools-epdvisualization-spa
+ng add @spartacus/schematics --base-site=powertools-epdvisualization-spa
 ```
 
 If you are using a SAP Commerce Cloud server that is not a local server, the base URL of the Commerce Cloud OCC back end can be specified with a `baseUrl` command line argument. The following is an example:
 
 ```bash
-ng add @spartacus/schematics --baseSite=powertools-epdvisualization-spa --baseUrl=https://my-cc-server.example.com
+ng add @spartacus/schematics --base-site=powertools-epdvisualization-spa --base-url=https://my-cc-server.example.com
 ```
 
 When you are prompted to choose which feature modules to include, ensure that the `EPD Visualization Integration` feature is included (along with any other features that you require).
