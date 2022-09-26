@@ -72,7 +72,7 @@ After running this command, you are asked which product configurator features yo
 
 ## Early Login
 
-Early login is mandatory. For more information, see [{% assign linkedpage = site.pages | where: "name", "early-login.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %}).
+You must have early login enabled to be able to use the configurable products integration with Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "early-login.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %}).
 
 ## Supported Attribute Types
 
