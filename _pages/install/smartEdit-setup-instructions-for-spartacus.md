@@ -128,20 +128,18 @@ If only some operations do not make the page refresh (for example, editing a com
 
 If you see an error message that says `... is not allowed to override this storefront.`, it means `allowOrigin` is not set correctly. Please see the procedures above for information on how to set `allowOrigin`.
 
-**Notes:**
-
-- The value of the `allow-origin` query parameter is a comma-separated list of domains. The following is an example:
+**Note:** The value of the `allow-origin` query parameter is a comma-separated list of domains. The following is an example:
 
    ```ts
    allowOrigin: 'localhost:7000, 127.0.0.1:7000, *.x.y'
    ```
 
-- You must specify a port.
+**Note:** You must specify a port.
 
-- You can use an asterisk ( `*` ) as a wildcard. When using a wildcard, you must adhere to the following rules:
+**Note:** You can use an asterisk ( `*` ) as a wildcard. When using a wildcard, you must adhere to the following rules:
 
-  - The host must contain at least two subdomains, such as `*.x.y`.
-  - The wildcard can only replace one subdomain. It cannot replace a period ( `.` ).
+- The host must contain at least two subdomains, such as `*.x.y`.
+- The wildcard can only replace one subdomain. It cannot replace a period ( `.` ).
 
 ### Your Website is Not in the SmartEdit Allowlist
 
