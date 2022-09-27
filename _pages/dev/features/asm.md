@@ -112,6 +112,7 @@ For development purposes only, you can set the value to a wildcard (`*`), as sho
 ```text
 corsfilter.assistedservicewebservices.allowedOrigins=*
 ```
+
 **Note:** This wildcard configuration is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
 ### Additional CORS Configuration for Customer Emulation
@@ -122,13 +123,14 @@ In order for ASM customer emulation to work, you need to allow a specific header
 corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference x-dtpc sap-commerce-cloud-user-id
 ```
 
-Additionally, in a `FeaturesConfig` provider, set a key `enableCommerceCloudUserIdHeader` with the value `true`:
+Additionally, in an `AsmConfig` provider, set a key `enableCommerceCloudUserIdHeader.enable` with the value `true`:
 
 ```
-provideConfig(<FeaturesConfig>{
-  features: {
-    level: '*',
-    enableCommerceCloudUserIdHeader: true,
+provideConfig(<AsmConfig>{
+  asm: {
+    userIdHttpHeaderInterceptor: {
+      enable: true,
+    },
   },
 }),
 ```
