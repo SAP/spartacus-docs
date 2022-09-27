@@ -27,7 +27,9 @@ docs:
                       - title: "Technical Changes in Spartacus 4.0"
                         url: /technical-changes-version-4/
                       - title: "Changes to Styles in 4.0"
-                        url: /css-changes-in-version-4/    
+                        url: /css-changes-in-version-4/
+                      - title: "Breaking Changes Test"
+                        url: /5-0-generated-typescript-changes-doc/
                 - title: "Updating to Version 3.0 ➢"
                   url: /updating-to-version-3/
                   underchildren:
