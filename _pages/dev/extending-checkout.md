@@ -109,7 +109,7 @@ Component guards have the same API as page guards. Spartacus exposes the followi
 - `CartNotEmptyGuard`
 - `NotCheckoutAuthGuard`
 
-As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the delivery address, delivery mode and payment details were correctly set, you would set guards for the review order component to `guards: [CheckoutStepsSetGuard]`, as shown in the following example:
+As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the delivery address, delivery mode and payment details are correctly set, you would set guards for the review order component to `guards: [CheckoutStepsSetGuard]`, as shown in the following example:
 
 ```typescript
     provideDefaultConfig(<CmsConfig>{
@@ -136,7 +136,7 @@ The following is an example scenario:
 
 **Note:** Since Spartacus 2.1, the guards have been unified to use the `CheckoutStepsSetGuard`. In previous versions, Spartacus depended on the `ShippingAddressSetGuard`, `DeliveryModeSetGuard`, and`PaymentDetailsSetGuard`.
 
-The following is an example on how you can extend the `CheckoutStepsSetGuard` in order to change the behavior in terms of what the function (or functions) will return.
+The following is an example on how you can extend the `CheckoutStepsSetGuard` to change the behavior in terms of what the function (or functions) will return.
 
 ```typescript
 @Injectable({
@@ -193,7 +193,7 @@ A special `CheckoutGuard` is responsible for redirecting to the correct step. Th
 
 ### CheckoutAuthGuard
 
-The `CheckoutAuthGuard` is responsible for handling guest users and authenticated users and allowing them to checkout. However, if the user is an anonymous user, the `CheckoutAuthGuard` redirects the user to the login page.
+The `CheckoutAuthGuard` is responsible for handling guest users and authenticated users and allowing them to check out. However, if the user is an anonymous user, the `CheckoutAuthGuard` redirects the user to the login page.
 
 ### CartNotEmptyGuard
 
