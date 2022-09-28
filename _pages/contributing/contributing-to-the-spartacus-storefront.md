@@ -201,18 +201,18 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. If your change fixes an issue reported in GitHub, add the following line to the commit message:
 
-     ```Fixes https://github.com/SAP/spartacus/issues/(issueNumber)```
+     `Fixes https://github.com/SAP/spartacus/issues/(issueNumber)`
 
-    - Do not add a colon after "Fixes", as this prevents automatic closing.
-    - When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
+   - Do not add a colon after "Fixes", as this prevents automatic closing.
+   - When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
 
-        ```Closes https://github.com/SAP/spartacus/pull/(pullRequestNumber)```
+        `Closes https://github.com/SAP/spartacus/pull/(pullRequestNumber)`
 
 1. Create a pull request so that we can review your change.
 1. Follow the link posted by the CLA assistant to your pull request and accept it, as described above.
 1. Wait for our code review and approval, possibly enhancing your change on request.
-    
-    Note: This may take time, depending on the required effort for reviewing, testing, and clarification. Spartacus developers are also working their regular duties.
+
+    **Note:** This may take time, depending on the required effort for reviewing, testing, and clarification. Spartacus developers are also working their regular duties.
 
 1. After the change has been approved, we will inform you in a comment.
 
