@@ -4,14 +4,14 @@ title: Extending Checkout
 
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Routing and Configuration
 
@@ -109,7 +109,9 @@ Component guards have the same API as page guards. Spartacus exposes the followi
 - `CartNotEmptyGuard`
 - `NotCheckoutAuthGuard`
 
-As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the delivery address, delivery mode and payment details are correctly set, you would set guards for the review order component to `guards: [CheckoutStepsSetGuard]`, as shown in the following example:
+## CheckoutStepsSetGuard
+
+As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the delivery address, delivery mode and payment details were correctly set, you would set guards for the review order component to `guards: [CheckoutStepsSetGuard]`.
 
 ```typescript
     provideDefaultConfig(<CmsConfig>{
@@ -129,14 +131,14 @@ The following is an example scenario:
 1. A user sets the shipping address.
 2. The user comes back to shop after a few days, and the browser auto-suggests the Review Order page from a previous order.
 3. The user follows the suggestion.
-4. The `CheckoutStepsSetGuard` of the `isDeliveryAddress` method returns `true`.
-5. The `CheckoutStepsSetGuard` of the `isDeliveryModeSet` method returns `checkout/delivery-mode` redirect.
-6. The `CheckoutStepsSetGuard` of the `isPaymentDetailsSet` method returns `checkout/payment-details` redirect.
+4. The `CheckoutStepsSetGuard` of method `isDeliveryAddress` returns `true`.
+5. The `CheckoutStepsSetGuard` of method `isDeliveryModeSet` returns `checkout/delivery-mode` redirect.
+6. The `CheckoutStepsSetGuard` of method `isPaymentDetailsSet` returns `checkout/payment-details` redirect.
 7. The user is redirected to the Delivery Mode selection page.
 
-**Note:** Since Spartacus 2.1, the guards have been unified to use the `CheckoutStepsSetGuard`. In previous versions, Spartacus depended on the `ShippingAddressSetGuard`, `DeliveryModeSetGuard`, and`PaymentDetailsSetGuard`.
+Note: Since Spartacus 2.1 and above, we have unified the guards to use `CheckoutStepsSetGuard` instead. With previous Spartacus versions, we depended on `ShippingAddressSetGuard`, `DeliveryModeSetGuard`, and`PaymentDetailsSetGuard`.
 
-The following is an example on how you can extend the `CheckoutStepsSetGuard` to change the behavior in terms of what the function (or functions) will return.
+The following is an example on how you can extend the `CheckoutStepsSetGuard` in order to change the behavior on what the function(s) would return.
 
 ```typescript
 @Injectable({
@@ -170,9 +172,7 @@ export class CustomCheckoutStepsSetGuard extends CheckoutStepsSetGuard {
 }
 ```
 
-**Note:** Be sure to place the dependency provider and have it use the `CustomCheckoutStepsSetGuard` in your module.
-
-The following is an example:
+Note: make sure to place the dependency provider and have it use the `CustomCheckoutStepsSetGuard` in your module.
 
 ```typescript
 @NgModule({
@@ -193,11 +193,11 @@ A special `CheckoutGuard` is responsible for redirecting to the correct step. Th
 
 ### CheckoutAuthGuard
 
-The `CheckoutAuthGuard` is responsible for handling guest users and authenticated users and allowing them to check out. However, if the user is an anonymous user, the `CheckoutAuthGuard` redirects the user to the login page.
+`CheckoutAuthGuard` is responsible for handling guest and authenticated users to allow them to checkout. However, if they are an anonymous user, it will redirect the user to the login page.
 
 ### CartNotEmptyGuard
 
-The `CartNotEmptyGuard` is responsible for redirecting the user if the user is trying to visit a checkout route when their active cart is empty. If the active cart is empty, the `CartNotEmptyGuard` redirects the user to the homepage. Otherwise, it allows the user to go through the checkout flow.
+`CartNotEmptyGuard` is responsible for redirecting the user if they are trying to visit a checkout route when there active cart is currently empty. If the active cart is empty, it redirects the user to homepage, else it will allow them to go through the checkout flow.
 
 ### NotCheckoutAuthGuard
 
@@ -207,7 +207,7 @@ The `CartNotEmptyGuard` is responsible for redirecting the user if the user is t
 
 In the checkout configuration, for each step, you specify a `type` attribute and the type of data that should be set. A guard looks for the first step that contains the specific `type` and then redirects to this step.
 
-For example, the `CheckoutStepsSetGuard` searches the checkout configuration for every step with a `type` containing `CheckoutStepType.deliveryAddress`, `CheckoutStepType.deliveryMode`, `CheckoutStepType.paymentDetails`, or `CheckoutStepType.reviewOrder`, then reads the step route and redirects to that page.
+For example, `CheckoutStepsSetGuard` searches the checkout configuration for every step with a `type` containing `CheckoutStepType.deliveryAddress`, `CheckoutStepType.deliveryMode`, `CheckoutStepType.paymentDetails`, `CheckoutStepType.reviewOrder`, then reads the step route and redirects to that page.
 
 Note that, on each checkout step, you can have multiple components. As a result, the `type` property is an array.
 
