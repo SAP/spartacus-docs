@@ -4,14 +4,14 @@ title: Extending Checkout
 
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Routing and Configuration
 
@@ -101,7 +101,7 @@ Every checkout component is a CMS component. Furthermore, in the default checkou
 
 The checkout uses component guards instead of page guards. You protect routes by applying guards in the CMS component mapping.
 
-Component guards have the same API as page guards. Spartacus exposes the following guard as part of the checkout:
+Component guards have the same API as page guards. Spartacus exposes the following guards as part of the checkout:
 
 - `CheckoutStepsSetGuard`
 - `CheckoutGuard`
@@ -140,7 +140,7 @@ The following is an example on how you can extend the `CheckoutStepsSetGuard` to
 
 ```typescript
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CustomCheckoutStepsSetGuard extends CheckoutStepsSetGuard {
   constructor(
