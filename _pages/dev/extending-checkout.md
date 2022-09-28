@@ -4,14 +4,14 @@ title: Extending Checkout
 
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Routing and Configuration
 
@@ -201,7 +201,7 @@ A special `CheckoutGuard` is responsible for redirecting to the correct step. Th
 
 ### NotCheckoutAuthGuard
 
-- TBD (pretty redundant I think)
+`NotCheckoutAuthGuard` is responsible for redirecting the user if they are trying to visit the guest checkout login page. If the user is logged in, meaning he is authorized, then he would be redirected to the homepage, on the other hand, if the user logged in already as a guest, then he would be redirected to the cart page. Finally, If he is neither an authorized user or a guest user, then he will be able to visit the guest checkout login page as he is still an anonymous user.
 
 ### Configuring Where Guards Redirect To
 
