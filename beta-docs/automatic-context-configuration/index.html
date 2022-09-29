@@ -1,0 +1,2522 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Automatic Multi-Site Configuration - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Automatic Multi-Site Configuration">
+<meta property="og:url" content="/spartacus-docs/beta-docs/automatic-context-configuration/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/beta-docs/automatic-context-configuration/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/beta-docs/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/beta-docs/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/beta-docs/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/beta-docs/"><img src="/spartacus-docs/beta-docs/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/beta-docs/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/beta-docs/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/beta-docs/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/beta-docs/release-information/" >Version 5.0</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/a11y/">Accessibility ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/spartacus-api/">API</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/architecture/">Architecture ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                    
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/configurable-routing/">Configurable Routing ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/configuring-base-url/">Configuring the Base URL</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/type-augmentation/">Extending Built-In Models</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/global-configuration-in-spartacus/">Global Configuration in Spartacus</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/global-messages/">Global Messages</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/http-error-handling/">HTTP Error Handling</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/commands-and-queries/">Commands and Queries</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/lazy-loading-guide/">Lazy Loading</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/proxy-facades/">Proxy Facades</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/context-configuration/">Multi-Site Configuration ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/beta-docs/automatic-context-configuration/" class="active">Automatic Multi-Site Configuration</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/beta-docs/static-context-configuration/" class="">Static Multi-Site Configuration</a></li>
+
+                                                                                       
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/pwa-home/">PWA ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/seo/">SEO ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/session-management/">Session Management</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/state-management/">State Management ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/customizing-and-extending/">Customizing and Extending Spartacus ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/customizing-backend-communication/">Customizing Back End Communication ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/performance/">Performance Optimizations ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/security-best-practices/">Security Best Practices ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/server-side-rendering-in-spartacus/">Server-Side Rendering ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/spartacus-features/">Storefront Features ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/styling-and-page-layout/">Styling and Page Layout ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+                                        
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Automatic Multi-Site Configuration</h1>
+    
+    
+<p><b>Note: </b> 
+This feature is introduced with version 1.3 of the Spartacus libraries.
+ </p>
+
+<p>Every site that is defined in the CMS has its own context, which includes a base site ID, language properties, and currency properties. The context also defines how these attributes are persisted in the URL. You can allow Spartacus to automatically determine the context based on the URL patterns of your sites, as defined in the CMS. You can enable this automatic context configuration by simply not defining the <code class="language-plaintext highlighter-rouge">context.baseSite</code> property in <code class="language-plaintext highlighter-rouge">app.module.ts</code>.</p>
+
+<p>Before the application is initialized, Spartacus gets a list of the base sites from the back end, compares the current URL with the URL patterns of the sites that are defined in the CMS, and then identifies the current base site, along with its languages, currencies, and URL encoding attributes.</p>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#mitigating-the-initial-back-end-call" id="markdown-toc-mitigating-the-initial-back-end-call">Mitigating the Initial Back End Call</a>    <ul>
+      <li><a href="#caching-the-site-context-with-server-side-rendering" id="markdown-toc-caching-the-site-context-with-server-side-rendering">Caching the Site Context with Server-Side Rendering</a></li>
+      <li><a href="#caching-the-back-end-response-with-base-sites-in-pwa" id="markdown-toc-caching-the-back-end-response-with-base-sites-in-pwa">Caching the Back End Response with Base Sites in PWA</a></li>
+    </ul>
+  </li>
+  <li><a href="#important-notes" id="markdown-toc-important-notes">Important Notes</a>    <ul>
+      <li><a href="#base-sites-and-storefronts" id="markdown-toc-base-sites-and-storefronts">Base Sites and Storefronts</a></li>
+      <li><a href="#writing-url-patterns-in-java" id="markdown-toc-writing-url-patterns-in-java">Writing URL Patterns in Java</a></li>
+      <li><a href="#disabling-a-base-site" id="markdown-toc-disabling-a-base-site">Disabling a Base Site</a></li>
+    </ul>
+  </li>
+  <li><a href="#local-development" id="markdown-toc-local-development">Local Development</a></li>
+  <li><a href="#adding-a-custom-context" id="markdown-toc-adding-a-custom-context">Adding a Custom Context</a>    <ul>
+      <li><a href="#creating-a-service-for-a-custom-context" id="markdown-toc-creating-a-service-for-a-custom-context">Creating a Service for a Custom Context</a></li>
+      <li><a href="#configuring-the-custom-context" id="markdown-toc-configuring-the-custom-context">Configuring the Custom Context</a>        <ul>
+          <li><a href="#automatic-context-configuration" id="markdown-toc-automatic-context-configuration">Automatic Context Configuration</a></li>
+          <li><a href="#static-context-configuration" id="markdown-toc-static-context-configuration">Static Context Configuration</a></li>
+        </ul>
+      </li>
+      <li><a href="#updating-the-context-services-mapping" id="markdown-toc-updating-the-context-services-mapping">Updating the Context Services Mapping</a></li>
+    </ul>
+  </li>
+  <li><a href="#theme-configuration" id="markdown-toc-theme-configuration">Theme Configuration</a>    <ul>
+      <li><a href="#automatic-theme-configuration" id="markdown-toc-automatic-theme-configuration">Automatic Theme Configuration</a></li>
+      <li><a href="#static-theme-configuration" id="markdown-toc-static-theme-configuration">Static Theme Configuration</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="mitigating-the-initial-back-end-call">Mitigating the Initial Back End Call</h2>
+
+<p>The initial call to the back end for base sites can be slow, which affects the user experience. To address this, you can choose to cache the context using server-side rendering (SSR) or progressive web application (PWA) techniques.</p>
+
+<h3 id="caching-the-site-context-with-server-side-rendering">Caching the Site Context with Server-Side Rendering</h3>
+
+<p>The site can be identified during server-side rendering, and the context can be transferred to the browser using the Angular <code class="language-plaintext highlighter-rouge">TransferState</code> mechanism. To avoid making calls for base sites on the server side with every page request, the pages can be cached using a reverse proxy.</p>
+
+<p>To allow the site to be identified on the server side, you need to provide the current request URL to Spartacus. You can do this by using the Spartacus decorator of the <code class="language-plaintext highlighter-rouge">ngExpressEngine</code>, which provides the <code class="language-plaintext highlighter-rouge">SERVER_REQUEST_URL</code> injection token under the hood. You can configure this in <code class="language-plaintext highlighter-rouge">main.server.ts</code>, as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ngExpressEngine</span> <span class="k">as</span> <span class="nx">engine</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@nguniversal/express-engine</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgExpressEngineDecorator</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">ngExpressEngine</span> <span class="o">=</span> <span class="nx">NgExpressEngineDecorator</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">engine</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="caching-the-back-end-response-with-base-sites-in-pwa">Caching the Back End Response with Base Sites in PWA</h3>
+
+<p>When using PWA, the back end response that provides the base sites can be cached by the Angular service worker, by adding a configuration to the <code class="language-plaintext highlighter-rouge">dataGroups</code> array in your service worker configuration. The following is an example from <code class="language-plaintext highlighter-rouge">ngsw-config.json</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w">
+  </span><span class="nl">"dataGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"basesites"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"*/rest/v2/basesites?fields=baseSites</span><span class="se">\\</span><span class="s2">(uid,defaultLanguage</span><span class="se">\\</span><span class="s2">(isocode</span><span class="se">\\</span><span class="s2">),urlEncodingAttributes,urlPatterns,stores</span><span class="se">\\</span><span class="s2">(currencies</span><span class="se">\\</span><span class="s2">(isocode</span><span class="se">\\</span><span class="s2">),defaultCurrency</span><span class="se">\\</span><span class="s2">(isocode</span><span class="se">\\</span><span class="s2">),languages</span><span class="se">\\</span><span class="s2">(isocode</span><span class="se">\\</span><span class="s2">),defaultLanguage</span><span class="se">\\</span><span class="s2">(isocode</span><span class="se">\\</span><span class="s2">)</span><span class="se">\\</span><span class="s2">)*"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"cacheConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"maxSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"maxAge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Set</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">day.</span><span class="w"> </span><span class="err">Customize</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">according</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">needs.</span><span class="w">
+        </span><span class="nl">"strategy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"performance"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the example above, the <code class="language-plaintext highlighter-rouge">maxAge</code> shows a value of one day. You can customize this value according to your needs.</p>
+
+<p>Note that you need to escape any parentheses with double backslashes <code class="language-plaintext highlighter-rouge">\\</code>, as shown in the <code class="language-plaintext highlighter-rouge">urls</code> configuration above. Also note that if you customize the endpoint URL in your application, you need to reflect this in the <code class="language-plaintext highlighter-rouge">urls</code> configuration.</p>
+
+<p>For more information, see the official <a href="https://angular.io/guide/service-worker-config#datagroups">Angular service worker configuration</a> documentation.</p>
+
+<h2 id="important-notes">Important Notes</h2>
+
+<h3 id="base-sites-and-storefronts">Base Sites and Storefronts</h3>
+
+<p>When the base site is encoded in the URL parameters, Spartacus refers to the <code class="language-plaintext highlighter-rouge">baseSite</code> parameter, while the CMS refers to this parameter as a <code class="language-plaintext highlighter-rouge">storefront</code>. You should continue to use the <code class="language-plaintext highlighter-rouge">storefront</code> parameter name in the CMS, because Spartacus implicitly maps <code class="language-plaintext highlighter-rouge">storefront</code> to <code class="language-plaintext highlighter-rouge">baseSite</code>. Other parameters, such as <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">currency</code>, are not affected.</p>
+
+<h3 id="writing-url-patterns-in-java">Writing URL Patterns in Java</h3>
+
+<p>For historical reasons, regular expressions with URL patterns that are defined in the CMS are written in Java. However, these regular expressions are evaluated on the front end using JavaScript. You should continue to use Java regex in the CMS, and they will be implicitly converted to JavaScript in Spartacus. For example, for case-insensitivity, modifiers such as <code class="language-plaintext highlighter-rouge">(?i)</code> are mapped to <code class="language-plaintext highlighter-rouge">/i</code>.</p>
+
+<p><strong>Note:</strong> Although the existing mapping between Java regex and JavaScript should suffice for the most common cases, not all Java regex features are available in JavaScript, so it is important to verify that your URL patterns do not use Java regex features that are not available in JavaScript. Otherwise, any base site with the wrong URL pattern will not be recognized by Spartacus.</p>
+
+<p>For more information, see this comparison of regular expression engines in <a href="https://en.wikipedia.org/wiki/Comparison_of_regular_expression_engines#Language_features">Wikipedia</a>, and also look at the implementation of the <code class="language-plaintext highlighter-rouge">JavaRegExpConverter</code> service in Spartacus.</p>
+
+<h3 id="disabling-a-base-site">Disabling a Base Site</h3>
+
+<p>The back end endpoint returns a list of all base sites, without any information about whether the site is active or not, regardless of the options defined in the CMS, such as <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">activeFrom</code>, or <code class="language-plaintext highlighter-rouge">activeTo</code>. To disable a base site, you must remove the URL patterns for that base site.</p>
+
+<p>As an alternative, low-level workaround, you can set restrictions for calls to the database in the back end to filter only <code class="language-plaintext highlighter-rouge">active</code> sites.</p>
+
+<h2 id="local-development">Local Development</h2>
+
+<p>When Spartacus identifies the site from the URL, it is often the case that the URL is not <code class="language-plaintext highlighter-rouge">localhost:4200</code> (which is the default URL for <code class="language-plaintext highlighter-rouge">ng serve</code>), but something more complex, such as <code class="language-plaintext highlighter-rouge">electronics.localhost:4200</code>. In this case, consider the following:</p>
+
+<ul>
+  <li>the URL patterns defined in the CMS need to take into account that the port <code class="language-plaintext highlighter-rouge">:4200</code> is also a part of the URL</li>
+  <li>your operating system needs to know the IP of the custom domains (such as <code class="language-plaintext highlighter-rouge">127.0.0.1 electronics.localhost</code>), which you must add to your <code class="language-plaintext highlighter-rouge">hosts</code> file</li>
+  <li>
+    <p>the local Webpack dev server needs to allow for domains other than <code class="language-plaintext highlighter-rouge">localhost</code>, so you need to pass either the <code class="language-plaintext highlighter-rouge">host</code> flag or the <code class="language-plaintext highlighter-rouge">disable-host-check</code> flag to the <code class="language-plaintext highlighter-rouge">ng serve</code> command. Otherwise the Webpack dev server will display <strong>Invalid Host Header</strong> in the browser. The following are examples:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ng serve --host electronics.localhost</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ng serve --disable-host-check</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adding-a-custom-context">Adding a Custom Context</h2>
+
+<p>The site context that is persisted in the URL might not be just a simple ISO code of the currency or language. For example, it could be a formatted language that uses uppercase letters, or underscores instead of dashes. In this case, a custom <code class="language-plaintext highlighter-rouge">SiteContext&lt;T&gt;</code> service can be implemented. It needs to be registered in <code class="language-plaintext highlighter-rouge">ContextServiceMap</code> and reflected in the config of <code class="language-plaintext highlighter-rouge">context</code> and <code class="language-plaintext highlighter-rouge">context.urlParameters</code>.</p>
+
+<p>The following sections describe how to implement a custom context service. In the example that follows, the ISO language code is formatted in uppercase, but you can use this technique to implement any custom site context that you wish.</p>
+
+<h3 id="creating-a-service-for-a-custom-context">Creating a Service for a Custom Context</h3>
+
+<p>The following is an example of creating a service for a custom context where the ISO language code is formatted in uppercase:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">languageToCustom</span><span class="p">(</span><span class="nx">lang</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">lang</span> <span class="o">&amp;&amp;</span> <span class="nx">lang</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">custom2Language</span><span class="p">(</span><span class="nx">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">country</span> <span class="o">&amp;&amp;</span> <span class="nx">country</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="nd">Injectable</span><span class="p">({</span> <span class="na">providedIn</span><span class="p">:</span> <span class="dl">'</span><span class="s1">root</span><span class="dl">'</span> <span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomContextService</span> <span class="k">implements</span> <span class="nx">SiteContext</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="na">langService</span><span class="p">:</span> <span class="nx">LanguageService</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="nx">getActive</span><span class="p">():</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">langService</span><span class="p">.</span><span class="nx">getActive</span><span class="p">().</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="nx">languageToCustom</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="nx">setActive</span><span class="p">(</span><span class="na">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">langService</span><span class="p">.</span><span class="nx">setActive</span><span class="p">(</span><span class="nx">custom2Language</span><span class="p">(</span><span class="nx">country</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="nx">getAll</span><span class="p">():</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">[]</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">langService</span>
+      <span class="p">.</span><span class="nx">getAll</span><span class="p">()</span>
+      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+        <span class="nx">map</span><span class="p">(</span><span class="nx">languages</span> <span class="o">=&gt;</span> <span class="nx">languages</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">lang</span> <span class="o">=&gt;</span> <span class="nx">languageToCustom</span><span class="p">(</span><span class="nx">lang</span><span class="p">.</span><span class="nx">isocode</span><span class="p">)))</span>
+      <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="configuring-the-custom-context">Configuring the Custom Context</h3>
+
+<p>You need to fill the Spartacus configuration of <code class="language-plaintext highlighter-rouge">context.custom</code> with all possible valid values of the custom context. How you do this depends on whether you are using <a href="#automatic-context-configuration">Automatic Context Configuration</a> or <a href="#static-context-configuration">Static Context Configuration</a>. Each of these scenarios is described in the following sections.</p>
+
+<h4 id="automatic-context-configuration">Automatic Context Configuration</h4>
+
+<p>If you are using automatic site configuration, can set up the Spartacus configuration of <code class="language-plaintext highlighter-rouge">context.custom</code> as follows:</p>
+
+<ol>
+  <li>In Backoffice, open the <strong>WCMS &gt; Website</strong> view and select the website that you want to update.</li>
+  <li>In the <strong>Properties</strong> tab, scroll down to <strong>URL Encoding Attributes</strong> and click the plus (<code class="language-plaintext highlighter-rouge">+</code>) button.</li>
+  <li>In the modal that appears, enter the name <code class="language-plaintext highlighter-rouge">custom</code> and click <strong>Add</strong>.</li>
+  <li>Save your changes and exit Backoffice.</li>
+  <li>
+    <p>In your Spartacus code, extend the dynamic configuration of <code class="language-plaintext highlighter-rouge">context</code> to contain the <code class="language-plaintext highlighter-rouge">custom</code> key, as shown in the following example:</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
+ <span class="k">export</span> <span class="kd">class</span> <span class="nx">CustomSiteContextConfigInitializer</span> <span class="kd">extends</span> <span class="nx">SiteContextConfigInitializer</span> <span class="p">{</span>
+   <span class="k">protected</span> <span class="nx">getConfig</span><span class="p">(</span><span class="nx">source</span><span class="p">:</span> <span class="nx">BaseSite</span><span class="p">):</span> <span class="nx">SiteContextConfig</span> <span class="p">{</span>
+     <span class="c1">// get the site context config</span>
+     <span class="kd">const</span> <span class="nx">siteContextConfig</span> <span class="o">=</span> <span class="k">super</span><span class="p">.</span><span class="nx">getConfig</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
+
+     <span class="c1">// define possible values of custom context deriving from ISO languages codes</span>
+     <span class="kd">const</span> <span class="nx">custom</span> <span class="o">=</span> <span class="nx">siteContextConfig</span><span class="p">.</span><span class="nx">context</span><span class="p">[</span><span class="nx">LANGUAGE_CONTEXT_ID</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span>
+         <span class="nx">languageToCustom</span>
+     <span class="p">);</span>
+
+     <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span>  <span class="p">{</span>
+         <span class="na">context</span><span class="p">:</span> <span class="p">{...</span><span class="nx">siteContextConfig</span><span class="p">.</span><span class="nx">context</span><span class="p">,</span> <span class="nx">custom</span><span class="p">}</span>
+     <span class="p">}</span>
+    
+     <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h4 id="static-context-configuration">Static Context Configuration</h4>
+
+<p>If you are using static context configuration, you need to populate the <code class="language-plaintext highlighter-rouge">context.custom</code> with all possible valid values of the custom context. The following is an example from <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">providers</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">provideConfig</span><span class="p">({</span>
+    <span class="na">context</span><span class="p">:</span> <span class="p">{</span> <span class="na">custom</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">EN</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">DE</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">JA</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ZH</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="updating-the-context-services-mapping">Updating the Context Services Mapping</h3>
+
+<p>After configuring your custom context, you need to provide the <code class="language-plaintext highlighter-rouge">ContextServiceMap</code> that contains the custom context service. You can provide this in your app module, as shown in the following example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nx">serviceMapFactory</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">LANGUAGE_CONTEXT_ID</span><span class="p">]:</span> <span class="nx">LanguageService</span><span class="p">,</span>
+    <span class="p">[</span><span class="nx">CURRENCY_CONTEXT_ID</span><span class="p">]:</span> <span class="nx">CurrencyService</span><span class="p">,</span>
+    <span class="p">[</span><span class="nx">BASE_SITE_CONTEXT_ID</span><span class="p">]:</span> <span class="nx">BaseSiteService</span><span class="p">,</span>
+    <span class="na">custom</span><span class="p">:</span> <span class="nx">CustomContextService</span><span class="p">,</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="cm">/* ... */</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">provide</span><span class="p">:</span> <span class="nx">ContextServiceMap</span><span class="p">,</span>
+      <span class="na">useFactory</span><span class="p">:</span> <span class="nx">serviceMapFactory</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// version &gt;= 3.2</span>
+    <span class="p">{</span>
+      <span class="na">provide</span><span class="p">:</span> <span class="nx">SiteContextConfigInitializer</span><span class="p">,</span>
+      <span class="na">useClass</span><span class="p">:</span> <span class="nx">CustomSiteContextConfigInitializer</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// version &lt; 3.2</span>
+    <span class="p">{</span>
+      <span class="na">provide</span><span class="p">:</span> <span class="nx">OccConfigLoaderService</span><span class="p">,</span>
+      <span class="na">useClass</span><span class="p">:</span> <span class="nx">CustomOccConfigLoaderService</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="cm">/*...*/</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> If you have implemented a custom <code class="language-plaintext highlighter-rouge">SiteContextConfigInitializer</code>, this also needs to be provided, as shown in the example above.</p>
+
+<p>You should now be able to see your URL with an uppercase ISO language code (for example, <code class="language-plaintext highlighter-rouge">www.site.com/EN</code>), while still being able to use standard lowercase languages in your application.</p>
+
+<h2 id="theme-configuration">Theme Configuration</h2>
+
+<p><b>Note: </b> 
+This functionality is introduced with version 3.2 of the Spartacus libraries.
+ </p>
+
+<p>You can add a <code class="language-plaintext highlighter-rouge">theme</code> to your <code class="language-plaintext highlighter-rouge">SiteContextConfig</code>, either automatically or statically.</p>
+
+<h3 id="automatic-theme-configuration">Automatic Theme Configuration</h3>
+
+<p>You can set the <code class="language-plaintext highlighter-rouge">theme</code> by using the automatic site configuration, as described in the following procedure.</p>
+
+<ol>
+  <li>In Backoffice, open the <strong>WCMS &gt; Website</strong> view.</li>
+  <li>Select the website that you want to update.</li>
+  <li>
+    <p>In the <strong>Properties</strong> tab, scroll down to <strong>Base Configuration</strong> and select the desired theme from the list.</p>
+
+    <p>The theme value is applied as a CSS class in the root component of the application. For example, if the theme value is <code class="language-plaintext highlighter-rouge">sparta</code>, you should be able to see it in <code class="language-plaintext highlighter-rouge">&lt;your-app class="... sparta ..."&gt;</code>.</p>
+  </li>
+</ol>
+
+<h3 id="static-theme-configuration">Static Theme Configuration</h3>
+
+<p>You can statically configuring your <code class="language-plaintext highlighter-rouge">theme</code>, as shown in the following example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">providers</span><span class="p">:</span> <span class="p">[</span>
+  <span class="nx">provideConfig</span><span class="p">({</span>
+    <span class="na">context</span><span class="p">:</span> <span class="p">{</span> <span class="na">theme</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">your-theme-value</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/beta-docs/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/beta-docs/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:latest"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

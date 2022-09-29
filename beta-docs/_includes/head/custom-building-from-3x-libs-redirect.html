@@ -1,0 +1,18 @@
+<!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+{% assign pagename = page.name | remove: '.md' | remove: 'index.html' %}
+<meta http-equiv="refresh" content="0; URL=https://sap.github.io/spartacus-docs/3.x/{{ pagename }}/">
+<link rel="canonical" href="https://sap.github.io/spartacus-docs/3.x/{{ pagename }}/">
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->

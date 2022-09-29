@@ -1,0 +1,2269 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Changes to Styles in 4.0 - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Changes to Styles in 4.0">
+<meta property="og:url" content="/spartacus-docs/beta-docs/css-changes-in-version-4/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/beta-docs/css-changes-in-version-4/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/beta-docs/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/beta-docs/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/beta-docs/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/beta-docs/"><img src="/spartacus-docs/beta-docs/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/beta-docs/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/beta-docs/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/beta-docs/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/beta-docs/release-information/" >Version 5.0</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/release-information/">Release Information ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                    
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/pre-release-information/">Pre-Release Information</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/feature-release-versions/">Feature Compatibility</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/updating-to-version-5/">Updating to Version 5.0 ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/updating-to-version-4/">Updating to Version 4.0 ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/beta-docs/technical-changes-version-4/" class="">Technical Changes in Spartacus 4.0</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/beta-docs/css-changes-in-version-4/" class="active">Changes to Styles in 4.0</a></li>
+
+                                                                                       
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/updating-to-version-3/">Updating to Version 3.0 ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/updating-to-version-2/">Updating to Version 2.0 ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/misc-release-notes/">Miscellaneous Release Notes ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/beta-docs/known-issues/">Known Issues</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/spartacus-videos/">Spartacus Videos</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/spartacus-roadmap/">Spartacus Roadmap</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/spartacus-faq/">Spartacus FAQ</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/beta-docs/docs-archive/">Documentation Archive</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+                                        
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/beta-docs/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Changes to Styles in 4.0</h1>
+    
+    <h2 id="changes-in-the-storefrontstyles-components">Changes in the storefrontstyles Components</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">$page-template-blacklist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$page-template-blocklist</code> in <code class="language-plaintext highlighter-rouge">_page-template.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$cart-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$cart-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">cart/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$cds-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$cds-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">cds/index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$store-finder-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$store-finder-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">store-finder/index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$checkout-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$checkout-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">checkout/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$content-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$content-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">content/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$layout-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$layout-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">layout/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$misc-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$misc-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">misc/_index.scss </code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$myaccount-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$myaccount-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">myaccount/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$product-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$product-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">product/index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$product-list-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$product-list-allowlist</code> in <code class="language-plaintext highlighter-rouge">product/list/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$pwa-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$pwa-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">pwa/add-to-home-screen-banner/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$user-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$user-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">user/_index.scss</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$wish-list-components-whitelist</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$wish-list-components-allowlist</code> in <code class="language-plaintext highlighter-rouge">wish-list/index.scss</code>.</li>
+</ul>
+
+<h2 id="changes-in-the-organization-feature-library">Changes in the Organization Feature Library</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">$page-template-blacklist-organization</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$page-template-blocklist-organization</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$page-template-whitelist-organization</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$page-template-allowlist-organization</code>.</li>
+</ul>
+
+<h2 id="changes-in-the-storefinder-feature-library">Changes in the Storefinder Feature Library</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">$page-template-blacklist-store-finder</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$page-template-blocklist-store-finder</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">$page-template-whitelist-store-finder</code> SCSS variable name has been renamed to <code class="language-plaintext highlighter-rouge">$page-template-allowlist-store-finder</code>.</li>
+</ul>
+
+<h2 id="changes-in-the-checkout-components">Changes in the Checkout Components</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-product-variants</code> selector has been moved to the corresponding <code class="language-plaintext highlighter-rouge">@spartacus/product</code> feature library.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-attribute-type-components">Change in the Configurator Attribute Type Components</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-quantity</code> selector has been added to achieve a consistent styling.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-product-title-component">Changes in the Configurator Product Title Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">80%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-product-title</code> to use only 80% of the configuration product title width.</li>
+  <li>There is now a <code class="language-plaintext highlighter-rouge">button</code> instead of an anchor link in the <code class="language-plaintext highlighter-rouge">%cx-configurator-product-title</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">16px/ 32px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-product-title</code> for the <code class="language-plaintext highlighter-rouge">cx-details</code> selector to align spacing depending on the screen size.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-image</code> mixin has been defined in the <code class="language-plaintext highlighter-rouge">%cx-configurator-product-title</code> for the <code class="language-plaintext highlighter-rouge">cx-details-image</code> selector to achieve a consistent styling.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-truncate-content</code> mixin has been added to the <code class="language-plaintext highlighter-rouge">%cx-configurator-product-title</code> for the <code class="language-plaintext highlighter-rouge">cx-detail-title</code>, <code class="language-plaintext highlighter-rouge">cx-code</code> and <code class="language-plaintext highlighter-rouge">cx-description</code> selectors to enable the truncation for the small widgets.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-group-menu-component">Changes in the Configurator Group Menu Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-group-menu</code> class replaces the <code class="language-plaintext highlighter-rouge">ul</code> element in the <code class="language-plaintext highlighter-rouge">%cx-configurator-group-menu</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-truncate-content</code> mixin has been added to the <code class="language-plaintext highlighter-rouge">%cx-configurator-group-menu</code> for the <code class="language-plaintext highlighter-rouge">span</code> selector to enable the configuration group title truncation for the small widgets.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-form-component">Changes in the Configurator Form Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">100%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form</code> to use the whole width of the configuration form.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">16px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form</code> for the <code class="language-plaintext highlighter-rouge">cx-group-attribute</code> to align the spacing between the configuration group attributes.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-attribute-header-component">Changes in the Configurator Attribute Header Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">margin</code> is set to <code class="language-plaintext highlighter-rouge">17px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-header</code> to align the spacing to the attribute header to the attribute type.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">0px</code> and the <code class="language-plaintext highlighter-rouge">margin</code> to <code class="language-plaintext highlighter-rouge">17px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> to align the spacing between the configuration attribute types.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-attribute-drop-down-component">Changes in the Configurator Attribute Drop-Down Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">flex-direction</code> is set to <code class="language-plaintext highlighter-rouge">column</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-drop-down</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-level-quantity-price</code> mixin has been defined in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-drop-down</code> for the <code class="language-plaintext highlighter-rouge">.cx-attribute-level-quantity-price</code> class to achieve a consistent styling.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-block-start</code> is set to <code class="language-plaintext highlighter-rouge">32px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-drop-down</code> for the <code class="language-plaintext highlighter-rouge">.cx-value-price</code> class to align the spacing for mobile widget.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-block-start</code> is set to <code class="language-plaintext highlighter-rouge">32px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-drop-down</code> for the <code class="language-plaintext highlighter-rouge">.cx-attribute-level-quantity-price</code> class to align the spacing.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-attribute-checkbox-list-component">Changes in the Configurator Attribute Checkbox List Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">1rem</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-checkbox-list</code> to define the spacing between the checkbox-list attribute type and the quantity counter.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-level-quantity-price</code> mixin has been defined in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-checkbox-list</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-level-quantity-price</code> selector to achieve a consistent styling.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-visible-focus</code> mixin has been defined in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-checkbox-list</code> to enable visual focus.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-attribute-radio-button-component">Changes in the Configurator Attribute Radio Button Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">1rem</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-radio-button</code> to define the spacing between the radio-button attribute type and the quantity counter.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-level-quantity-price</code> mixin has been defined in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-radio-button</code> for the <code class="language-plaintext highlighter-rouge">.cx-attribute-level-quantity-price</code> class to achieve a consistent styling.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-visible-focus</code> mixin has been defined in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-radio-button</code> to enable visual focus.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-previous-next-button-component">Change in the Configurator Previous Next Button Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">16px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-previous-next-buttons</code> to align the spacing between the configuration form and the bottom of the configuration.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-price-summary-component">Change in the Configurator Price Summary Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">16px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-price-summary</code> for the <code class="language-plaintext highlighter-rouge">cx-total-summary</code> selector to align the spacing.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-footer-container-mixin">Change in the Configurator Footer Container Mixin</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">16px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-footer-container</code> mixin to align the spacing between the price summary and add-to-cart button.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-required-error-message-mixin">Change in the Configurator Required Error Message Mixin</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">5px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-required-error-msg</code> mixin to add spacing at the end of the <code class="language-plaintext highlighter-rouge">cx-icon</code> selector.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-attribute-single-selection-bundle-component">Change in the Configurator Attribute Single-Selection Bundle Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-level-quantity-price</code> mixin has been replaced in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-single-selection-bundle</code> to <code class="language-plaintext highlighter-rouge">cx-configurator-bundle-attribute-level-quantity-price</code>.</li>
+</ul>
+
+<h2 id="change-in-the-configurator-attribute-multi-selection-bundle-component">Change in the Configurator Attribute Multi-Selection Bundle Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-attribute-level-quantity-price</code> mixin has been replaced in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-multi-selection-bundle</code> to <code class="language-plaintext highlighter-rouge">cx-configurator-bundle-attribute-level-quantity-price</code>.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-attribute-type-mixin">Changes in the Configurator Attribute Type Mixin</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">100%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">fieldset</code> selector to use 100% of the width.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">display</code> is set to <code class="language-plaintext highlighter-rouge">flex</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">form-check</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">flex-direction</code> is set to <code class="language-plaintext highlighter-rouge">row</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">form-check</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">justify-content</code> is set to <code class="language-plaintext highlighter-rouge">space-between</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">form-check</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">80%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">cx-value-label-pair</code> selector to use only 80% of the width.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding-inline-end</code> is set to <code class="language-plaintext highlighter-rouge">10px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">cx-value-label-pair</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">line-break</code> has been set to <code class="language-plaintext highlighter-rouge">anywhere</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">cx-value-label-pair</code> selector to enable a line break if the value pair label gets longer.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">20%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-type</code> for the <code class="language-plaintext highlighter-rouge">cx-value-price</code> selector to use only 20% of the width.</li>
+</ul>
+
+<h2 id="changes-in-configurator-form-group-mixin">Changes in Configurator Form Group Mixin</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">100%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">form-group</code> selector to use 100% of the width.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">display</code> is set to <code class="language-plaintext highlighter-rouge">flex</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">form-group</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">flex-direction</code> is set to <code class="language-plaintext highlighter-rouge">row</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">form-group</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">align-items</code> is set to <code class="language-plaintext highlighter-rouge">center</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">form-group</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">justify-content</code> is set to <code class="language-plaintext highlighter-rouge">space-between</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">form-group</code> selector.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">80%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">select</code> selector to use only 80% of the width.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">20%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-form-group</code> for the <code class="language-plaintext highlighter-rouge">cx-value-price</code> selector to use only 20% of the width.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-attribute-level-quantity-price-mixin">Changes in the Configurator Attribute Level Quantity Price Mixin</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-block-start</code> has been removed from <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-level-quantity-price</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-block-end</code> has been removed from <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-level-quantity-price</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-inline-start</code> has been removed from <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-level-quantity-price</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-inline-end</code> has been removed from <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-level-quantity-price</code>.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-overview-form-component">Changes in the Configurator Overview Form Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">0px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> to fix inconsistent spacings in the configuration overview form.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">20px</code> and the <code class="language-plaintext highlighter-rouge">margin</code> to <code class="language-plaintext highlighter-rouge">0px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-group</code> selector to align spacing between the configuration overview groups.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">32px/16px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">h2</code> selector to align spacing around the configuration overview group titles.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">cx-configurator-truncate-content</code> mixin has been added to the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">span</code> selector to enable the overview group title truncation for the small widgets.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">32px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-value-pair</code> selector to align spacing between the configuration overview attribute value pairs.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">display</code> is set to <code class="language-plaintext highlighter-rouge">none / inline</code> and <code class="language-plaintext highlighter-rouge">visibility</code> to <code class="language-plaintext highlighter-rouge">hidden</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-value-pair</code> selector to define the visibility for the configuration overview attribute value label.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding</code> is set to <code class="language-plaintext highlighter-rouge">20px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-no-attribute-value-pairs</code> selector to align spacing between the configuration overview form and the container which is shown when there are no results, including a link for removing filter(s).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">font-size</code> is set to <code class="language-plaintext highlighter-rouge">1.25rem</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> selector to adjust the attribute header according to the new styling requirement.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">font-weight</code> is set to <code class="language-plaintext highlighter-rouge">700</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> selector to adjust the attribute header according to the new styling requirement.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">border-bottom</code> is set to <code class="language-plaintext highlighter-rouge">solid 1px var(--cx-color-light)</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> selector to create the bottom border of the attribute header.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">border-top</code> is set to <code class="language-plaintext highlighter-rouge">solid 1px var(--cx-color-light)</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> selector to create the top border of the attribute header.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">border-left-style</code> is set to <code class="language-plaintext highlighter-rouge">none</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> selector to achieve a top-bottom border.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">border-right-style</code> is set to <code class="language-plaintext highlighter-rouge">none</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> selector to achieve a top-bottom border.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">background</code> set to <code class="language-plaintext highlighter-rouge">none</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> to make the header background transparent.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">text-transform</code> is set to <code class="language-plaintext highlighter-rouge">none</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">topLevel</code> to prevent the header form transforming to uppercase.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">margin-bottom</code> is set to <code class="language-plaintext highlighter-rouge">-60px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">subgroupTopLevel</code> to eliminate the space between the top-level attribute header and its subgroups.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">background-color</code> is set to <code class="language-plaintext highlighter-rouge">var(--cx-color-background)</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-group h2</code> to set the background color of the subgroup headers.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">font-size</code> is set to <code class="language-plaintext highlighter-rouge">1rem</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-group h2</code> to specify the font size of the subgroup headers.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">text-transform</code> is set to <code class="language-plaintext highlighter-rouge">uppercase</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-form</code> for the <code class="language-plaintext highlighter-rouge">cx-group h2</code> to transform the subgroup header into uppercase.</li>
+</ul>
+
+<h2 id="changes-in-the-configurator-overview-attribute-component">Changes in the Configurator Overview Attribute Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">justify-content</code> is set to <code class="language-plaintext highlighter-rouge">space-between</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">50%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-value</code> selector to use only <code class="language-plaintext highlighter-rouge">50%</code> of the width for the small widgets.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">font-weight</code> is set to <code class="language-plaintext highlighter-rouge">600</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-value</code> selector to make the attribute values bold.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">line-break</code> has been set to <code class="language-plaintext highlighter-rouge">anywhere</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-value</code> selector to enable line break if the attribute value label gets longer.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding-inline-end</code> is set to <code class="language-plaintext highlighter-rouge">10px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-value</code> selector to align spacing between the <code class="language-plaintext highlighter-rouge">cx-attribute-value</code> selector and the next element.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">100%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-label</code> selector to use 100% of the width for the small widgets.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding-inline-end</code> is set to <code class="language-plaintext highlighter-rouge">10px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-label</code> selector to align spacing between the <code class="language-plaintext highlighter-rouge">cx-attribute-label</code> selector and the next element.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">line-break</code> has been set to <code class="language-plaintext highlighter-rouge">anywhere</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-label</code> selector to enable a line break if the attribute value label gets longer.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">50%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-overview-attribute</code> for the <code class="language-plaintext highlighter-rouge">cx-attribute-price</code> selector to use only 50% of the width for the small widgets.</li>
+</ul>
+
+<h2 id="changes-in-the-product-configurator-card-component">Changes in the Product Configurator Card Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">.cx-card-title</code> class was added (a11y).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">.deselection-error-message</code> class was added.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">display</code> is set to <code class="language-plaintext highlighter-rouge">inline-block</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-product-card</code> for the <code class="language-plaintext highlighter-rouge">&amp;.deselection-error-message</code> to prevent a line break in the deselection error message.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">width</code> is set to <code class="language-plaintext highlighter-rouge">80%</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-product-card</code> for the <code class="language-plaintext highlighter-rouge">&amp;.deselection-error-message</code> to set the element’s box size and prevent a line break.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">flex-wrap</code> is set to <code class="language-plaintext highlighter-rouge">wrap</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-product-card</code> for the <code class="language-plaintext highlighter-rouge">.cx-product-card-selected</code> to align the deselection error to the desired position.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding-top</code> is set to <code class="language-plaintext highlighter-rouge">5px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-product-card</code> for the <code class="language-plaintext highlighter-rouge">.deselection-error-message</code> to create space between the value description and the error message.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">color</code> is set to <code class="language-plaintext highlighter-rouge">var(--cx-color-danger)</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-product-card</code> for the <code class="language-plaintext highlighter-rouge">.deselection-error-message</code> to signal the message as an error message.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">padding-right</code> is set to <code class="language-plaintext highlighter-rouge">5px</code> in the <code class="language-plaintext highlighter-rouge">%cx-configurator-attribute-product-card</code> for the <code class="language-plaintext highlighter-rouge">.deselection-error-message-symbol</code> to create space between the message and the ‘error’ icon.</li>
+</ul>
+
+<h2 id="change-in-the-cart-item-component">Change in the Cart Item Component</h2>
+
+<ul>
+  <li>An <code class="language-plaintext highlighter-rouge">h2</code> was added under <code class="language-plaintext highlighter-rouge">.cx-name</code> to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-order-summary-component">Change in the Order Summary Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">h4</code> was changed to <code class="language-plaintext highlighter-rouge">h3</code> to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-review-submit-component">Change in the Review Submit Component</h2>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">type(3)</code> was added to the <code class="language-plaintext highlighter-rouge">.cx-review-title</code> class to retain the previous style after changes in the markup template.</li>
+</ul>
+
+<h2 id="change-in-indexscss">Change in index.scss</h2>
+
+<ul>
+  <li>A new <code class="language-plaintext highlighter-rouge">cx-page-header</code> component was added to the allow list (a11y).</li>
+  <li><code class="language-plaintext highlighter-rouge">_screen-reader.scss</code> was added, which will contain screen reader specific styles (a11y).</li>
+</ul>
+
+<h2 id="changes-in-the-category-navigation-component">Changes in the Category Navigation Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">h5</code> was changed to <code class="language-plaintext highlighter-rouge">span</code> to account for the change in the markup template for improved screen reader support (a11y).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">nav.is-open &gt; h5</code> was changed to <code class="language-plaintext highlighter-rouge">li.is-open &gt; span</code> to remove headings from the category navigation for improved categorization in the screen reader elements dialog (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-footer-navigation-component">Change in the Footer Navigation Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">h5</code> was changed to <code class="language-plaintext highlighter-rouge">span</code> under <code class="language-plaintext highlighter-rouge">.flyout</code>, <code class="language-plaintext highlighter-rouge">@include media-breakpoint-down(md)</code>, <code class="language-plaintext highlighter-rouge">nav</code> and <code class="language-plaintext highlighter-rouge">nav &gt;</code> to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-carousel-component">Change in the Carousel Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">h3</code> was changed to an <code class="language-plaintext highlighter-rouge">h2</code> to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-product-carousel-component">Change in the Product Carousel Component</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">h4</code> was changed to an <code class="language-plaintext highlighter-rouge">h3</code> to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-product-list-item-component">Change in the Product List Item Component</h2>
+
+<ul>
+  <li>An <code class="language-plaintext highlighter-rouge">h2</code> was added to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-wish-list-item-component">Change in the Wish List Item Component</h2>
+
+<ul>
+  <li>An <code class="language-plaintext highlighter-rouge">h2</code> added to account for the change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-the-checkout-media-style-component">Change in the Checkout Media Style Component</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">type(3)</code> and <code class="language-plaintext highlighter-rouge">font-weight</code> were added to retain the existing styling after a change in the markup template for improved screen reader support (a11y).</li>
+</ul>
+
+<h2 id="change-in-_screen-readerscss">Change in _screen-reader.scss</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">.cx-visually-hidden</code> class was added. This class can be used to hide elements specific to screen reader announcement and narration (a11y).</li>
+</ul>
+
+<h2 id="change-in-_listscss">Change in _list.scss</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.cx-table td .text</code> and <code class="language-plaintext highlighter-rouge">.cx-table td a</code> padding-inline-start removed to align the <code class="language-plaintext highlighter-rouge">cx-org</code> table items with head labels.</li>
+</ul>
+
+<h2 id="change-in-buttonsscss">Change in buttons.scss`</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">text-transform: var(--cx-button-text-transform)</code> is changed to <code class="language-plaintext highlighter-rouge">text-transform: var(--cx-text-transform)</code> to accommodate for theme changes.</li>
+</ul>
+
+<h2 id="changes-in-_searchboxscss">Changes in _searchbox.scss</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cx-icon.reset</code> was changed to <code class="language-plaintext highlighter-rouge">button.reset</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.dirty cx-icon.search</code> was changed to <code class="language-plaintext highlighter-rouge">.dirty div.search</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:not(.dirty) cx-icon.reset</code> was changed to <code class="language-plaintext highlighter-rouge">:not(.dirty) button.reset</code></li>
+  <li><code class="language-plaintext highlighter-rouge">cx-icon</code> was changed to <code class="language-plaintext highlighter-rouge">button, div.search</code></li>
+  <li><code class="language-plaintext highlighter-rouge">cursor: pointer</code> was removed.</li>
+  <li><code class="language-plaintext highlighter-rouge">.reset</code> was changed to <code class="language-plaintext highlighter-rouge">.reset cx-icon</code></li>
+  <li><code class="language-plaintext highlighter-rouge">h4.name</code> was changed to <code class="language-plaintext highlighter-rouge">div.name</code></li>
+</ul>
+
+<h2 id="change-in-_payment-formscss">Change in _payment-form.scss</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">legend</code> was added with <code class="language-plaintext highlighter-rouge">font-size: 1rem</code> in <code class="language-plaintext highlighter-rouge">.cx-payment-form-exp-date</code></li>
+</ul>
+
+<h2 id="change-in-_listscss-1">Change in _list.scss</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.sort</code> has been wrapped in a <code class="language-plaintext highlighter-rouge">label</code> in <code class="language-plaintext highlighter-rouge">.header.actions</code>. A <code class="language-plaintext highlighter-rouge">min-width: 170px;</code> was added for <code class="language-plaintext highlighter-rouge">.sort</code> and a few other stylings for <code class="language-plaintext highlighter-rouge">label</code>.</li>
+</ul>
+
+<h2 id="change-in-_my-couponsscss">Change in _my-coupons.scss</h2>
+
+<ul>
+  <li>Styling was added for <code class="language-plaintext highlighter-rouge">.cx-my-coupons-form-group</code>: <code class="language-plaintext highlighter-rouge">align-items: center;  display: flex;</code> and a few other stylings for <code class="language-plaintext highlighter-rouge">span</code> and <code class="language-plaintext highlighter-rouge">cx-sorting</code>.</li>
+</ul>
+
+<h2 id="change-in-_my-interestsscss">Change in _my-interests.scss</h2>
+
+<ul>
+  <li>Styling was added for <code class="language-plaintext highlighter-rouge">.cx-product-interests-form-group</code>: <code class="language-plaintext highlighter-rouge">align-items: center;  display: flex;</code> and a few other stylings for <code class="language-plaintext highlighter-rouge">span</code> and <code class="language-plaintext highlighter-rouge">cx-sorting</code>.</li>
+</ul>
+
+<h2 id="change-in-_order-historyscss-and-_order-return-request-listscss">Change in _order-history.scss and _order-return-request-list.scss</h2>
+
+<ul>
+  <li>Styling added for <code class="language-plaintext highlighter-rouge">cx-order-history-form-group</code>: <code class="language-plaintext highlighter-rouge">align-items: center;  display: flex;</code> and a few other stylings for <code class="language-plaintext highlighter-rouge">span</code> and <code class="language-plaintext highlighter-rouge">cx-sorting</code>.</li>
+</ul>
+
+<h2 id="change-in-_replenishment-order-historyscss">Change in _replenishment-order-history.scss</h2>
+
+<ul>
+  <li>Styling added for <code class="language-plaintext highlighter-rouge">.cx-replenishment-order-history-form-group</code>: <code class="language-plaintext highlighter-rouge">align-items: center;  display: flex;</code> and a few other stylings for <code class="language-plaintext highlighter-rouge">span</code> and <code class="language-plaintext highlighter-rouge">cx-sorting</code>.</li>
+</ul>
+
+<h2 id="change-in-_product-listscss">Change in _product-list.scss</h2>
+
+<ul>
+  <li>Styling added for <code class="language-plaintext highlighter-rouge">.cx-sort-dropdown</code>: <code class="language-plaintext highlighter-rouge">align-items: center;  display: flex;</code> and a few other stylings for <code class="language-plaintext highlighter-rouge">span</code> and <code class="language-plaintext highlighter-rouge">cx-sorting</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">text-transform: var(--cx-button-text-transform)</code> was changed to <code class="language-plaintext highlighter-rouge">text-transform: var(--cx-text-transform)</code> to accommodate for theme changes.</li>
+</ul>
+
+<h2 id="change-in-_popoverscss">Change in _popover.scss</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">popover-body &gt; .close</code> has been moved to <code class="language-plaintext highlighter-rouge">popover-body &gt; .cx-close-row &gt; .close</code>.</li>
+</ul>
+
+<h2 id="changes-in-navigation-uiscss">Changes in <em>navigation-ui</em>.scss</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">popover-body &gt; .close</code> has been moved to <code class="language-plaintext highlighter-rouge">popover-body &gt; .cx-close-row &gt; .close</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">padding-bottom: 25px</code> was changed to <code class="language-plaintext highlighter-rouge">padding-bottom: 22px</code> to accommodate for the header navigation links line-heights.</li>
+</ul>
+
+<h2 id="change-in-_versioningscss">Change in _versioning.scss</h2>
+
+<ul>
+  <li>For the 4.0 release, themes for versioning of minor releases was changed from <code class="language-plaintext highlighter-rouge">$_fullVersion: 3.3;</code> and <code class="language-plaintext highlighter-rouge">$_majorVersion: 3;</code> to <code class="language-plaintext highlighter-rouge">$_fullVersion: 4;</code> and <code class="language-plaintext highlighter-rouge">$_majorVersion: 4;</code>, respectively.</li>
+</ul>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<table BORDER="0"><tr><td class="tdfooter"><a href="https://www.sap.com/copyright" target="_blank">Copyright</a></td>
+
+<td class="tdfooter"><a href="https://sap.github.io/spartacus-docs/privacy-statement/">Privacy Statement</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/impressum" target="_blank">Legal Disclosure</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/trademark" target="_blank">Trademark</a></td>
+
+<td class="tdfooter"><a href="https://www.sap.com/terms-of-use" target="_blank">Terms of Use</a></td></tr></table>
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/beta-docs/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/beta-docs/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:latest"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
