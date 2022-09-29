@@ -1,0 +1,1896 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>SAP Customer Data Cloud Integration - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="SAP Customer Data Cloud Integration">
+<meta property="og:url" content="/spartacus-docs/2.x/cdc-integration/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/2.x/cdc-integration/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/2.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/2.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/2.x/"><img src="/spartacus-docs/2.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/2.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/2.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/2.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/2.x/release-information/" >Version 2.1</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/installing-sap-commerce-cloud/">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/cors/">Cross-Origin Resource Sharing (CORS)</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/building-the-spartacus-storefront-from-libraries/">Building the Spartacus Storefront from Libraries</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/schematics/">Schematics</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/recommended-development-environment/">Recommended Development Environment</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/browser-support/">Web Browser Support</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/snapshot-builds/">Snapshot Builds</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/configuring-feature-flags/">Configuring Feature Flags</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/smartEdit-setup-instructions-for-spartacus/">SmartEdit Setup Instructions for Spartacus</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/personalization-setup-instructions-for-spartacus/">Personalization Setup Instructions for Spartacus</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/spartacussampledataaddon/">Spartacussampledataaddon AddOn</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/2.x/integrations/">Integrations ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/2.x/cds-integration/" class="">Intelligent Selling Services for SAP Commerce Cloud Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/2.x/cybersource-integration/" class="">Payment Integration with CyberSource Example</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/2.x/kyma-integration/" class="">Kyma Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/2.x/qualtrics-integration/" class="">Qualtrics Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/2.x/cdc-integration/" class="active">SAP Customer Data Cloud Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">SAP Customer Data Cloud Integration</h1>
+    
+    <p><strong>Note: Spartacus 2.x is no longer maintained. Please upgrade to the latest version.</strong></p>
+
+
+<p><b>Note: </b> 
+This feature is introduced with version 2.1 of the Spartacus libraries.
+ </p>
+
+<h2 id="overview">Overview</h2>
+
+<p>SAP Customer Data Cloud allows you to enable customized registration and login, and also manage user profile and consent.</p>
+
+<p>For more information see, <a href="https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US">SAP Customer Data Cloud Integration</a> and <a href="https://developers.gigya.com/">SAP Customer Data Cloud</a> on the SAP Help Portal.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>To integrate SAP Customer Data Cloud with Spartacus, you must have either of the following:</p>
+
+<ul>
+  <li>SAP Commerce Cloud 2005, along with SAP Commerce Cloud, Integration Extension Pack</li>
+  <li>SAP Commerce Cloud 1905, along with the latest version of Commerce Cloud Extension Pack</li>
+</ul>
+
+<h2 id="enabling-sap-customer-data-cloud-integration-in-spartacus">Enabling SAP Customer Data Cloud Integration in Spartacus</h2>
+
+<p>To enable SAP Customer Data Cloud Integration in Spartacus, you need to configure both the Commerce Cloud back end, and the Spartacus front end.</p>
+
+<h3 id="configuring-the-back-end-for-sap-customer-data-cloud-integration">Configuring the Back End for SAP Customer Data Cloud Integration</h3>
+
+<p>The following steps describe how to configure the Commerce Cloud back end for integration with SAP Customer Data Cloud.</p>
+
+<ol>
+  <li>
+    <p>Follow the steps for <a href="https://sap.github.io/spartacus-docs/installing-sap-commerce-cloud/">Installing SAP Commerce Cloud for use with Spartacus</a>.</p>
+  </li>
+  <li>
+    <p>Enable the SAP Customer Data Cloud extensions for B2C according to <a href="https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html">SAP Customer Data Cloud Integration Implementation</a> on the SAP Help Portal.</p>
+  </li>
+  <li>
+    <p>Build and update the system so that the new functionality provided by the SAP Customer Data Cloud integration extension is available.</p>
+  </li>
+  <li>
+    <p>Update the <code class="language-plaintext highlighter-rouge">mobile_android</code> OAuth client (created in step 1) to support the <code class="language-plaintext highlighter-rouge">custom</code> authorization grant type, and remove the <code class="language-plaintext highlighter-rouge">refresh_token</code> grant type. The following ImpEx can be used to update the grant types:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> INSERT_UPDATE OAuthClientDetails ; clientId[unique = true] ; resourceIds ; scope ; authorizedGrantTypes                                  ; authorities ; clientSecret ; registeredRedirectUri                                     
+                                  ; mobile_android          ; hybris      ; basic ; authorization_code,password,client_credentials,custom ; ROLE_CLIENT ; secret       ; http://localhost:9001/authorizationserver/oauth2_callback ;  
+</code></pre></div>    </div>
+
+    <p><strong>Note:</strong> Refresh tokens are not supported. This ensures that the token from Commerce Cloud and the SAP Customer Data Cloud login session are maintained for the same duration of time.</p>
+  </li>
+  <li>
+    <p>Define the SAP Customer Data Cloud Site configuration and link it to the <code class="language-plaintext highlighter-rouge">electronics-spa</code> site. You can also define other configurations for the integration, such as Field Mapping and Consent Templates, according to <a href="https://help.sap.com/viewer/b6a1e8b75222421a8faf0269e8fbd0dc/latest/en-US/2f49dd87b27740529dd8ccc3cd45ffa7.html">SAP Customer Data Cloud Integration Implementation</a>.</p>
+
+    <p><strong>Note:</strong> The various session management configurations are not supported with Spartacus Storefront.</p>
+  </li>
+  <li>
+    <p>Import the following ImpEx file.</p>
+
+    <p>This ImpEx makes changes to <code class="language-plaintext highlighter-rouge">electronics-spaContentCatalog</code> that enable the SAP Customer Data Cloud integration in Spartacus.</p>
+
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">#</span> <span class="c1">-----------------------------------------------------------------------</span>
+ <span class="o">#</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="n">hybris</span> <span class="n">Platform</span>
+ <span class="o">#</span>
+ <span class="o">#</span> <span class="n">Copyright</span> <span class="p">(</span><span class="k">c</span><span class="p">)</span> <span class="mi">2018</span> <span class="n">SAP</span> <span class="n">SE</span> <span class="k">or</span> <span class="n">an</span> <span class="n">SAP</span> <span class="n">affiliate</span> <span class="n">company</span><span class="p">.</span>  <span class="k">All</span> <span class="n">rights</span> <span class="n">reserved</span><span class="p">.</span>
+ <span class="o">#</span>
+ <span class="o">#</span> <span class="n">This</span> <span class="n">software</span> <span class="k">is</span> <span class="n">the</span> <span class="n">confidential</span> <span class="k">and</span> <span class="n">proprietary</span> <span class="n">information</span> <span class="k">of</span> <span class="n">SAP</span>
+ <span class="o">#</span> <span class="p">(</span><span class="nv">"Confidential Information"</span><span class="p">).</span> <span class="n">You</span> <span class="n">shall</span> <span class="k">not</span> <span class="n">disclose</span> <span class="n">such</span> <span class="n">Confidential</span>
+ <span class="o">#</span> <span class="n">Information</span> <span class="k">and</span> <span class="n">shall</span> <span class="n">use</span> <span class="n">it</span> <span class="k">only</span> <span class="k">in</span> <span class="n">accordance</span> <span class="k">with</span> <span class="n">the</span> <span class="n">terms</span> <span class="k">of</span> <span class="n">the</span>
+ <span class="o">#</span> <span class="n">license</span> <span class="n">agreement</span> <span class="n">you</span> <span class="n">entered</span> <span class="k">into</span> <span class="k">with</span> <span class="n">SAP</span><span class="p">.</span>
+ <span class="o">#</span> <span class="c1">-----------------------------------------------------------------------</span>
+ <span class="err">$</span><span class="n">contentCatalog</span><span class="o">=</span><span class="n">electronics</span><span class="o">-</span><span class="n">spaContentCatalog</span>
+ <span class="err">$</span><span class="n">contentCV</span><span class="o">=</span><span class="n">catalogVersion</span><span class="p">(</span><span class="n">CatalogVersion</span><span class="p">.</span><span class="k">catalog</span><span class="p">(</span><span class="k">Catalog</span><span class="p">.</span><span class="n">id</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="err">$</span><span class="n">contentCatalog</span><span class="p">]),</span><span class="n">CatalogVersion</span><span class="p">.</span><span class="k">version</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="n">Staged</span><span class="p">])[</span><span class="k">default</span><span class="o">=</span><span class="err">$</span><span class="n">contentCatalog</span><span class="p">:</span><span class="n">Staged</span><span class="p">]</span>
+ <span class="err">$</span><span class="n">jarResourceCms</span><span class="o">=</span><span class="n">jar</span><span class="p">:</span><span class="n">de</span><span class="p">.</span><span class="n">hybris</span><span class="p">.</span><span class="n">platform</span><span class="p">.</span><span class="n">gigya</span><span class="p">.</span><span class="n">gigyaloginaddon</span><span class="p">.</span><span class="n">constants</span><span class="p">.</span><span class="n">GigyaloginaddonConstants</span><span class="o">&amp;/</span><span class="n">gigyaloginaddon</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="n">cockpit</span><span class="o">/</span><span class="n">cmscockpit</span>
+ <span class="err">$</span><span class="n">lang</span><span class="o">=</span><span class="n">en</span>
+
+ <span class="o">#</span> <span class="n">Import</span> <span class="n">modulegen</span> <span class="n">config</span> <span class="n">properties</span> <span class="k">into</span> <span class="n">impex</span> <span class="n">macros</span>
+ <span class="k">UPDATE</span> <span class="n">GenericItem</span><span class="p">[</span><span class="n">processor</span><span class="o">=</span><span class="n">de</span><span class="p">.</span><span class="n">hybris</span><span class="p">.</span><span class="n">platform</span><span class="p">.</span><span class="n">commerceservices</span><span class="p">.</span><span class="n">impex</span><span class="p">.</span><span class="n">impl</span><span class="p">.</span><span class="n">ConfigPropertyImportProcessor</span><span class="p">];</span><span class="n">pk</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">]</span>
+ <span class="err">$</span><span class="n">jarResourceCms</span><span class="o">=</span><span class="err">$</span><span class="n">config</span><span class="o">-</span><span class="n">jarResourceCmsValue</span>
+
+ <span class="o">#</span> <span class="k">Create</span> <span class="n">PageTemplates</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">PageTemplate</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">frontendTemplateName</span><span class="p">;</span><span class="n">restrictedPageTypes</span><span class="p">(</span><span class="n">code</span><span class="p">);</span><span class="n">active</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="k">true</span><span class="p">]</span>
+ <span class="o">#</span> <span class="n">Templates</span> <span class="k">without</span> <span class="n">a</span> <span class="n">frontendTemplateName</span>
+ <span class="p">;;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">Gigya</span> <span class="n">Login</span> <span class="n">Page</span> <span class="k">Template</span><span class="p">;;</span><span class="n">ContentPage</span><span class="p">;</span><span class="k">false</span><span class="p">;</span>
+
+
+ <span class="o">#</span> <span class="n">GIGYA</span> <span class="n">Login</span> <span class="n">Page</span> <span class="k">Template</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotName</span><span class="p">;</span><span class="n">name</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">template</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">][</span><span class="k">default</span><span class="o">=</span><span class="s1">'GigyaLoginPageTemplate'</span><span class="p">];</span><span class="n">validComponentTypes</span><span class="p">(</span><span class="n">code</span><span class="p">);</span><span class="n">compTypeGroup</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+ <span class="p">;</span><span class="n">SiteLogo</span><span class="p">;;;</span><span class="n">logo</span>
+ <span class="p">;</span><span class="n">HeaderLinks</span><span class="p">;;;</span><span class="n">headerlinks</span>
+ <span class="p">;</span><span class="n">SearchBox</span><span class="p">;;;</span><span class="n">searchbox</span>
+ <span class="p">;</span><span class="n">MiniCart</span><span class="p">;;;</span><span class="n">minicart</span>
+ <span class="p">;</span><span class="n">NavigationBar</span><span class="p">;;;</span><span class="n">navigation</span>
+ <span class="p">;</span><span class="n">Footer</span><span class="p">;;;</span><span class="n">footer</span>
+ <span class="p">;</span><span class="n">TopHeaderSlot</span><span class="p">;;;</span><span class="n">wide</span>
+ <span class="p">;</span><span class="n">BottomHeaderSlot</span><span class="p">;;;</span><span class="n">wide</span>
+ <span class="p">;</span><span class="n">BodyContent</span><span class="p">;;;</span><span class="n">wide</span>
+ <span class="p">;</span><span class="n">BottomContent</span><span class="p">;;;</span><span class="n">wide</span>
+ <span class="p">;</span><span class="n">PlaceholderContentSlot</span><span class="p">;;;</span>
+
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotForTemplate</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">position</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">pageTemplate</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">][</span><span class="k">default</span><span class="o">=</span><span class="s1">'GigyaLoginPageTemplate'</span><span class="p">];</span><span class="n">contentSlot</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">allowOverwrite</span>
+ <span class="p">;;</span><span class="n">SiteLogo</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">SiteLogo</span><span class="p">;;</span><span class="n">SiteLogoSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">HeaderLinks</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">HeaderLinks</span><span class="p">;;</span><span class="n">HeaderLinksSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">SearchBox</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">SearchBox</span><span class="p">;;</span><span class="n">SearchBoxSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">MiniCart</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">MiniCart</span><span class="p">;;</span><span class="n">MiniCartSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">NavigationBar</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">NavigationBar</span><span class="p">;;</span><span class="n">NavigationBarSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">Footer</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">Footer</span><span class="p">;;</span><span class="n">FooterSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">TopHeaderSlot</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">TopHeaderSlot</span><span class="p">;;</span><span class="n">TopHeaderSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">BottomHeaderSlot</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">BottomHeaderSlot</span><span class="p">;;</span><span class="n">BottomHeaderSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">PlaceholderContentSlot</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">PlaceholderContentSlot</span><span class="p">;;</span><span class="n">PlaceholderContentSlot</span><span class="p">;</span><span class="k">true</span>
+ <span class="p">;;</span><span class="n">HomepageLink</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">HomepageNavLink</span><span class="p">;;</span><span class="n">HomepageNavLinkSlot</span><span class="p">;</span><span class="k">true</span>
+
+
+ <span class="o">#</span> <span class="n">Functional</span> <span class="n">Content</span> <span class="n">Pages</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentPage</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">masterTemplate</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">);</span><span class="n">label</span><span class="p">;</span><span class="n">defaultPage</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="s1">'true'</span><span class="p">];</span><span class="n">approvalStatus</span><span class="p">(</span><span class="n">code</span><span class="p">)[</span><span class="k">default</span><span class="o">=</span><span class="s1">'approved'</span><span class="p">];</span><span class="n">homepage</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="s1">'false'</span><span class="p">];</span>
+ <span class="p">;;</span><span class="n">login</span><span class="p">;</span><span class="n">Gigya</span> <span class="n">Login</span> <span class="n">Page</span><span class="p">;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">login</span>
+ <span class="p">;;</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="n">Gigya</span> <span class="n">profile</span> <span class="n">page</span><span class="p">;</span><span class="n">AccountPageTemplate</span><span class="p">;</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">account</span><span class="o">/</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span>
+ <span class="p">;;</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">Gigya</span> <span class="n">Checkout</span> <span class="n">Login</span> <span class="n">Page</span><span class="p">;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span>
+
+
+ <span class="o">#</span> <span class="n">Remove</span> <span class="k">existing</span> <span class="n">profile</span> <span class="n">management</span> <span class="n">pages</span> <span class="k">like</span> <span class="n">password</span> <span class="k">reset</span><span class="p">,</span> <span class="k">update</span> <span class="n">profile</span><span class="p">,</span> <span class="k">update</span> <span class="n">email</span> <span class="k">and</span> <span class="n">consent</span> <span class="n">management</span> <span class="n">page</span>
+ <span class="n">REMOVE</span> <span class="n">ContentPage</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">masterTemplate</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">);</span><span class="n">label</span><span class="p">;</span><span class="n">defaultPage</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="s1">'true'</span><span class="p">];</span><span class="n">approvalStatus</span><span class="p">(</span><span class="n">code</span><span class="p">)[</span><span class="k">default</span><span class="o">=</span><span class="s1">'approved'</span><span class="p">];</span><span class="n">homepage</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="s1">'false'</span><span class="p">];</span>
+ <span class="p">;;</span><span class="k">update</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="k">Update</span> <span class="n">Profile</span> <span class="n">Page</span><span class="p">;</span><span class="n">AccountPageTemplate</span><span class="p">;</span><span class="k">update</span><span class="o">-</span><span class="n">profile</span>
+ <span class="p">;;</span><span class="k">update</span><span class="o">-</span><span class="n">email</span><span class="p">;</span><span class="k">Update</span> <span class="n">Email</span> <span class="n">Page</span><span class="p">;</span><span class="n">AccountPageTemplate</span><span class="p">;</span><span class="k">update</span><span class="o">-</span><span class="n">email</span>
+ <span class="p">;;</span><span class="n">updatePassword</span><span class="p">;</span><span class="k">Update</span> <span class="n">Forgotten</span> <span class="n">Password</span> <span class="n">Page</span><span class="p">;</span><span class="n">AccountPageTemplate</span><span class="p">;</span><span class="n">updatePassword</span>
+ <span class="p">;;</span><span class="n">consents</span><span class="p">;</span><span class="n">Consent</span> <span class="n">Management</span> <span class="n">Page</span><span class="p">;</span><span class="n">AccountPageTemplate</span><span class="p">;</span><span class="n">consents</span>
+
+
+ <span class="o">####</span> <span class="n">Gigya</span> <span class="n">Login</span> <span class="n">Page</span>
+ <span class="o">#</span> <span class="n">ContentSlot</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlot</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">active</span><span class="p">;</span><span class="n">cmsComponents</span><span class="p">(</span><span class="o">&amp;</span><span class="n">componentRef</span><span class="p">);;;</span>
+ <span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">Body</span> <span class="n">Content</span> <span class="n">Slot</span> <span class="k">for</span> <span class="n">Gigya</span> <span class="n">Login</span> <span class="n">Page</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">GigyaRaasComponentForLogin</span><span class="p">;;;</span>
+ <span class="p">;;</span><span class="n">BottomContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">Bottom</span> <span class="n">Content</span> <span class="n">Slot</span> <span class="k">for</span> <span class="n">Gigya</span> <span class="n">Login</span> <span class="n">Page</span><span class="p">;</span><span class="k">true</span><span class="p">;;;;</span>
+
+ <span class="o">#</span> <span class="n">ContentSlotForPage</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotForPage</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">position</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">page</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">][</span><span class="k">default</span><span class="o">=</span><span class="s1">'login'</span><span class="p">];</span><span class="n">contentSlot</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];;;</span>
+ <span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">BodyContent</span><span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="p">;;;</span>
+ <span class="p">;;</span><span class="n">BottomContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">BottomContent</span><span class="p">;;</span><span class="n">BottomContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="p">;;;</span>
+
+
+ <span class="o">####</span> <span class="n">Gigya</span> <span class="n">Checkout</span> <span class="n">Login</span> <span class="n">Page</span>
+ <span class="o">#</span> <span class="n">ContentSlot</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlot</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">active</span><span class="p">;</span><span class="n">cmsComponents</span><span class="p">(</span><span class="o">&amp;</span><span class="n">componentRef</span><span class="p">);;;</span>
+ <span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">Body</span> <span class="n">Content</span> <span class="n">Slot</span> <span class="k">for</span> <span class="n">Gigya</span> <span class="n">Checkout</span> <span class="n">Login</span> <span class="n">Page</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">GigyaRaasComponentForLogin</span><span class="p">;;;</span>
+ <span class="p">;;</span><span class="n">BottomContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">Bottom</span> <span class="n">Content</span> <span class="n">Slot</span> <span class="k">for</span> <span class="n">Gigya</span> <span class="n">Checkout</span> <span class="n">Login</span> <span class="n">Page</span><span class="p">;</span><span class="k">true</span><span class="p">;;;;</span>
+
+ <span class="o">#</span> <span class="n">ContentSlotForPage</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotForPage</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">position</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">page</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">][</span><span class="k">default</span><span class="o">=</span><span class="s1">'checkout-login'</span><span class="p">];</span><span class="n">contentSlot</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];;;</span>
+ <span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">BodyContent</span><span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;;;</span>
+ <span class="p">;;</span><span class="n">BottomContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;</span><span class="n">BottomContent</span><span class="p">;;</span><span class="n">BottomContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">checkout</span><span class="o">-</span><span class="n">login</span><span class="p">;;;</span>
+
+
+ <span class="o">######</span> <span class="n">Gigya</span> <span class="n">Profile</span> <span class="n">Page</span>
+ <span class="o">#</span> <span class="n">ContentSlot</span>
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlot</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">active</span><span class="p">;</span><span class="n">cmsComponents</span><span class="p">(</span><span class="o">&amp;</span><span class="n">componentRef</span><span class="p">);;;</span>
+ <span class="p">;;</span><span class="n">SideContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="n">Side</span> <span class="n">Content</span> <span class="n">Slot</span> <span class="k">for</span> <span class="n">Gigya</span> <span class="n">Profile</span><span class="p">;</span><span class="k">true</span><span class="p">;;;;</span>
+ <span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="n">Body</span> <span class="n">Content</span> <span class="n">Slot</span> <span class="k">for</span> <span class="n">Gigya</span> <span class="n">Profile</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">GigyaRaasComponentForProfileUpdate</span><span class="p">;;;</span>
+
+
+ <span class="o">#</span> <span class="n">ContentSlotForPage</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotForPage</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">position</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">page</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">][</span><span class="k">default</span><span class="o">=</span><span class="s1">'gigya-profile'</span><span class="p">];</span><span class="n">contentSlot</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];;;</span>
+ <span class="p">;;</span><span class="n">SideContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="n">SideContent</span><span class="p">;;</span><span class="n">SideContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;;;</span>
+ <span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="n">BodyContent</span><span class="p">;;</span><span class="n">BodyContent</span><span class="o">-</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;;;</span>
+
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">CMSLinkComponent</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">url</span><span class="p">;</span><span class="o">&amp;</span><span class="n">linkRef</span><span class="p">;</span><span class="n">target</span><span class="p">(</span><span class="n">code</span><span class="p">)[</span><span class="k">default</span><span class="o">=</span><span class="s1">'sameWindow'</span><span class="p">]</span>
+ <span class="p">;;</span><span class="n">GigyaProfileLink</span><span class="p">;</span><span class="n">GigyaProfileLink</span><span class="p">;</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">account</span><span class="o">/</span><span class="n">gigya</span><span class="o">-</span><span class="n">profile</span><span class="p">;</span><span class="n">GigyaProfileLink</span><span class="p">;</span>
+
+
+ <span class="o">#</span> <span class="n">Remove</span> <span class="k">all</span> <span class="n">navigation</span> <span class="n">nodes</span> <span class="k">and</span> <span class="n">re</span> <span class="k">add</span> <span class="n">them</span> <span class="k">for</span> <span class="n">correct</span> <span class="n">ordering</span>
+ <span class="n">REMOVE</span> <span class="n">CMSNavigationNode</span><span class="p">;</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">parent</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="err">$</span><span class="n">contentCV</span><span class="p">);</span><span class="n">links</span><span class="p">(</span><span class="o">&amp;</span><span class="n">linkRef</span><span class="p">);</span><span class="o">&amp;</span><span class="n">nodeRef</span>
+ <span class="o">#</span><span class="n">Root</span> <span class="n">node</span> <span class="k">is</span> <span class="n">already</span> <span class="n">added</span><span class="p">...</span> 
+ <span class="p">;</span><span class="n">PersonalDetailsNavNode</span><span class="p">;;</span><span class="n">Personal</span> <span class="n">Details</span><span class="p">;</span><span class="n">MyAccountNavNode</span><span class="p">;;</span><span class="n">PersonalDetailsNavNode</span>
+ <span class="p">;</span><span class="n">UpdateEmailNavNode</span><span class="p">;;</span><span class="k">Update</span> <span class="n">Email</span><span class="p">;</span><span class="n">MyAccountNavNode</span><span class="p">;;</span><span class="n">UpdateEmailNavNode</span>
+ <span class="p">;</span><span class="n">ConsentManagementNavNode</span><span class="p">;;</span><span class="n">Consent</span> <span class="n">Management</span><span class="p">;</span><span class="n">MyAccountNavNode</span><span class="p">;;</span><span class="n">ConsentManagementNavNode</span>
+ <span class="p">;</span><span class="n">ChangePasswordNavNode</span><span class="p">;;</span><span class="n">Change</span> <span class="n">Password</span><span class="p">;</span><span class="n">MyAccountNavNode</span><span class="p">;;</span><span class="n">ChangePasswordNavNode</span>
+
+
+ <span class="o">#</span> <span class="k">create</span> <span class="n">navigation</span> <span class="n">root</span> <span class="n">node</span> <span class="k">for</span> <span class="n">my</span> <span class="n">account</span> <span class="o">&amp;</span> <span class="n">child</span> <span class="n">nodes</span> <span class="k">for</span> <span class="n">the</span> <span class="n">root</span> <span class="n">node</span> 
+ <span class="n">INSERT_UPDATE</span> <span class="n">CMSNavigationNode</span><span class="p">;</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">parent</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="err">$</span><span class="n">contentCV</span><span class="p">);</span><span class="n">links</span><span class="p">(</span><span class="o">&amp;</span><span class="n">linkRef</span><span class="p">);</span><span class="o">&amp;</span><span class="n">nodeRef</span>
+ <span class="o">#</span><span class="n">Root</span> <span class="n">node</span> <span class="k">is</span> <span class="n">already</span> <span class="n">added</span><span class="p">...</span> 
+ <span class="p">;</span><span class="n">GigyaProfileNavNode</span><span class="p">;;</span><span class="n">Gigya</span> <span class="n">Profile</span><span class="p">;</span><span class="n">MyAccountNavNode</span><span class="p">;;</span><span class="n">GigyaProfileNavNode</span>
+
+
+ <span class="o">#</span> <span class="k">create</span> <span class="n">cms</span> <span class="n">navigation</span> <span class="n">entry</span> <span class="k">for</span> <span class="n">nvaigation</span> <span class="n">child</span> <span class="n">nodes</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">CMSNavigationEntry</span><span class="p">;</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">navigationNode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nodeRef</span><span class="p">);</span><span class="n">item</span><span class="p">(</span><span class="o">&amp;</span><span class="n">linkRef</span><span class="p">);</span>
+ <span class="p">;</span><span class="n">GigyaProfileNavNodeEntry</span><span class="p">;;</span><span class="n">GigyaProfileNavNodeEntry</span><span class="p">;</span><span class="n">GigyaProfileNavNode</span><span class="p">;</span><span class="n">GigyaProfileLink</span><span class="p">;</span>
+
+
+ <span class="o">###</span> <span class="n">RAAS</span> <span class="n">Component</span> <span class="n">Creation</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">GigyaRaasComponent</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">visible</span><span class="p">;</span><span class="n">embed</span><span class="p">;</span><span class="n">containerID</span><span class="p">;</span><span class="n">screenSet</span><span class="p">;</span><span class="n">startScreen</span><span class="p">;</span><span class="n">showAnonymous</span><span class="p">;</span><span class="n">showLoggedIn</span><span class="p">;</span><span class="n">profileEdit</span><span class="p">[</span><span class="k">default</span><span class="o">=</span><span class="k">false</span><span class="p">];</span><span class="o">&amp;</span><span class="n">componentRef</span>
+ <span class="p">;;</span><span class="n">GigyaRaasComponentForLogin</span><span class="p">;</span><span class="n">Gigya</span> <span class="n">Raas</span> <span class="n">Component</span> <span class="k">for</span> <span class="n">Login</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">login</span><span class="o">-</span><span class="n">container</span><span class="p">;</span><span class="k">Default</span><span class="o">-</span><span class="n">RegistrationLogin</span><span class="p">;</span><span class="n">gigya</span><span class="o">-</span><span class="n">login</span><span class="o">-</span><span class="n">screen</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="k">false</span><span class="p">;;</span><span class="n">GigyaRaasComponentForLogin</span>
+ <span class="p">;;</span><span class="n">GigyaRaasComponentForProfileUpdate</span><span class="p">;</span><span class="n">Gigya</span> <span class="n">Raas</span> <span class="n">Component</span> <span class="k">for</span> <span class="n">profile</span> <span class="k">update</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="k">update</span><span class="o">-</span><span class="n">container</span><span class="p">;</span><span class="k">Default</span><span class="o">-</span><span class="n">ProfileUpdate</span><span class="p">;</span><span class="n">gigya</span><span class="o">-</span><span class="k">update</span><span class="o">-</span><span class="n">profile</span><span class="o">-</span><span class="n">screen</span><span class="p">;</span><span class="k">false</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">GigyaRaasComponentForProfileUpdate</span>
+
+
+ <span class="o">#</span> <span class="n">CMS</span> <span class="n">Link</span> <span class="n">Components</span>
+ <span class="k">UPDATE</span> <span class="n">CMSLinkComponent</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">linkName</span><span class="p">[</span><span class="n">lang</span><span class="o">=</span><span class="err">$</span><span class="n">lang</span><span class="p">]</span>
+ <span class="p">;;</span><span class="n">GigyaProfileLink</span><span class="p">;</span><span class="nv">"Profile Details"</span>
+
+
+ <span class="o">#</span> <span class="n">CMS</span> <span class="n">Navigation</span> <span class="n">Nodes</span>
+ <span class="k">UPDATE</span> <span class="n">CMSNavigationNode</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">title</span><span class="p">[</span><span class="n">lang</span><span class="o">=</span><span class="err">$</span><span class="n">lang</span><span class="p">]</span>
+ <span class="p">;;</span><span class="n">GigyaProfileNavNode</span><span class="p">;</span><span class="nv">"Profile Details"</span>
+
+
+ <span class="o">####</span> <span class="n">Content</span> <span class="k">for</span> <span class="n">Spartacus</span> <span class="k">like</span> <span class="n">SiteLink</span> <span class="n">slots</span> <span class="n">etc</span> <span class="o">####</span>
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">CMSLinkComponent</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">url</span><span class="p">;</span><span class="o">&amp;</span><span class="n">linkRef</span><span class="p">;</span><span class="o">&amp;</span><span class="n">componentRef</span><span class="p">;</span><span class="n">target</span><span class="p">(</span><span class="n">code</span><span class="p">)[</span><span class="k">default</span><span class="o">=</span><span class="s1">'sameWindow'</span><span class="p">];</span><span class="n">restrictions</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)</span>
+ <span class="p">;;</span><span class="n">HelpLink</span><span class="p">;</span><span class="n">Help</span> <span class="n">Link</span><span class="p">;</span><span class="o">/</span><span class="n">faq</span><span class="p">;</span><span class="n">HelpLink</span><span class="p">;</span><span class="n">HelpLink</span><span class="p">;</span>
+ <span class="p">;;</span><span class="n">ContactUsLink</span><span class="p">;</span><span class="n">Contact</span> <span class="n">Us</span> <span class="n">Link</span><span class="p">;</span><span class="o">/</span><span class="n">contact</span><span class="p">;</span><span class="n">ContactUsLink</span><span class="p">;</span><span class="n">ContactUsLink</span>
+ <span class="p">;;</span><span class="n">WishListLink</span><span class="p">;</span><span class="n">Wish</span> <span class="n">List</span> <span class="n">Link</span><span class="p">;</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">account</span><span class="o">/</span><span class="n">wishlist</span><span class="p">;</span><span class="n">WishListLink</span><span class="p">;</span><span class="n">WishListLink</span><span class="p">;;</span><span class="n">loggedInUser</span>
+ <span class="p">;;</span><span class="n">OrdersLink</span><span class="p">;</span><span class="n">Orders</span> <span class="n">Link</span><span class="p">;</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">account</span><span class="o">/</span><span class="n">orders</span><span class="p">;</span><span class="n">OrdersLink</span><span class="p">;</span><span class="n">OrdersLink</span><span class="p">;;</span><span class="n">loggedInUser</span>
+
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlot</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">active</span><span class="p">;</span><span class="n">cmsComponents</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)</span>
+ <span class="p">;;</span><span class="n">SiteLinksSlot</span><span class="p">;</span><span class="n">Slot</span> <span class="k">contains</span> <span class="k">some</span> <span class="n">links</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">OrdersLink</span><span class="p">,</span><span class="n">WishListLink</span><span class="p">,</span><span class="n">StoreFinderLink</span><span class="p">,</span><span class="n">ContactUsLink</span><span class="p">,</span><span class="n">HelpLink</span>
+
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotName</span><span class="p">;</span><span class="n">name</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">template</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">validComponentTypes</span><span class="p">(</span><span class="n">code</span><span class="p">);</span><span class="n">compTypeGroup</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+ <span class="p">;</span><span class="n">SiteLinks</span><span class="p">;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">CMSLinkComponent</span><span class="p">;;</span>
+
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotForTemplate</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">position</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">pageTemplate</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">contentSlot</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">allowOverwrite</span>
+ <span class="p">;;</span><span class="n">SiteLinksSlot</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">SiteLinks</span><span class="p">;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">SiteLinksSlot</span><span class="p">;</span><span class="k">true</span>
+
+
+
+ <span class="o">######</span> <span class="n">SiteContext</span> <span class="n">Slot</span> <span class="k">and</span> <span class="n">Components</span> <span class="o">######</span>
+ <span class="n">INSERT_UPDATE</span> <span class="n">CMSSiteContextComponent</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">context</span><span class="p">(</span><span class="n">code</span><span class="p">);</span><span class="o">&amp;</span><span class="n">componentRef</span>
+ <span class="p">;;</span><span class="n">LanguageComponent</span><span class="p">;</span><span class="n">Site</span> <span class="n">Languages</span><span class="p">;</span><span class="k">LANGUAGE</span><span class="p">;</span><span class="n">LanguageComponent</span>
+ <span class="p">;;</span><span class="n">CurrencyComponent</span><span class="p">;</span><span class="n">Site</span> <span class="n">Currencies</span><span class="p">;</span><span class="n">CURRENCY</span><span class="p">;</span><span class="n">CurrencyComponent</span>
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlot</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">name</span><span class="p">;</span><span class="n">active</span><span class="p">;</span><span class="n">cmsComponents</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)</span>
+ <span class="p">;;</span><span class="n">SiteContextSlot</span><span class="p">;</span><span class="n">Site</span> <span class="n">Context</span> <span class="n">Slot</span><span class="p">;</span><span class="k">true</span><span class="p">;</span><span class="n">LanguageComponent</span><span class="p">,</span><span class="n">CurrencyComponent</span>
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotName</span><span class="p">;</span><span class="n">name</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">template</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">validComponentTypes</span><span class="p">(</span><span class="n">code</span><span class="p">);</span><span class="n">compTypeGroup</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+ <span class="p">;</span><span class="n">SiteContext</span><span class="p">;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">CMSSiteContextComponent</span><span class="p">;;</span>
+
+ <span class="n">INSERT_UPDATE</span> <span class="n">ContentSlotForTemplate</span><span class="p">;</span><span class="err">$</span><span class="n">contentCV</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">uid</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="k">position</span><span class="p">[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">pageTemplate</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">contentSlot</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span><span class="err">$</span><span class="n">contentCV</span><span class="p">)[</span><span class="k">unique</span><span class="o">=</span><span class="k">true</span><span class="p">];</span><span class="n">allowOverwrite</span>
+ <span class="p">;;</span><span class="n">SiteContextSlot</span><span class="o">-</span><span class="n">GigyaLoginPage</span><span class="p">;</span><span class="n">SiteContext</span><span class="p">;</span><span class="n">GigyaLoginPageTemplate</span><span class="p">;</span><span class="n">SiteContextSlot</span><span class="p">;</span><span class="k">true</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="configuring-spartacus-for-sap-customer-data-cloud-integration">Configuring Spartacus for SAP Customer Data Cloud Integration</h3>
+
+<p>Perform the following steps after you have set up your Spartacus Storefront. For more information, see <a href="https://sap.github.io/spartacus-docs/building-the-spartacus-storefront-from-libraries/">Building the Spartacus Storefront from Libraries</a>.</p>
+
+<ol>
+  <li>
+    <p>Install the SAP Customer Data Cloud Integration library by running the following command from within the root directory of your storefront application:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm i @spartacus/cdc
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Import the <code class="language-plaintext highlighter-rouge">CdcModule</code> by adding the following line below the existing import statements at the top of <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="p">{</span> <span class="nx">CdcModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/cdc</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add the <code class="language-plaintext highlighter-rouge">CdcModule</code> to <code class="language-plaintext highlighter-rouge">app.module.ts</code>.
+ The following is an example:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+   <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+     <span class="nx">CdcModule</span><span class="p">.</span><span class="nx">forRoot</span><span class="p">({</span>
+         <span class="na">cdc</span><span class="p">:</span> <span class="p">[</span>
+             <span class="p">{</span>
+                 <span class="na">baseSite</span><span class="p">:</span> <span class="dl">'</span><span class="s1">electronics-spa</span><span class="dl">'</span><span class="p">,</span>
+                 <span class="na">javascriptUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://cdns.&lt;data-center&gt;.gigya.com/JS/gigya.js?apikey=&lt;Site-API-Key&gt;</span><span class="dl">'</span><span class="p">,</span>
+                 <span class="na">sessionExpiration</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span>
+             <span class="p">},</span>
+         <span class="p">],</span>
+     <span class="p">}),</span>
+     <span class="p">...</span>
+</code></pre></div>    </div>
+
+    <p>The following is a summary of the parameters of the <code class="language-plaintext highlighter-rouge">CdcModule</code>:</p>
+
+    <ul>
+      <li>
+        <p><strong>baseSite</strong> refers to the CMS Site that the Customer Data Cloud Site configuration should be applied to. The same should be configured in SAP Commerce Cloud Backoffice as well.</p>
+      </li>
+      <li>
+        <p><strong>javascriptUrl</strong> specifies the URL of the Web SDK that you wish to load. This is constructed using the value of the Site API Key, and the data center where the Customer Data Cloud site is created. For example, <code class="language-plaintext highlighter-rouge">https://cdns.&lt;data-center&gt;.gigya.com/JS/gigya.js?apikey=&lt;Site-API-Key&gt;</code></p>
+      </li>
+      <li>
+        <p><strong>sessionExpiration</strong> is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce Cloud token live for the same time.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Build and start the storefront app to verify your changes.</p>
+  </li>
+</ol>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/2.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/2.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:2.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

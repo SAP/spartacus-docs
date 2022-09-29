@@ -1,0 +1,1619 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Server-Side Rendering - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Server-Side Rendering">
+<meta property="og:url" content="/spartacus-docs/1.x/server-side-rendering-in-spartacus/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/1.x/server-side-rendering-in-spartacus/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/1.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/1.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/1.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Home</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/" class="">About Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/release-information/" class="">Release Information ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-videos/" class="">Spartacus Videos</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-roadmap/" class="">Spartacus Roadmap</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-faq/" class="">Spartacus FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/docs-archive/" class="">Documentation Archive</a>
+ 
+              
+
+                
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started with Spartacus Libraries</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/installing-sap-commerce-cloud/" class="">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/cors/" class="">Cross-Origin Resource Sharing (CORS)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/building-the-spartacus-storefront-from-libraries/" class="">Building the Spartacus Storefront from Libraries</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/snapshot-builds/" class="">Snapshot Builds</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-feature-flags/" class="">Configuring Feature Flags</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartEdit-setup-instructions-for-spartacus/" class="">SmartEdit Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/personalization-setup-instructions-for-spartacus/" class="">Personalization Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacussampledataaddon/" class="">Spartacussampledataaddon AddOn</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/integrations/" class="">Integrations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Storefront Development Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/storefront-development-faq/" class="">Storefront Development FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-api/" class="">Spartacus API</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-configuration-in-spartacus/" class="">Global Configuration in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-features/" class="">Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/security-best-practices/" class="">Security Best Practices</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/performance/" class="">Performance Optimizations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/outlets/" class="">Outlets</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/styling-and-page-layout/" class="">Styling and Page Layout ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-and-extending/" class="">Customizing and Extending Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/extending-checkout/" class="">Extending Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/express-checkout/" class="">Express Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/guest-checkout/" class="">Guest Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-routing/" class="">Configurable Routing ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-base-url/" class="">Configuring the Base URL</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/context-configuration/" class="">Multi-Site Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/pwa-home/" class="">PWA ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/seo/" class="">SEO ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/i18n/" class="">Internationalization (i18n)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/state-management/" class="">State Management ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartedit-contract/" class="">SmartEdit Contract in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-backend-communication/" class="">Customizing Back End Communication ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-messages/" class="">Global Messages</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/http-error-handling/" class="">HTTP Error Handling</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-state-persistence-and-rehydration/" class="">Configurable State Persistence and Rehydration</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/server-side-rendering-in-spartacus/" class="active">Server-Side Rendering ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/server-side-rendering-coding-guidelines/" class="">Server–Side Rendering Coding Guidelines</a></li>
+         
+                     
+                   
+                    
+
+                     
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/how-to-debug-server-side-rendered-storefront/" class="">How to Debug a Server–Side Rendered Storefront</a></li>
+         
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/view-configuration/" class="">View Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">Customer Experience Guidelines ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributing to Spartacus</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/contributors-guide/" class="">Contributor's Guide ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Server-Side Rendering</h1>
+    
+    <p><strong>Note: Spartacus 1.x is no longer maintained. Please upgrade to the latest version.</strong></p>
+
+<p>In Spartacus, server-side rendering allows you to render static versions of pages on the server side. This speeds up response times, assists with SEO, and allows the application to render more quickly. After Angular has bootstrapped, users of your site will have the full experience.</p>
+
+<h2 id="adding-ssr-support-using-schematics-recommended">Adding SSR Support Using Schematics (Recommended)</h2>
+
+<p>The recommended way to add SSR support to your Spartacus application is to use schematics. With a single command, all required files are added automatically, and all modifications for SSR support are done automatically as well. To add SSR support to your Spartacus application, run the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics <span class="nt">--ssr</span>
+</code></pre></div></div>
+
+<p>The steps executed by this command are described in more detail in the following sections.</p>
+
+<h2 id="adding-ssr-support-manually">Adding SSR Support Manually</h2>
+
+<p>The following steps describe how to manually add SSR support so that your Spartacus shell app includes the Spartacus libraries running in SSR mode.</p>
+
+<ol>
+  <li>
+    <p>Add the following dependencies to <code class="language-plaintext highlighter-rouge">package.json</code>:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"@angular/platform-server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~8.2.14"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"@nguniversal/express-engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.1.1"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"@nguniversal/module-map-ngfactory-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.2.6"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"express"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.15.2"</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add the following developer dependencies to <code class="language-plaintext highlighter-rouge">package.json</code>:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"ts-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.3.2"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"webpack-cli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.3.2"</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>For convenience, add the following scripts to <code class="language-plaintext highlighter-rouge">package.json</code>:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"compile:server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack --config webpack.server.config.js --progress --colors"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"serve:ssr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node dist/server"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"build:ssr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build:client-and-server-bundles &amp;&amp; npm run compile:server"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"build:client-and-server-bundles"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ng build --prod &amp;&amp; ng run spartacus:server"</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Update the <code class="language-plaintext highlighter-rouge">src/main.ts</code> file, as follows:</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">//from</span>
+ <span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">);</span>
+ <span class="c1">//to</span>
+ <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">DOMContentLoaded</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">);</span>
+ <span class="p">});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Replace the following lines in <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">//from:</span>
+ <span class="nx">BrowserModule</span><span class="p">,</span>
+ <span class="c1">//to</span>
+ <span class="nx">BrowserModule</span><span class="p">.</span><span class="nx">withServerTransition</span><span class="p">({</span> <span class="na">appId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">spartacus-app</span><span class="dl">'</span> <span class="p">}),</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>In the <code class="language-plaintext highlighter-rouge">src/index.html</code> file, add the following meta attribute, and replace <code class="language-plaintext highlighter-rouge">OCC_BASE_URL</code> with the URL of your back end instance, as follows:</p>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"occ-backend-base-url"</span> <span class="na">content=</span><span class="s">"OCC_BASE_URL"</span> <span class="nt">/&gt;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>In <code class="language-plaintext highlighter-rouge">projects.&lt;your-project-name&gt;.architect</code>, add the following configuration to your existing <code class="language-plaintext highlighter-rouge">angular.json</code> file:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"server"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"builder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@angular-devkit/build-angular:server"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"outputPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist/&lt;your-project-name&gt;-server"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/main.server.ts"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"tsConfig"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsconfig.server.json"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"fileReplacements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"replace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/environments/environment.ts"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"with"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/environments/environment.prod.ts"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p><strong>Note:</strong> In the above example, remember to replace the string <code class="language-plaintext highlighter-rouge">"&lt;your-project-name&gt;"</code> with your project name (such as <code class="language-plaintext highlighter-rouge">mystore</code>, for example).</p>
+  </li>
+  <li>
+    <p>Add the <code class="language-plaintext highlighter-rouge">tsconfig.server.json</code> file to your existing shell app. The following is an example:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./tsconfig.json"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"outDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../out-tsc/app"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"baseUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commonjs"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"exclude"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"test.ts"</span><span class="p">,</span><span class="w"> </span><span class="s2">"e2e/src/app.e2e-spec.ts"</span><span class="p">,</span><span class="w"> </span><span class="s2">"**/*.spec.ts"</span><span class="p">],</span><span class="w">
+   </span><span class="nl">"angularCompilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"entryModule"</span><span class="p">:</span><span class="w"> </span><span class="s2">"src/app/app.server.module#AppServerModule"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add the <code class="language-plaintext highlighter-rouge">src/main.server.ts</code> file to your existing shell app. The following is an example:</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="p">{</span> <span class="nx">enableProdMode</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@angular/core</span><span class="dl">"</span><span class="p">;</span>
+
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">environment</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./environments/environment</span><span class="dl">"</span><span class="p">;</span>
+
+ <span class="k">if</span> <span class="p">(</span><span class="nx">environment</span><span class="p">.</span><span class="nx">production</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">enableProdMode</span><span class="p">();</span>
+ <span class="p">}</span>
+
+ <span class="k">export</span> <span class="p">{</span> <span class="nx">AppServerModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./app/app.server.module</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">export</span> <span class="p">{</span> <span class="nx">provideModuleMap</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@nguniversal/module-map-ngfactory-loader</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">ngExpressEngine</span> <span class="k">as</span> <span class="nx">engine</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@nguniversal/express-engine</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">NgExpressEngineDecorator</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@spartacus/core</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">export</span> <span class="kd">const</span> <span class="nx">ngExpressEngine</span> <span class="o">=</span> <span class="nx">NgExpressEngineDecorator</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">engine</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add the <code class="language-plaintext highlighter-rouge">src/app/app.server.module</code> file to your existing shell app. The following is an example:</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@angular/core</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">import</span> <span class="p">{</span>
+   <span class="nx">ServerModule</span><span class="p">,</span>
+   <span class="nx">ServerTransferStateModule</span><span class="p">,</span>
+ <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@angular/platform-server</span><span class="dl">"</span><span class="p">;</span>
+
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">AppModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./app.module</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./app.component</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">ModuleMapLoaderModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@nguniversal/module-map-ngfactory-loader</span><span class="dl">"</span><span class="p">;</span>
+
+ <span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+   <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+     <span class="c1">// The AppServerModule should import your AppModule followed</span>
+     <span class="c1">// by the ServerModule from @angular/platform-server.</span>
+     <span class="nx">AppModule</span><span class="p">,</span>
+     <span class="nx">ServerModule</span><span class="p">,</span>
+     <span class="nx">ModuleMapLoaderModule</span><span class="p">,</span>
+     <span class="nx">ServerTransferStateModule</span><span class="p">,</span>
+   <span class="p">],</span>
+   <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">],</span>
+ <span class="p">})</span>
+ <span class="k">export</span> <span class="kd">class</span> <span class="nx">AppServerModule</span> <span class="p">{}</span>
+</code></pre></div>    </div>
+
+    <p>For more information about caching and transfer state, see <a href="https://sap.github.io/spartacus-docs/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering">Caching the Site Context with Server-Side Rendering</a></p>
+  </li>
+  <li>
+    <p>Add the <code class="language-plaintext highlighter-rouge">webpack.server.config.js</code> file to your existing shell app. The following is an example:</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">);</span>
+ <span class="kd">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">webpack</span><span class="dl">"</span><span class="p">);</span>
+
+ <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">mode</span><span class="p">:</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">,</span>
+   <span class="na">entry</span><span class="p">:</span> <span class="p">{</span>
+     <span class="c1">// This is our Express server for Dynamic universal</span>
+     <span class="na">server</span><span class="p">:</span> <span class="dl">"</span><span class="s2">./server.ts</span><span class="dl">"</span><span class="p">,</span>
+   <span class="p">},</span>
+   <span class="na">externals</span><span class="p">:</span> <span class="p">{</span>
+     <span class="dl">"</span><span class="s2">./dist/server/main</span><span class="dl">"</span><span class="p">:</span> <span class="dl">'</span><span class="s1">require("./server/main")</span><span class="dl">'</span><span class="p">,</span>
+   <span class="p">},</span>
+   <span class="na">target</span><span class="p">:</span> <span class="dl">"</span><span class="s2">node</span><span class="dl">"</span><span class="p">,</span>
+   <span class="na">resolve</span><span class="p">:</span> <span class="p">{</span> <span class="na">extensions</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">.ts</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">.js</span><span class="dl">"</span><span class="p">]</span> <span class="p">},</span>
+   <span class="na">optimization</span><span class="p">:</span> <span class="p">{</span>
+     <span class="na">minimize</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+   <span class="p">},</span>
+   <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+     <span class="c1">// Puts the output at the root of the dist folder</span>
+     <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">dist</span><span class="dl">"</span><span class="p">),</span>
+     <span class="na">filename</span><span class="p">:</span> <span class="dl">"</span><span class="s2">[name].js</span><span class="dl">"</span><span class="p">,</span>
+   <span class="p">},</span>
+   <span class="na">module</span><span class="p">:</span> <span class="p">{</span>
+     <span class="na">noParse</span><span class="p">:</span> <span class="sr">/polyfills-.*</span><span class="se">\.</span><span class="sr">js/</span><span class="p">,</span>
+     <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+       <span class="p">{</span> <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">ts$/</span><span class="p">,</span> <span class="na">loader</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ts-loader</span><span class="dl">"</span> <span class="p">},</span>
+       <span class="p">{</span>
+         <span class="c1">// Mark files inside `@angular/core` as using SystemJS style dynamic imports.</span>
+         <span class="c1">// Removing this will cause deprecation warnings to appear.</span>
+         <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">(\\</span><span class="sr">|</span><span class="se">\/)</span><span class="sr">@angular</span><span class="se">(\\</span><span class="sr">|</span><span class="se">\/)</span><span class="sr">core</span><span class="se">(\\</span><span class="sr">|</span><span class="se">\/)</span><span class="sr">.+</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span>
+         <span class="na">parser</span><span class="p">:</span> <span class="p">{</span> <span class="na">system</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+       <span class="p">},</span>
+     <span class="p">],</span>
+   <span class="p">},</span>
+   <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+     <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">ContextReplacementPlugin</span><span class="p">(</span>
+       <span class="c1">// fixes WARNING Critical dependency: the request of a dependency is an expression</span>
+       <span class="sr">/</span><span class="se">(</span><span class="sr">.+</span><span class="se">)?</span><span class="sr">angular</span><span class="se">(\\</span><span class="sr">|</span><span class="se">\/)</span><span class="sr">core</span><span class="se">(</span><span class="sr">.+</span><span class="se">)?</span><span class="sr">/</span><span class="p">,</span>
+       <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">),</span> <span class="c1">// location of your src</span>
+       <span class="p">{}</span> <span class="c1">// a map of your routes</span>
+     <span class="p">),</span>
+     <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">ContextReplacementPlugin</span><span class="p">(</span>
+       <span class="c1">// fixes WARNING Critical dependency: the request of a dependency is an expression</span>
+       <span class="sr">/</span><span class="se">(</span><span class="sr">.+</span><span class="se">)?</span><span class="sr">express</span><span class="se">(\\</span><span class="sr">|</span><span class="se">\/)(</span><span class="sr">.+</span><span class="se">)?</span><span class="sr">/</span><span class="p">,</span>
+       <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">),</span>
+       <span class="p">{}</span>
+     <span class="p">),</span>
+   <span class="p">],</span>
+ <span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add the <code class="language-plaintext highlighter-rouge">server.ts</code> file to your existing shell app. The following is an example:</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="dl">"</span><span class="s2">zone.js/dist/zone-node</span><span class="dl">"</span><span class="p">;</span>
+
+ <span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">express</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">;</span>
+ <span class="k">import</span> <span class="p">{</span> <span class="nx">join</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">path</span><span class="dl">"</span><span class="p">;</span>
+
+ <span class="c1">// Express server</span>
+ <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+ <span class="kd">const</span> <span class="nx">PORT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">4200</span><span class="p">;</span>
+ <span class="kd">const</span> <span class="nx">DIST_FOLDER</span> <span class="o">=</span> <span class="nx">join</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">(),</span> <span class="dl">"</span><span class="s2">dist/&lt;your-project-name&gt;</span><span class="dl">"</span><span class="p">);</span>
+
+ <span class="c1">// * NOTE :: leave this as require() since this file is built Dynamically from webpack</span>
+ <span class="kd">const</span> <span class="p">{</span>
+   <span class="nx">AppServerModuleNgFactory</span><span class="p">,</span>
+   <span class="nx">LAZY_MODULE_MAP</span><span class="p">,</span>
+   <span class="nx">ngExpressEngine</span><span class="p">,</span>
+   <span class="nx">provideModuleMap</span><span class="p">,</span>
+ <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./dist/&lt;your-project-name&gt;-server/main</span><span class="dl">"</span><span class="p">);</span>
+
+ <span class="nx">app</span><span class="p">.</span><span class="nx">engine</span><span class="p">(</span>
+   <span class="dl">"</span><span class="s2">html</span><span class="dl">"</span><span class="p">,</span>
+   <span class="nx">ngExpressEngine</span><span class="p">({</span>
+     <span class="na">bootstrap</span><span class="p">:</span> <span class="nx">AppServerModuleNgFactory</span><span class="p">,</span>
+     <span class="na">providers</span><span class="p">:</span> <span class="p">[</span><span class="nx">provideModuleMap</span><span class="p">(</span><span class="nx">LAZY_MODULE_MAP</span><span class="p">)],</span>
+   <span class="p">})</span>
+ <span class="p">);</span>
+
+ <span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">"</span><span class="s2">view engine</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">html</span><span class="dl">"</span><span class="p">);</span>
+ <span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="dl">"</span><span class="s2">views</span><span class="dl">"</span><span class="p">,</span> <span class="nx">DIST_FOLDER</span><span class="p">);</span>
+
+ <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span>
+   <span class="dl">"</span><span class="s2">*.*</span><span class="dl">"</span><span class="p">,</span>
+   <span class="nx">express</span><span class="p">.</span><span class="k">static</span><span class="p">(</span><span class="nx">DIST_FOLDER</span><span class="p">,</span> <span class="p">{</span>
+     <span class="na">maxAge</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1y</span><span class="dl">"</span><span class="p">,</span>
+   <span class="p">})</span>
+ <span class="p">);</span>
+
+ <span class="c1">// All regular routes use the Universal engine</span>
+ <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="dl">"</span><span class="s2">index</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span> <span class="nx">req</span> <span class="p">});</span>
+ <span class="p">});</span>
+
+ <span class="c1">// Start up the Node server</span>
+ <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Node server listening on http://localhost:</span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+ <span class="p">});</span>
+</code></pre></div>    </div>
+
+    <p><strong>Note:</strong> In the above example, remember to replace the string <code class="language-plaintext highlighter-rouge">"&lt;your-project-name&gt;"</code> with your project name (such as <code class="language-plaintext highlighter-rouge">mystore</code>, for example).</p>
+  </li>
+  <li>
+    <p>Add the following scripts to your <code class="language-plaintext highlighter-rouge">package.json</code>. Remember to replace <code class="language-plaintext highlighter-rouge">&lt;your-project-name&gt;</code> with your project name (such as <code class="language-plaintext highlighter-rouge">mystore</code>, for example).</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"compile:server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack --config webpack.server.config.js --progress --colors"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"serve:ssr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node dist/server"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"build:ssr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build:client-and-server-bundles &amp;&amp; npm run compile:server"</span><span class="err">,</span><span class="w">
+ </span><span class="nl">"build:client-and-server-bundles"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ng build --prod &amp;&amp; ng run &lt;your-project-name&gt;:server"</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p><strong>Note:</strong> For the <code class="language-plaintext highlighter-rouge">build:client-and-server-bundles</code> script, replace <code class="language-plaintext highlighter-rouge">&lt;your-project-name&gt;</code> with the name of your Angular application.</p>
+  </li>
+  <li>
+    <p>Build the SSR version of your Spartacus shell app by running the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm run build:ssr <span class="o">&amp;&amp;</span> npm run serve:ssr
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="installation-steps-for-spartacus-development">Installation Steps for Spartacus Development</h2>
+
+<p>If you are involved in Spartacus internal development, or wish to submit a pull request, you can perform the following steps, which describe how to run Spartacus in SSR mode using the Spartacus storefront app.</p>
+
+<ol>
+  <li>
+    <p>Set the production server endpoint in your <code class="language-plaintext highlighter-rouge">environment.prod.ts</code> (dev mode) or <code class="language-plaintext highlighter-rouge">app.module.ts</code> (shell app mode), as follows:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">environment</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="err">occBaseUrl:</span><span class="w"> </span><span class="err">'https://</span><span class="p">[</span><span class="err">your_occ_endpoint</span><span class="p">]</span><span class="err">'</span><span class="p">,</span><span class="w">
+ </span><span class="p">}</span><span class="err">;</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Turn PWA off.</p>
+
+    <p>As soon as Spartacus is installed in PWA mode, a service worker is installed, and it serves a cached version of <code class="language-plaintext highlighter-rouge">index.html</code>, along with the <code class="language-plaintext highlighter-rouge">js</code> files. This results in SSR being completely skipped. The following steps describe how to turn off PWA:</p>
+
+    <ol>
+      <li>
+        <p>Check that there are no service workers registered in your app. If you do find any service workers, remove them.</p>
+      </li>
+      <li>
+        <p>Turn PWA off in your app module configuration, as follows:</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">StorefrontModule.withConfig(</span><span class="p">{</span><span class="w">
+       </span><span class="err">backend:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="err">occ:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="err">baseUrl:</span><span class="w"> </span><span class="err">'https://</span><span class="p">[</span><span class="err">your_enpdoint</span><span class="p">],</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="err">pwa:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="err">enabled:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+ </span><span class="p">}</span><span class="err">;</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Rebuild your local Spartacus libraries by running the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yarn build:core:lib
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Build your local Spartacus shell app by running the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yarn build <span class="nt">--prod</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Build the SSR version of your shell app by running the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yarn build:ssr
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Start Spartacus with the SSR server by running the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yarn start:ssr
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/1.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/1.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:1.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

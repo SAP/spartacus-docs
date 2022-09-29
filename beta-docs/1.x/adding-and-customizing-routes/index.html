@@ -1,0 +1,1543 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Adding and Customizing Routes (DRAFT) - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Adding and Customizing Routes (DRAFT)">
+<meta property="og:url" content="/spartacus-docs/1.x/adding-and-customizing-routes/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/1.x/adding-and-customizing-routes/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/1.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/1.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/1.x/"><img src="/spartacus-docs/1.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/1.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/1.x/release-information/" >Version 1.5</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Home</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/" class="">About Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/release-information/" class="">Release Information ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-videos/" class="">Spartacus Videos</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-roadmap/" class="">Spartacus Roadmap</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-faq/" class="">Spartacus FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/docs-archive/" class="">Documentation Archive</a>
+ 
+              
+
+                
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started with Spartacus Libraries</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/installing-sap-commerce-cloud/" class="">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/cors/" class="">Cross-Origin Resource Sharing (CORS)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/building-the-spartacus-storefront-from-libraries/" class="">Building the Spartacus Storefront from Libraries</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/recommended-development-environment/" class="">Recommended Development Environment</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/browser-support/" class="">Web Browser Support</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/snapshot-builds/" class="">Snapshot Builds</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-feature-flags/" class="">Configuring Feature Flags</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartEdit-setup-instructions-for-spartacus/" class="">SmartEdit Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/personalization-setup-instructions-for-spartacus/" class="">Personalization Setup Instructions for Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacussampledataaddon/" class="">Spartacussampledataaddon AddOn</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/integrations/" class="">Integrations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Storefront Development Guide</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/storefront-development-faq/" class="">Storefront Development FAQ</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-api/" class="">Spartacus API</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-configuration-in-spartacus/" class="">Global Configuration in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/spartacus-features/" class="">Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/security-best-practices/" class="">Security Best Practices</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/performance/" class="">Performance Optimizations ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/outlets/" class="">Outlets</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/styling-and-page-layout/" class="">Styling and Page Layout ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-and-extending/" class="">Customizing and Extending Spartacus Features ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/extending-checkout/" class="">Extending Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/express-checkout/" class="">Express Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/guest-checkout/" class="">Guest Checkout</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-routing/" class="">Configurable Routing ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+                      
+                        
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/adding-and-customizing-routes/" class="active">Adding and Customizing Routes</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/route-configuration/" class="">Route Configuration</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/configurable-router-links/" class="">Configurable Router Links</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/disabling-standard-routes/" class="">Disabling Standard Routes</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/additional-route-parameters/" class="">Additional Route Parameters</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/route-aliases/" class="">Route Aliases</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/external-routes/" class="">External Routes</a></li>
+                    
+                         
+
+                          
+                          
+
+                          
+                          
+      
+                          <li><a href="/spartacus-docs/1.x/early-login/" class="">Early Login</a></li>
+                    
+                         
+                       
+                     
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configuring-base-url/" class="">Configuring the Base URL</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/context-configuration/" class="">Multi-Site Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/pwa-home/" class="">PWA ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/seo/" class="">SEO ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/i18n/" class="">Internationalization (i18n)</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/state-management/" class="">State Management ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/smartedit-contract/" class="">SmartEdit Contract in Spartacus</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/customizing-backend-communication/" class="">Customizing Back End Communication ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/global-messages/" class="">Global Messages</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/http-error-handling/" class="">HTTP Error Handling</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/configurable-state-persistence-and-rehydration/" class="">Configurable State Persistence and Rehydration</a>
+ 
+              
+
+                
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/server-side-rendering-in-spartacus/" class="">Server-Side Rendering ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/view-configuration/" class="">View Configuration ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/user-experience-guidelines/" class="">Customer Experience Guidelines ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Contributing to Spartacus</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/spartacus-docs/1.x/contributors-guide/" class="">Contributor's Guide ➢</a>
+ 
+              
+
+              
+                <ul>
+                  
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                    
+
+                     
+                   
+                 </ul>
+                 
+             </li>
+           
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Adding and Customizing Routes (DRAFT)</h1>
+    
+    <p><strong>Note: Spartacus 1.x is no longer maintained. Please upgrade to the latest version.</strong></p>
+
+<h2 id="page-types-and-page-labels">Page Types and Page Labels</h2>
+
+<p>The CMS in SAP Commerce Cloud comes with the concept of three special page types: Product Page, Category Page, Catalog Page (Catalog is not supported for now) and one common type Content Page used for all other pages, i.e. login, order history or faq.</p>
+
+<p>Spartacus reflects that by defining a few Angular <code class="language-plaintext highlighter-rouge">Routes</code>:</p>
+
+<ul>
+  <li>route with <code class="language-plaintext highlighter-rouge">:productCode</code> param - for Product Pages</li>
+  <li>route with <code class="language-plaintext highlighter-rouge">:categoryCode</code> param and route with <code class="language-plaintext highlighter-rouge">:brandCode</code> param - for Category Pages</li>
+  <li>wildcard <code class="language-plaintext highlighter-rouge">**</code> route - for all other, Content Pages</li>
+</ul>
+
+<p>The URLs of product, category and brand pages can be <a href="/spartacus-docs/1.x/route-configuration/">configured only in Spartacus</a>. Content Pages have a configurable URL in the CMS, called <em>page label</em>.</p>
+
+<h2 id="how-to-add-content-page-route">How to add Content Page route</h2>
+
+<p>To add new route, no development is required, it suffices to add in the CMS a new Content Page with <em>page label</em> starting with slash i.e. <code class="language-plaintext highlighter-rouge">/contact-us</code>. The Spartacus’ wildcard <code class="language-plaintext highlighter-rouge">**</code> route with match it out of the box.</p>
+
+<h2 id="how-to-customize-the-product-page-route">How to customize the Product Page route</h2>
+
+<p>Product Page route can be configured only in Spartacus. It has to contain the <code class="language-plaintext highlighter-rouge">:productCode</code> param to identify the product. But for SEO you may want to also include more parameters that can be accessed in the product entity, i.e. product name, in <code class="language-plaintext highlighter-rouge">ConfigModule</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">routes</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">product</span><span class="p">:</span> <span class="p">{</span> <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">product/:name/:productCode</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> The optional <code class="language-plaintext highlighter-rouge">paramsMapping</code> config can be used for properties that have a different name than the route parameter (i.e. to map from <code class="language-plaintext highlighter-rouge">product.code</code> to <code class="language-plaintext highlighter-rouge">:productCode</code>). For more information, see <a href="/spartacus-docs/1.x/configurable-router-links/">Configurable Router Links</a>.</p>
+
+<h2 id="how-to-customize-the-category-page-route">How to customize the Category Page route</h2>
+
+<p>Similar to Product Page.</p>
+
+<h2 id="how-to-add-content-page-with-dynamic-params">How to add Content Page with dynamic params</h2>
+
+<p>Angular routes can contain dynamic <em>route parameters</em> that are consumed in the logic of Angular components. Although The SAP Commerce Cloud CMS doesn’t support <em>page labels</em> with dynamic params, you can have dynamic params for Content Pages in Spartacus. You need to define your custom Angular <code class="language-plaintext highlighter-rouge">Route</code> with <code class="language-plaintext highlighter-rouge">path</code> and explicitly assign the CMS <em>page label</em>, for example in your <code class="language-plaintext highlighter-rouge">app.module.ts</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">PageLayoutComponent</span><span class="p">,</span> <span class="nx">CmsPageGuard</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">`@spartacus/storefront`</span><span class="p">;</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="nl">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">RouterModule</span><span class="p">.</span><span class="nx">forChild</span><span class="p">([</span>
+        <span class="p">{</span>
+            <span class="c1">// path with dynamic param:</span>
+            <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">order/:orderCode</span><span class="dl">'</span><span class="p">,</span>
+
+            <span class="c1">// page label without param, starting with slash:</span>
+            <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="na">pageLabel</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/order</span><span class="dl">'</span> <span class="p">},</span>
+
+            <span class="c1">// those are needed to display slots and components from CMS:</span>
+            <span class="na">component</span><span class="p">:</span> <span class="nx">PageLayoutComponent</span><span class="p">,</span>
+            <span class="na">canActivate</span><span class="p">:</span> <span class="p">[</span><span class="nx">CmsPageGuard</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="how-to-add-angular-children-routes-for-content-page">How to add Angular children routes for Content Page</h2>
+
+<p>Angular can display components for children routes inside nested <code class="language-plaintext highlighter-rouge">&lt;router-outlet&gt;</code>. Although the SAP Commerce Cloud CMS doesn’t support <em>children pages</em>, in Spartacus you can have children routes. You need to configure <em>children routes</em> for your CMS compoennt, for example in <code class="language-plaintext highlighter-rouge">ConfigModule</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">CustomComponentName</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">component</span><span class="p">:</span> <span class="nx">CustomComponent</span><span class="p">,</span>
+        <span class="na">childRoutes</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some/nested/path</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">component</span><span class="p">:</span> <span class="nx">ChildCustomComponent</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>Note: accessing children routes via a deep links to nested routes is not yet supported. You have to open firstly the parent route and then navigate to the child route via router link.</em></p>
+
+<p><em>Note 2: children routes of Product and Category Pages are not supported.</em></p>
+
+<h2 id="advanced-how-to-configure-category-name-in-the-product-page-route">Advanced: How to configure category name in the Product Page route</h2>
+
+<p>Only the first-level properties of the product entity (i.e. <code class="language-plaintext highlighter-rouge">code</code> or <code class="language-plaintext highlighter-rouge">name</code>) can be used to build URL. Unfortunately, product categories is not the case (the field <code class="language-plaintext highlighter-rouge">categories</code> is an array of objects). So you need to map <code class="language-plaintext highlighter-rouge">categories</code> array’s elements to the first-level properties of the product entity. You can perform such a mapping for example in the <code class="language-plaintext highlighter-rouge">PRODUCT_NORMALIZER</code>. Here is how to do it:</p>
+
+<p>Provide <code class="language-plaintext highlighter-rouge">PRODUCT_NORMALIZER</code> i.e. in your app.module:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">provide</span><span class="p">:</span> <span class="nx">PRODUCT_NORMALIZER</span><span class="p">,</span>
+      <span class="na">useClass</span><span class="p">:</span> <span class="nx">MyProductCategoriesNormalizer</span><span class="p">,</span>
+      <span class="na">multi</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>… and add your implementation with mapping …</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">MyProductCategoriesNormalizer</span>
+  <span class="k">implements</span> <span class="nx">Converter</span><span class="o">&lt;</span><span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">Product</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="nx">convert</span><span class="p">(</span><span class="na">source</span><span class="p">:</span> <span class="nx">Occ</span><span class="p">.</span><span class="nx">Product</span><span class="p">,</span> <span class="nx">target</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="kr">any</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">categories</span> <span class="o">&amp;&amp;</span> <span class="nx">source</span><span class="p">.</span><span class="nx">categories</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">target</span><span class="p">.</span><span class="nx">category</span> <span class="o">=</span> <span class="nx">source</span><span class="p">.</span><span class="nx">categories</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span> <span class="c1">//</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">target</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>… then the <code class="language-plaintext highlighter-rouge">category</code> field is available in your product entity. So you can configure the Product Page route in <code class="language-plaintext highlighter-rouge">ConfigModule</code> to contain <code class="language-plaintext highlighter-rouge">:category</code> param:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">routes</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">product</span><span class="p">:</span> <span class="p">{</span> <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">product/:category/:name/:productCode</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>Note: it’s a known issue that product entities returned by the OCC product search endpoint don’t contain categories. So you may want to also generate URLs from product entities that do not include categories. Then you need to configure also the second, less-specific route alias:</em></p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">routes</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">product</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">product/:category/:name/:productCode</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">product/:name/:productCode</span><span class="dl">'</span><span class="p">]</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="backwards-compatibility-with-accelerators">Backwards Compatibility with Accelerators</h2>
+
+<p>The SAP Commerce Cloud Accelerators used routes <code class="language-plaintext highlighter-rouge">**/p/:productCode</code> and <code class="language-plaintext highlighter-rouge">**/c/:categoryCode</code> for Product and Category Page. For backwards compatibility, Spartacus also matches those routes, by simply numbering parameters.</p>
+
+<p>So for example URL <code class="language-plaintext highlighter-rouge">/some-catalogue/some-category/p/1234</code> will be recognized with parameters:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="nl">productCode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1234</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">param0</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some-catalogue</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">param1</span><span class="p">:</span> <span class="dl">'</span><span class="s1">some-category</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you want to have more semantic names of parameters, you can configure a route alias. For example in <code class="language-plaintext highlighter-rouge">ConfigModule</code>:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">routing</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">routes</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">product</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">paths</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">product/:name/:productCode</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">:catalogue/:category/p/:productCode</span><span class="dl">'</span><span class="p">]</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="expected-cms-page-labels-of-content-pages">Expected CMS page labels of Content Pages</h2>
+
+<p>Spartacus expects the page label <code class="language-plaintext highlighter-rouge">homepage</code> to be configured in the CMS. For B2C Storefront recipe the list of expected CMS page labels by default is longer:</p>
+
+<pre><code class="language-plain">search
+
+/login
+/logout
+/login/register
+/login/forgot-password
+/login/reset-password
+/terms-and-conditions
+
+/cart
+/checkout
+/checkout/shipping-address
+/checkout/delivery-mode
+/checkout/payment-details
+/checkout/review-order
+/order-confirmation
+
+/my-account/order
+/my-account/orders
+
+/not-found
+</code></pre>
+
+<h3 id="fixed-cms-page-labels">Fixed CMS page labels</h3>
+
+<p>For almost all Content Pages, Spartacus treats the URL as the CMS page label. It means that changing the config of route in Spartacus requires also a change of the page label in the CMS. However, there are few exceptions - when the configurable Spartacus’ URL is mapped to a fixed CMS page label:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spartacus URL (configurable)</th>
+      <th>Fixed CMS page label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/search/:query</code> (configurable cxRoute <code class="language-plaintext highlighter-rouge">search</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">search</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/my-account/order/:orderCode</code> (configurable cxRoute <code class="language-plaintext highlighter-rouge">orderDetails</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">/my-account/order</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/1.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/1.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:1.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
