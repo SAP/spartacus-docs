@@ -4,14 +4,14 @@ title: Extending Checkout
 
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Routing and Configuration
 
@@ -205,7 +205,7 @@ A special `CheckoutGuard` is responsible for redirecting to the correct step. Th
 
 ### Configuring Where Guards Redirect To
 
-In the checkout configuration, for each step, you specify a `type` attribute and the type of data that should be set. A guard looks for the first step that contains the specific `type` and then redirects to this step.
+In the checkout configuration, for each step, you specify a `type` attribute and the type of data that should be set. A guard looks for every step that contains the specific `type` and then redirects to this step.
 
 For example, `CheckoutStepsSetGuard` searches the checkout configuration for every step with a `type` containing `CheckoutStepType.deliveryAddress`, `CheckoutStepType.deliveryMode`, `CheckoutStepType.paymentDetails`, `CheckoutStepType.reviewOrder`, then reads the step route and redirects to that page.
 
