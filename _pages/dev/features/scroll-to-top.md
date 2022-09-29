@@ -118,3 +118,10 @@ provideConfig(<CmsConfig>{
   },
 }),
 ```
+
+## Extending Scroll to Top
+
+Intro...
+
+1. First step.
+2. Second step...
