@@ -33,6 +33,11 @@ ng update @spartacus/schematics@5
 
 When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [{% assign linkedpage = site.pages | where: "name", "5-0-typescript-breaking-changes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/5-0-typescript-breaking-changes.md %}).
 
-Also note, new entry points have been introduced for the `@spartacus/checkout` library. For more information, see [{% assign linkedpage = site.pages | where: "name", "checkout-libraries-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/checkout-libraries-release-notes.md %}).
-
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
+
+### Additional Information
+
+In addition to breaking changes, the following details are important to be aware of when upgrading to Spartacus 5.0:
+
+- New entry points have been introduced for the `@spartacus/checkout` library. For more information, see [{% assign linkedpage = site.pages | where: "name", "checkout-libraries-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/checkout-libraries-release-notes.md %}).
+- Spartacus provides a `webApplicationInjector.js` file that is required for working with SmartEdit. In Spartacus 5.0, `webApplicationInjector.js` has been updated to work with SAP Commerce Cloud 2211. If you are using an older version of SAP Commerce Cloud, you need to replace the `webApplicationInjector.js` file in your Spartacus application with the `webApplicationInjector.js` file that is appropriate for your version of SAP Commerce Cloud. You can download older versions of the `webApplicationInjector.js` file from this location: LINK
