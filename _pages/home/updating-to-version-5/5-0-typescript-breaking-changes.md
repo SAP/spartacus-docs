@@ -5,8 +5,8 @@ title: 5.0 Typescript Breaking Changes
 This is a list of breaking changes or potentially breaking changes for Spartacus 5.0.
 
 
-
 # Class AsmMainUiComponent 
+
 ## @spartacus/asm/components
 
 
