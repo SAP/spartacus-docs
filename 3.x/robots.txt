@@ -1,1 +1,0 @@
-Sitemap: /spartacus-docs/3.x/sitemap.xml
