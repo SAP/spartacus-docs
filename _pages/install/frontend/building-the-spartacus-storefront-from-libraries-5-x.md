@@ -1,6 +1,5 @@
 ---
-layout: building-from-3x-libs-redirect
-title: Building the Spartacus Storefront Using 3.1 Libraries
+title: Building the Spartacus Storefront Using 5.x Libraries
 ---
 
 The following instructions describe how to build a storefront application, for both B2C (Electronics, Apparel) and B2B (Powertools) sample stores. If you are building Spartacus from source, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
@@ -48,48 +47,40 @@ The following procedure describes how to create a new Angular application with t
 
 3. Access the newly created `mystore` folder with the following command:
 
-     ```shell
-     cd mystore
-     ```
+   ```shell
+   cd mystore
+   ```
 
 ## Spartacus Project Setup
 
-The easiest way to start a new project is to use Angular Schematics to quickly set up your application.
+The easiest way to start a new project is to use Spartacus schematics to quickly set up your application.
 
-For a full list of available parameters please visit Spartacus schematics [documentation](https://github.com/SAP/spartacus/tree/develop/projects/schematics).
+For a full list of available parameters, see [{% assign linkedpage = site.pages | where: "name", "schematics.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
 
-### Setting up the Core B2C Project Using Schematics
+### Setting Up Your Project Using Schematics
 
-To install version 3.1 of Spartacus using schematics:
-
-```bash
-ng add @spartacus/schematics@3.1
-```
-
-**Notes:**
-
-- The `/schematics` command adds the core Spartacus (or B2C) configuration, to work with SAP Commerce Cloud Electronics or Apparel sample stores.
-- To install the latest 'Next' or Release Candidate, you can add `@next` or `@rc` at the end of the command.
-- To verify what versions of Spartacus libraries were installed, open the file `package.json` and look for `@spartacus`.
-- The store locator feature is no longer included with the core Spartacus libraries. You can enable it by installing the `@spartacus/storefinder` feature library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
-
-### Adding B2B Commerce Organization (Optional)
-
-**Note:** Spartacus does not support B2C and B2B storefronts running together in a single storefront application. When you enable B2B Commerce Organization, the B2C storefront will load but not work properly.
-
-**Note:** You need to first install the Spartacus core libraries before you can add B2B Commerce Organization. If you have not already done so, run the following command to install the Spartacus core libraries:
+Run the following command to install the latest official release of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics
+ng add @spartacus/schematics@latest
 ```
 
-To get Spartacus to work with the SAP Commerce Cloud Powertools sample store, you must add the B2B Commerce Organization configuration to Spartacus using schematics, as follows:
+When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the `User - Account` feature.
 
-```bash
-ng add @spartacus/organization
-```
+### Notes
 
-The installer asks what to include (`Administration` and `Order-approval`); both are required for B2B Commerce Organization to work. The default is both, so you can just press **Enter** when prompted.
+- **Spartacus does not support B2C and B2B storefronts running together in a single storefront application**. If you install  any of the B2B features, the B2C storefront will load but it will not work properly.
+- If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing. **If you install any of the following features, your Spartacus storefront will automatically become a B2B storefront**:
+  - `Organization - Adminstration`
+  - `Organization - Order Approval`
+  - `Product - Bulk Pricing`
+  - `Product Configurator - CPQ Configurator`
+- The schematics add the core Spartacus files and configuration that are needed to work with the SAP Commerce Cloud sample stores.
+- To install the latest "next" release, you can add `@next` at the end of the command.
+- To install the latest release candidate, you can add `@rc` at the end of the command.
+- To verify what versions of Spartacus libraries were installed, open `package.json` and look for `@spartacus`.
+- To bypass the schematics prompts and install Spartacus with a predefined set of features, you can use the `--no-interactive` flag. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project).
+- With each release of Spartacus, existing features are moved out of the core libraries and into their own dedicated feature libraries. With time, the core libraries will shrink as features are extracted to their own, separate packages.
 
 ### Installing Dependencies
 
@@ -98,10 +89,10 @@ Install dependencies needed by your Spartacus app with the following command:
 ```shell
 yarn install
 ```
-  
-### Checking app.module.ts for Base URL and Other Settings
 
-Open the `src\app\app.module.ts` file, and check for any changes you want to make for your setup.
+### Checking spartacus-configuration.module.ts for Base URL and Other Settings
+
+Open the `src\app\spartacus\spartacus-configuration.module.ts` file, and check for any changes you want to make for your setup.
 
 For example, check:
 

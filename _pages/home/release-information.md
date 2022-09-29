@@ -499,13 +499,13 @@ To update to 1.2.0, you must change your libraries in `package.json` and and dep
 - To use infinite scroll, add these to `B2cStorefrontModule.withConfig({`
   
    ```ts
-       view: {
-        infiniteScroll: {
-          active: true,
-          productLimit: 500,
-          showMoreButton: false,
-         },
-       },
+   view: {
+    infiniteScroll: {
+      active: true,
+      productLimit: 500,
+      showMoreButton: false,
+     },
+   },
   ```
   
 - To see ‘early login’ in action, after this line:

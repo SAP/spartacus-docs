@@ -24,6 +24,8 @@ docs:
                 - title: "Updating to Version 5.0 ➢"
                   url: /updating-to-version-5/
                   underchildren:
+                      - title: "Checkout Libraries Release Notes"
+                        url: /checkout-libraries-release-notes/
                       - title: "5.0 Typescript Breaking Changes"
                         url: /5-0-typescript-breaking-changes/
                 - title: "Updating to Version 4.0 ➢"
@@ -85,8 +87,8 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
-                - title: "Building the Spartacus Storefront Using 4.x Libraries"
-                  url: /building-the-spartacus-storefront-from-libraries-4-x/
+                - title: "Building the Spartacus Storefront Using 5.x Libraries"
+                  url: /building-the-spartacus-storefront-from-libraries-5-x/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
                 - title: "Schematics"

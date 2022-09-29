@@ -199,19 +199,20 @@ Some of the steps in this procedure are derived from the documentation for insta
       }
    }
    ```
-   **Notes:** 
-   
-   If you want to use only Telco sample data, then remove the following lines from the `build.gradle` file:
+
+   **Note:** If you want to use only Telco sample data, then remove the following lines from the `build.gradle` file:
 
    ```bash
    extName 'utilitiesspastore'
    extName 'b2ctelcocmsaddon'
    ```
+
    Additionally, ensure that you also remove the `b2ctelcocmsaddon` from the `build.gradle` file:
 
    ```bash
    names('b2ctelcooccaddon','cmsoccaddon','acceleratorwebservicesaddon','b2ctelcocmsaddon')
    ```
+
    If you want to use only Utilities sample data, then remove the following line from the `build.gradle` file:
 
    ```bash
@@ -227,6 +228,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
+
    For Unix:
 
    ```bash

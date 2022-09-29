@@ -64,28 +64,28 @@ The following procedure describes how to create a static wish list page with a w
 
 1. Create a static page and a static route.
 
-    The following example creates a wish list page in `wishlist-page.module.ts`:
+   The following example creates a wish list page in `wishlist-page.module.ts`:
 
-    ```ts
-    import { RouterModule, Routes } from '@angular/router';
-    import { CmsPageGuard } from '@spartacus/storefront';
-    /*...*/
+   ```ts
+   import { RouterModule, Routes } from '@angular/router';
+   import { CmsPageGuard } from '@spartacus/storefront';
+   /*...*/
 
-    const staticRoutes: Routes = [{
-      path: 'wishlist',
-      component: WishlistPageComponent // Custom page component,
-      canActivate: [CmsPageGuard]
-    }];
+   const staticRoutes: Routes = [{
+     path: 'wishlist',
+     component: WishlistPageComponent // Custom page component,
+     canActivate: [CmsPageGuard]
+   }];
 
-    /*...*/
-    imports: [RouterModule.forChild(staticRoutes)];
-    ```
+   /*...*/
+   imports: [RouterModule.forChild(staticRoutes)];
+   ```
 
 2. Add the component to the page, just as you would for any regular Angular component.
 
     In the following example, the component is added in `wishlist-page.component.html`:
 
-    ```html
-      <!-- Selector of the component to use -->
-      <wishlist-component></wishlist-component>
-    ```
+   ```html
+   <!-- Selector of the component to use -->
+   <wishlist-component></wishlist-component>
+   ```

@@ -187,7 +187,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
 1. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
-    /***************************************************************************************************
+    /**
     * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
     */
     import '@angular/localize/init';
@@ -234,7 +234,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
 1. Add the `server.ts` file to your existing shell app. The following is an example:
 
     ```typescript
-    /***************************************************************************************************
+    /**
      * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
     */
     import '@angular/localize/init';
@@ -341,18 +341,18 @@ If you are involved in Spartacus internal development (for example, if you are c
 
     1. Turn PWA off in your app module configuration, as follows:
 
-        ```json
-        StorefrontModule.withConfig({
-              backend: {
-                occ: {
-                  baseUrl: 'https://[your_enpdoint],
-                },
-              },
-              pwa: {
-                enabled: false,
-              },
-        };
-        ```
+       ```json
+       StorefrontModule.withConfig({
+             backend: {
+               occ: {
+                 baseUrl: 'https://[your_enpdoint],
+               },
+             },
+             pwa: {
+               enabled: false,
+             },
+       };
+       ```
 
 1. Rebuild your local Spartacus libraries by running the following command:
 

@@ -40,10 +40,8 @@ The following table lists many of the most common UI components, and the standar
 | Tree menu | • <kbd>&#8593;</kbd> <kbd>&#8595;</kbd> navigates to the previous or next menu option<br>• <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> expands or collapses the submenu, and moves up or down one level |
 | Scroll | • <kbd>&#8593;</kbd> <kbd>&#8595;</kbd>  scrolls vertically<br>• <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> scrolls horizontally<br>• <kbd>Spacebar</kbd> or <kbd>Shift</kbd> + <kbd>Spacebar</kbd> scrolls by page |
 
-**Notes:**
-
-- A focusable element is an element that receives *visible* focus, either natively or through configuration.
-- Spartacus follows the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/#aria_ex). For more component examples, see the WAI-ARIA Authoring Practices documentation, and the "Keyboard Interactions" subsections for each component.
+**Note:** A focusable element is an element that receives *visible* focus, either natively or through configuration.
+**Note:** Spartacus follows the [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices/#aria_ex). For more component examples, see the WAI-ARIA Authoring Practices documentation, and the "Keyboard Interactions" subsections for each component.
 
 ## Web Browser Setup for Keyboard Navigation
 

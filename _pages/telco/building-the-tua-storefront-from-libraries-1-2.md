@@ -72,9 +72,9 @@ To create a new Angular application with the name `mystore`, follow the procedur
 
 3.  Access the newly created `mystore` folder with the following command:
 
-     ```bash
-     cd mystore
-     ```
+   ```bash
+   cd mystore
+   ```
 
 ## Project Setup
 
