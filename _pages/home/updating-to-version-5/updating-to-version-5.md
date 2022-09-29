@@ -31,8 +31,8 @@ To update to version 5.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics@5
 ```
 
-When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [5.0 Typescript Breaking Changes]({{ site.baseurl }}/5-0-typescript-breaking-changes).
+When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [{% assign linkedpage = site.pages | where: "name", "5-0-typescript-breaking-changes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/5-0-typescript-breaking-changes.md %}).
 
-Also note, new entry points have been introduced for the `@spartacus/checkout` library. For more information, see [{% assign linkedpage = site.pages | where: "name", "checkout-libraries-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/checkout-libraries-release-notes.md %})
+Also note, new entry points have been introduced for the `@spartacus/checkout` library. For more information, see [{% assign linkedpage = site.pages | where: "name", "checkout-libraries-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/checkout-libraries-release-notes.md %}).
 
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
