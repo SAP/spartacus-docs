@@ -1,0 +1,2020 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Configurable Products Integration - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Configurable Products Integration">
+<meta property="og:url" content="/spartacus-docs/3.x/configurable-products-integration/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/3.x/configurable-products-integration/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/3.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/3.x/assets/css/main.css">
+<link rel="stylesheet" href="/spartacus-docs/3.x/assets/css/keys.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/3.x/"><img src="/spartacus-docs/3.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/3.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/3.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/3.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/3.x/release-information/" >Version 3.4</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/3.x/installing-sap-commerce-cloud/">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/3.x/cors/">Cross-Origin Resource Sharing (CORS)</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/3.x/building-the-spartacus-storefront-from-libraries/">Building the Spartacus Storefront from Libraries ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/3.x/recommended-development-environment/">Recommended Development Environment</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/3.x/browser-support/">Web Browser Support</a>
+                                              
+                                        </li>
+                                    
+
+                                      
+                                      
+
+                                        <li><a href="/spartacus-docs/3.x/integrations/">Integrations ➢</a>
+                                            
+                                                <ul>
+                                                    
+                                                        
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/configurable-products-integration/" class="active">Configurable Products Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/cpq-configurable-products-integration/" class="">CPQ Configurable Products Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/cds-integration/" class="">Intelligent Selling Services for SAP Commerce Cloud Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/kyma-integration/" class="">Kyma Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/cybersource-integration/" class="">Payment Integration with CyberSource Example</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/personalization-setup-instructions-for-spartacus/" class="">Personalization Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/qualtrics-integration/" class="">Qualtrics Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/cdc-integration/" class="">SAP Customer Data Cloud Integration</a>
+
+
+                                                                        
+                                                                </li>
+                                                            
+
+                                                              
+                                                              
+                                                            
+                                                              
+                                                              
+
+                                                                
+                                                                <li><a href="/spartacus-docs/3.x/smartEdit-setup-instructions-for-spartacus/" class="">SmartEdit Integration ➢</a>
+
+
+                                                                    
+
+                                                                      
+                                                                      
+
+                                                                        
+                                                                            <ul>
+                                                                                  
+                                                                            </ul>
+                                                                        
+                                                                        
+                                                                </li>
+                                                            
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                          
+                                                    
+                                                </ul>
+                                              
+                                        </li>
+                                      
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/using-spartacus/"><span class="nav__sub-title">Using the Spartacus Storefront</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/3.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Configurable Products Integration</h1>
+    
+    
+<p><b>Note: </b> 
+This feature is introduced with version 3.1 of the Spartacus libraries.
+ </p>
+
+<p>The Configurable Products integration provides a user interface for configuring and selling configurable products in Spartacus. The integration makes use of the <em>Product Configuration with SAP Variant Configuration and Pricing</em> AddOn, which is part of SAP Commerce Cloud. This AddOn is not included in the Spartacus libraries.</p>
+
+<p>The Spartacus product configuration library includes the following features:</p>
+
+<ul>
+  <li>Single-level and multilevel configurable products in the Spartacus storefront, with the product model residing in SAP ERP or SAP S/4HANA</li>
+  <li>A configuration page, with the most commonly used characteristic types for characteristic values, such as radio buttons, checkboxes, dropdown listboxes, and images</li>
+  <li>A price summary at the bottom of the configuration page that includes the base price, the price of the selected options, and the overall total price of the configured product</li>
+  <li>An overview page with all user selections accessible at any time during configuration</li>
+  <li>Basic conflict handling</li>
+</ul>
+
+<p>With this integration, configurable products become a part of the storefront’s standard processes, such as catalog browsing, viewing product details pages, adding items to the cart, checking out, and viewing order history pages.</p>
+
+<p>For more information, see <a href="https://help.sap.com/viewer/80c3212d1d4646c5b91db43b84e9db47/latest/en-US/528b7395bc314999a01e3560f2bdc069.html">Product Configuration with SAP Variant Configuration and Pricing</a> on the SAP Help Portal.</p>
+
+<hr />
+
+<p><strong>Table of Contents</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+  <li><a href="#adding-the-configurable-products-integration-to-spartacus" id="markdown-toc-adding-the-configurable-products-integration-to-spartacus">Adding the Configurable Products Integration to Spartacus</a>    <ul>
+      <li><a href="#installing-the-product-configurator-library-during-the-initial-setup-of-spartacus" id="markdown-toc-installing-the-product-configurator-library-during-the-initial-setup-of-spartacus">Installing the Product Configurator Library During the Initial Setup of Spartacus</a></li>
+      <li><a href="#adding-the-product-configurator-library-to-an-existing-spartacus-project" id="markdown-toc-adding-the-product-configurator-library-to-an-existing-spartacus-project">Adding the Product Configurator Library to an Existing Spartacus Project</a></li>
+    </ul>
+  </li>
+  <li><a href="#configuring-the-input-time-for-user-entries" id="markdown-toc-configuring-the-input-time-for-user-entries">Configuring the Input Time for User Entries</a></li>
+  <li><a href="#saved-cart" id="markdown-toc-saved-cart">Saved Cart</a></li>
+  <li><a href="#locales" id="markdown-toc-locales">Locales</a></li>
+  <li><a href="#conflict-solver" id="markdown-toc-conflict-solver">Conflict Solver</a>    <ul>
+      <li><a href="#conflict-navigation-option-1" id="markdown-toc-conflict-navigation-option-1">Conflict Navigation Option 1</a></li>
+      <li><a href="#conflict-navigation-option-2" id="markdown-toc-conflict-navigation-option-2">Conflict Navigation Option 2</a></li>
+    </ul>
+  </li>
+  <li><a href="#rtl-support" id="markdown-toc-rtl-support">RTL Support</a></li>
+  <li><a href="#group-status-handling" id="markdown-toc-group-status-handling">Group Status Handling</a></li>
+  <li><a href="#browser-refresh" id="markdown-toc-browser-refresh">Browser Refresh</a></li>
+  <li><a href="#unsupported-features" id="markdown-toc-unsupported-features">Unsupported Features</a>    <ul>
+      <li><a href="#save-for-later-and-selective-cart" id="markdown-toc-save-for-later-and-selective-cart">Save for Later and Selective Cart</a></li>
+      <li><a href="#cart-validation" id="markdown-toc-cart-validation">Cart Validation</a>        <ul>
+          <li><a href="#configuring-spartacus-for-cart-validation" id="markdown-toc-configuring-spartacus-for-cart-validation">Configuring Spartacus for Cart Validation</a></li>
+          <li><a href="#configuring-sap-commerce-2005-for-cart-validation" id="markdown-toc-configuring-sap-commerce-2005-for-cart-validation">Configuring SAP Commerce 2005 for Cart Validation</a></li>
+        </ul>
+      </li>
+      <li><a href="#commerce-business-rules-in-combination-with-configurable-products" id="markdown-toc-commerce-business-rules-in-combination-with-configurable-products">Commerce Business Rules in Combination with Configurable Products</a></li>
+      <li><a href="#assisted-service-mode" id="markdown-toc-assisted-service-mode">Assisted Service Mode</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="requirements">Requirements</h2>
+
+<p>The Configurable Products integration requires SAP Commerce Cloud release <strong>2005.6</strong> or <strong>2011.1</strong> or newer.</p>
+
+<p>The integration also requires the <code class="language-plaintext highlighter-rouge">sapproductconfigocc</code> extension.</p>
+
+<p>For more information, see <a href="https://help.sap.com/viewer/bad9b0b66bac476f8a4a5c4a08e4ab6b/latest/en-US/0be43a427ee74bce9222c9b42d56844c.html">Configurator for Complex Products Module</a> on the SAP Help Portal.</p>
+
+<h2 id="adding-the-configurable-products-integration-to-spartacus">Adding the Configurable Products Integration to Spartacus</h2>
+
+<p>To add the Configurable Products integration to Spartacus, you install the <code class="language-plaintext highlighter-rouge">@spartacus/product-configurator</code> library.</p>
+
+<p>You can either <a href="#installing-the-product-configurator-library-during-the-initial-setup-of-spartacus">install the product configurator library during initial setup of your Spartacus project</a>, or you can <a href="#adding-the-product-configurator-library-to-an-existing-spartacus-project">add the product configurator library to an existing Spartacus project</a>.</p>
+
+<h3 id="installing-the-product-configurator-library-during-the-initial-setup-of-spartacus">Installing the Product Configurator Library During the Initial Setup of Spartacus</h3>
+
+<ol>
+  <li>Follow the steps for setting up your Spartacus project, as described in <a href="/spartacus-docs/3.x/building-the-spartacus-storefront-from-libraries-3-2/">Building the Spartacus Storefront Using 3.2 Libraries</a>.</li>
+  <li>While setting up your project using schematics, when you are asked which Spartacus features you would like to set up, choose <code class="language-plaintext highlighter-rouge">Product Configurator</code>.</li>
+  <li>
+    <p>Later in the setup, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.</p>
+
+    <p>Select <code class="language-plaintext highlighter-rouge">CPQ configurator</code> only if you have set up the CPQ integration for configurable products. For more information, see <a href="https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US">SAP CPQ Integration for Configurable Products</a> on the SAP Help Portal.</p>
+
+    <p>Select <code class="language-plaintext highlighter-rouge">Textfield configurator</code> if you have products that can be configured using text-field-based configuration forms. For more information, see <a href="/spartacus-docs/3.x/text-field-configurator-template/">Text Field Configurator Template</a> in the Spartacus documentation, and <a href="https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html">Text Field Configurator Template Module</a> on the SAP Help Portal.</p>
+  </li>
+</ol>
+
+<p><strong>Note:</strong> At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.</p>
+
+<h3 id="adding-the-product-configurator-library-to-an-existing-spartacus-project">Adding the Product Configurator Library to an Existing Spartacus Project</h3>
+
+<p>If you already have a Spartacus project up and running, you can add the product configurator library to your project by running the following command from the root directory of your storefront app:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/product-configurator
+</code></pre></div></div>
+
+<p>This command uses schematics to modify your application and add the modules needed to launch the library.</p>
+
+<p>After running this command, you are asked which product configurator features you would like to set up, other than the variant configurator, which is installed by default.</p>
+
+<p>Select <code class="language-plaintext highlighter-rouge">CPQ configurator</code> only if you have set up the CPQ integration for configurable products. For more information, see <a href="https://help.sap.com/viewer/347450bd6a3d49a9a266964b6c618ca5/latest/en-US">SAP CPQ Integration for Configurable Products</a> on the SAP Help Portal.</p>
+
+<p>Select <code class="language-plaintext highlighter-rouge">Textfield configurator</code> if you have products that can be configured using text-field-based configuration forms. For more information, see <a href="/spartacus-docs/3.x/text-field-configurator-template/">Text Field Configurator Template</a> in the Spartacus documentation, and <a href="https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/d558fab75a454ae4928a2c63e22abe2b.html">Text Field Configurator Template Module</a> on the SAP Help Portal.</p>
+
+<p><strong>Note:</strong> At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.</p>
+
+<h2 id="configuring-the-input-time-for-user-entries">Configuring the Input Time for User Entries</h2>
+
+<p>For complicated user entries, it is possible that the system starts validating the entry before the user has finished typing. To avoid this, you can adjust the default input time of 500 ms in the customer app, as shown in the following example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provideConfig</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Config</span><span class="o">&gt;</span><span class="p">{</span>
+    <span class="na">productConfigurator</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">updateDebounceTime</span><span class="p">:</span> <span class="p">{</span>        
+        <span class="na">input</span><span class="p">:</span> <span class="mi">2500</span>         
+      <span class="p">}</span>
+    <span class="p">},</span>
+  <span class="p">}),</span>
+</code></pre></div></div>
+
+<h2 id="saved-cart">Saved Cart</h2>
+
+<p><b>Note: </b> 
+This functionality is introduced with version 3.3 of the Spartacus libraries.
+ </p>
+
+<p>The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.</p>
+
+<h2 id="locales">Locales</h2>
+
+<p>All available locales must be replicated in Spartacus. Locales in the back end and front end must be in sync.</p>
+
+<h2 id="conflict-solver">Conflict Solver</h2>
+
+<p>For this initial (MVP) version of the Configurable Products integration, the user navigation for the conflict solver is still quite simple. For example, if a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.</p>
+
+<p>For now, there is no navigation mode that guides the user from issue to issue until the configuration has no remaining issues. Instead, users have two options for navigating through conflicts, as described in the following procedures.</p>
+
+<h3 id="conflict-navigation-option-1">Conflict Navigation Option 1</h3>
+
+<ol>
+  <li>Click on <strong>Resolve Conflict</strong> for a specific, conflicting attribute.</li>
+  <li>Resolve the conflict.</li>
+  <li>Return to the group that contained the conflict.</li>
+</ol>
+
+<h3 id="conflict-navigation-option-2">Conflict Navigation Option 2</h3>
+
+<ol>
+  <li>Click on <strong>Resolve Conflict</strong> on the cart, the overview page, or the conflict group by using the group menu.</li>
+  <li>Resolve the conflict.</li>
+  <li>Navigate to the next conflict group.</li>
+  <li>Resolve the last conflict, after which, you are taken to the first group.</li>
+</ol>
+
+<h2 id="rtl-support">RTL Support</h2>
+
+<p>Right-to-left (RTL) orientation is supported for product configuration in Spartacus. For more information on RTL support in Spartacus, see <a href="/spartacus-docs/3.x/directionality/">Directionality</a>.</p>
+
+<h2 id="group-status-handling">Group Status Handling</h2>
+
+<p>Group statuses are interpreted as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Group Status</th>
+      <th>Combination</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COMPLETE</td>
+      <td>Visited + Complete + Consistent</td>
+      <td>The group is considered complete if it has been visited and there are no incomplete characteristics or conflicts.</td>
+    </tr>
+    <tr>
+      <td>ERROR</td>
+      <td>Visited + Incomplete</td>
+      <td>The group gets an error icon if it has been visited and there are incomplete characteristics.</td>
+    </tr>
+    <tr>
+      <td>WARNING</td>
+      <td>Inconsistent</td>
+      <td>The group is considered inconsistent if there are conflicting characteristics within the corresponding group.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following is an example of the configuration menu showing visited sections, missing mandatory selections, and conflicts:</p>
+
+<p><img src="/spartacus-docs/3.x/assets/images/ccp/spartacus-group-status-icon-alignment.png" alt="Spartacus group status icon alignment" /></p>
+
+<h2 id="browser-refresh">Browser Refresh</h2>
+
+<p>When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.</p>
+
+<h2 id="unsupported-features">Unsupported Features</h2>
+
+<p>The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:</p>
+
+<ul>
+  <li><a href="#save-for-later-and-selective-cart">Save for Later and Selective Cart</a></li>
+  <li><a href="#cart-validation">Cart Validation</a></li>
+  <li><a href="#commerce-business-rules-in-combination-with-configurable-products">Commerce Business Rules in Combination with Configurable Products</a></li>
+  <li><a href="#assisted-service-mode">Assisted Service Mode</a></li>
+</ul>
+
+<h3 id="save-for-later-and-selective-cart">Save for Later and Selective Cart</h3>
+
+<p>This feature is currently not supported. To prevent the button from showing, you should remove the relevant view (disable selective cart), as follows:</p>
+
+<ol>
+  <li>
+    <p>Ensure that selective cart is disabled in the cart configuration.</p>
+
+    <p>Your configuration should contain the following:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">cart</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nl">selectiveCart</span><span class="p">:</span> <span class="p">{</span>
+     <span class="na">enabled</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+   <span class="p">},</span>
+ <span class="p">},</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Deactivate the <code class="language-plaintext highlighter-rouge">saveForLater</code> component that is assigned to the <code class="language-plaintext highlighter-rouge">SaveForLaterComponent</code> CMS component, and introduce a new module that clears the assigned Spartacus components for that CMS component.</p>
+
+    <p>The following is an example:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+   <span class="na">imports</span><span class="p">:</span> <span class="p">[</span><span class="nx">CommonModule</span><span class="p">,</span> <span class="nx">I18nModule</span><span class="p">,</span> <span class="nx">CartSharedModule</span><span class="p">],</span>
+   <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+     <span class="nx">provideDefaultConfig</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">CmsConfig</span> <span class="o">|</span> <span class="nx">FeaturesConfig</span><span class="o">&gt;</span><span class="p">{</span>
+       <span class="na">cmsComponents</span><span class="p">:</span> <span class="p">{</span>
+         <span class="na">SaveForLaterComponent</span><span class="p">:</span> <span class="p">{},</span>
+       <span class="p">},</span>
+     <span class="p">}),</span>
+   <span class="p">],</span>
+   <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span><span class="nx">SaveForLaterComponent</span><span class="p">],</span>
+   <span class="na">exports</span><span class="p">:</span> <span class="p">[</span><span class="nx">SaveForLaterComponent</span><span class="p">],</span>
+   <span class="na">entryComponents</span><span class="p">:</span> <span class="p">[</span><span class="nx">SaveForLaterComponent</span><span class="p">],</span>
+ <span class="p">})</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="cart-validation">Cart Validation</h3>
+
+<p>Cart validation is currently not supported, although you can implement your own workaround by making the adjustments described in the following sections.</p>
+
+<h4 id="configuring-spartacus-for-cart-validation">Configuring Spartacus for Cart Validation</h4>
+
+<ol>
+  <li>
+    <p>Introduce your own version of <code class="language-plaintext highlighter-rouge">cart-totals.component.ts</code> and ensure that it is assigned to the <code class="language-plaintext highlighter-rouge">CartTotalsComponent</code> CMS component instead of the original one.</p>
+  </li>
+  <li>
+    <p>Inject <code class="language-plaintext highlighter-rouge">ConfiguratorCartService</code> from <code class="language-plaintext highlighter-rouge">@spartacus/product-configurator/common</code> into the custom version of <code class="language-plaintext highlighter-rouge">cart-totals.component</code>.</p>
+  </li>
+  <li>
+    <p>Introduce a component member.</p>
+
+    <p>The following is an example:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">hasNoConfigurationIssues$</span><span class="p">:</span> <span class="nx">Observable</span><span class="o">&lt;</span>
+     <span class="nx">boolean</span>
+   <span class="o">&gt;</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">configuratorCartService</span>
+     <span class="p">.</span><span class="nx">activeCartHasIssues</span><span class="p">()</span>
+     <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">map</span><span class="p">((</span><span class="nx">hasIssues</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">!</span><span class="nx">hasIssues</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Make use of this member in the component template.</p>
+
+    <p>The following is an example:</p>
+
+    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">container</span> <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="dl">"</span><span class="s2">cart$ | async as cart</span><span class="dl">"</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">container</span> <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="dl">"</span><span class="s2">entries$ | async as entries</span><span class="dl">"</span><span class="o">&gt;</span>
+     <span class="o">&lt;</span><span class="nx">cx</span><span class="o">-</span><span class="nx">order</span><span class="o">-</span><span class="nx">summary</span> <span class="p">[</span><span class="nx">cart</span><span class="p">]</span><span class="o">=</span><span class="dl">"</span><span class="s2">cart</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/cx-order-summary</span><span class="err">&gt;
+</span>     <span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">container</span>
+       <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="dl">"</span><span class="s2">hasNoConfigurationIssues$ | async as   hasNoConfigurationIssues</span><span class="dl">"</span>
+     <span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="nx">button</span>
+         <span class="p">[</span><span class="nx">routerLink</span><span class="p">]</span><span class="o">=</span><span class="dl">"</span><span class="s2">{ cxRoute: 'checkout' } | cxUrl</span><span class="dl">"</span>
+         <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="dl">"</span><span class="s2">entries.length</span><span class="dl">"</span>
+         <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-primary btn-block</span><span class="dl">"</span>
+         <span class="kd">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span>
+       <span class="o">&gt;</span>
+         <span class="p">{{</span> <span class="dl">'</span><span class="s1">cartDetails.proceedToCheckout</span><span class="dl">'</span> <span class="o">|</span> <span class="nx">cxTranslate</span> <span class="p">}}</span>
+       <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>     <span class="o">&lt;</span><span class="sr">/ng-container</span><span class="err">&gt;
+</span>   <span class="o">&lt;</span><span class="sr">/ng-container</span><span class="err">&gt;
+</span> <span class="o">&lt;</span><span class="sr">/ng-container</span><span class="err">&gt;
+</span></code></pre></div>    </div>
+  </li>
+</ol>
+
+<h4 id="configuring-sap-commerce-2005-for-cart-validation">Configuring SAP Commerce 2005 for Cart Validation</h4>
+
+<p><strong>Note:</strong> If you use SAP Commerce 2011, the following steps are not necessary.</p>
+
+<p>The steps that can be done on the Spartacus side ensure that for a standard UI flow, a configuration cannot be ordered if it has issues. However, you still need to block the creation of orders that could be done through OCC. Otherwise, an order containing such configurations can be created using, for example, the developer tools in the end user’s browser.</p>
+
+<p>In your spring configuration, ensure that the <code class="language-plaintext highlighter-rouge">commerceWebServicesCartService</code> bean refers to <code class="language-plaintext highlighter-rouge">cartValidationStrategy</code> instead of <code class="language-plaintext highlighter-rouge">cartValidationWithoutCartAlteringStrategy</code>. This can be achieved, for example, in the <code class="language-plaintext highlighter-rouge">spring.xml</code> of a custom extension, as follows:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">"customWebServicesCartService"</span> <span class="na">alias=</span><span class="s">"commerceWebServicesCartService"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"customWebServicesCartService"</span> <span class="na">parent=</span><span class="s">"defaultCommerceCartService"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"cartValidationStrategy"</span> <span class="na">ref=</span><span class="s">"cartValidationStrategy"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"productConfigurationStrategy"</span> <span class="na">ref=</span><span class="s">"productConfigurationStrategy"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre></div></div>
+
+<p>Note that this adjustment will guarantee that order are validated for product configuration issues before they are submitted, but it will not ensure that any error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.</p>
+
+<h3 id="commerce-business-rules-in-combination-with-configurable-products">Commerce Business Rules in Combination with Configurable Products</h3>
+
+<p>The following conditions and actions are supported in the Spartacus storefront:</p>
+
+<ul>
+  <li>Conditions:
+    <ul>
+      <li>Product you are currently configuring</li>
+      <li>Customers</li>
+      <li>Customer groups</li>
+    </ul>
+  </li>
+  <li>Actions:
+    <ul>
+      <li>Set characteristic value for configurable product</li>
+      <li>Hide assignable value for configurable product</li>
+      <li>Hide characteristic for configurable product</li>
+      <li>Display characteristic for configurable product as read-only</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The following conditions and actions are currently <strong>not supported</strong> in the Spartacus storefront:</p>
+
+<ul>
+  <li>Conditions:
+    <ul>
+      <li>Product with specified configuration in the cart</li>
+      <li>Customer support (ASM mode currently not supported for configurable products)</li>
+    </ul>
+  </li>
+  <li>Actions:
+    <ul>
+      <li>Display message at the product level</li>
+      <li>Display message at the attribute level</li>
+      <li>Display message at the value level</li>
+      <li>Display promo message (promo applies)</li>
+      <li>Display promo opportunity message (promo does not yet apply)</li>
+      <li>Display discount message</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="assisted-service-mode">Assisted Service Mode</h3>
+
+<p>Assisted service mode (ASM) is currently not supported with the Configurable Products integration.</p>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/3.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/3.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:3.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>

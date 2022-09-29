@@ -1,0 +1,1981 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Basic Form Validations - Spartacus Documentation</title>
+<meta name="description" content="SAP Spartacus JavaScript Storefront Documentation.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Spartacus Documentation">
+<meta property="og:title" content="Basic Form Validations">
+<meta property="og:url" content="/spartacus-docs/2.x/basic-form-validations/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="/spartacus-docs/2.x/basic-form-validations/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": null,
+      "url": null,
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/spartacus-docs/2.x/feed.xml" type="application/atom+xml" rel="alternate" title="Spartacus Documentation Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/spartacus-docs/2.x/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert scripts for adding anchor links to headers -->
+
+<script src="https://kit.fontawesome.com/82d5a2bf2f.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  anchors.add();
+</script>
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+  </head>
+
+  <body class="layout--home">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/spartacus-docs/2.x/"><img src="/spartacus-docs/2.x/assets/images/logo-blue_64x64.png" alt="Spartacus logo"></a>
+        
+        <a class="site-title" href="/spartacus-docs/2.x/">Spartacus Documentation</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/spartacus-docs/2.x/docs-archive/" >Doc Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ" >Feedback</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/2.x/#how-to-obtain-support" >Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="/spartacus-docs/2.x/release-information/" >Version 2.1</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/"><span class="nav__sub-title">Home</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/getting-started/"><span class="nav__sub-title">Getting Started with Spartacus Libraries</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/dev-guide/"><span class="nav__sub-title">Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/about-tua-spartacus/"><span class="nav__sub-title">Telco & Utilities Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/about-fsa-spartacus/"><span class="nav__sub-title">Financial Services Accelerator Storefront Development Guide</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                    
+                                            
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/2.x/fsa-release-information/">Release Information for FSA Spartacus</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/2.x/fsa-spartacus-roadmap/">Roadmap for FSA Spartacus</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/2.x/spartacus-fsa-faq/">FSA Spartacus FAQ</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/2.x/getting-started-with-fsa-spartacus/">Getting Started with FSA Spartacus ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+
+                                                
+                                                
+
+                                                  
+
+                                                    <li><a href="/spartacus-docs/2.x/spartacus-features-for-fsa/">FSA Spartacus Features ➢</a>
+                                                  
+                                                            <ul>
+                                                                
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                    
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/2.x/dynamicforms/">Dynamic Forms ➢</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                                
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/json-structure/" class="">JSON Structure</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/form-controls/" class="">Form Controls</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/adding-form/" class="">Adding a Form to a Simple Page</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/styling/" class="">Styling</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/form-control-dependencies/" class="">Form Control Dependencies</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/basic-form-validations/" class="active">Basic Form Validations</a></li>
+
+                                                                                  
+
+                                                                                    
+                                                                                    
+                                                                                  
+                                                                                    
+                                                                                    
+                                                                                         
+                                                                                       <li><a href="/spartacus-docs/2.x/pre-populate-field/" class="">Configurable Form Field Pre-Populate</a></li>
+
+                                                                                       
+                                                                                        
+                                                                              
+                                                                                        
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/2.x/fsa-inbox/">Inbox</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        <li><a href="/spartacus-docs/2.x/fsa-checkout/">Checkout</a>
+
+                                                                          
+                                                                            <ul>
+                                                                              
+                                                                            </ul>                
+                                                                             
+                                                                          </li>
+                                                                      
+                                                                      
+                                                                  
+                                                                      
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                                  
+                                                                
+                                                            </ul>
+                                                    </li>
+                                                    
+                                                
+                                        
+                                    
+                                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                                    
+
+                                  
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+      <li>
+        
+          
+          
+
+         <a href="/spartacus-docs/2.x/contributors-guide/"><span class="nav__sub-title">Contributing to Spartacus</span></a>
+         
+        
+            <ul>
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+            </ul>  
+      </li>          
+    
+  </ul>
+</nav>      
+
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Basic Form Validations</h1>
+    
+    <p><strong>Note: Spartacus 2.x is no longer maintained. Please upgrade to the latest version.</strong></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Dynamic Forms library provides some basic validator functions by default. This page will explain how to use, override or add validations in Dynamic Forms library for end customers. Following things should be covered:</p>
+
+<ul>
+  <li><a href="#how-to-invoke-validation-from-json">How to invoke validation from JSON?</a></li>
+  <li><a href="#existing-validations">Which validations exist out of the box?</a></li>
+  <li><a href="#how-all-this-works">How all this works?</a></li>
+  <li><a href="#how-to-override-existing-validation-in-custom-app">How to override existing validation in custom App?</a></li>
+  <li><a href="#how-to-add-new-validation-in-custom-app-and-invoke-that-from-json">How to add new validation in custom App and invoke that from JSON?</a></li>
+</ul>
+
+<h2 id="how-to-invoke-validation-from-json">How to invoke validation from JSON</h2>
+
+<p>In order to specify validations for certain field, JSON schema is enhanced by exposing property called “validations”.  Property represents array of complex objects which are translated into dynamic forms validation functions and they consist of two properties:</p>
+
+<ul>
+  <li>validation name - corresponds the name for validation function defined in  Form Config on SPA side (ex: compareToCurrentDate)</li>
+  <li>validation input parameters - specify input parameter(s) which are acceptable by validation function (ex: shouldBeGreater, shouldBeLess)</li>
+</ul>
+
+<p>Example of the field with multiple validations:</p>
+
+<ul>
+  <li>input data must be of type number</li>
+  <li>input data max value must be 100</li>
+  <li>input value should be less than ‘otherField’ value</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">fieldType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">valueType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testInput</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">required</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test input</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">de</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Testeingang</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">minValue</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                  <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">maxValue</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                  <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">compareAgeToDOB</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                  <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">otherField</span><span class="dl">"</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                  <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shouldBeLess</span><span class="dl">"</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<h2 id="existing-validations">Existing validations</h2>
+
+<ul>
+  <li><strong>compareToCurrentDate</strong> - accepts one argument from list:
+    <ul>
+      <li>shouldBeEqual</li>
+      <li>shouldBeGreater</li>
+      <li>shouldBeLess</li>
+      <li>shouldBeGreaterOrEqual</li>
+      <li>shouldBeLessOrEqual</li>
+    </ul>
+  </li>
+</ul>
+
+<p>JSON example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">compareToCurrentDate</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shouldBeLessOrEqual</span><span class="dl">"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>dateOfBirth</strong> - Accepts argument of type number. It will trigger validation if input date is less than argument provided.</li>
+  <li><strong>compareDOBtoAge</strong> - Compares date from other filed with input date. Accepts two arguments:
+    <ul>
+      <li>name of the field to compare (string)</li>
+      <li>operator (string) can be ‘shouldBeGreater’ or ‘shouldBeLess’</li>
+    </ul>
+  </li>
+</ul>
+
+<p>JSON example, compare input to the value of the ‘retirementAge’ field:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">compareDOBtoAge</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">retirementAge</span><span class="dl">"</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shouldBeGreater</span><span class="dl">"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>maxValue</strong>, <strong>minValue</strong>, <strong>maxLength</strong>, <strong>minLength</strong> - Default Angular validators</li>
+  <li><strong>number</strong> - Triggers error message if input type is not a number.</li>
+  <li><strong>compareDates</strong> - Compares input date to the value of other field. Accepts two arguments:
+    <ul>
+      <li>name of the field to compare (string)</li>
+      <li>operator (string) can be ‘shouldBeGreater’ or ‘shouldBeLess’</li>
+    </ul>
+  </li>
+</ul>
+
+<p>JSON example, compare input to the value of the ‘vehiclePurchaseDate’ field:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">compareDates</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">vehiclePurchaseDate</span><span class="dl">"</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shouldBeGreater</span><span class="dl">"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>checkValue</strong> - Checks if input data matches any item from array of allowed values. Accepts one argument (array of strings)
+JSON example, field is valid only in case string “no” is added to the input:</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">checkValue</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="dl">"</span><span class="s2">no</span><span class="dl">"</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>containsValue</strong> - Checks if input value contains string form argument array. Accepts one argument (array of strings) 
+JSON example:</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">containsValue</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">test string</span><span class="dl">"</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>       
+</code></pre></div></div>
+
+<ul>
+  <li><strong>compareNumbers</strong> - Compares input value to other field. Accepts two arguments:
+    <ul>
+      <li>name of the field to compare (string)</li>
+      <li>operator (string) can be ‘shouldBeGreater’ or ‘shouldBeLess’</li>
+    </ul>
+  </li>
+</ul>
+
+<p>JSON example:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">compareNumbers</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">arguments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">propertyValue</span><span class="dl">"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">shouldBeLess</span><span class="dl">"</span>
+        <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>email</strong> - Checks if input data is valid email</li>
+  <li><strong>alphanumeric</strong> - Allows only numbers and letters as input data</li>
+</ul>
+
+<h2 id="how-all-this-works">How all this works</h2>
+
+<p>Before Form gets rendered, all validations from JSON are processed and in case they have corresponding implementation defined  in config they are transferred to mapped <strong>ValidationFn</strong>. Name from validation object corresponds to the name defined in form configuration on SPA application. In this particular case it will be validation with name compareToCurrentDate :</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">DynamicFormsConfig</span>
+<span class="nx">validators</span><span class="p">:</span> <span class="p">{</span>
+  <span class="p">....</span>
+  <span class="nx">compareToCurrentDate</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">validator</span><span class="p">:</span>  <span class="nx">DefaultFormValidators</span><span class="p">.</span><span class="nx">compareToCurrentDate</span>
+  <span class="p">},</span>
+  <span class="p">....</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>All arguments defined in JSON file represent input parameters for compareToCurrentDate function from DefaultFormValidators and they are added to the function in run-time. In our example based on mapping defined in configuration we will find following validation function:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="nx">compareToCurrentDate</span><span class="p">(</span><span class="nx">operator</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="p">(</span><span class="nx">control</span><span class="p">:</span> <span class="nx">AbstractControl</span><span class="p">):</span> <span class="nx">ValidationErrors</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="kd">const</span> <span class="nx">inputVal</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">control</span><span class="p">.</span><span class="nx">value</span> <span class="k">as</span> <span class="kr">string</span><span class="p">);</span>
+     <span class="kd">const</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+     <span class="k">switch</span> <span class="p">(</span><span class="nx">operator</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">case</span> <span class="dl">'</span><span class="s1">shouldBeGreater</span><span class="dl">'</span><span class="p">:</span>
+         <span class="k">return</span> <span class="nx">inputVal</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span>
+           <span class="p">?</span> <span class="kc">null</span>
+           <span class="p">:</span> <span class="p">{</span> <span class="na">InvalidDate</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+       <span class="k">case</span> <span class="dl">'</span><span class="s1">shouldBeLess</span><span class="dl">'</span><span class="p">:</span>
+         <span class="k">return</span> <span class="nx">inputVal</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span>
+           <span class="p">?</span> <span class="kc">null</span>
+           <span class="p">:</span> <span class="p">{</span> <span class="na">InvalidDate</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+     <span class="p">}</span>
+   <span class="p">};</span>
+ <span class="p">}</span>
+</code></pre></div></div>
+
+<p>and assign that function with input parameter ‘shouldBeGreater’ (operator in this case) to the corresponding field. In the same way we can pass multiple input parameters via arguments attribute in case function requires more and add them to the validation function respectively.</p>
+
+<h2 id="how-to-override-existing-validation-in-custom-app">How to override existing validation in custom App</h2>
+
+<p>In order to override some predefined validation, customers should be able to do that in their modules by referencing their custom functions with the same name as existing ones. Let’s try to override compareToCurrentDate function, so that it just logs customized message and returns always true for validation.  We will start in one of our modules by specifying following configuration:</p>
+
+<p>X-module.ts</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">I18nModule</span><span class="p">,</span>
+    <span class="nx">DynamicFormModule</span><span class="p">,</span>
+    <span class="nx">SpinnerModule</span><span class="p">,</span>
+    <span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">DynamicFormsConfig</span><span class="o">&gt;</span><span class="p">{</span> <span class="c1">// Need to call Spartacus Factory function and pass it DynamicFormsConfig</span>
+      <span class="na">dynamicForms</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">validators</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">compareToCurrentDate</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">validator</span><span class="p">:</span> <span class="nx">CategoryFormsModule</span><span class="p">.</span><span class="nx">customFunction</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span><span class="nx">CustomInputComponent</span><span class="p">],</span>
+  <span class="na">exports</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">entryComponents</span><span class="p">:</span> <span class="p">[</span><span class="nx">CustomInputComponent</span><span class="p">],</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>From the code snippet above we can see that for validation with name compareToCurrentDate we have a new function defined in CategoryFormsModule. Function has the following implementation:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="nx">customFunction</span><span class="p">(</span><span class="nx">regex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">control</span><span class="p">:</span> <span class="nx">AbstractControl</span><span class="p">):</span> <span class="nx">ValidationErrors</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Custom function works!</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>As described in introduction, function has one console log and always returns true for validation. In this particular case, JSON file should not be edited since name of new function is the same as for old one.</p>
+
+<h2 id="how-to-add-new-validation-in-custom-app-and-invoke-that-from-json">How to add new validation in custom App and invoke that from JSON</h2>
+
+<p>Adding new functions is similar to overriding them. First, we need to define a new function and then we have to expose it via configuration.</p>
+
+<p>New validation function</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="nx">customNewFunction</span><span class="p">(</span><span class="nx">regex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">control</span><span class="p">:</span> <span class="nx">AbstractControl</span><span class="p">):</span> <span class="nx">ValidationErrors</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">New function works!</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Mapping new validation function</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">CommonModule</span><span class="p">,</span>
+    <span class="nx">I18nModule</span><span class="p">,</span>
+    <span class="nx">DynamicFormModule</span><span class="p">,</span>
+    <span class="nx">SpinnerModule</span><span class="p">,</span>
+    <span class="nx">ConfigModule</span><span class="p">.</span><span class="nx">withConfig</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">DynamicFormsConfig</span><span class="o">&gt;</span><span class="p">{</span> <span class="c1">// Need to call Spartacus Factory function and pass it DynamicFormsConfig</span>
+      <span class="na">dynamicForms</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">validators</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">newValidation</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">validator</span><span class="p">:</span> <span class="nx">CategoryFormsModule</span><span class="p">.</span><span class="nx">customNewFunction</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span><span class="nx">CustomInputComponent</span><span class="p">],</span>
+  <span class="na">exports</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">entryComponents</span><span class="p">:</span> <span class="p">[</span><span class="nx">CustomInputComponent</span><span class="p">],</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Lastly, since this function is completely new we have to invoke it from our JSON form definition:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="dl">"</span><span class="s2">validations</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">newValidation</span><span class="dl">"</span>
+  <span class="p">}],</span>
+
+</code></pre></div></div>
+
+
+<!-- <h3 class="archive__subtitle">Recent posts</h3>
+
+
+
+
+ -->
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="docsearch-container"><input type="search" id="docsearch" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..." /></div>
+    <!-- <div id="results" class="results"></div> --></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <!-- <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/spartacus-docs/2.x/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Spartacus Documentation. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div> -->
+
+      </footer>
+    </div>
+
+    
+  <script src="/spartacus-docs/2.x/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> docsearch({ 
+    appId: 'BNZEXRISC6',
+    apiKey: '54a795a072ff713045038ee4ad33c990', 
+    indexName: 'sap_spartacus', 
+    inputSelector: '#docsearch', 
+    algoliaOptions: {
+      'facetFilters': ["tags:2.x"]
+      },
+    debug: false // Set debug to true if you want to inspect the dropdown 
+    }); 
+    </script> 
+
+    <script>
+      anchors.options = {
+      visible: 'hover',
+      icon: "\uf0c1"
+      };
+    anchors.add();
+    </script>
+
+    </body>
+</html>
