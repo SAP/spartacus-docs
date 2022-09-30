@@ -15,7 +15,7 @@ The following instructions describe how to build a storefront application, for b
 
 ## Prerequisites
 
-To work with SmartEdit, your Spartacus application needs to use the `webApplicationInjector.js` file that is shipped with the version of SAP Commerce Cloud that you are using. In Spartacus 5.0, the `webApplicationInjector.js` file has been updated to work with SAP Commerce Cloud 2211. If you are using SAP Commerce Cloud 2211, then no action is required. However, if you are using an older version of SAP Commerce Cloud, then you need to replace the `webApplicationInjector.js` file in your Spartacus application with the `webApplicationInjector.js` file that is included with your version of SAP Commerce Cloud. For more information, see [Web Application Injector](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html).
+For Spartacus to work with SmartEdit, your Spartacus application needs to use the `webApplicationInjector.js` file that is shipped with the version of SAP Commerce Cloud that you are using. In Spartacus 5.0, the `webApplicationInjector.js` file has been updated to work with SAP Commerce Cloud 2211. If you are using SAP Commerce Cloud 2211, then no action is required. However, if you are using an older version of SAP Commerce Cloud, then you need to replace the `webApplicationInjector.js` file in your Spartacus application with the `webApplicationInjector.js` file that is included with your version of SAP Commerce Cloud. For more information, see [Web Application Injector](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html).
 
 ## Front End Development Requirements
 
