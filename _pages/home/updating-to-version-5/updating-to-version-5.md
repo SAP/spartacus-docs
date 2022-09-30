@@ -31,7 +31,7 @@ To update to version 5.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics@5
 ```
 
-When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [5.0 Typescript Breaking Changes](https://sap.github.io/spartacus-docs/beta-docs/5-0-typescript-breaking-changes/)).
+When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [5.0 Typescript Breaking Changes](https://sap.github.io/spartacus-docs/beta-docs/5-0-typescript-breaking-changes/).
 
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
 
