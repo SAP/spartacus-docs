@@ -1725,6 +1725,7 @@
       <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
       <li><a href="#installing-dependencies" id="markdown-toc-installing-dependencies">Installing Dependencies</a></li>
       <li><a href="#checking-spartacus-configurationmodulets-for-base-url-and-other-settings" id="markdown-toc-checking-spartacus-configurationmodulets-for-base-url-and-other-settings">Checking spartacus-configuration.module.ts for Base URL and Other Settings</a></li>
+      <li><a href="#updating-the-web-application-injector" id="markdown-toc-updating-the-web-application-injector">Updating the Web Application Injector</a></li>
       <li><a href="#starting-your-spartacus-app" id="markdown-toc-starting-your-spartacus-app">Starting Your Spartacus App</a></li>
     </ul>
   </li>
@@ -1734,7 +1735,7 @@
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<p>Before carrying out the procedures below, ensure the following front end and back end requirements are in place.</p>
+<p>If you are using a version of SAP Commerce Cloud that is older than 2211, you will need the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file that ships with your version of SAP Commerce Cloud. For more information, see <a href="/spartacus-docs/beta-docs/building-the-spartacus-storefront-from-libraries-5-x/#updating-the-web-application-injector">Updating the Web Application Injector</a>.</p>
 
 <h2 id="front-end-development-requirements">Front End Development Requirements</h2>
 
@@ -1855,6 +1856,10 @@
     </ul>
   </li>
 </ul>
+
+<h3 id="updating-the-web-application-injector">Updating the Web Application Injector</h3>
+
+<p>For Spartacus to work with SmartEdit, your Spartacus application needs to use the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file that is shipped with the version of SAP Commerce Cloud that you are using. In Spartacus 5.0, the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file has been updated to work with SAP Commerce Cloud 2211. If you are using SAP Commerce Cloud 2211, then no action is required. However, if you are using an older version of SAP Commerce Cloud, then you need to replace the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file in your Spartacus application with the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file that is included with your version of SAP Commerce Cloud. For more information, see <a href="https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html">Web Application Injector</a>.</p>
 
 <h3 id="starting-your-spartacus-app">Starting Your Spartacus App</h3>
 
