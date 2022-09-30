@@ -121,13 +121,13 @@ provideConfig(<CmsConfig>{
 
 ## Extending Scroll to Top
 
-The Scroll-to-Top feature in Spartacus is customizable, meaning you can substitute another action for Scroll to Top. One such common example is replacing Scroll-to-Top button with displaying a floating Cart icon, as demonstrated below. As a result you can access the Cart by a single click from everywhere.
+The Scroll-to-Top feature in Spartacus is customizable, meaning you can substitute another action for "Scroll to Top". One such common example is replacing "Scroll to Top"-button with displaying a floating Cart icon, as demonstrated below. As a result you can access the Cart by a single click from everywhere.
 
 ![floating-cart-button.png]({{ site.baseurl }}/images/floating-cart-button.png)
 
 1. Creating a new component
 
-To substitute the existing component you will need to create a new component that takes its place. For that you create a new directory inside your angular app: `src/components/scroll-to-top`. This directory will store all the new component files. You start with copying the existing component you want to replace from the [Spartacus-Repository](https://github.com/SAP/spartacus). The scroll-to-top-files can be found at [spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top/](https://github.com/SAP/spartacus/tree/develop/projects/storefrontlib/cms-components/navigation/scroll-to-top). This will be the base of the new component.
+To substitute the existing component create a new directory inside your angular app: `src/components/scroll-to-top`. You start by copying the existing component source files from the Spartacus-Repository  [spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top/](https://github.com/SAP/spartacus/tree/develop/projects/storefrontlib/cms-components/navigation/scroll-to-top). This will be the base of the new component.
 
 Remove all lines that import relative from paths inside **scroll-to-top.component.ts** and **scroll-to-top.module.ts**. Then add imports from `@spartacus/storefront`:
 
