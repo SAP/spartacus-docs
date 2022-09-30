@@ -26,8 +26,6 @@ docs:
                   underchildren:
                       - title: "Checkout Libraries Release Notes"
                         url: /checkout-libraries-release-notes/
-                      - title: "5.0 Typescript Breaking Changes"
-                        url: /5-0-typescript-breaking-changes/
                 - title: "Updating to Version 4.0 ➢"
                   url: /updating-to-version-4/
                   underchildren:
