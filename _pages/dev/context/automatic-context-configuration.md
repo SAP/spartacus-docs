@@ -183,7 +183,7 @@ If you are using automatic site configuration, can set up the Spartacus configur
     }
     ```
 
-## Static Context Configuration
+#### Static Context Configuration
 
 If you are using static context configuration, you need to populate the `context.custom` with all possible valid values of the custom context. The following is an example from `app.module.ts`:
 
@@ -195,7 +195,7 @@ providers: [
 ]
 ```
 
-## Updating the Context Services Mapping
+### Updating the Context Services Mapping
 
 After configuring your custom context, you need to provide the `ContextServiceMap` that contains the custom context service. You can provide this in your app module, as shown in the following example:
 
