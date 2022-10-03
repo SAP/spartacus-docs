@@ -127,7 +127,16 @@ The Scroll-to-Top feature in Spartacus is customizable, meaning you can substitu
 
 1. Creating a new component
 
-To substitute the existing component create a new directory inside your angular app: `src/components/scroll-to-top`. You start by copying the existing component source files from the Spartacus-Repository  [spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top/](https://github.com/SAP/spartacus/tree/develop/projects/storefrontlib/cms-components/navigation/scroll-to-top). This will be the base of the new component.
+To substitute the existing component create a new directory inside your angular app: `src/components/scroll-to-top`. You start by copying the existing component source files from the Spartacus-Repository  [spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top/](https://github.com/SAP/spartacus/tree/develop/projects/storefrontlib/cms-components/navigation/scroll-to-top). This will be the base of the new component. Create a `src/components` and run the clone command:
+
+```bash
+git clone \
+  --depth 1  \
+  --filter=blob:none  \
+  https://github.com/SAP/spartacus && \
+cp -R spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top ./ && \
+rm -rf spartacus
+```
 
 Remove all lines that import relative from paths inside **scroll-to-top.component.ts** and **scroll-to-top.module.ts**. Then add imports from `@spartacus/storefront`:
 
