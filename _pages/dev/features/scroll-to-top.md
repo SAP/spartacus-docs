@@ -262,7 +262,7 @@ Replace the iconType `iconTypes.CARET_UP` with `iconTypes.CART`, the current act
 
 5. Replace the existing component
 
-First remove the original module from the **import** at the top of the file:
+First remove the original module from the **import** at the top of `src/app/spartacus/spartacus-features.module.ts`:
 
 ```javascript
 import { [...], ScrollToTopModule, [...] } from   "@spartacus/storefront";
@@ -271,5 +271,5 @@ import { [...], ScrollToTopModule, [...] } from   "@spartacus/storefront";
 Then you need to add a new **import** at the top of the file, that imports the new component:
 
 ```javascript
-import { ScrollToTopModule } from   '../components/scroll-to-top/scroll-to-top.module';
+import { ScrollToTopModule } from   '../../components/scroll-to-top/scroll-to-top.module';
 ```
