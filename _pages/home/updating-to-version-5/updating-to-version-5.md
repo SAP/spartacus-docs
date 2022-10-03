@@ -21,9 +21,13 @@ Afterwards, you need to upgrade third party dependencies to the version that is 
 
 For more information, see the official [Angular Update Guide](https://update.angular.io/).
 
-## Downloading Spartacus Libraries from the Repo Based Shipment Channel
+## Downloading Spartacus Libraries from the Repository Based Shipment Channel
 
-Text...
+In order to use the Repository Based Shipment Channel to download Spartacus, you must do the following:
+1. Have an S-User created that has the appropriate licenses to download Spartacus
+2. Log into https://ui.repositories.cloud.sap/www/webapp/users and create a user
+3. Once a user is created, generate and copy its NPM Base64 Credentials
+4. Follow the steps found on the Repository Based Shipment Channel documentation regarding how to download npm packages https://shipments.pages.repositories.cloud.sap/docs/shipment-sap-client.html#data-consumption-npm-repository. Use the credentials copied in step 4 for the auth token described in this documentation.
 
 ## Upgrading Spartacus to 5.0
 
