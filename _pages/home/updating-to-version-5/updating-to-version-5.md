@@ -21,6 +21,10 @@ Afterwards, you need to upgrade third party dependencies to the version that is 
 
 For more information, see the official [Angular Update Guide](https://update.angular.io/).
 
+## Downloading the Spartacus Libraries from the Repo Based Shipment Channel
+
+Text...
+
 ## Upgrading Spartacus to 5.0
 
 Spartacus 5.0 includes many new features and fixes. Since this update is a major release, some of the updates may also be breaking changes for your application. In this case, additional work on your side may be required to fix issues that result from upgrading from 4.x to 5.0.
