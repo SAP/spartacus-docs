@@ -188,7 +188,7 @@ You can configure this as follows:
 ```ts
 authentication: {
   OAuthLibConfig: {
-    responseType: 'token', // 'code` for Authorization Code Flow
+    responseType: 'token', // 'code' for Authorization Code Flow
   },
 },
 ```
