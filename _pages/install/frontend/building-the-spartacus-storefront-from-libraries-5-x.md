@@ -51,6 +51,29 @@ The following procedure describes how to create a new Angular application with t
    cd mystore
    ```
 
+## Downloading Spartacus Libraries from the Repository Based Shipment Channel
+
+To install Spartacus 5.0, you need to download the Spartacus 5.0 libraries from the Repository Based Shipment Channel (RBSC), as described in the following procedure.
+
+1. Create an S-user for RBSC that has the appropriate licenses to download the Spartacus libraries.
+2. Log into your S-user account at the following web address: `https://ui.repositories.cloud.sap/www/webapp/users/`
+3. If you have not already done so, click on **Add user** and create a technical user.
+4. Select the technical user and copy the generated `NPM Base64 Credentials`.
+5. In the root of your Angular application, create an `.npmrc` file with the following content:
+
+   ```text
+   @spartacus:registry=https://<Repository_Name>.master.npmsrv.repositories.cloud.sap/
+   //<Repository_Name>.master.npmsrv.repositories.cloud.sap/:_auth=<NPM_Base64_Credentials>
+   registry=https://registry.npmjs.org/
+   always-auth=true
+   email=<mail>
+   ```
+
+6. Set the `Repository_Name` to the repository where the Spartacus libraries are held.
+7. Set the `NPM_Base64_Credentials` to the value that you copied from your RBSC technical user earlier in this procedure.
+
+You can now proceed to [Spartacus Project Setup](#spartacus-project-setup).
+
 ## Spartacus Project Setup
 
 The easiest way to start a new project is to use Spartacus schematics to quickly set up your application.
@@ -62,7 +85,7 @@ For a full list of available parameters, see [{% assign linkedpage = site.pages 
 Run the following command to install the latest official release of Spartacus using schematics:
 
 ```bash
-ng add @spartacus/schematics@latest
+ng add @spartacus/schematics@5.0.0
 ```
 
 When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the `User - Account` feature.
