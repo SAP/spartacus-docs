@@ -157,15 +157,13 @@ Even if you are not logged in, you can add products to the cart using the quick 
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-3.png" alt="Cart Quick Order Form" width="700" border="1px" />
 
-## Using the Quick Order Page
-
-The following sections describe how to use the quick order feature in the Spartacus storefront.
-
-### Adding Products with the Quick Order Page
+## The Quick Order Page
 
 The **Quick Order** page provides a form for adding new products, and displays a list of products that have already been added. The list includes information about the products that have been added to the **Quick Order** page, such as the product image, name, availability, price, and quantity that you want to add to your cart. The following is an example:
 
 <img src="{{ site.baseurl }}/assets/images/quick-order-4.png" alt="Quick Order Page" width="700" border="1px" />
+
+### Adding Products with the Quick Order Page
 
 You can add products to the quick order list and then to your cart, as follows:
 
