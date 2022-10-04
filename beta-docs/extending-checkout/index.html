@@ -1988,6 +1988,7 @@
   <li><a href="#components" id="markdown-toc-components">Components</a></li>
   <li><a href="#protecting-routes" id="markdown-toc-protecting-routes">Protecting Routes</a></li>
   <li><a href="#checkoutstepssetguard" id="markdown-toc-checkoutstepssetguard">CheckoutStepsSetGuard</a>    <ul>
+      <li><a href="#checkoutstepssetguard-example" id="markdown-toc-checkoutstepssetguard-example">CheckoutStepsSetGuard Example</a></li>
       <li><a href="#checkoutguard" id="markdown-toc-checkoutguard">CheckoutGuard</a></li>
       <li><a href="#checkoutauthguard" id="markdown-toc-checkoutauthguard">CheckoutAuthGuard</a></li>
       <li><a href="#cartnotemptyguard" id="markdown-toc-cartnotemptyguard">CartNotEmptyGuard</a></li>
@@ -2124,6 +2125,8 @@
 </code></pre></div></div>
 
 <p>Then, when you try to access the Review Order page, Spartacus first checks the guards for every component on that page, and only displays the page if every guard returns <code class="language-plaintext highlighter-rouge">true</code>. If one of the guard returns <code class="language-plaintext highlighter-rouge">false</code>, or returns a redirect URL, Spartacus redirects to the provided URL.</p>
+
+<h3 id="checkoutstepssetguard-example">CheckoutStepsSetGuard Example</h3>
 
 <p>The following is an example scenario:</p>
 

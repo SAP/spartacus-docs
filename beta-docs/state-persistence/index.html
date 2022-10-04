@@ -2168,7 +2168,10 @@ This feature is introduced with version 2.0 of the Spartacus libraries.
 
 <ul id="markdown-toc">
   <li><a href="#implementing-complete-state-persistence-for-a-feature" id="markdown-toc-implementing-complete-state-persistence-for-a-feature">Implementing Complete State Persistence for a Feature</a></li>
-  <li><a href="#state-synchronization-in-action" id="markdown-toc-state-synchronization-in-action">State Synchronization in Action</a></li>
+  <li><a href="#state-synchronization-in-action" id="markdown-toc-state-synchronization-in-action">State Synchronization in Action</a>    <ul>
+      <li><a href="#state-synchronization-example" id="markdown-toc-state-synchronization-example">State Synchronization Example</a></li>
+    </ul>
+  </li>
 </ul>
 
 <hr />
@@ -2296,6 +2299,8 @@ This feature is introduced with version 2.0 of the Spartacus libraries.
   <li><code class="language-plaintext highlighter-rouge">context$</code>: <code class="language-plaintext highlighter-rouge">this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID])</code> // The cart is valid only on the same base site</li>
   <li><code class="language-plaintext highlighter-rouge">onRead</code>: function dispatches <code class="language-plaintext highlighter-rouge">ClearCart</code> action, and then <code class="language-plaintext highlighter-rouge">SetActiveCartId</code> when the id is read from storage</li>
 </ul>
+
+<h3 id="state-synchronization-example">State Synchronization Example</h3>
 
 <p>The following describes an example flow of the state synchronization:</p>
 

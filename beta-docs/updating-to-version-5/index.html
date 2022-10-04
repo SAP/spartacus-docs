@@ -1805,7 +1805,7 @@
     
     <h2 id="upgrading-your-angular-libraries">Upgrading Your Angular Libraries</h2>
 
-<p>Before upgrading Spartacus to 5.0, you first need to make sure your Angular libraries are up to date. Spartacus 5.0 requires Angular 14.</p>
+<p>Before upgrading Spartacus to version 5.0, you first need to make sure your Angular libraries are up to date. Spartacus 5.0 requires Angular 14.</p>
 
 <p>You can upgrade your application to Angular 14 as follows:</p>
 
@@ -1822,6 +1822,31 @@
 <p>Afterwards, you need to upgrade third party dependencies to the version that is compatible with Angular 14, such as <code class="language-plaintext highlighter-rouge">@ng-bootstrap/ng-bootstrap</code>, <code class="language-plaintext highlighter-rouge">@ng-select/ng-select</code> or <code class="language-plaintext highlighter-rouge">@ngrx/store</code>.</p>
 
 <p>For more information, see the official <a href="https://update.angular.io/">Angular Update Guide</a>.</p>
+
+<h2 id="downloading-spartacus-libraries-from-the-repository-based-shipment-channel">Downloading Spartacus Libraries from the Repository Based Shipment Channel</h2>
+
+<p>To upgrade Spartacus to version 5.0, you need to download the Spartacus 5.0 libraries from the Repository Based Shipment Channel (RBSC), as described in the following procedure.</p>
+
+<ol>
+  <li>Create an S-user for RBSC that has the appropriate licenses to download the Spartacus libraries.</li>
+  <li>Log into your S-user account at the following web address: <code class="language-plaintext highlighter-rouge">https://ui.repositories.cloud.sap/www/webapp/users/</code></li>
+  <li>If you have not already done so, click on <strong>Add user</strong> and create a technical user.</li>
+  <li>Select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
+  <li>
+    <p>In the root of your Spartacus project, create an <code class="language-plaintext highlighter-rouge">.npmrc</code> file with the following content:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/
+//&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/:_auth=&lt;NPM_Base64_Credentials&gt;
+registry=https://registry.npmjs.org/
+always-auth=true
+email=&lt;mail&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>Set the <code class="language-plaintext highlighter-rouge">Repository_Name</code> to the repository where the Spartacus libraries are held.</li>
+  <li>Set the <code class="language-plaintext highlighter-rouge">NPM_Base64_Credentials</code> to the value that you copied from your RBSC technical user earlier in this procedure.</li>
+</ol>
+
+<p>You can now proceed to <a href="#upgrading-spartacus-to-50">Upgrading Spartacus to 5.0</a>.</p>
 
 <h2 id="upgrading-spartacus-to-50">Upgrading Spartacus to 5.0</h2>
 

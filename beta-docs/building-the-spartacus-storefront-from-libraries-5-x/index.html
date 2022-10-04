@@ -1720,6 +1720,7 @@
   <li><a href="#front-end-development-requirements" id="markdown-toc-front-end-development-requirements">Front End Development Requirements</a></li>
   <li><a href="#back-end-server-requirements" id="markdown-toc-back-end-server-requirements">Back End Server Requirements</a></li>
   <li><a href="#creating-a-new-angular-app" id="markdown-toc-creating-a-new-angular-app">Creating a New Angular App</a></li>
+  <li><a href="#downloading-spartacus-libraries-from-the-repository-based-shipment-channel" id="markdown-toc-downloading-spartacus-libraries-from-the-repository-based-shipment-channel">Downloading Spartacus Libraries from the Repository Based Shipment Channel</a></li>
   <li><a href="#spartacus-project-setup" id="markdown-toc-spartacus-project-setup">Spartacus Project Setup</a>    <ul>
       <li><a href="#setting-up-your-project-using-schematics" id="markdown-toc-setting-up-your-project-using-schematics">Setting Up Your Project Using Schematics</a></li>
       <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
@@ -1780,6 +1781,31 @@
   </li>
 </ol>
 
+<h2 id="downloading-spartacus-libraries-from-the-repository-based-shipment-channel">Downloading Spartacus Libraries from the Repository Based Shipment Channel</h2>
+
+<p>To install Spartacus 5.0, you need to download the Spartacus 5.0 libraries from the Repository Based Shipment Channel (RBSC), as described in the following procedure.</p>
+
+<ol>
+  <li>Create an S-user for RBSC that has the appropriate licenses to download the Spartacus libraries.</li>
+  <li>Log into your S-user account at the following web address: <code class="language-plaintext highlighter-rouge">https://ui.repositories.cloud.sap/www/webapp/users/</code></li>
+  <li>If you have not already done so, click on <strong>Add user</strong> and create a technical user.</li>
+  <li>Select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
+  <li>
+    <p>In the root of your Angular application, create an <code class="language-plaintext highlighter-rouge">.npmrc</code> file with the following content:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/
+//&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/:_auth=&lt;NPM_Base64_Credentials&gt;
+registry=https://registry.npmjs.org/
+always-auth=true
+email=&lt;mail&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>Set the <code class="language-plaintext highlighter-rouge">Repository_Name</code> to the repository where the Spartacus libraries are held.</li>
+  <li>Set the <code class="language-plaintext highlighter-rouge">NPM_Base64_Credentials</code> to the value that you copied from your RBSC technical user earlier in this procedure.</li>
+</ol>
+
+<p>You can now proceed to <a href="#spartacus-project-setup">Spartacus Project Setup</a>.</p>
+
 <h2 id="spartacus-project-setup">Spartacus Project Setup</h2>
 
 <p>The easiest way to start a new project is to use Spartacus schematics to quickly set up your application.</p>
@@ -1790,7 +1816,7 @@
 
 <p>Run the following command to install the latest official release of Spartacus using schematics:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics@latest
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng add @spartacus/schematics@5.0.0
 </code></pre></div></div>
 
 <p>When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the <code class="language-plaintext highlighter-rouge">User - Account</code> feature.</p>
