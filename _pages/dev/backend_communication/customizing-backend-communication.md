@@ -1,5 +1,5 @@
 ---
-title: Customizing Backend Communication
+title: Customizing Back End Communication
 ---
 
 This is a landing page for backend communication-related topics. This includes the following topics:
