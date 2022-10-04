@@ -126,6 +126,8 @@ As an example, if you wanted to restrict access to the Review Order page, so tha
 
 Then, when you try to access the Review Order page, Spartacus first checks the guards for every component on that page, and only displays the page if every guard returns `true`. If one of the guard returns `false`, or returns a redirect URL, Spartacus redirects to the provided URL.
 
+### CheckoutStepsSetGuard Example
+
 The following is an example scenario:
 
 1. A user sets the shipping address.
