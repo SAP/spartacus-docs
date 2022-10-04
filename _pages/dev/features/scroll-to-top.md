@@ -31,18 +31,18 @@ To enable the scroll to top feature in your storefront, add the `ScrollToTopComp
 
 If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ScrollToTopComponent` is already enabled. If you wish to enable the scroll to top feature and you are not using the `spartacussampledata` extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.
 
-For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
-
-### Adding the Scroll to Top CMS Component Manually
-
-You can add the `ScrollToTopComponent` CMS component to Spartacus using ImpEx.
-
 **Note:** The `$contentCV` variable that is used in the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 ```
+
+For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
+
+### Adding the Scroll to Top CMS Component Manually
+
+You can add the `ScrollToTopComponent` CMS component to Spartacus using ImpEx.
 
 1. Create the `ScrollToTopComponent` CMS component with the following ImpEx:
 
