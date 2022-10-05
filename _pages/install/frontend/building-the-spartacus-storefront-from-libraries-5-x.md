@@ -38,10 +38,8 @@ The following procedure describes how to create a new Angular application with t
 2. Using the Angular CLI, generate a new Angular application with the following command:
 
    ```bash
-   ng new mystore --style=scss
+   ng new mystore --style=scss --routing=false
    ```
-
-   When prompted for Angular routing, enter `n` for 'no'.
 
    The `mystore` folder and the new app are created.
 
