@@ -26,22 +26,21 @@ For more information, see the official [Angular Update Guide](https://update.ang
 To upgrade Spartacus to version 5.0, you need to download the Spartacus 5.0 libraries from the Repository Based Shipment Channel (RBSC), as described in the following procedure.
 
 1. Create an S-user for RBSC that has the appropriate licenses to download the Spartacus libraries.
-2. Log into your S-user account at the following web address: `https://ui.repositories.cloud.sap/www/webapp/users/`
-3. If you have not already done so, click on **Add user** and create a technical user.
-4. Select the technical user and copy the generated `NPM Base64 Credentials`.
-5. In the root of your Spartacus project, create an `.npmrc` file with the following content:
+1. Log into your S-user account at the following web address: `https://ui.repositories.cloud.sap/www/webapp/users/`
+1. If you have not already done so, click on **Add user** and create a technical user.
+1. In the root of your Spartacus project, create an `.npmrc` file with the following content:
 
    ```text
-   @spartacus:registry=https://<repositorynumber>.dev.npmsrv.base.repositories.cloud.sap/
-   //<repositorynumber>.dev.npmsrv.base.repositories.cloud.sap/:_auth=<npmcredentialsfromrbsc>
+   @spartacus:registry=https://<repositorynumber>.master.npmsrv.base.repositories.cloud.sap/
+   //<repositorynumber>.master.npmsrv.base.repositories.cloud.sap/:_auth=<npmcredentialsfromrbsc>
    always-auth=true
    ```
 
    **Note:** The two slashes (`//`) at the start of the second line are required.
 
-6. Replace the two instances of `<repositorynumber>` with the repository number for the release, which is provided by SAP.
-7. In the **User Management** tab of the RBSC website, select the technical user and copy the generated `NPM Base64 Credentials`.
-8. In the `.npmrc` file, replace `<npmcredentialsfromrbsc>` with the `NPM Base64 Credentials` you copied from the RBSC website.
+1. Replace the two instances of `<repositorynumber>` with the repository number for the release, which is provided by SAP.
+1. In the **User Management** tab of the [RBSC website](https://ui.repositories.cloud.sap/www/webapp/users/), select the technical user and copy the generated `NPM Base64 Credentials`.
+1. In the `.npmrc` file, replace `<npmcredentialsfromrbsc>` with the `NPM Base64 Credentials` you copied from the RBSC website.
 
 You can now proceed to [Upgrading Spartacus to 5.0](#upgrading-spartacus-to-50).
 
@@ -52,7 +51,7 @@ Spartacus 5.0 includes many new features and fixes. Since this update is a major
 To update to version 5.0 of Spartacus, run the following command in the workspace of your Angular application:
 
 ```bash
-ng update @spartacus/schematics@5
+ng update @spartacus/schematics@5.0.0
 ```
 
 When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [{% assign linkedpage = site.pages | where: "name", "5-0-typescript-breaking-changes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/5-0-typescript-breaking-changes.md %}).
