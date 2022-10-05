@@ -55,7 +55,7 @@ To install Spartacus 5.0, you need to download the Spartacus 5.0 libraries from 
 
 1. Create an S-user for RBSC that has the appropriate licenses to download the Spartacus libraries.
 1. Log into your S-user account at the following web address: `https://ui.repositories.cloud.sap/www/webapp/users/`
-1. If you have not already done so, click on **Add user** and create a technical user.
+1. If you have not already done so, click on **Add User** and create a technical user.
 1. In the root of your Angular application, create an `.npmrc` file with the following content:
 
    ```text
