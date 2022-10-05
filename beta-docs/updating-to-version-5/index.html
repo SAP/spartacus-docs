@@ -1830,20 +1830,19 @@
 <ol>
   <li>Create an S-user for RBSC that has the appropriate licenses to download the Spartacus libraries.</li>
   <li>Log into your S-user account at the following web address: <code class="language-plaintext highlighter-rouge">https://ui.repositories.cloud.sap/www/webapp/users/</code></li>
-  <li>If you have not already done so, click on <strong>Add user</strong> and create a technical user.</li>
-  <li>Select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
+  <li>If you have not already done so, click on <strong>Add User</strong> and create a technical user.</li>
   <li>
     <p>In the root of your Spartacus project, create an <code class="language-plaintext highlighter-rouge">.npmrc</code> file with the following content:</p>
 
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;repositorynumber&gt;.dev.npmsrv.base.repositories.cloud.sap/
-//&lt;repositorynumber&gt;.dev.npmsrv.base.repositories.cloud.sap/:_auth=&lt;npmcredentialsfromrbsc&gt;
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;repositorynumber&gt;.master.npmsrv.base.repositories.cloud.sap/
+//&lt;repositorynumber&gt;.master.npmsrv.base.repositories.cloud.sap/:_auth=&lt;npmcredentialsfromrbsc&gt;
 always-auth=true
 </code></pre></div>    </div>
 
     <p><strong>Note:</strong> The two slashes (<code class="language-plaintext highlighter-rouge">//</code>) at the start of the second line are required.</p>
   </li>
   <li>Replace the two instances of <code class="language-plaintext highlighter-rouge">&lt;repositorynumber&gt;</code> with the repository number for the release, which is provided by SAP.</li>
-  <li>In the <strong>User Management</strong> tab of the RBSC website, select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
+  <li>In the <strong>User Management</strong> tab of the <a href="https://ui.repositories.cloud.sap/www/webapp/users/">RBSC website</a>, select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
   <li>In the <code class="language-plaintext highlighter-rouge">.npmrc</code> file, replace <code class="language-plaintext highlighter-rouge">&lt;npmcredentialsfromrbsc&gt;</code> with the <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code> you copied from the RBSC website.</li>
 </ol>
 
@@ -1855,7 +1854,7 @@ always-auth=true
 
 <p>To update to version 5.0 of Spartacus, run the following command in the workspace of your Angular application:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng update @spartacus/schematics@5
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng update @spartacus/schematics@5.0.0
 </code></pre></div></div>
 
 <p>When the update has finished running, inspect your code for comments that begin with <code class="language-plaintext highlighter-rouge">// TODO:Spartacus</code>. For detailed information about each added comment, see <a href="/spartacus-docs/beta-docs/5-0-typescript-breaking-changes/">5.0 Typescript Breaking Changes</a>.</p>
