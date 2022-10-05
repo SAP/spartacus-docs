@@ -32,15 +32,16 @@ To upgrade Spartacus to version 5.0, you need to download the Spartacus 5.0 libr
 5. In the root of your Spartacus project, create an `.npmrc` file with the following content:
 
    ```text
-   @spartacus:registry=https://<Repository_Name>.master.npmsrv.repositories.cloud.sap/
-   //<Repository_Name>.master.npmsrv.repositories.cloud.sap/:_auth=<NPM_Base64_Credentials>
-   registry=https://registry.npmjs.org/
+   @spartacus:registry=https://<repositorynumber>.dev.npmsrv.base.repositories.cloud.sap/
+   //<repositorynumber>.dev.npmsrv.base.repositories.cloud.sap/:_auth=<npmcredentialsfromrbsc>
    always-auth=true
-   email=<mail>
    ```
 
-6. Set the `Repository_Name` to the repository where the Spartacus libraries are held.
-7. Set the `NPM_Base64_Credentials` to the value that you copied from your RBSC technical user earlier in this procedure.
+   **Note:** The two slashes (`//`) at the start of the second line are required.
+
+6. Replace the two instances of `<repositorynumber>` with the repository number for the release, which is provided by SAP.
+7. In the **User Management** tab of the RBSC website, select the technical user and copy the generated `NPM Base64 Credentials`.
+8. In the `.npmrc` file, replace `<npmcredentialsfromrbsc>` with the `NPM Base64 Credentials` you copied from the RBSC website.
 
 You can now proceed to [Upgrading Spartacus to 5.0](#upgrading-spartacus-to-50).
 

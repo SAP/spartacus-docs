@@ -68,14 +68,16 @@ With the following changes, the Angular build process is modified to match the b
 
 **Note:** In the following steps, substitute `APPNAME` with the name of your app.
 
+### Applying the Workaround for the New Manifest Format
+
 1. In `angular.json`, the following appears:
 
    ```json
    "outputPath": "dist/APPNAME/browser"
    ```
-   
+
    Change this to the following:
-   
+
    ```json
    "outputPath": "dist/APPNAME"
    ```
@@ -113,6 +115,8 @@ Use this workaround if the `manifest.json` of your js-app looks like the followi
 With the following changes, the Angular build process is modified to match the structure that is expected by SAP Commerce Cloud in the Public Cloud.
 
 **Note:** In the following steps, substitute "APPNAME" with the name of your app.
+
+### Applying the Workaround for the Old Manifest Format
 
 1. In `angular.json`, the following appears:
 
