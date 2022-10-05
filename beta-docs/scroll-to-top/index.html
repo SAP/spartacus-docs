@@ -2308,17 +2308,17 @@ This feature is introduced with version 5.0 of the Spartacus libraries.
 
 <p>If you are using version 5.0 or newer of the <code class="language-plaintext highlighter-rouge">spartacussampledata</code> extension, the <code class="language-plaintext highlighter-rouge">ScrollToTopComponent</code> is already enabled. If you wish to enable the scroll to top feature and you are not using the <code class="language-plaintext highlighter-rouge">spartacussampledata</code> extension, you can create the scroll to top CMS component using ImpEx, as described in the following section.</p>
 
-<p>For more information about the <code class="language-plaintext highlighter-rouge">spartacussampledata</code> extension, see <a href="/spartacus-docs/beta-docs/spartacussampledata-extension/">Spartacus Sample Data Extension</a>.</p>
-
-<h3 id="adding-the-scroll-to-top-cms-component-manually">Adding the Scroll to Top CMS Component Manually</h3>
-
-<p>You can add the <code class="language-plaintext highlighter-rouge">ScrollToTopComponent</code> CMS component to Spartacus using ImpEx.</p>
-
 <p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">$contentCV</code> variable that is used in the following ImpEx examples, and which stores information about the content catalog, is defined as follows:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$contentCatalog=powertools-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 </code></pre></div></div>
+
+<p>For more information about the <code class="language-plaintext highlighter-rouge">spartacussampledata</code> extension, see <a href="/spartacus-docs/beta-docs/spartacussampledata-extension/">Spartacus Sample Data Extension</a>.</p>
+
+<h3 id="adding-the-scroll-to-top-cms-component-manually">Adding the Scroll to Top CMS Component Manually</h3>
+
+<p>You can add the <code class="language-plaintext highlighter-rouge">ScrollToTopComponent</code> CMS component to Spartacus using ImpEx.</p>
 
 <ol>
   <li>

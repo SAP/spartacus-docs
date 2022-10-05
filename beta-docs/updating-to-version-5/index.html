@@ -1835,15 +1835,16 @@
   <li>
     <p>In the root of your Spartacus project, create an <code class="language-plaintext highlighter-rouge">.npmrc</code> file with the following content:</p>
 
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/
-//&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/:_auth=&lt;NPM_Base64_Credentials&gt;
-registry=https://registry.npmjs.org/
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;repositorynumber&gt;.dev.npmsrv.base.repositories.cloud.sap/
+//&lt;repositorynumber&gt;.dev.npmsrv.base.repositories.cloud.sap/:_auth=&lt;npmcredentialsfromrbsc&gt;
 always-auth=true
-email=&lt;mail&gt;
 </code></pre></div>    </div>
+
+    <p><strong>Note:</strong> The two slashes (<code class="language-plaintext highlighter-rouge">//</code>) at the start of the second line are required.</p>
   </li>
-  <li>Set the <code class="language-plaintext highlighter-rouge">Repository_Name</code> to the repository where the Spartacus libraries are held.</li>
-  <li>Set the <code class="language-plaintext highlighter-rouge">NPM_Base64_Credentials</code> to the value that you copied from your RBSC technical user earlier in this procedure.</li>
+  <li>Replace the two instances of <code class="language-plaintext highlighter-rouge">&lt;repositorynumber&gt;</code> with the repository number for the release, which is provided by SAP.</li>
+  <li>In the <strong>User Management</strong> tab of the RBSC website, select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
+  <li>In the <code class="language-plaintext highlighter-rouge">.npmrc</code> file, replace <code class="language-plaintext highlighter-rouge">&lt;npmcredentialsfromrbsc&gt;</code> with the <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code> you copied from the RBSC website.</li>
 </ol>
 
 <p>You can now proceed to <a href="#upgrading-spartacus-to-50">Upgrading Spartacus to 5.0</a>.</p>

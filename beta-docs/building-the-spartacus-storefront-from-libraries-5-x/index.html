@@ -1743,7 +1743,7 @@
 <p>Your Angular development environment should include the following:</p>
 <ul>
     <li><a href="https://angular.io/">Angular CLI:</a> Version <strong>14.2.3</strong> or newer.</li>
-    <li><a href="https://nodejs.org/">Node.js:</a> Version <strong>16.10.x</strong> or newer.</li>
+    <li><a href="https://nodejs.org/">Node.js:</a> Version <strong>14.15</strong> or newer (but <strong>less than</strong> version 15), or <strong>16.10</strong> or newer.</li>
     <li><a href="https://classic.yarnpkg.com/">Yarn:</a> Version <strong>1.15</strong> or newer.</li>
 </ul>
 
@@ -1766,10 +1766,8 @@
   <li>
     <p>Using the Angular CLI, generate a new Angular application with the following command:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng new mystore <span class="nt">--style</span><span class="o">=</span>scss
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng new mystore <span class="nt">--style</span><span class="o">=</span>scss <span class="nt">--routing</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>    </div>
-
-    <p>When prompted for Angular routing, enter <code class="language-plaintext highlighter-rouge">n</code> for ‘no’.</p>
 
     <p>The <code class="language-plaintext highlighter-rouge">mystore</code> folder and the new app are created.</p>
   </li>
@@ -1793,15 +1791,16 @@
   <li>
     <p>In the root of your Angular application, create an <code class="language-plaintext highlighter-rouge">.npmrc</code> file with the following content:</p>
 
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/
-//&lt;Repository_Name&gt;.master.npmsrv.repositories.cloud.sap/:_auth=&lt;NPM_Base64_Credentials&gt;
-registry=https://registry.npmjs.org/
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@spartacus:registry=https://&lt;repositorynumber&gt;.dev.npmsrv.base.repositories.cloud.sap/
+//&lt;repositorynumber&gt;.dev.npmsrv.base.repositories.cloud.sap/:_auth=&lt;npmcredentialsfromrbsc&gt;
 always-auth=true
-email=&lt;mail&gt;
 </code></pre></div>    </div>
+
+    <p><strong>Note:</strong> The two slashes (<code class="language-plaintext highlighter-rouge">//</code>) at the start of the second line are required.</p>
   </li>
-  <li>Set the <code class="language-plaintext highlighter-rouge">Repository_Name</code> to the repository where the Spartacus libraries are held.</li>
-  <li>Set the <code class="language-plaintext highlighter-rouge">NPM_Base64_Credentials</code> to the value that you copied from your RBSC technical user earlier in this procedure.</li>
+  <li>Replace the two instances of <code class="language-plaintext highlighter-rouge">&lt;repositorynumber&gt;</code> with the repository number for the release, which is provided by SAP.</li>
+  <li>In the <strong>User Management</strong> tab of the RBSC website, select the technical user and copy the generated <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code>.</li>
+  <li>In the <code class="language-plaintext highlighter-rouge">.npmrc</code> file, replace <code class="language-plaintext highlighter-rouge">&lt;npmcredentialsfromrbsc&gt;</code> with the <code class="language-plaintext highlighter-rouge">NPM Base64 Credentials</code> you copied from the RBSC website.</li>
 </ol>
 
 <p>You can now proceed to <a href="#spartacus-project-setup">Spartacus Project Setup</a>.</p>
