@@ -151,7 +151,7 @@ availableDeliveryModes: [standardMode]
 result: STANDARD_CODE
 ```
 
-If you are using a custom code and have set ```defaultDeliveryMode: [STANDARD_CODE]```, you can expect the following behavior:
+If you are using a custom code and have set `defaultDeliveryMode: [STANDARD_CODE]`, you can expect the following behavior:
 
 ```text
 availableDeliveryModes: [freeMode, standardMode, premiumMode]
