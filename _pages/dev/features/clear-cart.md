@@ -31,6 +31,13 @@ You can enable the clear cart feature by installing the `@spartacus/cart` featur
 
 If you are using version 5.0 or newer of the `spartacussampledata` extension, the `ClearCartComponent` is already enabled. If you wish to enable the clear cart feature and you are not using the `spartacussampledata` extension, you can create the clear cart CMS component using ImpEx, as described in the following section.
 
+**Note:** The `$contentCV` variable that is used in the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
+
+```text
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+```
+
 For more information about the `spartacussampledata` extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
 For more information about installing libraries, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
@@ -38,13 +45,6 @@ For more information about installing libraries, see [Installing Additional Spar
 ### Adding the Clear Cart CMS Component Manually
 
 You can add the `ClearCartComponent` CMS component to Spartacus using ImpEx.
-
-**Note:** The `$contentCV` variable that is used in the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
-
-```text
-$contentCatalog=powertools-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
-```
 
 1. Create the `ClearCartComponent` with the following ImpEx:
 
