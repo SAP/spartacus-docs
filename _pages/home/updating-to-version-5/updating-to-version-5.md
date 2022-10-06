@@ -31,8 +31,8 @@ To upgrade Spartacus to version 5.0, you need to download the Spartacus 5.0 libr
 1. In the root of your Spartacus project, create an `.npmrc` file with the following content:
 
    ```text
-   @spartacus:registry=https://<repositorynumber>.master.npmsrv.base.repositories.cloud.sap/
-   //<repositorynumber>.master.npmsrv.base.repositories.cloud.sap/:_auth=<npmcredentialsfromrbsc>
+   @spartacus:registry=https://<repositorynumber>.npmsrv.base.repositories.cloud.sap/
+   //<repositorynumber>.npmsrv.base.repositories.cloud.sap/:_auth=<npmcredentialsfromrbsc>
    always-auth=true
    ```
 
