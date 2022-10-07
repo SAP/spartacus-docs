@@ -38,7 +38,7 @@ If you use custom methods in your project, you should add these methods to this 
 The allowed headers setting indicates the HTTP headers that are allowed for cross-origin requests. If these header are not allowed cross-origin, Spartacus will not get a response for a specific request. Most of the headers are standard headers, but there are a few headers that you might need that are feature specific. The following list provides an overview of all the headers that can be used.
 
 | Header | Description |
-| - |  |
+| --- | --- |
 | origin | The `origin` request header indicates where a request originates from. This is sent by the browser with each cross-origin request, and must therefore be configured for all requests. |
 | content-type | The `content-type` header is used to indicate the media type of the resource. It is not required for all APIs, but it is often used nonetheless. |
 | accept | The `accept` request header indicates the formats that can be read by the browser. It is sent pn a few occasions in Spartacus. |
