@@ -32,10 +32,7 @@ Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP
 
 Analyzing reports is a bit of work, so please ask yourself these questions before creating an issue:
 
-- Does the bug really apply to Spartacus?
-
-  There may be reasons the problem is occurring that have nothing to do with the Spartacus storefront code. Consider the following:
-
+- Does the bug really apply to Spartacus? There may be reasons the problem is occurring that have nothing to do with the Spartacus storefront code. Consider the following:
   - The problem may be caused by code that is not part of Spartacus.
   - The problem may be caused by data being sent to Spartacus through REST API calls.
   - The problem may be caused by incorrect CMS data sent by SAP Commerce Cloud, perhaps due to custom extensions.
@@ -56,21 +53,15 @@ If the bug does indeed apply to Spartacus code, please create an issue.
   - Precisely state what you expected as compared to the actual behavior you're seeing.
   - Include only those details that apply to the issue.
   - Be concise, but include details important for helping us in understanding the problem and finding the root cause.
-  - State the version you are testing, which browser you are using, and on which device.
-  
-    If it is possible to indicate what you've seen in other browser and device combinations, that is even better! For example, does the issue occur in all browsers, or just one browser on one particular operating system? (For example, "only in Firefox on Windows 10.)
+  - State the version you are testing, which browser you are using, and on which device. If it is possible to indicate what you've seen in other browser and device combinations, that is even better! For example, does the issue occur in all browsers, or just one browser on one particular operating system? (For example, "only in Firefox on Windows 10.)
   - If possible, include the last version where the bug was not present.
   - If the bug is more visual, please attach a screenshot and mark up the problem.
   - Generally, provide as much detail as necessary, but balance our need for information with how obvious the problem is.
-
 - Provide detailed, step-by-step instructions for reproducing the issue with an example, including, if possible:
-
   - A URL to your example
   - Any required username or password (but don't give us credentials that can be mis-used)
   - Screenshots if it helps us understand better.
-
 - Use our [issue templates](https://github.com/SAP/spartacus/issues/new/choose).
-
   - Do not include more than one bug per issue created. This helps us to analyze bugs more easily.
 
 Please report issues in English.
@@ -79,7 +70,7 @@ Please report issues in English.
 
 If you find a security issue, we'd rather you tell us directly instead of creating a public issue. This way we can fix it before it can be exploited.
 
-- SAP Customers: if you have discovered a security issue that is not covered by a published security note, please report it by creating a customer message at <https://launchpad.support.sap.com/#incident/solution.>
+- SAP Customers: if you have discovered a security issue that is not covered by a published security note, please report it by creating a customer message at [https://launchpad.support.sap.com/#incident/solution](https://launchpad.support.sap.com/#incident/solution).
 - Researchers/non-Customers can now use our vulnerability submission form to report findings to SAP. More information about how to report security issues to SAP can be found [here](https://www.sap.com/about/trust-center/security/incident-management.html).
 - Also refer to the general [SAP security information page](https://www.sap.com/corporate/en/company/security.html).
 
@@ -141,13 +132,13 @@ We welcome contributions to the Spartacus codebase. Before you start your first 
 
    Major feature implementations should be discussed with the owner [Bill Marcotte](https://github.com/Xymmer). You can also float ideas in our Slack channel, and we'll connect you to the appropriate person for further discussion.
 
-### Contributor License Agreement
+## Contributor License Agreement
 
 When you contribute anything to Spartacus (code, documentation, analysis, anything), be aware that your contribution is covered by the same [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) that is applied to Spartacus itself. In particular, you must agree to the [Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
 
 This applies to all contributors, including those contributing on behalf of a company. If you agree to its content, click on the link posted by the CLA assistant as a comment to the pull request. Click it to check the CLA, then accept it on the following screen if you agree to it. CLA assistant will save this decision for upcoming contributions and will notify you if there is any changes to the CLA in the meantime.
 
-#### Company Contributors
+### Company Contributors
 
 If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
