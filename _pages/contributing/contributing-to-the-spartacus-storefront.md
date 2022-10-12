@@ -8,8 +8,6 @@ Here are some of the ways you can contribute to Spartacus:
 
 Note: This is a living document. Like the Spartacus code, this document will be improved over time with the help of our community. Feedback welcome.
 
-***
-
 ## Helping Others
 
 An easy way to start is by helping others who may have questions or need support. Look for such requests here:
