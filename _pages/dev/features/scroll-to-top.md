@@ -121,155 +121,143 @@ provideConfig(<CmsConfig>{
 
 ## Extending Scroll to Top
 
-The Scroll-to-Top feature in Spartacus is customizable, meaning you can substitute another action for "Scroll to Top". One such common example is replacing "Scroll to Top"-button with displaying a floating Cart icon, as demonstrated below. As a result you can access the Cart by a single click from everywhere.
+You can customize the scroll to top feature by modifying the action it performs. For example, you can replace the scroll to top button with a floating Cart icon that allows customers to access the cart from anywhere that the scroll to top button would have appeared. This customization is described in the following procedure.
 
-![floating-cart-button.png]({{ site.baseurl }}/images/floating-cart-button.png)
+1. Create a new component.
+   1. To replace the existing component, create a new `src/components/scroll-to-top` directory inside your Spartacus app.
+   1. Copy the existing component source files from `spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top` to the `src/components/scroll-to-top` directory.
+   1. In the `scroll-to-top.component.ts` and `scroll-to-top.module.ts` files, remove all lines that import relative paths.
+   1. In `scroll-to-top.component.ts`, add the following import:
 
-1. Creating a new component
+      ```ts
+      import { CmsComponentData, ICON_TYPE, SelectFocusUtility } from   '@spartacus/storefront';
+      ```
 
-To substitute the existing component create a new directory inside your angular app: `src/components/scroll-to-top`. You start by copying the existing component source files from the Spartacus-Repository  [spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top/](https://github.com/SAP/spartacus/tree/develop/projects/storefrontlib/cms-components/navigation/scroll-to-top). This will be the base of the new component. Create a `src/components` and run the clone command:
+   1. In `scroll-to-top.module.ts`, add the following import:
 
-```bash
-git clone \
-  --depth 1  \
-  --filter=blob:none  \
-  https://github.com/SAP/spartacus && \
-cp -R spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top ./ && \
-rm -rf spartacus
-```
+      ```ts
+      import { IconModule } from   '@spartacus/storefront';
+      ```
 
-Remove all lines that import relative from paths inside **scroll-to-top.component.ts** and **scroll-to-top.module.ts**. Then add imports from `@spartacus/storefront`:
+1. Add Styling.
+   1. To add the default styling to the new component, add the following import to `src/app/app.component.scss`:
 
-*scroll-to-top.component.ts*
-```javascript
-import { CmsComponentData, ICON_TYPE, SelectFocusUtility } from   '@spartacus/storefront';
-```
+      ```scss
+      @import '@spartacus/styles';
+      ```
 
-*scroll-to-top.module.ts*
-```javascript
-import { IconModule } from   '@spartacus/storefront';
-```
+   1. In the component folder, create a new `scroll-to-top.component.scss` stylesheet, and add custom styling to it.
 
+      The following is an example:
 
-2. Add Styling
+      ```scss
+      :host {
+          width: 82px;
+      
+          button > span {
+              display: flex;
+              justify-content: space-evenly;
+              font-size: 20px;
+              font-weight: bold;
+          }
+      }
+      ```
 
-To add the default styling to the new component, you need add a import to the app stylsheet file at `src/app/app.component.scss`:
+   1. Add the stylesheet to `scroll-to-top.component.ts`, as shown in the following example:
 
-```scss
-@import '@spartacus/styles';
-```
+      ```ts
+      @Component({
+        [...],
+        styleUrls: ["./scroll-to-top.component.scss"]
+      })
+      ```
 
-Create a new stylesheet in the component folder: `scroll-to-top.component.scss` and add custom styling to it:
+1. Add the module dependencies.
+   1. For the button's new behavior, import `RouterModule` and `UrlModule` in `scroll-to-top.module.ts`, as follows:
 
-*scroll-to-top.component.scss*
-```scss
-:host {
-    width: 82px;
+      ```ts
+      import { RouterModule } from '@angular/router';
+      import { ..., UrlModule } from   '@spartacus/core';
+      ```
 
-    button > span {
-        display: flex;
-        justify-content: space-evenly;
-        font-size: 20px;
-        font-weight: bold;
-    }
-}
-```
+   1. Add the newly imported `RouterModule` and `UrlModule` to the module imports array in `scroll-to-top.module.ts`, as follows:
 
-Add the stylesheet to the component:
+      ```ts
+      @NgModule({
+        imports: [..., RouterModule, UrlModule],
+        [...]
+      })
+      ```
 
-*scroll-to-top.component.ts*
-```javascript
-@Component({
-  [...],
-  styleUrls: ["./scroll-to-top.component.scss"]
-})
-```
+   1. Import `Observable` and `MiniCartComponentService` in `scroll-to-top.component.ts`, as follows:
 
-3. Add Module Dependencies
+      ```ts
+      import { Observable } from 'rxjs';
+      import { MiniCartComponentService } from '@spartacus/cart/base/components/mini-cart';
+      ```
 
-For the buttons new behaviour import `RouterModule` and `UrlModule` in `scroll-to-top.module.ts`:
+   1. Add the imported services to the constructor in `scroll-to-top.component.ts`, as follows:
 
-*scroll-to-top.module.ts*
-```javascript
-import { RouterModule } from '@angular/router';
-import { ..., UrlModule } from   '@spartacus/core';
-```
+      ```ts
+      export class ScrollToTopComponent implements OnInit {
+        [...]
+        constructor(
+          [...],
+          protected miniCartComponentService: MiniCartComponentService
+        ) {}
+        [...]
+      }
+      ```
 
-Add the new imported modules (`RouterModule`, `UrlModule`) to the modules imports array:
+   1. Add a computed variable to `scroll-to-top.component.ts`, as follows:
 
-*scroll-to-top.module.ts*
- ```javascript
-@NgModule({
-  imports: [..., RouterModule, UrlModule],
-  [...]
-})
-```
+      ```ts
+      [...]
+      export class ScrollToTopComponent implements OnInit {
+        [...]
+        quantity$: Observable<number> = this.miniCartComponentService.getQuantity();
+        [...]
+      }
+      [...]
+      ```
 
-Next we need to import `Observable` and `MiniCartComponentService` in `scroll-to-top.component.ts`:
+1. Change the template in `scroll-to-top.component.html`.
+   1. Replace the `iconTypes.CARET_UP` iconType with `iconTypes.CART`.
+   1. Replace the `(click)="scrollToTop()"` action with the new `[routerLink]="{ cxRoute: 'cart' } | cxUrl"` action.
+   1. Add the counter markup after the icon.
 
-*scroll-to-top.component.ts*
-```javascript
-import { Observable } from 'rxjs';
-import { MiniCartComponentService } from '@spartacus/cart/base/components/mini-cart';
-```
+      The following example demonstrates these changes to the template in `scroll-to-top.component.html`:
 
-Add the imported services to the contructor:
+      {% raw %}
 
-*scroll-to-top.component.ts*
-```javascript
-export class ScrollToTopComponent implements OnInit {
-  [...]
-  constructor(
-    [...],
-    protected miniCartComponentService: MiniCartComponentService
-  ) {}
-  [...]
-}
-```
+      ```html
+      <button
+        [attr.aria-label]="'navigation.scrollToTop' | cxTranslate"
+        class="cx-scroll-to-top-btn"
+        [routerLink]="{ cxRoute: 'cart' } | cxUrl"
+      >
+        <span aria-hidden="true">
+          <cx-icon class="caret-up-icon" [type]="iconTypes.CART"></cx-icon>
+          <span>
+            {{ 'miniCart.count' | cxTranslate: { count: quantity$ | async } }}
+          </span>
+        </span>
+      </button>
+      ```
 
-Add a computed variable to the component:
+      {% endraw %}
 
-*scroll-to-top.component.ts*
-```javascript
-[...]
-export class ScrollToTopComponent implements OnInit {
-  [...]
-  quantity$: Observable<number> = this.miniCartComponentService.getQuantity();
-  [...]
-}
-[...]
-```
+1. Replace the existing component.
+   1. Remove the following import statement from `src/app/spartacus/spartacus-features.module.ts`:
 
-4. Change the template
+      ```ts
+      import { [...], ScrollToTopModule, [...] } from   "@spartacus/storefront";
+      ```
 
-Replace the iconType `iconTypes.CARET_UP` with `iconTypes.CART`, the current action `(click)="scrollToTop()"` with the anticipated action `[routerLink]="{ cxRoute: 'cart' } | cxUrl"` and add the counter markup after the icon:
+   1. In the same file, add the following import statement, which imports the new component:
 
-*scroll-to-top.component.html*
-```html
-<button
-  [attr.aria-label]="'navigation.scrollToTop' | cxTranslate"
-  class="cx-scroll-to-top-btn"
-  [routerLink]="{ cxRoute: 'cart' } | cxUrl"
->
-  <span aria-hidden="true">
-    <cx-icon class="caret-up-icon" [type]="iconTypes.CART"></cx-icon>
-    <span>
-      {{ 'miniCart.count' | cxTranslate: { count: quantity$ | async } }}
-    </span>
-  </span>
-</button>
-```
+      ```ts
+      import { ScrollToTopModule } from   '../../components/scroll-to-top/scroll-to-top.module';
+      ```
 
-5. Replace the existing component
-
-First remove the original module from the **import** at the top of `src/app/spartacus/spartacus-features.module.ts`:
-
-```javascript
-import { [...], ScrollToTopModule, [...] } from   "@spartacus/storefront";
-```
-
-Then you need to add a new **import** at the top of the file, that imports the new component:
-
-```javascript
-import { ScrollToTopModule } from   '../../components/scroll-to-top/scroll-to-top.module';
-```
+You now have a floating Cart icon that allows customers to access the cart from anywhere that the scroll to top button would have appeared.
