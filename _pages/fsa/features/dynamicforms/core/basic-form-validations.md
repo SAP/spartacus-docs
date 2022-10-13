@@ -99,8 +99,8 @@ JSON example:
 
 - `dateOfBirth` - Accepts argument of type number. Triggers validation if the input date is less than the provided argument.
 - `compareDOBtoAge` - Compares date from another field with the input date. Accepts two arguments:
-   - Name of the field to compare (string). 
-   - Operator which can be 'shouldBeGreater' or 'shouldBeLess' (string). 
+  - Name of the field to compare (string). 
+  - Operator which can be 'shouldBeGreater' or 'shouldBeLess' (string). 
 
 The following JSON example compares input to the value of the `retirementAge` field:
 
