@@ -15,7 +15,7 @@ The following instructions describe how to build a storefront application, for b
 
 ## Using Spartacus with SAP Commerce Cloud in the Public Cloud
 
-If you will be using Spartacus 5.0 with SAP Commerce Cloud, the Commerce Cloud hosting service cannot currently be used for building your Spartacus application. As a workaround, you can build your Spartacus application locally, and upload the compiled application, as follows:
+With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud cannot be used for building your Spartacus application. As a workaround, you can build your Spartacus app locally, and upload the compiled application, as follows:
 
 1. Follow all of the steps on this page to set up your Spartacus application, up to and including [Installing Dependencies](#installing-dependencies).
 2. Run `yarn build`.
