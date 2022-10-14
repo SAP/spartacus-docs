@@ -13,6 +13,19 @@ The following instructions describe how to build a storefront application, for b
 
 ***
 
+## Using Spartacus with SAP Commerce Cloud in the Public Cloud
+
+If you will be using Spartacus 5.0 with SAP Commerce Cloud, the Commerce Cloud hosting service cannot currently be used for building your Spartacus application. As a workaround, you can build your Spartacus application locally, and upload the compiled application, as follows:
+
+1. Follow all of the steps on this page to set up your Spartacus application, up to and including [Installing Dependencies](#installing-dependencies).
+2. Run `yarn build`.
+
+   A new `dist` folder is created in the root directory of your Spartacus project.
+
+3. Commit the `dist` folder to your code repository for SAP Commerce Cloud.
+
+   For more information, see [Adding Applications for JavaScript Storefronts](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/63577f67a67347bf9f4765a5385ead33.html).
+
 ## Prerequisites
 
 If you are using a version of SAP Commerce Cloud that is older than 2211, you will need the `webApplicationInjector.js` file that ships with your version of SAP Commerce Cloud. For more information, see [Updating the Web Application Injector]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries-5-x.md %}#updating-the-web-application-injector).
@@ -23,7 +36,7 @@ If you are using a version of SAP Commerce Cloud that is older than 2211, you wi
 
 ## Back End Server Requirements
 
-Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus can only be used with SAP Commerce Cloud 2105 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs. For example, the B2B Commerce Organization API was added in release 2005. For more information on which back end releases contain which APIs, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
+Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus can only be used with SAP Commerce Cloud 2105 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs that enable the use of new features. For more information on which back end releases contain which APIs, see [{% assign linkedpage = site.pages | where: "name", "feature-release-versions.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/feature-release-versions.md %}).
 
 No matter the version, the latest patch is required, as important fixes are often added that affect Spartacus.
 
