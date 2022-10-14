@@ -304,18 +304,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -354,12 +342,6 @@
                                         <li><a href="/spartacus-docs/beta-docs/installing-sap-commerce-cloud/">Installing SAP Commerce Cloud for use with Spartacus ➢</a>
                                             
                                                 <ul>
-                                                    
-                                                          
-                                                    
-                                                          
-                                                    
-                                                          
                                                     
                                                           
                                                     
@@ -1716,6 +1698,7 @@
 <p><strong>Table of Contents</strong></p>
 
 <ul id="markdown-toc">
+  <li><a href="#using-spartacus-with-sap-commerce-cloud-in-the-public-cloud" id="markdown-toc-using-spartacus-with-sap-commerce-cloud-in-the-public-cloud">Using Spartacus with SAP Commerce Cloud in the Public Cloud</a></li>
   <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
   <li><a href="#front-end-development-requirements" id="markdown-toc-front-end-development-requirements">Front End Development Requirements</a></li>
   <li><a href="#back-end-server-requirements" id="markdown-toc-back-end-server-requirements">Back End Server Requirements</a></li>
@@ -1734,6 +1717,24 @@
 
 <hr />
 
+<h2 id="using-spartacus-with-sap-commerce-cloud-in-the-public-cloud">Using Spartacus with SAP Commerce Cloud in the Public Cloud</h2>
+
+<p>With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud cannot be used for building your Spartacus application. As a workaround, you can build your Spartacus app locally, and upload the compiled application, as follows:</p>
+
+<ol>
+  <li>Follow all of the steps on this page to set up your Spartacus application, up to and including <a href="#installing-dependencies">Installing Dependencies</a>.</li>
+  <li>
+    <p>Run <code class="language-plaintext highlighter-rouge">yarn build</code>.</p>
+
+    <p>A new <code class="language-plaintext highlighter-rouge">dist</code> folder is created in the root directory of your Spartacus project.</p>
+  </li>
+  <li>
+    <p>Commit the <code class="language-plaintext highlighter-rouge">dist</code> folder to your code repository for SAP Commerce Cloud.</p>
+
+    <p>For more information, see <a href="https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/63577f67a67347bf9f4765a5385ead33.html">Adding Applications for JavaScript Storefronts</a>.</p>
+  </li>
+</ol>
+
 <h2 id="prerequisites">Prerequisites</h2>
 
 <p>If you are using a version of SAP Commerce Cloud that is older than 2211, you will need the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file that ships with your version of SAP Commerce Cloud. For more information, see <a href="/spartacus-docs/beta-docs/building-the-spartacus-storefront-from-libraries-5-x/#updating-the-web-application-injector">Updating the Web Application Injector</a>.</p>
@@ -1749,7 +1750,7 @@
 
 <h2 id="back-end-server-requirements">Back End Server Requirements</h2>
 
-<p>Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus should only be used with SAP Commerce Cloud 1905 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs. For example, the B2B Commerce Organization API was added in release 2005. For more information on which back end releases contain which APIs, see <a href="/spartacus-docs/beta-docs/feature-release-versions/">Feature Compatibility</a>.</p>
+<p>Spartacus uses SAP Commerce Cloud for its back end and makes use of the sample data. Spartacus can only be used with SAP Commerce Cloud 2105 or newer; the latest release is recommended. The difference between releases is in the APIs and features available. Newer releases of SAP Commerce Cloud contain new OCC APIs that enable the use of new features. For more information on which back end releases contain which APIs, see <a href="/spartacus-docs/beta-docs/feature-release-versions/">Feature Compatibility</a>.</p>
 
 <p>No matter the version, the latest patch is required, as important fixes are often added that affect Spartacus.</p>
 

@@ -304,18 +304,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -2466,13 +2454,18 @@ This functionality is introduced with version 3.1 of the Spartacus libraries.
     <tbody>
       
         <tr>
-          <td>OrderPlacedEvent</td>
-          <td>feature-libs/checkout/root/events/checkout.events.ts</td>
+          <td>OrderEvent</td>
+          <td>feature-libs/order/root/events/order.events.ts</td>
         </tr>
       
         <tr>
-          <td>CartPageEvent</td>
-          <td>projects/storefrontlib/events/cart/cart-page.events.ts</td>
+          <td>OrderPlacedEvent</td>
+          <td>feature-libs/order/root/events/order.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>ReplenishmentOrderScheduledEvent</td>
+          <td>feature-libs/order/root/events/order.events.ts</td>
         </tr>
       
         <tr>
@@ -2506,6 +2499,286 @@ This functionality is introduced with version 3.1 of the Spartacus libraries.
         </tr>
       
         <tr>
+          <td>CartPageEvent</td>
+          <td>feature-libs/cart/base/root/events/cart-page.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CreateCartEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CreateCartSuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CreateCartFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartAddEntryEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartAddEntrySuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartAddEntryFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartRemoveEntryFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartRemoveEntrySuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartUpdateEntrySuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartUpdateEntryFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CartUiEventAddToCart</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>MergeCartSuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>LoadCartEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RemoveCartEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>DeleteCartEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>DeleteCartSuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>DeleteCartFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>AddCartVoucherEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>AddCartVoucherSuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>AddCartVoucherFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RemoveCartVoucherEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RemoveCartVoucherSuccessEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RemoveCartVoucherFailEvent</td>
+          <td>feature-libs/cart/base/root/events/cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SavedCartEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SaveCartEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SaveCartSuccessEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>SaveCartFailEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RestoreSavedCartEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RestoreSavedCartSuccessEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>RestoreSavedCartFailEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>EditSavedCartEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>EditSavedCartSuccessEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>EditSavedCartFailEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CloneSavedCartEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CloneSavedCartSuccessEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CloneSavedCartFailEvent</td>
+          <td>feature-libs/cart/saved-cart/root/events/saved-cart.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutQueryReloadEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutQueryResetEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryAddressEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryAddressCreatedEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryAddressSetEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryAddressClearedEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryModeEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryModeSetEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryModeClearedEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutDeliveryModeClearedErrorEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutSupportedDeliveryModesQueryReloadEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutSupportedDeliveryModesQueryResetEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutPaymentDetailsEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutPaymentDetailsCreatedEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutPaymentDetailsSetEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutPaymentCardTypesQueryReloadEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>CheckoutPaymentCardTypesQueryResetEvent</td>
+          <td>feature-libs/checkout/base/root/events/checkout.events.ts</td>
+        </tr>
+      
+        <tr>
           <td>UserAccountEvent</td>
           <td>feature-libs/user/account/root/events/user-account.events.ts</td>
         </tr>
@@ -2513,46 +2786,6 @@ This functionality is introduced with version 3.1 of the Spartacus libraries.
         <tr>
           <td>UserAccountChangedEvent</td>
           <td>feature-libs/user/account/root/events/user-account.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartAddEntryEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartAddEntrySuccessEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartAddEntryFailEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartRemoveEntryFailEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartRemoveEntrySuccessEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartUpdateEntrySuccessEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
-        </tr>
-      
-        <tr>
-          <td>CartUpdateEntryFailEvent</td>
-          <td>projects/core/src/cart/event/cart.events.ts</td>
         </tr>
       
         <tr>
@@ -2592,6 +2825,16 @@ This functionality is introduced with version 3.1 of the Spartacus libraries.
       
         <tr>
           <td>AddUserAddressEvent</td>
+          <td>projects/core/src/user/events/user.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>LoadUserAddressesEvent</td>
+          <td>projects/core/src/user/events/user.events.ts</td>
+        </tr>
+      
+        <tr>
+          <td>LoadUserPaymentMethodsEvent</td>
           <td>projects/core/src/user/events/user.events.ts</td>
         </tr>
       

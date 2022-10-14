@@ -304,18 +304,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -2296,6 +2284,7 @@ This feature is introduced with version 5.0 of the Spartacus libraries.
       <li><a href="#configuring-the-display-threshold" id="markdown-toc-configuring-the-display-threshold">Configuring the Display Threshold</a></li>
     </ul>
   </li>
+  <li><a href="#extending-scroll-to-top" id="markdown-toc-extending-scroll-to-top">Extending Scroll to Top</a></li>
 </ul>
 
 <hr />
@@ -2394,6 +2383,163 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
   <span class="p">},</span>
 <span class="p">}),</span>
 </code></pre></div></div>
+
+<h2 id="extending-scroll-to-top">Extending Scroll to Top</h2>
+
+<p>You can customize the scroll to top feature by modifying the action it performs. For example, you can replace the scroll to top button with a floating Cart icon that allows customers to access the cart from anywhere that the scroll to top button would have appeared. This customization is described in the following procedure.</p>
+
+<ol>
+  <li>Create a new component.
+    <ol>
+      <li>To replace the existing component, create a new <code class="language-plaintext highlighter-rouge">src/components/scroll-to-top</code> directory inside your Spartacus app.</li>
+      <li>Copy the existing component source files from <code class="language-plaintext highlighter-rouge">spartacus/projects/storefrontlib/cms-components/navigation/scroll-to-top</code> to the <code class="language-plaintext highlighter-rouge">src/components/scroll-to-top</code> directory.</li>
+      <li>In the <code class="language-plaintext highlighter-rouge">scroll-to-top.component.ts</code> and <code class="language-plaintext highlighter-rouge">scroll-to-top.module.ts</code> files, remove all lines that import relative paths.</li>
+      <li>
+        <p>In <code class="language-plaintext highlighter-rouge">scroll-to-top.component.ts</code>, add the following import:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">CmsComponentData</span><span class="p">,</span> <span class="nx">ICON_TYPE</span><span class="p">,</span> <span class="nx">SelectFocusUtility</span> <span class="p">}</span> <span class="k">from</span>   <span class="dl">'</span><span class="s1">@spartacus/storefront</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>In <code class="language-plaintext highlighter-rouge">scroll-to-top.module.ts</code>, add the following import:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">IconModule</span> <span class="p">}</span> <span class="k">from</span>   <span class="dl">'</span><span class="s1">@spartacus/storefront</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Add Styling.
+    <ol>
+      <li>
+        <p>To add the default styling to the new component, add the following import to <code class="language-plaintext highlighter-rouge">src/app/app.component.scss</code>:</p>
+
+        <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s1">'@spartacus/styles'</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>In the component folder, create a new <code class="language-plaintext highlighter-rouge">scroll-to-top.component.scss</code> stylesheet, and add custom styling to it.</p>
+
+        <p>The following is an example:</p>
+
+        <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">:host</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">82px</span><span class="p">;</span>
+      
+    <span class="nt">button</span> <span class="o">&gt;</span> <span class="nt">span</span> <span class="p">{</span>
+        <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+        <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-evenly</span><span class="p">;</span>
+        <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+        <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Add the stylesheet to <code class="language-plaintext highlighter-rouge">scroll-to-top.component.ts</code>, as shown in the following example:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="p">[...],</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">./scroll-to-top.component.scss</span><span class="dl">"</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Add the module dependencies.
+    <ol>
+      <li>
+        <p>For the button’s new behavior, import <code class="language-plaintext highlighter-rouge">RouterModule</code> and <code class="language-plaintext highlighter-rouge">UrlModule</code> in <code class="language-plaintext highlighter-rouge">scroll-to-top.module.ts</code>, as follows:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">RouterModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/router</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="p">...,</span> <span class="nx">UrlModule</span> <span class="p">}</span> <span class="k">from</span>   <span class="dl">'</span><span class="s1">@spartacus/core</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Add the newly imported <code class="language-plaintext highlighter-rouge">RouterModule</code> and <code class="language-plaintext highlighter-rouge">UrlModule</code> to the module imports array in <code class="language-plaintext highlighter-rouge">scroll-to-top.module.ts</code>, as follows:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[...,</span> <span class="nx">RouterModule</span><span class="p">,</span> <span class="nx">UrlModule</span><span class="p">],</span>
+  <span class="p">[...]</span>
+<span class="p">})</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Import <code class="language-plaintext highlighter-rouge">Observable</code> and <code class="language-plaintext highlighter-rouge">MiniCartComponentService</code> in <code class="language-plaintext highlighter-rouge">scroll-to-top.component.ts</code>, as follows:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Observable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">rxjs</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MiniCartComponentService</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/cart/base/components/mini-cart</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Add the imported services to the constructor in <code class="language-plaintext highlighter-rouge">scroll-to-top.component.ts</code>, as follows:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">ScrollToTopComponent</span> <span class="k">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  <span class="p">[...]</span>
+  <span class="kd">constructor</span><span class="p">(</span>
+    <span class="p">[...],</span>
+    <span class="k">protected</span> <span class="nx">miniCartComponentService</span><span class="p">:</span> <span class="nx">MiniCartComponentService</span>
+  <span class="p">)</span> <span class="p">{}</span>
+  <span class="p">[...]</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Add a computed variable to <code class="language-plaintext highlighter-rouge">scroll-to-top.component.ts</code>, as follows:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[...]</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ScrollToTopComponent</span> <span class="k">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  <span class="p">[...]</span>
+  <span class="nx">quantity$</span><span class="p">:</span> <span class="nx">Observable</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">miniCartComponentService</span><span class="p">.</span><span class="nx">getQuantity</span><span class="p">();</span>
+  <span class="p">[...]</span>
+<span class="p">}</span>
+<span class="p">[...]</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Change the template in <code class="language-plaintext highlighter-rouge">scroll-to-top.component.html</code>.
+    <ol>
+      <li>Replace the <code class="language-plaintext highlighter-rouge">iconTypes.CARET_UP</code> iconType with <code class="language-plaintext highlighter-rouge">iconTypes.CART</code>.</li>
+      <li>Replace the <code class="language-plaintext highlighter-rouge">(click)="scrollToTop()"</code> action with the new <code class="language-plaintext highlighter-rouge">[routerLink]="{ cxRoute: 'cart' } | cxUrl"</code> action.</li>
+      <li>
+        <p>Add the counter markup after the icon.</p>
+
+        <p>The following example demonstrates these changes to the template in <code class="language-plaintext highlighter-rouge">scroll-to-top.component.html</code>:</p>
+
+        <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span>
+  <span class="na">[attr.aria-label]=</span><span class="s">"'navigation.scrollToTop' | cxTranslate"</span>
+  <span class="na">class=</span><span class="s">"cx-scroll-to-top-btn"</span>
+  <span class="na">[routerLink]=</span><span class="s">"{ cxRoute: 'cart' } | cxUrl"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;cx-icon</span> <span class="na">class=</span><span class="s">"caret-up-icon"</span> <span class="na">[type]=</span><span class="s">"iconTypes.CART"</span><span class="nt">&gt;&lt;/cx-icon&gt;</span>
+    <span class="nt">&lt;span&gt;</span>
+      {{ 'miniCart.count' | cxTranslate: { count: quantity$ | async } }}
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Replace the existing component.
+    <ol>
+      <li>
+        <p>Remove the following import statement from <code class="language-plaintext highlighter-rouge">src/app/spartacus/spartacus-features.module.ts</code>:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="p">[...],</span> <span class="nx">ScrollToTopModule</span><span class="p">,</span> <span class="p">[...]</span> <span class="p">}</span> <span class="k">from</span>   <span class="dl">"</span><span class="s2">@spartacus/storefront</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>In the same file, add the following import statement, which imports the new component:</p>
+
+        <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ScrollToTopModule</span> <span class="p">}</span> <span class="k">from</span>   <span class="dl">'</span><span class="s1">../../components/scroll-to-top/scroll-to-top.module</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p>You now have a floating Cart icon that allows customers to access the cart from anywhere that the scroll to top button would have appeared.</p>
 
 
 <!-- <h3 class="archive__subtitle">Recent posts</h3>

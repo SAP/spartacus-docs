@@ -304,18 +304,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -1793,15 +1781,13 @@ This feature is introduced with version 1.1 of the Spartacus libraries.
 <p>It is best to avoid creating new feature flags if they are not needed. This helps to keep our config clean and to make eventual maintenance easier. The following guideline can help you to decide which feature flag you should use, if any:</p>
 
 <ol>
-  <li>If possible, try to avoid using feature flags.
+  <li>
+    <p>If possible, try to avoid using feature flags.</p>
+
+    <p>Instead, implement your feature as a separate module that could be imported optionally by a customer. If your functionality already has a separate configuration, determine which of the following will be more convenient:</p>
     <ul>
-      <li>Instead, implement your feature as a separate module that could be imported optionally by a customer.</li>
-      <li>If your functionality already has a separate config, determine which of the following will be more convenient:
-        <ul>
-          <li>creating a new option in the module configuration (for general features, where there is an actual value in making them toggleable).</li>
-          <li>using a feature flag (especially when the only reason for a flag is backwards compatibility).</li>
-        </ul>
-      </li>
+      <li>creating a new option in the module configuration (for general features, where there is an actual value in making them toggleable).</li>
+      <li>using a feature flag (especially when the only reason for a flag is backwards compatibility).</li>
     </ul>
   </li>
   <li>If possible, try to avoid creating an explicit feature flag. Instead, try to enable features for specific feature levels, such as for minor releases.</li>

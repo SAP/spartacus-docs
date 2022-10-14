@@ -74,12 +74,6 @@ docs:
             subchildren:
                 - title: "Installing SAP Commerce Cloud 2105"
                   url: /installing-sap-commerce-cloud-2105/
-                - title: "Installing SAP Commerce Cloud 2011"
-                  url: /installing-sap-commerce-cloud-2011/
-                - title: "Installing SAP Commerce Cloud 2005"
-                  url: /installing-sap-commerce-cloud-2005/
-                - title: "Installing SAP Commerce Cloud 1905"
-                  url: /installing-sap-commerce-cloud-1905/                
           - title: "Cross-Origin Resource Sharing (CORS)"
             url: /cors/
           - title: "Reference App Structure"

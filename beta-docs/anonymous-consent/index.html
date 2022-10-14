@@ -304,18 +304,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -2310,7 +2298,7 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
 
 <h3 id="back-end-requirements">Back End Requirements</h3>
 
-<p>Anonymous consent uses an <code class="language-plaintext highlighter-rouge">x-anonymous-consents</code> custom header, which needs to be configured in the back end by adding it to certain properties. If you are using SAP Commerce Cloud 2005 or newer, add the <code class="language-plaintext highlighter-rouge">x-anonymous-consents</code> header to the following properties:</p>
+<p>Anonymous consent uses an <code class="language-plaintext highlighter-rouge">x-anonymous-consents</code> custom header, which needs to be configured in the back end by adding it to certain properties. Add the <code class="language-plaintext highlighter-rouge">x-anonymous-consents</code> header to the following properties:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">corsfilter.commercewebservices.allowedHeaders</code></li>
@@ -2318,17 +2306,6 @@ This feature is introduced with version 1.3 of the Spartacus libraries.
   <li><code class="language-plaintext highlighter-rouge">corsfilter.assistedservicewebservices.allowedHeaders</code> - if ASM is being used</li>
   <li><code class="language-plaintext highlighter-rouge">corsfilter.assistedservicewebservices.exposedHeaders</code> - if ASM is being used</li>
 </ul>
-
-<p>If you are using SAP Commerce Cloud 1905 or older, add the <code class="language-plaintext highlighter-rouge">x-anonymous-consents</code> header to the following properties:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">corsfilter.ycommercewebservices.allowedHeaders</code></li>
-  <li><code class="language-plaintext highlighter-rouge">corsfilter.ycommercewebservices.exposedHeaders</code></li>
-  <li><code class="language-plaintext highlighter-rouge">corsfilter.assistedservicewebservices.allowedHeaders</code> - if ASM is being used</li>
-  <li><code class="language-plaintext highlighter-rouge">corsfilter.assistedservicewebservices.exposedHeaders</code> - if ASM is being used</li>
-</ul>
-
-<p><strong>Note:</strong> If you are using Spartacus 2.0 with SAP Commerce Cloud 1905, you may experience some caching issues on the consent management page. The fix has been back-ported to Spartacus version 1905.15.</p>
 
 <h4 id="consent-data">Consent Data</h4>
 

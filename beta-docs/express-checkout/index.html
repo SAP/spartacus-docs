@@ -304,18 +304,6 @@
 
                                   
                             
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
-                                    
-
-                                  
-                            
                         </ul>
    
                     
@@ -2368,73 +2356,51 @@ This feature is introduced with version 1.2 of the Spartacus libraries.
 
 <p>If you have set <code class="language-plaintext highlighter-rouge">defaultDeliveryMode: [DeliveryModePreferences.FREE]</code>, you can expect the following behavior:</p>
 
-<ul>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
 result: FREE_CODE
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode, premiumMode]
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode, premiumMode]
 result: STANDARD_CODE
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [premiumMode]
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [premiumMode]
 result: PREMIUM_CODE
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></pre></div></div>
 
 <p>If you have set <code class="language-plaintext highlighter-rouge">defaultDeliveryMode: [DeliveryModePreferences.LEAST_EXPENSIVE]</code>, you can expect the following behavior:</p>
 
-<ul>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
 result: STANDARD_CODE
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode, premiumMode]
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode, premiumMode]
 result: STANDARD_CODE
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [premiumMode]
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [premiumMode]
 result: PREMIUM_CODE
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></pre></div></div>
 
 <p>If you have set <code class="language-plaintext highlighter-rouge">defaultDeliveryMode: [DeliveryModePreferences.FREE, DeliveryModePreferences.MOST_EXPENSIVE]</code>, you can expect the following behavior:</p>
 
-<ul>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
 result: FREE_CODE
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode, premiumMode]
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode, premiumMode]
 result: PREMIUM_CODE
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode]
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [standardMode]
 result: STANDARD_CODE
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></pre></div></div>
 
 <p>If you are using a custom code and have set <code class="language-plaintext highlighter-rouge">defaultDeliveryMode: [STANDARD_CODE]</code>, you can expect the following behavior:</p>
 
-<ul>
-  <li>
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availableDeliveryModes: [freeMode, standardMode, premiumMode]
 result: STANDARD_CODE
-</code></pre></div>    </div>
-  </li>
-</ul>
+</code></pre></div></div>
 
 
 <!-- <h3 class="archive__subtitle">Recent posts</h3>
