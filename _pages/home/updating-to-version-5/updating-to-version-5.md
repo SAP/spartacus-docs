@@ -58,7 +58,19 @@ When the update has finished running, inspect your code for comments that begin 
 
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
 
-### Additional Information
+## Using Spartacus with SAP Commerce Cloud in the Public Cloud
+
+With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud cannot be used for building your Spartacus application. As a workaround, you can build your Spartacus app locally, and upload the compiled application, as follows:
+
+1. In your Spartacus project, run `yarn build`.
+
+   A new `dist` folder is created in the root directory of your project.
+
+2. Commit the `dist` folder to your code repository for SAP Commerce Cloud.
+
+   For more information, see [Adding Applications for JavaScript Storefronts](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/63577f67a67347bf9f4765a5385ead33.html).
+
+## Additional Information
 
 In addition to breaking changes, the following details are important to be aware of when upgrading to Spartacus 5.0:
 

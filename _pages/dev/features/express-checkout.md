@@ -102,58 +102,58 @@ const [freeMode, standardMode, premiumMode] = [
 
 If you have set `defaultDeliveryMode: [DeliveryModePreferences.FREE]`, you can expect the following behavior:
 
-- ```text
-  availableDeliveryModes: [freeMode, standardMode, premiumMode]
-  result: FREE_CODE
-  ```
+```text
+availableDeliveryModes: [freeMode, standardMode, premiumMode]
+result: FREE_CODE
+```
 
-- ```text
-  availableDeliveryModes: [standardMode, premiumMode]
-  result: STANDARD_CODE
-  ```
+```text
+availableDeliveryModes: [standardMode, premiumMode]
+result: STANDARD_CODE
+```
 
-- ```text
-  availableDeliveryModes: [premiumMode]
-  result: PREMIUM_CODE
-  ```
+```text
+availableDeliveryModes: [premiumMode]
+result: PREMIUM_CODE
+```
 
 If you have set `defaultDeliveryMode: [DeliveryModePreferences.LEAST_EXPENSIVE]`, you can expect the following behavior:
 
-- ```text
-  availableDeliveryModes: [freeMode, standardMode, premiumMode]
-  result: STANDARD_CODE
-  ```
+```text
+availableDeliveryModes: [freeMode, standardMode, premiumMode]
+result: STANDARD_CODE
+```
 
-- ```text
-  availableDeliveryModes: [standardMode, premiumMode]
-  result: STANDARD_CODE
-  ```
+```text
+availableDeliveryModes: [standardMode, premiumMode]
+result: STANDARD_CODE
+```
 
-- ```text
-  availableDeliveryModes: [premiumMode]
-  result: PREMIUM_CODE
-  ```
+```text
+availableDeliveryModes: [premiumMode]
+result: PREMIUM_CODE
+```
 
 If you have set `defaultDeliveryMode: [DeliveryModePreferences.FREE, DeliveryModePreferences.MOST_EXPENSIVE]`, you can expect the following behavior:
 
-- ```text
-  availableDeliveryModes: [freeMode, standardMode, premiumMode]
-  result: FREE_CODE
-  ```
+```text
+availableDeliveryModes: [freeMode, standardMode, premiumMode]
+result: FREE_CODE
+```
 
-- ```text
-  availableDeliveryModes: [standardMode, premiumMode]
-  result: PREMIUM_CODE
-  ```
+```text
+availableDeliveryModes: [standardMode, premiumMode]
+result: PREMIUM_CODE
+```
 
-- ```text
-  availableDeliveryModes: [standardMode]
-  result: STANDARD_CODE
-  ```
+```text
+availableDeliveryModes: [standardMode]
+result: STANDARD_CODE
+```
 
-If you are using a custom code and have set ```defaultDeliveryMode: [STANDARD_CODE]```, you can expect the following behavior:
+If you are using a custom code and have set `defaultDeliveryMode: [STANDARD_CODE]`, you can expect the following behavior:
 
-- ```text
-  availableDeliveryModes: [freeMode, standardMode, premiumMode]
-  result: STANDARD_CODE
-  ```
+```text
+availableDeliveryModes: [freeMode, standardMode, premiumMode]
+result: STANDARD_CODE
+```

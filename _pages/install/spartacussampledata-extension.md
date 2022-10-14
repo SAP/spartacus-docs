@@ -63,13 +63,13 @@ Spartacus does not contain all of the pages that are found in Accelerator. The u
 
 ### Replacing the JspIncludeComponent with the CMSFlexComponent
 
-The `JspIncludeComponent` allows you to include JSP code when you provide the path of the JSP file that then gets inserted. It does not make sense to have this type of component in the Spartacus Angular-based application. A new type of component, called `CMSFlexComponent`, was added to SAP Commerce Cloud 1905, which allows you to get selectors, and also includes code from our libraries in the Content Slot.
+The `JspIncludeComponent` allows you to include JSP code when you provide the path of the JSP file that then gets inserted. It does not make sense to have this type of component in the Spartacus Angular-based application. Instead, a new type of component, called `CMSFlexComponent`, was added to SAP Commerce Cloud. This component allows you to get selectors, and also includes code from our libraries in the Content Slot.
 
 **Note:** For backwards compatibility, Spartacus supports the `JspIncludeComponent`.
 
 ### Adding Data into the `CmsSiteContext` Enum
 
-The `CmsSiteContext` enum was created in SAP Commerce Cloud 1905. It is a dynamic enumeration that contains the available site context. Spartacus has two site contexts: language and currency. The following is an example from `resources/spartacussampledata/import/contentCatalogs/electronicsContentCatalog/catalog.impex`:
+The `CmsSiteContext` enum is a dynamic enumeration that contains the available site context. Spartacus has two site contexts: language and currency. The following is an example from `resources/spartacussampledata/import/contentCatalogs/electronicsContentCatalog/catalog.impex`:
 
 ```sql
 INSERT_UPDATE CmsSiteContext;code[unique=true];name[lang=$language]
@@ -93,8 +93,6 @@ INSERT_UPDATE CMSSiteContextComponent;$contentCV[unique=true];uid[unique=true];n
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
 ;;SiteContextSlot;Site Context Slot;true;LanguageComponent,CurrencyComponent
 ```
-
-**Note:** The `CMSSiteContextComponent` is a new type of component that was created in SAP Commerce Cloud 1905.
 
 ### Updating the MiniCartSlot
 

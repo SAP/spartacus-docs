@@ -61,10 +61,10 @@ Feature flags allow us to do the following:
 It is best to avoid creating new feature flags if they are not needed. This helps to keep our config clean and to make eventual maintenance easier. The following guideline can help you to decide which feature flag you should use, if any:
 
 1. If possible, try to avoid using feature flags.
-   - Instead, implement your feature as a separate module that could be imported optionally by a customer.
-   - If your functionality already has a separate config, determine which of the following will be more convenient:
-       - creating a new option in the module configuration (for general features, where there is an actual value in making them toggleable).
-       - using a feature flag (especially when the only reason for a flag is backwards compatibility).
+
+   Instead, implement your feature as a separate module that could be imported optionally by a customer. If your functionality already has a separate configuration, determine which of the following will be more convenient:
+   - creating a new option in the module configuration (for general features, where there is an actual value in making them toggleable).
+   - using a feature flag (especially when the only reason for a flag is backwards compatibility).
 2. If possible, try to avoid creating an explicit feature flag. Instead, try to enable features for specific feature levels, such as for minor releases.
 3. If you want to create an explicit feature flag, be sure the reason for doing so is justified (for example, the feature is important enough to be explicitly disabled or enabled).
 

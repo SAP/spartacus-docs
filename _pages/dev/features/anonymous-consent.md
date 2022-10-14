@@ -27,21 +27,12 @@ Anonymous Consent Management gives anonymous users control over the tracking of 
 
 ### Back End Requirements
 
-Anonymous consent uses an `x-anonymous-consents` custom header, which needs to be configured in the back end by adding it to certain properties. If you are using SAP Commerce Cloud 2005 or newer, add the `x-anonymous-consents` header to the following properties:
+Anonymous consent uses an `x-anonymous-consents` custom header, which needs to be configured in the back end by adding it to certain properties. Add the `x-anonymous-consents` header to the following properties:
 
 - `corsfilter.commercewebservices.allowedHeaders`
 - `corsfilter.commercewebservices.exposedHeaders`
 - `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
 - `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
-
-If you are using SAP Commerce Cloud 1905 or older, add the `x-anonymous-consents` header to the following properties:
-
-- `corsfilter.ycommercewebservices.allowedHeaders`
-- `corsfilter.ycommercewebservices.exposedHeaders`
-- `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
-- `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
-
-**Note:** If you are using Spartacus 2.0 with SAP Commerce Cloud 1905, you may experience some caching issues on the consent management page. The fix has been back-ported to Spartacus version 1905.15.
 
 #### Consent Data
 

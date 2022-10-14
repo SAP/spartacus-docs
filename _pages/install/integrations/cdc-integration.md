@@ -27,11 +27,7 @@ For more information see, [SAP Customer Data Cloud Integration](https://help.sap
 
 ## Requirements
 
-To integrate SAP Customer Data Cloud with Spartacus, you must have one of the following:
-
-- SAP Commerce Cloud 2011, along with SAP Commerce Cloud, Integration Extension Pack 2108
-- SAP Commerce Cloud 2005, along with SAP Commerce Cloud, Integration Extension Pack
-- SAP Commerce Cloud 1905, along with the latest version of Commerce Cloud Extension Pack
+To integrate SAP Customer Data Cloud with Spartacus, you must have SAP Commerce Cloud 2105 or newer, along with the latest version of Commerce Cloud Extension Pack
 
 ## Enabling SAP Customer Data Cloud Integration in Spartacus
 
