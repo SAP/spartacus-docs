@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 5.0
+title: Updating to Spartacus Version 5.0
 ---
 
 ## Upgrading Your Angular Libraries
