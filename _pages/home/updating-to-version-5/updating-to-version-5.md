@@ -70,4 +70,66 @@ In addition to breaking changes, the following details are important to be aware
 
 - New entry points have been introduced for the `@spartacus/checkout` library. For more information, see [{% assign linkedpage = site.pages | where: "name", "checkout-libraries-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/checkout-libraries-release-notes.md %}).
 - Spartacus provides a `webApplicationInjector.js` file that is required for working with SmartEdit. In Spartacus 5.0, the `webApplicationInjector.js` file has been updated to work with SAP Commerce Cloud 2211. If you are using an older version of SAP Commerce Cloud, you need to replace the `webApplicationInjector.js` file in your Spartacus application with the `webApplicationInjector.js` file that is shipped with your version of SAP Commerce Cloud. For more information, see [Web Application Injector](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html).
-- The `ModalModule`, `ModalService`, `ModalDirective`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you need to replace it with the `LaunchDialogService`.
+- The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService` provided by Spartacus:
+  - to open a modal, use `openDialog` or `openDialogAndSubscribe` method. 
+  ```ts
+  const dialog = this.launchDialogService.openDialog(
+      LAUNCH_CALLER.CLOSE_ACCOUNT,
+      this.element,
+      this.vcr
+    );
+
+  dialog?.pipe(take(1)).subscribe();
+  ```
+  - As the `LaunchDialogService` is using `LAUNCH_CALLER` for opening a modal, remember to augment `LAUNCH_CALLER` with a specific key for a component that you want to open in a modal:
+  ```ts
+  import '@spartacus/storefront';
+
+  declare module '@spartacus/storefront' {
+      const enum LAUNCH_CALLER {
+         CLOSE_ACCOUNT = 'CLOSE_ACCOUNT',
+      }
+  }
+  ```
+  - Once you have a key for your component, you need to provide to component module a configuration specified for your modal:
+  ```ts
+  import { DIALOG_TYPE, LayoutConfig } from '@spartacus/storefront';
+  import { CloseAccountModalComponent } from './close-account-modal.component';
+
+  export const defaultCloseDialogModalLayoutConfig: LayoutConfig = {
+      launch: {
+         CLOSE_ACCOUNT: {
+            inline: true,
+            component: CloseAccountModalComponent,
+            dialogType: DIALOG_TYPE.DIALOG,
+         },
+      },
+  };
+  ```
+  ```ts
+  provideDefaultConfig(defaultCloseDialogModalLayoutConfig),
+  ```
+  - to close modal, use `closeDialog` method.
+  ```ts
+  dismissModal(reason?: any): void {
+    this.launchDialogService.closeDialog(reason);
+  }
+  ```
+  - Use `@HostListener` and `ElementRef` to handle dialog closing when clicking outside of dialog:
+  ```ts
+  @HostListener('click', ['$event'])
+  handleClick(event: UIEvent): void {
+    if ((event.target as any).tagName === this.el.nativeElement.tagName) {
+      this.dismissModal('Cross click');
+    }
+  }
+  ```
+  - To pass the data to the modal, put it as a parameter to function:
+  ```ts
+  const dialog = this.launchDialogService.openDialog(
+      LAUNCH_CALLER.COUPON,
+      this.element,
+      this.vcr,
+      { coupon: this.coupon }
+    );
+  ```
