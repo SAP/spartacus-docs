@@ -247,16 +247,36 @@ export class CheckoutWrapperModule {}
 
 ```ts
 // Within your checkout-feature.module, you use the newly created wrapper module that contains your base checkout + your customized checkout module
-provideConfig(<CmsConfig>{
-  featureModules: {
-    [CHECKOUT_FEATURE]: {
-      module: () =>
-        import('./checkout-wrapper.module').then(
-          (m) => m.CheckoutWrapperModule
-        ),
+
+import { NgModule } from '@angular/core';
+import {
+  CheckoutRootModule,
+  CHECKOUT_FEATURE,
+} from '@spartacus/checkout/base/root';
+import { CheckoutB2BRootModule } from '@spartacus/checkout/b2b/root';
+import { CheckoutScheduledReplenishmentRootModule } from '@spartacus/checkout/scheduled-replenishment/root';
+import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
+import { CheckoutModule } from '@spartacus/checkout/base';
+import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
+import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkout/module';
+@NgModule({
+  imports: [
+    CheckoutRootModule, CheckoutB2BRootModule, CheckoutScheduledReplenishmentRootModule
+    ],
+  providers: [
+    provideConfig(<CmsConfig>{
+    featureModules: {
+      [CHECKOUT_FEATURE]: {
+        module: () =>
+          import('./checkout-wrapper.module').then(
+            (m) => m.CheckoutWrapperModule
+          ),
+      },
     },
-  },
-}),
+    }),
+  ]
+})
+export class CheckoutFeatureModule { }
 ```
 
 #### If b2b checkout or scheduled replenishment was configured, you would add these modules in the 'checkout-wrapper.module.ts'
@@ -287,17 +307,24 @@ export class CheckoutWrapperModule {}
 ```ts
 // Include all the necessary modules in the imports of your feature module in order to eagerly load these checkout features
 import { NgModule } from '@angular/core';
+import {
+  CheckoutRootModule
+} from '@spartacus/checkout/base/root';
+import { CheckoutB2BRootModule } from '@spartacus/checkout/b2b/root';
+import { CheckoutScheduledReplenishmentRootModule } from '@spartacus/checkout/scheduled-replenishment/root';
 import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
 import { CheckoutModule } from '@spartacus/checkout/base';
 import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
 import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkout/module';
 @NgModule({
-  imports: [CheckoutModule, CheckoutB2BModule, CheckoutScheduledReplenishmentModule, CustomizedCheckoutModule]
+  imports: [
+    CheckoutRootModule, CheckoutB2BRootModule, CheckoutScheduledReplenishmentRootModule,
+    CheckoutModule, CheckoutB2BModule, CheckoutScheduledReplenishmentModule, CustomizedCheckoutModule
+    ]
 })
 export class CheckoutFeatureModule { }
 
 ```
-
 
 ### Manually Updating From Old Checkout Facades
 
