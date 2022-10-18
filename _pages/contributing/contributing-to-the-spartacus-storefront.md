@@ -8,8 +8,6 @@ Here are some of the ways you can contribute to Spartacus:
 
 Note: This is a living document. Like the Spartacus code, this document will be improved over time with the help of our community. Feedback welcome.
 
-***
-
 ## Helping Others
 
 An easy way to start is by helping others who may have questions or need support. Look for such requests here:
@@ -34,18 +32,13 @@ Bug reports welcome! We are using [GitHub issue tracking](https://github.com/SAP
 
 Analyzing reports is a bit of work, so please ask yourself these questions before creating an issue:
 
-- Does the bug really apply to Spartacus?
-
-    There may be reasons the problem is occurring that have nothing to do with the Spartacus storefront code. Consider the following:
-
+- Does the bug really apply to Spartacus? There may be reasons the problem is occurring that have nothing to do with the Spartacus storefront code. Consider the following:
   - The problem may be caused by code that is not part of Spartacus.
   - The problem may be caused by data being sent to Spartacus through REST API calls.
   - The problem may be caused by incorrect CMS data sent by SAP Commerce Cloud, perhaps due to custom extensions.
   - The behavior may be different from what you expect, but may be working as designed. Or the feature may need improvement. In this case, it would be an enhancement request. Feature requests can be submitted to the [feature request channel](https://spartacus-storefront.slack.com/messages/CD8LC0X5F) in our Spartacus Slack workspace.
   - Perhaps you are unable to get Spartacus to work properly with your custom SAP Commerce Cloud.
-
 - Is the problem reproducible in the latest release?
-  
   - If you are not using the latest libraries or source code, please try to reproduce with the latest code first.
   - Make sure the problem is consistently reproducible using repeatable steps.
 - Has this bug already been reported?
@@ -60,21 +53,15 @@ If the bug does indeed apply to Spartacus code, please create an issue.
   - Precisely state what you expected as compared to the actual behavior you're seeing.
   - Include only those details that apply to the issue.
   - Be concise, but include details important for helping us in understanding the problem and finding the root cause.
-  - State the version you are testing, which browser you are using, and on which device.
-  
-    If it is possible to indicate what you've seen in other browser and device combinations, that is even better! For example, does the issue occur in all browsers, or just one browser on one particular operating system? (For example, "only in Firefox on Windows 10.)
+  - State the version you are testing, which browser you are using, and on which device. If it is possible to indicate what you've seen in other browser and device combinations, that is even better! For example, does the issue occur in all browsers, or just one browser on one particular operating system? (For example, "only in Firefox on Windows 10.)
   - If possible, include the last version where the bug was not present.
   - If the bug is more visual, please attach a screenshot and mark up the problem.
   - Generally, provide as much detail as necessary, but balance our need for information with how obvious the problem is.
-
 - Provide detailed, step-by-step instructions for reproducing the issue with an example, including, if possible:
-
   - A URL to your example
   - Any required username or password (but don't give us credentials that can be mis-used)
   - Screenshots if it helps us understand better.
-
 - Use our [issue templates](https://github.com/SAP/spartacus/issues/new/choose).
-
   - Do not include more than one bug per issue created. This helps us to analyze bugs more easily.
 
 Please report issues in English.
@@ -83,7 +70,7 @@ Please report issues in English.
 
 If you find a security issue, we'd rather you tell us directly instead of creating a public issue. This way we can fix it before it can be exploited.
 
-- SAP Customers: if you have discovered a security issue that is not covered by a published security note, please report it by creating a customer message at <https://launchpad.support.sap.com/#incident/solution.>
+- SAP Customers: if you have discovered a security issue that is not covered by a published security note, please report it by creating a customer message at [https://launchpad.support.sap.com/#incident/solution](https://launchpad.support.sap.com/#incident/solution).
 - Researchers/non-Customers can now use our vulnerability submission form to report findings to SAP. More information about how to report security issues to SAP can be found [here](https://www.sap.com/about/trust-center/security/incident-management.html).
 - Also refer to the general [SAP security information page](https://www.sap.com/corporate/en/company/security.html).
 
@@ -118,15 +105,11 @@ Feedback, especially bug reports, are always welcome. However, our capacity as a
 
 That being said, we will try our very best to ensure the Spartacus codebase is of high quality.
 
-----
-
 ## Analyzing Issues
 
 You don't have to be a programmer to help us determine the specifics of a bug. Any help here is welcome!
 
 To view a list of open issues that require analysis, see the [list of open issues](https://github.com/SAP/spartacus/issues?q=is%3Aopen) and especially the [list of issues where analysis is requested](https://github.com/SAP/spartacus/labels/triage/analysis%20wanted).
-
-----
 
 ## Contributing Code
 
@@ -134,26 +117,28 @@ We welcome contributions to the Spartacus codebase. Before you start your first 
 
 1. You must be aware of the Apache License (which describes contributions), and you must agree to the [Contributors License Agreement](https://github.com/SAP/spartacus/blob/develop/LICENSE.txt). This is common practice for most open source projects.
 
-    Note: You do not need to sign the CLA until you submit your first pull request. If you have not signed the CLA before, a link to the CLA assistant is provided on the PR status page.
+    **Note:** You do not need to sign the CLA until you submit your first pull request. If you have not signed the CLA before, a link to the CLA assistant is provided on the PR status page.
 
-    - To make this process as simple as possible, we use the *[CLA assistant](https://cla-assistant.io/)* for individual contributions. CLA assistant is an open source tool that integrates with GitHub very well and enables a one-click-experience for accepting the CLA.
+   To make this process as simple as possible, we use the *[CLA assistant](https://cla-assistant.io/)* for individual contributions. CLA assistant is an open source tool that integrates with GitHub very well and enables a one-click-experience for accepting the CLA.
     - For company contributors, special rules apply. See the respective section below for details.
 
-1. Contributions must be compliant with the project code style, quality, and standards. We also follow them :-) 
+2. Contributions must be compliant with the project code style, quality, and standards. We also follow them :-) 
 
-    The `Contribution Content Guidelines` section below gives more details on the coding guidelines.
+   The `Contribution Content Guidelines` section below gives more details on the coding guidelines.
 
-1. Not all contributions will be accepted.
-    - The code you are submitting must fit the overall vision and direction of Spartacus and really improve it. Bug fixes are simple cases, for example, but new features may work better as third-party extensions.
-    - Major feature implementations should be discussed with the owner [Bill Marcotte](https://github.com/Xymmer). You can also float ideas in our Slack channel, and we'll connect you to the appropriate person for further discussion.
+3. Not all contributions will be accepted.
 
-### Contributor License Agreement
+   The code you are submitting must fit the overall vision and direction of Spartacus and really improve it. Bug fixes are simple cases, for example, but new features may work better as third-party extensions.
+
+   Major feature implementations should be discussed with the owner [Bill Marcotte](https://github.com/Xymmer). You can also float ideas in our Slack channel, and we'll connect you to the appropriate person for further discussion.
+
+## Contributor License Agreement
 
 When you contribute anything to Spartacus (code, documentation, analysis, anything), be aware that your contribution is covered by the same [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) that is applied to Spartacus itself. In particular, you must agree to the [Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
 
 This applies to all contributors, including those contributing on behalf of a company. If you agree to its content, click on the link posted by the CLA assistant as a comment to the pull request. Click it to check the CLA, then accept it on the following screen if you agree to it. CLA assistant will save this decision for upcoming contributions and will notify you if there is any changes to the CLA in the meantime.
 
-#### Company Contributors
+### Company Contributors
 
 If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
@@ -187,24 +172,24 @@ The "guidelines and standards" requirement could fill entire books and still lac
 
 1. Build and run the storefront from the library development workspace.
 
-    For more information, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
+   For more information, see [{% assign linkedpage = site.pages | where: "name", "contributor-setup.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/contributor-setup.md %}).
 
 1. Work on the change in your fork (either on the `develop` branch or on a feature branch).
 
 1. Commit and push your changes using the [squash and merge](https://help.github.com/articles/about-pull-request-merges/) feature in GitHub.
 
-    That you should also use the squash and merge feature when additional changes are required after code review.
+   That you should also use the squash and merge feature when additional changes are required after code review.
 
 1. In the commit message, please follow the conventions described in [{% assign linkedpage = site.pages | where: "name", "commit-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/commit-guidelines.md %}).
 
-    By following the guidelines, your work will be accurately captured in the release changelog.
+   By following the guidelines, your work will be accurately captured in the release changelog.
 
 1. If your change fixes an issue reported in GitHub, add the following line to the commit message:
 
-     `Fixes https://github.com/SAP/spartacus/issues/(issueNumber)`
+   `Fixes https://github.com/SAP/spartacus/issues/(issueNumber)`
 
-   - Do not add a colon after "Fixes", as this prevents automatic closing.
-   - When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
+   1. Do not add a colon after "Fixes", as this prevents automatic closing.
+   1. When your pull request number is known (for example, because you enhanced a pull request after a code review), you can also add the following line:
 
         `Closes https://github.com/SAP/spartacus/pull/(pullRequestNumber)`
 
@@ -212,10 +197,9 @@ The "guidelines and standards" requirement could fill entire books and still lac
 1. Follow the link posted by the CLA assistant to your pull request and accept it, as described above.
 1. Wait for our code review and approval, possibly enhancing your change on request.
 
-    **Note:** This may take time, depending on the required effort for reviewing, testing, and clarification. Spartacus developers are also working their regular duties.
+   **Note:** This may take time, depending on the required effort for reviewing, testing, and clarification. Spartacus developers are also working their regular duties.
 
 1. After the change has been approved, we will inform you in a comment.
-
 1. Due to internal SAP processes, your pull request cannot be merged directly into the branch. It will be merged internally, and will also immediately appear in the public repository.
 1. We will close the pull request. At that point, you can delete your branch.
 

@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 5.0
+title: Updating to Spartacus Version 5.0
 ---
 
 ## Upgrading Your Angular Libraries
@@ -58,11 +58,25 @@ When the update has finished running, inspect your code for comments that begin 
 
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
 
+<<<<<<< HEAD
 ## Removal of ng-bootstrap
 
 ng-bootstrap has been removed from Spartacus 5.0 and is no longer a dependency. You can continue to use ng-bootstrap in your Spartacus application, but this may require upgrading additional third party dependencies. For more information, see the list of [ng-bootstrap dependencies](https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap).
 
 If you no longer need ng-bootstrap in your Spartacus application, you can run the command `yarn remove @ng-bootstrap/ng-bootstrap`.
+=======
+## Using Spartacus with SAP Commerce Cloud in the Public Cloud
+
+With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud cannot be used for building your Spartacus application. As a workaround, you can build your Spartacus app locally, and upload the compiled application, as follows:
+
+1. In your Spartacus project, run `yarn build`.
+
+   A new `dist` folder is created in the root directory of your project.
+
+2. Commit the `dist` folder to your code repository for SAP Commerce Cloud.
+
+   For more information, see [Adding Applications for JavaScript Storefronts](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/63577f67a67347bf9f4765a5385ead33.html).
+>>>>>>> develop
 
 ## Additional Information
 

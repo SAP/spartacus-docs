@@ -166,7 +166,7 @@ As mentioned, the new checkout libraries have mostly removed NgRx dependencies w
 
    The example for [`CheckoutResetQueryEvent`](https://sap.github.io/spartacus-docs/event-service/#list-of-spartacus-events) being fired is to reset the checkout details query from the `CheckoutQueryFacade`, due to the nature of Spartacus commands and queries, where it is possible to [reload or reset a query](https://sap.github.io/spartacus-docs/commands-and-queries/#queries-overview).
 
-### How to Properly Make Use of Queries in Checkout
+## How to Properly Make Use of Queries in Checkout
 
 Example: [CheckoutQueryFacade](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/core/facade/checkout-query.service.ts) and [CheckoutDeliveryAddressComponent](https://github.com/SAP/spartacus/blob/7bba93e0e6b75024371361b169348cfaebeb2c7b/feature-libs/checkout/base/components/checkout-delivery-address/checkout-delivery-address.component.ts)
 
