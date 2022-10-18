@@ -2,6 +2,15 @@
 title: Updating to Spartacus Version 5.0
 ---
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Upgrading Your Angular Libraries
 
 Before upgrading Spartacus to version 5.0, you first need to make sure your Angular libraries are up to date. Spartacus 5.0 requires Angular 14.
@@ -58,13 +67,6 @@ When the update has finished running, inspect your code for comments that begin 
 
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
 
-<<<<<<< HEAD
-## Removal of ng-bootstrap
-
-ng-bootstrap has been removed from Spartacus 5.0 and is no longer a dependency. You can continue to use ng-bootstrap in your Spartacus application, but this may require upgrading additional third party dependencies. For more information, see the list of [ng-bootstrap dependencies](https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap).
-
-If you no longer need ng-bootstrap in your Spartacus application, you can run the command `yarn remove @ng-bootstrap/ng-bootstrap`.
-=======
 ## Using Spartacus with SAP Commerce Cloud in the Public Cloud
 
 With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud cannot be used for building your Spartacus application. As a workaround, you can build your Spartacus app locally, and upload the compiled application, as follows:
@@ -76,7 +78,91 @@ With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud can
 2. Commit the `dist` folder to your code repository for SAP Commerce Cloud.
 
    For more information, see [Adding Applications for JavaScript Storefronts](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/63577f67a67347bf9f4765a5385ead33.html).
->>>>>>> develop
+
+## Removal of ng-bootstrap
+
+ng-bootstrap has been removed from Spartacus 5.0 and is no longer a dependency. You can continue to use ng-bootstrap in your Spartacus application, but this may require upgrading additional third party dependencies. For more information, see the list of [ng-bootstrap dependencies](https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap).
+
+If you no longer need ng-bootstrap in your Spartacus application, you can run the command `yarn remove @ng-bootstrap/ng-bootstrap`.
+
+## Removal of ModalService and Related Code
+
+The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService` provided by Spartacus.
+
+To open a modal, use the `openDialog` or `openDialogAndSubscribe` methods. The following is an example:
+
+```ts
+const dialog = this.launchDialogService.openDialog(
+    LAUNCH_CALLER.CLOSE_ACCOUNT,
+    this.element,
+    this.vcr
+  );
+
+dialog?.pipe(take(1)).subscribe();
+```
+
+The `LaunchDialogService` uses `LAUNCH_CALLER` to open a modal, so you need to augment `LAUNCH_CALLER` with a specific key for the component that you want to open in the modal. The following is an example:
+
+```ts
+import '@spartacus/storefront';
+
+declare module '@spartacus/storefront' {
+    const enum LAUNCH_CALLER {
+       CLOSE_ACCOUNT = 'CLOSE_ACCOUNT',
+    }
+}
+```
+
+Once you have a key for your component, you need to provide a configuration to the component module that is specified for your modal. The following is an example:
+
+```ts
+import { DIALOG_TYPE, LayoutConfig } from '@spartacus/storefront';
+import { CloseAccountModalComponent } from './close-account-modal.component';
+
+export const defaultCloseDialogModalLayoutConfig: LayoutConfig = {
+    launch: {
+       CLOSE_ACCOUNT: {
+          inline: true,
+          component: CloseAccountModalComponent,
+          dialogType: DIALOG_TYPE.DIALOG,
+       },
+    },
+};
+```
+
+```ts
+provideDefaultConfig(defaultCloseDialogModalLayoutConfig),
+```
+  
+To close the modal, use the `closeDialog` method, as shown in the following example:
+
+```ts
+dismissModal(reason?: any): void {
+  this.launchDialogService.closeDialog(reason);
+}
+```
+
+To handle closing of the dialog when click events occur outside of the dialog, use `@HostListener` and `ElementRef`, as shown in the following example:
+
+```ts
+@HostListener('click', ['$event'])
+handleClick(event: UIEvent): void {
+  if ((event.target as any).tagName === this.el.nativeElement.tagName) {
+    this.dismissModal('Cross click');
+  }
+}
+```
+  
+To pass data to the modal, call the data as a parameter of the function, as shown in the following example:
+  
+```ts
+const dialog = this.launchDialogService.openDialog(
+    LAUNCH_CALLER.COUPON,
+    this.element,
+    this.vcr,
+    { coupon: this.coupon }
+  );
+```
 
 ## Additional Information
 
@@ -84,66 +170,3 @@ In addition to breaking changes, the following details are important to be aware
 
 - New entry points have been introduced for the `@spartacus/checkout` library. For more information, see [{% assign linkedpage = site.pages | where: "name", "checkout-libraries-release-notes.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/home/updating-to-version-5/checkout-libraries-release-notes.md %}).
 - Spartacus provides a `webApplicationInjector.js` file that is required for working with SmartEdit. In Spartacus 5.0, the `webApplicationInjector.js` file has been updated to work with SAP Commerce Cloud 2211. If you are using an older version of SAP Commerce Cloud, you need to replace the `webApplicationInjector.js` file in your Spartacus application with the `webApplicationInjector.js` file that is shipped with your version of SAP Commerce Cloud. For more information, see [Web Application Injector](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html).
-- The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService` provided by Spartacus:
-  - to open a modal, use `openDialog` or `openDialogAndSubscribe` method. 
-  ```ts
-  const dialog = this.launchDialogService.openDialog(
-      LAUNCH_CALLER.CLOSE_ACCOUNT,
-      this.element,
-      this.vcr
-    );
-
-  dialog?.pipe(take(1)).subscribe();
-  ```
-  - As the `LaunchDialogService` is using `LAUNCH_CALLER` for opening a modal, remember to augment `LAUNCH_CALLER` with a specific key for a component that you want to open in a modal:
-  ```ts
-  import '@spartacus/storefront';
-
-  declare module '@spartacus/storefront' {
-      const enum LAUNCH_CALLER {
-         CLOSE_ACCOUNT = 'CLOSE_ACCOUNT',
-      }
-  }
-  ```
-  - Once you have a key for your component, you need to provide to component module a configuration specified for your modal:
-  ```ts
-  import { DIALOG_TYPE, LayoutConfig } from '@spartacus/storefront';
-  import { CloseAccountModalComponent } from './close-account-modal.component';
-
-  export const defaultCloseDialogModalLayoutConfig: LayoutConfig = {
-      launch: {
-         CLOSE_ACCOUNT: {
-            inline: true,
-            component: CloseAccountModalComponent,
-            dialogType: DIALOG_TYPE.DIALOG,
-         },
-      },
-  };
-  ```
-  ```ts
-  provideDefaultConfig(defaultCloseDialogModalLayoutConfig),
-  ```
-  - to close modal, use `closeDialog` method.
-  ```ts
-  dismissModal(reason?: any): void {
-    this.launchDialogService.closeDialog(reason);
-  }
-  ```
-  - Use `@HostListener` and `ElementRef` to handle dialog closing when clicking outside of dialog:
-  ```ts
-  @HostListener('click', ['$event'])
-  handleClick(event: UIEvent): void {
-    if ((event.target as any).tagName === this.el.nativeElement.tagName) {
-      this.dismissModal('Cross click');
-    }
-  }
-  ```
-  - To pass the data to the modal, put it as a parameter to function:
-  ```ts
-  const dialog = this.launchDialogService.openDialog(
-      LAUNCH_CALLER.COUPON,
-      this.element,
-      this.vcr,
-      { coupon: this.coupon }
-    );
-  ```
