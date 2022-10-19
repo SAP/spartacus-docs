@@ -44,7 +44,7 @@ Summary:
      - The zip file itself, `spartacussampledata.2105.zip`, is found in the the **Assets** section of the most recent release of the `@spartacus/storefront` library.
      - [Direct link to spartacussampledata.2105.zip](https://github.com/SAP/spartacus/releases/download/storefront-4.1.0/spartacussampledata.2105.zip) (newer versions of the sample data may be released in later releases).
 
-1. Move the `custom.properties` file from `spartacussampledata/resources/installer/customconfig` to `hybris-commerce-suite-2105/installer/customconfig`.
+1. Move the `custom.properties` file from `spartacussampledata/resources/installer/customconfig` to `hybris-commerce-suite-2205/installer/customconfig`.
 
    **Note:** The sample custom properties file is meant for development and evaluation purposes only. It is strongly recommend that you inspect this file's settings using a text editor. For more information, see [Sample Configuration Properties](#sample-configuration-properties).
 
