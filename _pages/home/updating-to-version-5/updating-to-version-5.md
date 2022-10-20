@@ -79,15 +79,15 @@ With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud can
 
    For more information, see [Adding Applications for JavaScript Storefronts](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/63577f67a67347bf9f4765a5385ead33.html).
 
-## Removal of ng-bootstrap
+## Removal of NG Bootstrap
 
-ng-bootstrap has been removed from Spartacus 5.0 and is no longer a dependency. You can continue to use ng-bootstrap in your Spartacus application, but this may require upgrading additional third party dependencies. For more information, see the list of [ng-bootstrap dependencies](https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap).
+NG Bootstrap has been removed from Spartacus 5.0 and is no longer a dependency. You can continue to use NG Bootstrap in your Spartacus application, but this may require upgrading additional third party dependencies. For more information, see the list of [NG Bootstrap dependencies](https://www.npmjs.com/package/@ng-bootstrap/ng-bootstrap).
 
-If you no longer need ng-bootstrap in your Spartacus application, you can run the command `yarn remove @ng-bootstrap/ng-bootstrap`.
+If you no longer need NG Bootstrap in your Spartacus application, you can run the command `yarn remove @ng-bootstrap/ng-bootstrap`.
 
 ## Removal of ModalService and Related Code
 
-The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService` provided by Spartacus.
+The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService` provided by Spartacus, that can be imported from `@spartacus/storefront`.
 
 To open a modal, use the `openDialog` or `openDialogAndSubscribe` methods. The following is an example:
 
@@ -122,7 +122,7 @@ import { CloseAccountModalComponent } from './close-account-modal.component';
 export const defaultCloseDialogModalLayoutConfig: LayoutConfig = {
     launch: {
        CLOSE_ACCOUNT: {
-          inline: true,
+          inline: true, // OR inlineRoot: true
           component: CloseAccountModalComponent,
           dialogType: DIALOG_TYPE.DIALOG,
        },
@@ -133,7 +133,12 @@ export const defaultCloseDialogModalLayoutConfig: LayoutConfig = {
 ```ts
 provideDefaultConfig(defaultCloseDialogModalLayoutConfig),
 ```
-  
+There are two dialog rendering strategies that can be used in configuration:
+   * `inline` - renders a component inline (next to the trigger). This strategy requires `ElementRef` to be provided to `openDialog` or `openDialogAndSubscribe` methods.
+   * `inlineRoot` - renders a component directly inside the cx-storefront (storefront selector)
+
+More configuration options can be found in `LaunchOptions` interface.
+
 To close the modal, use the `closeDialog` method, as shown in the following example:
 
 ```ts
