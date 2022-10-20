@@ -135,7 +135,7 @@ provideDefaultConfig(defaultCloseDialogModalLayoutConfig),
 ```
 There are two dialog rendering strategies that can be used in configuration:
    * `inline` - renders a component inline (next to the trigger). This strategy requires `ElementRef` to be provided to `openDialog` or `openDialogAndSubscribe` methods.
-   * `inlineRoot` - renders a component directly inside the cx-storefront (storefront selector)
+   * `inlineRoot` - renders a component directly inside the cx-storefront (storefront selector).
 
 More configuration options can be found in `LaunchOptions` interface.
 
