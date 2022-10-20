@@ -91,7 +91,7 @@ The easiest way to start a new project is to use Spartacus schematics to quickly
 
 For a full list of available parameters, see [{% assign linkedpage = site.pages | where: "name", "schematics.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/schematics.md %}).
 
-### Setting Up Your Project Using Schematics
+## Setting Up Your Project Using Schematics
 
 Run the following command to install the latest official release of Spartacus using schematics:
 
@@ -101,7 +101,7 @@ ng add @spartacus/schematics@5.0.0
 
 When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the `User - Account` feature.
 
-### Notes
+## Notes
 
 - **Spartacus does not support B2C and B2B storefronts running together in a single storefront application**. If you install  any of the B2B features, the B2C storefront will load but it will not work properly.
 - If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing. **If you install any of the following features, your Spartacus storefront will automatically become a B2B storefront**:
@@ -116,7 +116,7 @@ When you run this command, you are asked to choose which features you would like
 - To bypass the schematics prompts and install Spartacus with a predefined set of features, you can use the `--no-interactive` flag. For more information, see [Adding Spartacus Core Libraries and Features to Your Angular Project]({{ site.baseurl }}/schematics/#adding-spartacus-core-libraries-and-features-to-your-angular-project).
 - With each release of Spartacus, existing features are moved out of the core libraries and into their own dedicated feature libraries. With time, the core libraries will shrink as features are extracted to their own, separate packages.
 
-### Installing Dependencies
+## Installing Dependencies
 
 Install dependencies needed by your Spartacus app with the following command:
 
@@ -124,7 +124,7 @@ Install dependencies needed by your Spartacus app with the following command:
 yarn install
 ```
 
-### Checking spartacus-configuration.module.ts for Base URL and Other Settings
+## Checking spartacus-configuration.module.ts for Base URL and Other Settings
 
 Open the `src\app\spartacus\spartacus-configuration.module.ts` file, and check for any changes you want to make for your setup.
 
@@ -149,11 +149,11 @@ For example, check:
 
   - If using Powertools, add `powertools-spa` to the list in `baseSite`.
   
-### Updating the Web Application Injector
+## Updating the Web Application Injector
 
 For Spartacus to work with SmartEdit, your Spartacus application needs to use the `webApplicationInjector.js` file that is shipped with the version of SAP Commerce Cloud that you are using. In Spartacus 5.0, the `webApplicationInjector.js` file has been updated to work with SAP Commerce Cloud 2211. If you are using SAP Commerce Cloud 2211, then no action is required. However, if you are using an older version of SAP Commerce Cloud, then you need to replace the `webApplicationInjector.js` file in your Spartacus application with the `webApplicationInjector.js` file that is included with your version of SAP Commerce Cloud. For more information, see [Web Application Injector](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html).
 
-### Starting Your Spartacus App
+## Starting Your Spartacus App
 
 Start your app with the following command:
 
