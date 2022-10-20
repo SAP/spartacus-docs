@@ -87,7 +87,7 @@ If you no longer need NG Bootstrap in your Spartacus application, you can run th
 
 ## Removal of ModalService and Related Code
 
-The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService` provided by Spartacus, that can be imported from `@spartacus/storefront`.
+The `ModalService`, `ModalDirective`, `ModalDirectiveOptions`, `ModalDirectiveService`, `ModalOptions` and `ModalRef` have all been removed from Spartacus 5.0. If you are using the `ModalService` and related code in your Spartacus application, you can replace it with the `LaunchDialogService`, which can be imported from `@spartacus/storefront`.
 
 To open a modal, use the `openDialog` or `openDialogAndSubscribe` methods. The following is an example:
 
@@ -133,11 +133,13 @@ export const defaultCloseDialogModalLayoutConfig: LayoutConfig = {
 ```ts
 provideDefaultConfig(defaultCloseDialogModalLayoutConfig),
 ```
-There are two dialog rendering strategies that can be used in configuration:
-   * `inline` - renders a component inline (next to the trigger). This strategy requires `ElementRef` to be provided to `openDialog` or `openDialogAndSubscribe` methods.
-   * `inlineRoot` - renders a component directly inside the cx-storefront (storefront selector).
 
-More configuration options can be found in `LaunchOptions` interface.
+You can use the following dialog rendering strategies in your configuration:
+
+- `inline` renders a component inline, next to the trigger. This strategy requires `ElementRef` to be provided to the `openDialog` or `openDialogAndSubscribe` methods.
+- `inlineRoot` renders a component directly inside `cx-storefront` (that is, the storefront selector).
+
+More configuration options can be found in the `LaunchOptions` interface.
 
 To close the modal, use the `closeDialog` method, as shown in the following example:
 
