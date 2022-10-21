@@ -217,7 +217,7 @@ The following is a description of the settings:
 - `fileOptions` is metadata for the exported file. For more information about the available options, see the `export-file-options.ts` file in the Spartacus source code.
 - `maxEntries` determines the maximum number of entries that can be included in the exported CSV file.
 
-### Adding Columns in the CSV File
+## Adding Columns in the CSV File
 
 By default, the exported CSV file contains product code and quantity columns. You can add `ExportColumn` elements to the `additionalColumns` to define which additional columns you want to include in the exported CSV file.
 
