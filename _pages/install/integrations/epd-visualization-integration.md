@@ -37,11 +37,11 @@ To enable the SAP Enterprise Product Development Visualization integration, you 
 - [SAP Commerce Cloud](#configuring-sap-commerce-cloud)
 - [The back end for SAP Enterprise Product Development Visualization](#configuring-the-sap-enterprise-product-development-visualization-back-end)
 
-### Configuring Spartacus
+## Configuring Spartacus
 
 The following sections describe how to [configure Spartacus with schematics](#configuring-spartacus-using-schematics), as well as how to [configure Spartacus manually](#configuring-spartacus-manually). For information about customizing the default configuration, see [Default and Custom Configurations](#default-and-custom-configurations).
 
-#### Configuring Spartacus Using Schematics
+## Configuring Spartacus Using Schematics
 
 You can install and configure the SAP Enterprise Product Development Visualization integration using Spartacus schematics. To take advantage of the automatic setup provided by Spartacus schematics, you need to ensure that your storefront application adheres to the app structure introduced with Spartacus 3.2. For more information, see [{% assign linkedpage = site.pages | where: "name", "reference-app-structure.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/reference-app-structure.md %}).
 
