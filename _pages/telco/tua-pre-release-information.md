@@ -3,7 +3,7 @@ title: Pre-Release Information
 ---
 This document describes what is included in the latest pre-release of TUA Spartacus libraries, such as `next` and `rc` libraries.
 
-_Last updated March 17, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
+_Last updated September 1, 2021 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus_
 
 For an overview of what is included in a specific release, see [Release Information]({{ site.baseurl }}{% link _pages/telco/telco-release-information.md %}).
 
@@ -18,6 +18,17 @@ For detailed release notes, see the [TUA Spartacus repository
 {:toc}
 
 ***
+## Release 3.1.0-next.1 - September 1, 2021
+
+We are happy to announce our 3.1 Spartacus for TUA pre-release.
+
+In the `3.1.0-next.1` pre-release version, support is provided for the 2102 release of the Telco and Utilities Accelerator with SAP Commerce Cloud 2011.
+
+## Release 3.0.0-next.3 - Q1, 2021
+
+### Contract Termination
+
+A contract termination simply describes a contract being brought to an early end for any number of reasons. The effect of termination is to bring the contract to an end at a certain point and absolve parties of the majority of all ongoing obligations. Based on rules defined in the accelerator, a customer is able to initiate a contract termination. For more information, see [Contract Termination](https://help.sap.com/viewer/32f0086927f44c9ab1199f1dab8833cd/2108/en-US/055c4059f8794d158e60bfdccb10424b.html) on the SAP Help portal.
 
 ## Release 3.0.0-next.2 - March 17, 2021
 
