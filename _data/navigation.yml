@@ -544,6 +544,8 @@ docs:
                   url: /selfcare-subscriptions-billingaccount-agreements/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
+                - title: "Subscribed Product Inventory"
+                  url: /subscribed-product-inventory/  
 
 
     - title: Financial Services Accelerator Storefront Development Guide
