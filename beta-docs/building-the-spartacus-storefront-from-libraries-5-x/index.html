@@ -1710,15 +1710,13 @@
   <li><a href="#back-end-server-requirements" id="markdown-toc-back-end-server-requirements">Back End Server Requirements</a></li>
   <li><a href="#creating-a-new-angular-app" id="markdown-toc-creating-a-new-angular-app">Creating a New Angular App</a></li>
   <li><a href="#downloading-spartacus-libraries-from-the-repository-based-shipment-channel" id="markdown-toc-downloading-spartacus-libraries-from-the-repository-based-shipment-channel">Downloading Spartacus Libraries from the Repository Based Shipment Channel</a></li>
-  <li><a href="#spartacus-project-setup" id="markdown-toc-spartacus-project-setup">Spartacus Project Setup</a>    <ul>
-      <li><a href="#setting-up-your-project-using-schematics" id="markdown-toc-setting-up-your-project-using-schematics">Setting Up Your Project Using Schematics</a></li>
-      <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
-      <li><a href="#installing-dependencies" id="markdown-toc-installing-dependencies">Installing Dependencies</a></li>
-      <li><a href="#checking-spartacus-configurationmodulets-for-base-url-and-other-settings" id="markdown-toc-checking-spartacus-configurationmodulets-for-base-url-and-other-settings">Checking spartacus-configuration.module.ts for Base URL and Other Settings</a></li>
-      <li><a href="#updating-the-web-application-injector" id="markdown-toc-updating-the-web-application-injector">Updating the Web Application Injector</a></li>
-      <li><a href="#starting-your-spartacus-app" id="markdown-toc-starting-your-spartacus-app">Starting Your Spartacus App</a></li>
-    </ul>
-  </li>
+  <li><a href="#spartacus-project-setup" id="markdown-toc-spartacus-project-setup">Spartacus Project Setup</a></li>
+  <li><a href="#setting-up-your-project-using-schematics" id="markdown-toc-setting-up-your-project-using-schematics">Setting Up Your Project Using Schematics</a></li>
+  <li><a href="#notes" id="markdown-toc-notes">Notes</a></li>
+  <li><a href="#installing-dependencies" id="markdown-toc-installing-dependencies">Installing Dependencies</a></li>
+  <li><a href="#checking-spartacus-configurationmodulets-for-base-url-and-other-settings" id="markdown-toc-checking-spartacus-configurationmodulets-for-base-url-and-other-settings">Checking spartacus-configuration.module.ts for Base URL and Other Settings</a></li>
+  <li><a href="#updating-the-web-application-injector" id="markdown-toc-updating-the-web-application-injector">Updating the Web Application Injector</a></li>
+  <li><a href="#starting-your-spartacus-app" id="markdown-toc-starting-your-spartacus-app">Starting Your Spartacus App</a></li>
 </ul>
 
 <hr />
@@ -1817,7 +1815,7 @@ always-auth=true
 
 <p>For a full list of available parameters, see <a href="/spartacus-docs/beta-docs/schematics/">Schematics</a>.</p>
 
-<h3 id="setting-up-your-project-using-schematics">Setting Up Your Project Using Schematics</h3>
+<h2 id="setting-up-your-project-using-schematics">Setting Up Your Project Using Schematics</h2>
 
 <p>Run the following command to install the latest official release of Spartacus using schematics:</p>
 
@@ -1826,7 +1824,7 @@ always-auth=true
 
 <p>When you run this command, you are asked to choose which features you would like to set up. Some of the features are already selected by default, but this is only a suggested setup. You can select and unselect the features that are relevant for your installation, although it is highly recommended to install the <code class="language-plaintext highlighter-rouge">User - Account</code> feature.</p>
 
-<h3 id="notes">Notes</h3>
+<h2 id="notes">Notes</h2>
 
 <ul>
   <li><strong>Spartacus does not support B2C and B2B storefronts running together in a single storefront application</strong>. If you install  any of the B2B features, the B2C storefront will load but it will not work properly.</li>
@@ -1846,14 +1844,14 @@ always-auth=true
   <li>With each release of Spartacus, existing features are moved out of the core libraries and into their own dedicated feature libraries. With time, the core libraries will shrink as features are extracted to their own, separate packages.</li>
 </ul>
 
-<h3 id="installing-dependencies">Installing Dependencies</h3>
+<h2 id="installing-dependencies">Installing Dependencies</h2>
 
 <p>Install dependencies needed by your Spartacus app with the following command:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn <span class="nb">install</span>
 </code></pre></div></div>
 
-<h3 id="checking-spartacus-configurationmodulets-for-base-url-and-other-settings">Checking spartacus-configuration.module.ts for Base URL and Other Settings</h3>
+<h2 id="checking-spartacus-configurationmodulets-for-base-url-and-other-settings">Checking spartacus-configuration.module.ts for Base URL and Other Settings</h2>
 
 <p>Open the <code class="language-plaintext highlighter-rouge">src\app\spartacus\spartacus-configuration.module.ts</code> file, and check for any changes you want to make for your setup.</p>
 
@@ -1888,11 +1886,11 @@ always-auth=true
   </li>
 </ul>
 
-<h3 id="updating-the-web-application-injector">Updating the Web Application Injector</h3>
+<h2 id="updating-the-web-application-injector">Updating the Web Application Injector</h2>
 
 <p>For Spartacus to work with SmartEdit, your Spartacus application needs to use the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file that is shipped with the version of SAP Commerce Cloud that you are using. In Spartacus 5.0, the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file has been updated to work with SAP Commerce Cloud 2211. If you are using SAP Commerce Cloud 2211, then no action is required. However, if you are using an older version of SAP Commerce Cloud, then you need to replace the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file in your Spartacus application with the <code class="language-plaintext highlighter-rouge">webApplicationInjector.js</code> file that is included with your version of SAP Commerce Cloud. For more information, see <a href="https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/e1391e5265574bfbb56ca4c0573ba1dc/e9340d1d3d3249849ff154731277069a.html">Web Application Injector</a>.</p>
 
-<h3 id="starting-your-spartacus-app">Starting Your Spartacus App</h3>
+<h2 id="starting-your-spartacus-app">Starting Your Spartacus App</h2>
 
 <p>Start your app with the following command:</p>
 

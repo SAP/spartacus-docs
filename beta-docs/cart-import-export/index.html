@@ -2290,10 +2290,8 @@ This feature is introduced with version 4.2 of the Spartacus libraries.
   <li><a href="#disabling-cart-import-and-export" id="markdown-toc-disabling-cart-import-and-export">Disabling Cart Import and Export</a></li>
   <li><a href="#global-configuration" id="markdown-toc-global-configuration">Global Configuration</a></li>
   <li><a href="#configuring-cart-import" id="markdown-toc-configuring-cart-import">Configuring Cart Import</a></li>
-  <li><a href="#configuring-cart-export" id="markdown-toc-configuring-cart-export">Configuring Cart Export</a>    <ul>
-      <li><a href="#adding-columns-in-the-csv-file" id="markdown-toc-adding-columns-in-the-csv-file">Adding Columns in the CSV File</a></li>
-    </ul>
-  </li>
+  <li><a href="#configuring-cart-export" id="markdown-toc-configuring-cart-export">Configuring Cart Export</a></li>
+  <li><a href="#adding-columns-in-the-csv-file" id="markdown-toc-adding-columns-in-the-csv-file">Adding Columns in the CSV File</a></li>
   <li><a href="#defining-the-route-and-context-for-custom-configurations" id="markdown-toc-defining-the-route-and-context-for-custom-configurations">Defining the Route and Context for Custom Configurations</a>    <ul>
       <li><a href="#implementing-context-for-a-custom-page" id="markdown-toc-implementing-context-for-a-custom-page">Implementing Context for a Custom Page</a></li>
     </ul>
@@ -2496,7 +2494,7 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
   <li><code class="language-plaintext highlighter-rouge">maxEntries</code> determines the maximum number of entries that can be included in the exported CSV file.</li>
 </ul>
 
-<h3 id="adding-columns-in-the-csv-file">Adding Columns in the CSV File</h3>
+<h2 id="adding-columns-in-the-csv-file">Adding Columns in the CSV File</h2>
 
 <p>By default, the exported CSV file contains product code and quantity columns. You can add <code class="language-plaintext highlighter-rouge">ExportColumn</code> elements to the <code class="language-plaintext highlighter-rouge">additionalColumns</code> to define which additional columns you want to include in the exported CSV file.</p>
 

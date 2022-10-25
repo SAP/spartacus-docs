@@ -1800,6 +1800,7 @@
   <li><a href="#how-to-properly-make-use-of-queries-in-checkout" id="markdown-toc-how-to-properly-make-use-of-queries-in-checkout">How to Properly Make Use of Queries in Checkout</a></li>
   <li><a href="#customizing-the-lazy-loaded-checkout-module" id="markdown-toc-customizing-the-lazy-loaded-checkout-module">Customizing the Lazy Loaded Checkout Module</a></li>
   <li><a href="#migrations" id="markdown-toc-migrations">Migrations</a>    <ul>
+      <li><a href="#migrating-the-old-checkout-configuration" id="markdown-toc-migrating-the-old-checkout-configuration">Migrating the Old Checkout Configuration</a></li>
       <li><a href="#manually-updating-from-old-checkout-facades" id="markdown-toc-manually-updating-from-old-checkout-facades">Manually Updating From Old Checkout Facades</a></li>
       <li><a href="#using-the-newly-created-checkout-components" id="markdown-toc-using-the-newly-created-checkout-components">Using the Newly Created Checkout Components</a></li>
       <li><a href="#example-of-removing-ngrx-by-using-spartacus-commands-and-queries" id="markdown-toc-example-of-removing-ngrx-by-using-spartacus-commands-and-queries">Example of Removing NgRx by Using Spartacus Commands and Queries</a></li>
@@ -1958,12 +1959,12 @@
             <span class="p">{</span> <span class="na">key</span><span class="p">:</span> <span class="dl">'</span><span class="s1">addressForm.userAddressAddSuccess</span><span class="dl">'</span> <span class="p">},</span>
             <span class="nx">GlobalMessageType</span><span class="p">.</span><span class="nx">MSG_TYPE_CONFIRMATION</span>
           <span class="p">);</span>
-   
+
           <span class="k">this</span><span class="p">.</span><span class="nx">eventService</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span>
             <span class="p">{</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">cartId</span> <span class="p">},</span>
             <span class="nx">CheckoutResetDeliveryModesEvent</span>
           <span class="p">);</span>
-   
+
           <span class="k">this</span><span class="p">.</span><span class="nx">eventService</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({},</span> <span class="nx">CheckoutResetQueryEvent</span><span class="p">);</span>
         <span class="p">})</span>
     <span class="p">);</span>
@@ -2024,9 +2025,118 @@
 
 <h2 id="migrations">Migrations</h2>
 
-<p>Spartacus schematics are designed to assist you in your migration and to help make the transition from your current version to 5.0 go more smoothly.</p>
+<p>Spartacus schematics are designed to assist you in your migration and to help you make the transition from your current version to 5.0 go more smoothly.</p>
 
-<p>Take a look at the <a href="https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md">5.0 TypeScript Changes</a> to get a high-level overview of what has changed.</p>
+<p>For a high-level overview of what has changed, see the <a href="https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md">5.0 TypeScript Changes</a>.</p>
+
+<h3 id="migrating-the-old-checkout-configuration">Migrating the Old Checkout Configuration</h3>
+
+<p>As mentioned previously, if you are using Spartacus 4.x, the checkout library only contains the <code class="language-plaintext highlighter-rouge">@spartacus/checkout</code> entrypoint, which includes all checkout flows. In Spartacus 5.0, the checkout library has been decoupled into different business logic features, with the intention of achieving a smaller bundle size by splitting the library into three different entrypoints: <code class="language-plaintext highlighter-rouge">@spartacus/checkout/base</code>, <code class="language-plaintext highlighter-rouge">@spartacus/checkout/b2b</code>, and <code class="language-plaintext highlighter-rouge">@spartacus/checkout/scheduled-replenishment</code>.</p>
+
+<p>If your application is already configured to load from <code class="language-plaintext highlighter-rouge">@spartacus/checkout</code>, you need to update the reference that imports from it by changing it to <code class="language-plaintext highlighter-rouge">@spartacus/checkout/base</code>.</p>
+
+<p>However, if there are additional configurations that add some customized logic to the checkout, you might consider creating a wrapper module that allows additional extensions or functionality to work with your customized checkout module.</p>
+
+<p><strong>Note:</strong> Creating a wrapper module is only necessary when you want to add customizations to the existing checkout features. If you are simply using the base checkout module without customizations, it is not necessary to create a wrapper module.</p>
+
+<p>The following is an example on how to approach the creation of a wrapper module that will help with lazy loading the feature:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// checkout-wrapper.module.ts</span>
+<span class="c1">// Adding your customized checkout logic</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/base</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CustomizedCheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./some/path/of/your/customized/checkout/module</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span><span class="nx">CheckoutModule</span><span class="p">,</span> <span class="nx">CustomizedCheckoutModule</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CheckoutWrapperModule</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Within your checkout-feature.module, you use the newly created wrapper module that contains your base checkout as well as your customized checkout module</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">CheckoutRootModule</span><span class="p">,</span>
+  <span class="nx">CHECKOUT_FEATURE</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/base/root</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutB2BRootModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/b2b/root</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutScheduledReplenishmentRootModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/scheduled-replenishment/root</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutB2BModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/b2b</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/base</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutScheduledReplenishmentModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/scheduled-replenishment</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CustomizedCheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./some/path/of/your/customized/checkout/module</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">CheckoutRootModule</span><span class="p">,</span>
+    <span class="nx">CheckoutB2BRootModule</span><span class="p">,</span>
+    <span class="nx">CheckoutScheduledReplenishmentRootModule</span><span class="p">,</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">provideConfig</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">CmsConfig</span><span class="o">&gt;</span><span class="p">{</span>
+      <span class="na">featureModules</span><span class="p">:</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nx">CHECKOUT_FEATURE</span><span class="p">]:</span> <span class="p">{</span>
+          <span class="na">module</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+            <span class="k">import</span><span class="p">(</span><span class="dl">'</span><span class="s1">./checkout-wrapper.module</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+              <span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">CheckoutWrapperModule</span>
+            <span class="p">),</span>
+        <span class="p">},</span>
+      <span class="p">},</span>
+    <span class="p">}),</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CheckoutFeatureModule</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>If b2b checkout or scheduled replenishment are configured, you would add these modules in the <code class="language-plaintext highlighter-rouge">checkout-wrapper.module.ts</code>, as shown in the following example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// checkout-wrapper.module.ts</span>
+<span class="c1">// Adding scheduled replenishment to your existing customized checkout feature</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutB2BModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/b2b</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/base</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutScheduledReplenishmentModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/scheduled-replenishment</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CustomizedCheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./some/path/of/your/customized/checkout/module</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">CheckoutModule</span><span class="p">,</span>
+    <span class="nx">CheckoutB2BModule</span><span class="p">,</span>
+    <span class="nx">CheckoutScheduledReplenishmentModule</span><span class="p">,</span>
+    <span class="nx">CustomizedCheckoutModule</span><span class="p">,</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CheckoutWrapperModule</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">CheckoutB2BModule</code> and <code class="language-plaintext highlighter-rouge">CheckoutScheduledReplenishmentModule</code> require the <code class="language-plaintext highlighter-rouge">CheckoutModule</code>.</p>
+
+<p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">CheckoutScheduledReplenishmentModule</code> requires both the <code class="language-plaintext highlighter-rouge">CheckoutModule</code> and the <code class="language-plaintext highlighter-rouge">CheckoutB2BModule</code>.</p>
+
+<p>The following is an example on how to eagerly load your customized checkout:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Include all the necessary modules in the imports of your feature module in order to eagerly load these checkout features</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutRootModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/base/root</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutB2BRootModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/b2b/root</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutScheduledReplenishmentRootModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/scheduled-replenishment/root</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutB2BModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/b2b</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/base</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CheckoutScheduledReplenishmentModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@spartacus/checkout/scheduled-replenishment</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">CustomizedCheckoutModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./some/path/of/your/customized/checkout/module</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">CheckoutRootModule</span><span class="p">,</span>
+    <span class="nx">CheckoutB2BRootModule</span><span class="p">,</span>
+    <span class="nx">CheckoutScheduledReplenishmentRootModule</span><span class="p">,</span>
+    <span class="nx">CheckoutModule</span><span class="p">,</span>
+    <span class="nx">CheckoutB2BModule</span><span class="p">,</span>
+    <span class="nx">CheckoutScheduledReplenishmentModule</span><span class="p">,</span>
+    <span class="nx">CustomizedCheckoutModule</span><span class="p">,</span>
+  <span class="p">],</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">CheckoutFeatureModule</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> In this example, there is no need for a wrapper module because you do not need to use the dynamic import.</p>
 
 <h3 id="manually-updating-from-old-checkout-facades">Manually Updating From Old Checkout Facades</h3>
 
