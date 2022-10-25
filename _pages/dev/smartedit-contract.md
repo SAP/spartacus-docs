@@ -27,8 +27,6 @@ To make Spartacus work with SmartEdit, you need to implement the SmartEdit Contr
 
  For information on how to include the `webApplicationInjector.js` file in your app, see [{% assign linkedpage = site.pages | where: "name", "smartEdit-setup-instructions-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/smartEdit-setup-instructions-for-spartacus.md %}).
 
-The [preview ticket API mechanism]()
-
 ## Preview Ticket API Mechanism
 
 ### Getting the cmsTicketId

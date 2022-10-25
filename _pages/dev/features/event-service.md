@@ -104,7 +104,7 @@ eventService.register(CustomEvent, subject1$);
 eventService.register(CustomEvent, subject2$);
 ```
 
-### Avoiding Certain Candidates for an Event Stream
+## Avoiding Certain Candidates for an Event Stream
 
 Not all RxJs Observables are good candidates for an event stream. For example, the NgRx selectors are not good candidates for an event stream. The Observable of the NgRx selector replays the latest updated value at the moment of the subscription, regardless of when the value was updated. But a valid event stream should emit a value only when the actual event happens.
 
@@ -118,7 +118,7 @@ Examples of candidates to avoid for event sources are the following Observables 
 
 A pure RxJs `Subject` is a good candidate for the event source.
 
-### Avoiding Memory Leaks and Unregistering Event Sources
+## Avoiding Memory Leaks and Unregistering Event Sources
 
 To avoid memory leaks, every event source Observable should be unregistered from the `EventService` when it is no longer needed. To unregister an event source, you can call the "tear down" function that is returned by the `register()` method. The following is an example:
 

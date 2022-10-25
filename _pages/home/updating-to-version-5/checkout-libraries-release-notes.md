@@ -152,12 +152,12 @@ As mentioned, the new checkout libraries have mostly removed NgRx dependencies w
                { key: 'addressForm.userAddressAddSuccess' },
                GlobalMessageType.MSG_TYPE_CONFIRMATION
              );
-   
+
              this.eventService.dispatch(
                { userId, cartId },
                CheckoutResetDeliveryModesEvent
              );
-   
+
              this.eventService.dispatch({}, CheckoutResetQueryEvent);
            })
        );
@@ -219,9 +219,122 @@ The principle for customizing the lazy loaded checkout module is the same as for
 
 ## Migrations
 
-Spartacus schematics are designed to assist you in your migration and to help make the transition from your current version to 5.0 go more smoothly.
+Spartacus schematics are designed to assist you in your migration and to help you make the transition from your current version to 5.0 go more smoothly.
 
-Take a look at the [5.0 TypeScript Changes](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md) to get a high-level overview of what has changed.
+For a high-level overview of what has changed, see the [5.0 TypeScript Changes](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md).
+
+### Migrating the Old Checkout Configuration
+
+As mentioned previously, if you are using Spartacus 4.x, the checkout library only contains the `@spartacus/checkout` entrypoint, which includes all checkout flows. In Spartacus 5.0, the checkout library has been decoupled into different business logic features, with the intention of achieving a smaller bundle size by splitting the library into three different entrypoints: `@spartacus/checkout/base`, `@spartacus/checkout/b2b`, and `@spartacus/checkout/scheduled-replenishment`.
+
+If your application is already configured to load from `@spartacus/checkout`, you need to update the reference that imports from it by changing it to `@spartacus/checkout/base`.
+
+However, if there are additional configurations that add some customized logic to the checkout, you might consider creating a wrapper module that allows additional extensions or functionality to work with your customized checkout module.
+
+**Note:** Creating a wrapper module is only necessary when you want to add customizations to the existing checkout features. If you are simply using the base checkout module without customizations, it is not necessary to create a wrapper module.
+
+The following is an example on how to approach the creation of a wrapper module that will help with lazy loading the feature:
+
+```ts
+// checkout-wrapper.module.ts
+// Adding your customized checkout logic
+import { NgModule } from '@angular/core';
+import { CheckoutModule } from '@spartacus/checkout/base';
+import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkout/module';
+@NgModule({
+  imports: [CheckoutModule, CustomizedCheckoutModule],
+})
+export class CheckoutWrapperModule {}
+```
+
+```ts
+// Within your checkout-feature.module, you use the newly created wrapper module that contains your base checkout as well as your customized checkout module
+
+import { NgModule } from '@angular/core';
+import {
+  CheckoutRootModule,
+  CHECKOUT_FEATURE,
+} from '@spartacus/checkout/base/root';
+import { CheckoutB2BRootModule } from '@spartacus/checkout/b2b/root';
+import { CheckoutScheduledReplenishmentRootModule } from '@spartacus/checkout/scheduled-replenishment/root';
+import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
+import { CheckoutModule } from '@spartacus/checkout/base';
+import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
+import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkout/module';
+@NgModule({
+  imports: [
+    CheckoutRootModule,
+    CheckoutB2BRootModule,
+    CheckoutScheduledReplenishmentRootModule,
+  ],
+  providers: [
+    provideConfig(<CmsConfig>{
+      featureModules: {
+        [CHECKOUT_FEATURE]: {
+          module: () =>
+            import('./checkout-wrapper.module').then(
+              (m) => m.CheckoutWrapperModule
+            ),
+        },
+      },
+    }),
+  ],
+})
+export class CheckoutFeatureModule {}
+```
+
+If b2b checkout or scheduled replenishment are configured, you would add these modules in the `checkout-wrapper.module.ts`, as shown in the following example:
+
+```ts
+// checkout-wrapper.module.ts
+// Adding scheduled replenishment to your existing customized checkout feature
+import { NgModule } from '@angular/core';
+import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
+import { CheckoutModule } from '@spartacus/checkout/base';
+import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
+import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkout/module';
+@NgModule({
+  imports: [
+    CheckoutModule,
+    CheckoutB2BModule,
+    CheckoutScheduledReplenishmentModule,
+    CustomizedCheckoutModule,
+  ],
+})
+export class CheckoutWrapperModule {}
+```
+
+**Note:** The `CheckoutB2BModule` and `CheckoutScheduledReplenishmentModule` require the `CheckoutModule`.
+
+**Note:** The `CheckoutScheduledReplenishmentModule` requires both the `CheckoutModule` and the `CheckoutB2BModule`.
+
+The following is an example on how to eagerly load your customized checkout:
+
+```ts
+// Include all the necessary modules in the imports of your feature module in order to eagerly load these checkout features
+import { NgModule } from '@angular/core';
+import { CheckoutRootModule } from '@spartacus/checkout/base/root';
+import { CheckoutB2BRootModule } from '@spartacus/checkout/b2b/root';
+import { CheckoutScheduledReplenishmentRootModule } from '@spartacus/checkout/scheduled-replenishment/root';
+import { CheckoutB2BModule } from '@spartacus/checkout/b2b';
+import { CheckoutModule } from '@spartacus/checkout/base';
+import { CheckoutScheduledReplenishmentModule } from '@spartacus/checkout/scheduled-replenishment';
+import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkout/module';
+@NgModule({
+  imports: [
+    CheckoutRootModule,
+    CheckoutB2BRootModule,
+    CheckoutScheduledReplenishmentRootModule,
+    CheckoutModule,
+    CheckoutB2BModule,
+    CheckoutScheduledReplenishmentModule,
+    CustomizedCheckoutModule,
+  ],
+})
+export class CheckoutFeatureModule {}
+```
+
+**Note:** In this example, there is no need for a wrapper module because you do not need to use the dynamic import.
 
 ### Manually Updating From Old Checkout Facades
 
