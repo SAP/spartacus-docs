@@ -10,14 +10,14 @@ The new entry points for the `@spartacus/checkout` library are the following:
 - `@spartacus/checkout/b2b`, which includes the basic checkout functionalities from the base library, as well as additional checkout flows that cater to business-to-business (B2B) scenarios.
 - `@spartacus/checkout/scheduled-replenishment`, which includes the functionalities of both the base and B2B checkout libraries, and also allows the user to either place a regular order, or schedule a replenishment order.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 In Spartacus 4.0, a new [checkout library](https://sap.github.io/spartacus-docs/technical-changes-version-4/#new-checkout-library) was created by extracting the checkout functionality from the original Spartacus libraries. However, this new checkout library only had a single entry point that contained all checkout flows, even if they were not be used (such as the [scheduled replenishment flow](https://sap.github.io/spartacus-docs/scheduled-replenishment/#setting-up-a-replenishment-order), for example). However, in Spartacus 5.0, the library has been further decoupled into different business logic features, with the intention of having a smaller bundle size.
 
@@ -219,21 +219,21 @@ The principle for customizing the lazy loaded checkout module is the same as for
 
 ## Migrations
 
-Spartacus schematics are designed to assist you in your migration and to help make the transition from your current version to 5.0 go more smoothly.
+Spartacus schematics are designed to assist you in your migration and to help you make the transition from your current version to 5.0 go more smoothly.
 
-Take a look at the [5.0 TypeScript Changes](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md) to get a high-level overview of what has changed.
+For a high-level overview of what has changed, see the [5.0 TypeScript Changes](https://github.com/SAP/spartacus/blob/84e6b462db1f5dca5c3145c5bc535fc5e2b52fe2/docs/migration/5_0-generated-typescript-changes-doc.md).
 
-### Migrating the old checkout configuration
+### Migrating the Old Checkout Configuration
 
-To re-iterate, if you are using Spartacus 4.0, the checkout library only contains a single entrypoint (`@spartacus/checkout`), which contains all checkout flows. On the other hand, in Spartacus 5.0, the library has been further decoupled into different business logic features, with the intention of having a smaller bundle size by splitting it into three different entrypoints instead (`@spartacus/checkout/base`, `@spartacus/checkout/b2b`, or `@spartacus/checkout/scheduled-replenishment`).
+As mentioned previously, if you are using Spartacus 4.x, the checkout library only contains the `@spartacus/checkout` entrypoint, which includes all checkout flows. In Spartacus 5.0, the checkout library has been decoupled into different business logic features, with the intention of achieving a smaller bundle size by splitting the library into three different entrypoints: `@spartacus/checkout/base`, `@spartacus/checkout/b2b`, and `@spartacus/checkout/scheduled-replenishment`.
 
-If your application is already configured to load from `@spartacus/checkout`, you would need to update the reference that imports from it by changing it to `@spartacus/checkout/base`.
+If your application is already configured to load from `@spartacus/checkout`, you need to update the reference that imports from it by changing it to `@spartacus/checkout/base`.
 
-However, if there were added configurations that adds some customized logic to checkout, you might consider creating a wrapper module, which allows additional extensions/functionality to work with your customized checkout module.
+However, if there are additional configurations that add some customized logic to the checkout, you might consider creating a wrapper module that allows additional extensions or functionality to work with your customized checkout module.
 
-**Note:** Creating a wrapper module is only necessary when you want to add additional customization to the existing checkout features. Therefore, if you were to use the base checkout module out of the box, it is not necessary to create a wrapper module.
+**Note:** Creating a wrapper module is only necessary when you want to add customizations to the existing checkout features. If you are simply using the base checkout module without customizations, it is not necessary to create a wrapper module.
 
-#### The following is an example on how to approach the creation of a wrapper module, which will help with lazy loading the feature:
+The following is an example on how to approach the creation of a wrapper module that will help with lazy loading the feature:
 
 ```ts
 // checkout-wrapper.module.ts
@@ -248,7 +248,7 @@ export class CheckoutWrapperModule {}
 ```
 
 ```ts
-// Within your checkout-feature.module, you use the newly created wrapper module that contains your base checkout + your customized checkout module
+// Within your checkout-feature.module, you use the newly created wrapper module that contains your base checkout as well as your customized checkout module
 
 import { NgModule } from '@angular/core';
 import {
@@ -283,12 +283,7 @@ import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkou
 export class CheckoutFeatureModule {}
 ```
 
-#### If b2b checkout or scheduled replenishment was configured, you would add these modules in the 'checkout-wrapper.module.ts'
-
-**Note:**
-
-- CheckoutB2BModule and CheckoutScheduledReplenishmentModule requires CheckoutModule.
-- CheckoutScheduledReplenishmentModule requires both CheckoutModule and CheckoutB2BModule.
+If b2b checkout or scheduled replenishment are configured, you would add these modules in the `checkout-wrapper.module.ts`, as shown in the following example:
 
 ```ts
 // checkout-wrapper.module.ts
@@ -309,11 +304,11 @@ import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkou
 export class CheckoutWrapperModule {}
 ```
 
-#### The following is an example on how to eagerly load your customized checkout:
+**Note:** The `CheckoutB2BModule` and `CheckoutScheduledReplenishmentModule` require the `CheckoutModule`.
 
-**Note:**
+**Note:** The `CheckoutScheduledReplenishmentModule` requires both the `CheckoutModule` and the `CheckoutB2BModule`.
 
-- no need for a wrapper module as you do not need to use the dynamic import
+The following is an example on how to eagerly load your customized checkout:
 
 ```ts
 // Include all the necessary modules in the imports of your feature module in order to eagerly load these checkout features
@@ -338,6 +333,8 @@ import { CustomizedCheckoutModule } from './some/path/of/your/customized/checkou
 })
 export class CheckoutFeatureModule {}
 ```
+
+**Note:** In this example, there is no need for a wrapper module because you do not need to use the dynamic import.
 
 ### Manually Updating From Old Checkout Facades
 
