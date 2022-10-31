@@ -15,7 +15,7 @@ The base cart functionality is now placed within the `base` feature of the cart 
 - `@spartacus/cart/base/root`: by convention, the root entry point is meant to always be eager loaded.  It contains the config, events, facades, HTTP interceptors, and models.
 - `@spartacus/cart/base/styles`: the base cart-related SCSS styles are moved here.
 
-### Lazy Loading the Base Cart Feature
+## Lazy Loading the Base Cart Feature
 
 The base cart feature is now lazy loadable. As a result of this update, the base cart feature needs to be imported in your storefront application using a feature module that properly applies standard imports and dynamic imports for the correct entry points. Your application then needs to import that feature module.
 
