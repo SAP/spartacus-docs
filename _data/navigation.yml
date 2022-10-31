@@ -24,8 +24,12 @@ docs:
                 - title: "Updating to Version 5.0 ➢"
                   url: /updating-to-version-5/
                   underchildren:
+                      - title: "Cart Library Release Notes"
+                        url: /cart-library-release-notes/
                       - title: "Checkout Libraries Release Notes"
                         url: /checkout-libraries-release-notes/
+                      - title: "Wish List Library Release Notes"
+                        url: /wish-list-library-release-notes/
                 - title: "Updating to Version 4.0 ➢"
                   url: /updating-to-version-4/
                   underchildren:
