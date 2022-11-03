@@ -26,7 +26,7 @@ docs:
                   underchildren:
                       - title: "Cart Library Release Notes"
                         url: /cart-library-release-notes/
-                      - title: "Checkout Libraries Release Notes"
+                      - title: "Checkout Library Release Notes"
                         url: /checkout-libraries-release-notes/
                 - title: "Updating to Version 4.0 ➢"
                   url: /updating-to-version-4/
