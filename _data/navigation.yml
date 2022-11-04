@@ -56,6 +56,8 @@ docs:
                         url: /order-library-release-notes/
                 - title: "Known Issues"
                   url: /known-issues/
+          - title: "Update Policy and Release Frequency for Spartacus Libraries"
+            url: /update-policy-and-release-frequency/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
