@@ -179,7 +179,7 @@ By default, SAP Commerce Cloud successfully replies to OCC REST API calls that d
 
 To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end.
 
-- When you import the OCC credentials ImpEx, you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
+- When you import the OCC credentials ImpEx in [Step 3: Importing OCC Credentials](#step-3-importing-occ-credentials), you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
 - For more information on this topic, see [this help topic](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html).
 
 ### CORS Settings
