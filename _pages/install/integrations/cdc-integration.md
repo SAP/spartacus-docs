@@ -132,14 +132,14 @@ Perform the following steps after you have set up your Spartacus Storefront. For
 
 3. Build and start the storefront app to verify your changes.
 
+## SAP Customer Data Cloud Integration in the Spartacus User Interface
 
-## SAP Customer Data Cloud Integration within native Spartacus UI (without CDC Screensets)
+SAP Customer Data Cloud Integration supports native UI integration in Spartacus without the use of CDC screen sets.
 
-Starting from Spartacus 5.0, SAP Customer Data Cloud Integration supports native UI integration without the use of CDC Screensets.
+The following screens are implemented using the CDC SDK:
 
-The following screens are implemented using CDC SDK:
 - Login
 - Registration
 - Forgot Password
 
-No additional configurations are needed. The integration is enabled by default when SAP Customer Data Cloud is installed.
+No additional configuration is needed. The integration is enabled by default when SAP Customer Data Cloud is installed.
