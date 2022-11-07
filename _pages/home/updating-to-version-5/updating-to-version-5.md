@@ -23,7 +23,7 @@ You can upgrade your application to Angular 14 as follows:
 You might have to append the `--force` flag if you encounter a mismatch between peer dependencies during the migration. The following is an example command that upgrades Angular to version 13.
 
 ```bash
-ng update @angular/cli@13 [--force]
+ng update @angular/cli@13 --force
 ```
 
 Afterwards, you need to upgrade third party dependencies to the version that is compatible with Angular 14, such as `@ng-bootstrap/ng-bootstrap`, `@ng-select/ng-select` or `@ngrx/store`.
