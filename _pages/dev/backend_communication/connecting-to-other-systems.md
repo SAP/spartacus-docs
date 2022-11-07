@@ -44,13 +44,13 @@ This is a common pattern across different frameworks and technology stacks, alth
 
 A fine-grained setup helps to separate concerns, and simplifies further customization. That being said, when you bind to an alternative data source, nothing stops you from further simplifying your setup.
 
-### Connector
+## Connector
 
 The connector orchestrates the connection to a source system. The connector layer could be considered over-engineered, because there are occasions where standard data is provided, even in the case of switching to an alternative system. A real example use-case of the connector is when structured CMS data is loaded: Spartacus can be set up to add static CMS data without relying on a back end at all, or as a fall-back in case the CMS does not provide sufficient data.
 
 The main task of the connector is to delegate the loading and conversion of back-end data to the adapter.
 
-### Adapter
+## Adapter
 
 The adapter layer is responsible for loading and submitting data to a source system. By default, Spartacus works with OCC, the standard REST API of SAP Commerce Cloud. The adapters (and converters) are shipped and provided in separate modules, so that they become optional in the final build, in case you wish to work with an alternative system.
 
@@ -58,7 +58,7 @@ The endpoints used in OCC adapters can be configured, so that the customization 
 
 For more information on OCC endpoint configuration, see [Configuring Endpoints](#configuring-endpoints), below.
 
-### Converter
+## Converter
 
 Converters are used to convert data from the back end to the UI, and vice versa. Spartacus uses the following to distinguish the two flows:
 
@@ -69,7 +69,7 @@ To provide optional conversion, the converters are so-called "multi-providers", 
 
 Converters are optional: when no converter is found for the given domain, the source data is returned. Furthermore, whenever the back-end model is equal to the UI model, or in the case of a simple conversion, the adapter can easily take care of this.
 
-### Providing Custom Converters
+## Providing Custom Converters
 
 Converters in Spartacus use specific injector tokens that can also be used to provide custom converters.
 

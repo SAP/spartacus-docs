@@ -131,3 +131,15 @@ Perform the following steps after you have set up your Spartacus Storefront. For
    - **sessionExpiration** is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce Cloud token live for the same time.
 
 3. Build and start the storefront app to verify your changes.
+
+## SAP Customer Data Cloud Integration in the Spartacus User Interface
+
+SAP Customer Data Cloud Integration supports native UI integration in Spartacus without the use of CDC screen sets.
+
+The following screens are implemented using the CDC SDK:
+
+- Login
+- Registration
+- Forgot Password
+
+No additional configuration is needed. The integration is enabled by default when SAP Customer Data Cloud is installed.

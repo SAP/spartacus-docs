@@ -50,8 +50,6 @@ export { CostCenter } from './src/model/org-unit.model';
 
 That is all that is required to expose the model for augmentation.
 
-**Note:** This approach is required because of the current limitations of Typescript. See TypeScript issues [#9532](https://github.com/microsoft/TypeScript/issues/9532) and [#18877](https://github.com/microsoft/TypeScript/issues/18877) for more information.
-
 **Note:** If there are models that you would like to expose for augmentation, you can submit issues and pull requests to the Spartacus project indicating which models you would like to expose.
 
 ## Augmenting Modules

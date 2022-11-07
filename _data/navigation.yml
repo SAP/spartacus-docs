@@ -24,7 +24,9 @@ docs:
                 - title: "Updating to Version 5.0 ➢"
                   url: /updating-to-version-5/
                   underchildren:
-                      - title: "Checkout Libraries Release Notes"
+                      - title: "Cart Library Release Notes"
+                        url: /cart-library-release-notes/
+                      - title: "Checkout Library Release Notes"
                         url: /checkout-libraries-release-notes/
                       - title: "5.0 Typescript Breaking Changes"
                         url: /5-0-typescript-breaking-changes/
@@ -56,6 +58,8 @@ docs:
                         url: /order-library-release-notes/
                 - title: "Known Issues"
                   url: /known-issues/
+          - title: "Update Policy and Release Frequency for Spartacus Libraries"
+            url: /update-policy-and-release-frequency/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"

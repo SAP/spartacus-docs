@@ -34,7 +34,7 @@ Summary:
 - Step 3: Import OCC credentials
 - Step 4: Update system and user credentials (optional)
   
-### Step 1: Download, unzip, and create the new recipe
+### Step 1: Downloading, Unzipping, and Creating the New Recipe
 
 1. Download and unzip the following files:
 
@@ -61,7 +61,7 @@ Summary:
    - Uncomment `//  extName 'spartacussampledata'` in the list of extensions.
    - Save and close the file.
   
-### Step 2: Build and initialize the new recipe
+### Step 2: Building and Initialize the New Recipe
 
 1. Open a terminal or command prompt window inside the `installer` folder.
 
@@ -90,7 +90,7 @@ Summary:
    - Display Backoffice.
    - Go to WCMS > Website. You should see "-spa" versions of the sample stores.
   
-### Step 3: Import OCC credentials
+### Step 3: Importing OCC Credentials
 
 Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.
 
@@ -127,7 +127,7 @@ The curl command sends a POST request for an access token, using the client ID a
 }
 ```
 
-### Step 4: Update system and user credentials (optional)
+### Step 4: Updating System and User Credentials (Optional)
 
 You may need to enable users and passwords for certain functionality to work.
 
@@ -146,8 +146,8 @@ You can now start Spartacus. After you have configured SAP Commerce Cloud to acc
 
 ### Spartacus Sample Data Extension
 
-- The Spartacus Sample Data extension contains both sample data modifications used by Spartacus. The extension makes a copy of the Electronics and Apparel sample stores, if present (and Powertools in a future release). If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data extension is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like `commercewebservices`.
-- The Spartacus Sample Data extension copies data from other storefronts, so at minimum, `electronicsstore` extension is required. You can also use `apparelstore`, and when supported in the future, `powertoolstore`. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe's `build.gradle` file.
+- The Spartacus Sample Data extension contains sample data modifications used by the composable storefront and by the project "Spartacus" open source software. The extension makes a copy of any existing sample stores, if present. You can also use you own sample data as long as it includes extensions that support OCC APIs like `commercewebservices`.
+- The Spartacus Sample Data extension copies data from the `electronicsstore`, `apparelstore`, or `powertoolstore` extensions. Note that the time to initialize is longer because SAP Commerce Cloud first builds the standard stores, then the stores for composable storefront. If you do not need all sample stores, you can comment them out in your recipe's `build.gradle` file. At a minimum, one sample store is required.
 - For more information about the changes that are implemented with the Spartacus Sample Data extension, see [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}).
 
 ### Sample Configuration Properties
@@ -162,7 +162,7 @@ The following table summarizes the settings included in this file:
 | Setting | Description |
 | --- | --- |
 | initialpassword.admin | Admin password so you can access the console and Backoffice |
-| occ.rewrite.overlapping.paths.enabled | Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts |
+| occ.rewrite.overlapping.paths.enabled | Defines if certain B2B OCC calls are prefixed with 'org' to avoid endpoint conflicts (the default is set to `true` to ensure that both B2C and B2B storefronts can run in parallel) |
 | sop.post.url | Defines where to send mock payment creation requests, so you can check out |
 | corsfilter* | Defines various CORS settings required for Spartacus functionality to work (see more information below) - note that the settings are permissive and should be changed to match your site configuration |
 | mockup.payment.label.billTo* | Defines extra state and phone number fields for payment, used by Spartacus |
@@ -179,7 +179,7 @@ By default, SAP Commerce Cloud successfully replies to OCC REST API calls that d
 
 To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end.
 
-- When you import the OCC credentials ImpEx, you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
+- When you import the OCC credentials ImpEx in [Step 3: Importing OCC Credentials](#step-3-importing-occ-credentials), you add the client ID `mobile_android` and password (or secret): `secret`. The values for client ID and password are samples. You would use different values for your production environments.
 - For more information on this topic, see [this help topic](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html).
 
 ### CORS Settings

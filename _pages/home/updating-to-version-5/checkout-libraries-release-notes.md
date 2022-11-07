@@ -1,5 +1,5 @@
 ---
-title: Checkout Libraries Release Notes
+title: Checkout Library Release Notes
 ---
 
 The release of Spartacus 5.0 introduces three different entry points for the `@spartacus/checkout` library.

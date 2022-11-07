@@ -223,7 +223,7 @@ For the default checkout flow, Spartacus includes an impex file with all pages, 
 
 The following sections describe some common ways to modify the checkout. Of course, you can also extend checkout services and components like any other services and components that are shipped with the Spartacus libraries.
 
-### Changing the Order of the Checkout Flow
+## Changing the Order of the Checkout Flow
 
 The following scenario describes how to change the order of two steps. In the default configuration, the checkout flow starts with setting a shipping address, followed by setting the delivery mode, and finally by filling in the payment details. In this scenario, the configuration is modified so that the payment details step occurs before the delivery mode step.
 
@@ -283,7 +283,7 @@ provideConfig({
 }),
 ```
 
-### Adding Another Checkout Step
+## Adding Another Checkout Step
 
 To add an extra checkout step, the approach is similar to changing the order of the checkout flow: you provide the checkout configuration in the storefront configuration, and set the page, slots, and components in CMS. The following is an example:
 
@@ -334,7 +334,7 @@ provideConfig({
 }),
 ```
 
-### Combining Checkout Steps
+## Combining Checkout Steps
 
 Combining checkout steps is also very similar to the previous examples. In most cases, the required steps are the following:
 
@@ -394,7 +394,7 @@ provideConfig({
 
 **Note:** You can use this same approach to combine all the steps into a single-step checkout.
 
-### Express Checkout
+## Express Checkout
 
 The following scenario describes how to provide express checkout for users who have previously ordered from this store. In this example, when the **Express Checkout** button is clicked, the user is brought directly to the Review Order page, which is populated with the default address, the default payment method, and the fastest shipping method.
 
@@ -479,7 +479,7 @@ With the credit card payment option, the B2B checkout is configured to work the 
 
 With the account payment option, you can only select the addresses of cost centers that you are assigned to as a purchaser. Also, when you select the account payment option, it allows you to skip the payment details step.
 
-### Known Issues
+## Known Issues
 
 When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using `spartacussampledata` version 5.0.0 or newer, and that you are using SAP Commerce Cloud 2105 or newer.
 
