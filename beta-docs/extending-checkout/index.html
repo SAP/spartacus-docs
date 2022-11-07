@@ -205,12 +205,6 @@
                                     
                                             
                                     
-
-                                  
-                            
-                                    
-                                            
-                                    
                                             
                                     
 
@@ -235,12 +229,29 @@
                                     
                                             
                                     
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
 
                                   
                             
                                     
 
                                   
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
                             
                         </ul>
    
@@ -1989,17 +2000,13 @@
     </ul>
   </li>
   <li><a href="#cms-catalog-content-and-default-template" id="markdown-toc-cms-catalog-content-and-default-template">CMS Catalog Content and Default Template</a></li>
-  <li><a href="#extensibility" id="markdown-toc-extensibility">Extensibility</a>    <ul>
-      <li><a href="#changing-the-order-of-the-checkout-flow" id="markdown-toc-changing-the-order-of-the-checkout-flow">Changing the Order of the Checkout Flow</a></li>
-      <li><a href="#adding-another-checkout-step" id="markdown-toc-adding-another-checkout-step">Adding Another Checkout Step</a></li>
-      <li><a href="#combining-checkout-steps" id="markdown-toc-combining-checkout-steps">Combining Checkout Steps</a></li>
-      <li><a href="#express-checkout" id="markdown-toc-express-checkout">Express Checkout</a></li>
-    </ul>
-  </li>
-  <li><a href="#b2b-checkout" id="markdown-toc-b2b-checkout">B2B Checkout</a>    <ul>
-      <li><a href="#known-issues" id="markdown-toc-known-issues">Known Issues</a></li>
-    </ul>
-  </li>
+  <li><a href="#extensibility" id="markdown-toc-extensibility">Extensibility</a></li>
+  <li><a href="#changing-the-order-of-the-checkout-flow" id="markdown-toc-changing-the-order-of-the-checkout-flow">Changing the Order of the Checkout Flow</a></li>
+  <li><a href="#adding-another-checkout-step" id="markdown-toc-adding-another-checkout-step">Adding Another Checkout Step</a></li>
+  <li><a href="#combining-checkout-steps" id="markdown-toc-combining-checkout-steps">Combining Checkout Steps</a></li>
+  <li><a href="#express-checkout" id="markdown-toc-express-checkout">Express Checkout</a></li>
+  <li><a href="#b2b-checkout" id="markdown-toc-b2b-checkout">B2B Checkout</a></li>
+  <li><a href="#known-issues" id="markdown-toc-known-issues">Known Issues</a></li>
 </ul>
 
 <hr />
@@ -2215,7 +2222,7 @@
 
 <p>The following sections describe some common ways to modify the checkout. Of course, you can also extend checkout services and components like any other services and components that are shipped with the Spartacus libraries.</p>
 
-<h3 id="changing-the-order-of-the-checkout-flow">Changing the Order of the Checkout Flow</h3>
+<h2 id="changing-the-order-of-the-checkout-flow">Changing the Order of the Checkout Flow</h2>
 
 <p>The following scenario describes how to change the order of two steps. In the default configuration, the checkout flow starts with setting a shipping address, followed by setting the delivery mode, and finally by filling in the payment details. In this scenario, the configuration is modified so that the payment details step occurs before the delivery mode step.</p>
 
@@ -2274,7 +2281,7 @@
 <span class="p">}),</span>
 </code></pre></div></div>
 
-<h3 id="adding-another-checkout-step">Adding Another Checkout Step</h3>
+<h2 id="adding-another-checkout-step">Adding Another Checkout Step</h2>
 
 <p>To add an extra checkout step, the approach is similar to changing the order of the checkout flow: you provide the checkout configuration in the storefront configuration, and set the page, slots, and components in CMS. The following is an example:</p>
 
@@ -2324,7 +2331,7 @@
 <span class="p">}),</span>
 </code></pre></div></div>
 
-<h3 id="combining-checkout-steps">Combining Checkout Steps</h3>
+<h2 id="combining-checkout-steps">Combining Checkout Steps</h2>
 
 <p>Combining checkout steps is also very similar to the previous examples. In most cases, the required steps are the following:</p>
 
@@ -2385,7 +2392,7 @@
 
 <p><strong>Note:</strong> You can use this same approach to combine all the steps into a single-step checkout.</p>
 
-<h3 id="express-checkout">Express Checkout</h3>
+<h2 id="express-checkout">Express Checkout</h2>
 
 <p>The following scenario describes how to provide express checkout for users who have previously ordered from this store. In this example, when the <strong>Express Checkout</strong> button is clicked, the user is brought directly to the Review Order page, which is populated with the default address, the default payment method, and the fastest shipping method.</p>
 
@@ -2468,7 +2475,7 @@
 
 <p>With the account payment option, you can only select the addresses of cost centers that you are assigned to as a purchaser. Also, when you select the account payment option, it allows you to skip the payment details step.</p>
 
-<h3 id="known-issues">Known Issues</h3>
+<h2 id="known-issues">Known Issues</h2>
 
 <p>When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using <code class="language-plaintext highlighter-rouge">spartacussampledata</code> version 5.0.0 or newer, and that you are using SAP Commerce Cloud 2105 or newer.</p>
 

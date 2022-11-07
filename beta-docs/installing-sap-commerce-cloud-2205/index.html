@@ -205,12 +205,6 @@
                                     
                                             
                                     
-
-                                  
-                            
-                                    
-                                            
-                                    
                                             
                                     
 
@@ -235,12 +229,29 @@
                                     
                                             
                                     
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
 
                                   
                             
                                     
 
                                   
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
                             
                         </ul>
    
@@ -1672,10 +1683,10 @@
 <ul id="markdown-toc">
   <li><a href="#important-disclaimers" id="markdown-toc-important-disclaimers">Important Disclaimers</a></li>
   <li><a href="#installation-and-configuration-instructions" id="markdown-toc-installation-and-configuration-instructions">Installation and Configuration Instructions</a>    <ul>
-      <li><a href="#step-1-download-unzip-and-create-the-new-recipe" id="markdown-toc-step-1-download-unzip-and-create-the-new-recipe">Step 1: Download, unzip, and create the new recipe</a></li>
-      <li><a href="#step-2-build-and-initialize-the-new-recipe" id="markdown-toc-step-2-build-and-initialize-the-new-recipe">Step 2: Build and initialize the new recipe</a></li>
-      <li><a href="#step-3-import-occ-credentials" id="markdown-toc-step-3-import-occ-credentials">Step 3: Import OCC credentials</a></li>
-      <li><a href="#step-4-update-system-and-user-credentials-optional" id="markdown-toc-step-4-update-system-and-user-credentials-optional">Step 4: Update system and user credentials (optional)</a></li>
+      <li><a href="#step-1-downloading-unzipping-and-creating-the-new-recipe" id="markdown-toc-step-1-downloading-unzipping-and-creating-the-new-recipe">Step 1: Downloading, Unzipping, and Creating the New Recipe</a></li>
+      <li><a href="#step-2-building-and-initialize-the-new-recipe" id="markdown-toc-step-2-building-and-initialize-the-new-recipe">Step 2: Building and Initialize the New Recipe</a></li>
+      <li><a href="#step-3-importing-occ-credentials" id="markdown-toc-step-3-importing-occ-credentials">Step 3: Importing OCC Credentials</a></li>
+      <li><a href="#step-4-updating-system-and-user-credentials-optional" id="markdown-toc-step-4-updating-system-and-user-credentials-optional">Step 4: Updating System and User Credentials (Optional)</a></li>
       <li><a href="#all-done" id="markdown-toc-all-done">All Done</a></li>
     </ul>
   </li>
@@ -1717,7 +1728,7 @@
   <li>Step 4: Update system and user credentials (optional)</li>
 </ul>
 
-<h3 id="step-1-download-unzip-and-create-the-new-recipe">Step 1: Download, unzip, and create the new recipe</h3>
+<h3 id="step-1-downloading-unzipping-and-creating-the-new-recipe">Step 1: Downloading, Unzipping, and Creating the New Recipe</h3>
 
 <ol>
   <li>
@@ -1760,7 +1771,7 @@
   </li>
 </ol>
 
-<h3 id="step-2-build-and-initialize-the-new-recipe">Step 2: Build and initialize the new recipe</h3>
+<h3 id="step-2-building-and-initialize-the-new-recipe">Step 2: Building and Initialize the New Recipe</h3>
 
 <ol>
   <li>
@@ -1800,7 +1811,7 @@
   </li>
 </ol>
 
-<h3 id="step-3-import-occ-credentials">Step 3: Import OCC credentials</h3>
+<h3 id="step-3-importing-occ-credentials">Step 3: Importing OCC Credentials</h3>
 
 <p>Spartacus uses OCC REST API calls to get information from and make changes to the backend. To do this, the backend must be configured with certain credentials.</p>
 
@@ -1841,7 +1852,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="step-4-update-system-and-user-credentials-optional">Step 4: Update system and user credentials (optional)</h3>
+<h3 id="step-4-updating-system-and-user-credentials-optional">Step 4: Updating System and User Credentials (Optional)</h3>
 
 <p>You may need to enable users and passwords for certain functionality to work.</p>
 
@@ -1863,8 +1874,8 @@
 <h3 id="spartacus-sample-data-extension">Spartacus Sample Data Extension</h3>
 
 <ul>
-  <li>The Spartacus Sample Data extension contains both sample data modifications used by Spartacus. The extension makes a copy of the Electronics and Apparel sample stores, if present (and Powertools in a future release). If you are trying out Spartacus for the first time and intend to use the default sample data, using the Spartacus Sample Data extension is strongly recommended. However, you can use you own sample data or recipe as long as it includes extensions that support OCC APIs like <code class="language-plaintext highlighter-rouge">commercewebservices</code>.</li>
-  <li>The Spartacus Sample Data extension copies data from other storefronts, so at minimum, <code class="language-plaintext highlighter-rouge">electronicsstore</code> extension is required. You can also use <code class="language-plaintext highlighter-rouge">apparelstore</code>, and when supported in the future, <code class="language-plaintext highlighter-rouge">powertoolstore</code>. Note that the time to initialize is longer because SAP Commerce Cloud builds the standard stores first, then the stores for Spartacus. If you do not need all these sample stores, you can comment them out in your recipe’s <code class="language-plaintext highlighter-rouge">build.gradle</code> file.</li>
+  <li>The Spartacus Sample Data extension contains sample data modifications used by the composable storefront and by the project “Spartacus” open source software. The extension makes a copy of any existing sample stores, if present. You can also use you own sample data as long as it includes extensions that support OCC APIs like <code class="language-plaintext highlighter-rouge">commercewebservices</code>.</li>
+  <li>The Spartacus Sample Data extension copies data from the <code class="language-plaintext highlighter-rouge">electronicsstore</code>, <code class="language-plaintext highlighter-rouge">apparelstore</code>, or <code class="language-plaintext highlighter-rouge">powertoolstore</code> extensions. Note that the time to initialize is longer because SAP Commerce Cloud first builds the standard stores, then the stores for composable storefront. If you do not need all sample stores, you can comment them out in your recipe’s <code class="language-plaintext highlighter-rouge">build.gradle</code> file. At a minimum, one sample store is required.</li>
   <li>For more information about the changes that are implemented with the Spartacus Sample Data extension, see <a href="/spartacus-docs/beta-docs/spartacussampledata-extension/">Spartacus Sample Data Extension</a>.</li>
 </ul>
 
@@ -1893,7 +1904,7 @@
     </tr>
     <tr>
       <td>occ.rewrite.overlapping.paths.enabled</td>
-      <td>Defines if certain B2B OCC calls are prefixed with ‘org’ to avoid endpoint conflicts</td>
+      <td>Defines if certain B2B OCC calls are prefixed with ‘org’ to avoid endpoint conflicts (the default is set to <code class="language-plaintext highlighter-rouge">true</code> to ensure that both B2C and B2B storefronts can run in parallel)</td>
     </tr>
     <tr>
       <td>sop.post.url</td>
@@ -1934,7 +1945,7 @@
 <p>To be able to register users and check out, SAP Commerce Cloud must be configured with a client ID and password. When required, your Spartacus storefront sends this client ID and password when communicating with the back end.</p>
 
 <ul>
-  <li>When you import the OCC credentials ImpEx, you add the client ID <code class="language-plaintext highlighter-rouge">mobile_android</code> and password (or secret): <code class="language-plaintext highlighter-rouge">secret</code>. The values for client ID and password are samples. You would use different values for your production environments.</li>
+  <li>When you import the OCC credentials ImpEx in <a href="#step-3-importing-occ-credentials">Step 3: Importing OCC Credentials</a>, you add the client ID <code class="language-plaintext highlighter-rouge">mobile_android</code> and password (or secret): <code class="language-plaintext highlighter-rouge">secret</code>. The values for client ID and password are samples. You would use different values for your production environments.</li>
   <li>For more information on this topic, see <a href="https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/627c92db29ce4fce8b01ffbe478a8b3b.html">this help topic</a>.</li>
 </ul>
 

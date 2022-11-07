@@ -205,12 +205,6 @@
                                     
                                             
                                     
-
-                                  
-                            
-                                    
-                                            
-                                    
                                             
                                     
 
@@ -235,12 +229,29 @@
                                     
                                             
                                     
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
 
                                   
                             
                                     
 
                                   
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
                             
                         </ul>
    
@@ -1831,13 +1842,11 @@
 
 <ul id="markdown-toc">
   <li><a href="#component-data-binding" id="markdown-toc-component-data-binding">Component Data Binding</a></li>
-  <li><a href="#connector-logic" id="markdown-toc-connector-logic">Connector Logic</a>    <ul>
-      <li><a href="#connector" id="markdown-toc-connector">Connector</a></li>
-      <li><a href="#adapter" id="markdown-toc-adapter">Adapter</a></li>
-      <li><a href="#converter" id="markdown-toc-converter">Converter</a></li>
-      <li><a href="#providing-custom-converters" id="markdown-toc-providing-custom-converters">Providing Custom Converters</a></li>
-    </ul>
-  </li>
+  <li><a href="#connector-logic" id="markdown-toc-connector-logic">Connector Logic</a></li>
+  <li><a href="#connector" id="markdown-toc-connector">Connector</a></li>
+  <li><a href="#adapter" id="markdown-toc-adapter">Adapter</a></li>
+  <li><a href="#converter" id="markdown-toc-converter">Converter</a></li>
+  <li><a href="#providing-custom-converters" id="markdown-toc-providing-custom-converters">Providing Custom Converters</a></li>
   <li><a href="#extending-the-ui-model" id="markdown-toc-extending-the-ui-model">Extending the UI Model</a></li>
   <li><a href="#configuring-endpoints" id="markdown-toc-configuring-endpoints">Configuring Endpoints</a></li>
 </ul>
@@ -1879,13 +1888,13 @@
 
 <p>A fine-grained setup helps to separate concerns, and simplifies further customization. That being said, when you bind to an alternative data source, nothing stops you from further simplifying your setup.</p>
 
-<h3 id="connector">Connector</h3>
+<h2 id="connector">Connector</h2>
 
 <p>The connector orchestrates the connection to a source system. The connector layer could be considered over-engineered, because there are occasions where standard data is provided, even in the case of switching to an alternative system. A real example use-case of the connector is when structured CMS data is loaded: Spartacus can be set up to add static CMS data without relying on a back end at all, or as a fall-back in case the CMS does not provide sufficient data.</p>
 
 <p>The main task of the connector is to delegate the loading and conversion of back-end data to the adapter.</p>
 
-<h3 id="adapter">Adapter</h3>
+<h2 id="adapter">Adapter</h2>
 
 <p>The adapter layer is responsible for loading and submitting data to a source system. By default, Spartacus works with OCC, the standard REST API of SAP Commerce Cloud. The adapters (and converters) are shipped and provided in separate modules, so that they become optional in the final build, in case you wish to work with an alternative system.</p>
 
@@ -1893,7 +1902,7 @@
 
 <p>For more information on OCC endpoint configuration, see <a href="#configuring-endpoints">Configuring Endpoints</a>, below.</p>
 
-<h3 id="converter">Converter</h3>
+<h2 id="converter">Converter</h2>
 
 <p>Converters are used to convert data from the back end to the UI, and vice versa. Spartacus uses the following to distinguish the two flows:</p>
 
@@ -1906,7 +1915,7 @@
 
 <p>Converters are optional: when no converter is found for the given domain, the source data is returned. Furthermore, whenever the back-end model is equal to the UI model, or in the case of a simple conversion, the adapter can easily take care of this.</p>
 
-<h3 id="providing-custom-converters">Providing Custom Converters</h3>
+<h2 id="providing-custom-converters">Providing Custom Converters</h2>
 
 <p>Converters in Spartacus use specific injector tokens that can also be used to provide custom converters.</p>
 

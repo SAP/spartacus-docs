@@ -205,12 +205,6 @@
                                     
                                             
                                     
-
-                                  
-                            
-                                    
-                                            
-                                    
                                             
                                     
 
@@ -235,12 +229,29 @@
                                     
                                             
                                     
+                                            
+                                    
+
+                                  
+                            
+                                    
+                                            
+                                    
 
                                   
                             
                                     
 
                                   
+                            
+                        </ul>
+   
+                    
+
+                    
+
+                
+                        <ul>
                             
                         </ul>
    
@@ -2239,7 +2250,7 @@
 
 <p>The <code class="language-plaintext highlighter-rouge">count</code> parameter is a special parameter of the translation pipe that is used for pluralization.</p>
 
-<p>You can pass the <code class="language-plaintext highlighter-rouge">count</code> parameter to differ translations for the same key, depending on the integer value of <code class="language-plaintext highlighter-rouge">count</code>, and it takes the current language into consideration. Different languages have different plural rules. Some languages, such as English, have only two forms, singular and plural, but other languages may have more. The following is an example that shows how the pluralization rules and handled for different languages:</p>
+<p>You can pass the <code class="language-plaintext highlighter-rouge">count</code> parameter to differ translations for the same key, depending on the integer value of <code class="language-plaintext highlighter-rouge">count</code>, and it takes the current language into consideration. Different languages have different plural rules. Some languages, such as English, have only two forms, singular and plural, but other languages may have more. The following is an example that shows how the pluralization rules are handled for different languages:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>{{ 'miniCart.item' | cxTranslate : { count: cart.totalItem } }}<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
