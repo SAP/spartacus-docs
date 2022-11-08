@@ -32,7 +32,7 @@ Spartacus libraries support semantic versioning, which means that breaking chang
 
 At the same time, it is likely that Spartacus will evolve from one minor version to the next. To allow for gradual changes in the style layer, new or adjusted style rules are added for a specific version, but these changes are not added in the style build process unless you explicitly opt in to receive these changes. You need to set a single variable to leverage the latest breaking styles changes. Note that non-breaking changes are added regardless.
 
-## Configure the Style Version In a Spartacus App
+## Configure the Styling Version In a Spartacus App
 
 A Spartacus app can declare the style version it wants to use by overriding the `$styleVersion` variable.
 By default the `$styleVersion` value is the `.0` version of the latest major version (like 3.0, 4.0 or 5.0). As an example, for Spartacus version 4.3, the default `$styleVersion` in the styling library is 4.0.
@@ -54,13 +54,13 @@ The `$styleVersion` override needs to happen before the style import.
 
 When you upgrade spartacus, the `$styleVersion` that your app uses will not be updated. This way, we can preserve styling backwards compatibility for minor version upgrades. You can, manually opt in on the updated styling, but be aware that they may contain breaking changes. For this you need to manually update the `$styleVersion` value to the feature level you wish to use. To update the style version, update the `<sourceRoot>/styles.scss` and any other files where you might have `$styleVersion` overrides.
 
-## Configure Style Versioning for Feature Libraries
+## Configure Styling Versioning for Feature Libraries
 
 By default, the Spartacus installer initializes the `$styleVersion` value for the "core" or "main" styles file `<sourceRoot>/styles.scss`. However, the installer does not propagate the `$styleVersion` override to the feature library styling files. Therefore, by default, the styling feature level of feature libraries will stick to the `.0` version of the major version you are using.
 
 If you wish to control the style version of a feature library used in your app, you need to manually propagate a `$styleVersion` override to the feature library styles root file.
 
-The Spartacus installer creates the feature libraries style root files in the `<sourceRoot>/styles/spartacus/` folder. You should find in this folder root style files corresponding to the feature libs you have installed, like `cart.scss` or `checkout.scss`. These files initially contain one statement that imports the feature styles from the corrsponding feature library. To propagate the feature level to the feature library, you need to override `$styleVersion` in each feature style root file. The `$styleVersion` override needs to happen before the style import. As an example, the manually updated cart library stylre file (`<sourceRoot>/styles/spartacus/cart.scss`) file would then contain:
+The Spartacus installer creates the feature libraries styling root files in the `<sourceRoot>/styles/spartacus/` folder. You should find in this folder root styling files corresponding to the feature libs you have installed, like `cart.scss` or `checkout.scss`. These files initially contain one statement that imports the feature styles from the corrsponding feature library. To propagate the feature level to the feature library, you need to override `$styleVersion` in each feature styling root file. The `$styleVersion` override needs to happen before the style import. As an example, the manually updated cart library stylre file (`<sourceRoot>/styles/spartacus/cart.scss`) file would then contain:
 
 #### <sourceRoot>/styles/spartacus/cart.scss
 
@@ -69,13 +69,13 @@ $styleVersion: 4.3;
 @import "@spartacus/cart";
 ```
 
-Note that the schematics that install one feature in an existing Spartacus app also does not add the `$styleVersion` override to the feature root style file. You need to add it manually afterwards.
+Note that the schematics command that installs one feature in an existing Spartacus app does not add the `$styleVersion` override to the feature root styling file. You need to add it manually afterwards.
 
 ## Create a Style Config File to Propagate Style Versioning
 
 This is optional, but can be convenient.
 
-Managing many copies of `$styleVersion` can become cumbersome and error prone. Instead of managing multiple `$styleVersion` overrides, you can create a `styles-config.scss` file next to the main `styles.scss` file in your <srcRoot> folder. `styles-config.scss` can define once the `$styleVersion` override.
+Managing many copies of `$styleVersion` can become cumbersome and error prone. Instead of managing multiple `$styleVersion` overrides, you can create a `styles-config.scss` file next to the main `styles.scss` file in your <srcRoot> folder. `styles-config.scss` can be the central place where you define the `$styleVersion` override.
 
 #### \<sourceRoot>/styles-config.scss
 
@@ -83,7 +83,7 @@ Managing many copies of `$styleVersion` can become cumbersome and error prone. I
 $styleVersion: 4.3;
 ```
 
-Then, in `styles.scss` and all the fature library file you can import `styles-config.scss`. Here is an example of the `styles.scss` file:
+Then, in `styles.scss` and all the fature library file you import `styles-config.scss`. Here is an example of the `styles.scss` file:
 
 #### \<sourceRoot>/styles.scss
 
@@ -105,7 +105,7 @@ Afterwards, this allows you to manage the styles version in one centralized plac
 
 ## useLatestStyles for dev environments
 
-Instead of overriding `$styleVersion`, you can set the boolean variable `$useLatestStyles`to `true` to always receive the latest styles. This can be useful for development, demos, or proofs of concept. The following is an example:
+Instead of overriding `$styleVersion`, you can set the boolean variable `$useLatestStyles`to `true` to always apply the latest styling version in your app. This can be useful for development, demos, or proofs of concept. The following is an example:
 
 ```scss
 $useLatestStyles: true;
@@ -113,9 +113,9 @@ $useLatestStyles: true;
 
 ## Styles for Future releases
 
-If for some reason there are styles defined a version higher than the cureently installed , they will never apply. This is true regardless of the version defined in `$styleVersion` or if `$useLatestStyles` is `true`.
+If for some reason there are styles defined for a version higher than the one curently installed , they will never apply. This is true regardless of the version defined in `$styleVersion` or if `$useLatestStyles` is `true`.
 
-Lets use for example an app using Spartacus 4.3. In a library there are styles defined for 4.5 and above. Regardless of if you set the `$styleVersion` to 4.5 or if `$useLatestStyles` is `true`, the styles defined for version 4.5 and above will not display because 4.5 is higher than the current version of the Spartacus core style library, which is 4.3.
+Lets use for example an app using the Spartacus 4.3 release. Also, in a feature library, there are styles defined for 4.5 and above. Regardless of if `$styleVersion` is set to 4.5 in the app or if `$useLatestStyles` is `true`, the styles defined for version 4.5 and above will not display because 4.5 is higher than the current version of the Spartacus release being used, which is 4.3.
 
 ## Implement Versioned Styles
 
