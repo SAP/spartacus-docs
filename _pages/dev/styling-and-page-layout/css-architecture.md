@@ -35,7 +35,7 @@ At the same time, it is likely that Spartacus will evolve from one minor version
 ## Configure the Style Version In a Spartacus App
 
 A Spartacus app can declare the style version it wants to use by overriding the `$styleVersion` variable.
-By default the `$styleVersion` value is the `.0` version of the lates major version (like 3.0, 4.0 or 5.0). As an example, for Spartacus version 4.3, the default `$styleVersion` in the styling library is 4.0.
+By default the `$styleVersion` value is the `.0` version of the latest major version (like 3.0, 4.0 or 5.0). As an example, for Spartacus version 4.3, the default `$styleVersion` in the styling library is 4.0.
 
 When you install Spartacus via the schematics installer, the installer generates the line of style code that overrides the `$styleVersion` value. The installer sets the value to the Spartacus version being installed or to the feature level being provided to installer from the command line.
 
@@ -52,7 +52,7 @@ The `$styleVersion` override needs to happen before the style import.
 
 ## Spartacus Upgrades
 
-When you upgrade spartacus, the `$styleVersion` that your app uses will not be updated. This way, we can preserve styling backwards compaibility for minor version upgrades. You can, manually opt in on the updated styling, but be aware that they may contain breaking changes. For this you need to manually update the `$styleVersion` value to the feature level you wish to use. To update the style version, update the `<sourceRoot>/styles.scss` and any other files where you might have `$styleVersion` overrides.
+When you upgrade spartacus, the `$styleVersion` that your app uses will not be updated. This way, we can preserve styling backwards compatibility for minor version upgrades. You can, manually opt in on the updated styling, but be aware that they may contain breaking changes. For this you need to manually update the `$styleVersion` value to the feature level you wish to use. To update the style version, update the `<sourceRoot>/styles.scss` and any other files where you might have `$styleVersion` overrides.
 
 ## Configure Style Versioning for Feature Libraries
 
