@@ -60,7 +60,7 @@ By default, the Spartacus installer initializes the `$styleVersion` value for th
 
 If you wish to control the style version of a feature library used in your app, you need to manually propagate a `$styleVersion` override to the feature library styles root file.
 
-The Spartacus installer creates the feature libraries style root files in the `<sourceRoot>/styles/spartacus` folder. you should find in this folder root style files corresponding to the feature libs you have installed, like `cart.scss` or `checkout.scss`. These files initially contain one statement that imports the feature styles from the corrsponding feature library. To propagate the feature level to the feature library, you need to override `$styleVersion` in each feature style root file. The `$styleVersion` override needs to happen before the style import. As an example, the manually updated cart library stylre file (`<sourceRoot>/styles/spartacus/cart.scss`) file would then contain:
+The Spartacus installer creates the feature libraries style root files in the `<sourceRoot>/styles/spartacus/` folder. You should find in this folder root style files corresponding to the feature libs you have installed, like `cart.scss` or `checkout.scss`. These files initially contain one statement that imports the feature styles from the corrsponding feature library. To propagate the feature level to the feature library, you need to override `$styleVersion` in each feature style root file. The `$styleVersion` override needs to happen before the style import. As an example, the manually updated cart library stylre file (`<sourceRoot>/styles/spartacus/cart.scss`) file would then contain:
 
 #### <sourceRoot>/styles/spartacus/cart.scss
 
