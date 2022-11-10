@@ -56,7 +56,7 @@ When there are no slides to navigate, the buttons do not appear. When a button i
 The number of carousel items in each slide is calculated. The calculation is driven by the minimum width per item and the available space.
 The given item width (`itemWidth`) can be specified in pixels or percentages. The calculation for the number of items per slide uses this `itemWidth` and the host element `clientWidth`. This makes the carousel reusable in different layouts (such as a one-column grid or a two-column grid), and enables the carousel to be fully responsive at the same time.
 
-### Configuring Slide Actions
+## Configuring Slide Actions
 
 You can configure the actions for a slide in the `ProductCarouselComponent`. For example, you can add an **Add to Cart** button to each slide to make it more efficient for customers to add certain recommended products to their cart.
 
