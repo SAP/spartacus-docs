@@ -153,6 +153,15 @@ The following is an example of the configuration menu showing visited sections, 
 
 When you refresh the browser, if you are logged in, the product configuration is persisted. If you are not logged in, the product configuration is reset to the default configuration, and you therefore have to reconfigure your products after reloading the page.
 
+## Performance and Session Affinity
+
+To communicate with the configurator in a performant way, the Commerce Cloud back end caches session cookies that are sent to the configurator for every interaction. This allows the configurator to read a runtime configuration from its cache instead of from the database.
+
+To ensure session affinity, Spartacus should always contact the same Commerce node when doing configuration reads and updates. You can ensure session affinity by setting the following configuration parameters:
+
+- In SAP Commerce Cloud: `corsfilter.commercewebservices.allowCredentials=true`
+- In Spartacus: `backend.occ.useWithCredentials=true`
+
 ## Unsupported Features
 
 The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
