@@ -23,6 +23,8 @@ You can use various CORS headers to specify whether the origin is allowed, with 
 
 In development, the allowed origins are often configured with an asterisk (`*`), which allowlists all clients, regardless of their domain. In a production environment, this should contain the different domains that are allowed to interact with the back end API.
 
+Since SAP Commerce Cloud version 2105, it is not allowed to use the combination of the allowCredentials=true and allowedOrigins=* attributes. In these cases, use allowedOriginPatterns=* instead.
+
 ### allowedMethods
 
 The allowed headers must include all the HTTP methods that are allowed to be used. For Spartacus, the following methods should be configured:
@@ -89,7 +91,7 @@ For each installation, it is important to note the following:
 If you install the CORS filter configuration by properties, the following properties must be added:
 
 ```plaintext
-corsfilter.commercewebservices.allowedOrigins=*
+corsfilter.commercewebservices.allowedOriginPatterns=*
 corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
@@ -99,7 +101,7 @@ corsfilter.commercewebservices.allowCredentials=true
 If you are using the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
 
 ```plaintext
-corsfilter.assistedservicewebservices.allowedOrigins=*
+corsfilter.assistedservicewebservices.allowedOriginPatterns=*
 corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
@@ -112,7 +114,7 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 
 ```json
 {
-	"key": "corsfilter.commercewebservices.allowedOrigins",
+	"key": "corsfilter.commercewebservices.allowedOriginPatterns",
 	"value": "*"
 },
 {
@@ -137,7 +139,7 @@ If you use the Assisted Service Module (ASM), you must also add the same headers
 
 ```json
 {
-	"key": "corsfilter.assistedservicewebservices.allowedOrigins",
+	"key": "corsfilter.assistedservicewebservices.allowedOriginPatterns",
 	"value": "*"
 },
 {
@@ -164,7 +166,7 @@ You can use the following ImpEx script if you want to install the CORS filter co
 
 ```plaintext
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=commercewebservices,unique=true]
-;allowedOrigins;*
+;allowedOriginPatterns;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
 ;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
@@ -175,7 +177,7 @@ If you are using the Assisted Service Module (ASM), you must also run the follow
 
 ```plaintext
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
-;allowedOrigins;*
+;allowedOriginPatterns;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
 ;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
