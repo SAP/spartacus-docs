@@ -4,6 +4,15 @@ title: Self-Publishing Spartacus Libraries Using the Open Source Code
 
 The procedures on this page describe how to check out the Spartacus source code, build the libraries locally, and then make them available for installation. This allows you to use the Spartacus libraries that you have compiled, and as a result, accessing Spartacus packages from the npm repository is no longer necessary.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Prerequisites
 
 Before starting any the procedures on this page, you must fulfill the follow prerequisites:
@@ -48,6 +57,10 @@ For more information about using Verdaccio or another registry software, see the
     When choosing a tag or branch, use the specific major.minor.patch (for example, `5.0.0`) of the release you want to use. The latest release is always recommended.
 
     You can use the `git branch` command to confirm which branch you are on.
+
+    **Note:** You can use the dropdown menu for switching branches in the top left of the main page of the [Spartacus GitHub repository](https://github.com/SAP/spartacus) to see which releases are available. Click on **develop**, enter `release/5` in the search field that appears in the dropdown menu, and you will see all of the available releases for version 5.0.0 and newer, as shown in the following example:
+
+    ![GitHub Branch Selector]({{ site.baseurl }}/assets/images/github-branch-selector.png)
 
 1. Run the following command to install packages and then build the libraries:
 
