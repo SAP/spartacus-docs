@@ -149,9 +149,11 @@ Spartacus 5.0 includes many new features and fixes. Since this update is a major
 1. When the update has finished running, you can exit the proxy registry.
 
     If you are using Verdaccio, you can end the script by selecting `Exit`. Do not force-close the script; doing so will prevent cleanup from running, and as a result, the script may not run correctly in the future.
-1. Inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [5.0 Typescript Breaking Changes](https://sap.github.io/spartacus-docs/beta-docs/5-0-typescript-breaking-changes/).
+1. Inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see the following:
 
-    The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
+   - [Typescript Breaking Changes in Composable Storefront 5.0](https://help.sap.com/doc/typescript-breaking-changes-in-composable-storefront-50/5/en-US/typescript-changes-version-5.html)
+
+    **Note:** The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
 
 1. Start the application.
 
