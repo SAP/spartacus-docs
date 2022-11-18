@@ -23,7 +23,7 @@ You can use various CORS headers to specify whether the origin is allowed, with 
 
 In development, the allowed origins are often configured with an asterisk (`*`), which allowlists all clients, regardless of their domain. In a production environment, this should contain the different domains that are allowed to interact with the back end API.
 
-Since SAP Commerce Cloud version 2105, it is not allowed to use the combination of the allowCredentials=true and allowedOrigins=* attributes. In these cases, use allowedOriginPatterns=* instead.
+In SAP Commerce Cloud version 2105 or newer, you cannot use the combination of the `allowCredentials=true` and `allowedOrigins=*` attributes. In these cases, use `allowedOriginPatterns=*` instead. For more information, see [Cross-Origin Resource Sharing Support](https://help.sap.com/docs/SAP_COMMERCE/d0224eca81e249cb821f2cdf45a82ace/b27d995150a74be08869e60e3fbc7395.html) on the SAP Help Portal.
 
 ### allowedMethods
 
