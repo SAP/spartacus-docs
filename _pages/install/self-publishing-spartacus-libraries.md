@@ -4,6 +4,15 @@ title: Self-Publishing Spartacus Libraries Using the Open Source Code
 
 The procedures on this page describe how to check out the Spartacus source code, build the libraries locally, and then make them available for installation. This allows you to use the Spartacus libraries that you have compiled, and as a result, accessing Spartacus packages from the npm repository is no longer necessary.
 
+***
+
+**Table of Contents**
+
+- This will become a table of contents (this text will be scrapped).
+{:toc}
+
+***
+
 ## Prerequisites
 
 Before starting any the procedures on this page, you must fulfill the follow prerequisites:
