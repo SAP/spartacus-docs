@@ -1,6 +1,7 @@
 ---
 title: Technical Changes in Spartacus 5.0
 ---
+
 Spartacus migration schematics tries to find in your codebase usages of Spartacus' public API (e.g. functions/methods/classes) which were changed (in a breaking way) or removed in version 5.0. The migration schematics will insert a code comment with a hint "TODO:Spartacus" above such lines of code, in order to assist you with the migration. 
 Note: Please beware that if by coincidence you have in your codebase a usage of a method/function/class that is named the same as the changed or removed Spartacus' public APIs, there might be a chance that it may be incorrectly classified as Spartacus' API and the migration schematics might insert a comment there as well (even though it shouldn't). In that case, please ignore and remove such a comment.
 
@@ -15,6 +16,7 @@ declare module '@spartacus/core' {
   }
 }
 ```
+
 The type `OrderEntry` interface might have been moved from the `@spartacus/core` to another location. This change will not be automatically migrated, and you will need to check all the module names for all of your augmented types.
 To do this, please look up the augmented type, and check if it was moved to a new location.
 
@@ -31,6 +33,7 @@ To do this, please look up the augmented type, and check if it was moved to a ne
 ## Removed incubator library
 
 Incubator library is not being published anymore.
+
 ## Breaking changes in user-profile library
 
 - Added `RegisterComponentService` that accepts `UserRegisterFacade` through constructor injection. `RegisterComponentService` has only those methods from `UserRegisterFacade` that are needed for `RegisterComponent`.
@@ -42,8 +45,6 @@ Incubator library is not being published anymore.
 - Added `CDCRegisterComponentService` that extends `RegisterComponentService`. It invokes CDC JS SDK to register the user and overrides the `postRegisterMessage()` to suppress the success message on sucessful registration.
 - Added `CdcLoginFormComponentService` that extends `LoginFormComponentService` and invokes CDC JS SDK to login the user.
 - Added `CDCForgotPasswordComponentService` that extends `ForgotPasswordComponentService` and invokes CDC JS SDK to send the account reset email.
-
-
 
 ## Breaking changes in product-configurator library
 
@@ -229,7 +230,7 @@ The following keys have been added to `configurator-common.ts`:
 - `configurator.a11y.overviewPageLink`
 - `configurator.attribute.singleSelectAdditionalRequiredMessage`
 
-# UI Breaking Changes Introduced in 5.0
+## UI Breaking Changes Introduced in 5.0
 
 ### Translation (i18n) changes
 
@@ -259,7 +260,6 @@ The following keys have been added to `configurator-common.ts`:
 #### Template changes
 
 - Element `<cx-carousel *ngIf="thumbs.length" class="thumbs"....>` has been wrapped in a new container `<ng-container *ngIf="product$ | async as product">` for screen reader improvements.
-
 
 ### CartTotalsComponent
 
@@ -489,7 +489,9 @@ The following keys have been added to `configurator-common.ts`:
 
 ### StockNotificationDialogComponent
 
-#### Translation (i18n) changes
+All modal content is wrapped inside  `<div class="cx-stock-notification-dialog">` and `<div class="cx-modal-container">` tags.
+
+Translation (i18n) changes:
 
 - `subscriptionDialog.notifiedSuffix` changed from `as soons as this product is back in stock.` to `as soon as this product is back in stock.`.
 - `subscriptionDialog.manageChannelsPrefix` changed from `Manage your prefered notification channels at the ` to `Manage your preferred notification channels on the `.
@@ -591,8 +593,8 @@ Due to i18next migration, certain set of keys have been migrated (from `_plural`
 - Attribute `role="row"` has been added to `tr` for accesibility improvements.
 - Attribute `role="cell"` has been added to `td` for accesibility improvements.
 
-
 ### TrackingEventsComponent
+
 - All classes related to component templating have been prefixes with `cx-`
 - Changed `<div class="events modal-body">` to `<div class="cx-tracking-events modal-body">`
 - Changed `<div class="event-body">` to `<div class="cx-tracking-event-body">`
@@ -638,7 +640,3 @@ Due to i18next migration, certain set of keys have been migrated (from `_plural`
 
 - Added two levels of wrappers in template to align structure with other dialogs in project: `.cx-coupon-dialog` and `.cx-coupon-container`
 - Changed close button click event method from `dismissModal` to `close` 
-
-### StockNotificationDialogComponent
-
-- All modal content wrapped inside  `<div class="cx-stock-notification-dialog">` and `<div class="cx-modal-container">` tags
