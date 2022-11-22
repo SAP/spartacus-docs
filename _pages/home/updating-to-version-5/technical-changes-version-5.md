@@ -230,7 +230,7 @@ The following keys have been added to `configurator-common.ts`:
 - `configurator.a11y.overviewPageLink`
 - `configurator.attribute.singleSelectAdditionalRequiredMessage`
 
-## UI Breaking Changes Introduced in 5.0
+## UI Breaking Changes Introduced in Composable Storefront 5.0
 
 ### Translation (i18n) changes
 
