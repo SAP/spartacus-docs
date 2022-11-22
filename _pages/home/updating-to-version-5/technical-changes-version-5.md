@@ -2,12 +2,13 @@
 title: Technical Changes in Spartacus 5.0
 ---
 
-Spartacus migration schematics tries to find in your codebase usages of Spartacus' public API (e.g. functions/methods/classes) which were changed (in a breaking way) or removed in version 5.0. The migration schematics will insert a code comment with a hint "TODO:Spartacus" above such lines of code, in order to assist you with the migration. 
-Note: Please beware that if by coincidence you have in your codebase a usage of a method/function/class that is named the same as the changed or removed Spartacus' public APIs, there might be a chance that it may be incorrectly classified as Spartacus' API and the migration schematics might insert a comment there as well (even though it shouldn't). In that case, please ignore and remove such a comment.
+The Spartacus migration schematics scan your codebase and inject code comments whenever you use a reference to a Spartacus class or function that has changed its behavior in version 5.0, or where your class or function has been replaced by a different class or function, or where the API has changed (for example, where a required parameter has been added or removed). After the migration schematics have finished running, inspect your code for comments that begin with `// TODO:Spartacus` to see the areas of your code that have been identified as possibly needing further work to complete your migration.
 
-## Augmented types
+**Note:** If you happen to have in your codebase a custom function or class that has the same name as a function or class that has changed or been removed in the Spartacus public API, there is a chance that the migration script could identify your custom function or class as needing to be updated. In this case, you can ignore and remove the comment.
 
-If you augmented any of the Spartacus types, you will have a code similar to the following:
+## Augmented Types
+
+If you augmented any of the Spartacus types, you will have code similar to the following:
 
 ```ts
 declare module '@spartacus/core' {
@@ -17,56 +18,50 @@ declare module '@spartacus/core' {
 }
 ```
 
-The type `OrderEntry` interface might have been moved from the `@spartacus/core` to another location. This change will not be automatically migrated, and you will need to check all the module names for all of your augmented types.
-To do this, please look up the augmented type, and check if it was moved to a new location.
+The interface for the `OrderEntry` type might have been moved from `@spartacus/core` to another location. This change will not be automatically migrated, so you will need to check all the module names for all of your augmented types by looking up the augmented type and checking if it was moved to a new location.
 
-## Changes of generic types
+## Changes of Generic Types
 
-### ItemActiveDirective (in `@spartacus/organization`)
+### ItemActiveDirective (in @spartacus/organization)
 
-- generic type `T` in `class ItemActiveDirective<T = BaseItem> ` has been changed to `T extends BaseItem`
+The generic type `T` in `class ItemActiveDirective<T = BaseItem> ` has been changed to `T extends BaseItem`.
 
-### AssignCellComponent (in `@spartacus/organization`)
+### AssignCellComponent (in @spartacus/organization)
 
-- generic type `T` in `class AssignCellComponent<T>` has been changed to `T extends BaseItem`
+The generic type `T` in `class AssignCellComponent<T>` has been changed to `T extends BaseItem`.
 
-## Removed incubator library
+## Removed Incubator Library
 
-Incubator library is not being published anymore.
+The incubator library is no longer published.
 
-## Breaking changes in user-profile library
+## Breaking Changes in the user-profile Library
 
-- Added `RegisterComponentService` that accepts `UserRegisterFacade` through constructor injection. `RegisterComponentService` has only those methods from `UserRegisterFacade` that are needed for `RegisterComponent`.
-- Updated the constructor of `RegisterComponent` and replaced `UserRegisterFacade` with `RegisterComponentService`.
+- A `RegisterComponentService` was added that accepts `UserRegisterFacade` through constructor injection. The `RegisterComponentService` only has the methods from `UserRegisterFacade` that are needed for `RegisterComponent`.
+- The constructor of `RegisterComponent` was updated and `UserRegisterFacade` was replaced with `RegisterComponentService`.
 
-## Breaking changes in cdc intrgration library
+## Breaking Changes in the CDC Integration Library
 
-- When `CX_CDC` is enabled, the native Login / Register and Forgot Password screens uses CDC JS SDK to perform user account creation and authentication.
-- Added `CDCRegisterComponentService` that extends `RegisterComponentService`. It invokes CDC JS SDK to register the user and overrides the `postRegisterMessage()` to suppress the success message on sucessful registration.
-- Added `CdcLoginFormComponentService` that extends `LoginFormComponentService` and invokes CDC JS SDK to login the user.
-- Added `CDCForgotPasswordComponentService` that extends `ForgotPasswordComponentService` and invokes CDC JS SDK to send the account reset email.
+- When `CX_CDC` is enabled, the native Login / Register and Forgot Password screens use the CDC JS SDK to perform user account creation and authentication.
+- The `CDCRegisterComponentService` was added, which extends `RegisterComponentService`. It invokes the CDC JS SDK to register the user and overrides the `postRegisterMessage()` to suppress the success message on successful registration.
+- The `CdcLoginFormComponentService` was added, which extends `LoginFormComponentService` and invokes the CDC JS SDK to log in the user.
+- The `CDCForgotPasswordComponentService` was added, which extends `ForgotPasswordComponentService` and invokes the CDC JS SDK to send the account reset email.
 
-## Breaking changes in product-configurator library
+## Breaking Changes in the product-configurator Library
 
-### Reduced number of page header slots and introduction of exit button
+### Reduced Number of Page Header Slots and Introduction of Exit Button
 
-In case the rulebased product configurator is launched from product details, product catalog, or cart, the number of slots displayed in
-the page header has been reduced compared to 4.0. We only show slots `SiteLogo`,`VariantConfigOverviewExitButton` and `MiniCart`.
-For details see `CpqConfiguratorLayoutModule`, `VariantConfiguratorInteractiveLayoutModule` and `VariantConfiguratorOverviewLayoutModule`.
-These modules are new in 5.0. The layout configuration was removed from `CpqConfiguratorInteractiveModule`, `VariantConfiguratorInteractiveModule`
+In case the rule-based product configurator is launched from the Product Details page, the Product Catalog page, or the cart, the number of slots displayed in the page header has been reduced, as compared to Spartacus version 4.0. Now we only show the `SiteLogo`,`VariantConfigOverviewExitButton` and `MiniCart` slots. For details, see `CpqConfiguratorLayoutModule`, `VariantConfiguratorInteractiveLayoutModule` and `VariantConfiguratorOverviewLayoutModule`. These modules are new in 5.0. The layout configuration was removed from `CpqConfiguratorInteractiveModule`, `VariantConfiguratorInteractiveModule`
 and `VariantConfiguratorOverviewModule`.
 
-Note that `VariantConfigOverviewExitButton` is new, and allows to leave the configuration. Clicking it directs the user to the product detail
-page, configuration changes are not taken over to the cart.
+Note that the `VariantConfigOverviewExitButton` is new, and allows users to leave the configuration. Clicking it directs the user to the product detail page, and configuration changes are not taken over to the cart.
 
-### Specific page header slots in case configurator is launched in displayOnly mode
+### Specific Page Header Slots in Case the Configurator is Launched in displayOnly Mode
 
-In case the rulebased product configurator is launched from the checkout review order page, from the order confirmation page or from the order
-history page, the page header shows the standard Spartacus header slots (not the reduced set of header slots listed in the previous section).
-Specifically, `VariantConfigOverviewExitButton` is not offered then.
-For details, see `CpqConfiguratorPageLayoutHandler` and `VariantConfiguratorPageLayoutHandler`.
-The page header slots used in case of the displayOnly mode can be configured in `CpqConfiguratorLayoutModule` and `VariantConfiguratorOverviewLayoutModule`,
-under the section `headerDisplayOnly`.
+In case the rule-based product configurator is launched from the Review Order checkout page, from the Order Confirmation page, or from the Order History page, the page header shows the standard Spartacus header slots (not the reduced set of header slots listed in the previous section).
+
+Specifically, `VariantConfigOverviewExitButton` is not offered then. For details, see `CpqConfiguratorPageLayoutHandler` and `VariantConfiguratorPageLayoutHandler`.
+
+The page header slots used in case of the displayOnly mode can be configured in `CpqConfiguratorLayoutModule` and `VariantConfiguratorOverviewLayoutModule`, under the `headerDisplayOnly` section.
 
 ### ConfiguratorAddToCartButtonComponent
 
@@ -80,83 +75,83 @@ under the section `headerDisplayOnly`.
 
 ### ConfiguratorAttributeSingleSelectionBaseComponent
 
-- Got 2 new input fields: `language` and `ownerType`, both of type `string`
+- Two new input fields were added: `language` and `ownerType`, both of type `string`
 
 ### ConfiguratorAttributeProductCardComponentOptions
 
-- Added new attributes `attributeLabel`, `attributeName`, `itemCount` and `itemIndex` to interface.
+- New `attributeLabel`, `attributeName`, `itemCount` and `itemIndex` attributes were added to the interface.
 
 ### ConfiguratorExitButton
 
-- `container$ | async as container` was added to the button to determine what the current owner type is. The button will be named accordingly
+- `container$ | async as container` was added to the button to determine what the current owner type is. The button will be named accordingly.
 
 ### ConfiguratorAttributeProductCardComponent
 
-- `span` added (visually hidden) for screen-reader to read explanation for hidden button (in case option .hideRemoveButton is true
+- `span` was added (visually hidden) for screen readers to read explanation for hidden buttons (in case option .hideRemoveButton is `true`).
 
 ### ConfiguratorAttributeDropDownComponent
 
-- Added conditional includes of `<cx-configurator-attribute-numeric-input-field>` and `<cx-configurator-attribute-input-field>` because of the support for attributes with additional values
-- Added styling  `.cx-configurator-attribute-additional-value { margin-inline-start: 0px; }` in order to render an additional attribute value properly
-- Added `label` (visually hidden) for screen-reader to read explanation of drop-down listbox (number of entries)
+- Added conditional includes of `<cx-configurator-attribute-numeric-input-field>` and `<cx-configurator-attribute-input-field>` because of the support for attributes with additional values.
+- Added styling  `.cx-configurator-attribute-additional-value { margin-inline-start: 0px; }` in order to render an additional attribute value properly.
+- Added `label` (visually hidden) for screen readers to read explanations of drop-down listboxes (number of entries).
 
 ### ConfiguratorAttributeRadioButtonComponent
 
-- Added conditional includes of `<cx-configurator-attribute-numeric-input-field>` and `<cx-configurator-attribute-input-field>` because of the support for attributes with additional values
-- Added styling  `.cx-configurator-attribute-additional-value { margin-inline-start: 0px; }` in order to render an additional attribute value properly
+- Added conditional includes of `<cx-configurator-attribute-numeric-input-field>` and `<cx-configurator-attribute-input-field>` because of the support for attributes with additional values.
+- Added styling  `.cx-configurator-attribute-additional-value { margin-inline-start: 0px; }` in order to render an additional attribute value properly.
 
 ### ConfiguratorAttributeReadOnlyComponent
 
-#### for staticDomain part:
+For the `staticDomain` part:
 
-- `span` added (visually hidden) for screen-reader to read `value x of attribute y` (in order to better distinguish between text of a value and text of an attribute for screen-reader users)
-- `span` added with `aria-hidden=true` around visible read-only value to avoid double reading by screen-reader
+- `span` was added (visually hidden) for screen readers to read `value x of attribute y` (in order to better distinguish between the text of a value and the text of an attribute for screen reader users).
+- `span` was added with `aria-hidden=true` around visible read-only values to avoid double reading by screen readers.
 
-#### for #noStaticDomain template:
+For the `#noStaticDomain` template:
 
-- `span` added (visually hidden) for screen-reader to read `value x of attribute y` (in order to better distinguish between text of a value and text of an attribute for screen-reader users)
-- `span` added with `aria-hidden=true` around visible read-only value to avoid double reading by screen-reader
+- `span` was added (visually hidden) for screen readers to read `value x of attribute y` (in order to better distinguish between the text of a value and the text of an attribute for screen reader users).
+- `span` was added with `aria-hidden=true` around visible read-only values to avoid double reading by screen readers.
 
-#### for userInput part:
+For the `userInput` part:
 
-- `span` added (visually hidden) for screen-reader to read `value x of attribute y` (in order to better distinguish between text of a value and text of an attribute for screen-reader users)
-- `span` added with `aria-hidden=true` around visible read-only value to avoid double reading by screen-reader
+- `span` was added (visually hidden) for screen readers to read `value x of attribute y` (in order to better distinguish between the text of a value and the text of an attribute for screen reader users).
+- `span` was added with `aria-hidden=true` around visible read-only values to avoid double reading by screen readers.
 
 ### ConfiguratorAttributeSingleSelectionBundleDropdownComponent
 
-- `label` added (visually hidden) for screen-reader to read explanation of drop-down listbox (number of entries)
+- `label` was added (visually hidden) for screen readers to read explanations of drop-down listboxes (number of entries).
 
 ### ConfiguratorAttributeSingleSelectionImageComponent
 
-- enclosing `div` added with attribute `role=listbox` to make clear for screen-reader that the enclosed divs belong to a list selection
+- enclosing `div` added with attribute `role=listbox` to make clear for screen readers that the enclosed divs belong to a list selection
 
 ### ConfiguratorConflictSuggestionComponent
 
-- `span`-tags added around suggestion title and texts with attribute `aria-hidden=true` as the text for screen-reader is taken over by new attribute aria-label at `div`-tag to provide consistent screen-reader text for different browsers
+- `span`-tags added around suggestion title and texts with attribute `aria-hidden=true` as the text for screen readers is taken over by new attribute aria-label at `div`-tag to provide consistent screen readers text for different browsers
 
 ### ConfiguratorAttributeSingleSelectionImageComponent
 
-- `span`-tags added (visually hidden) to provide extra information for screen-reader users
+- `span`-tags added (visually hidden) to provide extra information for screen reader users
 
 ### ConfiguratorOverviewAttributeComponent
 
-- `span` added (visually hidden) for screen-reader to read `value x of attribute y` or `value x of attribute y surcharge z` if a price is present (in order to better distinguish between text of a value and text of an attribute for screen-reader users)
+- `span` added (visually hidden) for screen readers to read `value x of attribute y` or `value x of attribute y surcharge z` if a price is present (in order to better distinguish between text of a value and text of an attribute for screen reader users)
 
 ### ConfiguratorOverviewBundleAttributeComponent
 
-- `span` added (visually hidden) for screen-reader to read `item x of attribute y`, `item x of attribute y, surcharge z`, `item x of attribute y, quantity 123` or `item x of attribute y, quantity 123, surcharge z` depending on availability of price and quantity
+- `span` added (visually hidden) for screen readers to read `item x of attribute y`, `item x of attribute y, surcharge z`, `item x of attribute y, quantity 123` or `item x of attribute y, quantity 123, surcharge z` depending on availability of price and quantity
 
 ### ConfiguratorOverviewFormComponent
 
-- `span`-tags added (visually hidden) to provide extra information for screen-reader users
+- `span`-tags added (visually hidden) to provide extra information for screen reader users
 
 ### ConfiguratorProductTitleComponent
 
-- `span` with attribute `aria-hidden=true` around visible link text to avoid double reading by screen-reader (text is covered by new `aria-label` attribute of surrounding `div`)
+- `span` with attribute `aria-hidden=true` around visible link text to avoid double reading by screen readers (text is covered by new `aria-label` attribute of surrounding `div`)
 
 ### ConfiguratorUpdateMessageComponent
 
-- `div` with attributes `aria-live=polite` and `aria-atomic=false` added around update message div in order to monitor changes in this area. As soon as update message becomes visible it will be read by the screen-reader (in polite mode).
+- `div` with attributes `aria-live=polite` and `aria-atomic=false` added around update message div in order to monitor changes in this area. As soon as update message becomes visible it will be read by the screen readers (in polite mode).
 
 ### ConfiguratorIssuesNotificationComponent
 
@@ -473,7 +468,7 @@ The following keys have been added to `configurator-common.ts`:
 
 #### Translation (i18n) changes
 
-- Added new key `checkoutReview.placeOrder` to improve Screen Readers vocalization.
+- Added new key `checkoutReview.placeOrder` to improve Screen Reader vocalization.
 
 ### FormErrorsComponent
 
