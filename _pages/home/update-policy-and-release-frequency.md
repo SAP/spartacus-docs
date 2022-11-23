@@ -1,5 +1,5 @@
 ---
-title: Update Release Policy and Publication Frequency for <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_CAPS"/> Libraries
+title: Update Release Policy and Publication Frequency for Spartacus Libraries
 ---
 
 This document describes the update release policy and publication frequency for <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_LONG"/>.
@@ -30,7 +30,7 @@ The <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_NO_CA
 
 The <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_NO_CAPS"/> libraries are built using project “Spartacus” open-source software, which is based on the Angular development environment. The libraries are delivered through SAP’s [Repo-Based Shipment Channel](https://ui.repositories.cloud.sap/www/webapp/users). The <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_NO_CAPS"/> libraries are available to cloud customers only. Other customers may use [project “Spartacus” open-source software](https://github.com/SAP/spartacus).
 
-## Frequency of <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_CAPS"/> Update Releases
+## Frequency of Spartacus Update Releases
 
 SAP will publish bug fixes and new features to the <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_NO_CAPS"/> on a continuous basis. This release strategy follows the principle of “one innovation code line” with subsequent update releases that ensure continuous innovation with an evolving code line.
 
@@ -44,7 +44,7 @@ A new update release of the <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244
 | **Minor:** | - Contains new functionality that is backwards-compatible<br>- Published approximately **eight times per year**<br>- Called “minor” in semver |
 | **Major:** | - Contain bug fixes and new functionality, some of which are not compatible with a previous update release<br>- Published approximately **two to three times per year**<br>- Called “major” in semver |
 
-## Update Policy for <pname conkeyref="loiof35dd21b5c7b47108bebca5a890244ac/SAP_CC_SF_SHORT_CAPS"/>
+## Update Policy for Spartacus
 
 A “roll-forward” approach to updates is used, which means that only the latest update release will receive bug fixes and new features. Older update releases do not receive bug fixes or features.
 
