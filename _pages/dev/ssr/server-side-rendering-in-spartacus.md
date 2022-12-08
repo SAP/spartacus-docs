@@ -47,7 +47,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    Note these dependency versions are not up-to-date. Please adjust them in the following way:
 
    - For `@spartacus/setup` dependency, please align with the version of Spartacus you are using.
-   - For the rest of dependencies, please refer to the release branch of the Spartacus version you are using, and check our [package.json](https://github.com/SAP/spartacus/blob/release/4.2.x/package.json).
+   - For the rest of dependencies, please refer to the release branch of the Spartacus version you are using, and check our `package.json` - [e.g. 4.2.x package.json](https://github.com/SAP/spartacus/blob/release/4.2.x/package.json).
 
 2. Add the following developer dependencies to `package.json`:
 
