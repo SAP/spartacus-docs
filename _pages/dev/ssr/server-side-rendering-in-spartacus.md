@@ -2,7 +2,7 @@
 title: Server-Side Rendering
 ---
 
-In Spartacus, server-side rendering allows you to render static versions of pages on the server side. This speeds up response times, assists with SEO, and allows the application to render more quickly. After Angular has bootstrapped, users of your site will have the full experience.
+In Spartacus, server-side rendering allows you to render static versions of pages on the server side. This speeds up response times, assists with search engine optimization (SEO), and allows the application to render more quickly. After Angular has bootstrapped, users of your site will have the full experience.
 
 ***
 
@@ -13,13 +13,13 @@ In Spartacus, server-side rendering allows you to render static versions of page
 
 ***
 
-## Which pages to server-side render?
+## Deciding When to Use Server-Side Rendering
 
-It is generally recommended to server-side render the following pages:
+It is generally recommended to use server-side rendering for the following types of pages:
 
-- Pages that will be crawled by site indexers or bots for search engine indexing and SEO purposes
-- Pages with static content which don't change often
-- Pages that will not contain personalized content
+- Pages that are crawled by site indexers or bots for SEO and search engine indexing
+- Pages with static content that do not change frequently
+- Pages that do not contain personalized content
 
 ## Adding SSR Support Using Schematics (Recommended)
 
