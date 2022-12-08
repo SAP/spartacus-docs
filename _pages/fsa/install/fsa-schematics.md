@@ -66,7 +66,7 @@ When you run `ng add @spartacus/fsa-schematics`, the command does the following:
 
     The following is an example:
 
-    ```shell
+    ```ts
     FSStorefrontModule.withConfig({
       backend: {
         occ: {
