@@ -49,8 +49,7 @@ You can find the default timeout values that Spartacus uses for global messages 
 If you wish to change any of the default timeout values, you should maintain consistency between the configuration keys and the enum by providing your customized config using a factory provider. The following is an example:
 
 ```typescript
-function yourGlobalMessageConfigFactory(): GlobalMessageConfig {
-  return {
+export const yourGlobalMessageConfig: GlobalMessageConfig = {
     globalMessages: {
       [GlobalMessageType.MSG_TYPE_CONFIRMATION]: {
         timeout: 5000,
@@ -59,14 +58,11 @@ function yourGlobalMessageConfigFactory(): GlobalMessageConfig {
         timeout: 7000,
       },
     },
-  };
 }
 ```
 
 You then provide your customized config as follows:
 
 ```typescript
-ConfigModule.withConfigFactory(yourGlobalMessageConfigFactory),
+ConfigModule.withConfig(yourGlobalMessageConfig),
 ```
-
-**Note:** Due to a limitation with Angular's config mechanisms, `withConfig` requires keys to be in the form of a string. Enums are not accepted.

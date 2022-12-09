@@ -31,7 +31,7 @@ There are a few ways you can install Angular and other prerequisite software. Th
 
 To install the prerequisite development tools, install [Homebrew](https://brew.sh), and then run the following commands:
 
-```
+```text
 brew install yarn
 brew install node@10
 brew install angular-cli
@@ -72,9 +72,9 @@ To create a new Angular application with the name `mystore`, follow the procedur
 
 3.  Access the newly created `mystore` folder with the following command:
 
-     ```bash
-     cd mystore
-     ```
+   ```bash
+   cd mystore
+   ```
 
 ## Project Setup
 

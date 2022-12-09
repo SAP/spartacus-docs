@@ -2,7 +2,7 @@
 title: Release Information for TUA Spartacus Libraries
 ---
 
-*Last updated January 13, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
+*Last updated April 1, 2022 by Deborah Cholmeley-Jones, Solution Owner, TUA Spartacus*
 
 ***
 
@@ -28,6 +28,28 @@ This document describes what is included in all Spartacus libraries since the in
 
 *The various documentation links provided point to SAP Commerce Cloud or Accelerator documentation or third-party external links. These links are included for information purposes only and may not reflect exactly what is implemented in Spartacus.*
 
+## Release 4.1
+
+*Release 4.1 libraries published April 1, 2022*
+
+Release 4.1 uses Angular 12, and the following feature is introduced:
+
+- [Selfcare - Viewing Subscriptions, Billing Account, and Billing Agreement]({{ site.baseurl }}{% link _pages/telco/selfcare-subscriptions-billingaccount-agreements.md %})
+
+## Release 4.0
+
+*Release 4.0 libraries published March 15, 2022*
+
+As release 4.0 is a new major version, it contains breaking changes. To migrate to 4.0 from 3.0, please see the following documentation:
+
+- [Updating to Version 4.0]({{ site.baseurl }}{% link _pages/telco/updating-tua-spartacus-to-4.md %})
+- [Technical Changes in TUA Spartacus 4.0]({{ site.baseurl }}{% link _pages/telco/technical-changes-tua-version-4.md %})
+- Uses Angular 12.
+
+You can refer to the core [Release Information for All Versions of Spartacus Libraries]({{ site.baseurl }}{% link _pages/home/release-information.md %}) for all versions of Spartacus Libraries documentation for updates on the Spartacus framework including the upgrade to Angular 12 and related dependencies.
+
+**Note:** For information on core commerce Spartacus, see [Updating to Version 4.0]({{ site.baseurl }}{% link _pages/home/updating-to-version-4/updating-to-version-4.md %}).
+
 ## Release 3.2
 
 *Release 3.2 libraries published January 13, 2022*
@@ -45,7 +67,7 @@ The 3.2 libraries for the accelerator provides a new B2B Telco Spartacus storefr
 
 The 3.1 libraries for the accelerator provides a new Media Spartacus storefront along with sample data. With 3.1, the TUA libraries support three storefronts: Telco, Utilities, and Media. Angular 10 is used in release 3.1.
 
-Following features are introduced in release 3.1:
+Following feature is introduced in release 3.1:
 
 - [Media Storefront]({{ site.baseurl }}{% link _pages/telco/media-storefront.md %})
 

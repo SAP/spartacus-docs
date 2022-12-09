@@ -13,7 +13,7 @@ In Spartacus, server-side rendering allows you to render static versions of page
 
 ***
 
-## Deciding When to Use Server-Side Rendering
+## Deciding Which Pages to Render With SSR
 
 It is generally recommended to use server-side rendering for the following types of pages:
 
@@ -197,11 +197,11 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
 
 11. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
 
-```typescript
-/***************************************************************************************************
- * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
- */
-import '@angular/localize/init';
+    ```typescript
+    /**
+    * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+    */
+    import '@angular/localize/init';
 
 import { enableProdMode } from '@angular/core';
 
@@ -244,12 +244,12 @@ For more information about caching and transfer state, see [Caching the Site Con
 
 13. Add the `server.ts` file to your existing shell app. The following is an example:
 
-```typescript
-/***************************************************************************************************
- * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
- */
-import '@angular/localize/init';
-import 'zone.js/dist/zone-node';
+    ```typescript
+    /**
+     * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+    */
+    import '@angular/localize/init';
+    import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
 import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
@@ -352,18 +352,18 @@ If you are involved in Spartacus internal development (for example, if you are c
 
    1. Turn PWA off in your app module configuration, as follows:
 
-      ```json
-      StorefrontModule.withConfig({
-            backend: {
-              occ: {
-                baseUrl: 'https://[your_enpdoint],
-              },
-            },
-            pwa: {
-              enabled: false,
-            },
-      };
-      ```
+       ```json
+       StorefrontModule.withConfig({
+             backend: {
+               occ: {
+                 baseUrl: 'https://[your_enpdoint],
+               },
+             },
+             pwa: {
+               enabled: false,
+             },
+       };
+       ```
 
 1. Rebuild your local Spartacus libraries by running the following command:
 

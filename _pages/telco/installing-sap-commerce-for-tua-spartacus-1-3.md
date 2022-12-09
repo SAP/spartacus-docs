@@ -199,19 +199,20 @@ Some of the steps in this procedure are derived from the documentation for insta
       }
    }
    ```
-   **Notes:** 
-   
-   If you want to use only Telco sample data, then remove the following lines from the `build.gradle` file:
+
+   **Note:** If you want to use only Telco sample data, then remove the following lines from the `build.gradle` file:
 
    ```bash
    extName 'utilitiesspastore'
    extName 'b2ctelcocmsaddon'
    ```
+
    Additionally, ensure that you also remove the `b2ctelcocmsaddon` from the `build.gradle` file:
 
    ```bash
    names('b2ctelcooccaddon','cmsoccaddon','acceleratorwebservicesaddon','b2ctelcocmsaddon')
    ```
+
    If you want to use only Utilities sample data, then remove the following line from the `build.gradle` file:
 
    ```bash
@@ -227,6 +228,7 @@ Some of the steps in this procedure are derived from the documentation for insta
    ```bash
    install.bat -r b2c_telco_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
    ```
+
    For Unix:
 
    ```bash
@@ -273,7 +275,8 @@ For Unix:
    context: {
    baseSite: ['telcospa']
    },
-   ```  
+   ```
+
    **Utilities**
 
    ```ts
@@ -399,7 +402,7 @@ TUA Spartacus automatically picks up on the configuration and displays the `regi
 
 2. Add the following line to your `custom.properties` file:
 
-    ```
+    ```text
     mockup.payment.label.billTo.region=billTo_state
     ```
 
@@ -415,7 +418,7 @@ The next time you run the recipe install command, the settings inside `custom.pr
 
 You may encounter the following error message:
 
-```
+```text
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 

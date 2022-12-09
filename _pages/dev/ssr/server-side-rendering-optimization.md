@@ -236,7 +236,7 @@ You can use your web browser's network tool to check if your storefront is rende
    [...]
    </app-root>
    ```
-
+  
    If the `<app-root>` in your response is empty, it means SSR is not working correctly.
 
 ### Troubleshooting a Storefront That Is Not Running in SSR Mode

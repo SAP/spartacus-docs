@@ -21,13 +21,20 @@ docs:
                   url: /pre-release-information/
                 - title: "Feature Compatibility"
                   url: /feature-release-versions/
+                - title: "Updating to Version 5.0 ➢"
+                  url: /updating-to-version-5/
+                  underchildren:
+                      - title: "Cart Library Release Notes"
+                        url: /cart-library-release-notes/
+                      - title: "Checkout Library Release Notes"
+                        url: /checkout-libraries-release-notes/
                 - title: "Updating to Version 4.0 ➢"
                   url: /updating-to-version-4/
                   underchildren:
                       - title: "Technical Changes in Spartacus 4.0"
                         url: /technical-changes-version-4/
                       - title: "Changes to Styles in 4.0"
-                        url: /css-changes-in-version-4/    
+                        url: /css-changes-in-version-4/
                 - title: "Updating to Version 3.0 ➢"
                   url: /updating-to-version-3/
                   underchildren:
@@ -47,6 +54,10 @@ docs:
                   underchildren:
                       - title: "Order Library Release Notes"
                         url: /order-library-release-notes/
+                - title: "Known Issues"
+                  url: /known-issues/
+          - title: "Update Policy and Release Frequency for Spartacus Libraries"
+            url: /update-policy-and-release-frequency/
           - title: "Spartacus Videos"
             url: /spartacus-videos/
           - title: "Spartacus Roadmap"
@@ -63,14 +74,10 @@ docs:
           - title: "Installing SAP Commerce Cloud for use with Spartacus ➢"
             url: /installing-sap-commerce-cloud/
             subchildren:
+                - title: "Installing SAP Commerce Cloud 2205"
+                  url: /installing-sap-commerce-cloud-2205/
                 - title: "Installing SAP Commerce Cloud 2105"
                   url: /installing-sap-commerce-cloud-2105/
-                - title: "Installing SAP Commerce Cloud 2011"
-                  url: /installing-sap-commerce-cloud-2011/
-                - title: "Installing SAP Commerce Cloud 2005"
-                  url: /installing-sap-commerce-cloud-2005/
-                - title: "Installing SAP Commerce Cloud 1905"
-                  url: /installing-sap-commerce-cloud-1905/                
           - title: "Cross-Origin Resource Sharing (CORS)"
             url: /cors/
           - title: "Reference App Structure"
@@ -78,14 +85,12 @@ docs:
           - title: "Building the Spartacus Storefront from Libraries ➢"
             url: /building-the-spartacus-storefront-from-libraries/
             subchildren:
-                - title: "Building the Spartacus Storefront Using 4.x Libraries"
-                  url: /building-the-spartacus-storefront-from-libraries-4-x/
+                - title: "Building the Spartacus Storefront Using 5.x Libraries"
+                  url: /building-the-spartacus-storefront-from-libraries-5-x/
                 - title: "Configuring Feature Flags"
                   url: /configuring-feature-flags/
                 - title: "Schematics"
                   url: /schematics/  
-                - title: "Snapshot Builds"
-                  url: /snapshot-builds/
                 - title: "Spartacus Sample Data Extension ➢"
                   url: /spartacussampledata-extension/
                   underchildren:
@@ -132,6 +137,8 @@ docs:
           - title: "Accessibility ➢"
             url: /a11y/
             subchildren:
+                - title: "Accessibility Compliance"
+                  url: /a11y-compliance/
                 - title: "Best Practices ➢"
                   url: /a11y-best-practices/
                   underchildren:
@@ -242,10 +249,14 @@ docs:
                   underchildren:
                       - title: "Banner Component"
                         url: /banner-component/
+                      - title: "Carousel Component"
+                        url: /carousel-component/
                       - title: "Media Component"
                         url: /media-component/  
                       - title: "Pagination Component"
                         url: /pagination/
+                      - title: "Password Visibility Component"
+                        url: /password-visibility-component/
                       - title: "Popover Component"
                         url: /popover-component/
                       - title: "Searchbox Component"
@@ -309,6 +320,8 @@ docs:
                   url: /cart-import-export/
                 - title: "Cart Validation"
                   url: /cart-validation/
+                - title: "Clear Cart"
+                  url: /clear-cart/
                 - title: "Consignment Tracking"
                   url: /consignment-tracking/
                 - title: "Coupons"
@@ -339,6 +352,8 @@ docs:
                   url: /scheduled-replenishment/
                 - title: "Scroll Position Restoration"
                   url: /scroll-position-restoration/
+                - title: "Scroll to Top"
+                  url: /scroll-to-top/
                 - title: "Selective Cart"
                   url: /selective-cart/
                 - title: "Skip Links"
@@ -433,6 +448,8 @@ docs:
                 - title: "Updating TUA Spartacus ➢"
                   url: /updating-tua-spartacus/
                   underchildren:
+                      - title: "Updating to Version 4.0"
+                        url: /updating-tua-spartacus-to-4/
                       - title: "Updating to Version 3.0"
                         url: /updating-tua-spartacus-to-3/
                       - title: "Updating to Version 2.0"
@@ -440,6 +457,10 @@ docs:
                 - title: "Installing SAP Commerce Cloud for use with TUA Spartacus ➢"
                   url: /installing-sap-commerce-for-tua-spartacus/
                   underchildren:
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 4.1"
+                        url: /installing-sap-commerce-for-tua-spartacus-4.1/
+                      - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 4.0"
+                        url: /installing-sap-commerce-for-tua-spartacus-4/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.2"
                         url: /installing-sap-commerce-for-tua-spartacus-3-2/
                       - title: "Installing SAP Commerce Cloud for use with TUA Spartacus 3.x"
@@ -453,6 +474,10 @@ docs:
                 - title: "Building the TUA Storefront from Libraries ➢"
                   url: /building-the-tua-storefront-from-libraries/
                   underchildren:
+                      - title: "Building the TUA Spartacus Storefront using 4.1 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-4.1/
+                      - title: "Building the TUA Spartacus Storefront using 4.0 Libraries"
+                        url: /building-the-tua-storefront-from-libraries-4/
                       - title: "Building the TUA Spartacus Storefront using 3.2 Libraries"
                         url: /building-the-tua-storefront-from-libraries-3-2-0/
                       - title: "Building the TUA Spartacus Storefront using 3.1 Libraries"
@@ -468,6 +493,8 @@ docs:
                 - title: "Technical Changes in TUA Spartacus ➢"
                   url: /technical-changes/
                   underchildren:
+                      - title: "Technical Changes in TUA Spartacus 4.0"
+                        url: /technical-changes-tua-version-4/
                       - title: "Technical Changes in TUA Spartacus 3.0"
                         url: /technical-changes-tua-version-3/
                       - title: "Technical Changes in TUA Spartacus 2.0"
@@ -523,7 +550,9 @@ docs:
                 - title: "Purchase PO with Configurable Characteristics"
                   url: /purchase-po-with-configurable-characteristics/
                 - title: "Sales Flow - Cross-Selling"
-                  url: /sales-flow-cross-sell-of-an-spo/                                       
+                  url: /sales-flow-cross-sell-of-an-spo/
+                - title: "Selfcare - View Subscriptions, Billing Account, Billing Agreements"
+                  url: /selfcare-subscriptions-billingaccount-agreements/                                       
                 - title: "Simple Product Offering"
                   url: /simple-product-offering/
 
@@ -599,6 +628,11 @@ docs:
                   url: /fsa-inbox/
                 - title: "Checkout"
                   url: /fsa-checkout/
+                - title: "User Request Framework ➢"
+                  url: /fsa-user-request-framework/
+                  underchildren:
+                    - title: "Configurable FNOL Process"
+                      url: /fsa-configurable-fnol-process/
                 - title: "Claims ➢"
                   url: /claims/
                   underchildren:

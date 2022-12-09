@@ -16,14 +16,14 @@ The quick order feature allows users to quickly add multiple items to their cart
 
 For more information, see [Quick Order](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/caf95981aa174660b3faf839a9dddbef.html) on the SAP Help Portal.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
 {:toc}
 
----
+***
 
 ## Enabling Quick Order
 
@@ -157,15 +157,13 @@ Even if you are not logged in, you can add products to the cart using the quick 
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-3.png" alt="Cart Quick Order Form" width="700" border="1px" />
 
-### Using the Quick Order Page
-
-The following sections describe how to use the quick order feature in the Spartacus storefront.
-
-## Adding Products with the Quick Order Page
+## The Quick Order Page
 
 The **Quick Order** page provides a form for adding new products, and displays a list of products that have already been added. The list includes information about the products that have been added to the **Quick Order** page, such as the product image, name, availability, price, and quantity that you want to add to your cart. The following is an example:
 
 <img src="{{ site.baseurl }}/assets/images/quick-order-4.png" alt="Quick Order Page" width="700" border="1px" />
+
+### Adding Products with the Quick Order Page
 
 You can add products to the quick order list and then to your cart, as follows:
 
@@ -191,7 +189,7 @@ You can add products to the quick order list and then to your cart, as follows:
 
    <img src="{{ site.baseurl }}/assets/images/quick-order-6.png" alt="Quick Order Page With Errors" width="700" border="1px" />
 
-## Restoring a Deleted Product in the Quick Order Page
+### Restoring a Deleted Product in the Quick Order Page
 
 {% capture version_note %}
 {{ site.version_note_part1a }} 4.2 {{ site.version_note_part2 }}
@@ -213,7 +211,7 @@ You can restore deleted products from the quick order list, as described in the 
 
    After clicking **Undo**, the previously deleted product appears again in the quick order list.
 
-## Importing and Exporting in the Quick Order Page
+### Importing and Exporting in the Quick Order Page
 
 {% capture version_note %}
 {{ site.version_note_part1a }} 4.2 {{ site.version_note_part2 }}

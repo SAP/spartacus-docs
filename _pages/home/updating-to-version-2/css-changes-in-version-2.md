@@ -14,7 +14,7 @@ The nature of the changes done in order to set the Calydon theme as the base the
 
 3. All Calydon instances under the following sub-directories were deleted:
 
-    ```
+    ```text
     /storefrontstyles/scss/themes/calydon/components
     /storefrontstyles/scss/themes/calydon/layout
     ```

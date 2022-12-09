@@ -240,7 +240,7 @@ For Unix:
    context: {
    baseSite: ['telcospa']
    },
-   ```  
+   ```
 
 ## Configuring OCC Credentials
 
@@ -350,7 +350,7 @@ TUA Spartacus automatically picks up on the configuration and displays the `regi
 
 2. Add the following line to your `custom.properties` file:
 
-    ```
+    ```text
     mockup.payment.label.billTo.region=billTo_state
     ```
 
@@ -366,7 +366,7 @@ The next time you run the recipe install command, the settings inside `custom.pr
 
 You may encounter the following error message:
 
-```
+```text
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 

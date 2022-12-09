@@ -38,7 +38,7 @@ The corrected `relativeLinkResolution` is used to opt-in to [a fix](https://gith
 
 The enabled `initialNavigation` provides a better experience with server-side rendering, which starts initial navigation before the root component is created and blocks bootstrap until the initial navigation is complete. For more information, see the [Angular documentation](https://angular.io/api/router/InitialNavigation).
 
-The `RouterModule.forRoot()` method can actually be called only _once_ in an Angular application. This makes the default options rather opinionated, which is why the default configurations are carefully selected in Spartacus. The options that have been added or removed can be provided in your custom application with the Angular `ROUTER_CONFIGURATION` injection token. The following is an example:
+The `RouterModule.forRoot()` method can actually be called only *once* in an Angular application. This makes the default options rather opinionated, which is why the default configurations are carefully selected in Spartacus. The options that have been added or removed can be provided in your custom application with the Angular `ROUTER_CONFIGURATION` injection token. The following is an example:
 
 ```typescript
 providers: [
@@ -63,7 +63,7 @@ The implementation of the page layout-based style class has moved from the `Page
 constructor(protected pageLayoutService: PageLayoutService) {}
 ```
 
-We've also made the `PageLayoutService` a _protected_ argument, so that it is extensible.
+We've also made the `PageLayoutService` a *protected* argument, so that it is extensible.
 
 There is no automation (schematics) planned to migrate constructors automatically.
 
@@ -264,7 +264,9 @@ The `AsmAuthService` was renamed to `CsAgentAuthService`. This service is now re
 - `AsmAuthService.startCustomerEmulationSession` was moved to `CsAgentAuthService`. Behavior has not changed.
 - `AsmAuthService.isCustomerEmulationToken` was removed. To check the token, use `AuthStorageService.getToken`, and to check if it belongs to the CS agent, use `AsmAuthStorageService.getTokenTarget`.
 - `AsmAuthService.getCustomerSupportAgentToken` was removed. To check the token, use `AuthStorageService.getToken` and to check if it belongs to the CS agent, use `AsmAuthStorageService.getTokenTarget`.
-- `AsmAuthService.getCustomerSupportAgentTokenLoading` was moved to `CsAgentAuthService`. **Note:** It is not implemented there yet.
+- `AsmAuthService.getCustomerSupportAgentTokenLoading` was moved to `CsAgentAuthService`.
+
+  **Note:** It is not implemented there yet.
 - `AsmAuthService.logoutCustomerSupportAgent` was moved to `CsAgentAuthService`. It performs the logout procedure for the CS agent and resolves when it completes.
 
 ### CDC library

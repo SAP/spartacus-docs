@@ -6,8 +6,12 @@ Search engine optimization (SEO) is an important element of the Spartacus storef
 
 The SEO implementation in Spartacus includes the following:
 
+***
+
 - This will become a table of contents (this text will be scrapped).
 {:toc}
+
+***
 
 ## Stateful URLs
 

@@ -17,7 +17,7 @@ As mentioned in the "Setup" section of the main [{% assign linkedpage = site.pag
 
 ## Google Tag Manager
 
-GTM requires an _immediately invoked function expression_ (IIFE) to be included in the DOM, which you can do by adding a script to your `index.html`. The following is an example:
+GTM requires an *immediately invoked function expression* (IIFE) to be included in the DOM, which you can do by adding a script to your `index.html`. The following is an example:
 
 ```html
 <!-- Google Tag Manager -->
@@ -63,7 +63,7 @@ For more information, see the [Google Analytics documentation](https://developer
 
 ## Google Tag Manager and Google Analytics
 
-Running both GTM and GA _at the same time_ is possible in Spartacus, although you should be aware of the potential clashes that may arise. This section only focuses on enabling both solutions in Spartacus. Any description of potential issues when running GMT and GA at the same time is out-of-scope for this document.
+Running both GTM and GA *at the same time* is possible in Spartacus, although you should be aware of the potential clashes that may arise. This section only focuses on enabling both solutions in Spartacus. Any description of potential issues when running GMT and GA at the same time is out-of-scope for this document.
 
 The following procedure describes how to set up GTM and GA to run in Spartacus at the same time.
 

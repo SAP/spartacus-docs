@@ -41,7 +41,7 @@ In the out-of-the-box B2B Commerce Organization sample data, each user in the or
 | Cost Center | Cost centers are assigned to units and are used to track spending. When making a purchase through an account and not with a credit card, buyers must choose a cost center. Buyers have access to all cost centers that are linked to their unit and all related child units. |
 | Budget | Budget limits are used to limit overall spending. Orders that exceed the budget are sent to approvers. |
 | Purchase Limit | Purchase limits can be defined per order and per timespan. Buyers are assigned purchase limits in order to limit purchases. Approvers are assigned purchase limits to limit the size of orders they can approve. |
-| User Group | A collection of users, for the purposes of assigning purchase limits in one place, for many users.
+| User Group | A collection of users, for the purposes of assigning purchase limits in one place, for many users. |
 | Credit Limit | Credit limits are used by sellers to limit their credit exposure. Credit limits can be assigned to any unit by the seller and are not controlled by the buying company's administrator. |
 
 ## Powertools Sample Store

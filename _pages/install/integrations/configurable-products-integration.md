@@ -37,7 +37,7 @@ For more information, see [Product Configuration with SAP Variant Configuration 
 
 ## Requirements
 
-The Configurable Products integration requires SAP Commerce Cloud release **2005.6** or **2011.1** or newer.
+The Configurable Products integration requires SAP Commerce Cloud release **2105** or newer.
 
 The integration also requires the `sapproductconfigocc` extension.
 
@@ -70,6 +70,56 @@ After running this command, you are asked which product configurator features yo
 
 **Note:** At runtime, most of the configurator library is lazy loaded when the configurator is first loaded. This is done for performance reasons.
 
+## Early Login
+
+You must have early login enabled to be able to use the configurable products integration with Spartacus. For more information, see [{% assign linkedpage = site.pages | where: "name", "early-login.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/early-login.md %}).
+
+## Supported Attribute Types
+
+The following attributes types are supported in Spartacus:
+
+|Attribute Type|Technical Representation in de.hybris.platform.sap.productconfig.facades.UiType|
+|------------|-----------|
+|User input (string)|STRING|
+|User input (numeric)|NUMERIC|
+|Boolean value|CHECKBOX|
+|Single selection, rendered as radio button group|RADIO_BUTTON|
+|Single selection, rendered as radio button group, with additional input|RADIO_BUTTON_ADDITIONAL_INPUT|
+|Single selection, rendered as drop down listbox|DROPDOWN|
+|Single selection, rendered as drop down listbox, with additional input |DROPDOWN_ADDITIONAL_INPUT|
+|Single selection, rendered as image list|SINGLE_SELECTION_IMAGE|
+|Read-only |READ_ONLY|
+|Multi selection, rendered as checkbox list|CHECKBOX_LIST|
+|Multi selection, rendered as image list|MULTI_SELECTION_IMAGE|
+
+## Configuring the Input Time for User Entries
+
+For complicated user entries, it is possible that the system starts validating the entry before the user has finished typing. To avoid this, you can adjust the default input time of 500 ms in the customer app, as shown in the following example:
+
+```ts
+provideConfig(<Config>{
+    productConfigurator: {
+      updateDebounceTime: {        
+        input: 2500         
+      }
+    },
+  }),
+```
+
+## Product Variants
+
+{% capture version_note %}
+{{ site.version_note_part1 }} 4.3 {{ site.version_note_part2 }}
+{% endcapture %}
+
+{% include docs/feature_version.html content=version_note %}
+
+With Commerce Cloud 2205, the Spartacus UI supports the display and configuration of product variants, both fully and partially specified.
+
+From a business point of view, product variants represent the configurations that sell best; vendors might want to have them in stock to make them readily available to customers at a favorable price. Web shop customers might prefer a matching product variant over an individually configured product, with a view to benefiting from shorter delivery times and more favorable prices.
+
+For more information about product variants and how to set them up in the SAP Commerce Cloud, see [Product Configuration with SAP Variant Configuration and Pricing](https://help.sap.com/docs/SAP_COMMERCE_INTEGRATIONS/80c3212d1d4646c5b91db43b84e9db47/ecdb7e2f02124e6c816f029af1f6762e.html?version=2205)
+
 ## Saved Cart
 
 {% capture version_note %}
@@ -80,13 +130,23 @@ After running this command, you are asked which product configurator features yo
 
 The saved cart feature is generally supported with the Configurable Products integration. A saved cart can contain a configurable product and can be activated. After the cart is activated, the configuration can be accessed and edited. Note, however, that as long as the saved cart is not activated, the configuration of the configurable product cannot be displayed.
 
+## Cart Validation
+
+When cart validation is enabled, it ensures that users cannot check out a cart that has configurations which are conflicting, nor can users check out a cart that contains mandatory attributes if values have not been selected.
+
+If you are using SAP Commerce Cloud 2005 or older, you should consider disabling the checkout button in `cart-proceed-to-checkout.component.html` if `ConfiguratorCartService#activeCartHasIssues` emits `true`.
+
+To enable cart validation, see [{% assign linkedpage = site.pages | where: "name", "cart-validation.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/cart-validation.md %}).
+
+**Note:** Cart validation requires SAP Commerce Cloud 2011 or newer.
+
 ## Locales
 
 All available locales must be replicated in Spartacus. Locales in the back end and front end must be in sync.
 
 ## Conflict Solver
 
-For this initial (MVP) version of the Configurable Products integration, the user navigation for the conflict solver is still quite simple. For example, if a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
+The user navigation for solving conflicts is nearly the same as in Accelerator, except that in Spartacus, users are not yet guided from issue to issue. If a user is in a conflict group and the user changes a value, after the update, the UI displays the original group of the attribute that was changed. In other words, the user exits the conflict resolving context. This happens every time a value is changed in a conflict group, whether or not the conflict is resolved, and even if there are other conflicts that still need to be resolved.
 
 For now, there is no navigation mode that guides the user from issue to issue until the configuration has no remaining issues. Instead, users have two options for navigating through conflicts, as described in the following procedures.
 
@@ -109,13 +169,11 @@ Right-to-left (RTL) orientation is supported for product configuration in Sparta
 
 ## Retract Option for Single-Select Characteristics
 
-By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, customers can make a selection, and they can change their selection, but they cannot remove their selection.
+By default, when making a selection for single-select characteristics in drop-down lists and radio button lists, users can change their selection, but they cannot simply undo it. This means that, depending on the product modeling, users could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable the "retract" feature in your Spartacus configuration that allows users to undo their selection, which they can do by selecting the special **No option selected** entry.
 
-Depending on the product modeling, customers could run into a deadlock situation that does not allow them to complete the configuration. To avoid this scenario, you can enable a "retract" option that allows customers to remove their selection, which they can do by selecting the special **No option selected** entry.
+This feature is valuable if your product modeling relies on VC/AVC automatically generating a **No option selected** value. By enabling the retract feature, you can also have Commerce generate the additional **No option selected** value, if needed. In this case, the system interprets the characteristic as not having been selected.
 
-**Note:** You can customize the `No option selected` label of this entry, just as you can with any UI text in Spartacus.
-
-To enable the retract option, you need to activate the rendering of the option in your Spartacus configuration, as shown in the following example:
+You can activate the retract feature as follows:
 
 ```ts
 productConfigurator: { 
@@ -123,7 +181,14 @@ productConfigurator: {
   } 
 ```
 
+**Note:** You can customize the `No option selected` label of this entry, just as you can with any UI text in Spartacus.
+
 Depending on the product modeling and the configuration engine, after the customer has retracted their selection, the default setting may be withdrawn with the attribute unselected, or the configuration engine may set a default selection.
+
+If you do not activate the retract feature, a read-only value might get involved in a conflict, where users cannot change or undo their selection. In this case, you can allow customers to undo the selection under the following conditions:
+
+- You have set the attribute in your model in the back end system as follows: `retractBlocked = false`
+- The attribute setting has not been set by the system.
 
 ## Group Status Handling
 
@@ -141,14 +206,22 @@ The following is an example of the configuration menu showing visited sections, 
 
 ## Browser Refresh
 
-When you refresh the browser, the product configuration is reset to the default configuration. You therefore have to reconfigure your products after reloading the page.
+When you refresh the browser, if you are logged in, the product configuration is persisted. If you are not logged in, the product configuration is reset to the default configuration, and you therefore have to reconfigure your products after reloading the page.
+
+## Performance and Session Affinity
+
+To communicate with the configurator in a performant way, the Commerce Cloud back end caches session cookies that are sent to the configurator for every interaction. This allows the configurator to read a runtime configuration from its cache instead of from the database.
+
+To ensure session affinity, Spartacus should always contact the same Commerce node when doing configuration reads and updates. You can ensure session affinity by setting the following configuration parameters:
+
+- In SAP Commerce Cloud: `corsfilter.commercewebservices.allowCredentials=true`
+- In Spartacus: `backend.occ.useWithCredentials=true`
 
 ## Unsupported Features
 
 The following features are currently not supported (or in some cases, not fully supported) in the Configurable Products integration with Spartacus:
 
 - [Save for Later and Selective Cart](#save-for-later-and-selective-cart)
-- [Cart Validation](#cart-validation)
 - [Commerce Business Rules in Combination with Configurable Products](#commerce-business-rules-in-combination-with-configurable-products)
 - [Assisted Service Mode](#assisted-service-mode)
 - [Cart Import and Export](#cart-import-and-export)
@@ -188,74 +261,6 @@ This feature is currently not supported. To prevent the button from showing, you
       entryComponents: [SaveForLaterComponent],
     })
     ```
-
-### Cart Validation
-
-Cart validation is currently not supported, although you can implement your own workaround by making the adjustments described in the following sections.
-
-#### Configuring Spartacus for Cart Validation
-
-1. Introduce your own version of `cart-totals.component.ts` and ensure that it is assigned to the `CartTotalsComponent` CMS component instead of the original one.
-
-1. Inject `ConfiguratorCartService` from `@spartacus/product-configurator/common` into the custom version of `cart-totals.component`.
-
-1. Introduce a component member.
-
-    The following is an example:
-
-    ```ts
-    hasNoConfigurationIssues$: Observable<
-        boolean
-      > = this.configuratorCartService
-        .activeCartHasIssues()
-        .pipe(map((hasIssues) => !hasIssues));
-    ```
-
-1. Make use of this member in the component template.
-
-    The following is an example:
-
-    {% raw %}
-
-    ```ts
-    <ng-container *ngIf="cart$ | async as cart">
-      <ng-container *ngIf="entries$ | async as entries">
-        <cx-order-summary [cart]="cart"></cx-order-summary>
-        <ng-container
-          *ngIf="hasNoConfigurationIssues$ | async as   hasNoConfigurationIssues"
-        >
-          <button
-            [routerLink]="{ cxRoute: 'checkout' } | cxUrl"
-            *ngIf="entries.length"
-            class="btn btn-primary btn-block"
-            type="button"
-          >
-            {{ 'cartDetails.proceedToCheckout' | cxTranslate }}
-          </button>
-        </ng-container>
-      </ng-container>
-    </ng-container>
-    ```
-
-    {% endraw %}
-
-#### Configuring SAP Commerce 2005 for Cart Validation
-
-**Note:** If you use SAP Commerce 2011, the following steps are not necessary.
-
-The steps that can be done on the Spartacus side ensure that for a standard UI flow, a configuration cannot be ordered if it has issues. However, you still need to block the creation of orders that could be done through OCC. Otherwise, an order containing such configurations can be created using, for example, the developer tools in the end user's browser.
-
-In your spring configuration, ensure that the `commerceWebServicesCartService` bean refers to `cartValidationStrategy` instead of `cartValidationWithoutCartAlteringStrategy`. This can be achieved, for example, in the `spring.xml` of a custom extension, as follows:
-
-```xml
-<alias name="customWebServicesCartService" alias="commerceWebServicesCartService"/>
-<bean id="customWebServicesCartService" parent="defaultCommerceCartService">
-    <property name="cartValidationStrategy" ref="cartValidationStrategy"/>
-    <property name="productConfigurationStrategy" ref="productConfigurationStrategy"/>
-</bean>
-```
-
-Note that this adjustment will guarantee that order are validated for product configuration issues before they are submitted, but it will not ensure that any error message that is returned reflects the actual issue. The error message will state that the issue is because of low stock. This should be addressed in SAP Commerce Cloud release 2011.
 
 ### Commerce Business Rules in Combination with Configurable Products
 

@@ -126,4 +126,4 @@ The footer is also the place where you should reference the issue you are fixing
 
 ## Reverting a Commit
 
-If your commit reverts a previous commit, begin the header with `revert:` and then include the header of the reverted commit. In the body, write "This reverts commit _hash_", where _hash_ is the SHA of the commit you are reverting.
+If your commit reverts a previous commit, begin the header with `revert:` and then include the header of the reverted commit. In the body, write "This reverts commit _hash_", where *hash* is the SHA of the commit you are reverting.

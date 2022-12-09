@@ -27,11 +27,7 @@ For more information see, [SAP Customer Data Cloud Integration](https://help.sap
 
 ## Requirements
 
-To integrate SAP Customer Data Cloud with Spartacus, you must have one of the following:
-
-- SAP Commerce Cloud 2011, along with SAP Commerce Cloud, Integration Extension Pack 2108
-- SAP Commerce Cloud 2005, along with SAP Commerce Cloud, Integration Extension Pack
-- SAP Commerce Cloud 1905, along with the latest version of Commerce Cloud Extension Pack
+To integrate SAP Customer Data Cloud with Spartacus, you must have SAP Commerce Cloud 2105 or newer, along with the latest version of Commerce Cloud Extension Pack
 
 ## Enabling SAP Customer Data Cloud Integration in Spartacus
 
@@ -135,3 +131,15 @@ Perform the following steps after you have set up your Spartacus Storefront. For
    - **sessionExpiration** is the time (in seconds) that defines the session expiry of the SAP Customer Data Cloud session. This should match with the session expiration time of the OAuth Client to ensure that both the Customer Data Cloud session and the SAP Commerce Cloud token live for the same time.
 
 3. Build and start the storefront app to verify your changes.
+
+## SAP Customer Data Cloud Integration in the Spartacus User Interface
+
+SAP Customer Data Cloud Integration supports native UI integration in Spartacus without the use of CDC screen sets.
+
+The following screens are implemented using the CDC SDK:
+
+- Login
+- Registration
+- Forgot Password
+
+No additional configuration is needed. The integration is enabled by default when SAP Customer Data Cloud is installed.

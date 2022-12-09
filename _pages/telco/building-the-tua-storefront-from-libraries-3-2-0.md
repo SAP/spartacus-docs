@@ -22,7 +22,7 @@ There are a few ways you can install Angular and other prerequisite software. Th
 
 To install the prerequisite development tools, install [Homebrew](https://brew.sh), and then run the following commands:
 
-```
+```text
 brew install yarn
 brew install node@12
 brew install angular-cli
@@ -346,7 +346,8 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
 6. Make sure that the following import is found in the  `mystore/src/styles.scss`:
 
     For Telco, Utilities and Media:
-    ```bash
+
+   ```bash
    @import '~@spartacus/styles/index';
    @import '~@spartacus/tua-spa/storefrontstyles/index';
    @import '~material-design-icons/iconfont/material-icons.css';

@@ -27,7 +27,7 @@ For more information, see [Intelligent Selling Services for SAP Commerce Cloud](
 
 ## Requirements
 
-To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release **1905.9** of Commerce Cloud is required.
+To integrate Intelligent Selling Services for SAP Commerce Cloud with Spartacus, release **2105** of Commerce Cloud is required.
 
 Also, the Anonymous Consent feature in Spartacus needs to be enabled. For more information, see [{% assign linkedpage = site.pages | where: "name", "anonymous-consent.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
@@ -66,7 +66,7 @@ After running the command, you are prompted to provide additional information, a
 
 After you have provided this information, the schematics configure the Intelligent Selling Services integration for Spartacus.
 
-If you do not wish to use the schematics, you can create the Intelligent Selling Services module manually and import it into your application, as shown in the following example:
+If you do not wish to use the schematics, you can create `spartacus/projects/storefrontapp/src/app/spartacus/features/cds-feature.module.ts` manually and import it into your application, as shown in the following example:
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -110,7 +110,7 @@ The following is a summary of the parameters of the `CdsModule`:
 - **tenant:** Set this to your testing or production tenant, as required. For more information, see [Tenant Provisioning](https://help.sap.com/viewer/4c392ae9f85b412cac24f5618fe7fc0a/SHIP/en-US/9001aa58037747b9a5dcd788bf67d237.html).
 - **baseUrl:** Replace the value shown in the example with the base URL of your Intelligent Selling Services environment. In particular, replace `mytenant` with your actual Intelligent Selling Services tenant ID, and `siteid` with the ID of your site. You also need to replace `.us` with `.eu` if you are working with the EU environment of Intelligent Selling Services.
 - **strategyProducts:** Set this value as shown in the example.
-- **defaultCarouselViewportThreshold:** With Commerce Cloud 1905.14 or newer, you can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Intelligent Selling Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.
+- **defaultCarouselViewportThreshold:** You can configure the percentage of the merchandising carousel that needs to be in the viewport for carousel view events to be sent to Intelligent Selling Services. If you are using an older version of Commerce Cloud, you can use this setting to provide the same functionality, but it will be applied to all carousels in the storefront, rather than individual carousels that you specify. If no value is provided, a default of 80% is used. In this case, 80% of the carousel needs to be in the viewport for view events to trigger.
 - **javascriptUrl:** Specify the URL of the Profile Tag version you wish to use. It is recommended that you use the URL for the latest version of Profile Tag (for example, `http://tag.static.us.context.cloud.sap/js/profile-tag.js`). For more information, see [Deciding Which Profile Tag Link to Use](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/2f49c91ca16344de951921e1be50c025.html) on the SAP Help Portal.
 - **configUrl:** Specify the URL of the Profile Tag configuration that you have created in Intelligent Selling Services. For more information, see [Profile Tag Overview](https://help.sap.com/viewer/9e39964ec48c4335ad5d3d01f9d231fd/SHIP/en-US/44cb2bd7706a48c6a3b915078d2c384d.html) on the SAP Help Portal.
 - **allowInsecureCookies:** This is an optional parameter (not show in the example above) that specifies whether Profile Tag should set insecure cookies. The default value is `false`. If you are running on HTTP, set this parameter to `true`. For example, if you are using a local back end, `allowInsecureCookies` must be set to `true`. In production, it should always be set to `false`.
@@ -216,7 +216,7 @@ If you have followed the [{% assign linkedpage = site.pages | where: "name", "sm
 
 3. Click the **+ Component** button in SmartEdit.
 
-   You should see the **SAP CONTEXT-DRIVEN MERCHANDISING** carousel component. If you do not see it, use the search box.
+   You should see the **Merchandising Carousel** component. If you do not see it, use the search box.
 
 4. Drag and drop the component onto a content slot on the page.
 

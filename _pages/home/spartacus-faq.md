@@ -5,7 +5,36 @@ title: Spartacus FAQ
 If you have technical questions not answered in this FAQ, you can get in touch with us on [Stack Overflow](https://stackoverflow.com/questions/tagged/spartacus-storefront). For non-technical questions, you can reach us on our [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ). Feedback welcome!
 
 - [Questions Related to Spartacus as a Product](#questions-related-to-spartacus-as-a-product)
+  - [What is Spartacus?](#what-is-spartacus)
+  - [Does Spartacus require SAP Commerce Cloud?](#does-spartacus-require-sap-commerce-cloud)
+  - [How does Spartacus integrate with SAP Commerce Cloud?](#how-does-spartacus-integrate-with-sap-commerce-cloud)
+  - [Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus?](#do-i-need-to-have-a-particular-version-of-sap-commerce-cloud-in-order-to-work-with-spartacus)
+  - [Does Spartacus integrate with any other SAP products?](#does-spartacus-integrate-with-any-other-sap-products)
+  - [Which browsers does Spartacus support?](#which-browsers-does-spartacus-support)
+  - [How does Spartacus compare to the SAP Commerce Cloud Accelerators?](#how-does-spartacus-compare-to-the-sap-commerce-cloud-accelerators)
+  - [Are there features that are missing in Spartacus that exist in the SAP Commerce Cloud Accelerators?](#are-there-features-that-are-missing-in-spartacus-that-exist-in-the-sap-commerce-cloud-accelerators)
+  - [Can I run Spartacus and an Accelerator storefront at the same time?](#can-i-run-spartacus-and-an-accelerator-storefront-at-the-same-time)
+  - [Does this mean the Accelerators will be deprecated?](#does-this-mean-the-accelerators-will-be-deprecated)
+  - [If I’m currently using an SAP Commerce Cloud Accelerator, how do I migrate to a Spartacus-based storefront?](#if-im-currently-using-an-sap-commerce-cloud-accelerator-how-do-i-migrate-to-a-spartacus-based-storefront)
+  - [How long does it take to get a Spartacus-based storefront up and running?](#how-long-does-it-take-to-get-a-spartacus-based-storefront-up-and-running)
+  - [Is there a demo of a Spartacus-based storefront available?](#is-there-a-demo-of-a-spartacus-based-storefront-available)
+  - [What enablement options exist for helping me understand how to use Spartacus? Is training available?](#what-enablement-options-exist-for-helping-me-understand-how-to-use-spartacus-is-training-available)
+  - [Can I customize Spartacus?](#can-i-customize-spartacus)
+  - [What is the release cycle for Spartacus?](#what-is-the-release-cycle-for-spartacus)
+  - [What technologies does Spartacus use?](#what-technologies-does-spartacus-use)
+  - [Does Spartacus implement Responsive Design?](#does-spartacus-implement-responsive-design)
+  - [Is there going to be a version of Spartacus available to develop native iOS and/or Android apps?](#is-there-going-to-be-a-version-of-spartacus-available-to-develop-native-ios-andor-android-apps)
+  - [Do I need to host my Spartacus JavaScript storefront? What is required?](#do-i-need-to-host-my-spartacus-javascript-storefront-what-is-required)
+  - [What about SEO? I heard that single page storefronts result in lower SEO ranking and make it difficult to share pages on social media. Is this an issue with Spartacus?](#what-about-seo-i-heard-that-single-page-storefronts-result-in-lower-seo-ranking-and-make-it-difficult-to-share-pages-on-social-media-is-this-an-issue-with-spartacus)
+  - [Does Spartacus scale? How?](#does-spartacus-scale-how)
+  - [How do I get support when I run into issues with Spartacus?](#how-do-i-get-support-when-i-run-into-issues-with-spartacus)
+  - [Is it possible to contribute to this open source project? How?](#is-it-possible-to-contribute-to-this-open-source-project-how)
+  - [Will Spartacus work with Intelligent Selling Services for SAP Commerce Cloud?](#will-spartacus-work-with-intelligent-selling-services-for-sap-commerce-cloud)
 - [Questions Related to Commercialization](#questions-related-to-commercialization)
+  - [How much will Spartacus cost?](#how-much-will-spartacus-cost)
+  - [Do I need to sign a contract to obtain a license?](#do-i-need-to-sign-a-contract-to-obtain-a-license)
+  - [Are there any restrictions for using Spartacus? Can I sell a customized version of a Spartacus-based storefront?](#are-there-any-restrictions-for-using-spartacus-can-i-sell-a-customized-version-of-a-spartacus-based-storefront)
+  - [More Questions?](#more-questions)
 
 ***
 
@@ -36,7 +65,7 @@ Spartacus is 100% API-driven; in this case, the SAP Commerce Cloud instance is r
 
 ### Do I need to have a particular version of SAP Commerce Cloud in order to work with Spartacus?
 
-SAP Commerce Cloud 1905 is strongly recommended due to required changes to APIs that are included in that release. Spartacus does partially work with 1811 and 1808 as well as 6.7, but due to API improvements since then, and adoption of new CMS components, some features will not work. For example, SmartEdit and extendable checkout only work in 1905. Spartacus won’t work with anything before 6.7 because Spartacus is CMS-based, and the CMS OCC API was first introduced in 6.7.
+SAP Commerce Cloud 2105 or newer is required.
 
 ### Does Spartacus integrate with any other SAP products?
 

@@ -2,7 +2,7 @@
 title: Updating to Version 4.0
 ---
 
-**NOTE:**  We strongly recommend you upgrade your FSA Spartacus libraries to version 3.0.1 first, and then upgrade to version 4.0.0.
+**NOTE:**  We strongly recommend you upgrade your FSA Spartacus libraries to version 3.0.1 first, and then upgrade to version 4.x.
 
 ***
 
@@ -78,58 +78,25 @@ For more information, see the official [Angular Update Guide](https://update.ang
 ***
 
    
-## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.0.0
+## Upgrading FSA Spartacus Libraries from Version 3.0.1 to 4.x
 
 
 ### Prerequisites
 
-Before upgrading your FSA Spartacus libraries to version 4.0.0, you must address the following prerequisites:
+Before upgrading your FSA Spartacus libraries to version 4.x, you must address the following prerequisites:
 
-- **Angular CLI**: Version [12.0.5](https://update.angular.io/) or later
-- **node.js**: Version 14.18.1 or later
+- **Angular CLI**: Version [12.0.5](https://update.angular.io/) or later.
+- **node.js**: Version 14.18.1 or later.
 - **Spartacus**: Minimum version [4.0](https://sap.github.io/spartacus-docs/updating-to-version-4/), the latest minor/patch version is recommended.
 
-**NOTE**: In order for this upgrade to proceed without any errors, you need to have the new Spartacus app directory structure in place. 
-Simply changing the version in `package.json` file is not enough. 
-For instructions on how to create new app directory structure, see [Spartacus documentation](https://sap.github.io/spartacus-docs/updating-to-version-4/).
-
-### Specifying Configuration Options for FSA Spartacus
-
-Once you have created the new app directory structure as described in the previous step, you need to specify configuration options necessary for FSA. 
-This configuration should be declared after all other Spartacus modules, and should contain the following:
-
-```ts
-provideConfig(<OccConfig | SiteContextConfig>{
-    backend: {
-    occ: {
-        prefix: '/occ/v2/',
-        baseUrl: '/--path to the server--/',
-    },
-    },
-    context: {
-    baseSite: ['financial'],
-    language: ['en', 'de'],
-    currency: ['EUR'],
-    urlParameters: ['baseSite', 'language', 'currency'],
-    },
-    authentication: {
-    client_id: 'financial_customer',
-    client_secret: 'secret',
-    },
-    features: {
-    consignmentTracking: true,
-    },
-}),
-```
 
 ### Updating FSA Spartacus
 
-1. Depending on whether you use yarn or npm for installations, delete `yarn.lock` file or `package-lock.json` file from your project.
+1. Depending on whether you use `yarn` or `npm` for installations, delete `yarn.lock` file or `package-lock.json` file from your project.
 
 2. Go to the `package.json` file at the root of your project and replace existing dependencies with the following:
 
     ```shell
-    "dependencies": {
     "@angular/animations": "~12.0.5",
     "@angular/common": "~12.0.5",
     "@angular/compiler": "~12.0.5",
@@ -148,9 +115,9 @@ provideConfig(<OccConfig | SiteContextConfig>{
     "@ngrx/router-store": "~12.1.0",
     "@ngrx/store": "~12.1.0",
     "@nguniversal/express-engine": "~12.0.2",
-    "@spartacus/dynamicforms": "4.0.0",
-    "@spartacus/fsa-storefront": "4.0.0",
-    "@spartacus/fsa-styles": "3.0.0",
+    "@spartacus/dynamicforms": "^4.0.0",
+    "@spartacus/fsa-storefront": "^4.0.0",
+    "@spartacus/fsa-styles": "^4.0.0",
     "@spartacus/asm": "4.2.1",
     "@spartacus/assets": "4.2.0",
     "@spartacus/cart": "4.2.1",
@@ -189,10 +156,33 @@ provideConfig(<OccConfig | SiteContextConfig>{
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
     ```
-
-3. To complete the update, run the following commands:
+   
+   **NOTE:** Make sure that all Angular packages that you already have under `devDependencies` in your `package.json` file match the version of the `@angular/corelibrary`, which is **~12.0.5**.  
+   
+3. Next, install dependencies with the following command:
 
     ```shell
     yarn install
+    ```
+   
+4. After the installation is completed, your app structure needs to be updated to meet new Spartacus requirements. 
+   To do that, you need to replace the existing `app` folder with the one that contains the required structure.
+   You can download a ready-made `app` folder with the new structure on the link provided below.
+   Perform the following steps:
+    - [Download new app.zip](https://github.com/SAP/spartacus-financial-services-accelerator/releases/download/fsa-storefront-4.0.0/app.zip).
+    - Navigate to `mystore/src/`.
+    - Delete the existing `app` folder.
+    - Unpack the downloaded `app.zip` folder to that same location (`mystore/src/`).
+   
+ 5. Now that you have the new app structure, you need to set the `baseUrl`:
+     - Navigate to `app/spartacus`.
+     - Find and open `fs-configuration.module.ts`, which holds the configuration necessary for the FSA to function correctly.
+     - Edit `baseUrl` property so that it points to your back-end server.
+
+6. To complete the update, run the following command:
+
+    ```shell
     yarn start
     ```
+
+

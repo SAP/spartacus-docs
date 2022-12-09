@@ -80,13 +80,13 @@ The following example creates a customized popover that appears at the bottom of
 
 You can configure the popover component with the following options:
 
-- **placement** is of type `PopoverPosition` and indicates the preferred placement of the popover. You can see all of the possible `placement` values in `popover.model.ts`. The default is `'top'`.
-- **autoPositioning** is a boolean that indicates if the popover should try to find a better placement if there is not enough space in the viewport for the preferred position. This value is ignored if `placement` is set to `'auto'`. The default value is `true`.
-- **disable** is a boolean that prevents the popover open function from running. The default is `false`.
-- **class** is a string for a custom class name that is passed to the popover component. This is useful for custom CSS styling. The default is `'cx-popover'`.
-- **displayCloseButton** is a boolean that indicates if a "close" button is displayed in the popover. The default is `false`.
-- **appendToBody** is a boolean that indicates if the popover component is appended to the DOM just before the closing `'body'` tag. The default is `false`.
-- **positionOnScroll** is a boolean that indicates if the popover should be repositioned on a scroll event. The default is `false`.
+- `placement` is of type `PopoverPosition` and indicates the preferred placement of the popover. You can see all of the possible `placement` values in `popover.model.ts`. The default is `'top'`.
+- `autoPositioning` is a boolean that indicates if the popover should try to find a better placement if there is not enough space in the viewport for the preferred position. This value is ignored if `placement` is set to `'auto'`. The default value is `true`.
+- `disable` is a boolean that prevents the popover open function from running. The default is `false`.
+- `class` is a string for a custom class name that is passed to the popover component. This is useful for custom CSS styling. The default is `'cx-popover'`.
+- `displayCloseButton` is a boolean that indicates if a "close" button is displayed in the popover. The default is `false`.
+- `appendToBody` is a boolean that indicates if the popover component is appended to the DOM just before the closing `'body'` tag. The default is `false`.
+- `positionOnScroll` is a boolean that indicates if the popover should be repositioned on a scroll event. The default is `false`.
 
 ## Events
 

@@ -288,7 +288,7 @@ search
 
 /cart
 /checkout
-/checkout/shipping-address
+/checkout/delivery-address
 /checkout/delivery-mode
 /checkout/payment-details
 /checkout/review-order

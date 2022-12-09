@@ -93,7 +93,7 @@ corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept 
 
 CORS configurations are customized by overriding the default configuration through your `local.properties` file.
 
-Since configurations are _overridden_ in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all the defaults in addition to any new elements. For example, to add `my-new-header` in the `allowedHeaders` list, in addition to the default headers, you need to add the following to your `local.properties` file:
+Since configurations are `overridden` in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all the defaults in addition to any new elements. For example, to add `my-new-header` in the `allowedHeaders` list, in addition to the default headers, you need to add the following to your `local.properties` file:
 
 ```text
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
@@ -115,125 +115,39 @@ corsfilter.assistedservicewebservices.allowedOrigins=*
 
 **Note:** This wildcard configuration is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
-## Updating Custom Services to Support ASM
-
-If you use a custom service that extends one of the following classes, you need to update the relevant constructor to support ASM in your storefront:
-
-- `UserService`
-- `UserAddressService`
-- `UserConsentService`
-- `UserOrderService`
-- `UserPaymentService`
-
-During customer emulation, the storefront may display the following error message: `Cannot find user with propertyValue 'current'`. If you see this message, it is very likely that you have a custom service that needs to be updated to support ASM.
-
-You can update your custom service by adding a dependency to the `AuthService` in the constructor, and passing it down to `super()`. Constructors that do not have `AuthService` are now deprecated.
-
-In addition to updating the constructor, you may need to update your custom functions to support ASM as well. For more information, see [Writing ASM-Compatible Code](#writing-asm-compatible-code).
-
-### Updating Subclasses
-
-If you use a custom service that extends the `UserService` class, your custom service may look like the following example:
-
-```typescript
-export class CustomUserService extends UserService {
-  constructor(store: Store<StateWithUser | StateWithProcess<void>>) {
-    super(store);
-  }
-}
-```
-
-You can update this custom service to support ASM as follows:
-
-```typescript
-export class CustomUserService extends UserService {
-  constructor(
-    store: Store<StateWithUser | StateWithProcess<void>>,
-    authService: AuthService
-  ) {
-    super(store, authService);
-  }
-}
-```
-
-If you use a custom service that extends the `UserAddressService` class, your custom service may look like the following example:
-
-```typescript
-export class CustomUserAddressService extends UserAddressService {
-  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
-    super(store);
-  }
-}
-```
-
-You can update this custom service to support ASM as follows:
-
-```typescript
-export class CustomUserAddressService extends UserAddressService {
-  constructor(
-    protected store: Store<StateWithUser | StateWithProcess<void>>,
-    protected authService: AuthService
-  ) {
-    super(store, authService);
-  }
-}
-```
-
-For custom services that extend the `UserConsentService`, `UserOrderService`, or `UserPaymentService` classes, the pattern for updating the custom service to support ASM is identical to the example shown for the `UserAddressService` class. The following is another example.
-
-If you use a custom service that extends the `UserConsentService` class, your custom service may look like the following example:
-
-```typescript
-export class CustomUserConsentService extends UserConsentService {
-  constructor(protected store: Store<StateWithUser | StateWithProcess<void>>) {
-    super(store);
-  }
-}
-```
-
-You can update this custom service to support ASM as follows:
-
-```typescript
-export class CustomUserConsentService extends UserConsentService {
-  constructor(
-    protected store: Store<StateWithUser | StateWithProcess<void>>,
-    protected authService: AuthService
-  ) {
-    super(store, authService);
-  }
-}
-```
-
 ## Writing ASM-Compatible Code
 
-To write ASM-compatible code, you need to use the `getOccUserId()` function from the `AuthService` to determine the `userId` that is used in OCC calls. This is typically done in a service that dispatches an action that contains the `userId` in the payload.
+To write ASM-compatible code, you need to use the `takeUserId()` function from the `UserIdService` to determine the `userId` that is used in OCC calls. This is typically done in a service that dispatches an action that contains the `userId` in the payload.
 
 Prior to official ASM support in Spartacus, in requests sent on behalf of an authenticated user, the OCC `userId` was the special "current" OCC user, which was represented by the `OCC_USER_ID_CURRENT` constant. This can be seen in the following example:
 
 ```typescript
-  load(): void {
-    this.store.dispatch(new UserActions.LoadUserDetails(OCC_USER_ID_CURRENT));
+  /**
+   * Retrieves user's addresses
+   */
+  loadAddresses(): void {
+    this.store.dispatch(new UserActions.LoadUserAddresses(OCC_USER_ID_CURRENT));
   }
 ```
 
-With official ASM support in Spartacus, the correct way to determine the OCC `userId` is to call `AuthService.getOccUserId()`. Using the previous example as the starting point, Spartacus now determines the OCC `userId` as follows:
+With official ASM support in Spartacus, the correct way to determine the OCC `userId` is to call `UserIdService.takeUserId()`. Using the previous example as the starting point, Spartacus now determines the OCC `userId` as follows:
 
 ```typescript
 
-  load(): void {
-    this.authService
-      .getOccUserId()
-      .pipe(take(1))
-      .subscribe(occUserId =>
-        this.store.dispatch(new UserActions.LoadUserDetails(occUserId))
-      );
+  /**
+   * Retrieves user's addresses
+   */
+  loadAddresses(): void {
+    this.userIdService.takeUserId().subscribe((userId) => {
+      this.store.dispatch(new UserActions.LoadUserAddresses(userId));
+    });
   }
 
 ```
 
-**Note:** If `OCC_USER_ID_CURRENT` is used directly in a service, it should likely be replaced by a call to `getOccUserId()`.
+**Note:** If `OCC_USER_ID_CURRENT` is used directly in a service, it should likely be replaced by a call to `takeUserId()`.
 
-To support ASM in Spartacus, and potentially other features in the future, the facade services cannot simply use the "current" special `userId` when calling various actions. There needs to be some logic that is applied to determine the correct OCC `userId` to pass down to actions that trigger back end calls. As a result, the logic to determine the correct OCC `userId` is centralized in the `getOccUserId()` function of the `AuthService`.
+To support ASM in Spartacus, and potentially other features in the future, the facade services cannot simply use the "current" special `userId` when calling various actions. There needs to be some logic that is applied to determine the correct OCC `userId` to pass down to actions that trigger back end calls. As a result, the logic to determine the correct OCC `userId` is centralized in the `takeUserId()` function of the `UserIdService`.
 
 ## Configuring the Session Timer Duration
 

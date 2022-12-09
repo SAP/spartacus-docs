@@ -152,20 +152,22 @@ The following is an example description of state synchronization with an electro
 - `context$`: `this.siteContextParamsService.getValues([BASE_SITE_CONTEXT_ID])` // The cart is valid only on the same base site
 - `onRead`: function dispatches `ClearCart` action, and then `SetActiveCartId` when the id is read from storage
 
+### State Synchronization Example
+
 The following describes an example flow of the state synchronization:
 
 1. Access the `electronics` base site for the first time.
 
     The `onRead` callback is invoked with `undefined`, because there was nothing under the `spartacus⚿electronics⚿cart` key in local storage. In this implementation of `onRead`, the cart state is cleared by dispatching the `ClearCart` action.
 
-1. Add something to the cart.
+2. Add something to the cart.
 
     In the background, the cart is created, and the active cart id selector emits a new value. Now the active cart id is saved under the `spartacus⚿electronics⚿cart` key in local storage.
 
-1. Switch from the `electronics` to the `apparel` site, where there are a few items already added to the cart.
+3. Switch from the `electronics` to the `apparel` site, where there are a few items already added to the cart.
 
     The `onRead` callback is invoked with the active cart id for this site, which is read from the `spartacus⚿apparel⚿cart` key in storage. In this example implementation, the `onRead` clears the state and sets the active cart id. Then, `ActiveCartService` selects this id and loads the cart that was created in a previous session.
   
-1. Return to the `electronics` site.
+4. Return to the `electronics` site.
 
     The same steps repeat. The `onRead` is invoked with the cart id from the `electronics` site, the `apparel` ngrx state is cleared, and the correct cart is loaded.

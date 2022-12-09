@@ -136,11 +136,11 @@ The following is an example:
         FooterNavigationModule,
         BreadcrumbModule,
 
-        /************************* Opt-in features *************************/
+        // Opt-in features //
         ExternalRoutesModule.forRoot(),
         JsonLdBuilderModule,
 
-        /************************* External features *************************/
+        // External features //
         TrackingFeatureModule,
         StorefinderFeatureModule,
         QualtricsFeatureModule,

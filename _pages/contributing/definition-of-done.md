@@ -12,7 +12,7 @@ All new features for Spartacus must:
 
 - Follow our security best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "security-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/security/security-best-practices.md %}).
 
-- Follow our accessibility best practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
+- Follow our accessibility best practices. New features and fixes must be thoroughly tested with JAWS and AMP before they are merged, in accordance with SAP practices. For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
 - Ensure that new feature modules are lazy loaded. For more information, see [{% assign linkedpage = site.pages | where: "name", "lazy-loading-guide.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/lazy-loading-guide.md %}).
 
@@ -30,6 +30,8 @@ All new features for Spartacus must:
 
 - Pass a security review during the initial POC phase. For more information, see [Security Review](#security-review).
 
+- Avoid breaking changes. If you cannot avoid introducing a breaking change, ensure the breaking change is handled in a way that corresponds to the type of release you are working on, whether it is a major release (**X**.y.z), a minor release (x.**Y**.z), or a patch release (x.y.**Z**). Breaking changes are permitted in major releases, but must be accompanied by migration documentation and schematics. Breaking changes are never allowed in minor or patch releases, and must be handled through deprecation and the use of feature flags. For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes).
+
 ***
 
 **Table of Contents**
@@ -42,10 +44,6 @@ All new features for Spartacus must:
 ## Coding guidelines
 
 The Spartacus team adopted the following set of rules to keep the Spartacus code readable and maintainable. As a contributor, we ask you to please follow these rules (even if you find them violated somewhere). When a file is consistently not following these rules, and adhering to the rules would make the code worse, follow the local style.
-
-## TL;DR
-
-You can run the `build.sh` script located in the root of the project. It will run most of the checks or rules mentioned below, such as the linting and prettier checks, running unit tests and end-to-end tests, and so on.
 
 ## Code Standards
 

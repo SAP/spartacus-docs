@@ -27,25 +27,16 @@ Anonymous Consent Management gives anonymous users control over the tracking of 
 
 ### Back End Requirements
 
-Anonymous consent uses an `x-anonymous-consents` custom header, which needs to be configured in the back end by adding it to certain properties. If you are using SAP Commerce Cloud 2005 or newer, add the `x-anonymous-consents` header to the following properties:
+Anonymous consent uses an `x-anonymous-consents` custom header, which needs to be configured in the back end by adding it to certain properties. Add the `x-anonymous-consents` header to the following properties:
 
 - `corsfilter.commercewebservices.allowedHeaders`
 - `corsfilter.commercewebservices.exposedHeaders`
 - `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
 - `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
 
-If you are using SAP Commerce Cloud 1905 or older, add the `x-anonymous-consents` header to the following properties:
-
-- `corsfilter.ycommercewebservices.allowedHeaders`
-- `corsfilter.ycommercewebservices.exposedHeaders`
-- `corsfilter.assistedservicewebservices.allowedHeaders` - if ASM is being used
-- `corsfilter.assistedservicewebservices.exposedHeaders` - if ASM is being used
-
-**Note:** If you are using Spartacus 2.0 with SAP Commerce Cloud 1905, you may experience some caching issues on the consent management page. The fix has been back-ported to Spartacus version 1905.15.
-
 #### Consent Data
 
-Besides having consent defined on the back end, they need to be marked as _exposed_, which can be done by executing an ImpEx file similar to this:
+Besides having consent defined on the back end, they need to be marked as *exposed*, which can be done by executing an ImpEx file similar to this:
 
 ```sql
 $siteUid=electronics-spa
@@ -56,7 +47,7 @@ INSERT_UPDATE ConsentTemplate;id[unique=true];name;description;version[unique=tr
 ;STORE_USER_INFORMATION;"I approve to this sample STORE USER INFORMATION consent";"This is a sample store user information consent description that will need to be updated or replaced.";0;;true
 ```
 
-Notice that the last column named _exposed_ is set to _true_ for the consents that should be exposed to the anonymous users.
+Notice that the last column named `exposed` is set to `true` for the consents that should be exposed to the anonymous users.
 
 ### CMS Components
 
@@ -99,7 +90,7 @@ After changing the `*.properties` files, don't forget to run `ant build` and the
 Spartacus offers some configuration options that are encapsulated in `anonymousConsents` configuration object. The following options are available:
 
 - `registerConsent` - specify a consent template ID that should be rendered on the registration page. By default, `MARKETING_NEWSLETTER` is being rendered.
-- `showLegalDescriptionInDialog` - set to _false_ if the legal description shouldn't be visible on the anonymous consents dialog. By default, this has _true_ value.
+- `showLegalDescriptionInDialog` - set to `false` if the legal description shouldn't be visible on the anonymous consents dialog. By default, this has `true` value.
 - `requiredConsents` - specify an array of consent template IDs that are going to be required for the end users. These consents are given by default, and users can't toggle them. By default, this array is empty.
 - `consentManagementPage.showAnonymousConsents` - specify whether to show anonymous consents on the registered consent management page. By default, this is set to `true`, and setting it to `false` will hide all consents from consents management page that have `exposed` property set to `true`. In case you don't want to hide all anonymous consents from the consents management page, refer to `consentManagementPage.hideConsents` below.
 - `consentManagementPage.hideConsents` - an array of consent template IDs that should be hidden on the consents management page. By default, this array is empty, and adding consent template IDs to it will hide them from the consents management page.

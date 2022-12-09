@@ -49,6 +49,10 @@ The `spartacussampledata` extension includes the `SpaSampleAddOnSampleDataImport
 - gives permission to the `cmsmanager` to do the synchronization
 - imports email data
 
+**Note:** To ensure these actions are performed during a system update, you must check the box next to the relevant storefront(s) you wish to update before pressing **Update** in the *hybris administration console*, as shown in the following example:
+
+<img src="{{ site.baseurl }}/assets/images/system-update-button.png" alt="System Update Button" width="400" border="1px" />
+
 ## CMS Changes Specific to the Spartacus Project
 
 As `[samplestore]ContentCatalog:Staged` is synchronized to `[samplestore]-spaContentCatalog:Staged`, the initial data is the same in both content catalogs. But, to make Spartacus work better, the `-spa` versions contain different CMS data. Changes are made on the `[samplestore]-spaContentCatalog`, which are described in the following sections.
@@ -59,13 +63,13 @@ Spartacus does not contain all of the pages that are found in Accelerator. The u
 
 ### Replacing the JspIncludeComponent with the CMSFlexComponent
 
-The `JspIncludeComponent` allows you to include JSP code when you provide the path of the JSP file that then gets inserted. It does not make sense to have this type of component in the Spartacus Angular-based application. A new type of component, called `CMSFlexComponent`, was added to SAP Commerce Cloud 1905, which allows you to get selectors, and also includes code from our libraries in the Content Slot.
+The `JspIncludeComponent` allows you to include JSP code when you provide the path of the JSP file that then gets inserted. It does not make sense to have this type of component in the Spartacus Angular-based application. Instead, a new type of component, called `CMSFlexComponent`, was added to SAP Commerce Cloud. This component allows you to get selectors, and also includes code from our libraries in the Content Slot.
 
 **Note:** For backwards compatibility, Spartacus supports the `JspIncludeComponent`.
 
 ### Adding Data into the `CmsSiteContext` Enum
 
-The `CmsSiteContext` enum was created in SAP Commerce Cloud 1905. It is a dynamic enumeration that contains the available site context. Spartacus has two site contexts: language and currency. The following is an example from `resources/spartacussampledata/import/contentCatalogs/electronicsContentCatalog/catalog.impex`:
+The `CmsSiteContext` enum is a dynamic enumeration that contains the available site context. Spartacus has two site contexts: language and currency. The following is an example from `resources/spartacussampledata/import/contentCatalogs/electronicsContentCatalog/catalog.impex`:
 
 ```sql
 INSERT_UPDATE CmsSiteContext;code[unique=true];name[lang=$language]
@@ -89,8 +93,6 @@ INSERT_UPDATE CMSSiteContextComponent;$contentCV[unique=true];uid[unique=true];n
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
 ;;SiteContextSlot;Site Context Slot;true;LanguageComponent,CurrencyComponent
 ```
-
-**Note:** The `CMSSiteContextComponent` is a new type of component that was created in SAP Commerce Cloud 1905.
 
 ### Updating the MiniCartSlot
 

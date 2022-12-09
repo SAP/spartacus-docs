@@ -26,8 +26,8 @@ provideConfig({
       checkout: {
         paths: ['checkout'],
       },
-      checkoutShippingAddress: {
-        paths: ['checkout/shipping-address']
+      checkoutDeliveryAddress: {
+        paths: ['checkout/delivery-address']
       },
       checkoutDeliveryMode: {
         paths: ['checkout/delivery-mode']
@@ -56,10 +56,10 @@ provideConfig({
   checkout: {
     steps: [
       {
-        id: 'shippingAddress',
-        name: 'checkoutProgress.shippingAddress',
-        routeName: 'checkoutShippingAddress',
-        type: [CheckoutStepType.SHIPPING_ADDRESS],
+        id: 'deliveryAddress',
+        name: 'checkoutProgress.deliveryAddress',
+        routeName: 'checkoutDeliveryAddress',
+        type: [CheckoutStepType.DELIVERY_ADDRESS],
       },
       {
         id: 'deliveryMode',
@@ -103,34 +103,113 @@ The checkout uses component guards instead of page guards. You protect routes by
 
 Component guards have the same API as page guards. Spartacus exposes the following guards as part of the checkout:
 
-- `ShippingAddressSetGuard`
-- `DeliveryModeSetGuard`
-- `PaymentDetailsSetGuard`
+- `CheckoutStepsSetGuard`
 - `CheckoutGuard`
+- `CheckoutAuthGuard`
+- `CartNotEmptyGuard`
+- `NotCheckoutAuthGuard`
 
-As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the shipping address, delivery mode and payment details were correctly set, you would set guards for the review order component to `guards: [ShippingAddressSetGuard, DeliveryModeSetGuard, PaymentDetailsSetGuard]`. Then, when you try to access the Review Order page, Spartacus first checks the guards for every component on that page, and only displays the page if every guard returns `true`. If one of the guard returns `false`, or returns a redirect URL, Spartacus redirects to the provided URL.
+## CheckoutStepsSetGuard
+
+As an example, if you wanted to restrict access to the Review Order page, so that it displays only when the delivery address, delivery mode and payment details were correctly set, you would set guards for the review order component to `guards: [CheckoutStepsSetGuard]`.
+
+```typescript
+    provideDefaultConfig(<CmsConfig>{
+      cmsComponents: {
+        CustomCheckoutName: {
+          component: CustomNameComponent,
+          guards: [CheckoutStepsSetGuard],
+        },
+      },
+    }),
+```
+
+Then, when you try to access the Review Order page, Spartacus first checks the guards for every component on that page, and only displays the page if every guard returns `true`. If one of the guard returns `false`, or returns a redirect URL, Spartacus redirects to the provided URL.
+
+### CheckoutStepsSetGuard Example
 
 The following is an example scenario:
 
 1. A user sets the shipping address.
 2. The user comes back to shop after a few days, and the browser auto-suggests the Review Order page from a previous order.
 3. The user follows the suggestion.
-4. The `ShippingAddressSetGuard` returns `true`.
-5. The `DeliveryModeSetGuard` returns `checkout/delivery-mode` redirect.
-6. The `PaymentDetailsSetGuard` returns `checkout/payment-details` redirect.
+4. The `CheckoutStepsSetGuard` of method `isDeliveryAddress` returns `true`.
+5. The `CheckoutStepsSetGuard` of method `isDeliveryModeSet` returns `checkout/delivery-mode` redirect.
+6. The `CheckoutStepsSetGuard` of method `isPaymentDetailsSet` returns `checkout/payment-details` redirect.
 7. The user is redirected to the Delivery Mode selection page.
 
-The order of the guards is important because the first redirect is used. In general, you should define guards in the same order as the checkout flow.
+Note: Since Spartacus 2.1 and above, we have unified the guards to use `CheckoutStepsSetGuard` instead. With previous Spartacus versions, we depended on `ShippingAddressSetGuard`, `DeliveryModeSetGuard`, and`PaymentDetailsSetGuard`.
+
+The following is an example on how you can extend the `CheckoutStepsSetGuard` in order to change the behavior on what the function(s) would return.
+
+```typescript
+@Injectable({
+  providedIn: 'root',
+})
+export class CustomCheckoutStepsSetGuard extends CheckoutStepsSetGuard {
+  constructor(
+    protected checkoutStepService: CheckoutStepService,
+    protected routingConfigService: RoutingConfigService,
+    protected checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+    protected checkoutPaymentFacade: CheckoutPaymentFacade,
+    protected checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+    protected router: Router
+  ) {
+    super(
+      checkoutStepService,
+      routingConfigService,
+      checkoutDeliveryAddressFacade,
+      checkoutPaymentFacade,
+      checkoutDeliveryModesFacade,
+      router
+    );
+  }
+
+  protected isDeliveryModeSet(
+    step: CheckoutStep
+  ): Observable<boolean | UrlTree> {
+    // insert custom logic
+    // ...
+  }
+}
+```
+
+Note: make sure to place the dependency provider and have it use the `CustomCheckoutStepsSetGuard` in your module.
+
+```typescript
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: CheckoutStepsSetGuard,
+      useClass: CustomCheckoutStepsSetGuard
+    }
+  ]
+})
+export class SomeModuleName {}
+```
 
 ### CheckoutGuard
 
 A special `CheckoutGuard` is responsible for redirecting to the correct step. The default implementation redirects every checkout request to the first step. You can replace this with your own guard (for example, you could redirect users to the first step that is not set). A custom example is provided in the [Express Checkout](#express-checkout) section, below.
 
+### CheckoutAuthGuard
+
+`CheckoutAuthGuard` is responsible for handling guest and authenticated users to allow them to checkout. However, if they are an anonymous user, it will redirect the user to the login page.
+
+### CartNotEmptyGuard
+
+`CartNotEmptyGuard` is responsible for redirecting the user if they are trying to visit a checkout route when there active cart is currently empty. If the active cart is empty, it redirects the user to homepage, else it will allow them to go through the checkout flow.
+
+### NotCheckoutAuthGuard
+
+`NotCheckoutAuthGuard` is responsible for redirecting the user if they are trying to visit the guest checkout login page. If the user is logged in, meaning he is authorized, then he would be redirected to the homepage, on the other hand, if the user logged in already as a guest, then he would be redirected to the cart page. Finally, If he is neither an authorized user or a guest user, then he will be able to visit the guest checkout login page as he is still an anonymous user.
+
 ### Configuring Where Guards Redirect To
 
-In the checkout configuration, for each step, you specify a `type` attribute and the type of data that should be set. A guard looks for the first step that contains the specific `type` and then redirects to this step.
+In the checkout configuration, for each step, you specify a `type` attribute and the type of data that should be set. A guard looks for every step that contains the specific `type` and then redirects to this step.
 
-For example, `ShippingAddressSetGuard` searches the checkout configuration for the first step with a `type` containing `CheckoutStepType.shippingAddress`, then reads the step route and redirects to that page.
+For example, `CheckoutStepsSetGuard` searches the checkout configuration for every step with a `type` containing `CheckoutStepType.deliveryAddress`, `CheckoutStepType.deliveryMode`, `CheckoutStepType.paymentDetails`, `CheckoutStepType.reviewOrder`, then reads the step route and redirects to that page.
 
 Note that, on each checkout step, you can have multiple components. As a result, the `type` property is an array.
 
@@ -144,7 +223,7 @@ For the default checkout flow, Spartacus includes an impex file with all pages, 
 
 The following sections describe some common ways to modify the checkout. Of course, you can also extend checkout services and components like any other services and components that are shipped with the Spartacus libraries.
 
-### Changing the Order of the Checkout Flow
+## Changing the Order of the Checkout Flow
 
 The following scenario describes how to change the order of two steps. In the default configuration, the checkout flow starts with setting a shipping address, followed by setting the delivery mode, and finally by filling in the payment details. In this scenario, the configuration is modified so that the payment details step occurs before the delivery mode step.
 
@@ -157,10 +236,10 @@ provideConfig({
     // You must specify all of the steps (this configuration is not merged with the default one)
     steps: [
       {
-        id: 'shippingAddress',
-        name: 'checkoutProgress.shippingAddress',
-        routeName: 'checkoutShippingAddress',
-        type: [CheckoutStepType.SHIPPING_ADDRESS],
+        id: 'deliveryAddress',
+        name: 'checkoutProgress.deliveryAddress',
+        routeName: 'checkoutDeliveryAddress',
+        type: [CheckoutStepType.DELIVERY_ADDRESS],
       },
       // Change the payment details step to be before the delivery mode
       {
@@ -188,13 +267,13 @@ provideConfig({
       component: PaymentMethodsComponent,
       // The default CheckoutPaymentDetails uses the DeliveryModeSetGuard, but in this case, the delivery mode details will not be set yet.
       // Instead, override the component guards with a new set that does not include the DeliveryModeSetGuard
-      guards: [AuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
+      guards: [CheckoutAuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
     },
     CheckoutDeliveryMode: {
       component: DeliveryModeComponent,
       // In the CheckoutDeliveryMode, we need to also check if the payment details are set, so we add the PaymentDetailsSetGuard
       guards: [
-        AuthGuard,
+        CheckoutAuthGuard,
         CartNotEmptyGuard,
         ShippingAddressSetGuard,
         PaymentDetailsSetGuard,
@@ -204,7 +283,7 @@ provideConfig({
 }),
 ```
 
-### Adding Another Checkout Step
+## Adding Another Checkout Step
 
 To add an extra checkout step, the approach is similar to changing the order of the checkout flow: you provide the checkout configuration in the storefront configuration, and set the page, slots, and components in CMS. The following is an example:
 
@@ -255,7 +334,7 @@ provideConfig({
 }),
 ```
 
-### Combining Checkout Steps
+## Combining Checkout Steps
 
 Combining checkout steps is also very similar to the previous examples. In most cases, the required steps are the following:
 
@@ -280,10 +359,10 @@ provideConfig({
   checkout: {
     steps: [
       {
-        id: 'shippingAddress',
-        name: 'checkoutProgress.shippingAddress',
-        routeName: 'checkoutShippingAddress',
-        type: [CheckoutStepType.SHIPPING_ADDRESS],
+        id: 'deliveryAddress',
+        name: 'checkoutProgress.deliveryAddress',
+        routeName: 'checkoutDeliveryAddress',
+        type: [CheckoutStepType.DELIVERY_ADDRESS],
       },
       // Replace two steps with one
       {
@@ -307,8 +386,7 @@ provideConfig({
   cmsComponents: {
     CheckoutPaymentDetails: {
       component: PaymentMethodsComponent,
-      // DeliveryModeSetGuard is removed because it is set on the same page
-      guards: [AuthGuard, CartNotEmptyGuard, ShippingAddressSetGuard],
+      guards: [CheckoutAuthGuard, CartNotEmptyGuard],
     },
   },
 }),
@@ -316,7 +394,7 @@ provideConfig({
 
 **Note:** You can use this same approach to combine all the steps into a single-step checkout.
 
-### Express Checkout
+## Express Checkout
 
 The following scenario describes how to provide express checkout for users who have previously ordered from this store. In this example, when the **Express Checkout** button is clicked, the user is brought directly to the Review Order page, which is populated with the default address, the default payment method, and the fastest shipping method.
 
@@ -385,7 +463,7 @@ provideConfig({
     CheckoutOrchestrator: {
       component: CheckoutOrchestratorComponent,
       // Replace the CheckoutGuard with the ExpressCheckoutGuard for the Checkout Orchestrator
-      guards: [AuthGuard, CartNotEmptyGuard, ExpressCheckoutGuard],
+      guards: [CheckoutAuthGuard, CartNotEmptyGuard, ExpressCheckoutGuard],
     },
   },
 }),
@@ -401,9 +479,9 @@ With the credit card payment option, the B2B checkout is configured to work the 
 
 With the account payment option, you can only select the addresses of cost centers that you are assigned to as a purchaser. Also, when you select the account payment option, it allows you to skip the payment details step.
 
-### Known Issues
+## Known Issues
 
-When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using `spartacussampledata` version 3.0.0 or newer, and that you are using SAP Commerce Cloud 2005 or newer.
+When you start the checkout process, if the screen is blank and seems to be stuck loading, it means that you are missing the payment method step from your CMS. To resolve this issue, make sure that you are using `spartacussampledata` version 5.0.0 or newer, and that you are using SAP Commerce Cloud 2105 or newer.
 
 If you only want to add the payment method step, you can do so by running the following ImpEx:
 

@@ -87,8 +87,6 @@ The auto focus configuration also allows for a specific CSS selector, so that th
 
 A special case is made for the host element itself, using the `:host` selector. This selector does not select from the inner DOM, but instead selects and focuses the host itself.
 
-> skipFocus ???
-
 ### Extensibility
 
 The auto focus is driven by configuration, and the logic is mainly implemented in the `AutoFocusService`. You can further customize this service.

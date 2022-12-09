@@ -470,6 +470,7 @@ The dependencies in this procedure are required by the TUA Spartacus storefront.
    ```bash
    import '@angular/localize/init';
    import 'zone.js/dist/zone';
+   ```
 
 7. From the terminal window, within `mystore`, install the dependencies by running the following command:
 
