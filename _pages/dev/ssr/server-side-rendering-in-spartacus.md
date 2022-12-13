@@ -44,12 +44,12 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    "express": "^4.15.2"
    ```
 
-   Note these dependency versions are not up-to-date. Please adjust them in the following way:
+   **Note:** These dependency versions are examples only, and should be adjusted as follows:
 
-   - For `@spartacus/setup` dependency, please align with the version of Spartacus you are using.
-   - For the rest of dependencies, please refer to the release branch of the Spartacus version you are using, and check our `package.json` - [e.g. 4.2.x package.json](https://github.com/SAP/spartacus/blob/release/4.2.x/package.json).
+   - The `@spartacus/setup` dependency should align with the version of Spartacus you are using.
+   - For the rest of the dependencies, please refer to the release branch of the Spartacus version you are using and align your dependencies with the `package.json` in that release branch. For example, this is the [package.json for version 4.2.x](https://github.com/SAP/spartacus/blob/release/4.2.x/package.json).
 
-2. Add the following developer dependencies to `package.json`:
+1. Add the following developer dependencies to `package.json`:
 
    ```json
    "ts-loader": "^6.0.4",
@@ -57,9 +57,9 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    "@types/express": "^4.17.0",
    ```
 
-   Please refer to the same note from the above step about the outdated dependency versions.
+   As in the previous step, these dependency versions are examples only. See the note in the previous step for information about how to adjust the dependency versions.
 
-3. For convenience, add the following scripts to `package.json`:
+1. For convenience, add the following scripts to `package.json`:
 
    ```json
    "e2e": "ng e2e",
@@ -69,7 +69,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    "prerender": "ng run <your-project-name>:prerender"
    ```
 
-4. Update the `src/main.ts` file, as follows:
+1. Update the `src/main.ts` file, as follows:
 
    ```typescript
    //from
@@ -80,7 +80,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    });
    ```
 
-5. Replace the following lines in `app.module.ts`:
+1. Replace the following lines in `app.module.ts`:
 
    ```typescript
    //from:
@@ -89,7 +89,7 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    BrowserModule.withServerTransition({ appId: 'spartacus-app' }),
    ```
 
-   and
+1. Additionally, update the `app.module.ts` file, as follows:
 
    ```typescript
    //from
@@ -101,15 +101,15 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    } from '@angular/platform-browser';
    ```
 
-   and add `BrowserTransferStateModule` to `imports`.
+1. In `app.module.ts`, add `BrowserTransferStateModule` to `imports`.
 
-6. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BACKEND_BASE_URL_VALUE` with the URL of your back end instance, as follows:
+1. In the `src/index.html` file, add the following meta attribute, and replace `OCC_BACKEND_BASE_URL_VALUE` with the URL of your back end instance, as follows:
 
    ```html
    <meta name="occ-backend-base-url" content="OCC_BACKEND_BASE_URL_VALUE" />
    ```
 
-7. In `projects.<your-project-name>.architect.build.options` change following line:
+1. In `projects.<your-project-name>.architect.build.options`, change the following line:
 
    ```json
    //from
@@ -118,13 +118,13 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    "outputPath": "dist/<your-project-name>/browser",
    ```
 
-8. In `projects.<your-project-name>.architect.lint.options.tsConfig` add:
+1. In `projects.<your-project-name>.architect.lint.options.tsConfig`, add the following line:
 
    ```json
    "tsconfig.server.json"
    ```
 
-9. In `projects.<your-project-name>.architect`, add the following configuration to your existing `angular.json` file:
+1. In `projects.<your-project-name>.architect`, add the following configuration to your existing `angular.json` file:
 
    ```json
    "server": {
@@ -176,159 +176,158 @@ For most situations and setups, is is best to add SSR support to your Spartacus 
    }
    ```
 
-   **Note:** In the above example, remember to replace the string `"<your-project-name>"` with your project name (such as `mystore`, for example).
+   **Note:** In the above example, remember to replace the string `"<your-project-name>"` with your actual project name (such as `mystore`, for example).
 
-10. Add the `tsconfig.server.json` file to your existing shell app. The following is an example:
+1. Add the `tsconfig.server.json` file to your existing shell app. The following is an example:
 
-```json
-{
-  "extends": "./tsconfig.app.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/server",
-    "target": "es2016",
-    "types": ["node"]
-  },
-  "files": ["src/main.server.ts", "server.ts"],
-  "angularCompilerOptions": {
-    "entryModule": "./src/app/app.server.module#AppServerModule"
-  }
-}
-```
+   ```json
+   {
+     "extends": "./tsconfig.app.json",
+     "compilerOptions": {
+       "outDir": "./out-tsc/server",
+       "target": "es2016",
+       "types": ["node"]
+     },
+     "files": ["src/main.server.ts", "server.ts"],
+     "angularCompilerOptions": {
+       "entryModule": "./src/app/app.server.module#AppServerModule"
+     }
+   }
+   ```
 
-11. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
+1. Add the `src/main.server.ts` file to your existing shell app. The following is an example:
 
-    ```typescript
-    /**
+   ```typescript
+   /**
+   * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+   */
+   import '@angular/localize/init';
+
+   import { enableProdMode } from '@angular/core';
+   import { environment } from './environments/environment';
+
+   if (environment.production) {
+     enableProdMode();
+   }
+
+   export { AppServerModule } from './app/app.server.module';
+   export { renderModule, renderModuleFactory } from '@angular/platform-server';
+   ```
+
+1. Add the `src/app/app.server.module` file to your existing shell app. The following is an example:
+
+   ```typescript
+   import { NgModule } from '@angular/core';
+   import {
+     ServerModule,
+     ServerTransferStateModule,
+   } from '@angular/platform-server';
+   
+   import { AppModule } from './app.module';
+   import { AppComponent } from './app.component';
+   
+   @NgModule({
+     imports: [
+       // The AppServerModule should import your AppModule followed
+       // by the ServerModule from @angular/platform-server.
+       AppModule,
+       ServerModule,
+       ServerTransferStateModule,
+     ],
+     bootstrap: [AppComponent],
+   })
+   export class AppServerModule {}
+   ```
+
+   For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
+
+1. Add the `server.ts` file to your existing shell app. The following is an example:
+
+   ```typescript
+   /**
     * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
-    */
-    import '@angular/localize/init';
+   */
+   import '@angular/localize/init';
+   import 'zone.js/dist/zone-node';
 
-import { enableProdMode } from '@angular/core';
+   import { ngExpressEngine as engine } from '@nguniversal/express-engine';
+   import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
+   import * as express from 'express';
+   import { join } from 'path';
+   
+   import { AppServerModule } from './src/main.server';
+   import { APP_BASE_HREF } from '@angular/common';
+   import { existsSync } from 'fs';
+   
+   const ngExpressEngine = NgExpressEngineDecorator.get(engine);
+   
+   // The Express app is exported so that it can be used by serverless functions.
+   export function app() {
+     const server = express();
+     const distFolder = join(process.cwd(), 'dist/<your-project-name>/browser');
+     const indexHtml = existsSync(join(distFolder, 'index.original.html'))
+       ? 'index.original.html'
+       : 'index';
+   
+     server.engine(
+       'html',
+       ngExpressEngine({
+         bootstrap: AppServerModule,
+       })
+     );
+   
+     server.set('view engine', 'html');
+     server.set('views', distFolder);
+   
+     // Serve static files from /browser
+     server.get(
+       '*.*',
+       express.static(distFolder, {
+         maxAge: '1y',
+       })
+     );
+   
+     // All regular routes use the Universal engine
+     server.get('*', (req, res) => {
+       res.render(indexHtml, {
+         req,
+         providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+       });
+     });
+   
+     return server;
+   }
+   
+   function run() {
+     const port = process.env.PORT || 4000;
+   
+     // Start up the Node server
+     const server = app();
+     server.listen(port, () => {
+       console.log(`Node Express server listening on http://localhost:${port}`);
+     });
+   }
+   
+   // Webpack replaces 'require' with '__webpack_require__'
+   // '__non_webpack_require__' is a proxy to Node 'require'
+   // The following code is to ensure that the server is run only when not requiring the bundle.
+   declare const __non_webpack_require__: NodeRequire;
+   const mainModule = __non_webpack_require__.main;
+   const moduleFilename = (mainModule && mainModule.filename) || '';
+   if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
+     run();
+   }
+   
+   export * from './src/main.server';
+   ```
 
-import { environment } from './environments/environment';
+   **Note:** In the above example, remember to replace the string `"<your-project-name>"` with your actual project name (such as `mystore`, for example).
 
-if (environment.production) {
-  enableProdMode();
-}
+1. Build the SSR version of your Spartacus shell app by running the following command:
 
-export { AppServerModule } from './app/app.server.module';
-export { renderModule, renderModuleFactory } from '@angular/platform-server';
-```
-
-12. Add the `src/app/app.server.module` file to your existing shell app. The following is an example:
-
-```typescript
-import { NgModule } from '@angular/core';
-import {
-  ServerModule,
-  ServerTransferStateModule,
-} from '@angular/platform-server';
-
-import { AppModule } from './app.module';
-import { AppComponent } from './app.component';
-
-@NgModule({
-  imports: [
-    // The AppServerModule should import your AppModule followed
-    // by the ServerModule from @angular/platform-server.
-    AppModule,
-    ServerModule,
-    ServerTransferStateModule,
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppServerModule {}
-```
-
-For more information about caching and transfer state, see [Caching the Site Context with Server-Side Rendering]({{ site.baseurl }}/automatic-context-configuration/#caching-the-site-context-with-server-side-rendering)
-
-13. Add the `server.ts` file to your existing shell app. The following is an example:
-
-    ```typescript
-    /**
-     * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
-    */
-    import '@angular/localize/init';
-    import 'zone.js/dist/zone-node';
-
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
-import * as express from 'express';
-import { join } from 'path';
-
-import { AppServerModule } from './src/main.server';
-import { APP_BASE_HREF } from '@angular/common';
-import { existsSync } from 'fs';
-
-const ngExpressEngine = NgExpressEngineDecorator.get(engine);
-
-// The Express app is exported so that it can be used by serverless Functions.
-export function app() {
-  const server = express();
-  const distFolder = join(process.cwd(), 'dist/<your-project-name>/browser');
-  const indexHtml = existsSync(join(distFolder, 'index.original.html'))
-    ? 'index.original.html'
-    : 'index';
-
-  server.engine(
-    'html',
-    ngExpressEngine({
-      bootstrap: AppServerModule,
-    })
-  );
-
-  server.set('view engine', 'html');
-  server.set('views', distFolder);
-
-  // Serve static files from /browser
-  server.get(
-    '*.*',
-    express.static(distFolder, {
-      maxAge: '1y',
-    })
-  );
-
-  // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
-    res.render(indexHtml, {
-      req,
-      providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
-    });
-  });
-
-  return server;
-}
-
-function run() {
-  const port = process.env.PORT || 4000;
-
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
-}
-
-// Webpack will replace 'require' with '__webpack_require__'
-// '__non_webpack_require__' is a proxy to Node 'require'
-// The below code is to ensure that the server is run only when not requiring the bundle.
-declare const __non_webpack_require__: NodeRequire;
-const mainModule = __non_webpack_require__.main;
-const moduleFilename = (mainModule && mainModule.filename) || '';
-if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
-  run();
-}
-
-export * from './src/main.server';
-```
-
-**Note:** In the above example, remember to replace the string `"<your-project-name>"` with your project name (such as `mystore`, for example).
-
-14. Build the SSR version of your Spartacus shell app by running the following command:
-
-```bash
-npm run build:ssr && npm run serve:ssr
-```
+   ```bash
+   npm run build:ssr && npm run serve:ssr
+   ```
 
 ## Installation Steps for Internal Spartacus Development
 
@@ -352,18 +351,18 @@ If you are involved in Spartacus internal development (for example, if you are c
 
    1. Turn PWA off in your app module configuration, as follows:
 
-       ```json
-       StorefrontModule.withConfig({
-             backend: {
-               occ: {
-                 baseUrl: 'https://[your_enpdoint],
-               },
-             },
-             pwa: {
-               enabled: false,
-             },
-       };
-       ```
+      ```json
+      StorefrontModule.withConfig({
+            backend: {
+              occ: {
+                baseUrl: 'https://[your_enpdoint],
+              },
+            },
+            pwa: {
+              enabled: false,
+            },
+      };
+      ```
 
 1. Rebuild your local Spartacus libraries by running the following command:
 
