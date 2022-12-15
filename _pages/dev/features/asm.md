@@ -123,12 +123,12 @@ In order for ASM customer emulation to work, you need to allow a specific header
 corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference x-dtpc sap-commerce-cloud-user-id
 ```
 
-Additionally, in an `AsmConfig` provider, set a key `enableCommerceCloudUserIdHeader.enable` with the value `true`:
+Additionally, in an `AsmConfig` provider, set a key `userIdHttpHeader.enable` with the value `true`:
 
 ```
 provideConfig(<AsmConfig>{
   asm: {
-    userIdHttpHeaderInterceptor: {
+    userIdHttpHeader: {
       enable: true,
     },
   },
