@@ -81,7 +81,7 @@ $END_USERRIGHTS;;;;;
 
 ## Configuring CORS
 
-The `assistedservicewebservices` extension requires CORS configuration. The CORS configurations for `assistedservicewebservices` have default values that are specified, for example, in the `project.properties` file of the `assistedservicewebservices`. The default values are the following:
+The `assistedservicewebservices` extension requires CORS configuration. The CORS configurations for `assistedservicewebservices` have default values that are specified in the `project.properties` file of the `assistedservicewebservices`. The default values are the following:
 
 ```text
 corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
