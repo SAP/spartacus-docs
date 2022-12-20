@@ -39,7 +39,7 @@ To enable ASM in Spartacus, you need to carry out the steps in the following sec
 - [Granting CMS Permissions](#granting-cms-permissions)
 - [Configuring CORS](#configuring-cors)
 
-### Granting CMS Permissions
+## Granting CMS Permissions
 
 The `asagentgroup` user group needs specific rights to read CMS data from OCC.
 
@@ -79,9 +79,9 @@ UserGroup;asagentgroup;;;;;;;;
 $END_USERRIGHTS;;;;;
 ```
 
-### Configuring CORS
+## Configuring CORS
 
-The `assistedservicewebservices` extension requires CORS configuration, which is possible with SAP Commerce Cloud version 1905.5 or newer. The CORS configurations for `assistedservicewebservices` have default values that are specified in the `project.properties` file of the `assistedservicewebservices`. The default values are the following:
+The `assistedservicewebservices` extension requires CORS configuration. The CORS configurations for `assistedservicewebservices` have default values that are specified in the `project.properties` file of the `assistedservicewebservices`. The default values are the following:
 
 ```text
 corsfilter.assistedservicewebservices.allowedOrigins=http://localhost:4200 https://localhost:4200
@@ -89,17 +89,86 @@ corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT 
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization
 ```
 
-#### Customizing the CORS Configuration
+The various CORS configurations for ASM that are required by the back end can be installed in the following ways:
+
+- using configuration properties to install them during a deployment
+- using the Commerce Cloud manifest file to install them during a deployment
+- using an ImpEx script to install them at runtime
+- using Backoffice to configure them manually at runtime
+
+The following sections describe how to update the CORS configurations for ASM through the `local.properties` file, the SAP Commerce Cloud manifest file, and through ImpEx.
+
+### Local Properties File
+
+If you install the CORS filter configuration for ASM by properties, the following properties must be added to the `corsfilter.assistedservicewebservices` settings of your `local.properties` file:
+
+```plaintext
+corsfilter.assistedservicewebservices.allowedOriginPatterns=*
+corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
+corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
+corsfilter.assistedservicewebservices.allowCredentials=true
+```
+
+**Note:** The wildcard configuration for `allowedOriginPatterns` is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
+
+### Commerce Cloud Manifest Configuration
+
+If you install the CORS filter configuration for ASM using the Commerce Cloud manifest file, add the following key-value pairs to the `corsfilter.assistedservicewebservices` settings of the manifest file:
+
+```json
+{
+	"key": "corsfilter.assistedservicewebservices.allowedOriginPatterns",
+	"value": "*"
+},
+{
+	"key": "corsfilter.assistedservicewebservices.allowedMethods",
+	"value": "GET HEAD OPTIONS PATCH PUT POST DELETE"
+},
+{
+	"key": "corsfilter.assistedservicewebservices.allowedHeaders",
+	"value": "origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
+},
+{
+	"key": "corsfilter.assistedservicewebservices.exposedHeaders",
+	"value": "x-anonymous-consents occ-personalization-id occ-personalization-time"
+}
+{
+	"key": "corsfilter.assistedservicewebservices.allowCredentials",
+	"value": "true"
+}
+```
+
+**Note:** The wildcard configuration for `allowedOriginPatterns` is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
+
+### ImpEx
+
+You can use the following ImpEx script if you want to install the CORS filter configuration for ASM during initialization, during an update, or manually with the Hybris Admin Console.
+
+```plaintext
+INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
+;allowedOriginPatterns;*
+;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
+;allowedHeaders;origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+;allowCredentials;true
+;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
+```
+
+**Note:** The wildcard configuration for `allowedOriginPatterns` is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
+
+## Customizing the CORS Configuration
 
 CORS configurations are customized by overriding the default configuration through your `local.properties` file.
 
-Since configurations are `overridden` in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all the defaults in addition to any new elements. For example, to add `my-new-header` in the `allowedHeaders` list, in addition to the default headers, you need to add the following to your `local.properties` file:
+Since configurations are *overridden* in `local.properties`, if you want to add a configuration element without losing the default values, you need to add all of the default elements in addition to any new elements. For example, to add `my-new-header` to the `allowedHeaders` list, you need to provide all of the default headers as well as any custom headers in the `allowedHeaders` list.
+
+The following is an example that adds `my-new-header` to the default `allowedHeaders` list in the `local.properties` file:
 
 ```text
 corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization my-new-header.
 ```
 
-To customize `allowedMethods` or `allowedHeaders`, you should add to the default values.
+To customize `allowedMethods` or `allowedHeaders`, you should include to the default values along with your custom values.
 
 To customize the `allowedOrigins` property of `assistedservicewebservices`, you need to override (that is, replace) the default value in your `local.properties` file with a host name that is relevant to your environment. The following is an example:
 
@@ -107,13 +176,35 @@ To customize the `allowedOrigins` property of `assistedservicewebservices`, you 
 corsfilter.assistedservicewebservices.allowedOrigins=https://my-new-host:4200
 ```
 
-For development purposes only, you can set the value to a wildcard (`*`), as shown in the following example:
+For development purposes only, you can use `allowedOriginPatterns` and set the value to a wildcard (`*`), as shown in the following example:
 
 ```text
-corsfilter.assistedservicewebservices.allowedOrigins=*
+corsfilter.assistedservicewebservices.allowedOriginPatterns=*
 ```
 
 **Note:** This wildcard configuration is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
+
+## Additional CORS Configuration for Customer Emulation
+
+To enable customer emulation, you must add the `sap-commerce-cloud-user-id` header to the `corsfilter.commercewebservices.allowedHeaders` list. As described in previous sections, you can update the configuration in the `local.properties` file, in the SAP Commerce Cloud manifest file, or through ImpEx. The following is an example of the updated `corsfilter.commercewebservices.allowedHeaders` list in the `local.properties` file:
+
+```text
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time sap-commerce-cloud-user-id
+```
+
+Additionally, in an `AsmConfig` provider, add a `userIdHttpHeader.enable` key with the value set to `true`. The following is an example:
+
+```ts
+provideConfig(<AsmConfig>{
+  asm: {
+    userIdHttpHeader: {
+      enable: true,
+    },
+  },
+}),
+```
+
+Now when requests are sent, the `sap-commerce-cloud-user-id` header has its value set to the emulated user's ID. This prevents ambiguity errors when making requests to OCC.
 
 ## Writing ASM-Compatible Code
 
