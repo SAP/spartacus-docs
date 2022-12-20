@@ -23,8 +23,6 @@ You can use various CORS headers to specify whether the origin is allowed, with 
 
 In development, the allowed origins are often configured with an asterisk (`*`), which allowlists all clients, regardless of their domain. In a production environment, this should contain the different domains that are allowed to interact with the back end API.
 
-In SAP Commerce Cloud version 2105 or newer, you cannot use the combination of the `allowCredentials=true` and `allowedOrigins=*` attributes. In these cases, use `allowedOriginPatterns=*` instead. For more information, see [Cross-Origin Resource Sharing Support](https://help.sap.com/docs/SAP_COMMERCE/d0224eca81e249cb821f2cdf45a82ace/b27d995150a74be08869e60e3fbc7395.html) on the SAP Help Portal.
-
 ### allowedMethods
 
 The allowed headers must include all the HTTP methods that are allowed to be used. For Spartacus, the following methods should be configured:
@@ -40,7 +38,7 @@ If you use custom methods in your project, you should add these methods to this 
 The allowed headers setting indicates the HTTP headers that are allowed for cross-origin requests. If these header are not allowed cross-origin, Spartacus will not get a response for a specific request. Most of the headers are standard headers, but there are a few headers that you might need that are feature specific. The following list provides an overview of all the headers that can be used.
 
 | Header | Description |
-| --- | --- |
+| - |  |
 | origin | The `origin` request header indicates where a request originates from. This is sent by the browser with each cross-origin request, and must therefore be configured for all requests. |
 | content-type | The `content-type` header is used to indicate the media type of the resource. It is not required for all APIs, but it is often used nonetheless. |
 | accept | The `accept` request header indicates the formats that can be read by the browser. It is sent pn a few occasions in Spartacus. |
@@ -82,31 +80,21 @@ The various CORS configurations that are required by the back end can be install
 For each installation, it is important to note the following:
 
 - OCC is installed by a template extension with the name `commercewebservices`. However, you can rename the extension web application path, or generate a custom extension out of this. In the examples in the next sections, we assume the name is `commercewebservices`, but you should replace this if you have a custom name.
-- Most configurations apply to OCC only, but in case you use other APIs (such as the Assisted Service Module), you also need to configure CORS for these APIs as well.
+- Most configurations apply to OCC only, but in case you use other APIs (such as the Assisted Service Module), you also need to configure CORS for these APIs as well. For more information, see [{% assign linkedpage = site.pages | where: "name", "asm.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/features/asm.md %})
 
-**Note:** If you are using SAP Commerce Cloud version 1905 or older, you must use `ycommercewebservices` (or your custom extension name) and not `commercewebservices`. If you are using SAP Commerce Cloud version 2005 or newer, you can choose to use `commercewebservices` or `ycommercewebservices`, but the default is `commercewebservices`, which is defined by the cx recipe.
-
-### Project Properties File
+### Local Properties File
 
 If you install the CORS filter configuration by properties, the following properties must be added:
 
 ```plaintext
 corsfilter.commercewebservices.allowedOriginPatterns=*
 corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 corsfilter.commercewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
 corsfilter.commercewebservices.allowCredentials=true
 ```
 
-If you are using the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
-
-```plaintext
-corsfilter.assistedservicewebservices.allowedOriginPatterns=*
-corsfilter.assistedservicewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
-corsfilter.assistedservicewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-corsfilter.assistedservicewebservices.exposedHeaders=x-anonymous-consents occ-personalization-id occ-personalization-time
-corsfilter.assistedservicewebservices.allowCredentials=true
-```
+**Note:** The wildcard configuration for `allowedOriginPatterns` is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
 ### Commerce Cloud Manifest Configuration
 
@@ -123,7 +111,7 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 },
 {
 	"key": "corsfilter.commercewebservices.allowedHeaders",
-	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
+	"value": "origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
 },
 {
 	"key": "corsfilter.commercewebservices.exposedHeaders",
@@ -135,32 +123,9 @@ If you install the CORS filter configuration using the Commerce Cloud manifest f
 }
 ```
 
-If you use the Assisted Service Module (ASM), you must also add the same headers to the `corsfilter.assistedservicewebservices` settings, as follows:
+**Note:** The wildcard configuration for `allowedOriginPatterns` is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
-```json
-{
-	"key": "corsfilter.assistedservicewebservices.allowedOriginPatterns",
-	"value": "*"
-},
-{
-	"key": "corsfilter.assistedservicewebservices.allowedMethods",
-	"value": "GET HEAD OPTIONS PATCH PUT POST DELETE"
-},
-{
-	"key": "corsfilter.assistedservicewebservices.allowedHeaders",
-	"value": "origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time"
-},
-{
-	"key": "corsfilter.assistedservicewebservices.exposedHeaders",
-	"value": "x-anonymous-consents occ-personalization-id occ-personalization-time"
-}
-{
-	"key": "corsfilter.assistedservicewebservices.allowCredentials",
-	"value": "true"
-}
-```
-
-### Impex
+### ImpEx
 
 You can use the following ImpEx script if you want to install the CORS filter configuration during initialization, during an update, or manually with the Hybris Admin Console.
 
@@ -168,21 +133,12 @@ You can use the following ImpEx script if you want to install the CORS filter co
 INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=commercewebservices,unique=true]
 ;allowedOriginPatterns;*
 ;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
-;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
+;allowedHeaders;origin content-type accept authorization cache-control if-none-match x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
 ;allowCredentials;true
 ;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
 ```
 
-If you are using the Assisted Service Module (ASM), you must also run the following script:
-
-```plaintext
-INSERT_UPDATE CorsConfigurationProperty;key[unique=true];value;context[default=assistedservicewebservices,unique=true]
-;allowedOriginPatterns;*
-;allowedMethods;GET HEAD OPTIONS PATCH PUT POST DELETE
-;allowedHeaders;origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference occ-personalization-id occ-personalization-time
-;allowCredentials;true
-;exposedHeaders;x-anonymous-consents occ-personalization-id occ-personalization-time
-```
+**Note:** The wildcard configuration for `allowedOriginPatterns` is flexible for development environments, but it is not secure. A more restrictive configuration is required for production use.
 
 ## Troubleshooting
 
