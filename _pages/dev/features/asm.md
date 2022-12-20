@@ -34,10 +34,7 @@ ASM in Spartacus requires the following SAP Commerce Cloud extensions:
 
 ## Enabling ASM in Spartacus
 
-To enable ASM in Spartacus, you need to carry out the steps in the following sections:
-
-- [Granting CMS Permissions](#granting-cms-permissions)
-- [Configuring CORS](#configuring-cors)
+To enable ASM in Spartacus, you need to grant CMS permissions and configure CORS settings specific to ASM.
 
 ## Granting CMS Permissions
 
