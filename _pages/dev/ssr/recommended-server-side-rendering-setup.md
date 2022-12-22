@@ -6,7 +6,7 @@ There are a number of recommendations and best practices you can consider when u
 
 The following diagram focuses only on the SSR aspect of a SAP Commerce Cloud setup, and illustrates the typical, high-level flow from a user's request at one end, all the way to the OCC API server at the other end.
 
-![ssr-setup-diagram](./ssr-setup-diagram.png)
+<img src="{{ site.baseurl }}/assets/images/ssr-setup-diagram.png" alt="SSR Setup Diagram" width="400" border="1px" />
 
 The details of this flow are described as follows:
 
