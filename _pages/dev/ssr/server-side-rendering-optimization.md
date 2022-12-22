@@ -12,7 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Server-Side Rendering optimization allows you to fine tune your SSR setup, and gives you more ways to resolve potential issues related to memory and failover.
+Server-side rendering optimization allows you to fine tune your SSR setup, and gives you more ways to resolve potential issues related to memory and failover.
 
 Without SSR optimization, it is possible for the following to occur:
 
@@ -23,14 +23,15 @@ Although these scenarios are fairly rare, they usually occur when the system is 
 
 The SSR optimization engine addresses these issues as follows:
 
-- The optimization engine queues incoming requests
-- Only a certain number of queued pages are rendered before the rest of the queue defaults to Client-Side Rendering (CSR)
-- Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by a timeout)
-- If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request
-- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer.
+- The optimization engine queues incoming requests.
+- The engine renders only a certain number of queued pages before the rest of the queue defaults to client-side rendering (CSR), unless you have set the `reuseCurrentRendering` option to ensure incoming requests wait for the current render to finish, instead of falling back to CSR.
+- Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by the timeout setting).
+- If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request.
+- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. Note that CSR renders should *never* be cached.
+- If the render is taking too long to finish, the engine will release its concurrency slot and provide a warning about the hanging render.
 
-  **Note:** CSR renders should never be cached.
-- The rendered SSR pages should be cached (for example, using CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible.
+   **Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
+- The rendered SSR pages *should* be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
 
 ***
 
@@ -70,7 +71,8 @@ By default, the SSR optimization engine uses the following configuration:
 ```json
 {
   "concurrency": 20,
-  "timeout": 3000
+  "timeout": 3000,
+  "maxRenderTime": 300000
 }
 ```
 
@@ -80,59 +82,109 @@ The optimization engine can be configured by providing a configuration object as
 const ngExpressEngine = NgExpressEngineDecorator.get(engine, { timeout: 1000 });
 ```
 
-The full list of parameters is described in the following section.
+The full list of parameters is described below.
 
 ## Configuring the SSR Optimization Engine
 
-You can configure the SSR optimization engine with a number of parameters, which are described as follows:
+You can configure the SSR optimization engine with a number of settings, which are described in the following sections.
 
-- `timeout` is a number that indicates the amount of time (in milliseconds) during which the SSR server tries to render a page, before falling back to CSR. Once the delay has expired, the server returns the `index.html` of the CSR, which does not contain any pre-rendered markup. The CSR app (`index.html`) is served with a `Cache-Control:no-store` header. As a result, it is not stored by the cache layer. SSR pages do not contain this header because it is preferable to cache SSR pages.
+### timeout
 
-  In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time. It is assumed that you are using an additional layer to cache pages externally.
+The `timeout` setting is a number that indicates the amount of time (in milliseconds) during which the SSR server tries to render a page, before falling back to CSR. Once the delay has expired, the server returns the `index.html` of the CSR, which does not contain any pre-rendered markup. The CSR app (`index.html`) is served with a `Cache-Control:no-store` header. As a result, it is not stored by the cache layer. SSR pages do not contain this header because it is preferable to cache SSR pages.
 
-  A value of 0 will instantly return the CSR page.
+In the background, the SSR server continues to render the SSR version of the page. Once this rendering finishes, the page is placed in a local cache (in-memory) to be returned the next time it is requested. By default, the server clears the page from its cache after returning it for the first time.
 
-  The default value is `3000` milliseconds.
+A `timeout` value of `0` will instantly return the CSR page.
 
-- `cache` is a boolean that enables the built-in in-memory cache for pre-rendered URLs. Even when this value is `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
+The default value is `3000` milliseconds.
 
-  **Note:** The cache should be used carefully to avoid running out of memory. Using the `cacheSize` attribute can help avoid this.
+**Note:** It is strongly recommended that you use an additional layer, such as a CDN, to cache pages externally. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
 
-- `cacheSize` is a number that limits the cache size to a specific number of entries. This property helps to keep memory usage under control.
+### cache
 
-  The `cacheSize` property can also be used when the `cache` option is set to false. This then limits the number of timed-out renders that are kept in a temporary cache, waiting to be served with the next request.
+The `cache` setting is a boolean that enables the built-in, in-memory cache for pre-rendered URLs. This option is not related to any kind of external caching layer, such as a CDN. Even when this value is set to `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
 
-- `concurrency` is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR.
+**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSize` setting can help avoid this. However, the in-memory cache *consumes the server's memory*, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
 
-  The default value is `20`.
+It is generally recommended to *not* enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
 
-- `ttl` (time to live) is a number that indicates the amount of time (in milliseconds) before a pre-rendered page is considered stale and needs to be rendered again.
+### cacheSize
 
-- `renderKeyResolver` is a function that accepts `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
+The `cacheSize` setting is a number that limits the cache size to a specific number of entries. This setting helps to keep memory usage under control.
 
-  By default, `renderKeyResolver` uses `req.originalUrl`.
+The `cacheSize` setting can also be used when the `cache` setting is set to `false`. This then limits the number of timed-out renders that are kept in a temporary cache and which are waiting to be served with the next request.
 
-- `renderingStrategyResolver` is a function that accepts `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
+It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM). It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
 
-  - `ALWAYS_CSR` always returns client-side rendered pages
-  - `DEFAULT` is the default behavior
-  - `ALWAYS_SSR` aLways returns server-side rendered pages
+### concurrency
 
-- `forcedSsrTimeout` is a number that indicates the time (in milliseconds) to wait for rendered pages when the render strategy for the request is set to `ALWAYS_SSR`. This prevents SSR rendering from blocking resources for too long if the server is under heavy load, or if the page contains errors.
+The `concurrency` setting is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR. If the `reuseCurrentRendering` is enabled, multiple requests for the same rendering key (which is the request URL, by default) will take up only one concurrency slot.
 
-  The default value is `60000` milliseconds (that is, 60 seconds).
+The default value is `20`.
 
-- `debug` is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
+It is recommended that the `concurrency` be set according to the server's available resources available (such as the speed of the CPU). A high concurrency number could have a negative impact on the performance because the CPU will try to render a large number of requests concurrently, which effectively slows down the response times.
 
-  The default value is `false`.
+### ttl
 
-  **Note**: This property is available in version 3.1.0 and later.
+The `ttl` (time to live) setting is a number that indicates the amount of time (in milliseconds) before a cached page is considered stale and needs to be rendered again on the next request. This option is used regardless of whether the `cache` setting is enabled.
 
-- `maxRenderTime` is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs which render exceeds the render time, which is useful for debugging. The value should always be higher than `timeout` and `forcedSsrTimeout`.
+It is recommended that `ttl` should be set according to your business needs, and for how long you want to keep stale renders in cache before evicting them. It is recommended that you set the `ttl`, regardless of whether the `cache` setting is enabled.
 
-  The default value is 300,000 milliseconds (5 minutes).
+### renderKeyResolver
 
-  **Note**: This property is available in the latest patch versions of 3.1.x and later.
+The `renderKeyResolver` setting is a function with the signature `(req: Request) => string`, which maps the current request to a specific render key. The `renderKeyResolver` allows you to override the default key generator so that you can differentiate between rendered pages with custom keys.
+
+By default, `renderKeyResolver` uses the full request URL.
+
+It is recommended that you use the default Spartacus rendering key resolver, especially in cases where your domain contains base site information (such as `my.site.au` or `my.site.rs`, for example).
+
+### renderingStrategyResolver
+
+The `renderingStrategyResolver` setting is a function with the signature `(req: Request) => RenderingStrategy`, which allows you to define custom rendering strategies for each request. The available `RenderingStrategy` strategies work as follows:
+
+- `ALWAYS_CSR` always returns client-side rendered pages
+- `DEFAULT` is the default behavior, which obeys the provided `SsrOptimizationOptions`.
+- `ALWAYS_SSR` attempts to always return the server-side rendered pages, with the exception of the `forcedSsrTimeout` setting, where the rendering falls back to CSR if the `forcedSsrTimeout` is exceeded.
+
+It is recommended that you provide a custom rendering strategy for cases where you want to serve SSR only to specific requests (such as serving SSR only to crawling bots, for example).
+
+### forcedSsrTimeout
+
+The `forcedSsrTimeout` setting is a number that indicates the time (in milliseconds) to wait for rendered pages when the render strategy for the request is set to `ALWAYS_SSR`. This prevents SSR rendering from blocking resources for too long if the server is under heavy load, or if the page contains errors.
+
+The default value is `60000` milliseconds (that is, 60 seconds).
+
+It is recommended that you adjust the `forcedSsrTimeout` setting according to your needs.
+
+### maxRenderTime
+
+The `maxRenderTime` setting is the maximum amount of time expected for a render to complete. If the render exceeds this timeout, the concurrency slot is released, which allows the next request to be server-side rendered. However, this may not release the rendering resources for a render that has not completed, which may cause additional memory usage on the server. The `maxRenderTime` logs the renders that have exceeded the render time, which is useful for debugging. The value should always be higher than the values for the `timeout` and `forcedSsrTimeout` settings. For more information, see [Incomplete Renders and Memory Leaks](#incomplete-renders-and-memory-leaks).
+
+The default value is `300000` milliseconds (5 minutes).
+
+It is recommended that you experiment with the `maxRenderTime` to find a value that meets to your needs.
+
+### reuseCurrentRendering
+
+The `reuseCurrentRendering` setting is a boolean that, when set to `true`, will make the subsequent requests for a rendering key wait for the current render, instead of immediately falling back to CSR when a render for the same rendering key is in progress. All pending requests for the same rendering key will take up only one concurrency slot, because there is only one actual rendering task being performed. Each request independently honors the `timeout` option.
+
+For example, consider the following setup, where the `timeout` is set to 3 seconds, and the given request takes 4 seconds to render. The flow is as follows:
+
+- The first request arrives and triggers SSR.
+- The second request for the same URL arrives 2 seconds after the first one. Instead of falling back to CSR, it waits (with its own timeout) for the render of the first request.
+- The first request times out after 3 seconds, and falls back to CSR.
+- One second after the timeout, the current render finishes.
+- The second request returns using SSR after only 2 seconds of waiting.
+
+It is recommended that you enable `reuseCurrentRendering` because it can smartly provide server-side rendered content to multiple requests for the same URL. However, this might require more server resources, such as RAM.
+
+### debug
+
+The `debug` setting is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
+
+The default value is `false`.
+
+Is is recommended in production environment to turn off the `debug` flag.
 
 ## Troubleshooting
 
@@ -153,10 +205,10 @@ curl YOUR_SITE_URL
 This should return an HTML markup response that contains rendered elements, such as the following:
 
 ```html
-  [...]
-  <app-root_nghost-sc293="" ng-version="10.1.6"><cx-storefront _ngcontent-sc293="" tabindex="0" s="LandingPage2Template    stop-navigating"><cx-skip-link><div tabindex="-1" class=""><button> Skip to Header </on><button> Skip to Main Content </  button><button> Skip to Footer </button><!----></div><!----></cx-skip-link><header iplink="cx-header" class=""     tabindex="-1"><cx-page-layout section="header" class="header"><cx-page-slot position="PreHeader" class="PreHeader     has-components"><cx-hamburger-menu><button type="button" aria-label="Menu" -controls="header-account-container,     header-categories-container, header-locale-container" class="cx-hamburger" -expanded="false"><span    class="hamburger-box"><span class="hamburger-inner"></span></span></button></hamburger-menu>
-  [...]
-  </app-root>
+[...]
+<app-root_nghost-sc293="" ng-version="10.1.6"><cx-storefront _ngcontent-sc293="" tabindex="0" s="LandingPage2Template    stop-navigating"><cx-skip-link><div tabindex="-1" class=""><button> Skip to Header </on><button> Skip to Main Content </  button><button> Skip to Footer </button><!----></div><!----></cx-skip-link><header iplink="cx-header" class=""     tabindex="-1"><cx-page-layout section="header" class="header"><cx-page-slot position="PreHeader" class="PreHeader     has-components"><cx-hamburger-menu><button type="button" aria-label="Menu" -controls="header-account-container,     header-categories-container, header-locale-container" class="cx-hamburger" -expanded="false"><span    class="hamburger-box"><span class="hamburger-inner"></span></span></button></hamburger-menu>
+[...]
+</app-root>
 ```
 
 If the `<app-root>` in your response is empty, it means SSR is not working correctly.
@@ -166,25 +218,25 @@ If the `<app-root>` in your response is empty, it means SSR is not working corre
 You can use your web browser's network tool to check if your storefront is rendering pages in SSR mode, as described in the following steps:
 
 1. Open a new web browser tab and navigate to your storefront.
-2. Open your web browser's developer tools, and then open the Network tab.
+2. Open your web browser's developer tools, and then open the network tab.
 3. Refresh the page if no requests are present.
 4. Look for the very first request, which will be a `GET request for the page HTML`.
 5. Check if the response contains markup, such as the following example:
 
-    ```html
+   ```html
    [...]
    <app-root_nghost-sc293="" ng-version="10.1.6"><cx-storefront _ngcontent-sc293="" tabindex="0" s="LandingPage2Template    stop-navigating"><cx-skip-link><div tabindex="-1" class=""><button> Skip to Header </on><button> Skip to Main Content </  button><button> Skip to Footer </button><!----></div><!----></cx-skip-link><header iplink="cx-header" class=""     tabindex="-1"><cx-page-layout section="header" class="header"><cx-page-slot position="PreHeader" class="PreHeader     has-components"><cx-hamburger-menu><button type="button" aria-label="Menu" -controls="header-account-container,     header-categories-container, header-locale-container" class="cx-hamburger" -expanded="false"><span    class="hamburger-box"><span class="hamburger-inner"></span></span></button></hamburger-menu>
-    [...]
-    </app-root>
-    ```
+   [...]
+   </app-root>
+   ```
   
-    If the `<app-root>` in your response is empty, it means SSR is not working correctly.
+   If the `<app-root>` in your response is empty, it means SSR is not working correctly.
 
 ### Troubleshooting a Storefront That Is Not Running in SSR Mode
 
-If your storefront is not running in SSR mode, check the logs of your SSR server. This will be in your terminal if you are running SSR locally, or in Kibana if your storefront is hosted on CCv2.
+If your storefront is not running in SSR mode, check the logs of your SSR server. This will be in your terminal if you are running SSR locally, or in Kibana if your storefront is hosted on SAP Commerce Cloud.
 
-If you see errors, either locally or in Kibana, you can try debugging them, as described in [Testing Locally](#testing-locally), below.
+If you see errors, either locally or in Kibana, you can try debugging them, as described in [Testing Locally](#testing-locally).
 
 If you see the following, it means something is preventing the SSR render from completing:
 
@@ -192,18 +244,18 @@ If you see the following, it means something is preventing the SSR render from c
 SSR rendering exceeded timeout, falling back to CSR for ...
 ```
 
-In this case, you can try increasing the `timeout` and `concurrency` values of the SSR optimization engine to see if this solves the issue. For more information, see [Configuring the SSR Optimization Engine](#configuring-the-ssr-optimization-engine).
+In this case, you can try increasing the `timeout` values of the SSR optimization engine to see if this solves the issue. For more information, see [Configuring the SSR Optimization Engine](#configuring-the-ssr-optimization-engine), above.
 
-If increasing these values does not resolve the issue, it means the server cannot render the page. In this case, you can try the following:
+If adjusting these values does not resolve the issue, it means the server cannot render the page. In this case, you can try the following:
 
 - Ensure your server has a valid certificate. For more information, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
-- If your storefront is on CCv2, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked, in which case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue.
+- If your storefront is on hosted on SAP Commerce Cloud, check the IP restriction of your API. It is possible that the SSR server's IP is being blocked. If this is the case, you can try changing the configuration on the API to "Allow All" and see if that resolves the issue. If using a caching layer (such as a CDN), check if it blocked the SSR server's IP address due to possibly many requests coming from it.
 
 If these solutions do not fix the SSR rendering issue, there may be a problem in the code. Review the [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-coding-guidelines.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-coding-guidelines.md %}), and review your custom code to ensure you are not using any browser functions that are not available with SSR.
 
-### SSR Issues with CCv2
+### SSR Issues with SAP Commerce Cloud in the Public Cloud
 
-If your CCv2 build is failing, check whether you have an error such as the following:
+If your SAP Commerce Cloud build is failing, check whether you have an error such as the following:
 
 ```text
 Execution failed for task ':buildJsApps'
@@ -212,21 +264,21 @@ Execution failed for task ':buildJsApps'
 
 If so, run `yarn build:ssr` locally to get a more detailed error log.
 
-#### Testing Locally
+### Testing Locally
 
-If SSR is not functioning on CCv2, you can try running your Spartacus application locally to pinpoint the issue, as follows:
+If SSR is not functioning on your hosted SAP Commerce Cloud, you can try running your Spartacus application locally to pinpoint the issue, as follows:
 
 1. Ensure the `baseUrl` configuration in your app module is pointing to an accessible back end that has a valid certificate.
 
-    If you think certificate validity could be an issue, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
+   If you think certificate validity could be an issue, see [Testing SSR With a Self-Signed or Untrusted SSL Certificate](#testing-ssr-with-a-self-signed-or-untrusted-ssl-certificate).
 
-    **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that CCv2 can use the `occ-backend-base-url` from the `index.html`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configuring-base-url.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
+   **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that SAP Commerce Cloud can use the `occ-backend-base-url` from the `index.html`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configuring-base-url.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
 
 2. Run `yarn dev:ssr`.
 
-    This allows you to run a "development" SSR server that will pick up the changes you make in your source code.
+   This allows you to run a "development" SSR server that will pick up the changes you make in your source code.
 
-3. Refer to [{% assign linkedpage = site.pages | where: "name", "how-to-debug-server-side-rendered-storefront.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/how-to-debug-server-side-rendered-storefront.md %}) for more information on debugging an SSR application.
+   Refer to [{% assign linkedpage = site.pages | where: "name", "how-to-debug-server-side-rendered-storefront.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/how-to-debug-server-side-rendered-storefront.md %}) for more information on debugging an SSR application.
 
 ### Testing SSR With a Self-Signed or Untrusted SSL Certificate
 
@@ -234,15 +286,80 @@ During development, it is possible to use self-signed certificates that, by defa
 
 1. Run `yarn add -D cross-env`.
 
-    This adds `cross-env` to your `devDependencies`.
+   This adds `cross-env` to your `devDependencies`.
+
 2. Add the following script to your `package.json`:
 
-    ```json
-    "dev:ssr:dev": "cross-env   NODE_TLS_REJECT_UNAUTHORIZED=0 ng run   YOU_STORE_NAME:serve-ssr"
-    ```
+   ```json
+   "dev:ssr:dev": "cross-env   NODE_TLS_REJECT_UNAUTHORIZED=0 ng run   YOU_STORE_NAME:serve-ssr"
+   ```
 
-    Replace `YOU_STORE_NAME` with your storefront's name, as specified at the top of your `package.json`.
+   Replace `YOU_STORE_NAME` with your storefront's name, as specified at the top of your `package.json`.
 
 3. Run `yarn dev:ssr:dev` to start your storefront in SSR mode.
 
-    **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
+   **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
+
+### The URL or Routes Break SSR
+
+Often, a malformed URL can break the server-side rendering by preventing the SSR from finishing the rendering, which prevents the allocated resources from being released.
+
+The following is an example of a malformed URL: `http://localhost:4200/electronics-spa/en/USD/Brands/Canon/c/brand_10%20or%20(1,2)=(select*from(select%20name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1),name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1))a)%20--%20and%201%3D1`.
+
+This is is usually the case when the  `initialNavigation` Router setting is `enabled`.
+
+This is a bug in Angular's Router that never resolves the route when a `NavigationError` occurs. You can implement [this workaround](https://github.com/SAP/spartacus/pull/10541/files) in your application, which uses Angular's private API.
+
+If you are implementing the workaround, be aware of the following line from the workaround:
+
+```ts
+import { ..., ɵangular_packages_router_router_h as RouterInitializer } from '@angular/router';
+```
+
+The `ɵangular_packages_router_router_h` symbol that is used here may change in a future release of Angular.
+
+### Incorrect Site Information Embedded in the Domain
+
+If you are embedding the site information as part of the domain (for example, the language, currency, base-site, and so on), and your `cache` is set to `true`, then you might have stumbled upon an issues that can be illustrated with the following example:
+
+- A request for `my.shop.**ca**` triggers the render and successfully returns it to the client for the given site, which is `ca` in this case.
+- The subsequent request for `my.shop.**rs**` hits the SSR node, but it wrongly receives the cached render for `ca`, instead of a render for `rs`.
+
+To address this issue, upgrade to the latest patch version, or implement [this workaround](https://stackoverflow.com/a/69527063/5252849).
+
+### SSR Shows Only a Global Error Message
+
+If you are getting an SSR render which shows only a global error message, such as `You are not authorized to perform this action. Please contact your administrator if you think this is a mistake`, please check the following:
+
+- If the API server has the SSR server's IP on its allowed IP list.
+- If you are using a caching layer (such as a CDN), make sure it allows the SSR server's IP address, which might get blocked at some point if there are many requests coming from it.
+
+### Detecting a Bot or Crawler
+
+A common requirement is to be able to detect when a request is coming from a bot or web crawler. The recommended way of doing this is to provide a custom `renderingStrategyResolver` setting, which allows you to inspect the request and, based on certain parameters, determine which rendering strategy to use.
+
+The following is an example of how to set the `renderingStrategyResolver`, but it is just an example, and may or may not be complete, and may not match the requirements specific to your implementation:
+
+```ts
+import { Request } from 'express';
+
+...
+
+const ssrOptions: SsrOptimizationOptions = {
+  ...,
+  renderingStrategyResolver: (req: Request) => req.get('User-Agent')?.match(/bot|crawl|slurp|spider|mediapartners/) ? RenderingStrategy.ALWAYS_SSR : RenderingStrategy.DEFAULT,
+};
+```
+
+### Using SSR Only for Certain Pages
+
+If you want to perform SSR only for certain pages (such as routes, for example), you can do this by providing a custom `renderingStrategyResolver` function (as described in the previous section), which can inspect the requested URL, and return an appropriate rendering strategy.
+
+### Incomplete Renders and Memory Leaks
+
+A `Rendering of ${URL} was not able to complete. This might cause memory leaks!` message may appear if you have the `maxRenderTime` setting enabled. This error message indicates that a render is hanging and may or may not complete at some point in the future. Unfortunately, Spartacus is not able to release the related resources from [`@angular/universal`](https://github.com/angular/universal/), which will likely lead to memory overflow at some point.
+
+If you see this message, you can try the following:
+
+- There is a chance the render will complete at some point in the future. You can look for a message that says `Rendering of ${URL} completed after the specified maxRenderTime, therefore it was ignored.`.
+- The OCC API may be slow to respond. If you are using a CDN in front of the API, check if the CDN has some kind of a rate limiter enabled for the SSR servers, or it may have even completely blocked the SSR server's IP addresses. For more information, see [SSR Shows Only a Global Error Message](#ssr-shows-only-a-global-error-message).

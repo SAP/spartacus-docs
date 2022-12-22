@@ -277,7 +277,7 @@ docs:
             subchildren:
                 - title: "Above-the-Fold Loading"
                   url: /above-the-fold/
-                - title: "Deferred Loading"
+                - title: "Deferred Loading"
                   url: /deferred-loading/
                 - title: "Performance Best Practices"
                   url: /performance-best-practices/
@@ -293,11 +293,13 @@ docs:
           - title: "Server-Side Rendering ➢"
             url: /server-side-rendering-in-spartacus/
             subchildren:
-                - title: "Server–Side Rendering Coding Guidelines"
+                - title: "Recommended Setup for Server-Side Rendering"
+                  url: /recommended-server-side-rendering-setup/
+                - title: "Server-Side Rendering Coding Guidelines"
                   url: /server-side-rendering-coding-guidelines/
                 - title: "Server-Side Rendering Optimization"
                   url: /server-side-rendering-optimization/
-                - title: "Debugging a Server–Side Rendered Storefront"
+                - title: "Debugging a Server-Side Rendered Storefront"
                   url: /how-to-debug-server-side-rendered-storefront/
                 - title: "Solution for Issue with SSR in Spartacus 2.0 or later and SAP Commerce Cloud for Public Cloud"
                   url: /ssr-ccv2-issue-spartacus-version-2/  

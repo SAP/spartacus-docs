@@ -12,12 +12,15 @@ The following steps describe how to use Node.js debugging in Visual Studio Code.
 1. In Visual Studio Code, open the Run view.
 
    For more information, see [Run view](https://code.visualstudio.com/docs/editor/debugging#_run-view) in the VS Code documentation.
+
 1. If you have not already done so, create a new `launch.json` file and select `Node.js` as the environment.
 
    For more information, see [Launch configurations](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations) in the VS Code documentation.
+
 1. In the new `launch.json` file, click `Add Configuration` and select `Node.js: Attach to Process`.
 
    For more information, see [Add a new configuration](https://code.visualstudio.com/docs/editor/debugging#_add-a-new-configuration) and [Attaching to Node.js](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_attaching-to-nodejs) in the VS Code documentation.
+
 1. Run the debugger using the `Attach by Process ID` configuration, and when asked to `Pick the node.js process to attach to`, select the process with a path to your Spartacus storefront app, such as `/dist/ssr/server.js`.
 
 For more information, see [Getting started with Node.js debugging in VS Code](https://www.youtube.com/watch?v=2oFKNL7vYV8&ab_channel=VisualStudioCode) on Visual Studio Code's official YouTube channel.
