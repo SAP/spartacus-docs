@@ -25,13 +25,13 @@ The SSR optimization engine addresses these issues as follows:
 
 - The optimization engine queues incoming requests.
 - The engine renders only a certain number of queued pages before the rest of the queue defaults to client-side rendering (CSR), unless you have set the `reuseCurrentRendering` option to ensure incoming requests wait for the current render to finish, instead of falling back to CSR.
-- Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by a timeout).
+- Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by the timeout setting).
 - If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request.
 - The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. Note that CSR renders should *never* be cached.
 - If the render is taking too long to finish, the engine will release its concurrency slot and provide a warning about the hanging render.
-- The rendered SSR pages *should* be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
 
-**Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
+   **Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
+- The rendered SSR pages *should* be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
 
 ***
 
@@ -96,7 +96,7 @@ In the background, the SSR server continues to render the SSR version of the pag
 
 A `timeout` value of `0` will instantly return the CSR page.
 
-The default value is `3000` milliseconds. The recommended value depends on the needs of your application. The value can be relatively big if there is a proper caching layer strategy in place, such as a CDN.
+The default value is `3000` milliseconds.
 
 **Note:** It is strongly recommended that you use an additional layer, such as a CDN, to cache pages externally. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
 
