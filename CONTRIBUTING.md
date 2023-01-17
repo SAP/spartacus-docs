@@ -12,7 +12,6 @@ Note: This is a living document. Like the Spartacus documentation, this document
 
 An easy way to start is by helping others who may have questions or need support. Look for such requests here:
 
-* Spartacus [Slack workspace](https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ)
 * [Stack Overflow posts tagged with 'spartacus-storefront'](https://stackoverflow.com/questions/tagged/spartacus-storefront)
 
 ----
@@ -63,7 +62,7 @@ We welcome contributions to the Spartacus documentation. Before you start your f
 
 1. Not all contributions will be accepted.
     * The documentation you are submitting must fit the overall vision and direction of Spartacus and really improve it.
-    * Major feature implementations should be discussed with the owner [Bill Marcotte](https://github.com/Xymmer). You can also float ideas in our Slack channel, and we'll connect you to the appropriate person for further discussion.
+    * Major feature implementations should be discussed with the owner [Bill Marcotte](https://github.com/Xymmer).
 
 ## Developer Certificate of Origin (DCO)
 
