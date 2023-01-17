@@ -101,7 +101,7 @@ $styleVersion: 4.3;
 
 To reduce the manual maintenance required, see the next section.
 
-### Creating a Style Config File to Propagate Style Versioning for Spartacus Versions Older Than 5.1
+## Creating a Style Config File to Propagate Style Versioning for Spartacus Versions Older Than 5.1
 
 Creating a style config file to propagate style versioning is optional, but can be convenient.
 
