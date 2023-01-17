@@ -2,8 +2,6 @@
 main:
     - title: Doc Archive
       url: /docs-archive/
-    - title: Feedback
-      url: https://join.slack.com/t/spartacus-storefront/shared_invite/zt-jekftqo0-HP6xt6IF~ffVB2cGG66fcQ
     - title: Support
       url: /#how-to-obtain-support
     - title: Version 4.3
