@@ -2,6 +2,7 @@ name,path
 OrderEvent,feature-libs/order/root/events/order.events.ts
 OrderPlacedEvent,feature-libs/order/root/events/order.events.ts
 ReplenishmentOrderScheduledEvent,feature-libs/order/root/events/order.events.ts
+CdcLoadUserTokenFailEvent,integration-libs/cdc/root/events/cdc-event.ts
 HomePageEvent,projects/storefrontlib/events/home/home-page.events.ts
 NavigationEvent,projects/storefrontlib/events/navigation/navigation.event.ts
 PageEvent,projects/storefrontlib/events/page/page.events.ts

@@ -21,10 +21,10 @@ cp ./scripts/generate-events-doc.ts ./temp-cx/scripts/
 cd ./temp-cx
 
 echo "Installing dependencies"
-npm install -D typescript --legacy-peer-deps
-npm install -D ts-node --legacy-peer-deps
-npm install -D @types/node --legacy-peer-deps
-npm install -D ts-morph --legacy-peer-deps
+yarn add --dev typescript
+yarn add --dev ts-node
+yarn add --dev @types/node
+yarn add --dev ts-morph
 
 echo "Generating events CSV"
 npx ts-node ./scripts/generate-events-doc.ts
