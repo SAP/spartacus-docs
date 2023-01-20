@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 3.0
+title: Updating FSA Spartacus to Version 3.0
 ---
 
 ## Prerequisites

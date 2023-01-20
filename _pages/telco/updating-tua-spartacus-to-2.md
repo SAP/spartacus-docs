@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 2.0
+title: Updating TUA Spartacus to Version 2.0
 ---
 
 ***
@@ -20,7 +20,7 @@ Before updating your TUA Spartacus libraries to version 2.0, you must address th
 - Your `@spartacus` libraries must include the `@spartacus/schematics` library. If you do not have the `@spartacus/schematics` library, add it to your `package.json` file in the `devDependencies` section, and set it to the same version as your other `@spartacus` libraries. Then run `yarn install`.
 - Spartacus 2.0 requires Angular version 9. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 9](https://update.angular.io/).
 
-## Updating Spartacus
+## Updating TUA Spartacus
 
 TUA Spartacus 2.0 includes new features and fixes. Since this update is a major release, some of the updates may also be breaking changes for your application. In this case, additional work on your side may be required to fix issues that result from upgrading from 1.x to 2.0.
 

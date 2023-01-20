@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 4.0
+title: Updating Spartacus to Version 4.0
 ---
 
 Before you migrate to version 4.0 of the Spartacus libraries, it is highly recommend that you update your app structure to match the Spartacus reference app structure, and that you also make the move to using feature libraries. It is easier to perform the migration in multiple, small steps (migrating to the new app structure, switching to the extracted feature libraries, and then migrating to 4.0), where you can make sure that everything still works as before after each step.

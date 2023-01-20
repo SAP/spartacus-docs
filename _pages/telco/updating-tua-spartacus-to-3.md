@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 3.0
+title: Updating TUA Spartacus to Version 3.0
 ---
 
 ## Prerequisites
@@ -11,7 +11,7 @@ Before updating your TUA Spartacus libraries to version 3.0, you must address th
 - You also must first upgrade all of your `@spartacus/tua-spa` to the latest 2.x release before you begin upgrading to Spartacus 3.0.
 - Spartacus 3.0 requires Angular version 10. You must update Angular before updating Spartacus. For more information, see [Updating to Angular version 10](https://update.angular.io/).
 
-## Updating Spartacus
+## Updating TUA Spartacus
 
 TUA Spartacus 3.0 includes new features and fixes. Since this update is a major release, some of the updates may also be breaking changes for your application. In this case, additional work on your side may be required to fix issues that result from upgrading from 2.x to 3.0.
 

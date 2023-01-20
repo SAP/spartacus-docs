@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 4.0
+title: Updating FSA Spartacus to Version 4.0
 ---
 
 **NOTE:**  We strongly recommend you upgrade your FSA Spartacus libraries to version 3.0.1 first, and then upgrade to version 4.x.

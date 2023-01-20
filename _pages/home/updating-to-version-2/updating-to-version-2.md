@@ -1,5 +1,5 @@
 ---
-title: Updating to Version 2.0
+title: Updating Spartacus to Version 2.0
 ---
 
 ## Prerequisites
