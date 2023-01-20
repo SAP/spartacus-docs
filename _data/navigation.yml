@@ -19,6 +19,9 @@ docs:
                   url: /pre-release-information/
                 - title: "Feature Compatibility"
                   url: /feature-release-versions/
+          - title: "Updating Spartacus ➢"
+            url: /updating-spartacus/
+            subchildren:
                 - title: "Updating to Version 4.0 ➢"
                   url: /updating-to-version-4/
                   underchildren:
