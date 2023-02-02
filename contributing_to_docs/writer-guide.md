@@ -59,22 +59,14 @@ If you are new to GitHub, have a look at Jonathan McGlone's [Creating and Hostin
 
 The following sections are intended to help you get up and running with those aspects of GitHub that you need to contribute to the Spartacus project:
 
-- [Writers: Contributing to Documentation](#writers-contributing-to-documentation)
-  - [Working with Markdown](#working-with-markdown)
-  - [Working with Visual Studio Code](#working-with-visual-studio-code)
-  - [Working with Jekyll](#working-with-jekyll)
-    - [Useful Links](#useful-links)
-  - [Working with GitHub](#working-with-github)
-    - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
-    - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
-    - [Working with GitHub Issues](#working-with-github-issues)
-      - [Creating a New Issue](#creating-a-new-issue)
-      - [Further Links](#further-links)
-    - [Working with Branches](#working-with-branches)
-    - [Further Reading About Git](#further-reading-about-git)
-  - [Making Updates to the Documentation Repository](#making-updates-to-the-documentation-repository)
-  - [Updating the Sidebar](#updating-the-sidebar)
-  - [Documentation Conventions](#documentation-conventions)
+- [Working with GitHub](#working-with-github)
+  - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
+  - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
+  - [Working with GitHub Issues](#working-with-github-issues)
+    - [Creating a New Issue](#creating-a-new-issue)
+    - [Further Links](#further-links)
+  - [Working with Branches](#working-with-branches)
+  - [Further Reading About Git](#further-reading-about-git)
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
