@@ -30,7 +30,7 @@ And this page has information about how to install Git for your operating system
 
 You may want to ask a developer on your team for help with configuring VS Code to work with Git.
 
-[Making Updates to the Documentation Repository](#making-updates-to-the-documentation-repository) explains how to add and update documentation in the documentation repository using VS Code, but of course you can learn a lot more about working with VS Code by checking out the first few sections of the VS Code documentation: https://code.visualstudio.com/docs
+[Making Updates to the Documentation Repository](#making-updates-to-the-documentation-repository) (below) explains how to add and update documentation in the documentation repository using VS Code, but of course you can learn a lot more about working with VS Code by checking out the first few sections of the VS Code documentation: https://code.visualstudio.com/docs
 
 ## Working with Jekyll
 
