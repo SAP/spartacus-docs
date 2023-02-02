@@ -107,6 +107,8 @@ For single-select attributes (radio button group, DDLB), only quantities on the 
 
 ## Price on Attribute Value Level
 
+**Note:** It is not possible to display prices for characteristic values in the conflict solver. This affects both the "classic" mode as well as the AVC conflict mode (where conflicts must be solved immediately).
+
 The display of prices for individual options or attribute values is supported for both bundle items (attributes linked to products) and for simple attribute values (non-bundle items).
 
 If the attribute value allows a quantity to be entered, the resulting price is displayed in the form of a formula (for example, `3x70 EUR = 210 EUR`).
