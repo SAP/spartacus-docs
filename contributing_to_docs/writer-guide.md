@@ -59,14 +59,13 @@ If you are new to GitHub, have a look at Jonathan McGlone's [Creating and Hostin
 
 The following sections are intended to help you get up and running with those aspects of GitHub that you need to contribute to the Spartacus project:
 
-- [Working with GitHub](#working-with-github)
-  - [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
-  - [Cloning the Documentation Repository](#cloning-the-documentation-repository)
-  - [Working with GitHub Issues](#working-with-github-issues)
-    - [Creating a New Issue](#creating-a-new-issue)
-    - [Further Links](#further-links)
-  - [Working with Branches](#working-with-branches)
-  - [Further Reading About Git](#further-reading-about-git)
+- [Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories](#your-github-id-and-obtaining-write-access-to-the-spartacus-repositories)
+- [Cloning the Documentation Repository](#cloning-the-documentation-repository)
+- [Working with GitHub Issues](#working-with-github-issues)
+  - [Creating a New Issue](#creating-a-new-issue)
+  - [Further Links](#further-links)
+- [Working with Branches](#working-with-branches)
+- [Further Reading About Git](#further-reading-about-git)
 
 ### Your GitHub ID and Obtaining Write-Access to the Spartacus Repositories
 
