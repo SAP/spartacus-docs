@@ -32,6 +32,8 @@ All new features for Spartacus must:
 
 - Avoid breaking changes. If you cannot avoid introducing a breaking change, ensure the breaking change is handled in a way that corresponds to the type of release you are working on, whether it is a major release (**X**.y.z), a minor release (x.**Y**.z), or a patch release (x.y.**Z**). Breaking changes are permitted in major releases, but must be accompanied by migration documentation and schematics. Breaking changes are never allowed in minor or patch releases, and must be handled through deprecation and the use of feature flags. For more information, see [Avoiding Breaking Changes]({{ site.baseurl }}{% link _pages/contributing/breaking-changes.md %}#avoiding-breaking-changes).
 
+- Provide documentation input. For more information, see [Developers: Contributing to Documentation](https://github.com/SAP/spartacus-docs/blob/main/contributing_to_docs/developer-guide.md).
+
 ***
 
 **Table of Contents**
