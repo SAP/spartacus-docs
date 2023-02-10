@@ -70,7 +70,7 @@ Example:
 
 ### HTML
 
-If we consider a form with two sections and one control per section, a basic HTML structure **by default** would consist of:
+If we consider a form with two sections and one control per section, a default HTML structure would consist of:
 
 ```typescript
 <form class=""> // Form class, empty by default

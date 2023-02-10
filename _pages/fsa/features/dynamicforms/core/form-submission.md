@@ -29,7 +29,7 @@ In the FSA SPA application, the second approach has been used to implement form 
 
 The idea is to create a BehaviorSubject to pass values inside. Every time the stream changes, the observer will know about it and execute the callback function (update/save of formData). 
 
-We created a *submittedForm* BehaviorSubject in form data service and a method **submit()** which is used to add formData to the BehaviorSubject stream.
+We created a `submittedForm` BehaviorSubject in `FormDataService` and a method `submit()` which is used to add `formData` to the BehaviorSubject stream.
 
 ```typescript
 export class FormDataService {
@@ -42,9 +42,9 @@ export class FormDataService {
   ...
 }
 ```
-The same service also exposes the public method **getSubmittedForm()**, with whom we can subscribe to newly submitted forms in any component using the method.
+The same service also exposes the public method `getSubmittedForm()`, with whom we can subscribe to newly submitted forms in any component using the method.
 
-The following example shows the FNOLNavigationComponent where we subscribed to the submitted form and used its data to update the claim during navigation to the next FNOL step.
+The following example shows the `FNOLNavigationComponent` where we subscribed to the submitted form and used its data to update the claim during navigation to the next FNOL step.
 
 ```typescript
 @Injectable()
@@ -96,9 +96,9 @@ export class FNOLNavigationComponent implements OnInit, OnDestroy {
 }
 ```
 
-In short, this means that components will trigger form data persistence using the submit method (which will emit new form data with the mandatory formDataId attribute). In dynamicforms library components, we will subscribe to this change, check if the form's content is valid, and eventually save the form.
+In short, this means that components will trigger form data persistence using the `submit()` method (which will emit new form data with the mandatory formDataId attribute). In dynamic forms library components, we will subscribe to this change, check if the form's content is valid, and eventually save the form.
 
-**NOTE:** This also means that the dynamicforms library is responsible for saving form data in a database. However, the starting point for saving form data is a custom component (fsastorefrontlib) which emits a new value to the submittedForm stream.
+**NOTE:** This also means that the dynamic forms library is responsible for saving form data in a database. However, the starting point for saving form data is a custom component (`fsastorefrontlib`) which emits a new value to the `submittedForm` stream.
 
 ```typescript
 @Component({

@@ -13,7 +13,7 @@ title: Form Controls
 
 ## Default from controls
 
-Dynamicforms library is shipped with the following controls out of the box:
+Dynamic forms library is shipped with the following controls out of the box:
 
 - button
 - input
@@ -75,15 +75,15 @@ components: {
 },
 ```
 
-In the example above example, you can see the control of a type **input**, which exists in the JSON configuration for a certain form, and it is being mapped (by default) to the **InputComponent**. This means that all simple input fields in every form of dynamicforms will have the look and the logic of the "InputComponent".
+In the example above example, you can see the control of a type `input`, which exists in the JSON configuration for a certain form, and it is being mapped (by default) to the `InputComponent`. This means that all simple input fields in every form of dynamic forms will have the look and the logic of the `InputComponent`.
 
 ## Overriding existing controls
 
-To show you how to override the default component for an existing type, we will take the "input" type as an example. 
-As mentioned before, "input" type is mapped to a "InputComponent". To override this component, you have to create a custom component and include it in some module. In this example, we call it "CustomInputComponent". 
-The configuration needed for this override must be done inside the module where "CustomInputComponent" resides.
+To show you how to override the default component for an existing type, we will take the `input` type as an example. 
+As mentioned before, `input` type is mapped to a `InputComponent`. To override this component, you have to create a custom component and include it in some module. In this example, we call it `CustomInputComponent`. 
+The configuration needed for this override must be done inside the module where `CustomInputComponent` resides.
 
-Example of custom input component
+Example of `CustomInputComponent`
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -118,7 +118,7 @@ export class CategoryFormsModule {}
 
 In this `CustomInputComponent`, it is also required to extend `AbstractFormComponent` which all existing form controls in dynamic forms are referencing to:
 
-custom-input.component.ts
+`custom-input.component.ts`
 
 ```typescript
 import { Component } from '@angular/core';

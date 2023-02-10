@@ -104,7 +104,7 @@ More details about interface structure can be found below.
 
 Represents a top-level entity which holds group of form fields.
 
-The FormDefinition contains the following properties:
+The `FormDefinition` contains the following properties:
 
 - [formGroups](#dynamicformgroup) - Defines an array of form groups.
 - formId - Attaches ID to the form.
@@ -114,7 +114,7 @@ The FormDefinition contains the following properties:
 
 Represents group of form controls.
 
-The DynamicFormGroup contains the following properties:
+The `DynamicFormGroup` contains the following properties:
 
 - groupCode - Adds the name to the form group which can be found in the payload on form submit. In this example of submitted form data object, form controls are wrapped in two form groups:
 
@@ -134,7 +134,7 @@ groupTwo:
 
 Represents individual control.
 
-The FieldConfig contains the following properties:
+The `FieldConfig` contains the following properties:
 
 - name - Sets control name.
 - required - Defines if control is required.
@@ -160,7 +160,7 @@ The FieldConfig contains the following properties:
 
 ### LocalizedString
 
-The LocalizedString contains the following properties:
+The `LocalizedString` contains the following properties:
 
 - default - Sets default label if no match is found for the current language.
 - [lang: string] - Sets label for a specific language.
@@ -169,28 +169,28 @@ The LocalizedString contains the following properties:
 
 Represents the configuration for defining dependency behavior.
 
-The DependsOn contains the following properties:
+The `DependsOn` contains the following properties:
 
 - hide - Defines if dependant control/group should be hidden on the page.
 - [controls](#controldependency) - Defines a list of controls and conditions which the control depends on.
 
 ### ControlDependency
 
-The ControlDependency contains the following properties:
+The `ControlDependency` contains the following properties:
 
 - controlName - Control name which we depend on.
 - [conditions](#validatorfunction) - Array of validator functions where conditions are defined.
 
 ### ValidatorFunction
 
-The ValidatorFunction contains the following properties:
+The `ValidatorFunction` contains the following properties:
 
 - name - Name of the validator function.
 - arguments - List of argument strings.
 
 ### PrefillValue
 
-The PrefillValue contains the following properties:
+The `PrefillValue` contains the following properties:
 
 - targetObject - Targets SPA state object (cart, user...).
 - targetValue - Targets a specific property in that object.
@@ -208,7 +208,7 @@ For more information, see [Configurable Prepopulate Form Field]({{ site.baseurl 
 
 ### ApiConfig
 
-The ApiConfig contains the following properties:
+The `ApiConfig` contains the following properties:
 
 - url - Defines the API's URL.
 - param - Defines parameters for this API call.
