@@ -2,7 +2,7 @@
 title: Form Definition - JSON Structure
 ---
 
-In Dynamicforms, the content, behavior and styling of a form is defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels, etc.
+In dynamic forms, the content, behavior and styling of a form are defined by JSON definition. To create a form, you need to add form controls and define its properties such as control type, name, labels, etc.
 
 ***
 
@@ -213,7 +213,7 @@ The ApiConfig contains the following properties:
 - url - Defines the API's URL.
 - param - Defines parameters for this API call.
 
-The following example illustrates a "dynamic-select" component that uses ApiConfig to receive options from external service:
+The following example illustrates a `dynamicSelect` component, that uses `ApiConfig` to receive options from external service:
 
 ```typescript
 {
@@ -229,7 +229,7 @@ The following example illustrates a "dynamic-select" component that uses ApiConf
 
 ### FieldOption
 
-The FieldOption contains the following properties:
+The `FieldOption` contains the following properties:
 
 - name - Name of the option.
 - label - Label for the option.

@@ -23,7 +23,7 @@ To enable this feature, you need to integrate your project with Live Contract. F
 
 To enable this particular functionality of the integration with Live Contract, add the following ImpEx file through the Administration Console:
 
-```ts
+```sql
 
 INSERT_UPDATE Endpoint; id[unique = true]; version[unique = true]; name; specUrl
 ; syncPilot-agent-request ; unknown ; syncPilot-agent-request ; "https://sync-pilot-integration-server-url"

@@ -26,7 +26,7 @@ Let's assume you want to prepopulate the "Title" field on the Personal Details f
 
 First, you need to adjust the Personal Details form, and add JSON configuration to the "Title" field. The following JSON example illustrates this:
 
-```typescript
+```json
 {
     "label": {
         "en": "First name",

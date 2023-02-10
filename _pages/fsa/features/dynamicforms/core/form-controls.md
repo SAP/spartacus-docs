@@ -116,7 +116,7 @@ import { DynamicFormModule, DynamicFormsConfig } from '@spartacus/dynamicforms';
 export class CategoryFormsModule {}
 ```
 
-In this "CustomInputComponent", it is also required to extend "AbstractFormComponent" which all existing form controls in dynamicforms are referencing to:
+In this `CustomInputComponent`, it is also required to extend `AbstractFormComponent` which all existing form controls in dynamic forms are referencing to:
 
 custom-input.component.ts
 
@@ -131,7 +131,7 @@ import { AbstractFormComponent } from '@spartacus/dynamicforms';
 export class CustomInputComponent extends AbstractFormComponent {}
 ```
 
-Having done that, it is now possible to use properties and functionalities from "AbstractFormComponent" in HTML:
+Having done that, it is now possible to use properties and functionalities from `AbstractFormComponent` in HTML:
 
 ```html
 <div [formGroup]="group">
@@ -156,7 +156,7 @@ Having done that, it is now possible to use properties and functionalities from 
 </div>
 ```
 
-Now every input field in DynamicForms will be replaced with "CustomInputComponent".
+Now every input field in dynamic forms will be replaced with `CustomInputComponent`.
 
 ## Adding new form control
 

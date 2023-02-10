@@ -2,7 +2,7 @@
 title: Document Upload
 ---
 
-**Note**: This dynamicforms library feature is introduced with version 2.0 of the FSA Spartacus libraries.
+**Note**: This dynamic forms library feature is introduced with version 2.0 of the FSA Spartacus libraries.
 
 Document upload feature enables users to upload one or multiple images, documents, audio, video, and other file types to a server.
 

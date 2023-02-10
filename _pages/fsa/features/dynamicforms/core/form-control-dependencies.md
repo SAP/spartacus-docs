@@ -47,7 +47,7 @@ It is necessary to constantly track value and validity of parent form controls a
 
 ## Examples
 
-- Form field with the name "dependantField" is dependant on the form control with the name "controlField", and the condition for its visibility is that minimum value of the "controlField" is 1.
+- Form field with the name "dependantField" is dependent on the form control with the name "controlField", and the condition for its visibility is that minimum value of the "controlField" is 1.
 
 ```typescript
 {

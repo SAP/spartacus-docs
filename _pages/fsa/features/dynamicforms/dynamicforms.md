@@ -4,9 +4,9 @@ title: Dynamic Forms
 
 **Note**: This feature is introduced with version 1.0 of the FSA Spartacus libraries.
 
-This is a landing page for grouping together topics related to dynamicforms library.
+This is a landing page for grouping together topics related to the dynamic forms library.
   
-Dynamicforms is a library for creating forms, designed to work with Spartacus application. It allows customers to define forms metadata in JSON format and render them on the user interface. Validations and displaying of form fields and groups can be fully configured and customized.
+Dynamic forms is a library for creating forms, designed to work with Spartacus application. It allows customers to define forms metadata in JSON format and render them on the user interface. Validations and displaying of form fields and groups can be fully configured and customized.
 
 For more information, see the following topics:
 

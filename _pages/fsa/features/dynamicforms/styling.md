@@ -1,7 +1,7 @@
 ---
 title: Dynamicforms Styling
 ---
-Dynamicforms library is shipped with default Bootstrap 4 CSS classes. These classes can be overridden with the custom JSON configuration through the Backoffice.
+Dynamic forms library is shipped with default Bootstrap 4 CSS classes. These classes can be overridden with the custom JSON configuration through the Backoffice.
 
 ***
 
@@ -14,7 +14,7 @@ Dynamicforms library is shipped with default Bootstrap 4 CSS classes. These clas
 
 ## Adding Custom CSS Classes
 
-Dynamicforms library uses Bootstrap 4 classes for styling. A custom CSS class can be defined for:
+Dynamic forms library uses Bootstrap 4 classes for styling. A custom CSS class can be defined for:
 
 - [Form tag]({{ site.baseurl }}/json-structure/#formdefinition) - By default empty. This class can be used for specific styling of each form. It can be added by defining **"cssClass"** property in the JSON configuration.
 

@@ -26,7 +26,7 @@ Example of the field with multiple validations:
 - input data max value must be 100
 - input value should be less than 'otherField' value
 
-```typescript
+```json
 {
     "fieldType": "input",
     "valueType": "number",
@@ -84,7 +84,7 @@ The following validations come with the dynamicforms library out of the box:
 
 JSON example:
 
-```typescript
+```json
 "validations": [
     {
         "name": "compareToCurrentDate",
@@ -104,7 +104,7 @@ JSON example:
 
 The following JSON example compares input to the value of the `retirementAge` field:
 
-```typescript
+```json
 "validations": [
     {
         "name": "compareDOBtoAge",
@@ -128,7 +128,7 @@ The following JSON example compares input to the value of the `retirementAge` fi
 
 The following JSON example compares input to the value of the `vehiclePurchaseDate` field:
 
-```typescript
+```json
 "validations": [
     {
         "name": "compareDates",
@@ -148,7 +148,7 @@ The following JSON example compares input to the value of the `vehiclePurchaseDa
 
 In the following JSON example, the field is valid only if the string `no` is added to the input:
 
-```typescript
+```json
 "validations": [
     {
     "name": "checkValue",
@@ -167,7 +167,7 @@ In the following JSON example, the field is valid only if the string `no` is add
 
 JSON example:
 
-```typescript
+```json
 "validations": [
     {
     "name": "containsValue",
@@ -186,7 +186,7 @@ JSON example:
 
 JSON example:
 
-```typescript
+```json
 "validations": [
     {
         "name": "compareNumbers",
