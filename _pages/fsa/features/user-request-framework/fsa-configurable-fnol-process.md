@@ -4,7 +4,7 @@ title: FSA Configurable FNOL Process (Financial Services Accelerator Trail)
 
 **Note**: This trail has been written for and tested on the 4.0 version of the FSA Spartacus libraries.
 
-Financial Services Accelerator offers several trails to help you get more familiar with some of the features. 
+Financial Services Accelerator offers several trails to help you get more familiar with some of its features. 
 The Customized FNOL Process Trail demonstrates how to create a new user request process in Financial Services Accelerator, using as an example the First Notice of Loss (FNOL) process for Travel Insurance.
 
 Making a custom FNOL process is almost fully available from the Backoffice. 
@@ -23,7 +23,7 @@ The purpose of this document is to provide those final instructions and show how
 
 ## Introduction
 
-The First Notice of Loss sample process has been implemented in the Financial Services Accelerator on the Auto Insurance product. 
+The First Notice of Loss (FNOL) sample process has been implemented in the Financial Services Accelerator on the Auto Insurance product. 
 However, the Financial Services Accelerator enables you to create a tailor-made FNOL process for your insurance products using the User Request Framework.
 
 To create a tailor-made FNOL process for an insurance product:

@@ -25,8 +25,6 @@ For more information, see [User Request Framework](https://help.sap.com/docs/FIN
 
 The framework is implemented on the FSA Spartacus storefront as part of the following processes: 
 
-Financial Service Accelerator offers two use cases where the User Request Framework is used:
-
 - **First Notice of Loss** - a process in which the user reports a claim directly on the insurance storefront. 
   The claim reporting process includes four sample steps that capture all the relevant information required for recording a loss event. 
   For more information on how the FNOL process is implemented on the FSA Spartacus storefront, see [Claims]({{ site.baseurl }}{% link _pages/fsa/features/claims/claims.md %}).
@@ -35,7 +33,7 @@ Financial Service Accelerator offers two use cases where the User Request Framew
   Users can easily change mileage, add or remove coverages, and/or add additional drivers to their policies through a guided step-by-step procedure. 
   For more information on how this feature is implemented in FSA Spartacus, see [Policy Change]({{ site.baseurl }}{% link _pages/fsa/features/fsa-policy-change.md %}).
  
-Although the current implementation of the Financial Services Accelerator uses the User Request Framework for changing policies and reporting claims, it can be extended and reused for other request types (contact request, service request, etc.). 
+Although the current implementation of the Financial Services Accelerator uses the User Request Framework for changing policies and reporting claims, it can be extended and used for other request types (contact request, service request, etc.). 
 All user request processes are fully configurable in the Backoffice. 
 
 ## Financial Services Accelerator Trail - Customized FNOL Process 

@@ -19,9 +19,9 @@ Once the policy is created, the information about the chosen payment method is a
 
 ![policy details]({{ site.baseurl }}/assets/images/fsa/policy_details_payment.png)
 
-## SPA Components
+## Components
 
-The payment feature logic sits in FSPaymentMethodComponent which extends the Spartacus' PaymentMethodComponent.
+The payment feature logic sits in `FSPaymentMethodComponent` which extends the Spartacus' `PaymentMethodComponent`.
 Payment types are loaded via the payment type service and shown to the customer in the form of radio buttons.
 
 ```html

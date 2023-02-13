@@ -120,7 +120,7 @@ The following guards have been implemented to prevent access to restricted or un
 - QuoteNotBoundGuard
 - ReferredQuoteGuard
 
-Besides specific components of checkout steps, there is one crucial component that connects them - the `FSCheckoutProgressComponent`. This component is responsible for filtering the checkout steps, setting the active index, and indicating the step status by styling. A checkout step can be disabled, active or visited.
+Beside specific components of checkout steps, there is one crucial component that connects them - the `FSCheckoutProgressComponent`. This component is responsible for filtering the checkout steps, setting the active index, and indicating the step status by styling. A checkout step can be disabled, active or visited.
 
 ![checkout progress bar]({{ site.baseurl }}/assets/images/fsa/checkout_progress_bar.png)
 

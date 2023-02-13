@@ -27,7 +27,7 @@ The customer can start quote comparison from two pages:
 - the **Quote & Applications** page of the **My Account** area
 - the **Quote Details** page
 
-### Selecting Quotes from Quote & Applications Page
+### Selecting Quotes from Quotes & Applications Page
 
 On the Quotes & Applications page, there are three main actions that the customer can do: 
 

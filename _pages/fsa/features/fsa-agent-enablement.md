@@ -31,7 +31,7 @@ For more information on back-end implementation, see [Agent Enablement](https://
 
 The central place of the OBO framework on the FSA Spartacus is the Seller Dashboard page, introduced for this occasion. 
 
-## User Journey 
+## Seller User Journey 
 
 ### Accessing the Seller Dashboard
 

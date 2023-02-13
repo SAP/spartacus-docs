@@ -19,9 +19,9 @@ The Policy Renewal process enables insurance carriers to provide their customers
 ## Overview
 
 The insurance company typically invites the policyholder to renew the policy near the end of its term.
-Customers are notified via Inbox message when their policy is up for renewal, and they are guided to a compare view of offered renewal options. 
+Customers receive an Inbox message when their policy is up for renewal, and they are guided to a compare view of offered renewal options. 
 In the Financial Services Accelerator's default implementation, the policy renewal process is triggered 31 days before the expiry of the current policy. 
-This period is configurable from the back-end side through FSPolicyRenewalCronJob. 
+This period is configurable from the back-end side through `FSPolicyRenewalCronJob`. 
 
 The renewal process has been implemented for Auto, Life and Event Insurance, but can be applied to other categories and products. 
 For more information, see Policy Renewal feature documentation on the [SAP Help Portal](https://help.sap.com/viewer/6ac05cfc1e2a41dca9cfa29de18cd01a/latest/en-US/3a9cfcf9213e42fd84092ea69519fa3b.html).
@@ -40,14 +40,14 @@ When a policy is up for renewal, the policyholder receives a notification about 
 
 ![Renewal Notifications in the Inbox]({{ site.baseurl }}/assets/images/fsa/policy-renewal/inbox-notification-unread.png)
 
-Besides the appropriate text, the Inbox message contains the link that leads the customer directly to renewal options. 
+The Inbox message contains a link that leads the customer directly to renewal options. 
 
 ![Renewal Notification Text]({{ site.baseurl }}/assets/images/fsa/policy-renewal/inbox-notification-text.png)
 
 Following the link from the message, the customer lands on a quote comparison page, where the renewal offers are presented in a tabular view. 
 If there is more than one offer, the customer can examine and compare the different product plans and choose the one that best fits their needs. 
 
-In a typical scenario, the customer can choose to renew the policy with the existing product plan (highlighted with the star icon in the UI) or with an upgraded plan. 
+In a typical scenario, the customer can choose to renew the policy with the existing product plan (highlighted with the star icon) or with an upgraded plan. 
 
 ![Renewal Quotes Comparison View - Auto Insurance]({{ site.baseurl }}/assets/images/fsa/policy-renewal/comparison-table-view-auto.png)
 
@@ -81,7 +81,7 @@ The customer then continues with the regular checkout steps, choosing the paymen
 Soon after the purchase, the customer receives two new notifications: one to confirm the renewal, and another to confirm the new policy purchase. 
 The new policy can be seen on the **Policies** page of the **My Account** area, next to the current policy. 
 The start day of the new policy is the end date of the current one.
-After one quote offer is accepted and the policy is created, the second quote offer is automatically deleted.
+Accepting one offer triggers creation of a new policy based on that offer and deletion of the second (discarded) quote.
 
 
 

@@ -18,7 +18,7 @@ Customers can now see an overview of the most important information from the *My
 ## Overview
 
 Logged-in customers can access the Dashboard page to see an overview of their profile and their activities on the portal.
-Besides personal details, such as name, e-mail address and date of birth, customers can preview their quotes and applications, policies and claims.
+Beside personal details, such as name, e-mail address and date of birth, customers can preview their quotes and applications, policies and claims.
 
 ## User Journey 
 

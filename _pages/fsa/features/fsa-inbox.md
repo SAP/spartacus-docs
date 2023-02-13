@@ -28,7 +28,7 @@ More details regarding the Inbox feature from Financial Services Accelerator can
 
 ## Inbound API
 
-Document inbound is enabled by default with the **financialspastore** extension. FSDocumentPostPersistHook is responsible for creating a message with an attachment for a certain user. Generated Inbox Message can have one document attached or a bundle of documents. If documents are imported as a bundle, they should have the same **bundleId**.
+Document inbound is enabled by default with the **financialspastore** extension. `FSDocumentPostPersistHook` is responsible for creating a message with an attachment for a certain user. Generated Inbox message can have one document or a bundle of documents attached to it. If documents are imported as a bundle, they should have the same **bundleId**.
 
 For more information, see  [Inbound API for Correspondence](https://help.sap.com/viewer/4c33bf189ab9409e84e589295c36d96e/latest/en-US/cfe6ce0fba1e45b88db9e076ec801a61.html?q=fsDocumentPostPersistHook).
 
@@ -36,11 +36,11 @@ For more information, see  [Inbound API for Correspondence](https://help.sap.com
 
 The Inbox feature consists of three components, and it comes within inbox.module:
 
-- inbox.component
-- inbox-tab.component
-- inbox-messages.component
+- `inbox.component`
+- `inbox-tab.component`
+- `inbox-messages.component`
 
-The inbox component has inbox-tab at the top and inbox-messages at the bottom.
+The `inbox.component` has inbox-tab at the top and inbox-messages at the bottom.
 
 ```html
 <li class="tab"
@@ -52,7 +52,7 @@ The inbox component has inbox-tab at the top and inbox-messages at the bottom.
 </li>
 ```
 
-In inbox-tab we are setting the current active tab index so we could render messages for the current tab or navigate to other tabs. According to the selected tab (message group), messages are loaded:
+In `inbox-tab` we are setting the current active tab index so we could render messages for the current tab or navigate to other tabs. According to the selected tab (message group), messages are loaded:
 
 ```html
 <cx-fs-inbox-messages
@@ -62,7 +62,7 @@ In inbox-tab we are setting the current active tab index so we could render mess
 </cx-fs-inbox-messages>
 ```
 
-InboxService is the dedicated service for this feature. It has property `activeMessageGroupAndTitle`, which is used to fetch active message group and set the title. The service also provides the following method for loading messages:
+`InboxService` is the dedicated service for this feature. It has property `activeMessageGroupAndTitle`, which is used to fetch active message group and set the title. The service also provides the following method for loading messages:
 
 ```typescript
 getMessages(messageGroup, searchConfig: SearchConfig): Observable<any> {

@@ -37,7 +37,10 @@ The structured process that helps customers choose the right product for their n
 
 
 The component will initialize product results based on desired facets and create breadcrumbs that provide customers with a preview of products that correspond to the choices they made. 
-When the customer decides to purchase one of the offered products, they can start the checkout by clicking the **SELECT** button on the chosen product. The selected product is defined as the **recommended product** and that information is kept in the local storage. The value of the recommended-product key will be used in the comparison table to separate the chosen product from other available products. The selected product will be highlighted on the UI, together with the corresponding message (This is your recommended product.).
+When the customer decides to purchase one of the offered products, they can start the checkout by clicking the **SELECT** button on the chosen product. 
+The selected product is defined as the **recommended product** and that information is kept in the local storage. 
+The value of the recommended-product key will be used in the comparison table to separate the chosen product from other available products. 
+The selected product will be highlighted on the UI, together with the corresponding message (This is your recommended product.).
 
 ![recommended product]({{ site.baseurl }}/assets/images/fsa/product-discovery/fsa-product-discovery-recommended-product-backend.png)
 
