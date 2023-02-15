@@ -36,7 +36,7 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
    **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
 
-1. In the financial_spa folder, the build.gradle file should have the following content:
+1. In the financial_spa folder, the `build.gradle` file should have the following content:
 
     ```typescript
     apply plugin: 'installer-platform-plugin'
@@ -139,19 +139,19 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
     **Note**: The FSA Spartacus Sample Data store extension (financialspastore) is already in the list of extensions for both financial_spa and financial_spa_integrations recipes.
 
-1. Open a terminal or command prompt window inside the "sap-commerce-folder/installer" folder.
+1. Open a terminal or command prompt window inside the `sap-commerce-folder/installer` folder.
 
 1. Set up the recipe using the following commands.
 
     For Unix:
 
-    ```typescript
+    ```shell
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
 
     For Windows:
 
-    ```typescript
+    ```shell
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
 
@@ -159,27 +159,27 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
     For Unix:
 
-    ```typescript
+    ```shell
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
     For Windows:
 
-    ```typescript
+    ```shell
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
-1. Start the SAP Commerce by running the following commands from the sap-commerce-folder>/installer folder.
+1. Start the SAP Commerce by running the following commands from the `sap-commerce-folder>/installer` folder.
 
     For Unix:
 
-    ```typescript
+    ```shell
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
     For Windows:
 
-    ```typescript
+    ```shell
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
@@ -212,13 +212,14 @@ FSA Spartacus uses OCC REST API calls to get information from and make changes t
 
 You can verify that the OAuth client has been successfully defined by entering the following curl command in the terminal or the command prompt window:
 
-```typescript
+```shell
 curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
 ```
 
-The curl command sends a POST request for an access token, using the client ID and password that you added to the back end. The command should return something similar to the following:
+The curl command sends a POST request for an access token, using the client ID and password that you added to the back end. 
+The command should return something similar to the following:
 
-```typescript
+```json
 {
   "access_token" : "550d9a25-87c8-4e76-af21-6174a1e56d5c",
   "token_type" : "bearer",
@@ -233,7 +234,7 @@ CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to
 
 To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the local.properties file of your config folder):
 
-```typescript
+```
 corsfilter.commercewebservices.allowedOrigins=http://localhost:4200
 corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
@@ -245,7 +246,7 @@ corsfilter.acceleratorservices.allowedHeaders=origin content-type accept authori
 corsfilter.acceleratorservices.exposedHeaders=x-anonymous-consents
 ```
 
-**Note**: The x-anonymous-consents custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
+**Note**: The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 ### Step 4: Update system and user credentials (optional)
 
@@ -261,8 +262,8 @@ After you have configured SAP Commerce to accept OCC REST API calls, you can set
 
 Instead of including the admin password in every install command, you can create a configuration file.
 
-1. Create a file named custom.properties inside the installer/customconfig folder of your SAP Commerce folder.
-1. Add the following line: initialpassword.admin=Y0urFav0r!tePassw0rd. Replace Y0urFav0r!tePassw0rd with the password you want to use.
+1. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce folder.
+1. Add the following line: `initialpassword.admin=Y0urFav0r!tePassw0rd`. Replace `Y0urFav0r!tePassw0rd` with the password you want to use.
 1. Save the file.
 
 Next time you run the recipe install command, the settings inside custom.properties will be used to build the `local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
@@ -281,7 +282,7 @@ Next time you run the recipe install command, the settings inside custom.propert
 
 You may encounter the following error message:
 
-```typescript
+```shell
 POST http://localhost:4200/acceleratorservices/sop-mock/process 404 (Not Found)
 ```
 

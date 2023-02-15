@@ -34,7 +34,7 @@ For more information, see [Installing SAP Commerce Using Installer Recipes](http
 
    **Note**: Use the SAP Commerce version 2105 and Financial Services Accelerator version 2202.
 
-2. In the "sap-commerce-folder/installer/recipes" folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
+2. In the `sap-commerce-folder/installer/recipes` folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
 
    **Note**: The procedure for installing the *financial_spa_integrations* recipe is exactly the same as for the *financial_spa* recipe. 
    The *financial_spa_integrations* recipe is used for installing SAP for Insurance integrations with FSA Storefront.
@@ -134,9 +134,9 @@ For more information, see [Installing SAP Commerce Using Installer Recipes](http
     }
     ```
 
-    **Note**: The FSA Spartacus Sample Data store extension (financialspastore) is already in the list of extensions for both *financial_spa* and *financial_spa_integrations* recipes.
+    **Note**: The FSA Spartacus Sample Data store extension (financialspastore) is already in the list of extensions for both financial_spa and financial_spa_integrations recipes.
 
-4. Open a terminal or command prompt window inside the "sap-commerce-folder/installer" folder.
+4. Open a terminal or command prompt window inside the `sap-commerce-folder/installer` folder.
 
 5. Set up the recipe using the following commands.
 
@@ -208,14 +208,14 @@ FSA Spartacus uses OCC REST API calls to get information from and make changes t
 
 You can verify that the OAuth client has been successfully defined with the following `curl` command:
 
-```typescript
+```shell
 curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_credentials" -X POST https://localhost:9002/authorizationserver/oauth/token
 ```
 
 The `curl` command sends a POST request for an access token, using the client ID and password that you added to the back end. 
 The command should return something similar to the following:
 
-```typescript
+```json
 {
   "access_token" : "550d9a25-87c8-4e76-af21-6174a1e56d5c",
   "token_type" : "bearer",
@@ -233,7 +233,7 @@ Hover your mouse over the **Platform** tab, click **Configuration**, then update
 
 To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the `local.properties` file of your config folder):
 
-```typescript
+```
 corsfilter.commercewebservices.allowedOrigins=http://localhost:4200
 corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference

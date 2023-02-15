@@ -60,7 +60,7 @@ The following procedure describes how to create a new Angular application with t
 1. Open a terminal or command prompt window at the location of your choice.
 1. Using the Angular CLI, generate a new Angular application with the following command:
 
-   ```bash
+   ```shell
    ng new mystore --style=scss
    ```
 
@@ -70,7 +70,7 @@ The following procedure describes how to create a new Angular application with t
 
 1. Access the newly created `mystore` folder with the following command:
 
-     ```bash
+     ```shell
      cd mystore
      ```
 

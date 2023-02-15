@@ -60,7 +60,7 @@ The following procedure describes how to create a new Angular application with t
 1. Open a terminal or command prompt window at the location of your choice.
 2. Using the Angular CLI, generate a new Angular application with the following command:
 
-   ```bash
+   ```shell
    ng new mystore --style=scss
    ```
 
@@ -70,7 +70,7 @@ The following procedure describes how to create a new Angular application with t
 
 3. Access the newly created `mystore` folder with the following command:
 
-     ```bash
+     ```shell
      cd mystore
      ```
 
@@ -92,7 +92,7 @@ For a full list of available parameters, please visit Spartacus schematics [docu
 
 Install dependencies needed by your FSA Spartacus app with the following command:
 
-```bash
+```shell
 yarn install
 ```
 
@@ -156,7 +156,7 @@ For example, check:
 
 Start your app with the following command:
 
-```bash
+```shell
 yarn start
 ```
 

@@ -32,11 +32,11 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
    **Note**: Use the SAP Commerce version 2105 and Financial Services Accelerator version 2108.
 
-2. In the "sap-commerce-folder/installer/recipes" folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
+2. In the `sap-commerce-folder/installer/recipes` folder, you should be able to see the financial_spa and financial_spa_integrations recipes.
 
-   **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe. The financial_spa_integrations recipe is used for installing SAP for Insurance integrations with FSA Storefront.
+   **Note**: The procedure for installing the financial_spa_integrations recipe is exactly the same as for the financial_spa recipe.
 
-3. In the financial_spa recipe folder, the build.gradle file should have the following content:
+3. In the financial_spa recipe folder, the `build.gradle` file should have the following content:
 
     ```typescript
     apply plugin: 'installer-platform-plugin'
@@ -139,13 +139,13 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
     For Unix:
 
-    ```typescript
+    ```shell
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
 
     For Windows:
 
-    ```typescript
+    ```shell
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd
     ```
 
@@ -153,13 +153,13 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
     For Unix:
 
-    ```typescript
+    ```shell
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
     For Windows:
 
-    ```typescript
+    ```shell
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd initialize
     ```
 
@@ -167,13 +167,13 @@ Some steps in this procedure derive from the documentation for installing SAP Co
 
     For Unix:
 
-    ```typescript
+    ```shell
     ./install.sh -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
     For Windows:
 
-    ```typescript
+    ```shell
     install.bat -r financial_spa -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd start
     ```
 
@@ -212,7 +212,7 @@ curl -k -d "client_id=mobile_android&client_secret=secret&grant_type=client_cred
 
 The curl command sends a POST request for an access token, using the client ID and password that you added to the back end. The command should return something similar to the following:
 
-```typescript
+```json
 {
   "access_token" : "550d9a25-87c8-4e76-af21-6174a1e56d5c",
   "token_type" : "bearer",
@@ -223,11 +223,13 @@ The curl command sends a POST request for an access token, using the client ID a
 
 ### Step 3: Configuring CORS
 
-CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. Certain FSA Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce. You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
+CORS (Cross-Origin Resource Sharing) defines a way for a browser and a server to decide which cross-origin requests for restricted resources can or cannot be allowed. 
+Certain FSA Spartacus functionalities, such as checkout and consent management, may not work properly if the CORS OCC REST API settings are not configured properly in SAP Commerce. 
+You can add these settings using the Hybris Administration Console. Hover your mouse over the **Platform** tab, click **Configuration**, then update the CORS settings.
 
-To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the local.properties file of your config folder):
+To configure CORS settings for OCC REST APIs, add the following to your SAP Commerce configuration (the `local.properties` file of your config folder):
 
-```typescript
+```
 corsfilter.commercewebservices.allowedOrigins=http://localhost:4200
 corsfilter.commercewebservices.allowedMethods=GET HEAD OPTIONS PATCH PUT POST DELETE
 corsfilter.commercewebservices.allowedHeaders=origin content-type accept authorization cache-control x-anonymous-consents x-profile-tag-debug x-consent-reference
@@ -239,7 +241,7 @@ corsfilter.acceleratorservices.allowedHeaders=origin content-type accept authori
 corsfilter.acceleratorservices.exposedHeaders=x-anonymous-consents
 ```
 
-**Note**: The x-anonymous-consents custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
+**Note**: The `x-anonymous-consents` custom header is included in the above example, but it can be removed if you plan to disable the anonymous consent feature. However, do not remove this header if you do not plan to disable the anonymous consent feature. For more information, see [Anonymous Consent]({{ site.baseurl }}{% link _pages/dev/features/anonymous-consent.md %}).
 
 ### Step 4: Update system and user credentials (optional)
 
@@ -255,8 +257,8 @@ After you have configured SAP Commerce to accept OCC REST API calls, you can set
 
 Instead of including the admin password in every install command, you can create a configuration file.
 
-1. Create a file named custom.properties inside the installer/customconfig folder of your SAP Commerce folder.
-2. Add the following line: initialpassword.admin=Y0urFav0r!tePassw0rd. Replace Y0urFav0r!tePassw0rd with the password you want to use.
+1. Create a file named `custom.properties` inside the `installer/customconfig` folder of your SAP Commerce folder.
+2. Add the following line: `initialpassword.admin=Y0urFav0r!tePassw0rd`. Replace `Y0urFav0r!tePassw0rd` with the password you want to use.
 3. Save the file.
 
 Next time you run the recipe install command, the settings inside custom.properties will be used to build the local.properties file and there is no need to include -A local_property:initialpassword.admin=Y0urFav0r!tePassw0rd`.
