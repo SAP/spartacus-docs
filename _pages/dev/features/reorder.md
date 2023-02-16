@@ -2,7 +2,7 @@
 title: Reorder
 ---
 
-The reorder feature allows you to create cart from an existing order.
+The reorder feature allows you to create cart from an existing order and is only available for the b2b channel.
 
 ## Requirements
 
