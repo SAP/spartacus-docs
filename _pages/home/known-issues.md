@@ -16,6 +16,6 @@ In `package.json`, you can either set `"hamburgers": "~1.1.3"`, or you can use r
   },
 ```
 
-**Note:** It is important to commit `yarn.lock` to your repo.
+**Note:** It is important to commit `package-lock.json` to your repo.
 
 For further information, see [Spartacus GitHub Issue 15389](https://github.com/SAP/spartacus/issues/15389).

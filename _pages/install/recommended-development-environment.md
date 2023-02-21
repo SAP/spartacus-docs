@@ -16,8 +16,8 @@ title: Recommended Development Environment
 There are a number of necessary CLI tools that you need to have installed in order to work with Spartacus, as follows:
 
 - Node - first and foremost you need Node installed. To install it, refer to the [official site](https://nodejs.org). An alternative to installing a system-wide version of node is to use a Node version manager, such as [nvm](https://github.com/nvm-sh/nvm#installation-and-update). `nvm` also works on Windows via Windows Subsystem for Linux, a.k.a. `WSL`; if `WSL` is not available, [nvm-windows](https://github.com/coreybutler/nvm-windows) can be used. The advantage of installing a Node version manager is that it provides an ability to easily switch to a different version of Node.
-- Package manager - Spartacus team prefers `yarn` over `npm`, as a package manager solution, for its speed. To install `yarn` see the official [guide](https://yarnpkg.com/en/docs/install). `npm` comes pre-installed with Node.
-- Angular CLI - to install it, run `npm install -g @angular/cli`. To configure angular CLI to always use `yarn` over `npm` run `ng config -g cli.packageManager yarn`. This setting is stored in `<YOUR_HOMEDIR>/.angular-config.json`. For more, see [this article](https://medium.com/@beeman/using-yarn-with-angular-cli-v6-7f53a7678b93).
+- Package manager - Spartacus team prefers `npm` over `yarn`, as a package manager solution. `npm` comes pre-installed with Node.
+- Angular CLI - to install it, run `npm install -g @angular/cli`. To configure angular CLI to always use `npm` over `yarn` run `ng config -g cli.packageManager npm`. This setting is stored in `<YOUR_HOMEDIR>/.angular-config.json`. For more, see [this article](https://medium.com/@beeman/using-yarn-with-angular-cli-v6-7f53a7678b93).
 
 ### Versions
 
@@ -93,7 +93,7 @@ After following the steps in [{% assign linkedpage = site.pages | where: "name",
 
 ### Code formatting
 
-As a code formatter, Spartacus team prefers [prettier](https://prettier.io/). To install it as a dependency, run `yarn add prettier --dev`. To share prettier settings with all team members, create `.prettierrc` file in the root of your project and paste the following:
+As a code formatter, Spartacus team prefers [prettier](https://prettier.io/). To install it as a dependency, run `npm install prettier --include=dev`. To share prettier settings with all team members, create `.prettierrc` file in the root of your project and paste the following:
 
 ```json
 {
@@ -268,7 +268,7 @@ To run `prettier` you can add this script to `package.json` to `scripts` array: 
 
 _Note_: you may have to change `src` to match the directory that you are using as a source directory.
 
-To check for formatting violations run: `yarn prettier`.
+To check for formatting violations run: `npm run prettier`.
 
 ### linting
 
@@ -281,14 +281,6 @@ To improve linting, add the following to the `tsconfig.json` located in the proj
   "noUnusedParameters": true,
 ```
 
-## git ignore
-
-If you switched from using `npm` to `yarn`, it's wise to delete `package-lock.json` file that `npm` generates, and add this file to `.gitignore`:
-
-```json
-package-lock.json
-```
-
 ## Final Steps
 
-Finally, you may need to run `yarn install` to install dependencies added to `package.json`.
+Finally, you may need to run `npm install` to install dependencies added to `package.json`.

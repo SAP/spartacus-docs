@@ -18,7 +18,7 @@ The following instructions describe how to build a storefront application, for b
 With the release of Spartacus 5.0, the hosting service of SAP Commerce Cloud cannot be used for building your Spartacus application. As a workaround, you can build your Spartacus app locally, and upload the compiled application, as follows:
 
 1. Follow all of the steps on this page to set up your Spartacus application, up to and including [Installing Dependencies](#installing-dependencies).
-2. Run `yarn build`.
+2. Run `npm run build:libs`.
 
    A new `dist` folder is created in the root directory of your Spartacus project.
 
@@ -121,7 +121,7 @@ When you run this command, you are asked to choose which features you would like
 Install dependencies needed by your Spartacus app with the following command:
 
 ```shell
-yarn install
+npm install
 ```
 
 ## Checking spartacus-configuration.module.ts for Base URL and Other Settings
@@ -158,7 +158,7 @@ For Spartacus to work with SmartEdit, your Spartacus application needs to use th
 Start your app with the following command:
 
 ```shell
-yarn start
+npm start
 ```
 
 Your app will be compiled and then started.

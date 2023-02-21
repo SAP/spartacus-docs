@@ -56,7 +56,7 @@ We use [TSLint](https://palantir.github.io/tslint/) to analyze and improve our t
 You can run the following command to lint your code:
 
 ```bash
-yarn lint
+npm run lint
 ```
 
 We also encourage you to use the `TSLint` plugin in VS Code.
@@ -68,13 +68,13 @@ We use [Prettier](https://prettier.io/) to format our code (and make it prettier
 To check that are all the files prettified, run the following:
 
 ```bash
-yarn prettier
+npm run prettier
 ```
 
 To format and prettify your codebase, run the following:
 
 ```bash
-yarn prettier:fix
+npm run prettier:fix
 ```
 
 We also encourage to use the Prettier VS Code plugin. For more information, see [{% assign linkedpage = site.pages | where: "name", "development-tools-for-spartacus.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/contributing/development-tools-for-spartacus.md %}).
@@ -86,7 +86,7 @@ We use Sass for all of our CSS, which then is converted to CSS using [node-sass]
 Use the following command to preprocess the Sass in `projects/storefrontstyles`
 
 ```bash
-yarn sass
+npm run sass
 ```
 
 ## Unit Tests
@@ -96,8 +96,8 @@ Spartacus code requires unit tests. Ensure that new features or bugs have unit t
 Run the following commands to run the unit tests for a library:
 
 ```bash
-yarn test [project]
-yarn test storefrontlib
+npm run test [project]
+npm run test storefrontlib
 ```
 
 When you run the tests, Chrome opens, and you can see the progress of the tests, with detailed information, including whether the tests pass.
@@ -109,15 +109,15 @@ Please ensure that unit test coverage is >= 80% for everything, and >=60% for br
 To get the test coverage report, run the following commands:
 
 ```bash
-yarn test [project] --code-coverage
-yarn test storefrontlib --code-coverage
+npm run test [project] --code-coverage
+npm run test storefrontlib --code-coverage
 ```
 
 Alternatively, you can run the following commands:
 
 ```bash
-yarn test [project] --code-coverage
-yarn test:core:lib
+npm run test [project] --code-coverage
+npm run test:core:lib
 ```
 
 The coverage report can be found in `./coverage/index.html`.
@@ -133,9 +133,9 @@ All newly written end-to-end tests must be reviewed, updated, or reused. They sh
 Run the following commands to perform end-to-end tests:
 
 ```bash
-yarn e2e:cy:run # smoke tests
-yarn e2e:cy:run:mobile # mobile tests
-yarn e2e:cy:run:regression # regression tests
+npm run e2e:cy:run # smoke tests
+npm run e2e:cy:run:mobile # mobile tests
+npm run e2e:cy:run:regression # regression tests
 ```
 
 **Note:** Before running the end-to-end tests, make sure to install dependencies in `projects/storefrontapp-e2e-cypress`, and ensure the application is running.
@@ -187,7 +187,7 @@ Any feature that starts out as a proof of concept (POC) must include a security 
 Run the following command to ensure the libraries build without errors:
 
 ```bash
-yarn build:libs
+npm run build:libs
 ```
 
 ## The Shell Starts Without Errors
@@ -195,7 +195,7 @@ yarn build:libs
 Run the following command to ensure the shell storefront app starts without errors:
 
 ```bash
-yarn start
+npm start
 ```
 
 After running the command, you should see the following:
@@ -230,8 +230,8 @@ When you think you are done :)
 Run the following commands to verify that the production build works, especially the ahead-of-time (AOT) compiler:
 
 ```bash
-yarn build:libs
-yarn start
+npm run build:libs
+npm start
 ```
 
 The following are some reasons why the production build might fail:

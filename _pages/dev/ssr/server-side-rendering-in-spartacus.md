@@ -367,23 +367,23 @@ If you are involved in Spartacus internal development (for example, if you are c
 1. Rebuild your local Spartacus libraries by running the following command:
 
    ```bash
-   yarn build:core:lib
+   npm run build:libs
    ```
 
 1. Build your local Spartacus shell app by running the following command:
 
    ```bash
-   yarn build --prod
+   npm run build --prod
    ```
 
 1. Build the SSR version of your shell app by running the following command:
 
    ```bash
-   yarn build:ssr
+   npm run build:ssr
    ```
 
 1. Start Spartacus with the SSR server by running the following command:
 
    ```bash
-   yarn serve:ssr
+   npm run serve:ssr
    ```
