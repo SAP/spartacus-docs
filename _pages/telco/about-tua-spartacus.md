@@ -11,7 +11,8 @@ Service providers can deliver personalized and relevant user experiences tailore
 This public instance of Spartacus is running on SAP Commerce Cloud (CCv2). Following are the links for each of our supported storefronts:
 
 - [Telco](https://jsapps.cy8u-telcoacce1-s5-public.model-t.cc.commerce.ondemand.com/telcospa/en/USD/)
+- [B2B Telco](https://jsapps.cy8u-telcoacce1-s7-public.model-t.cc.commerce.ondemand.com/b2btelcospa/en/USD/)
 - [Utilities](https://jsapps.cy8u-telcoacce1-s5-public.model-t.cc.commerce.ondemand.com/utilitiesspa/en/USD/)
-- [Media](https://jsapps.cy8u-telcoacce1-s5-public.model-t.cc.commerce.ondemand.com/mediaspa/en/USD/) 
+- [Media](https://jsapps.cy8u-telcoacce1-s5-public.model-t.cc.commerce.ondemand.com/mediaspa/en/USD/)
 
 We may have our latest version on the link above, but in the future we hope to update our deployments quickly and frequently.
