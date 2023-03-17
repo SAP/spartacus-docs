@@ -4,7 +4,7 @@ title: Web Browser Support
 
 Ideally, your storefront will render uniformly in any browser that is used by your customers. However, web browsers do not all support the same web standards, nor do they handle these standards in the same way. For example, there are different ways of interpreting a standard's specifications, deliberate design decisions that result in different outcomes, as well as bugs that are unique to each browser. And for each browser that is supported, there is a resulting implementation effort that includes QA, architectural decisions, and technical decisions. In the end, a balance has to be struck between providing an excellent storefront experience, and supporting (as much as possible) the different web browsers that are out there.
 
-Spartacus is designed to take advantage of the latest web platform standards, while also allowing you to run your Spartacus storefront in as many different web browsers as possible. However, some older browsers do not support the latest standards, and as a result, these browsers are not supported by Spartacus. Spartacus actively supports "evergreen browsers", which means there are end-to-end tests and manual QA done for evergreen browsers (though other browsers that are not evergreen may be supported "by accident" - for example, if they support the latest web platform standards). Evergreen browsers are web browsers that are automatically upgraded to future versions, rather than being updated by distribution of a new version (for example, in an OS update). Spartacus actively supports only evergreen browsers because Spartacus follows standard Angular, the Spartacus libraries are kept as clean as possible by intentionally avoiding "browser quirks" in the library code, and there is no planned investment in automated tests of very old browsers.
+Spartacus is designed to take advantage of the latest web platform standards, while also allowing you to run your Spartacus storefront in as many different web browsers as possible. However, some older browsers do not support the latest standards, and as a result, these browsers are not supported by Spartacus. Spartacus actively supports the same browsers that are [supported by Angular](https://angular.io/guide/browser-support), which means there are end-to-end tests and manual QA done for these browsers (though other browsers that are not supported by Angular may be supported "by accident" - for example, if a browser supports the latest web platform standards). Spartacus only supports those browsers that are supported by Angular because Spartacus follows standard Angular, the Spartacus libraries are kept as clean as possible by intentionally avoiding "browser quirks" in the library code, and there is no planned investment in automated tests of very old browsers.
 
 Although Spartacus might not support older browsers, there are some common techniques that make it possible to support these browsers. The following are some of the steps you can take to get an older browser to work with Spartacus:
 
@@ -41,7 +41,7 @@ In terms of Spartacus supporting IE11, the following are known issues at the tim
 
 ## Mobile and Tablet Support
 
-Spartacus supports evergreen web browsers on mobile and tablet platforms.
+Spartacus supports the same browsers that are [supported by Angular](https://angular.io/guide/browser-support) on mobile and tablet platforms.
 
 ### iOS Browsers
 
