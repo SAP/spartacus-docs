@@ -19,7 +19,10 @@ provideConfig({
   }
 })
 ```
- 
+
+Keep in mind that setting a longer timeout value may increase the risk of SSR hanging longer if a 3rd party service is unreachable for an extended period. Conversely, setting a shorter timeout value may result in a higher rate of aborted requests, which could impact the reliability of your SSR application. 
+
+We recommend testing and tuning the timeout value to find the optimal balance between reliability and performance for your use case.
 
 #### Configuring timeout for outgoing requests per request
 If a request to some particular endpoint should have a different timeout than the global one, you can set the timeout value in the Angular's `HttpContext` of the request. For example:
