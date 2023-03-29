@@ -68,11 +68,14 @@ server.engine(
 
 By default, the SSR optimization engine uses the following configuration:
 
-```json
+```ts
 {
-  "concurrency": 20,
-  "timeout": 3000,
-  "maxRenderTime": 300000
+  "concurrency": 10,
+  "timeout": 3_000,
+  "forcedSsrTimeout": 60_000,
+  "maxRenderTime": 300_000,
+  "reuseCurrentRendering": true,
+  "debug": false
 }
 ```
 
@@ -120,7 +123,7 @@ It is recommended that the `cacheSize` should be set according to the server's r
 
 The `concurrency` setting is a number that indicates how many concurrent requests are treated before defaulting to CSR. Usually, when the concurrency increases (more renders being done at the same time) the slower the response is for each request. To fine-tune it and keep response time reasonable, you can limit the maximum number of concurrent requests. All requests that are unable to render because of this will fall back to CSR. If the `reuseCurrentRendering` is enabled, multiple requests for the same rendering key (which is the request URL, by default) will take up only one concurrency slot.
 
-The default value is `20`.
+The default value is `10`.
 
 It is recommended that the `concurrency` be set according to the server's available resources available (such as the speed of the CPU). A high concurrency number could have a negative impact on the performance because the CPU will try to render a large number of requests concurrently, which effectively slows down the response times.
 
@@ -175,6 +178,8 @@ For example, consider the following setup, where the `timeout` is set to 3 secon
 - The first request times out after 3 seconds, and falls back to CSR.
 - One second after the timeout, the current render finishes.
 - The second request returns using SSR after only 2 seconds of waiting.
+
+The default value is `true`.
 
 It is recommended that you enable `reuseCurrentRendering` because it can smartly provide server-side rendered content to multiple requests for the same URL. However, this might require more server resources, such as RAM.
 
