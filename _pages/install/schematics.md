@@ -4,14 +4,14 @@ title: Schematics
 
 Spartacus schematics allow you to install Spartacus libraries in your project. The following sections describe what the Spartacus schematics do, and also provide information about the various options and commands you can use with the schematics. If you are a developer and are looking for more technical information, see the [README](https://github.com/SAP/spartacus/blob/develop/projects/schematics/README.md) in the Spartacus schematics project.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Prerequisites
 
@@ -84,8 +84,7 @@ When you run `ng add @spartacus/schematics`, the command does the following:
 3. Imports Spartacus styles to `main.scss`.
 4. Adds the `cx-storefront` component to your `app.component`.
 5. Optionally updates `index.html` with the Spartacus URL endpoints in meta tags.
-6. If the `--pwa` flag is included, it adds PWA service worker support for your project. (has been removed in Spartacus 6.0)
-7. If the `--ssr` flag is included, the command does the following:
+6. If the `--ssr` flag is included, the command does the following:
    - Adds server-side rendering dependencies.
    - Provides additional files that are required for SSR.
 
