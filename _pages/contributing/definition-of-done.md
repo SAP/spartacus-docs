@@ -124,7 +124,7 @@ The coverage report can be found in `./coverage/index.html`.
 
 ## End-To-End Tests
 
-All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing. You also need to add the jira ticket number of your epic/feature/user-story/backlog-item to the description of your tests, in order for them to be picked up by cumulus for traceability. 
+All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing. You also need to add the Jira ticket number of your epic/feature/user story/backlog item to the description of your tests. This is done so they can be picked up by Cumulus for traceability.
 
 When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
 
@@ -155,7 +155,7 @@ The UI of the feature complies with the Accessibility success criteria that are 
 
 For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
-Manual tests should be performed in order to ensure the new feature is accessible and free of AMP violation. This means screenreader testing using VO for Mac or JAWS for Windows and Access Assistant for verifying AMP violations.  
+Manual tests should be performed to ensure the new feature is accessible and does not raise any AMP violations. This means conducting screen reader testing using VO for Mac or JAWS for Windows, as well as using Access Assistant to verify AMP violations.  
 
 ## Browser Compatibility
 
