@@ -1881,6 +1881,8 @@
     
     <p><strong>Note: Spartacus 3.x is no longer maintained. Please upgrade to the <a href="https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT">latest version</a>.</strong></p>
 
+<p><strong>Note: Spartacus 3.x was tested with SAP Commerce Cloud versions 1905 to 2105. Spartacus 3.x has not been verified to work with (and is not guaranteed to work with) SAP Commerce Cloud 2211 or later releases.</strong></p>
+
 <p>To give better feedback to users, based on their actions, we often have to keep information such as “cart is loading”, “fetching user address failed”, and so on.
 For every separate application state, we have to keep that meta data beside. Separate for cart, user information, product data and so on. Implementing this logic in all of these places manually would result in having different solutions to the same problem across the codebase.
 That’s why in spartacus <code class="language-plaintext highlighter-rouge">loaderReducer</code> was created. This reducer standardizes meta data handling in the whole state tree.

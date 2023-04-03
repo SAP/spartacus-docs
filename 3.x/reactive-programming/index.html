@@ -1508,6 +1508,8 @@
     
     <p><strong>Note: Spartacus 3.x is no longer maintained. Please upgrade to the <a href="https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT">latest version</a>.</strong></p>
 
+<p><strong>Note: Spartacus 3.x was tested with SAP Commerce Cloud versions 1905 to 2105. Spartacus 3.x has not been verified to work with (and is not guaranteed to work with) SAP Commerce Cloud 2211 or later releases.</strong></p>
+
 <p>There are many ways to write asynchronous code in JS, such as callbacks and promises, as well as observables in the case of RxJS. As much as possible, Spartacus uses observables as the main mechanism for asynchronous code.</p>
 
 <p>When interacting with external dependencies, it is sometimes necessary to follow the same pattern that is used by those dependencies. However, if you are working with methods that use a different pattern, always try to return an <code class="language-plaintext highlighter-rouge">Observable</code> if you can. By consistently using the same patterns across the entire codebase, we make our code easier to follow, and simplify the analysis of data flow.</p>

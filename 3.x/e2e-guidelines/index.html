@@ -1480,6 +1480,8 @@
     
     <p><strong>Note: Spartacus 3.x is no longer maintained. Please upgrade to the <a href="https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT">latest version</a>.</strong></p>
 
+<p><strong>Note: Spartacus 3.x was tested with SAP Commerce Cloud versions 1905 to 2105. Spartacus 3.x has not been verified to work with (and is not guaranteed to work with) SAP Commerce Cloud 2211 or later releases.</strong></p>
+
 <p>It is a good practice to write end-to-end tests for both desktop and mobile experiences. By using the <code class="language-plaintext highlighter-rouge">viewportContext()</code> and <code class="language-plaintext highlighter-rouge">cy.onMobile()</code> utils, you can avoid having to write duplicate code for both the mobile and desktop tests.</p>
 
 <p>The <code class="language-plaintext highlighter-rouge">viewportContext()</code> allows you to easily run the same e2e tests for a given set of viewports, whether it is both viewports (<code class="language-plaintext highlighter-rouge">['desktop', 'mobile']</code>), only <code class="language-plaintext highlighter-rouge">['mobile']</code>, or only <code class="language-plaintext highlighter-rouge">['desktop']</code>.</p>
