@@ -20,7 +20,7 @@ provideConfig({
     timeout: {
       // values in milliseconds:
       browser: 60_000, // 60 seconds
-      backend: 10_000, // 10 seconds
+      server: 10_000, // 10 seconds
     }
   }
 })
