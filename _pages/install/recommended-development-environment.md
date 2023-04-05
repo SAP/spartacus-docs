@@ -11,12 +11,12 @@ title: Recommended Development Environment
 
 ***
 
-## CLI tools
+## CLI Tools
 
 There are a number of necessary CLI tools that you need to have installed in order to work with Spartacus, as follows:
 
 - Node - first and foremost you need Node installed. To install it, refer to the [official site](https://nodejs.org). An alternative to installing a system-wide version of node is to use a Node version manager, such as [nvm](https://github.com/nvm-sh/nvm#installation-and-update). `nvm` also works on Windows via Windows Subsystem for Linux, a.k.a. `WSL`; if `WSL` is not available, [nvm-windows](https://github.com/coreybutler/nvm-windows) can be used. The advantage of installing a Node version manager is that it provides an ability to easily switch to a different version of Node.
-- Package manager - the Spartacus team uses `npm`, as a package manager solution. `npm` comes pre-installed with Node.
+- Package manager - the Spartacus team uses `npm` as a package manager solution. `npm` comes pre-installed with Node.
 - Angular CLI - to install it, run `npm install -g @angular/cli`. 
 
 ### Versions
@@ -27,7 +27,7 @@ There are a number of necessary CLI tools that you need to have installed in ord
 
 Spartacus team recommends a highly extensible and open source editor - *VSCode*, which can be downloaded from [here](https://code.visualstudio.com/Download).
 
-### VSCode settings
+### VSCode Settings
 
 To share some common settings across team members, create `.vscode` folder in the root of your project, and inside of it create `settings.json` file. Settings added here are known as `workspace` settings.
 
@@ -50,7 +50,7 @@ Here are some recommended workspace settings that also help to avoid collision w
 }
 ```
 
-### VSCode extensions
+### VSCode Extensions
 
 Here is a list of recommended extensions when working with Spartacus:
 
@@ -86,11 +86,11 @@ Some other notable extensions:
 - Languages support for the SAP Hybris import/export language ImpEx (unofficial) - `simplyroba.impex-support`
 - Markdown linting and style checking for Visual Studio Code - `davidanson.vscode-markdownlint`
 
-## Project setup
+## Project Setup
 
 After following the steps in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}), it's time to set up the project.
 
-### Code formatting
+### Code Formatting
 
 As a code formatter, Spartacus team prefers [prettier](https://prettier.io/). To install it as a dependency, run `yarn add prettier --dev`. To share prettier settings with all team members, create `.prettierrc` file in the root of your project and paste the following:
 
@@ -114,15 +114,15 @@ To ignore some files from being formatted, create `.prettierignore` in the proje
 **/*.md
 ```
 
-To avoid collision between `eslint` and `prettier`, it's recommended to disable formatting rules from eslint.  You can find information on how to integrate Prettier and linters in Prettier's documentation: https://prettier.io/docs/en/integrating-with-linters.html
+To avoid collision between `eslint` and `prettier`, it is recommended to disable formatting rules from eslint.  You can find information on how to integrate Prettier and linters in Prettier's documentation: https://prettier.io/docs/en/integrating-with-linters.html
 
 To run `prettier` you can add this script to `package.json` to `scripts` array: `"prettier": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.scss,.html}\""`.
 
-_Note_: you may have to change `src` to match the directory that you are using as a source directory.
+**Note:** you may have to change `src` to match the directory that you are using as a source directory.
 
 To check for formatting violations run: `npm run prettier`.
 
-### linting
+### Linting
 
 To check for linting violations, run `ng lint`.
 
