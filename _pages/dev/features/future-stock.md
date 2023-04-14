@@ -1,5 +1,5 @@
 ---
-title: 
+title: Future Stock
 feature:
 - name: Future Stock
   spa_version: 6.0
@@ -16,7 +16,7 @@ The future stock feature allows you to see the future availability of a product 
 
 The following is an example of the `Future Availability` dropdown accordion that appears in the product summary:
 
-![Future Stock Example]({{ site.baseurl }}/assets/images/future-stock-example.png)
+![Future Stock Example]({{ site.baseurl }}/assets/images/future-stock-feature.png)
 
 ## Requirements
 
