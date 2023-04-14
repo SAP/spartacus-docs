@@ -267,7 +267,7 @@ Execution failed for task ':buildJsApps'
 [...]
 ```
 
-If so, run `yarn build:ssr` locally to get a more detailed error log.
+If so, run `npm run build:ssr` locally to get a more detailed error log.
 
 ### Testing Locally
 
@@ -279,7 +279,7 @@ If SSR is not functioning on your hosted SAP Commerce Cloud, you can try running
 
    **Note**: At the end of these steps, before committing any code, make sure to undo the change in this step so that SAP Commerce Cloud can use the `occ-backend-base-url` from the `index.html`. For more information, see [{% assign linkedpage = site.pages | where: "name", "configuring-base-url.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/configuring-base-url.md %}).
 
-2. Run `yarn dev:ssr`.
+2. Run `npm run dev:ssr`.
 
    This allows you to run a "development" SSR server that will pick up the changes you make in your source code.
 
@@ -289,7 +289,7 @@ If SSR is not functioning on your hosted SAP Commerce Cloud, you can try running
 
 During development, it is possible to use self-signed certificates that, by default, are not supported by SSR. If you are using such a certificate, you can allow SSR to support it with the following steps:
 
-1. Run `yarn add -D cross-env`.
+1. Run `npm install -D cross-env`.
 
    This adds `cross-env` to your `devDependencies`.
 
@@ -301,7 +301,7 @@ During development, it is possible to use self-signed certificates that, by defa
 
    Replace `YOU_STORE_NAME` with your storefront's name, as specified at the top of your `package.json`.
 
-3. Run `yarn dev:ssr:dev` to start your storefront in SSR mode.
+3. Run `npm run dev:ssr:dev` to start your storefront in SSR mode.
 
    **Note**: Do not use `NODE_TLS_REJECT_UNAUTHORIZED=0` in a production environment.
 

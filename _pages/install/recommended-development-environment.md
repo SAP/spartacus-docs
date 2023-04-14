@@ -92,7 +92,7 @@ After following the steps in [{% assign linkedpage = site.pages | where: "name",
 
 ### Code Formatting
 
-As a code formatter, Spartacus team prefers [prettier](https://prettier.io/). To install it as a dependency, run `yarn add prettier --dev`. To share prettier settings with all team members, create `.prettierrc` file in the root of your project and paste the following:
+As a code formatter, Spartacus team prefers [prettier](https://prettier.io/). To install it as a dependency, run `npm install prettier --include=dev`. To share prettier settings with all team members, create `.prettierrc` file in the root of your project and paste the following:
 
 ```json
 {

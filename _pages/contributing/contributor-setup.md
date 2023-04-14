@@ -39,10 +39,10 @@ git clone https://github.com/SAP/spartacus
 
 ## Installing the Dependencies
 
-Install the npm dependencies. We recommend using [yarn](https://yarnpkg.com/) but you can also use `npm`. The following command installs the dependencies using yarn:
+Install the npm dependencies. We recommend using [npm](https://npmjs.org/). The following command installs the dependencies using npm:
 
 ```bash
-yarn install
+npm install
 ```
 
 ## Building and Running Spartacus in Development Mode
@@ -81,7 +81,7 @@ Carry out the following steps before you build and launch.
 Run the Spartacus storefront with the following command:
 
 ```bash
-yarn start
+npm start
 ```
 
 This is the most convenient way for a developer to run the storefront. It allows for hot-reloading of the library code as the code changes.
@@ -95,7 +95,7 @@ Building in production mode has more restrictive rules about what kind of code i
 In production mode, Spartacus is distributed as a set of libraries. To build the libraries, use the following command:
 
 ```bash
-yarn build:libs
+npm run build:libs
 ```
 
 This will build all of the Spartacus libraries and place them under the `/dist` folder.
@@ -105,7 +105,7 @@ This will build all of the Spartacus libraries and place them under the `/dist` 
 Contrary to development mode, in production mode you need to package and build a standalone storefront library. This is done with the following command:
 
 ```bash
-yarn build
+npm run build
 ```
 
 ### Configuring Your Back End URL and Base Site in Production Mode
@@ -136,7 +136,7 @@ yarn build
 Launch the Spartacus storefront with the following command:
 
 ```bash
-yarn start:prod
+npm run start:prod
 ```
 
 ### Launching the Storefront with SSR (and PWA) Enabled
@@ -144,13 +144,13 @@ yarn start:prod
 1. Build the server-side rendering (SSR) version of the app (that is, the production build wrapped in the `express.js` server), as follows:
 
    ```bash
-   yarn build:ssr
+   npm run build:ssr
    ```
 
 2. Launch the SSR server as follows:
 
    ```bash
-   yarn serve:ssr
+   npm run serve:ssr
    ```
 
 The app will be served with the production build, without using the webpack dev server. As a result, PWA and the features related to service workers will be fully functional.

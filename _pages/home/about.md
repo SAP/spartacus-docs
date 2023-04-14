@@ -55,7 +55,7 @@ Your Angular development environment should include the following:
 
 - [Angular CLI:](https://angular.io/) Version **14.2.3** or newer.
 - [Node.js:](https://nodejs.org/) Version **14.15** or newer (but **less than** version 15), or **16.10** or newer.
-- [Yarn:](https://classic.yarnpkg.com/) Version **1.15** or newer.
+- [npm:](https://npmjs.org/) Version **8.0** or newer.
 
 For the back end, SAP Commerce Cloud version 2105 or higher is required.
 

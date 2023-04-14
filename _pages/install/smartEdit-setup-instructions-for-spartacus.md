@@ -93,7 +93,7 @@ The following steps are for configuring SmartEdit to work using the SmartEdit fe
 1. Start your Angular app in SSL mode, as follows:
 
    ```plaintext
-   yarn start --ssl
+   npm start --ssl
    ```
 
    By starting your app in SSL mode, you avoid an `unsafe scripting` message from the browser.

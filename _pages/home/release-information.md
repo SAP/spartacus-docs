@@ -611,7 +611,7 @@ You can upgrade your Spartacus libraries to a new minor version, as follows:
    If you are upgrading from 3.x to the latest 3.4 release in order to then upgrade to 4.x, in `package.json`, set your `@spartacus` libraries to `“~3.4.4"`.
 
 1. Delete your `node_modules` folder.
-1. Run `yarn install`.
+1. Run `npm install`.
 
 ## Future Releases
 
