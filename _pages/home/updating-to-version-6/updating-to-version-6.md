@@ -15,15 +15,10 @@ title: Updating to Spartacus Version 6.0
 
 Before upgrading Spartacus to version 6.0, you first need to make sure your Angular libraries are up to date. Spartacus 6.0 requires Angular 15.
 
-You can upgrade your application to Angular 15 as follows:
-
-- Start by upgrading Angular to version 14, and verify that all breaking changes have been addressed.
-- When you have updated to Angular 14, you can then upgrade to Angular 15.
-
-You might have to append the `--force` flag if you encounter a mismatch between peer dependencies during the migration. The following is an example command that upgrades Angular to version 14.
+When upgrading your Angular libraries to version 15, you might have to append the `--force` flag if you encounter a mismatch between peer dependencies during the migration. The following is an example command that upgrades Angular to version 15.
 
 ```bash
-ng update @angular/cli@14 --force
+ng update @angular/cli@15 --force
 ```
 
 Afterwards, you need to upgrade third party dependencies to the version that is compatible with Angular 15, such as `ngx-infinite-scroll`, `@ng-select/ng-select` or `@ngrx/store`.
@@ -63,7 +58,7 @@ To update to version 6.0 of Spartacus, run the following command in the workspac
 ng update @spartacus/schematics@6.0.0
 ```
 
-When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [6.0 Typescript Breaking Changes](TODO:MATT - link to the typescript breaking change file that Patrick generates).
+When the update has finished running, inspect your code for comments that begin with `// TODO:Spartacus`. For detailed information about each added comment, see [6.0 Typescript Breaking Changes](link).
 
 The process might also downgrade some dependencies (namely RxJS), because Spartacus does not yet support the newer version.
 
