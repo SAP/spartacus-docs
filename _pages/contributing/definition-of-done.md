@@ -109,22 +109,22 @@ Please ensure that unit test coverage is >= 80% for everything, and >=60% for br
 To get the test coverage report, run the following commands:
 
 ```bash
-npm run test [project] --code-coverage
-npm run test storefrontlib --code-coverage
+npm test [project] -- --code-coverage
+npm test storefrontlib -- --code-coverage
 ```
 
 Alternatively, you can run the following commands:
 
 ```bash
-npm run test [project] --code-coverage
-npm run test:core:lib
+npm test [project] -- --code-coverage
+npm run test:storefront:lib
 ```
 
 The coverage report can be found in `./coverage/index.html`.
 
 ## End-To-End Tests
 
-All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing.
+All new features in Spartacus require end-to-end tests written with [Cypress](https://www.cypress.io/). Please ensure that new feature have end-to-end tests, and that they are passing. You also need to add the Jira ticket number of your epic/feature/user story/backlog item to the description of your tests. This is done so they can be picked up by Cumulus for traceability.
 
 When applicable, write end-to-end tests to ensure that your new or updated feature is foolproof. If it makes sense to write end-to-end tests, the minimum requirement is to write basic UI end-to-end tests. You can also consider writing UI end-to-end tests with a user-flow, but this is optional.
 
@@ -136,6 +136,8 @@ Run the following commands to perform end-to-end tests:
 npm run e2e:cy:run # smoke tests
 npm run e2e:cy:run:mobile # mobile tests
 npm run e2e:cy:run:regression # regression tests
+npm run e2e:run # all tests
+npm run e2e:run:b2b # b2b tests
 ```
 
 **Note:** Before running the end-to-end tests, make sure to install dependencies in `projects/storefrontapp-e2e-cypress`, and ensure the application is running.
@@ -156,6 +158,8 @@ The UI of the feature complies with the Accessibility success criteria that are 
 
 For more information, see [{% assign linkedpage = site.pages | where: "name", "a11y-best-practices.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/accessibility/best-practices/a11y-best-practices.md %}).
 
+Manual tests should be performed to ensure the new feature is accessible and does not raise any AMP violations. This means conducting screen reader testing using VO for Mac or JAWS for Windows, as well as using Access Assistant to verify AMP violations.  
+
 ## Browser Compatibility
 
 For a new feature to meet the definition of done, at a minimum, a manual, happy-path test of the new feature must be successful, with no significant layout issues in the most recent major version of the following browsers:
@@ -169,7 +173,7 @@ For a new feature to meet the definition of done, at a minimum, a manual, happy-
 
 New features must be compatible with Safari on iOS, and Chrome on Android, and must be tested on a range of devices. To meet the DoD, a new feature must successfully pass a manual, happy-path test, with no significant layout issues, on the following platforms:
 
-- iPhone 8, 10, X ,11 (at least one)
+- iPhone (8 or above)
 - iOS tablet (any)
 - Android mobile phone (such as the Samsung Galaxy)
 - Android tablet (any)

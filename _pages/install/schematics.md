@@ -84,8 +84,7 @@ When you run `ng add @spartacus/schematics`, the command does the following:
 3. Imports Spartacus styles to `main.scss`.
 4. Adds the `cx-storefront` component to your `app.component`.
 5. Optionally updates `index.html` with the Spartacus URL endpoints in meta tags.
-6. If the `--pwa` flag is included, it adds PWA service worker support for your project.
-7. If the `--ssr` flag is included, the command does the following:
+6. If the `--ssr` flag is included, the command does the following:
    - Adds server-side rendering dependencies.
    - Provides additional files that are required for SSR.
 

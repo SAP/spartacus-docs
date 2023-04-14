@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<style>
+		BODY {
+
+		    width: 55%;
+		    border: 2px;
+			border-style: solid;
+			border-color: gainsboro;
+			padding-left: 7%;
+			padding-right: 7%;
+			padding-top: 3%;
+			padding-bottom: 3%;
+		    margin-left: 15%;
+			margin-top: 3%;
+			margin-bottom: 3%;
+			font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+/*			font-size: 1.05em;*/
+		}
+		
+		pre {
+			background-color: rgb(246, 248, 250);
+			padding: 25px;
+			font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+			font-size: 13.5px;
+			line-height: 19.5px;
+			
+		}
+				
+	</style>
+</head>
+<h1 id="typescript-breaking-changes-in-composable-storefront-6-0">Typescript Breaking Changes in Composable Storefront 6.0</h1>
+<p>This is a list of breaking changes or potentially breaking changes for Composable Storefront 6.0.</p>
+<h1 id="class-asmmainuicomponent">Class AsmMainUiComponent</h1>
+<h2 id="-spartacus-asm-components">@spartacus/asm/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  authService: AuthService,
+  csAgentAuthService: CsAgentAuthService,
+  asmComponentService: AsmComponentService,
+  globalMessageService: GlobalMessageService,
+  routingService: RoutingService,
+  asmService: AsmService,
+  userAccountFacade: UserAccountFacade
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  authService: AuthService,
+  csAgentAuthService: CsAgentAuthService,
+  asmComponentService: AsmComponentService,
+  globalMessageService: GlobalMessageService,
+  routingService: RoutingService,
+  asmService: AsmService,
+  userAccountFacade: UserAccountFacade,
+  launchDialogService: LaunchDialogService
+)</span></span>
+</code></pre><h3 id="property-launchdialogservice-changed-">Property launchDialogService changed.</h3>
+<p>Previous version:</p>
+<pre><code>launchDialogService: LaunchDialogService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">launchDialogService:</span> LaunchDialogService
+</code></pre><h1 id="class-customerlistcomponent">Class CustomerListComponent</h1>
+<h2 id="-spartacus-asm-components">@spartacus/asm/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  launchDialogService: LaunchDialogService,
+  asmService: AsmService,
+  breakpointService: BreakpointService,
+  asmConfig: AsmConfig,
+  translation: TranslationService,
+  asmCustomerListFacade: AsmCustomerListFacade
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  launchDialogService: LaunchDialogService,
+  breakpointService: BreakpointService,
+  asmConfig: AsmConfig,
+  translation: TranslationService,
+  asmCustomerListFacade: AsmCustomerListFacade
+)</span></span>
+</code></pre><h3 id="property-asmservice-is-removed-">Property asmService is removed.</h3>
+<h1 id="class-customerselectioncomponent">Class CustomerSelectionComponent</h1>
+<h2 id="-spartacus-asm-components">@spartacus/asm/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  fb: UntypedFormBuilder,
+  asmService: AsmService,
+  config: AsmConfig
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  fb: UntypedFormBuilder,
+  asmService: AsmService,
+  config: AsmConfig,
+  directionService: DirectionService
+)</span></span>
+</code></pre><h3 id="method-closeresults-changed-">Method closeResults changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-title">closeResults</span><span class="hljs-params">()</span></span>: void
+</code></pre><p>Current version:</p>
+<pre><code>
+closeResults(
+  <span class="hljs-keyword">event</span>: UIEvent
+): <span class="hljs-keyword">void</span>
+</code></pre><h3 id="method-ondocumentclick-changed-">Method onDocumentClick changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+onDocumentClick(
+  <span class="hljs-keyword">event</span>: Event
+): <span class="hljs-keyword">void</span>
+</code></pre><p>Current version:</p>
+<pre><code>
+onDocumentClick(
+  <span class="hljs-keyword">event</span>: UIEvent
+): <span class="hljs-keyword">void</span>
+</code></pre><h3 id="method-selectcustomerfromlist-changed-">Method selectCustomerFromList changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+selectCustomerFromList(
+  customer: <span class="hljs-keyword">User</span>
+<span class="hljs-title">): void</span>
+</code></pre><p>Current version:</p>
+<pre><code>
+selectCustomerFromList(
+  event: UIEvent,
+  customer: <span class="hljs-keyword">User</span>
+<span class="hljs-title">): void</span>
+</code></pre><h1 id="class-asmconfig">Class AsmConfig</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<p>moved to @spartacus/asm/root</p>
+<p>Use class &#39;AsmConfig&#39; from &#39;@spartacus/asm/root&#39; instead.</p>
+<h1 id="class-asmcustomerlistservice">Class AsmCustomerListService</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  queryService: QueryService,
+  asmConnector: AsmConnector
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  queryService: QueryService,
+  asmConnector: AsmConnector,
+  store: Store&lt;StateWithAsm&gt;
+)</span></span>
+</code></pre><h1 id="class-asmservice">Class AsmService</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<h3 id="method-customerlistcustomerssearch-is-removed-">Method customerListCustomersSearch is removed.</h3>
+<p>Has been moved to correct service AsmCustomerListFacade</p>
+<h3 id="method-customerlistcustomerssearchreset-is-removed-">Method customerListCustomersSearchReset is removed.</h3>
+<p>Has been moved to correct service AsmCustomerListFacade</p>
+<h3 id="method-getcustomerlistcustomerssearchresults-is-removed-">Method getCustomerListCustomersSearchResults is removed.</h3>
+<p>Has been moved to correct service AsmCustomerListFacade</p>
+<h3 id="method-getcustomerlistcustomerssearchresultserror-is-removed-">Method getCustomerListCustomersSearchResultsError is removed.</h3>
+<p>Has been moved to correct service AsmCustomerListFacade</p>
+<h3 id="method-getcustomerlistcustomerssearchresultsloading-is-removed-">Method getCustomerListCustomersSearchResultsLoading is removed.</h3>
+<p>Has been moved to correct service AsmCustomerListFacade</p>
+<h1 id="interface-asmui">Interface AsmUi</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<p>moved to @spartacus/asm/root</p>
+<h1 id="interface-customersearchoptions">Interface CustomerSearchOptions</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<p>moved to @spartacus/asm/root</p>
+<h1 id="interface-customersearchpage">Interface CustomerSearchPage</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<p>moved to @spartacus/asm/root</p>
+<h1 id="class-cartactions-cartaddentry">Class CartActions.CartAddEntry</h1>
+<h2 id="-spartacus-cart-base-core">@spartacus/cart/base/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        cartId: <span class="hljs-keyword">string</span>;
+        userId: <span class="hljs-keyword">string</span>;
+        productCode: <span class="hljs-keyword">string</span>;
+        quantity: number;
+    }
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        cartId: <span class="hljs-keyword">string</span>;
+        userId: <span class="hljs-keyword">string</span>;
+        productCode: <span class="hljs-keyword">string</span>;
+        quantity: number;
+        pickupStore?: <span class="hljs-keyword">string</span>;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-selector-tag">payload</span>: {
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+        <span class="hljs-attribute">pickupStore?</span>: string;
+    }
+</code></pre><h1 id="class-cartactions-cartaddentryfail">Class CartActions.CartAddEntryFail</h1>
+<h2 id="-spartacus-cart-base-core">@spartacus/cart/base/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-selector-tag">constructor</span>(
+  <span class="hljs-selector-tag">payload</span>: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+        <span class="hljs-attribute">error</span>: any;
+    }
+)
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        error: any;
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        productCode: <span class="hljs-keyword">string</span>;
+        quantity: number;
+        pickupStore?: <span class="hljs-keyword">string</span>;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-selector-tag">payload</span>: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+        <span class="hljs-attribute">error</span>: any;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">error</span>: any;
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+        <span class="hljs-attribute">pickupStore?</span>: string;
+    }
+</code></pre><h1 id="class-cartactions-cartaddentrysuccess">Class CartActions.CartAddEntrySuccess</h1>
+<h2 id="-spartacus-cart-base-core">@spartacus/cart/base/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        productCode: <span class="hljs-keyword">string</span>;
+        quantity: number;
+        deliveryModeChanged?: boolean;
+        entry?: OrderEntry;
+        quantityAdded?: number;
+        statusCode?: <span class="hljs-keyword">string</span>;
+        statusMessage?: <span class="hljs-keyword">string</span>;
+    }
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        productCode: <span class="hljs-keyword">string</span>;
+        quantity: number;
+        pickupStore?: <span class="hljs-keyword">string</span>;
+        deliveryModeChanged?: boolean;
+        entry?: OrderEntry;
+        quantityAdded?: number;
+        statusCode?: <span class="hljs-keyword">string</span>;
+        statusMessage?: <span class="hljs-keyword">string</span>;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+        <span class="hljs-attribute">deliveryModeChanged?</span>: boolean;
+        <span class="hljs-attribute">entry?</span>: OrderEntry;
+        <span class="hljs-attribute">quantityAdded?</span>: number;
+        <span class="hljs-attribute">statusCode?</span>: string;
+        <span class="hljs-attribute">statusMessage?</span>: string;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">productCode</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+        <span class="hljs-attribute">pickupStore?</span>: string;
+        <span class="hljs-attribute">deliveryModeChanged?</span>: boolean;
+        <span class="hljs-attribute">entry?</span>: OrderEntry;
+        <span class="hljs-attribute">quantityAdded?</span>: number;
+        <span class="hljs-attribute">statusCode?</span>: string;
+        <span class="hljs-attribute">statusMessage?</span>: string;
+    }
+</code></pre><h1 id="class-cartactions-cartupdateentry">Class CartActions.CartUpdateEntry</h1>
+<h2 id="-spartacus-cart-base-core">@spartacus/cart/base/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        entryNumber: <span class="hljs-keyword">string</span>;
+        quantity: number;
+    }
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        entryNumber: <span class="hljs-keyword">string</span>;
+        quantity?: number;
+        pickupStore?: <span class="hljs-keyword">string</span>;
+        pickupToDelivery?: boolean;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-selector-tag">payload</span>: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">entryNumber</span>: string;
+        <span class="hljs-attribute">quantity</span>: number;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">entryNumber</span>: string;
+        <span class="hljs-attribute">quantity?</span>: number;
+        <span class="hljs-attribute">pickupStore?</span>: string;
+        <span class="hljs-attribute">pickupToDelivery?</span>: boolean;
+    }
+</code></pre><h1 id="class-cartactions-cartupdateentryfail">Class CartActions.CartUpdateEntryFail</h1>
+<h2 id="-spartacus-cart-base-core">@spartacus/cart/base/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        error: any;
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        entryNumber: <span class="hljs-keyword">string</span>;
+        quantity?: number;
+    }
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        error: any;
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        entryNumber: <span class="hljs-keyword">string</span>;
+        quantity?: number;
+        pickupStore?: <span class="hljs-keyword">string</span>;
+        pickupToDelivery?: boolean;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">error</span>: any;
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">entryNumber</span>: string;
+        <span class="hljs-attribute">quantity?</span>: number;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">error</span>: any;
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">entryNumber</span>: string;
+        <span class="hljs-attribute">quantity?</span>: number;
+        <span class="hljs-attribute">pickupStore?</span>: string;
+        <span class="hljs-attribute">pickupToDelivery?</span>: boolean;
+    }
+</code></pre><h1 id="class-cartactions-cartupdateentrysuccess">Class CartActions.CartUpdateEntrySuccess</h1>
+<h2 id="-spartacus-cart-base-core">@spartacus/cart/base/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        entryNumber: <span class="hljs-keyword">string</span>;
+        quantity?: number;
+    }
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        userId: <span class="hljs-keyword">string</span>;
+        cartId: <span class="hljs-keyword">string</span>;
+        entryNumber: <span class="hljs-keyword">string</span>;
+        quantity?: number;
+        pickupStore?: <span class="hljs-keyword">string</span>;
+        pickupToDelivery?: boolean;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">entryNumber</span>: string;
+        <span class="hljs-attribute">quantity?</span>: number;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">userId</span>: string;
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">entryNumber</span>: string;
+        <span class="hljs-attribute">quantity?</span>: number;
+        <span class="hljs-attribute">pickupStore?</span>: string;
+        <span class="hljs-attribute">pickupToDelivery?</span>: boolean;
+    }
+</code></pre><h1 id="class-quickorderorderentriescontext">Class QuickOrderOrderEntriesContext</h1>
+<h2 id="-spartacus-cart-quick-order-components">@spartacus/cart/quick-order/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quickOrderService: QuickOrderFacade,
+  productConnector: ProductConnector,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quickOrderService: QuickOrderFacade,
+  productConnector: ProductConnector
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-cdcregistercomponentservice">Class CDCRegisterComponentService</h1>
+<h2 id="-spartacus-cdc-user-profile">@spartacus/cdc/user-profile</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userRegisterFacade: UserRegisterFacade,
+  command: CommandService,
+  store: Store,
+  cdcJSService: CdcJsService,
+  globalMessageService: GlobalMessageService,
+  authService: AuthService,
+  eventService: EventService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userRegisterFacade: UserRegisterFacade,
+  command: CommandService,
+  store: Store,
+  cdcJSService: CdcJsService,
+  globalMessageService: GlobalMessageService,
+  authService: AuthService,
+  eventService: EventService,
+  userProfileFacade: UserProfileFacade
+)</span></span>
+</code></pre><h1 id="class-merchandisingcarouselcomponent">Class MerchandisingCarouselComponent</h1>
+<h2 id="-spartacus-cds">@spartacus/cds</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  componentData: CmsComponentData&lt;CmsMerchandisingCarouselComponent&gt;,
+  merchandisingCarouselComponentService: MerchandisingCarouselComponentService,
+  routingService: RoutingService,
+  intersectionService: IntersectionService,
+  el: ElementRef
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  componentData: CmsComponentData&lt;model&gt;,
+  merchandisingCarouselComponentService: MerchandisingCarouselComponentService,
+  routingService: RoutingService,
+  intersectionService: IntersectionService,
+  el: ElementRef
+)</span></span>
+</code></pre><h3 id="property-componentdata-changed-">Property componentData changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-symbol">componentData:</span> CmsComponentData<span class="hljs-params">&lt;CmsMerchandisingCarouselComponent&gt;</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">componentData:</span> CmsComponentData<span class="hljs-params">&lt;model&gt;</span>
+</code></pre><h1 id="class-profiletageventservice">Class ProfileTagEventService</h1>
+<h2 id="-spartacus-cds">@spartacus/cds</h2>
+<h3 id="property-latestconsentreference-changed-">Property latestConsentReference changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-symbol">latestConsentReference:</span> any
+</code></pre><p>Current version:</p>
+<pre><code>latestConsentReference: BehaviorSubject&lt;<span class="hljs-built_in">string</span> | <span class="hljs-literal">null</span>&gt;
+</code></pre><h3 id="method-notifyprofiletagofeventoccurence-is-removed-">Method notifyProfileTagOfEventOccurence is removed.</h3>
+<h1 id="class-checkoutb2bstepssetguard">Class CheckoutB2BStepsSetGuard</h1>
+<h2 id="-spartacus-checkout-b2b-components">@spartacus/checkout/b2b/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutStepService: CheckoutStepService,
+  routingConfigService: RoutingConfigService,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  router: Router,
+  checkoutPaymentTypeFacade: CheckoutPaymentTypeFacade,
+  checkoutCostCenterFacade: CheckoutCostCenterFacade
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutStepService: CheckoutStepService,
+  routingConfigService: RoutingConfigService,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  router: Router,
+  checkoutPaymentTypeFacade: CheckoutPaymentTypeFacade,
+  checkoutCostCenterFacade: CheckoutCostCenterFacade,
+  activeCartFacade: ActiveCartFacade
+)</span></span>
+</code></pre><h1 id="class-checkoutdeliveryaddresscomponent">Class CheckoutDeliveryAddressComponent</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userAddressService: UserAddressService,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  activatedRoute: ActivatedRoute,
+  translationService: TranslationService,
+  activeCartFacade: ActiveCartFacade,
+  checkoutStepService: CheckoutStepService,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  globalMessageService: GlobalMessageService,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userAddressService: UserAddressService,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  activatedRoute: ActivatedRoute,
+  translationService: TranslationService,
+  activeCartFacade: ActiveCartFacade,
+  checkoutStepService: CheckoutStepService,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  globalMessageService: GlobalMessageService
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-checkoutdeliverymodecomponent">Class CheckoutDeliveryModeComponent</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  fb: UntypedFormBuilder,
+  checkoutConfigService: CheckoutConfigService,
+  activatedRoute: ActivatedRoute,
+  checkoutStepService: CheckoutStepService,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  fb: UntypedFormBuilder,
+  checkoutConfigService: CheckoutConfigService,
+  activatedRoute: ActivatedRoute,
+  checkoutStepService: CheckoutStepService,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  activeCartFacade: ActiveCartFacade
+)</span></span>
+</code></pre><h3 id="method-ngondestroy-is-removed-">Method ngOnDestroy is removed.</h3>
+<h3 id="method-ngoninit-is-removed-">Method ngOnInit is removed.</h3>
+<h3 id="property-subscriptions-is-removed-">Property subscriptions is removed.</h3>
+<h3 id="property-supporteddeliverymodes-changed-">Property supportedDeliveryModes$ changed.</h3>
+<p>Previous version:</p>
+<pre><code>supportedDeliveryModes$: Observable&lt;DeliveryMode<span class="hljs-string">[]</span>&gt;
+</code></pre><p>Current version:</p>
+<pre><code>supportedDeliveryModes$: <span class="hljs-keyword">Observable</span>&lt;<span class="hljs-keyword">import</span>(<span class="hljs-string">"@spartacus/cart/base/root"</span>).DeliveryMode[]&gt;
+</code></pre><h1 id="class-checkoutpaymentformcomponent">Class CheckoutPaymentFormComponent</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  userPaymentService: UserPaymentService,
+  globalMessageService: GlobalMessageService,
+  fb: UntypedFormBuilder,
+  userAddressService: UserAddressService,
+  launchDialogService: LaunchDialogService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  userPaymentService: UserPaymentService,
+  globalMessageService: GlobalMessageService,
+  fb: UntypedFormBuilder,
+  userAddressService: UserAddressService,
+  launchDialogService: LaunchDialogService,
+  translationService: TranslationService
+)</span></span>
+</code></pre><h3 id="method-getaddresscardcontent-changed-">Method getAddressCardContent changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-selector-tag">getAddressCardContent</span>(
+  <span class="hljs-attribute">address</span>: Address
+): <span class="hljs-selector-tag">Card</span>
+</code></pre><p>Current version:</p>
+<pre><code>
+getAddressCardContent(
+<span class="hljs-symbol">  address:</span> Address
+): Observable<span class="hljs-params">&lt;Card&gt;</span>
+</code></pre><h3 id="method-getaddresscardcontent-is-removed-">Method getAddressCardContent is removed.</h3>
+<h3 id="property-translationservice-changed-">Property translationService changed.</h3>
+<p>Previous version:</p>
+<pre><code>translationService: TranslationService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">translationService:</span> TranslationService
+</code></pre><h1 id="class-checkoutreviewsubmitcomponent">Class CheckoutReviewSubmitComponent</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  activeCartFacade: ActiveCartFacade,
+  translationService: TranslationService,
+  checkoutStepService: CheckoutStepService,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  activeCartFacade: ActiveCartFacade,
+  translationService: TranslationService,
+  checkoutStepService: CheckoutStepService,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-checkoutstepssetguard">Class CheckoutStepsSetGuard</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutStepService: CheckoutStepService,
+  routingConfigService: RoutingConfigService,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  router: Router
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  checkoutStepService: CheckoutStepService,
+  routingConfigService: RoutingConfigService,
+  checkoutDeliveryAddressFacade: CheckoutDeliveryAddressFacade,
+  checkoutPaymentFacade: CheckoutPaymentFacade,
+  checkoutDeliveryModesFacade: CheckoutDeliveryModesFacade,
+  router: Router,
+  activeCartFacade: ActiveCartFacade
+)</span></span>
+</code></pre><h1 id="class-httperrorhandler">Class HttpErrorHandler</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  globalMessageService: GlobalMessageService,
+  platformId?: <span class="hljs-keyword">Object</span> | undefined,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  globalMessageService: GlobalMessageService,
+  platformId?: <span class="hljs-keyword">Object</span> | undefined
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-i18nextbackendservice">Class I18nextBackendService</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">()</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  backendInitializers: I18nextBackendInitializer[] | null
+)</span></span>
+</code></pre><h1 id="class-i18nexthttpbackendservice">Class I18nextHttpBackendService</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<p>Class I18nextHttpBackendService has been removed and is no longer part of the public API.</p>
+<h1 id="class-orderconsignedentriescomponent">Class OrderConsignedEntriesComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<h3 id="method-getconsignmentproducts-is-removed-">Method getConsignmentProducts is removed.</h3>
+<h1 id="class-orderdetailitemscomponent">Class OrderDetailItemsComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  orderDetailsService: OrderDetailsService,
+  component: CmsComponentData&lt;CmsOrderDetailItemsComponent&gt;,
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  orderDetailsService: OrderDetailsService,
+  component: CmsComponentData&lt;CmsOrderDetailItemsComponent&gt;
+)</span></span>
+</code></pre><h3 id="property-buyitagaintranslation-is-removed-">Property buyItAgainTranslation$ is removed.</h3>
+<h3 id="property-cancel-is-removed-">Property cancel$ is removed.</h3>
+<h3 id="property-completed-is-removed-">Property completed$ is removed.</h3>
+<h3 id="method-ngoninit-is-removed-">Method ngOnInit is removed.</h3>
+<h3 id="property-others-is-removed-">Property others$ is removed.</h3>
+<h3 id="property-translation-is-removed-">Property translation is removed.</h3>
+<h1 id="class-orderdetailshippingcomponent">Class OrderDetailShippingComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<p>Class OrderDetailShippingComponent has been removed and is no longer part of the public API.</p>
+<h1 id="class-orderhistorycomponent">Class OrderHistoryComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  routing: RoutingService,
+  orderHistoryFacade: OrderHistoryFacade,
+  translation: TranslationService,
+  replenishmentOrderHistoryFacade: ReplenishmentOrderHistoryFacade,
+  featureConfigService: FeatureConfigService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  routing: RoutingService,
+  orderHistoryFacade: OrderHistoryFacade,
+  translation: TranslationService,
+  replenishmentOrderHistoryFacade: ReplenishmentOrderHistoryFacade
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-orderoverviewcomponent">Class OrderOverviewComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  translation: TranslationService,
+  orderDetailsService: OrderDetailsService,
+  component: CmsComponentData&lt;CmsOrderDetailOverviewComponent&gt;
+)</span></span>
+</code></pre><h3 id="property-order-is-removed-">Property order is removed.</h3>
+<h1 id="class-orderoverviewmodule">Class OrderOverviewModule</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<p>Class OrderOverviewModule has been removed and is no longer part of the public API.</p>
+<h1 id="class-orderhistoryservice">Class OrderHistoryService</h1>
+<h2 id="-spartacus-order-core">@spartacus/order/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  store: Store&lt;StateWithOrder&gt;,
+  processStateStore: Store&lt;StateWithProcess&lt;void&gt;&gt;,
+  userIdService: UserIdService,
+  routingService: RoutingService,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  store: Store&lt;StateWithOrder&gt;,
+  processStateStore: Store&lt;StateWithProcess&lt;void&gt;&gt;,
+  userIdService: UserIdService,
+  routingService: RoutingService
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-reorderorderservice">Class ReorderOrderService</h1>
+<h2 id="-spartacus-order-core">@spartacus/order/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  commandService: CommandService,
+  reorderOrderConnector: ReorderOrderConnector,
+  userIdService: UserIdService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  commandService: CommandService,
+  reorderOrderConnector: ReorderOrderConnector,
+  userIdService: UserIdService,
+  activeCartFacade: ActiveCartFacade,
+  multiCartFacade: MultiCartFacade
+)</span></span>
+</code></pre><h1 id="class-unituserlistcomponent">Class UnitUserListComponent</h1>
+<h2 id="-spartacus-organization-administration-components">@spartacus/organization/administration/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  currentUnitService: CurrentUnitService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  currentUnitService: CurrentUnitService,
+  b2bUserService: B2BUserService
+)</span></span>
+</code></pre><h1 id="class-unituserrolescellcomponent">Class UnitUserRolesCellComponent</h1>
+<h2 id="-spartacus-organization-administration-components">@spartacus/organization/administration/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  outlet: OutletContextData&lt;TableDataOutletContext&gt;,
+  itemService: ItemService&lt;B2BUnit&gt;
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  outlet: OutletContextData&lt;TableDataOutletContext&gt;,
+  itemService: ItemService&lt;B2BUnit&gt;,
+  b2bUserService: B2BUserService
+)</span></span>
+</code></pre><h1 id="class-orgunitservice">Class OrgUnitService</h1>
+<h2 id="-spartacus-organization-administration-core">@spartacus/organization/administration/core</h2>
+<h3 id="method-sortunitlist-changed-">Method sortUnitList changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-symbol">sortUnitList</span>(
+  a: <span class="hljs-keyword">B2BUnitNode,
+</span>  <span class="hljs-keyword">b: </span><span class="hljs-keyword">B2BUnitNode
+</span>): <span class="hljs-number">1</span> <span class="hljs-title">| -1 |</span> <span class="hljs-number">0</span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-symbol">sortUnitList</span>(
+  a: <span class="hljs-keyword">B2BUnitNode,
+</span>  <span class="hljs-keyword">b: </span><span class="hljs-keyword">B2BUnitNode
+</span>): <span class="hljs-number">0</span> <span class="hljs-title">| 1 |</span> -<span class="hljs-number">1</span>
+</code></pre><h1 id="class-configuratorcartentrybundleinfocomponent">Class ConfiguratorCartEntryBundleInfoComponent</h1>
+<h2 id="-spartacus-product-configurator-common">@spartacus/product-configurator/common</h2>
+<h3 id="method-isdesktop-is-removed-">Method isDesktop is removed.</h3>
+<p>This method been removed.</p>
+<h1 id="class-cpqaccessloaderservice">Class CpqAccessLoaderService</h1>
+<h2 id="-spartacus-product-configurator-rulebased-root">@spartacus/product-configurator/rulebased/root</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  http: HttpClient,
+  occEndpointsService: OccEndpointsService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  http: HttpClient,
+  occEndpointsService: OccEndpointsService,
+  userIdService: UserIdService
+)</span></span>
+</code></pre><h3 id="property-useridservice-changed-">Property userIdService changed.</h3>
+<p>Previous version:</p>
+<pre><code>userIdService: UserIdService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">userIdService:</span> UserIdService
+</code></pre><h1 id="typealias-configuratoractions-configuratoraction">TypeAlias ConfiguratorActions.ConfiguratorAction</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<p>TypeAlias ConfiguratorAction changed.</p>
+<p>Previous version:</p>
+<pre><code>CreateConfiguration,
+ <span class="hljs-string">| ,</span>
+CreateConfigurationFail,
+ <span class="hljs-string">| ,</span>
+CreateConfigurationSuccess,
+ <span class="hljs-string">| ,</span>
+ReadConfiguration,
+ <span class="hljs-string">| ,</span>
+ReadConfigurationFail,
+ <span class="hljs-string">| ,</span>
+ReadConfigurationSuccess,
+ <span class="hljs-string">| ,</span>
+UpdateConfiguration,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationFail,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationSuccess,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationFinalizeFail,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationFinalizeSuccess,
+ <span class="hljs-string">| ,</span>
+UpdatePriceSummary,
+ <span class="hljs-string">| ,</span>
+UpdatePriceSummaryFail,
+ <span class="hljs-string">| ,</span>
+UpdatePriceSummarySuccess,
+ <span class="hljs-string">| ,</span>
+ChangeGroup,
+ <span class="hljs-string">| ,</span>
+ChangeGroupFinalize,
+ <span class="hljs-string">| ,</span>
+GetConfigurationOverview,
+ <span class="hljs-string">| ,</span>
+GetConfigurationOverviewFail,
+ <span class="hljs-string">| ,</span>
+GetConfigurationOverviewSuccess,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationOverview,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationOverviewFail,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationOverviewSuccess,
+ <span class="hljs-string">| ,</span>
+RemoveConfiguration,
+ <span class="hljs-string">| ,</span>
+SetInteractionState,
+ <span class="hljs-string">| ,</span>
+SetMenuParentGroup,
+ <span class="hljs-string">| ,</span>
+SetCurrentGroup,
+ <span class="hljs-string">| ,</span>
+SetGroupsVisited,
+ <span class="hljs-string">| ,</span>
+RemoveProductBoundConfigurations
+</code></pre><p>Current version:</p>
+<pre><code>CreateConfiguration,
+ <span class="hljs-string">| ,</span>
+CreateConfigurationFail,
+ <span class="hljs-string">| ,</span>
+CreateConfigurationSuccess,
+ <span class="hljs-string">| ,</span>
+ReadConfiguration,
+ <span class="hljs-string">| ,</span>
+ReadConfigurationFail,
+ <span class="hljs-string">| ,</span>
+ReadConfigurationSuccess,
+ <span class="hljs-string">| ,</span>
+UpdateConfiguration,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationFail,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationSuccess,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationFinalizeFail,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationFinalizeSuccess,
+ <span class="hljs-string">| ,</span>
+UpdatePriceSummary,
+ <span class="hljs-string">| ,</span>
+UpdatePriceSummaryFail,
+ <span class="hljs-string">| ,</span>
+UpdatePriceSummarySuccess,
+ <span class="hljs-string">| ,</span>
+ChangeGroup,
+ <span class="hljs-string">| ,</span>
+ChangeGroupFinalize,
+ <span class="hljs-string">| ,</span>
+GetConfigurationOverview,
+ <span class="hljs-string">| ,</span>
+GetConfigurationOverviewFail,
+ <span class="hljs-string">| ,</span>
+GetConfigurationOverviewSuccess,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationOverview,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationOverviewFail,
+ <span class="hljs-string">| ,</span>
+UpdateConfigurationOverviewSuccess,
+ <span class="hljs-string">| ,</span>
+RemoveConfiguration,
+ <span class="hljs-string">| ,</span>
+SetInteractionState,
+ <span class="hljs-string">| ,</span>
+SetMenuParentGroup,
+ <span class="hljs-string">| ,</span>
+SetCurrentGroup,
+ <span class="hljs-string">| ,</span>
+SetGroupsVisited,
+ <span class="hljs-string">| ,</span>
+RemoveProductBoundConfigurations,
+ <span class="hljs-string">| ,</span>
+CheckConflictDialoge,
+ <span class="hljs-string">| ,</span>
+DissmissConflictDialoge
+</code></pre><h1 id="class-configuratoractions-createconfiguration">Class ConfiguratorActions.CreateConfiguration</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        owner: CommonConfigurator.Owner;
+        configIdTemplate?: <span class="hljs-keyword">string</span>;
+    }
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  payload: {
+        owner: CommonConfigurator.Owner;
+        configIdTemplate?: <span class="hljs-keyword">string</span>;
+        forceReset?: boolean;
+    }
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">owner</span>: CommonConfigurator<span class="hljs-variable">.Owner</span>;
+        <span class="hljs-attribute">configIdTemplate?</span>: string;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>payload: {
+        <span class="hljs-attribute">owner</span>: CommonConfigurator<span class="hljs-variable">.Owner</span>;
+        <span class="hljs-attribute">configIdTemplate?</span>: string;
+        <span class="hljs-attribute">forceReset?</span>: boolean;
+    }
+</code></pre><h1 id="class-configuratorattributecheckboxcomponent">Class ConfiguratorAttributeCheckBoxComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="property-selectionchange-is-removed-">Property selectionChange is removed.</h3>
+<p>Has been removed, see general migration documentation. Updates are now done via facade service</p>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">()</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorattributecheckboxlistcomponent">Class ConfiguratorAttributeCheckBoxListComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtilsService: ConfiguratorStorefrontUtilsService,
+  quantityService: ConfiguratorAttributeQuantityService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtilsService: ConfiguratorStorefrontUtilsService,
+  quantityService: ConfiguratorAttributeQuantityService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorattributedropdowncomponent">Class ConfiguratorAttributeDropDownComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorattributefootercomponent">Class ConfiguratorAttributeFooterComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtils: ConfiguratorStorefrontUtilsService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtils: ConfiguratorStorefrontUtilsService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext
+)</span></span>
+</code></pre><h1 id="class-configuratorattributeheadercomponent">Class ConfiguratorAttributeHeaderComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtils: ConfiguratorStorefrontUtilsService,
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configuratorUiSettings: ConfiguratorUISettingsConfig
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtils: ConfiguratorStorefrontUtilsService,
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configuratorUiSettings: ConfiguratorUISettingsConfig,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext
+)</span></span>
+</code></pre><h1 id="class-configuratorattributeinputfieldcomponent">Class ConfiguratorAttributeInputFieldComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  config: ConfiguratorUISettingsConfig
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  config: ConfiguratorUISettingsConfig,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h3 id="property-inputchange-is-removed-">Property inputChange is removed.</h3>
+<p>Has been removed, see general migration documentation. Updates are now done via facade service</p>
+<h1 id="class-configuratorattributemultiselectionbasecomponent">Class ConfiguratorAttributeMultiSelectionBaseComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h3 id="property-selectionchange-is-removed-">Property selectionChange is removed.</h3>
+<p>Has been removed, see general migration documentation. Updates are now done via facade service</p>
+<h1 id="class-configuratorattributemultiselectionimagecomponent">Class ConfiguratorAttributeMultiSelectionImageComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtilsService: ConfiguratorStorefrontUtilsService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configUtilsService: ConfiguratorStorefrontUtilsService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h3 id="property-selectionchange-is-removed-">Property selectionChange is removed.</h3>
+<p>Has been removed, see general migration documentation. Updates are now done via facade service</p>
+<h1 id="class-configuratorattributenumericinputfieldcomponent">Class ConfiguratorAttributeNumericInputFieldComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configAttributeNumericInputFieldService: ConfiguratorAttributeNumericInputFieldService,
+  config: ConfiguratorUISettingsConfig,
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configAttributeNumericInputFieldService: ConfiguratorAttributeNumericInputFieldService,
+  config: ConfiguratorUISettingsConfig,
+  translation: TranslationService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorattributeradiobuttoncomponent">Class ConfiguratorAttributeRadioButtonComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorattributereadonlycomponent">Class ConfiguratorAttributeReadOnlyComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  translationService: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  translationService: TranslationService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext
+)</span></span>
+</code></pre><h3 id="property-group-changed-">Property group changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-keyword">group</span>: <span class="hljs-built_in">String</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-keyword">group</span>: <span class="hljs-keyword">string</span>
+</code></pre><p>Type has been changed from &#39;String&#39; to &#39;string&#39;</p>
+<h3 id="property-translationservice-changed-">Property translationService changed.</h3>
+<p>Previous version:</p>
+<pre><code>translationService: TranslationService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">translationService:</span> TranslationService
+</code></pre><h1 id="class-configuratorattributesingleselectionbasecomponent">Class ConfiguratorAttributeSingleSelectionBaseComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h3 id="property-selectionchange-is-removed-">Property selectionChange is removed.</h3>
+<p>Has been removed, see general migration documentation. Updates are now done via facade service</p>
+<h1 id="class-configuratorattributesingleselectionbundledropdowncomponent">Class ConfiguratorAttributeSingleSelectionBundleDropdownComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">()</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  quantityService: ConfiguratorAttributeQuantityService,
+  translation: TranslationService,
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorattributesingleselectionimagecomponent">Class ConfiguratorAttributeSingleSelectionImageComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="property-selectionchange-is-removed-">Property selectionChange is removed.</h3>
+<p>Has been removed, see general migration documentation. Updates are now done via facade service</p>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">()</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  attributeComponentContext: ConfiguratorAttributeCompositionContext,
+  configuratorCommonsService: ConfiguratorCommonsService
+)</span></span>
+</code></pre><h1 id="class-configuratorformcomponent">Class ConfiguratorFormComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  languageService: LanguageService,
+  configUtils: ConfiguratorStorefrontUtilsService,
+  configExpertModeService: ConfiguratorExpertModeService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configExpertModeService: ConfiguratorExpertModeService,
+  launchDialogService: LaunchDialogService
+)</span></span>
+</code></pre><h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  languageService: LanguageService,
+  configUtils: ConfiguratorStorefrontUtilsService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configExpertModeService: ConfiguratorExpertModeService,
+  launchDialogService: LaunchDialogService
+)</span></span>
+</code></pre><h3 id="property-activelanguage-is-removed-">Property activeLanguage$ is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h3 id="property-configexpertmodeservice-changed-">Property configExpertModeService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configExpertModeService: ConfiguratorExpertModeService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configExpertModeService:</span> ConfiguratorExpertModeService
+</code></pre><h3 id="property-configutils-is-removed-">Property configUtils is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h3 id="method-creategroupid-is-removed-">Method createGroupId is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h3 id="method-displayconflictdescription-is-removed-">Method displayConflictDescription is removed.</h3>
+<h3 id="property-expmode-is-removed-">Property expMode is removed.</h3>
+<h3 id="method-isconflictgrouptype-is-removed-">Method isConflictGroupType is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h3 id="property-languageservice-is-removed-">Property languageService is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h3 id="property-subscriptions-is-removed-">Property subscriptions is removed.</h3>
+<h3 id="property-uitype-is-removed-">Property uiType is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h3 id="method-updateconfiguration-is-removed-">Method updateConfiguration is removed.</h3>
+<p>Has been moved to new carved out component ConfiguratorGroupComponent</p>
+<h1 id="class-configuratorgroupmenucomponent">Class ConfiguratorGroupMenuComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  hamburgerMenuService: HamburgerMenuService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configUtils: ConfiguratorStorefrontUtilsService,
+  configGroupMenuService: ConfiguratorGroupMenuService,
+  directionService: DirectionService,
+  translation: TranslationService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  hamburgerMenuService: HamburgerMenuService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configUtils: ConfiguratorStorefrontUtilsService,
+  configGroupMenuService: ConfiguratorGroupMenuService,
+  directionService: DirectionService,
+  translation: TranslationService,
+  configExpertModeService: ConfiguratorExpertModeService
+)</span></span>
+</code></pre><h3 id="property-configexpertmodeservice-changed-">Property configExpertModeService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configExpertModeService: ConfiguratorExpertModeService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configExpertModeService:</span> ConfiguratorExpertModeService
+</code></pre><h1 id="class-configuratorgrouptitlecomponent">Class ConfiguratorGroupTitleComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configExpertModeService: ConfiguratorExpertModeService,
+  breakpointService: BreakpointService,
+  configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService,
+  hamburgerMenuService: HamburgerMenuService
+)</span></span>
+</code></pre><h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configExpertModeService: ConfiguratorExpertModeService,
+  breakpointService: BreakpointService,
+  configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService,
+  hamburgerMenuService: HamburgerMenuService,
+  featureConfigService: FeatureConfigService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configuratorGroupsService: ConfiguratorGroupsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configExpertModeService: ConfiguratorExpertModeService,
+  breakpointService: BreakpointService,
+  configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService,
+  hamburgerMenuService: HamburgerMenuService
+)</span></span>
+</code></pre><h3 id="property-breakpointservice-changed-">Property breakpointService changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-keyword">breakpointService: </span><span class="hljs-keyword">BreakpointService </span><span class="hljs-title">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-keyword">breakpointService: </span><span class="hljs-keyword">BreakpointService</span>
+</code></pre><h3 id="property-configexpertmodeservice-changed-">Property configExpertModeService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configExpertModeService: ConfiguratorExpertModeService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configExpertModeService:</span> ConfiguratorExpertModeService
+</code></pre><h3 id="property-configuratorstorefrontutilsservice-changed-">Property configuratorStorefrontUtilsService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configuratorStorefrontUtilsService:</span> ConfiguratorStorefrontUtilsService
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h3 id="property-hamburgermenuservice-changed-">Property hamburgerMenuService changed.</h3>
+<p>Previous version:</p>
+<pre><code>hamburgerMenuService: HamburgerMenuService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">hamburgerMenuService:</span> HamburgerMenuService
+</code></pre><h1 id="class-configuratoroverviewformcomponent">Class ConfiguratorOverviewFormComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configUtils: ConfiguratorStorefrontUtilsService,
+  configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService
+)</span></span>
+</code></pre><h3 id="property-configuratorstorefrontutilsservice-changed-">Property configuratorStorefrontUtilsService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configuratorStorefrontUtilsService: ConfiguratorStorefrontUtilsService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configuratorStorefrontUtilsService:</span> ConfiguratorStorefrontUtilsService
+</code></pre><h1 id="class-configuratorpricecomponent">Class ConfiguratorPriceComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="property-directionservice-changed-">Property directionService changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-keyword">directionService: </span><span class="hljs-keyword">DirectionService </span><span class="hljs-title">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">directionService:</span> DirectionService
+</code></pre><h1 id="class-configuratorproducttitlecomponent">Class ConfiguratorProductTitleComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  productService: ProductService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  configuratorCommonsService: ConfiguratorCommonsService,
+  configRouterExtractorService: ConfiguratorRouterExtractorService,
+  productService: ProductService,
+  configExpertModeService: ConfiguratorExpertModeService
+)</span></span>
+</code></pre><h3 id="property-configexpertmodeservice-changed-">Property configExpertModeService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configExpertModeService: ConfiguratorExpertModeService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configExpertModeService:</span> ConfiguratorExpertModeService
+</code></pre><h1 id="class-variantconfiguratoroccadapter">Class VariantConfiguratorOccAdapter</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  http: HttpClient,
+  occEndpointsService: OccEndpointsService,
+  converterService: ConverterService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  http: HttpClient,
+  occEndpointsService: OccEndpointsService,
+  converterService: ConverterService,
+  configExpertModeService: ConfiguratorExpertModeService
+)</span></span>
+</code></pre><h3 id="property-configexpertmodeservice-changed-">Property configExpertModeService changed.</h3>
+<p>Previous version:</p>
+<pre><code>configExpertModeService: ConfiguratorExpertModeService <span class="hljs-string">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">configExpertModeService:</span> ConfiguratorExpertModeService
+</code></pre><h1 id="class-smarteditservice">Class SmartEditService</h1>
+<h2 id="-spartacus-smartedit-core">@spartacus/smartedit/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  cmsService: CmsService,
+  routingService: RoutingService,
+  baseSiteService: BaseSiteService,
+  zone: NgZone,
+  winRef: WindowRef,
+  rendererFactory: RendererFactory2,
+  config: SmartEditConfig,
+  scriptLoader: ScriptLoader
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  cmsService: CmsService,
+  routingService: RoutingService,
+  baseSiteService: BaseSiteService,
+  zone: NgZone,
+  winRef: WindowRef,
+  rendererFactory: RendererFactory2,
+  config: SmartEditConfig
+)</span></span>
+</code></pre><h3 id="method-loadscript-is-removed-">Method loadScript is removed.</h3>
+<p>This method been moved to SmartEditLauncherService class.</p>
+<h3 id="property-scriptloader-is-removed-">Property scriptLoader is removed.</h3>
+<h1 id="class-smarteditlauncherservice">Class SmartEditLauncherService</h1>
+<h2 id="-spartacus-smartedit-root">@spartacus/smartedit/root</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  config: SmartEditConfig,
+  location: Location,
+  featureModules: FeatureModulesService,
+  scriptLoader: ScriptLoader
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  config: SmartEditConfig,
+  location: Location,
+  scriptLoader: ScriptLoader
+)</span></span>
+</code></pre><h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  config: SmartEditConfig,
+  location: Location,
+  featureModules: FeatureModulesService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  config: SmartEditConfig,
+  location: Location,
+  scriptLoader: ScriptLoader
+)</span></span>
+</code></pre><h3 id="property-featuremodules-is-removed-">Property featureModules is removed.</h3>
+<h3 id="property-scriptloader-changed-">Property scriptLoader changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-keyword">scriptLoader: </span><span class="hljs-keyword">ScriptLoader </span><span class="hljs-title">| undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">scriptLoader:</span> ScriptLoader
+</code></pre><h1 id="interface-storeentities">Interface StoreEntities</h1>
+<h2 id="-spartacus-storefinder-core">@spartacus/storefinder/core</h2>
+<p>moved to @spartacus/storefinder/root</p>
+<h1 id="class-addressbookcomponent">Class AddressBookComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  service: AddressBookComponentService,
+  translation: TranslationService,
+  globalMessageService: GlobalMessageService,
+  featureConfigService: FeatureConfigService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  service: AddressBookComponentService,
+  translation: TranslationService,
+  globalMessageService: GlobalMessageService
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-myinterestscomponent">Class MyInterestsComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  productInterestService: UserInterestsService,
+  translationService: TranslationService,
+  productService: ProductService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  productInterestService: UserInterestsService,
+  translationService: TranslationService,
+  productService: ProductService,
+  globalMessageService: GlobalMessageService
+)</span></span>
+</code></pre><h1 id="class-paragraphcomponent">Class ParagraphComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  component: CmsComponentData&lt;CmsParagraphComponent&gt;,
+  router: Router,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  component: CmsComponentData&lt;CmsParagraphComponent&gt;,
+  router: Router
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-closeaccountmodalcomponent">Class CloseAccountModalComponent</h1>
+<h2 id="-spartacus-user-profile-components">@spartacus/user/profile/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  authService: AuthService,
+  globalMessageService: GlobalMessageService,
+  routingService: RoutingService,
+  translationService: TranslationService,
+  userProfile: UserProfileFacade,
+  launchDialogService: LaunchDialogService,
+  el: ElementRef,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  authService: AuthService,
+  globalMessageService: GlobalMessageService,
+  routingService: RoutingService,
+  translationService: TranslationService,
+  userProfile: UserProfileFacade,
+  launchDialogService: LaunchDialogService,
+  el: ElementRef
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-updatepasswordcomponentservice">Class UpdatePasswordComponentService</h1>
+<h2 id="-spartacus-user-profile-components">@spartacus/user/profile/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userPasswordService: UserPasswordFacade,
+  routingService: RoutingService,
+  globalMessageService: GlobalMessageService,
+  authRedirectService: AuthRedirectService,
+  authService: AuthService
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userPasswordService: UserPasswordFacade,
+  routingService: RoutingService,
+  globalMessageService: GlobalMessageService,
+  authRedirectService?: AuthRedirectService | undefined,
+  authService?: AuthService | undefined
+)</span></span>
+</code></pre>
