@@ -1,5 +1,5 @@
 ---
-title: Changes to Styles in 6.0
+title: Changes to Styles in Spartacus 6.0
 ---
 
 The following styling changes were in made in Spartacus 6.0.

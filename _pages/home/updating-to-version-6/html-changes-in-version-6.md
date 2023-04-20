@@ -1,5 +1,5 @@
 ---
-title: Changes to HTML in 6.0
+title: Changes to HTML in Spartacus 6.0
 ---
 
 The following HTML changes were made in Spartacus 6.0.
