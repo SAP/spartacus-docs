@@ -368,3 +368,15 @@ If you see this message, you can try the following:
 
 - There is a chance the render will complete at some point in the future. You can look for a message that says `Rendering of ${URL} completed after the specified maxRenderTime, therefore it was ignored.`.
 - The OCC API may be slow to respond. If you are using a CDN in front of the API, check if the CDN has some kind of a rate limiter enabled for the SSR servers, or it may have even completely blocked the SSR server's IP addresses. For more information, see [SSR Shows Only a Global Error Message](#ssr-shows-only-a-global-error-message).
+
+## Gotchas when load-testing Spartacus SSR
+
+When load-testing Spartacus SSR, it is important to keep in mind the following gotchas while designing your load-testing scenarios:
+
+### Option `reuseCurrentRendering`
+
+If you have enabled `reuseCurrentRendering: true` in `SsrOptimizationOptions` (which is recommended), and your load-testing requests the same URLs in parallel, Spartacus SSR will only perform a single rendering for that particular URL despite many parallel requests awaiting its response in a queue. This means that load-testing Spartacus SSR is effective only if you request a bigger pool of various URLs, and not the same URL multiple times in parallel.
+
+### Option `concurrency`
+
+Spartacus SSR has a `concurrency` configuration that limits the number of renderings (actual computations) it can perform at the same time. By default, `concurrency` is set to 10, but it can be tuned to custom needs. If there are already `concurrency` pending renderings happening in a NodeJS replica, new incoming requests with different URLs will get an instant CSR fallback instead of a rendering. Therefore, effective load testing of Spartacus SSR does not send too many parallel requests for various URLs to a single NodeJS replica at the same time. If the number of URLs requested at the same time from a single replica is higher than its configured `concurrency`, then you can expect a higher rate of "fallback to CSR" – which is an expected behavior, but won't cause actual pressure on computations in Spartacus SSR.
