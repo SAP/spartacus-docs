@@ -135,10 +135,10 @@ export class CustomExpressServerLogger extends DefaultExpressServerLogger {
   override protected mapContext(context: ExpressServerLoggerContext): Record<string,any> {
      const outputContext = super.mapContext(context);
      return {
-      ...super.mapContext(context),
+      ...outputContext,
       request: {
-        // 
-        traceparent: context.request.get('traceparent')
+        ...outputContext?.request,
+        traceparent: context.request?.get('traceparent')
       }
      }
   }
@@ -156,7 +156,7 @@ import { DefaultExpressServerLogger, ExpressServerLoggerContext } from '@spartac
 import { pino } from 'pino';
 
 class CustomPinoLogger extends DefaultExpressServerLogger {
-  const logger = pino({
+  protected logger = pino({
     // custom configuration of the pino logger
   });
 
@@ -169,6 +169,8 @@ class CustomPinoLogger extends DefaultExpressServerLogger {
   info(message: string, context: ExpressServerLoggerContext): void {
     this.logger.info(this.mapContext(context), message);
   }
+
+  // don't forget to customize also other methods like: `debug`, `warn` and `error`
 }
 ```
 This is an example of how logs created by `pino` library look like:
