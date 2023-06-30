@@ -223,7 +223,7 @@ export class SpartacusModule {}
 
 By importing `ErrorHandlingModule`, the `CxErrorHandler` then handles all errors that occur during server-side rendering, and these errors are logged with an appropriate context.
 
-**Note:** Since user applications may contain their own implementations of `ErrorHandler`, the `CxErrorHandler` is not used by default when contextual logging is enabled. To use the `CxErrorHandler`, it is recommended that you extend your error handler to use the `LoggerService`.
+**Note:** Since user applications may contain their own implementations of `ErrorHandler`, the `CxErrorHandler` is not used by default when contextual logging is enabled. To enhance errors with the relevant context, it is recommended that you extend your error handler to use the `LoggerService`.
 
 ## LoggerService and Third-party Party Libraries
 
