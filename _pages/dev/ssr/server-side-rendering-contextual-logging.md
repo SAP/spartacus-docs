@@ -8,6 +8,13 @@ feature:
 
 Server-side contextual logging enhances the debugging experience by letting you see the source of your log messages, as well as the context in the printed output. Furthermore, the content is formatted so that logs are easier to read, and easier to parse for monitoring tools. Server-side contextual logging also provides tools that allow you to customize the logging experience.
 
+To benefit from all aspects of server-side contextual logging, you must do the following:
+
+- Set `logger: true` in the `SsrOptimizationOptions` of your `server.ts` file. For more information, see [Enabling SSR Contextual Logging](#enabling-ssr-contextual-logging).
+- Import `ErrorHandlingModule.forRoot()` in your storefront app, in the `spartacus.module.ts` file, for example. For more information, see [Enabling Contextual Logs In Error Handling](#enabling-contextual-logs-in-error-handling).
+- Use the `LoggerService` instead of the native `console` object in your custom code. For more information, see [Using the LoggerService](#using-the-loggerservice).
+- Ensure that any third-party libraries you are using can be configured to use the Spartacus `LoggerService`. For more information, see [LoggerService and Third-party Party Libraries](#loggerservice-and-third-party-party-libraries).
+
 Without contextual logging, the following issues arise:
 
 - Log messages are simply strings with little context about the rendered URL, making it difficult to connect the log message with the source of the log.
@@ -46,7 +53,7 @@ The following is an example of the log message in the monitoring tool:
 
 ## Enabling Server-Side Contextual Logging
 
-To enable server-side contextual logging, in the `server.ts` file, add a `logger` flag to the configuration object as the second parameter to the method that decorates `ngExpressEngine`, and set the `logger` flag to `true`. The following is an example:
+To enable server-side contextual logging, in the `server.ts` file, set the `logger` option to `true` in the `SsrOptimizationOptions` that are passed to the `NgExpressEngineDecorator.get()` method. The following is an example:
 
 ```ts
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
@@ -64,13 +71,72 @@ const ngExpressEngine = NgExpressEngineDecorator.get(engine, {
 
 With this configuration, your application uses the `DefaultExpressServerLogger` and provides request context for every logged message during server-side rendering.
 
+## Enabling Contextual Logs in Error Handling
+
+By default, Angular uses its own `ErrorHandler` to handle errors that occur during server-side rendering. However, this only prints errors to the console with a lack of context, and creates multiline messages that are not parsed correctly by monitoring tools. To improve error handling, Spartacus provides a `CxErrorHandler` that extends the default Angular `ErrorHandler` and uses `LoggerService` to log errors with the relevant context, when available.
+
+To use `CxErrorHandler`, you need to import the `ErrorHandlingModule`. It is recommended that you import the `ErrorHandlingModule` in `spartacus.module.ts`, as shown in the following example:
+
+```ts
+import { ErrorHandlingModule } from '@spartacus/setup/ssr';
+
+@NgModule({
+  imports: [
+    [...]
+    ErrorHandlingModule.forRoot()
+  ]
+})
+export class SpartacusModule {}
+```
+
+By importing `ErrorHandlingModule`, the `CxErrorHandler` then handles all errors that occur during server-side rendering, and these errors are logged with an appropriate context.
+
+**Note:** Since user applications may contain their own implementations of `ErrorHandler`, the `CxErrorHandler` is not used by default when contextual logging is enabled. To enhance errors with the relevant context, it is recommended that you extend your error handler to use the `LoggerService`. For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
+
+## LoggerService and Third-party Party Libraries
+
+To ensure that you have context and proper formatting for the logs that are output by third-party libraries in your application, it is recommended that you verify whether custom loggers can be provided, and that you use the `LoggerService` if possible. Otherwise, the logs from third-party libraries will be written in plain text, without the request's context and without proper formatting.
+
+The `LoggerService` can be used not only to log messages that are added to your applications, but also to log messages that are added to those third-party libraries that are used in your project and that communicate by their state.
+
+For example, Spartacus uses the `LoggerService` to display logs created by the `i18next` library. This was achieved by creating a compatible plugin with the `i18next` configuration and using the capabilities provided by the Spartacus logging service.
+
+The following is an example of an implementation of the `i18next` plugin:
+
+```ts
+import { InjectionToken, inject } from '@angular/core';
+
+import { LoggerModule } from 'i18next';
+import { LoggerService } from '../../../logger';
+
+export const I18NEXT_LOGGER_PLUGIN = new InjectionToken<LoggerModule>(
+  'I18NEXT_LOGGER_PLUGIN',
+  {
+    providedIn: 'root',
+    factory: () => {
+      const logger = inject(LoggerService);
+      return {
+        type: 'logger',
+        log: (args) => logger.log(...args),
+        warn: (args) => logger.warn(...args),
+        error: (args) => logger.error(...args),
+      };
+    },
+  }
+);
+```
+
+To improve debugging, it is worth checking which libraries in your applications generate logs, and whether the logging in these libraries can be extended with the logger provided by Spartacus.
+
+For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
+
 ## Customizing Server-Side Contextual Logging
 
 You can customize server-side contextual logging, and even provide a custom logger in place of the default one.
 
 To implement a custom logger, you create a class that implements the `ExpressServerLogger` interface. Alternatively, you can extend the `DefaultExpressServerLogger` class if you want to expand its existing functionality.
 
-Once the custom logger class is created, it can be passed to the `logger` property in the configuration object. The following is an example: 
+After the custom logger class is created, it can be passed to the `logger` property in the configuration object. The following is an example:
 
 ```ts
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
@@ -130,11 +196,11 @@ export class CustomExpressServerLogger extends DefaultExpressServerLogger {
 }
 ```
 
-### Implementing Custom Loggers with Third-Party Libraries
+### Integrating with Third-Party Loggers
 
-**Note:** The following example should not be treated as a recommendation for working with the library that is used in this example.
+**Note:** The following example should not be treated as a recommendation for working with any specific third-party loggers. It is provided for demonstration purposes only.
 
-The following is an example of how to implement a custom logger using the Pino library:
+The following is an example of how to integrate a third-party logger using the Pino library:
 
 ```ts
 import { DefaultExpressServerLogger, ExpressServerLoggerContext } from '@spartacus/setup/ssr';
@@ -169,11 +235,11 @@ The following is an example of what the logs created by the Pino library look li
 
 **Note:** The Pino library [translates log levels to integer values](https://github.com/pinojs/pino/blob/master/docs/api.md#loggerlevel-string-gettersetter). For more information, see the [Pino landing page](https://www.npmjs.com/package/pino) on npm.
 
-**Note:** The `DefaultExpressServerLogger` does not include any sensitive data in the logs. However, when using a custom logger, you must exercise caution and be mindful of the data being provided. It is your responsibility to ensure that no sensitive information is being used or exposed.
+**Note:** The `DefaultExpressServerLogger` does not include any sensitive data in the logs. However, when using a custom logger, you must exercise caution and be careful about the data being provided. It is your responsibility to ensure that no sensitive information is being used or exposed.
 
 ## Using the LoggerService
 
-The `LoggerService` is the recommended way to handle logging in Spartacus. It is an injectable service that provides a consistent interface for logging across the application. As a result, you should no longer use the global `console` object.
+You must use the `LoggerService` instead of the native `console` object to benefit from the enhanced logging capabilities provided in Spartacus.
 
 The `DefaultExpressLoggerService` is used to handle any logs in Spartacus when using server-side rendering. It is injected and accessed through the `LoggerService`.
 
@@ -201,61 +267,4 @@ You can also customize the behavior of the `LoggerService` by providing your own
 
 For server-side rendering, Spartacus provides the `ExpressLoggerService` to the Angular context. This service extends the `LoggerService` and provides the `DefaultExpressServerLogger` for logging. Using this service guarantees that logs are properly formatted and contain the necessary context about the source of the log.
 
-**Note:** By default, Spartacus does not output any sensitive data in the logs. However, if you include sensitive data in your log messages, you should be aware that it will be visible in the logs. Accordingly, it is your responsibility to ensure that no sensitive data is included in the log messages.
-
-## Enabling Contextual Logs in Error Handling
-
-By default, Angular uses its own `ErrorHandler` to handle errors that occur during server-side rendering. However, this only prints errors to the console with a lack of context, and creates multiline messages that are not parsed correctly by monitoring tools. To improve error handling, Spartacus provides a `CxErrorHandler` that extends the default Angular `ErrorHandler` and uses `LoggerService` to log errors with the relevant context, when available.
-
-To use `CxErrorHandler`, you need to import the `ErrorHandlingModule`. It is recommended that you import the `ErrorHandlingModule` in `spartacus.module.ts`, as shown in the following example:
-
-```ts
-import { ErrorHandlingModule } from '@spartacus/setup/ssr';
-
-@NgModule({
-  imports: [
-    [...]
-    ErrorHandlingModule.forRoot()
-  ]
-})
-export class SpartacusModule {}
-```
-
-By importing `ErrorHandlingModule`, the `CxErrorHandler` then handles all errors that occur during server-side rendering, and these errors are logged with an appropriate context.
-
-**Note:** Since user applications may contain their own implementations of `ErrorHandler`, the `CxErrorHandler` is not used by default when contextual logging is enabled. To enhance errors with the relevant context, it is recommended that you extend your error handler to use the `LoggerService`.
-
-## LoggerService and Third-party Party Libraries
-
-To ensure that you have context and proper formatting for the logs that are output by third-party libraries in your application, it is recommended that you verify whether custom loggers can be provided, and that you use the `LoggerService` if possible. Otherwise, the logs from third-party libraries will be written in plain text, without the request's context and without proper formatting.
-
-The `LoggerService` can be used not only to log messages that are added to your applications, but also to log messages that are added to those third-party libraries that are used in your project and that communicate by their state.
-
-For example, Spartacus uses the `LoggerService` to display logs created by the `i18next` library. This was achieved by creating a compatible plugin with the `i18next` configuration and using the capabilities provided by the Spartacus logging service.
-
-The following is an example of an implementation of the `i18next` plugin:
-
-```ts
-import { InjectionToken, inject } from '@angular/core';
-
-import { LoggerModule } from 'i18next';
-import { LoggerService } from '../../../logger';
-
-export const I18NEXT_LOGGER_PLUGIN = new InjectionToken<LoggerModule>(
-  'I18NEXT_LOGGER_PLUGIN',
-  {
-    providedIn: 'root',
-    factory: () => {
-      const logger = inject(LoggerService);
-      return {
-        type: 'logger',
-        log: (args) => logger.log(...args),
-        warn: (args) => logger.warn(...args),
-        error: (args) => logger.error(...args),
-      };
-    },
-  }
-);
-```
-
-To improve debugging, it is worth checking which libraries in your applications generate logs, and whether the logging in these libraries can be extended with the logger provided by Spartacus.
+**Note:** By default, Spartacus does not output any sensitive data in the logs. However, if you include sensitive data in your log messages, it will be visible in the logs. Accordingly, you should ensure that no sensitive data is included in the log messages.
