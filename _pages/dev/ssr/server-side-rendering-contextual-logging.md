@@ -1,29 +1,29 @@
 ---
-title: Server-Side Contextual Logging
+title: Standardized SSR Logging
 feature:
-  - name: Server-Side Contextual Logging
+  - name: Standardized SSR Logging
     spa_version: 6.2
     cx_version: n/a
 ---
 
-Server-side contextual logging enhances the debugging experience by letting you see the source of your log messages, as well as the context in the printed output. Furthermore, the content is formatted so that logs are easier to read, and easier to parse for monitoring tools. Server-side contextual logging also provides tools that allow you to customize the logging experience.
+Standardized SSR logging enhances the debugging experience by letting you see the source of your log messages, as well as the context of the logs in the printed output. Furthermore, the content is formatted so that logs are easier to read, and easier to parse for monitoring tools. Standardized SSR logging also provides tools that allow you to customize the logging experience.
 
-To benefit from all aspects of server-side contextual logging, you must do the following:
+To benefit from all aspects of standardized SSR logging, you must do the following:
 
-- Set `logger: true` in the `SsrOptimizationOptions` of your `server.ts` file. For more information, see [Enabling SSR Contextual Logging](#enabling-ssr-contextual-logging).
-- Import `ErrorHandlingModule.forRoot()` in your storefront app, in the `spartacus.module.ts` file, for example. For more information, see [Enabling Contextual Logs In Error Handling](#enabling-contextual-logs-in-error-handling).
+- In your `server.ts` file, set `logger: true` in the SSR options that are passed in the second argument of the `NgExpressEngineDecorator.get()` method. For more information, see [Enabling Standardized SSR Logging](#enabling-standardized-ssr-logging).
+- Import `ErrorHandlingModule.forRoot()` in your storefront app, in the `spartacus.module.ts` file, for example. For more information, see [Enabling Standardized Logs In Error Handling](#enabling-standardized-logs-in-error-handling).
 - Use the `LoggerService` instead of the native `console` object in your custom code. For more information, see [Using the LoggerService](#using-the-loggerservice).
-- Ensure that any third-party libraries you are using can be configured to use the Spartacus `LoggerService`. For more information, see [LoggerService and Third-party Party Libraries](#loggerservice-and-third-party-party-libraries).
+- Ensure that any third-party libraries you are using can be configured to use the Spartacus `LoggerService`. For more information, see [Enabling Standardized Logs in Third-party Party Libraries](#enabling-standardized-logs-in-third-party-party-libraries).
 
-Without contextual logging, the following issues arise:
+Without standardized logging, the following issues arise:
 
-- Log messages are simply strings with little context about the rendered URL, making it difficult to connect the log message with the source of the log.
+- Log messages are simply strings with little context about the rendered URL, making it difficult to connect log messages with the source of the logs.
 - The format of the log messages is not standardized, which can make it difficult to read and understand the messages.
 - Log messages that span multiple lines are not formatted correctly, and each line is treated as a separate log in the monitoring tools, which further complicates the log viewing experience. For example, this can be the case for multiline stack traces of errors.
 
-These issues make it difficult to read and understand log messages, particularly when log messages are coming from multiple parallel server-side-renderings and NodeJS servers. With server-side contextual logging, these issues are avoided because you can easily identify the source of your log messages, and also read them more easily.
+These issues make it difficult to read and understand log messages, particularly when log messages are coming from multiple parallel server-side-renderings and NodeJS servers. With standardized SSR logging, these issues are avoided because you can easily identify the source of your log messages, and also read them more easily.
 
-Spartacus provides a default logger called `DefaultExpressServerLogger` that addresses common issues. This logger is used by default when server-side contextual logging is enabled. This logger takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
+Spartacus provides a default logger called `DefaultExpressServerLogger` that addresses common issues. This logger is used by default when standardized SSR logging is enabled. It takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
 
 The following example shows how the logger creates logs in development mode by producing a multiline JSON output:
 
@@ -51,9 +51,9 @@ The following is an example of the log message in the monitoring tool:
 
 ![Log Representation In Kibana](assets/images/../../../../../assets/images/ssr/contextual_logging_kibana_logs.png)
 
-## Enabling Server-Side Contextual Logging
+## Enabling Standardized SSR Logging
 
-To enable server-side contextual logging, in the `server.ts` file, set the `logger` option to `true` in the `SsrOptimizationOptions` that are passed to the `NgExpressEngineDecorator.get()` method. The following is an example:
+To enable standardized SSR logging, in the `server.ts` file, set the `logger` option to `true` in the SSR options that are passed in the second argument of the `NgExpressEngineDecorator.get()` method. The following is an example:
 
 ```ts
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
@@ -71,7 +71,7 @@ const ngExpressEngine = NgExpressEngineDecorator.get(engine, {
 
 With this configuration, your application uses the `DefaultExpressServerLogger` and provides request context for every logged message during server-side rendering.
 
-## Enabling Contextual Logs in Error Handling
+## Enabling Standardized Logs in Error Handling
 
 By default, Angular uses its own [`ErrorHandler`](https://angular.io/api/core/ErrorHandler) to handle errors that occur during server-side rendering. However, this only prints errors to the console with a lack of context, and creates multiline messages that are not parsed correctly by monitoring tools. To improve logging of errors, you have to import the Spartacus `ErrorHandlingModule.forRoot()` in `spartacus.module.ts`, as shown in the following example:
 
@@ -87,25 +87,25 @@ import { ErrorHandlingModule } from '@spartacus/setup/ssr';
 export class SpartacusModule {}
 ```
 
-The `ErrorHandlingModule.forRoot()` under the hood provides the Spartacus `CxErrorHandler` that extends the default Angular `ErrorHandler`. And thanks to that, all errors that occur during server-side rendering are passed to `LoggerService`, so these errors are logged with an appropriate context. For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
+Under the hood, the `ErrorHandlingModule.forRoot()` provides the Spartacus `CxErrorHandler`, which extends the default Angular `ErrorHandler`. As a result, all errors that occur during server-side rendering are passed to the `LoggerService`, and these errors are logged with an appropriate context. For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
 
-**Note:** If you already provide in your application a custom Angular `ErrorHandler`, importing `ErrorHandlingModule.forRoot()` might cause the Spartacus `CxErrorHandler` to overwrite (or be overwritten with) your error handler (depending on the order of providers). In such a case, it is recommended that your custom `ErrorHandler` should extend Spartacus `CxErrorHandler` and use it's method `super.handleError()` to preserve the default Spartacus behavior as well as your custom one.
+**Note:** If you already provide in your application a custom Angular `ErrorHandler`, importing `ErrorHandlingModule.forRoot()` might cause the Spartacus `CxErrorHandler` to overwrite (or be overwritten with) your own error handler (depending on the order of providers). In this case, it is recommended that your custom `ErrorHandler` should extend the Spartacus `CxErrorHandler` and use the `super.handleError()` method of the `CxErrorHandler`. This preserves the default Spartacus behavior, while also preserving the behavior of your custom `ErrorHandler`.
 
-## LoggerService and Third-party Party Libraries
+## Enabling Standardized Logs in Third-party Party Libraries
 
 To ensure that you have context and proper formatting for the logs that are output by third-party libraries in your application, it is recommended that you verify whether custom loggers can be provided, and that you use the `LoggerService` if possible. Otherwise, the logs from third-party libraries will be written in plain text, without the request's context and without proper formatting.
 
 For example, Spartacus depends on the third party library `i18next` and configures a custom [logger plugin](https://www.i18next.com/misc/creating-own-plugins#logger) for `i18next`, so `i18next` prints all its logs using the Spartacus `LoggerService`.
 
-Similarly, you should check which other third party libraries are used in your application, and whether those libraries allow to configure a custom logging strategy. If so, configure them to use the Spartacus `LoggerService` to ensure that the logs are written with proper context and formatting.
+Similarly, you should check which other third party libraries are used in your application, and whether those libraries allow you to configure a custom logging strategy. If so, configure them to use the Spartacus `LoggerService` to ensure that the logs are written with proper context and formatting.
 
 For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
 
-## Customizing Server-Side Contextual Logging
+## Customizing Standardized SSR Logging
 
-You can customize server-side contextual logging, and even provide a custom logger in place of the default one.
+You can customize standardized SSR logging, and even provide a custom logger in place of the default one.
 
-To implement a custom logger, you create a class that implements the `ExpressServerLogger` interface. It's recommended to extend the `DefaultExpressServerLogger` class to expand its existing functionality.
+To implement a custom logger, you create a class that implements the `ExpressServerLogger` interface. It is recommended that you extend the `DefaultExpressServerLogger` class to expand its existing functionality.
 
 After the custom logger class is created, it can be passed to the `logger` property in the configuration object. The following is an example:
 
@@ -174,9 +174,9 @@ export class CustomExpressServerLogger extends DefaultExpressServerLogger {
 
 ### Integrating with Third-Party Loggers
 
-**Note:** The following example should not be treated as a recommendation for working with any specific third-party loggers. It is provided for demonstration purposes only.
+**Note:** The following example should not be treated as a recommendation for working with any specific third-party logger. It is provided for demonstration purposes only.
 
-The following is an example of how to integrate a third-party logger []`Pino`](https://getpino.io):
+The following is an example of how to integrate the third-party [Pino](https://getpino.io) logger:
 
 ```ts
 import {
@@ -213,9 +213,9 @@ class CustomPinoLogger extends DefaultExpressServerLogger {
 }
 ```
 
-For more information about the API of the `Pino` library, see their [API documentation](https://getpino.io/#/docs/api).
+For more information about the API of the Pino library, see their [API documentation](https://getpino.io/#/docs/api).
 
-The following is an example of what the logs created by the `Pino` library look like:
+The following is an example of what the logs created by the Pino library look like:
 
 ```text
 {"level":30,"time":1687528211674,"pid":40850,"hostname":"SHMABCD1234567","options":{"concurrency":10,"timeout":3000,"forcedSsrTimeout":60000,"maxRenderTime":300000,"reuseCurrentRendering":true,"debug":false,"logger":"CustomLogger"},"msg":"[spartacus] SSR optimization engine initialized"}
@@ -227,7 +227,7 @@ The following is an example of what the logs created by the `Pino` library look 
 
 ## Using the LoggerService
 
-In your custom code you must use the `LoggerService` instead of the native `console` object to benefit from the enhanced logging capabilities provided in Spartacus.
+In your custom code, you must use the `LoggerService` instead of the native `console` object to benefit from the enhanced logging functionality provided in Spartacus.
 
 The following is an example of using the `LoggerService`:
 
@@ -251,4 +251,4 @@ You can also customize the behavior of the `LoggerService` by providing your own
 
 ### LoggerService Behavior in an SSR Context
 
-For server-side rendering, Spartacus by default overwrites `LoggerService` with the `ExpressLoggerService` , which uses `DefaultExpressServerLogger` for logging under the hood.
+For server-side rendering, Spartacus overwrites the `LoggerService` with the `ExpressLoggerService` by default, which uses the `DefaultExpressServerLogger` for logging under the hood.
