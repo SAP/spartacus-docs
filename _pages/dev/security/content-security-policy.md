@@ -18,6 +18,12 @@ default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'
 
 **Note:** Additional directives may be needed to ensure app functionality, such as adding source lists for `script-src`.
 
+The following Content-Security-Policy headers are recommended to allow SmartEdit and other functionality to work with Composable Storefront and simultaneously offer clickjacking prevention.
+
+```html
+default-src 'self' 'unsafe-inline' {commerce-occ-api-host} {smartedit-host}; img-src 'self' {commerce-occ-api-host} data:;frame-src 'none'; frame-ancestors 'self' {commerce-occ-api-host} {smartedit-host}; style-src 'self' 'unsafe-inline' fonts.googleapis.com use.fontawesome.com; font-src fonts.gstatic.com use.fontawesome.com
+```
+
 ## Working with Scripts
 
 Scripts loaded from an allow-listed source using the `<script>` tag are still allowed. The following is an example:
