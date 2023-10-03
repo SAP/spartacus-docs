@@ -360,7 +360,9 @@ const ssrOptions: SsrOptimizationOptions = {
 
 ### Using SSR Only for Certain Pages
 
-Spartacus includes a default rendering strategy resolver that allows you to control the server-side rendering behavior of your storefront app on a per-request basis.
+If you want to enable SSR only for certain pages, you can provide a custom `renderingStrategyResolver` function (as described in the previous section) that can inspect the requested URL, and return an appropriate rendering strategy.
+
+Spartacus also includes a default rendering strategy resolver that allows you to control the server-side rendering behavior of your storefront app on a per-request basis.
 
 You can customize your SSR strategy by disabling SSR for specific URLs and query parameters. By configuring the `excludedUrls` and `excludedParams` properties in `defaultRenderingStrategyResolverOptions`, you can specify which URLs and query parameters should trigger SSR to be bypassed, and enable client-side rendering (CSR) instead. This fine-grained control allows you to optimize SSR for your specific use cases, ensuring flexibility and efficient management of your SSR rendering strategy.
 
