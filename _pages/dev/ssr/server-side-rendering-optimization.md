@@ -377,14 +377,14 @@ The `RenderingStrategyResolverOptions` interface defines the following optional 
 - `excludedUrls`, which is an array of URLs that are disabled for SSR.
 - `excludedParams`, which is an array of query parameters that are disabled for SSR.
 
-#### Determining the Rendering Strategy
+### Determining the Rendering Strategy
 
 The `defaultRenderingStrategyResolver` function works as follows:
 
 - If the request matches any of the excluded query parameters defined in `excludedParams`, or if the request URL matches any of the excluded URLs defined in `excludedUrls`, then SSR is disabled for that request. In such cases, the function returns `RenderingStrategy.ALWAYS_CSR`.
 - If the request does not meet any of the exclusion criteria, the default rendering strategy (`RenderingStrategy.DEFAULT`) is used, indicating that SSR should proceed as usual.
 
-#### Default Configuration
+### Default Configuration
 
 In Spartacus, the default configuration for `defaultRenderingStrategyResolverOptions` is defined as follows:
 
@@ -412,7 +412,7 @@ export const defaultSsrOptimizationOptions: SsrOptimizationOptions = {
 
 This ensures that whenever Spartacus applies SSR optimization, the `defaultRenderingStrategyResolver` function determines the appropriate rendering strategy for each incoming request, based on the configuration that you have specified.
 
-### Incomplete Renders and Memory Leaks
+## Incomplete Renders and Memory Leaks
 
 A `Rendering of ${URL} was not able to complete. This might cause memory leaks!` message may appear if you have the `maxRenderTime` setting enabled. This error message indicates that a render is hanging and may or may not complete at some point in the future. Unfortunately, Spartacus is not able to release the related resources from [`@angular/universal`](https://github.com/angular/universal/), which will likely lead to memory overflow at some point.
 
