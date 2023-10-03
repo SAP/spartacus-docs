@@ -358,7 +358,7 @@ const ssrOptions: SsrOptimizationOptions = {
 };
 ```
 
-### Using SSR Only for Certain Pages
+## Using SSR Only for Certain Pages
 
 If you want to enable SSR only for certain pages, you can provide a custom `renderingStrategyResolver` function (as described in the previous section) that can inspect the requested URL, and return an appropriate rendering strategy.
 
