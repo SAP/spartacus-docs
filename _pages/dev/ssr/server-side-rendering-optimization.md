@@ -151,6 +151,8 @@ The `renderingStrategyResolver` setting is a function with the signature `(req: 
 
 It is recommended that you provide a custom rendering strategy for cases where you want to serve SSR only to specific requests (such as serving SSR only to crawling bots, for example).
 
+For more information on the default rendering strategy resolver settings that are provided with Spartacus, see [Using SSR Only for Certain Pages](#using-ssr-only-for-certain-pages).
+
 ### forcedSsrTimeout
 
 The `forcedSsrTimeout` setting is a number that indicates the time (in milliseconds) to wait for rendered pages when the render strategy for the request is set to `ALWAYS_SSR`. This prevents SSR rendering from blocking resources for too long if the server is under heavy load, or if the page contains errors.
@@ -358,7 +360,57 @@ const ssrOptions: SsrOptimizationOptions = {
 
 ### Using SSR Only for Certain Pages
 
-If you want to perform SSR only for certain pages (such as routes, for example), you can do this by providing a custom `renderingStrategyResolver` function (as described in the previous section), which can inspect the requested URL, and return an appropriate rendering strategy.
+If you want to enable SSR only for certain pages, you can provide a custom `renderingStrategyResolver` function (as described in the previous section) that can inspect the requested URL, and return an appropriate rendering strategy.
+
+Spartacus also includes a default rendering strategy resolver that allows you to control the server-side rendering behavior of your storefront app on a per-request basis.
+
+You can customize your SSR strategy by disabling SSR for specific URLs and query parameters. By configuring the `excludedUrls` and `excludedParams` properties in `defaultRenderingStrategyResolverOptions`, you can specify which URLs and query parameters should trigger SSR to be bypassed, and enable client-side rendering (CSR) instead. This fine-grained control allows you to optimize SSR for your specific use cases, ensuring flexibility and efficient management of your SSR rendering strategy.
+
+The `defaultRenderingStrategyResolver` takes one parameter, `RenderingStrategyResolverOptions`, as follows:
+
+```ts
+const defaultRenderingStrategyResolver = (options: RenderingStrategyResolverOptions) => (req: Request) => RenderingStrategy
+```
+
+The `RenderingStrategyResolverOptions` interface defines the following optional properties:
+
+- `excludedUrls`, which is an array of URLs that are disabled for SSR.
+- `excludedParams`, which is an array of query parameters that are disabled for SSR.
+
+#### Determining the Rendering Strategy
+
+The `defaultRenderingStrategyResolver` function works as follows:
+
+- If the request matches any of the excluded query parameters defined in `excludedParams`, or if the request URL matches any of the excluded URLs defined in `excludedUrls`, then SSR is disabled for that request. In such cases, the function returns `RenderingStrategy.ALWAYS_CSR`.
+- If the request does not meet any of the exclusion criteria, the default rendering strategy (`RenderingStrategy.DEFAULT`) is used, indicating that SSR should proceed as usual.
+
+#### Default Configuration
+
+In Spartacus, the default configuration for `defaultRenderingStrategyResolverOptions` is defined as follows:
+
+```ts
+export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverOptions = {
+   excludedUrls: ['checkout', 'my-account', 'cx-preview'],
+   excludedParams: ['asm'],
+};
+```
+
+This configuration specifies that SSR should be disabled for requests with URLs containing `checkout`, `my-account`, or `cx-preview`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
+
+**Note:** The `cx-preview` URL is used for disabling SSR in SmartEdit.
+
+The `defaultRenderingStrategyResolver` function is set as the value for the `renderingStrategyResolver` property in the Spartacus SSR optimization settings, as follows:
+
+```ts
+export const defaultSsrOptimizationOptions: SsrOptimizationOptions = {
+   // Other SSR optimization options...
+   renderingStrategyResolver: defaultRenderingStrategyResolver(
+      defaultRenderingStrategyResolverOptions
+   ),
+};
+```
+
+This ensures that whenever Spartacus applies SSR optimization, the `defaultRenderingStrategyResolver` function determines the appropriate rendering strategy for each incoming request, based on the configuration that you have specified.
 
 ### Incomplete Renders and Memory Leaks
 
