@@ -395,7 +395,7 @@ export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverO
 };
 ```
 
-This configuration specifies that SSR should be disabled for requests with URLs containing `checkout`, `my-account`, or `cx-preview`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
+This configuration specifies that SSR is disabled for requests with URLs containing `checkout`, `my-account`, or `cx-preview`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
 
 **Note:** The `cx-preview` URL is used for disabling SSR in SmartEdit.
 
