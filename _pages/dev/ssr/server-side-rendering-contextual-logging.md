@@ -252,3 +252,100 @@ You can also customize the behavior of the `LoggerService` by providing your own
 ### LoggerService Behavior in an SSR Context
 
 For server-side rendering, Spartacus overwrites the `LoggerService` with the `ExpressLoggerService` by default, which uses the `DefaultExpressServerLogger` for logging under the hood.
+
+## Trace Context
+
+Spartacus offers support for the [W3C Trace Context](https://www.w3.org/TR/trace-context/) specification in addition to standardized SSR logging. With its built-in parser, you can extract trace context information from incoming requests and include it in the logs generated during server-side rendering. This enhancement provides new opportunities for seamlessly connecting logs generated in popular monitoring tools such as OpenSearch to distributed trace presentation tools like Dynatrace.
+
+**Note:** Utilizing the Trace Context standard introduces potential security risks. Vendors using the traceparent header must follow best practices for parsing headers that could be malicious to mitigate the risk of buffer overflow and HTML injection attacks. It's important to be aware that traceparent may expose sensitive information, potentially facilitating more significant attacks, and precautions should be taken accordingly. Enabling distributed tracing without adequate safeguards can leave systems vulnerable to denial-of-service attacks, so tracing vendors should implement protective measures, such as handling authenticated and unauthenticated requests differently and implementing rate limiters. For more details, please refer to [W3C Trace Context - Security Considerations](https://www.w3.org/TR/trace-context/#security-considerations).
+While the mentioned risks are not specific to Spartacus itself, if you have concerns regarding the security of the traceparent header, you may want to consider creating your own ExpressServerLogger implementation that does not include traceContext values in the logs.
+
+### Attaching Trace Context to the logs
+
+**Note:** The provided examples have been verified on SAP Commerce Cloud, which employs Dynatrace as its default observability platform. Nonetheless, since Trace Context adheres to W3C standards, these principles should be applicable to other comparable tools as well.
+
+The `traceContext` property will be automatically included in the logs if the incoming request contains the `traceparent`` header. This seamless integration simplifies the process of capturing trace context information.
+
+The following is an example of a traceparent header:
+```text
+traceparent: 00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01
+```
+
+The following is an example of a log that contains the `traceContext` property:
+```json
+{
+  "message": "Rendering completed (/electronics-spa/en/USD/)",
+  "context": {
+    "timestamp": "2023-09-13T12:14:21.377Z",
+    "request": {
+      "url": "/electronics-spa/en/USD/",
+      "uuid": "a076a5ba-7889-4c19-840e-395e89fde4b5",
+      "timeReceived": "2023-09-13T12:14:13.450Z",
+      "traceContext": {
+        "version": "00",
+        "traceId": "0af7651916cd43dd8448eb211c80319c",
+        "parentId": "b7ad6b7169203331",
+        "traceFlags": "01"
+      }
+    }
+  }
+}
+```
+
+If the traceContext is not appearing in the logs, there are several potential reasons for this:
+- **W3C Trace Context Not Enabled in Dynatrace:** Ensure that W3C Trace Context is enabled in your Dynatrace configuration. Without proper configuration, trace context information may not be collected.
+- **Middleware Filtering:** Check if any middleware or components in your system are filtering out the `traceparent` header. If it's being removed or modified before reaching your application, the trace context information may not be captured.
+- **Invalid `traceparent` Header:** Verify that the traceparent header value in the incoming request is valid and conforms to the W3C Trace Context specification. An invalid header may not be recognized and processed correctly.
+
+Addressing these potential issues is essential to ensure the correct inclusion of the traceContext in your logs. The built-in parser, designed to extract the trace context from the `traceparent header``, satisfies all security requirements specified in the W3C Trace Context standard. It meticulously examines each component of the header to verify its proper format. If the header is found to be invalid, the traceContext property will not be appended to the logs. Additionally, the parser will generate a log message that can be useful for debugging purposes.
+
+The following is an example of such a log:
+
+```json
+{
+  "message": "Traceparent header has invalid length: 18. Expected 55 characters.",
+  "context": {
+    "timestamp": "2023-09-13T12:14:21.377Z",
+    "request": {
+      "url": "/electronics-spa/en/USD/"
+    }
+  }
+}
+```
+
+Depending on the error ocurred during the parser, following error messages may be generated:
+- `Traceparent header has invalid length: ${traceparent.length}. Expected 55 characters.` - the `traceparent` header has invalid length
+- `Traceparent header has invalid format.` - the `traceparent` header has invalid format. To learn more, see [W3C Trace Context - Traceparent Header](https://www.w3.org/TR/trace-context/#traceparent-header)
+
+### Connecting Logs to Distributed Traces
+
+**Note:** These steps have been verified on SAP Commerce Cloud, where OpenSearch Dashboards is the default monitoring tool. Please be aware that the steps described here may vary when using other monitoring tools.
+
+All logs generated by Spartacus can be seen in OpenSearch Dashboards monitoring tool.
+The following is an example of a log presented the monitoring tool:
+
+![Log with Trace Context](assets/images/../../../../../assets/images/ssr/contextual_logging_trace_context.png)
+
+OpenSearch enables the formatting of fields as hyperlinks, and this section outlines the steps for configuring links that direct you to the Dynatrace distributed trace view.
+
+To begin, navigate to the main menu and proceed to the "Stack Management" section. Within "Stack Management," choose "Index Patterns" from the available left navigation options.
+
+![Stack Management Path](assets/images/../../../../../assets/images/ssr/contextual_logging_stack_management.png)
+
+Next, select the pre-defined index pattern that corresponds to the log messages generated by your application. Locate the index where your application's logs are displayed.
+
+![Available Indices](assets/images/../../../../../assets/images/ssr/contextual_logging_indices.png)
+
+Once we selected an index pattern, the corresponding field list is shown (see screenshot below). We can filter the fields by name. We use this functionality to search for the field “traceId”. If the field is not found, try refreshing the index pattern with the little reload button on the top right in the screenshot. We can edit the field configuration by clicking on the pencil symbol in the table.
+
+![Index with Logs From Spartacus App](assets/images/../../../../../assets/images/ssr/contextual_logging_index_patterns.png)
+
+After selecting an index pattern, the associated field list will be displayed (as shown in the screenshot below). You can filter the fields by name, and in this case, you should use this feature to search for the "traceId" field. If you can't find the "traceId" field, try refreshing the index pattern by clicking the small reload button located at the top right corner in the screenshot. To edit the field configuration, simply click on the pencil symbol within the table.
+
+![TraceId field configuration](assets/images/../../../../../assets/images/ssr/contextual_logging_index_trace_id_field_configuration.png)
+
+Once you've saved the field configuration, you can return to the log view. You will notice that the "traceId" field has been transformed into a hyperlink. Clicking on this link will now direct you to the distributed trace view.
+
+![TraceId As Link](assets/images/../../../../../assets/images/ssr/contextual_logging_trace_id_link.png)
+
+
