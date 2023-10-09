@@ -126,6 +126,8 @@ docs:
                   underchildren:
                       - title: "SmartEdit Contract in Spartacus"
                         url: /smartedit-contract/
+                - title: "Open Payment Framework Integration"
+                  url: /open-payment-framework-integration/
 
 
 
