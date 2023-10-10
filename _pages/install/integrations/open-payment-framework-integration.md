@@ -144,3 +144,7 @@ Here are detailed explanations of the properties within the configuration:
 Setting up the routing configurations accurately is critical to ensuring users are directed to the appropriate paths based on the outcomes of their payment verification processes. Always ensure the values provided are in line with the application's routing strategy.
 
 For more comprehensive information or troubleshooting, please refer to [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}).
+
+### OPF Checkout Configuration
+
+The OPF feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. Learn more about this feature here [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/extending-checkout.md %}).

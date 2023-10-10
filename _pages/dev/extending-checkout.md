@@ -4,14 +4,14 @@ title: Extending Checkout
 
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Routing and Configuration
 
@@ -144,7 +144,7 @@ The following is an example on how you can extend the `CheckoutStepsSetGuard` in
 
 ```typescript
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class CustomCheckoutStepsSetGuard extends CheckoutStepsSetGuard {
   constructor(
@@ -394,6 +394,51 @@ provideConfig({
 
 **Note:** You can use this same approach to combine all the steps into a single-step checkout.
 
+## Multiple Checkout Flows
+
+Starting from version [x.x] a new checkout property named "flows" has been introduced. This enhancement facilitates greater flexibility and dynamism in customizing the checkout process based on specific criteria returned from the backend.
+
+Usage example:
+
+```ts
+provideConfig({
+  checkout: {
+    flows: {
+      'spa-mockup': {
+        steps: mockupCheckoutSteps,
+      },
+      'spa-opf': {
+        steps: opfCheckoutSteps,
+        guest: false,
+      },
+      'spa-opf-guest': {
+        steps: opfCheckoutSteps,
+        guest: true,
+      },
+    },
+  },
+}),
+```
+
+- The "flows" property allows developers to inject a checkout flow using a specific key.
+- When the checkout process is initiated, the checkout orchestrator service queries the backend for the `paymentProvider` value.
+- `paymentProvider` value can be set separately for each base store.
+- If the returned `paymentProvider` value matches a predefined checkout flow key, that specific flow is then served to the customer. For example, if the backend returns a paymentProvider value of "ProviderA" and there is a corresponding checkout flow with the key "ProviderA", then the "ProviderA" checkout flow will be activated.
+- Benefits of this solution are real-time switching between different checkout flows, eliminating the need to rebuild the app for each change, also ability to have multiple checkout flows when catering to different market segments or product types.
+
+### Setting up paymentProvider value on the backend
+
+1. Go to Commerce Cloud backoffice and login as an admin.
+2. Select from left menu "Base Commerce" -> "Base Stores" -> choose a base store which you want to update.
+3. In properties find "Payment Provider" and set value as key of the checkout flow available in your Storefront.
+4. Save changes.
+
+### Limitations
+
+It is crucial to note that the "flows" functionality is channel-specific. Currently, it operates exclusively for either B2C or B2B channels, not both simultaneously.
+
+This feature is an optional to use. If specific checkout flow key will be not found in checkout flows, service will fallback to the standard checkout steps and configuration.
+
 ## Express Checkout
 
 The following scenario describes how to provide express checkout for users who have previously ordered from this store. In this example, when the **Express Checkout** button is clicked, the user is brought directly to the Review Order page, which is populated with the default address, the default payment method, and the fastest shipping method.
@@ -403,18 +448,18 @@ Clicking the default checkout button redirects to the `/checkout` route. To invo
 The first step in setting up express checkout is to create an `ExpressCheckoutGuard`. The following is an example:
 
 ```ts
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   CanActivate,
   Router,
   UrlTree,
   ActivatedRouteSnapshot,
-} from '@angular/router';
-import { CheckoutConfig } from '../config/checkout-config';
-import { RoutingConfigService } from '@spartacus/core';
+} from "@angular/router";
+import { CheckoutConfig } from "../config/checkout-config";
+import { RoutingConfigService } from "@spartacus/core";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ExpressCheckoutGuard implements CanActivate {
   constructor(
