@@ -297,7 +297,7 @@ If the property `traceContext` is not appearing in the logs, there are several p
 - **Middleware Filtering:** Check if any middleware or components in your system are filtering out the `traceparent` header. If it's being removed or modified before reaching your application, the trace context information may not be captured.
 - **Invalid `traceparent` Header:** Verify that the traceparent header value in the incoming request is valid and conforms to the W3C Trace Context specification. An invalid header may not be recognized and processed correctly.
 
-Addressing these potential issues is essential to ensure the correct inclusion of the traceContext in your logs. The built-in parser, designed to extract the trace context from the `traceparent header``, satisfies all security requirements specified in the W3C Trace Context standard. It meticulously examines each component of the header to verify its proper format. If the header is found to be invalid, the traceContext property will not be appended to the logs. Additionally, the parser will generate a log message that can be useful for debugging purposes.
+Addressing these potential issues is essential to ensure the correct inclusion of the `traceContext` property in your logs. The built-in parser, designed to extract the trace context from the `traceparent` HTTP header, satisfies all security requirements specified in the W3C Trace Context standard. It meticulously examines each component of the header to verify its proper format. If the header is found to be invalid, the `traceContext` property will not be appended to the logs. Additionally, the parser will generate a log message that can be useful for troubleshooting purposes.
 
 The following is an example of such a log:
 
