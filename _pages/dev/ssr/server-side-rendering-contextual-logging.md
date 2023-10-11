@@ -292,7 +292,7 @@ The following is an example of a log that contains the `traceContext` property w
 }
 ```
 
-If the traceContext is not appearing in the logs, there are several potential reasons for this:
+If the property `traceContext` is not appearing in the logs, there are several potential reasons for this:
 - **W3C Trace Context Not Enabled in Dynatrace:** Ensure that W3C Trace Context is enabled in your Dynatrace configuration. Without proper configuration, trace context information may not be collected.
 - **Middleware Filtering:** Check if any middleware or components in your system are filtering out the `traceparent` header. If it's being removed or modified before reaching your application, the trace context information may not be captured.
 - **Invalid `traceparent` Header:** Verify that the traceparent header value in the incoming request is valid and conforms to the W3C Trace Context specification. An invalid header may not be recognized and processed correctly.
