@@ -336,11 +336,11 @@ Next, select the pre-defined index pattern that corresponds to the log messages 
 
 ![Available Indices](assets/images/../../../../../assets/images/ssr/contextual_logging_indices.png)
 
-Once we selected an index pattern, the corresponding field list is shown (see screenshot below). We can filter the fields by name. We use this functionality to search for the field “traceId”. If the field is not found, try refreshing the index pattern with the little reload button on the top right in the screenshot. We can edit the field configuration by clicking on the pencil symbol in the table.
+After selecting an index pattern, the associated field list will be displayed (as shown in the screenshot below). You can filter the fields by name, and in this case, you should use this feature to search for the "traceId" field. If you can't find the "traceId" field, try refreshing the index pattern by clicking the small reload button located at the top right corner in the screenshot. To edit the field configuration, simply click on the pencil symbol within the table.
 
 ![Index with Logs From Spartacus App](assets/images/../../../../../assets/images/ssr/contextual_logging_index_patterns.png)
 
-After selecting an index pattern, the associated field list will be displayed (as shown in the screenshot below). You can filter the fields by name, and in this case, you should use this feature to search for the "traceId" field. If you can't find the "traceId" field, try refreshing the index pattern by clicking the small reload button located at the top right corner in the screenshot. To edit the field configuration, simply click on the pencil symbol within the table.
+After clicking the pencil button, you can begin editing the field configuration. Start by selecting the "Url" option for the "Format." Then, choose the "Link" option for the "Type." Now, you can enter the URL template for the link. The URL template is a string that should include the base URL of your Dynatrace instance (or the observability platform you are using) and a placeholder for the field value. This configuration will enable the transformation of the field into a hyperlink that links to the specified observability platform with the relevant field value.
 
 ![TraceId field configuration](assets/images/../../../../../assets/images/ssr/contextual_logging_index_trace_id_field_configuration.png)
 
