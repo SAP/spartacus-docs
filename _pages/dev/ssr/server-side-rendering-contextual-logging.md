@@ -326,7 +326,7 @@ The following is an example of a log presented the monitoring tool:
 
 ![Log with Trace Context](assets/images/../../../../../assets/images/ssr/contextual_logging_trace_context.png)
 
-OpenSearch enables the formatting of fields as hyperlinks, and this section outlines the steps for configuring links that direct you to the Dynatrace distributed trace view.
+OpenSearch allows for formatting the fields as hyperlinks, and this section outlines the steps for configuring clickable links that direct you from a certain log entry to a related distributed trace view in Dynatrace. This might be very convenient when troubleshooting.
 
 To begin, navigate to the main menu and proceed to the "Stack Management" section. Within "Stack Management," choose "Index Patterns" from the available left navigation options.
 
