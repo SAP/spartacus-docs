@@ -271,7 +271,7 @@ The following is an example of a traceparent header:
 traceparent: 00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01
 ```
 
-The following is an example of a log that contains the `traceContext` property:
+The following is an example of a log that contains the `traceContext` property with all information derived from the parsed `traceparent` HTTP header.
 ```json
 {
   "message": "Rendering completed (/electronics-spa/en/USD/)",
