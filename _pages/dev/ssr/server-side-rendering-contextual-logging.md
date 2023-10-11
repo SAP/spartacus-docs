@@ -264,7 +264,7 @@ While the mentioned risks are not specific to Spartacus itself, if you have conc
 
 **Note:** The provided examples have been verified on SAP Commerce Cloud, which employs Dynatrace as its default observability platform. Nonetheless, since Trace Context adheres to W3C standards, these principles should be applicable to other comparable tools as well.
 
-The `traceContext` property will be automatically included in the logs if the incoming request contains the `traceparent`` header. This seamless integration simplifies the process of capturing trace context information.
+The `traceContext` property will be automatically included in the logs if the incoming request contains the HTTP header `traceparent`. This seamless integration simplifies the process of capturing Trace Context information.
 
 The following is an example of a traceparent header:
 ```text
