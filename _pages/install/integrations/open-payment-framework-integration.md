@@ -16,14 +16,14 @@ The Open Payment Framework provides merchants with a streamlined way to connect 
 
 For more information, see [Open Payment Framework in a Nutshell](https://help.sap.com/docs/SAP_UPSCALE_COMMERCE/0160c41e0de84b218d05bc1185213d1d/5efc3463b4504d27bb9c4fbbb95a4ccc.html?locale=en-US#open-payment-framework-in-a-nutshell) on the SAP Help Portal.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Requirements
 
@@ -147,4 +147,4 @@ For more comprehensive information or troubleshooting, please refer to [{% assig
 
 ### OPF Checkout Configuration
 
-The OPF feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. Learn more about this feature here [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/extending-checkout.md %}).
+The OPF feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. Learn more about this feature here [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).

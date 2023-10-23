@@ -4,14 +4,14 @@ title: Extending Checkout
 
 The checkout feature in Spartacus is CMS-driven, which means every page in the checkout flow is based on CMS pages, slots and components. As a result, you can change the content of each page, add new components, convert the checkout into a single-step checkout, or create very sophisticated multi-step checkout flows with only a minimal amount of configuration in the storefront application.
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Routing and Configuration
 
@@ -144,7 +144,7 @@ The following is an example on how you can extend the `CheckoutStepsSetGuard` in
 
 ```typescript
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CustomCheckoutStepsSetGuard extends CheckoutStepsSetGuard {
   constructor(
@@ -448,18 +448,18 @@ Clicking the default checkout button redirects to the `/checkout` route. To invo
 The first step in setting up express checkout is to create an `ExpressCheckoutGuard`. The following is an example:
 
 ```ts
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   CanActivate,
   Router,
   UrlTree,
   ActivatedRouteSnapshot,
-} from "@angular/router";
-import { CheckoutConfig } from "../config/checkout-config";
-import { RoutingConfigService } from "@spartacus/core";
+} from '@angular/router';
+import { CheckoutConfig } from '../config/checkout-config';
+import { RoutingConfigService } from '@spartacus/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ExpressCheckoutGuard implements CanActivate {
   constructor(
