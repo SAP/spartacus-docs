@@ -50,8 +50,6 @@ docs:
                         url: /order-library-release-notes/
                 - title: "Known Issues"
                   url: /known-issues/
-          - title: "Spartacus Videos"
-            url: /spartacus-videos/
           - title: "Spartacus Roadmap"
             url: /spartacus-roadmap/
           - title: "Spartacus FAQ"
