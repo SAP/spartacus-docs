@@ -12,9 +12,9 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-The Open Payment Framework provides merchants with a streamlined way to connect their chosen Payment Service Provider using configurations.
+The SAP Commerce Open Payment Framework, which is delivered as an enrichment to the SAP Commerce Cloud payment toolkit, is a SaaS solution for managing your payment integrations in an intuitive and effective way. The Open Payment Framework allows you to integrate your preferred digital payment service providers faster than before, and removes the need to code, integrate and deploy extensions to the Commerce codebase.
 
-For more information, see [Open Payment Framework in a Nutshell](https://help.sap.com/docs/SAP_UPSCALE_COMMERCE/0160c41e0de84b218d05bc1185213d1d/5efc3463b4504d27bb9c4fbbb95a4ccc.html?locale=en-US#open-payment-framework-in-a-nutshell) on the SAP Help Portal.
+For more information, see [Open Payment Framework](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/f3d565da0d524b8081c861b4f5dea359.html?locale=en-US).
 
 ***
 
@@ -27,79 +27,65 @@ For more information, see [Open Payment Framework in a Nutshell](https://help.sa
 
 ## Requirements
 
-To integrate SAP Open Payment Framework with Composable Storefront, you must have SAP Commerce Cloud 2211 or newer.
+To integrate SAP Open Payment Framework with Spartacus, you need Spartacus 2211.x or newer, as well as SAP Commerce Cloud 2211.x or newer.
 
-## Composable Storefront Integration with Payment Service Provider
+## Spartacus Integration with Payment Service Providers
 
-The Composable Storefront offers a versatile integration with the Open Payment Framework. Depending on the configurations set within the Open Payment Framework, the Composable Storefront can adapt its behavior to present different user experience (UX) patterns during the payment process.
+Spartacus provides a range of distinct user experience (UX) patterns that you can choose from when integrating with Open Payment Framework.
 
-### UX Patterns
+The following are the UX patterns that Spartacus can render based on the configurations in Open Payment Framework:
 
-Here are the distinct UX patterns that the Composable Storefront can render based on the configurations:
+- **Gateway Page**: Redirects customers to a page that is hosted by the payment service provider. Customers finalize their payment on the trusted platform of the payment service provider, which ensurers a secure transaction experience.
 
-- **Gateway Page**: In this mode, consumers are redirected to a page that is hosted by the Payment Service Provider. Consumers finalize their payment on the trusted platform of the Payment Service Provider, ensuring a secure transaction experience.
+- **iFrame**: Displays an embedded iframe on the page. This allows customers to complete their payment within the iframe without navigating away from the main site.
 
-- **iFrame**: This pattern involves displaying an embedded iframe on the page.
-  It allows consumers to complete their payment within the iframe without navigating away from the main site.
+- **Hosted Fields**: Displays hosted fields directly on the page. Customers can finish their payment seamlessly within the hosted fields, which provides a streamlined experience without redirection.
 
-- **Hosted Fields**: The pattern where hosted fields are displayed directly on the page. Consumers can finish their payment seamlessly within these hosted fields, offering a streamlined experience without redirection.
-
-#### Support for 3DS
-
-It is important to note that all the above UX patterns support 3DS (3-D Secure) authentication. This means that consumers will benefit from an additional layer of security during the payment process, regardless of which UX pattern they encounter.
+**Note:** All of these UX patterns support 3-D Secure (3DS) authentication. This means that customers benefit from an additional layer of security during the payment process, regardless of which UX pattern they encounter.
 
 ## Backend Configuration
 
-### Sample data
+Certain Open Payment Framework features, including the payment and review pages, as well as the call-to-action scripts, require specific sample data to be present in the back end.
 
-Certain features of OPF, including the payment and review page or the call-to-action scripts, necessitate specific sample data configurations on the backend.
-
-If the OPF features do not function correctly, import the following impex script into the backend system:
+To ensure that Open Payment Framework features function correctly, import the following ImpEx script into SAP Commerce Cloud:
 
 ```
-[FINAL IMPEX SCRIPT WILL BE HERE]
+[ADD FINAL IMPEX SCRIPT HERE]
 ```
 
-Proper slot configuration via impex script is essential for the optimal functioning of some OPF features. Always ensure that the script is accurate and has been imported successfully.
+**Note:** Using the ImpEx script to obtain the correct slot configuration is essential for ensuring the optimal functioning of certain OPF features. Always ensure that the script is accurate and has been imported successfully.
 
-## Adding the Open Payment Framework Integration to Composable Storefront
+## Adding the Open Payment Framework Integration to Spartacus
 
-To add the OPF integration to Composable Storefront, you install the `@spartacus/opf` library.
+You add the Open Payment Framework integration to Spartacus by installing the `@spartacus/opf` library.
 
-You can either [install the OPF library during initial setup of your Spartacus project](#installing-the-opf-library-during-the-initial-setup-of-composable-storefront), or you can [add the OPF library to an existing Composable Storefront project](#adding-the-opf-library-to-an-existing-composable-storefront-project).
+If you have not yet set up your Spartacus app, you use the Spartacus schematics to select `Open Payment Framework Integration` when choosing which features to include in your storefront app.
 
-### Installing the OPF Library During the Initial Setup of Composable Storefront
-
-1. Follow the steps for setting up your Composable Storefront project, as described in [{% assign linkedpage = site.pages | where: "name", "building-the-spartacus-storefront-from-libraries.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/frontend/building-the-spartacus-storefront-from-libraries.md %}).
-1. While setting up your project using schematics, when you are asked which Storefront features you would like to set up, choose `Open Payment Framework Integration`.
-
-### Adding the OPF Library to an existing Composable Storefront Project
-
-If you already have a Storefront project up and running, you can add the OPF library to your project by running the following command from the root directory of your storefront app:
+If you already have a storefront project up and running, you can add the `opf` library to your project by running the following command from the root directory of your storefront app:
 
 ```bash
 ng add @spartacus/opf
 ```
 
-This command uses schematics to modify your application and add the modules needed to launch the library.
+This command uses schematics to modify your application and add the modules that are needed to launch the `opf` library.
 
-#### OPF Library Subdivision
+### OPF Library Subdivision
 
-The OPF library is designed to be modular and efficient by dividing it into two distinct sub-libraries. This approach ensures optimal performance and seamless user experiences.
+The OPF library is divided into two distinct sub-libraries ensure optimal performance and a seamless user experiences.
 
-Currently is split into the following sub-libraries:
+The `opf` library is split into sub-libraries as follows:
 
-- **@spartacus/opf/base**: This sub-library contains the foundational elements of the OPF. It provides the core functionalities that are essential for the library to operate.
+- **@spartacus/opf/base** contains the foundational elements of the Open Payment Framework integration. It provides the core functionalities that are essential for the library to operate.
 
-- **@spartacus/opf/checkout**: Specifically tailored for functionalities associated with the checkout process in the OPF. It is lazy loaded only when a customer navigates to the checkout page. This ensures that these functionalities are not loaded preemptively, saving resources until they are absolutely necessary.
+- **@spartacus/opf/checkout** is specifically tailored to functionalities that are associated with the checkout process in the Open Payment Framework. This sub-library is lazy-loaded only when a customer navigates to the checkout page. This lazy-loading ensures that the checkout functionalities are not loaded preemptively, which saves using resources until they are absolutely necessary.
 
 ## Storefront Configuration
 
+The following sections describe how to configure Spartacus to work with the Commerce Cloud adapter, and how to configure the routing to work with Open Payment Framework.
+
 ### Commerce Cloud Adapter Configuration
 
-In order to ensure the optimal performance and functionality of the OPF feature within the app, specific configurations need to be set up.
-
-Incorporate the following configuration settings in your application to make sure the OPF feature functions correctly:
+An essential part of the Open Payment Framework architecture is the Commerce Cloud Adapter. To ensure that Spartacus can communicate with the Commerce Cloud Adapter, you need to set values for the `baseUrl` and the `commerceCloudPublicKey` properties, as shown in the following example:
 
 ```ts
 provideConfig(<OpfConfig>{
@@ -110,15 +96,19 @@ provideConfig(<OpfConfig>{
 }),
 ```
 
-Below are explanations of the configuration properties:
+The following is a description of the Commerce Cloud Adapter configuration properties:
 
-- **baseUrl**: This denotes the URL to the Commerce Cloud Adapter.
+- `baseUrl` is the URL to the Commerce Cloud Adapter. This URL has the same domain as your workbench URL, which is provided to you by an SAP administrator. For more information, contact your SAP administrator for Open Payment Framework.
 
-- **commerceCloudPublicKey**: This is the public key provided by OPF. It is used to establish a connection to the correct CCv2 configuration on the Commerce Cloud Adapter's side.
+- `commerceCloudPublicKey` is the public key provided by Open Payment Framework. This key is used to establish a connection with the correct SAP Commerce Cloud configuration that communicates with the Commerce Cloud Adapter. For more information about generating the `commerceCloudPublicKey`, see [Configure Client in Open Payment Framework Workbench](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/abd0dcd86a5d472e8fd6d22bff28e9c4.html?locale=en-US&state=DRAFT).
+
+For more information on the Commerce Cloud Adapter, see [Open Payment Framework Integration with SAP Commerce Cloud](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/6ee8de9190054ed2aa215029a8c5cdc2.html?locale=en-US&state=DRAFT).
 
 ### Routing Configuration
 
-To configure routing for payment verification in your application, use the following configuration structure:
+Setting up accurate routing configuration for Open Payment Framework is critical to ensuring users are directed to the appropriate paths based on the outcomes of their payment verification processes. Always ensure the values provided are in line with the routing strategy of your storefront application.
+
+The following is an example of the routing configuration for Open Payment Framework:
 
 ```ts
 provideConfig(<RoutingConfig>{
@@ -135,16 +125,8 @@ provideConfig(<RoutingConfig>{
 }),
 ```
 
-Here are detailed explanations of the properties within the configuration:
+For more information about routing in Spartacus, see [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}).
 
-- **paymentVerificationResult**: A route configuration that relates to the successful result of a payment verification.
+### Open Payment Framework Checkout Configuration
 
-- **paymentVerificationCancel**: A route configuration that relates to the cancellation or failure of a payment verification.
-
-Setting up the routing configurations accurately is critical to ensuring users are directed to the appropriate paths based on the outcomes of their payment verification processes. Always ensure the values provided are in line with the application's routing strategy.
-
-For more comprehensive information or troubleshooting, please refer to [{% assign linkedpage = site.pages | where: "name", "route-configuration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/route-configuration.md %}).
-
-### OPF Checkout Configuration
-
-The OPF feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. Learn more about this feature here [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}).
+The Open Payment Framework library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. For more information, see [Multiple Checkout Flows]({{ site.baseurl }}{% link _pages/dev/extending-checkout.md %}#multiple-checkout-flows).

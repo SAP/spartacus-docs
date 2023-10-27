@@ -396,9 +396,17 @@ provideConfig({
 
 ## Multiple Checkout Flows
 
-Starting from version [x.x] a new checkout property named "flows" has been introduced. This enhancement facilitates greater flexibility and dynamism in customizing the checkout process based on specific criteria returned from the backend.
+Multiple checkout flows allows you to provide realtime switching between checkout flows, and eliminates the need to rebuild your storefront app for each change. This allows you to provide multiple checkout flows to cater to different market segments or product types.
 
-Usage example:
+**Note:** Multiple checkout flows requires Spartacus 2211.x
+
+### Configuring Multiple Checkout Flows
+
+The `flows` checkout out property allows you to inject different checkout flows using specific keys. When the checkout process is initiated, the checkout orchestrator service queries the back end for the `paymentProvider` value. You can set a separate `paymentProvider` value for each base store. If the returned `paymentProvider` value matches a predefined checkout flow key, that specific flow is served to the customer. For example, if the back end returns a value of `ProviderA` for the `paymentProvider`, and there is a corresponding checkout flow with the `ProviderA` key, then the `ProviderA` checkout flow is activated.
+
+**Note:** Using multiple checkout flows in optional. If a specific checkout flow key is not found, the service falls back to the standard checkout steps and configuration.
+
+The following is an example of a `checkout.flows` configuration:
 
 ```ts
 provideConfig({
@@ -420,24 +428,20 @@ provideConfig({
 }),
 ```
 
-- The "flows" property allows developers to inject a checkout flow using a specific key.
-- When the checkout process is initiated, the checkout orchestrator service queries the backend for the `paymentProvider` value.
-- `paymentProvider` value can be set separately for each base store.
-- If the returned `paymentProvider` value matches a predefined checkout flow key, that specific flow is then served to the customer. For example, if the backend returns a paymentProvider value of "ProviderA" and there is a corresponding checkout flow with the key "ProviderA", then the "ProviderA" checkout flow will be activated.
-- Benefits of this solution are real-time switching between different checkout flows, eliminating the need to rebuild the app for each change, also ability to have multiple checkout flows when catering to different market segments or product types.
+### Setting a paymentProvider value in SAP Commerce Cloud
 
-### Setting up paymentProvider value on the backend
+You can set the `paymentProvider` value in SAP Commerce Cloud using Backoffice.
 
-1. Go to Commerce Cloud backoffice and login as an admin.
-2. Select from left menu "Base Commerce" -> "Base Stores" -> choose a base store which you want to update.
-3. In properties find "Payment Provider" and set value as key of the checkout flow available in your Storefront.
-4. Save changes.
+1. Log in to Backoffice as an admin.
+2. From the Explorer Tree on the left, select **Base Commerce > Base Store**, and then select the base store that you want to update.
+
+   A panel for the selected base store appears below the list of base stores.
+3. In the **Properties** tab of the base store panel, scroll down to the **Payment Provider** section, and in the **Payment Provider** field, enter a value for the key of the checkout flow that you wish to make available in your storefront.
+4. Save your changes.
 
 ### Limitations
 
-It is crucial to note that the "flows" functionality is channel-specific. Currently, it operates exclusively for either B2C or B2B channels, not both simultaneously.
-
-This feature is an optional to use. If specific checkout flow key will be not found in checkout flows, service will fallback to the standard checkout steps and configuration.
+The multiple checkout flows functionality is channel-specific, which means it can only be enabled for either a B2C channel or a B2B channel. It cannot be enabled in both channels simultaneously.
 
 ## Express Checkout
 
