@@ -100,7 +100,7 @@ The following is a description of the Commerce Cloud Adapter configuration prope
 
 - `baseUrl` is the URL to the Commerce Cloud Adapter. This URL has the same domain as your workbench URL, which is provided to you by an SAP administrator. For more information, contact your SAP administrator for Open Payment Framework.
 
-- `commerceCloudPublicKey` is the public key provided by Open Payment Framework. This key is used to establish a connection with the correct SAP Commerce Cloud configuration that communicates with the Commerce Cloud Adapter. For more information about generating the `commerceCloudPublicKey`, see [Configure Client in Open Payment Framework Workbench](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/abd0dcd86a5d472e8fd6d22bff28e9c4.html?locale=en-US&state=DRAFT).
+- `commerceCloudPublicKey` is the public key provided by Open Payment Framework. This key is used to establish a connection between the storefront and the instance of SAP Commerce Cloud that provided this key. For more information about generating the `commerceCloudPublicKey`, see [Configure Client in Open Payment Framework Workbench](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/abd0dcd86a5d472e8fd6d22bff28e9c4.html?locale=en-US&state=DRAFT).
 
 For more information on the Commerce Cloud Adapter, see [Open Payment Framework Integration with SAP Commerce Cloud](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/6ee8de9190054ed2aa215029a8c5cdc2.html?locale=en-US&state=DRAFT).
 
