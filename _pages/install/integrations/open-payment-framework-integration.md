@@ -69,9 +69,9 @@ ng add @spartacus/opf
 
 This command uses schematics to modify your application and add the modules that are needed to launch the `opf` library.
 
-### OPF Library Subdivision
+### Open Payment Framework Library Subdivision
 
-The OPF library is divided into two distinct sub-libraries ensure optimal performance and a seamless user experiences.
+The `opf` library is divided into two distinct sub-libraries ensure optimal performance and a seamless user experiences.
 
 The `opf` library is split into sub-libraries as follows:
 
