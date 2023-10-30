@@ -404,9 +404,9 @@ Multiple checkout flows allows you to provide realtime switching between checkou
 
 The `flows` checkout out property allows you to inject different checkout flows using specific keys. When the checkout process is initiated, the checkout orchestrator service queries the back end for the `paymentProvider` value. You can set a separate `paymentProvider` value for each base store. If the returned `paymentProvider` value matches a predefined checkout flow key, that specific flow is served to the customer. For example, if the back end returns a value of `ProviderA` for the `paymentProvider`, and there is a corresponding checkout flow with the `ProviderA` key, then the `ProviderA` checkout flow is activated.
 
-**Note:** Using multiple checkout flows in optional. If a specific checkout flow key is not found, the service falls back to the standard checkout steps and configuration.
+**Note:** Using multiple checkout flows is optional. If a specific checkout flow key is not found, the service falls back to the standard checkout steps and configuration.
 
-The following is an example of a `checkout.flows` configuration:
+The following is an example of a `flows` configuration:
 
 ```ts
 provideConfig({
