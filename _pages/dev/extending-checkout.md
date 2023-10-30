@@ -394,6 +394,55 @@ provideConfig({
 
 **Note:** You can use this same approach to combine all the steps into a single-step checkout.
 
+## Multiple Checkout Flows
+
+Multiple checkout flows allows you to provide realtime switching between checkout flows, and eliminates the need to rebuild your storefront app for each change. This allows you to provide multiple checkout flows to cater to different market segments or product types.
+
+**Note:** Multiple checkout flows requires Spartacus 2211.x
+
+### Configuring Multiple Checkout Flows
+
+The `flows` checkout out property allows you to inject different checkout flows using specific keys. When the checkout process is initiated, the checkout orchestrator service queries the back end for the `paymentProvider` value. You can set a separate `paymentProvider` value for each base store. If the returned `paymentProvider` value matches a predefined checkout flow key, that specific flow is served to the customer. For example, if the back end returns a value of `ProviderA` for the `paymentProvider`, and there is a corresponding checkout flow with the `ProviderA` key, then the `ProviderA` checkout flow is activated.
+
+**Note:** Using multiple checkout flows is optional. If a specific checkout flow key is not found, the service falls back to the standard checkout steps and configuration.
+
+The following is an example of a `flows` configuration:
+
+```ts
+provideConfig({
+  checkout: {
+    flows: {
+      'spa-mockup': {
+        steps: mockupCheckoutSteps,
+      },
+      'spa-opf': {
+        steps: opfCheckoutSteps,
+        guest: false,
+      },
+      'spa-opf-guest': {
+        steps: opfCheckoutSteps,
+        guest: true,
+      },
+    },
+  },
+}),
+```
+
+### Setting a paymentProvider value in SAP Commerce Cloud
+
+You can set the `paymentProvider` value in SAP Commerce Cloud using Backoffice.
+
+1. Log in to Backoffice as an admin.
+2. From the Explorer Tree on the left, select **Base Commerce > Base Store**, and then select the base store that you want to update.
+
+   A panel for the selected base store appears below the list of base stores.
+3. In the **Properties** tab of the base store panel, scroll down to the **Payment Provider** section, and in the **Payment Provider** field, enter a value for the key of the checkout flow that you wish to make available in your storefront.
+4. Save your changes.
+
+### Limitations
+
+The multiple checkout flows functionality is channel-specific, which means it can only be enabled for either a B2C channel or a B2B channel. It cannot be enabled in both channels simultaneously.
+
 ## Express Checkout
 
 The following scenario describes how to provide express checkout for users who have previously ordered from this store. In this example, when the **Express Checkout** button is clicked, the user is brought directly to the Review Order page, which is populated with the default address, the default payment method, and the fastest shipping method.
