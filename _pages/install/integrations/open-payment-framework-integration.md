@@ -49,8 +49,8 @@ Certain Open Payment Framework features, including the payment and review pages,
 
 To ensure that Open Payment Framework features function correctly, import the following ImpEx script into SAP Commerce Cloud:
 
-```
-[ADD FINAL IMPEX SCRIPT HERE]
+```text
+ADD FINAL IMPEX SCRIPT HERE
 ```
 
 **Note:** Using the ImpEx script to obtain the correct slot configuration is essential for ensuring the optimal functioning of certain OPF features. Always ensure that the script is accurate and has been imported successfully.
