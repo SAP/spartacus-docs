@@ -53,7 +53,7 @@ The following is an example of the log message in the monitoring tool:
 
 By default, the Spartacus provides `CxErrorHandler`, which extends the default Angular `ErrorHandler`. As a result, all errors that occur during server-side rendering are passed to the `LoggerService`, and these errors are logged with an appropriate context. For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
 
-**Note:** If you already provide in your application a custom Angular `ErrorHandler`, importing `ErrorHandlingModule.forRoot()` might cause the Spartacus `CxErrorHandler` to overwrite (or be overwritten with) your own error handler (depending on the order of providers). In this case, it is recommended that your custom `ErrorHandler` should extend the Spartacus `CxErrorHandler` and use the `super.handleError()` method of the `CxErrorHandler`. This preserves the default Spartacus behavior, while also preserving the behavior of your custom `ErrorHandler`.
+**Note:** If you already provide in your application a custom Angular `ErrorHandler`, the Spartacus `CxErrorHandler` might overwrite (or be overwritten with) your own error handler (depending on the order of providers). In this case, it is recommended that your custom `ErrorHandler` should extend the Spartacus `CxErrorHandler` and use the `super.handleError()` method of the `CxErrorHandler`. This preserves the default Spartacus behavior, while also preserving the behavior of your custom `ErrorHandler`.
 
 ## Enabling Standardized Logs in Third-party Party Libraries
 
