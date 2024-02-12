@@ -70,12 +70,13 @@ By default, the SSR optimization engine uses the following configuration:
 
 ```ts
 {
-  "concurrency": 10,
-  "timeout": 3_000,
-  "forcedSsrTimeout": 60_000,
-  "maxRenderTime": 300_000,
-  "reuseCurrentRendering": true,
-  "debug": false
+  cacheSize: 3000,
+  concurrency: 10,
+  timeout: 3_000,
+  forcedSsrTimeout: 60_000,
+  maxRenderTime: 300_000,
+  reuseCurrentRendering: true,
+  debug: false,
 }
 ```
 
@@ -118,6 +119,10 @@ The `cacheSize` setting is a number that limits the cache size to a specific num
 The `cacheSize` setting can also be used when the `cache` setting is set to `false`. This then limits the number of timed-out renders that are kept in a temporary cache and which are waiting to be served with the next request.
 
 It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM). It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
+
+The default `cacheSize` is set to `3000` entries. Before version 2211.19 of composable storefront, no default value was set, which could result in unlimited cached pages for those pages that fell back to CSR due to timeout. This could potentially lead to a memory leak.
+
+The default value is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. To avoid processes from restarting, as a result of exceeding the default upper limit of 60% for memory usage, a safer, lower limit of 50% is set. Consequently, the usable memory that is available by default is calculated to be 3 GB multiplied by 50%, with a result of 1.5 GB. The next calculation considers a typical HTML page to have a size of approximately 350 KB. However, you may have even larger rendered HTML pages in your project. As a precaution, it is assumed that HTML pages could be up to 150% larger, resulting in a maximum page size of 525 KB. Accordingly, the calculation for the default `cacheSize` is 1.5 GB divided by 525 KB, leading to a result of 3070. This value is rounded down to provide the final `cacheSize` default of `3000` entries.
 
 ### concurrency
 
