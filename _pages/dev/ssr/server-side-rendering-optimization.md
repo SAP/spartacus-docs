@@ -75,7 +75,8 @@ By default, the SSR optimization engine uses the following configuration:
   "forcedSsrTimeout": 60_000,
   "maxRenderTime": 300_000,
   "reuseCurrentRendering": true,
-  "debug": false
+  "debug": false,
+  "logger": new DefaultExpressServerLogger(),
 }
 ```
 
@@ -192,6 +193,10 @@ The `debug` setting is a boolean that, when set to `true`, enables extra logs th
 The default value is `false`.
 
 Is is recommended in production environment to turn off the `debug` flag.
+
+### logger
+
+The `logger` setting is an ExpressServerLogger implementation used for improving logged messages with context and JSON structure. It enhances the logs in SSR by adding context, including the request's details, and structuring them as JSON. The logger property is optional. By default, the `DefaultExpressServerLogger` is used. For more, see [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-contextual-logging.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-contextual-logging.md %})
 
 ## Troubleshooting
 
