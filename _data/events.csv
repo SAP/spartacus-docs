@@ -16,6 +16,7 @@ UploadAttachmentSuccessEvent,feature-libs/customer-ticketing/root/events/custome
 OrderEvent,feature-libs/order/root/events/order.events.ts
 OrderPlacedEvent,feature-libs/order/root/events/order.events.ts
 ReplenishmentOrderScheduledEvent,feature-libs/order/root/events/order.events.ts
+DownloadOrderInvoicesEvent,feature-libs/order/root/events/order.events.ts
 CdcLoadUserTokenFailEvent,integration-libs/cdc/root/events/cdc-event.ts
 CdcReConsentEvent,integration-libs/cdc/root/events/cdc-event.ts
 HomePageEvent,projects/storefrontlib/events/home/home-page.events.ts
