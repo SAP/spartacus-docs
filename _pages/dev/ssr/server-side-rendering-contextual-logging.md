@@ -56,7 +56,7 @@ The following is an example of the log message in the monitoring tool:
 To enable standardized SSR logging, in the `server.ts` file, set the `logger` option to `true` in the SSR options that are passed in the second argument of the `NgExpressEngineDecorator.get()` method. The following is an example:
 
 ```ts
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
+import { ngExpressEngine as engine } from '@nguniversal/express-engine'; // will be removed in https://github.com/SAP/spartacus-docs/pull/1544
 import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
 
 [...]
@@ -110,8 +110,7 @@ To implement a custom logger, you create a class that implements the `ExpressSer
 After the custom logger class is created, it can be passed to the `logger` property in the configuration object. The following is an example:
 
 ```ts
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
+import { NgExpressEngineDecorator, ngExpressEngine as engine } from '@spartacus/setup/ssr';
 import { CustomExpressServerLogger } from './custom-express-server-logger';
 
 [...]
