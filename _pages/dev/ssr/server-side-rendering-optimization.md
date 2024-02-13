@@ -79,7 +79,8 @@ By default, the SSR optimization engine uses the following configuration:
   debug: false,
   renderingStrategyResolver: defaultRenderingStrategyResolver(
     defaultRenderingStrategyResolverOptions
-  )
+  ),
+  logger: new DefaultExpressServerLogger(),
 }
 ```
 
