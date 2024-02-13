@@ -77,6 +77,9 @@ By default, the SSR optimization engine uses the following configuration:
   maxRenderTime: 300_000,
   reuseCurrentRendering: true,
   debug: false,
+  renderingStrategyResolver: defaultRenderingStrategyResolver(
+    defaultRenderingStrategyResolverOptions
+  )
 }
 ```
 
