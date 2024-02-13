@@ -12,7 +12,19 @@ The media component is now designed to display images using the `<picture>` elem
 
 ### Configuration
 
-To enable the legacy approach of using `<img>` tags by default, you need to set the `USE_LEGACY_MEDIA_COMPONENT` provider property to `true` in the `app.module.ts`. You can also enable the legacy approach by setting the `useLegacyMediaComponent` property in `MediaConfig` to `true`. In either case, `<img>` will then be used instead of `<picture>`. By default, the `USE_LEGACY_MEDIA_COMPONENT` provider property is set to `false`, and `<picture>` will always be used when the other conditions are met. The fallback property is set to use the `<picture>` element for cases when `USE_LEGACY_MEDIA_COMPONENT` was not provided, or when `useLegacyMediaComponent` was not defined.
+To enable the legacy approach of using `<img>` tags by default, you need to set the `USE_LEGACY_MEDIA_COMPONENT` provider property to `true` in the `app.module.ts`. The following is an example:
+
+```ts
+// code
+```
+
+You can also enable the legacy approach by setting the `useLegacyMediaComponent` property in `MediaConfig` to `true`. The following is an example:
+
+```ts
+// code
+```
+
+In either case, `<img>` will then be used instead of `<picture>`. By default, the `USE_LEGACY_MEDIA_COMPONENT` provider property is set to `false`, and `<picture>` will always be used when the other conditions are met. The fallback property is set to use the `<picture>` element for cases when `USE_LEGACY_MEDIA_COMPONENT` was not provided, or when `useLegacyMediaComponent` was not defined.
 
 ### MediaSourcesPipe
 
