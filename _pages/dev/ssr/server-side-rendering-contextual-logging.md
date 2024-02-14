@@ -56,7 +56,7 @@ The following is an example of the log message in the monitoring tool:
 To enable standardized SSR logging, in the `server.ts` file, set the `logger` option to `true` in the SSR options that are passed in the second argument of the `NgExpressEngineDecorator.get()` method. The following is an example:
 
 ```ts
-import { ngExpressEngine as engine } from '@nguniversal/express-engine'; // will be removed in https://github.com/SAP/spartacus-docs/pull/1544
+import { ngExpressEngine as engine } from '@nguniversal/express-engine';
 import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
 
 [...]
