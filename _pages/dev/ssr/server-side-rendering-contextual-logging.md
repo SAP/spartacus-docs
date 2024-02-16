@@ -21,7 +21,7 @@ Without standardized logging, the following issues arise:
 
 These issues make it difficult to read and understand log messages, particularly when log messages are coming from multiple parallel server-side-renderings and NodeJS servers. With standardized SSR logging, these issues are avoided because you can easily identify the source of your log messages, and also read them more easily.
 
-Spartacus provides a default logger called `DefaultExpressServerLogger` that addresses common issues. It takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
+Spartacus provides a default logger called `DefaultExpressServerLogger` that takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
 
 The following example shows how the logger creates logs in development mode by producing a multiline JSON output:
 
