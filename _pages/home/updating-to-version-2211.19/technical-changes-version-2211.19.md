@@ -6,6 +6,26 @@ The Spartacus migration schematics scan your codebase and inject code comments w
 
 **Note:** If you happen to have in your codebase a custom function or class that has the same name as a function or class that has changed or been removed in the Spartacus public API, there is a chance that the migration script could identify your custom function or class as needing to be updated. In this case, you can ignore and remove the comment.
 
+## Replacing the `<img>` tag with the `<picture>` tag
+
+The media component is now designed to display images using the `<picture>` element. This enables responsive image selection for modern browsers that have support for `srcset` and media queries. The media component falls back to using the `<img>` tag for legacy browsers, when `srcset` is not provided, or when you explicitly declare in the `SpartacusConfigurationModule` to use `<img>` instead of `<picture>`. This approach improves page load performance and user experience by ensuring that the most appropriate image is loaded, based on the viewport or display conditions.
+
+### Configuration
+
+To enable the legacy approach of using `<img>` tags by default, you need to provide `MediaConfig` in the `SpartacusConfigurationModule` and set `useLegacyMediaComponent` to `true`. The following is an example:
+
+```ts
+provideConfig(<MediaConfig>{
+    useLegacyMediaComponent: true,
+})
+```
+
+The `<img>` tag will then be used instead of `<picture>`. When `useLegacyMediaComponent` is not provided in the config, the `<picture>` tag will always be used, as long as browser support is available and the `srcset` for the given component is provided by the back end.
+
+### MediaSourcesPipe
+
+The `MediaSourcesPipe` is designed to parse a string containing multiple image sources and their associated widths, and convert these into an array of objects. Each object represents a media condition (`media`) and the corresponding image source set (`srcset`) for that condition. This array can then be used to render `<source>` elements within a `<picture>` tag, allowing browsers to select the most appropriate image source based on the current viewport width.
+
 ## New Default for cacheSize in Server-Side Rendering Optimization
 
 The default `cacheSize` is now set to `3000` entries. Before version 2211.19 of Spartacus, no default value was set, which could result in unlimited cached pages for those pages that fell back to CSR due to timeout. This could potentially lead to a memory leak.
