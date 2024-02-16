@@ -79,7 +79,8 @@ By default, the SSR optimization engine uses the following configuration:
   debug: false,
   renderingStrategyResolver: defaultRenderingStrategyResolver(
     defaultRenderingStrategyResolverOptions
-  )
+  ),
+  logger: new DefaultExpressServerLogger(),
 }
 ```
 
@@ -200,6 +201,12 @@ The `debug` setting is a boolean that, when set to `true`, enables extra logs th
 The default value is `false`.
 
 Is is recommended in production environment to turn off the `debug` flag.
+
+### logger
+
+The `logger` setting is an `ExpressServerLogger` implementation that improves logged messages by providing context and by structuring the messages in JSON format. For example, SSR logs include the request's details, which are structured in JSON format.
+
+The logger property is optional. By default, the `DefaultExpressServerLogger` is used. For more information, see [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-contextual-logging.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-contextual-logging.md %})
 
 ## Troubleshooting
 
