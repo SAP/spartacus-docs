@@ -8,23 +8,19 @@ The Spartacus migration schematics scan your codebase and inject code comments w
 
 ## Replacing the `<img>` tag with the `<picture>` tag
 
-The media component is now designed to display images using the `<picture>` element. This enables responsive image selection for modern browsers that have support for `srcset` and media queries. The media component falls back to using the `<img>` tag for legacy browsers, when `srcset` is not provided, or when you explicitly declare in `AppModule` to use `<img>` instead of `<picture>`. This approach improves page load performance and user experience by ensuring that the most appropriate image is loaded, based on the viewport or display conditions.
+The media component is now designed to display images using the `<picture>` element. This enables responsive image selection for modern browsers that have support for `srcset` and media queries. The media component falls back to using the `<img>` tag for legacy browsers, when `srcset` is not provided, or when you explicitly declare in the `SpartacusConfigurationModule` to use `<img>` instead of `<picture>`. This approach improves page load performance and user experience by ensuring that the most appropriate image is loaded, based on the viewport or display conditions.
 
 ### Configuration
 
-To enable the legacy approach of using `<img>` tags by default, you need to set the `USE_LEGACY_MEDIA_COMPONENT` provider property to `true` in the `app.module.ts`. The following is an example:
+To enable the legacy approach of using `<img>` tags by default, you need to provide `MediaConfig` in the `SpartacusConfigurationModule` and set `useLegacyMediaComponent` to `true`. The following is an example:
 
 ```ts
-// code
+provideConfig(<MediaConfig>{
+    useLegacyMediaComponent: true,
+})
 ```
 
-You can also enable the legacy approach by setting the `useLegacyMediaComponent` property in `MediaConfig` to `true`. The following is an example:
-
-```ts
-// code
-```
-
-In either case, `<img>` will then be used instead of `<picture>`. By default, the `USE_LEGACY_MEDIA_COMPONENT` provider property is set to `false`, and `<picture>` will always be used when the other conditions are met. The fallback property is set to use the `<picture>` element for cases when `USE_LEGACY_MEDIA_COMPONENT` was not provided, or when `useLegacyMediaComponent` was not defined.
+The `<img>` tag will then be used instead of `<picture>`. When `useLegacyMediaComponent` is not provided in the config, the `<picture>` tag will always be used, as long as browser support is available and the `srcset` for the given component is provided by the back end.
 
 ### MediaSourcesPipe
 
