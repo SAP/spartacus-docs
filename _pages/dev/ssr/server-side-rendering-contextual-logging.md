@@ -6,12 +6,10 @@ feature:
     cx_version: n/a
 ---
 
-Standardized SSR logging enhances the debugging experience by letting you see the source of your log messages, as well as the context of the logs in the printed output. Furthermore, the content is formatted so that logs are easier to read, and easier to parse for monitoring tools. Standardized SSR logging also provides tools that allow you to customize the logging experience.
+Standardized SSR logging enhances the debugging experience by letting you see the source of your log messages, as well as the context of the logs in the printed output. Furthermore, the content is formatted so that logs are easier to read and easier to parse for monitoring tools. Standardized SSR logging also provides tools that allow you to customize the logging experience.
 
 To benefit from all aspects of standardized SSR logging, you must do the following:
 
-- In your `server.ts` file, set `logger: true` in the SSR options that are passed in the second argument of the `NgExpressEngineDecorator.get()` method. For more information, see [Enabling Standardized SSR Logging](#enabling-standardized-ssr-logging).
-- Import `ErrorHandlingModule.forRoot()` in your storefront app, in the `spartacus.module.ts` file, for example. For more information, see [Enabling Standardized Logs In Error Handling](#enabling-standardized-logs-in-error-handling).
 - Use the `LoggerService` instead of the native `console` object in your custom code. For more information, see [Using the LoggerService](#using-the-loggerservice).
 - Ensure that any third-party libraries you are using can be configured to use the Spartacus `LoggerService`. For more information, see [Enabling Standardized Logs in Third-party Party Libraries](#enabling-standardized-logs-in-third-party-party-libraries).
 
@@ -23,7 +21,7 @@ Without standardized logging, the following issues arise:
 
 These issues make it difficult to read and understand log messages, particularly when log messages are coming from multiple parallel server-side-renderings and NodeJS servers. With standardized SSR logging, these issues are avoided because you can easily identify the source of your log messages, and also read them more easily.
 
-Spartacus provides a default logger called `DefaultExpressServerLogger` that addresses common issues. This logger is used by default when standardized SSR logging is enabled. It takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
+Spartacus provides a default logger called `DefaultExpressServerLogger` that takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
 
 The following example shows how the logger creates logs in development mode by producing a multiline JSON output:
 
@@ -51,53 +49,19 @@ The following is an example of the log message in the monitoring tool:
 
 ![Log Representation In Kibana](assets/images/../../../../../assets/images/ssr/contextual_logging_kibana_logs.png)
 
-## Enabling Standardized SSR Logging
+## Standardized Logs in Error Handling
 
-To enable standardized SSR logging, in the `server.ts` file, set the `logger` option to `true` in the SSR options that are passed in the second argument of the `NgExpressEngineDecorator.get()` method. The following is an example:
+By default, Spartacus provides `CxErrorHandler`, which extends the default Angular `ErrorHandler`. All errors that occur during server-side rendering are passed by `CxErrorHandler` to the `LoggerService`, and these errors are logged with an appropriate context. For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
 
-```ts
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
-
-[...]
-
-const ngExpressEngine = NgExpressEngineDecorator.get(engine, {
-  //add the logger flag here
-  logger: true
-});
-
-[...]
-```
-
-With this configuration, your application uses the `DefaultExpressServerLogger` and provides request context for every logged message during server-side rendering.
-
-## Enabling Standardized Logs in Error Handling
-
-By default, Angular uses its own [`ErrorHandler`](https://angular.io/api/core/ErrorHandler) to handle errors that occur during server-side rendering. However, this only prints errors to the console with a lack of context, and creates multiline messages that are not parsed correctly by monitoring tools. To improve logging of errors, you have to import the Spartacus `ErrorHandlingModule.forRoot()` in `spartacus.module.ts`, as shown in the following example:
-
-```ts
-import { ErrorHandlingModule } from '@spartacus/setup/ssr';
-
-@NgModule({
-  imports: [
-    [...]
-    ErrorHandlingModule.forRoot()
-  ]
-})
-export class SpartacusModule {}
-```
-
-Under the hood, the `ErrorHandlingModule.forRoot()` provides the Spartacus `CxErrorHandler`, which extends the default Angular `ErrorHandler`. As a result, all errors that occur during server-side rendering are passed to the `LoggerService`, and these errors are logged with an appropriate context. For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
-
-**Note:** If you already provide in your application a custom Angular `ErrorHandler`, importing `ErrorHandlingModule.forRoot()` might cause the Spartacus `CxErrorHandler` to overwrite (or be overwritten with) your own error handler (depending on the order of providers). In this case, it is recommended that your custom `ErrorHandler` should extend the Spartacus `CxErrorHandler` and use the `super.handleError()` method of the `CxErrorHandler`. This preserves the default Spartacus behavior, while also preserving the behavior of your custom `ErrorHandler`.
+**Note:** If you already provide in your application a custom Angular `ErrorHandler`, the Spartacus `CxErrorHandler` might overwrite (or be overwritten with) your own error handler (depending on the order of providers). In this case, it is recommended that your custom `ErrorHandler` should extend the Spartacus `CxErrorHandler` and use the `super.handleError()` method of the `CxErrorHandler`. This preserves the default Spartacus behavior, while also preserving the behavior of your custom `ErrorHandler`.
 
 ## Enabling Standardized Logs in Third-party Party Libraries
 
 To ensure that you have context and proper formatting for the logs that are output by third-party libraries in your application, it is recommended that you verify whether custom loggers can be provided, and that you use the `LoggerService` if possible. Otherwise, the logs from third-party libraries will be written in plain text, without the request's context and without proper formatting.
 
-For example, Spartacus depends on the third party library `i18next` and configures a custom [logger plugin](https://www.i18next.com/misc/creating-own-plugins#logger) for `i18next`, so `i18next` prints all its logs using the Spartacus `LoggerService`.
+For example, Spartacus depends on the third-party library `i18next` and configures a custom [logger plugin](https://www.i18next.com/misc/creating-own-plugins#logger) for `i18next`, so `i18next` prints all its logs using the Spartacus `LoggerService`.
 
-Similarly, you should check which other third party libraries are used in your application, and whether those libraries allow you to configure a custom logging strategy. If so, configure them to use the Spartacus `LoggerService` to ensure that the logs are written with proper context and formatting.
+Similarly, you should check which other third-party libraries are used in your application, and whether those libraries allow you to configure a custom logging strategy. If so, configure them to use the Spartacus `LoggerService` to ensure that the logs are written with proper context and formatting.
 
 For more information about the `LoggerService`, see [Using the LoggerService](#using-the-loggerservice).
 
@@ -110,8 +74,7 @@ To implement a custom logger, you create a class that implements the `ExpressSer
 After the custom logger class is created, it can be passed to the `logger` property in the configuration object. The following is an example:
 
 ```ts
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
+import { NgExpressEngineDecorator, ngExpressEngine as engine } from '@spartacus/setup/ssr';
 import { CustomExpressServerLogger } from './custom-express-server-logger';
 
 [...]
@@ -143,7 +106,7 @@ export class CustomExpressServerLogger implements ExpressServerLogger {
 
 ### Providing Additional Context to the Logs
 
-In a real-world example, you may wish to extend the context of your logs with a custom header, such as `traceparent`, `content-type`, or `host`.
+In a real-world example, you may wish to extend the context of your logs with a custom header, such as `content-type`, or `host`.
 
 The following is an example of a custom logger implementation that extends the `DefaultExpressServerLogger` class and adds more functionality to the built-in `mapContext` method:
 
@@ -163,7 +126,7 @@ export class CustomExpressServerLogger extends DefaultExpressServerLogger {
       ...outputContext,
       request: {
         ...outputContext?.request,
-        traceparent: context.request?.get('traceparent'),
+        contentType: context.request?.get('content-type'),
       },
     };
   }
@@ -255,7 +218,7 @@ For server-side rendering, Spartacus overwrites the `LoggerService` with the `Ex
 
 ## Trace Context
 
-In addition to standardized SSR logging, Spartacus offers support for the [W3C Trace Context](https://www.w3.org/TR/trace-context/) specification. Using the build-in parser in Spartacus, you can extract trace context information from incoming requests and include it in the logs generated during server-side rendering. This enhancement provides new opportunities for seamlessly linking logs with the traces of requests. It is now possible to link the logs displayed in one tool to the distributed trace presentation in another tool (for example, linking logs displayed in OpenSearch to the distributed trace presentation in Dynatrace).
+In addition to standardized SSR logging, Spartacus offers support for the [W3C Trace Context](https://www.w3.org/TR/trace-context/) specification. Using the built-in parser in Spartacus, you can extract trace context information from incoming requests and include it in the logs generated during server-side rendering. This enhancement provides new opportunities for seamlessly linking logs with the traces of requests. It is now possible to link the logs displayed in one tool to the distributed trace presentation in another tool (for example, linking logs displayed in OpenSearch to the distributed trace presentation in Dynatrace).
 
 **Note:** Using the trace context standard has the potential to introduce security risks. To mitigate the risk of buffer overflow and HTML injection attacks, third-party vendors using the `traceparent` header must follow best practices for parsing headers that could be malicious. It is important to be aware that `traceparent` may expose sensitive information, which could potentially facilitate more significant attacks. Precautions should be taken accordingly. Enabling distributed tracing without adequate safeguards can leave systems vulnerable to denial-of-service attacks, so tracing vendors should implement protective measures, such as handling authenticated and unauthenticated requests differently, and implementing rate limiters. While these particular risks are not specific to Spartacus itself, if you have concerns regarding the security of the `traceparent` header, you may want to consider creating your own `ExpressServerLogger` implementation that does not include `traceContext` values in the logs.
 
