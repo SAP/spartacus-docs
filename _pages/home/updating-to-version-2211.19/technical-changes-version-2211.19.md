@@ -6,7 +6,7 @@ The Spartacus migration schematics scan your codebase and inject code comments w
 
 **Note:** If you happen to have in your codebase a custom function or class that has the same name as a function or class that has changed or been removed in the Spartacus public API, there is a chance that the migration script could identify your custom function or class as needing to be updated. In this case, you can ignore and remove the comment.
 
-## Replacing the img tag with the picture tag
+## Improved Responsive Image Display With the picture Tag
 
 The media component is now designed to display images using the `<picture>` element. This enables responsive image selection for modern browsers that have support for `srcset` and media queries. The media component falls back to using the `<img>` tag for legacy browsers, when `srcset` is not provided, or when you explicitly declare in the `SpartacusConfigurationModule` to use `<img>` instead of `<picture>`. This approach improves page load performance and user experience by ensuring that the most appropriate image is loaded, based on the viewport or display conditions.
 
