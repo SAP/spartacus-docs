@@ -69,15 +69,15 @@ Localized media works transparently for the media component. Whenever the site c
 
 ## Implementation Details
 
-The `cx-media` media component renders images with the native `img` HTML element. To support an optimized image for the given element, a container with multiple images is expected. The various images in the container are evaluated by their media format and compared to a media format configuration in Spartacus.
+The `cx-media` media component renders images with the native `picture` HTML element. To support an optimized image for the given element, a container with multiple images is expected. The various images in the container are evaluated by their media format and compared to a media format configuration in composable storefront.
 
-The native `img` element supports multiple images with the `srcset` attribute. This attribute takes various image sources and combines them with an associated width descriptor. The browser selects and downloads the correct image based on which dimensions of the img element are used. With this approach, you do not need to provide a specific format for the media component, although you can do this with the `format` input.
+The `picture` element allows the specification of multiple image sources within nested source elements, facilitating precise control over which image is displayed based on the browser's current conditions. 
 
-The `srcset` attribute also supports the pixel density descriptor, but it is (currently) not supported in Spartacus. The pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px, because these devices double the pixels to provide an optimized image resolution for their device screens.
+The `srcset`  attribute enables the browser to choose from multiple image resolutions and sizes, ensuring that the best fitting image is selected for the user's device, leading to faster load times and improved visual quality. While the picture element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match or if the browser does not support the picture element. With this approach, you do not need to provide a specific format for the media component, although you can do this with the format input.
 
-The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The main image `src` and the various image descriptions for the `srcset` are collected by the `MediaService`. This services compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and written in the img `srcset` attribute, so that the browser can select and download the correct image.
+The `srcset`  attribute also supports the pixel density descriptor, but it is (currently) not supported in composable storefront. The pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px, because these devices double the pixels to provide an optimized image resolution for their device screens.
 
-**Note:** When you change the browser from a larger screen to a smaller screen, the browser does not download an additional image from the `srcset`, because it makes the assumption that the larger image can be decreased. This is acceptable for most images, but this might give unexpected results for banner images because the aspect ratio and the actual content of the banner image can be very different for each screen size.
+The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in composable storefront. The main image src and the various image descriptions for the `srcset`  are collected by the `MediaService`. This services compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and `srcset` generated for `picture` element, so that the browser can select and download the correct image.
 
 You can provide a custom configuration using the `MediaConfig` typing. The following is an example of the default media configuration:
 
@@ -96,6 +96,15 @@ export const mediaConfig: MediaConfig = {
     zoom: { width: 515 },
   },
 };
+```
+
+## Use <img> element instead of <picture> (legacy approach)
+In order to enable the legacy approach of using `<img>` tags by default, you need to provide `MediaConfig` in the `SpartacusConfigurationModule` and set `useLegacyMediaComponent` to `true`. The following is an example:
+
+```ts
+provideConfig(<MediaConfig>{
+    useLegacyMediaComponent: true,
+})
 ```
 
 ## Missing Media
