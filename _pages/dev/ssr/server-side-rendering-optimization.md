@@ -47,8 +47,7 @@ The SSR optimization engine addresses these issues as follows:
 To enable the SSR optimization engine, use the `NgExpressEngineDecorator` decorator in your `server.ts` file. The following is an example:
 
 ```ts
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/setup/ssr';
+import { NgExpressEngineDecorator, ngExpressEngine as engine } from '@spartacus/setup/ssr';
 
 [...]
 

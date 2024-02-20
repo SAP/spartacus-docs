@@ -40,8 +40,7 @@ The site can be identified during server-side rendering, and the context can be 
 To allow the site to be identified on the server side, you need to provide the current request URL to Spartacus. You can do this by using the Spartacus decorator of the `ngExpressEngine`, which provides the `SERVER_REQUEST_URL` injection token under the hood. You can configure this in `main.server.ts`, as follows:
 
 ```typescript
-import { ngExpressEngine as engine } from '@nguniversal/express-engine';
-import { NgExpressEngineDecorator } from '@spartacus/core';
+import { NgExpressEngineDecorator, ngExpressEngine as engine } from '@spartacus/setup/ssr';
 
 export const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 ```
