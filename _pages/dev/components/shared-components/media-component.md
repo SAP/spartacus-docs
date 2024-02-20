@@ -98,7 +98,7 @@ export const mediaConfig: MediaConfig = {
 };
 ```
 
-## Using the `img` Element Instead of the `picture` Element
+## Using the Img Element Instead of the Picture Element
 
 To enable the legacy approach of using `<img>` tags by default, you need to provide `MediaConfig` in the `SpartacusConfigurationModule`, and set `useLegacyMediaComponent` to `true`. The following is an example:
 
