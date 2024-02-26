@@ -1,22 +1,22 @@
 ---
 title: CSS Architecture
 feature:
-- name: Style Versioning
-  spa_version: 2.0
-  cx_version: n/a
-  anchor: "#style-versioning"
+  - name: Style Versioning
+    spa_version: 2.0
+    cx_version: n/a
+    anchor: '#style-versioning'
 ---
 
 This page provides a high level overview of the CSS architecture in Spartacus.
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Style Library
 
@@ -50,7 +50,7 @@ For Spartacus versions older than 5.1, the installer defines the `$styleVersion`
 
 ```scss
 $styleVersion: 4.3;
-@import "~@spartacus/styles/index";
+@import '~@spartacus/styles/index';
 ```
 
 The `$styleVersion` override needs to happen before the style import.
@@ -94,7 +94,7 @@ The Spartacus installer creates the feature libraries styling root files in the 
 
 ```scss
 $styleVersion: 4.3;
-@import "@spartacus/cart";
+@import '@spartacus/cart';
 ```
 
 **Note:** The schematics command that installs one feature in an existing Spartacus app does not add the `$styleVersion` override to the feature root styling file. You need to add it manually afterwards.
@@ -116,15 +116,15 @@ $styleVersion: 4.3;
 Then, in `styles.scss` and in all the feature library files, you import `styles-config.scss`. The following is an example of the `<sourceRoot>/styles.scss` file:
 
 ```scss
-@import "styles-config";
-@import "@spartacus/styles/index";
+@import 'styles-config';
+@import '@spartacus/styles/index';
 ```
 
 For feature libraries, taking the cart style as an example, the `<sourceRoot>/styles/spartacus/cart.scss` file would also import `styles-config.scss`, as follows:
 
 ```scss
-@import "../../styles-config";
-@import "@spartacus/cart";
+@import '../../styles-config';
+@import '@spartacus/cart';
 ```
 
 Afterwards, this allows you to manage the styles version in one centralized place.
@@ -144,6 +144,8 @@ If for some reason there are styles defined for a version that is higher than th
 For example, you could have a storefront app that is using the Spartacus 4.3 libraries, while in a feature library, there are styles defined for version 4.5 and above. Regardless of whether `$styleVersion` is set to 4.5 in the app or if `$useLatestStyles` is set to to `true`, the styles defined for version 4.5 and above will not display because 4.5 is higher than the current version of the Spartacus libraries that are being used, which is 4.3.
 
 ## Implementing Versioned Styles
+
+**This section is deprecated and superseded by the next section "Implementing Feature-Flagged Styles".**
 
 Spartacus developers can handle breaking changes in styles with the `forVersion` mixin. The styles wrapped in the `forVersion` mixin then apply or not depending on the `$styleVersion` variable (or `$useLatestStyles`).
 
@@ -170,6 +172,42 @@ cx-mini-cart {
 ```
 
 **Note:** The optional style changes that are introduced in minor versions are typically included by default in the following major release.
+
+## Implementing Feature-Flagged Styles
+
+Spartacus developers can handle breaking changes in styles by covering them with named feature flags, using the SCSS mixin `useFeatureStyles($featureName)` together with calling the `useFeatureStyles(featureName: string)` TS function in component's constructor. The styles wrapped in the SCSS mixin `useFeatureStyles` then apply or not depending on the Spartacus global config `{ features: { ... } }`.
+
+The SCSS mixin `useFeatureStyles` accepts a feature flag name. If the feature flag name is `undefined` or `false` in the global Spartacus config the styles wrapped in SCSS mixin `useFeatureStyles` are not activated in runtime.
+
+The following example illustrates a style that requires an enabled feature flag of name `myFeature` to apply:
+
+```scss
+cx-some-component {
+  ...
+    ...
+      .cx-some-element {
+        background: yellow;
+
+        @include useFeatureStyles('myFeature') {
+          background: blue;
+        }
+      }
+    ...
+  ...
+}
+```
+
+IMPORTANT: Please mind to call TS function `useFeatureStyles(feature)` from `@spartacus/core` in the `constructor` of your styled component. Otherwise the feature-flagged styles MIGHT NOT be activated EVEN if the flag is enabled in the Spartacus configuration!
+
+```ts
+@Component({ selector: 'cx-some-component', ... })
+export class SomeComponent {
+  constructor() {
+    useFeatureStyles('myFeature');
+  }
+  ...
+}
+```
 
 ## CSS Technology
 
@@ -292,7 +330,7 @@ You can extend the default Spartacus styles with placeholder selectors in the fo
   ```scss
   // styles.scss
   $styleVersion: ...;
-  @import "~@spartacus/styles/index";
+  @import '~@spartacus/styles/index';
 
   custom-product-intro {
     @extend %cx-product-intro !optional;
