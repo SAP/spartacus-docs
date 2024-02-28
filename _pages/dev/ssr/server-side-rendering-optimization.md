@@ -363,14 +363,16 @@ The following is an example of how to set the `renderingStrategyResolver`, but i
 
 ```ts
 import { Request } from 'express';
+import {defaultRenderingStrategyResolver, defaultRenderingStrategyResolverOptions} from '@spartacus/setup/ssr';
 
 ...
 
 const ssrOptions: SsrOptimizationOptions = {
   ...,
-  renderingStrategyResolver: (req: Request) => req.get('User-Agent')?.match(/bot|crawl|slurp|spider|mediapartners/) ? RenderingStrategy.ALWAYS_SSR : RenderingStrategy.DEFAULT,
+  renderingStrategyResolver: (req: Request) => req.get('User-Agent')?.match(/bot|crawl|slurp|spider|mediapartners/) ? RenderingStrategy.ALWAYS_SSR : defaultRenderingStrategyResolver(defaultRenderingStrategyResolverOptions),
 };
 ```
+Please take note of the `defaultRenderingStrategyResolver`. If you intend to implement a custom rendering strategy, it is advisable to also utilize the default strategy as a fallback.
 
 ## Using SSR Only for Certain Pages
 
@@ -397,6 +399,7 @@ The `defaultRenderingStrategyResolver` function works as follows:
 
 - If the request matches any of the excluded query parameters defined in `excludedParams`, or if the request URL matches any of the excluded URLs defined in `excludedUrls`, then SSR is disabled for that request. In such cases, the function returns `RenderingStrategy.ALWAYS_CSR`.
 - If the request does not meet any of the exclusion criteria, the default rendering strategy (`RenderingStrategy.DEFAULT`) is used, indicating that SSR should proceed as usual.
+- If the request contains SmartEdit url it will fall back to CSR
 
 ### Default Configuration
 
@@ -404,14 +407,14 @@ In Spartacus, the default configuration for `defaultRenderingStrategyResolverOpt
 
 ```ts
 export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverOptions = {
-   excludedUrls: ['checkout', 'my-account', 'cx-preview'],
+   excludedUrls: ['checkout', 'my-account'],
    excludedParams: ['asm'],
 };
 ```
 
-This configuration specifies that SSR is disabled for requests with URLs containing `checkout`, `my-account`, or `cx-preview`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
+This configuration specifies that SSR is disabled for requests with URLs containing `checkout`, `my-account`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
 
-**Note:** The `cx-preview` URL is used for disabling SSR in SmartEdit.
+**Note:** The `cx-preview` URL is utilized by SmartEdit. However, regardless of the options provided in `defaultRenderingStrategyResolverOptions`, this URL is disabled by the `defaultRenderingStrategyResolver`.
 
 The `defaultRenderingStrategyResolver` function is set as the value for the `renderingStrategyResolver` property in the Spartacus SSR optimization settings, as follows:
 
@@ -446,3 +449,24 @@ If you have set `reuseCurrentRendering` to `true` in `SsrOptimizationOptions` (w
 ### Working with concurrency
 
 The `concurrency` setting limits the number of renderings (in other words, actual computations) that can be performed at the same time. If there are already pending `concurrency` renderings happening in a NodeJS replica, then new requests with different URLs will instantly fall back to CSR instead of rendering through SSR. As a result, to effectively load test SSR in Spartacus, you should not send too many parallel requests for various URLs to a single NodeJS replica at the same time. If the number of URLs requested at the same time from a single replica is higher than its configured `concurrency`, then you can expect a higher rate of requests falling back to CSR. This is expected behavior, but it will not cause actual pressure on computations for SSR in Spartacus.
+
+### Server-Side Rendering (SSR) and SmartEdit
+In the past, there were numerous issues with running SSR in SmartEdit, and despite the vast number of fixes, it remained unresolved for many users. To tackle the issue with provide `defaultRenderingStrategyResolver` which disables SSR in SmartEdit. 
+Therefore, if you want to disable SSR for certain pages, it would be advisable to use said function. If for any reason you cannot use this function, here is an example of how to disable SmartEdit using the renderingStrategyResolver:
+```ts
+import { Request } from 'express';
+import { RenderingStrategy } from './ssr-optimization-options';
+
+const smartEditUrl = 'cx-preview';
+
+export const customRenderingStrategyResolver = (request: Request): RenderingStrategy =>
+  request.url.includes(smartEditUrl) ? RenderingStrategy.ALWAYS_CSR : RenderingStrategy.DEFAULT;
+```
+
+```ts
+const ssrOptions: SsrOptimizationOptions = {
+   renderingStrategyResolver: customRenderingStrategyResolver
+};
+
+const ngExpressEngine = NgExpressEngineDecorator.get(engine, ssrOptions);
+```
