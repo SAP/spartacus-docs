@@ -175,11 +175,11 @@ cx-mini-cart {
 
 ## Implementing Feature-Flagged Styles
 
-Spartacus developers can handle breaking changes in styles by covering them with named feature flags, using the SCSS mixin `useFeatureStyles($featureName)` together with calling the `useFeatureStyles(featureName: string)` TS function in component's constructor. The styles wrapped in the SCSS mixin `useFeatureStyles` then apply or not depending on the Spartacus global config `{ features: { ... } }`.
+You can handle breaking changes in styles by assigning them to named feature flags. This is done by using the `useFeatureStyles($featureName)` SCSS mixin together with calling the `useFeatureStyles(featureName: string)` TypeScript function in the component's constructor. The styles that are wrapped in the `useFeatureStyles` SCSS mixin then apply or not depending on the Spartacus `{ features: { ... } }` global config.
 
-The SCSS mixin `useFeatureStyles` accepts a feature flag name. If the feature flag name is `undefined` or `false` in the global Spartacus config the styles wrapped in SCSS mixin `useFeatureStyles` are not activated in runtime.
+The `useFeatureStyles` SCSS mixin accepts a feature flag name. If the feature flag name is `undefined` or `false` in the global Spartacus config, then the styles wrapped in the `useFeatureStyles` SCSS mixin are not activated at runtime.
 
-The following example illustrates a style that requires an enabled feature flag of name `myFeature` to apply:
+The following is an example of a style that requires a `myFeature` feature flag to be enabled for the style to be applied:
 
 ```scss
 cx-some-component {
@@ -197,7 +197,9 @@ cx-some-component {
 }
 ```
 
-IMPORTANT: Please mind to call TS function `useFeatureStyles(feature)` from `@spartacus/core` in the `constructor` of your styled component. Otherwise the feature-flagged styles MIGHT NOT be activated EVEN if the flag is enabled in the Spartacus configuration!
+**Note:** You must call the `useFeatureStyles(feature)` TypeScript function from `@spartacus/core` in the `constructor` of your styled component. Otherwise, the feature-flagged styles **might not** be activated **even** if the flag is enabled in the Spartacus configuration.
+
+The following is an example of how to call the `useFeatureStyles(feature)` function from `@spartacus/core` in the `constructor` of your styled component:
 
 ```ts
 @Component({ selector: 'cx-some-component', ... })
