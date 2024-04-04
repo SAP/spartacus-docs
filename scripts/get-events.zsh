@@ -2,9 +2,9 @@
 #
 # REQUIREMENTS: node, npm (any versions)
 #
-# To run the script against a particular branch, just add the branch name when running the script
+# To run the script against a particular release, just add the release tag name when running the script
 #
-# For example: scripts/get-events.zsh release/4.1.0
+# For example: scripts/get-events.zsh 2211.20.0-2
 #
 
 if [ ! -z "${1}" ]; then
