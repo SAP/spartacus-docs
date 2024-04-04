@@ -143,36 +143,6 @@ If for some reason there are styles defined for a version that is higher than th
 
 For example, you could have a storefront app that is using the Spartacus 4.3 libraries, while in a feature library, there are styles defined for version 4.5 and above. Regardless of whether `$styleVersion` is set to 4.5 in the app or if `$useLatestStyles` is set to to `true`, the styles defined for version 4.5 and above will not display because 4.5 is higher than the current version of the Spartacus libraries that are being used, which is 4.3.
 
-## Implementing Versioned Styles
-
-**This section is deprecated and superseded by the next section "Implementing Feature-Flagged Styles".**
-
-Spartacus developers can handle breaking changes in styles with the `forVersion` mixin. The styles wrapped in the `forVersion` mixin then apply or not depending on the `$styleVersion` variable (or `$useLatestStyles`).
-
-The `forVersion` mixin accepts a version parameter. The version parameter is the minimum version at which the styles wrapped in the `forVersion` mixin will apply. If the application's style version is below the version specified by `forVersion`, the styles wrapped in `forVersion` are not present in the generated CSS and as a result, they do not apply.
-
-The following example illustrates a style that requires a defined style version of 2.2 or above to apply:
-
-```scss
-cx-mini-cart {
-  @include forVersion(2.2) {
-    background: blue;
-  }
-}
-```
-
-It is also possible to provide a version range for which a given style applies. The following example has a styling element that will only apply if the application's style version is at least 2.2, and not higher than 2.9.
-
-```scss
-cx-mini-cart {
-  @include forVersion(2.2, 2.9) {
-    background: blue;
-  }
-}
-```
-
-**Note:** The optional style changes that are introduced in minor versions are typically included by default in the following major release.
-
 ## Implementing Feature-Flagged Styles
 
 You can handle breaking changes in styles by assigning them to named feature flags. This is done by using the `useFeatureStyles($featureName)` SCSS mixin together with calling the `useFeatureStyles(featureName: string)` TypeScript function in the component's constructor. The styles that are wrapped in the `useFeatureStyles` SCSS mixin then apply or not depending on the Spartacus `{ features: { ... } }` global config.
@@ -210,6 +180,36 @@ export class SomeComponent {
   ...
 }
 ```
+
+## Implementing Versioned Styles
+
+**Note:** Starting with Spartacus 2211.21, the following method of implementing versioned styles is deprecated and superseded by the method described in the previous section, [Implementing Feature-Flagged Styles](#implementing-feature-flagged-styles).
+
+Spartacus developers can handle breaking changes in styles with the `forVersion` mixin. The styles wrapped in the `forVersion` mixin then apply or not depending on the `$styleVersion` variable (or `$useLatestStyles`).
+
+The `forVersion` mixin accepts a version parameter. The version parameter is the minimum version at which the styles wrapped in the `forVersion` mixin will apply. If the application's style version is below the version specified by `forVersion`, the styles wrapped in `forVersion` are not present in the generated CSS and as a result, they do not apply.
+
+The following example illustrates a style that requires a defined style version of 2.2 or above to apply:
+
+```scss
+cx-mini-cart {
+  @include forVersion(2.2) {
+    background: blue;
+  }
+}
+```
+
+It is also possible to provide a version range for which a given style applies. The following example has a styling element that will only apply if the application's style version is at least 2.2, and not higher than 2.9.
+
+```scss
+cx-mini-cart {
+  @include forVersion(2.2, 2.9) {
+    background: blue;
+  }
+}
+```
+
+**Note:** The optional style changes that are introduced in minor versions are typically included by default in the following major release.
 
 ## CSS Technology
 
