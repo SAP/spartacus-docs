@@ -400,7 +400,7 @@ The `defaultRenderingStrategyResolver` function works as follows:
 
 - If the request matches any of the excluded query parameters defined in `excludedParams`, or if the request URL matches any of the excluded URLs defined in `excludedUrls`, then SSR is disabled for that request. In such cases, the function returns `RenderingStrategy.ALWAYS_CSR`.
 - If the request does not meet any of the exclusion criteria, the default rendering strategy (`RenderingStrategy.DEFAULT`) is used, indicating that SSR should proceed as usual.
-- If the request contains SmartEdit url it will fall back to CSR
+- If the request contains the URL for SmartEdit, it falls back to CSR.
 
 ### Default Configuration
 
