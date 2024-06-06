@@ -14,14 +14,14 @@ With this setup, CMS components can be customized in the following ways:
 | Replace component | Configure a custom component                         | Provide a custom `BannerComponent`                   |
 | Customize logic   | Configure a custom service                           | Provide a custom `SearchBoxComponentService`         |
 
-***
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Configuring Custom Components
 
@@ -55,8 +55,8 @@ provideConfig({
         import('./lazy-banner/lazy-banner.component').then(
           (m) => m.LazyBannerComponent
         ),
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -77,12 +77,14 @@ export class BannerComponent {
 ```
 
 {% raw %}
+
 ```html
 <ng-container *ngIf="data$ | async as data">
   Access `data` here, for example:
   <pre>{{ data | json }}</pre>
 </ng-container>
 ```
+
 {% endraw %}
 
 ### Using Web Components as CMS Components (Experimental Support)
@@ -97,9 +99,9 @@ To configure a web component as a CMS component, the configuration must consist 
 provideConfig({
   cmsComponents: {
     BannerComponent: {
-        component: 'path/to/banner/component/file.js#custom-banner'
-    }
-  }
+      component: 'path/to/banner/component/file.js#custom-banner',
+    },
+  },
 });
 ```
 
@@ -109,9 +111,9 @@ If you prefer to load a web component implementation script eagerly, you can man
 provideConfig({
   cmsComponents: {
     BannerComponent: {
-        component: '#custom-banner'
-    }
-  }
+      component: '#custom-banner',
+    },
+  },
 });
 ```
 
@@ -170,17 +172,18 @@ provideConfig({
       component: CheckoutProgressComponent,
       guards: [AuthGuard, CartNotEmptyGuard],
     },
-  }
+  },
 });
 ```
 
 ### Global Routing Guards Logic
 
 Sometimes, you need to apply routing logic across all CMS pages (regardless of the specific CMS components presence). Examples include:
+
 - Checking user authentication on every page.
 - Verifying special query parameters on every page and redirecting if necessary.
 
-Spartacus introduced `BEFORE_CMS_PAGE_GUARD` injection token to allow multiple global routing guards. Each guard provided with this token runs before the main `CmsPageGuard` logic (i.e. before all CMS-mapping driven guards) on every CMS page route. Here's how to implement it:
+In version 2211.24.0 Spartacus introduced `BEFORE_CMS_PAGE_GUARD` injection token to allow multiple global routing guards. Each guard provided with this token runs before the main `CmsPageGuard` logic (i.e. before all CMS-mapping driven guards) on every CMS page route. Here's how to implement it:
 
 ```ts
 @Injectable({ providedIn: 'root' })
@@ -195,7 +198,7 @@ providers: [
     useExisting: MyCustomGlobalGuard,
     multi: true,
   },
-]
+];
 ```
 
 These guards run on every CMS page route. If all emit `true`, `CmsPageGuard` logic executes. If any emit `false` or a `UrlTree`, `CmsPageGuard` logic is skipped, and navigation is blocked or redirected.
@@ -216,9 +219,9 @@ Although it is possible to add conditional logic in a component to render (parts
 provideConfig({
   cmsComponents: {
     SearchBoxComponent: {
-      disableSSR: true
-    }
-  }
+      disableSSR: true,
+    },
+  },
 });
 ```
 
@@ -270,9 +273,7 @@ components$: Observable<any[]> = this.componentData.data$.pipe(
 <!-- tab-paragraph-container.component.html -->
 
 <ng-container *ngFor="let component of (components$ | async)">
-  <h3>
-    {{ component.title | cxTranslate }}
-  </h3>
+  <h3>{{ component.title | cxTranslate }}</h3>
   <div>
     <!-- Renders the child component-->
     <ng-template [cxComponentWrapper]="component"> </ng-template>
