@@ -176,11 +176,12 @@ provideConfig({
 
 ### Global Routing Guards Logic
 
-Sometimes, you need to apply routing logic across all CMS pages (regardless of the specific CMS components presence). Examples include:
-- Checking user authentication on every page.
+There are times when you need to apply routing logic to all CMS pages, regardless of whether specific CMS components are present on those pages or not. The following are examples of such scenarios:
+
+- Checking user authentication on every page
 - Verifying special query parameters on every page and redirecting if necessary.
 
-In version 2211.24.0 Spartacus introduced `BEFORE_CMS_PAGE_GUARD` injection token to allow multiple global routing guards. Each guard provided with this token runs before the main `CmsPageGuard` logic (i.e. before all CMS-mapping driven guards) on every CMS page route. Here's how to implement it:
+Spartacus 2211.24.0 introduces the `BEFORE_CMS_PAGE_GUARD` injection token to allow multiple global routing guards. Each guard that is provided with this token runs on every CMS page route before the main `CmsPageGuard` logic is run (in other words, before all the guards driven by CMS mapping are run) . The following is an example of how to implement the `BEFORE_CMS_PAGE_GUARD` injection token:
 
 ```ts
 @Injectable({ providedIn: 'root' })
@@ -198,9 +199,9 @@ providers: [
 ]
 ```
 
-These guards run on every CMS page route. If all emit `true`, `CmsPageGuard` logic executes. If any emit `false` or a `UrlTree`, `CmsPageGuard` logic is skipped, and navigation is blocked or redirected.
+These guards run on every CMS page route. If all guards emit `true`, then the `CmsPageGuard` logic executes. If any guard emits `false` or a `UrlTree`, then the `CmsPageGuard` logic is skipped, and navigation is blocked or redirected.
 
-CAUTION: Use CMS-mapping driven guards rather than global ones when possible. Global logic runs on every page change, potentially affecting performance. Opt for CMS-mapping driven guards if the logic isn't applicable to every CMS page route.
+**Note:** When possible, use guards that are driven by CMS mapping instead of global guards. Global logic runs on every page change, which can potentially affect performance. Instead, use guards that are driven by CMS mapping if the logic is not applicable to every CMS page route.
 
 ## Controlling Server-Side Rendering
 
