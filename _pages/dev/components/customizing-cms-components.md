@@ -174,6 +174,35 @@ provideConfig({
 });
 ```
 
+### Global Routing Guards Logic
+
+There are times when you need to apply routing logic to all CMS pages, regardless of whether specific CMS components are present on those pages or not. The following are examples of such scenarios:
+
+- Checking user authentication on every page
+- Verifying special query parameters on every page and redirecting if necessary.
+
+Spartacus 2211.24.0 introduces the `BEFORE_CMS_PAGE_GUARD` injection token to allow multiple global routing guards. Each guard that is provided with this token runs on every CMS page route before the main `CmsPageGuard` logic is run (in other words, before all the guards driven by CMS mapping are run) . The following is an example of how to implement the `BEFORE_CMS_PAGE_GUARD` injection token:
+
+```ts
+@Injectable({ providedIn: 'root' })
+export class MyCustomGlobalGuard implements CanActivate { ... }
+```
+
+```ts
+// In app.module.ts:
+providers: [
+  {
+    provide: BEFORE_CMS_PAGE_GUARD,
+    useExisting: MyCustomGlobalGuard,
+    multi: true,
+  },
+]
+```
+
+These guards run on every CMS page route. If all guards emit `true`, then the `CmsPageGuard` logic executes. If any guard emits `false` or a `UrlTree`, then the `CmsPageGuard` logic is skipped, and navigation is blocked or redirected.
+
+**Note:** When possible, use guards that are driven by CMS mapping instead of global guards. Global logic runs on every page change, which can potentially affect performance. Instead, use guards that are driven by CMS mapping if the logic is not applicable to every CMS page route.
+
 ## Controlling Server-Side Rendering
 
 There may be cases where you do not want to use SSR to render all CMS components on the server. The following are some examples of when you should not render a CMS component on the server:
