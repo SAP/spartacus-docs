@@ -75,7 +75,6 @@ By default, the SSR optimization engine uses the following configuration:
   forcedSsrTimeout: 60_000,
   maxRenderTime: 300_000,
   reuseCurrentRendering: true,
-  debug: false,
   renderingStrategyResolver: defaultRenderingStrategyResolver(
     defaultRenderingStrategyResolverOptions
   ),
@@ -195,11 +194,13 @@ It is recommended that you enable `reuseCurrentRendering` because it can smartly
 
 ### debug
 
-The `debug` setting is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
+This flag has been deprecated and is not used anymore since v2211.27. It will be removed in the future.
 
-The default value is `false`.
-
-Is is recommended in production environment to turn off the `debug` flag.
+Now all the information about the traffic and rendering is logged unconditionally:
+- receiving requests
+- responding to requests (either with HTML result, error or fallback to CSR)
+- start and end of renders
+- timeout of renders (due to passing `maxRenderTime`)
 
 ### logger
 
