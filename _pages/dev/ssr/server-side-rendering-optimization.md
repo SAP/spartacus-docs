@@ -75,7 +75,6 @@ By default, the SSR optimization engine uses the following configuration:
   forcedSsrTimeout: 60_000,
   maxRenderTime: 300_000,
   reuseCurrentRendering: true,
-  debug: false,
   renderingStrategyResolver: defaultRenderingStrategyResolver(
     defaultRenderingStrategyResolverOptions
   ),
@@ -195,11 +194,14 @@ It is recommended that you enable `reuseCurrentRendering` because it can smartly
 
 ### debug
 
-The `debug` setting is a boolean that, when set to `true`, enables extra logs that are useful for troubleshooting SSR issues. In production environments, you should set `debug` to `false` to avoid an excessive number of logs. Regardless, the SSR timeout log will capture `SSR rendering exceeded timeout...` even if the `debug` flag is set to `false`.
+This flag is deprecated and is no longer used, starting from version 2211.27 of Spartacus. This flag will be removed at a later date.
 
-The default value is `false`.
+Instead of requiring the `debug` flag, now all of the following information about traffic and rendering is logged unconditionally:
 
-Is is recommended in production environment to turn off the `debug` flag.
+- receiving requests
+- responding to requests (either with an HTML result, an error, or falling back to CSR)
+- the start and end of renders
+- the timeout of renders (as a result of exceeding the value for `maxRenderTime`)
 
 ### logger
 
