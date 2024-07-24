@@ -194,13 +194,14 @@ It is recommended that you enable `reuseCurrentRendering` because it can smartly
 
 ### debug
 
-This flag has been deprecated and is not used anymore since v2211.27. It will be removed in the future.
+This flag is deprecated and is no longer used, starting from version 2211.27 of Spartacus. This flag will be removed at a later date.
 
-Now all the information about the traffic and rendering is logged unconditionally:
+Instead of requiring the `debug` flag, now all of the following information about traffic and rendering is logged unconditionally:
+
 - receiving requests
-- responding to requests (either with HTML result, error or fallback to CSR)
-- start and end of renders
-- timeout of renders (due to passing `maxRenderTime`)
+- responding to requests (either with an HTML result, an error, or falling back to CSR)
+- the start and end of renders
+- the timeout of renders (as a result of exceeding the value for `maxRenderTime`)
 
 ### logger
 
