@@ -187,3 +187,34 @@ The `reloadOn` configuration allows you to reload a product when a specific even
 ```
 
 In this example, the `details` scope is reloaded when `MyEvent` is emitted.
+
+## Support Scopes for ProductSearch Endpoint
+
+`ProductSearch` endpoint can also be configured to use scopes with limit function now. Scopes in `ProductSearch` don't support `Merging` and `Inclusion` features yet which should be considered when introduce new scope for `ProductSearch`.
+The following example shows the improvement change:
+
+```ts
+{
+  // before
+  backend: {
+    occ: {
+      endpoints: {
+        productSearch:'products/search?XXXXXX',
+      },
+    },
+  },
+  //after
+  backend: {
+    occ: {
+      endpoints: {
+        productSearch: {
+          default:'products/search?XXXXXX',
+          carousel:'products/search?XXX',
+          carouselMinimal:'products/search?XX',
+        },
+      },
+    },
+  }    
+}
+```
+With this configuration, you can request multi product data with ProductSearch endpoint but not invoke Product endpoint one by one. For example, after enable `useProductCarouselBatchApi`, all Product Carousel Component will use ProductSearch endpoint with `carouselMinimal` scope to get product data which improve performance.
