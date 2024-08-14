@@ -217,4 +217,4 @@ The following example shows the improvement change:
   }    
 }
 ```
-With this configuration, you can request multi product data with ProductSearch endpoint but not invoke Product endpoint one by one. For example, after enable `useProductCarouselBatchApi`, all Product Carousel Component will use ProductSearch endpoint with `carouselMinimal` scope to get product data which improve performance.
+With this configuration, you can request multi product data with ProductSearch endpoint but not invoke Product endpoint one by one. For example, after enable feature toggle `useProductCarouselBatchApi`, all Product Carousel Component will use ProductSearch endpoint with `carouselMinimal` scope to get product data which improve performance.
