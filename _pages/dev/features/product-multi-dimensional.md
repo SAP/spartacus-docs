@@ -123,6 +123,21 @@ the following conditions:
 
 ## Configuration
 
+### Translations
+
+The Multi-Dimensional Selector feature includes configurable translations. You can modify these translations by adding
+the appropriate configuration to the feature module, such as ProductMultiDimensionalSelectorFeatureModule.
+
+```ts
+    provideConfig({
+    i18n: {
+        resources: multiDimensionalSelectorTranslations,
+        chunks: multiDimensionalSelectorTranslationChunksConfig,
+        fallbackLang: 'en',
+    },
+}),
+```
+
 ### Variant Categories
 
 The VariantCategories can be created using
