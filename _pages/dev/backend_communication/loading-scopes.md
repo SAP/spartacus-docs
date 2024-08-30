@@ -187,3 +187,46 @@ The `reloadOn` configuration allows you to reload a product when a specific even
 ```
 
 In this example, the `details` scope is reloaded when `MyEvent` is emitted.
+
+## Support Scopes for ProductSearch Endpoint
+
+With the release of composable storefront 2211.28, it is possible to configure the `productSearch` endpoint to use scopes. Note that this functionality does not support [Merging Scopes](#merging-scopes) or [Scope Inclusions](#scope-inclusions).
+
+The following example shows how the `productSearch` endpoint was implemented before release 2211.28:
+
+```ts
+{
+  backend: {
+    occ: {
+      endpoints: {
+        productSearch:
+                    'products/search?fields=products(code,name,summary,configurable,configuratorType,multidimensional,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch,currentQuery,keywordRedirectUrl',
+
+      },
+    },
+  },
+ ```
+
+The following is an example of how scopes can be added to the `productSearch` endpoint, starting from release 2211.28:
+
+ ```ts
+  backend: {
+    occ: {
+      endpoints: {
+        productSearch: {
+          default:
+            'products/search?fields=products(code,name,summary,configurable,configuratorType,multidimensional,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions,baseProduct),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch,currentQuery,keywordRedirectUrl',
+          carousel:
+            'products/search?fields=products(code,purchasable,name,summary,price(formattedValue),stock(DEFAULT),images(DEFAULT,galleryIndex),baseProduct)',
+          carouselMinimal:
+            'products/search?fields=products(code,name,price(formattedValue),images(DEFAULT),baseProduct)',
+        },
+      },
+    },
+  }    
+}
+```
+
+With the above configuration, the `productSearch` endpoint uses the `carouselMinimal` scope for loading a smaller set of data for the product carousel component, which results in better performance.
+
+**Note:** The above example allows the product carousel component to use the `productSearch` endpoint with the `carouselMinimal` scope, but to enable this functionality, you need to activate the `useProductCarouselBatchApi` feature toggle. For more information, see [Activating Use Product Carousel Batch API](real-link-will-be-added-later-using-CMS-doc-tool).
