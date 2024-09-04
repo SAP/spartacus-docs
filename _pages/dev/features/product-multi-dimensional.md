@@ -99,8 +99,7 @@ Variant categories can use images for selecting the categories by setting the `h
 
 ## List Item Details Component
 
-This functionality replaces `ProductListOutlets.ITEM_DETAILS` with the new `ProductMultiDimensionalListItemDetailsComponent`.
-Its primary function is to display the price range for multi-dimensional products within the grid, or to list item components on the product listing page (PLP).
+This functionality replaces `ProductListOutlets.ITEM_DETAILS` with the new `ProductMultiDimensionalListItemDetailsComponent`. Its primary function is to display the price range for multi-dimensional products within the grid, or to list item components on the product listing page (PLP).
 
 ## Multi-Dimensional Product Guard
 
