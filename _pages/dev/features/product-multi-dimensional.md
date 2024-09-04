@@ -116,8 +116,7 @@ The following sections describe how you can configure multi-dimensional products
 
 ### Translations
 
-You can configure the translations for the multi-dimensional selector. For example, you can modify the translations by adding
-the appropriate configuration to the feature module, such as the `ProductMultiDimensionalSelectorFeatureModule`. The following is an example:
+You can configure the translations for the multi-dimensional selector. For example, you can modify the translations by adding the appropriate configuration to the feature module, such as the `ProductMultiDimensionalSelectorFeatureModule`. The following is an example:
 
 ```ts
     provideConfig({
@@ -183,14 +182,12 @@ export class ProductMultiDimensionalSelectorFeatureModule {
 
 With multi-dimensional products, there is the potential to have a lot of similar product pages, for example, in the case of a base product that has many sizes and colors.
 
-There is no single way to address this issue. To ensure a minimal, safe, and extensible setup in Spartacus, the
-`robots.txt` is set to `FOLLOW, NOINDEX` for products that cannot be purchased.
+There is no single way to address this issue. To ensure a minimal, safe, and extensible setup in Spartacus, the `robots.txt` is set to `FOLLOW, NOINDEX` for products that cannot be purchased.
 
 For more details, refer to the `ProductPageMetaResolver` in the source code.
 
 ## Disabling Variants
 
-The multi-dimensional products feature is CMS-driven, so it can be disabled through the CMS by marking the component as
-inactive, or by removing the component completely from the page template.
+The multi-dimensional products feature is CMS-driven, so it can be disabled through the CMS by marking the component as inactive, or by removing the component completely from the page template.
 
 In the app module, the configuration for the multi-dimensional products feature should also be removed.
