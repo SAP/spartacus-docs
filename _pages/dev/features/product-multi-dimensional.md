@@ -95,9 +95,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 ## Images
 
-Variant categories can use images for selecting the categories by setting the `hasImage` attribute to true. This can be configured in Backoffice, or through ImpEx. The `hasImage` attribute acts as a toggle that informs the storefront to display images
-for variant options. However, images are only shown if each variant option within the category has an image in the
-correct format. The default image format for multi-dimensional products is `STYLE_SWATCH`, which is 30 W x 30 H.
+Variant categories can use images for selecting the categories by setting the `hasImage` attribute to true. This can be configured in Backoffice, or through ImpEx. The `hasImage` attribute acts as a toggle that informs the storefront to display images for variant options. However, images are only shown if each variant option within the category has an image in the correct format. The default image format for multi-dimensional products is `STYLE_SWATCH`, which is 30 W x 30 H.
 
 ## List Item Details Component
 
