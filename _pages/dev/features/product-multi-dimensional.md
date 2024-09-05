@@ -58,7 +58,7 @@ The multi-dimensional selector is enabled by configuring a CMS component. The fo
 }),
 ```
 
-Multi-dimensional products need to have the `ProductMultiDimensionalSelectorComponent` CMS component present in the `/page` response, and they need to be rendered on the page.
+Multi-dimensional products need to have the `ProductMultiDimensionalSelectorComponent` CMS component present in the `/pages` response, and they need to be rendered on the page.
 
 ### Adding a Multi-Dimensional Selector Using ImpEx
 
