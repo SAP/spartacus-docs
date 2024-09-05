@@ -179,6 +179,22 @@ export class ProductMultiDimensionalSelectorFeatureModule {
 }
 ```
 
+## OCC Optimization for Multiple Categories
+
+When configuring SAP Commerce Cloud (OCC) to handle more than three categories (elements), it's crucial to update the variantMatrix and associated configurations appropriately.
+
+Extend the variantMatrix configuration to support the increased number of category elements. This involves nesting elements within itself to accommodate the additional categories.
+
+In 
+
+```ts
+const variantMatrix = `variantMatrix(${elements},elements(${elements},elements(${elements})))`;
+```
+change to 
+```ts
+const variantMatrix = `variantMatrix(${elements},elements(${elements},elements(${elements},elements${elements})))`;
+```
+
 ## SEO Customizations
 
 With multi-dimensional products, there is the potential to have a lot of similar product pages, for example, in the case of a base product that has many sizes and colors.
