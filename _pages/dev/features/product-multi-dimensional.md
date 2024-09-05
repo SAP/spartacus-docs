@@ -75,8 +75,7 @@ Variant elements for multi-dimensional products appear in locations such as the 
 **Note:** The `$contentCV` variable that is used in the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
 
 ```text
-$contentCatalog=powertools-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCatalog=electronicsProductCatalog $contentCatalog=electronics-spaContentCatalog $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online] $componentRef=ProductMultiDimensionalSelector
 ```
 
 1. Create a `ProductMultiDimensionalSelector` CMS flex component with the following ImpEx:
@@ -97,6 +96,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 Variant categories can use images for selecting the categories by setting the `hasImage` attribute to true. This can be configured in Backoffice, or through ImpEx. The `hasImage` attribute acts as a toggle that informs the storefront to display images for variant options. However, images are only shown if each variant option within the category has an image in the correct format. The default image format for multi-dimensional products is `STYLE_SWATCH`, which is 30 W x 30 H.
 
+For more information, see [Creating VariantValueCategorys Using ImpEx](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/8ae0f0ac86691014b4e0e53c678d8b44.html#creating-variantvaluecategorys-using-impex).
+
 ## List Item Details Component
 
 This functionality replaces `ProductListOutlets.ITEM_DETAILS` with the new `ProductMultiDimensionalListItemDetailsComponent`. Its primary function is to display the price range for multi-dimensional products within the grid, or to list item components on the product listing page (PLP).
@@ -106,7 +107,7 @@ This functionality replaces `ProductListOutlets.ITEM_DETAILS` with the new `Prod
 When a user encounters a product with variant categories, the `ProductMultiDimensionalSelectorGuard` allows Spartacus to redirect the user under the following conditions:
 
 - If the selected variant cannot be purchased (for example, it is the base product, or the variant is out of stock), the `ProductMultiDimensionalSelectorGuard` identifies the closest available variant with stock and redirects the user to its product details page.
-- If the selected variant is purchasable (because it is not the base product) but all variants are out of stock, the guard redirects to the first variant product.
+- If the selected variant is purchasable (because it is not the base product) but all variants are out of stock, the guard redirects to the first (out-of-stock) variant of the base product.
 
 If the selected variant is purchasable (because it is not the base product) and the variant is in stock, no redirect occurs, and the product details page for the selected variant is displayed.
 
