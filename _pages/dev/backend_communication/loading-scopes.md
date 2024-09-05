@@ -188,7 +188,7 @@ The `reloadOn` configuration allows you to reload a product when a specific even
 
 In this example, the `details` scope is reloaded when `MyEvent` is emitted.
 
-## Support Scopes for ProductSearch Endpoint
+## Configuring Scopes in the ProductSearch Endpoint
 
 With the release of composable storefront 2211.28, it is possible to configure the `productSearch` endpoint to use scopes. Note that this functionality does not support [Merging Scopes](#merging-scopes) or [Scope Inclusions](#scope-inclusions).
 
