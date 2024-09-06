@@ -12,12 +12,14 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Multi-dimensional products are products that are different from one another is two or more ways, but are based on the same core
+Multi-dimensional products are products that are different from one another in two or more ways, but are based on the same core
 model. An example of a multi-dimensional product is a T-shirt that varies in both color and size.
 
 Multi-dimensional products offer more flexibility than standard variants because you can customize the variant options to fit your specific needs. When the multi-dimensional product feature is enabled in Spartacus, and corresponding products have been configured in SAP Commerce Cloud, customers can select products in the storefront with the dimensions of their choice.
 
-**Note:** While it is theoretically possible to have an unlimited number of dimensions, the current feature implementation supports a maximum of three dimensions. Spartacus does not support using multi-dimensional products and the variants features simultaneously. You need to choose one or the other. For more information, see [Multi-Dimensional Products](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/8ae3798c866910149204d455ffe16db5.html) and [Modeling Product Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html).
+Spartacus supports an unlimited number of dimensions, but SAP Commerce Cloud only supports three dimensions out-of-the-box. Having said that, you can extend the structure in SAP Commerce Cloud to support as many dimensions as you need. For more information, see [Creating Additional Dimensions for Multi-Dimensional Products](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/8acce71c866910149e2fe260d49a4997.html).
+
+**Note:** Spartacus does not support using multi-dimensional products and the variants features simultaneously. You need to choose one or the other. For more information, see [Multi-Dimensional Products](https://help.sap.com/docs/SAP_COMMERCE/4c33bf189ab9409e84e589295c36d96e/8ae3798c866910149204d455ffe16db5.html) and [Modeling Product Variants](https://help.sap.com/viewer/d0224eca81e249cb821f2cdf45a82ace/latest/en-US/8c143a2d8669101485208999541c383b.html).
 
 ***
 
