@@ -1,7 +1,7 @@
 ---
-title: Product Multi-Dimensional
+title: Multi-Dimensional Products
 feature:
-  - name: product-multi-dimensional
+  - name: multi-dimensional-products
     spa_version: 2211.28
     cx_version: 2211.28
 ---
