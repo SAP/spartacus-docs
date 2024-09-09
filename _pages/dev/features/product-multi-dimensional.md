@@ -181,7 +181,7 @@ export class ProductMultiDimensionalSelectorFeatureModule {
 
 ## OCC Optimization for Multiple Categories
 
-By default, Spartacus optimizes the multi-dimensional configuration for up to three categories. If you require more categories, you can extend the configuration by modifying the `variantMatrix` to include additional optimized elements.
+By default, Spartacus optimizes the multi-dimensional configuration for up to three categories. If you require more categories, you can ensure that your configuration remains optimized to handle the additional categories by modifying the `variantMatrix` to include additional optimized elements.
 
 The following is an example of the `customOccProductMultiDimensionalSelectorConfig` setup in `ProductMultiDimensionalSelectorFeatureModule`, optimized for up to four categories:
 
