@@ -12,8 +12,7 @@ feature:
 
 {% include docs/feature_version.html content=version_note %}
 
-Multi-dimensional products are products that are different from one another in two or more ways, but are based on the same core
-model. An example of a multi-dimensional product is a T-shirt that varies in both color and size.
+Multi-dimensional products are products that are different from one another in two or more ways, but are based on the same core model. An example of a multi-dimensional product is a T-shirt that varies in both color and size.
 
 Multi-dimensional products offer more flexibility than standard variants because you can customize the variant options to fit your specific needs. When the multi-dimensional product feature is enabled in Spartacus, and corresponding products have been configured in SAP Commerce Cloud, customers can select products in the storefront with the dimensions of their choice.
 
