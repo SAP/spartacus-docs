@@ -181,24 +181,30 @@ export class ProductMultiDimensionalSelectorFeatureModule {
 
 ## OCC Optimization for Multiple Categories
 
-By default, Spartacus optimizes the configuration for up to three categories. If more categories are required, you can extend the configuration by modifying the `variantMatrix` to include additional optimized elements.
+By default, Spartacus optimizes the multi-dimensional configuration for up to three categories. If you require more categories, you can extend the configuration by modifying the `variantMatrix` to include additional optimized elements.
 
-Below is an example of the `customOccProductMultiDimensionalSelectorConfig` setup optimized for up to four categories. If more categories are needed, you can easily add extra elements to the variantMatrix.
-Prepare `customOccProductMultiDimensionalSelectorConfig` in `ProductMultiDimensionalSelectorFeatureModule`
+The following is an example of the `customOccProductMultiDimensionalSelectorConfig` setup in `ProductMultiDimensionalSelectorFeatureModule`, optimized for up to four categories:
+
 ```ts
 const elements =
     'variantOption(code,variantOptionQualifiers(image(url,format))),variantValueCategory(name),parentVariantCategory(hasImage,name)';
 const variantMatrix = `variantMatrix(${elements},elements(${elements},elements(${elements},elements)))`;
 ```
-- The `elements` variable requests only the values necessary for the out-of-the-box multi-dimensional feature.
-- The `variantMatrix` prepares the request for optimization of up to four categories. If more categories are needed, simply add another elements to the nesting.
+
+If more categories are needed, you can easily add extra elements to the variantMatrix.
+
+In the example above, the `elements` variable requests only the values necessary for the out-of-the-box multi-dimensional feature. The `variantMatrix` prepares the request for optimization of up to four categories.
+
+If more categories are needed, simply add another `elements` to the nesting, as shown in the following example:
 
 ```ts
 const elements =
     'variantOption(code,variantOptionQualifiers(image(url,format))),variantValueCategory(name),parentVariantCategory(hasImage,name)';
 const variantMatrix = `variantMatrix(${elements},elements(${elements},elements(${elements},elements(${elements}))))`;
 ```
-Final Configuration:
+
+The following is an example of the final configuration in `default-occ-product-multi-dimensional-selector-config.ts`:
+
 ```ts
 export const customOccProductMultiDimensionalSelectorConfig: OccConfig = {
     backend: {
@@ -214,8 +220,9 @@ export const customOccProductMultiDimensionalSelectorConfig: OccConfig = {
     },
 };
 ```
-Module Setup:
-Ensure that the configuration is provided correctly by including it in your module:
+
+Finally, ensure that the configuration is provided correctly by including it in your module, as shown in the following example:
+
 ```ts
 @NgModule({
     imports: [ProductMultiDimensionalSelectorRootModule],
