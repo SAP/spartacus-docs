@@ -180,17 +180,18 @@ export class ProductMultiDimensionalSelectorFeatureModule {
 }
 ```
 
-## OCC Product Listing Page 
+## OCC Product Listing Page
 
-To enable multi-dimensional product price ranges on the product listing page, ensure that your product search query includes the following attributes:
-- multidimensional
-- priceRange
+To enable multi-dimensional product price ranges on the product listing page, ensure that your product search query includes the `multidimensional` and `priceRange` attributes.
 
-Example query:
+The following is an example query:
+
 ```ts
 products/search?fields=products(multidimensional,priceRange(maxPrice(formattedValue),minPrice(formattedValue)))
 ```
-default Spartacus configuration:
+
+The following is an example of the default Spartacus configuration:
+
 ```ts
 export const defaultOccProductConfig: OccConfig = {
     backend: {
