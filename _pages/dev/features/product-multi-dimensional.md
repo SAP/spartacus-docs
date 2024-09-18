@@ -180,6 +180,34 @@ export class ProductMultiDimensionalSelectorFeatureModule {
 }
 ```
 
+## OCC Product Listing Page
+
+To enable multi-dimensional product price ranges on the product listing page, ensure that your product search query includes the `multidimensional` and `priceRange` attributes.
+
+The following is an example query:
+
+```ts
+products/search?fields=products(multidimensional,priceRange(maxPrice(formattedValue),minPrice(formattedValue)))
+```
+
+The following is an example of the default Spartacus configuration:
+
+```ts
+export const defaultOccProductConfig: OccConfig = {
+    backend: {
+        occ: {
+            endpoints: {
+                product: {
+                productSearch: {
+                    default:
+                        'products/search?fields=products(code,name,summary,configurable,configuratorType,multidimensional,price(FULL),images(DEFAULT),stock(FULL),averageRating,variantOptions,baseProduct,priceRange(maxPrice(formattedValue),minPrice(formattedValue))),facets,breadcrumbs,pagination(DEFAULT),sorts(DEFAULT),freeTextSearch,currentQuery,keywordRedirectUrl',
+            },
+            },
+        },
+    },
+};
+```
+
 ## OCC Optimization for Multiple Categories
 
 By default, Spartacus optimizes the multi-dimensional configuration for up to three categories. If you require more categories, you can ensure that your configuration remains optimized to handle the additional categories by modifying the `variantMatrix` to include additional optimized elements.
