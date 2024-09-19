@@ -39,7 +39,7 @@ The following is an example of the reference app structure:
 
 ## Spartacus Module
 
-Every Angular application has a root app module, usually named `AppModule`. In the reference app strcuture, this module includes application-wide imports, and avoids complex module imports related to Spartacus by handling only one `SpartacusModule`.
+Every Angular application has a root app module, usually named `AppModule`. In the reference app structure, this module includes application-wide imports, and avoids complex module imports related to Spartacus by handling only one `SpartacusModule`.
 
 **Note:** Both Angular Router and NgRx are used by Spartacus, but these affect the global application, so they are kept outside of the `SpartacusModule` and are imported directly in the `AppModule`.
 
