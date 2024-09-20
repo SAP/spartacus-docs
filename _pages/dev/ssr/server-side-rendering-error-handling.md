@@ -325,41 +325,15 @@ If needed, the caching strategy can be easily customized by providing an own fun
 ## Error Handling and Logging
 
 All errors caught during server-side rendering are logged using the `LoggerService` provided by Spartacus, which means they are presented in a standardized way:
-- multiline JSON output in development mode, developer-friendly (TODO: add full stack trace when fixed)
-```json
-{
-  "message": "OutboundHttpError: Outbound HTTP Error ..."
-  "context": {
-    "timestamp": "2024-09-19T09:19:52.034Z",
-    "request": {
-      "url": "/electronics-spa/en/USD/i-do-not-exist",
-      "uuid": "3432be12-d36b-4f51-946e-69b16cda98b9",
-      "timeReceived": "2024-09-19T09:19:50.128Z"
-    }
-  }
-}
-```
-- single line JSON output in production mode, that are seamlessly parsed by monitoring tools. (TODO: add full stack trace when fixed)
-```json
-{"message":"OutboundHttpError: Outbound HTTP Error ... ","context":{"timestamp":"2024-09-19T09:28:30.399Z","request":{"url":"/electronics-spa/en/USD/i-do-not-exist","uuid":"76b5c5d4-5a00-4ce5-9b93-c3a6d3399da5","timeReceived":"2024-09-19T09:28:28.828Z"}}}
-```
+- multiline JSON output in development mode, developer-friendly
+
+![SSR Error Handling - Error Log in Dev Mode](../../../assets/images/ssr/error-handling-error-log-in-dev.png)
+- single line JSON output in production mode, that are seamlessly parsed by monitoring tools.
+![SSR Error Handling - Error Log in Dev Mode](../../../assets/images/ssr/error-handling-error-log-in-prod.png)
 
 Apart from that, `OptimizedSsrEngine` informs if request is resolved with the server-side rendering error. 
 The following is an example of the log message if error occurred during rendering process.
-```json
-{
-  "message": "Request is resolved with the SSR rendering error (/electronics-spa/en/USD/not-existing-page)",
-  "context": {
-    "timestamp": "2024-09-13T09:01:27.519Z",
-    "request": {
-      "url": "/electronics-spa/en/USD/i-do-not-exist",
-      "uuid": "1f7a8586-6f94-43e4-bb87-6bd5f4d96956",
-      "timeReceived": "2024-09-13T09:01:25.788Z"
-    },
-    "error": "CmsPageNotFoundOutboundHttpError: CMS Page Not Found ...", (TODO: add full stack trace when fixed)
-  }
-}
-```
+![SSR Error Log](../../../assets/images/ssr/error-handling-ssr-result-log.png)
 
 Such logs are crucial for monitoring and debugging purposes, as they provide information about the error and the related request.
 
