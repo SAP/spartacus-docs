@@ -6,11 +6,13 @@ feature:
     cx_version: n/a
 ---
 
-SSR Error Handling functionality provides the missing behavior to how Angular engine handles errors during rendering pages on the server. It ensures the Spartacus application reacts on the encountered errors by providing default set of tools to handle them and, at the same time, giving a possibility to customize the experience. This feature is crucial for the SEO of the page and the overall UX.
+SSR Error Handling functionality provides the missing behavior to how Angular engine handles errors during rendering pages on the server (see Angular Github [#33642](https://github.com/angular/angular/issues/33642)). It ensures the Spartacus application reacts on the encountered errors by providing default set of tools to handle them and, at the same time, giving a possibility to customize the experience. This feature is crucial for the SEO of the page and the overall UX.
 
-**Note:** Angular SSR by default doesn't ignore an error only if occurred in the APP_INITIALIZER or synchronous bootstrap of the root component.
+**Note:** Unfortunately, Angular SSR by default _ignores all errors happening during the rendering_ besides 2 edge cases: 
+- errors in `APP_INITIALIZER` hooks 
+- synchronous error during the bootstrap of the root component.
 
-New Spartacus apps created since v2211.29, have the SSR Error Handling enabled by default.
+New Spartacus apps created since v2211.29, have the SSR Error Handling enabled by default, which addresses the limitations of OOTB Angular SSR.
 
 If your Spartacus app was created before v2211.29, to benefit from all aspects of SSR error handling, you must do the following:
 - Enable `propagateErrorsToServer` feature toggle to start propagating to the ExpressJS server the errors caught during server-side rendering, where eventually they will be properly handled. For more information, see [Propagating Errors To The Server](#propagating-errors-to-the-server).
@@ -19,7 +21,7 @@ If your Spartacus app was created before v2211.29, to benefit from all aspects o
 - use `defaultExpressErrorHandlers` middleware in `server.ts` to handle errors in ExpressJS. For more information, see [Using Default ExpressJS Error Handlers](#using-default-expressjs-error-handlers).
 - make sure that `provideServer()` config function is provided in the `app.server.module.ts` file. It contains elements required for SSR Error Handling to work properly.
 
-**Note:** The SSR Error Handling is available starting from Spartacus 2211.29. For new application, the feature is enabled fy default. For migrated application. the feature is disabled by default and can be enabled by using mentioned feature toggles. After expiration of the feature toggle period, the feature will be enabled by default.
+**Note:** The SSR Error Handling is available starting from Spartacus 2211.29. For new application, the feature is enabled fy default. For migrated application. the feature is disabled by default and can be enabled by using mentioned feature toggles. After expiration of the feature toggle period, the feature will be enabled by default, however you might still need to perform some steps manually (those not related to feature toggles).
 **Note:** Together with SSR Error Handling, Spartacus provides `ssrFeatureToggles` that allow you to enable or disable features specific for `OptimizedSsrEngine`. For more information, see [SSR Feature Toggles](TODO: add link to page when is read).
 
 Without SSR Error Handling, the following issues arise:
@@ -29,7 +31,7 @@ Without SSR Error Handling, the following issues arise:
 
 Both scenarios may drastically affect the SEO of the page due to fact the wrong status code in the response to the client might lead to indexing by Google the malformed pages and unknown URLs.
 
-See below the sequence diagram of rendering the Angular app for an incoming request in SSR, with Spartacus OptimizedSsrEngine included. It shows how an asynchronous error happening during the rendering is ignored and a malformed HTML is returned to a client:
+See below the sequence diagram of rendering the OOTB Angular application for an incoming request in SSR, with Spartacus OptimizedSsrEngine included, where SSR Error Handling is not enabled. It shows how an asynchronous error happening during the rendering is ignored and a malformed HTML is returned to a client:
 ![Rendering Sequence Without SSR Error Handling](../../../assets/images/ssr/error_handling_rendering_sequence_without_improvements.png)
 
 To solve the issues, Spartacus provided CxCommonEngine - a wrapper for CommonEngine which allows to react on asynchronous errors that occurred during SSR. Thanks to this, it is possible to return an error with the appropriate status code instead of the rendered HTML which is potentially malformed.
@@ -49,7 +51,7 @@ See below the diagram showing the connections between elements of the contract (
 
 ## Propagating errors to the server
 
-To propagate errors caught during server-side rendering to the ExpressJS server, the `CxErrorHandler` provided together with `Standardized SSR logging` feature has been extended. Now the error handler acts differently based on the platform it is running on thanks to multi error handlers:
+To propagate errors caught during server-side rendering to the ExpressJS server, the Spartacus `CxErrorHandler` (custom version of Angular `ErrorHandler` class) hands over the error to the multi-provided error handlers, where one of them is the `PropagatingToServerErrorHandler`. Moreover, the `LoggingErrorHandler` prints the error message to the console. See the more detailed description of mutli-error-handlers below:
 - `LoggingErrorHandler`, which logs the error using `LoggerService`;
 - `PropagatingToServerErrorHandler`, specially for SSR Error Handling purposes, which passes the error to the `CxCommonEngine` thanks to `PROPAGATE_ERROR_TO_SERVER` injection token. For more, see [CxCommonEngine](#cx-common-engine).
 
@@ -259,13 +261,13 @@ Spartacus `HttpErrorHandlerInterceptor` treats all outbound HTTP as a reason to 
 
 However, if this assumption is not true for your application, you can customize it by over-providing Spartacus `HttpErrorHandlerInterceptor`. It might be useful in one of the following cases:
 - when you don't want some backend HTTP errors to make SSR fail (e.g. when some HTTP errors from backend are considered really not important for the final HTML result of SSR)
-- when you want some backend HTTP success responses to be treated as errors making SSR to fail (e.g. when backend responds with status 200 and a custom payload indicating and error like `{ "ok": false, ... }`
+- when you want some backend HTTP success responses to be treated as errors making SSR to fail (e.g. when backend responds with status 200 and a custom payload indicating an error like `{ "ok": false, ... }`
 
 ### Handling NgRx errors
 
 Spartacus treats any NgRx action containing the property `error` as a reason for SSR to fail. To handle them, Spartacus provides elements of NgRx flow that helps to catch the errors and forward them to the `CxErrorHandler`:
-- `CxErrorHandlerEffect` - an effect that catches all dispatched NgRx Actions with the property `error` and forwards such an error to the `CxErrorHandler`.
-- `ErrorAction` - an interface with a property `error`, used in `CxErrorHandlerEffect` to filter error actions.
+- `ErrorActionService` - it filters all dispatched NgRx Actions with the property `error` and forwards such an error to the `CxErrorHandler`.
+- `ErrorAction` - an interface of an NgRx action with a property `error`, used in `ErrorActionService`
 
 The following is an example of how to implement the `ErrorAction` interface in your custom failure action: 
 ```ts
@@ -319,7 +321,7 @@ shouldCacheRenderingResult?: ({
     entry: Pick<RenderingEntry, 'err' | 'html'>;
   }) => boolean;
 ```
-By default, all html rendering results are cached. By default, also all errors are cached (unless the separate option `avoidCachingErrors` is enabled).
+By default, all html rendering results are cached. By default, also all errors are cached (unless the separate option `ssrFeatureToggles.avoidCachingErrors` is enabled).
 If needed, the caching strategy can be easily customized by providing an own function.
 
 ## Error Handling and Logging
