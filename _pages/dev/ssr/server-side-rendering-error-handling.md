@@ -266,7 +266,7 @@ export function app(): express.Express {
 
 ### Handling HTTP Errors
 
-To handle HTTP errors, Spartacus provides `HttpErrorHandlerInterceptor`, which catches HTTP errors and forwards them to the `CxErrorHandler`. By default, the interceptor helps to distinguish two types of errors by wrapping them with custom error classes before passing them to the `CxErrorHandler`. Those errors are the following:
+To handle HTTP errors, Spartacus provides `HttpErrorHandlerInterceptor`, which catches HTTP errors and forwards them to the `CxErrorHandler`. By default, the interceptor helps to distinguish two types of errors by wrapping them with custom error classes before passing them to the `CxErrorHandler`. Those classes are the following:
 
 - An `OutboundHttpError` represents an outbound HTTP error that occurs when communicating with the back end.
 - A `CmsPageNotFoundOutboundHttpError` represents an outbound HTTP error that is specific to a CMS page not found. This error extends the base `OutboundHttpError` class.
