@@ -215,9 +215,10 @@ The `logger` setting is an `ExpressServerLogger` implementation that improves lo
 The logger property is optional. By default, the `DefaultExpressServerLogger` is used. For more information, see [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-contextual-logging.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-contextual-logging.md %})
 
 ### shouldCacheRenderingResult
-When caching is enabled, this function tells whether the given rendering result (html or error) should be cached.
 
-By default, all html rendering results are cached. By default, also all errors are cached unless the SSR feature toggle `avoidCachingErrors` is enabled.
+When caching is enabled, this function indicates whether the given rendering result (HTML or an error) should be cached.
+
+By default, all HTML rendering results are cached. Also, all errors are cached by default, unless the `avoidCachingErrors` SSR feature toggle is enabled.
 
 ## Troubleshooting
 
