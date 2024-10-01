@@ -305,7 +305,7 @@ Ensure that all your custom NgRx Actions of type `Fail` contain the `error` prop
 
 **Note:** If, in your case, some exceptional NgRx actions with the `error` property should not make SSR fail, you can customize the behavior by over-providing the Spartacus `ErrorActionService`.
 
-## Not Using the RESPONSE Token for Setting Status Codes
+## Avoiding Use of the RESPONSE Token for Setting Status Codes
 
 Before Spartacus version 2211.29, one of the ways to react to handled errors was to manually inject a `RESPONSE` token in the code and call `this.response.set(<custom-status>)`. If you have previously used this approach, you should no longer do so because it is no longer guaranteed to work correctly with the new contract between the Angular app and ExpressJS. If there is a need to handle any custom error, it can be done by injecting `ErrorHandler` and calling `this.errorHandler.handleError(<custom-error>)` instead. The following is an example:
 
