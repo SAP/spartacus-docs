@@ -1,54 +1,46 @@
 ---
-title: Site Theming and Site Theme Switcher Feature
+title: Site Theming and Site Theme Switcher
 feature:
   - name: site Theme
     spa_version: 2211.29
     cx_version: 2211.29
 ---
 
-The new **theming mechanism** and **Site** **Theme Switcher** UI component have been added to Spartacus, enhancing site theming flexibility. Previously, site themes could be configured either statically or via CMS using the "config.context.theme" property. The update allows for defining **optional themes**, providing more customization options for site theming.
+Starting with Spartacus version 2211.29, a new theming mechanism and site theme switcher UI component have been added to enhance site theming flexibility. Previously, site themes could be configured either statically or through CMS using the `config.context.theme` property. It is now possible to define optional themes, which provides more customization options for site theming.
 
-Additionally, this update introduces two new **high-contrast themes** (High Contrast Light and High Contrast Dark), improving accessibility for users with visual impairments. These themes dynamically alter global CSS properties to ensure a seamless adaptation of UI components.
+Spartacus now provides two high-contrast themes (High Contrast Light and High Contrast Dark), which improve accessibility for users with visual impairments. These themes dynamically alter global CSS properties to ensure seamless adaptation for UI components.
 
-The **Theme Switcher** enables users to select and switch between themes in real-time, with the selected theme persisting across sessions via local storage. This guide explains how to enable these features, configure them, and ensure custom components remain compatible with Spartacus’s theming system, including high-contrast modes.
+The theme switcher allows users to select and switch between themes in real-time, with the selected theme persisting across sessions through local storage. The following sections describe how to enable these features, configure them, and ensure custom components remain compatible with Spartacus’s theming system, including high-contrast modes.
 
-## Previous Behavior: Configuring Site Themes
+Before Spartacus version 2211.29, the site theme could be configured with the `config.context.theme` object. This object could be statically defined in the configuration file, and could be populated from the CMS using the automatic site-context configuration feature. This allowed you to define a default theme for the entire site.
 
-Previously, the site theme could be configured using the "config.context.theme" object in Spartacus, which could:
+Starting with version 2211.29, a new configuration system allows you to define a list of optional themes using the `config.siteTheme.optionalThemes` property. The old `config.context.theme` object remains important because it defines the default theme, either through static configuration or CMS. If the `config.context.theme` is not set, the default theme will be an empty string ('').
 
-- Be **statically defined** in the configuration file.
-- Be **populated from the CMS** using the feature of automatic site-context configuration.
+The key configuration options are the following:
 
-This allowed for defining a default theme for the entire site.
-
-## New Mechanism: Optional Themes
-
-A new configuration system allows for defining a list of **optional themes** using the "_config.siteTheme.optionalThemes"_ property. The old "_config.context.theme"_ remains important as it defines the **Default theme**, either through static configuration or CMS. If the "_config.context.theme"_ is not set, the default theme will be an empty string ('').
-
-### Key Points:
-
-- The "config.context.theme" still controls the Default theme.
-- The "config.siteTheme.optionalThemes" config enables defining a list of **alternative themes** that users can select from the Theme Switcher UI.
+- The `config.context.theme` still controls the default theme. You can configure the default theme either through static configuration (using the `config.context.theme` object), or through CMS by using automatic site-context configuration.
+- The `config.siteTheme.optionalThemes` config allows you to define a list of optional themes that users can select from the theme switcher UI.
 
 ## Site Theme Switcher UI Component
 
-The **Site** **Theme Switcher** is a new UI component, a dropdown that allows users to select and apply different themes in real-time. The selected theme is saved to the user’s **local storage**, meaning the choice persists across page refreshes and future visits.
+The site theme switcher is a dropdown UI component that allows users to select and apply different themes in real-time. The selected theme is saved to the user’s local storage, so user choices are persisted across page refreshes and future visits.
 
-This improves the user experience by allowing instant visual feedback when switching themes without requiring a full page reload.
+This improves the user experience by allowing instant visual feedback when switching themes, without requiring a full page reload.
 
 ## High Contrast Themes for Accessibility
 
-To enhance accessibility, two **optional high-contrast themes** have been introduced:
+To enhance accessibility, two optional high-contrast themes have been introduced:
 
-- **High Contrast Light**
-- **High Contrast Dark**
+- High Contrast Light
+- High Contrast Dark
 
-These themes modify global CSS variables like _--cx-color-background_, automatically updating the appearance of all components relying on these variables.
+These themes modify global CSS variables, such as `--cx-color-background`, and automatically update the appearance of all components that rely on these variables.
 
-### Custom Style Rules for High Contrast:
+### Custom Style Rules for High Contrast
 
-For components that don’t inherently use these variables, additional style rules enforce the use of global CSS variables when a high contrast theme is active. These rules apply based on CSS classes such as .cx-theme-high-contrast-dark for dark mode.
-Example:
+For components that do not inherently use these variables, additional style rules enforce the use of global CSS variables when a high contrast theme is active. These rules apply based on CSS classes, such as `.cx-theme-high-contrast-dark` for dark mode.
+
+The following is an example:
 
 ```scss
 @include cx-highContrastTheme-dark {
@@ -56,14 +48,12 @@ Example:
 }
 ```
 
-To ensure custom components work correctly with Spartacus’s high-contrast themes:
+To ensure your custom components work correctly with the high-contrast themes in Spartacus, keep the following guidelines in mind:
 
-- **Use Global CSS Variables**: Custom components should use Spartacus’s global CSS custom properties (like --cx-color-background). This ensures automatic adjustments when a high-contrast theme is activated.
-- **Use Theme-specific Styles**: If custom components need specific styles for high-contrast modes, use the provided Spartacus mixins.
+- **Use global CSS variables:** Custom components should use global CSS custom properties in Spartacus, such as `--cx-color-background`. This ensures automatic adjustments when a high-contrast theme is activated.
+- **Use theme-specific styles:** If custom components need specific styles for high-contrast modes, use the provided Spartacus mixins.
 
-For example:
-
-To target **both** high-contrast themes:
+The following is an example that targets both high-contrast themes:
 
 ```scss
 @include cx-highContrastTheme {
@@ -71,9 +61,7 @@ To target **both** high-contrast themes:
 }
 ```
 
-To target specific high-contrast themes:
-
-For **High Contrast Dark**
+The following is an example that specifically targets the dark high-contrast theme:
 
 ```scss
 @include cx-highContrastTheme-dark {
@@ -81,7 +69,7 @@ For **High Contrast Dark**
 }
 ```
 
-For **High Contrast Light**:
+And the following is an example that targets the light high-contrast theme:
 
 ```scss
 @include cx-highContrastTheme-light {
@@ -89,29 +77,29 @@ For **High Contrast Light**:
 }
 ```
 
-## How to Enable the Theme Switcher and Optional Themes
+## Enabling the Theme Switcher and Optional Themes
 
-To enable the **Theme Switcher** and optional themes, follow these steps:
+The following sections describe how to enable the theme switcher and optional themes.
 
-1.  **Enable the feature toggle**: Set the useSiteThemeService toggle to true in your configuration.
-2.  **Add the CMS component**: There are several ways to add the SiteThemeSwitcherComponent to your site if it hasn't been included yet. Here are two options:
+1. Set the `useSiteThemeService` feature toggle to `true` in your configuration.
 
-### Option 1: Adding the Theme Switcher Component via Backoffice
+   For more information, see [Activating the Use Site Theme Service](link-to-activating-page-in-help-portal).
+1. If it has not been included yet, add the `SiteThemeSwitcherComponent` CMS component to your site, either through Backoffice or by using ImpEx.
 
-1.  Go to the backoffice.
-2.  Navigate to **WCMS** → **Component**.
-3.  Add a new **CMS Flex Component**:
-    - Enter **Catalog Version** (e.g., "SPA Electronics Content Catalog: Online").
-    - Enter **ID**: SiteThemeSwitcherComponent.
-4.  Once the component is created:
-    - Go to the **Administration** tab and enter the value for **Flex Type** as SiteThemeSwitcherComponent.
-    - Go to the **Content Slots** tab and select **Content Slots** → Site Context Slot (ID: SiteContextSlot, Catalog Version: SPA Electronics Content Catalog: Online).
+   For more information, see [Adding the Theme Switcher Component in Backoffice](#adding-the-theme-switcher-component-in-backoffice) or [Adding the Theme Switcher Component Through ImpEx](#adding-the-theme-switcher-component-through-impex).
 
-### Option 2: Executing an Impex Script via Console
+### Adding the Theme Switcher Component in Backoffice
 
-Alternatively, you can execute the following Impex script via the console to add the SiteThemeSwitcherComponent: example for electronics online catalog
+1. In Backoffice, navigate to **WCMS → Component**.
+1. Add a new **CMS Flex Component** by entering a **Catalog Version**, such as `SPA Electronics Content Catalog: Online`, and enter an **ID**, such as `SiteThemeSwitcherComponent`.
+1. Select the **Administration** tab and enter `SiteThemeSwitcherComponent` as the value for the **Flex Type**.
+1. Select the **Content Slots** tab and then select **Content Slots → Site Context Slot** with the following ID: `SiteContextSlot, Catalog Version: SPA Electronics Content Catalog: Online`.
 
-```impex
+### Adding the Theme Switcher Component Through ImpEx
+
+Use the following ImpEx to add the `SiteThemeSwitcherComponent` to your site. This example is for the electronics online catalog.
+
+```text
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 $siteResource=jar:de.hybris.platform.spartacussampledata.constants.SpartacussampledataConstants&/spartacussampledata/import/contentCatalogs/electronicsContentCatalog
@@ -122,8 +110,3 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
 ;;SiteContextSlot;Site Context Slot;true;LanguageComponent,CurrencyComponent,SiteThemeSwitcherComponent
 ```
-
-### Key Configuration Options:
-
-- **Default Theme**: Configure the default theme either through static configuration (config.context.theme) or via CMS using the automatic site-context feature.
-- **Optional Themes**: Define additional optional themes to display in the Theme Switcher using config.siteTheme.optionalThemes
