@@ -79,6 +79,11 @@ By default, the SSR optimization engine uses the following configuration:
     defaultRenderingStrategyResolverOptions
   ),
   logger: new DefaultExpressServerLogger(),
+  shouldCacheRenderingResult: ({ options, entry }) =>
+    !(
+      options.ssrFeatureToggles?.avoidCachingErrors === true &&
+      Boolean(entry.err)
+    ),
 }
 ```
 
@@ -208,6 +213,12 @@ Instead of requiring the `debug` flag, now all of the following information abou
 The `logger` setting is an `ExpressServerLogger` implementation that improves logged messages by providing context and by structuring the messages in JSON format. For example, SSR logs include the request's details, which are structured in JSON format.
 
 The logger property is optional. By default, the `DefaultExpressServerLogger` is used. For more information, see [{% assign linkedpage = site.pages | where: "name", "server-side-rendering-contextual-logging.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/ssr/server-side-rendering-contextual-logging.md %})
+
+### shouldCacheRenderingResult
+
+When caching is enabled, this function indicates whether the given rendering result (HTML or an error) should be cached.
+
+By default, all HTML rendering results are cached. Also, all errors are cached by default, unless the `avoidCachingErrors` SSR feature toggle is enabled.
 
 ## Troubleshooting
 
