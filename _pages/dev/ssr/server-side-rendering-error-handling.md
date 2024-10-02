@@ -6,6 +6,8 @@ feature:
   cx_version: n/a
 ---
 
+## Overview
+
 Server-side rendering (SSR) error handling in Spartacus provides functionality that is missing from the Angular engine's error handling when pages are rendered on the server. SSR error handling ensures that your Spartacus application reacts to encountered errors by providing a default set of tools to handle them. It also provides the option to customize the experience. SSR error handling is essential for the SEO of your storefront pages, and for the overall user experience.
 
 For more information about the Angular engine's missing error handling functionality, see [Angular Github issue #33642](https://github.com/angular/angular/issues/33642).
