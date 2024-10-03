@@ -170,7 +170,7 @@ export const customErrorPageErrorHandlers: ErrorRequestHandler = async (
       <body>
         <h1>${
           statusCode === HttpResponseStatus.NOT_FOUND
-            ? 'Oups! Page not found (404)'
+            ? 'Oops! Page not found (404)'
             : 'Internal Server Error (500)'
         }</h1>
       </body>

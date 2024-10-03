@@ -10,7 +10,7 @@ Starting with Spartacus version 2211.29, a new theming mechanism and site theme 
 
 Spartacus now provides two high-contrast themes (High Contrast Light and High Contrast Dark), which improve accessibility for users with visual impairments. These themes dynamically alter global CSS properties to ensure seamless adaptation for UI components.
 
-The theme switcher allows users to select and switch between themes in real-time, with the selected theme persisting across sessions through local storage. The following sections describe how to enable these features, configure them, and ensure custom components remain compatible with Spartacus’s theming system, including high-contrast modes.
+The theme switcher allows users to select and switch between themes in real-time, with the selected theme persisting across sessions through local storage. The following sections describe how to enable these features, configure them, and ensure custom components remain compatible with the theming system in Spartacus, including high-contrast modes.
 
 Before Spartacus version 2211.29, the site theme could be configured with the `config.context.theme` object. This object could be statically defined in the configuration file, and could be populated from the CMS using the automatic site-context configuration feature. This allowed you to define a default theme for the entire site.
 
