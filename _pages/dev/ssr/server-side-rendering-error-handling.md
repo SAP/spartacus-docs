@@ -6,35 +6,23 @@ feature:
     cx_version: n/a
 ---
 
-Server-side rendering (SSR) error handling in Spartacus provides functionality that is missing from the Angular engine's error handling when pages are rendered on the server. SSR error handling ensures that your Spartacus application reacts to encountered errors by providing a default set of tools to handle them. It also provides the option to customize the experience. SSR error handling is essential for the SEO of your storefront pages, and for the overall user experience.
+Server-side rendering error handling in Spartacus provides functionality that is missing from the error handling done by the Angular engine when pages are rendered on the server. Spartacus SSR error handling ensures that your storefront application reacts to errors that it encounters by providing a default set of tools to handle the errors. SSR error handling also provides the option to customize the experience. SSR error handling is essential for the SEO of your storefront pages, and for the overall user experience.
 
-For more information about the Angular engine's missing error handling functionality, see [Angular Github issue #33642](https://github.com/angular/angular/issues/33642).
+## Solution Overview
 
-**Note:** By default, Angular SSR ignores all errors that occur during rendering except for the following edge cases:
+By default, Angular SSR ignores all errors that occur during rendering except for the following edge cases:
 
 - errors in `APP_INITIALIZER` hooks
 - synchronous errors during the bootstrap of the root component
 
-Starting with version 2211.29, newly created Spartacus apps have SSR error handling enabled by default, which addresses the limitations of the out-of-the-box Angular SSR behavior.
-
-If your Spartacus app was created before version 2211.29, to benefit from all aspects of SSR error handling, you must do the following:
-
-- Enable the `propagateErrorsToServer` feature toggle to start propagating the errors caught during server-side rendering to the ExpressJS server, where eventually they will be properly handled. For more information, see [Propagating Errors To The Server](#propagating-errors-to-the-server).
-- Enable the `ssrStrictErrorHandlingForHttpAndNgrx` feature toggle to seal the Angular application from the asynchronous errors that occur in the NgRx flow and from HTTP calls during the rendering process. For more information, see [Strict Error Handling for HTTP And NgRx](#strict-error-handling-in-angular-for-http-and-ngrx).
-- Enable `ssrFeatureToggle.avoidCachingErrors` in `SsrOptimizationOptions` to not cache any pages where an error occurred during rendering. For more information, see [Cache management and error handling](#cache-management-and-error-handling).
-- Use the `defaultExpressErrorHandlers` middleware in `server.ts` to handle errors in ExpressJS. For more information, see [Using Default ExpressJS Error Handlers](#using-default-expressjs-error-handlers).
-- Ensure that the `provideServer()` config function is provided in the `app.server.module.ts` file. It contains elements that are required for SSR error handling to work properly.
-
-**Note:** SSR error handling is introduced in Spartacus 2211.29. For new applications, the feature is enabled by default. For older applications, the feature is disabled by default, but you can enable it using the feature toggles mentioned just above. After a certain period, the feature toggles will be enabled by default in newer versions of Spartacus, but you still may need to perform some steps manually to fully enable the functionality of SSR error handling.
-
-**Note:** Together with SSR error handling, Spartacus provides `ssrFeatureToggles` that allow you to enable or disable specific features for the `OptimizedSsrEngine`. For more information, see [SSR Feature Toggles](TODO: add link to page when is ready).
+For more information about the Angular engine's missing error handling functionality, see [Angular Github issue #33642](https://github.com/angular/angular/issues/33642).
 
 Without SSR error handling, the following issues arise:
 
 - With Angular's default SSR behavior (which is used under-the-hood by Spartacus), when an asynchronous error occurs during rendering (for example, with an API call, or a runtime error in the code), the rendering process does not stop, and it eventually returns potentially malformed HTML to the client, along with an incorrect `200` HTTP status code. This can lead to client-side errors and the page not being rendered correctly.
-- When a customer enters a URL that unknown to the application, Spartacus returns an error page, but with a misleading `200` status.
+- When a customer enters a URL that is unknown to the application, Spartacus returns an error page, but with a misleading `200` status.
 
-Both scenarios can drastically affect the SEO of storefront pages because the wrong status code sent in the response to the client can lead to malformed pages and unknown URLs being indexing by Google.
+Both scenarios can drastically affect the SEO of your storefront pages because the wrong status code sent in the response to the client can lead to malformed pages and unknown URLs being indexing by search engines.
 
 The following is a sequence diagram of an incoming SSR request rendering an out-of-the-box Angular application, with the Spartacus `OptimizedSsrEngine` included, but without SSR error handling enabled. It shows how an asynchronous error that occurs during rendering is ignored, and as a result, malformed HTML is returned to the client:
 
@@ -53,8 +41,22 @@ The following diagram shows the connections between the elements of the contract
 
 **Note:** There is a difference between the two types of error handlers in the two different layers, as follows:
 
-- The Angular `ErrorHandler` class receives errors that happen during app rendering by Angular (on the server side). Spartacus provides a custom version of this (the `CxErrorHandler`), which propagates these errors to the next layer (that is, ExpressJS).
-- Express error handler functions receive errors propagated from app rendering by Angular. These are responsible for sending an appropriate HTTP status code, as well as the HTML content, to the client of the server-side rendering.
+- The Angular `ErrorHandler` class receives errors that happen during app rendering by Angular (on the server side). Spartacus provides a custom version of this (the `CxErrorHandler`), which propagates the errors to the next layer (that is, ExpressJS).
+- Express error handler functions receive errors propagated from app-rendering by Angular. These are responsible for sending an appropriate HTTP status code, as well as the HTML content, to the client of the server-side rendering.
+
+## Enabling SSR Error Handling
+
+Starting with version 2211.29, newly created Spartacus apps have SSR error handling enabled by default, which addresses the limitations of the out-of-the-box Angular SSR behavior.
+
+If your Spartacus app was created before version 2211.29, to benefit from all aspects of SSR error handling, you must do the following:
+
+- Enable the `propagateErrorsToServer` feature update toggle to start propagating the errors caught during server-side rendering to the ExpressJS server, where eventually they will be properly handled. For more information, see [Propagating Errors To The Server](#propagating-errors-to-the-server) and [Activating Propagate to Server](link to doc on help portal).
+- Enable the `ssrStrictErrorHandlingForHttpAndNgrx` feature update toggle to seal the Angular application from the asynchronous errors that occur in the NgRx flow and from HTTP calls during the rendering process. For more information, see [Strict Error Handling for HTTP And NgRx](#strict-error-handling-in-angular-for-http-and-ngrx) and [Activating SSR Strict Error Handling For HTTP and Ngrx](link to doc on help portal).
+- Enable `ssrFeatureToggle.avoidCachingErrors` in `SsrOptimizationOptions` to not cache any pages where an error occurs during rendering. For more information, see [Cache management and error handling](#cache-management-and-error-handling) and [Activating Avoid Cache Error](link to doc on help portal).
+- Use the `defaultExpressErrorHandlers` middleware in `server.ts` to handle errors in ExpressJS. For more information, see [Using Default ExpressJS Error Handlers](#using-default-expressjs-error-handlers).
+- Ensure that the `provideServer()` config function is provided in the `app.server.module.ts` file. It contains elements that are required for SSR error handling to work properly.
+
+**Note:** SSR error handling is introduced in Spartacus 2211.29. For new applications, the feature is enabled by default. For older applications that are updating to 2211.29, the feature is disabled by default, but you can enable it using the feature update toggles mentioned above. In later releases, these toggles will be activated by default, and later on, they will be removed entirely, with SSR error handling provided as standard functionality. As the toggles transition to these later rollout phases, if you have not already enabled SSR error handling, you may need to perform some steps manually to fully enable the functionality. The information for doing so is provided in the sections below. For more information about the life cycle of the SSR error handling feature update toggles, see [Composable Storefront Feature Update Rollout Phases](link to doc on help portal).
 
 ## Propagating Errors to the Server
 
@@ -137,7 +139,7 @@ The [`defaultExpressErrorHandlers`](https://github.com/SAP/spartacus/blob/develo
 
 The benefits of this approach are the following:
 
-- Spartacus sends a semantic HTTP response code, such as 404 or 500, so that search engines do not index pages with these error codes, nor do they attempt to revisit the page in the future.
+- Spartacus sends a semantic HTTP response code, such as `404` or `500`, so that search engines do not index pages with these error codes, nor do they attempt to revisit the page in the future.
 - Spartacus sends HTML content from the "CSR fallback", which increases the chance that users will see the correct content for the page, based on the client-side rendering, if the error that happened in SSR is not also repeated in CSR.
 
 ### Customizing ExpressJS Error Handlers
@@ -210,7 +212,7 @@ export function app(): express.Express {
 }
 ```
 
-If you find the functionality of `defaultExpressErrorHandlers` sufficient, but you want a customize how one type of error is handled, you can provide a custom error handler before the `defaultExpressErrorHandlers`. Ensure that you call `next(err)` in the custom error handler to let the `defaultExpressErrorHandlers` take care of errors that are not handled by the custom handler.
+If you find the functionality of `defaultExpressErrorHandlers` sufficient, but you want to customize how one type of error is handled, you can provide a custom error handler before the `defaultExpressErrorHandlers`. Ensure that you call `next(err)` in the custom error handler to let the `defaultExpressErrorHandlers` take care of errors that are not handled by the custom handler.
 
 The following is an example of how to provide a custom error handler for `CmsPageNotFoundOutboundHttpError` in a `custom-error-handler.ts` file:
 
@@ -273,14 +275,14 @@ To handle HTTP errors, Spartacus provides `HttpErrorHandlerInterceptor`, which c
 
 When these kinds of semantic errors are propagated to ExpressJS and handled there by the `defaultExpressErrorHandlers` middleware, it can distinguish the errors and return an appropriate status code to the client (such as `404` or `500`).
 
-**Note:** Ensure that your custom Angular HTTP interceptors are provided after `HttpErrorHandlerInterceptor`, so that they are the next to run in the sequence. If they catch any error, make sure to rethrow the error downstream to the next interceptors. Otherwise, the Spartacus `HttpErrorHandlerInterceptor` will not capture the error, and as result, it will not be able to propagate the error to the ExpressJS layer, which in turn will prevent sending the appropriate HTTP error status code to the client of the server-side rendering.  
+**Note:** Ensure that your custom Angular HTTP interceptors are provided after `HttpErrorHandlerInterceptor`, so that they are the next to run in the sequence. If they catch any error, make sure to rethrow the error to the next interceptors downstream. Otherwise, the Spartacus `HttpErrorHandlerInterceptor` will not capture the error, and as a result, it will not be able to propagate the error to the ExpressJS layer, which in turn will prevent sending the appropriate HTTP error status code to the client of the server-side rendering.  
 
 The Spartacus `HttpErrorHandlerInterceptor` treats all outbound HTTP as a reason to make SSR fail.
 
 However, if this assumption is not true for your application, you can customize it by over-providing the Spartacus `HttpErrorHandlerInterceptor`. This might be useful in one of the following cases:
 
 - When you do not want certain back-end HTTP errors to make SSR fail (for example, when certain HTTP errors from the back end are considered unimportant for the final HTML result of the server-side rendering).
-- When you want certain back-end HTTP success responses to be treated as errors that making SSR fail (for example, when the back end responds with a status `200` and a custom payload indicating an error, such as `{ "ok": false, ... }`)
+- When you want certain back-end HTTP success responses to be treated as errors that make SSR fail (for example, when the back end responds with a status `200` and a custom payload indicating an error, such as `{ "ok": false, ... }`)
 
 ### Handling NgRx Errors
 
@@ -303,7 +305,7 @@ export class MyActionFail implements ErrorAction {
 
 Ensure that all your custom NgRx Actions of type `Fail` contain the `error` property.
 
-**Note:** If, in your case, some exceptional NgRx actions with the `error` property should not make SSR fail, you can customize the behavior by over-providing the Spartacus `ErrorActionService`.
+**Note:** If you prefer that some exceptional NgRx actions with the `error` property should not make SSR fail, you can customize the behavior by over-providing the Spartacus `ErrorActionService`.
 
 ## Avoiding Use of the RESPONSE Token for Setting Status Codes
 
@@ -356,14 +358,14 @@ The following is an example of developer-friendly multiline JSON output in devel
 
 ![SSR Error Handling - Error Log in Dev Mode](../../../assets/images/ssr/error-handling-error-log-in-dev.png)
 
-The following is an example of single line JSON output in production mode, which is seamlessly parsed by monitoring tools:
+The following is an example of single-line JSON output in production mode, which is seamlessly parsed by monitoring tools:
 
 ![SSR Error Handling - Error Log in Dev Mode](../../../assets/images/ssr/error-handling-error-log-in-prod.png)
 
 Apart from that, the `OptimizedSsrEngine` indicates if a request is resolved with the server-side rendering error.
 
-The following is an example of the log message if an error occurred during the rendering process:
+The following is an example of the log message if an error occurs during the rendering process:
 
 ![SSR Error Log](../../../assets/images/ssr/error-handling-ssr-result-log.png)
 
-These kinds of logs are crucial for monitoring and debugging purposes because they provide information about the error and the related request.
+These kinds of logs are crucial for monitoring and debugging because they provide information about the error and the related request.

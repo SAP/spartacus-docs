@@ -4,7 +4,7 @@
 #
 # To run the script against a particular release, just add the release tag name when running the script
 #
-# For example: scripts/get-events.zsh 2211.28.0
+# For example: scripts/get-events.zsh 2211.29.0
 #
 
 if [ ! -z "${1}" ]; then
