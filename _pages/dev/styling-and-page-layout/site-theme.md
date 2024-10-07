@@ -1,7 +1,7 @@
 ---
 title: Site Theming and Site Theme Switcher
 feature:
-  - name: site Theme
+  - name: Site Theming and Site Theme Switcher
     spa_version: 2211.29
     cx_version: 2211.29
 ---
