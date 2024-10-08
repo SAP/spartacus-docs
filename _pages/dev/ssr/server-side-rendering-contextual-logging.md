@@ -238,7 +238,7 @@ traceparent: 00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01
 
 The following is an example of a log that contains the `traceContext` property with all information derived from the parsed `traceparent` HTTP header:
 
-```
+```text
 {
   message: 'Rendering completed (/electronics-spa/en/USD/)',
   context: {
@@ -268,7 +268,7 @@ Addressing these potential issues is essential to ensuring the correct inclusion
 
 The parser generates a log message that can be useful for troubleshooting. The following is an example:
 
-```
+```text
 {
   message: 'Traceparent header has invalid length: 18. Expected 55 characters.',
   context: {
