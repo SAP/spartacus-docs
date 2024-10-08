@@ -25,7 +25,7 @@ Spartacus provides a default logger called `DefaultExpressServerLogger` that tak
 
 The following example shows how the logger creates logs in development mode by producing a multiline output:
 
-```
+```text
 {
   message: 'Rendering started (/powertools-spa/en/USD/product/3788616/bt-dy-720-e)',
   context: {
