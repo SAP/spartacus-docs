@@ -23,17 +23,17 @@ These issues make it difficult to read and understand log messages, particularly
 
 Spartacus provides a default logger called `DefaultExpressServerLogger` that takes care of proper formatting, and recognizes whether the output should be human-readable, or read by monitoring tools. The logger not only logs the messages, it also provides information about the related request that initiated the rendering process.
 
-The following example shows how the logger creates logs in development mode by producing a multiline JSON output:
+The following example shows how the logger creates logs in development mode by producing a multiline output:
 
-```json
+```
 {
-  "message": "Rendering started (/powertools-spa/en/USD/product/3788616/bt-dy-720-e)",
-  "context": {
-    "timestamp": "2023-06-19T23:34:37.845Z", // timestamp of the log
-    "request": {
-      "url": "/powertools-spa/en/USD/product/3788616/bt-dy-720-e", // URL of the request
-      "uuid": "1ef6d1d9-65c2-43c8-860e-32d0cb1bf698", // random UUID of the request
-      "timeReceived": "2023-06-19T23:34:37.843Z" // timestamp when the request was received
+  message: 'Rendering started (/powertools-spa/en/USD/product/3788616/bt-dy-720-e)',
+  context: {
+    timestamp: '2023-06-19T23:34:37.845Z',  // timestamp of the log
+    request: {
+      url: '/powertools-spa/en/USD/product/3788616/bt-dy-720-e',  // URL of the request
+      uuid: '1ef6d1d9-65c2-43c8-860e-32d0cb1bf698',  // random UUID of the request
+      timeReceived: '2023-06-19T23:34:37.843Z'  // timestamp when the request was received
     }
   }
 }
@@ -222,7 +222,7 @@ In addition to standardized SSR logging, Spartacus offers support for the [W3C T
 
 **Note:** Using the trace context standard has the potential to introduce security risks. To mitigate the risk of buffer overflow and HTML injection attacks, third-party vendors using the `traceparent` header must follow best practices for parsing headers that could be malicious. It is important to be aware that `traceparent` may expose sensitive information, which could potentially facilitate more significant attacks. Precautions should be taken accordingly. Enabling distributed tracing without adequate safeguards can leave systems vulnerable to denial-of-service attacks, so tracing vendors should implement protective measures, such as handling authenticated and unauthenticated requests differently, and implementing rate limiters. While these particular risks are not specific to Spartacus itself, if you have concerns regarding the security of the `traceparent` header, you may want to consider creating your own `ExpressServerLogger` implementation that does not include `traceContext` values in the logs.
 
- For more information, see the [W3C Trace Context - Security Considerations](https://www.w3.org/TR/trace-context/#security-considerations) on the W3 website.
+For more information, see the [W3C Trace Context - Security Considerations](https://www.w3.org/TR/trace-context/#security-considerations) on the W3 website.
 
 ### Attaching Trace Context to the Logs
 
@@ -238,20 +238,20 @@ traceparent: 00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01
 
 The following is an example of a log that contains the `traceContext` property with all information derived from the parsed `traceparent` HTTP header:
 
-```json
+```
 {
-  "message": "Rendering completed (/electronics-spa/en/USD/)",
-  "context": {
-    "timestamp": "2023-09-13T12:14:21.377Z",
-    "request": {
-      "url": "/electronics-spa/en/USD/",
-      "uuid": "a076a5ba-7889-4c19-840e-395e89fde4b5",
-      "timeReceived": "2023-09-13T12:14:13.450Z",
-      "traceContext": {
-        "version": "00",
-        "traceId": "0af7651916cd43dd8448eb211c80319c",
-        "parentId": "b7ad6b7169203331",
-        "traceFlags": "01"
+  message: 'Rendering completed (/electronics-spa/en/USD/)',
+  context: {
+    timestamp: '2023-09-13T12:14:21.377Z',
+    request: {
+      url: '/electronics-spa/en/USD/',
+      uuid: 'a076a5ba-7889-4c19-840e-395e89fde4b5',
+      timeReceived: '2023-09-13T12:14:13.450Z',
+      traceContext: {
+        version: '00',
+        traceId: '0af7651916cd43dd8448eb211c80319c',
+        parentId: 'b7ad6b7169203331',
+        traceFlags: '01'
       }
     }
   }
@@ -268,14 +268,12 @@ Addressing these potential issues is essential to ensuring the correct inclusion
 
 The parser generates a log message that can be useful for troubleshooting. The following is an example:
 
-```json
+```
 {
-  "message": "Traceparent header has invalid length: 18. Expected 55 characters.",
-  "context": {
-    "timestamp": "2023-09-13T12:14:21.377Z",
-    "request": {
-      "url": "/electronics-spa/en/USD/"
-    }
+  message: 'Traceparent header has invalid length: 18. Expected 55 characters.',
+  context: {
+    timestamp: '2023-09-13T12:14:21.377Z',
+    request: { url: '/electronics-spa/en/USD/' }
   }
 }
 ```
@@ -308,7 +306,7 @@ OpenSearch allows you to format fields as hyperlinks. The following procedure de
 
 4. Filter the fields by searching for the **traceId** field.
 
-    If you cannot find the **traceId** field, try refreshing the index pattern by clicking the small reload button located in the top-right corner of the screen.
+   If you cannot find the **traceId** field, try refreshing the index pattern by clicking the small reload button located in the top-right corner of the screen.
 
 5. Click the pencil button to edit the **traceId** field configuration.
 6. In the **Format** dropdown list, select **Url**.
