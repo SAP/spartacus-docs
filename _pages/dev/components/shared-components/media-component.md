@@ -142,10 +142,11 @@ provideConfig({
 
 For more information, see [{% assign linkedpage = site.pages | where: "name", "deferred-loading.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}) and [{% assign linkedpage = site.pages | where: "name", "above-the-fold.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %}).
 
+**Note:** When SSR is enabled, image lazy loading does not always work on initial page load. This only affects certain browsers, and is fixed in composable storefront version 2211.23.
+
 ## SEO
 
-To ensure that crawlers get an optimized image from the `img` element, the main `src` of the `img` element is provided with the
-largest image available. This is done in `MediaService.resolveBestFormat()`, and you can further customize this behavior if needed.
+To ensure that crawlers get an optimized image from the `img` element, the main `src` of the `img` element is provided with the largest image available. This is done in `MediaService.resolveBestFormat()`, and you can further customize this behavior if needed.
 
 Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [{% assign linkedpage = site.pages | where: "name", "html-tags.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %}) and [{% assign linkedpage = site.pages | where: "name", "structured-data.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
