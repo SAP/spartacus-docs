@@ -108,6 +108,137 @@ provideConfig(<MediaConfig>{
 })
 ```
 
+## 2211.31 Improvements
+We have enhanced the `cx-media` component to provide greater flexibility and to accommodate more complex user requirements. These improvements can be accessed by enabling the `useExtendedMediaComponentConfiguration` feature toggle.
+
+### Key Features and Changes
+
+**1. Support for `<picture>` and `<img>` HTML Elements**
+ 
+  -   By default, the `cx-media` component renders an `<img>` element.
+  -   To use the `<picture>` element, pass `[elementType]="'picture'"` as an input to the component. The `<picture>` element is used primarily for banner components, which often require art direction.
+
+**Example**:
+```html
+<cx-media [elementType]="'picture'"></cx-media>
+```
+  - If the image container only contains a single image, `cx-media` will automatically render an `<img>` element instead.
+
+**2. Manual Width and Height Attributes for Images**
+  - You can now manually set the width and height attributes for images to improve Core Web Vitals.
+  - To do this, extend the image object with `width` and `height` properties:
+  
+```ts
+export interface Image { 
+	altText?: string; 
+	role?: string; 
+	format?: string; 
+	galleryIndex?: number; 
+	imageType?: ImageType; 
+	url?: string; 
+	width?: number; // Allows manual width setting 
+	height?: number; // Allows manual height setting 
+}
+```
+
+**3. New `@Input() sizesForImgElement` Property**
+  - The new `sizesForImgElement` input lets you specify the sizes attribute for `<img>` elements. This attribute allows you to define media conditions (like screen widths) and suggest optimal image sizes.
+  
+**Example**:
+
+```html
+<cx-media
+  [container]="getImage(data)"
+  [sizesForImgElement]="'(max-width: 600px) 480px, 800px'"
+></cx-media>
+```
+
+  - This configuration renders:
+  
+```html
+<img
+  srcset="test.jpg 480w, test-800w.jpg 800w"
+  sizes="(max-width: 600px) 480px, 800px"
+  src="test-800w.jpg"
+/>
+```
+
+**4. Configurable Picture Element Formats and Order**
+  - New configuration properties allow defining media queries and the order of formats for `<picture>` elements:
+
+```ts
+media?: {
+  pictureElementFormats?: {
+    [format: string]: {
+      mediaQueries?: string;
+    };
+  };
+  pictureFormatsOrder?: string[];
+}
+```
+  - `pictureElementFormats`: Allows you to define media queries for each format. The order of formats is crucial as the browser processes <source> elements in the order specified.
+  - `pictureFormatsOrder`: Specifies the order of <source> elements inside the <picture> tag.
+  
+5. Configuration Example:
+  - The following configuration:
+```ts
+media: {
+  pictureElementFormats: {
+    mobile: {
+      mediaQueries: '(max-width: 480px)',
+    },
+    tablet: {
+      mediaQueries: '(max-width: 770px)',
+    },
+    desktop: {
+      mediaQueries: '(max-width: 960px)',
+    },
+    widescreen: {
+      mediaQueries: '(min-width: 961px)',
+    },
+  },
+  pictureFormatsOrder: ['mobile', 'tablet', 'desktop', 'widescreen'],
+}
+```
+  - Renders the following HTML:
+
+```html
+<picture>
+  <source
+    media="(max-width: 480px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg" />
+  <source
+    media="(max-width: 770px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-770x350-HomeSpeed-EN-01-770W.jpg" />
+  <source
+    media="(max-width: 960px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-960x330-HomeSpeed-EN-01-960W.jpg" />
+  <source
+    media="(min-width: 961px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg" />
+<img
+    loading="null"
+    alt="Save Big On Select SLR DSLR Cameras"
+    title="Save Big On Select SLR DSLR Cameras"
+    src="https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg"
+/>
+</picture>
+```
+
+**6. Deprecation of `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent`**
+
+### Summary of Changes
+
+  - Flexibility in rendering: Allows switching between <img> and <picture> elements based on requirements.
+  - Manual width and height attributes: Improves page performance and Core Web Vitals.
+  - Sizes attribute support: Enables fine-tuning of image display based on media conditions.
+  - Configurable <picture> formats: Allows defining format-specific media queries and order for optimal image delivery.
+By utilizing these new features, developers can now better control image rendering, improve performance metrics, and optimize for different device viewports.
+
 ## Missing Media
 
 Whenever a media item is unavailable, the `img` element is not written in the DOM. The `cx-media` host element will get an `is-missing` class, so that the correct style can be applied by CSS. In this scenario, Spartacus provides an empty image through the background image.
