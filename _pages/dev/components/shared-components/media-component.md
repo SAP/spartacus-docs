@@ -109,40 +109,45 @@ provideConfig(<MediaConfig>{
 ```
 
 ## 2211.31 Improvements
+
 We have enhanced the `cx-media` component to provide greater flexibility and to accommodate more complex user requirements. These improvements can be accessed by enabling the `useExtendedMediaComponentConfiguration` feature toggle.
 
 ### Key Features and Changes
 
-**1. Support for `<picture>` and `<img>` HTML Elements**
- 
-  -   By default, the `cx-media` component renders an `<img>` element.
-  -   To use the `<picture>` element, pass `[elementType]="'picture'"` as an input to the component. The `<picture>` element is used primarily for banner components, which often require art direction.
+### Support for `<picture>` and `<img>` HTML Elements
+
+- By default, the `cx-media` component renders an `<img>` element.
+- To use the `<picture>` element, pass `[elementType]="'picture'"` as an input to the component. The `<picture>` element is used primarily for banner components, which often require art direction.
 
 **Example**:
+
 ```html
 <cx-media [elementType]="'picture'"></cx-media>
 ```
-  - If the image container only contains a single image, `cx-media` will automatically render an `<img>` element instead.
 
-**2. Manual Width and Height Attributes for Images**
-  - You can now manually set the width and height attributes for images to improve Core Web Vitals.
-  - To do this, extend the image object with `width` and `height` properties:
+- If the image container only contains a single image, `cx-media` will automatically render an `<img>` element instead.
+
+### Manual Width and Height Attributes for Images
+
+- You can now manually set the width and height attributes for images to improve Core Web Vitals.
+- To do this, extend the image object with `width` and `height` properties:
   
 ```ts
 export interface Image { 
-	altText?: string; 
-	role?: string; 
-	format?: string; 
-	galleryIndex?: number; 
-	imageType?: ImageType; 
-	url?: string; 
-	width?: number; // Allows manual width setting 
-	height?: number; // Allows manual height setting 
+  altText?: string; 
+  role?: string; 
+  format?: string; 
+  galleryIndex?: number; 
+  imageType?: ImageType; 
+  url?: string; 
+  width?: number; // Allows manual width setting 
+  height?: number; // Allows manual height setting 
 }
 ```
 
-**3. New `@Input() sizesForImgElement` Property**
-  - The new `sizesForImgElement` input lets you specify the sizes attribute for `<img>` elements. This attribute allows you to define media conditions (like screen widths) and suggest optimal image sizes.
+### New `@Input() sizesForImgElement` Property
+
+- The new `sizesForImgElement` input lets you specify the sizes attribute for `<img>` elements. This attribute allows you to define media conditions (like screen widths) and suggest optimal image sizes.
   
 **Example**:
 
@@ -153,7 +158,7 @@ export interface Image {
 ></cx-media>
 ```
 
-  - This configuration renders:
+- This configuration renders:
   
 ```html
 <img
@@ -163,8 +168,9 @@ export interface Image {
 />
 ```
 
-**4. Configurable Picture Element Formats and Order**
-  - New configuration properties allow defining media queries and the order of formats for `<picture>` elements:
+### Configurable Picture Element Formats and Order
+
+- New configuration properties allow defining media queries and the order of formats for `<picture>` elements:
 
 ```ts
 media?: {
@@ -176,11 +182,14 @@ media?: {
   pictureFormatsOrder?: string[];
 }
 ```
-  - `pictureElementFormats`: Allows you to define media queries for each format. The order of formats is crucial as the browser processes <source> elements in the order specified.
-  - `pictureFormatsOrder`: Specifies the order of <source> elements inside the <picture> tag.
+
+- `pictureElementFormats`: Allows you to define media queries for each format. The order of formats is crucial as the browser processes <source> elements in the order specified.
+- `pictureFormatsOrder`: Specifies the order of <source> elements inside the <picture> tag.
   
-5. Configuration Example:
-  - The following configuration:
+### Configuration Example:
+
+- The following configuration:
+
 ```ts
 media: {
   pictureElementFormats: {
@@ -200,7 +209,8 @@ media: {
   pictureFormatsOrder: ['mobile', 'tablet', 'desktop', 'widescreen'],
 }
 ```
-  - Renders the following HTML:
+
+- Renders the following HTML:
 
 ```html
 <picture>
@@ -229,14 +239,15 @@ media: {
 </picture>
 ```
 
-**6. Deprecation of `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent`**
+### Deprecation of `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent`
 
 ### Summary of Changes
 
-  - Flexibility in rendering: Allows switching between <img> and <picture> elements based on requirements.
-  - Manual width and height attributes: Improves page performance and Core Web Vitals.
-  - Sizes attribute support: Enables fine-tuning of image display based on media conditions.
-  - Configurable <picture> formats: Allows defining format-specific media queries and order for optimal image delivery.
+- Flexibility in rendering: Allows switching between `<img> `and `<picture>` elements based on requirements.
+- Manual width and height attributes: Improves page performance and Core Web Vitals.
+- Sizes attribute support: Enables fine-tuning of image display based on media conditions.
+- Configurable `<picture>` formats: Allows defining format-specific media queries and order for optimal image delivery.
+
 By utilizing these new features, developers can now better control image rendering, improve performance metrics, and optimize for different device viewports.
 
 ## Missing Media
