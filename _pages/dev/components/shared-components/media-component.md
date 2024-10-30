@@ -108,6 +108,8 @@ provideConfig(<MediaConfig>{
 })
 ```
 
+**Note:** Starting with Spartacus 2211.31, the `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent` are deprecated.
+
 ## 2211.31 Improvements
 
 We have enhanced the `cx-media` component to provide greater flexibility and to accommodate more complex user requirements. These improvements can be accessed by enabling the `useExtendedMediaComponentConfiguration` feature toggle.
