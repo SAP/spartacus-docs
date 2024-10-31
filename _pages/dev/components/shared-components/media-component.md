@@ -110,29 +110,23 @@ provideConfig(<MediaConfig>{
 
 **Note:** Starting with Spartacus 2211.31, the `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent` are deprecated.
 
-## 2211.31 Improvements
+## 2211.31 Improvements/`useExtendedMediaComponentConfiguration` Feature Toggle
 
-We have enhanced the `cx-media` component to provide greater flexibility and to accommodate more complex user requirements. These improvements can be accessed by enabling the `useExtendedMediaComponentConfiguration` feature toggle.
+Enabling the `useExtendedMediaComponentConfiguration` feature toggle gives you access to additional flexibility with the `cx-media` component. These features allow you to control image rendering, improve performance metrics, and optimize for different device viewports.
 
-### Key Features and Changes
+### Using the `<picture>` and `<img>` HTML Elements
 
-### Support for `<picture>` and `<img>` HTML Elements
-
-- By default, the `cx-media` component renders an `<img>` element.
-- To use the `<picture>` element, pass `[elementType]="'picture'"` as an input to the component. The `<picture>` element is used primarily for banner components, which often require art direction.
-
-**Example**:
+By default, the `cx-media` component renders an `<img>` element. If you want to use the `<picture>` element instead, you can pass `[elementType]="'picture'"` as an input to the component. The `<picture>` element is primarily used for banner components, which often require art direction. The following is an example of how to use the `<picture>` element in the media component:
 
 ```html
 <cx-media [elementType]="'picture'"></cx-media>
 ```
 
-- If the image container only contains a single image, `cx-media` will automatically render an `<img>` element instead.
+If the image container only contains a single image, `cx-media` automatically renders an `<img>` element.
 
-### Manual Width and Height Attributes for Images
+### Image Size 
 
-- You can now manually set the width and height attributes for images to improve Core Web Vitals.
-- To do this, extend the image object with `width` and `height` properties:
+You can manually set the width and height attributes for images to improve page performance and Core Web Vitals. To do this, extend the image object with `width` and `height` properties, as follows:
   
 ```ts
 export interface Image { 
@@ -147,11 +141,7 @@ export interface Image {
 }
 ```
 
-### New `@Input() sizesForImgElement` Property
-
-- The new `sizesForImgElement` input lets you specify the sizes attribute for `<img>` elements. This attribute allows you to define media conditions (like screen widths) and suggest optimal image sizes.
-  
-**Example**:
+You can also specify the sizes attribute for `<img>` elements using the `sizesForImgElement` input. This attribute allows you to define media conditions, like screen widths, and suggest optimal image sizes. The following is an example:
 
 ```html
 <cx-media
@@ -160,7 +150,7 @@ export interface Image {
 ></cx-media>
 ```
 
-- This configuration renders:
+This configuration renders the following HTML:
   
 ```html
 <img
@@ -170,9 +160,9 @@ export interface Image {
 />
 ```
 
-### Configurable Picture Element Formats and Order
+### Configuring the Picture Element Formats and Order
 
-- New configuration properties allow defining media queries and the order of formats for `<picture>` elements:
+You can define format-specific media queries and the order of formats for the `<picture>` element using the following configuration properties:
 
 ```ts
 media?: {
@@ -185,12 +175,7 @@ media?: {
 }
 ```
 
-- `pictureElementFormats`: Allows you to define media queries for each format. The order of formats is crucial as the browser processes <source> elements in the order specified.
-- `pictureFormatsOrder`: Specifies the order of <source> elements inside the <picture> tag.
-  
-### Configuration Example:
-
-- The following configuration:
+The `pictureElementFormats` property allows you to define media queries for each format. You must specify the order of the formats because the browser processes <source> elements in the order specified. The `pictureFormatsOrder` property specifies the order of <source> elements inside the <picture> tag. The following is an example:
 
 ```ts
 media: {
@@ -212,7 +197,7 @@ media: {
 }
 ```
 
-- Renders the following HTML:
+This configuration renders the following HTML:
 
 ```html
 <picture>
@@ -240,17 +225,6 @@ media: {
 />
 </picture>
 ```
-
-### Deprecation of `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent`
-
-### Summary of Changes
-
-- Flexibility in rendering: Allows switching between `<img> `and `<picture>` elements based on requirements.
-- Manual width and height attributes: Improves page performance and Core Web Vitals.
-- Sizes attribute support: Enables fine-tuning of image display based on media conditions.
-- Configurable `<picture>` formats: Allows defining format-specific media queries and order for optimal image delivery.
-
-By utilizing these new features, developers can now better control image rendering, improve performance metrics, and optimize for different device viewports.
 
 ## Missing Media
 
