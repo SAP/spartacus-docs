@@ -204,7 +204,11 @@ This above configuration renders the following HTML:
 </picture>
 ```
 
-In order to render responsive images within the `<img>` HTML tag, you should define the formats within the mediaConfig. You can see the default config below:
+### Rending Responsive Images Within the `<img>` Tag
+
+You can render responsive images within the `<img>` HTML tag by defining the formats within the `mediaConfig` configuration object.
+
+The following is an example of the default config:
 
 ```ts
 export const mediaConfig: MediaConfig = {
@@ -223,7 +227,7 @@ export const mediaConfig: MediaConfig = {
 };
 ```
 
-Please note that these are separate configuration objects. `pictureElementFormats` is used to define formats with media queries for the `<picture>` HTML tag, while `mediaConfig` is used to define formats with width descriptors for the `<img>` HTML tag.
+**Note:** These are separate configuration objects.  The `pictureElementFormats` property is used to define formats with media queries for the `<picture>` HTML tag, while `mediaConfig` is used to define formats with width descriptors for the `<img>` HTML tag.
 
 ## Implementation Details for Spartacus 2211.29 and older
 
