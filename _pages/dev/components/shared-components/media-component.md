@@ -204,6 +204,27 @@ This above configuration renders the following HTML:
 </picture>
 ```
 
+In order to render responsive images within the `<img>` HTML tag, you should define the formats within the mediaConfig. You can see the default config below:
+
+```ts
+export const mediaConfig: MediaConfig = {
+  mediaFormats: {
+    // banner formats
+    mobile: { width: 400 },
+    tablet: { width: 1070 },
+    desktop: { width: 1140 },
+    widescreen: { width: 1400 },
+    // product formats
+    cartIcon: { width: 65 },
+    thumbnail: { width: 96 },
+    product: { width: 284 },
+    zoom: { width: 515 },
+  },
+};
+```
+
+Please note that these are separate configuration objects. `pictureElementFormats` is used to define formats with media queries for the `<picture>` HTML tag, while `mediaConfig` is used to define formats with width descriptors for the `<img>` HTML tag.
+
 ## Implementation Details for Spartacus 2211.29 and older
 
 **Note:** This section applies to Spartacus version 2211.29 and older, as well as to Spartacus apps that have been upgraded to version 2211.31 or newer but have not activated the `useExtendedMediaComponentConfiguration` feature toggle. If you have upgraded to 2211.31 or newer and wish to enable the new behavior and functionality related to `<img>` and `<picture>` tags, see [Activating Use Extended Media Component Configuration](link provided after conversion to xml).
@@ -212,9 +233,7 @@ The `cx-media` media component renders images with the native `picture` HTML ele
 
 The `picture` element allows the specification of multiple image sources within nested source elements, facilitating precise control over which image is displayed, based on the browser's current conditions.
 
-The `srcset`  attribute enables the browser to choose from multiple image resolutions and sizes, ensuring that the best fitting image is selected for the user's device, leading to faster load times and improved visual quality. While the `picture` element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match, or if the browser does not support the `picture` element. With this approach, you do not need to provide a specific format for the media component, although you can do this with the format input.
-
-The `srcset`  attribute also supports the pixel density descriptor, but it is (currently) not supported in Spartacus. The pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px, because these devices double the pixels to provide an optimized image resolution for their device screens.
+While the `picture` element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match, or if the browser does not support the `picture` element. 
 
 The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The main image `src` and the various image descriptions for the `srcset`  are collected by the `MediaService`. This service compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and the `srcset` is generated for the `picture` element, so that the browser can select and download the correct image.
 
