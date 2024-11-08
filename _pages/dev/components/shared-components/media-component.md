@@ -67,15 +67,177 @@ SAP Commerce Cloud supports localized media, which means that different media it
 
 Localized media works transparently for the media component. Whenever the site context changes in Spartacus (including for languages), the CMS and product data are cleared from the state, which results in a reload of the data for the given context.
 
-## Implementation Details
+## Implementation Details for Spartacus 2211.31 and newer
+
+**Note:** This section applies to new installations of Spartacus version 2211.31 and newer, as well as to Spartacus apps that have been upgraded to version 2211.31 or newer and have also activated the `useExtendedMediaComponentConfiguration` feature toggle. If you have upgraded to 2211.31 or newer and wish to enable the new behavior and functionality related to `<img>` and `<picture>` tags, see [Activating Use Extended Media Component Configuration](link provided after conversion to xml).
+
+Starting with Spartacus 2211.31, the media component provides you with better control of image rendering, improved performance metrics, and also allows you to optimize for different device viewports. In version 2211.31 and newer, the media component supports the following features:
+
+- Flexibility in rendering that allows you to switch between `<img>` and `<picture>` elements based on your requirements.
+- Manual width and height attributes to improve page performance and Core Web Vitals.
+- Support for the `sizes` attribute, which allows you to fine-tune the image display based on media conditions, such as screen width.
+- Configurable `<picture>` formats that allow you to define format-specific media queries, as well as the order of formats for optimal image delivery.
+
+The following sections describe these features in further detail.
+
+### Flexible Support for `<picture>` and `<img>` HTML Elements
+
+By default, the media component renders `<img>` elements. The only exception is for banner components, which continue to use the `<picture>` element by default.
+
+If you wish to use the `<picture>` element instead of the `<img>` element, you can pass `[elementType]="'picture'"` as an input to the media component.
+
+The following is an example of how to use the `<picture>` element in the media component:
+
+```html
+<cx-media [elementType]="'picture'"></cx-media>
+```
+
+If the image container only contains a single image, `cx-media` automatically renders an `<img>` element.
+
+### Configuring Manual Width and Height Attributes for Images
+
+You can manually set the width and height attributes for images to improve page performance and Core Web Vitals. To do this, extend the image object with `width` and `height` properties, as shown in the following example:
+  
+```ts
+export interface Image { 
+  altText?: string; 
+  role?: string; 
+  format?: string; 
+  galleryIndex?: number; 
+  imageType?: ImageType; 
+  url?: string; 
+  width?: number; // Allows manual width setting 
+  height?: number; // Allows manual height setting 
+}
+```
+
+### Configuring the `sizes` Attribute for `<img>` Elements
+
+You can specify the `sizes` attribute for `<img>` elements using the `sizesForImgElement` input. The `<sizes>` attribute allows you to define media conditions, such as screen widths, and also allows you to suggest optimal image sizes.
+
+The following is an example:
+
+```html
+<cx-media
+  [container]="getImage(data)"
+  [sizesForImgElement]="'(max-width: 600px) 480px, 800px'"
+></cx-media>
+```
+
+The above configuration renders the following HTML:
+  
+```html
+<img
+  srcset="test.jpg 480w, test-800w.jpg 800w"
+  sizes="(max-width: 600px) 480px, 800px"
+  src="test-800w.jpg"
+/>
+```
+
+### Configuring the Formats and Order of the `<picture>` Element
+
+You can define format-specific media queries and also define the order of formats for the `<picture>` element.
+
+This is done with the `pictureElementFormats` and `pictureFormatsOrder` configuration properties, as shown in the following example:
+
+```ts
+media?: {
+  pictureElementFormats?: {
+    [format: string]: {
+      mediaQueries?: string;
+    };
+  };
+  pictureFormatsOrder?: string[];
+}
+```
+
+The `pictureElementFormats` property allows you to define media queries for each format. You must also specify the order of the formats because the browser processes `<source>` elements in the order that you specify them. The `pictureFormatsOrder` property specifies the order of the `<source>` elements inside the `<picture>` tag.
+
+The following is an example:
+
+```ts
+media: {
+  pictureElementFormats: {
+    mobile: {
+      mediaQueries: '(max-width: 480px)',
+    },
+    tablet: {
+      mediaQueries: '(max-width: 770px)',
+    },
+    desktop: {
+      mediaQueries: '(max-width: 960px)',
+    },
+    widescreen: {
+      mediaQueries: '(min-width: 961px)',
+    },
+  },
+  pictureFormatsOrder: ['mobile', 'tablet', 'desktop', 'widescreen'],
+}
+```
+
+This above configuration renders the following HTML:
+
+```html
+<picture>
+  <source
+    media="(max-width: 480px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg" />
+  <source
+    media="(max-width: 770px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-770x350-HomeSpeed-EN-01-770W.jpg" />
+  <source
+    media="(max-width: 960px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-960x330-HomeSpeed-EN-01-960W.jpg" />
+  <source
+    media="(min-width: 961px)"
+    srcset="
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg" />
+<img
+    loading="null"
+    alt="Save Big On Select SLR DSLR Cameras"
+    title="Save Big On Select SLR DSLR Cameras"
+    src="https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg"
+/>
+</picture>
+```
+
+### Rending Responsive Images Within the `<img>` Tag
+
+You can render responsive images within the `<img>` HTML tag by defining the formats within the `mediaConfig` configuration object.
+
+The following is an example of the default config:
+
+```ts
+export const mediaConfig: MediaConfig = {
+  mediaFormats: {
+    // banner formats
+    mobile: { width: 400 },
+    tablet: { width: 1070 },
+    desktop: { width: 1140 },
+    widescreen: { width: 1400 },
+    // product formats
+    cartIcon: { width: 65 },
+    thumbnail: { width: 96 },
+    product: { width: 284 },
+    zoom: { width: 515 },
+  },
+};
+```
+
+**Note:** These are separate configuration objects.  The `pictureElementFormats` property is used to define formats with media queries for the `<picture>` HTML tag, while `mediaConfig` is used to define formats with width descriptors for the `<img>` HTML tag.
+
+## Implementation Details for Spartacus 2211.29 and older
+
+**Note:** This section applies to Spartacus version 2211.29 and older, as well as to Spartacus apps that have been upgraded to version 2211.31 or newer but have not activated the `useExtendedMediaComponentConfiguration` feature toggle. If you have upgraded to 2211.31 or newer and wish to enable the new behavior and functionality related to `<img>` and `<picture>` tags, see [Activating Use Extended Media Component Configuration](link provided after conversion to xml).
 
 The `cx-media` media component renders images with the native `picture` HTML element. To support an optimized image for the given element, a container with multiple images is expected. The various images in the container are evaluated by their media format and compared to a media format configuration in Spartacus.
 
 The `picture` element allows the specification of multiple image sources within nested source elements, facilitating precise control over which image is displayed, based on the browser's current conditions.
 
-The `srcset`  attribute enables the browser to choose from multiple image resolutions and sizes, ensuring that the best fitting image is selected for the user's device, leading to faster load times and improved visual quality. While the `picture` element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match, or if the browser does not support the `picture` element. With this approach, you do not need to provide a specific format for the media component, although you can do this with the format input.
-
-The `srcset`  attribute also supports the pixel density descriptor, but it is (currently) not supported in Spartacus. The pixel density descriptor can be used to select different images for different devices. For example, an image width descriptor of 400 px might be rendered on retina devices at a maximum of 200 px, because these devices double the pixels to provide an optimized image resolution for their device screens.
+While the `picture` element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match, or if the browser does not support the `picture` element. 
 
 The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The main image `src` and the various image descriptions for the `srcset`  are collected by the `MediaService`. This service compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and the `srcset` is generated for the `picture` element, so that the browser can select and download the correct image.
 
@@ -100,6 +262,8 @@ export const mediaConfig: MediaConfig = {
 
 ## Using the Img Element Instead of the Picture Element
 
+**Note:** This section applies to Spartacus version 2211.29 and older, as well as to Spartacus apps that have been upgraded to version 2211.31 or newer but have not activated the `useExtendedMediaComponentConfiguration` feature toggle. If you have upgraded to 2211.31 or newer and wish to enable the new behavior and functionality related to `<img>` and `<picture>` tags, see [Activating Use Extended Media Component Configuration](link provided after conversion to xml).
+
 To enable the legacy approach of using `<img>` tags by default, you need to provide `MediaConfig` in the `SpartacusConfigurationModule`, and set `useLegacyMediaComponent` to `true`. The following is an example:
 
 ```ts
@@ -107,6 +271,8 @@ provideConfig(<MediaConfig>{
     useLegacyMediaComponent: true,
 })
 ```
+
+**Note:** Starting with Spartacus 2211.31, the `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent` are deprecated.
 
 ## Missing Media
 
