@@ -84,7 +84,7 @@ The following procedure describes how to enable checkout components for open pay
 
 Provide ImpEx examples here...
 
-### Using (or Working With, or Setting Up) the Checkout Orchestrator
+### Configuring (or Using, or Working With, or Setting Up) the Checkout Orchestrator
 
 Checkout orchestrator was listed in the original outline suggestions. If this is a topic that can stand on its own (a bit separate from checkout) then it can be made in a "level 2" header, with sub-headers and procedure (intro section, followed by "configuring checkout orchestrator", etc).
 
