@@ -37,6 +37,7 @@ Provide ImpEx examples here...
 ## Configuring Open Payment Framework
 
 For open payment framework to work with your preferred payment provider, you need to configure the following:
+
 <!-- Feel free to replace the above sentence -- it's just a placeholder intro sentence -->
 
 - Routing URL
@@ -90,31 +91,33 @@ Checkout orchestrator was listed in the original outline suggestions. If this is
 
 ## Configuring Terms and Conditions
 
-Intro. What do we need to know before configuring Terms and Conditions? The original outline suggested describing implicit and explicit terms and conditions here.
+Two modes are available for Terms and conditions on 'Opf Checkout payment & review' page:
+
+- explicit T&C shows a checkbox and info message on top of the page. Payment options become enabled (otherwise greyed-out) only after user accepts T&C by checking the box.
+- Implicit T&C only displays an info message on top of Checkout review step, payment options are always enabled. it is the mode by default.
+
+Switch between modes is CMS based, Spartacus detects the presence of OpfExplicitTermsAndConditionsComponent within the CMS page. If it is not present, implicit mode is displayed.
+It explains why the CMS Component as property visible set to false in below impex.
+To switch to Explicit mode, set the visible property as true. It can be done at anytime on backoffice UI.
 
 ### CMS Components for Terms and Conditions
 
-<!-- Sample text (taken from _pages/dev/features/scheduled-replenishment.md)
-
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section. -->
+If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section.
 
 ### Adding the Terms and Conditions CMS Components Manually
 
-<!-- Sample text!! Verify that it is accurate if you decided to include it!! (taken from _pages/dev/features/scheduled-replenishment.md)
-
 **Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
 
-```text
-$contentCatalog=powertools-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 
-The following procedure describes how to enable terms and conditions components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront. -->
+The following procedure describes how to enable terms and conditions components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront.
 
-Provide ImpEx examples here...
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible
+;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false
 
-### Customizing the Label
-
-"Customize Label" was listed in the original outline suggestions. Describe what this is or what it is for, followed by procedure for how to customize the label.
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
 
 ## Extending Open Payment Framework
 
