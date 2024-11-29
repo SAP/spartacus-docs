@@ -85,6 +85,32 @@ The following procedure describes how to enable checkout components for open pay
 
 Provide ImpEx examples here...
 
+### Configuring Payment Option Info message
+
+For accessibility purpose, when selecting a payment option, an info message explaining briefly the payment behavior is displayed.
+It is visible by default with a default label:
+opfCheckout.defaultPaymentInfoMessage:
+"You are about to make a payment. Depending on the option selected, you will either be redirected to a secure external page or complete the process directly within this page"
+
+Label are customizable for each payment options witch config
+opf:{paymentOption?:  
+ paymentInfoMessagesMap: {
+213: 'opfCheckout.payPalPaymentInfoMessage' // Message key for payment method ID 213
+}
+enableInfoMessage: true
+}
+
+The mapping is done with configuration Id of Payement Provider (213 from above example). This value can be found in Opf workbench.
+
+Toggling visibility
+For all payment options:
+Payment Info message cane be disbale for all payment options by setting
+enableInfoMessage:false form above config
+
+For specific payment option
+By setting empty label, Info Message won't be displayed, eg:
+213:''
+
 ### Configuring (or Using, or Working With, or Setting Up) the Checkout Orchestrator
 
 Checkout orchestrator was listed in the original outline suggestions. If this is a topic that can stand on its own (a bit separate from checkout) then it can be made in a "level 2" header, with sub-headers and procedure (intro section, followed by "configuring checkout orchestrator", etc).
