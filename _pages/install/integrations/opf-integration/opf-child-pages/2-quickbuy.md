@@ -36,37 +36,43 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 ### Configuring QuickBuy for ApplePay
 
+- Support:
+  Safari browser, for further details, see https://developer.apple.com/documentation/apple_pay_on_the_web
+
 - Modify button appearance
+  On current version, ApplyPay button is black with 'Buy with ApplePay' label, to modidy the style:
   Overwrite `cx-opf-apple-pay.apple-pay-button` CSS class within \_opf-apple-pay.scss:
-  Default values are
+  Default values are:
   -webkit-appearance: -apple-pay-button;
   -apple-pay-button-type: buy;
   -apple-pay-button-style: black;
-  For attributes list, see:: https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css
+  For attributes and possible values list, see https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css
 
 ### Configuring QuickBuy for GooglePay
 
-GooglePayApi url must be be defined in configuration.
-Directly within schematics with parameter 'opfGooglePayApiUrl', eg:
---opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
+GooglePayApi url must be be defined in configuration. Several ways to do it:
 
-Alternatively, replace below placeHolder in in opf-feature.module.ts:
-provideConfig(<OpfQuickBuyConfig>{
-providers:
-{
-googlePay: {
-resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL"
-}
-}
-}),
+1. At OPF lib install time, using schematics with parameter 'opfGooglePayApiUrl', eg:
+   --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
+
+2. Alternatively, After OPF lib is installed, replace below placeHolder in in opf-feature.module.ts:
+   provideConfig(<OpfQuickBuyConfig>{
+   providers:{
+   googlePay: {
+   resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL"
+   }
+   }
+   }),
 
 ### Configuring the Back End Link
 
-Procedure
+Google Pay:
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/712bd315f3ff433f9580e55eabd1fcca.html
+
+Apple Pay:
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/1f1b1a6072594d41867cb19e6677526f.html
 
 ### Overwriting hardCodes Information
-
-Procedure
 
 <!-- If it makes sense to merge the steps for "Configuring the Back End Link" and "Overwriting hardCodes" into a single procedure (such as "Additional Configuration"), we can do that too. But if each procedure would contain multiple steps, then it make make sense to keep them as separate procedures, as they are laid out here. -->
 
