@@ -2,47 +2,63 @@
 title: QuickBuy
 ---
 
-Intro description of what QuickBuy is. Supports ApplePay and GooglePay.
-
-List the storefront pages that support QuickBuy.
+Quick Buy is a CMS based feature which display GooglePay and ApplePay buttons.
+Quick Buy is available on Cart page.
+Available for Guest and login users.
 
 ## Enabling QuickBuy
 
-Is there a feature lib to install for QuickBuy? if so...
-
-To enable QuickBuy, install the `@spartacus/quickbuy` feature library (???). For more information, see [Installing Additional Composable Storefront Libraries](link).
+QuickBuy feature is automatically added when installing OPF lib `@spartacus/opf`.
+For seemless install, schematics parameters can be used, see how to use --opfGooglePayApiUrl in 'Configuring QuickBuy for GooglePay' section
 
 ### CMS Components
 
-<!-- Sample text (taken from _pages/dev/features/scheduled-replenishment.md)
-
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the QuickBuy feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section. -->
+If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the QuickBuy feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section.
 
 ### Adding the CMS Components Manually
 
-<!-- Sample text!! Verify that it is accurate if you decided to include it!! (taken from _pages/dev/features/scheduled-replenishment.md)
+OpfQuickBuyButtonsComponent is the CMS Compoonent responsible to display QuickBuy.
 
 **Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
 
-```text
-$contentCatalog=powertools-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 
-The following procedure describes how to enable checkout components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront. -->
+The following procedure describes how to enable checkout components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront.
 
-Provide ImpEx examples here...
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;OpfQuickBuyButtonsComponent;Opf Quick Buy Buttons Component;OpfQuickBuyButtonsComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
 
 ## Configuring QuickBuy
 
-You can configure QuickBuy to use both ApplePay and GooglePay...
-
 ### Configuring QuickBuy for ApplePay
 
-Procedure
+- Modify button appearance
+  Overwrite `cx-opf-apple-pay.apple-pay-button` CSS class within \_opf-apple-pay.scss:
+  Default values are
+  -webkit-appearance: -apple-pay-button;
+  -apple-pay-button-type: buy;
+  -apple-pay-button-style: black;
+  For attributes list, see:: https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css
 
 ### Configuring QuickBuy for GooglePay
 
-Procedure
+GooglePayApi url must be be defined in configuration.
+Directly within schematics with parameter 'opfGooglePayApiUrl', eg:
+--opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
+
+Alternatively, replace below placeHolder in in opf-feature.module.ts:
+provideConfig(<OpfQuickBuyConfig>{
+providers:
+{
+googlePay: {
+resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL"
+}
+}
+}),
 
 ### Configuring the Back End Link
 
