@@ -1,15 +1,15 @@
 ---
-title: Order Confirmation Scripts
+title: On-site Messaging
 ---
 
-Order Confirmation Scripts display a post-order feedback / instructions to the customer. Examples include outputting bank details or voucher codes for delayed payment methods like Boletto, or to output to customer direct debit mandates.
-It can be enabled on Confirmation and Order details pages.
-Call-To-Action Scripts consists of a bundle of 'HTML snippet with JS/CSS resource files' beeing injected into Spartacus page.
-When rendered it can take shape of 'outputting bank details', 'Voucher code for next Purchase' or output to customer direct debit mandates.
+On-site messaging highlights available finance option on Product Details page and Cart page.
+It is a piece of HTML injected with spartacus page. As an examplem it can show a banner or button with financial advertisement such 'Pay in three parts of x amount'.
 
-## Enabling Order Confirmation Scripts
+It is supported on PDP and cart page.
 
-Order Confirmation Scripts feature is automatically added when installing OPF lib `@spartacus/opf`.
+## Enabling On-site Messaging
+
+On-site Messaging Scripts feature is automatically added when installing OPF lib `@spartacus/opf`.
 It is CMS-based, note order-confirmation-scripts and on-site messaging use the same CMS component:
 For clarity:
 Order-Confirmation-Scripts feature is enabled when OpfCtaScriptsComponent CMS component is on Confirmation and/or order details pages.
@@ -21,11 +21,9 @@ If you are using the `spartacussampledata` extension to build your storefront, i
 
 ### Adding the CMS Components Manually
 
-OpfCtaScriptsComponent CMS Component is in charge of displaying Order Confirmation Scripts.
+OpfCtaScriptsComponent CMS Component is in charge of displaying On-site Messaging.
 below impex, add the CMS cpomonent within Confirmation page and Order details page.
 Note CTA stands for Call-To-Action.
-
-**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
 
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
@@ -37,12 +35,8 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
 ;;ProductSummarySlot;Site Context Slot;true;ProductImagesComponent, ProductIntroComponent, QualtricsEmbeddedFeedbackComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart
-;;TopContent-cartPage;Top content for Cart Slot;true;OpfCtaScriptsComponent, AddToSavedCartsComponent, CartComponent, ClearCartComponent, SaveForLaterComponent, ImportExportOrderEntriesComponent
+;;BodyContent-orderConfirmation;Body Content Slot for Order Confirmation;true;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent
 
 ### Configuring the Back End Link
 
-https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/2fac59c9bd7b41de8a5f3c0d7eda0e12.html
-
-## Extending Order Confirmation Scripts
-
-Is there anything partners can do to extend CTA?
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/2fac59c9bd7b41de8a5f3c0d7eda0e12.htm
