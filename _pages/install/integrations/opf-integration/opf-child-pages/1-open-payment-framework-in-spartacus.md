@@ -108,8 +108,14 @@ Payment Info message cane be disbale for all payment options by setting
 enableInfoMessage:false form above config
 
 For specific payment option
-By setting empty label, Info Message won't be displayed, eg:
-213:''
+By mapping paymentOption Id with an empty label , Info Message won't be displayed, eg:
+213:opfCheckout.emptyInfoMessage
+
+label config in opfCheckout.json:
+"opfCheckout":
+{
+"emptyInfoMessage":""
+}
 
 ### Configuring (or Using, or Working With, or Setting Up) the Checkout Orchestrator
 
