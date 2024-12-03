@@ -75,7 +75,3 @@ https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8
 ### Overwriting hardCodes Information
 
 <!-- If it makes sense to merge the steps for "Configuring the Back End Link" and "Overwriting hardCodes" into a single procedure (such as "Additional Configuration"), we can do that too. But if each procedure would contain multiple steps, then it make make sense to keep them as separate procedures, as they are laid out here. -->
-
-## Extending QuickBuy
-
-Is there anything partners can do to extend QuickBuy?

@@ -12,145 +12,241 @@ To enable open payment framework, install the `@spartacus/opf` integration libra
 
 ### CMS Components
 
-Are there any "base" CMS components that are part of OPF, that are included in the sample data and get set up now, regardless of which features you install? Or do all components get set up later, such with Onsite Messaging and QuickBuy?
+Certain features of OPF, including the payment and review page or the call-to-action scripts, necessitate specific sample data configurations on the backend.
 
-<!-- Sample text (taken from _pages/dev/features/scheduled-replenishment.md)
+If your storefront is built using the `spartacussampledata` extension, it includes all required CMS data for the OPF feature.
 
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section. -->
+#### Adding the CMS Components Manually
 
-### Adding the CMS Components Manually
+If you are not using the `spartacussampledata` extension, you must add the necessary CMS components manually. Follow the instructions below to configure sample data for Open Payment Framework.
 
-If there are "base" CMS components described in the section, then we would include ImpEx here to show partners how to set up their own components, since they won't actually use sample data when setting up their own storefront app.
+```
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+$siteResource=jar:de.hybris.platform.spartacussampledata.constants.SpartacussampledataConstants&/spartacussampledata/import/contentCatalogs/electronicsContentCatalog
 
-<!-- Sample text!! Verify that it is accurate if you decided to include it!! (taken from _pages/dev/features/scheduled-replenishment.md)
+# Add OPF CMSFlexComponents
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;OpfCheckoutPaymentAndReviewComponent;OpfCheckoutPaymentAndReview;OpfCheckoutPaymentAndReview
+;;OpfCheckoutProgressComponent;Opf Checkout Progress Component;OpfCheckoutProgress
+;;OpfCtaScriptsComponent;Opf Cta Scripts Component;OpfCtaScriptsComponent
+;;OpfQuickBuyButtonsComponent;Opf Quick Buy Buttons Component;OpfQuickBuyButtonsComponent
 
-**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
+# Add OPF Explicit T&C CMSFlexComponent as invisible
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible
+;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false
 
-```text
-$contentCatalog=powertools-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+# Add OPF ContentSlots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutDeliveryMode;Checkout Delivery Mode Slot;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,CheckoutDeliveryModeComponent,CheckoutProgressMobileBottomComponent
+;;BodyContentSlot-checkoutOpfDeliveryAddress;Body Content Slot for Checkout OPF Delivery Address;OpfCheckoutProgressComponent,CheckoutDeliveryAddressComponent
+;;BodyContentSlot-checkoutOpfDeliveryMode;Body Content Slot for Checkout OPF Delivery Mode;OpfCheckoutProgressComponent,CheckoutDeliveryModeComponent
+;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
 
-The following procedure describes how to enable open payment framework components, which is necessary if you are not using the `spartacussampledata` extension to build your storefront. -->
+# Add OPF ContentPages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;title[lang=en];defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;OpfCheckoutPaymentAndReview;Opf Checkout Payment And Review;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-payment-and-review;Checkout Payment and Review;true;check;false
 
-Provide ImpEx examples here...
+# Add OPF Page and ContentSlot relation
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;BodyContent-opfCheckout;BodyContent;OpfCheckout;BodyContentSlot-checkout
+;;SideContent-opfCheckout;SideContent;OpfCheckout;SideContentSlot-checkoutPaymentDetails
+;;SideContent-opfCheckoutDeliveryAddress;SideContent;OpfCheckoutDeliveryAddress;SideContentSlot-checkoutPaymentDetails
+;;SideContent-CheckoutOpfDeliveryMode;SideContent;OpfCheckoutDeliveryMode;SideContentSlot-checkoutPaymentDetails
+;;SideContent-CheckoutOpfPaymentAndReview;SideContent;OpfCheckoutPaymentAndReview;SideContentSlot-checkoutPaymentDetails
+;;BodyContent-opfCheckoutDeliveryAddress;BodyContent;OpfCheckoutDeliveryAddress;BodyContentSlot-checkoutOpfDeliveryAddress
+;;BodyContent-CheckoutOpfDeliveryMode;BodyContent;OpfCheckoutDeliveryMode;BodyContentSlot-checkoutOpfDeliveryMode
+;;BodyContent-CheckoutOpfPaymentAndReview;BodyContent;OpfCheckoutPaymentAndReview;BodyContentSlot-checkoutOpfPaymentAndReview
+
+# Add CTA script to PDP content slot
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;ProductSummarySlot;Site Context Slot;true;ProductImagesComponent, ProductIntroComponent, QualtricsEmbeddedFeedbackComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart
+
+# Add CTA script order confirmation content slot
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;BodyContent-orderConfirmation;Body Content Slot for Order Confirmation;true;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent
+
+# Add CTA script to OPF order details page content slot
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;BodyContent-orderdetail;Body Content Slot for My Account Order Details;true;OpfCtaScriptsComponent,AccountOrderDetailsSimpleOverviewComponent,AccountOrderDetailsGroupedItemsComponent,ExportOrderEntriesComponent,AccountOrderDetailsBillingComponent,AccountOrderDetailsTotalsComponent,AccountOrderDetailsActionsComponent
+
+# Add CTA script to cart content slot
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;TopContent-cartPage;Top content for Cart Slot;true;OpfCtaScriptsComponent, AddToSavedCartsComponent, CartComponent, ClearCartComponent, SaveForLaterComponent, ImportExportOrderEntriesComponent
+```
 
 ## Configuring Open Payment Framework
 
-For open payment framework to work with your preferred payment provider, you need to configure the following:
+In order to ensure the optimal performance and functionality of the OPF feature within the app, specific configurations need to be set up.
 
-<!-- Feel free to replace the above sentence -- it's just a placeholder intro sentence -->
+The Open Payment Framework integration offers various configuration options. You can customize the following aspects:
 
-- Routing URL
-- baseURL
-- OpfServerUrl
-- googlePayApiUrl (if you are using GooglePay)
+- OPF Base Configuration
+- OPF Checkout Configuration
+- OPF Payment Routing Configuration
+- OPF Quick Buy Configuration
 
-### Configuring the Routing URL
+### Configuring the OPF Base
 
-Brief introduction that describes what the routing URL is, or why you need to configure it. Is it optional? If so, describe when you should configure it, or when not to. Also describe any prerequisites, such as procedures that need to be completed before starting this procedure, or values you need to know before starting the procedure (for example, maybe you need to do some sort of configuration with the payment provider first).
+This configuration is essential for establishing a connection between CCv2 and OPF, enabling the use of OPF with the Spartacus application.
 
-### Configuring the baseURL
+```ts
+provideConfig(<OpfConfig>{
+  opf: {
+    opfBaseUrl: '<URL TO COMMERCE CLOUD ADAPTER>',
+    commerceCloudPublicKey: '<COMMERCE CLOUD PUBLIC KEY>',
+  },
+}),
+```
 
-Brief introduction that describes what the baseURL is, or why you need to configure it. Is it optional? If so, describe when you should configure it, or when not to. Also describe any prerequisites, such as procedures that need to be completed before starting this procedure, or values you need to know before starting the procedure (for example, maybe you need to do some sort of configuration with the payment provider first).
+Below are explanations of the configuration properties:
 
-### Configuring the OpfServerUrl
+- **opfBaseUrl**: This denotes the URL to the Commerce Cloud Adapter.
 
-Brief introduction that describes what the OpfServerUrl is, or why you need to configure it. Is it optional? If so, describe when you should configure it, or when not to. Also describe any prerequisites, such as procedures that need to be completed before starting this procedure, or values you need to know before starting the procedure (for example, maybe you need to do some sort of configuration with the payment provider first).
+- **commerceCloudPublicKey**: This is the public key provided by OPF. It is used to establish a connection to the correct CCv2 configuration on the Commerce Cloud Adapter's side.
 
-### Configuring googlePayApiUrl
+#### Configuring Payment Option Info message
 
-Brief introduction that describes what the googlePayApiUrl is, or why you need to configure it. Is it optional? If so, describe when you should configure it, or when not to. Also describe any prerequisites, such as procedures that need to be completed before starting this procedure, or values you need to know before starting the procedure (for example, maybe you need to do some sort of configuration with the payment provider first).
+To enhance accessibility, an informational message is displayed when a user selects a payment option. This message provides a brief explanation of the payment process, helping users understand whether they will be redirected to a secure external page or complete the payment directly on the current page.
 
-## Configuring Checkout
+##### Default Behavior
 
-Intro. What do we need to know before configuring the checkout? The original outline suggested describing checkout patterns here.
+The info message is visible by default and uses the default translation key label:
+`opfCheckout.defaultPaymentInfoMessage`:
+_"You are about to make a payment. Depending on the option selected, you will either be redirected to a secure external page or complete the process directly within this page."_
 
-### CMS Components for Checkout
+##### Customizing Labels
 
-<!-- Sample text (taken from _pages/dev/features/scheduled-replenishment.md)
+Per **Payment Option** Labels can be customized for each payment option using the following configuration:
 
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section. -->
+```ts
+provideConfig(<OpfConfig>{
+  opf: {
+    paymentInfoMessagesMap: {
+      213: 'opfCheckout.payPalPaymentInfoMessage', // Message key for payment method ID 213
+    },
+    enableInfoMessage: true
+  },
+}),
+```
 
-### Adding the Checkout CMS Components Manually
+- **213** in this example is the configuration ID of the payment provider. These IDs can be obtained from the OPF workbench.
+- The corresponding label key (e.g., `opfCheckout.payPalPaymentInfoMessage`) must be defined in the localization file (e.g., `opfCheckout.json`).
+<!-- Would be good to reference here to the Spartacus translations and how to use translation keys -->
 
-<!-- Sample text!! Verify that it is accurate if you decided to include it!! (taken from _pages/dev/features/scheduled-replenishment.md)
+##### Toggling Visibility
+
+For All Payment Options To disable the info message globally for all payment options, set `enableInfoMessage` to `false` in the configuration:
+
+```ts
+provideConfig(<OpfConfig>{
+  opf: {
+    enableInfoMessage: false
+  },
+}),
+```
+
+### Configuring OPF Checkout
+
+The OPF feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. Learn more about this feature here [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/extending-checkout.md %}).
+
+<!-- Please reference here to the: Multiple Checkout Flows section in _pages/dev/routes/extending-checkout.md file -->
+
+#### Configuring Terms and Conditions
+
+On the Opf Checkout Payment & Review page, two modes are available for handling Terms and Conditions:
+
+**Explicit Terms and Conditions** Displays a checkbox and an informational message at the top of the page.
+Payment options remain disabled (grayed out) until the user accepts the T&C by selecting the checkbox.
+
+**Implicit Terms and Conditions** Shows only an informational message at the top of the checkout review step.
+Payment options are always enabled, regardless of user interaction. This is the default mode.
+
+##### Switching Between Modes
+
+The mode for Terms and Conditions is determined by the CMS configuration:
+
+**Explicit Mode**: Enabled when the `OpfExplicitTermsAndConditionsComponent` is present on the CMS page and its `visible` property is set to `true`.
+
+**Implicit Mode**: Displayed by default when the `OpfExplicitTermsAndConditionsComponent` is either not present in the CMS page or has its `visible` property set to `false`.
+
+To switch to **Explicit Mode**, update the CMS component's `visible` property to `true`. This can be done at any time using the Backoffice UI.
+
+##### CMS Components for Terms and Conditions
+
+If your storefront is built using the `spartacussampledata` extension, it includes all required CMS data for the Open Payment Framework integration, including the Terms and Conditions configuration, which is enabled by default.
+
+##### Adding the Terms and Conditions CMS Components Manually
+
+If you are not using the `spartacussampledata` extension, you must add the necessary CMS components manually. Follow the instructions below to configure the Terms and Conditions components for the Open Payment Framework.
 
 **Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
 
-```text
-$contentCatalog=powertools-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
-
-The following procedure describes how to enable checkout components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront. -->
-
-Provide ImpEx examples here...
-
-### Configuring Payment Option Info message
-
-For accessibility purpose, when selecting a payment option, an info message explaining briefly the payment behavior is displayed.
-It is visible by default with a default label:
-opfCheckout.defaultPaymentInfoMessage:
-"You are about to make a payment. Depending on the option selected, you will either be redirected to a secure external page or complete the process directly within this page"
-
-Label are customizable for each payment options witch config
-opf:{paymentOption?:  
- paymentInfoMessagesMap: {
-213: 'opfCheckout.payPalPaymentInfoMessage' // Message key for payment method ID 213
-}
-enableInfoMessage: true
-}
-
-The mapping is done with configuration Id of Payement Provider (213 from above example). This value can be found in Opf workbench.
-
-Toggling visibility
-For all payment options:
-Payment Info message cane be disbale for all payment options by setting
-enableInfoMessage:false form above config
-
-For specific payment option
-By mapping paymentOption Id with an empty label , Info Message won't be displayed, eg:
-213:opfCheckout.emptyInfoMessage
-
-label config in opfCheckout.json:
-"opfCheckout":
-{
-"emptyInfoMessage":""
-}
-
-### Configuring (or Using, or Working With, or Setting Up) the Checkout Orchestrator
-
-Checkout orchestrator was listed in the original outline suggestions. If this is a topic that can stand on its own (a bit separate from checkout) then it can be made in a "level 2" header, with sub-headers and procedure (intro section, followed by "configuring checkout orchestrator", etc).
-
-## Configuring Terms and Conditions
-
-Two modes are available for Terms and conditions on 'Opf Checkout payment & review' page:
-
-- explicit T&C shows a checkbox and info message on top of the page. Payment options become enabled (otherwise greyed-out) only after user accepts T&C by checking the box.
-- Implicit T&C only displays an info message on top of Checkout review step, payment options are always enabled. it is the mode by default.
-
-Switch between modes is CMS based, Spartacus detects the presence of OpfExplicitTermsAndConditionsComponent within the CMS page. If it is not present, implicit mode is displayed.
-It explains why the CMS Component as property visible set to false in below impex.
-To switch to Explicit mode, set the visible property as true. It can be done at anytime on backoffice UI.
-
-### CMS Components for Terms and Conditions
-
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the scheduled replenishment feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section.
-
-### Adding the Terms and Conditions CMS Components Manually
-
-**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
-
+```
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+```
 
 The following procedure describes how to enable terms and conditions components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront.
 
+```
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible
 ;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
 ;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
+```
 
-## Extending Open Payment Framework
+### Configuring the OPF Payment Routing
 
-Is there anything more that partners can do with OPF to extend its functionality at a base level? If not, we can just say "No special extensibility available for this feature."
+This configuration is particularly useful for integrating and tailoring payment verification workflows in an application that utilizes the Open Payment Framework (OPF) with Spartacus.
+
+By modifying the paths in this configuration, you can control how and where the application redirects users during specific payment verification scenarios.
+
+The provided code snippet modifies the routing configuration in a Spartacus application, defining custom routes for payment verification processes. Here is what can be configured:
+
+```ts
+provideConfig(<RoutingConfig>{
+  routing: {
+    routes: {
+      paymentVerificationResult: {
+        paths: ['opf/payment-verification-redirect/result'],
+      },
+      paymentVerificationCancel: {
+        paths: ['opf/payment-verification-redirect/cancel'],
+      },
+    },
+  },
+}),
+```
+
+#### Route Definitions
+
+**paymentVerificationResult**: Specifies the path to redirect the user after a successful payment verification. In this example, the path is `opf/payment-verification-redirect/result`.
+
+**paymentVerificationCancel**: Specifies the path to redirect the user if the payment verification is canceled. Here, the path is `opf/payment-verification-redirect/cancel`.
+
+#### Customizability
+
+Developers can adapt these routes to align with their application's URL structure, ensuring a seamless and coherent user navigation experience.
+
+### Configuring OPF Quick Buy
+
+Currently, the Quick Buy feature in OPF integration supports only ApplePay and GooglePay.
+
+By modifying this snippet, you can configure the integration of GooglePay as a payment provider for the Quick Buy feature in an application. Below are the configurable aspects:
+
+```ts
+provideConfig(<OpfQuickBuyConfig>{
+  providers: {
+    'googlePay': {
+      resourceUrl: 'https://pay.google.com/gp/p/js/pay.js',
+    } as OpfQuickBuyGooglePayProvider,
+  },
+}),
+```
+
+**resourceUrl** Specifies the external script or API endpoint required for the payment provider to function. This can be updated if the provider releases a new script version, changes its URL, or requires a custom endpoint for specific regions.
+
+You can configure additional payment providers by extending the providers object with their respective names and settings. For example, include ApplePay, PayPal, or other custom payment gateways.

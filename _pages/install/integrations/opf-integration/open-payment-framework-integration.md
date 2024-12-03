@@ -10,10 +10,10 @@ The open payment framework is a flexible and scalable solution, empowering busin
 
 Open Payment Framework provides the following features:
 
+- Checkout
 - QuickBuy
 - CTA
 - Onsite Messaging
-- anything else?
 
 ## Getting Started
 

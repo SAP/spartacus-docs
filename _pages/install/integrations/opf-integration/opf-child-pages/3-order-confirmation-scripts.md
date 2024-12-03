@@ -42,7 +42,3 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsCompo
 ### Configuring the Back End Link
 
 https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/2fac59c9bd7b41de8a5f3c0d7eda0e12.html
-
-## Extending Order Confirmation Scripts
-
-Is there anything partners can do to extend CTA?
