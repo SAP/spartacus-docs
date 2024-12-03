@@ -36,19 +36,45 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 ### Configuring QuickBuy for ApplePay
 
-- Support:
-  Safari browser, for further details, see https://developer.apple.com/documentation/apple_pay_on_the_web
+#### Browser Support:
 
-- Modify button appearance
-  On current version, ApplyPay button is black with 'Buy with ApplePay' label, to modidy the style:
-  Overwrite `cx-opf-apple-pay.apple-pay-button` CSS class within \_opf-apple-pay.scss:
-  Default values are:
-  -webkit-appearance: -apple-pay-button;
-  -apple-pay-button-type: buy;
-  -apple-pay-button-style: black;
-  For attributes and possible values list, see https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css
+Safari browser, for further details, see https://developer.apple.com/documentation/apple_pay_on_the_web
+
+#### Modify button appearance
+
+On current version, ApplyPay button is black with 'Buy with ApplePay' label, to modidy the style:
+extends `%cx-opf-apple-pay` placeholder selector and overwrite `apple-pay-button` class:
+Default values are:
+
+-webkit-appearance: -apple-pay-button;
+-apple-pay-button-type: buy;
+-apple-pay-button-style: black;
+
+For attributes and possible values list for ApplePay button, see official Apple documentation: https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css
+
+Info on how to CSS custome Placeholder Selector
+https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/a95f88362b1a4ecf998047c93ab7bc12.html#loio23416cbcc1da4c9eaf513999dde8b7de
+
+#### Modify Card Parameters
+
+On current version, card parameters config is hardcoded with `ApplePayService`.
+It can be overwriten by extending `ApplePayService` and overwriting below object:
+
+```ts
+  protected readonly defaultApplePayCardParameters: any = {
+    shippingMethods: [],
+    merchantCapabilities: ['supports3DS'],
+    supportedNetworks: ['visa', 'masterCard', 'amex', 'discover'],
+    requiredShippingContactFields: ['email', 'name', 'postalAddress'],
+    requiredBillingContactFields: ['email', 'name', 'postalAddress'],
+  };
+```
+
+To extends service in Spartacus, see guide to https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/465a25442fd64a1ab33d98362d66d25b.html?q=extend%2520service
 
 ### Configuring QuickBuy for GooglePay
+
+#### Add GooglePay Api url
 
 GooglePayApi url must be be defined in configuration. Several ways to do it:
 
@@ -56,13 +82,42 @@ GooglePayApi url must be be defined in configuration. Several ways to do it:
    --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
 
 2. Alternatively, After OPF lib is installed, replace below placeHolder in in opf-feature.module.ts:
-   provideConfig(<OpfQuickBuyConfig>{
-   providers:{
-   googlePay: {
-   resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL"
-   }
-   }
-   }),
+
+```ts
+provideConfig(<OpfQuickBuyConfig>{
+providers:{
+  googlePay: {
+    resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL"
+}
+}
+}),
+```
+
+#### Modify Card Parameters
+
+On current version, card parameters config is hardcoded on `OpfGooglePayService` service.
+The config can be overwriten by extending `OpfGooglePayService` and overwriting below object:
+
+```ts
+  protected readonly defaultGooglePayCardParameters: any = {
+    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+    allowedCardNetworks: [
+      'AMEX',
+      'DISCOVER',
+      'INTERAC',
+      'JCB',
+      'MASTERCARD',
+      'VISA',
+    ],
+    billingAddressRequired: true,
+    billingAddressParameters: {
+      format: 'FULL',
+    },
+  };
+  };
+```
+
+To extends service in Spartacus, see guide to https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/465a25442fd64a1ab33d98362d66d25b.html?q=extend%2520service
 
 ### Configuring the Back End Link
 
