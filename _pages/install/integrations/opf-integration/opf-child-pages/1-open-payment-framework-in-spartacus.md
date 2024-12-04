@@ -2,13 +2,28 @@
 title: Open Payment Framework in Spartacus
 ---
 
-The Open Payment Framework is a framework that allows merchants to integrate their preferred Payment Service Provider quickly and efficiently through configurations.
-
-If you have not already done so, you need to configure open payment framework in SAP Commerce Cloud before integrating with Spartacus. For more information, see [Open Payment Framework](link to backend docs).
+The SAP Commerce Open Payment Framework, which is delivered as an enrichment to the SAP Commerce Cloud payment toolkit, is a SaaS solution for managing your payment integrations in an intuitive and effective way. The Open Payment Framework allows you to integrate your preferred digital payment service providers faster than before, and removes the need to code, integrate and deploy extensions to the Commerce codebase.
 
 ## Enabling Open Payment Framework in Spartacus
 
 To enable open payment framework, install the `@spartacus/opf` integration library (???). For more information, see [Installing Additional Composable Storefront Libraries](link).
+
+OPF provides parameters when installing the lib with schematics:
+--opfBaseUrl
+--commerceCloudPublicKey
+--opfGooglePayApiUrl
+
+if not present, the values will be filled with placeholder.
+for more details about each parameters:
+'## Configuring Open Payment Framework'
+'### Configuring QuickBuy for GooglePay'
+
+eg:
+
+ng add @spartacus/opf@latest--opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
+
+Schematics guide:
+https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/cfcf687ce2544bba9799aa6c8314ecd0/e38d45609de04412920a7fc9c13d41e3.html?q=schematics
 
 ### CMS Components
 
