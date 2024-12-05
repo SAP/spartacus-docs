@@ -1,34 +1,39 @@
 ---
-title: On-site Messaging
+title: On-Site Messaging
 ---
 
-On-site messaging highlights available finance option on Product Details page and Cart page.
-It is a piece of HTML injected with spartacus page. As an examplem it can show a banner or button with financial advertisement such 'Pay in three parts of x amount'.
+The open payment framework supports on-site messaging that highlights available finance options. For example, you can use on-site messaging to display a banner advertising financial options such as 'Pay in three installments of X amount'.
 
-It is supported on PDP and cart page.
+Call-to-action (CTA) scripts, such as those used for on-site messaging, consist of a bundle of HTML snippets with JS/CSS resource files being injected into Spartacus pages.
 
-## Enabling On-site Messaging
+For more information on configuring on-site messaging in the back end, see
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/2fac59c9bd7b41de8a5f3c0d7eda0e12.htm.
 
-On-site Messaging Scripts feature is automatically added when installing OPF lib `@spartacus/opf`.
-It is CMS-based, note order-confirmation-scripts and on-site messaging use the same CMS component:
-For clarity:
-Order-Confirmation-Scripts feature is enabled when OpfCtaScriptsComponent CMS component is on Confirmation and/or order details pages.
-On-site Messaging feature is enabled when OpfCtaScriptsComponent CMS component is on PDP and/or Cart pages.
+## Enabling On-Site Messaging
+
+You can enable on-site messaging by installing the `@spartacus/opf` OPF library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
 
 ### CMS Components
 
-If you are using the `spartacussampledata` extension to build your storefront, it includes all of the CMS data that is required for the QuickBuy feature, and it is enabled by default. If you are not using the `spartacussampledata` extension, you need to add the CMS components manually. For more information, see the following section.
+On-site messaging is CMS-driven and consists of the following CMS component:
 
-### Adding the CMS Components Manually
+-`OpfCtaScriptsComponent`
 
-OpfCtaScriptsComponent CMS Component is in charge of displaying On-site Messaging.
-below impex, add the CMS cpomonent within Confirmation page and Order details page.
-Note CTA stands for Call-To-Action.
+Order confirmation scripts and on-site messaging both use the CTA scripts CMS component. The order confirmation scripts feature is enabled when the `OpfCtaScriptsComponent` CMS component is on the Order Confirmation or Order Details pages. The on-site messaging feature is enabled when the `OpfCtaScriptsComponent` CMS component is on the Product Details or Cart pages.
 
+You can configure on-site messaging by using SmartEdit to display the CTA scripts component in Spartacus, or you can manually add it to content slots using ImpEx.
+
+If you are using the [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the CTA scripts component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the CTA scripts component through ImpEx.
+
+### Adding CMS Components Manually
+
+This section describes how to add the CTA scripts CMS component to Spartacus using ImpEx.
+
+Add the CTA scripts CMS component to the Cart and Product Details pages as follows:
+
+```sql
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
-
-The following procedure describes how to enable CTA components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront.
 
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
 ;;OpfCtaScriptsComponent;Opf Cta Scripts Component;OpfCtaScriptsComponent
@@ -36,7 +41,4 @@ INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;fle
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
 ;;ProductSummarySlot;Site Context Slot;true;ProductImagesComponent, ProductIntroComponent, QualtricsEmbeddedFeedbackComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart
 ;;BodyContent-orderConfirmation;Body Content Slot for Order Confirmation;true;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent
-
-### Configuring the Back End Link
-
-https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/2fac59c9bd7b41de8a5f3c0d7eda0e12.htm
+```
