@@ -1,5 +1,5 @@
 ---
-title: On-Site Messaging
+title: On-site Messaging
 ---
 
 The open payment framework supports on-site messaging that highlights available finance options. For example, you can use on-site messaging to display a banner advertising financial options such as 'Pay in three installments of X amount'.

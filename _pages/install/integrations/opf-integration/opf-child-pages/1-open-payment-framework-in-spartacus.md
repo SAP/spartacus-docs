@@ -2,40 +2,39 @@
 title: Open Payment Framework in Spartacus
 ---
 
-The SAP Commerce Open Payment Framework, which is delivered as an enrichment to the SAP Commerce Cloud payment toolkit, is a SaaS solution for managing your payment integrations in an intuitive and effective way. The Open Payment Framework allows you to integrate your preferred digital payment service providers faster than before, and removes the need to code, integrate and deploy extensions to the Commerce codebase.
+Open payment framework allows you to quickly integrate your preferred digital payment service providers in Spartacus, and removes the need to code, integrate, and deploy extensions to the SAP Commerce Cloud codebase.
+
+Open payment framework requires SAP Commerce Cloud 2211.32 or newer. Before integrating open payment framework with Spartacus, you need to configure open payment framework in SAP Commerce Cloud. For more information, see [Open Payment Framework](link to backend OPF docs).
 
 ## Enabling Open Payment Framework in Spartacus
 
-To enable open payment framework, install the `@spartacus/opf` integration library (???). For more information, see [Installing Additional Composable Storefront Libraries](link).
+To enable open payment framework, install the `@spartacus/opf` integration library. For more information, see [Installing Additional Composable Storefront Libraries](link).
 
-OPF provides parameters when installing the lib with schematics:
---opfBaseUrl
---commerceCloudPublicKey
---opfGooglePayApiUrl
+Open payment framework provides the following parameters when you use schematics to install the `opf` library:
 
-if not present, the values will be filled with placeholder.
-for more details about each parameters:
-'## Configuring Open Payment Framework'
-'### Configuring QuickBuy for GooglePay'
+- `--opfBaseUrl`
+- `--commerceCloudPublicKey`
+- `--opfGooglePayApiUrl`
 
-eg:
+The following is an example of installing the `opf` library using schematics with these parameters:
 
-ng add @spartacus/opf@latest--opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
-
-Schematics guide:
-https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/cfcf687ce2544bba9799aa6c8314ecd0/e38d45609de04412920a7fc9c13d41e3.html?q=schematics
-
-### CMS Components
-
-Certain features of OPF, including the payment and review page or the call-to-action scripts, necessitate specific sample data configurations on the backend.
-
-If your storefront is built using the `spartacussampledata` extension, it includes all required CMS data for the OPF feature.
-
-#### Adding the CMS Components Manually
-
-If you are not using the `spartacussampledata` extension, you must add the necessary CMS components manually. Follow the instructions below to configure sample data for Open Payment Framework.
-
+```bash
+ng add @spartacus/opf --opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
 ```
+
+If you do not define the parameters, the value for each undefined parameter is set with a placeholder.
+
+For more information about `--opfBaseUrl` and `--commerceCloudPublicKey`, see [Configuring Open Payment Framework Core Functionality](#configuring-open-payment-framework-core-functionality). For more information about `--opfGooglePayApiUrl`, see [Configuring Quick Buy for Google Pay](link).
+
+## CMS Components
+
+Open payment framework is CMS-driven. If you are using the [Spartacus Sample Data Extension](link), the open payment framework CMS components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the open payment framework CMS components manually through ImpEx.
+
+### Adding the CMS Components Manually Using ImpEx
+
+To add all of the necessary CMS components and related data for open payment framework, import the following ImpEx:
+
+```text
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 $siteResource=jar:de.hybris.platform.spartacussampledata.constants.SpartacussampledataConstants&/spartacussampledata/import/contentCatalogs/electronicsContentCatalog
@@ -93,18 +92,18 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsCompo
 
 ## Configuring Open Payment Framework
 
-In order to ensure the optimal performance and functionality of the OPF feature within the app, specific configurations need to be set up.
+To ensure optimal performance and functionality, you need to configure open payment framework, as described in the following procedures:
 
-The Open Payment Framework integration offers various configuration options. You can customize the following aspects:
+- [Configuring Open Payment Framework Core Functionality](#configuring-open-payment-framework-core-functionality)
+- [Configuring the Payment Option Info Message](#configuring-the-payment-option-info-message)
+- [Configuring Checkout](#configuring-checkout)
+- [Configuring Terms and Conditions](#configuring-terms-and-conditions)
+- [Configuring Payment Routing](#configuring-payment-routing)
+- [Configuring Quick Buy](#configuring-quick-buy)
 
-- OPF Base Configuration
-- OPF Checkout Configuration
-- OPF Payment Routing Configuration
-- OPF Quick Buy Configuration
+## Configuring Open Payment Framework Core Functionality
 
-### Configuring the OPF Base
-
-This configuration is essential for establishing a connection between CCv2 and OPF, enabling the use of OPF with the Spartacus application.
+To establish a connection between SAP Commerce Cloud and the open payment framework functionality in Spartacus, you need to add the following configuration in `opf-feature.module.ts` :
 
 ```ts
 provideConfig(<OpfConfig>{
@@ -115,25 +114,33 @@ provideConfig(<OpfConfig>{
 }),
 ```
 
-Below are explanations of the configuration properties:
+The configuration properties are described as follows:
 
-- **opfBaseUrl**: This denotes the URL to the Commerce Cloud Adapter.
+- `opfBaseUrl` is the URL to the Commerce Cloud Adapter.
+- `commerceCloudPublicKey` is the public key provided by open payment framework. It is used by Commerce Cloud Adapter to establish a connection to the correct SAP Commerce Cloud configuration.
 
-- **commerceCloudPublicKey**: This is the public key provided by OPF. It is used to establish a connection to the correct CCv2 configuration on the Commerce Cloud Adapter's side.
+For more information, see [Set up Connection with SAP Commerce Cloud Adapter](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/feb92426c3044e5eab67059795b5c14d.html?locale=en-US#set-up-connection-with-sap-commerce-cloud-adapter).
 
-#### Configuring Payment Option Info message
+## Configuring the Payment Option Info Message
 
-To enhance accessibility, an informational message is displayed when a user selects a payment option. This message provides a brief explanation of the payment process, helping users understand whether they will be redirected to a secure external page or complete the payment directly on the current page.
+To enhance accessibility, a message is displayed when users select a payment option. This message provides a brief explanation of the payment process, which helps users understand whether they will be redirected to a secure, external page, or complete the payment directly on the current page.
 
-##### Default Behavior
+### Default Behavior
 
-The info message is visible by default and uses the default translation key label:
-`opfCheckout.defaultPaymentInfoMessage`:
-_"You are about to make a payment. Depending on the option selected, you will either be redirected to a secure external page or complete the process directly within this page."_
+The info message is visible by default and uses the following default translation key label:
 
-##### Customizing Labels
+```json
+"opfCheckout": {
+  
+  // ...
+  
+  "defaultPaymentInfoMessage": "You are about to make a payment. Depending on the option selected, you will either be redirected to a secure external page or complete the process directly within this page",
+}
+```
 
-Per **Payment Option** Labels can be customized for each payment option using the following configuration:
+### Customizing Payment Option Labels
+
+You can use the `paymentInfoMessagesMap` to customize labels for each payment option. The following configuration is an example:
 
 ```ts
 provideConfig(<OpfConfig>{
@@ -146,13 +153,13 @@ provideConfig(<OpfConfig>{
 }),
 ```
 
-- **213** in this example is the configuration ID of the payment provider. These IDs can be obtained from the OPF workbench.
-- The corresponding label key (e.g., `opfCheckout.payPalPaymentInfoMessage`) must be defined in the localization file (e.g., `opfCheckout.json`).
-<!-- Would be good to reference here to the Spartacus translations and how to use translation keys -->
+In the above example, `213` is the configuration ID of the payment provider. These IDs can be obtained from the open payment framework workbench. The corresponding `opfCheckout.payPalPaymentInfoMessage` label key must be defined in a localization file, such as `opfCheckout.json`.
 
-##### Toggling Visibility
+For more information on localization in Spartacus, see [Internationalization (i18n)](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/775e61ed219c4999852d43be5244e94a.html?locale=en-US&version=2211).
 
-For All Payment Options To disable the info message globally for all payment options, set `enableInfoMessage` to `false` in the configuration:
+### Toggling Visibility
+
+To disable the info message globally for all payment options, set `enableInfoMessage` to `false` in the configuration, as shown in the following example:
 
 ```ts
 provideConfig(<OpfConfig>{
@@ -162,50 +169,44 @@ provideConfig(<OpfConfig>{
 }),
 ```
 
-### Configuring OPF Checkout
+## Configuring Checkout
 
-The OPF feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. Learn more about this feature here [{% assign linkedpage = site.pages | where: "name", "extending-checkout.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/routes/extending-checkout.md %}).
+The open payment framework feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. For more information, see [Multiple Checkout Flows](loio7c83b24b00f746a591aab48d58d6abc5) and [Setting a paymentProvider value in SAP Commerce Cloud](loioa0a8551f2c0649729a9f00c6ee53b97d).
 
-<!-- Please reference here to the: Multiple Checkout Flows section in _pages/dev/routes/extending-checkout.md file -->
+## Configuring Terms and Conditions
 
-#### Configuring Terms and Conditions
+On the open payment framework **Checkout Payment and Review** page, the following modes are available for handling Terms and Conditions:
 
-On the Opf Checkout Payment & Review page, two modes are available for handling Terms and Conditions:
+- **Explicit Terms and Conditions** displays a checkbox and a message at the top of the page. Payment options remain disabled (grayed out) until the user accepts the Terms and Conditions by selecting the checkbox.
+- **Implicit Terms and Conditions** shows only a message at the top of the checkout review step. Payment options are always enabled, regardless of user interaction. This is the default mode.
 
-**Explicit Terms and Conditions** Displays a checkbox and an informational message at the top of the page.
-Payment options remain disabled (grayed out) until the user accepts the T&C by selecting the checkbox.
+### Switching Between Modes
 
-**Implicit Terms and Conditions** Shows only an informational message at the top of the checkout review step.
-Payment options are always enabled, regardless of user interaction. This is the default mode.
+The mode for Terms and Conditions is determined by the CMS configuration, as follows:
 
-##### Switching Between Modes
+- **Explicit Mode** is enabled when the `OpfExplicitTermsAndConditionsComponent` is present on the CMS page and the `visible` property for this component is set to `true`.
+- **Implicit Mode** is displayed by default when the `OpfExplicitTermsAndConditionsComponent` is either not present in the CMS page, or the component's `visible` property is set to `false`.
 
-The mode for Terms and Conditions is determined by the CMS configuration:
+To switch to **Explicit Mode**, update the CMS component's `visible` property to `true`. This can be done at any time in Backoffice.
 
-**Explicit Mode**: Enabled when the `OpfExplicitTermsAndConditionsComponent` is present on the CMS page and its `visible` property is set to `true`.
+### CMS Components for Terms and Conditions
 
-**Implicit Mode**: Displayed by default when the `OpfExplicitTermsAndConditionsComponent` is either not present in the CMS page or has its `visible` property set to `false`.
+If you are using the [Spartacus Sample Data Extension](link), the open payment framework CMS component for Terms and Conditions is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Terms and Conditions CMS component manually through ImpEx.
 
-To switch to **Explicit Mode**, update the CMS component's `visible` property to `true`. This can be done at any time using the Backoffice UI.
+### Adding the Terms and Conditions CMS Component Manually
 
-##### CMS Components for Terms and Conditions
+You can add the Terms and Conditions CMS data manually through ImpEx.
 
-If your storefront is built using the `spartacussampledata` extension, it includes all required CMS data for the Open Payment Framework integration, including the Terms and Conditions configuration, which is enabled by default.
+**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used in the following example, is defined as follows:
 
-##### Adding the Terms and Conditions CMS Components Manually
-
-If you are not using the `spartacussampledata` extension, you must add the necessary CMS components manually. Follow the instructions below to configure the Terms and Conditions components for the Open Payment Framework.
-
-**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
-
-```
+```text
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 ```
 
-The following procedure describes how to enable terms and conditions components for open payment framework, which is necessary if you are not using the `spartacussampledata` extension to build your storefront.
+To add all of the necessary CMS-related data for open payment framework Terms and Conditions, import the following ImpEx:
 
-```
+```text
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible
 ;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false
 
@@ -213,13 +214,11 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 ;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
 ```
 
-### Configuring the OPF Payment Routing
+## Configuring Payment Routing
 
-This configuration is particularly useful for integrating and tailoring payment verification workflows in an application that utilizes the Open Payment Framework (OPF) with Spartacus.
+You can use routing to configure different payment verification workflows. This is done by setting specific paths for each payment verification scenario that you want to configure.
 
-By modifying the paths in this configuration, you can control how and where the application redirects users during specific payment verification scenarios.
-
-The provided code snippet modifies the routing configuration in a Spartacus application, defining custom routes for payment verification processes. Here is what can be configured:
+You can define custom routes for payment verification processes, as shown in the following example:
 
 ```ts
 provideConfig(<RoutingConfig>{
@@ -236,21 +235,13 @@ provideConfig(<RoutingConfig>{
 }),
 ```
 
-#### Route Definitions
+In the above example, the `paymentVerificationResult` specifies where users are redirected if the payment verification is successful, and the `paymentVerificationCancel` specifies where users are redirected if the payment verification is canceled.
 
-**paymentVerificationResult**: Specifies the path to redirect the user after a successful payment verification. In this example, the path is `opf/payment-verification-redirect/result`.
+## Configuring Quick Buy
 
-**paymentVerificationCancel**: Specifies the path to redirect the user if the payment verification is canceled. Here, the path is `opf/payment-verification-redirect/cancel`.
+The open payment framework Quick Buy feature supports Apple Pay and Google Pay.
 
-#### Customizability
-
-Developers can adapt these routes to align with their application's URL structure, ensuring a seamless and coherent user navigation experience.
-
-### Configuring OPF Quick Buy
-
-Currently, the Quick Buy feature in OPF integration supports only ApplePay and GooglePay.
-
-By modifying this snippet, you can configure the integration of GooglePay as a payment provider for the Quick Buy feature in an application. Below are the configurable aspects:
+The following is an example of how to configure the integration of Google Pay as a payment provider for the Quick Buy feature in Spartacus::
 
 ```ts
 provideConfig(<OpfQuickBuyConfig>{
@@ -262,6 +253,6 @@ provideConfig(<OpfQuickBuyConfig>{
 }),
 ```
 
-**resourceUrl** Specifies the external script or API endpoint required for the payment provider to function. This can be updated if the provider releases a new script version, changes its URL, or requires a custom endpoint for specific regions.
+In this example, `resourceUrl` specifies the external script or API endpoint that is required for the payment provider to function. This can be updated if the provider releases a new script version, changes its URL, or requires a custom endpoint for specific regions.
 
-You can configure additional payment providers by extending the providers object with their respective names and settings. For example, include ApplePay, PayPal, or other custom payment gateways.
+You can configure additional payment providers by extending the provider's object with their respective names and settings. For example, you can include Apple Pay, PayPal, or other custom payment gateways.

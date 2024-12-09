@@ -2,40 +2,29 @@
 title: Order Confirmation Scripts
 ---
 
-Order confirmation scripts display a post-order feedback / instructions to the customer. Examples include outputting bank details or voucher codes for delayed payment methods like Boletto, or outputting to customer direct debit mandates.
+Order confirmation scripts display feedback or instructions to customers after an order has been placed. For example, an order confirmation message might provide bank details or voucher codes for a delayed payment method, such as Boleto. Another example is providing customers with a direct debit mandate.
 
-Call-to-action (CTA) scripts, such as order confirmation scripts, consist of a bundle of HTML snippets with JS/CSS resource files being injected into Spartacus pages.
+Order confirmation scripts, also known as Call-to-Action (CTA) scripts, consist of a bundle that includes an HTML snippet with JS and CSS resource files.
 
-For more information on order confirmation scripts in the back end, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/7e0fed03903743a8b961ec5ffaa1c272.html.
+Order confirmation scripts can be enabled on the Order Details page and the Order Confirmation page.
+
+Before enabling order confirmation scripts in Spartacus, you must first enable them in SAP Commerce Cloud. For more information, see [Order Confirmation Scripts](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/7e0fed03903743a8b961ec5ffaa1c272.html).
 
 ## Enabling Order Confirmation Scripts
 
-You can enable order confirmation scripts by installing the `@spartacus/opf` OPF library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries).
+The functionality for order confirmation scripts is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md).
 
 ### CMS Components
 
-Order confirmation scripts are CMS-driven and consist of the following CMS component:
+The order confirmation scripts feature is CMS-driven and consists of the `OpfCtaScriptsComponent` component.
 
--`OpfCtaScriptsComponent`
+**Note:** The on-site messaging feature also uses the `OpfCtaScriptsComponent` component. Order confirmation scripts are enabled when the `OpfCtaScriptsComponent` component is enabled on the Order Details page or the Order Confirmation page. On-site messaging is enabled when the `OpfCtaScriptsComponent` component is enabled on the Product Details page or the cart page.
 
-Order confirmation scripts and on-site messaging both use the CTA scripts CMS component, `OpfCtaScriptsComponent`. The order confirmation scripts feature is enabled when the `OpfCtaScriptsComponent` CMS component is enabled on the Order Confirmation or Order Details pages. The on-site messaging feature is enabled when the `OpfCtaScriptsComponent` CMS component is enabled on the Product Details or Cart pages.
-
-You can configure order confirmation scripts by using SmartEdit to display the CTA scripts component in Spartacus, or you can manually add it to content slots using ImpEx.
-
-If you are using the [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the CTA scripts component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the CTA scripts component through ImpEx.
-
-**Note:** The `$contentCV` variable, which stores information about the content catalog, and which is used throughout the ImpEx in the following procedures, is defined as follows:
-
-```text
-$contentCatalog=electronics-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
-```
+If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
 
 ### Adding CMS Components Manually
 
-This section describes how to add the CTA scripts CMS component to Spartacus using ImpEx.
-
-Add the CTA scripts CMS component to the Order Confirmation and Order Details pages with the following ImpEx:
+To add order confirmation scripts to the Order Details page and the Order Confirmation page, import the following ImpEx:
 
 ```text
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
@@ -46,3 +35,9 @@ UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsCompo
 ;;TopContent-cartPage;Top content for Cart Slot;true;OpfCtaScriptsComponent, AddToSavedCartsComponent, CartComponent, ClearCartComponent, SaveForLaterComponent, ImportExportOrderEntriesComponent
 ```
 
+**Note:** The `$contentCV` variable that is used in the above ImpEx example, and which stores information about the content catalog, is defined as follows:
+
+```text
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+```

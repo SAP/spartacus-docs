@@ -2,39 +2,25 @@
 title: Quick Buy
 ---
 
-The open payment framework supports quick buy options for Google Pay and Apple Pay. Quick buy allows guest and logged in users to quickly checkout ...purchase items in their cart using Google Pay and Apple Pay. 
+Quick Buy is a CMS-based feature that can display Google Pay and Apple Pay buttons on the cart page. Quick Buy allows users to easily purchase items in their cart, whether they are logged in or checking out as a guest.
 
-For more information on configuring quick buy in the back end, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/712bd315f3ff433f9580e55eabd1fcca.html and
-https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/1f1b1a6072594d41867cb19e6677526f.html.
+Before enabling Quick Buy in Spartacus, you must first enable the Quick Buy functionality in SAP Commerce Cloud. For more information, see [Configure Quick Buy for Google Pay](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/712bd315f3ff433f9580e55eabd1fcca.html) and [Configure Quick Buy for Apple Pay](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/1f1b1a6072594d41867cb19e6677526f.html).
 
-## Enabling Quick Buy
+## Enabling Quick Buy in Spartacus
 
-You can enable quick buy by installing the `@spartacus/opf` OPF library. For more information, see [Installing Additional Spartacus Libraries]({{ site.baseurl }}/schematics/#installing-additional-spartacus-libraries). 
+Quick Buy functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md).
 
-For a seamless installation, you can use schematics parameters. For more information, see how to use --opfGooglePayApiUrl in 'Configuring Quic kBuy for GooglePay'.
+For a seamless installation, you can use the `--opfGooglePayApiUrl` schematics parameter. For more information, see [Configuring Quick Buy for Google Pay](#configuring-quick-buy-for-google-pay).
 
 ### CMS Components
 
-Quick buy is CMS-driven and consists of the following CMS component:
+Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component.
 
--`OpfQuickBuyButtonsComponent`
-
-You can configure quick buy by using SmartEdit to display the quick buy component in Spartacus, or you can manually add it to content slots using ImpEx.
-
-If you are using the [{% assign linkedpage = site.pages | where: "name", "spartacussampledata-extension.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/spartacussampledata-extension.md %}), the quick buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the quick buy component through ImpEx.
-
-**Note:** The `$contentCV` variable that is used throughout the following ImpEx examples, and which stores information about the content catalog, is defined as follows:
-
-```text
-$contentCatalog=electronics-spaContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
-```
+If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
 
 ### Adding CMS Component Manually
 
-This section describes how to add the quick buy CMS component to Spartacus using ImpEx.
-
-You can enable quick buy by adding the Quick Buy button component to the Cart page/You can enable the checkout components for open payment framework with the following ImpEx:
+To add all of the necessary CMS data for Quick Buy, import the following ImpEx:
 
 ```text
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
@@ -44,34 +30,32 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 ;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
 ```
 
-## Configuring Quick Buy
+**Note:** The `$contentCV` variable that is used in the above ImpEx example, and which stores information about the content catalog, is defined as follows:
 
-### Configuring Quick Buy for Apple Pay
+```text
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+```
 
-The open payment framework enables you to implement an express checkout for your customers using Apple Pay.
+## Configuring Quick Buy for Apple Pay
 
-#### Browser Support
+With Quick Buy for Apple Pay, you can configure the styling of the Apple Pay button, and you can modify the credit card parameters, as described in the following sections.
 
-Quick buy for Apple Pay is available on Safari. For more information, see https://developer.apple.com/documentation/apple_pay_on_the_web.
+Quick Buy for Apple Pay is supported in the Safari web browser. For more information, see [Apple Pay on the Web](https://developer.apple.com/documentation/apple_pay_on_the_web) in the official Apple developer documentation.
 
-#### Modifying the Quick Buy Button
+### Modifying the Styling of the Apple Pay Button
 
-You can modify the appearance of the Apple Pay quick buy button. By default, the quick buy button is black with a 'Buy with Apple Pay' label. The default values of the Apple Pay button style are as follows:
+By default, Quick Buy provides a black Apple Pay button with the text “Buy with” and the Apple Pay logo.
 
--`webkit-appearance`: `apple-pay-button`
--`apple-pay-button-type`: `buy`
--`apple-pay-button-style`: `black`
+You can modify the styling of the Apple Pay button by extending the `%cx-opf-apple-pay` placeholder selector and overwriting the `apple-pay-button` class.
 
-To modify the Apple Pay button, you extend the style with the `%cx-opf-apple-pay` placeholder selector and overwrite the `apple-pay-button` class with the desired values.
+For more information on CSS placeholder selectors in Spartacus, see [Component Styles](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/a95f88362b1a4ecf998047c93ab7bc12.html#loio23416cbcc1da4c9eaf513999dde8b7de).
 
-For the list of attributes and possible values for the Apple Pay quick buy button, see https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css.
+For more information about the available types of Apple Pay buttons, see [Displaying Apple Pay Buttons Using CSS](https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons_using_css) in the official Apple developer documentation.
 
-For more information on creating CSS placeholder selectors, see
-https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/a95f88362b1a4ecf998047c93ab7bc12.html#loio23416cbcc1da4c9eaf513999dde8b7de.
+### Modifying Credit Card Parameters for Apple Pay
 
-#### Modifying Card Parameters
-
-By default, the card parameters configuration is hard coded with `ApplePayService`. You can overwrite it by extending `ApplePayService` and overwriting the following object:
+The card parameters configuration for Apple Pay is hard-coded in the `ApplePayService` class in `apple-pay.service.ts`. You can modify the configuration by extending `ApplePayService` and overwriting the following object:
 
 ```ts
   protected readonly defaultApplePayCardParameters: any = {
@@ -85,30 +69,34 @@ By default, the card parameters configuration is hard coded with `ApplePayServic
 
 For more information on extending services in Spartacus, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/465a25442fd64a1ab33d98362d66d25b.html?q=extend%2520service.
 
-### Configuring Quick Buy for Google Pay
+## Configuring Quick Buy for Google Pay
 
-#### Adding the Google Pay API URL
+To complete the configuration of Quick Buy for Google Pay, you need to define the Google Pay API URL, as described in the following section. You can also modify the credit card parameters for Google Pay, as described below.
 
-You must define the Google Pay API URL during configuration. There are several ways to do it.
+### Defining the Google Pay API URL
 
-1. When installing the OPF library, use schematics with the `opfGooglePayApiUrl` parameter, for example:
-   `--opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js`
+You need to define the Google Pay API URL, in one of the following ways:
 
-2. After installing the OPF library, replace the following placeholder in `opf-feature.module.ts`:
+- When installing the open payment framework library with schematics, you can use the `--opfGooglePayApiUrl` parameter, as shown in the following example:
+   ```text
+   --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
+   ```
+
+- Alternatively, after installing the open framework library, you can replace the following placeholder in `opf-feature.module.ts`:
 
 ```ts
 provideConfig(<OpfQuickBuyConfig>{
 providers:{
   googlePay: {
-    resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL"
+    resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL" // replace the placeholder here
 }
 }
 }),
 ```
 
-#### Modifying Card Parameters
+### Modifying Credit Card Parameters for Google Pay
 
-The card parameters configuration is hardcoded on the `OpfGooglePayService` service. You can customize the default card parameters configuration by extending `OpfGooglePayService` and overwriting the following object:
+The card parameters configuration for Google Pay is hard-coded in the `OpfGooglePayService` class in `google-pay.service.ts`. You can modify the configuration by extending `OpfGooglePayService` and overwriting the following object:
 
 ```ts
   protected readonly defaultGooglePayCardParameters: any = {
@@ -126,9 +114,6 @@ The card parameters configuration is hardcoded on the `OpfGooglePayService` serv
       format: 'FULL',
     },
   };
-  };
 ```
 
 For more information on extending services in Spartacus, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/465a25442fd64a1ab33d98362d66d25b.html?q=extend%2520service.
-
-
