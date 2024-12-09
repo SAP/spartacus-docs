@@ -1,5 +1,5 @@
 ---
-title: Open Payment Framework Integration
+title: SAP Open Payment Framework Integration
 ---
 
 SAP Commerce Cloud, open payment framework is delivered as an enrichment to the SAP Commerce Cloud payment toolkit. It is a SaaS solution for managing your payment integrations in an intuitive and effective way.

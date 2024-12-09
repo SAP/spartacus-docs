@@ -1,5 +1,5 @@
 ---
-title: Open Payment Framework in Spartacus
+title: SAP Open Payment Framework in Spartacus
 ---
 
 Open payment framework allows you to quickly integrate your preferred digital payment service providers in Spartacus, and removes the need to code, integrate, and deploy extensions to the SAP Commerce Cloud codebase.
