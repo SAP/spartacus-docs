@@ -67,7 +67,7 @@ The card parameters configuration for Apple Pay is hard-coded in the `ApplePaySe
   };
 ```
 
-For more information on extending services in Spartacus, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/465a25442fd64a1ab33d98362d66d25b.html?q=extend%2520service.
+For more information on extending services in Spartacus, see [Customizing Services](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/864a3158bf9f49c99e6196e4e0d27323.html?locale=en-US&version=2211#loioaaa415776447413e95bc5c8982049421).
 
 ## Configuring Quick Buy for Google Pay
 
@@ -116,4 +116,4 @@ The card parameters configuration for Google Pay is hard-coded in the `OpfGoogle
   };
 ```
 
-For more information on extending services in Spartacus, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/465a25442fd64a1ab33d98362d66d25b.html?q=extend%2520service.
+For more information on extending services in Spartacus, see [Customizing Services](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/864a3158bf9f49c99e6196e4e0d27323.html?locale=en-US&version=2211#loioaaa415776447413e95bc5c8982049421).

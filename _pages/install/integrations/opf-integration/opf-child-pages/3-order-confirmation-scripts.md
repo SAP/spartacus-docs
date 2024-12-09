@@ -20,7 +20,7 @@ The order confirmation scripts feature is CMS-driven and consists of the `OpfCta
 
 **Note:** The on-site messaging feature also uses the `OpfCtaScriptsComponent` component. Order confirmation scripts are enabled when the `OpfCtaScriptsComponent` component is enabled on the Order Details page or the Order Confirmation page. On-site messaging is enabled when the `OpfCtaScriptsComponent` component is enabled on the Product Details page or the cart page.
 
-If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
+If you are using the [Spartacus Sample Data Extension](link), the `OpfCtaScriptsComponent` component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the `OpfCtaScriptsComponent` component manually through ImpEx.
 
 ### Adding CMS Components Manually
 
@@ -30,9 +30,13 @@ To add order confirmation scripts to the Order Details page and the Order Confir
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
 ;;OpfCtaScriptsComponent;Opf Cta Scripts Component;OpfCtaScriptsComponent
 
+# Add CTA script order confirmation content slot
 UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
-;;ProductSummarySlot;Site Context Slot;true;ProductImagesComponent, ProductIntroComponent, QualtricsEmbeddedFeedbackComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart
-;;TopContent-cartPage;Top content for Cart Slot;true;OpfCtaScriptsComponent, AddToSavedCartsComponent, CartComponent, ClearCartComponent, SaveForLaterComponent, ImportExportOrderEntriesComponent
+;;BodyContent-orderConfirmation;Body Content Slot for Order Confirmation;true;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent
+
+# Add CTA script to OPF order details page content slot
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+;;BodyContent-orderdetail;Body Content Slot for My Account Order Details;true;OpfCtaScriptsComponent,AccountOrderDetailsSimpleOverviewComponent,AccountOrderDetailsGroupedItemsComponent,ExportOrderEntriesComponent,AccountOrderDetailsBillingComponent,AccountOrderDetailsTotalsComponent,AccountOrderDetailsActionsComponent
 ```
 
 **Note:** The `$contentCV` variable that is used in the above ImpEx example, and which stores information about the content catalog, is defined as follows:
