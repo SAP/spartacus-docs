@@ -22,7 +22,7 @@ If you are using the [Spartacus Sample Data Extension](link), the `OpfCtaScripts
 
 ### Adding CMS Components Manually
 
-To add on-site messaging to the Procut Details page and the cart page, import the following ImpEx:
+To add on-site messaging to the Product Details page and the cart page, import the following ImpEx:
 
 ```text
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
