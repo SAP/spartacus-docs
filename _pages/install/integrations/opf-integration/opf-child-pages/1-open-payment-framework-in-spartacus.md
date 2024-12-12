@@ -4,7 +4,7 @@ title: SAP Open Payment Framework in Spartacus
 
 Open payment framework allows you to quickly integrate your preferred digital payment service providers in Spartacus, and removes the need to code, integrate, and deploy extensions to the SAP Commerce Cloud codebase.
 
-Open payment framework requires SAP Commerce Cloud 2211.32 or newer. Before integrating open payment framework with Spartacus, you need to configure open payment framework in SAP Commerce Cloud. For more information, see [Open Payment Framework](link to backend OPF docs).
+Open payment framework requires SAP Commerce Cloud 2211.30 or newer. Before integrating open payment framework with Spartacus, you need to configure open payment framework in SAP Commerce Cloud. For more information, see [Open Payment Framework](link to backend OPF docs).
 
 ## Enabling Open Payment Framework in Spartacus
 
