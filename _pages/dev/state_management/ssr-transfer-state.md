@@ -11,7 +11,7 @@ ConfigModule.withConfig({
   state: {
     ssrTransfer: {
       keys: {
-        products: StateTransferType.TRANSFER_STATE,
+        product: StateTransferType.TRANSFER_STATE,
         cms: StateTransferType.TRANSFER_STATE,
       },
     },
@@ -26,7 +26,7 @@ ConfigModule.withConfig({
   state: {
     ssrTransfer: {
       keys: {
-        products: undefined,
+        product: undefined,
       },
     },
   },
