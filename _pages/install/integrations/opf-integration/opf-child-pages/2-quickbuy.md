@@ -10,8 +10,6 @@ Before enabling Quick Buy in Spartacus, you must first enable the Quick Buy func
 
 Quick Buy functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md).
 
-For a seamless installation, you can use the `--opfGooglePayApiUrl` schematics parameter. For more information, see [Configuring Quick Buy for Google Pay](#configuring-quick-buy-for-google-pay).
-
 ### CMS Components
 
 Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component.
@@ -71,28 +69,7 @@ For more information on extending services in Spartacus, see [Customizing Servic
 
 ## Configuring Quick Buy for Google Pay
 
-To complete the configuration of Quick Buy for Google Pay, you need to define the Google Pay API URL, as described in the following section. You can also modify the credit card parameters for Google Pay, as described below.
-
-### Defining the Google Pay API URL
-
-You need to define the Google Pay API URL, in one of the following ways:
-
-- When installing the open payment framework library with schematics, you can use the `--opfGooglePayApiUrl` parameter, as shown in the following example:
-   ```text
-   --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
-   ```
-
-- Alternatively, after installing the open framework library, you can replace the following placeholder in `opf-feature.module.ts`:
-
-```ts
-provideConfig(<OpfQuickBuyConfig>{
-providers:{
-  googlePay: {
-    resourceUrl: "PLACEHOLDER_GOOGLE_PAY_API_URL" // replace the placeholder here
-}
-}
-}),
-```
+You can modify the credit card parameters for Google Pay, as described below.
 
 ### Modifying Credit Card Parameters for Google Pay
 

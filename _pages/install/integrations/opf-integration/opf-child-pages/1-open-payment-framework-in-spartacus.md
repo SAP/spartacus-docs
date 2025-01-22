@@ -14,17 +14,16 @@ Open payment framework provides the following parameters when you use schematics
 
 - `--opfBaseUrl`
 - `--commerceCloudPublicKey`
-- `--opfGooglePayApiUrl`
 
 The following is an example of installing the `opf` library using schematics with these parameters:
 
 ```bash
-ng add @spartacus/opf --opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value --opfGooglePayApiUrl=https://pay.google.com/gp/p/js/pay.js
+ng add @spartacus/opf --opfBaseUrl=https://my_opf_server --commerceCloudPublicKey=my_public_key_value
 ```
 
 If you do not define the parameters, the value for each undefined parameter is set with a placeholder.
 
-For more information about `--opfBaseUrl` and `--commerceCloudPublicKey`, see [Configuring Open Payment Framework Core Functionality](#configuring-open-payment-framework-core-functionality). For more information about `--opfGooglePayApiUrl`, see [Configuring Quick Buy for Google Pay](link).
+For more information about `--opfBaseUrl` and `--commerceCloudPublicKey`, see [Configuring Open Payment Framework Core Functionality](#configuring-open-payment-framework-core-functionality).
 
 ## CMS Components
 
@@ -131,9 +130,9 @@ The info message is visible by default and uses the following default translatio
 
 ```json
 "opfCheckout": {
-  
+
   // ...
-  
+
   "defaultPaymentInfoMessage": "You are about to make a payment. Depending on the option selected, you will either be redirected to a secure external page or complete the process directly within this page",
 }
 ```
@@ -236,23 +235,3 @@ provideConfig(<RoutingConfig>{
 ```
 
 In the above example, the `paymentVerificationResult` specifies where users are redirected if the payment verification is successful, and the `paymentVerificationCancel` specifies where users are redirected if the payment verification is canceled.
-
-## Configuring Quick Buy
-
-The open payment framework Quick Buy feature supports Apple Pay and Google Pay.
-
-The following is an example of how to configure the integration of Google Pay as a payment provider for the Quick Buy feature in Spartacus::
-
-```ts
-provideConfig(<OpfQuickBuyConfig>{
-  providers: {
-    'googlePay': {
-      resourceUrl: 'https://pay.google.com/gp/p/js/pay.js',
-    } as OpfQuickBuyGooglePayProvider,
-  },
-}),
-```
-
-In this example, `resourceUrl` specifies the external script or API endpoint that is required for the payment provider to function. This can be updated if the provider releases a new script version, changes its URL, or requires a custom endpoint for specific regions.
-
-You can configure additional payment providers by extending the provider's object with their respective names and settings. For example, you can include Apple Pay, PayPal, or other custom payment gateways.
