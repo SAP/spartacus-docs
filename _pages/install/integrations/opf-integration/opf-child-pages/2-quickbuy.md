@@ -69,9 +69,7 @@ For more information on extending services in Spartacus, see [Customizing Servic
 
 ## Configuring Quick Buy for Google Pay
 
-You can modify the credit card parameters for Google Pay, as described below.
-
-### Modifying Credit Card Parameters for Google Pay
+You can modify the credit card parameters for Google Pay.
 
 The card parameters configuration for Google Pay is hard-coded in the `OpfGooglePayService` class in `google-pay.service.ts`. You can modify the configuration by extending `OpfGooglePayService` and overwriting the following object:
 
