@@ -190,7 +190,7 @@ To configure the storefront, use the `provideConfig` method from `@spartacus/cor
     provideConfig(<I18nConfig>{
       // we bring in static translations to be up and running soon right away
       i18n: {
-        resources: translations,
+        resources: { en: translationsEn },
         chunks: translationChunksConfig,
         fallbackLang: 'en',
       },
