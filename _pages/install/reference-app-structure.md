@@ -162,7 +162,7 @@ import { StoreFinderRootModule } from '@spartacus/storefinder/root';
 import { provideConfig } from '@spartacus/core';
 import {
   storeFinderTranslationChunksConfig,
-  storeFinderTranslations,
+  storeFinderTranslationsEn,
 } from '@spartacus/storefinder/assets';
 
 @NgModule({
@@ -176,7 +176,7 @@ import {
         },
       },
       i18n: {
-        resources: storeFinderTranslations,
+        resources: { en: storeFinderTranslationsEn },
         chunks: storeFinderTranslationChunksConfig,
       },
     }),

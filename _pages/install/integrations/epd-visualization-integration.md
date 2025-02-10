@@ -83,7 +83,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
    import { NgModule } from '@angular/core';
    import { I18nConfig, provideConfig } from "@spartacus/core";
    import { EpdVisualizationModule } from "@spartacus/epd-visualization";
-   import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslations } from "@spartacus/epd-visualization/assets";
+   import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslationsEn } from "@spartacus/epd-visualization/assets";
    import { EpdVisualizationConfig, EpdVisualizationRootModule } from "@spartacus/epd-visualization/root";
 
    @NgModule({
@@ -94,7 +94,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
      ],
      providers: [provideConfig(<I18nConfig>{
        i18n: {
-         resources: epdVisualizationTranslations,
+         resources: epdVisualizationTranslationsEn,
          chunks: epdVisualizationTranslationChunksConfig,
        },
      }),
@@ -131,7 +131,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
 
    ```typescript
    import { NgModule } from '@angular/core';
-   import { translationChunksConfig, translations } from "@spartacus/assets";
+   import { translationChunksConfig, translationsEn } from "@spartacus/assets";
    import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
    import { defaultB2bCheckoutConfig, defaultB2bOccConfig } from "@spartacus/setup";
    import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
@@ -154,7 +154,7 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
        },
      }), provideConfig(<I18nConfig>{
        i18n: {
-         resources: translations,
+         resources: { en: translationsEn },
          chunks: translationChunksConfig,
          fallbackLang: 'en'
        },

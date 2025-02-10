@@ -70,7 +70,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
    import { CmsConfig, I18nConfig, provideConfig } from '@spartacus/core';
    import {
      dpTranslationChunksConfig,
-     dpTranslations,
+     dpTranslationsEn,
    } from '@spartacus/digital-payments/assets';
    @NgModule({
      providers: [
@@ -86,7 +86,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
        }),
        provideConfig(<I18nConfig>{
          i18n: {
-           resources: dpTranslations,
+           resources: { en: dpTranslationsEn },
            chunks: dpTranslationChunksConfig,
            fallbackLang: 'en',
          },
@@ -181,7 +181,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
    ```ts
    import { NgModule } from '@angular/core';
    import { I18nConfig, provideConfig } from "@spartacus/core";
-   import { DigitalPaymentsModule, dpTranslationChunksConfig, dpTranslations } from "@spartacus/digital-payments";
+   import { DigitalPaymentsModule, dpTranslationChunksConfig, dpTranslationsEn } from "@spartacus/digital-payments";
    
    @NgModule({
      declarations: [],
@@ -190,7 +190,7 @@ Perform the following steps after you have set up your Spartacus Storefront. For
      ],
      providers: [provideConfig(<I18nConfig>{
        i18n: {
-         resources: dpTranslations,
+         resources: dpTranslationsEn,
          chunks: dpTranslationChunksConfig,
        },
      })]
