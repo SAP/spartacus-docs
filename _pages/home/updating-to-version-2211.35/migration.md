@@ -1,4 +1,6 @@
-# Migrating a custom app to use Spartacus 2211.35 with Angular 19
+---
+title: Update Release 2211.35
+---
 
 Before upgrading Spartacus to the new version with Angular 18, you need to first:
 
@@ -10,7 +12,9 @@ Before upgrading Spartacus to the new version with Angular 18, you need to first
   ```bash
   npm i @types/node@22 -D
   ```
+
 - upgrade Angular to version v18 and then to v19
+- Modernize your app migrated to Angular 19
 
 ## Update Angular to 18 and 19
 
@@ -109,8 +113,3 @@ Now you've migrated your app to Angular 19 and Spartacus 2211.35, but it's not t
 
 Apps migrated to Angular 19 are not configured exactly the same as the new Angular 19 apps. 
 It is good to modernize your app to look like a new Angular 19 app, because it will help with migrations to future next versions of Angular and Spartacus. So now please follow the last guide: [Modernize Spartacus app migrated from 2211.32 to 2211.35](./modernize-apps-migrated-from-2211.32-to-2211.35.md)
-
-
-
-
-

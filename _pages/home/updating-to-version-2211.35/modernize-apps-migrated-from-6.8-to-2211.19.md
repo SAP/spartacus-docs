@@ -35,11 +35,11 @@ ng g ../temp-schematics-35/node_modules/@spartacus/schematics:modernize-app-migr
 node -e "require('fs').rmSync('../temp-schematics-35', { recursive: true, force: true })"
 ```
 
-In case of any issues during the automatic migration, you can always fall back to the manual migration steps below.
-
 > ⚠️ Warning:
 >
 > Reminder for SSR apps: from now on the server-side rendering and prerendering scripts will be executed differently (see the last section of this page "[New commands for SSR projects](#new-commands-for-ssr-projects)")
+
+Once you modernized your app that was migrated from Spartacus 6.8 to 2211.19, you're ready for the next migration guide: [migrating to Angular 19 and Spartacus 2211.35](./migration.md).
 
 In case of any issues during the automatic migration, you can always fall back to the manual migration steps below.
 
@@ -434,12 +434,12 @@ Previously the SSR dev server could be run with a command `npm run dev:ssr`. But
 + "serve:ssr:watch": "node --watch dist/YOUR-APP-NAME/server/server.mjs",
 ```
 
-1. Then please **run in 2 separate terminal window**s:
+1. Then please **run in 2 separate terminal windows**:
 
 - `npm run watch` - to build the app in the watch mode (watching for changed files source files and rebuilding)
 - `npm run serve:ssr:watch` - to run the SSR dev server in the watch mode (watching for compiled files and rerunning the server)
 
-Note: the same workaround has been documented also for new Angular 17 apps in the [KBA 3460263](https://me.sap.com/notes/3460263).
+**Note:** the same workaround has been documented also for new Angular 17 apps in the [KBA 3460263](https://me.sap.com/notes/3460263).
 
 ### How to run server prerendering
 
@@ -457,9 +457,9 @@ Previously the server prerendering could be run with a command `npm run prerende
 SERVER_REQUEST_ORIGIN="http://localhost:4200" npm run prerender
 ```
 
-Note: Remember to replace "http://localhost:4200" with the real target domain where you want to deploy your prerendered pages, especially if you are deploying for production. Otherwise, some composable storefront SEO features might not work properly. For eample, [Canonical URLs](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/e712f36722c543359ed699aed9873075.html?version=2211#loio98befe9ef9ae4957a4ae34669c175fd5) might point to a wrong domain, or [Automatic Multi-Site Configuration](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/9d2e339c2b094e4f99df1c2d7cc999a8.html?version=2211) might not recognize the base-site correctly (for example, if some regexes configured in the CMS for base-site recognition depend on the domain name).
+**Note:** Remember to replace "http://localhost:4200" with the real target domain where you want to deploy your prerendered pages, especially if you are deploying for production. Otherwise, some composable storefront SEO features might not work properly. For example, [Canonical URLs](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/e712f36722c543359ed699aed9873075.html?version=2211#loio98befe9ef9ae4957a4ae34669c175fd5) might point to a wrong domain, or [Automatic Multi-Site Configuration](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/9d2e339c2b094e4f99df1c2d7cc999a8.html?version=2211) might not recognize the base-site correctly (for example, if some regexes configured in the CMS for base-site recognition depend on the domain name).
 
-Note: the same workaround has been documented also for new Angular 17 apps in the [KBA 3460211](https://me.sap.com/notes/3460211).
+**Note:** the same workaround has been documented also for new Angular 17 apps in the [KBA 3460211](https://me.sap.com/notes/3460211).
 
 
 # Next
