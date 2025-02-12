@@ -423,7 +423,8 @@ Organization translation resources can be overridden following the same rules as
 ```ts
 provideConfig({
   i18n: {
-    resources: { en: organizationTranslationsEn },
+    resources: { en: organizationTranslationsEn }, // Use with version 2211.35 or newer
+//  resources: organizationTranslations, // Use with version 2211.32.1 or older
     chunks: organizationTranslationChunksConfig,
   },
 }),
