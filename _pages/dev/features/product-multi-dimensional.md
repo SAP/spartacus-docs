@@ -123,7 +123,8 @@ You can configure the translations for the multi-dimensional selector. For examp
 ```ts
     provideConfig({
     i18n: {
-        resources: multiDimensionalSelectorTranslations,
+        resources: { en: multiDimensionalSelectorTranslationsEn }, // Use with version 2211.35 or newer
+    //  resources: multiDimensionalSelectorTranslations, // Use with version 2211.32.1 or older
         chunks: multiDimensionalSelectorTranslationChunksConfig,
         fallbackLang: 'en',
     },
@@ -164,7 +165,8 @@ You can then add this in the feature module, as shown in the following example:
                 },
             },
             i18n: {
-                resources: multiDimensionalSelectorTranslations,
+                resources: { en: multiDimensionalSelectorTranslationsEn }, // Use with version 2211.35 or newer
+            //  resources: multiDimensionalSelectorTranslations, // Use with version 2211.32.1 or older
                 chunks: multiDimensionalSelectorTranslationChunksConfig,
                 fallbackLang: 'en',
             },
