@@ -40,13 +40,35 @@ Spartacus includes specially-prepared schematics to automatically modernize your
    node -e "require('fs').rmSync('../temp-schematics-36', { recursive: true, force: true })"
    ```
 
-**Note:** For apps that use server-side rendering (SSR), now that you have completed this migration, you will need to run SSR and prerendering scripts in a different way. This is explained in detail in the following section, [New Commands for SSR Projects](#new-commands-for-ssr-projects).
+**Note:** For apps that use server-side rendering (SSR), now that you have completed this migration, you will need to run SSR and prerendering scripts in a different way. This is explained in detail in the following section, [Additional Migration and New Commands for SSR Projects](#additional-migration-and-new-commands-for-ssr-projects).
 
-Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. If your storefront app uses SSR, continue with [New Commands for SSR Projects](#new-commands-for-ssr-projects). If your storefront app does not use SSR, you can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
+Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. If your storefront app uses SSR, continue with [Additional Migration and New Commands for SSR Projects](#additional-migration-and-new-commands-for-ssr-projects). If your storefront app does not use SSR, you can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
 
 If you encounter any issues during the automatic migration steps described above, you can complete the migration by following the steps in [Manual Migration For Modernizing Angular 17 Storefront Apps](#manual-migration-for-modernizing-angular-17-storefront-apps), below.
 
-## New Commands for SSR Projects
+## Additional Migration and New Commands for SSR Projects
+
+For apps that use server-side rendering (SSR), now that you have completed the modernization of your app to be as similar as possible to a newly created Angular 17 app, you will need to run SSR and prerendering scripts in a different way. Also, if you host your storefront in SAP Commerce Cloud, you need to update the corresponding `manifest.json` file.
+
+### Updating the Manifest for SAP Commerce Cloud
+
+This update applies to storefront apps that are hosted in SAP Commerce Cloud.
+
+In the `js-storefront/manifest.json` file, if the `srr.path` object ends in `main.js`, it now needs to be updated to end with `server.mjs`. The following is an example of what the updated `manifest.json` file should look like:
+
+```json
+{
+      "name": "<Your-Storefront-App-Name>",
+      "path": "<Your-Storefront-App-Path>",
+      "ssr": {
+         "enabled": true,
+         "path": "dist/<Your-Storefront-App-Name>/<Your-Storefront-App-Name>-server/server.mjs"
+      }
+      ...
+ }
+ ```
+
+For more information, see [Enable Server-Side Rendering](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/cd5b94c25a68456ba5840f942f33f68b.html?locale=en-US&version=v2211).
 
 ### Running an SSR Dev Server
 
