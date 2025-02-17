@@ -350,7 +350,7 @@ The following steps apply to all storefront apps that were previously updated fr
    server.set('views', browserDistFolder);
    ```
 
-1. In the `express.static(` call of `server.ts`, please use the `browserDistFolder` constant as an argument, instead of `distFolder`.
+1. In the `express.static(` call of `server.ts`, please use the `browserDistFolder` constant as a first argument, instead of `distFolder`.
 
    The updated call should appear as follows:
 
