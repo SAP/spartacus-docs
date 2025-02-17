@@ -357,7 +357,7 @@ The following steps apply to all storefront apps that were previously updated fr
    export { AppServerModule as default } from './app/app.module.server';
    ```
 
-1. In `server.ts`, remove the following imports from the top of the file:
+1. At the top of the `server.ts` file, select (highlight) the following imports:
 
    ```ts
    import 'zone.js/node';
@@ -372,7 +372,7 @@ The following steps apply to all storefront apps that were previously updated fr
    import { existsSync } from 'fs';
    ```
 
-1. In `server.ts`, add the following imports to the top of the file:
+1. Replace the selected imports with the following imports:
 
    ```ts
    import { APP_BASE_HREF } from '@angular/common';
