@@ -14,25 +14,27 @@ Spartacus includes specially-prepared schematics to automatically modernize your
 
 **Note:** These schematics were only released in `@spartacus/schematics2211.36.0`, but you need to run them before fully upgrading your app to 2211.36. As a result, you need to install `@spartacus/schematics@2211.36.0` in a temporary directory and run the migration schematics from there.
 
-1. Create a temporary sibling directory for the isolated 2211.36 installation schematics by running the following command from the root directory of your project:
+**Note:** In all of the following steps, the commands should be run from the root directory of your project.
+
+1. Create a temporary sibling directory for the isolated 2211.36 installation schematics by running the following command:
 
    ```bash
    node -e "require('fs').mkdirSync('../temp-schematics-36')"
    ```
 
-2. Install the schematics in the temporary directory by running the following command from the root directory of your project:
+2. Install the schematics in the temporary directory by running the following command:
 
    ```bash
    npm install @spartacus/schematics@2211.36.0 --prefix ../temp-schematics-36
    ```
 
-3. Execute the schematics by running the following command from the root directory of your project:
+3. Execute the schematics by running the following command:
 
    ```bash
    ng g ../temp-schematics-36/node_modules/@spartacus/schematics:modernize-app-migrated-from-6_8-to-2211_19
    ```
 
-4. Clean up the temporary directory by running the following command from the root directory of your project:
+4. Clean up the temporary directory by running the following command:
 
    ```bash
    node -e "require('fs').rmSync('../temp-schematics-36', { recursive: true, force: true })"
