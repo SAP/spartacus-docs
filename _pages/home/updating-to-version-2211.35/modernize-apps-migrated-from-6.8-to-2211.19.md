@@ -32,7 +32,7 @@ Spartacus includes specially-prepared schematics to automatically modernize your
    ng g ../temp-schematics-36/node_modules/@spartacus/schematics:modernize-app-migrated-from-6_8-to-2211_19
    ```
 
-4. Clean up the temporary directory by running the following command:
+4. Clean up the temporary directory by running the following command from the root directory of your project:
 
    ```bash
    node -e "require('fs').rmSync('../temp-schematics-36', { recursive: true, force: true })"
