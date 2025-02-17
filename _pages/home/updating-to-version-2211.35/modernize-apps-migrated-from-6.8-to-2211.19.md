@@ -79,7 +79,7 @@ The following steps apply to all storefront apps that were previously updated fr
    1. In the `architect > build > configurations > development` section, remove the following three properties: `"buildOptimizer"`, `"vendorChunk"`, and `"namedChunks"`
 
 1. In the `"compilerOptions"` section of `tsconfig.json`, remove the following properties: `"baseUrl"`, `"forceConsistentCasingInFileNames"`, and `"downlevelIteration"`.
-1. In the same section, add the following properties: `"skipLibCheck": true` and `"esModuleInterop": true`.
+1. In the same section `"compilerOptions"` of `tsconfig.json`, add the following properties: `"skipLibCheck": true` and `"esModuleInterop": true`.
 
    The updated section should appear as follows:
 
