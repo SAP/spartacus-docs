@@ -40,8 +40,6 @@ Spartacus includes specially-prepared schematics to automatically modernize your
    node -e "require('fs').rmSync('../temp-schematics-36', { recursive: true, force: true })"
    ```
 
-**Note:** For apps that use server-side rendering (SSR), now that you have completed this migration, you will need to run SSR and prerendering scripts in a different way. This is explained in detail in the following section, [Additional Migration and New Commands for SSR Projects](#additional-migration-and-new-commands-for-ssr-projects).
-
 Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. If your storefront app uses SSR, continue with [Additional Migration and New Commands for SSR Projects](#additional-migration-and-new-commands-for-ssr-projects). If your storefront app does not use SSR, you can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
 
 If you encounter any issues during the automatic migration steps described above, you can complete the migration by following the steps in [Manual Migration For Modernizing Angular 17 Storefront Apps](#manual-migration-for-modernizing-angular-17-storefront-apps), below.
