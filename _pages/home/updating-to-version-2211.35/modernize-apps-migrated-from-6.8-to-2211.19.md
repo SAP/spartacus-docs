@@ -20,7 +20,7 @@ Spartacus includes specially-prepared schematics to automatically modernize your
    node -e "require('fs').mkdirSync('../temp-schematics-36')"
    ```
 
-2. Install the schematics in the temporary directory by running the following command:
+2. Install the schematics in the temporary directory by running the following command from the root directory of your project:
 
    ```bash
    npm install @spartacus/schematics@2211.36.0 --prefix ../temp-schematics-36
