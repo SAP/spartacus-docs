@@ -12,7 +12,7 @@ Now that you are preparing to update to Angular 19 and Spartacus 2211.36, it is 
 
 Spartacus includes specially-prepared schematics to automatically modernize your app to be as similar as possible to a newly created Angular 17 app.
 
-**Note:** These schematics were only released in `@spartacus/schematics2211.36.0`, but you need to run them before fully upgrading your app to 2211.36. As a result, you need to install `@spartacus/schematics@2211.36.0` in a temporary directory and run the migration schematics from there.
+**Note:** These schematics were only released in `@spartacus/schematics2211.36.1`, but you need to run them before fully upgrading your app to 2211.36. As a result, you need to install `@spartacus/schematics@2211.36.1` in a temporary directory and run the migration schematics from there.
 
 **Note:** In all of the following steps, the commands should be run from the root directory of your project.
 
@@ -25,7 +25,7 @@ Spartacus includes specially-prepared schematics to automatically modernize your
 2. Install the schematics in the temporary directory by running the following command:
 
    ```bash
-   npm install @spartacus/schematics@2211.36.0 --prefix ../temp-schematics-36
+   npm install @spartacus/schematics@2211.36.1 --prefix ../temp-schematics-36
    ```
 
 3. Execute the schematics by running the following command:
