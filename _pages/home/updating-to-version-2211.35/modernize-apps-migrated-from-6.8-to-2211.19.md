@@ -410,6 +410,7 @@ After completing the migration of your app to use the new Angular `application` 
    ```ts
      imports: [
         BrowserModule,
+        /*...*/
      ],
    ```
 
