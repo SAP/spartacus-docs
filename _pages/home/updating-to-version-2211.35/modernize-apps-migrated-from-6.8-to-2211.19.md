@@ -89,6 +89,7 @@ The following steps apply to all storefront apps that were previously updated fr
       "compilerOptions": {
         "skipLibCheck": true,
         "esModuleInterop": true,
+        /*...*/
    },
    ```
 
