@@ -26,7 +26,7 @@ Spartacus includes specially-prepared schematics to automatically modernize your
    npm install @spartacus/schematics@2211.36.0 --prefix ../temp-schematics-36
    ```
 
-3. From the temporary directory, run the schematics on your project by running the following command:
+3. Execute the schematics by running the following command from the root directory of your project:
 
    ```bash
    ng g ../temp-schematics-36/node_modules/@spartacus/schematics:modernize-app-migrated-from-6_8-to-2211_19
