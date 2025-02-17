@@ -80,6 +80,17 @@ Spartacus has internalized the styles for Bootstrap 4, so you do not need Bootst
 
 To handle these changes in your project, the update schematics uninstall Bootstrap, and then modify your `styles.scss` file to integrate the Spartacus styles along with Bootstrap. The schematics ensure your imports are in the correct order, which is necessary for the styles to be applied correctly.
 
+## Silencing Sass Deprecation Warnings
+
+The update schematics take care of silencing deprecation warnings for the Sass `@import`. This is necessary because `@import` is used in the Spartacus styles and in the Bootstrap 4 styles (which are imported by the Spartacus styles).
+
+If this action is not taken, version 19 Angular CLI pollutes the terminal with excessive deprecation warnings when you run `ng serve`, which makes the developer experience less pleasant.
+
+For more information, see the following:
+
+- [`@import` is Deprecated](https://sass-lang.com/blog/import-is-deprecated) in the official Sass documentation.
+- [Style preprocessor options](https://angular.dev/reference/configs/workspace-config#style-preprocessor-options) in the official Angular documentation.
+
 ## Modernizing Your Migrated Angular 19 Storefront App
 
 Storefront apps that are migrated to Angular 19 are not configured in exactly the same way as newly created Angular 19 apps. It is highly recommended that you modernize your app to be as similar as possible to a new Angular 19 app. This will help with updating to new versions of Angular and Spartacus in the future.
