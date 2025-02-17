@@ -17,8 +17,6 @@ To update your Spartacus app to version 2211.36, you must carry out the followin
 
 1. Update Your Angular Libraries. For more information, see [Updating Your Angular Libraries](#updating-your-angular-libraries).
 1. Update Spartacus to version 2211.36. For more information, see [Updating Spartacus to 2211.36](#updating-spartacus-to-221136).
-1. Adjust the use of Bootstrap in your project. For more information, see [Adjusting the Use of Bootstrap in Your Project](#adjusting-the-use-of-bootstrap-in-your-project).
-1. Silence Sass deprecation warnings. For more information, see [Silencing Sass Deprecation Warnings](#silencing-sass-deprecation-warnings).
 1. Modernize your migrated Angular 19 app to be as similar as possible to a new Angular 19 app. For more information, see [Modernizing Your Migrated Angular 19 Storefront App](#modernizing-your-migrated-angular-19-storefront-app).
 
 ## Updating Your Angular Libraries
@@ -75,112 +73,12 @@ The update to Spartacus 2211.36 is mostly focused on updating the framework to A
    ```
 
 1. Consult [Technical Changes in Spartacus 2211.36](./typescript-manual.doc.md) for information about additional changes that have been introduced in Spartacus 2211.36.
-1. If your app uses server-side rendering (SSR) and the `application` builder, you also need to adjust the `server.ts` file by removing the following line:
 
-   ```ts
-   const indexHtml = join(browserDistFolder, 'index.html');
-   ```
-
-1. Continuing for apps that use SSR and the `application` builder, finish adjusting the `server.ts` file by adding the following line:
-
-   ```ts
-   const indexHtml = join(serverDistFolder, 'index.server.html');
-   ```
-
-## Adjusting the Use of Bootstrap in Your Project
+## Updates to Bootstrap in Your Project
 
 Spartacus has internalized the styles for Bootstrap 4, so you do not need Bootstrap installed in your project anymore.
 
-To handle these changes in your project, you first uninstall Bootstrap, then modify your `styles.scss` file to integrate the Spartacus styles along with Bootstrap. Having your imports in the correct order is necessary for the styles to be applied correctly.
-
-These steps are described in more detail in the following procedure.
-
-### Uninstalling Bootstrap and Updating styles.scss
-
-1. If the bootstrap package is still installed in your project, uninstall it to avoid conflicts by running the following command:
-
-   ```bash
-   npm uninstall bootstrap
-   ```
-
-1. In `styles.scss`, place the following `styles-config` import at the top of the file:
-
-   ```scss
-   @import 'styles-config';
-   ```
-
-1. Add the `spartacus` core styles first, as follows:
-
-   ```scss
-   @import '@spartacus/styles/scss/core';
-   ```
-
-   Importing `spartacus` styles before Bootstrap styles ensures the core styles have priority when loaded.
-1. Import Bootstrap styles using the Bootstrap copy that is provided by Spartacus. For consistency, ensure the order of the
-   Bootstrap imports matches the sequence provided in the example below.
-1. Following the Bootstrap imports, add the `spartacus` index styles.
-
-   The following is an example of what the final file structure in `styles.scss` should look like:
-
-   ```scss
-   // ORDER IS IMPORTANT: Spartacus core is first
-   @import '@spartacus/styles/scss/core';
-   
-   // ORDER IS IMPORTANT: Bootstrap next
-   @import '@spartacus/styles/vendor/bootstrap/scss/reboot';
-   @import '@spartacus/styles/vendor/bootstrap/scss/type';
-   @import '@spartacus/styles/vendor/bootstrap/scss/grid';
-   @import '@spartacus/styles/vendor/bootstrap/scss/utilities';
-   @import '@spartacus/styles/vendor/bootstrap/scss/transitions';
-   @import '@spartacus/styles/vendor/bootstrap/scss/dropdown';
-   @import '@spartacus/styles/vendor/bootstrap/scss/card';
-   @import '@spartacus/styles/vendor/bootstrap/scss/nav';
-   @import '@spartacus/styles/vendor/bootstrap/scss/buttons';
-   @import '@spartacus/styles/vendor/bootstrap/scss/forms';
-   @import '@spartacus/styles/vendor/bootstrap/scss/custom-forms';
-   @import '@spartacus/styles/vendor/bootstrap/scss/modal';
-   @import '@spartacus/styles/vendor/bootstrap/scss/close';
-   @import '@spartacus/styles/vendor/bootstrap/scss/alert';
-   @import '@spartacus/styles/vendor/bootstrap/scss/tooltip';
-   
-   @import '@spartacus/styles/index';
-   ```
-
-1. Add individual imports.
-
-   If your application directly imports specific Bootstrap classes in any of your stylesheets, replace those imports with the corresponding `spartacus` imports. For example, if you have an import such as the following:
-
-   ```scss
-   @import '~bootstrap/scss/reboot';
-   ```
-
-   You should replace it with the following:
-
-   ```scss
-   @import '@spartacus/styles/vendor/bootstrap/scss/reboot';
-   ```
-
-## Silencing Sass Deprecation Warnings
-
-Silencing the deprecation warnings for the Sass `@import` is necessary because `@import` is used in the Spartacus styles and in the Bootstrap 4 styles, which are imported by the Spartacus styles.
-
-If this action is not taken, version 19 Angular CLI pollutes the terminal with excessive deprecation warnings when you run `ng serve`, which makes the developer experience less pleasant.
-
-For more information, see the following:
-
-- [`@import` is Deprecated](https://sass-lang.com/blog/import-is-deprecated) in the official Sass documentation.
-- [Style preprocessor options](https://angular.dev/reference/configs/workspace-config#style-preprocessor-options) in the official Angular documentation.
-
-To silence Sass deprecation warnings, in the `architect > build > options > stylePreprocessorOptions` section of `angular.json`, add a property with the object `"sass": { "silenceDeprecations":  ["import"] }`, as shown in the following example:
-
-```ts
-              "stylePreprocessorOptions": {
-                "includePaths": ["node_modules/"],
-                "sass": {
-                  "silenceDeprecations": ["import"]
-                }
-              }
-```
+To handle these changes in your project, the update schematics uninstall Bootstrap, and then modify your `styles.scss` file to integrate the Spartacus styles along with Bootstrap. The schematics ensure your imports are in the correct order, which is necessary for the styles to be applied correctly.
 
 ## Modernizing Your Migrated Angular 19 Storefront App
 
