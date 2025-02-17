@@ -40,15 +40,76 @@ Spartacus includes specially-prepared schematics to automatically modernize your
    node -e "require('fs').rmSync('../temp-schematics-36', { recursive: true, force: true })"
    ```
 
-**Note:** For apps that use server-side rendering (SSR), now that you have completed this migration, you will need to run SSR and prerendering scripts in a different way. This is explained in detail in the section [New Commands for SSR Projects](#new-commands-for-ssr-projects), below.
+**Note:** For apps that use server-side rendering (SSR), now that you have completed this migration, you will need to run SSR and prerendering scripts in a different way. This is explained in detail in the following section, [New Commands for SSR Projects](#new-commands-for-ssr-projects).
 
-Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. You can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
+Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. If your storefront app uses SSR, continue with [New Commands for SSR Projects](#new-commands-for-ssr-projects). If your storefront app does not use SSR, you can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
 
-If you encounter any issues during the automatic migration, you can finish the migration by completing the steps in the following sections.
+If you encounter any issues during the automatic migration steps described above, you can complete the migration by following the steps in [Manual Migration For Modernizing Angular 17 Storefront Apps](#manual-migration-for-modernizing-angular-17-storefront-apps), below.
+
+## New Commands for SSR Projects
+
+### Running an SSR Dev Server
+
+With older storefront apps, it was possible to run an SSR dev server with the command `npm run dev:ssr`. This server watched for changed files, and would rebuild when changes were detected. However, after modernizing your app to match the appearance of a newly-created Angular 17 app, this command is removed, because its builder has been replaced by the new Angular `application` builder.
+
+The following steps provide a workaround.
+
+1. In your `package.json` file, add a new, custom `"serve:ssr:watch"` command, as shown in the following example:
+
+   ```json
+     "serve:ssr": "node dist/YOUR-APP-NAME/server/server.mjs",
+     "serve:ssr:watch": "node --watch dist/YOUR-APP-NAME/server/server.mjs",
+   ```
+
+1. From the root directory of your project, open a terminal window and run the following command:
+
+   ```bash
+   npm run watch
+   ```
+
+   This builds the app in watch mode, which means it watches for changed source files and rebuilds when changes are detected.
+
+1. In a separate terminal window, run the following command:
+
+   ```bash
+   npm run serve:ssr:watch
+   ```
+
+   This command runs the SSR dev server in watch mode, which means it watches for compiled files and reruns the server when new compiled files are detected.
+
+**Note:** The same workaround has been documented for new Angular 17 apps in [KBA 3460263](https://me.sap.com/notes/3460263).
+
+### Running Server Prerendering
+
+With older storefront apps, it was possible to run server prerendering with the command `npm run prerender`. However, after modernizing your app to match the appearance of a newly-created Angular 17 app, this command is removed, because its builder has been replaced by the new Angular `application` builder.
+
+The following steps provide a workaround.
+
+1. In `package.json`, create the following new, custom `"prerender"` command:
+
+   ```json
+   "prerender": "ng build --prerender=true",
+   ```
+
+1. Run the following command in a terminal, while passing the `SERVER_REQUEST_ORIGIN` Node env variable.
+
+   ```bash
+   SERVER_REQUEST_ORIGIN="http://localhost:4200" npm run prerender
+   ```
+
+   Remember to replace `"http://localhost:4200"` with the real target domain where you want to deploy your prerendered pages, especially if you are deploying for production. Otherwise, some Spartacus SEO features might not work properly.
+
+   For example, [Canonical URLs](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/e712f36722c543359ed699aed9873075.html?version=2211#canonical-urls) might point to a wrong domain, or [Automatic Multi-Site Configuration](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/9d2e339c2b094e4f99df1c2d7cc999a8.html?version=2211) might not recognize the base site correctly if, for example, some regexes that are configured in the CMS for base site recognition depend on the domain name.
+
+**Note:** The same workaround has been documented for new Angular 17 apps in [KBA 3460211](https://me.sap.com/notes/3460211).
+
+Congratulations! You have completed all the steps for updating the use of SSR in your storefront app. You can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
 
 ## Manual Migration For Modernizing Angular 17 Storefront Apps
 
 The following steps apply to all storefront apps that were previously updated from version 6.8 to version 2211.36.
+
+**Note:** These steps are provided for reference and for troubleshooting purposes. You should only follow these steps if you run into issues with the automatic migration described above.
 
 ### Migration to the New Angular Application Builder
 
@@ -415,63 +476,6 @@ After completing the migration of your app to use the new Angular `application` 
         /*...*/
      ],
    ```
-
-## New Commands for SSR Projects
-
-### Running an SSR Dev Server (watching for changed files and rebuilding)
-
-With older storefront apps, it was possible to run an SSR dev server with the command `npm run dev:ssr`. This server watched for changed files, and would rebuild when changes were detected. However, after modernizing your app to match the appearance of a newly-created Angular 17 app, this command is removed, because its builder has been replaced by the new Angular `application` builder.
-
-The following steps provide a workaround.
-
-1. In your `package.json` file, add a new, custom `"serve:ssr:watch"` command, as shown in the following example:
-
-   ```json
-     "serve:ssr": "node dist/YOUR-APP-NAME/server/server.mjs",
-     "serve:ssr:watch": "node --watch dist/YOUR-APP-NAME/server/server.mjs",
-   ```
-
-1. From the root directory of your project, open a terminal window and run the following command:
-
-   ```bash
-   npm run watch
-   ```
-
-   This builds the app in watch mode, which means it watches for changed source files and rebuilds when changes are detected.
-
-1. In a separate terminal window, run the following command:
-
-   ```bash
-   npm run serve:ssr:watch
-   ```
-
-   This command runs the SSR dev server in watch mode, which means it watches for compiled files and reruns the server when new compiled files are detected.
-
-**Note:** The same workaround has been documented for new Angular 17 apps in [KBA 3460263](https://me.sap.com/notes/3460263).
-
-### Running Server Prerendering
-
-With older storefront apps, it was possible to run server prerendering with the command `npm run prerender`. However, after modernizing your app to match the appearance of a newly-created Angular 17 app, this command is removed, because its builder has been replaced by the new Angular `application` builder.
-
-The following steps provide a workaround.
-
-1. In `package.json`, create the following new, custom `"prerender"` command:
-
-   ```json
-   "prerender": "ng build --prerender=true",
-   ```
-
-1. Run the following command in a terminal, while passing the `SERVER_REQUEST_ORIGIN` Node env variable.
-
-   ```bash
-   SERVER_REQUEST_ORIGIN="http://localhost:4200" npm run prerender
-   ```
-
-   Remember to replace `"http://localhost:4200"` with the real target domain where you want to deploy your prerendered pages, especially if you are deploying for production. Otherwise, some Spartacus SEO features might not work properly.
-
-   For example, [Canonical URLs](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/e712f36722c543359ed699aed9873075.html?version=2211#canonical-urls) might point to a wrong domain, or [Automatic Multi-Site Configuration](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/9d2e339c2b094e4f99df1c2d7cc999a8.html?version=2211) might not recognize the base site correctly if, for example, some regexes that are configured in the CMS for base site recognition depend on the domain name.
-
-**Note:** The same workaround has been documented for new Angular 17 apps in [KBA 3460211](https://me.sap.com/notes/3460211).
 
 ## Next Steps
 

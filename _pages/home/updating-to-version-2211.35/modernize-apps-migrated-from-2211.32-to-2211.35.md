@@ -18,6 +18,8 @@ If you encounter any issues, you can finish the migration by completing the step
 
 The following steps apply to all storefront apps that have been updated to version 2211.36.
 
+**Note:** These steps are provided for reference and for troubleshooting purposes. You should only follow these steps if you run into issues with the automatic migration described above.
+
 1. In the `architect > build > options > assets` section of `angular.json`, replace the two string values in the array, `"src/favicon.ico"` and `"src/assets"`, with a single `{ "glob": "**/*", "input": "public" }` object. The updated array should appear as follows:
 
    ```json
