@@ -189,7 +189,7 @@ Storefront apps that are migrated to Angular 19 are not configured in exactly th
 Spartacus includes specially-prepared schematics to automatically modernize your app to be as similar as possible to a newly created Angular 19 app. To modernize your app using these schematics, run the following command from your project root directory:
 
 ```bash
-ng g @spartacus/schematics:modernize-app-migrated-from-2211_32-to-2211_35
+ng g @spartacus/schematics:modernize-app-migrated-from-2211_32-to-2211_36
 ```
 
 If you encounter any issues, you can complete the migration by following the manual migration steps provided in [Modernizing Your Storefront App After Upgrading to Version 2211.36](./modernize-apps-migrated-to-2211.36.md).
