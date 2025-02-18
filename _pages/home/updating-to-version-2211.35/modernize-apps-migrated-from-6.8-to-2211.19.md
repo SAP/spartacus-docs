@@ -1,466 +1,502 @@
-# Modernize apps upgraded from Spartacus 6.8 to 2211.19
+---
+title: Modernizing Your Storefront App That Was Upgraded to Version 2211.19
+---
 
-Angular v17 introduced a new Angular CLI configuration format, which was not recommended initially by the Spartacus team with v2211.19 due to initial compatibility issues.
+Angular 17 introduced a new Angular CLI configuration format, which was not initially recommended for use with Spartacus apps that were updated to version 2211.19 because there were compatibility issues at the time.
 
-Now Spartacus team recommends to use the new Angular CLI configuration format and provides the detailed migration guide. **This guide is applicable only for the apps migrated previously from Spartacus 6.8 to 2211.19** (i.e. from Angular v15 to v17). In other words, the apps created initially with Spartacus 2211.19+ should skip this guide.
+Now that you are preparing to update to Angular 19 and Spartacus 2211.36, it is recommended that you use the new Angular CLI configuration format. The benefits of using the new Angular configuration format are that application builds are quicker, and it makes your app "future proof" in the sense that, in the future, any new Angular or Spartacus features might require you to use the new configuration format as a prerequisite.
 
-The benefits of using the new Angular configuration format are:
-- faster builds: application builds are quicker, making life easier and saving time for developers
-- being future-proof: any new Angular and Spartacus features might require you to use the new configuration format as a prerequisite
+**Note:** You should follow the migration guide here **only if your storefront app was originally created using Spartacus 6.x libraries or older**, and was then updated to 2211.19. If your Spartacus app was originally built with 2211.19 libraries or newer, skip the steps here and go straight to [Update Release 2211.36](./migration.md).
 
-The side-effect consequences of using the new configuration format are:
-- For SSR apps: the server-side rendering and prerendering scripts will be executed differently (it will be explained in the last section of this page "[New commands for SSR projects](#new-commands-for-ssr-projects)")
+## Automatic Migration
 
+Spartacus includes specially-prepared schematics to automatically modernize your app to be as similar as possible to a newly created Angular 17 app.
 
-# Automatic migration
+**Note:** These schematics were only released in `@spartacus/schematics2211.36.1`, but you need to run them before fully upgrading your app to 2211.36. As a result, you need to install `@spartacus/schematics@2211.36.1` in a temporary directory and run the migration schematics from there.
 
-The Spartacus team provides special schematics that automatically modernize the app to look as much as possible like the new Angular 17 apps.
+**Note:** In all of the following steps, the commands should be run from the root directory of your project.
 
-Note: the tool was released only in `@spartacus/schematics` v2211.35.0, but you need to run it before fully upgrading your app to this version.
-To do this, you'll need to install `@spartacus/schematics@2211.35.0` in a temporary directory and execute the migration schematic from there.
+1. Create a temporary sibling directory for the isolated 2211.36 installation schematics by running the following command:
 
-Please run those commands from your project root directory:
+   ```bash
+   node -e "require('fs').mkdirSync('../temp-schematics-36')"
+   ```
 
-```bash
-# 1. Create a temporary sibling directory for the isolated Schematics v2211.35 installation
-node -e "require('fs').mkdirSync('../temp-schematics-35')"
+2. Install the schematics in the temporary directory by running the following command:
 
-# 2. Install schematics in the temporary directory
-npm install @spartacus/schematics@2211.35.0 --prefix ../temp-schematics-35
+   ```bash
+   npm install @spartacus/schematics@2211.36.1 --prefix ../temp-schematics-36
+   ```
 
-# 3. Execute in your project the schematics from the temporary directory
-ng g ../temp-schematics-35/node_modules/@spartacus/schematics:modernize-app-migrated-from-6_8-to-2211_19
+3. Execute the schematics by running the following command:
 
-# 4. Clean up the temporary directory
-node -e "require('fs').rmSync('../temp-schematics-35', { recursive: true, force: true })"
-```
+   ```bash
+   ng g ../temp-schematics-36/node_modules/@spartacus/schematics:modernize-app-migrated-from-6_8-to-2211_19
+   ```
 
-In case of any issues during the automatic migration, you can always fall back to the manual migration steps below.
+4. Clean up the temporary directory by running the following command:
 
-> ⚠️ Warning:
->
-> Reminder for SSR apps: from now on the server-side rendering and prerendering scripts will be executed differently (see the last section of this page "[New commands for SSR projects](#new-commands-for-ssr-projects)")
+   ```bash
+   node -e "require('fs').rmSync('../temp-schematics-36', { recursive: true, force: true })"
+   ```
 
-In case of any issues during the automatic migration, you can always fall back to the manual migration steps below.
+Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. If your storefront app uses SSR, continue with [Additional Migration and New Commands for SSR Projects](#additional-migration-and-new-commands-for-ssr-projects). If your storefront app does not use SSR, you can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
 
-# Manual migration
+If you encounter any issues during the automatic migration steps described above, you can complete the migration by following the steps in [Manual Migration For Modernizing Angular 17 Storefront Apps](#manual-migration-for-modernizing-angular-17-storefront-apps), below.
 
-Here are the migration steps in detail:
+## Additional Migration and New Commands for SSR Projects
 
-## Migration to the new Angular `application` builder
+For apps that use server-side rendering (SSR), now that you have completed the modernization of your app to be as similar as possible to a newly created Angular 17 app, you will need to run SSR and prerendering scripts in a different way. Also, if you host your storefront in SAP Commerce Cloud, you need to update the corresponding `manifest.json` file.
 
-### `angular.json`
+### Updating the Manifest for SAP Commerce Cloud
 
-1. In the section `architect > build` please change the value `"builder": "@angular-devkit/build-angular:browser",`
-   to `"builder": "@angular-devkit/build-angular:application",`
+This update applies to storefront apps that are hosted in SAP Commerce Cloud.
 
-```diff
+In the `js-storefront/manifest.json` file, if the `srr.path` object ends in `main.js`, it now needs to be updated to end with `server.mjs`. The following is an example of what the updated `manifest.json` file should look like:
+
+```json
+{
+      "name": "<Your-Storefront-App-Name>",
+      "path": "<Your-Storefront-App-Path>",
+      "ssr": {
+         "enabled": true,
+         "path": "dist/<Your-Storefront-App-Name>/<Your-Storefront-App-Name>-server/server.mjs"
+      }
+      ...
+ }
+ ```
+
+For more information, see [Enable Server-Side Rendering](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/b2f400d4c0414461a4bb7e115dccd779/cd5b94c25a68456ba5840f942f33f68b.html?locale=en-US&version=v2211).
+
+### Running an SSR Dev Server
+
+With older storefront apps, it was possible to run an SSR dev server with the command `npm run dev:ssr`. This server watched for changed files, and would rebuild when changes were detected. However, after modernizing your app to match the appearance of a newly-created Angular 17 app, this command is removed, because its builder has been replaced by the new Angular `application` builder.
+
+The following steps provide a workaround.
+
+1. In your `package.json` file, add a new, custom `"serve:ssr:watch"` command, as shown in the following example:
+
+   ```json
+     "serve:ssr": "node dist/YOUR-APP-NAME/server/server.mjs",
+     "serve:ssr:watch": "node --watch dist/YOUR-APP-NAME/server/server.mjs",
+   ```
+
+1. From the root directory of your project, open a terminal window and run the following command:
+
+   ```bash
+   npm run watch
+   ```
+
+   This builds the app in watch mode, which means it watches for changed source files and rebuilds when changes are detected.
+
+1. In a separate terminal window, run the following command:
+
+   ```bash
+   npm run serve:ssr:watch
+   ```
+
+   This command runs the SSR dev server in watch mode, which means it watches for compiled files and reruns the server when new compiled files are detected.
+
+**Note:** The same workaround has been documented for new Angular 17 apps in [KBA 3460263](https://me.sap.com/notes/3460263).
+
+### Running Server Prerendering
+
+With older storefront apps, it was possible to run server prerendering with the command `npm run prerender`. However, after modernizing your app to match the appearance of a newly-created Angular 17 app, this command is removed, because its builder has been replaced by the new Angular `application` builder.
+
+The following steps provide a workaround.
+
+1. In `package.json`, create the following new, custom `"prerender"` command:
+
+   ```json
+   "prerender": "ng build --prerender=true",
+   ```
+
+1. Run the following command in a terminal, while passing the `SERVER_REQUEST_ORIGIN` Node env variable.
+
+   ```bash
+   SERVER_REQUEST_ORIGIN="http://localhost:4200" npm run prerender
+   ```
+
+   Remember to replace `"http://localhost:4200"` with the real target domain where you want to deploy your prerendered pages, especially if you are deploying for production. Otherwise, some Spartacus SEO features might not work properly.
+
+   For example, [Canonical URLs](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/e712f36722c543359ed699aed9873075.html?version=2211#canonical-urls) might point to a wrong domain, or [Automatic Multi-Site Configuration](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/9d2e339c2b094e4f99df1c2d7cc999a8.html?version=2211) might not recognize the base site correctly if, for example, some regexes that are configured in the CMS for base site recognition depend on the domain name.
+
+**Note:** The same workaround has been documented for new Angular 17 apps in [KBA 3460211](https://me.sap.com/notes/3460211).
+
+Congratulations! You have completed all the steps for updating the use of SSR in your storefront app. You can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
+
+## Manual Migration For Modernizing Angular 17 Storefront Apps
+
+The following steps apply to all storefront apps that were previously updated from version 6.8 to version 2211.36.
+
+**Note:** These steps are provided for reference and for troubleshooting purposes. You should only follow these steps if you run into issues with the automatic migration described above.
+
+### Migration to the New Angular Application Builder
+
+1. In the `architect > build` section of `angular.json`, change the value `"builder": "@angular-devkit/build-angular:browser",`
+   to `"builder": "@angular-devkit/build-angular:application",`.
+
+   The updated section should appear as follows:
+
+```json
         "architect": {
           "build": {
--           "builder": "@angular-devkit/build-angular:browser",
-+           "builder": "@angular-devkit/build-angular:application",
+            "builder": "@angular-devkit/build-angular:application",
 ```
 
-Why: we're configuring here the new `application` builder for Angular v17 and later, which is the recommended fast and future-proof builder for Angular v17 and later.
+   This step configures the new `application` builder for Angular 17 and newer. This is the recommended, faster, and "future proof" builder for Angular version 17 and newer.
 
-1. In the section `architect > build > options` please apply the all the following modifications, to adapt to the new configuration format for the new builder:
+1. In the `architect > build > options` section of `angular.json`, apply all of the following modifications, to adapt to the new configuration format for the new builder:
 
-2.1 rename the property `"main"` to `"browser"`
+   1. Rename `"main": "src/main.ts"` to `"browser": "src/main.ts"`.
 
-```diff
-        "architect": {
-          "build": {
-           "options": {
--             "main": "src/main.ts",
-+             "browser": "src/main.ts",
-```
+      The updated section should appear as follows:
 
+      ```json
+      "architect": {
+        "build": {
+         "options": {
+            "browser": "src/main.ts",
+      ```
 
-2.2. In the section `architect > build > configurations > development` please remove 3 properties: `"buildOptimizer"`, `"vendorChunk"`, `"namedChunks"`
+   1. In the `architect > build > configurations > development` section, remove the following three properties: `"buildOptimizer"`, `"vendorChunk"`, and `"namedChunks"`
 
-```diff
-        "architect": {
-          "build": {
-           "configurations": {
-             "development": {
--              "buildOptimizer": false,
--              "vendorChunk": true,
--              "namedChunks": true
-```
+1. In the `"compilerOptions"` section of `tsconfig.json`, remove the following properties: `"baseUrl"`, `"forceConsistentCasingInFileNames"`, and `"downlevelIteration"`.
+1. In the same `"compilerOptions"` section of `tsconfig.json`, add the following properties: `"skipLibCheck": true` and `"esModuleInterop": true`.
 
-### `tsconfig.json`
+   The updated section should appear as follows:
 
-In the `"compilerOptions"` section, please:
+   ```json
+      "compilerOptions": {
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        /*...*/
+   },
+   ```
 
-1. Remove the properties `"baseUrl"`, `"forceConsistentCasingInFileNames"`, `"downlevelIteration"`, 
-2. Add `"skipLibCheck": true`, `"esModuleInterop": true`
+   If your storefront app uses server-side rendering (SSR), continue with the next procedure, [Additional Migration Steps For Projects Using SSR](#additional-migration-steps-for-projects-using-ssr). If your project does not use SSR, skip ahead to the steps in [Using Non-Deprecated Angular APIs](#using-non-deprecated-angular-apis).
 
-```diff
-   "compilerOptions": {
--    "baseUrl": "./",
--    "forceConsistentCasingInFileNames": true,
--    "downlevelIteration": true,
-+    "skipLibCheck": true,
-+    "esModuleInterop": true,
-},
-```
+### Additional Migration Steps For Projects Using SSR
 
-## For SSR projects, additionally:
+1. In the `architect > build > options` section of `angular.json`, apply all the following modifications:
 
-### `angular.json`
+   1. In the `"outputPath"` property, remove `"/browser"` from the end of the string value.
 
-1. In the section `architect > build > options` please apply all the following modifications:
+   The updated property should appear as follows:
 
-1.1 In the property `"outputPath"` please remove the ending `"/browser"` from the string value.
+   ```json
+           "architect": {
+             "build": {
+               "options": {
+                 "outputPath": "dist/YOUR-APP-NAME",
+   ```
 
-```diff
-        "architect": {
-          "build": {
-            "options": {
--             "outputPath": "dist/YOUR-APP-NAME/browser",
-+             "outputPath": "dist/YOUR-APP-NAME",
-```
+   1. Add three new options with the following values: `"server": "src/main.server.ts"`, `"prerender": false`, and `"ssr": { "entry": "server.ts" }`.
 
-1.2 Please add 3 new options with values: `"server": "src/main.server.ts"`, `"prerender": false`, `"ssr": { "entry": "server.ts" }`
+   The updated section should appear as follows:
 
-```diff
-        "architect": {
-          "build": {
-           "options": {
-+             "server": "src/main.server.ts",
-+             "prerender": false,
-+             "ssr": {
-+               "entry": "server.ts"
-+             }
-```
+   ```json
+           "architect": {
+             "build": {
+              "options": {
+                 "outputPath": "dist/YOUR-APP-NAME",
+                 "server": "src/main.server.ts",
+                 "prerender": false,
+                 "ssr": {
+                   "entry": "server.ts"
+                 }
+   ```
 
-2. In the section `architect > build > configurations` please add a new property with object value `"noSsr": { "ssr": false, "prerender": false }`
+1. In the `architect > build > configurations` section of `angular.json`, add a new property with the following object value: `"noSsr": { "ssr": false, "prerender": false }`
 
-```diff
-        "architect": {
-          "build": {
-            "configurations": {
-+             "noSsr": {
-+               "ssr": false,
-+               "prerender": false
-+             }
-```
+   The updated section should appear as follows:
 
-3. In the section `architect > serve > configurations` (please mind now the section is `serve` not `build`!) please add the ending `,noSsr` (with the preceding comma) at the end of the string values in subsections `... > production > buildTarget` and `... > development > buildTarget`:
+   ```json
+           "architect": {
+             "build": {
+               "configurations": {
+                 "noSsr": {
+                   "ssr": false,
+                   "prerender": false
+                 }
+   ```
 
-```diff
-        "architect": {
-          "serve": {
-            "builder": "@angular-devkit/build-angular:dev-server",
+   You have finished updating the `build` configuration section, and in the next step, you will be updating the `serve` configuration section.
+
+1. In the `architect > serve > configurations` section, add `,noSsr` (including the initial comma) to the end of the string values in the following subsections: `... > production > buildTarget` and `... > development > buildTarget`.
+
+   The updated subsections should appear as follows:
+
+   ```json
+           "architect": {
+             "serve": {
+               "builder": "@angular-devkit/build-angular:dev-server",
+                 "configurations": {
+                   "production": {
+                     "buildTarget": "YOUR-APP-NAME:build:production,noSsr"
+                   },
+                   "development": {
+                     "buildTarget": "YOUR-APP-NAME:build:development,noSsr"
+                   }
+   ```
+
+1. Remove the following three sections entirely: `architect > server`, `architect > serve-ssr` and `architect > prerender`.
+
+   These sections are removed because their responsibilities are now handled by the single, new Angular `application` builder.
+
+   In the following example, everything after the first line (`"architect": {`) should be removed:
+
+   ```json
+          "architect": {
+            "server": {
+              "builder": "@angular-devkit/build-angular:server",
+              "options": {
+                "outputPath": "dist/YOUR-APP-NAME/server",
+                "main": "server.ts",
+                "tsConfig": "tsconfig.server.json",
+                "stylePreprocessorOptions": {
+                  "includePaths": [
+                    "node_modules/"
+                  ]
+                },
+                "inlineStyleLanguage": "scss"
+              },
               "configurations": {
                 "production": {
--                 "buildTarget": "YOUR-APP-NAME:build:production"
-+                 "buildTarget": "YOUR-APP-NAME:build:production,noSsr"
+                  "outputHashing": "media"
                 },
                 "development": {
--                 "buildTarget": "YOUR-APP-NAME:build:development"
-+                 "buildTarget": "YOUR-APP-NAME:build:development,noSsr"
+                  "optimization": false,
+                  "sourceMap": true,
+                  "extractLicenses": false,
+                  "vendorChunk": true,
+                  "buildOptimizer": false
                 }
-```
-
-
-4. Please remove the whole 3 sections `architect > server`, `architect > serve-ssr` and `architect > prerender` (because their responsibilities are now handled just by the single new Angular `application` builder)
-
-```diff
-       "architect": {
--        "server": {
--          "builder": "@angular-devkit/build-angular:server",
--          "options": {
--            "outputPath": "dist/YOUR-APP-NAME/server",
--            "main": "server.ts",
--            "tsConfig": "tsconfig.server.json",
--            "stylePreprocessorOptions": {
--              "includePaths": [
--                "node_modules/"
--              ]
--            },
--            "inlineStyleLanguage": "scss"
--          },
--          "configurations": {
--            "production": {
--              "outputHashing": "media"
--            },
--            "development": {
--              "optimization": false,
--              "sourceMap": true,
--              "extractLicenses": false,
--              "vendorChunk": true,
--              "buildOptimizer": false
--            }
--          },
--          "defaultConfiguration": "production"
--        },
--        "serve-ssr": {
--          "builder": "@angular-devkit/build-angular:ssr-dev-server",
--          "configurations": {
--            "development": {
--              "browserTarget": "YOUR-APP-NAME:build:development",
--              "serverTarget": "YOUR-APP-NAME:server:development"
--            },
--            "production": {
--              "browserTarget": "YOUR-APP-NAME:build:production",
--              "serverTarget": "YOUR-APP-NAME:server:production"
--            }
--          },
--          "defaultConfiguration": "development"
--        },
--        "prerender": {
--          "builder": "@angular-devkit/build-angular:prerender",
--          "options": {
--            "routes": [
--              "/"
--            ]
--          },
--          "configurations": {
--            "production": {
--              "browserTarget": "YOUR-APP-NAME:build:production",
--              "serverTarget": "YOUR-APP-NAME:server:production"
--            },
--            "development": {
--              "browserTarget": "YOUR-APP-NAME:build:development",
--              "serverTarget": "YOUR-APP-NAME:server:development"
--            }
--          },
--          "defaultConfiguration": "production"
--        }
-```
-
-### `package.json`
-
-Please change the following `"scripts"` properties (because the new `application` builder handles the SSR and prerendering with different commands):
-
-1. Please remove properties `"dev:ssr"` and `"prerender"`
-
-```diff
-   "scripts": {
--    "dev:ssr": "ng run YOUR-APP-NAME:serve-ssr",
--    "prerender": "ng run YOUR-APP-NAME:prerender"
-```
-
-2. Please change value of the property `"build:ssr"` to `"ng build"`
-
-```diff
-   "scripts": {
--     "build:ssr": "ng build && ng run YOUR-APP-NAME:server",
-+     "build:ssr": "ng build"
-```
-
-3. Please rename the property `"serve:ssr"` to `"serve:ssr:YOUR-APP-NAME"` and change its value to `"node dist/YOUR-APP-NAME/server/server.mjs"`
-
-```diff
-   "scripts": {
--    "serve:ssr": "node dist/YOUR-APP-NAME/server/main.js",
-+    "serve:ssr:YOUR-APP-NAME": "node dist/YOUR-APP-NAME/server/server.mjs",
-```
-
-### `tsconfig.app.json`
-
-1. Please add 1 new item to the array in the property `"types"`: `"node"`
-
-```diff
-   "types": [
-+    "node"
-   ]
-```
+              },
+              "defaultConfiguration": "production"
+            },
+            "serve-ssr": {
+              "builder": "@angular-devkit/build-angular:ssr-dev-server",
+              "configurations": {
+                "development": {
+                  "browserTarget": "YOUR-APP-NAME:build:development",
+                  "serverTarget": "YOUR-APP-NAME:server:development"
+                },
+                "production": {
+                  "browserTarget": "YOUR-APP-NAME:build:production",
+                  "serverTarget": "YOUR-APP-NAME:server:production"
+                }
+              },
+              "defaultConfiguration": "development"
+            },
+            "prerender": {
+              "builder": "@angular-devkit/build-angular:prerender",
+              "options": {
+                "routes": [
+                  "/"
+                ]
+              },
+              "configurations": {
+                "production": {
+                  "browserTarget": "YOUR-APP-NAME:build:production",
+                  "serverTarget": "YOUR-APP-NAME:server:production"
+                },
+                "development": {
+                  "browserTarget": "YOUR-APP-NAME:build:development",
+                  "serverTarget": "YOUR-APP-NAME:server:development"
+                }
+              },
+              "defaultConfiguration": "production"
+            }
+   ```
+
+1. In `package.json`, change the following `"scripts"` properties, because the new `application` builder handles the SSR and prerendering with different commands:
+
+   1. Remove the `"dev:ssr"` and `"prerender"` properties.
+
+   1. Change the value of the `"build:ssr"` property to `"ng build"`.
+
+      The updated `"build:ssr"` property should appear as follows:
+
+      ```json
+         "scripts": {
+            "build:ssr": "ng build"
+      ```
+
+   1. Rename the `"serve:ssr"` property to `"serve:ssr:YOUR-APP-NAME"` and change its value to `"node dist/YOUR-APP-NAME/server/server.mjs"`
+
+      The updated `"serve:ssr"` property should appear as follows:
+
+      ```json
+         "scripts": {
+           "serve:ssr:YOUR-APP-NAME": "node dist/YOUR-APP-NAME/server/server.mjs",
+      ```
+
+1. In `tsconfig.app.json`, add `"node"` to the array in the `"types"`property.
+
+   The updated array should appear as follows:
+
+   ```json
+      "types": [
+        "node"
+      ]
+   ```
+
+1. In `tsconfig.app.json`, add the following two new items to the `"files"` array: `"src/main.server.ts"` and `"server.ts"`.
+
+   The updated `"files"` array should appear as follows:
+
+   ```diff
+      "files": [
+        "src/main.ts",
+        "src/main.server.ts",
+        "server.ts"
+      ]
+   ```
+
+1. Remove the `tsconfig.server.json` file.
+
+   For example, you can do this by running the following command on Mac or Linux:
+
+   ```bash
+   rm tsconfig.server.json
+   ```
+
+1. Rename the `app.server.module.ts` file to `app.module.server.ts`.
+
+   For example, you can do this by running the following command on Mac or Linux:
+
+   ```bash
+   mv src/app/app.server.module.ts src/app/app.module.server.ts
+   ```
+
+1. In `src/main.server.ts`, change the export path of the `AppServerModule` from `./app/app.server.module'` to `./app/app.module.server'`.
+1. And `as default` to the `AppServerModule` export, as shown in the following example:
+
+   ```ts
+   export { AppServerModule as default } from './app/app.module.server';
+   ```
 
-2. Please add 2 new items to the in the `"files"` array: `"src/main.server.ts"` , `"server.ts"`
+1. At the top of the `server.ts` file, select (highlight) the following imports:
 
-```diff
-   "files": [
-     "src/main.ts",
-+    "src/main.server.ts",
-+    "server.ts"
-   ]
-```
+   ```ts
+   import 'zone.js/node';
+   
+   import { ngExpressEngine as engine } from - '@spartacus/setup/ssr';
+   import { NgExpressEngineDecorator } from - '@spartacus/setup/ssr';
+   import * as express from 'express';
+   import { join } from 'path';
+   
+   import { AppServerModule } from './src/main.- server';
+   import { APP_BASE_HREF } from '@angular/common';
+   import { existsSync } from 'fs';
+   ```
 
-### `tsconfig.server.json`
+1. Replace the selected imports with the following imports:
 
-Remove the file `tsconfig.server.json`
+   ```ts
+   import { APP_BASE_HREF } from '@angular/common';
+   import {
+     NgExpressEngineDecorator,
+     ngExpressEngine as engine,
+   } from '@spartacus/setup/ssr';
+   import express from 'express';
+   import { dirname, join, resolve } from 'node:path';
+   import { fileURLToPath } from 'node:url';
+   import AppServerModule from './src/main.server';
+   ```
 
-Example command on Mac/Linux:
+1. In `server.ts`, remove the following constants:
 
-```bash
-rm tsconfig.server.json
-```
+   ```ts
+   const distFolder = join(process.cwd(), 'dist/YOUR-APP-NAME/browser');
+   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
+     ? 'index.original.html'
+     : 'index';
+   ```
 
-### `src/app.server.module.ts`
+1. In `server.ts`, add the following constants:
 
-Rename file from `app.server.module.ts` to `app.module.server.ts` (i.e. swap the words `server` and `module`).
+   ```ts
+   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+   const browserDistFolder = resolve(serverDistFolder, '../browser');
+   const indexHtml = join(browserDistFolder, 'index.html');
+   ```
 
-Example command on Mac/Linux:
+1. In the `server.set('views'` call of `server.ts`, use the `browserDistFolder` constant as a second argument, instead of `distFolder`.
 
-```bash
-mv src/app/app.server.module.ts src/app/app.module.server.ts
-```
+   The updated call should appear as follows:
 
-### `src/main.server.ts`
+   ```ts
+   server.set('views', browserDistFolder);
+   ```
 
-1. Change the the export path of the `AppServerModule` from `./app/app.server.module'` to `./app/app.module.server'`. 
-2. And export `AppServerModule` using `as default`.
+1. In the `express.static(` call of `server.ts`, please use the `browserDistFolder` constant as a first argument, instead of `distFolder`.
 
-```diff
-- export { AppServerModule } from './app/app.server.module';
-+ export { AppServerModule as default } from './app/app.module.server';
-```
+   The updated call should appear as follows:
 
-### `server.ts`
+   ```ts
+      server.get(
+        '*.*',
+        express.static(browserDistFolder, {
+   ```
 
-1. Change the imports in the top of the file according to the following diff:
+1. At the end of `server.ts`, remove the following block of code that is related to handling Webpack's `require`:
 
-```diff
-- import 'zone.js/node';
+   ```ts
+   // Webpack will replace 'require' with - '__webpack_require__'
+   // '__non_webpack_require__' is a proxy to Node 'require'
+   // The below code is to ensure that the server is run - only when not requiring the bundle.
+   declare const __non_webpack_require__: NodeRequire;
+   const mainModule = __non_webpack_require__.main;
+   const moduleFilename = (mainModule && mainModule.- filename) || '';
+   if (moduleFilename === __filename || moduleFilename.- includes('iisnode')) {
+     run();
+   }
+   ```
 
-- import { ngExpressEngine as engine } from - '@spartacus/setup/ssr';
-- import { NgExpressEngineDecorator } from - '@spartacus/setup/ssr';
-- import * as express from 'express';
-- import { join } from 'path';
+1. In place of the block of code that was removed in the previous step, add the following line:
 
-- import { AppServerModule } from './src/main.- server';
-- import { APP_BASE_HREF } from '@angular/common';
-- import { existsSync } from 'fs';
+   ```ts
+   run();
+   ```
 
-+ import { APP_BASE_HREF } from '@angular/common';
-+ import {
-+   NgExpressEngineDecorator,
-+   ngExpressEngine as engine,
-+ } from '@spartacus/setup/ssr';
-+ import express from 'express';
-+ import { dirname, join, resolve } from 'node:path';
-+ import { fileURLToPath } from 'node:url';
-+ import AppServerModule from './src/main.server';
-```
+1. At the very end of `server.ts`, remove the following line:
 
-2. Replace two old constants: `distFolder` and `indexHtml` with new three constants: `serverDistFolder`, `browserDistFolder`, `indexHtml`, according to the diff below:
+   ```ts
+   export * from './src/main.server';
+   ```
 
-```diff
-- const distFolder = join(process.cwd(), 'dist/YOUR-APP-NAME/browser');
-- const indexHtml = existsSync(join(distFolder, 'index.original.html'))
--   ? 'index.original.html'
--   : 'index';
+   You have now completed the migration of your app to use the Angular `application` builder. You can now continue with the following procedure.
 
-+  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-+  const browserDistFolder = resolve(serverDistFolder, '../browser');
-+  const indexHtml = join(browserDistFolder, 'index.html');
-```
+## Using Non-Deprecated Angular APIs
 
-3. In the call `server.set('views, `... please use the constant `browserDistFolder` instead of `distFolder`  as a second argument.
+After completing the migration of your app to use the new Angular `application` builder, it is also necessary to update the `app.module.ts` file to use new, non-deprecated Angular APIs.
 
-```diff
--  server.set('views', distFolder);
-+  server.set('views', browserDistFolder);
-```
+1. In `src/app/app.module.ts`, remove `HttpClientModule` from the `imports` array.
 
-4. In the call `express.static( `... please use the constant `browserDistFolder` instead of `distFolder` as an argument.
+1. Add `provideHttpClient(withFetch(), withInterceptorsFromDi()),` to the `providers` array.
 
-```diff
-   server.get(
-     '*.*',
--    express.static(distFolder, {
-+    express.static(browserDistFolder, {
-```
+   The following is an example:
 
-5. Remove the block of code in the bottom of the file related handling Webpack's `require`, but leave only the call of the function `run()`
+   ```ts
+     providers: [
+       provideHttpClient(withFetch(), withInterceptorsFromDi()),
+       /*...*/
+     ],
+   ```
 
-```diff
-- // Webpack will replace 'require' with - '__webpack_require__'
-- // '__non_webpack_require__' is a proxy to Node 'require'
-- // The below code is to ensure that the server is run - only when not requiring the bundle.
-- declare const __non_webpack_require__: NodeRequire;
-- const mainModule = __non_webpack_require__.main;
-- const moduleFilename = (mainModule && mainModule.- filename) || '';
-- if (moduleFilename === __filename || moduleFilename.- includes('iisnode')) {
--   run();
-- }
+1. If your storefront app uses SSR, you must also replace `BrowserModule.withServerTransition({ appId: 'serverApp' }),` with `BrowserModule` in the `imports` array.
 
-+ run();
-```
+   The update `imports` array should appear as follows:
 
-6. In the very bottom of the file, remove the re-export of the path `./src/main.server`
+   ```ts
+     imports: [
+        BrowserModule,
+        /*...*/
+     ],
+   ```
 
-```diff
-- export * from './src/main.server';
-```
+## Next Steps
 
-This is the end of the migration guide for the Angular `application` builder.
-
-## In `app.module.ts`, use new, non-deprecated Angular APIs
-
-Unrelated to the migration to the new Angular `application` builder, please also update the `app.module.ts` file to use new, non-deprecated Angular APIs:
-
-### `src/app/app.module.ts`
-
-1. Remove the `HttpClientModule` from the `imports` array. 
-
-```diff
-  imports: [
--    HttpClientModule,
-```
-
-2. Add `provideHttpClient(withFetch(), withInterceptorsFromDi()),` to the `providers` array.
-
-```diff
-  providers: [
-+   provideHttpClient(withFetch(), withInterceptorsFromDi()),
-  ],
-```
-
-## For SSR projects, additionally:
-
-### `src/app/app.module.ts`
-
-Replace the item in the `imports` array `BrowserModule.withServerTransition({ appId: 'serverApp' }),` with just `BrowserModule`
-
-```diff
-  imports: [
--    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-+    BrowserModule,
-  ],
-```
-
-## New commands for SSR projects
-
-### How to run SSR dev server (watching for changed files and rebuilding)
-
-Previously the SSR dev server could be run with a command `npm run dev:ssr`. But now this command is removed (because its builder was replaced by the new Angular `application` builder). To workaround this, please:
-
-1. add to your `package.json` the new custom command `"serve:ssr:watch"`:
-```diff
-  "serve:ssr": "node dist/YOUR-APP-NAME/server/server.mjs",
-+ "serve:ssr:watch": "node --watch dist/YOUR-APP-NAME/server/server.mjs",
-```
-
-1. Then please **run in 2 separate terminal window**s:
-
-- `npm run watch` - to build the app in the watch mode (watching for changed files source files and rebuilding)
-- `npm run serve:ssr:watch` - to run the SSR dev server in the watch mode (watching for compiled files and rerunning the server)
-
-Note: the same workaround has been documented also for new Angular 17 apps in the [KBA 3460263](https://me.sap.com/notes/3460263).
-
-### How to run server prerendering
-
-Previously the server prerendering could be run with a command `npm run prerender`. But now this command is removed  (because its builder was replaced by the new Angular `application` builder). To workaround this, please:
-
-1. in `package.json` create the new custom command `"prerender"`:
-
-```diff
-+  "prerender": "ng build --prerender=true",
-```
-
-2. Then run the command in a terminal, while passing the Node env variable `SERVER_REQUEST_ORIGIN`, for example:
-
-```bash
-SERVER_REQUEST_ORIGIN="http://localhost:4200" npm run prerender
-```
-
-Note: Remember to replace "http://localhost:4200" with the real target domain where you want to deploy your prerendered pages, especially if you are deploying for production. Otherwise, some composable storefront SEO features might not work properly. For eample, [Canonical URLs](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/e712f36722c543359ed699aed9873075.html?version=2211#loio98befe9ef9ae4957a4ae34669c175fd5) might point to a wrong domain, or [Automatic Multi-Site Configuration](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/9d2e339c2b094e4f99df1c2d7cc999a8.html?version=2211) might not recognize the base-site correctly (for example, if some regexes configured in the CMS for base-site recognition depend on the domain name).
-
-Note: the same workaround has been documented also for new Angular 17 apps in the [KBA 3460211](https://me.sap.com/notes/3460211).
-
-
-# Next
-Once you modernized your app that was migrated from Spartacus 6.8 to 2211.19, you're ready for the next migration guide: [migrating to Angular 19 and Spartacus 2211.35](./migration.md).
+Congratulations! Your storefront app has been modernized to look like a new Angular 17 app. You can now continue with updating your Spartacus app by following the rest of the procedures in [Update Release 2211.36](./migration.md).
