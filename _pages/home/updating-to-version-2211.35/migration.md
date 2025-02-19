@@ -72,7 +72,7 @@ The update to Spartacus 2211.36 is mostly focused on updating the framework to A
 
 1. In `package.json`, set your `@spartacus` libraries to `“~2211.36.1"`, except `@spartacus/schematics`.
 
-1. Run the following command to install the updated dependencies:
+1. Run the following command in the workspace of your Angular application to install the updated dependencies:
 
    ```bash
 
@@ -86,6 +86,8 @@ The update to Spartacus 2211.36 is mostly focused on updating the framework to A
    ```bash
    ng update @spartacus/schematics@2211.36
    ```
+
+   This command runs the `update` schematics, and updates your `@spartacus/schematics` package to version `2211.36.1`.
 
 1. Consult [Technical Changes in Spartacus 2211.36](./typescript-manual.doc.md) for information about additional changes that have been introduced in Spartacus 2211.36.
 
