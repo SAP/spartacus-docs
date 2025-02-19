@@ -66,7 +66,7 @@ The update to Spartacus 2211.36 is mostly focused on updating the framework to A
 
 **Note:** You must start with a version 2211.32.1 Spartacus app to be able to update to version 2211.36.
 
-1. In `package.json`, update the version to 2211.36.1 for all Spartacus dependencies except `@spartacus/schematics`.
+1. In `package.json`, set your `@spartacus` libraries to `“~2211.36.1"`, except `@spartacus/schematics`.
 
 1. In `package.json`, if you haven't already done so, change the version range specifier for `@spartacus/schematics` from `^2211.32.1` to `~2211.32.1`.
 
