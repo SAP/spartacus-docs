@@ -66,7 +66,21 @@ The update to Spartacus 2211.36 is mostly focused on updating the framework to A
 
 **Note:** You must start with a version 2211.32.1 Spartacus app to be able to update to version 2211.36.
 
-1. To update to version 2211.36 of Spartacus, run the following command in the workspace of your Angular application:
+To update to version 2211.36 of Spartacus, perform the following steps:
+
+1. In `package.json`, update the version to 2211.36 for all Spartacus dependencies except `@spartacus/schematics`.
+
+1. In `package.json`, change the version range specifier from `^2211.32.1` to `~2211.32.1`.
+
+1. Run the following command to install the updated dependencies:
+
+   ```bash
+   npm install --force
+   git add .
+   git commit -m "update Spartacus libraries to 2211.36 except schematics"
+   ```
+
+1. Run the following command in the workspace of your Angular application to update the `@spartacus/schematics` package and run the update schematics:
 
    ```bash
    ng update @spartacus/schematics@2211.36
