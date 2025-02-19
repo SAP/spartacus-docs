@@ -87,8 +87,6 @@ The update to Spartacus 2211.36 is mostly focused on updating the framework to A
    ng update @spartacus/schematics@2211.36
    ```
 
-   This command runs the `update` schematics, which updates your `@spartacus/schematics` package to `2211.36.1` as part of the process.
-
 1. Consult [Technical Changes in Spartacus 2211.36](./typescript-manual.doc.md) for information about additional changes that have been introduced in Spartacus 2211.36.
 
 ## Updates to Bootstrap in Your Project
