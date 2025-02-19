@@ -78,7 +78,7 @@ To update to version 2211.36 of Spartacus, perform the following steps:
 
    npm install --force
    git add .
-   git commit -m "update Spartacus libraries to 2211.36 except schematics"
+   git commit -m "update Spartacus libraries to 2211.36.1 except schematics"
    ```
 
 1. Run the following command in the workspace of your Angular application to update the `@spartacus/schematics` package and run the update schematics:
