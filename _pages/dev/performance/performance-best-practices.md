@@ -41,6 +41,32 @@ You can improve the performance of your storefront application with the followin
 - Maintain a second level (L2) cache for all of the site assets, and also for the HTTP requests that can be cached, such as OCC calls for anonymous users that do not change very often.
 - Ensure you have an appropriate browser cache policy for all of the assets of the page. Browser caching saves a lot of bandwidth and improves page load time (both initial and subsequent) when it is properly set and tuned.
 
+## Image Format Recommendations
+
+You can improve the performance of your storefront by following these image format recommendations:
+
+- Using WebP or AVIF (AV1 Image File Format) can drastically reduce the size of your images, which can improve the performance of your storefront application.
+  - Use command line tools like `cwebp`, `avifenc` or `Squoosh` to convert your images to WebP and AVIF formats.
+  - Check browser support for WebP and AVIF formats before using them.
+  - Provide fallback options for browsers that do not support WebP or AVIF formats.
+- Select the correct compression level for your images to balance image quality and file size.
+- Use CDN services that support WebP and AVIF formats to deliver images to users.
+- Use vector graphics (SVG) for simple images and icons, which can be scaled without losing quality and have smaller file sizes compared to raster images.
+
+## CDN Recommendations
+
+Using a CDN can significantly improve the performance of your storefront by distributing your content across multiple servers located around the world. Here are some best practices for using a CDN:
+
+- Choose a Reliable CDN Provider: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
+- Cache Static Assets: Configure your CDN to cache static assets such as images, CSS, JavaScript files, and fonts. This reduces the load on your origin server and speeds up content delivery to users.
+- Use HTTP/2: Make sure your CDN supports HTTP/2, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
+- Enable Brotli Compression: Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
+- Use a Secure Connection: Ensure that your CDN supports HTTPS to encrypt data in transit and protect user privacy.
+- Monitor Performance: Monitor the performance of your CDN using tools like Google PageSpeed Insights, WebPageTest, or Pingdom to identify bottlenecks and optimize content delivery.
+- Optimize Cache Settings: Configure cache settings on your CDN to ensure that content is cached for an appropriate duration and that cache invalidation is handled correctly.
+- Use a Multi-CDN Strategy: Consider using multiple CDNs to improve redundancy, reduce latency, and optimize content delivery for users in different regions.
+- Implement a CDN Failover Strategy: Plan for CDN outages by implementing a failover strategy that redirects traffic to an alternate CDN or origin server in case of downtime.
+
 ## Additional Recommendations
 
 The following recommendations can improve the performance of your Spartacus storefront app significantly:
