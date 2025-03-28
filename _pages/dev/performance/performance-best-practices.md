@@ -46,7 +46,6 @@ You can improve the performance of your storefront application with the followin
 You can improve the performance of your storefront by following these image format recommendations:
 
 - Using WebP or AVIF (AV1 Image File Format) can drastically reduce the size of your images, which can improve the performance of your storefront application.
-  - Use command line tools like `cwebp`, `avifenc` or `Squoosh` to convert your images to WebP and AVIF formats.
   - Check browser support for WebP and AVIF formats before using them.
   - Provide fallback options for browsers that do not support WebP or AVIF formats.
 - Select the correct compression level for your images to balance image quality and file size.
