@@ -49,8 +49,11 @@ You can improve the performance of your storefront by following these image form
   - Check browser support for WebP and AVIF formats before using them.
   - Provide fallback options for browsers that do not support WebP or AVIF formats.
 - Select the correct compression level for your images to balance image quality and file size.
+  - Use lossy compression for photographs and images with gradients.
+  - Use lossless compression for images with text, sharp edges, or when quality cannot be compromised.
 - Use CDN services that support WebP and AVIF formats to deliver images to users.
 - Use vector graphics (SVG) for simple images and icons, which can be scaled without losing quality and have smaller file sizes compared to raster images.
+- Use CSS techniques to create simple shapes and icons instead of using images. This can reduce the number of image files needed and improve loading times.
 
 ## CDN Recommendations
 
@@ -61,7 +64,7 @@ Using a CDN can significantly improve the performance of your storefront by dist
 - Use HTTP/2: Make sure your CDN supports HTTP/2, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
 - Enable Brotli Compression: Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
 - Use a Secure Connection: Ensure that your CDN supports HTTPS to encrypt data in transit and protect user privacy.
-- Monitor Performance: Monitor the performance of your CDN using tools like Google PageSpeed Insights, WebPageTest, or Pingdom to identify bottlenecks and optimize content delivery.
+- Monitor Performance: Monitor the performance of your CDN using available tools to identify bottlenecks and optimize content delivery.
 - Optimize Cache Settings: Configure cache settings on your CDN to ensure that content is cached for an appropriate duration and that cache invalidation is handled correctly.
 - Use a Multi-CDN Strategy: Consider using multiple CDNs to improve redundancy, reduce latency, and optimize content delivery for users in different regions.
 - Implement a CDN Failover Strategy: Plan for CDN outages by implementing a failover strategy that redirects traffic to an alternate CDN or origin server in case of downtime.
