@@ -54,14 +54,20 @@ You can improve the performance of your storefront by following these image form
 - Use CDN services that support WebP and AVIF formats to deliver images to users.
 - Use vector graphics (SVG) for simple images and icons, which can be scaled without losing quality and have smaller file sizes compared to raster images.
 - Use CSS techniques to create simple shapes and icons instead of using images. This can reduce the number of image files needed and improve loading times.
-
+- For more information, please refer to the following articles:
+  - [WebP Image Format](https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images)
+  - [Image CDN](https://web.dev/learn/images/cdn)
+  - [Brotli Compression](https://web.dev/articles/codelab-text-compression-brotli)
+  - [Network Payload Compression](https://web.dev/articles/codelab-text-compression)
+  - [Image Optimization](https://web.dev/articles/compress-images)
+  
 ## CDN Recommendations
 
 Using a CDN can significantly improve the performance of your storefront by distributing your content across multiple servers located around the world. Here are some best practices for using a CDN:
 
 - Choose a Reliable CDN Provider: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
-- Cache Static Assets: Configure your CDN to cache static assets such as images, CSS, JavaScript files, and fonts. This reduces the load on your origin server and speeds up content delivery to users.
-- Use HTTP/2: Make sure your CDN supports HTTP/2, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
+- Cache Static Assets and Dynamic Prerendered Routes: Configure your CDN to cache static assets such as images, CSS, JavaScript files, fonts and prerendered routes. This reduces the load on your origin server and speeds up content delivery to users.
+- Use HTTP/2 or HTTP/3 (if possible): Make sure your CDN supports the latest versions of HTTP, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
 - Enable Brotli Compression: Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
 - Use a Secure Connection: Ensure that your CDN supports HTTPS to encrypt data in transit and protect user privacy.
 - Monitor Performance: Monitor the performance of your CDN using available tools to identify bottlenecks and optimize content delivery.
