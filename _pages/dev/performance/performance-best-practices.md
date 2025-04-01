@@ -57,7 +57,7 @@ You can improve the performance of your storefront by following these image form
 
 ## CDN Recommendations
 
-Using a CDN can significantly improve the performance of your storefront by distributing your content across multiple servers located around the world. Here are some best practices for using a CDN:
+Using a CDN can significantly improve the performance of your storefront by distributing your content across multiple servers located around the world, close to your end-users. Here are some best practices for using a CDN:
 
 - Choose a Reliable CDN Provider: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
 - Cache Static Assets: Configure your CDN to cache static assets such as images, CSS, JavaScript files, and fonts. This reduces the load on your origin server and speeds up content delivery to users.
