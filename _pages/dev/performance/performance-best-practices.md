@@ -66,7 +66,7 @@ You can improve the performance of your storefront by following these image form
 Using a CDN can significantly improve the performance of your storefront by distributing your content across multiple servers located around the world, close to your end-users. Here are some best practices for using a CDN:
 
 - Choose a Reliable CDN Provider: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
-- Cache Static Assets and Dynamic Prerendered Routes: Configure your CDN to cache static assets such as images, CSS, JavaScript files, fonts and prerendered routes. This reduces the load on your origin server and speeds up content delivery to users.
+- Cache Static Assets and Dynamic Prerendered Routes: Configure your CDN to cache static assets, including images, CSS, JavaScript files, fonts, and prerendered routes. This reduces the load on your origin server and accelerates content delivery to users, generally improving Core Web Vitals metrics such as FCP and LCP.
 - Use HTTP/2 or HTTP/3 (if possible): Make sure your CDN supports the latest versions of HTTP, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
 - Enable Brotli Compression: Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
 - Use a Secure Connection: Ensure that your CDN supports HTTPS to encrypt data in transit and protect user privacy.
