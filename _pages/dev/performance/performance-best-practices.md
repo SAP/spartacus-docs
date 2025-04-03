@@ -60,6 +60,7 @@ You can improve the performance of your storefront by following these image form
   - [Brotli Compression](https://web.dev/articles/codelab-text-compression-brotli)
   - [Network Payload Compression](https://web.dev/articles/codelab-text-compression)
   - [Image Optimization](https://web.dev/articles/compress-images)
+  - [Web Performance](https://developer.mozilla.org/en-US/docs/Web/Performance)
   
 ## CDN Recommendations
 
@@ -74,6 +75,8 @@ Using a CDN can significantly improve the performance of your storefront by dist
 - Optimize Cache Settings: Configure cache settings on your CDN to ensure that content is cached for an appropriate duration and that cache invalidation is handled correctly.
 - Use a Multi-CDN Strategy: Consider using multiple CDNs to improve redundancy, reduce latency, and optimize content delivery for users in different regions.
 - Implement a CDN Failover Strategy: Plan for CDN outages by implementing a failover strategy that redirects traffic to an alternate CDN or origin server in case of downtime.
+- Leverage CDN capabilities: Use CDN features like `stale-while-revalidate` and `stale-if-error` to serve stale content while fetching updates or handling errors.
+- Implement Subresource Integrity (SRI): Subresource Integrity (SRI) is a security feature that ensures the integrity of resources fetched from a CDN. By using SRI, you can verify that the resources have not been tampered with, thus protecting against supply chain attacks.
 
 ## Additional Recommendations
 
