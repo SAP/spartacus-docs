@@ -60,8 +60,7 @@ You can improve the performance of your storefront by following these image form
   - [Brotli Compression](https://web.dev/articles/codelab-text-compression-brotli)
   - [Network Payload Compression](https://web.dev/articles/codelab-text-compression)
   - [Image Optimization](https://web.dev/articles/compress-images)
-  - [Web Performance](https://developer.mozilla.org/en-US/docs/Web/Performance)
-  
+
 ## CDN Recommendations
 
 Using a CDN can significantly improve the performance of your storefront by distributing your content across multiple servers located around the world, close to your end-users. Here are some best practices for using a CDN:
