@@ -41,6 +41,42 @@ You can improve the performance of your storefront application with the followin
 - Maintain a second level (L2) cache for all of the site assets, and also for the HTTP requests that can be cached, such as OCC calls for anonymous users that do not change very often.
 - Ensure you have an appropriate browser cache policy for all of the assets of the page. Browser caching saves a lot of bandwidth and improves page load time (both initial and subsequent) when it is properly set and tuned.
 
+## Image Format Recommendations
+
+You can improve the performance of your storefront application with the following image format best practices:
+
+- Use WebP or AVIF (AV1 Image File Format) to reduce the size of your images, which can improve the performance of your storefront application.
+  - Check browser support for WebP and AVIF formats before using them.
+  - Provide fallback options for browsers that don't support WebP or AVIF formats.
+- Select the correct compression level for your images to balance image quality and file size.
+  - Use lossy compression for photographs and images with gradients.
+  - Use lossless compression for images with text, sharp edges, or when quality can't be compromised.
+- Use content delivery network (CDN) services that support WebP and AVIF formats to deliver images to users.
+- Use vector graphics (SVG) for simple images and icons, which can be scaled without losing quality and have smaller file sizes compared to raster images.
+- Use CSS techniques to create simple shapes and icons instead of using images. This can reduce the number of image files needed and improve loading time.
+- For more information, see:
+  - [WebP Image Format](https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images)
+  - [Image CDN](https://web.dev/learn/images/cdn)
+  - [Brotli Compression](https://web.dev/articles/codelab-text-compression-brotli)
+  - [Network Payload Compression](https://web.dev/articles/codelab-text-compression)
+  - [Image Optimization](https://web.dev/articles/compress-images)
+
+## CDN Recommendations
+
+Using a content delivery network (CDN) can significantly improve the performance of your storefront application by distributing your content across multiple servers located around the world, close to your end users. The following are best practices for using a CDN:
+
+- Choose a reliable CDN provider: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
+- Cache static assets and dynamic prerendered routes: Configure your CDN to cache static assets, including images, CSS, JavaScript files, fonts, and prerendered routes. This reduces the load on your origin server and accelerates content delivery to users, which can improve Core Web Vital metrics such as LCP.
+- Use HTTP/2 or HTTP/3 if possible: Make sure your CDN supports the latest versions of HTTP, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
+- Enable Brotli compression: Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
+- Use a secure connection: Ensure that your CDN supports HTTPS to encrypt data in transit and protect user privacy.
+- Monitor performance: Monitor the performance of your CDN using available tools to identify bottlenecks and optimize content delivery.
+- Optimize cache settings: Configure cache settings on your CDN to ensure that content is cached for an appropriate duration and that cache invalidation is handled correctly.
+- Use a multi-CDN strategy: Consider using multiple CDNs to improve redundancy, reduce latency, and optimize content delivery for users in different regions.
+- Implement a CDN failover strategy: Plan for CDN outages by implementing a failover strategy that redirects traffic to an alternate CDN or origin server in case of downtime.
+- Leverage CDN capabilities: Use CDN features like `stale-while-revalidate` and `stale-if-error` to serve stale content while fetching updates or handling errors.
+- Implement Subresource Integrity: Subresource Integrity (SRI) is a security feature that ensures the integrity of resources fetched from a CDN. By using SRI, you can verify that the resources have not been tampered with, thus protecting against supply chain attacks.
+
 ## Additional Recommendations
 
 The following recommendations can improve the performance of your Spartacus storefront app significantly:
