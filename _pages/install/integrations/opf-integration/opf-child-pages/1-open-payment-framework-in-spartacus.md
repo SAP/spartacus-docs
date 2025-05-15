@@ -172,9 +172,9 @@ provideConfig(<OpfConfig>{
 
 The open payment framework feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. For more information, see [Multiple Checkout Flows](loio7c83b24b00f746a591aab48d58d6abc5) and [Setting a paymentProvider value in SAP Commerce Cloud](loioa0a8551f2c0649729a9f00c6ee53b97d).
 
-## B2B Checkout Configuration
+## Configuring B2B Checkout
 
-The Open Payment Framework B2B Checkout feature is disabled by default. When enabled, it overrides the existing B2C checkout configuration. To enable B2B checkout support, you can install the feature using schematics:
+The open payment framework B2B checkout is disabled by default. When enabled, it overrides the existing B2C checkout configuration. To enable B2B checkout support, you can install the feature using schematics:
 
 ```bash
 ng add @spartacus/opf --skip-confirmation --no-interactive --features "OPF-B2B-Checkout"
@@ -182,7 +182,9 @@ ng add @spartacus/opf --skip-confirmation --no-interactive --features "OPF-B2B-C
 
 ### Adding the CMS Components Manually Using ImpEx
 
-To add all of the necessary CMS components and related data for the OPF B2B Checkout, import the following ImpEx:
+You can add the B2B checkout CMS data manually through ImpEx. 
+
+To add all of the necessary CMS components and related data for the open payment framework B2B checkout, import the following ImpEx:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
@@ -236,9 +238,9 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ;;BodyContent-OpfCheckoutReview;BodyContent;OpfCheckoutReview;BodyContentSlot-checkoutOpfReview
 ```
 
-### B2B OCC Endpoint Configuration
+### Configuring B2B OCC Endpoints
 
-To enable OPF B2B checkout functionality, you need to provide the B2B-specific OCC endpoint configuration. Add the following configuration to your `app.module.ts`:
+To enable the B2B checkout functionality in the open payment framework, you need to provide B2B-specific OCC endpoint configuration. Add the following configuration to your `app.module.ts`:
 
 ```ts
 provideConfig(defaultOpfB2bCheckoutOccEndpointsConfig);
