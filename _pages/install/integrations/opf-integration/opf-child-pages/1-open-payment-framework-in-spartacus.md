@@ -172,6 +172,82 @@ provideConfig(<OpfConfig>{
 
 The open payment framework feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. For more information, see [Multiple Checkout Flows](loio7c83b24b00f746a591aab48d58d6abc5) and [Setting a paymentProvider value in SAP Commerce Cloud](loioa0a8551f2c0649729a9f00c6ee53b97d).
 
+## Configuring B2B Checkout
+
+The open payment framework B2B checkout is disabled by default. When enabled, it overrides the existing B2C checkout configuration. To enable B2B checkout support, you can install the feature using schematics:
+
+```bash
+ng add @spartacus/opf --skip-confirmation --no-interactive --features "OPF-B2B-Checkout"
+```
+
+### Adding the CMS Components Manually Using ImpEx
+
+You can add the B2B checkout CMS data manually through ImpEx. 
+
+To add all of the necessary CMS components and related data for the open payment framework B2B checkout, import the following ImpEx:
+
+```text
+$contentCatalog=powertools-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+$siteResource=jar:de.hybris.platform.spartacussampledata.constants.SpartacussampledataConstants&/spartacussampledata/import/contentCatalogs/powertoolsContentCatalog
+
+# Add OPF CMSFlexComponents
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
+;;OpfCheckoutPaymentAndReviewComponent;OpfCheckoutPaymentAndReview;OpfB2bCheckoutPaymentAndReview
+;;OpfCheckoutPaymentTypeComponent;OpfCheckoutPaymentType;OpfCheckoutPaymentType
+;;OpfCheckoutDeliveryAddressComponent;OpfCheckoutDeliveryAddress;OpfCheckoutDeliveryAddress
+;;OpfCheckoutReviewComponent;OpfCheckoutReview;OpfCheckoutReview
+
+# Add OPF Explicit T&C CMSFlexComponent as invisible
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible
+;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false
+
+# Add OPF ContentSlots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid,$contentCV)
+;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,CartProceedToCheckoutComponent
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid,$contentCV)
+;;BodyContentSlot-checkoutOpfPaymentType;Body Content Slot for OPF Checkout Payment Type;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentTypeComponent,CheckoutProgressMobileBottomComponent
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,CartProceedToCheckoutComponent
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid,$contentCV)
+;;BodyContentSlot-checkoutOpfDeliveryAddress;Body Content Slot for OPF Delivery Address;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutDeliveryAddressComponent,CheckoutProgressMobileBottomComponent
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,CartProceedToCheckoutComponent
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid,$contentCV)
+;;BodyContentSlot-checkoutOpfReview;Body Content Slot for OPF Checkout Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,CartProceedToCheckoutComponent
+
+# Add OPF ContentPages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;title[lang=en];defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;OpfCheckoutPaymentAndReview;Opf Checkout Payment And Review;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-payment-and-review;Checkout Payment and Review;true;check;false
+;;OpfCheckoutPaymentType;Opf Checkout Payment Type;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-payment-type;Checkout Payment Type;true;check;false
+;;OpfCheckoutDeliveryAddress;Opf Checkout Delivery Address;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-delivery-address;Checkout Delivery Address;true;check;false
+;;OpfCheckoutReview;Opf Checkout Review;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-review;Checkout Review;true;check;false
+
+# Add OPF Page and ContentSlot relation
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;SideContent-CheckoutOpfPaymentAndReview;SideContent;OpfCheckoutPaymentAndReview;SideContentSlot-checkoutPaymentDetails
+;;BodyContent-CheckoutOpfPaymentAndReview;BodyContent;OpfCheckoutPaymentAndReview;BodyContentSlot-checkoutOpfPaymentAndReview
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;SideContent-OpfCheckoutPaymentType;SideContent;OpfCheckoutPaymentType;SideContentSlot-checkoutPaymentDetails
+;;BodyContent-OpfCheckoutPaymentType;BodyContent;OpfCheckoutPaymentType;BodyContentSlot-checkoutOpfPaymentType
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;SideContent-OpfCheckoutDeliveryAddress;SideContent;OpfCheckoutDeliveryAddress;SideContentSlot-checkoutPaymentDetails
+;;BodyContent-OpfCheckoutDeliveryAddress;BodyContent;OpfCheckoutDeliveryAddress;BodyContentSlot-checkoutOpfDeliveryAddress
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;SideContent-OpfCheckoutReview;SideContent;OpfCheckoutReview;SideContentSlot-checkoutPaymentDetails
+;;BodyContent-OpfCheckoutReview;BodyContent;OpfCheckoutReview;BodyContentSlot-checkoutOpfReview
+```
+
+### Configuring B2B OCC Endpoints
+
+To enable the B2B checkout functionality in the open payment framework, you need to provide B2B-specific OCC endpoint configuration. Add the following configuration to your `app.module.ts`:
+
+```ts
+provideConfig(defaultOpfB2bCheckoutOccEndpointsConfig);
+```
+
+This configuration overrides the standard payment-authorized order placement endpoint with a B2B-specific implementation that uses the format `orgUsers/${userId}/orders?fields=FULL` for placing orders after successful payment transactions.
+
 ## Configuring Terms and Conditions
 
 On the open payment framework **Checkout Payment and Review** page, the following modes are available for handling Terms and Conditions:
