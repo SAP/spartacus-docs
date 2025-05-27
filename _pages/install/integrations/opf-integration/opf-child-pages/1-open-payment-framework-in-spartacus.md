@@ -174,15 +174,15 @@ The open payment framework feature library supports run-time adjustment of the c
 
 ## Configuring B2B Checkout
 
-The open payment framework B2B checkout is disabled by default. When enabled, it overrides the existing B2C checkout configuration. To enable B2B checkout support, you can install the feature using schematics:
+B2B checkout in the open payment framework is disabled by default. When enabled, it overrides the existing B2C checkout configuration. To enable support for B2B checkout, you can install the feature using schematics, as follows:
 
 ```bash
 ng add @spartacus/opf --skip-confirmation --no-interactive --features "OPF-B2B-Checkout"
 ```
 
-### Adding the CMS Components Manually Using ImpEx
+### Adding the B2B Checkout CMS Components Manually Using ImpEx
 
-You can add the B2B checkout CMS data manually through ImpEx. 
+You can use ImpEx to add the B2B checkout CMS data manually.
 
 To add all of the necessary CMS components and related data for the open payment framework B2B checkout, import the following ImpEx:
 
@@ -240,7 +240,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 ### Configuring B2B OCC Endpoints
 
-To enable the B2B checkout functionality in the open payment framework, you need to provide B2B-specific OCC endpoint configuration. Add the following configuration to your `app.module.ts`:
+To enable B2B checkout functionality in the open payment framework, you need to provide a B2B-specific OCC endpoint configuration. Add the following configuration to your `app.module.ts`:
 
 ```ts
 provideConfig(defaultOpfB2bCheckoutOccEndpointsConfig);
