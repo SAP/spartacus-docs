@@ -116,9 +116,9 @@ The default value is `3000` milliseconds.
 
 The `cache` setting is a boolean that enables the built-in, in-memory cache for pre-rendered URLs. This option is not related to any kind of external caching layer, such as a CDN. Even when this value is set to `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
 
-**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSizeMemory` setting (or the deprecated `cacheSize` setting) can help avoid this. However, the in-memory cache _consumes the server's memory_, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
+**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSizeMemory` setting (or the deprecated `cacheSize` setting) can help avoid this. However, the in-memory cache *consumes the server's memory*, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
 
-It is generally recommended to _not_ enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
+It is generally recommended to *not* enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
 
 ### cacheSizeMemory
 
