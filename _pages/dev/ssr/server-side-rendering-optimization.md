@@ -1,9 +1,9 @@
 ---
 title: Server-Side Rendering Optimization
 feature:
-  - name: Server-Side Rendering Optimization
-    spa_version: 3.0
-    cx_version: n/a
+- name: Server-Side Rendering Optimization
+  spa_version: 3.0
+  cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -27,21 +27,20 @@ The SSR optimization engine addresses these issues as follows:
 - The engine renders only a certain number of queued pages before the rest of the queue defaults to client-side rendering (CSR), unless you have set the `reuseCurrentRendering` option to ensure incoming requests wait for the current render to finish, instead of falling back to CSR.
 - Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by the timeout setting).
 - If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request.
-- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. Note that CSR renders should _never_ be cached.
+- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. Note that CSR renders should *never* be cached.
 - If the render is taking too long to finish, the engine will release its concurrency slot and provide a warning about the hanging render.
 
-  **Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
+   **Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
+- The rendered SSR pages *should* be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
 
-- The rendered SSR pages _should_ be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
-
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-  {:toc}
+{:toc}
 
----
+***
 
 ## Enabling the SSR Optimization Engine
 
@@ -298,7 +297,7 @@ You can use your web browser's network tool to check if your storefront is rende
    [...]
    </app-root>
    ```
-
+  
    If the `<app-root>` in your response is empty, it means SSR is not working correctly.
 
 ### Troubleshooting a Storefront That Is Not Running in SSR Mode
@@ -375,7 +374,7 @@ Often, a malformed URL can break the server-side rendering by preventing the SSR
 
 The following is an example of a malformed URL: `http://localhost:4200/electronics-spa/en/USD/Brands/Canon/c/brand_10%20or%20(1,2)=(select*from(select%20name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1),name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1))a)%20--%20and%201%3D1`.
 
-This is is usually the case when the `initialNavigation` Router setting is `enabled`.
+This is is usually the case when the  `initialNavigation` Router setting is `enabled`.
 
 This is a bug in Angular's Router that never resolves the route when a `NavigationError` occurs. You can implement [this workaround](https://github.com/SAP/spartacus/pull/10541/files) in your application, which uses Angular's private API.
 
@@ -434,9 +433,7 @@ You can customize your SSR strategy by disabling SSR for specific URLs and query
 The `defaultRenderingStrategyResolver` takes one parameter, `RenderingStrategyResolverOptions`, as follows:
 
 ```ts
-const defaultRenderingStrategyResolver =
-  (options: RenderingStrategyResolverOptions) => (req: Request) =>
-    RenderingStrategy;
+const defaultRenderingStrategyResolver = (options: RenderingStrategyResolverOptions) => (req: Request) => RenderingStrategy
 ```
 
 The `RenderingStrategyResolverOptions` interface defines the following optional properties:
@@ -457,11 +454,10 @@ The `defaultRenderingStrategyResolver` function works as follows:
 In Spartacus, the default configuration for `defaultRenderingStrategyResolverOptions` is defined as follows:
 
 ```ts
-export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverOptions =
-  {
-    excludedUrls: ['checkout', 'my-account'],
-    excludedParams: ['asm'],
-  };
+export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverOptions = {
+   excludedUrls: ['checkout', 'my-account'],
+   excludedParams: ['asm'],
+};
 ```
 
 This configuration specifies that SSR is disabled for requests with URLs containing `checkout` or `my-account`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
@@ -472,10 +468,10 @@ The `defaultRenderingStrategyResolver` function is set as the value for the `ren
 
 ```ts
 export const defaultSsrOptimizationOptions: SsrOptimizationOptions = {
-  // Other SSR optimization options...
-  renderingStrategyResolver: defaultRenderingStrategyResolver(
-    defaultRenderingStrategyResolverOptions
-  ),
+   // Other SSR optimization options...
+   renderingStrategyResolver: defaultRenderingStrategyResolver(
+      defaultRenderingStrategyResolverOptions
+   ),
 };
 ```
 
@@ -516,17 +512,13 @@ import { RenderingStrategy } from './ssr-optimization-options';
 
 const smartEditUrl = 'cx-preview';
 
-export const customRenderingStrategyResolver = (
-  request: Request
-): RenderingStrategy =>
-  request.url.includes(smartEditUrl)
-    ? RenderingStrategy.ALWAYS_CSR
-    : RenderingStrategy.DEFAULT;
+export const customRenderingStrategyResolver = (request: Request): RenderingStrategy =>
+  request.url.includes(smartEditUrl) ? RenderingStrategy.ALWAYS_CSR : RenderingStrategy.DEFAULT;
 
 /* ... */
 
 const ssrOptions: SsrOptimizationOptions = {
-  renderingStrategyResolver: customRenderingStrategyResolver,
+   renderingStrategyResolver: customRenderingStrategyResolver
 };
 
 const ngExpressEngine = NgExpressEngineDecorator.get(engine, ssrOptions);
