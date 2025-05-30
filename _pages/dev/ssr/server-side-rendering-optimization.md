@@ -1,9 +1,9 @@
 ---
 title: Server-Side Rendering Optimization
 feature:
-- name: Server-Side Rendering Optimization
-  spa_version: 3.0
-  cx_version: n/a
+  - name: Server-Side Rendering Optimization
+    spa_version: 3.0
+    cx_version: n/a
 ---
 
 {% capture version_note %}
@@ -27,20 +27,21 @@ The SSR optimization engine addresses these issues as follows:
 - The engine renders only a certain number of queued pages before the rest of the queue defaults to client-side rendering (CSR), unless you have set the `reuseCurrentRendering` option to ensure incoming requests wait for the current render to finish, instead of falling back to CSR.
 - Pages are served in SSR mode if they can be rendered in a given time (that is, within the time that is specified by the timeout setting).
 - If the engine falls back to CSR because the SSR render takes too long, once the SSR page is rendered, it is stored in memory and served with the subsequent request.
-- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. Note that CSR renders should *never* be cached.
+- The CSR app is served with the `Cache-Control:no-store` header to ensure it is not cached by the caching layer. Note that CSR renders should _never_ be cached.
 - If the render is taking too long to finish, the engine will release its concurrency slot and provide a warning about the hanging render.
 
-   **Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
-- The rendered SSR pages *should* be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
+  **Caution:** Notifications about hanging renders should be taken seriously because the optimization engine does not release the resources related to a hanging render. If the root of the problem is not addressed in the application code, the server's resources can quickly become depleted.
 
-***
+- The rendered SSR pages _should_ be cached (for example, using a CDN) to ensure subsequent requests do not hit the SSR server. This reduces the server load and reduces CSR fallbacks to the least amount possible. For more information, see [Recommended Setup for Server-Side Rendering]({{ site.baseurl }}{% link _pages/dev/ssr/recommended-server-side-rendering-setup.md %}).
+
+---
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
-***
+---
 
 ## Enabling the SSR Optimization Engine
 
@@ -70,6 +71,7 @@ By default, the SSR optimization engine uses the following configuration:
 ```ts
 {
   cacheSize: 3000,
+  cacheSizeMemory: 800_000_000,
   concurrency: 10,
   timeout: 3_000,
   forcedSsrTimeout: 60_000,
@@ -115,21 +117,54 @@ The default value is `3000` milliseconds.
 
 The `cache` setting is a boolean that enables the built-in, in-memory cache for pre-rendered URLs. This option is not related to any kind of external caching layer, such as a CDN. Even when this value is set to `false`, the cache is used to temporarily store the pages that finish rendering after the CSR fallback, so they can be served with the next request (after which, the cache is cleared).
 
-**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSize` setting can help avoid this. However, the in-memory cache *consumes the server's memory*, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
+**Note:** The in-memory cache should be used carefully to avoid running out of memory. Using the `cacheSizeMemory` setting (or the deprecated `cacheSize` setting) can help avoid this. However, the in-memory cache _consumes the server's memory_, and if there are any memory leaks, this can cause the server to stall or even crash if the server runs out of memory.
 
-It is generally recommended to *not* enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
+It is generally recommended to _not_ enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
 
-### cacheSize
+### cacheSizeMemory
+
+The `cacheSizeMemory` limits the cache size memory in bytes. This setting helps to keep memory usage under control.
+
+The default value is set to 800 MB (meaning 800 000 000 bytes in International System of Units).
+
+**IMPORTANT**: Your server should have much more available memory than the configured `cacheSizeMemory`, because the NodeJS process needs a lot of operational memory also for the rendering activities, such as creating instances of the Angular applications for each incoming requests. The more parallel renderings are allowed (which can be limited with the `concurrency` option), the more operational memory is needed.
+
+In our internal tests in May 2025 we observed that for 10 parallel renderings of the OOTB Homepage (with different query params to trigger separate renderings), the total memory usage (aka "[Resident Set Size](https://nodejs.org/en/learn/diagnostics/memory/understanding-and-tuning-memory#monitoring-memory-usage)") went up to ~500MB.
+
+That said, the memory usage for rendering a single page can vary from project to project and from page to page. The memory consumption depends on various factors: the size of the created DOM structure in-memory of NodeJS, the size of stored temporarily responses from backend endpoints, the size of the state of the whole Angular application, etc.
+
+_Note_: For calculating the size of the cache entry, the `cacheEntrySizeCalculator` option is used.
+
+_Note_: This config option is used only when the `ssrFeatureToggles.limitCacheByMemory` is set to true.
+
+The default value 800MB is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. The maximum-memory-restart factor is set to 60% of the pod size, which means that after using more than 1.8 GB the process will restart, which we'd like to avoid. In May 2025 we've measured locally that the peak memory consumption when rendering 10 parallel requests of the OOTB Homepage was ~500MB (without taking cache into account). Because the complexity of rendering and therefore the memory consumption can vary from project to project and from page to page, let's add another 500MB margin and let's assume that at most 1 GB of memory needs to be reserved for the rendering purposes. Knowing that we have 1.8 GB available memory, this means that we can spend the remaining 800MB for the cache.
+
+### cacheEntrySizeCalculator
+
+The `cacheEntrySizeCalculator` is a strategy for calculating the size of a cache entry. It's needed to keep track of the used cache size, so the oldest entries can be removed when the cache size memory limit is reached.
+
+The default implementation is the `DefaultCacheEntrySizeCalculator` class. For HTML string, it returns the size of the string in bytes, assuming 2 bytes per each character (an upper-bound estimation assuming V8 is using [`SeqTwoByteString` data structure](https://github.com/v8/v8/blob/c865b8257a/src/objects/string.h#L921-L923) for string cache entries and our internal tests showed that this is the case).
+
+Theoretically it's possible to cache also error objects (which is not recommended!), but for completeness our default calculator roughly approximates the size of the error, by summing up its 3 string properties: `name`, `message`, `trace`, which is not ideal and prone to under-estimation, especially when the error object has much more properties or even is not an instance of an Error object (`cacheEntry.err` has can be object of any type). For most customers who don't cache errors (as recommended), the default cacheEntrySizeCalculator should suffice. But for customers who - due to some reasons - deliberately want to cache some error objects, we exposed this configuration option `cacheEntrySizeCalculator` to allow them to customize the non-ideal default logic of calculating the size of the cached errors.
+To avoid caching error objects, it's recommended to enable the SSR feature toggle `ssrFeatureToggles.avoidCachingErrors`.
+
+_Note_: This config option is used only when the `ssrFeatureToggles.limitCacheByMemory` is set to true.
+
+### cacheSize (deprecated)
+
+**Warning:** This setting is deprecated. Please use `cacheSizeMemory` instead together with enabling the SSR feature toggle `ssrFeatureToggles.limitCacheByMemory`. The deprecated setting `cacheSize` doesn't allow for precise and predictable control of the actual memory usage of the cache, as opposed to the new setting `cacheSizeMemory`..
 
 The `cacheSize` setting is a number that limits the cache size to a specific number of entries. This setting helps to keep memory usage under control.
 
 The `cacheSize` setting can also be used when the `cache` setting is set to `false`. This then limits the number of timed-out renders that are kept in a temporary cache and which are waiting to be served with the next request.
 
-It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM). It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
+It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM), leaving also some room for the spikes of the memory needed for the rendering of pages by the Angular SSR engine. It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
 
 The default `cacheSize` is set to `3000` entries. Before version 2211.19 of Spartacus, no default value was set, which could result in unlimited cached pages for those pages that fell back to CSR due to timeout. This could potentially lead to a memory leak.
 
-The default value is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. To avoid processes from restarting, as a result of exceeding the default upper limit of 60% for memory usage, a safer, lower limit of 50% is set. Consequently, the usable memory that is available by default is calculated to be 3 GB multiplied by 50%, with a result of 1.5 GB. The next calculation considers a typical HTML page to have a size of approximately 350 KB. However, you may have even larger rendered HTML pages in your project. As a precaution, it is assumed that HTML pages could be up to 150% larger, resulting in a maximum page size of 525 KB. Accordingly, the calculation for the default `cacheSize` is 1.5 GB divided by 525 KB, leading to a result of 3070. This value is rounded down to provide the final `cacheSize` default of `3000` entries.
+~The default value is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. To avoid processes from restarting, as a result of exceeding the default upper limit of 60% for memory usage, a safer, lower limit of 50% is set. Consequently, the usable memory that is available by default is calculated to be 3 GB multiplied by 50%, with a result of 1.5 GB. The next calculation considers a typical HTML page to have a size of approximately 350 KB. However, you may have even larger rendered HTML pages in your project. As a precaution, it is assumed that HTML pages could be up to 150% larger, resulting in a maximum page size of 525 KB. Accordingly, the calculation for the default `cacheSize` is 1.5 GB divided by 525 KB, leading to a result of 3070. This value is rounded down to provide the final `cacheSize` default of `3000` entries.~
+
+UPDATE: The above reasoning was not valid as it didn't leave room for the spikes of the memory needed for the rendering of pages by the Angular SSR engine.
 
 ### concurrency
 
@@ -263,7 +298,7 @@ You can use your web browser's network tool to check if your storefront is rende
    [...]
    </app-root>
    ```
-  
+
    If the `<app-root>` in your response is empty, it means SSR is not working correctly.
 
 ### Troubleshooting a Storefront That Is Not Running in SSR Mode
@@ -340,7 +375,7 @@ Often, a malformed URL can break the server-side rendering by preventing the SSR
 
 The following is an example of a malformed URL: `http://localhost:4200/electronics-spa/en/USD/Brands/Canon/c/brand_10%20or%20(1,2)=(select*from(select%20name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1),name_const(CHAR(82,88,106,99,113,78,74,70,73,118,87),1))a)%20--%20and%201%3D1`.
 
-This is is usually the case when the  `initialNavigation` Router setting is `enabled`.
+This is is usually the case when the `initialNavigation` Router setting is `enabled`.
 
 This is a bug in Angular's Router that never resolves the route when a `NavigationError` occurs. You can implement [this workaround](https://github.com/SAP/spartacus/pull/10541/files) in your application, which uses Angular's private API.
 
@@ -399,7 +434,9 @@ You can customize your SSR strategy by disabling SSR for specific URLs and query
 The `defaultRenderingStrategyResolver` takes one parameter, `RenderingStrategyResolverOptions`, as follows:
 
 ```ts
-const defaultRenderingStrategyResolver = (options: RenderingStrategyResolverOptions) => (req: Request) => RenderingStrategy
+const defaultRenderingStrategyResolver =
+  (options: RenderingStrategyResolverOptions) => (req: Request) =>
+    RenderingStrategy;
 ```
 
 The `RenderingStrategyResolverOptions` interface defines the following optional properties:
@@ -420,10 +457,11 @@ The `defaultRenderingStrategyResolver` function works as follows:
 In Spartacus, the default configuration for `defaultRenderingStrategyResolverOptions` is defined as follows:
 
 ```ts
-export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverOptions = {
-   excludedUrls: ['checkout', 'my-account'],
-   excludedParams: ['asm'],
-};
+export const defaultRenderingStrategyResolverOptions: RenderingStrategyResolverOptions =
+  {
+    excludedUrls: ['checkout', 'my-account'],
+    excludedParams: ['asm'],
+  };
 ```
 
 This configuration specifies that SSR is disabled for requests with URLs containing `checkout` or `my-account`, as well as for requests containing the query parameter `asm`. When Spartacus receives requests matching these criteria, SSR is bypassed and CSR is used instead.
@@ -434,10 +472,10 @@ The `defaultRenderingStrategyResolver` function is set as the value for the `ren
 
 ```ts
 export const defaultSsrOptimizationOptions: SsrOptimizationOptions = {
-   // Other SSR optimization options...
-   renderingStrategyResolver: defaultRenderingStrategyResolver(
-      defaultRenderingStrategyResolverOptions
-   ),
+  // Other SSR optimization options...
+  renderingStrategyResolver: defaultRenderingStrategyResolver(
+    defaultRenderingStrategyResolverOptions
+  ),
 };
 ```
 
@@ -478,13 +516,17 @@ import { RenderingStrategy } from './ssr-optimization-options';
 
 const smartEditUrl = 'cx-preview';
 
-export const customRenderingStrategyResolver = (request: Request): RenderingStrategy =>
-  request.url.includes(smartEditUrl) ? RenderingStrategy.ALWAYS_CSR : RenderingStrategy.DEFAULT;
+export const customRenderingStrategyResolver = (
+  request: Request
+): RenderingStrategy =>
+  request.url.includes(smartEditUrl)
+    ? RenderingStrategy.ALWAYS_CSR
+    : RenderingStrategy.DEFAULT;
 
 /* ... */
 
 const ssrOptions: SsrOptimizationOptions = {
-   renderingStrategyResolver: customRenderingStrategyResolver
+  renderingStrategyResolver: customRenderingStrategyResolver,
 };
 
 const ngExpressEngine = NgExpressEngineDecorator.get(engine, ssrOptions);
