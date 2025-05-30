@@ -138,6 +138,12 @@ _Note_: This config option is used only when the `ssrFeatureToggles.limitCacheBy
 
 The default value 800MB is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. The maximum-memory-restart factor is set to 60% of the pod size, which means that after using more than 1.8 GB the process will restart, which we'd like to avoid. In May 2025 we've measured locally that the peak memory consumption when rendering 10 parallel requests of the OOTB Homepage was ~500MB (without taking cache into account). Because the complexity of rendering and therefore the memory consumption can vary from project to project and from page to page, let's add another 500MB margin and let's assume that at most 1 GB of memory needs to be reserved for the rendering purposes. Knowing that we have 1.8 GB available memory, this means that we can spend the remaining 800MB for the cache.
 
+**Advice**: If your process is restarting due to out of memory, please first check whether you have some memory leaks in your application and fix them. If still running out of memory, you can try to tune the following parameters:
+
+- reduce the `cacheSizeMemory` setting, to reserve less memory for the cache
+- reduce the `concurrency` setting, to consume less memory for rendering pages in parallel
+- upgrade the NodeJS pod size to increase the available memory and increase the max-memory-restart factor
+
 ### cacheEntrySizeCalculator
 
 The `cacheEntrySizeCalculator` is a strategy for calculating the size of a cache entry. It's needed to keep track of the used cache size, so the oldest entries can be removed when the cache size memory limit is reached.
