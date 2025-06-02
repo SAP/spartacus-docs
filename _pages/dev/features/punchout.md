@@ -2,9 +2,15 @@
 title: PunchOut
 ---
 
-Introduction - Provide text to introduce the feature.
+SAP Commerce B2B Composable Storefront supports PunchOut functionality, which allows a buyer to shop a supplier's online catalog and save the cart as a requisition in the buyer's procurement system for approval.
 
 ## Schematics
+
+To add punchOut lib via schematics:
+
+```bash
+ng add @spartacus/punchout
+```
 
 ## CMS Sample Data
 
@@ -87,9 +93,30 @@ INSERT_UPDATE CMSInverseRestriction;$contentCV[unique=true];uid[unique=true];nam
 
 ### CORS Addition
 
+'punchoutsid' key needs to be added in CORS allow list.
+
 ### Required System Variables (Requirements?)
 
+The punchout launch page consists of Spartacus b2b url followed with punchout session path.
+eg: https://spartacus/punchout/cxml/session
+Below are details to set those 2 paths:
+
+#### Spartacus b2b url:
+
+It is defined on Hybris Configuration Properties, on key:
+'website.powertools-spa.https'
+
+#### Spartacus Punchout Session path
+
+url is setup on Hybris Configuration Properties, on field 'b2bpunchoutaddon.mapping.punchout.session.request'
+This url needs to match the CMS Punchout Session page link, on sample data it is set as '/punchout/cxml/session'.
+This url also need to be setup on Spartacus side, see chapter 'Modify PunchOut Pages Link'.
+Make sure the 3 paths are identical.
+
 ### OCC API Endpoint Whitelist
+
+To prevent user accessing info out of punchout user scope (eg: checkout on supplier shop, view order details), an allow list of api endpoints has been established, see details on:
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/e43d443fae45491aae1be387507e7ddb.html?state=DRAFT#allowed-list-of-endpoints-for-punchout-customers
 
 ## Spartacus Optional Configuration
 
