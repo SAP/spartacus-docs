@@ -151,7 +151,7 @@ _Note_: This config option is used only when the `ssrFeatureToggles.limitCacheBy
 
 ### cacheSize (deprecated)
 
-**Warning:** This setting is deprecated. Please use `cacheSizeMemory` instead together with enabling the SSR feature toggle `ssrFeatureToggles.limitCacheByMemory`. The deprecated setting `cacheSize` doesn't allow for precise and predictable control of the actual memory usage of the cache, as opposed to the new setting `cacheSizeMemory`..
+**Warning:** This setting is deprecated. Please use `cacheSizeMemory` instead together with enabling the SSR feature toggle `ssrFeatureToggles.limitCacheByMemory`. The deprecated setting `cacheSize` doesn't allow for precise and predictable control of the actual memory usage of the cache, as opposed to the new setting `cacheSizeMemory`.
 
 The `cacheSize` setting is a number that limits the cache size to a specific number of entries. This setting helps to keep memory usage under control.
 
