@@ -108,7 +108,7 @@ It is defined on Hybris Configuration Properties, on key:
 
 #### Spartacus Punchout Session path
 
-url is setup on Hybris Configuration Properties, on field 'b2bpunchoutaddon.mapping.punchout.session.request'
+url is setup on Hybris Configuration Properties, on field 'b2bpunchout.mapping.punchout.session.request'
 This url needs to match the CMS Punchout Session page link, on sample data it is set as '/punchout/cxml/session'.
 This url also need to be setup on Spartacus side, see chapter 'Modify PunchOut Pages Link'.
 Make sure the 3 paths are identical.
