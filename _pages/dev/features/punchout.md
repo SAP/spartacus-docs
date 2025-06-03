@@ -122,4 +122,191 @@ https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50
 
 ### Modify Allowed Page List
 
+The Punchout feature includes a navigation guard configuration that controls which pages and routes a punchout user can access during different punchout operations. This configuration helps ensure that users only navigate to allowed pages based on the current punchout operation, improving security and user experience.
+
+#### Configuration Interface
+
+The navigation guard is configured via the `PunchoutNavigationGuardConfig` abstract class, which defines allowed URLs and CX routes for each punchout operation, along with a redirect page if the user attempts to access a disallowed page.
+
+```ts
+export abstract class PunchoutNavigationGuardConfig {
+    punchoutNavigation?: {
+        [PunchOutOperation.EDIT]: {
+            allowedUrls?: string[];
+            allowedCxRoutes?: string[];
+            redirectPage: string | LaunchRoute;
+        };
+        [PunchOutOperation.CREATE]: {
+            allowedUrls?: string[];
+            allowedCxRoutes?: string[];
+            redirectPage: string | LaunchRoute;
+        };
+        [PunchOutOperation.INSPECT]: {
+            allowedUrls?: string[];
+            allowedCxRoutes?: string[];
+            redirectPage: string | LaunchRoute;
+        };
+    };
+}
+```
+
+- allowedUrls: An optional array of URL strings that are permitted for the given punchout operation.
+- allowedCxRoutes: An optional array of CX route names that are permitted.
+- redirectPage: The page LaunchRoute or path to redirect to if a user tries to access a page outside the allowed list.
+
+#### Punchout Operations Enum
+The configuration uses the `PunchOutOperation` enum to specify the operation context:
+
+```ts
+export enum PunchOutOperation {
+  CREATE = 'CREATE',
+  EDIT = 'EDIT',
+  INSPECT = 'INSPECT',
+}
+```
+
+#### Default Configuration
+The default configuration provides sensible defaults for each operation:
+
+```ts
+export const defaultPunchoutNavigationGuardConfig: PunchoutNavigationGuardConfig =
+    {
+        punchoutNavigation: {
+            [PunchOutOperation.INSPECT]: {
+                allowedCxRoutes: [
+                    'punchoutSession',
+                    'punchoutRequisition',
+                    'punchoutInspect',
+                ],
+                redirectPage: { cxRoute: 'punchoutInspect' },
+            },
+            [PunchOutOperation.EDIT]: {
+                allowedUrls: ['/'],
+                allowedCxRoutes: [
+                    'punchoutSession',
+                    'punchoutRequisition',
+                    'category',
+                    'brand',
+                    'quickOrder',
+                    'product',
+                    'cart',
+                    'search',
+                    'punchoutError',
+                ],
+                redirectPage: { cxRoute: 'home' },
+            },
+            [PunchOutOperation.CREATE]: {
+                allowedUrls: ['/'],
+                allowedCxRoutes: [
+                    'punchoutSession',
+                    'punchoutRequisition',
+                    'category',
+                    'brand',
+                    'quickOrder',
+                    'product',
+                    'cart',
+                    'search',
+                    'punchoutError',
+                ],
+                redirectPage: { cxRoute: 'home' },
+            },
+        },
+    };
+
+```
+
+- INSPECT operation allows navigation only to punchout-specific routes such as session, requisition, and inspect pages. Unauthorized access redirects to the punchoutInspect page.
+- EDIT and CREATE operations allow a broader set of routes including product browsing, cart, and search pages, with unauthorized access redirecting to the home page.
+
+#### How to Customize
+
+You can customize the allowed pages and redirect behavior by extending or overriding the `PunchoutNavigationGuardConfig` in your Spartacus storefront configuration. This allows tailoring the user experience and security restrictions to your specific punchout use case.
+For example, to add a new allowed route for the EDIT operation:
+
+```ts
+provideConfig({
+  punchoutNavigation: {
+    [PunchOutOperation.EDIT]: {
+       allowedUrls: ['/'],
+       allowedCxRoutes: [
+         'punchoutSession',
+         'punchoutRequisition',
+         'category',
+         'brand',
+         'quickOrder',
+         'product',
+         'cart',
+         'search',
+         'punchoutError',
+         'customRoute', // added custom route
+        ],
+        redirectPage: {cxRoute: 'home'},
+    },
+    // other operations...
+      }
+}),
+```
+
 ### Modify PunchOut Pages Link
+
+The Punchout feature in Composable Storefront defines specific routes for handling punchout-related pages. These routes correspond to key steps in the punchout process, such as session initiation, requisition handling, cart inspection, and error display.
+You can customize these routes by modifying the routing configuration, allowing you to change the URL paths or adjust route protection and authentication behavior to fit your storefront requirements.
+
+#### Default Routing Configuration
+
+The default routing configuration for punchout pages is defined as follows:
+
+```ts
+export const defaultPunchoutRoutingConfig: RoutingConfig = {
+    routing: {
+        routes: {
+            punchoutSession: {
+                paths: ['punchout/cxml/session'],
+                protected: false,
+                authFlow: true,
+            },
+            punchoutRequisition: {
+                paths: ['punchout/cxml/requisition'],
+            },
+            punchoutInspect: {
+                paths: ['punchout/cxml/inspect'],
+            },
+            punchoutError: {
+                paths: ['punchout/cxml/error'],
+                protected: false,
+                authFlow: true,
+            },
+        },
+    },
+};
+```
+
+#### Customization
+
+You can customize the paths, protection, and authentication flow flags by overriding this configuration in your routing setup.
+
+```ts
+provideConfig({
+  routing: {
+    routes: {
+        punchoutSession: {
+            paths: ['punchout/session'],
+            protected: false,
+            authFlow: true,
+        },
+        punchoutRequisition: {
+            paths: ['punchout/requisition'],
+        },
+        punchoutInspect: {
+            paths: ['punchout/inspect'],
+        },
+        punchoutError: {
+            paths: ['punchout/error'],
+            protected: false,
+            authFlow: true,
+        },
+    },
+  },
+}),
+```
+In this example, we got rid of the extra cxml part, which we need to configure on the CMS side as well, of course.
