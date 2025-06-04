@@ -312,9 +312,3 @@ provideConfig({
 ```
 
 In this example, we got rid of the extra cxml part, which we need to configure on the CMS side as well, of course.
-
-## Known issues
-
-### Navigating back to product page displays permsission error
-
-Punchout session opens product page
