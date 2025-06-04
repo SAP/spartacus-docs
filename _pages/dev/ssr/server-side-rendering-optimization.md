@@ -499,9 +499,11 @@ _Note_: The actual memory usage spikes for rendering purposes in your customized
 
 ```ts
 // 1. Avoid CSR fallbacks by configuring generous request timeout
+//     And avoid caching - to measure just the memory allocation for the rendering (not account for cache)
 const ngExpressEngine = NgExpressEngineDecorator.get(engine, {
   /*...*/
   timeout: 30_000,
+  cache: false // it's false by default, but mentioning it here for explicitness
 });
 ```
 
