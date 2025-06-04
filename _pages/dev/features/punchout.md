@@ -130,31 +130,32 @@ The navigation guard is configured via the `PunchoutNavigationGuardConfig` abstr
 
 ```ts
 export abstract class PunchoutNavigationGuardConfig {
-    punchoutNavigation?: {
-        [PunchOutOperation.EDIT]: {
-            allowedUrls?: string[];
-            allowedCxRoutes?: string[];
-            redirectPage: string | LaunchRoute;
-        };
-        [PunchOutOperation.CREATE]: {
-            allowedUrls?: string[];
-            allowedCxRoutes?: string[];
-            redirectPage: string | LaunchRoute;
-        };
-        [PunchOutOperation.INSPECT]: {
-            allowedUrls?: string[];
-            allowedCxRoutes?: string[];
-            redirectPage: string | LaunchRoute;
-        };
+  punchoutNavigation?: {
+    [PunchOutOperation.EDIT]: {
+      allowedUrls?: string[];
+      allowedCxRoutes?: string[];
+      redirectPage: string | LaunchRoute;
     };
+    [PunchOutOperation.CREATE]: {
+      allowedUrls?: string[];
+      allowedCxRoutes?: string[];
+      redirectPage: string | LaunchRoute;
+    };
+    [PunchOutOperation.INSPECT]: {
+      allowedUrls?: string[];
+      allowedCxRoutes?: string[];
+      redirectPage: string | LaunchRoute;
+    };
+  };
 }
 ```
 
-- allowedUrls: An optional array of URL strings that are permitted for the given punchout operation.
+- allowedUrls: An optional array of URL strings that are permitted for the given punchout operation. 'The value '/' represents the homepage. URLs are considered allowed if they are contained within current browser relative path.
 - allowedCxRoutes: An optional array of CX route names that are permitted.
 - redirectPage: The page LaunchRoute or path to redirect to if a user tries to access a page outside the allowed list.
 
 #### Punchout Operations Enum
+
 The configuration uses the `PunchOutOperation` enum to specify the operation context:
 
 ```ts
@@ -166,53 +167,53 @@ export enum PunchOutOperation {
 ```
 
 #### Default Configuration
+
 The default configuration provides sensible defaults for each operation:
 
 ```ts
 export const defaultPunchoutNavigationGuardConfig: PunchoutNavigationGuardConfig =
-    {
-        punchoutNavigation: {
-            [PunchOutOperation.INSPECT]: {
-                allowedCxRoutes: [
-                    'punchoutSession',
-                    'punchoutRequisition',
-                    'punchoutInspect',
-                ],
-                redirectPage: { cxRoute: 'punchoutInspect' },
-            },
-            [PunchOutOperation.EDIT]: {
-                allowedUrls: ['/'],
-                allowedCxRoutes: [
-                    'punchoutSession',
-                    'punchoutRequisition',
-                    'category',
-                    'brand',
-                    'quickOrder',
-                    'product',
-                    'cart',
-                    'search',
-                    'punchoutError',
-                ],
-                redirectPage: { cxRoute: 'home' },
-            },
-            [PunchOutOperation.CREATE]: {
-                allowedUrls: ['/'],
-                allowedCxRoutes: [
-                    'punchoutSession',
-                    'punchoutRequisition',
-                    'category',
-                    'brand',
-                    'quickOrder',
-                    'product',
-                    'cart',
-                    'search',
-                    'punchoutError',
-                ],
-                redirectPage: { cxRoute: 'home' },
-            },
-        },
-    };
-
+  {
+    punchoutNavigation: {
+      [PunchOutOperation.INSPECT]: {
+        allowedCxRoutes: [
+          'punchoutSession',
+          'punchoutRequisition',
+          'punchoutInspect',
+        ],
+        redirectPage: { cxRoute: 'punchoutInspect' },
+      },
+      [PunchOutOperation.EDIT]: {
+        allowedUrls: ['/'],
+        allowedCxRoutes: [
+          'punchoutSession',
+          'punchoutRequisition',
+          'category',
+          'brand',
+          'quickOrder',
+          'product',
+          'cart',
+          'search',
+          'punchoutError',
+        ],
+        redirectPage: { cxRoute: 'home' },
+      },
+      [PunchOutOperation.CREATE]: {
+        allowedUrls: ['/'],
+        allowedCxRoutes: [
+          'punchoutSession',
+          'punchoutRequisition',
+          'category',
+          'brand',
+          'quickOrder',
+          'product',
+          'cart',
+          'search',
+          'punchoutError',
+        ],
+        redirectPage: { cxRoute: 'home' },
+      },
+    },
+  };
 ```
 
 - INSPECT operation allows navigation only to punchout-specific routes such as session, requisition, and inspect pages. Unauthorized access redirects to the punchoutInspect page.
@@ -258,26 +259,26 @@ The default routing configuration for punchout pages is defined as follows:
 
 ```ts
 export const defaultPunchoutRoutingConfig: RoutingConfig = {
-    routing: {
-        routes: {
-            punchoutSession: {
-                paths: ['punchout/cxml/session'],
-                protected: false,
-                authFlow: true,
-            },
-            punchoutRequisition: {
-                paths: ['punchout/cxml/requisition'],
-            },
-            punchoutInspect: {
-                paths: ['punchout/cxml/inspect'],
-            },
-            punchoutError: {
-                paths: ['punchout/cxml/error'],
-                protected: false,
-                authFlow: true,
-            },
-        },
+  routing: {
+    routes: {
+      punchoutSession: {
+        paths: ['punchout/cxml/session'],
+        protected: false,
+        authFlow: true,
+      },
+      punchoutRequisition: {
+        paths: ['punchout/cxml/requisition'],
+      },
+      punchoutInspect: {
+        paths: ['punchout/cxml/inspect'],
+      },
+      punchoutError: {
+        paths: ['punchout/cxml/error'],
+        protected: false,
+        authFlow: true,
+      },
     },
+  },
 };
 ```
 
@@ -309,4 +310,11 @@ provideConfig({
   },
 }),
 ```
+
 In this example, we got rid of the extra cxml part, which we need to configure on the CMS side as well, of course.
+
+## Known issues
+
+### Navigating back to product page displays permsission error
+
+Punchout session opens product page
