@@ -138,6 +138,44 @@ _Note_: This config option is used only when the `ssrFeatureToggles.limitCacheBy
 
 The default value 800MB is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. The maximum-memory-restart factor is set to 60% of the pod size, which means that after using more than 1.8 GB the process will restart, which we'd like to avoid. In May 2025 we've measured locally that the peak memory consumption when rendering 10 parallel requests of the OOTB Homepage was ~500MB (without taking cache into account). Because the complexity of rendering and therefore the memory consumption can vary from project to project and from page to page, let's add another 500MB margin and let's assume that at most 1 GB of memory needs to be reserved for the rendering purposes. Knowing that we have 1.8 GB available memory, this means that we can spend the remaining 800MB for the cache.
 
+_Note_: The actual memory usage spikes for rendering purposes in your customized storefront can be observed in the monitoring tools of the NodeJS process in production. On local it can be estimated e.g. by periodically dumping the value of the NodeJS native function `process.memoryUsage()` to the CSV file, while attacking the SSR server with multiple parallel requests for various urls (to trigger different renders), within the limit of the configured `concurrency`. And then analyze the peak values of `rss` (Resident Set Size) in the generated CSV file afterwards. The following is an example code snippet that might be added to your `server.ts` file to generate such a CSV file ONLY FOR LOCAL DEBUGGING PURPOSES:
+
+```ts
+// 1. Avoid CSR fallbacks by configuring generous request timeout
+const ngExpressEngine = NgExpressEngineDecorator.get(engine, {
+  /*...*/
+  timeout: 30_000,
+});
+```
+
+```ts
+// 2. *In the top* of the `server.ts file` add the following code to periodically dump the memory usage to the CSV file:
+const MEMORY_LOG_INTERVAL = 10; // 10ms
+const MEMORY_LOG_FILE = 'memory-usage.csv';
+
+if (!existsSync(MEMORY_LOG_FILE)) {
+  writeFileSync(
+    MEMORY_LOG_FILE,
+    'timestamp,heapUsed,heapTotal,rss,external,arrayBuffers\n'
+  );
+}
+
+function logMemoryUsage() {
+  const usage = process.memoryUsage();
+  const timestamp = new Date().toISOString();
+  const logEntry = `${timestamp},${usage.heapUsed},${usage.heapTotal},${usage.rss},${usage.external},${usage.arrayBuffers}\n`;
+
+  try {
+    writeFileSync(MEMORY_LOG_FILE, logEntry, { flag: 'a' });
+  } catch (error) {
+    console.error('Failed to write memory usage log:', error);
+  }
+}
+
+// Start memory monitoring
+setInterval(logMemoryUsage, MEMORY_LOG_INTERVAL);
+```
+
 ### cacheEntrySizeCalculator
 
 The `cacheEntrySizeCalculator` is a strategy for calculating the size of a cache entry. It's needed to keep track of the used cache size, so the oldest entries can be removed when the cache size memory limit is reached.
@@ -148,6 +186,15 @@ Theoretically it's possible to cache also error objects (which is not recommende
 To avoid caching error objects, it's recommended to enable the SSR feature toggle `ssrFeatureToggles.avoidCachingErrors`.
 
 _Note_: This config option is used only when the `ssrFeatureToggles.limitCacheByMemory` is set to true.
+
+_Note_: Although it's not needed to estimate the V8's memory allocation for the cache entry of specific pages, out of curiosity you can run the following command to do so:
+
+```bash
+# `curl` to make a HTTP request to the page
+# `wc -c` to count characters
+# multiply by 2, because we assume V8 is allocating 2 bytes per character for our HTML strings
+echo $(($(curl -s "https://my-production-site.com/some-page" | wc -c) * 2))
+```
 
 ### cacheSize (deprecated)
 
