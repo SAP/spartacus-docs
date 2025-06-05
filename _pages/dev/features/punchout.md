@@ -2,21 +2,24 @@
 title: PunchOut
 ---
 
-SAP Commerce B2B Composable Storefront supports PunchOut functionality, which allows a buyer to shop a supplier's online catalog and save the cart as a requisition in the buyer's procurement system for approval.
+The B2B PunchOut functionality allows a buyer to shop a supplier's online catalog and save the cart as a requisition in the buyer's procurement system for approval.
 
-## Schematics
+## Schematics / (Enabling B2B PunchOut in Composable Storefront?)
 
-To add punchOut lib via schematics:
+To enable B2B PunchOut, you can install the PunchOut library using the following schematics:
 
 ```bash
 ng add @spartacus/punchout
 ```
 
-## CMS Sample Data
+## CMS Components
+
+(Verify)
+The PunchOut feature is CMS-driven. If you are using the Spartacus Sample Data Extension, the PunchOut CMS components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the PunchOut CMS components manually through ImpEx.
 
 ### Adding the CMS Components Manually Using ImpEx
 
-To add all of the necessary CMS components and related data for Punchout, import the following ImpEx:
+To add all of the necessary CMS components and related data for PunchOut, import the following ImpEx:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
@@ -89,44 +92,38 @@ INSERT_UPDATE CMSInverseRestriction;$contentCV[unique=true];uid[unique=true];nam
 ;;PunchOutGroupInverseRestriction;PunchOutGroupInverseRestriction;PunchOutGroupRestriction;FooterNavigationComponent,OrdersLink,StoreFinderLink,ContactUsLink,HelpLink,MyAccountComponent,CartProceedToCheckoutComponent,CheckoutComponent,SiteLogoComponent,LoginLink,AddToSavedCartsComponent,CartApplyCouponComponent,QuoteRequestComponent,ClearCartComponent
 ```
 
-## Configuring CCV2 Server Side
+## Configuring Commerce Server Side
 
-### CORS Addition
+### CORS Addition (section necessary?)
 
-'punchoutsid' key needs to be added in CORS allow list.
+You must add the 'punchoutsid' key to the CORS allow list.
 
-### Required System Variables (Requirements?)
+### Required System Variables
 
-The punchout launch page consists of Spartacus b2b url followed with punchout session path.
-eg: https://spartacus/punchout/cxml/session
-Below are details to set those 2 paths:
+The PunchOut launch page consists of the Spartacus B2B URL followed by the PunchOut session path, for example, https://spartacus/punchout/cxml/session.
 
-#### Spartacus b2b url:
+#### Spartacus B2B URL (section necessary?)
 
-It is defined on Hybris Configuration Properties, on key:
-'website.powertools-spa.https'
+You define the Spartacus B2B URL on Hybris Configuration Properties (*what does "on" mean here? should it be "in"?), on key: 'website.powertools-spa.https'.
 
-#### Spartacus Punchout Session path
+#### The Spartacus PunchOut Session Path (section necessary?)
 
-url is setup on Hybris Configuration Properties, on field 'b2bpunchout.mapping.punchout.session.request'
-This url needs to match the CMS Punchout Session page link, on sample data it is set as '/punchout/cxml/session'.
-This url also need to be setup on Spartacus side, see chapter 'Modify PunchOut Pages Link'.
-Make sure the 3 paths are identical.
+You set up the URL on Hybris Configuration Properties, on the 'b2bpunchout.mapping.punchout.session.request' field. This URL must match the CMS PunchOut Session page link. In the sample data, it is set as '/punchout/cxml/session'. The URL must also be set up on the Spartacus side. For more information, see Modify PunchOut Pages Link. 
 
-### OCC API Endpoint Whitelist
+You must ensure the 3 paths are identical.
 
-To prevent user accessing info out of punchout user scope (eg: checkout on supplier shop, view order details), an allow list of api endpoints has been established, see details on:
-https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/e43d443fae45491aae1be387507e7ddb.html?state=DRAFT#allowed-list-of-endpoints-for-punchout-customers
+### OCC API Endpoint Allow List
 
-## Spartacus Optional Configuration
+To ensure users have a secure experience tailored to their needs, only certain OCC API endpoints are allowed. This prevents users from accessing endpoints they don't need, such as checkout in the supplier shop or view order details (*verify wording). For more information, see (insert loio)
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/e43d443fae45491aae1be387507e7ddb.html?state=DRAFT#allowed-list-of-endpoints-for-punchout-customers.
 
-### Modify Allowed Page List
+## Optional Spartacus Configuration
 
-The Punchout feature includes a navigation guard configuration that controls which pages and routes a punchout user can access during different punchout operations. This configuration helps ensure that users only navigate to allowed pages based on the current punchout operation, improving security and user experience.
+### Modifying the Allowed Page List / (Configuring the Navigation Guard?)
 
-#### Configuration Interface
+The PunchOut feature includes a navigation guard configuration that controls which pages and routes a user can access during different PunchOut operations. This configuration helps ensure that users only navigate to allowed pages based on their current PunchOut operation, improving security and user experience.
 
-The navigation guard is configured via the `PunchoutNavigationGuardConfig` abstract class, which defines allowed URLs and CX routes for each punchout operation, along with a redirect page if the user attempts to access a disallowed page.
+The navigation guard is configured using the `PunchoutNavigationGuardConfig` abstract class, which defines allowed URLs and CX routes for each PunchOut operation, along with a redirect page if the user attempts to access a disallowed page. The following configuration is an example: 
 
 ```ts
 export abstract class PunchoutNavigationGuardConfig {
@@ -150,13 +147,13 @@ export abstract class PunchoutNavigationGuardConfig {
 }
 ```
 
-- allowedUrls: An optional array of URL strings that are permitted for the given punchout operation. 'The value '/' represents the homepage. URLs are considered allowed if they are contained within current browser relative path.
-- allowedCxRoutes: An optional array of CX route names that are permitted.
-- redirectPage: The page LaunchRoute or path to redirect to if a user tries to access a page outside the allowed list.
+The configuration properties are described as follows:
 
-#### Punchout Operations Enum
+- `allowedUrls` is an optional array of URL strings that are permitted for the given PunchOut operation. The value '/' represents the home page. URLs are considered allowed if they are contained within the current browser relative path.
+- `allowedCxRoutes` is an optional array of CX route names that are permitted.
+- `redirectPage` is the page LaunchRoute or path to redirect to if a user tries to access a page outside the allowed list.
 
-The configuration uses the `PunchOutOperation` enum to specify the operation context:
+The configuration uses the `PunchOutOperation` enum to specify the operation context, as shown in the following example:
 
 ```ts
 export enum PunchOutOperation {
@@ -166,9 +163,7 @@ export enum PunchOutOperation {
 }
 ```
 
-#### Default Configuration
-
-The default configuration provides sensible defaults for each operation:
+The default navigation guard configuration provides the following defaults for each operation:
 
 ```ts
 export const defaultPunchoutNavigationGuardConfig: PunchoutNavigationGuardConfig =
@@ -216,13 +211,11 @@ export const defaultPunchoutNavigationGuardConfig: PunchoutNavigationGuardConfig
   };
 ```
 
-- INSPECT operation allows navigation only to punchout-specific routes such as session, requisition, and inspect pages. Unauthorized access redirects to the punchoutInspect page.
-- EDIT and CREATE operations allow a broader set of routes including product browsing, cart, and search pages, with unauthorized access redirecting to the home page.
+The INSPECT operation allows navigation only to PunchOut-specific routes such as session, requisition, and inspect pages. Unauthorized access redirects the user to the `punchoutInspect` page. The EDIT and CREATE operations allow a broader set of routes, including product browsing, cart, and search pages, with unauthorized access redirecting to the home page.
 
-#### How to Customize
+#### Customizing Allowed Pages
 
-You can customize the allowed pages and redirect behavior by extending or overriding the `PunchoutNavigationGuardConfig` in your Spartacus storefront configuration. This allows tailoring the user experience and security restrictions to your specific punchout use case.
-For example, to add a new allowed route for the EDIT operation:
+You can customize the allowed pages and redirect behavior by extending or overriding the `PunchoutNavigationGuardConfig` in your Spartacus storefront configuration. This allows tailoring the user experience and security restrictions to your specific PunchOut use case. The following configuration is an example of how to add a new allowed route for the EDIT operation:
 
 ```ts
 provideConfig({
@@ -248,14 +241,12 @@ provideConfig({
 }),
 ```
 
-### Modify PunchOut Pages Link
+### Modifying the PunchOut Pages Link
 
-The Punchout feature in Composable Storefront defines specific routes for handling punchout-related pages. These routes correspond to key steps in the punchout process, such as session initiation, requisition handling, cart inspection, and error display.
+The PunchOut feature in Composable Storefront defines specific routes for handling PunchOut-related pages. These routes correspond to key steps in the PunchOut process, such as session initiation, requisition handling, cart inspection, and error display.
 You can customize these routes by modifying the routing configuration, allowing you to change the URL paths or adjust route protection and authentication behavior to fit your storefront requirements.
 
-#### Default Routing Configuration
-
-The default routing configuration for punchout pages is defined as follows:
+The default routing configuration for PunchOut pages is defined as follows:
 
 ```ts
 export const defaultPunchoutRoutingConfig: RoutingConfig = {
@@ -284,7 +275,7 @@ export const defaultPunchoutRoutingConfig: RoutingConfig = {
 
 #### Customization
 
-You can customize the paths, protection, and authentication flow flags by overriding this configuration in your routing setup.
+You can customize the paths, protection, and authentication flow flags by overriding the following configuration in your routing setup:
 
 ```ts
 provideConfig({
@@ -311,4 +302,4 @@ provideConfig({
 }),
 ```
 
-In this example, we got rid of the extra cxml part, which we need to configure on the CMS side as well, of course.
+In this example, the extra cxml is removed, which you also must configure on the CMS side.
