@@ -120,18 +120,9 @@ https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50
 
 ## Spartacus required configuration
 
-### Feature flags
-Since we do not have access to the product name parameter during navigation, to ensure stability the routing configuration requires that it is possible to access the product details page using the `productCode` only. Ultimately, this will be achieved by enabling the flag `defaultProductPageRouteAllowsNoProductName`.
-```ts
-provideFeatureTogglesFactory(() => {
-  const appFeatureToggles: Required<FeatureToggles> = {
-  // ...
-  defaultProductPageRouteAllowsNoProductName: true,    
-  }
-})
-```
-
-In case the flag is not yet available, or you already have your own routing configuration provided for the product, add a route matcher which uses `productCode` only, for example, as follows:
+### Routing configuration
+Since we do not have access to the product name parameter during navigation, to ensure stability the routing configuration requires that it is possible to access the product details page using the `productCode` only.
+Please define or modify your own routing configuration provided for the `product`, by adding a route matcher which uses `productCode` only, for example, as follows:
 
 ```ts
 provideConfig(<RoutingConfig>{
