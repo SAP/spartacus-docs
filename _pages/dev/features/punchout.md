@@ -114,11 +114,16 @@ You must ensure the 3 paths are identical.
 
 ### OCC API Endpoint Allow List
 
-## Spartacus required configuration
+To ensure users have a secure experience tailored to their needs, only certain OCC API endpoints are allowed. This prevents users from accessing endpoints they don't need, such as checkout in the supplier shop or view order details (*verify wording). For more information, see (insert loio)
+https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/e43d443fae45491aae1be387507e7ddb.html?state=DRAFT#allowed-list-of-endpoints-for-punchout-customers.
 
-### Routing configuration
-Since we do not have access to the product name parameter during navigation, to ensure stability the routing configuration requires that it is possible to access the product details page using the `productCode` only.
-Please define or modify your own routing configuration provided for the `product`, by adding a route matcher which uses `productCode` only, for example, as follows:
+## Required Configuration
+
+### Configuring Routing
+
+We (*can we use "we"?) do not have access to the product name parameter during navigation. Therefore, to ensure stability, the routing configuration requires that it be possible to access the product details page using only the `productCode`.
+
+You must define or modify your own routing configuration provided for the `product`, by adding a route matcher which uses `productCode` only, as follows:
 
 ```ts
 provideConfig(<RoutingConfig>{
@@ -132,10 +137,7 @@ provideConfig(<RoutingConfig>{
 }),
 ```
 
-To ensure users have a secure experience tailored to their needs, only certain OCC API endpoints are allowed. This prevents users from accessing endpoints they don't need, such as checkout in the supplier shop or view order details (*verify wording). For more information, see (insert loio)
-https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/e43d443fae45491aae1be387507e7ddb.html?state=DRAFT#allowed-list-of-endpoints-for-punchout-customers.
-
-## Optional Spartacus Configuration
+## Optional Configuration
 
 ### Modifying the Allowed Page List / (Configuring the Navigation Guard?)
 
