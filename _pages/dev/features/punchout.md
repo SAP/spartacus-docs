@@ -118,6 +118,33 @@ Make sure the 3 paths are identical.
 To prevent user accessing info out of punchout user scope (eg: checkout on supplier shop, view order details), an allow list of api endpoints has been established, see details on:
 https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/7e47d40a176d48ba914b50957d003804/e43d443fae45491aae1be387507e7ddb.html?state=DRAFT#allowed-list-of-endpoints-for-punchout-customers
 
+## Spartacus required configuration
+
+### Feature flags
+Since we do not have access to the product name parameter during navigation, to ensure stability the routing configuration requires that it is possible to access the product details page using the `productCode` only. Ultimately, this will be achieved by enabling the flag `defaultProductPageRouteAllowsNoProductName`.
+```ts
+provideFeatureTogglesFactory(() => {
+  const appFeatureToggles: Required<FeatureToggles> = {
+  // ...
+  defaultProductPageRouteAllowsNoProductName: true,    
+  }
+})
+```
+
+In case the flag is not yet available, or you already have your own routing configuration provided for the product, add a route matcher which uses `productCode` only, for example, as follows:
+
+```ts
+provideConfig(<RoutingConfig>{
+  routing: {
+    routes: {
+      product: {
+        paths: [/* ... */, 'product/:productCode'],
+      },
+    },
+  },
+}),
+```
+
 ## Spartacus Optional Configuration
 
 ### Modify Allowed Page List
