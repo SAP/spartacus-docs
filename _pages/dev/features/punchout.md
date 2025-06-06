@@ -214,7 +214,7 @@ export abstract class PunchoutNavigationGuardConfig {
 The configuration properties are described as follows:
 
 - `allowedUrls` is an optional array of URL strings that are permitted for the given PunchOut operation. The value `/` represents the home page. URLs are considered allowed if they are contained within the current browser relative path.
-- `allowedCxRoutes` is an optional array of CX route names that are permitted for the given PunchOut operation.
+- `allowedCxRoutes` is an optional array of CX route names that are permitted for the given PunchOut operation. For more information on CX routes, see [Working with Angular Routes](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/1406702864a24c55ae0daa50c5b590e7.html?q=cxRoute&version=2211#working-with-angular-routes).
 - `redirectPage` is the page `LaunchRoute` or the path to redirect to if a user tries to access a page outside the allowed list.
 
 The configuration uses the `PunchOutOperation` enum to specify the operation context, as shown in the following example:
