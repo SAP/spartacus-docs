@@ -70,6 +70,7 @@ By default, the SSR optimization engine uses the following configuration:
 ```ts
 {
   cacheSize: 3000,
+  cacheLimit: getCacheLimitInBytes(3, 'GB'),
   concurrency: 10,
   timeout: 3_000,
   forcedSsrTimeout: 60_000,
@@ -120,7 +121,7 @@ The `cache` setting is a boolean that enables the built-in, in-memory cache for 
 It is generally recommended to *not* enable the `cache` setting because there are better ways to turn on the caching (such as using a CDN, for example).
 
 ### cacheSize
-
+// deprecated
 The `cacheSize` setting is a number that limits the cache size to a specific number of entries. This setting helps to keep memory usage under control.
 
 The `cacheSize` setting can also be used when the `cache` setting is set to `false`. This then limits the number of timed-out renders that are kept in a temporary cache and which are waiting to be served with the next request.
@@ -130,6 +131,30 @@ It is recommended that the `cacheSize` should be set according to the server's r
 The default `cacheSize` is set to `3000` entries. Before version 2211.19 of Spartacus, no default value was set, which could result in unlimited cached pages for those pages that fell back to CSR due to timeout. This could potentially lead to a memory leak.
 
 The default value is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. To avoid processes from restarting, as a result of exceeding the default upper limit of 60% for memory usage, a safer, lower limit of 50% is set. Consequently, the usable memory that is available by default is calculated to be 3 GB multiplied by 50%, with a result of 1.5 GB. The next calculation considers a typical HTML page to have a size of approximately 350 KB. However, you may have even larger rendered HTML pages in your project. As a precaution, it is assumed that HTML pages could be up to 150% larger, resulting in a maximum page size of 525 KB. Accordingly, the calculation for the default `cacheSize` is 1.5 GB divided by 525 KB, leading to a result of 3070. This value is rounded down to provide the final `cacheSize` default of `3000` entries.
+
+### cacheLimit
+
+The `cacheLimit` setting is used to control the total size of the cache, either in bytes or in a more granular form (such as memory consumption), to prevent excessive memory usage. Unlike `cacheSize`, which limits the number of cache entries, the `cacheLimit` provides a more direct control over the overall memory usage, ensuring the cache does not grow beyond the specified limit.
+
+- **Use case**:
+   - When set, the `cacheLimit` defines the maximum amount of memory (in bytes) the cache can consume.
+   - This helps to manage server resources more effectively, preventing the cache from using too much memory and causing potential performance degradation or crashes due to memory overload.
+
+- **Behavior**:
+   - When the cache exceeds the set `cacheLimit`, the system will begin to evict the oldest cache entries to bring the total memory usage below the limit. This is typically done by removing the least recently used (LRU) entries first.
+   - The cache eviction ensures that the system maintains a balance between cache size and memory usage, without allowing the cache to become unmanageably large.
+
+- **Granularity**: The cache limit works with the `cacheSizeInBytes` feature flag, enabling more precise control over the cache's memory consumption in bytes instead of just the number of entries.
+  
+```ts
+ssrOptimizationOptions: DefaultSsrOptimizationOptions = {
+    ...
+    ssrFeatureToggles: {
+    ...
+    cacheSizeInBytes: true,
+    },
+}
+```
 
 ### concurrency
 
