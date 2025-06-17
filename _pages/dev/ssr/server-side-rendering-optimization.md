@@ -122,42 +122,45 @@ It is generally recommended to *not* enable the `cache` setting because there ar
 
 ### cacheSizeMemory
 
-The `cacheSizeMemory` limits the cache size memory in bytes. This setting helps to keep memory usage under control.
+The `cacheSizeMemory` setting is a number that limits the cache size memory to a number of bytes. This setting helps to keep memory usage under control.
 
-The default value is set to 800 MB (meaning 800 000 000 bytes in International System of Units).
+The default `cacheSizeMemory` is set to 800 MB (meaning 800,000,000 bytes according to the International System of Units).
 
-**IMPORTANT**: Your server should have much more available memory than the configured `cacheSizeMemory`, because the NodeJS process needs a lot of operational memory also for the rendering activities, such as creating instances of the Angular applications for each incoming requests. The more parallel renderings are allowed (which can be limited with the `concurrency` option), the more operational memory is needed.
+**Note**: Your server should have much more available memory than the configured `cacheSizeMemory`, because the NodeJS process needs a lot of operational memory for the rendering activities, such as creating instances of the Angular applications for each incoming request. The more parallel renderings are allowed, which can be limited with the `concurrency` option, the more operational memory is needed.
 
-In our internal tests in May 2025 we observed that for 10 parallel renderings of the OOTB Homepage (with different query params to trigger separate renderings), the total memory usage (aka "[Resident Set Size](https://nodejs.org/en/learn/diagnostics/memory/understanding-and-tuning-memory#monitoring-memory-usage)") went up to ~500MB.
+*I DON'T THINK WE CAN MENTION INTERNAL TESTING* In our internal tests in May 2025 we observed that for 10 parallel renderings of the OOTB Homepage (with different query params to trigger separate renderings), the total memory usage ("[Resident Set Size](https://nodejs.org/en/learn/diagnostics/memory/understanding-and-tuning-memory#monitoring-memory-usage)") went up to approximately 500MB.
 
-That said, the memory usage for rendering a single page can vary from project to project and from page to page. The memory consumption depends on various factors: the size of the created DOM structure in-memory of NodeJS, the size of stored temporarily responses from backend endpoints, the size of the state of the whole Angular application, etc.
+That said, the memory usage for rendering a single page can vary from project to project and from page to page. The memory consumption depends on various factors, such as the size of the created DOM structure in-memory of NodeJS, the size of stored temporarily responses from backend endpoints, and the size of the state of the whole Angular application.
 
 _Note_: For calculating the size of the cache entry, the `cacheEntrySizeCalculator` option is used.
 
-_Note_: This config option is used only when the `ssrFeatureToggles.limitCacheByMemory` is set to true.
+_Note_: This configuration option is used only when the `ssrFeatureToggles.limitCacheByMemory` is set to `true`.
 
-The default value 800MB is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. The maximum-memory-restart factor is set to 60% of the pod size, which means that after using more than 1.8 GB the process will restart, which we'd like to avoid. In May 2025 we've measured locally that the peak memory consumption when rendering 10 parallel requests of the OOTB Homepage was ~500MB (without taking cache into account). Because the complexity of rendering and therefore the memory consumption can vary from project to project and from page to page, let's add another 500MB margin and let's assume that at most 1 GB of memory needs to be reserved for the rendering purposes. Knowing that we have 1.8 GB available memory, this means that we can spend the remaining 800MB for the cache.
+The default value of 800MB is based on a few known values and a few assumptions. In SAP Commerce Cloud, the minimum pod size is 3 GB. The maximum-memory-restart factor is set to 60% of the pod size, which means that the process restarts after exceeding 1.8 GB, which should be avoided. 
+
+*I DON'T THINK WE CAN MENTION INTERNAL TESTING* In May 2025 we've measured locally that the peak memory consumption when rendering 10 parallel requests of the OOTB Homepage was approximately 500MB, without taking cache into account. Considering the complexity of rendering and the resulting memory consumption can vary from project to project and from page to page, another 500MB margin is included, assuming that, at most, 1 GB of memory needs to be reserved for rendering purposes. Given that there is a total of 1.8 GB of available memory, the remaining 800MB is therefore used for the cache.
 
 ### cacheEntrySizeCalculator
 
-The `cacheEntrySizeCalculator` is a strategy for calculating the size of a cache entry. It's needed to keep track of the used cache size, so the oldest entries can be removed when the cache size memory limit is reached.
+The `cacheEntrySizeCalculator` is a strategy for calculating the size of a cache entry. You can use it to keep track of the used cache size, so the oldest entries are removed when the cache size reaches its memory limit.
 
-The default implementation is the `DefaultCacheEntrySizeCalculator` class. For HTML string, it returns the size of the string in bytes, assuming 2 bytes per each character (an upper-bound estimation assuming V8 is using [`SeqTwoByteString` data structure](https://github.com/v8/v8/blob/c865b8257a/src/objects/string.h#L921-L923) for string cache entries and our internal tests showed that this is the case).
+The default implementation is the `DefaultCacheEntrySizeCalculator` class. For an HTML string, it returns the size of the string in bytes, assuming 2 bytes per character (an upper-bound estimation assuming V8 is using [`SeqTwoByteString` data structure](https://github.com/v8/v8/blob/c865b8257a/src/objects/string.h#L921-L923) for string cache entries and our internal tests showed that this is the case). *Again, I don't think we can mention internal tests*
 
-Theoretically it's possible to cache also error objects (which is not recommended!), but for completeness our default calculator roughly approximates the size of the error, by summing up its 3 string properties: `name`, `message`, `trace`, which is not ideal and prone to under-estimation, especially when the error object has much more properties or even is not an instance of an Error object (`cacheEntry.err` has can be object of any type). For most customers who don't cache errors (as recommended), the default cacheEntrySizeCalculator should suffice. But for customers who - due to some reasons - deliberately want to cache some error objects, we exposed this configuration option `cacheEntrySizeCalculator` to allow them to customize the non-ideal default logic of calculating the size of the cached errors.
-To avoid caching error objects, it's recommended to enable the SSR feature toggle `ssrFeatureToggles.avoidCachingErrors`.
+Though not recommended, it is also possible to cache error objects. The default calculator roughly approximates the size of the error by summing up its 3 string properties: `name`, `message`, `trace`. This method is not ideal and is prone to under-estimation, especially when the error object has more properties or is not an instance of an Error object (for example,`cacheEntry.err` can be an object of any type). If you don't cache errors (as recommended), the default `cacheEntrySizeCalculator` is sufficient. But if you deliberately want to cache some error objects, the `cacheEntrySizeCalculator` configuration option allows you to customize the default logic of calculating the size of the cached errors. 
 
-_Note_: This config option is used only when the `ssrFeatureToggles.limitCacheByMemory` is set to true.
+To avoid caching error objects, enable the `ssrFeatureToggles.avoidCachingErrors` feature toggle.
 
-### cacheSize (deprecated)
+_Note_: The `cacheEntrySizeCalculator` configuration option is only used when the `ssrFeatureToggles.limitCacheByMemory` feature toggle is set to `true`.
 
-**Warning:** This setting is deprecated. Please use `cacheSizeMemory` instead together with enabling the SSR feature toggle `ssrFeatureToggles.limitCacheByMemory`. The deprecated setting `cacheSize` doesn't allow for precise and predictable control of the actual memory usage of the cache, as opposed to the new setting `cacheSizeMemory`.
+### cacheSize (Deprecated)
+
+**Warning:** This setting is deprecated. Please use `cacheSizeMemory` instead by enabling the `ssrFeatureToggles.limitCacheByMemory` feature toggle. The deprecated `cacheSize` setting doesn't allow for precise and predictable control of the actual memory usage of the cache, as opposed to the `cacheSizeMemory` setting.
 
 The `cacheSize` setting is a number that limits the cache size to a specific number of entries. This setting helps to keep memory usage under control.
 
 The `cacheSize` setting can also be used when the `cache` setting is set to `false`. This then limits the number of timed-out renders that are kept in a temporary cache and which are waiting to be served with the next request.
 
-It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM), leaving also some room for the spikes of the memory needed for the rendering of pages by the Angular SSR engine. It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
+It is recommended that the `cacheSize` should be set according to the server's resources (such as the amount of available RAM), as well as leaving some room for the spikes of the memory needed for the rendering of pages by the Angular SSR engine. It is recommended that you set the `cacheSize`, regardless of whether the `cache` setting is disabled.
 
 The default `cacheSize` is set to `3000` entries. Before version 2211.19 of Spartacus, no default value was set, which could result in unlimited cached pages for those pages that fell back to CSR due to timeout. This could potentially lead to a memory leak.
 
@@ -486,16 +489,16 @@ If you see this message, you can try the following:
 - There is a chance the render will complete at some point in the future. You can look for a message that says `Rendering of ${URL} completed after the specified maxRenderTime, therefore it was ignored.`.
 - The OCC API may be slow to respond. If you are using a CDN in front of the API, check if the CDN has some kind of a rate limiter enabled for the SSR servers, or it may have even completely blocked the SSR server's IP addresses. For more information, see [SSR Shows Only a Global Error Message](#ssr-shows-only-a-global-error-message).
 
-## Automatic restarts due to out of memory
+## Automatic Restarts Due to Running Out of Memory
 
-If your process is restarting periodically due to out of memory, please first check whether you have some memory leaks in your application and fix them. If still running out of memory, you can try to tune one of the following parameters:
+If your process is restarting periodically due to running out of memory, first check whether you have any memory leaks in your application and fix them. If you are still running out of memory, you can try to tune one of the following parameters:
 
-- ensure you're using the `ssrFeatureToggles.limitCacheByMemory` setting (which limits the cache size by memory, but not by number of entries - which provides more predictable memory usage)
-- reduce the default value of the `cacheSizeMemory` setting
-- reduce the default `concurrency` setting, to allow for less rendering in parallel (note: as a result more requests might fallback to CSR)
-- upgrade the NodeJS pod size to increase the available memory and increase the max-memory-restart factor
+- Ensure you're using the `ssrFeatureToggles.limitCacheByMemory` setting, which limits the cache size by memory, rather than by the number of entries, which provides more predictable memory usage.
+- Reduce the default value of the `cacheSizeMemory` setting.
+- Reduce the default `concurrency` setting, to allow for less rendering in parallel (Note: As a result, more requests might fall back to CSR).
+- Upgrade the NodeJS pod size to increase the available memory and increase the max-memory-restart factor.
 
-_Note_: The actual memory usage spikes for rendering purposes in your customized storefront can be observed in the monitoring tools of the NodeJS process in production. On local it can be estimated e.g. by periodically dumping the value of the NodeJS native function `process.memoryUsage()` to the CSV file, while attacking the SSR server with multiple parallel requests for various urls (to trigger different renders), within the limit of the configured `concurrency`. And then analyze the peak values of `rss` (Resident Set Size) in the generated CSV file afterwards. The following is an example code snippet that might be added to your `server.ts` file to generate such a CSV file ONLY FOR LOCAL DEBUGGING PURPOSES:
+_Note_: You can observe the actual memory usage spikes for rendering purposes in your customized storefront in the monitoring tools of the NodeJS process in production. In your local environment, it can be estimated, for example, by periodically dumping the value of the NodeJS native function `process.memoryUsage()` to the CSV file, while attacking the SSR server with multiple parallel requests for various URLs (to trigger different renders), within the limit of the configured `concurrency`. You can then analyze the peak values of `rss` (Resident Set Size) in the generated CSV file. The following is an example code snippet that you can add to your `server.ts` file to generate such a CSV file for debugging purposes only:
 
 ```ts
 // 1. Avoid CSR fallbacks by configuring generous request timeout
@@ -535,7 +538,7 @@ function logMemoryUsage() {
 setInterval(logMemoryUsage, MEMORY_LOG_INTERVAL);
 ```
 
-_Note_: When the configuration property `cacheSizeMemory` is in use (i.e. when `ssrFeatureToggles.limitCacheByMemory` is set to `true`), you don't need to estimate the V8's memory allocation for the cache entry of specific pages, But out of curiosity you can run the following command to do so:
+_Note_: When the `cacheSizeMemory` configuration property is in use (when `ssrFeatureToggles.limitCacheByMemory` is set to `true`), you don't need to estimate the V8's memory allocation for the cache entry of specific pages. But out of curiosity you can run the following command to do so:
 
 ```bash
 # `curl` to make a HTTP request to the page
