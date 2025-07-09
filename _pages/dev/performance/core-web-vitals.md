@@ -13,7 +13,7 @@
 - ensure all `<img>` elements have HTML attributes `"width"` and `"height"` on your `<img>` elements, so the browser can reserve the space for the image before it is downloaded and rendered. It helps to avoid layout shifts and improves the Web Vital metric CLS (Cumulative Layout Shift)
   - a) apply it on `<img>` elements in your custom components
   - b) set `width` and `height` properties in the Media model passed to Spartacus component `<cx-media>` (supported since v2211.31 when the feature toggle `useExtendedMediaComponentConfiguration` is enabled)
-    - those properties are not returned yet from the OOTB Commerce OCC backend, but you can augment the OCC backend response to send width & height with your custom backend customization, eg. by extracting the dimensions from the image filename, or other CMS custom properties (e.g. description etc.)
+    - those properties are not returned yet from the OOTB Commerce OCC backend, but you can augment the OCC backend response to send width & height with your custom backend customization, eg. by extracting the dimensions from the image filename, or other CMS custom properties (e.g. description etc.) (TODO: link to docs with the workaround code snippet)
 - in your custom components, follow the guidelines Google's on Core Web Vitals: https://web.dev/explore/learn-core-web-vitals
   or by configuring `lcpCmsComponents` via the global Spartacus config
 
@@ -45,3 +45,4 @@ TODO:
 - write docs on using optimized image formats - reuse https://jira.tools.sap/browse/CXSPA-9614
 - write docs on compressing network responses from your server (it can be handled by your CDN) - reuse https://jira.tools.sap/browse/CXSPA-9615
 - document SSR page caching on CDN - reuse https://jira.tools.sap/browse/CXSPA-9617
+- write docs with workaround code snippet to extract width & height from the image filename or other CMS custom properties
