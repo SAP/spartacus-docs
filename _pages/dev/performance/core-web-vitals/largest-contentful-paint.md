@@ -2,6 +2,8 @@
 
 Spartacus provides a set of features to achieve good [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp) Core Web Vital metric. The LCP metric measures how long it takes for the largest content element on a page to become visible to the user.
 
+Below are the recommended practices to keep good LCP metric in Spartacus:
+
 ## Eliminate resource-load delays
 
 Spartacus implements guidelines from Google's article on [Eliminating resource-load delays of Largest Contentful Paint](https://web.dev/articles/optimize-lcp#1_eliminate_resource_load_delay) to improve the LCP metric. The following features are available:

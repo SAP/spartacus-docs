@@ -2,7 +2,9 @@
 
 Spartacus provides a set of features to achieve good [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) Core Web Vital metric. The CLS metric measures how much the content on a page shifts around while the page is loading, which can lead to a poor user experience.
 
-## Set `width` and `height` attributes on images to reserve space
+Below are the recommended practices to keep good CLS metric in Spartacus:
+
+## Reserve space for images with `width` and `height` attributes (or CSS aspect ratio)
 
 To improve the Cumulative Layout Shift metric, you can ensure that all `<img>` elements have HTML attributes `width` and `height` set. This allows the browser to reserve the space for the image before it is downloaded and rendered, which helps to avoid layout shifts.
 
