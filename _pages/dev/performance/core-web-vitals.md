@@ -1,5 +1,7 @@
 # Core Web Vitals
 
+// ITS JUST A DRAFT, NOT READY YET
+
 ## What you need to do
 
 - apply HTML attribute `fetchpriority="high"` on your LCP (Largest Contentful Paint) `<img>` elements to improve the LCP Web Vital metric. This can be done in two ways:
