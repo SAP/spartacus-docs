@@ -46,7 +46,7 @@ For more information on how to enable SSR in your Spartacus app, see docs on Ser
 
 ## Use optimized images
 
-TODO link to the docs
+See Image Format Recommendations in the document [Performance Best Practices](./performance-best-practices.md#Image-Format-Recommendations).
 
 ## Use compressed network responses
 
@@ -54,4 +54,4 @@ TODO link to the docs
 
 ## Use CDN to serve SSR pages as fast as possible
 
-TODO link to the docs
+See CDN recommendations in the document [Performance Best Practices](./performance-best-practices.md#Caching-Recommendations).
