@@ -30,7 +30,7 @@ That said, it's recommended to serve images from the same domain as the storefro
 
 Although preloading images with `<link rel="preload">` is a common technique to improve LCP, Spartacus does not create such links automatically for the Largest Contentful Paint image. This is because Spartacus `<cx-media>` component relies under the hood on the HTML `<picture>` element to support responsive images for various media queries. And, as noted in Google's article [Proload Responsive Images](https://web.dev/articles/preload-responsive-images#picture), there are still a number of technical issues to sort out for preloading `<picture>` .
 
-Fortunately, as mentioned in previous sections, Spartacus effectively prioritizes LCP images with a different method: by setting the HTML attribute `fetchpriority="high"` attribute on the `<img>` elements.
+As mentioned in previous sections, Spartacus helps to prioritize LCP images by setting the HTML attribute `fetchpriority="high"` attribute on the `<img>` elements.
 
 That said, nothing prevents you from implementing your own custom logic to preload LCP images with `<link rel="preload">` in your custom storefront.
 
