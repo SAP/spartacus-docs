@@ -1,52 +1,43 @@
-# Changes in feature lib order
+---
+title: Technical Changes in Spartacus 2211.36
+---
 
-## MyAccountV2OrderHistoryService
+The following sections list technical changes that have been made to the Order feature library and the Product Configurator feature library in Spartacus 2211.36.
 
-Method `getOrderDetails` has been removed. Instead directly use `getOrderDetailsV2`.
+## Changes in the Order Feature Library
 
-# Changes in feature lib product-configurator
+In `MyAccountV2OrderHistoryService`, the `getOrderDetails` method has been removed. Instead, use `getOrderDetailsV2` directly.
 
-## Removal of deprecated, obsolete CPQ connection scenario
+## Changes in the Product Configurator Feature Library
 
-Until this release, the CPQ integration foresaw a CPQ orchestration flavour where the storefront performed direct calls to CPQ for configuration read and change. This flavour is no longer supported from CPQ side, and is has been deprecated since release 22.11.25.
+### Removal of the Deprecated and Obsolete CPQ Connection Scenario
 
-The flavour had been activated by switching configuration setting `productConfigurator.cpqOverOcc` to `false`. This attribute has been removed, and all entities that supported the flavour have been deleted as well.
+Until this release, the CPQ integration foresaw a CPQ orchestration flavor where the storefront performed direct calls to CPQ for configuration read and change. This flavor is no longer supported from the CPQ side, and is has been deprecated since release 2211.25.
 
-Now the storefront only provides the orchestration flavour where all calls to CPQ are routed via the commerce back-end, meaning all calls will be done through OCC.
+The flavor had been activated by switching the `productConfigurator.cpqOverOcc` configuration setting to `false`. This attribute has been removed, and all entities that supported the flavor have been deleted as well.
 
-## Removal of obsolete configuration setting 'enableNavigationToConflict'
+Now the storefront only provides the orchestration flavor where all calls to CPQ are routed through the Commerce back end, meaning all calls are done through OCC.
 
-Until this release, the navigation to a conflict group from a conflicting attribute could be disabled using configurator setting `productConfigurator.enableNavigationToConflict`. Reason: This feature is supported by the underlying commerce release only after 22.05. Because the previous commerce versions are out of maintenance now, the configuration setting has been removed.
+### Removal of Obsolete Configuration Setting
 
-In case you are still running an out of maintenance version of commerce (21.05 or older), consider to adjust `ConfiguratorAttributeHeaderComponent` and always return false for method `isNavigationToConflictEnabled`.
+Until this release, the navigation to a conflict group from a conflicting attribute could be disabled using the `productConfigurator.enableNavigationToConflict` configurator setting. This setting was necessary when working with a Commerce back end that was older than release 2205. Now that versions of SAP Commerce older than 2205 are out of maintenance, the configuration setting has been removed.
 
-## Removal of deprecated methods in ConfigureCartEntryComponent
+If you are still running an out-of-maintenance version of SAP Commerce (2105 or older), consider adjusting `ConfiguratorAttributeHeaderComponent` and always return `false` for the `isNavigationToConflictEnabled` method.
 
-### getQueryParams
-Use `queryParams$` instead.
+### Additional Changes
 
-### getOwnerType
-Use `retrieveOwnerTypeFromAbstractOrderType` instead.
+The following deprecated methods have been removed from the `ConfigureCartEntryComponent`:
 
-### getEntityKey
-Use `retrieveEntityKey` instead.
+- `getQueryParams` has been removed. Use `queryParams$` instead.
+- `getOwnerType` has been removed. Use `retrieveOwnerTypeFromAbstractOrderType` instead.
+- `getEntityKey` has been removed. Use `retrieveEntityKey` instead.
 
-## Removal of deprecated methods or attributes in ConfiguratorTabBarComponent
+The following deprecation methods or attributes have been removed from the `ConfiguratorTabBarComponent`:
 
-### isOverviewPage$
-Use `getPageType$` instead.
+- `isOverviewPage$` has been removed. Use `getPageType$` instead.
+- `getTabIndexConfigTab` has been removed. Use `getTabIndexForConfigTab` instead.
+- `getTabIndexOverviewTab` has been removed. Use `getTabIndexForOverviewTab` instead.
 
-### getTabIndexConfigTab
-Use `getTabIndexForConfigTab` instead.
+The deprecated `RETRACT_VALUE_CODE` attribute in `OccConfiguratorVariantSerializerUse` has been removed. Use `Configurator.RetractValueCode` instead.
 
-### getTabIndexOverviewTab
-Use `getTabIndexForOverviewTab` instead.
-
-## Removal of deprecated attribute 'RETRACT_VALUE_CODE' in OccConfiguratorVariantSerializer
-
-Use `Configurator.RetractValueCode`instead.
-
-## Removal of deprecated attribute 'RETRACT_VALUE_CODE' in OccConfiguratorVariantNormalizer
-
-Use `Configurator.RetractValueCode`instead.
-
+The deprecated `RETRACT_VALUE_CODE` attribute in `OccConfiguratorVariantNormalizer` has been removed. Use `Configurator.RetractValueCode`instead.

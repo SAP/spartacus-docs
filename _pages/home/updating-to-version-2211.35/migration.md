@@ -1,30 +1,38 @@
-# Migrating a custom app to use Spartacus 2211.35 with Angular 19
+---
+title: Update Release 2211.36
+---
 
-Before upgrading Spartacus to the new version with Angular 18, you need to first:
+To update your Spartacus app to version 2211.36, you must carry out the following steps:
 
-- **If you've upgraded in the past from Spartacus 6.8 to 2211.19, please first follow the guide**: [Modernize Spartacus apps migrated from 6.8 to 2211.19](./modernize-apps-migrated-from-6.8-to-2211.19.md) and only then please get back here. But apps created initially with Spartacus 2211.19+ should skip this step.
-- upgrade Spartacus to version 2211.32.1
-- install Node 22 version
-- if your project uses SSR (Server-Side Rendering), please upgrade `@types/node` to version 22
+1. Modernize your storefront app to use the new Angular CLI configuration format introduced with Angular 17, but **only if your storefront app was originally created using Spartacus 6.x libraries or older**. Complete the steps in [Modernizing Your Storefront App That Was Upgraded to Version 2211.19](./modernize-apps-migrated-from-6.8-to-2211.19.md), and then continue with the rest of the steps here.
 
-  ```bash
-  npm i @types/node@22 -D
-  ```
-- upgrade Angular to version v18 and then to v19
+    If your original Spartacus app was built using version 2211.19 or newer libraries, skip this step and continue with the next steps.
+1. Update your Spartacus app to version 2211.32.1. For more information, see [Update Release 2211.32](help portal link).
+1. Install Node.js 22. For more information, see the official [Node.js website](https://nodejs.org/).
+1. If your project uses server-side rendering (SSR), upgrade `@types/node` to version 22 by running the following command:
 
-## Update Angular to 18 and 19
+   ```bash
+   npm i @types/node@22 -D
+   ```
 
-### Update Angular to 18 and 3rd party deps to be compatible with Angular 18
+1. Update Your Angular Libraries. For more information, see [Updating Your Angular Libraries](#updating-your-angular-libraries).
+1. Update Spartacus to version 2211.36. For more information, see [Updating Spartacus to 2211.36](#updating-spartacus-to-221136).
+1. Modernize your migrated Angular 19 app to be as similar as possible to a new Angular 19 app. For more information, see [Modernizing Your Migrated Angular 19 Storefront App](#modernizing-your-migrated-angular-19-storefront-app).
 
-> **Warning**
->
-> While migrating to Angular 18, you'll be asked whether to run the `use-application-builder` migration:
->
-> `❯◯ [use-application-builder] Migrate application projects to the new build system.`
->
-> Please do not select this migration, i.e. make sure the circle checkbox is empty `◯ [use-application-builder]` and only then hit ENTER.
+## Updating Your Angular Libraries
 
-Follow the [Angular guidelines for upgrading from v17 to v18](https://angular.dev/update-guide?v=17.0-18.0&l=3) and bump the Angular version locally, and update other 3rd party dependencies from Angular ecosystem  to versions compatible with Angular 18 (e.g. `@ng-select/ng-select@13`, `@ngrx/store@18`, `ngx-infinite-scroll@18`):
+Before updating Spartacus to version 2211.36, you first need to make sure your Angular libraries are up to date. Spartacus 2211.36 requires Angular 19.
+
+You can update your application to use Angular 19 as follows:
+
+- Start by updating Angular to version 18, and verify that all breaking changes have been addressed.
+- When you have updated to Angular 18, you can then update to Angular 19.
+
+### Updating to Angular 18
+
+**Caution:** When migrating to Angular 18, you are offered the option to run the `use-application-builder` migration: `❯◯ [use-application-builder] Migrate application projects to the new build system.` **Do not select this migration**. Ensure the circle checkbox is empty `◯ [use-application-builder]` and only then press ENTER.
+
+Run the following command to update the local version of Angular to version 18:
 
 ```bash
 ng update @angular/core@18 @angular/cli@18 @ng-select/ng-select@13 @ngrx/store@18 ngx-infinite-scroll@18 --force
@@ -32,19 +40,15 @@ git add .
 git commit -m "update angular 18 and 3rd party deps angular 18 compatible"
 ```
 
+This command also updates other third-party dependencies from the Angular ecosystem to versions that are compatible with Angular 18, such as `@ng-select/ng-select@13`, `@ngrx/store@18`, and `ngx-infinite-scroll@18`.
 
-### Update Angular to 19 and 3rd party deps to be compatible with Angular 19
+For more information, see the official [Angular Update Guide](https://angular.dev/update-guide?v=17.0-18.0&l=3) for updating from version 17 to version 18.
 
-> **Warning**
->
-> While migrating to Angular 19, you'll be asked again whether to run the `use-application-builder` migration, but this time it will be preselected:
-> 
-> `❯◉ [use-application-builder] Migrate application projects to the new build system.`
-> 
-> Please unselect select this migration, i.e. first hit SPACE to make the circle checkbox empty `◯ [use-application-builder]` and only then hit ENTER.
+### Updating to Angular 19
 
+**Caution:** When migrating to Angular 19, you are again offered the option to run the `use-application-builder` migration, but this time it is preselected: `❯◉ [use-application-builder] Migrate application projects to the new build system.` **Unselect this migration**. Press the SPACE bar to make the circle checkbox empty `◯ [use-application-builder]` and only then press ENTER.
 
-Follow the [Angular guidelines for upgrading from v18 to v19](https://angular.dev/update-guide?v=18.0-19.0&l=3) and bump the Angular version locally, and update other 3rd party dependencies from Angular ecosystem  to versions compatible with Angular 19 (e.g. `@ng-select/ng-select@14`, `@ngrx/store@19`, `ngx-infinite-scroll@19`):
+Run the following command to update the local version of Angular to version 19:
 
 ```bash
 ng update @angular/cli@19 @angular/core@19 ngx-infinite-scroll@19 @ng-select/ng-select@14 @ngrx/store@19 angular-oauth2-oidc@19 --force
@@ -52,65 +56,66 @@ git add .
 git commit -m "update angular 19 and 3rd party deps angular 19 compatible"
 ```
 
+This command also updates other third-party dependencies from the Angular ecosystem to versions that are compatible with Angular 19, such as `@ng-select/ng-select@14`, `@ngrx/store@19`, and `ngx-infinite-scroll@19`.
 
+For more information, see the official [Angular Update Guide](https://angular.dev/update-guide?v=18.0-19.0&l=3) for updating from version 18 to version 19.
 
-## Run Spartacus update
+## Updating Spartacus to 2211.36
 
-After successfully updating the application to Angular 19, execute this command to initiate the Spartacus update process.
+The update to Spartacus 2211.36 is mostly focused on updating the framework to Angular 19. With framework updates, there is always the chance that breaking changes could be introduced for your application. In this case, additional work on your side may be required to fix issues that result from updating from 2211.32.1 to 2211.36.
+
+**Note:** You must start with a version 2211.32.1 Spartacus app to be able to update to version 2211.36.
+
+1. In `package.json`, if you haven't already done so, change the version range specifier for `@spartacus/schematics` from `^2211.32.1` to `~2211.32.1`.
+
+   **Note:** For `@spartacus/schematics` in `package.json`, you are replacing `^` with `~`, but the version (`2211.32.1`) stays the same. It should **not** be changed to `2211.36.1`.
+
+1. In `package.json`, set your `@spartacus` libraries to `“~2211.36.1"`, except `@spartacus/schematics`.
+
+1. Run the following command in the workspace of your Angular application to install the updated dependencies:
+
+   ```bash
+
+   npm install --force
+   git add .
+   git commit -m "update Spartacus libraries to 2211.36.1 except schematics"
+   ```
+
+1. Run the following command in the workspace of your Angular application:
+
+   ```bash
+   ng update @spartacus/schematics@2211.36
+   ```
+
+   This command runs the `update` schematics, and updates your `@spartacus/schematics` package to version `2211.36.1`.
+
+1. Consult [Technical Changes in Spartacus 2211.36](./typescript-manual.doc.md) for information about additional changes that have been introduced in Spartacus 2211.36.
+
+## Updates to Bootstrap in Your Project
+
+Spartacus has internalized the styles for Bootstrap 4, so you do not need Bootstrap installed in your project anymore.
+
+To handle these changes in your project, the update schematics uninstall Bootstrap, and then modify your `styles.scss` file to integrate the Spartacus styles along with Bootstrap. The schematics ensure your imports are in the correct order, which is necessary for the styles to be applied correctly.
+
+## Silencing Sass Deprecation Warnings
+
+The update schematics take care of silencing deprecation warnings for the Sass `@import`. This is necessary because `@import` is used in the Spartacus styles and in the Bootstrap 4 styles (which are imported by the Spartacus styles).
+
+If this action is not taken, version 19 Angular CLI pollutes the terminal with excessive deprecation warnings when you run `ng serve`, which makes the developer experience less pleasant.
+
+For more information, see the following:
+
+- [`@import` is Deprecated](https://sass-lang.com/blog/import-is-deprecated) in the official Sass documentation.
+- [Style preprocessor options](https://angular.dev/reference/configs/workspace-config#style-preprocessor-options) in the official Angular documentation.
+
+## Modernizing Your Migrated Angular 19 Storefront App
+
+Storefront apps that are migrated to Angular 19 are not configured in exactly the same way as newly created Angular 19 apps. It is highly recommended that you modernize your app to be as similar as possible to a new Angular 19 app. This will help with updating to new versions of Angular and Spartacus in the future.
+
+Spartacus includes specially-prepared schematics to automatically modernize your app to be as similar as possible to a newly created Angular 19 app. To modernize your app using these schematics, run the following command from your project root directory:
 
 ```bash
-ng update @spartacus/schematics@2211.35
+ng g @spartacus/schematics:modernize-app-migrated-from-2211_32-to-2211_36
 ```
 
-### If using Server Side Rendering (SSR) and `application` builder
-
-For applications with SSR support you need to adjust the `server.ts`:
-
-```diff
-/* ... */
-- const indexHtml = join(browserDistFolder, 'index.html');
-+ const indexHtml = join(serverDistFolder, 'index.server.html');
-```
-
-## Adjust the Bootstrap usage
-
-Spartacus internalized the Bootstrap 4 styles, so you don't need the Bootstrap being installed in your project anymore.
-
-Please follow the guide: [Spartacus migration - Bootstrap](./bootstrap.md)
-
-## Silence Sass deprecation warnings
-
-In  `angular.json` in the section `architect > build > options > stylePreprocessorOptions` please add the property with object `"sass": { "silenceDeprecations":  ["import"] }`
-
-```diff
-              "stylePreprocessorOptions": {
-                "includePaths": ["node_modules/"],
-+               "sass": {
-+                 "silenceDeprecations": ["import"]
-+               }
-              }
-```
-
-**Why it's needed:**
-We need to silence the deprecation warnings for the Sass `@import` because `@import` is used in the Spartacus styles and in the Bootstrap 4 styles (which are imported by the Spartacus styles).
-
-Otherwise, Angular CLI v19 would pollute the terminal with a wall of deprecation warnings when running `ng serve`, making the developer experience less pleasant.
-
-In the future, we plan to remove all the Sass `@import` usages from the Spartacus styles and drop the usage of Bootstrap 4, and only then we will be able to remove the `silenceDeprecations` option.
-
-For more, see:
-
-- https://sass-lang.com/blog/import-is-deprecated
-- https://angular.dev/reference/configs/workspace-config#style-preprocessor-options
-
-## Modernize your app migrated to Angular 19, so it looks like a new Angular 19 app
-
-Now you've migrated your app to Angular 19 and Spartacus 2211.35, but it's not the end of the migration process.
-
-Apps migrated to Angular 19 are not configured exactly the same as the new Angular 19 apps. 
-It is good to modernize your app to look like a new Angular 19 app, because it will help with migrations to future next versions of Angular and Spartacus. So now please follow the last guide: [Modernize Spartacus app migrated from 2211.32 to 2211.35](./modernize-apps-migrated-from-2211.32-to-2211.35.md)
-
-
-
-
-
+If you encounter any issues, you can complete the migration by following the manual migration steps provided in [Modernizing Your Storefront App After Upgrading to Version 2211.36](./modernize-apps-migrated-to-2211.36.md).

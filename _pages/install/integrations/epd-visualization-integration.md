@@ -83,7 +83,8 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
    import { NgModule } from '@angular/core';
    import { I18nConfig, provideConfig } from "@spartacus/core";
    import { EpdVisualizationModule } from "@spartacus/epd-visualization";
-   import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslations } from "@spartacus/epd-visualization/assets";
+   import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslationsEn } from "@spartacus/epd-visualization/assets"; // Use with version 2211.35 or newer
+   // import { epdVisualizationTranslationChunksConfig, epdVisualizationTranslations } from "@spartacus/epd-visualization/assets"; // Use with version 2211.32.1 or older
    import { EpdVisualizationConfig, EpdVisualizationRootModule } from "@spartacus/epd-visualization/root";
 
    @NgModule({
@@ -94,7 +95,8 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
      ],
      providers: [provideConfig(<I18nConfig>{
        i18n: {
-         resources: epdVisualizationTranslations,
+         resources: epdVisualizationTranslationsEn, // Use with version 2211.35 or newer
+     //  resources: epdVisualizationTranslations, // Use with version 2211.32.1 or older
          chunks: epdVisualizationTranslationChunksConfig,
        },
      }),
@@ -131,7 +133,8 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
 
    ```typescript
    import { NgModule } from '@angular/core';
-   import { translationChunksConfig, translations } from "@spartacus/assets";
+   import { translationChunksConfig, translationsEn } from "@spartacus/assets"; // Use with version 2211.35 or newer
+   // import { translationChunksConfig, translations } from "@spartacus/assets"; // Use with version 2211.32.1 or older
    import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
    import { defaultB2bCheckoutConfig, defaultB2bOccConfig } from "@spartacus/setup";
    import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
@@ -154,7 +157,8 @@ If you do not wish to use the schematics, you can manually add the SAP Enterpris
        },
      }), provideConfig(<I18nConfig>{
        i18n: {
-         resources: translations,
+         resources: { en: translationsEn }, // Use with version 2211.35 or newer
+     //  resources: translations, // Use with version 2211.32.1 or older
          chunks: translationChunksConfig,
          fallbackLang: 'en'
        },

@@ -1,156 +1,134 @@
-# Modernize apps upgraded from Angular v2211.32 to v2211.35
+---
+title: Modernizing Your Storefront App After Upgrading to Version 2211.36
+---
 
-New Angular 19 apps are configured a bit differently than the Angular 17 apps migrated to v19. This document is a migration guide for modernizing the migrated apps to look as much as possible like the new Angular 19 apps.
+New Angular 19 apps are configured a bit differently than Angular 17 apps that have been migrated to version 19. This applies to all Spartacus apps that have updated from version 2211.32.1 to version 2211.36. It is highly recommended that you modernize your Angular 19 app to be as similar as possible to a new Angular 19 app. This will help with updating to new versions of Angular and Spartacus in the future.
 
-# Automatic migration
+## Automatic Migration
 
-The Spartacus team provides special schematics that automatically modernize the app to look as much as possible like the new Angular 19 apps.
-
-Please run the following command from your project root directory:
-
-```bash
-ng g @spartacus/schematics:modernize-app-migrated-from-2211_32-to-2211_35
-```
-
-In case of any issues during the automatic migration, you can always fall back to the manual migration steps below.
-
-# Manual migration
-
-Here are the migration steps in detail:
-
-### `angular.json`
-
-1. In the section `architect > build > options > assets`, please replace 2 string values in the array: `"src/favicon.ico"` and `"src/assets"` with a single object `{ "glob": "**/*", "input": "public" }`
-
-```diff
-             "assets": [
--              "src/favicon.ico",
--              "src/assets"
-+              {
-+                "glob": "**/*",
-+                "input": "public"
-+              },
-```
-
-2. Please do the same but now in the `test` section - `architect > test > options > assets`.
-
-
-### `tsconfig.json`
-
-In the `"compilerOptions"` section, please:
-
-- add a new option `"isolatedModules": true`, 
-- remove options `"sourceMap": true`, `"declaration": false`, `"useDefineForClassFields": false`, `"lib": ["ES2022", "dom"]`
-- change the value of `"moduleResolution"` from `"node"` to `"bundler"`
-
-```diff
-  "compilerOptions": {
-+    "isolatedModules": true,
--    "sourceMap": true,
--    "declaration": false,
--    "moduleResolution": "node",
-+    "moduleResolution": "bundler",
--    "useDefineForClassFields": false,
--    "lib": [
--      "ES2022",
--      "dom"
--    ]
-```
-
-
-### `src/assets`
-
-1. Please rename the folder to `/public`
-2. Please move this folder up to the project's root folder.
-
-Example command on Mac/Linux:
+Spartacus includes specially-prepared schematics to automatically modernize your app to be as similar as possible to a newly created Angular 19 apps. To modernize your app using these schematics, run the following command from your project root directory:
 
 ```bash
-mv src/assets public
+ng g @spartacus/schematics:modernize-app-migrated-from-2211_32-to-2211_36
 ```
 
-### `src/favicon.ico`
+If you encounter any issues, you can finish the migration by completing the steps in the following sections.
 
-Please move the file to the folder `/public`.
+## Manual Migration For All Spartacus Apps
 
-Example command on Mac/Linux:
+The following steps apply to all storefront apps that have been updated to version 2211.36.
 
-```bash
-mv src/favicon.ico public
-```
+**Note:** These steps are provided for reference and for troubleshooting purposes. You should only follow these steps if you run into issues with the automatic migration described above.
 
-### `src/main.ts`
+1. In the `architect > build > options > assets` section of `angular.json`, replace the two string values in the array, `"src/favicon.ico"` and `"src/assets"`, with a single `{ "glob": "**/*", "input": "public" }` object. The updated array should appear as follows:
 
-Please add an option `{ ngZoneEventCoalescing: true }` to the second argument of the`platformBrowserDynamic().bootstrapModule()` call.
+   ```json
+   "assets": [
+     {
+       "glob": "**/*",
+       "input": "public"
+     },
+   ```
 
-```diff
-- platformBrowserDynamic().bootstrapModule(AppModule)
-+ platformBrowserDynamic().bootstrapModule(AppModule, {
-+   ngZoneEventCoalescing: true,
-+ })
-```
+2. Make this same change in the `architect > test > options > assets` section of `angular.json`.
+3. In the `"compilerOptions"` section of `tsconfig.json`, do the following:
+   1. Add a new option: `"isolatedModules": true`
+   2. Remove the following options: `"sourceMap": true`, `"declaration": false`, `"useDefineForClassFields": false`, and `"lib": ["ES2022", "dom"]`
+   3. Change the value of `"moduleResolution"` from `"node"` to `"bundler"`
 
-## For SSR projects, additionally:
+   The updated `"compilerOptions"` section should appear as follows:
 
-### `server.ts`
+   ```json
+     "compilerOptions": {
+        "isolatedModules": true,
+        "moduleResolution": "bundler",
+   ```
 
-1. Please move the file from the root folder to the folder `/src`
-   `server.ts` -> `src/server.ts`
+4. Rename the `src/assets` folder to `/public`, and then move this folder to the project's root folder.
 
-Example command on Mac/Linux:
+   For example, you can do this by running the following command on Mac or Linux:
 
-```bash
-mv server.ts src/server.ts
-```
+   ```bash
+   mv src/assets public
+   ```
 
-2. In the contents of the file, please replace the import path of `AppServerModule` from `./src/main.server` to `./main.server`
+5. Move the `src/favicon.ico` file to the `/public` folder.
 
-```diff
--import AppServerModule from './src/main.server';
-+import AppServerModule from './main.server';
-```
+   For example, you can do this by running the following command on Mac or Linux:
 
+   ```bash
+   mv src/favicon.ico public
+   ```
 
-### `angular.json`
+6. In `src/main.ts`, add a `{ ngZoneEventCoalescing: true }` option to the second argument of the `platformBrowserDynamic().bootstrapModule()` call.
 
-In the section `architect > build > options > ssr > entry` please replace the value `"server.ts"` to `"src/server.ts"`
+   The updated call should appear as follows:
 
-```diff
-             "ssr": {
--              "entry": "server.ts"
-+              "entry": "src/server.ts"
-             }
-```
+   ```ts
+   platformBrowserDynamic().bootstrapModule(AppModule, {
+     ngZoneEventCoalescing: true,
+   })
+   ```
 
-### `tsconfig.app.json`
+## Additional Migration Steps For Projects Using SSR
 
-In the `"files"` array, please change the item `"server.ts"` to `"src/server.ts"`
+The following steps apply to all storefront apps that use server-side rendering (SSR).
 
-```diff
+1. Move the `server.ts` file from the root folder to the `/src` folder (`server.ts` -> `src/server.ts`).
+
+   For example, you can do this by running the following command on Mac or Linux:
+
+   ```bash
+   mv server.ts src/server.ts
+   ```
+
+2. In the `server.ts` file, update the `AppServerModule` import path from `./src/main.server` to `./main.server`.
+
+   The updated `AppServerModule` import path should appear as follows:
+
+   ```ts
+   import AppServerModule from './main.server';
+   ```
+
+3. In the `architect > build > options > ssr > entry` section of `angular.json`, replace `"server.ts"` with `"src/server.ts"`.
+
+   The updated section should appear as follows:
+
+   ```json
+   "ssr": {
+     "entry": "src/server.ts"
+   }
+   ```
+
+4. In the `"files"` array of `tsconfig.app.json`, replace `"server.ts"` with `"src/server.ts"`.
+
+   The updated array should appear as follows:
+
+   ```json
    "files": [
      "src/main.ts",
      "src/main.server.ts",
--    "server.ts"
-+    "src/server.ts"
+     "src/server.ts"
    ],
+   ```
+
+## Migration Steps For Projects Using Lazy Loaded i18n
+
+If your project uses [lazy loaded i18n](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/775e61ed219c4999852d43be5244e94a.html?q=i18n#lazy-loading), and if you stored your i18n files in the `src/assets/` folder, the previous migration steps required you to move these files to the `public/` folder.
+
+As a result, you need to update the Spartacus config for the lazy loading of i18n files to use the new path. This may be in your `spartacus-configuration.module.ts` file, for example.
+
+Look for an import, such as `../../assets/i18n-assets/${lng}/${ns}.json`, and replace it with `../../../public/i18n-assets/${lng}/${ns}.json`.
+
+The following is an example of how the updated config should appear:
+
+```ts
+providers: [
+  provideConfig({
+    i18n: {
+      backend: {
+        loader: (lng: string, ns: string) =>
+          import(`../../../public/i18n-assets/${lng}/${ns}.json`),
 ```
 
-## For projects using lazy loaded i18n
-
-If your project uses [lazy loaded i18n](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/775e61ed219c4999852d43be5244e94a.html?q=i18n#lazy-loading) and if you stored your i18n files in the `src/assets/` folder, now you've just moved them to the `public/` folder.
-
-So please update the Spartacus config for the lazy loading of i18n files (likely in your `spartacus-configuration.module.ts` file) to use the new path:
-
-```diff
- providers: [
-   provideConfig({
-     i18n: {
-       backend: {
-         loader: (lng: string, ns: string) =>
--          import(`../../assets/i18n-assets/${lng}/${ns}.json`),
-+          import(`../../../public/i18n-assets/${lng}/${ns}.json`),
-```
-
-## Congratulations!
-
-Congratulations! You've modernized your app to look like a new Angular 19 app.
+Congratulations! You have now modernized your migrated storefront app to look like a new Angular 19 app, and you have completed the update to Spartacus 2211.36.
