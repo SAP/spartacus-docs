@@ -15,7 +15,7 @@ This feature is supported only since Spartacus v2211.43.
 
 The Spartacus global configuration:
 - `lcpCmsComponents.ids` allows for configuring a static list of CMS component IDs
-- `lcpCmsComponents.idMarker` allows for configuring a special marker (by default `"__cxLCP__"`) - when it's present in the CMS component ID coming from CMS data, the component will be automatically recognized as having  the Largest Contentful Paint image.
+- `lcpCmsComponents.idMarker` allows for configuring a special marker (by default `"__cxLCP__"`) - when it's present in the CMS component ID coming from CMS data, the component will be automatically recognized as having the Largest Contentful Paint image.
 
 You can use either of those two options or both of them, depending on your needs.
 
