@@ -12,7 +12,7 @@ Since Spartacus v2211.31, when the feature toggle `useExtendedMediaComponentConf
 
 Since Spartacus v2211.43, when the feature toggle `reserveSpaceForImagesOnPdpAndPlp` is enabled, Spartacus automatically reserves space for square product images on the Product Details Page and Product Listing Page by setting CSS rules with `aspect-ratio: 1 / 1`.
 
-# Pass with `width` and `height` properties to `<cx-media>` component
+### Pass with `width` and `height` properties to `<cx-media>` component
 
 This can be done in two ways:
 
@@ -198,3 +198,32 @@ export const workaroundExtractBannerDimensionsFromUrl: Provider = {
   useExisting: CustomOccCmsPageNormalizer,
 };
 ```
+
+## Enable Angular non-destructive hydration
+
+> [Angular non-destructive] Hydration improves application performance by avoiding extra work to re-create DOM nodes. Instead, Angular tries to match existing DOM elements to the applications structure at runtime and reuses DOM nodes when possible. This results in a performance improvement that can be measured using Core Web Vitals (CWV) statistics, such as reducing the First Input Delay (FID) and Largest Contentful Paint (LCP), as well as Cumulative Layout Shift (CLS). 
+
+(source: https://angular.dev/guide/hydration)
+
+Spartacus supports Angular's non-destructive hydration since Spartacus v2211.43. It is enabled by default in fresh apps created with Spartacus v2211.43 or later. Existing apps created before v2211.43 can enable it by adding the following native Angular provider to their `app.module.ts`:
+
+```typescript
+import {
+  provideClientHydration,
+  withEventReplay,
+  withNoHttpTransferCache,
+} from '@angular/platform-browser';
+
+/*...*/
+
+@NgModule({
+  /*..,*/
+  providers: [
+    /*...*/
+    provideClientHydration(withEventReplay(), withNoHttpTransferCache()),
+  ],
+})
+export class AppModule {}
+```
+
+Please note that for the Angular non-destructive hydration to work correctly, all components displayed on a Server-Side Rendered page must comply with the [Angular non-destructive hydration constraints](https://angular.dev/guide/hydration#constraints). Spartacus OOTB components are compliant since v2211.43, but you need to review your custom components (especially those displayed on Server-Side Rendered pages) to ensure they are compliant too. Otherwise the hydration will fail and the page might be not displayed correctly. You can check the browser console in dev mode for any Angular hydration errors.
