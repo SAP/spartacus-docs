@@ -255,3 +255,37 @@ export class AppModule {}
 
 ### Comply with Angular non-destructive hydration constraints
 Please note that for the Angular non-destructive hydration to work correctly, all components displayed on a Server-Side Rendered page must comply with the special [Angular non-destructive hydration constraints](https://angular.dev/guide/hydration#constraints). Spartacus OOTB components displayed on SSR pages are compliant with those constraints since v2211.43, but you need to review your custom components (especially those displayed on SSR pages) to ensure they are compliant too. Otherwise the Angular hydration will fail and those components might be not displayed correctly. For troubleshooting, you can check the browser console in dev mode for any Angular hydration errors.
+
+## Don't use `pageFold` property in the Spartacus layout config
+
+The `pageFold` property set in the Spartacus layout config can cause some components to be rendered only after a delay even in the SSR pages, which can lead to degrading the CLS (Cumulative Layout Shift) metric.
+
+The `pageFold` property is not used in the OOTB Spartacus layout config since Spartacus v2211.43, when the feature toggle `unifiedDefaultHeaderSlotsAcrossBreakpoints` is enabled. Moreover, to make this feature toggle effective, you need to also change the deprecated `provideConfig(layoutConfig)` to `provideConfigFactory(layoutConfigFactory)` in your `spartacus-features.module.ts`.
+
+Alternatively, if you're using Spartacus version before v2211.43, you can remove the `pageFold` property from your layout config by overriding the default Spartacus layout config in your app module, like in the example below:
+
+```typescript
+import { provideConfig } from '@spartacus/core';
+
+/*...*/
+
+providers: [
+  /*...*/
+  provideConfig({
+    layoutSlots: {
+      LandingPage2Template: {
+        pageFold: undefined,
+      },
+      CategoryPageTemplate: {
+        pageFold: undefined,
+      },
+      ProductDetailsPageTemplate: {
+        pageFold: undefined,
+        lg: {
+          pageFold: undefined,
+        }
+      },
+    },
+  }),
+],
+```
