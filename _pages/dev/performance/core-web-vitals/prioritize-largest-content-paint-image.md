@@ -73,7 +73,7 @@ provideConfig({
 
 ### Implementation details of components supporting `lcpCmsComponents`
 
-The components that support the `lcpCmsComponents` configuration will automatically set the input `[fetchPriority]="ImageFetchPriority.HIGH"` on the `<cx-media>` component inside them, if the CMS component is recognized as containing the Largest Contentful Paint image. They take this information from the Spartacus directive  `*cxLcpContext` in the HTML template of the component. Alternatively, they can inject the `LCP_CONTEXT` injection token in their typescript code.
+The components that support the `lcpCmsComponents` configuration will automatically set the input `[fetchPriority]="ImageFetchPriority.HIGH"` on the `<cx-media>` component inside them, if the CMS component is recognized as containing the Largest Contentful Paint image. They take this information from the Spartacus directive `*cxLcpContext` in the HTML template of the component. Alternatively, they can inject the `LCP_CONTEXT` injection token in their typescript code.
 For example, the `BannerComponent` HTML template looks like this:
 
 ```html
