@@ -48,7 +48,7 @@ For more on this issue, read the section below [Appendix: Use the same Header la
 ### Use the improved product carousel implementation available since v2211.43
 Before v2211.43, Spartacus used the `<cx-carousel>` component to display product carousels. This carousel implementation caused layout shifts when transitioning from Server-Side Rendered (SSR) HTML to Client-Side Rendered (CSR) HTML, as it changed the DOM structure after the JavaScript was loaded and executed on viewport breakpoints other than mobile. This issue is fixed since Spartacus v2211.43, when the feature toggle `productCarouselScrolling` is enabled.
 
-When `productCarouselScrolling` is enabled, the improved carousel implementation `<cx-carousel-scrolling>` is used instead of the old `<cx-carousel>` as a child of the in the `ProductCarouselComponent` and `ProductReferencesComponent`.
+When `productCarouselScrolling` is enabled, the improved carousel implementation `<cx-carousel-scrolling>` is used instead of the old `<cx-carousel>` as a child of the `ProductCarouselComponent` and `ProductReferencesComponent`.
 The new carousel implementation, as opposed to the old one, does not change the DOM structure after transitioning from SSR to CSR, so it avoids layout shifts. As an added benefit, it also more mobile-friendly thanks the swipe gestures allowing to continuously scroll the carousel items (instead of the previous need to click on the next/previous buttons to change slides).
 
 ### Why not use breakpoint-specific layout configurations in Spartacus
