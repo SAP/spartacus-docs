@@ -1,4 +1,4 @@
-# Core Web Vitals
+# Optimizing Core Web Vitals
 
 Spartacus provides a set of features to help you achieve by default good Core Web Vitals, which are the key metrics for measuring the user experience of your web application.
 Moreover, in your custom Spartacus storefront you should follow Google's guidelines on optimizing Core Web Vitals.
