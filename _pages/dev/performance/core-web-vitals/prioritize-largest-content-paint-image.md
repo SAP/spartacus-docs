@@ -10,7 +10,7 @@ Under the hood, this will set the HTML attribute `fetchpriority="high"` on the `
 
 ## CMS-driven configuration `lcpCmsComponents` 
 
-In selected OOTB Spartacus components (listed below), the setting of the `fetchpriority="high"` can be automatically done this for you, if you configure just the CMS component IDs that contain the LCP images. This way, you don't need to modify directly the HTML templates of the OOTB components just to add the `fetchpriority` attribute.
+In selected OOTB Spartacus components (listed below), the setting of the `fetchpriority="high"` can automatically do this for you, if you configure just the CMS component IDs that contain the LCP images. This way, you don't need to modify directly the HTML templates of the OOTB components just to add the `fetchpriority` attribute.
 This feature is supported only since Spartacus v2211.43.
 
 The Spartacus global configuration:
