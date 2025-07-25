@@ -87,7 +87,7 @@ For example, the `BannerComponent` HTML template looks like this:
 
 Note: If the CMS component contains multiple `<cx-media>` components (e.g. main image and a few thumbnails), the input `[fetchPriority]="ImageFetchPriority.HIGH"` should be on the `<cx-media>` component that contains the Largest Contentful Paint image, and not on all of them. Otherwise all those images will be loaded eagerly with high priority, which is not recommended.
 
-The Spartacus directive `*cxLcpContext` under the hood injects the injection token `LCP_CONTEXT` in their Typescript class. The token as the `lcpPresence$` observable, which emits the `LcpPresence` enum value (`HAS_LCP` or `NO_LCP`) based on the configured `lcpCmsComponents` configuration and the CMS component's ID.
+The Spartacus directive `*cxLcpContext` under the hood injects the injection token `LCP_CONTEXT` in its Typescript class. The token is the `lcpPresence$` observable, which emits the `LcpPresence` enum value (`HAS_LCP` or `NO_LCP`) based on the configured `lcpCmsComponents` configuration and the CMS component's ID.
 
 The `LcpPresence` enum has two values:
 - `HAS_LCP`: Indicates that the CMS component contains the Largest Contentful Paint image.
