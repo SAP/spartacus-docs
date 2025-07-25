@@ -267,20 +267,25 @@ Alternatively, if you're using Spartacus version before v2211.43, you can remove
 ```typescript
 import { provideConfig } from '@spartacus/core';
 
-provideConfig({
-  layoutSlots: {
-    LandingPage2Template: {
-      pageFold: undefined,
-    },
-    CategoryPageTemplate: {
-      pageFold: undefined,
-    },
-    ProductDetailsPageTemplate: {
-      pageFold: undefined,
-      lg: {
+/*...*/
+
+providers: [
+  /*...*/
+  provideConfig({
+    layoutSlots: {
+      LandingPage2Template: {
         pageFold: undefined,
-      }
+      },
+      CategoryPageTemplate: {
+        pageFold: undefined,
+      },
+      ProductDetailsPageTemplate: {
+        pageFold: undefined,
+        lg: {
+          pageFold: undefined,
+        }
+      },
     },
-  },
-});
+  }),
+],
 ```
