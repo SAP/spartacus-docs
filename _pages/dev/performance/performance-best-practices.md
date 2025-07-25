@@ -27,7 +27,7 @@ The keys for achieving a "Grade A" performance report are the following:
 The following best practices are highly recommended for improving the performance of your storefront application:
 
 - Minimize the number of synchronous HTTP requests as much as possible.
-- Use HTTP compression whenever possible to improve transfer speed and to optimize bandwidth (like Brotli/Zstd)
+- Use HTTP compression (like Brotli/Zstd) whenever possible to improve transfer speed and to optimize bandwidth.
 - When loading third party scripts, use `async` or `defer` so that the browser's main thread does not get blocked.
 - Verify that the size of your assets is appropriate for the size of the user's screen. For example, you do not want to display desktop-size images on a viewport that requires mobile-size images.
 - When making calls to APIs, such as OCC, try requesting only the data that you need. OCC responses with `fields=FULL` contain a lot of data that you might not need. The bigger the response, the longer it takes to retrieve it and process it. The same practice applies to APIs that support pagination.
