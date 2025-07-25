@@ -32,7 +32,7 @@ To have a stable layout, please follow the Spartacus guide on keeping good [Cumu
 
 ### Preconnect to the media domain unless it is the same as the storefront domain
 
-To further improve the LCP metric, Spartacus automatically creates `<link rel="preconnect" href="<MEDIA DOMAIN>">` based on the configured `mediaBaseUrl`, to perform the DNS and TLS requests as soon as possible, to later being able to fetch the images from that domain without additional roundtrips. This is supported since Spartacus v2211.43 when the feature toggle `createMediaPreconnectLink` is enabled.
+To further improve the LCP metric, Spartacus automatically creates `<link rel="preconnect" href="<MEDIA DOMAIN>">` based on the configured `mediaBaseUrl`, to perform the DNS and TLS requests as soon as possible, to later being able to fetch the images from that domain without additional roundtrip. This is supported since Spartacus v2211.43 when the feature toggle `createMediaPreconnectLink` is enabled.
 
 That said, it's even recommended to avoid the need to preconnect, i.e. it's recommended to serve images from **the same domain** as the storefront's domain, if only possible. Then no preconnecting to a media domain is needed.
 
