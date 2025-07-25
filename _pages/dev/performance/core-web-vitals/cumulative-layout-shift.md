@@ -218,6 +218,15 @@ export const workaroundExtractBannerDimensionsFromUrl: Provider = {
 };
 ```
 
+...and then you can register this custom provider e.g. in your app module:
+
+```typescript
+providers: [
+  /*...*/
+  workaroundExtractBannerDimensionsFromUrl,
+],
+```
+
 ## Enable Angular's native non-destructive hydration
 
 Spartacus supports the [Angular's native non-destructive hydration](source: https://angular.dev/guide/hydration) feature since Spartacus v2211.43. It is enabled by default in fresh apps created with Spartacus v2211.43 or later. But existing apps created before v2211.43 need to enable it manually by adding the following native Angular provider to their `app.module.ts`:
