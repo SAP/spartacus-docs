@@ -116,6 +116,8 @@ Because the page layout is driven by page template codes and position names, the
 
 ## Choosing an Adaptive or Responsive Layout
 
+**Caution**: Using a breakpoint-specific layout can cause layout shifts when transitioning from server-side rendered HTML to client-side rendered HTML. The SSR HTML is generated using the `xs` layout, and this is later changed to the `lg` layout when the JavaScript in Spartacus is loaded and run in the desktop view. This can negatively impact the [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) Core Web Vitals metric. As a result, it is recommended that you do not use breakpoint-specific layout configurations in Spartacus.
+
 The Spartacus storefront is implemented using responsive design, rather than adaptive design. For storefront software development, as well as for content production, responsive design is widely accepted as being faster to implement and more cost effective.
 
 However, nothing stops you from using an adaptive design approach in your Spartacus storefront. The SAP Commerce Cloud back end supports multi-site implementations, and can be configured to have different content (catalogs) for different sites.
@@ -151,5 +153,3 @@ A potential bottleneck with responsive design is the amount of content that is r
 ### Server-Side Rendering
 
 Special attention is required when pages are rendered on the server, using server-side rendering (SSR). Whenever the SSR process or the edge cache layers are not able to address the client device, the process should decide on the preferred breakpoint. A breakpoint that renders all content is better for search engines, and this would be typical for a desktop breakpoint. On the other hand, a breakpoint that is optimized for performance may provide a better experience for end users who are accessing the storefront on a mobile device.
-
-In Spartacus, all content is always rendered. There is an open ticket for improving the server-side rendering based on device detection, if possible, or else providing a standard viewport (mobile first).

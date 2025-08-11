@@ -26,8 +26,8 @@ The keys for achieving a "Grade A" performance report are the following:
 
 The following best practices are highly recommended for improving the performance of your storefront application:
 
-- Minimize the number of synchronous and asynchronous HTTP requests as much as possible.
-- Use HTTP compression whenever possible to improve transfer speed and to optimize bandwidth.
+- Minimize the number of synchronous HTTP requests as much as possible.
+- Whenever possible, use HTTP compression, such as Brotli or Zstd, to improve transfer speed and to optimize bandwidth.
 - When loading third party scripts, use `async` or `defer` so that the browser's main thread does not get blocked.
 - Verify that the size of your assets is appropriate for the size of the user's screen. For example, you do not want to display desktop-size images on a viewport that requires mobile-size images.
 - When making calls to APIs, such as OCC, try requesting only the data that you need. OCC responses with `fields=FULL` contain a lot of data that you might not need. The bigger the response, the longer it takes to retrieve it and process it. The same practice applies to APIs that support pagination.
@@ -67,17 +67,18 @@ For more information, see the following:
 
 Using a content delivery network (CDN) can significantly improve the performance of your storefront application by distributing your content across multiple servers located around the world, allowing you to serve content closer to your end users, no matter where they are located. The following are best practices for using a CDN:
 
-- **Choose a reliable CDN provider**: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
-- **Cache static assets and dynamic prerendered routes:** Configure your CDN to cache static assets, including images, CSS, JavaScript files, fonts, and prerendered routes. This reduces the load on your origin server and accelerates content delivery to users, which can improve Core Web Vital metrics such as LCP.
-- **Use HTTP/2 or HTTP/3 if possible:** Make sure your CDN supports the latest versions of HTTP, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
-- **Enable Brotli compression:** Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
-- **Use a secure connection:** Ensure that your CDN supports HTTPS to encrypt data in transit and to protect user privacy.
-- **Monitor performance:** Monitor the performance of your CDN using available tools to identify bottlenecks and optimize content delivery.
-- **Optimize cache settings:** Configure cache settings on your CDN to ensure that content is cached for an appropriate duration and that cache invalidation is handled correctly.
-- **Use a Multi CDN strategy:** Consider using multiple CDNs to improve redundancy, reduce latency, and optimize content delivery for users in different regions.
-- **Implement a CDN failover strategy:** Plan for CDN outages by implementing a failover strategy that redirects traffic to an alternate CDN or origin server in case of downtime.
-- **Leverage CDN capabilities:** Use CDN features like `stale-while-revalidate` and `stale-if-error` to serve stale content while fetching updates or handling errors.
-- **Implement Subresource Integrity:** Subresource Integrity (SRI) is a security feature that ensures the integrity of resources fetched from a CDN. By using SRI, you can verify that the resources have not been tampered with, thus protecting against supply chain attacks.
+- Choose a reliable CDN provider: Select a CDN provider that offers good performance, reliability, and coverage in the regions where your users are located.
+- Cache static assets and dynamic prerendered routes: Configure your CDN to cache static assets, including images, CSS, JavaScript files, fonts, and prerendered routes. This reduces the load on your origin server and accelerates content delivery to users, which can improve Core Web Vital metrics such as LCP.
+- Use HTTP/2 or HTTP/3 if possible: Make sure your CDN supports the latest versions of HTTP, which can improve the performance of your storefront by reducing latency and improving the efficiency of data transfer.
+- Rely on the CDN to optimize images, if possible: Some CDN providers can automatically optimize images by converting them to modern formats like WebP or AVIF, resizing them, and applying compression. This can significantly reduce the size of image files and improve loading times.
+- Enable Brotli compression: Configure your CDN to compress content using Brotli compression to reduce the size of files transferred over the network.
+- Use a secure connection: Ensure that your CDN supports HTTPS to encrypt data in transit and to protect user privacy.
+- Monitor performance: Monitor the performance of your CDN using available tools to identify bottlenecks and optimize content delivery.
+- Optimize cache settings: Configure cache settings on your CDN to ensure that content is cached for an appropriate duration and that cache invalidation is handled correctly.
+- Use a Multi CDN strategy: Consider using multiple CDNs to improve redundancy, reduce latency, and optimize content delivery for users in different regions.
+- Implement a CDN failover strategy: Plan for CDN outages by implementing a failover strategy that redirects traffic to an alternate CDN or origin server in case of downtime.
+- Leverage CDN capabilities: Use CDN features like `stale-while-revalidate` and `stale-if-error` to serve stale content while fetching updates or handling errors.
+- Implement Subresource Integrity: Subresource Integrity (SRI) is a security feature that ensures the integrity of resources fetched from a CDN. By using SRI, you can verify that the resources have not been tampered with, thus protecting against supply chain attacks.
 
 ## Additional Recommendations
 
