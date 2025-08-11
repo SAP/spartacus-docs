@@ -1,20 +1,20 @@
-# Optimizing Core Web Vitals
+---
+title: Optimizing Core Web Vitals
+---
 
-Spartacus provides a set of features to help you achieve by default good Core Web Vitals, which are the key metrics for measuring the user experience of your web application.
-When it comes to your custom Spartacus storefront, follow Google's guidelines on optimizing Core Web Vitals.
+Core Web Vitals are the key metrics for measuring the user experience of your web application. Spartacus provides a set of features to help you achieve good Core Web Vitals in your application.
 
-### Largest Contentful Paint (LCP)
+The following information is provided to help you optimize the Core Web Vitals of your storefront application, with details specific to Spartacus, as well as Google's general guidelines for optimizing Core Web Vitals.
 
-- [Spartacus features for optimizing Largest Contentful Paint](./largest-contentful-paint.md)
-- [Google's guide on optimizing Largest Contentful Paint](https://web.dev/optimize-lcp/)
+For optimizing **Largest Contentful Paint (LCP)**, see the following resources:
 
+- [Optimizing Largest Contentful Paint in Spartacus](./core-web-vitals/largest-contentful-paint.md)
+- [Prioritizing the Largest Contentful Paint Image](./core-web-vitals/prioritize-largest-content-paint-image.md)
+- [Optimize Largest Contentful Paint](https://web.dev/optimize-lcp/) in the official Google web.dev documentation.
 
-### Cumulative Layout Shift (CLS)
+For optimizing **Cumulative Layout Shift (CLS)**, see the following resources:
 
-- [Spartacus features for optimizing Cumulative Layout Shift](./cumulative-layout-shift.md)
-- [Google's guide on optimizing Cumulative Layout Shift](https://web.dev/optimize-cls/)
+- [Optimizing Cumulative Layout Shift in Spartacus](./core-web-vitals/cumulative-layout-shift.md)
+- [Optimize Cumulative Layout Shift](https://web.dev/optimize-cls/) in the official Google web.dev documentation.
 
-
-### Interaction to Next Paint (INP)
-
-- [Google's guide on optimizing Interaction to Next Paint](https://web.dev/optimize-inp/)
+For optimizing **Interaction to Next Paint (INP)**, see [Optimize Interaction to Next Paint](https://web.dev/optimize-inp/) in the official Google web.dev documentation.

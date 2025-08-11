@@ -116,7 +116,7 @@ Because the page layout is driven by page template codes and position names, the
 
 ## Choosing an Adaptive or Responsive Layout
 
-**CAUTION**: Using a breakpoint-specific layout can cause layout shifts when transitioning from HTML that was rendered on the server, using server-side rendered (SSR), to an HTML that is client-side rendered (CSR). The SSR HTML assumes the `xs` layout, which is later changed to the `lg` layout when the JavaScript of Spartacus is loaded and executed in desktop. This can negatively impact the [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) Core Web Vitals metric. Therefore, it is recommended to not use breakpoint-specific layout configurations in Spartacus.
+**Caution**: Using a breakpoint-specific layout can cause layout shifts when transitioning from server-side rendered HTML to client-side rendered HTML. The SSR HTML is generated using the `xs` layout, and this is later changed to the `lg` layout when the JavaScript in Spartacus is loaded and run in the desktop view. This can negatively impact the [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) Core Web Vitals metric. As a result, it is recommended that you do not use breakpoint-specific layout configurations in Spartacus.
 
 The Spartacus storefront is implemented using responsive design, rather than adaptive design. For storefront software development, as well as for content production, responsive design is widely accepted as being faster to implement and more cost effective.
 

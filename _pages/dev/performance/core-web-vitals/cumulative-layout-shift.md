@@ -1,48 +1,50 @@
-# Cumulative Layout Shift (CLS)
+---
+title: Optimizing Cumulative Layout Shift in Spartacus
+---
 
-The Cumulative Layout Shift (CLS) metric is a Core Web Vitals metric that measures how much the content on a page shifts around while the page is loading, which can lead to a poor user experience. For more information, see [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls).
+The Cumulative Layout Shift (CLS) metric is a Core Web Vitals metric that measures how much the content on a page moves around while the page is loading, which can lead to a poor user experience. Spartacus provides a set of features to achieve a good CLS metric.
 
-Spartacus provides a set of features to keep a good CLS metric. 
+For more general information on CLS, see [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) in the official Google web.dev documentation.
 
 ## Reserving Space for Images
 
 To maintain a good CLS metric, ensure that all `<img>` elements have the `width` and `height` HTML attributes set. This allows the browser to reserve the space for the image before it is downloaded and rendered, which helps to avoid layout shifts after the image is loaded.
 
-For components that use the `<cx-media>` child component, you can set the `width` and `height` properties in the `Image` model passed to the `[container]` input of the `<cx-media [container]="...">` component. This is supported with Spartacus 2211.31, when the feature toggle `useExtendedMediaComponentConfiguration` is enabled.
+For components that use the `<cx-media>` child component, you can set the `width` and `height` properties in the `Image` model passed to the `[container]` input of the `<cx-media [container]="...">` component. This is supported starting in Spartacus 2211.31, when the `useExtendedMediaComponentConfiguration` feature toggle is enabled.
 
-**Note**: As of Spartacus 2211.43, the out-of-the-box Commerce CMS OCC back end does not return the `width` and `height` properties for the Media model. However, you can augment the OCC backend response to send these properties with your custom backend customization, or by writing a custom logic in Spartacus data adapter/normalizer layer. For example, you can extract the dimensions from the image filename (if the filename contains it, such as `someImage-800x600.jpg`) or from other CMS properties (such as the description). For an example code snippet for this workaround, see [Example: Extracting Width and Height From the Image Filename or Other CMS Custom Properties](#Example-extracting-width-and-height-from-the-image-filename-or-other-CMS-custom-properties).
+**Note**: Starting with SAP Commerce Cloud 2211.43, the back end does not return the `width` and `height` properties for the Media model. However, you can augment the OCC back-end response to send these properties through customization of the back end, or by writing custom logic in the Spartacus data adapter or normalizer layer. For example, if the image filename contains the dimensions (such as `someImage-800x600.jpg`), you can extract the dimensions from the image filename, or you can extract this information from some other CMS property, such as the description. For an example code snippet of this workaround, see [Extracting Width and Height From the Image Filename or Other CMS Custom Properties](#extracting-width-and-height-from-the-image-filename-or-other-cms-custom-properties).
 
-For your custom components that use the `<cx-media>` child component, you can set the `width` and `height` properties in the `Image` model passed to the `[container]` input of  `<cx-media>`. For more information, see the [source code](https://github.com/SAP/spartacus/blob/9d5489df04640c2a075a26db9072ad3d356d33db/projects/core/src/model/image.model.ts#L18-L33). This is supported with Spartacus 2211.31 when the feature toggle `useExtendedMediaComponentConfiguration` is enabled.
+For your custom components that use the `<cx-media>` child component, you can set the `width` and `height` properties in the `Image` model passed to the `[container]` input of  `<cx-media>`. For more information, see the [source code](https://github.com/SAP/spartacus/blob/9d5489df04640c2a075a26db9072ad3d356d33db/projects/core/src/model/image.model.ts#L18-L33). This is supported starting in Spartacus 2211.31, when the `useExtendedMediaComponentConfiguration` feature toggle is enabled.
 
-For your custom components that use the `<img>` HTML elements rather than the `<cx-media>` component, you can set the native HTML attributes `width` and `height` on the `<img>` elements. Set the `width` and `height` attributes to the intrinsic dimensions of the image. The actual dimensions of the displayed image might be different, for example, if the image is resized by CSS, which is often the case in responsive designs (such as with CSS rules `img { width: 100%; height: auto; }`). In such cases, the browser still needs the `width` and `height` attributes to calculate the aspect ratio. Without them, the browser does not know the space it should reserve for the flexibly-resized responsive image. 
+For your custom components that use the HTML `<img>` element rather than the `<cx-media>` component, you can set the native HTML `width` and `height` attributes on the `<img>` elements. Set the `width` and `height` attributes to the intrinsic dimensions of the image. The actual dimensions of the displayed image might be different if, for example, the image is resized by CSS. This is often the case in responsive designs, such as with CSS rules `img { width: 100%; height: auto; }`. In such cases, the browser still needs the `width` and `height` attributes to calculate the aspect ratio. Without them, the browser does not know how much space it should reserve for the flexibly-resized responsive image.
 
-Alternatively, you can explicitly define the aspect ratio with CSS rules (such as `img { aspect-ratio: 1 / 1; }`), for example, for square product images. As of version 2211.43, Spartacus automatically reserves space for square product images on the Product Details Page and Product Listing Page, when you enable the feature toggle `reserveSpaceForImagesOnPdpAndPlp`.
+Alternatively, you can explicitly define the aspect ratio with CSS rules, such as `img { aspect-ratio: 1 / 1; }`, for example, for square product images. Starting in version 2211.43, Spartacus automatically reserves space for square product images on the Product Details Page and the Product Listing Page when you enable the `reserveSpaceForImagesOnPdpAndPlp` feature toggle.
 
-## Avoiding Layout Shifts
+## Avoiding Layout Shifts with SSR
 
-To avoid layout shifts when using Spartacus server-side rendering (SSR), as is recommended, the DOM structure should not change with JavaScript after the page has loaded. In particular, Spartacus does not recommended using the Spartacus JavaScript-based `BreakpointService` to dynamically change the layout of the page. The server-side rendered page is displayed first, based on the rendered HTML and CSS, but the JavaScript is only loaded after a delay. When the layout changes, it negatively impacts the CLS metric.
+To avoid layout shifts when using server-side rendering (SSR) in Spartacus, the DOM structure should not be modified by JavaScript after the page has loaded. In particular, Spartacus does not recommended using the Spartacus JavaScript-based `BreakpointService` to dynamically change the layout of the page. The server-side rendered page is displayed first, based on the rendered HTML and CSS, but the JavaScript is only loaded after a delay. When the layout changes, it negatively impacts the CLS metric.
 
-Ideally, the responsive layout is controlled with just the static HTML and CSS, and not changed with lately-loaded JavaScript.
+Ideally, the responsive layout should be controlled just with static HTML and CSS, and should not change with JavaScript that is loaded later on.
 
-The [Angular SSR native feature of inlining critical CSS](https://angular.dev/reference/configs/workspace-config#styles-optimization-options) is responsible for ensuring that the CSS is inlined in the `<head>` of the server-side rendered HTML and therefore applied by the browser immediately when loading the SSR HTML. As a result, the visual layout is correct from the moment the user first sees the page. This is done automatically by Angular SSR and does not require any additional configuration in Spartacus.
+The [Angular SSR native feature for inlining critical CSS](https://angular.dev/reference/configs/workspace-config#styles-optimization-options) is responsible for ensuring that the CSS is inlined in the `<head>` of the server-side rendered HTML, and therefore applied by the browser immediately when loading the SSR HTML. As a result, the visual layout is correct from the moment the user first sees the page. This is done automatically by Angular SSR and does not require any additional configuration in Spartacus.
 
 ### Avoiding Header Layout Shifts
 
-Before Spartacus 2211.43, the default layout of the header and top navigation in the desktop viewport shifted after the lately-loaded JavaScript caused the layout to change. This issue is resolved with Spartacus 2211.43, when you enable the feature toggle `unifiedDefaultHeaderSlotsAcrossBreakpoints`.
+Before Spartacus 2211.43, in the desktop viewport, the default layout of the header and top navigation would shift because the JavaScript would load after other visual elements had loaded, and cause the layout to change. This issue is resolved starting in Spartacus 2211.43 when you enable the `unifiedDefaultHeaderSlotsAcrossBreakpoints` feature toggle.
 
-**Note**: For apps created before Spartacus 2211.43, you need to change the deprecated `provideConfig(layoutConfig)` to `provideConfigFactory(layoutConfigFactory)` in your `spartacus-features.module.ts`. 
+**Note**: For apps created before Spartacus 2211.43, you need to change the deprecated `provideConfig(layoutConfig)` to `provideConfigFactory(layoutConfigFactory)` in your `spartacus-features.module.ts`.
 
-For more on this issue, see [Layout Configurations](#Layout-Configurations).
+For more on this issue, see the [Layout Configurations](#Layout-Configurations) section, below.
 
 ### Using the Improved Product Carousel Implementation
 
-Before Spartacus 2211.43, the `<cx-carousel>` component was used to display product carousels. This carousel implementation caused layout shifts when transitioning from server-side rendered HTML to client-side rendered HTML, as it changed the DOM structure after the JavaScript was loaded and executed in viewport breakpoints other than mobile. This issue is resolved with Spartacus 2211.43, when you enable the the feature toggle `productCarouselScrolling`.
+Before Spartacus 2211.43, the `<cx-carousel>` component was used to display product carousels. This carousel implementation caused layout shifts when transitioning from server-side rendered HTML to client-side rendered HTML, because it changed the DOM structure after the JavaScript was loaded and run in viewport breakpoints other than `mobile`. This issue is resolved starting in Spartacus 2211.43, when you enable the `productCarouselScrolling` feature toggle.
 
-When the `productCarouselScrolling` feature toggle is enabled, the improved carousel implementation `<cx-carousel-scrolling>` is used, instead of `<cx-carousel>`, as a child of the `ProductCarouselComponent` and the `ProductReferencesComponent`. The `<cx-carousel-scrolling>` implementation doesn't change the DOM structure after transitioning from SSR to CSR, so it avoids layout shifts. As an added benefit, it is also more mobile-friendly due to the swiping gesture that allows users to continuously scroll through the carousel items, instead of the previous need to click the Next and Previous buttons to change slides.
+When the `productCarouselScrolling` feature toggle is enabled, the improved `<cx-carousel-scrolling>` carousel implementation is used, instead of `<cx-carousel>`, as a child of the `ProductCarouselComponent` and the `ProductReferencesComponent`. The `<cx-carousel-scrolling>` implementation does not change the DOM structure after transitioning from SSR to CSR, so it avoids layout shifts. As an added benefit, it is also more mobile-friendly due to the swiping gesture that allows users to continuously scroll through carousel items, instead of the previous need to click the Next and Previous buttons to change slides.
 
 ### Layout Configurations
 
-Spartacus does not recommended using the breakpoint-specific layout configurations in your custom components. When transitioning from the server-side rendered HTML to client-side rendered HTML, layout shifts can occur when the lately-loaded JavaScript is executed after a delay and the DOM is changed. In Spartacus, the SSR engine heuristics assume the unknown client's viewport is `mobile`. Therefore, it assumes the DOM structure for the `xs` layout configuration without knowing the client's actual viewport. Unfortunately, when this heuristic is wrong, such as when the client's actual viewport is desktop, the lately-loaded JavaScript switches the layout to the configured `lg` layout. This can cause a layout shift and can negatively impact the CLS metric. Instead, configure one unified Spartacus layout slots array for all breakpoints, to be the same for both SSR and CSR, regardless of the viewport size. Ideally, the HTML should be the same for all breakpoints, but the responsive layout should be controlled just with CSS.
+It is no longer recommended to use breakpoint-specific layout configurations in your custom components. When transitioning from server-side rendered HTML to client-side rendered HTML, layout shifts can occur when JavaScript loads and runs after a delay, and the DOM is changed. In Spartacus, the SSR engine heuristics assume the unknown client's viewport is `mobile`. Therefore, it loads the DOM structure for the `xs` layout configuration without knowing the client's actual viewport. Unfortunately, when this heuristic is wrong, such as when the client's actual viewport is desktop, JavaScript that is loaded later will switch the layout to the configured `lg` layout. This can cause a layout shift and can negatively impact the CLS metric. Instead, configure one unified array for Spartacus layout slots for all breakpoints, and this should be the same for both SSR and CSR, regardless of the viewport size. Ideally, the HTML should be the same for all breakpoints, but the responsive layout should be controlled just with CSS.
 
 For more information on breakpoint-specific layout configurations in Spartacus, see (../../styling-and-page-layout/page-layout.md#choosing-an-adaptive-or-responsive-layout).
 
@@ -50,46 +52,46 @@ If you created your storefront before Spartacus 2211.43, your `spartacus-configu
 
 You can fix this in one of the two following ways.
 
-- Option 1: If you're still using Spartacus version below Spartacus 2211.43, overwrite the default configuration.
+- **Option 1:** If you are still using a Spartacus app below version 2211.43, overwrite the default configuration.
 
-Override the `lg` property from the `header` layout configuration with `undefined` in your `spartacus-configuration.module.ts`, as shown in the example below:
+   Override the `lg` property from the `header` layout configuration with `undefined` in your `spartacus-configuration.module.ts`, as shown in the following example:
 
-```typescript
-provideConfig({
-  layoutSlots: {
-    header: {
-      lg: undefined,
-    },
-  },
-});
-```
+   ```typescript
+   provideConfig({
+     layoutSlots: {
+       header: {
+         lg: undefined,
+       },
+     },
+   });
+   ```
 
-- Option 2: If you upgraded to at least Spartacus 2211.43, use the new default configuration, as follows:
+- **Option 2:** If you have upgraded your Spartacus app to version 2211.43 or newer, use the new default configuration, as follows:
 
-First, replace the deprecated configuration `provideConfig(layoutConfig)` with the `provideConfigFactory(layoutConfigFactory)` in your `spartacus-configuration.module.ts` file, so it looks like the following:
+   First, replace the deprecated configuration `provideConfig(layoutConfig)` with the `provideConfigFactory(layoutConfigFactory)` in your `spartacus-configuration.module.ts` file, as shown in the following example:
 
-```typescript
-import { provideConfigFactory } from '@spartacus/storefront';
+   ```typescript
+   import { provideConfigFactory } from '@spartacus/storefront';
+   
+   providers: [
+     /*...*/
+     provideConfigFactory(layoutConfigFactory),
+     // don't use `provideConfig(layoutConfig)` anymore
+   ],
+   ```
 
-providers: [
-  /*...*/
-  provideConfigFactory(layoutConfigFactory),
-  // don't use `provideConfig(layoutConfig)` anymore
-],
-```
+   Then, enable the `unifiedDefaultHeaderSlotsAcrossBreakpoints` feature toggle in your `spartacus-features.module.ts` file, as shown in the following example:
 
-Then, enable the feature toggle `unifiedDefaultHeaderSlotsAcrossBreakpoints` in your `spartacus-features.module.ts` file, so it looks like the following:
+   ```typescript
+   provideFeatureToggles({
+     /*...*/
+     unifiedDefaultHeaderSlotsAcrossBreakpoints: true,
+   }),
+   ```
 
-```typescript
-provideFeatureToggles({
-  /*...*/
-  unifiedDefaultHeaderSlotsAcrossBreakpoints: true,
-}),
-```
+## Extracting Width and Height From the Image Filename or Other Custom CMS Properties
 
-## Example: Extracting Width and Height From the Image Filename or Other CMS Custom Properties
-
-As of Spartacus 2211.43, the out-of-the-box Commerce CMS OCC back end does not return the `width` and `height` properties for the Media model. However, you can augment the OCC back end response to send these properties with your custom back end customization, or by writing a custom logic in the Spartacus data adapter/normalizer layer. The following is an example: 
+Starting with SAP Commerce Cloud 2211.43, the back end does not return the `width` and `height` properties for the Media model. However, you can augment the OCC back-end response to send these properties through customization of the back end, or by writing custom logic in the Spartacus data adapter or normalizer layer. The following is an example:
 
 ```typescript
 import { Injectable, Provider } from '@angular/core';
@@ -103,8 +105,8 @@ import {
 } from '@spartacus/core';
 
 /**
- * This is a workaround to extract dimensions from a URL of a banner image, based on a filenames convention in our sample data
- * (yes it's a workaround! ideally dimensions should be defined in CMS!)
+ * This is a workaround to extract dimensions from the URL of a banner image, based on a filename convention in our sample data
+ * (Yes, it's a workaround! Ideally, dimensions should be defined in CMS!)
  */
 @Injectable({ providedIn: 'root' })
 export class CustomOccCmsPageNormalizer extends OccCmsPageNormalizer {
@@ -156,7 +158,7 @@ export class CustomOccCmsPageNormalizer extends OccCmsPageNormalizer {
       const bannerComponent = component as CmsBannerComponent;
       // Note:
       // - SimpleBannerComponent has "media" property with a single image
-      // - SimpleResponsiveBannerComponent has "media" property with a object containing images
+      // - SimpleResponsiveBannerComponent has "media" property with an object containing images
       //    for different media formats (in separate properties)
 
       if (!bannerComponent.media) {
@@ -181,15 +183,15 @@ export class CustomOccCmsPageNormalizer extends OccCmsPageNormalizer {
   }
 
   /**
-   * Extracts dimensions from a URL of a banner image, based on a filenames convention in our sample data
-   * (yes it's a workaround! ideally dimensions should be defined in CMS!)
+   * Extract dimensions from the URL of a banner image, based on a filename convention in our sample data
+   * (Yes, it's a workaround! Ideally, dimensions should be defined in CMS!)
    */
   protected extractDimensionsFromUrl(url: string): {
     width?: number;
     height?: number;
   } {
     // Banner images in our sample data happen to follow the pattern `somename-WIDTHxHEIGHT-somename...`
-    // so we can leverage it to extract the dimensions
+    // so we can leverage this to extract the dimensions
     const pattern = /\/medias\/[^-]+-(\d+)x(\d+)-[^-]+/;
     const match = url.match(pattern);
     if (match) {
@@ -208,7 +210,7 @@ export const workaroundExtractBannerDimensionsFromUrl: Provider = {
 };
 ```
 
-You can the register this custom provider, such as in your app module, as follows:
+You can the register this custom provider in your app module (for example), as follows:
 
 ```typescript
 providers: [
@@ -217,9 +219,9 @@ providers: [
 ],
 ```
 
-## Enabling Angular's Native Non-Destructive Hydration
+## Enabling Angular Native Non-Destructive Hydration
 
-Spartacus supports the [Angular's native non-destructive hydration](https://angular.dev/guide/hydration) feature with Spartacus 2211.43. It is enabled by default in fresh apps created with Spartacus 2211.43 or later. For existing apps created before Spartacus 2211.43, you need to enable it manually by adding the following native Angular provider to the apps' `app.module.ts`:
+Starting in version 2211.43, Spartacus supports [Angular native non-destructive hydration](https://angular.dev/guide/hydration). This feature is enabled by default when you create a new storefront app using version 2211.43 libraries or newer. For existing apps created before Spartacus 2211.43, you need to enable this feature manually by adding the following native Angular provider to your `app.module.ts`:
 
 ```typescript
 import {
@@ -243,15 +245,15 @@ import {
 export class AppModule {}
 ```
 
-For the Angular non-destructive hydration to work, all components displayed on a server-side rendered page must comply with the special [Angular non-destructive hydration constraints](https://angular.dev/guide/hydration#constraints). Out-of-the-box Spartacus components displayed on SSR pages are compliant with those constraints since Spartacus 2211.43, but you need to review your custom components, especially those displayed on SSR pages, to ensure they are compliant too. Otherwise, the Angular hydration will fail and those components might not display correctly. For troubleshooting, you can check the browser console in developer mode for any Angular hydration errors.
+For Angular non-destructive hydration to work, all components displayed on a server-side rendered page must comply with the special [Angular non-destructive hydration constraints](https://angular.dev/guide/hydration#constraints). Out-of-the-box Spartacus components displayed on SSR pages are compliant with those constraints starting in Spartacus 2211.43. However, you need to review your custom components, especially those displayed on SSR pages, to ensure they are compliant as well. Otherwise, Angular hydration will fail, and those components might not display correctly. For troubleshooting, you can check the browser console in developer mode for any Angular hydration errors.
 
-## `pageFold` Property in Spartacus Layout Configurations
+## The pageFold Property in Spartacus Layout Configurations
 
-The `pageFold` property set in the Spartacus layout configuration can cause some components to be rendered only after a delay even in the SSR pages, which can degrade the CLS metric.
+The `pageFold` property that is set in the Spartacus layout configuration can cause some components to be rendered only after a delay, even in server-side rendered pages, which can degrade the CLS metric.
 
-As of Spartacus 2211.43, the `pageFold` property is not used in the out-of-the-box Spartacus layout configuration when the `unifiedDefaultHeaderSlotsAcrossBreakpoints` feature toggle is enabled. To make this feature toggle effective, you also need to change the deprecated `provideConfig(layoutConfig)` to `provideConfigFactory(layoutConfigFactory)` in your `spartacus-features.module.ts`.
+Starting in Spartacus 2211.43, the `pageFold` property is not used in the default Spartacus layout configuration when the `unifiedDefaultHeaderSlotsAcrossBreakpoints` feature toggle is enabled. To make this feature toggle effective, you also need to change the deprecated `provideConfig(layoutConfig)` to `provideConfigFactory(layoutConfigFactory)` in your `spartacus-features.module.ts`.
 
-Alternatively, if you're using a Spartacus version ealier than 2211.43, you can remove the `pageFold` property from your layout configuration by overriding the default Spartacus layout configuration in your app module. The following is an example:
+Alternatively, if you're using a Spartacus app older than than 2211.43, you can remove the `pageFold` property from your layout configuration by overriding the default Spartacus layout configuration in your app module. The following is an example:
 
 ```typescript
 import { provideConfig } from '@spartacus/core';
