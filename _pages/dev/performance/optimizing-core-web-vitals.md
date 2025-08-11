@@ -1,5 +1,5 @@
 ---
-title: Optimizing Core Web Vitals
+title: Core Web Vitals
 ---
 
 Core Web Vitals are the key metrics for measuring the user experience of your web application. Spartacus provides a set of features to help you achieve good Core Web Vitals in your application.
