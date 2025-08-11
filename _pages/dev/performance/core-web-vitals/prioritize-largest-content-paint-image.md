@@ -113,7 +113,7 @@ import { CmsLcpService } from '@spartacus/storefront';
  * Tells whether the given CMS component is marked as containing
  * the LCP (Largest Contentful Paint) element.
  *
- * The CMS component with ID '"SharedBanner"` is displayed on all pages,
+ * The CMS component with ID '"SharedBanner"' is displayed on all pages,
  * however it's the Largest Contentful Paint image only on the Homepage, and not on other pages.
  */
 export class CustomCmsLcpService extends CmsLcpService {

@@ -48,7 +48,7 @@ const defaultLayoutConfig: LayoutConfig = {
 };
 ```
 
-**Note**: To simplify the initial setup for projects, if the page layout configuration is incomplete, all page slots are rendered on the page. In addition, a warning is printed to the console, along with information about the available page slots that could be configured.
+**Note:** To simplify the initial setup for projects, if the page layout configuration is incomplete, all page slots are rendered on the page. In addition, a warning is printed to the console, along with information about the available page slots that could be configured.
 
 ## Using Outlets to Override Page Templates
 
@@ -96,7 +96,7 @@ The following example demonstrates how to use the context to get the list of com
 
 In addition to context the outlets have another attribute for positioning, `cxOutletPos`. This attibute allows the code from the outlet to be injected `before`, `after` or `replace` the reference. If no value is specified the code will be replaced.
 
-This following example demonstate addidng a label before the `ProductDetailsPageTemplate`:
+This following example demonstrate addding a label before the `ProductDetailsPageTemplate`:
 
 ```html
 <ng-template cxOutletRef="ProductDetailsPageTemplate" cxOutletPos="before">
@@ -106,7 +106,7 @@ This following example demonstate addidng a label before the `ProductDetailsPage
 </ng-template>
 ```
 
-**Note**: Some slots have the same name therefore, their outlets have the same label. This can lead to code being injected in unwanted parts of the site. This is a known issue and the team is working on fixing it.
+**Note:** Some slots have the same name therefore, their outlets have the same label. This can lead to code being injected in unwanted parts of the site. This is a known issue and the team is working on fixing it.
 
 ## CSS Layout Rules
 
@@ -116,7 +116,7 @@ Because the page layout is driven by page template codes and position names, the
 
 ## Choosing an Adaptive or Responsive Layout
 
-**Caution**: Using a breakpoint-specific layout can cause layout shifts when transitioning from server-side rendered HTML to client-side rendered HTML. The SSR HTML is generated using the `xs` layout, and this is later changed to the `lg` layout when the JavaScript in Spartacus is loaded and run in the desktop view. This can negatively impact the [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) Core Web Vitals metric. As a result, it is recommended that you do not use breakpoint-specific layout configurations in Spartacus.
+**Caution:** Using a breakpoint-specific layout can cause layout shifts when transitioning from server-side rendered HTML to client-side rendered HTML. The SSR HTML is generated using the `xs` layout, and this is later changed to the `lg` layout when the JavaScript in Spartacus is loaded and run in the desktop view. This can negatively impact the [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls) Core Web Vitals metric. As a result, it is recommended that you do not use breakpoint-specific layout configurations in Spartacus.
 
 The Spartacus storefront is implemented using responsive design, rather than adaptive design. For storefront software development, as well as for content production, responsive design is widely accepted as being faster to implement and more cost effective.
 
