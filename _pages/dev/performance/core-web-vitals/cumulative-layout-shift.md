@@ -52,42 +52,42 @@ If you created your storefront before Spartacus 2211.43, your `spartacus-configu
 
 You can fix this in one of the two following ways.
 
-- **Option 1:** If you are still using a Spartacus app below version 2211.43, overwrite the default configuration.
+**Option 1:** If you are still using a Spartacus app below version 2211.43, overwrite the default configuration.
 
-   Override the `lg` property from the `header` layout configuration with `undefined` in your `spartacus-configuration.module.ts`, as shown in the following example:
+Override the `lg` property from the `header` layout configuration with `undefined` in your `spartacus-configuration.module.ts`, as shown in the following example:
 
-   ```typescript
-   provideConfig({
-     layoutSlots: {
-       header: {
-         lg: undefined,
-       },
-     },
-   });
-   ```
+```typescript
+provideConfig({
+  layoutSlots: {
+    header: {
+      lg: undefined,
+    },
+  },
+});
+```
 
-- **Option 2:** If you have upgraded your Spartacus app to version 2211.43 or newer, use the new default configuration, as follows:
+**Option 2:** If you have upgraded your Spartacus app to version 2211.43 or newer, use the new default configuration, as follows:
 
-   First, replace the deprecated configuration `provideConfig(layoutConfig)` with the `provideConfigFactory(layoutConfigFactory)` in your `spartacus-configuration.module.ts` file, as shown in the following example:
+First, replace the deprecated configuration `provideConfig(layoutConfig)` with the `provideConfigFactory(layoutConfigFactory)` in your `spartacus-configuration.module.ts` file, as shown in the following example:
 
-   ```typescript
-   import { provideConfigFactory } from '@spartacus/storefront';
-   
-   providers: [
-     /*...*/
-     provideConfigFactory(layoutConfigFactory),
-     // don't use `provideConfig(layoutConfig)` anymore
-   ],
-   ```
+```typescript
+import { provideConfigFactory } from '@spartacus/storefront';
 
-   Then, enable the `unifiedDefaultHeaderSlotsAcrossBreakpoints` feature toggle in your `spartacus-features.module.ts` file, as shown in the following example:
+providers: [
+  /*...*/
+  provideConfigFactory(layoutConfigFactory),
+  // don't use `provideConfig(layoutConfig)` anymore
+],
+```
 
-   ```typescript
-   provideFeatureToggles({
-     /*...*/
-     unifiedDefaultHeaderSlotsAcrossBreakpoints: true,
-   }),
-   ```
+Then, enable the `unifiedDefaultHeaderSlotsAcrossBreakpoints` feature toggle in your `spartacus-features.module.ts` file, as shown in the following example:
+
+```typescript
+provideFeatureToggles({
+  /*...*/
+  unifiedDefaultHeaderSlotsAcrossBreakpoints: true,
+}),
+```
 
 ## Extracting Width and Height From the Image Filename or Other Custom CMS Properties
 

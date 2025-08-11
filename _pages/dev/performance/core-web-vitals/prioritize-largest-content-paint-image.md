@@ -36,29 +36,29 @@ In this example, you have analyzed the pages in your storefront and have determi
 
 You can the configure the `lcpCmsComponents` in your Spartacus app in one of the following ways:
 
-- You can provide a static list of CMS component IDs, as shown in the following example:
+You can provide a static list of CMS component IDs, as shown in the following example:
 
-   ```typescript
-   provideConfig({
-     lcpCmsComponents: {
-       ids: [
-         'ElectronicsHomepageSplashBannerComponent',
-         'ProductImagesComponent',
-         'ProductListComponent',
-       ],
-     },
-   }),
-   ```
+```typescript
+provideConfig({
+  lcpCmsComponents: {
+    ids: [
+      'ElectronicsHomepageSplashBannerComponent',
+      'ProductImagesComponent',
+      'ProductListComponent',
+    ],
+  },
+}),
+```
 
-- Or you can change the CMS component IDs in the CMS data to include the special marker `__cxLCP__`, as shown in the following example:
+Or you can change the CMS component IDs in the CMS data to include the special marker `__cxLCP__`, as shown in the following example:
 
-   ```text
-   ElectronicsHomepageSplashBannerComponent__cxLCP__
-   ProductImagesComponent__cxLCP__
-   ProductListComponent__cxLCP__
-   ```
+```text
+ElectronicsHomepageSplashBannerComponent__cxLCP__
+ProductImagesComponent__cxLCP__
+ProductListComponent__cxLCP__
+```
 
-   In this case, you don't need to configure Spartacus `lcpCmsComponents.ids` at all, because Spartacus will automatically recognize the components with the marker in their IDs (the default marker is `__cxLCP__`).
+In this case, you don't need to configure Spartacus `lcpCmsComponents.ids` at all, because Spartacus will automatically recognize the components with the marker in their IDs (the default marker is `__cxLCP__`).
 
 If you want to change the default marker, you can do it as follows:
 
