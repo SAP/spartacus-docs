@@ -2,7 +2,7 @@
 title: Authentication
 feature:
 - name: Authentication
-  spa_version: 2211.44.0
+  spa_version: 221121.1.0
   cx_version: 2211-jdk21.0
 ---
 
@@ -11,8 +11,8 @@ OAuth 2.0 is the default authorization protocol in SAP Commerce Cloud that allow
 In order for Spartacus to work with the authorization server, set the following feature toggles to `true` in your `spartacus-features.module.ts`:
 - `authorizationCodeFlowByDefault`: Sets the default authentication configuration to authorization code grant.
 - `incrementProcessesCountForMergeCart`: Enables the merge cart operation to set carts as unstable by incrementing the cart process count.
-- `dispatchLoginActionOnlyWhenTokenReceived`: (*Verify) Enables dispatching the login action event only upon receiving the token. Login action events are emitted on app initialization. Spartacus recommends replacing the `ActionsSubject` token with the `LOGIN_EVENTS` token in the application for detecting login events.
-- `cdsLoginEventsToken`: Enables the `LOGIN_EVENTS` token to inject an observable that, on subscription, replays any login events recorded during application startup.
+- `dispatchLoginActionOnlyWhenTokenReceived`: Limits dispatching the `AuthActions.Login` action only upon receiving the token from the Authorization Server at the beginning of an authenticated session.
+- `cdsLoginEventsToken`: Enables the `LOGIN_EVENTS` token to inject an observable that, on subscription, replays any login events recorded during application startup.  Login action events are now emitted during app initialization. Spartacus recommends replacing the `ActionsSubject` token with the `LOGIN_EVENTS` token in the application for detecting login events.
 
 The following configuration options in your `spartacus-features.module.ts` allow for more granular control of authentication behavior: 
 - `AuthConfig.authentication.sendAuthHeaderOnRevoke`: Enables or disables sending the current token in the "Authorization" header.
@@ -48,7 +48,7 @@ The `incrementProcessesCountForMergeCart` feature toggle sets the active cart to
 
 # Custom Login Page
 
-(*Accurate? Taken from CCV2 docs.) Configure custom login pages for your client applications in the authorization code flow to enable personalized user experiences, enhance security, and boost client satisfaction. For more information, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/ca1176a372b242a6abd75a39fe803eea.html.
+Use Spartacus as the custom login page during the authorization code flow to enable personalized user experiences, enhance security, and boost client satisfaction. For more information, see https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/ca1176a372b242a6abd75a39fe803eea.html.
 
 To use this feature, you must enable the following feature toggles in your `spartacus-features.module.ts`:
 - `authorizationCodeFlowByDefault`
@@ -67,7 +67,7 @@ provideConfig(<AuthConfig>{
 
 # Authenticating with Legacy SAP Commerce Cloud Versions
 
-(*Accurate? Taken from CCV2 docs:) In the traditional client-server authentication model, the client requests an access-restricted resource (in other words, protected resource) on the server by authenticating with the server using the resource owner's credentials. In order to provide third-party applications access to the restricted resources, the resource owner shares its credentials with the third-party application. Spartacus supports the use of resource owner password credentials that is used by 2211.XX.X versions of SAP Commerce Cloud until that version branch reaches end of life. If you want to enable resource owner password credentials authentication model in Spartacus, set the following feature toggles to `false` in your `spartacus-features.module.ts`:
+In the traditional client-server authentication model, the client requests an access-restricted resource (in other words, protected resource) on the server by authenticating with the server using the resource owner's credentials. In order to provide third-party applications access to the restricted resources, the resource owner shares its credentials with the third-party application. Spartacus supports the use of resource owner password credentials that is used by 2211.XX.X versions of SAP Commerce Cloud until that version branch reaches end of life. If you want to enable resource owner password credentials authentication model in Spartacus, set the following feature toggles to `false` in your `spartacus-features.module.ts`:
 
 - `authorizationCodeFlowByDefault`
 - `incrementProcessesCountForMergeCart`
