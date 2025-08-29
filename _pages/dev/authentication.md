@@ -53,13 +53,13 @@ When enabled, the `cdsLoginEventsToken` feature toggle allows the `LOGIN_EVENTS`
 
 It is recommended that you replace the `ActionsSubject` token with the `LOGIN_EVENTS` token in the application for detecting login events.
 
-## Custom Login Page
+## Enabling a Custom Login Page in Spartacus
 
-To provide a personalized user experience that boosts client satisfaction while also enhancing security, you can use Spartacus to provide the custom login page during the authorization code flow.
+In Spartacus 221121.1 and newer, the Authorization Code Flow allows you to use the Spartacus login page instead of the authorization server login page. This helps ensure the branding and design of your site remain consistent during the login process.
 
-**Note:** This feature requires SAP Commerce Cloud version `2211-jdk21.1` or newer. It is not supported by 2211.XX versions of SAP Commerce Cloud that still supports JDK 17, such as version 2211.44.
+**Note:** This feature requires SAP Commerce Cloud version `2211-jdk21.1` or newer. It is not supported by 2211.xx versions of SAP Commerce Cloud that still supports JDK 17, such as SAP Commerce Cloud version 2211.44. Also, this feature is only relevant if you are using the authorization server provided by SAP Commerce Cloud 2211-jdk21.1 or newer. If you are using a different OAuth provider, you can ignore this feature or disable it.
 
-To use this feature, set the following feature toggles to `true` in the `spartacus-features.module.ts` file:
+If you have created a new Spartacus app that is version 221121.1 or newer, the custom login page feature is enabled by default. However, if you have upgraded from a Spartacus app that is version 2211.43 or older, you need to set the following feature toggles to `true` in the `spartacus-features.module.ts` file in order to enable the custom login page feature in Spartacus:
 
 - `authorizationCodeFlowByDefault`
 - `incrementProcessesCountForMergeCart`
@@ -68,7 +68,11 @@ To use this feature, set the following feature toggles to `true` in the `spartac
 
 The `authorizationCodeFlowByDefault` toggle applies the default configuration, which includes the configuration object `AuthConfig.authentication.customLoginPage`.
 
-To disable this feature and use the login page of the authorization server instead, provide the following configuration:
+Additional steps are also required in SAP Commerce Cloud to ensure the custom login page displays correctly. For more information, see [Custom Login Page](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/ca1176a372b242a6abd75a39fe803eea.html).
+
+## Disabling the Custom Login Page in Spartacus
+
+To disable this feature and use the login page of the authorization server instead, provide the following configuration in the `spartacus-features.module.ts` file:
 
 ```typescript
 provideConfig(<AuthConfig>{
@@ -78,13 +82,11 @@ provideConfig(<AuthConfig>{
 })
 ```
 
-For more information, see [Custom Login Page](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/ca1176a372b242a6abd75a39fe803eea.html).
-
 ## Authenticating with Legacy SAP Commerce Cloud Versions
 
-In the traditional client-server authentication model, the client requests an access-restricted resource on the server (in other words, a protected resource) by authenticating with the server using the resource owner's credentials. In order to allow third-party applications to access restricted resources, the resource owner shares its credentials with the third-party applications. Spartacus supports the use of resource owner password credentials, which are used by 2211.XX versions of SAP Commerce Cloud (such as 2211.44). This support remains until the 2211.XX version branch reaches end of life, in Q3 2026.
+In the traditional client-server authentication model, the client requests an access-restricted resource on the server (in other words, a protected resource) by authenticating with the server using the resource owner's credentials. In order to allow third-party applications to access restricted resources, the resource owner shares its credentials with the third-party applications. Spartacus supports the use of resource owner password credentials, which are used by 2211.xx versions of SAP Commerce Cloud (such as 2211.44). This support remains until the 2211.xx version branch reaches end of life, in Q3 2026.
 
-If you are working with a 2211.XX version of SAP Commerce Cloud (as opposed to a 2211-jdk21.x version), and you want to enable the resource owner password credentials authentication model in Spartacus, set the following feature toggles to `false` in the `spartacus-features.module.ts` file:
+If you are working with a 2211.xx version of SAP Commerce Cloud (as opposed to a 2211-jdk21.x version), and you want to enable the resource owner password credentials authentication model in Spartacus, set the following feature toggles to `false` in the `spartacus-features.module.ts` file:
 
 - `authorizationCodeFlowByDefault`
 - `incrementProcessesCountForMergeCart`
