@@ -209,8 +209,16 @@ Spartacus runs `AuthService.checkOAuthParamsInUrl` with `APP_INITIALIZER` on any
 
 **Note:** If you are using a version of Spartacus that is older than 221121.1 (in other words, 2211.43 or older), ASM login only works with the Resource Owner Password Flow for customer support agents.  
 
-## Custom Login Page
+## Custom Login Page in Spartacus
 
-In Spartacus 221121.1 and newer, the Authorization Code Flow allows you to use the Spartacus login page instead of the authorization server login page. This helps ensure the branding and design of your site remain consistent during the login process. This feature is only relevant if you are using the authorization server provided by SAP Commerce Cloud 2211-jdk21.1 or newer. If you are using a different OAuth provider, you can ignore this feature or disable it.
+**Note:** This feature requires SAP Commerce Cloud version `2211-jdk21.1` or newer. It is not supported by 2211.xx versions of SAP Commerce Cloud that still supports JDK 17, such as SAP Commerce Cloud version 2211.44. Also, this feature is only relevant if you are using the authorization server provided by SAP Commerce Cloud 2211-jdk21.1 or newer. If you are using a different OAuth provider, you can ignore this feature or disable it.
 
-For more information, see [Custom Login Page in Spartacus](authentication/#custom-login-page).
+In Spartacus 221121.1 and newer, the Authorization Code Flow allows you to use the Spartacus login page instead of the authorization server login page. This helps ensure the branding and design of your site remain consistent during the login process.
+
+When Spartacus initiates the Authorization Code Flow by redirecting to the authorization server, the browser then redirects back to the Spartacus login page. At this point, the login form runs additional logic to retrieve a CSRF token that is submitted with the user credentials. When the user credentials and CSRF token are submitted to the authorization server, this results in a redirect back to the page where the user initiated their login.
+
+The `login` route now has a `CustomLoginGuard` that checks if there is an existing authentication session in progress. If there is no session, the guard initiates a login. If there is a session already in progress, the guard allows the route activation to continue and to display the login form. This prevents users who visit the login page directly from encountering errors due to the missing session.
+
+The custom login page feature is enabled by default if you have created a new Spartacus app that is version 221121.1 or newer, but more steps are required to enable the feature if you have updated from Spartacus 2211.43 or older. For more information, see [Enabling a Custom Login Page in Spartacus](authentication/#enabling-a-custom-login-page).
+
+To disable the feature, in the `spartacus-features.module.ts` file, set the `customLoginPage` object in `AuthConfig` to `undefined`. Disabling the feature skips the session check in `CustomLoginGuard` and reverts the login form components and services to function as they did in earlier versions of Spartacus (2211.43 and older). For more information, see [Disabling the Custom Login Page in Spartacus](authentication/#disabling-the-custom-login-page).
