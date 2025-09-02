@@ -25,7 +25,9 @@ Spartacus 3.0 introduces a new way to manage user sessions, handle tokens, and p
 
 ## Client Authentication and User Authentication
 
-From the beginning, Spartacus has included both client authentication and user authentication. Although this is not typical for web applications, it is necessary for Spartacus to work with the OCC API.
+If you are using SAP Commerce Cloud version 2211-jdk21.1 or newer, the OCC APIs no longer require client authentication on any endpoints. The client credentials used with Spartacus should be set to "Public" client credentials, which restricts the allowed authentication methods to Authorization Code Flow. Regardless of the version of SAP Commerce Cloud that you are using, always use `ROLE_CLIENT` with the Spartacus OAuth client.
+
+Although not typical for web applications, Spartacus still includes both client authentication and user authentication. These are needed for Spartacus to work with the OCC APIs of 2211.xx versions of SAP Commerce Cloud, such as 2211.44.
 
 Client authentication relates to the endpoints that work on behalf of logged-out users, such as registering, resetting a password, placing an order as a guest, and verifying an address. These endpoints require an access token to be sent with the request, and this access token needs to be retrieved by following the Client Credentials Flow that is defined by the OAuth specification. In other words, the Client Credentials Flow is needed for certain OCC requests, so you need to enable this flow in your OAuth client.
 
@@ -120,6 +122,8 @@ The `AuthStatePersistenceService` uses the `StatePersistenceService` to synchron
 
 ## Assisted Service Module
 
+In Spartacus version 221121.1 and newer, the ASM login uses a secondary OAuth client credential with the ID `"asm_client"`.  To use ASM, this credential must be created with your auth provider.
+
 Since version 1.3, Spartacus supports the Assisted Service Module (ASM), which allows customer support agents to emulate users and help them accomplish their goals. This feature is tightly coupled with the `AuthModule` because agents need to log in with OAuth flow and make updates using the customer's user ID. In previous versions of Spartacus, some parts of the implementation of this feature were placed in the `AuthModule` logic.
 
 One of the goals of the Session Management refactor was to make the `AuthModule` not aware of ASM at all. As a result, removing ASM from your application should be as simple as not including the `AsmModule`. No code should be left in different modules. With the new `AuthModule` structure, the ASM feature is now isolated.
@@ -183,7 +187,9 @@ When you complete the login, you can then access the `id_token` with the `OAuthL
 
 Now the Spartacus uses the `angular-oauth2-oidc` library, it is possible to support the Authorization Code Flow and the Implicit Flow. These flows are very different from the Resource Owner Password Flow because the authentication part happens on the OAuth server login page rather than in Spartacus. When Spartacus redirects you to this page, you provide login and password information there, and if the credentials match, you are redirected back to the Spartacus application with the token (Implicit Flow) or code (Authorization Code Flow) as part of the URL. Then Spartacus obtains the data from the URL and continues the login process (requests a token in the case of Authorization Code Flow, sets the user ID, dispatches the `Login` action, and redirects to the previously visited page).
 
-You can configure this as follows:
+Starting with Spartacus 221121.1, Authorization Code Flow is set as the default authentication method.
+
+You can configure the OAuth flow as follows:
 
 ```ts
 authentication: {
@@ -199,6 +205,20 @@ Once these settings are in place, Spartacus will use the defined flow out of the
 
 Spartacus runs `AuthService.checkOAuthParamsInUrl` with `APP_INITIALIZER` on any route, so you can redirect to any Spartacus page from the OAuth server. It does not have to be a callback page, as it is usually done.
 
-**Note:** The default OAuth server that is provided with SAP Commerce Cloud does not have great support for the Authorization Code Flow and the Implicit Flow (there is no way to log out a user from an external application, and no way to customize the login page), so for now it is expected that everyone using this OAuth server will continue to work with the Resource Owner Password Flow. However, if you use a different OAuth server (such as `Auth0`), you can switch to either of these flows.
+**Note:** The default OAuth server that is provided with SAP Commerce Cloud has functional but simplistic support for the Authorization Code Flow and the Implicit Flow (there is no way to log out a user from an external application, and no way to customize the login page). If you are using a 2211.xx version of SAP Commerce Cloud (such as 2211.44, as opposed to 2211-jdk21.1), and you are using the OAuth server provided with SAP Commerce Cloud, it is expected that you will continue to work with the Resource Owner Password Flow. However, if you use a different OAuth server (such as `Auth0`), you can switch to either the Authorization Code Flow or the Implicit Flow. If instead, you are using a 2211-jdk21.x version of SAP Commerce Cloud (such as 2211-jdk21.1), and you are using the OAuth server provided with SAP Commerce Cloud, the Authorization Code Flow is the only flow that is available, and it is expected that you will use the Custom Login Page feature (described in the next section) to cover the shortcomings of the authorization server login form.
 
-**Note:** ASM login only works with the Resource Owner Password Flow for customer support agents.
+**Note:** If you are using a version of Spartacus that is older than 221121.1 (in other words, 2211.43 or older), ASM login only works with the Resource Owner Password Flow for customer support agents.  
+
+## Custom Login Page in Spartacus
+
+**Note:** This feature requires SAP Commerce Cloud version `2211-jdk21.1` or newer. It is not supported by 2211.xx versions of SAP Commerce Cloud that still supports JDK 17, such as SAP Commerce Cloud version 2211.44. Also, this feature is only relevant if you are using the authorization server provided by SAP Commerce Cloud 2211-jdk21.1 or newer. If you are using a different OAuth provider, you can ignore this feature or disable it.
+
+Starting with Spartacus 221121.1, you can take advantage of an update to the Authorization Code Flow in SAP Commerce Cloud 2211-jdk21.1 that allows you to use a custom Spartacus login page instead of the authorization server login page. This helps ensure the branding and design of your site remain consistent during the login process.
+
+When Spartacus initiates the Authorization Code Flow by redirecting to the authorization server, the browser is then redirected back to the Spartacus login page. At this point, the login form runs additional logic to retrieve a CSRF token that is submitted with the user credentials. When the user credentials and CSRF token are submitted to the authorization server, this results in a redirect back to the page where the user initiated their login.
+
+The `login` route now has a `CustomLoginGuard` that checks if there is an existing authentication session in progress. If there is no session, the guard initiates a login. If there is a session already in progress, the guard allows the route activation to continue and to display the login form. This prevents users who visit the login page directly from encountering errors due to the missing session.
+
+The custom login page feature is enabled by default if you have created a new Spartacus app that is version 221121.1 or newer, but more steps are required to enable the feature if you have updated from Spartacus 2211.43 or older. For more information, see [Enabling a Custom Login Page in Spartacus](authentication/#enabling-a-custom-login-page).
+
+To disable the feature, in the `spartacus-features.module.ts` file, set the `customLoginPage` object in `AuthConfig` to `undefined`. Disabling the feature skips the session check in `CustomLoginGuard` and reverts the login form components and services to function as they did in earlier versions of Spartacus (2211.43 and older). For more information, see [Disabling the Custom Login Page in Spartacus](authentication/#disabling-the-custom-login-page).
