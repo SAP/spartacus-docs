@@ -6,7 +6,7 @@ feature:
   cx_version: 2211-jdk21.0
 ---
 
-OAuth 2.0 is the default authorization protocol in SAP Commerce Cloud that allows third-party applications to access user data without exposing login credentials. OAuth 2.0 enhances security and enhances the user experience by enabling seamless integration between different services. Spartacus provides out-of-the-box support for OAuth 2.0 authentication methods that involve redirects to an authorization server, and primarily supports the authorization code grant flow and the implicit grant flow. The default authentication configuration is authorization code grant, which is the recommended OAuth flow.
+OAuth 2.0 is the default authorization protocol in SAP Commerce Cloud that allows third-party applications to access user data without exposing login credentials. OAuth 2.0 enhances security and enhances the user experience by enabling seamless integration between different services. Spartacus provides out-of-the-box support for OAuth 2.0 authentication methods that involve redirects to an authorization server, and specifically supports the authorization code grant flow and the implicit grant flow. The default authentication configuration is authorization code grant, which is the recommended OAuth flow.
 
 For Spartacus to work with an authorization server, set the following feature toggles to `true` in the `spartacus-features.module.ts` file:
 
@@ -55,7 +55,7 @@ It is recommended that you replace the `ActionsSubject` token with the `LOGIN_EV
 
 ## Enabling a Custom Login Page in Spartacus
 
-In Spartacus 221121.1 and newer, the Authorization Code Flow allows you to use the Spartacus login page instead of the authorization server login page. This helps ensure the branding and design of your site remain consistent during the login process.
+Starting with Spartacus 221121.1, you can take advantage of an update to the Authorization Code Flow in SAP Commerce Cloud 2211-jdk21.1 that allows you to use a custom Spartacus login page instead of the authorization server login page. This helps ensure the branding and design of your site remain consistent during the login process.
 
 **Note:** This feature requires SAP Commerce Cloud version `2211-jdk21.1` or newer. It is not supported by 2211.xx versions of SAP Commerce Cloud that still supports JDK 17, such as SAP Commerce Cloud version 2211.44. Also, this feature is only relevant if you are using the authorization server provided by SAP Commerce Cloud 2211-jdk21.1 or newer. If you are using a different OAuth provider, you can ignore this feature or disable it.
 
