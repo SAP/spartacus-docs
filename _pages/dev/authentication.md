@@ -6,7 +6,7 @@ feature:
   cx_version: 2211-jdk21.0
 ---
 
-OAuth 2.0 is the default authorization protocol in SAP Commerce Cloud that allows third-party applications to access user data without exposing login credentials. OAuth 2.0 enhances security and enhances the user experience by enabling seamless integration between different services. Spartacus provides out-of-the-box support for OAuth 2.0 authentication methods that involve redirects to an authorization server, and specifically supports the authorization code grant flow and the implicit grant flow. The default authentication configuration is authorization code grant, which is the recommended OAuth flow.
+SAP Commerce Cloud uses OAuth Authorization Framework as the default authorization protocol that enhances the user experience by enabling seamless integration between different services and allows third-party applications to access user data without exposing login credentials. It supports the OAuth 2.1 specification, which is a consolidation of OAuth 2.0 and its later addenda into a simplified, modern feature set providing enhanced security.  Spartacus provides out-of-the-box support for OAuth 2.1 authentication methods. The default configuration for authentication is now set to authorization code grant with Proof Key for Code Exchange (PKCE), which is the recommended grant type in OAuth 2.1.
 
 For Spartacus to work with an authorization server, set the following feature toggles to `true` in the `spartacus-features.module.ts` file:
 
@@ -21,6 +21,8 @@ The following configuration options in `spartacus-features.module.ts` allow for 
 
 - `AuthConfig.authentication.sendAuthHeaderOnRevoke`: Enables or disables sending the current token in the "Authorization" header.
 - `AuthConfig.authentication.useClientTokens`: Enables or disables the use of client tokens being sent with otherwise public APIs. This was achieved in the OCC adapter layer by adding a special header using the `USE_CLIENT_TOKEN` constant. An interceptor reads this header value and replaces it with an "Authorization" header with a client token as the value. Note that the `USE_CLIENT_TOKEN` header is still removed from requests even when `useClientTokens` is set to `false`.
+
+You can learn more about advanced configuration of the authentication flow by looking at the `angular-oauth2-oidc` library source code, as well as the [angular-oauth2-oidc documentation](https://github.com/manfredsteyer/angular-oauth2-oidc).
 
 ## Authentication Feature Toggles
 
