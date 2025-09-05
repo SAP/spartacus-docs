@@ -6,7 +6,7 @@ feature:
   cx_version: 2211-jdk21.0
 ---
 
-SAP Commerce Cloud uses OAuth Authorization Framework as the default authorization protocol that enhances the user experience by enabling seamless integration between different services and allows third-party applications to access user data without exposing login credentials. It supports the OAuth 2.1 specification, which is a consolidation of OAuth 2.0 and its later addenda into a simplified, modern feature set providing enhanced security.  Spartacus provides out-of-the-box support for OAuth 2.1 authentication methods. The default configuration for authentication is now set to authorization code grant with Proof Key for Code Exchange (PKCE), which is the recommended grant type in OAuth 2.1.
+SAP Commerce Cloud uses the OAuth Authorization Framework as the default authorization protocol for enabling seamless integration between different services, and allowing third-party applications to access user data without exposing login credentials. SAP Commerce Cloud supports the OAuth 2.1 specification, which consolidates OAuth 2.0 and its later updates into a simplified, modern feature set providing enhanced security. Spartacus provides out-of-the-box support for OAuth 2.1 authentication methods. The default configuration for authentication is set to the authorization code grant with Proof Key for Code Exchange (PKCE), which is the recommended grant type in OAuth 2.1.
 
 For Spartacus to work with an authorization server, set the following feature toggles to `true` in the `spartacus-features.module.ts` file:
 
