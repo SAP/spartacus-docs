@@ -120,6 +120,41 @@ The configuration properties are described as follows:
 
 For more information, see [Set up Connection with SAP Commerce Cloud Adapter](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/feb92426c3044e5eab67059795b5c14d.html?locale=en-US#set-up-connection-with-sap-commerce-cloud-adapter).
 
+## Configuring Local Payment Service Provider Resources
+
+To improve performance and reduce loading times, you can configure local payment service provider (PSP) resources. This allows you to host JavaScript and CSS files locally instead of loading them from external sources.
+
+### Configuration Example
+
+The following example shows how to configure local PSP resources for different payment providers:
+
+```ts
+provideConfig(<OpfConfig>{
+  opf: {
+    localPspResources: {
+      123: { // Example paymentOptionId for Adyen
+        jsFiles: ['/assets/adyen-payment.js'],
+        cssFiles: ['/assets/adyen-styles.css']
+      },
+      456: { // Example paymentOptionId for Stripe
+        jsFiles: ['/assets/stripe-payment.js'],
+        cssFiles: ['/assets/stripe-styles.css']
+      }
+    }
+  },
+}),
+```
+
+### Configuration Properties
+
+Set the values of the following properties to configure local PSP resources:
+
+- `localPspResources`: An object where each key is a payment option ID (number) and the value contains the following:
+  - `jsFiles`: An array of JavaScript file paths to load locally.
+  - `cssFiles`: An array of CSS file paths to load locally.
+
+You obtain the payment option IDs from the open payment framework workbench. When configured, these local resources are loaded instead of the default external resources, resulting in faster page load times and improved user experience.
+
 ## Configuring the Payment Option Info Message
 
 To enhance accessibility, a message is displayed when users select a payment option. This message provides a brief explanation of the payment process, which helps users understand whether they will be redirected to a secure, external page, or complete the payment directly on the current page.
