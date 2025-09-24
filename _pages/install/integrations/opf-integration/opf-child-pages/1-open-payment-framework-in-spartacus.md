@@ -29,42 +29,110 @@ For more information about `--opfBaseUrl` and `--commerceCloudPublicKey`, see [C
 
 Open payment framework is CMS-driven. If you are using the [Spartacus Sample Data Extension](link), the open payment framework CMS components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the open payment framework CMS components manually through ImpEx.
 
-### Adding the CMS Components Manually Using ImpEx
+### Understanding the CMS Structure
 
-To add all of the necessary CMS components and related data for open payment framework, import the following ImpEx:
+OPF requires three CMS elements to work properly: Content Pages, Content Slots, and Page-Slot Relations. If you are not using the Spartacus Sample Data Extension, you can add these elements manually step by step, and the following sections show you exactly how to do this.
+
+Content Pages define the checkout pages users navigate to, Content Slots are areas where components are placed within pages, and Page-Slot Relations connect pages to slots and define the layout structure. Each script is prepended with the following variables:
 
 ```text
 $contentCatalog=electronics-spaContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
-$siteResource=jar:de.hybris.platform.spartacussampledata.constants.SpartacussampledataConstants&/spartacussampledata/import/contentCatalogs/electronicsContentCatalog
+```
+
+The `$contentCatalog` defines which content catalog to work with, and `$contentCV` (content catalog version) specifies the version of that catalog. These variables ensure that all the OPF components, pages, and slots are created in the correct catalog and version. You need to customize these variables to match your specific content catalog.
+
+Now that you understand the CMS structure, the following sections show you exactly how to create each element and implement the OPF components in your Spartacus storefront.
+
+#### Creating Content Pages
+
+The first step is to create the actual checkout page that users will navigate to during the OPF flow. This page will be accessible via a specific URL like `/checkout/opf-payment-and-review` and will use the standard Spartacus checkout template structure. The page definition includes the template type, URL routing, and approval status that Spartacus needs to properly render the checkout experience.
+
+```text
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+# Add OPF ContentPages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;title[lang=en];defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+;;OpfCheckoutPaymentAndReview;Opf Checkout Payment And Review;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-payment-and-review;Checkout Payment and Review;true;check;false
+```
+
+#### Creating Content Slots
+
+Next, you need to create the content slots that will hold the various checkout components. These slots are specifically designed for the OPF checkout flow and include areas for delivery address selection, delivery mode selection, and the main payment and review section. Each slot is configured with the appropriate components that will be displayed when users reach that step in the checkout process.
+
+```text
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+# Add OPF ContentSlots (create new slots for OPF checkout flow)
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
+;;BodyContentSlot-checkoutOpfDeliveryAddress;Body Content Slot for Checkout OPF Delivery Address;CheckoutDeliveryAddressComponent
+;;BodyContentSlot-checkoutOpfDeliveryMode;Body Content Slot for Checkout OPF Delivery Mode;CheckoutDeliveryModeComponent
+;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
+```
+
+#### Creating Page-Slot Relations
+
+Finally, you need to establish the connections between the pages and slots to define the layout structure. This step determines which slots appear on which pages and where they are positioned. For example, the main content area will contain the primary checkout components, while the sidebar will hold the order summary and payment details. These relations ensure that when users visit a checkout page, all the necessary components appear in the correct locations with the proper layout.
+
+```text
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+# Add OPF Page and ContentSlot relations
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
+;;SideContent-opfCheckoutDeliveryAddress;SideContent;OpfCheckoutDeliveryAddress;SideContentSlot-checkoutPaymentDetails
+;;SideContent-CheckoutOpfDeliveryMode;SideContent;CheckoutOpfDeliveryMode;SideContentSlot-checkoutPaymentDetails
+;;SideContent-CheckoutOpfPaymentAndReview;SideContent;CheckoutOpfPaymentAndReview;SideContentSlot-checkoutPaymentDetails
+;;BodyContent-opfCheckoutDeliveryAddress;BodyContent;OpfCheckoutDeliveryAddress;BodyContentSlot-checkoutOpfDeliveryAddress
+;;BodyContent-CheckoutOpfDeliveryMode;BodyContent;CheckoutOpfDeliveryMode;BodyContentSlot-checkoutOpfDeliveryMode
+;;BodyContent-CheckoutOpfPaymentAndReview;BodyContent;CheckoutOpfPaymentAndReview;BodyContentSlot-checkoutOpfPaymentAndReview
+```
+
+### OPF Component Overview
+
+The components listed below work together with the CMS structure you've learned about above. Each component is designed to be placed in specific content slots and pages to provide the complete OPF functionality experience. The storefront uses these CMS components for mapping with specific frontend components.
+
+The following table describes each OPF-specific CMS component and where it should be added:
+
+| Component                                | Purpose                                                                       | Where to Add                                                                 | ImpEx Example                                                                                                                                                                                                                     | Slot Assignment Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OpfCheckoutPaymentAndReviewComponent`   | Handles payment selection and review in the checkout flow                     | Checkout payment and review page                                             | `INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType`<br>`;;OpfCheckoutPaymentAndReviewComponent;OpfCheckoutPaymentAndReview;OpfCheckoutPaymentAndReview`                                       | `INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)`<br>`;;BodyContentSlot-checkoutOpfPaymentAndReview;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent`                                                                                                                                                                                                                                                                                                            |
+| `OpfCtaScriptsComponent`                 | Injects payment provider scripts for on-site messaging and order confirmation | Product Details Page, Cart Page, Order Confirmation Page, Order Details Page | `INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType`<br>`;;OpfCtaScriptsComponent;Opf Cta Scripts Component;OpfCtaScriptsComponent`                                                            | `UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)`<br>`;;ProductSummarySlot;ProductImagesComponent, ProductIntroComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart`<br>`;;BodyContent-orderConfirmation;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent` |
+| `OpfQuickBuyButtonsComponent`            | Displays Google Pay and Apple Pay buttons                                     | Cart Page                                                                    | `INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType`<br>`;;OpfQuickBuyButtonsComponent;Opf Quick Buy Buttons Component;OpfQuickBuyButtonsComponent`                                            | `UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)`<br>`;;CenterRightContentSlot-cartPage;CartTotalsComponent, CartApplyCouponComponent, CartQuickOrderFormComponent, OpfQuickBuyButtonsComponent, CartProceedToCheckoutComponent`                                                                                                                                                                                                                                                                                                                                                                            |
+| `OpfExplicitTermsAndConditionsComponent` | Shows explicit Terms and Conditions checkbox (optional)                       | Checkout payment and review page                                             | `INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible`<br>`;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false` | `INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)`<br>`;;BodyContentSlot-checkoutOpfPaymentAndReview;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent`                                                                                                                                                                                                                                                                                                            |
+
+You will also find a ready-to-go script that adds all the above data to a specific content catalog. The script below includes all the necessary ImpEx statements to create the complete OPF setup.
+
+#### Complete OPF-Only ImpEx Script
+
+```text
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 
 # Add OPF CMSFlexComponents
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
 ;;OpfCheckoutPaymentAndReviewComponent;OpfCheckoutPaymentAndReview;OpfCheckoutPaymentAndReview
-;;OpfCheckoutProgressComponent;Opf Checkout Progress Component;OpfCheckoutProgress
 ;;OpfCtaScriptsComponent;Opf Cta Scripts Component;OpfCtaScriptsComponent
 ;;OpfQuickBuyButtonsComponent;Opf Quick Buy Buttons Component;OpfQuickBuyButtonsComponent
 
-# Add OPF Explicit T&C CMSFlexComponent as invisible
+# Add OPF Explicit T&C CMSFlexComponent as invisible (optional)
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible
 ;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false
 
-# Add OPF ContentSlots
+# Add OPF ContentSlots (create new slots for OPF checkout flow)
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
-;;BodyContentSlot-checkoutDeliveryMode;Checkout Delivery Mode Slot;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,CheckoutDeliveryModeComponent,CheckoutProgressMobileBottomComponent
-;;BodyContentSlot-checkoutOpfDeliveryAddress;Body Content Slot for Checkout OPF Delivery Address;OpfCheckoutProgressComponent,CheckoutDeliveryAddressComponent
-;;BodyContentSlot-checkoutOpfDeliveryMode;Body Content Slot for Checkout OPF Delivery Mode;OpfCheckoutProgressComponent,CheckoutDeliveryModeComponent
+;;BodyContentSlot-checkoutOpfDeliveryAddress;Body Content Slot for Checkout OPF Delivery Address;CheckoutDeliveryAddressComponent
+;;BodyContentSlot-checkoutOpfDeliveryMode;Body Content Slot for Checkout OPF Delivery Mode;CheckoutDeliveryModeComponent
 ;;BodyContentSlot-checkoutOpfPaymentAndReview;Body Content Slot for Checkout OPF Payment And Review;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent
-;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
 
 # Add OPF ContentPages
 INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;title[lang=en];defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
 ;;OpfCheckoutPaymentAndReview;Opf Checkout Payment And Review;MultiStepCheckoutSummaryPageTemplate;/checkout/opf-payment-and-review;Checkout Payment and Review;true;check;false
 
-# Add OPF Page and ContentSlot relation
+# Add OPF Page and ContentSlot relations
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true]
-;;BodyContent-opfCheckout;BodyContent;OpfCheckout;BodyContentSlot-checkout
-;;SideContent-opfCheckout;SideContent;OpfCheckout;SideContentSlot-checkoutPaymentDetails
 ;;SideContent-opfCheckoutDeliveryAddress;SideContent;OpfCheckoutDeliveryAddress;SideContentSlot-checkoutPaymentDetails
 ;;SideContent-CheckoutOpfDeliveryMode;SideContent;OpfCheckoutDeliveryMode;SideContentSlot-checkoutPaymentDetails
 ;;SideContent-CheckoutOpfPaymentAndReview;SideContent;OpfCheckoutPaymentAndReview;SideContentSlot-checkoutPaymentDetails
@@ -72,21 +140,23 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ;;BodyContent-CheckoutOpfDeliveryMode;BodyContent;OpfCheckoutDeliveryMode;BodyContentSlot-checkoutOpfDeliveryMode
 ;;BodyContent-CheckoutOpfPaymentAndReview;BodyContent;OpfCheckoutPaymentAndReview;BodyContentSlot-checkoutOpfPaymentAndReview
 
-# Add CTA script to PDP content slot
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
-;;ProductSummarySlot;Site Context Slot;true;ProductImagesComponent, ProductIntroComponent, QualtricsEmbeddedFeedbackComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart
+# Add OPF components to existing content slots (append mode)
+# Add CTA scripts to Product Details Page
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;ProductSummarySlot;ProductImagesComponent, ProductIntroComponent, ProductSummaryComponent, VariantSelector, ConfigureProductComponent, AddToWishListComponent, StockNotificationComponent, OpfCtaScriptsComponent, AddToCart
 
-# Add CTA script order confirmation content slot
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
-;;BodyContent-orderConfirmation;Body Content Slot for Order Confirmation;true;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent
+# Add CTA scripts to Order Confirmation Page
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;BodyContent-orderConfirmation;OpfCtaScriptsComponent, OrderConfirmationThankMessageComponent, OrderConfirmationShippingComponent, OrderConfirmationPickUpComponent, ExportOrderEntriesComponent, OrderConfirmationBillingComponent, OrderConfirmationTotalsComponent, OrderConfirmationContinueButtonComponent
 
-# Add CTA script to OPF order details page content slot
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
-;;BodyContent-orderdetail;Body Content Slot for My Account Order Details;true;OpfCtaScriptsComponent,AccountOrderDetailsSimpleOverviewComponent,AccountOrderDetailsGroupedItemsComponent,ExportOrderEntriesComponent,AccountOrderDetailsBillingComponent,AccountOrderDetailsTotalsComponent,AccountOrderDetailsActionsComponent
+# Add CTA scripts to Order Details Page
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;BodyContent-orderdetail;OpfCtaScriptsComponent, AccountOrderDetailsSimpleOverviewComponent, AccountOrderDetailsGroupedItemsComponent, ExportOrderEntriesComponent, AccountOrderDetailsBillingComponent, AccountOrderDetailsTotalsComponent, AccountOrderDetailsActionsComponent
 
-# Add CTA script to cart content slot
-UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
-;;TopContent-cartPage;Top content for Cart Slot;true;OpfCtaScriptsComponent, AddToSavedCartsComponent, CartComponent, ClearCartComponent, SaveForLaterComponent, ImportExportOrderEntriesComponent
+# Add CTA scripts and Quick Buy buttons to Cart Page
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;TopContent-cartPage;OpfCtaScriptsComponent, AddToSavedCartsComponent, CartComponent, ClearCartComponent, SaveForLaterComponent, ImportExportOrderEntriesComponent
+;;CenterRightContentSlot-cartPage;CartTotalsComponent, CartApplyCouponComponent, CartQuickOrderFormComponent, OpfQuickBuyButtonsComponent, CartProceedToCheckoutComponent
 ```
 
 ## Configuring Open Payment Framework
