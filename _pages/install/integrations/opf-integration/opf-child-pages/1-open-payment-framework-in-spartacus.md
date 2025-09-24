@@ -287,9 +287,13 @@ ng add @spartacus/opf --skip-confirmation --no-interactive --features "OPF-B2B-C
 
 ### Adding the B2B Checkout CMS Components Manually Using ImpEx
 
-You can use ImpEx to add the B2B checkout CMS data manually.
+B2B checkout follows the same [CMS structure principles](#understanding-the-cms-structure) as described above, but introduces additional complexity to accommodate business-specific requirements. The B2B implementation uses a content catalog reflecting the typical B2B site structure.
 
-To add all of the necessary CMS components and related data for the open payment framework B2B checkout, import the following ImpEx:
+The key difference in B2B checkout is the introduction of a dedicated payment type selection page. The `OpfCheckoutPaymentTypeComponent` CMS component is placed on a separate `OpfCheckoutPaymentType` content page, creating a distinct step where users first choose their payment method before proceeding to delivery address and final review. This separation allows for more complex payment workflows that are common in B2B scenarios, where different payment types might require different validation or processing steps.
+
+**Note:** B2B checkout currently does not support CTA and Quick Buy functionality.
+
+The complete B2B ImpEx script includes all necessary CMS components, content slots, pages, and relations:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
