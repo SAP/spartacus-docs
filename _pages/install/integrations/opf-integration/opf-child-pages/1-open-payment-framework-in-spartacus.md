@@ -31,9 +31,9 @@ Open payment framework is CMS-driven. If you are using the [Spartacus Sample Dat
 
 ### Understanding the CMS Structure
 
-OPF requires three CMS elements to work properly: Content Pages, Content Slots, and Page-Slot Relations. If you are not using the Spartacus Sample Data Extension, you can add these elements manually step by step, and the following sections show you exactly how to do this.
+OPF requires three CMS elements to work properly: content pages, content slots, and page-slot relations. If you are not using the Spartacus Sample Data Extension, you can add these elements manually step-by-step. The following sections show you how to do this.
 
-Content Pages define the checkout pages users navigate to, Content Slots are areas where components are placed within pages, and Page-Slot Relations connect pages to slots and define the layout structure. Each script is prepended with the following variables:
+Content pages define the checkout pages users navigate to, content slots are areas where components are placed within pages, and page-slot relations connect pages to slots and define the layout structure. Each script is prepended with the following variables:
 
 ```text
 $contentCatalog=electronics-spaContentCatalog
@@ -42,11 +42,9 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
 
 The `$contentCatalog` defines which content catalog to work with, and `$contentCV` (content catalog version) specifies the version of that catalog. These variables ensure that all the OPF components, pages, and slots are created in the correct catalog and version. You need to customize these variables to match your specific content catalog.
 
-Now that you understand the CMS structure, the following sections show you exactly how to create each element and implement the OPF components in your Spartacus storefront.
-
 #### Creating Content Pages
 
-The first step is to create the actual checkout page that users will navigate to during the OPF flow. This page will be accessible via a specific URL like `/checkout/opf-payment-and-review` and will use the standard Spartacus checkout template structure. The page definition includes the template type, URL routing, and approval status that Spartacus needs to properly render the checkout experience.
+To implementing the OPF components in your Spartacus storefront, you first create the actual checkout page that users navigate to during the OPF flow. This page is accessible through a specific URL, such as `/checkout/opf-payment-and-review`, and uses the standard Spartacus checkout template structure. The page definition includes the template type, URL routing, and approval status that Spartacus needs to properly render the checkout experience.
 
 ```text
 $contentCatalog=electronics-spaContentCatalog
@@ -59,7 +57,7 @@ INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTe
 
 #### Creating Content Slots
 
-Next, you need to create the content slots that will hold the various checkout components. These slots are specifically designed for the OPF checkout flow and include areas for delivery address selection, delivery mode selection, and the main payment and review section. Each slot is configured with the appropriate components that will be displayed when users reach that step in the checkout process.
+Next, you need to create the content slots that hold the various checkout components. These slots are specifically designed for the OPF checkout flow and include areas for delivery address selection, delivery mode selection, and the main payment and review section. Each slot is configured with the appropriate components that are displayed when users reach that step in the checkout process.
 
 ```text
 $contentCatalog=electronics-spaContentCatalog
@@ -74,7 +72,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsCompo
 
 #### Creating Page-Slot Relations
 
-Finally, you need to establish the connections between the pages and slots to define the layout structure. This step determines which slots appear on which pages and where they are positioned. For example, the main content area will contain the primary checkout components, while the sidebar will hold the order summary and payment details. These relations ensure that when users visit a checkout page, all the necessary components appear in the correct locations with the proper layout.
+Finally, you need to establish the connections between the pages and slots to define the layout structure. This step determines which slots appear on which pages and where they are positioned. For example, the main content area contains the primary checkout components, while the sidebar holds the order summary and payment details. These relations ensure that when users visit a checkout page, all the necessary components appear in the correct locations with the proper layout.
 
 ```text
 $contentCatalog=electronics-spaContentCatalog
@@ -92,9 +90,9 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 ### OPF Component Overview
 
-The components listed below work together with the CMS structure you've learned about above. Each component is designed to be placed in specific content slots and pages to provide the complete OPF functionality experience. The storefront uses these CMS components for mapping with specific frontend components.
+The components listed below work together with the CMS structure described above. Each component is designed to be placed in specific content slots and pages to provide the complete OPF functionality experience. The storefront uses these CMS components for mapping with specific frontend components.
 
-The following table describes each OPF-specific CMS component and where it should be added:
+The following table describes each OPF-specific CMS component and where to add it:
 
 | Component                                | Purpose                                                                       | Where to Add                                                                 | ImpEx Example                                                                                                                                                                                                                     | Slot Assignment Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ---------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,9 +101,11 @@ The following table describes each OPF-specific CMS component and where it shoul
 | `OpfQuickBuyButtonsComponent`            | Displays Google Pay and Apple Pay buttons                                     | Cart Page                                                                    | `INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType`<br>`;;OpfQuickBuyButtonsComponent;Opf Quick Buy Buttons Component;OpfQuickBuyButtonsComponent`                                            | `UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)`<br>`;;CenterRightContentSlot-cartPage;CartTotalsComponent, CartApplyCouponComponent, CartQuickOrderFormComponent, OpfQuickBuyButtonsComponent, CartProceedToCheckoutComponent`                                                                                                                                                                                                                                                                                                                                                                            |
 | `OpfExplicitTermsAndConditionsComponent` | Shows explicit Terms and Conditions checkbox (optional)                       | Checkout payment and review page                                             | `INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;visible`<br>`;;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;OpfExplicitTermsAndConditionsComponent;false` | `INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)`<br>`;;BodyContentSlot-checkoutOpfPaymentAndReview;CheckoutProgressComponent,CheckoutProgressMobileTopComponent,OpfCheckoutPaymentAndReviewComponent,CheckoutProgressMobileBottomComponent,OpfExplicitTermsAndConditionsComponent`                                                                                                                                                                                                                                                                                                            |
 
-You will also find a ready-to-go script that adds all the above data to a specific content catalog. The script below includes all the necessary ImpEx statements to create the complete OPF setup.
+You will also find a ready-to-go script that adds all the above data to a specific content catalog.
 
 #### Complete OPF-Only ImpEx Script
+
+The following script includes all the necessary ImpEx statements to create the complete OPF setup:
 
 ```text
 $contentCatalog=electronics-spaContentCatalog
@@ -293,7 +293,7 @@ The key difference in B2B checkout is the introduction of a dedicated payment ty
 
 **Note:** B2B checkout currently does not support CTA and Quick Buy functionality.
 
-The complete B2B ImpEx script includes all necessary CMS components, content slots, pages, and relations:
+The following B2B ImpEx script includes all necessary CMS components, content slots, pages, and relations:
 
 ```text
 $contentCatalog=powertools-spaContentCatalog
