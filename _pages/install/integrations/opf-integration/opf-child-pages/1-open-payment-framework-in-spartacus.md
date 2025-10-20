@@ -42,7 +42,7 @@ The `$contentCatalog` defines which content catalog to work with, and `$contentC
 
 ### Creating Content Pages
 
-To implement the OPF components in your Spartacus storefront, you first create the actual checkout page that users navigate to during the OPF flow. This page is accessible through a specific URL, such as `/checkout/opf-payment-and-review`, and uses the standard Spartacus checkout template structure. The page definition includes the template type, URL routing, and approval status that Spartacus needs to properly render the checkout experience.
+To implement the OPF components in your Spartacus storefront, you first create the actual checkout page that users navigate to during the OPF flow. This page is accessible through a specific route, such as `/checkout/opf-payment-and-review`, and uses the standard Spartacus checkout template structure. The page definition includes the template type, routing, and approval status that Spartacus needs to properly render the checkout experience.
 
 The following is an example ImpEx script for adding an "OPF Checkout Payment And Review" content page:
 
@@ -107,7 +107,7 @@ The following table describes each OPF-specific CMS component and where to add i
 
 The following section provides an example ImpEx script that adds all the above data to a specific content catalog.
 
-#### Complete OPF-Only ImpEx Script
+### Complete OPF-Only ImpEx Script
 
 The following example script includes all the necessary ImpEx statements to create a complete OPF setup:
 
