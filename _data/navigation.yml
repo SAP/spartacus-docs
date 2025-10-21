@@ -119,7 +119,7 @@ docs:
                   url: /qualtrics-integration/
                 - title: "SAP Customer Data Cloud Integration"
                   url: /cdc-integration/
-                - title: "SAP Enterprise Product Development Visualization Integration"
+                - title: "DEPRECATED - SAP Enterprise Product Development Visualization Integration"
                   url: /epd-visualization-integration/           
                 - title: "SmartEdit Integration ➢"
                   url: /smartEdit-setup-instructions-for-spartacus/

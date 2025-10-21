@@ -64,7 +64,9 @@ As of Spartacus 4.0, 1:1 value prices were visible on the interactive configurat
 
  Highlights include the following:
 
-### SAP Enterprise Product Development Visualization Integration
+### DEPRECATED - SAP Enterprise Product Development Visualization Integration
+
+ The SAP Enterprise Product Development Visualization Integration is deprecated and will be removed in a future version.
 
  The SAP Enterprise Product Development Visualization Integration provides support for visual picking of spare parts using 2D or 3D models of the relevant products. For more information, see [{% assign linkedpage = site.pages | where: "name", "epd-visualization-integration.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/install/integrations/epd-visualization-integration.md %}).
 

@@ -68,7 +68,7 @@ Spartacus requires SAP Commerce Cloud version 2105 or newer. In the table below,
 | [Qualtrics Integration](/qualtrics-integration/) | 1.3 | n/a |
 | [Quick Order](/quick-order/) | 4.1 | 2011 |
 | [SAP Digital Payments Integration](/digital-payments-integration/) | 4.1 | 2105* |
-| [SAP Enterprise Product Development Visualization Integration](/epd-visualization-integration/) | 4.3 | 2105 |
+| [DEPRECATED - SAP Enterprise Product Development Visualization Integration](/epd-visualization-integration/) | 4.3 | 2105 |
 | [SEO](/seo/) | 1.0 | n/a |
 | [Santorini Theme](/storefront-themes/) | 4.0 | n/a |
 | [Saved Cart](/saved-cart/) | 3.2 | 2005 |
