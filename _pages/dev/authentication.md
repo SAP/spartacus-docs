@@ -88,9 +88,8 @@ provideConfig(<AuthConfig>{
 
 In the traditional client-server authentication model, the client requests an access-restricted resource on the server (in other words, a protected resource) by authenticating with the server using the resource owner's credentials. In order to allow third-party applications to access restricted resources, the resource owner shares its credentials with the third-party applications. Spartacus supports the use of resource owner password credentials, which are used by 2211.xx versions of SAP Commerce Cloud (such as 2211.44). This support remains until the 2211.xx version branch reaches end of life, in Q3 2026.
 
-If you are working with a 2211.xx version of SAP Commerce Cloud (as opposed to a 2211-jdk21.x version), and you want to enable the resource owner password credentials authentication model in Spartacus, set the following feature toggles to `false` in the `spartacus-features.module.ts` file:
+If you are working with a 2211.xx version of SAP Commerce Cloud (as opposed to a 2211-jdk21.x version), and you want to enable the resource owner password credentials authentication model in Spartacus, you must set the following feature toggle to `false` in the `spartacus-features.module.ts` file:
 
 - `authorizationCodeFlowByDefault`
-- `incrementProcessesCountForMergeCart`
-- `dispatchLoginActionOnlyWhenTokenReceived`
-- `cdsLoginEventsToken`
+
+**Note:** At this time, support for resource owner password credentials is exclusionary to other authentication models.  The flag _must_ be set to `false` to support resource owner password credentials flow.  Doing so will revert the default authorization configuration to a value appropriate for 2211.xx versions of SAP Commerce Cloud, and also revert certain logic required for other authentication models.  This restriction may or may not be changed in the future.
