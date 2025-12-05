@@ -1,7 +1,7 @@
 ---
-title: SAP Enterprise Product Development Visualization Integration
+title: DEPRECATED - SAP Enterprise Product Development Visualization Integration
 feature:
-- name: SAP Enterprise Product Development Visualization Integration
+- name: DEPRECATED - SAP Enterprise Product Development Visualization Integration
   spa_version: 4.3
   cx_version: 2105
 ---
@@ -11,6 +11,8 @@ feature:
 {% endcapture %}
 
 {% include docs/feature_version.html content=version_note %}
+
+The SAP Enterprise Product Development Visualization integration is deprecated and will be removed in a future version.
 
 The SAP Enterprise Product Development Visualization integration provides capabilities for viewing 2D and 3D content within a Spartacus storefront, allowing for visual spare part picking.
 
