@@ -29,7 +29,7 @@ For more information about `--opfBaseUrl` and `--commerceCloudPublicKey`, see [C
 
 Open payment framework is CMS-driven. If you are using the [Spartacus Sample Data Extension](link), the open payment framework CMS components are already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the open payment framework CMS components manually through ImpEx.
 
-OPF requires three CMS elements to work properly: content pages, content slots, and page-slot relations. If you are not using the Spartacus Sample Data Extension, you can add each of these elements manually, as described in the following sections.
+Open payment framework requires three CMS elements to work properly: content pages, content slots, and page-slot relations. If you are not using the Spartacus Sample Data Extension, you can add each of these elements manually, as described in the following sections.
 
 Content pages define the checkout pages users navigate to. Content slots are areas where components are placed within pages. Page-slot relations connect pages to slots and define the layout structure. Each ImpEx script is prepended with the following variables:
 
@@ -279,13 +279,13 @@ provideConfig(<OpfConfig>{
 
 ## Content Security Policy Support
 
-Open Payment Framework supports Content Security Policy (CSP) compliance for Payment Service Provider scripts. When PSP scripts are provided in `SEPARATE` mode, the framework executes scripts using CSP-compliant methods that avoid inline script violations. In this mode, JavaScript and CSS resources are provided separately with their own URLs and Subresource Integrity hashes. Scripts are executed using `<script>` elements with `textContent` instead of inline scripts, and script context is passed through a global `window.OpfContext` variable, allowing the original script hash to remain unchanged for CSP verification. This ensures that OPF PSP scripts work correctly with strict CSP policies while maintaining security through SRI hashes. The framework automatically handles CSP-compliant script execution when the `htmlContentMode` property is set to `SEPARATE` in the dynamic script configuration.
+Open payment framework supports Content Security Policy (CSP) compliance for Payment Service Provider (PSP) scripts. When PSP scripts are provided in `SEPARATE` mode, the framework executes scripts using CSP-compliant methods that avoid inline script violations. In this mode, JavaScript and CSS resources are provided separately, with their own URLs and Subresource Integrity hashes. Scripts are executed using `<script>` elements with `textContent` instead of inline scripts, and script context is passed through a global `window.OpfContext` variable, allowing the original script hash to remain unchanged for CSP verification. This ensures that open payment framework PSP scripts work correctly with strict CSP policies, while maintaining security through subresource integrity (SRI) hashes. The framework automatically handles running CSP-compliant scripts when the `htmlContentMode` property is set to `SEPARATE` in the dynamic script configuration.
 
 ### Configuring Content Security Policy
 
-To enable CSP support for OPF PSP scripts, you need to configure a Content Security Policy meta tag in your `index.html` file. The CSP policy should allow scripts from all sources (`*`) and include specific SHA hashes for the OPF scripts. You can obtain the SHA hash values from the open payment framework workbench.
+To enable CSP support for open payment framework PSP scripts, you need to configure a Content Security Policy `<meta>` tag in your `index.html` file. The CSP policy should allow scripts from all sources (`*`) and include specific SHA hashes for the open payment framework scripts. You can obtain the SHA hash values from the open payment framework workbench.
 
-The following is an example of a CSP meta tag configuration in `index.html`:
+The following is an example of a CSP `<meta>` tag configuration in `index.html`:
 
 ```html
 <meta
