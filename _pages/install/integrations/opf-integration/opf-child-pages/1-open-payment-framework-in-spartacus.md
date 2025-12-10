@@ -279,7 +279,7 @@ provideConfig(<OpfConfig>{
 
 ## Content Security Policy Support
 
-Open payment framework supports Content Security Policy (CSP) compliance for Payment Service Provider (PSP) scripts. When PSP scripts are provided in `SEPARATE` mode, the framework executes scripts using CSP-compliant methods that avoid inline script violations. In this mode, JavaScript and CSS resources are provided separately, with their own URLs and Subresource Integrity hashes. Scripts are executed using `<script>` elements with `textContent` instead of inline scripts, and script context is passed through a global `window.OpfContext` variable, allowing the original script hash to remain unchanged for CSP verification. This ensures that open payment framework PSP scripts work correctly with strict CSP policies, while maintaining security through subresource integrity (SRI) hashes. The framework automatically handles running CSP-compliant scripts when the `htmlContentMode` property is set to `SEPARATE` in the dynamic script configuration.
+Open payment framework supports Content Security Policy (CSP) compliance for Payment Service Provider (PSP) scripts. When PSP scripts are provided in `SEPARATE` mode, the framework runs scripts using CSP-compliant methods that avoid inline script violations. In this mode, JavaScript and CSS resources are provided separately, with their own URLs and Subresource Integrity hashes. Scripts are run using `<script>` elements with `textContent` instead of inline scripts, and script context is passed through a global `window.OpfContext` variable, allowing the original script hash to remain unchanged for CSP verification. This ensures that open payment framework PSP scripts work correctly with strict CSP policies, while maintaining security through subresource integrity (SRI) hashes. The framework automatically handles running CSP-compliant scripts when the `htmlContentMode` property is set to `SEPARATE` in the dynamic script configuration.
 
 ### Configuring Content Security Policy
 
@@ -294,17 +294,13 @@ The following is an example of a CSP `<meta>` tag configuration in `index.html`:
 />
 ```
 
-In the above example:
+In this example, `script-src *` allows scripts from all external sources. Multiple SRI hashes can be included, one for each open payment framework PSP script that needs to be run. In this case, `'sha384-abc123def456ghi789jkl012mno345pqr678stu901vwx234yz5678901234567890'` and `'sha384-xyz789abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890'` are example SRI hashes for open payment framework PSP scripts, which you obtain from the open payment framework workbench.
 
-- `script-src *` allows scripts from all external sources
-- Multiple Subresource Integrity hashes can be included, one for each OPF PSP script that needs to execute
-- `'sha384-abc123def456ghi789jkl012mno345pqr678stu901vwx234yz5678901234567890'` and `'sha384-xyz789abc123def456ghi789jkl012mno345pqr678stu901vwx234yz567890'` are example Subresource Integrity hashes for OPF PSP scripts, which you obtain from the open payment framework workbench
+When you are setting up your own CSP `<meta>` tag configuration, remember to replace the SHA hash values in the example with the actual SHA hash values obtained from the open payment framework workbench for your specific payment provider scripts. You can include multiple SRI hashes in the CSP `<meta>` tag, separated by spaces.
 
-**Note:** Replace the SHA hash values in the example with the actual SHA hash values obtained from the open payment framework workbench for your specific payment provider scripts. You can include multiple SRI hashes in the CSP meta tag, separated by spaces.
+**Note:** Scripts without a defined SRI hash in the CSP policy will be blocked from running. Ensure that all open payment framework PSP scripts that need to run have their corresponding SHA hashes included in the CSP policy.
 
-**Important:** Scripts without a defined SRI hash in the CSP policy will be blocked from execution. Ensure that all OPF PSP scripts that need to execute have their corresponding SHA hashes included in the CSP policy.
-
-**Benefit:** By using CSP-compliant script execution with SHA hashes, you can avoid using `'unsafe-eval'` in your CSP policy, which improves security by preventing the execution of dynamically evaluated code.
+By running CSP-compliant scripts with SHA hashes, you can avoid using `'unsafe-eval'` in your CSP policy, which improves security by preventing dynamically evaluated code from running.
 
 ## Configuring Checkout
 
