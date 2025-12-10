@@ -185,19 +185,20 @@ When you complete the login, you can then access the `id_token` with the `OAuthL
 
 ## Configuring Authorization Code Flow or Implicit Flow
 
-Now the Spartacus uses the `angular-oauth2-oidc` library, it is possible to support the Authorization Code Flow and the Implicit Flow. These flows are very different from the Resource Owner Password Flow because the authentication part happens on the OAuth server login page rather than in Spartacus. When Spartacus redirects you to this page, you provide login and password information there, and if the credentials match, you are redirected back to the Spartacus application with the token (Implicit Flow) or code (Authorization Code Flow) as part of the URL. Then Spartacus obtains the data from the URL and continues the login process (requests a token in the case of Authorization Code Flow, sets the user ID, dispatches the `Login` action, and redirects to the previously visited page).
+Now that Spartacus uses the `angular-oauth2-oidc` library, it is possible to support the Authorization Code Flow and the Implicit Flow. These flows are very different from the Resource Owner Password Flow because the authentication part happens on the OAuth server instead of in Spartacus. When starting an authenticated session, Spartacus redirects you to the OAuth server login page, where you provide login and password information. When your credentials are accepted, you are redirected back to the storefront application with the token (Implicit Flow) or the code (Authorization Code Flow) as part of the URL. Spartacus reads this value from the URL and continues the login process. In the case of Authorization Code Flow, Spartacus exchanges the code for a token, and then for both Implicit Flow and Authorization Code Flow, Spartacus retrieves user data with the token, sets the user ID, dispatches the `Login` action, and redirects you to the previously visited page.
 
-Starting with Spartacus 221121.1, Authorization Code Flow is set as the default authentication method.
+Starting with Spartacus 221121.1, Authorization Code Flow is set as the default authentication method. To use Resource Owner Password Flow, you must provide a specific configuration in your storefront, as described in [Authenticating with Legacy SAP Commerce Cloud Versions](authentication.md#authenticating-with-legacy-sap-commerce-cloud-versions).
 
 You can configure the OAuth flow as follows:
 
 ```ts
 authentication: {
   OAuthLibConfig: {
-    responseType: 'token', // 'code' for Authorization Code Flow
+    responseType: 'token', // 'token' for Implicit Flow and 'code' for Authorization Code Flow
   },
 },
 ```
+
 
 Apart from this configuration, you may need to update a few details for your OAuth client in Backoffice (such as allowing Implicit Flow or Authorization Code Flow, and setting the redirect URL of the application).
 
