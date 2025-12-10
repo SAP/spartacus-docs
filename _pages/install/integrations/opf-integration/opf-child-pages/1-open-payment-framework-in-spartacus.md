@@ -281,7 +281,7 @@ provideConfig(<OpfConfig>{
 
 Open payment framework supports Content Security Policy (CSP) compliance for Payment Service Provider (PSP) scripts. When PSP scripts are provided in `SEPARATE` mode, the framework runs scripts using CSP-compliant methods that avoid inline script violations. In this mode, JavaScript and CSS resources are provided separately, with their own URLs and Subresource Integrity hashes. Scripts are run using `<script>` elements with `textContent` instead of inline scripts, and script context is passed through a global `window.OpfContext` variable, allowing the original script hash to remain unchanged for CSP verification. This ensures that open payment framework PSP scripts work correctly with strict CSP policies, while maintaining security through subresource integrity (SRI) hashes. The framework automatically handles running CSP-compliant scripts when the `htmlContentMode` property is set to `SEPARATE` in the dynamic script configuration.
 
-### Configuring Content Security Policy
+### Configuring Your Content Security Policy
 
 To enable CSP support for open payment framework PSP scripts, you need to configure a Content Security Policy `<meta>` tag in your `index.html` file. The CSP policy should allow scripts from all sources (`*`) and include specific SHA hashes for the open payment framework scripts. You can obtain the SHA hash values from the open payment framework workbench.
 
