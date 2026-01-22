@@ -14,6 +14,7 @@ Open payment framework provides the following features:
 - [QuickBuy](link)
 - [Order Confirmation Scripts](link)
 - [On-site Messaging](link)
+- [OPF Global Functions]({{ site.baseurl }}{% link _pages/install/integrations/opf-integration/opf-child-pages/5-opf-global-functions.md %})
 
 ## Getting Started
 
