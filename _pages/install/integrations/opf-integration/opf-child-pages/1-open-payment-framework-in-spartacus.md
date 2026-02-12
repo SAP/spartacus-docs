@@ -306,7 +306,7 @@ By running CSP-compliant scripts with SHA hashes, you can avoid using `'unsafe-e
 
 The open payment framework feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. For more information, see [Multiple Checkout Flows](loio7c83b24b00f746a591aab48d58d6abc5) and [Setting a paymentProvider value in SAP Commerce Cloud](loioa0a8551f2c0649729a9f00c6ee53b97d).
 
-**Note:** When configuring multiple checkout flows for open payment framework, the flow key object must be exactly "OPF". Any other flow key values, such as "OPF-guest" or other variations, will not work due to backend implications. The backend expects the specific "OPF" identifier to properly process payment transactions. Support for alternative flow key values (for example, "OPF-guest") was temporarily removed, so only the exact "OPF" flow key is currently supported.
+**Note:** When configuring multiple checkout flows for open payment framework, the value for the flow key object must be `OPF`. Any other flow key values, such as `OPF-guest`, or any other variations, will not work because the back end expects `OPF` as the specific identifier to properly process payment transactions. Support for other flow key values (such as `OPF-guest`) was removed, so only the `OPF` flow key is currently supported.
 
 ## Configuring B2B Checkout
 
