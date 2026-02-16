@@ -319,6 +319,7 @@ provideOutlet({
   component: PickUpItemsDetailsComponent,
 }),
 ```
+**Note:** When configuring multiple checkout flows for open payment framework, the value for the flow key object must be `OPF`. Any other flow key values, such as `OPF-guest`, or any other variations, will not work because the back end expects `OPF` as the specific identifier to properly process payment transactions. Support for other flow key values (such as `OPF-guest`) was removed, so only the `OPF` flow key is currently supported.
 
 ## Configuring B2B Checkout
 
