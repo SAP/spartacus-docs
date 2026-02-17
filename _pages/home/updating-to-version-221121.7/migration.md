@@ -242,6 +242,15 @@ You can safely ignore this warning for now. We're actively monitoring this and w
 
 This command should handle all the necessary migrations automatically. In most cases, no further action is required.
 
+### Known Issue
+
+- Font Awesome lib introduce a breaking change on version 7.x where Fixed Width is now set by default rather rthan Automatic width.  https://docs.fontawesome.com/upgrade/whats-changed/#fixed-width-icons-by-default
+- As symptoms, you might see icons overlapping sibling html element (we found only 2 occurences: Product Configuration alert icon, legacy carousel circle icons)
+- As a solution, we thus need to add it manually in root.scss by adding --fa-width: auto;
+- Detail of solution is in https://docs.fontawesome.com/web/style/icon-canvas/#using-css-custom-properties
+- Mention that the solution will be implemented in spartacus 221121.8.x version, so customer can upgarde to this version if hitting the prob rather than fixning it manually with adding custom css padding
+jira ref: [CXSPA-12143](https://jira.tools.sap/browse/CXSPA-12143)
+
 ### Manual Migration Steps (Fallback Only)
 
 Below is a list of changes that the Spartacus migration schematics perform automatically. We include them here as a fallback. You only need to perform these steps manually if the schematics failed to complete successfully. If the migration schematics mentioned in the section [Run Spartacus update](#run-spartacus-update) failed due to any reason, please follow the manual steps below
