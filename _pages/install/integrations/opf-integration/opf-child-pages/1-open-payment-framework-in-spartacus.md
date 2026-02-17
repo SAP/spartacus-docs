@@ -306,6 +306,8 @@ By running CSP-compliant scripts with SHA hashes, you can avoid using `'unsafe-e
 
 The open payment framework feature library supports run-time adjustment of the checkout flow based on the `paymentProvider` property. For more information, see [Multiple Checkout Flows](loio7c83b24b00f746a591aab48d58d6abc5) and [Setting a paymentProvider value in SAP Commerce Cloud](loioa0a8551f2c0649729a9f00c6ee53b97d).
 
+**Note:** When configuring multiple checkout flows for open payment framework, the value for the flow key object must be `OPF`. Any other flow key values, such as `OPF-guest`, or any other variations, will not work because the back end expects `OPF` as the specific identifier to properly process payment transactions. Support for other flow key values (such as `OPF-guest`) was removed, so only the `OPF` flow key is currently supported.
+
 ### Pickup-in-Store Support in Open Payment Framework
 
 The open payment framework supports pickup-in-store functionality through a flexible outlet-based architecture. Open payment framework is not directly dependent on the `pickup-in-store` library. You can provide your own custom component for displaying pickup items by registering it with the `OPF_CHECKOUT_PICKUP_ITEMS` outlet.
@@ -319,7 +321,6 @@ provideOutlet({
   component: PickUpItemsDetailsComponent,
 }),
 ```
-**Note:** When configuring multiple checkout flows for open payment framework, the value for the flow key object must be `OPF`. Any other flow key values, such as `OPF-guest`, or any other variations, will not work because the back end expects `OPF` as the specific identifier to properly process payment transactions. Support for other flow key values (such as `OPF-guest`) was removed, so only the `OPF` flow key is currently supported.
 
 ## Configuring B2B Checkout
 
