@@ -22,7 +22,7 @@ You can update your application to use Angular 21 as follows:
 
 ### Updating to Angular 20
 
-1. Run the following command, which updates the Angular version locally, and also updates other third-party dependencies from the Angular ecosystme to versions that are compatible with Angular 20, such as `@ng-select/ng-select@latest`, `@ngrx/store@20`, `angular-oauth2-oidc@20`, and `ngx-infinite-scroll@latest`:
+1. Run the following command, which updates the Angular version locally, and also updates other third-party dependencies from the Angular ecosystem to versions that are compatible with Angular 20, such as `@ng-select/ng-select@20`, `@ngrx/store@20`, `angular-oauth2-oidc@20`, and `ngx-infinite-scroll@20`:
 
    ```bash
    ng update @angular/core@20 @angular/cli@20 @ngrx/store@20 angular-oauth2-oidc@20 @ng-select/ng-select@20 ngx-infinite-scroll@20 --force
