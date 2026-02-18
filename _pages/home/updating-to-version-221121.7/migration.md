@@ -32,7 +32,9 @@ You can update your application to use Angular 21 as follows:
 
    This command is sourced from the Angular [Update Guide](https://angular.dev/update-guide?v=19.0-20.0&l=3) for updating from version 19 to version 20.
 
-2. While you are updating to Angular 20, run the migration to replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`.
+2. During the update to Angular 20, when you are asked if you want to "migrate application projects to the new build system" (which is to say, replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`), run this migration.
+
+   If you choose not to run the migration at this step, you will again have the option to run it during the update to Angular 21.
 
    The option to run this migration appears as follows:
 
@@ -113,7 +115,7 @@ You can update your application to use Angular 21 as follows:
 
    This command is sourced from the Angular [Update Guide](https://angular.dev/update-guide?v=20.0-21.0&l=3) for updating from version 20 to version 21.
 
-2. While you are updating to Angular 21, if you have not already done so, run the migration to replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`.
+2. While you are updating to Angular 21, if you have not already done so, migrate application projects to the new build system (which is to say, run the migration to replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`).
 
    The option to run this migration appears as follows:
 
@@ -121,7 +123,7 @@ You can update your application to use Angular 21 as follows:
    ❯◯ [use-application-builder] Migrate application projects to the new build system.
    ```
 
-   The result of migration should be similar to the one shown in the previous section for updating to Angular 20. If you already ran the `use-application-builder` migration when you were updating to Angular 20, this migration won't make any further changes.
+   This migration is also offered during the update to Angular 20, and the result of the migration should be similar to the one shown in the previous section for updating to Angular 20. If you already ran the `use-application-builder` migration when you were updating to Angular 20, running it again will not make any further changes.
 
 ## Updating Spartacus to 221121.7
 
@@ -178,7 +180,7 @@ import {
 export class AppModule { }
 ```
 
-If you are working with a standalone application, you enable non-destructive hydration by adding `provideClientHydration()` with `withEventReplay()` and `withNoHttpTransferCache()` in your `app.config.ts` file, as shown in the following example:
+If you are working with a standalone application (that is, you are already using the `bootstrapApplication()` function), you enable non-destructive hydration by adding `provideClientHydration()` with `withEventReplay()` and `withNoHttpTransferCache()` in your `app.config.ts` file, as shown in the following example:
 
 ```typescript
 import { ApplicationConfig } from '@angular/core';
@@ -233,7 +235,7 @@ You can safely ignore this warning for now. This topic continues to be actively 
 
 As described in the [Font Awesome documentation](https://docs.fontawesome.com/upgrade/whats-changed/#fixed-width-icons-by-default), the Font Awesome library introduce a breaking change in version 7.x. By default, all Font Awesome icons now display at a fixed width rather than an automatic width.
 
-As as result, you might see icons overlapping sibling HTML elements. So far, two occurrences have been observed, for the Product Configuration alert icon, and the legacy carousel circle icons.
+As a result, you might see icons overlapping sibling HTML elements. So far, two occurrences have been observed, for the Product Configuration alert icon, and the legacy carousel circle icons.
 
 This issue can be resolved by manually adding the following in `root.scss`:
 
