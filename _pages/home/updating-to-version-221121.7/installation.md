@@ -8,7 +8,7 @@ This guide provides step-by-step instructions for creating a fresh Angular 20 ap
 
 Before starting, ensure you have the following installed:
 
-- **Node.js**: Version 22 or higher
+- **Node.js**: Version 22.22.0 or higher
 - **npm**: Version 10 or higher
 - **Angular CLI**: Version 21.1.0
 
