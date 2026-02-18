@@ -8,7 +8,7 @@ To update your Spartacus app to version 221121.7, you must carry out the followi
 2. Ensure you have Node.js 22 installed. Version 22.22.0 is the minimum required. The most recent 22.x version is strongly recommended. For more information, see the official [Node.js website](https://nodejs.org/en).
 3. Update your Angular libraries. For more information, see [Updating Your Angular Libraries](#updating-your-angular-libraries).
 4. Update Spartacus to 221121.7.
-5. Modernize your storefront to use the standalone Bootstrap application. For more information, see [Modernizing Your Storefront to Use the Standalone Bootstrap Application](modernize-app-to-standalone-bootstrap-application.md).
+5. Modernize your storefront to use the standalone `bootstrapApplication()` function. For more information, see [Modernizing Your Storefront to Use the Standalone Bootstrap Application](modernize-app-to-standalone-bootstrap-application.md).
 6. Optionally migrate your custom components to standalone components. For more information, see [Standalone Components in Spartacus](standalone-components-in-spartacus.md).
 
 ## Updating Your Angular Libraries
