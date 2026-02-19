@@ -212,7 +212,7 @@ You can now proceed with [Modernizing Your Storefront to Use the Standalone Boot
 
 ### Known Warning: NG05001
 
-After enabling hydration, you may see the following warning in your console:
+After enabling hydration, you may see the following warning in your console in dev-mode build:
 
 ```text
 NG05001: Configuration error: found both hydration and enabledBlocking initial navigation 
