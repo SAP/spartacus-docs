@@ -48,10 +48,10 @@ The procedures on this page are provided only in case you encountered an issue w
 
    **Note:** In the next step, the Angular configurations are moved to a new file, named `app.config.ts`.
 
-3. Create a new file called `src/app/app.module.ts`.
-4. In the new `app.module.ts` file, which will contain the Angular configurations previously located in `AppModule`, import what remains in the `AppModule` using `importProvidersFrom(AppModule)`.
+3. Create a new file called `src/app/app.config.ts`.
+4. In the new `app.config.ts` file, which will contain the Angular configurations previously located in `AppModule`, import what remains in the `AppModule` using `importProvidersFrom(AppModule)`.
 
-   The following is an example of how your `app.module.ts` file should look:
+   The following is an example of how your `app.config.ts` file should look:
 
    ```typescript
    import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
