@@ -10,7 +10,7 @@ To update your Spartacus app to version 221121.7, you must carry out the followi
 4. Update Spartacus to 221121.7. For more information, see [Updating Spartacus to 221121.7](#updating-spartacus-to-2211217).
 5. Modernize your storefront to use the standalone `bootstrapApplication()` function. For more information, see [Modernizing Your Storefront to Use the Standalone Bootstrap Application](#modernizing-your-storefront-to-use-the-standalone-bootstrap-application).
 6. Migrate your custom components to standalone components. This step is optional, but strongly recommended. For more information, see [Standalone Components in Spartacus](#standalone-components-in-spartacus).
-7. Enable Non-Destructive Hydration. This is required for projects that use server-side rendering (SSR).
+7. Enable Non-Destructive Hydration. This is required for projects that use server-side rendering (SSR). For more information, see [Enabling Non-Destructive Hydration (SSR Only)](#enabling-non-destructive-hydration-ssr-only).
 
 ## Updating Your Angular Libraries
 
