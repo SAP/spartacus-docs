@@ -2,7 +2,9 @@
 title: Modernizing Your Storefront (Manual Fallback Steps Only)
 ---
 
-The procedures on this page are provided only in case you encountered an issue while running the Spartacus schematics for modernizing your app to use the Angular `bootstrapApplication()` API and convert your root `AppComponent` to a standalone component, as described in [Modernizing Your Storefront to Use the Standalone Bootstrap Application](migration.md#modernizing-your-storefront-to-use-the-standalone-bootstrap-application). If you have already successfully run those schematics, you can ignore the steps below.
+If you wish to run the automated Spartacus schematics that modernize your app to use the Angular `bootstrapApplication()` API and convert your root `AppComponent` to a standalone component, see [Modernizing Your Storefront to Use the Standalone Bootstrap Application](migration.md#modernizing-your-storefront-to-use-the-standalone-bootstrap-application).
+
+The procedures on this page are provided only in case you encountered an issue while running the Spartacus schematics for [Modernizing Your Storefront to Use the Standalone Bootstrap Application](migration.md#modernizing-your-storefront-to-use-the-standalone-bootstrap-application). If you have already successfully run those schematics, you can ignore the steps below.
 
 1. In `src/app/app.component.ts`, convert your root `AppComponent` to a standalone component by removing `standalone: false` and adding the necessary imports of Spartacus `StorefrontComponent`.
 

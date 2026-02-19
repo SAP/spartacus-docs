@@ -2,7 +2,7 @@
 title: Technical Changes in Spartacus 221121.7
 ---
 
-The following sections describe changes introduced in Spartacus 221121.7 that could affect your project code. Due to the nature of these changes, they could not be included in the update schematics. As a result, you may need to make manual adjustments to your project code, based on the changes described below.
+The Spartacus update schematics scan your codebase and inject code comments whenever you use a reference to a Spartacus class or function that has changed its behavior in version 221121.7, or where your class or function has been replaced by a different class or function, or where the API has changed (for example, where a required parameter has been added or removed). After the update schematics have finished running, inspect your code for comments that begin with `// TODO:Spartacus` to see the areas of your code that have been identified as possibly needing further work to complete your update to version 221121.7.
 
 ## Removed Constants
 
