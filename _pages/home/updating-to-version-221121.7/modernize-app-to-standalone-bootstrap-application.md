@@ -35,12 +35,18 @@ The procedures on this page are provided only in case you encountered an issue w
    ```ts
     @NgModule({
      imports: [
+       /*...*/
        StoreModule.forRoot({}),
        AppRoutingModule,
        EffectsModule.forRoot([]),
        SpartacusModule
      ],
      providers: [
+      /* REMOVED:
+       *  provideBrowserGlobalErrorListeners(),
+       *  provideZoneChangeDetection({ eventCoalescing: true }),
+       *  provideHttpClient(withFetch(), withInterceptorsFromDi()),
+       */
      ],
     })
     export class AppModule { }
@@ -204,7 +210,7 @@ If your storefront app does not use server-side rendering (SSR), you can ignore 
     @NgModule({
       /* ... */
       providers: [
-        /* ... */
+        /* ... There should be no `provideClientHydration(withEventReplay(), withNoHttpTransferCache())` here */
       ],
     })
     export class AppModule { }
@@ -226,4 +232,4 @@ If your storefront app does not use server-side rendering (SSR), you can ignore 
 
    You have now modernized your app to use Angular's `bootstrapApplication()` API and converted your root `AppComponent` to a standalone component, aligning it with current Angular best practices.
 
-   Although not required, it is also recommended that you migrate your custom components to standalone components. For more information, see [Migrating to Standalone Components in Spartacus](standalone-components-in-spartacus.md).
+   It is also strongly recommended that you migrate your custom components to standalone components. For more information, see [Migrating to Standalone Components in Spartacus](standalone-components-in-spartacus.md).

@@ -116,6 +116,8 @@ You can update your application to use Angular 21 as follows:
 
    This command is sourced from the Angular [Update Guide](https://angular.dev/update-guide?v=20.0-21.0&l=3) for updating from version 20 to version 21.
 
+   **Note:** The inclusion of `angular-oauth2-oidc@20` in the update command for Angular 21 is not a mistake. Version 20 of this library is the most recently available library, and the author of the library indicates it is compatible with Angular 21, as indicated [in a comment in the GitHub repository](https://github.com/manfredsteyer/angular-oauth2-oidc/issues/1491#issuecomment-3590104924) for this library.
+
 2. During the update to Angular 21, if you have not already done so, migrate application projects to the new build system (which is to say, run the migration to replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`).
 
    The option to run this migration appears as follows:
@@ -152,7 +154,7 @@ If your Spartacus app does not use server-side rendering (SSR), you do not need 
 
 If your storefront application does use SSR, you must enable non-destructive hydration. Enabling non-destructive hydration aligns your app with current Angular best practices, making it easier to maintain and update your storefront application.
 
-Non-destructive hydration is an Angular feature that improves performance by reusing the server-rendered DOM instead of destroying and recreating it on the client side. This reduces the Time to Interactive (TTI) metric and provides a better user experience.
+Non-destructive hydration is an Angular feature that improves performance by reusing the server-rendered DOM instead of destroying and recreating it on the client side. This helps to avoid flickering when transitioning from the server-side DOM to the client-side rendered DOM in the browser, which provides a better user experience.
 
 For more information, see [Hydration](https://angular.dev/guide/hydration) in the official Angular documentation.
 
