@@ -1,4 +1,6 @@
-# Installing Spartacus 221121.7 with Angular 21
+---
+title: Installing Spartacus 221121.7 with Angular 21
+---
 
 This guide provides step-by-step instructions for creating a fresh Angular 20 application and installing Spartacus 221121.7
 
@@ -6,7 +8,7 @@ This guide provides step-by-step instructions for creating a fresh Angular 20 ap
 
 Before starting, ensure you have the following installed:
 
-- **Node.js**: Version 22 or higher
+- **Node.js**: Version 22.22.0 or higher
 - **npm**: Version 10 or higher
 - **Angular CLI**: Version 21.1.0
 
@@ -34,6 +36,7 @@ ng add @spartacus/schematics@221121.7
 ```
 
 The schematics will:
+
 - Install required Spartacus libraries
 - Configure your application for Spartacus
 
@@ -44,5 +47,5 @@ For Spartacus with Server-Side Rendering (SSR), run the following command:
 ```bash
 ng add @spartacus/schematics@221121.7 --ssr
 ```
-This will set up SSR-specific configurations.
 
+This will set up SSR-specific configurations.
