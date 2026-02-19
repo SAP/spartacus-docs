@@ -1,5 +1,5 @@
 ---
-title: Manually Updating Spartacus (Fallback Steps Only)
+title: Manually Updating Spartacus to Version 221121.7 (Fallback Steps Only)
 ---
 
 The procedures on this page are provided only in case you encounter an issue while running the Spartacus update schematics described in [Updating Spartacus to 221121.7](migration.md#updating-spartacus-to-2211217). If you have already successfully run the update schematics, you can ignore the steps on this page.

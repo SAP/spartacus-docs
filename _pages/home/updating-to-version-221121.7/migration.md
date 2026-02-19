@@ -7,9 +7,10 @@ To update your Spartacus app to version 221121.7, you must carry out the followi
 1. Update your Spartacus app to version 221121.5 (with Angular 19). For more information, see [Update Release 221121.5](link-added-post-conversion).
 2. Ensure you have Node.js 22 installed. Version 22.22.0 is the minimum required. The most recent 22.x version is strongly recommended. For more information, see the official [Node.js website](https://nodejs.org/en).
 3. Update your Angular libraries. For more information, see [Updating Your Angular Libraries](#updating-your-angular-libraries).
-4. Update Spartacus to 221121.7.
-5. Modernize your storefront to use the standalone `bootstrapApplication()` function. For more information, see [Modernizing Your Storefront to Use the Standalone Bootstrap Application](modernize-app-to-standalone-bootstrap-application.md).
-6. Optionally migrate your custom components to standalone components. For more information, see [Standalone Components in Spartacus](standalone-components-in-spartacus.md).
+4. Update Spartacus to 221121.7. For more information, see [Updating Spartacus to 221121.7](#updating-spartacus-to-2211217).
+5. Enabling Non-Destructive Hydration. This is only for projects that use server-side rendering (SSR). If your project does not use SSR, proceed to the next step. For more information, see [Enabling Non-Destructive Hydration (SSR Only)](#enabling-non-destructive-hydration-ssr-only).
+6. Modernize your storefront to use the standalone `bootstrapApplication()` function. For more information, see [Modernizing Your Storefront to Use the Standalone Bootstrap Application](#modernizing-your-storefront-to-use-the-standalone-bootstrap-application).
+7. Migrate your custom components to standalone components. This step is optional, but strongly recommended. For more information, see [Standalone Components in Spartacus](#standalone-components-in-spartacus).
 
 ## Updating Your Angular Libraries
 
@@ -36,13 +37,13 @@ You can update your application to use Angular 21 as follows:
 
    If you choose not to run the migration at this step, you will again have the option to run it during the update to Angular 21.
 
-   The option to run this migration appears as follows:
+   During the update to Angular 20, the option to run this migration appears as follows:
 
    ```bash
    ❯◯ [use-application-builder] Migrate application projects to the new build system.
    ```
 
-   The result should appear as follows:
+   The following is an example of the result when the migration is done:
 
    ```json
     "projects": {
@@ -115,7 +116,7 @@ You can update your application to use Angular 21 as follows:
 
    This command is sourced from the Angular [Update Guide](https://angular.dev/update-guide?v=20.0-21.0&l=3) for updating from version 20 to version 21.
 
-2. While you are updating to Angular 21, if you have not already done so, migrate application projects to the new build system (which is to say, run the migration to replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`).
+2. During the update to Angular 21, if you have not already done so, migrate application projects to the new build system (which is to say, run the migration to replace old builders located under `@angular-devkit/build-angular` with new builders located under `@angular/build`).
 
    The option to run this migration appears as follows:
 
@@ -145,9 +146,9 @@ The update to Spartacus 221121.7 is mostly focused on updating the framework to 
 
    In newly-created Spartacus apps that are generated with Angular 21, the `outputPath` option is skipped and implicitly defaults to `dist/<your-project-name>`. If your migrated app has the `outputPath` set to `dist/<your-project-name>`, it is recommended that you remove it from `angular.json`, since it is not necessary.
 
-## Enabling Non-Destructive Hydration
+## Enabling Non-Destructive Hydration (SSR Only)
 
-If your Spartacus app does not use server-side rendering (SSR), you do not need to enable non-destructive hydration. You can now proceed with [Modernizing Your Storefront to Use the Standalone Bootstrap Application](modernize-app-to-standalone-bootstrap-application.md).
+If your Spartacus app does not use server-side rendering (SSR), you do not need to enable non-destructive hydration. You can now proceed with [Modernizing Your Storefront to Use the Standalone Bootstrap Application](#modernizing-your-storefront-to-use-the-standalone-bootstrap-application).
 
 If your storefront application does use SSR, you must enable non-destructive hydration. Enabling non-destructive hydration aligns your app with current Angular best practices, making it easier to maintain and update your storefront application.
 
@@ -201,11 +202,11 @@ export const appConfig: ApplicationConfig = {
 The `withEventReplay()` and `withNoHttpTransferCache()` options are required for the following reasons:
 
 - `withEventReplay()` ensures that user interactions that occur before the application is fully hydrated are captured and replayed. This provides a seamless user experience even during the hydration process.
-- `withNoHttpTransferCache()` disables the HTTP transfer cache for hydration. This is required for Spartacus because the storefront app uses its own state transfer mechanism. Without this option, there could be conflicts between Angular's built-in HTTP transfer cache and custom implementation provided in Spartacus.
+- `withNoHttpTransferCache()` disables the HTTP transfer cache for hydration. This is required for Spartacus because the storefront app uses its own state transfer mechanism. Without this option, there could be conflicts between Angular's built-in HTTP transfer cache and the custom implementation provided in Spartacus.
 
 **Note:** Ensure you test your application thoroughly after enabling non-destructive hydration to ensure all components hydrate correctly.
 
-You can now proceed with [Modernizing Your Storefront to Use the Standalone Bootstrap Application](modernize-app-to-standalone-bootstrap-application.md).
+You can now proceed with [Modernizing Your Storefront to Use the Standalone Bootstrap Application](#modernizing-your-storefront-to-use-the-standalone-bootstrap-application).
 
 ### Known Warning: NG05001
 
@@ -220,7 +221,7 @@ In practice, no issues were encountered with this setup.
 
 This diagnostic was introduced by the Angular team during the development of Angular 21 ([Angular issue #59624](https://github.com/angular/angular/issues/59624), [Angular PR #62963](https://github.com/angular/angular/pull/62963)). The warning appears because Spartacus uses `initialNavigation: 'enabledBlocking'` in its router configuration to ensure proper CMS page loading and lazy-loading of JS chunks before rendering the components.
 
-It is not clear why this diagnostic was added by the Angular team. Since May 2025, no negative consequences have been observed with the current setup. The implications are still being investigating, and an update will provided if it is deemed to be necessary.
+It is not clear why this diagnostic was added by the Angular team. Since May 2025, no negative consequences have been observed with the current setup. The implications are still being investigating, and an update will be provided if it is deemed to be necessary.
 
 Observations about this warning so far are the following:
 
@@ -230,6 +231,49 @@ Observations about this warning so far are the following:
 - During hydration in the browser, Angular's hydration system prevents UI flickering by reusing the server-rendered DOM
 
 You can safely ignore this warning for now. This topic continues to be actively monitored, and if any issues are found, they will be addressed in a future release of Spartacus, as required and as part of the ongoing modernization of the SSR implementation.
+
+## Modernizing Your Storefront to Use the Standalone Bootstrap Application
+
+Modern Angular 21 apps use [standalone components](https://angular.dev/reference/migrations/standalone), as well as the `bootstrapApplication()` Angular API for bootstrapping the root standalone component, instead of using the old `bootstrapModule()`.
+
+After you have updated your Spartacus application to version 221121.7, you need to modernize your storefront app to use the Angular `bootstrapApplication()` API.
+
+Spartacus provides dedicated schematics to automatically modernize your app to use the Angular `bootstrapApplication()` API and convert your root `AppComponent` to a standalone component.
+
+**Note:** The schematics to modernize your app only migrate your root `AppComponent` to become a standalone component. The schematics do not migrate your custom components to become standalone components. For more information about migrating your custom components, see [Standalone Components in Spartacus](#standalone-components-in-spartacus).
+
+To modernize your app to use the Angular `bootstrapApplication()` API and convert your root `AppComponent` to a standalone component, run the following command from your project root directory:
+
+```bash
+ng g @spartacus/schematics:modernize-app-to-standalone-bootstrap-application
+```
+
+The update of your Spartacus app to version 221121.7 is now essentially complete -- however, it is strongly recommended that you also migrate your custom components to standalone components. For more information, see [Standalone Components in Spartacus](#standalone-components-in-spartacus).
+
+If you run into any issue while running the schematics for modernizing your app, you can follow the manual fallback steps to complete the modernization of your app. For more information, see [Modernizing Your Storefront (Manual Fallback Steps Only)](modernize-app-to-standalone-bootstrap-application.md).
+
+## Standalone Components in Spartacus
+
+Now that you have updated your Spartacus app to version 221121.7, all Spartacus components have been converted to [Angular standalone components](https://angular.dev/reference/migrations/standalone). You can use Spartacus standalone components in the same way you previously used non-standalone components, including using them in your custom code. It should even be possible to use Spartacus standalone components in your custom non-standalone components. However, it is **strongly recommended** that you convert your custom components to standalone components. This will allow your storefront app to take advantage of the latest Angular features, innovations and best practices. Most importantly, it will make it easier for you to update your app when future framework updates are introduced in Spartacus.
+
+**Note:** Angular `NgModules` are still in use in Spartacus. Although `NgModules` remain as non-standalone APIs, Spartacus uses them simply to organize features into cohesive modules. They are no longer used for declaring components.
+
+### Migrating Unit Tests That Stub Child Components of Spartacus Components
+
+If you have unit tests that stub child components of standard Spartacus components, you need to stub them differently, because stubbing standalone components in Angular works differently. For more information, see [Stubbing unneeded components](https://angular.dev/guide/testing/components-scenarios#stubbing-unneeded-components) in the official Angular documentation.
+
+### Migrating Your Custom Components to Standalone Components
+
+The Angular team strongly recommends converting your custom components to standalone components, as described in the [Angular Blog](https://blog.angular.dev/the-future-is-standalone-475d7edbc706). The benefits of standalone components include the following:
+
+- Simplified component declarations, which means there is no longer a need for component declarations in your `NgModule`.
+- Taking advantage of the latest Angular features and innovations, such as [Defer Loading](https://angular.dev/guide/templates/defer) and [Incremental Hydration](https://angular.dev/guide/incremental-hydration), which allow for better tree-shaking and performance. These features might also have other prerequisites, but standalone components is certainly a major prerequisite for these features.
+
+To automatically convert your custom components to Angular standalone components, from your project root directory, run `ng g @angular/core:standalone` and select "Convert all components, directives and pipes to standalone".
+
+This step is taken from the Angular documentation describing how to [Migrate an existing Angular project to standalone](https://angular.dev/reference/migrations/standalone). In the Angular documentation, there are additional steps, but **do not** follow them. The second step removes "unnecessary NgModule classes", but in fact, Spartacus still uses `NgModules` for organizing features into cohesive modules. The third step is also unnecessary, because you have already carried out the necessary updates when you followed the procedure for [Modernizing Your Storefront to Use the Standalone Bootstrap Application](#modernizing-your-storefront-to-use-the-standalone-bootstrap-application), above.
+
+Congratulations! You have now successfully completed the migration to Spartacus 221121.7!
 
 ## Known Issue
 
@@ -245,4 +289,4 @@ This issue can be resolved by manually adding the following in `root.scss`:
 
 More information about this solution can be found in the [official Font Awesome documentation](https://docs.fontawesome.com/web/style/icon-canvas/#using-css-custom-properties).
 
-**Note:** This issue will be addressed in the next release of Spartacus, at which point the workaround described above will no longer be required.
+**Note:** This issue will be addressed in an upcoming release of Spartacus, at which point the workaround described above will no longer be required.
