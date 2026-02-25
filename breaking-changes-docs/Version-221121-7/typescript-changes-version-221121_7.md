@@ -1,53 +1,34 @@
-<!-- Generated file.  Don't update directly -->
+# Typescript Breaking Changes in Composable Storefront 221121.7
 
-# 221121_7 Typescript Breaking Changes
-
-This document contains a list of breaking changes or potentially breaking changes for Spartacus 221121_7.
-
-
+This document contains a list of breaking changes or potentially breaking changes for Composable Storefront 221121.7.
 
 # Variable asmTranslations
-## @spartacus/asm/assets
 
+## @spartacus/asm/assets
 
 Variable asmTranslations has been removed and is no longer part of the public API.
 
-
-
-
 # Class AsmBindCartComponent
+
 ## @spartacus/asm/components
 
-
 ### Property featureConfig is removed.
-
-
-
-
 
 # Class CustomerEmulationComponent
+
 ## @spartacus/asm/components
 
-
 ### Property featureConfig is removed.
-
-
-
-
 
 # Class CustomerSelectionComponent
-## @spartacus/asm/components
 
+## @spartacus/asm/components
 
 ### Property featureConfig is removed.
 
-
-
-
-
 # Function property
-## @spartacus/asm/core
 
+## @spartacus/asm/core
 
 Function property changed.
 
@@ -79,6 +60,7 @@ property(
 
 
 # Variable asmCustomer360Translations
+
 ## @spartacus/asm/customer-360/assets
 
 

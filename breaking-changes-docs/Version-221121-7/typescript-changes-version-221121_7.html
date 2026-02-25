@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<style>
+		BODY {
+
+		    width: 55%;
+		    border: 2px;
+			border-style: solid;
+			border-color: gainsboro;
+			padding-left: 7%;
+			padding-right: 7%;
+			padding-top: 3%;
+			padding-bottom: 3%;
+		    margin-left: 15%;
+			margin-top: 3%;
+			margin-bottom: 3%;
+			font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+/*			font-size: 1.05em;*/
+		}
+		
+		pre {
+			background-color: rgb(246, 248, 250);
+			padding: 25px;
+			font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+			font-size: 13.5px;
+			line-height: 19.5px;
+			
+		}
+				
+	</style>
+</head>
+ <body><h1 id="typescript-breaking-changes-in-composable-storefront-221121-7">Typescript Breaking Changes in Composable Storefront 221121.7</h1>
+<p>This document contains a list of breaking changes or potentially breaking changes for Composable Storefront 221121.7.</p>
+<h1 id="variable-asmtranslations">Variable asmTranslations</h1>
+<h2 id="-spartacus-asm-assets">@spartacus/asm/assets</h2>
+<p>Variable asmTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-asmbindcartcomponent">Class AsmBindCartComponent</h1>
+<h2 id="-spartacus-asm-components">@spartacus/asm/components</h2>
+<h3 id="property-featureconfig-is-removed-">Property featureConfig is removed.</h3>
+<h1 id="class-customeremulationcomponent">Class CustomerEmulationComponent</h1>
+<h2 id="-spartacus-asm-components">@spartacus/asm/components</h2>
+<h3 id="property-featureconfig-is-removed-">Property featureConfig is removed.</h3>
+<h1 id="class-customerselectioncomponent">Class CustomerSelectionComponent</h1>
+<h2 id="-spartacus-asm-components">@spartacus/asm/components</h2>
+<h3 id="property-featureconfig-is-removed-">Property featureConfig is removed.</h3>
+<h1 id="function-property">Function property</h1>
+<h2 id="-spartacus-asm-core">@spartacus/asm/core</h2>
+<p>Function property changed.</p>
+<p>Previous version:</p>
+<pre><code>
+property(
+<span class="hljs-symbol">  prop1:</span> P1,
+<span class="hljs-symbol">  prop2:</span> P2,
+<span class="hljs-symbol">  comparator:</span> Comparator<span class="hljs-params">&lt;T[P1][P2]&gt;</span>
+): Comparator<span class="hljs-params">&lt;T&gt;</span>
+</code></pre><p>Current version:</p>
+<pre><code>
+property(
+<span class="hljs-symbol">  prop:</span> P,
+<span class="hljs-symbol">  comparator:</span> Comparator<span class="hljs-params">&lt;T[P]&gt;</span>
+): Comparator<span class="hljs-params">&lt;T&gt;</span>
+</code></pre><h1 id="variable-asmcustomer360translations">Variable asmCustomer360Translations</h1>
+<h2 id="-spartacus-asm-customer-360-assets">@spartacus/asm/customer-360/assets</h2>
+<p>Variable asmCustomer360Translations has been removed and is no longer part of the public API.</p>
+<h1 id="class-asmconfig">Class AsmConfig</h1>
+<h2 id="-spartacus-asm-root">@spartacus/asm/root</h2>
+<h3 id="property-asm-changed-">Property asm changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-string">asm:</span> {
+        agentSessionTimer?: {
+            startingDelayInSeconds?: number;
+        };
+        customerSearch?: {
+            maxResults?: number;
+        };
+        customerList?: {
+            pageSize?: number;
+            showAvatar?: <span class="hljs-keyword">boolean</span>;
+            columns?: {
+<span class="hljs-symbol">                headerLocalizationKey:</span> string;
+                icon?: {
+                    symbol?: ICON_TYPE;
+                    captionLocalizationKey?: string;
+                };
+                renderer?: (<span class="hljs-string">customer:</span> User) =&gt; string;
+                actionType?: CustomerListColumnActionType;
+            }[];
+        };
+        userIdHttpHeader?: {
+            enable?: <span class="hljs-keyword">boolean</span>;
+        };
+    }
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-string">asm:</span> {
+        agentSessionTimer?: {
+            startingDelayInSeconds?: number;
+        };
+        customerSearch?: {
+            maxResults?: number;
+        };
+        customerList?: {
+            pageSize?: number;
+            showAvatar?: <span class="hljs-keyword">boolean</span>;
+            columns?: {
+<span class="hljs-symbol">                headerLocalizationKey:</span> string;
+                icon?: {
+                    symbol?: ICON_TYPE;
+                    captionLocalizationKey?: string;
+                };
+                renderer?: (<span class="hljs-string">customer:</span> User) =&gt; string;
+                actionType?: CustomerListColumnActionType;
+            }[];
+        };
+        asmSessionSupport?: {
+            enabled?: <span class="hljs-keyword">boolean</span>;
+        };
+        userIdHttpHeader?: {
+            enable?: <span class="hljs-keyword">boolean</span>;
+        };
+        createCustomer?: {
+            enable?: <span class="hljs-keyword">boolean</span>;
+        };
+    }
+</code></pre><h1 id="variable-translations">Variable translations</h1>
+<h2 id="-spartacus-assets">@spartacus/assets</h2>
+<p>Variable translations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-translationsen">Variable translationsEn</h1>
+<h2 id="-spartacus-assets">@spartacus/assets</h2>
+<p>Variable translationsEn changed.</p>
+<p>Previous version:</p>
+<pre><code><span class="hljs-symbol">translationsEn:</span> {
+<span class="hljs-symbol">    common:</span> {
+<span class="hljs-symbol">        common:</span> {
+<span class="hljs-symbol">            cancel:</span> string;
+<span class="hljs-symbol">            delete:</span> string;
+<span class="hljs-symbol">            remove:</span> string;
+<span class="hljs-symbol">            edit:</span> string;
+<span class="hljs-symbol">            restore:</span> string;
+<span class="hljs-symbol">            back:</span> string;
+<span class="hljs-symbol">            submit:</span> string;
+<span class="hljs-symbol">            continue:</span> string;
+<span class="hljs-symbol">            save:</span> string;
+<span class="hljs-symbol">            done:</span> string;
+<span class="hljs-symbol">            home:</span> string;
+<span class="hljs-symbol">            noData:</span> string;
+<span class="hljs-symbol">            confirm:</span> string;
+<span class="hljs-symbol">            more:</span> string;
+<span class="hljs-symbol">            close:</span> string;
+<span class="hljs-symbol">            loading:</span> string;
+<span class="hljs-symbol">            menu:</span> string;
+<span class="hljs-symbol">            reset:</span> string;
+<span class="hljs-symbol">            search:</span> string;
+<span class="hljs-symbol">            add:</span> string;
+<span class="hljs-symbol">            breadcrumbs:</span> string;
+<span class="hljs-symbol">            breadcrumbsCurrentPage:</span> string;
+<span class="hljs-symbol">            selectFile:</span> string;
+<span class="hljs-symbol">            clear:</span> string;
+<span class="hljs-symbol">            loaded:</span> string;
+<span class="hljs-symbol">            results:</span> string;
+<span class="hljs-symbol">            of:</span> string;
+<span class="hljs-symbol">            ngSelectDropdownOptionsList:</span> string;
+<span class="hljs-symbol">            required:</span> string;
+<span class="hljs-symbol">            zoomIn:</span> string;
+<span class="hljs-symbol">            zoomOut:</span> string;
+<span class="hljs-symbol">            selected:</span> string;
+<span class="hljs-symbol">            expand:</span> string;
+<span class="hljs-symbol">            collapse:</span> string;
+<span class="hljs-symbol">            readMore:</span> string;
+<span class="hljs-symbol">            readLess:</span> string;
+        };
+<span class="hljs-symbol">        pageMetaResolver:</span> {
+<span class="hljs-symbol">            category:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                title_other:</span> string;
+            };
+<span class="hljs-symbol">            checkout:</span> {
+<span class="hljs-symbol">                title:</span> string;
+            };
+<span class="hljs-symbol">            search:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                title_other:</span> string;
+<span class="hljs-symbol">                findProductTitle:</span> string;
+<span class="hljs-symbol">                findProductTitle_other:</span> string;
+<span class="hljs-symbol">                default_title:</span> string;
+            };
+<span class="hljs-symbol">            product:</span> {
+<span class="hljs-symbol">                description:</span> string;
+<span class="hljs-symbol">                heading:</span> string;
+<span class="hljs-symbol">                title:</span> string;
+            };
+        };
+<span class="hljs-symbol">        spinner:</span> {
+<span class="hljs-symbol">            loading:</span> string;
+        };
+<span class="hljs-symbol">        navigation:</span> {
+<span class="hljs-symbol">            categoryNavLabel:</span> string;
+<span class="hljs-symbol">            footerNavLabel:</span> string;
+<span class="hljs-symbol">            goTo:</span> string;
+<span class="hljs-symbol">            navigateTo:</span> string;
+<span class="hljs-symbol">            scrollToTop:</span> string;
+<span class="hljs-symbol">            linkItemInList:</span> string;
+<span class="hljs-symbol">            menuButonTitle:</span> string;
+        };
+<span class="hljs-symbol">        searchBox:</span> {
+<span class="hljs-symbol">            placeholder:</span> string;
+<span class="hljs-symbol">            productSearch:</span> string;
+<span class="hljs-symbol">            ariaLabelInput:</span> string;
+<span class="hljs-symbol">            ariaLabelSuggestions:</span> string;
+<span class="hljs-symbol">            ariaLabelProducts:</span> string;
+<span class="hljs-symbol">            initialDescription:</span> string;
+<span class="hljs-symbol">            suggestions:</span> string;
+<span class="hljs-symbol">            recentSearches:</span> string;
+<span class="hljs-symbol">            trendingSearches:</span> string;
+<span class="hljs-symbol">            suggestionsResult:</span> string;
+<span class="hljs-symbol">            suggestionsResult_other:</span> string;
+<span class="hljs-symbol">            products:</span> string;
+<span class="hljs-symbol">            productsResult:</span> string;
+<span class="hljs-symbol">            productsResult_other:</span> string;
+<span class="hljs-symbol">            resetLabel:</span> string;
+<span class="hljs-symbol">            help:</span> {
+<span class="hljs-symbol">                insufficientChars:</span> string;
+<span class="hljs-symbol">                noMatch:</span> string;
+<span class="hljs-symbol">                exactMatch:</span> string;
+<span class="hljs-symbol">                empty:</span> string;
+            };
+<span class="hljs-symbol">            closeSearchPanel:</span> string;
+<span class="hljs-symbol">            queryError:</span> string;
+        };
+<span class="hljs-symbol">        sorting:</span> {
+<span class="hljs-symbol">            date:</span> string;
+<span class="hljs-symbol">            orderNumber:</span> string;
+<span class="hljs-symbol">            rma:</span> string;
+<span class="hljs-symbol">            replenishmentNumber:</span> string;
+<span class="hljs-symbol">            nextOrderDate:</span> string;
+<span class="hljs-symbol">            pageViewUpdated:</span> string;
+        };
+<span class="hljs-symbol">        customLoginPage:</span> {
+<span class="hljs-symbol">            badRequest:</span> {
+<span class="hljs-symbol">                bad_credentials:</span> string;
+<span class="hljs-symbol">                account_disabled:</span> string;
+<span class="hljs-symbol">                unknown_error:</span> string;
+            };
+        };
+<span class="hljs-symbol">        httpHandlers:</span> {
+<span class="hljs-symbol">            badRequest:</span> {
+<span class="hljs-symbol">                bad_credentials:</span> string;
+<span class="hljs-symbol">                password_expired:</span> string;
+<span class="hljs-symbol">                user_is_disabled:</span> string;
+            };
+<span class="hljs-symbol">            badGateway:</span> string;
+<span class="hljs-symbol">            badRequestPleaseLoginAgain:</span> string;
+<span class="hljs-symbol">            badRequestOldPasswordIncorrect:</span> string;
+<span class="hljs-symbol">            badRequestGuestDuplicateEmail:</span> string;
+<span class="hljs-symbol">            conflict:</span> string;
+<span class="hljs-symbol">            forbidden:</span> string;
+<span class="hljs-symbol">            gatewayTimeout:</span> string;
+<span class="hljs-symbol">            internalServerError:</span> string;
+<span class="hljs-symbol">            sessionExpired:</span> string;
+<span class="hljs-symbol">            unknownError:</span> string;
+<span class="hljs-symbol">            unauthorized:</span> {
+<span class="hljs-symbol">                common:</span> string;
+<span class="hljs-symbol">                invalid_client:</span> string;
+            };
+<span class="hljs-symbol">            validationErrors:</span> {
+<span class="hljs-symbol">                missing:</span> {
+<span class="hljs-symbol">                    card_cardType:</span> string;
+<span class="hljs-symbol">                    card_accountNumber:</span> string;
+<span class="hljs-symbol">                    card_cvNumber:</span> string;
+<span class="hljs-symbol">                    card_expirationMonth:</span> string;
+<span class="hljs-symbol">                    card_expirationYear:</span> string;
+<span class="hljs-symbol">                    billTo_firstName:</span> string;
+<span class="hljs-symbol">                    billTo_lastName:</span> string;
+<span class="hljs-symbol">                    billTo_street1:</span> string;
+<span class="hljs-symbol">                    billTo_street2:</span> string;
+<span class="hljs-symbol">                    billTo_city:</span> string;
+<span class="hljs-symbol">                    billTo_state:</span> string;
+<span class="hljs-symbol">                    billTo_country:</span> string;
+<span class="hljs-symbol">                    billTo_postalCode:</span> string;
+<span class="hljs-symbol">                    country:</span> {
+<span class="hljs-symbol">                        isocode:</span> string;
+                    };
+                };
+<span class="hljs-symbol">                invalid:</span> {
+<span class="hljs-symbol">                    card_expirationMonth:</span> string;
+<span class="hljs-symbol">                    firstName:</span> string;
+<span class="hljs-symbol">                    lastName:</span> string;
+<span class="hljs-symbol">                    password:</span> string;
+<span class="hljs-symbol">                    uid:</span> string;
+<span class="hljs-symbol">                    code:</span> string;
+<span class="hljs-symbol">                    email:</span> string;
+<span class="hljs-symbol">                    loginId:</span> string;
+                };
+            };
+<span class="hljs-symbol">            cartNotFound:</span> string;
+<span class="hljs-symbol">            invalidCodeProvided:</span> string;
+<span class="hljs-symbol">            voucherExceeded:</span> string;
+<span class="hljs-symbol">            unknownIdentifier:</span> string;
+<span class="hljs-symbol">            otherCartErrors:</span> string;
+        };
+<span class="hljs-symbol">        miniCart:</span> {
+<span class="hljs-symbol">            item:</span> string;
+<span class="hljs-symbol">            item_other:</span> string;
+<span class="hljs-symbol">            total:</span> string;
+<span class="hljs-symbol">            count:</span> string;
+        };
+<span class="hljs-symbol">        skipLink:</span> {
+<span class="hljs-symbol">            skipTo:</span> string;
+<span class="hljs-symbol">            labels:</span> {
+<span class="hljs-symbol">                header:</span> string;
+<span class="hljs-symbol">                main:</span> string;
+<span class="hljs-symbol">                footer:</span> string;
+<span class="hljs-symbol">                productFacets:</span> string;
+<span class="hljs-symbol">                productList:</span> string;
+            };
+        };
+<span class="hljs-symbol">        carousel:</span> {
+<span class="hljs-symbol">            previousSlide:</span> string;
+<span class="hljs-symbol">            nextSlide:</span> string;
+<span class="hljs-symbol">            scrollForward:</span> string;
+<span class="hljs-symbol">            scrollBackward:</span> string;
+<span class="hljs-symbol">            slideNumber:</span> string;
+<span class="hljs-symbol">            carouselForProduct:</span> string;
+        };
+<span class="hljs-symbol">        formErrors:</span> {
+<span class="hljs-symbol">            labeled:</span> {
+<span class="hljs-symbol">                required:</span> string;
+<span class="hljs-symbol">                cxInvalidEmail:</span> string;
+<span class="hljs-symbol">                cxInvalidPassword:</span> string;
+<span class="hljs-symbol">                cxMinOneUpperCaseCharacter:</span> string;
+<span class="hljs-symbol">                cxMinOneDigit:</span> string;
+<span class="hljs-symbol">                cxMinOneSpecialCharacter:</span> string;
+<span class="hljs-symbol">                cxMinSixCharactersLength:</span> string;
+<span class="hljs-symbol">                cxMinEightCharactersLength:</span> string;
+<span class="hljs-symbol">                cxMaxCharactersLength:</span> string;
+<span class="hljs-symbol">                cxContainsSpecialCharacters:</span> string;
+<span class="hljs-symbol">                cxNoConsecutiveCharacters:</span> string;
+<span class="hljs-symbol">                invalidTokenCodeError:</span> string;
+<span class="hljs-symbol">                date:</span> {
+<span class="hljs-symbol">                    required:</span> string;
+<span class="hljs-symbol">                    min:</span> string;
+<span class="hljs-symbol">                    max:</span> string;
+<span class="hljs-symbol">                    pattern:</span> string;
+<span class="hljs-symbol">                    invalid:</span> string;
+                };
+            };
+<span class="hljs-symbol">            globalMessage:</span> string;
+<span class="hljs-symbol">            required:</span> string;
+<span class="hljs-symbol">            cxInvalidEmail:</span> string;
+<span class="hljs-symbol">            cxInvalidPassword:</span> string;
+<span class="hljs-symbol">            cxPasswordsMustMatch:</span> string;
+<span class="hljs-symbol">            cxPasswordsCannotMatch:</span> string;
+<span class="hljs-symbol">            cxEmailsMustMatch:</span> string;
+<span class="hljs-symbol">            cxStarRatingEmpty:</span> string;
+<span class="hljs-symbol">            cxNoSelectedItemToCancel:</span> string;
+<span class="hljs-symbol">            cxNegativeAmount:</span> string;
+<span class="hljs-symbol">            cxContainsSpecialCharacters:</span> string;
+<span class="hljs-symbol">            date:</span> {
+<span class="hljs-symbol">                required:</span> string;
+<span class="hljs-symbol">                min:</span> string;
+<span class="hljs-symbol">                max:</span> string;
+<span class="hljs-symbol">                pattern:</span> string;
+<span class="hljs-symbol">                invalid:</span> string;
+            };
+<span class="hljs-symbol">            file:</span> {
+<span class="hljs-symbol">                required:</span> string;
+<span class="hljs-symbol">                empty:</span> string;
+<span class="hljs-symbol">                invalidExtension:</span> string;
+<span class="hljs-symbol">                tooLarge:</span> string;
+<span class="hljs-symbol">                tooManyEntries:</span> string;
+<span class="hljs-symbol">                notParsable:</span> string;
+<span class="hljs-symbol">                fileNotAllowed:</span> string;
+            };
+        };
+<span class="hljs-symbol">        errorHandlers:</span> {
+<span class="hljs-symbol">            scriptFailedToLoad:</span> string;
+<span class="hljs-symbol">            refreshThePage:</span> string;
+        };
+<span class="hljs-symbol">        assistiveMessage:</span> {
+<span class="hljs-symbol">            actionCancelled:</span> string;
+        };
+<span class="hljs-symbol">        passwordVisibility:</span> {
+<span class="hljs-symbol">            showPassword:</span> string;
+<span class="hljs-symbol">            hidePassword:</span> string;
+        };
+<span class="hljs-symbol">        generalErrors:</span> {
+<span class="hljs-symbol">            pageFailure:</span> string;
+        };
+<span class="hljs-symbol">        formLegend:</span> {
+<span class="hljs-symbol">            required:</span> string;
+        };
+<span class="hljs-symbol">        chatMessaging:</span> {
+<span class="hljs-symbol">            charactersLeft:</span> string;
+<span class="hljs-symbol">            addNewMessage:</span> string;
+<span class="hljs-symbol">            send:</span> string;
+<span class="hljs-symbol">            uploadFile:</span> string;
+<span class="hljs-symbol">            informationLabel:</span> string;
+<span class="hljs-symbol">            messages:</span> string;
+<span class="hljs-symbol">            addMessagePlaceHolder:</span> string;
+<span class="hljs-symbol">            characterLimitAlert:</span> string;
+<span class="hljs-symbol">            a11y:</span> {
+<span class="hljs-symbol">                itemListBoxLabel:</span> string;
+            };
+        };
+    };
+<span class="hljs-symbol">    deliveryMode:</span> {
+<span class="hljs-symbol">        setDeliveryMode:</span> {
+<span class="hljs-symbol">            unknownError:</span> string;
+        };
+    };
+<span class="hljs-symbol">    myAccountV2Consent:</span> {
+<span class="hljs-symbol">        myAccountV2Consent:</span> {
+<span class="hljs-symbol">            header:</span> string;
+<span class="hljs-symbol">            dateDescription:</span> string;
+<span class="hljs-symbol">            clearAll:</span> string;
+<span class="hljs-symbol">            selectAll:</span> string;
+<span class="hljs-symbol">            message:</span> {
+<span class="hljs-symbol">                success:</span> {
+<span class="hljs-symbol">                    given:</span> string;
+<span class="hljs-symbol">                    withdrawn:</span> string;
+                };
+            };
+        };
+    };
+<span class="hljs-symbol">    myAccountV2NotificationPreference:</span> {
+<span class="hljs-symbol">        myAccountV2NotificationPreference:</span> {
+<span class="hljs-symbol">            header:</span> string;
+<span class="hljs-symbol">            message:</span> string;
+<span class="hljs-symbol">            note:</span> string;
+<span class="hljs-symbol">            noteMessage:</span> string;
+<span class="hljs-symbol">            EMAIL:</span> string;
+        };
+    };
+<span class="hljs-symbol">    myAccount:</span> {
+<span class="hljs-symbol">        closeAccount:</span> {
+<span class="hljs-symbol">            confirmAccountClosure:</span> string;
+<span class="hljs-symbol">            confirmAccountClosureMessage:</span> string;
+<span class="hljs-symbol">            closeMyAccount:</span> string;
+<span class="hljs-symbol">            accountClosedSuccessfully:</span> string;
+<span class="hljs-symbol">            accountClosedFailure:</span> string;
+        };
+<span class="hljs-symbol">        updatePasswordForm:</span> {
+<span class="hljs-symbol">            oldPassword:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            oldPasswordIsRequired:</span> string;
+<span class="hljs-symbol">            newPassword:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            passwordMinRequirements:</span> string;
+<span class="hljs-symbol">            passwordStrengthRequirements:</span> string;
+<span class="hljs-symbol">            confirmPassword:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            bothPasswordMustMatch:</span> string;
+<span class="hljs-symbol">            passwordUpdateSuccess:</span> string;
+<span class="hljs-symbol">            accessDeniedError:</span> string;
+        };
+<span class="hljs-symbol">        updateProfileForm:</span> {
+<span class="hljs-symbol">            title:</span> string;
+<span class="hljs-symbol">            none:</span> string;
+<span class="hljs-symbol">            firstName:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            firstNameIsRequired:</span> string;
+<span class="hljs-symbol">            lastName:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            lastNameIsRequired:</span> string;
+<span class="hljs-symbol">            profileUpdateSuccess:</span> string;
+<span class="hljs-symbol">            customerId:</span> string;
+        };
+<span class="hljs-symbol">        consentManagementForm:</span> {
+<span class="hljs-symbol">            clearAll:</span> string;
+<span class="hljs-symbol">            selectAll:</span> string;
+<span class="hljs-symbol">            message:</span> {
+<span class="hljs-symbol">                success:</span> {
+<span class="hljs-symbol">                    given:</span> string;
+<span class="hljs-symbol">                    withdrawn:</span> string;
+                };
+            };
+        };
+<span class="hljs-symbol">        myCoupons:</span> {
+<span class="hljs-symbol">            noCouponsMessage:</span> string;
+<span class="hljs-symbol">            effectiveTitle:</span> string;
+<span class="hljs-symbol">            Effective:</span> string;
+<span class="hljs-symbol">            PreSession:</span> string;
+<span class="hljs-symbol">            ExpireSoon:</span> string;
+<span class="hljs-symbol">            readMore:</span> string;
+<span class="hljs-symbol">            notification:</span> string;
+<span class="hljs-symbol">            findProducts:</span> string;
+<span class="hljs-symbol">            status:</span> string;
+<span class="hljs-symbol">            dialogTitle:</span> string;
+<span class="hljs-symbol">            claimCoupondialogTitle:</span> string;
+<span class="hljs-symbol">            claimCouponCode:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            reset:</span> string;
+<span class="hljs-symbol">            claim:</span> string;
+<span class="hljs-symbol">            claimCustomerCoupon:</span> string;
+<span class="hljs-symbol">            myCoupons:</span> string;
+<span class="hljs-symbol">            startDateAsc:</span> string;
+<span class="hljs-symbol">            startDateDesc:</span> string;
+<span class="hljs-symbol">            endDateAsc:</span> string;
+<span class="hljs-symbol">            endDateDesc:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            sortCoupons:</span> string;
+<span class="hljs-symbol">            notesPreffix:</span> string;
+<span class="hljs-symbol">            notesLink:</span> string;
+<span class="hljs-symbol">            notesSuffix:</span> string;
+        };
+<span class="hljs-symbol">        notificationPreference:</span> {
+<span class="hljs-symbol">            message:</span> string;
+<span class="hljs-symbol">            note:</span> string;
+<span class="hljs-symbol">            noteMessage:</span> string;
+<span class="hljs-symbol">            EMAIL:</span> string;
+<span class="hljs-symbol">            SMS:</span> string;
+<span class="hljs-symbol">            SITE_MESSAGE:</span> string;
+        };
+<span class="hljs-symbol">        myInterests:</span> {
+<span class="hljs-symbol">            header:</span> string;
+<span class="hljs-symbol">            item:</span> string;
+<span class="hljs-symbol">            price:</span> string;
+<span class="hljs-symbol">            notifications:</span> string;
+<span class="hljs-symbol">            noInterests:</span> string;
+<span class="hljs-symbol">            inStock:</span> string;
+<span class="hljs-symbol">            lowStock:</span> string;
+<span class="hljs-symbol">            outOfStock:</span> string;
+<span class="hljs-symbol">            BACK_IN_STOCK:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            sortInterests:</span> string;
+<span class="hljs-symbol">            expirationDate:</span> string;
+<span class="hljs-symbol">            productId:</span> string;
+<span class="hljs-symbol">            remove:</span> string;
+<span class="hljs-symbol">            sorting:</span> {
+<span class="hljs-symbol">                byNameAsc:</span> string;
+<span class="hljs-symbol">                byNameDesc:</span> string;
+            };
+<span class="hljs-symbol">            actions:</span> string;
+<span class="hljs-symbol">            caption:</span> string;
+<span class="hljs-symbol">            itemRemoved:</span> string;
+        };
+    };
+<span class="hljs-symbol">    payment:</span> {
+<span class="hljs-symbol">        paymentForm:</span> {
+<span class="hljs-symbol">            payment:</span> string;
+<span class="hljs-symbol">            choosePaymentMethod:</span> string;
+<span class="hljs-symbol">            paymentType:</span> string;
+<span class="hljs-symbol">            accountHolderName:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            cardNumber:</span> string;
+<span class="hljs-symbol">            expirationDate:</span> string;
+<span class="hljs-symbol">            securityCode:</span> string;
+<span class="hljs-symbol">            securityCodeTitle:</span> string;
+<span class="hljs-symbol">            saveAsDefault:</span> string;
+<span class="hljs-symbol">            setAsDefault:</span> string;
+<span class="hljs-symbol">            billingAddress:</span> string;
+<span class="hljs-symbol">            editBillingAddress:</span> string;
+<span class="hljs-symbol">            sameAsDeliveryAddress:</span> string;
+<span class="hljs-symbol">            billingAddressSameAsShipping:</span> string;
+<span class="hljs-symbol">            selectOne:</span> string;
+<span class="hljs-symbol">            monthMask:</span> string;
+<span class="hljs-symbol">            yearMask:</span> string;
+<span class="hljs-symbol">            expirationYear:</span> string;
+<span class="hljs-symbol">            expirationMonth:</span> string;
+<span class="hljs-symbol">            useThisPayment:</span> string;
+<span class="hljs-symbol">            addNewPayment:</span> string;
+<span class="hljs-symbol">            paymentAddedSuccessfully:</span> string;
+<span class="hljs-symbol">            changePayment:</span> string;
+        };
+<span class="hljs-symbol">        paymentMethods:</span> {
+<span class="hljs-symbol">            paymentMethods:</span> string;
+<span class="hljs-symbol">            paymentMethodSelected:</span> string;
+<span class="hljs-symbol">            newPaymentMethodsAreAddedDuringCheckout:</span> string;
+<span class="hljs-symbol">            invalidField:</span> string;
+        };
+<span class="hljs-symbol">        paymentCard:</span> {
+<span class="hljs-symbol">            deleteConfirmation:</span> string;
+<span class="hljs-symbol">            setAsDefault:</span> string;
+<span class="hljs-symbol">            expires:</span> string;
+<span class="hljs-symbol">            defaultPaymentMethod:</span> string;
+<span class="hljs-symbol">            defaultPaymentLabel:</span> string;
+<span class="hljs-symbol">            additionalPaymentLabel:</span> string;
+<span class="hljs-symbol">            selected:</span> string;
+<span class="hljs-symbol">            selectedPayment:</span> string;
+<span class="hljs-symbol">            deletePaymentSuccess:</span> string;
+<span class="hljs-symbol">            visa:</span> string;
+<span class="hljs-symbol">            master:</span> string;
+<span class="hljs-symbol">            masterEuro:</span> string;
+<span class="hljs-symbol">            dinersClub:</span> string;
+<span class="hljs-symbol">            switch:</span> string;
+<span class="hljs-symbol">            maestro:</span> string;
+<span class="hljs-symbol">            amex:</span> string;
+<span class="hljs-symbol">            credit:</span> string;
+        };
+<span class="hljs-symbol">        paymentTypes:</span> {
+<span class="hljs-symbol">            title:</span> string;
+<span class="hljs-symbol">            paymentType_CARD:</span> string;
+<span class="hljs-symbol">            paymentType_ACCOUNT:</span> string;
+        };
+<span class="hljs-symbol">        paymentMessages:</span> {
+<span class="hljs-symbol">            setAsDefaultSuccessfully:</span> string;
+        };
+    };
+<span class="hljs-symbol">    pdf:</span> {
+<span class="hljs-symbol">        pdf:</span> {
+<span class="hljs-symbol">            defaultTitle:</span> string;
+        };
+    };
+<span class="hljs-symbol">    product:</span> {
+<span class="hljs-symbol">        productDetails:</span> {
+<span class="hljs-symbol">            id:</span> string;
+<span class="hljs-symbol">            quantity:</span> string;
+<span class="hljs-symbol">            quantityFull:</span> string;
+<span class="hljs-symbol">            productDetails:</span> string;
+<span class="hljs-symbol">            specification:</span> string;
+<span class="hljs-symbol">            reviews:</span> string;
+<span class="hljs-symbol">            shipping:</span> string;
+<span class="hljs-symbol">            share:</span> string;
+<span class="hljs-symbol">            showReviews:</span> string;
+<span class="hljs-symbol">            noReviews:</span> string;
+<span class="hljs-symbol">            productPrice:</span> string;
+<span class="hljs-symbol">            noProductImage:</span> string;
+        };
+<span class="hljs-symbol">        productList:</span> {
+<span class="hljs-symbol">            filterBy:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                action:</span> string;
+            };
+<span class="hljs-symbol">            activeFilter:</span> string;
+<span class="hljs-symbol">            appliedFilter:</span> string;
+<span class="hljs-symbol">            showLess:</span> string;
+<span class="hljs-symbol">            showMore:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            sortResults:</span> string;
+<span class="hljs-symbol">            backToTopBtn:</span> string;
+<span class="hljs-symbol">            showMoreBtn:</span> string;
+<span class="hljs-symbol">            productSearchPagination:</span> string;
+<span class="hljs-symbol">            productListResults:</span> string;
+        };
+<span class="hljs-symbol">        productFacetNavigation:</span> {
+<span class="hljs-symbol">            filterBy:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                action:</span> string;
+<span class="hljs-symbol">                facet:</span> string;
+<span class="hljs-symbol">                name:</span> string;
+            };
+<span class="hljs-symbol">            appliedFilter:</span> string;
+<span class="hljs-symbol">            showLess:</span> string;
+<span class="hljs-symbol">            showMore:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            ariaLabelShowLess:</span> string;
+<span class="hljs-symbol">            ariaLabelShowMore:</span> string;
+<span class="hljs-symbol">            ariaLabelItemsAvailable:</span> string;
+<span class="hljs-symbol">            ariaLabelItemsAvailable_other:</span> string;
+<span class="hljs-symbol">            decreaseOptionsVisibility:</span> string;
+<span class="hljs-symbol">            increaseOptionsVisibility:</span> string;
+<span class="hljs-symbol">            backToResults:</span> string;
+<span class="hljs-symbol">            productFacets:</span> string;
+        };
+<span class="hljs-symbol">        productSummary:</span> {
+<span class="hljs-symbol">            id:</span> string;
+<span class="hljs-symbol">            showReviews:</span> string;
+<span class="hljs-symbol">            showReviewsDetailed:</span> string;
+<span class="hljs-symbol">            share:</span> string;
+<span class="hljs-symbol">            newItemPrice:</span> string;
+        };
+<span class="hljs-symbol">        productReview:</span> {
+<span class="hljs-symbol">            overallRating:</span> string;
+<span class="hljs-symbol">            reviewTitle:</span> string;
+<span class="hljs-symbol">            writeYourComments:</span> string;
+<span class="hljs-symbol">            commentPlaceholder:</span> string;
+<span class="hljs-symbol">            rating:</span> string;
+<span class="hljs-symbol">            ratingRequired:</span> string;
+<span class="hljs-symbol">            addRate:</span> string;
+<span class="hljs-symbol">            addRate_other:</span> string;
+<span class="hljs-symbol">            reviewerName:</span> string;
+<span class="hljs-symbol">            writeReview:</span> string;
+<span class="hljs-symbol">            more:</span> string;
+<span class="hljs-symbol">            less:</span> string;
+<span class="hljs-symbol">            thankYouForReview:</span> string;
+<span class="hljs-symbol">            postReviewFail:</span> string;
+<span class="hljs-symbol">            ratedOutOf:</span> string;
+<span class="hljs-symbol">            charactersLeft:</span> string;
+        };
+<span class="hljs-symbol">        productCarousel:</span> {
+<span class="hljs-symbol">            carouselLabel:</span> string;
+        };
+<span class="hljs-symbol">        addToCart:</span> {
+<span class="hljs-symbol">            itemAddedToYourCart:</span> string;
+<span class="hljs-symbol">            itemsAddedToYourCart:</span> string;
+<span class="hljs-symbol">            itemsIncrementedInYourCart:</span> string;
+<span class="hljs-symbol">            items:</span> string;
+<span class="hljs-symbol">            updatingCart:</span> string;
+<span class="hljs-symbol">            addToCart:</span> string;
+<span class="hljs-symbol">            viewCart:</span> string;
+<span class="hljs-symbol">            proceedToCheckout:</span> string;
+<span class="hljs-symbol">            quantity:</span> string;
+<span class="hljs-symbol">            quantityFull:</span> string;
+<span class="hljs-symbol">            outOfStock:</span> string;
+<span class="hljs-symbol">            inStock:</span> string;
+<span class="hljs-symbol">            selectStyleAndSize:</span> string;
+<span class="hljs-symbol">            removeFromCart:</span> string;
+<span class="hljs-symbol">            closeModal:</span> string;
+<span class="hljs-symbol">            buyItAgain:</span> string;
+<span class="hljs-symbol">            addToActiveCart:</span> string;
+<span class="hljs-symbol">            unavailable:</span> string;
+        };
+<span class="hljs-symbol">        TabPanelContainer:</span> {
+<span class="hljs-symbol">            tabs:</span> {
+<span class="hljs-symbol">                ProductDetailsTabComponent:</span> string;
+<span class="hljs-symbol">                ProductSpecsTabComponent:</span> string;
+<span class="hljs-symbol">                ProductReviewsTabComponent:</span> string;
+<span class="hljs-symbol">                deliveryTab:</span> string;
+<span class="hljs-symbol">                SparePartsTabComponent:</span> string;
+            };
+<span class="hljs-symbol">            tabPanelContainerRegion:</span> string;
+<span class="hljs-symbol">            tabPanelContainerRegionGroup:</span> string;
+        };
+<span class="hljs-symbol">        addToWishList:</span> {
+<span class="hljs-symbol">            add:</span> string;
+<span class="hljs-symbol">            remove:</span> string;
+<span class="hljs-symbol">            anonymous:</span> string;
+<span class="hljs-symbol">            addedToWishList:</span> string;
+<span class="hljs-symbol">            removedFromWishList:</span> string;
+        };
+<span class="hljs-symbol">        stockNotification:</span> {
+<span class="hljs-symbol">            notifyMe:</span> string;
+<span class="hljs-symbol">            stopNotify:</span> string;
+<span class="hljs-symbol">            getNotify:</span> string;
+<span class="hljs-symbol">            getNotifySuffix:</span> string;
+<span class="hljs-symbol">            activateChannelsPrefix:</span> string;
+<span class="hljs-symbol">            channelsLink:</span> string;
+<span class="hljs-symbol">            activateChannelsSuffix:</span> string;
+<span class="hljs-symbol">            notified:</span> string;
+<span class="hljs-symbol">            getNotified:</span> string;
+<span class="hljs-symbol">            unsubscribeSuccess:</span> string;
+<span class="hljs-symbol">            subscriptionDialog:</span> {
+<span class="hljs-symbol">                header:</span> string;
+<span class="hljs-symbol">                notifiedPrefix:</span> string;
+<span class="hljs-symbol">                notifiedSuffix:</span> string;
+<span class="hljs-symbol">                manageChannelsPrefix:</span> string;
+<span class="hljs-symbol">                manageChannelsLink:</span> string;
+<span class="hljs-symbol">                manageChannelsSuffix:</span> string;
+<span class="hljs-symbol">                manageSubscriptionsPrefix:</span> string;
+<span class="hljs-symbol">                manageSubscriptionsLink:</span> string;
+<span class="hljs-symbol">                manageSubscriptionsSuffix:</span> string;
+<span class="hljs-symbol">                okBtn:</span> string;
+<span class="hljs-symbol">                subscribing:</span> string;
+            };
+        };
+<span class="hljs-symbol">        itemCounter:</span> {
+<span class="hljs-symbol">            removeOne:</span> string;
+<span class="hljs-symbol">            addOneMore:</span> string;
+<span class="hljs-symbol">            quantity:</span> string;
+        };
+<span class="hljs-symbol">        productView:</span> {
+<span class="hljs-symbol">            gridView:</span> string;
+<span class="hljs-symbol">            listView:</span> string;
+        };
+    };
+<span class="hljs-symbol">    pwa:</span> {
+<span class="hljs-symbol">        pwa:</span> {
+<span class="hljs-symbol">            addToHomeScreenDescription:</span> string;
+<span class="hljs-symbol">            noInstallationNeeded:</span> string;
+<span class="hljs-symbol">            fastAccessToApplication:</span> string;
+<span class="hljs-symbol">            addToHomeScreen:</span> string;
+<span class="hljs-symbol">            addedToHomeScreen:</span> string;
+        };
+    };
+<span class="hljs-symbol">    siteThemeSwitcher:</span> {
+<span class="hljs-symbol">        siteThemeSwitcher:</span> {
+<span class="hljs-symbol">            theme:</span> string;
+<span class="hljs-symbol">            themes:</span> {
+<span class="hljs-symbol">                default:</span> string;
+<span class="hljs-symbol">                highContrastDark:</span> string;
+<span class="hljs-symbol">                highContrastLight:</span> string;
+            };
+        };
+    };
+<span class="hljs-symbol">    user:</span> {
+<span class="hljs-symbol">        anonymousConsents:</span> {
+<span class="hljs-symbol">            dialog:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                legalDescription:</span> string;
+<span class="hljs-symbol">                selectAll:</span> string;
+<span class="hljs-symbol">                clearAll:</span> string;
+            };
+<span class="hljs-symbol">            banner:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                description:</span> string;
+<span class="hljs-symbol">                allowAll:</span> string;
+<span class="hljs-symbol">                viewDetails:</span> string;
+<span class="hljs-symbol">                consentManagement:</span> string;
+            };
+        };
+<span class="hljs-symbol">        checkoutLogin:</span> {
+<span class="hljs-symbol">            emailAddress:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            confirmEmail:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            continue:</span> string;
+<span class="hljs-symbol">            emailIsRequired:</span> string;
+<span class="hljs-symbol">            emailsMustMatch:</span> string;
+        };
+<span class="hljs-symbol">        authMessages:</span> {
+<span class="hljs-symbol">            signedOutSuccessfully:</span> string;
+<span class="hljs-symbol">            unrecoverableError:</span> string;
+        };
+    };
+<span class="hljs-symbol">    video:</span> {
+<span class="hljs-symbol">        player:</span> {
+<span class="hljs-symbol">            label:</span> string;
+        };
+    };
+}
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">translationsEn:</span> {
+<span class="hljs-symbol">    common:</span> {
+<span class="hljs-symbol">        common:</span> {
+<span class="hljs-symbol">            cancel:</span> string;
+<span class="hljs-symbol">            delete:</span> string;
+<span class="hljs-symbol">            remove:</span> string;
+<span class="hljs-symbol">            edit:</span> string;
+<span class="hljs-symbol">            restore:</span> string;
+<span class="hljs-symbol">            back:</span> string;
+<span class="hljs-symbol">            submit:</span> string;
+<span class="hljs-symbol">            continue:</span> string;
+<span class="hljs-symbol">            save:</span> string;
+<span class="hljs-symbol">            done:</span> string;
+<span class="hljs-symbol">            home:</span> string;
+<span class="hljs-symbol">            noData:</span> string;
+<span class="hljs-symbol">            confirm:</span> string;
+<span class="hljs-symbol">            more:</span> string;
+<span class="hljs-symbol">            close:</span> string;
+<span class="hljs-symbol">            loading:</span> string;
+<span class="hljs-symbol">            menu:</span> string;
+<span class="hljs-symbol">            reset:</span> string;
+<span class="hljs-symbol">            search:</span> string;
+<span class="hljs-symbol">            add:</span> string;
+<span class="hljs-symbol">            breadcrumbs:</span> string;
+<span class="hljs-symbol">            breadcrumbsCurrentPage:</span> string;
+<span class="hljs-symbol">            selectFile:</span> string;
+<span class="hljs-symbol">            clear:</span> string;
+<span class="hljs-symbol">            loaded:</span> string;
+<span class="hljs-symbol">            results:</span> string;
+<span class="hljs-symbol">            of:</span> string;
+<span class="hljs-symbol">            ngSelectDropdownOptionsList:</span> string;
+<span class="hljs-symbol">            required:</span> string;
+<span class="hljs-symbol">            zoomIn:</span> string;
+<span class="hljs-symbol">            zoomOut:</span> string;
+<span class="hljs-symbol">            selected:</span> string;
+<span class="hljs-symbol">            expand:</span> string;
+<span class="hljs-symbol">            collapse:</span> string;
+<span class="hljs-symbol">            readMore:</span> string;
+<span class="hljs-symbol">            readLess:</span> string;
+<span class="hljs-symbol">            language:</span> string;
+<span class="hljs-symbol">            currency:</span> string;
+        };
+<span class="hljs-symbol">        pageMetaResolver:</span> {
+<span class="hljs-symbol">            category:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                title_other:</span> string;
+            };
+<span class="hljs-symbol">            checkout:</span> {
+<span class="hljs-symbol">                title:</span> string;
+            };
+<span class="hljs-symbol">            search:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                title_other:</span> string;
+<span class="hljs-symbol">                findProductTitle:</span> string;
+<span class="hljs-symbol">                findProductTitle_other:</span> string;
+<span class="hljs-symbol">                default_title:</span> string;
+            };
+<span class="hljs-symbol">            product:</span> {
+<span class="hljs-symbol">                description:</span> string;
+<span class="hljs-symbol">                heading:</span> string;
+<span class="hljs-symbol">                title:</span> string;
+            };
+        };
+<span class="hljs-symbol">        spinner:</span> {
+<span class="hljs-symbol">            loading:</span> string;
+        };
+<span class="hljs-symbol">        navigation:</span> {
+<span class="hljs-symbol">            categoryNavLabel:</span> string;
+<span class="hljs-symbol">            footerNavLabel:</span> string;
+<span class="hljs-symbol">            goTo:</span> string;
+<span class="hljs-symbol">            navigateTo:</span> string;
+<span class="hljs-symbol">            scrollToTop:</span> string;
+<span class="hljs-symbol">            linkItemInList:</span> string;
+<span class="hljs-symbol">            menuButonTitle:</span> string;
+        };
+<span class="hljs-symbol">        searchBox:</span> {
+<span class="hljs-symbol">            placeholder:</span> string;
+<span class="hljs-symbol">            productSearch:</span> string;
+<span class="hljs-symbol">            ariaLabelInput:</span> string;
+<span class="hljs-symbol">            ariaLabelSuggestions:</span> string;
+<span class="hljs-symbol">            ariaLabelProducts:</span> string;
+<span class="hljs-symbol">            initialDescription:</span> string;
+<span class="hljs-symbol">            suggestions:</span> string;
+<span class="hljs-symbol">            recentSearches:</span> string;
+<span class="hljs-symbol">            trendingSearches:</span> string;
+<span class="hljs-symbol">            suggestionsResult:</span> string;
+<span class="hljs-symbol">            suggestionsResult_other:</span> string;
+<span class="hljs-symbol">            products:</span> string;
+<span class="hljs-symbol">            productsResult:</span> string;
+<span class="hljs-symbol">            productsResult_other:</span> string;
+<span class="hljs-symbol">            resetLabel:</span> string;
+<span class="hljs-symbol">            help:</span> {
+<span class="hljs-symbol">                insufficientChars:</span> string;
+<span class="hljs-symbol">                noMatch:</span> string;
+<span class="hljs-symbol">                exactMatch:</span> string;
+<span class="hljs-symbol">                empty:</span> string;
+            };
+<span class="hljs-symbol">            closeSearchPanel:</span> string;
+<span class="hljs-symbol">            queryError:</span> string;
+        };
+<span class="hljs-symbol">        sorting:</span> {
+<span class="hljs-symbol">            date:</span> string;
+<span class="hljs-symbol">            orderNumber:</span> string;
+<span class="hljs-symbol">            rma:</span> string;
+<span class="hljs-symbol">            replenishmentNumber:</span> string;
+<span class="hljs-symbol">            nextOrderDate:</span> string;
+<span class="hljs-symbol">            pageViewUpdated:</span> string;
+        };
+<span class="hljs-symbol">        customLoginPage:</span> {
+<span class="hljs-symbol">            badRequest:</span> {
+<span class="hljs-symbol">                bad_credentials:</span> string;
+<span class="hljs-symbol">                account_disabled:</span> string;
+<span class="hljs-symbol">                unknown_error:</span> string;
+            };
+        };
+<span class="hljs-symbol">        httpHandlers:</span> {
+<span class="hljs-symbol">            badRequest:</span> {
+<span class="hljs-symbol">                bad_credentials:</span> string;
+<span class="hljs-symbol">                password_expired:</span> string;
+<span class="hljs-symbol">                user_is_disabled:</span> string;
+            };
+<span class="hljs-symbol">            badGateway:</span> string;
+<span class="hljs-symbol">            badRequestPleaseLoginAgain:</span> string;
+<span class="hljs-symbol">            badRequestOldPasswordIncorrect:</span> string;
+<span class="hljs-symbol">            badRequestGuestDuplicateEmail:</span> string;
+<span class="hljs-symbol">            conflict:</span> string;
+<span class="hljs-symbol">            forbidden:</span> string;
+<span class="hljs-symbol">            gatewayTimeout:</span> string;
+<span class="hljs-symbol">            internalServerError:</span> string;
+<span class="hljs-symbol">            sessionExpired:</span> string;
+<span class="hljs-symbol">            unknownError:</span> string;
+<span class="hljs-symbol">            unauthorized:</span> {
+<span class="hljs-symbol">                common:</span> string;
+<span class="hljs-symbol">                invalid_client:</span> string;
+            };
+<span class="hljs-symbol">            validationErrors:</span> {
+<span class="hljs-symbol">                missing:</span> {
+<span class="hljs-symbol">                    card_cardType:</span> string;
+<span class="hljs-symbol">                    card_accountNumber:</span> string;
+<span class="hljs-symbol">                    card_cvNumber:</span> string;
+<span class="hljs-symbol">                    card_expirationMonth:</span> string;
+<span class="hljs-symbol">                    card_expirationYear:</span> string;
+<span class="hljs-symbol">                    billTo_firstName:</span> string;
+<span class="hljs-symbol">                    billTo_lastName:</span> string;
+<span class="hljs-symbol">                    billTo_street1:</span> string;
+<span class="hljs-symbol">                    billTo_street2:</span> string;
+<span class="hljs-symbol">                    billTo_city:</span> string;
+<span class="hljs-symbol">                    billTo_state:</span> string;
+<span class="hljs-symbol">                    billTo_country:</span> string;
+<span class="hljs-symbol">                    billTo_postalCode:</span> string;
+<span class="hljs-symbol">                    country:</span> {
+<span class="hljs-symbol">                        isocode:</span> string;
+                    };
+                };
+<span class="hljs-symbol">                invalid:</span> {
+<span class="hljs-symbol">                    card_expirationMonth:</span> string;
+<span class="hljs-symbol">                    firstName:</span> string;
+<span class="hljs-symbol">                    lastName:</span> string;
+<span class="hljs-symbol">                    password:</span> string;
+<span class="hljs-symbol">                    uid:</span> string;
+<span class="hljs-symbol">                    code:</span> string;
+<span class="hljs-symbol">                    email:</span> string;
+<span class="hljs-symbol">                    loginId:</span> string;
+                };
+            };
+<span class="hljs-symbol">            cartNotFound:</span> string;
+<span class="hljs-symbol">            invalidCodeProvided:</span> string;
+<span class="hljs-symbol">            voucherExceeded:</span> string;
+<span class="hljs-symbol">            unknownIdentifier:</span> string;
+<span class="hljs-symbol">            otherCartErrors:</span> string;
+        };
+<span class="hljs-symbol">        miniCart:</span> {
+<span class="hljs-symbol">            item:</span> string;
+<span class="hljs-symbol">            item_other:</span> string;
+<span class="hljs-symbol">            total:</span> string;
+<span class="hljs-symbol">            count:</span> string;
+        };
+<span class="hljs-symbol">        skipLink:</span> {
+<span class="hljs-symbol">            skipTo:</span> string;
+<span class="hljs-symbol">            labels:</span> {
+<span class="hljs-symbol">                header:</span> string;
+<span class="hljs-symbol">                main:</span> string;
+<span class="hljs-symbol">                footer:</span> string;
+<span class="hljs-symbol">                productFacets:</span> string;
+<span class="hljs-symbol">                productList:</span> string;
+            };
+        };
+<span class="hljs-symbol">        carousel:</span> {
+<span class="hljs-symbol">            previousSlide:</span> string;
+<span class="hljs-symbol">            nextSlide:</span> string;
+<span class="hljs-symbol">            scrollForward:</span> string;
+<span class="hljs-symbol">            scrollBackward:</span> string;
+<span class="hljs-symbol">            slideNumber:</span> string;
+<span class="hljs-symbol">            carouselForProduct:</span> string;
+        };
+<span class="hljs-symbol">        formErrors:</span> {
+<span class="hljs-symbol">            labeled:</span> {
+<span class="hljs-symbol">                required:</span> string;
+<span class="hljs-symbol">                cxInvalidEmail:</span> string;
+<span class="hljs-symbol">                cxInvalidPassword:</span> string;
+<span class="hljs-symbol">                cxMinOneUpperCaseCharacter:</span> string;
+<span class="hljs-symbol">                cxMinOneDigit:</span> string;
+<span class="hljs-symbol">                cxMinOneSpecialCharacter:</span> string;
+<span class="hljs-symbol">                cxMinSixCharactersLength:</span> string;
+<span class="hljs-symbol">                cxMinEightCharactersLength:</span> string;
+<span class="hljs-symbol">                cxMaxCharactersLength:</span> string;
+<span class="hljs-symbol">                cxContainsSpecialCharacters:</span> string;
+<span class="hljs-symbol">                cxNoConsecutiveCharacters:</span> string;
+<span class="hljs-symbol">                invalidTokenCodeError:</span> string;
+<span class="hljs-symbol">                date:</span> {
+<span class="hljs-symbol">                    required:</span> string;
+<span class="hljs-symbol">                    min:</span> string;
+<span class="hljs-symbol">                    max:</span> string;
+<span class="hljs-symbol">                    pattern:</span> string;
+<span class="hljs-symbol">                    invalid:</span> string;
+                };
+            };
+<span class="hljs-symbol">            globalMessage:</span> string;
+<span class="hljs-symbol">            required:</span> string;
+<span class="hljs-symbol">            cxInvalidEmail:</span> string;
+<span class="hljs-symbol">            cxInvalidPassword:</span> string;
+<span class="hljs-symbol">            cxPasswordsMustMatch:</span> string;
+<span class="hljs-symbol">            cxPasswordsCannotMatch:</span> string;
+<span class="hljs-symbol">            cxEmailsMustMatch:</span> string;
+<span class="hljs-symbol">            cxStarRatingEmpty:</span> string;
+<span class="hljs-symbol">            cxNoSelectedItemToCancel:</span> string;
+<span class="hljs-symbol">            cxNegativeAmount:</span> string;
+<span class="hljs-symbol">            cxContainsSpecialCharacters:</span> string;
+<span class="hljs-symbol">            date:</span> {
+<span class="hljs-symbol">                required:</span> string;
+<span class="hljs-symbol">                min:</span> string;
+<span class="hljs-symbol">                max:</span> string;
+<span class="hljs-symbol">                pattern:</span> string;
+<span class="hljs-symbol">                invalid:</span> string;
+            };
+<span class="hljs-symbol">            file:</span> {
+<span class="hljs-symbol">                required:</span> string;
+<span class="hljs-symbol">                empty:</span> string;
+<span class="hljs-symbol">                invalidExtension:</span> string;
+<span class="hljs-symbol">                tooLarge:</span> string;
+<span class="hljs-symbol">                tooManyEntries:</span> string;
+<span class="hljs-symbol">                notParsable:</span> string;
+<span class="hljs-symbol">                fileNotAllowed:</span> string;
+            };
+        };
+<span class="hljs-symbol">        errorHandlers:</span> {
+<span class="hljs-symbol">            scriptFailedToLoad:</span> string;
+<span class="hljs-symbol">            refreshThePage:</span> string;
+        };
+<span class="hljs-symbol">        assistiveMessage:</span> {
+<span class="hljs-symbol">            actionCancelled:</span> string;
+        };
+<span class="hljs-symbol">        passwordVisibility:</span> {
+<span class="hljs-symbol">            showPassword:</span> string;
+<span class="hljs-symbol">            hidePassword:</span> string;
+        };
+<span class="hljs-symbol">        generalErrors:</span> {
+<span class="hljs-symbol">            pageFailure:</span> string;
+        };
+<span class="hljs-symbol">        formLegend:</span> {
+<span class="hljs-symbol">            required:</span> string;
+        };
+<span class="hljs-symbol">        chatMessaging:</span> {
+<span class="hljs-symbol">            charactersLeft:</span> string;
+<span class="hljs-symbol">            addNewMessage:</span> string;
+<span class="hljs-symbol">            send:</span> string;
+<span class="hljs-symbol">            uploadFile:</span> string;
+<span class="hljs-symbol">            informationLabel:</span> string;
+<span class="hljs-symbol">            messages:</span> string;
+<span class="hljs-symbol">            addMessagePlaceHolder:</span> string;
+<span class="hljs-symbol">            characterLimitAlert:</span> string;
+<span class="hljs-symbol">            a11y:</span> {
+<span class="hljs-symbol">                itemListBoxLabel:</span> string;
+            };
+        };
+    };
+<span class="hljs-symbol">    deliveryMode:</span> {
+<span class="hljs-symbol">        setDeliveryMode:</span> {
+<span class="hljs-symbol">            unknownError:</span> string;
+        };
+    };
+<span class="hljs-symbol">    myAccountV2Consent:</span> {
+<span class="hljs-symbol">        myAccountV2Consent:</span> {
+<span class="hljs-symbol">            header:</span> string;
+<span class="hljs-symbol">            dateDescription:</span> string;
+<span class="hljs-symbol">            clearAll:</span> string;
+<span class="hljs-symbol">            selectAll:</span> string;
+<span class="hljs-symbol">            message:</span> {
+<span class="hljs-symbol">                success:</span> {
+<span class="hljs-symbol">                    given:</span> string;
+<span class="hljs-symbol">                    withdrawn:</span> string;
+                };
+            };
+        };
+    };
+<span class="hljs-symbol">    myAccountV2NotificationPreference:</span> {
+<span class="hljs-symbol">        myAccountV2NotificationPreference:</span> {
+<span class="hljs-symbol">            header:</span> string;
+<span class="hljs-symbol">            message:</span> string;
+<span class="hljs-symbol">            note:</span> string;
+<span class="hljs-symbol">            noteMessage:</span> string;
+<span class="hljs-symbol">            EMAIL:</span> string;
+        };
+    };
+<span class="hljs-symbol">    myAccount:</span> {
+<span class="hljs-symbol">        closeAccount:</span> {
+<span class="hljs-symbol">            confirmAccountClosure:</span> string;
+<span class="hljs-symbol">            confirmAccountClosureMessage:</span> string;
+<span class="hljs-symbol">            closeMyAccount:</span> string;
+<span class="hljs-symbol">            accountClosedSuccessfully:</span> string;
+<span class="hljs-symbol">            accountClosedFailure:</span> string;
+        };
+<span class="hljs-symbol">        updatePasswordForm:</span> {
+<span class="hljs-symbol">            oldPassword:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            oldPasswordIsRequired:</span> string;
+<span class="hljs-symbol">            newPassword:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            passwordMinRequirements:</span> string;
+<span class="hljs-symbol">            passwordStrengthRequirements:</span> string;
+<span class="hljs-symbol">            confirmPassword:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            bothPasswordMustMatch:</span> string;
+<span class="hljs-symbol">            passwordUpdateSuccess:</span> string;
+<span class="hljs-symbol">            accessDeniedError:</span> string;
+        };
+<span class="hljs-symbol">        updateProfileForm:</span> {
+<span class="hljs-symbol">            title:</span> string;
+<span class="hljs-symbol">            none:</span> string;
+<span class="hljs-symbol">            firstName:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            firstNameIsRequired:</span> string;
+<span class="hljs-symbol">            lastName:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            lastNameIsRequired:</span> string;
+<span class="hljs-symbol">            profileUpdateSuccess:</span> string;
+<span class="hljs-symbol">            customerId:</span> string;
+        };
+<span class="hljs-symbol">        consentManagementForm:</span> {
+<span class="hljs-symbol">            clearAll:</span> string;
+<span class="hljs-symbol">            selectAll:</span> string;
+<span class="hljs-symbol">            message:</span> {
+<span class="hljs-symbol">                success:</span> {
+<span class="hljs-symbol">                    given:</span> string;
+<span class="hljs-symbol">                    withdrawn:</span> string;
+                };
+            };
+        };
+<span class="hljs-symbol">        myCoupons:</span> {
+<span class="hljs-symbol">            noCouponsMessage:</span> string;
+<span class="hljs-symbol">            effectiveTitle:</span> string;
+<span class="hljs-symbol">            Effective:</span> string;
+<span class="hljs-symbol">            PreSession:</span> string;
+<span class="hljs-symbol">            ExpireSoon:</span> string;
+<span class="hljs-symbol">            readMore:</span> string;
+<span class="hljs-symbol">            notification:</span> string;
+<span class="hljs-symbol">            findProducts:</span> string;
+<span class="hljs-symbol">            status:</span> string;
+<span class="hljs-symbol">            dialogTitle:</span> string;
+<span class="hljs-symbol">            claimCoupondialogTitle:</span> string;
+<span class="hljs-symbol">            claimCouponCode:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            reset:</span> string;
+<span class="hljs-symbol">            claim:</span> string;
+<span class="hljs-symbol">            claimCustomerCoupon:</span> string;
+<span class="hljs-symbol">            myCoupons:</span> string;
+<span class="hljs-symbol">            startDateAsc:</span> string;
+<span class="hljs-symbol">            startDateDesc:</span> string;
+<span class="hljs-symbol">            endDateAsc:</span> string;
+<span class="hljs-symbol">            endDateDesc:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            sortCoupons:</span> string;
+<span class="hljs-symbol">            notesPreffix:</span> string;
+<span class="hljs-symbol">            notesLink:</span> string;
+<span class="hljs-symbol">            notesSuffix:</span> string;
+        };
+<span class="hljs-symbol">        notificationPreference:</span> {
+<span class="hljs-symbol">            message:</span> string;
+<span class="hljs-symbol">            note:</span> string;
+<span class="hljs-symbol">            noteMessage:</span> string;
+<span class="hljs-symbol">            EMAIL:</span> string;
+<span class="hljs-symbol">            SMS:</span> string;
+<span class="hljs-symbol">            SITE_MESSAGE:</span> string;
+        };
+<span class="hljs-symbol">        myInterests:</span> {
+<span class="hljs-symbol">            header:</span> string;
+<span class="hljs-symbol">            item:</span> string;
+<span class="hljs-symbol">            price:</span> string;
+<span class="hljs-symbol">            notifications:</span> string;
+<span class="hljs-symbol">            noInterests:</span> string;
+<span class="hljs-symbol">            inStock:</span> string;
+<span class="hljs-symbol">            lowStock:</span> string;
+<span class="hljs-symbol">            outOfStock:</span> string;
+<span class="hljs-symbol">            BACK_IN_STOCK:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            sortInterests:</span> string;
+<span class="hljs-symbol">            expirationDate:</span> string;
+<span class="hljs-symbol">            productId:</span> string;
+<span class="hljs-symbol">            remove:</span> string;
+<span class="hljs-symbol">            sorting:</span> {
+<span class="hljs-symbol">                byNameAsc:</span> string;
+<span class="hljs-symbol">                byNameDesc:</span> string;
+            };
+<span class="hljs-symbol">            actions:</span> string;
+<span class="hljs-symbol">            caption:</span> string;
+<span class="hljs-symbol">            itemRemoved:</span> string;
+        };
+    };
+<span class="hljs-symbol">    payment:</span> {
+<span class="hljs-symbol">        paymentForm:</span> {
+<span class="hljs-symbol">            payment:</span> string;
+<span class="hljs-symbol">            choosePaymentMethod:</span> string;
+<span class="hljs-symbol">            paymentType:</span> string;
+<span class="hljs-symbol">            accountHolderName:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            cardNumber:</span> string;
+<span class="hljs-symbol">            expirationDate:</span> string;
+<span class="hljs-symbol">            securityCode:</span> string;
+<span class="hljs-symbol">            securityCodeTitle:</span> string;
+<span class="hljs-symbol">            saveAsDefault:</span> string;
+<span class="hljs-symbol">            setAsDefault:</span> string;
+<span class="hljs-symbol">            billingAddress:</span> string;
+<span class="hljs-symbol">            editBillingAddress:</span> string;
+<span class="hljs-symbol">            sameAsDeliveryAddress:</span> string;
+<span class="hljs-symbol">            billingAddressSameAsShipping:</span> string;
+<span class="hljs-symbol">            selectOne:</span> string;
+<span class="hljs-symbol">            monthMask:</span> string;
+<span class="hljs-symbol">            yearMask:</span> string;
+<span class="hljs-symbol">            expirationYear:</span> string;
+<span class="hljs-symbol">            expirationMonth:</span> string;
+<span class="hljs-symbol">            useThisPayment:</span> string;
+<span class="hljs-symbol">            addNewPayment:</span> string;
+<span class="hljs-symbol">            paymentAddedSuccessfully:</span> string;
+<span class="hljs-symbol">            changePayment:</span> string;
+        };
+<span class="hljs-symbol">        paymentMethods:</span> {
+<span class="hljs-symbol">            paymentMethods:</span> string;
+<span class="hljs-symbol">            paymentMethodSelected:</span> string;
+<span class="hljs-symbol">            newPaymentMethodsAreAddedDuringCheckout:</span> string;
+<span class="hljs-symbol">            invalidField:</span> string;
+        };
+<span class="hljs-symbol">        paymentCard:</span> {
+<span class="hljs-symbol">            deleteConfirmation:</span> string;
+<span class="hljs-symbol">            setAsDefault:</span> string;
+<span class="hljs-symbol">            expires:</span> string;
+<span class="hljs-symbol">            defaultPaymentMethod:</span> string;
+<span class="hljs-symbol">            defaultPaymentLabel:</span> string;
+<span class="hljs-symbol">            additionalPaymentLabel:</span> string;
+<span class="hljs-symbol">            selected:</span> string;
+<span class="hljs-symbol">            selectedPayment:</span> string;
+<span class="hljs-symbol">            deletePaymentSuccess:</span> string;
+<span class="hljs-symbol">            visa:</span> string;
+<span class="hljs-symbol">            master:</span> string;
+<span class="hljs-symbol">            masterEuro:</span> string;
+<span class="hljs-symbol">            dinersClub:</span> string;
+<span class="hljs-symbol">            switch:</span> string;
+<span class="hljs-symbol">            maestro:</span> string;
+<span class="hljs-symbol">            amex:</span> string;
+<span class="hljs-symbol">            credit:</span> string;
+        };
+<span class="hljs-symbol">        paymentTypes:</span> {
+<span class="hljs-symbol">            title:</span> string;
+<span class="hljs-symbol">            paymentType_CARD:</span> string;
+<span class="hljs-symbol">            paymentType_ACCOUNT:</span> string;
+        };
+<span class="hljs-symbol">        paymentMessages:</span> {
+<span class="hljs-symbol">            setAsDefaultSuccessfully:</span> string;
+        };
+    };
+<span class="hljs-symbol">    pdf:</span> {
+<span class="hljs-symbol">        pdf:</span> {
+<span class="hljs-symbol">            defaultTitle:</span> string;
+        };
+    };
+<span class="hljs-symbol">    product:</span> {
+<span class="hljs-symbol">        productDetails:</span> {
+<span class="hljs-symbol">            id:</span> string;
+<span class="hljs-symbol">            quantity:</span> string;
+<span class="hljs-symbol">            quantityFull:</span> string;
+<span class="hljs-symbol">            productDetails:</span> string;
+<span class="hljs-symbol">            specification:</span> string;
+<span class="hljs-symbol">            reviews:</span> string;
+<span class="hljs-symbol">            shipping:</span> string;
+<span class="hljs-symbol">            share:</span> string;
+<span class="hljs-symbol">            showReviews:</span> string;
+<span class="hljs-symbol">            noReviews:</span> string;
+<span class="hljs-symbol">            productPrice:</span> string;
+<span class="hljs-symbol">            noProductImage:</span> string;
+        };
+<span class="hljs-symbol">        productList:</span> {
+<span class="hljs-symbol">            filterBy:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                action:</span> string;
+            };
+<span class="hljs-symbol">            activeFilter:</span> string;
+<span class="hljs-symbol">            appliedFilter:</span> string;
+<span class="hljs-symbol">            showLess:</span> string;
+<span class="hljs-symbol">            showMore:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            sortResults:</span> string;
+<span class="hljs-symbol">            backToTopBtn:</span> string;
+<span class="hljs-symbol">            showMoreBtn:</span> string;
+<span class="hljs-symbol">            productSearchPagination:</span> string;
+<span class="hljs-symbol">            productListResults:</span> string;
+        };
+<span class="hljs-symbol">        productFacetNavigation:</span> {
+<span class="hljs-symbol">            filterBy:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                action:</span> string;
+<span class="hljs-symbol">                facet:</span> string;
+<span class="hljs-symbol">                name:</span> string;
+            };
+<span class="hljs-symbol">            appliedFilter:</span> string;
+<span class="hljs-symbol">            showLess:</span> string;
+<span class="hljs-symbol">            showMore:</span> string;
+<span class="hljs-symbol">            sortBy:</span> string;
+<span class="hljs-symbol">            ariaLabelShowLess:</span> string;
+<span class="hljs-symbol">            ariaLabelShowMore:</span> string;
+<span class="hljs-symbol">            ariaLabelItemsAvailable:</span> string;
+<span class="hljs-symbol">            ariaLabelItemsAvailable_other:</span> string;
+<span class="hljs-symbol">            decreaseOptionsVisibility:</span> string;
+<span class="hljs-symbol">            increaseOptionsVisibility:</span> string;
+<span class="hljs-symbol">            backToResults:</span> string;
+<span class="hljs-symbol">            productFacets:</span> string;
+        };
+<span class="hljs-symbol">        productSummary:</span> {
+<span class="hljs-symbol">            id:</span> string;
+<span class="hljs-symbol">            showReviews:</span> string;
+<span class="hljs-symbol">            showReviewsDetailed:</span> string;
+<span class="hljs-symbol">            share:</span> string;
+<span class="hljs-symbol">            newItemPrice:</span> string;
+        };
+<span class="hljs-symbol">        productReview:</span> {
+<span class="hljs-symbol">            overallRating:</span> string;
+<span class="hljs-symbol">            reviewTitle:</span> string;
+<span class="hljs-symbol">            writeYourComments:</span> string;
+<span class="hljs-symbol">            commentPlaceholder:</span> string;
+<span class="hljs-symbol">            rating:</span> string;
+<span class="hljs-symbol">            ratingRequired:</span> string;
+<span class="hljs-symbol">            addRate:</span> string;
+<span class="hljs-symbol">            addRate_other:</span> string;
+<span class="hljs-symbol">            reviewerName:</span> string;
+<span class="hljs-symbol">            writeReview:</span> string;
+<span class="hljs-symbol">            more:</span> string;
+<span class="hljs-symbol">            less:</span> string;
+<span class="hljs-symbol">            thankYouForReview:</span> string;
+<span class="hljs-symbol">            postReviewFail:</span> string;
+<span class="hljs-symbol">            ratedOutOf:</span> string;
+<span class="hljs-symbol">            charactersLeft:</span> string;
+        };
+<span class="hljs-symbol">        productCarousel:</span> {
+<span class="hljs-symbol">            carouselLabel:</span> string;
+        };
+<span class="hljs-symbol">        addToCart:</span> {
+<span class="hljs-symbol">            itemAddedToYourCart:</span> string;
+<span class="hljs-symbol">            itemsAddedToYourCart:</span> string;
+<span class="hljs-symbol">            itemsIncrementedInYourCart:</span> string;
+<span class="hljs-symbol">            items:</span> string;
+<span class="hljs-symbol">            updatingCart:</span> string;
+<span class="hljs-symbol">            addToCart:</span> string;
+<span class="hljs-symbol">            viewCart:</span> string;
+<span class="hljs-symbol">            proceedToCheckout:</span> string;
+<span class="hljs-symbol">            quantity:</span> string;
+<span class="hljs-symbol">            quantityFull:</span> string;
+<span class="hljs-symbol">            outOfStock:</span> string;
+<span class="hljs-symbol">            inStock:</span> string;
+<span class="hljs-symbol">            selectStyleAndSize:</span> string;
+<span class="hljs-symbol">            removeFromCart:</span> string;
+<span class="hljs-symbol">            closeModal:</span> string;
+<span class="hljs-symbol">            buyItAgain:</span> string;
+<span class="hljs-symbol">            addToActiveCart:</span> string;
+<span class="hljs-symbol">            unavailable:</span> string;
+        };
+<span class="hljs-symbol">        TabPanelContainer:</span> {
+<span class="hljs-symbol">            tabs:</span> {
+<span class="hljs-symbol">                ProductDetailsTabComponent:</span> string;
+<span class="hljs-symbol">                ProductSpecsTabComponent:</span> string;
+<span class="hljs-symbol">                ProductReviewsTabComponent:</span> string;
+<span class="hljs-symbol">                deliveryTab:</span> string;
+<span class="hljs-symbol">                SparePartsTabComponent:</span> string;
+            };
+<span class="hljs-symbol">            tabPanelContainerRegion:</span> string;
+<span class="hljs-symbol">            tabPanelContainerRegionGroup:</span> string;
+        };
+<span class="hljs-symbol">        addToWishList:</span> {
+<span class="hljs-symbol">            add:</span> string;
+<span class="hljs-symbol">            remove:</span> string;
+<span class="hljs-symbol">            anonymous:</span> string;
+<span class="hljs-symbol">            addedToWishList:</span> string;
+<span class="hljs-symbol">            removedFromWishList:</span> string;
+        };
+<span class="hljs-symbol">        stockNotification:</span> {
+<span class="hljs-symbol">            notifyMe:</span> string;
+<span class="hljs-symbol">            stopNotify:</span> string;
+<span class="hljs-symbol">            getNotify:</span> string;
+<span class="hljs-symbol">            getNotifySuffix:</span> string;
+<span class="hljs-symbol">            activateChannelsPrefix:</span> string;
+<span class="hljs-symbol">            channelsLink:</span> string;
+<span class="hljs-symbol">            activateChannelsSuffix:</span> string;
+<span class="hljs-symbol">            notified:</span> string;
+<span class="hljs-symbol">            getNotified:</span> string;
+<span class="hljs-symbol">            unsubscribeSuccess:</span> string;
+<span class="hljs-symbol">            subscriptionDialog:</span> {
+<span class="hljs-symbol">                header:</span> string;
+<span class="hljs-symbol">                notifiedPrefix:</span> string;
+<span class="hljs-symbol">                notifiedSuffix:</span> string;
+<span class="hljs-symbol">                manageChannelsPrefix:</span> string;
+<span class="hljs-symbol">                manageChannelsLink:</span> string;
+<span class="hljs-symbol">                manageChannelsSuffix:</span> string;
+<span class="hljs-symbol">                manageSubscriptionsPrefix:</span> string;
+<span class="hljs-symbol">                manageSubscriptionsLink:</span> string;
+<span class="hljs-symbol">                manageSubscriptionsSuffix:</span> string;
+<span class="hljs-symbol">                okBtn:</span> string;
+<span class="hljs-symbol">                subscribing:</span> string;
+            };
+        };
+<span class="hljs-symbol">        itemCounter:</span> {
+<span class="hljs-symbol">            removeOne:</span> string;
+<span class="hljs-symbol">            addOneMore:</span> string;
+<span class="hljs-symbol">            quantity:</span> string;
+        };
+<span class="hljs-symbol">        productView:</span> {
+<span class="hljs-symbol">            gridView:</span> string;
+<span class="hljs-symbol">            listView:</span> string;
+        };
+    };
+<span class="hljs-symbol">    pwa:</span> {
+<span class="hljs-symbol">        pwa:</span> {
+<span class="hljs-symbol">            addToHomeScreenDescription:</span> string;
+<span class="hljs-symbol">            noInstallationNeeded:</span> string;
+<span class="hljs-symbol">            fastAccessToApplication:</span> string;
+<span class="hljs-symbol">            addToHomeScreen:</span> string;
+<span class="hljs-symbol">            addedToHomeScreen:</span> string;
+        };
+    };
+<span class="hljs-symbol">    siteThemeSwitcher:</span> {
+<span class="hljs-symbol">        siteThemeSwitcher:</span> {
+<span class="hljs-symbol">            theme:</span> string;
+<span class="hljs-symbol">            themes:</span> {
+<span class="hljs-symbol">                default:</span> string;
+<span class="hljs-symbol">                highContrastDark:</span> string;
+<span class="hljs-symbol">                highContrastLight:</span> string;
+            };
+        };
+    };
+<span class="hljs-symbol">    user:</span> {
+<span class="hljs-symbol">        anonymousConsents:</span> {
+<span class="hljs-symbol">            dialog:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                legalDescription:</span> string;
+<span class="hljs-symbol">                selectAll:</span> string;
+<span class="hljs-symbol">                clearAll:</span> string;
+            };
+<span class="hljs-symbol">            banner:</span> {
+<span class="hljs-symbol">                title:</span> string;
+<span class="hljs-symbol">                description:</span> string;
+<span class="hljs-symbol">                allowAll:</span> string;
+<span class="hljs-symbol">                viewDetails:</span> string;
+<span class="hljs-symbol">                consentManagement:</span> string;
+            };
+        };
+<span class="hljs-symbol">        checkoutLogin:</span> {
+<span class="hljs-symbol">            emailAddress:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            confirmEmail:</span> {
+<span class="hljs-symbol">                label:</span> string;
+<span class="hljs-symbol">                placeholder:</span> string;
+            };
+<span class="hljs-symbol">            continue:</span> string;
+<span class="hljs-symbol">            emailIsRequired:</span> string;
+<span class="hljs-symbol">            emailsMustMatch:</span> string;
+        };
+<span class="hljs-symbol">        authMessages:</span> {
+<span class="hljs-symbol">            signedOutSuccessfully:</span> string;
+<span class="hljs-symbol">            unrecoverableError:</span> string;
+        };
+    };
+<span class="hljs-symbol">    video:</span> {
+<span class="hljs-symbol">        player:</span> {
+<span class="hljs-symbol">            label:</span> string;
+        };
+    };
+}
+</code></pre><h1 id="variable-cartbasetranslations">Variable cartBaseTranslations</h1>
+<h2 id="-spartacus-cart-base-assets">@spartacus/cart/base/assets</h2>
+<p>Variable cartBaseTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-cartcouponcomponent">Class CartCouponComponent</h1>
+<h2 id="-spartacus-cart-base-components">@spartacus/cart/base/components</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-cartproceedtocheckoutcomponent">Class CartProceedToCheckoutComponent</h1>
+<h2 id="-spartacus-cart-base-components">@spartacus/cart/base/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  router: Router,
+  cd?: ChangeDetectorRef
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  router: Router,
+  cd?: ChangeDetectorRef | undefined
+)</span></span>
+</code></pre><h1 id="variable-importexporttranslations">Variable importExportTranslations</h1>
+<h2 id="-spartacus-cart-import-export-assets">@spartacus/cart/import-export/assets</h2>
+<p>Variable importExportTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-quickordertranslations">Variable quickOrderTranslations</h1>
+<h2 id="-spartacus-cart-quick-order-assets">@spartacus/cart/quick-order/assets</h2>
+<p>Variable quickOrderTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-savedcarttranslations">Variable savedCartTranslations</h1>
+<h2 id="-spartacus-cart-saved-cart-assets">@spartacus/cart/saved-cart/assets</h2>
+<p>Variable savedCartTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-wishlisttranslations">Variable wishListTranslations</h1>
+<h2 id="-spartacus-cart-wish-list-assets">@spartacus/cart/wish-list/assets</h2>
+<p>Variable wishListTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-cdctranslations">Variable cdcTranslations</h1>
+<h2 id="-spartacus-cdc-assets">@spartacus/cdc/assets</h2>
+<p>Variable cdcTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-cdc_user_preference_serializer">Variable CDC_USER_PREFERENCE_SERIALIZER</h1>
+<h2 id="-spartacus-cdc-root">@spartacus/cdc/root</h2>
+<p>Variable CDC_USER_PREFERENCE_SERIALIZER has been removed and is no longer part of the public API.</p>
+<h1 id="class-cdcuserconsentservice">Class CdcUserConsentService</h1>
+<h2 id="-spartacus-cdc-root">@spartacus/cdc/root</h2>
+<h3 id="method-updatecdcconsent-is-removed-">Method updateCdcConsent is removed.</h3>
+<h1 id="class-cdcuserpreferenceserializer">Class CdcUserPreferenceSerializer</h1>
+<h2 id="-spartacus-cdc-root">@spartacus/cdc/root</h2>
+<p>Class CdcUserPreferenceSerializer has been removed and is no longer part of the public API.</p>
+<h1 id="class-cdcreconsentcomponent">Class CdcReconsentComponent</h1>
+<h2 id="-spartacus-cdc-user-account">@spartacus/cdc/user-account</h2>
+<h3 id="property-totalconsents-is-removed-">Property totalConsents is removed.</h3>
+<h1 id="class-cdcreconsentcomponentservice">Class CdcReconsentComponentService</h1>
+<h2 id="-spartacus-cdc-user-account">@spartacus/cdc/user-account</h2>
+<h3 id="method-saveconsentandlogin-is-removed-">Method saveConsentAndLogin is removed.</h3>
+<h1 id="class-cdcregistercomponentservice">Class CDCRegisterComponentService</h1>
+<h2 id="-spartacus-cdc-user-profile">@spartacus/cdc/user-profile</h2>
+<h3 id="method-generatepreferencesobject-is-removed-">Method generatePreferencesObject is removed.</h3>
+<h1 id="variable-cdstranslations">Variable cdsTranslations</h1>
+<h2 id="-spartacus-cds-assets">@spartacus/cds/assets</h2>
+<p>Variable cdsTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-cdstranslationchunksconfig">Variable cdsTranslationChunksConfig</h1>
+<h2 id="-spartacus-cds">@spartacus/cds</h2>
+<p>moved to @spartacus/cds/assets</p>
+<h1 id="variable-cdstranslations">Variable cdsTranslations</h1>
+<h2 id="-spartacus-cds">@spartacus/cds</h2>
+<p>Variable cdsTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-checkoutb2btranslations">Variable checkoutB2BTranslations</h1>
+<h2 id="-spartacus-checkout-b2b-assets">@spartacus/checkout/b2b/assets</h2>
+<p>Variable checkoutB2BTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-checkouttranslations">Variable checkoutTranslations</h1>
+<h2 id="-spartacus-checkout-base-assets">@spartacus/checkout/base/assets</h2>
+<p>Variable checkoutTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-checkoutdeliveryaddresscomponent">Class CheckoutDeliveryAddressComponent</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-checkoutpaymentmethodcomponent">Class CheckoutPaymentMethodComponent</h1>
+<h2 id="-spartacus-checkout-base-components">@spartacus/checkout/base/components</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="variable-checkoutscheduledreplenishmenttranslations">Variable checkoutScheduledReplenishmentTranslations</h1>
+<h2 id="-spartacus-checkout-scheduled-replenishment-assets">@spartacus/checkout/scheduled-replenishment/assets</h2>
+<p>Variable checkoutScheduledReplenishmentTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-cxerrorhandler">Class CxErrorHandler</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="property-errorhandlers-changed-">Property errorHandlers changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-string">errorHandlers:</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">"./multi-error-handler"</span>).MultiErrorHandler[]
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-selector-tag">errorHandlers</span>: <span class="hljs-selector-tag">import</span>("@<span class="hljs-keyword">spartacus</span>/<span class="hljs-keyword">core</span>").<span class="hljs-keyword">MultiErrorHandler</span>[]
+</code></pre><h1 id="variable-defaultusercmsmoduleconfig">Variable defaultUserCmsModuleConfig</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<p>Variable defaultUserCmsModuleConfig has been removed and is no longer part of the public API.</p>
+<h1 id="class-featurestylesservice">Class FeatureStylesService</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="property-featureconfig-is-removed-">Property featureConfig is removed.</h3>
+<h1 id="class-i18nextinitializer">Class I18nextInitializer</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="property-loggerplugin-changed-">Property loggerPlugin changed.</h3>
+<p>Previous version:</p>
+<pre><code>loggerPlugin: <span class="hljs-keyword">import</span>(<span class="hljs-string">"i18next"</span>).LoggerModule
+</code></pre><p>Current version:</p>
+<pre><code>loggerPlugin: <span class="hljs-keyword">import</span>(<span class="hljs-string">"node_modules/i18next"</span>).LoggerModule
+</code></pre><h1 id="class-occcmscomponentadapter">Class OccCmsComponentAdapter</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-occcmspageadapter">Class OccCmsPageAdapter</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="variable-smart_edit_dummy_component_type">Variable SMART_EDIT_DUMMY_COMPONENT_TYPE</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<p>Variable SMART_EDIT_DUMMY_COMPONENT_TYPE has been removed and is no longer part of the public API.</p>
+<h1 id="class-stateutils-entitysuccessaction">Class StateUtils.EntitySuccessAction</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  entityType: <span class="hljs-keyword">string</span>,
+  id: EntityId,
+  payload?: any | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  entityType: <span class="hljs-keyword">string</span>,
+  id: EntityId,
+  payload?: any
+)</span></span>
+</code></pre><h3 id="property-payload-changed-">Property payload changed.</h3>
+<p>Previous version:</p>
+<pre><code>payload: <span class="hljs-built_in">any</span> | <span class="hljs-literal">undefined</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-symbol">payload:</span> any
+</code></pre><h1 id="variable-user_cms_endpoints">Variable USER_CMS_ENDPOINTS</h1>
+<h2 id="-spartacus-core">@spartacus/core</h2>
+<p>Variable USER_CMS_ENDPOINTS has been removed and is no longer part of the public API.</p>
+<h1 id="variable-cpqquotetranslations">Variable cpqquoteTranslations</h1>
+<h2 id="-spartacus-cpq-quote-assets">@spartacus/cpq-quote/assets</h2>
+<p>Variable cpqquoteTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-customerticketingtranslations">Variable customerTicketingTranslations</h1>
+<h2 id="-spartacus-customer-ticketing-assets">@spartacus/customer-ticketing/assets</h2>
+<p>Variable customerTicketingTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-customerticketingcreatedialogcomponent">Class CustomerTicketingCreateDialogComponent</h1>
+<h2 id="-spartacus-customer-ticketing-components">@spartacus/customer-ticketing/components</h2>
+<h3 id="property-featureservice-is-removed-">Property featureService is removed.</h3>
+<h1 id="variable-dptranslations">Variable dpTranslations</h1>
+<h2 id="-spartacus-digital-payments-assets">@spartacus/digital-payments/assets</h2>
+<p>Variable dpTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-epdvisualizationtranslations">Variable epdVisualizationTranslations</h1>
+<h2 id="-spartacus-epd-visualization-assets">@spartacus/epd-visualization/assets</h2>
+<p>Variable epdVisualizationTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-estimateddeliverydatetranslations">Variable estimatedDeliveryDateTranslations</h1>
+<h2 id="-spartacus-estimated-delivery-date-assets">@spartacus/estimated-delivery-date/assets</h2>
+<p>Variable estimatedDeliveryDateTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-opfconfig">Class OpfConfig</h1>
+<h2 id="-spartacus-opf-base-root">@spartacus/opf/base/root</h2>
+<h3 id="property-opf-changed-">Property opf changed.</h3>
+<p>Previous version:</p>
+<pre><code>opf: {
+        opfBaseUrl?: <span class="hljs-built_in">string</span>;
+        commerceCloudPublicKey?: <span class="hljs-built_in">string</span>;
+        paymentOption?: {
+            paymentInfoMessagesMap?: Record&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>&gt;;
+            enableInfoMessage?: <span class="hljs-built_in">boolean</span>;
+        };
+        localPspResources?: Record&lt;<span class="hljs-built_in">number</span>, {
+            jsFiles: <span class="hljs-built_in">string</span>[];
+            cssFiles: <span class="hljs-built_in">string</span>[];
+        }&gt;;
+    }
+</code></pre><p>Current version:</p>
+<pre><code>opf: {
+        opfBaseUrl?: <span class="hljs-built_in">string</span>;
+        commerceCloudPublicKey?: <span class="hljs-built_in">string</span>;
+        paymentOption?: {
+            paymentInfoMessagesMap?: Record&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>&gt;;
+            enableInfoMessage?: <span class="hljs-built_in">boolean</span>;
+            iframeSandboxMap?: Record&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>&gt;;
+        };
+        localPspResources?: Record&lt;<span class="hljs-built_in">number</span>, {
+            jsFiles: <span class="hljs-built_in">string</span>[];
+            cssFiles: <span class="hljs-built_in">string</span>[];
+        }&gt;;
+    }
+</code></pre><h1 id="variable-opfcheckouttranslations">Variable opfCheckoutTranslations</h1>
+<h2 id="-spartacus-opf-checkout-assets">@spartacus/opf/checkout/assets</h2>
+<p>Variable opfCheckoutTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-opfcheckoutbillingaddressformservice">Class OpfCheckoutBillingAddressFormService</h1>
+<h2 id="-spartacus-opf-checkout-components">@spartacus/opf/checkout/components</h2>
+<h3 id="property-pickupoptionfacade-is-removed-">Property pickupOptionFacade is removed.</h3>
+<h1 id="variable-opfpaymenttranslations">Variable opfPaymentTranslations</h1>
+<h2 id="-spartacus-opf-payment-assets">@spartacus/opf/payment/assets</h2>
+<p>Variable opfPaymentTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="interface-opfpaymentglobalmethods">Interface OpfPaymentGlobalMethods</h1>
+<h2 id="-spartacus-opf-payment-root">@spartacus/opf/payment/root</h2>
+<h3 id="methodsignature-submit-changed-">MethodSignature submit changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-selector-tag">submit</span>(
+  <span class="hljs-selector-tag">options</span>: {
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">additionalData</span>: Array&lt;OpfKeyValueMap&gt;;
+        <span class="hljs-attribute">submitSuccess</span>: OpfPaymentMerchantCallback;
+        <span class="hljs-attribute">submitPending</span>: OpfPaymentMerchantCallback;
+        <span class="hljs-attribute">submitFailure</span>: OpfPaymentMerchantCallback;
+        <span class="hljs-attribute">paymentMethod</span>: OpfPaymentMethod;
+    }
+): <span class="hljs-selector-tag">Promise</span>&lt;<span class="hljs-selector-tag">boolean</span>&gt;
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-keyword">submit(
+</span><span class="hljs-symbol">  options:</span> {
+        cartId?: string<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        additionalData:</span> Array&lt;OpfKeyValueMap&gt;<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        submitSuccess:</span> OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        submitPending:</span> OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        submitFailure:</span> OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+        <span class="hljs-keyword">submitCancel?: </span>OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        paymentMethod:</span> OpfPaymentMethod<span class="hljs-comment">;</span>
+        paymentSessionId?: string<span class="hljs-comment">;</span>
+    }
+): Promise&lt;<span class="hljs-keyword">boolean&gt;</span>
+</code></pre><h3 id="methodsignature-submitcomplete-changed-">MethodSignature submitComplete changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-selector-tag">submitComplete</span>(
+  <span class="hljs-selector-tag">options</span>: {
+        <span class="hljs-attribute">cartId</span>: string;
+        <span class="hljs-attribute">additionalData</span>: Array&lt;OpfKeyValueMap&gt;;
+        <span class="hljs-attribute">submitSuccess</span>: OpfPaymentMerchantCallback;
+        <span class="hljs-attribute">submitPending</span>: OpfPaymentMerchantCallback;
+        <span class="hljs-attribute">submitFailure</span>: OpfPaymentMerchantCallback;
+    }
+): <span class="hljs-selector-tag">Promise</span>&lt;<span class="hljs-selector-tag">boolean</span>&gt;
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-keyword">submitComplete(
+</span><span class="hljs-symbol">  options:</span> {
+        cartId?: string<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        additionalData:</span> Array&lt;OpfKeyValueMap&gt;<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        submitSuccess:</span> OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        submitPending:</span> OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+<span class="hljs-symbol">        submitFailure:</span> OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+        <span class="hljs-keyword">submitCancel?: </span>OpfPaymentMerchantCallback<span class="hljs-comment">;</span>
+        paymentSessionId?: string<span class="hljs-comment">;</span>
+    }
+): Promise&lt;<span class="hljs-keyword">boolean&gt;</span>
+</code></pre><h1 id="variable-ordertranslations">Variable orderTranslations</h1>
+<h2 id="-spartacus-order-assets">@spartacus/order/assets</h2>
+<p>Variable orderTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-orderguestregisterformcomponent">Class OrderGuestRegisterFormComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userRegisterFacade: UserRegisterFacade,
+  routingService: RoutingService,
+  authService: AuthService,
+  fb: UntypedFormBuilder
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  userRegisterFacade: UserRegisterFacade,
+  routingService: RoutingService,
+  fb: UntypedFormBuilder
+)</span></span>
+</code></pre><h3 id="property-authservice-is-removed-">Property authService is removed.</h3>
+<h3 id="method-ngondestroy-is-removed-">Method ngOnDestroy is removed.</h3>
+<h3 id="property-subscription-is-removed-">Property subscription is removed.</h3>
+<h1 id="class-returnordercomponent">Class ReturnOrderComponent</h1>
+<h2 id="-spartacus-order-components">@spartacus/order/components</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="variable-documentflowtranslations">Variable documentFlowTranslations</h1>
+<h2 id="-spartacus-order-document-flow-assets">@spartacus/order/document-flow/assets</h2>
+<p>Variable documentFlowTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-accountsummarytranslations">Variable accountSummaryTranslations</h1>
+<h2 id="-spartacus-organization-account-summary-assets">@spartacus/organization/account-summary/assets</h2>
+<p>Variable accountSummaryTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-organizationtranslations">Variable organizationTranslations</h1>
+<h2 id="-spartacus-organization-administration-assets">@spartacus/organization/administration/assets</h2>
+<p>Variable organizationTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-unitaddressitemservice">Class UnitAddressItemService</h1>
+<h2 id="-spartacus-organization-administration-components">@spartacus/organization/administration/components</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="variable-orderapprovaltranslations">Variable orderApprovalTranslations</h1>
+<h2 id="-spartacus-organization-order-approval-assets">@spartacus/organization/order-approval/assets</h2>
+<p>Variable orderApprovalTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-unitordertranslations">Variable unitOrderTranslations</h1>
+<h2 id="-spartacus-organization-unit-order-assets">@spartacus/organization/unit-order/assets</h2>
+<p>Variable unitOrderTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-organizationuserregistrationtranslations">Variable organizationUserRegistrationTranslations</h1>
+<h2 id="-spartacus-organization-user-registration-assets">@spartacus/organization/user-registration/assets</h2>
+<p>Variable organizationUserRegistrationTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-pdfinvoicestranslations">Variable pdfInvoicesTranslations</h1>
+<h2 id="-spartacus-pdf-invoices-assets">@spartacus/pdf-invoices/assets</h2>
+<p>Variable pdfInvoicesTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-pickupinstoretranslations">Variable pickupInStoreTranslations</h1>
+<h2 id="-spartacus-pickup-in-store-assets">@spartacus/pickup-in-store/assets</h2>
+<p>Variable pickupInStoreTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-bulkpricingtranslations">Variable bulkPricingTranslations</h1>
+<h2 id="-spartacus-product-bulk-pricing-assets">@spartacus/product/bulk-pricing/assets</h2>
+<p>Variable bulkPricingTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-futurestocktranslations">Variable futureStockTranslations</h1>
+<h2 id="-spartacus-product-future-stock-assets">@spartacus/product/future-stock/assets</h2>
+<p>Variable futureStockTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-productimagezoomtranslations">Variable productImageZoomTranslations</h1>
+<h2 id="-spartacus-product-image-zoom-assets">@spartacus/product/image-zoom/assets</h2>
+<p>Variable productImageZoomTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-productvariantstranslations">Variable productVariantsTranslations</h1>
+<h2 id="-spartacus-product-variants-assets">@spartacus/product/variants/assets</h2>
+<p>Variable productVariantsTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-configuratortranslations">Variable configuratorTranslations</h1>
+<h2 id="-spartacus-product-configurator-common-assets">@spartacus/product-configurator/common/assets</h2>
+<p>Variable configuratorTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-configuratorattributesingleselectionimagecomponent">Class ConfiguratorAttributeSingleSelectionImageComponent</h1>
+<h2 id="-spartacus-product-configurator-rulebased">@spartacus/product-configurator/rulebased</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="variable-multidimensionalselectortranslations">Variable multiDimensionalSelectorTranslations</h1>
+<h2 id="-spartacus-product-multi-dimensional-selector-assets">@spartacus/product-multi-dimensional/selector/assets</h2>
+<p>Variable multiDimensionalSelectorTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-quotetranslations">Variable quoteTranslations</h1>
+<h2 id="-spartacus-quote-assets">@spartacus/quote/assets</h2>
+<p>Variable quoteTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-requesteddeliverydatetranslations">Variable requestedDeliveryDateTranslations</h1>
+<h2 id="-spartacus-requested-delivery-date-assets">@spartacus/requested-delivery-date/assets</h2>
+<p>Variable requestedDeliveryDateTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-s4servicetranslations">Variable s4ServiceTranslations</h1>
+<h2 id="-spartacus-s4-service-assets">@spartacus/s4-service/assets</h2>
+<p>Variable s4ServiceTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-s4omtranslations">Variable s4omTranslations</h1>
+<h2 id="-spartacus-s4om-assets">@spartacus/s4om/assets</h2>
+<p>Variable s4omTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-expressloggerservice">Class ExpressLoggerService</h1>
+<h2 id="-spartacus-setup-ssr">@spartacus/setup/ssr</h2>
+<h3 id="property-serverlogger-changed-">Property serverLogger changed.</h3>
+<p>Previous version:</p>
+<pre><code>serverLogger: <span class="hljs-keyword">import</span>(<span class="hljs-string">"../loggers"</span>).ExpressServerLogger
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-selector-tag">serverLogger</span>: <span class="hljs-selector-tag">import</span>("@<span class="hljs-keyword">spartacus</span>/<span class="hljs-keyword">setup</span>/<span class="hljs-keyword">ssr</span>").<span class="hljs-keyword">ExpressServerLogger</span>
+</code></pre><h1 id="class-optimizedssrengine">Class OptimizedSsrEngine</h1>
+<h2 id="-spartacus-setup-ssr">@spartacus/setup/ssr</h2>
+<h3 id="method-log-is-removed-">Method log is removed.</h3>
+<h1 id="variable-storefindertranslations">Variable storeFinderTranslations</h1>
+<h2 id="-spartacus-storefinder-assets">@spartacus/storefinder/assets</h2>
+<p>Variable storeFinderTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="class-cmsguardsservice">Class CmsGuardsService</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="method-canactivateguard-is-removed-">Method canActivateGuard is removed.</h3>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-customformvalidators">Class CustomFormValidators</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="method-strongpasswordvalidator-is-removed-">Method strongPasswordValidator is removed.</h3>
+<h1 id="class-facetcomponent">Class FacetComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-facetlistcomponent">Class FacetListComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-mediacomponent">Class MediaComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-islegacy-is-removed-">Property isLegacy is removed.</h3>
+<h1 id="class-mediaconfig">Class MediaConfig</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-uselegacymediacomponent-is-removed-">Property useLegacyMediaComponent is removed.</h3>
+<h1 id="class-mediasourcespipe">Class MediaSourcesPipe</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="method-transform-changed-">Method transform changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-built_in">transform</span>(
+  sizes: <span class="hljs-built_in">string</span>
+): Pick&lt;HTMLSourceElement, <span class="hljs-string">"srcset"</span> | <span class="hljs-string">"media"</span>&gt;[]
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-built_in">transform</span>(
+  sizes: <span class="hljs-built_in">string</span>
+): Pick&lt;HTMLSourceElement, <span class="hljs-string">"media"</span> | <span class="hljs-string">"srcset"</span>&gt;[]
+</code></pre><h1 id="class-navigationuicomponent">Class NavigationUIComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="constructor-changed-">Constructor changed.</h3>
+<p>Previous version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  router: Router,
+  renderer: Renderer2,
+  elemRef: ElementRef,
+  hamburgerMenuService: HamburgerMenuService,
+  winRef: WindowRef,
+  featureConfigService?: FeatureConfigService | undefined
+)</span></span>
+</code></pre><p>Current version:</p>
+<pre><code>
+<span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(
+  router: Router,
+  renderer: Renderer2,
+  elemRef: ElementRef,
+  hamburgerMenuService: HamburgerMenuService,
+  winRef: WindowRef
+)</span></span>
+</code></pre><h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h3 id="method-getarialabelandcontrol-is-removed-">Method getAriaLabelAndControl is removed.</h3>
+<h3 id="method-getsanitizedtitle-is-removed-">Method getSanitizedTitle is removed.</h3>
+<h1 id="class-ngselecta11ydirective">Class NgSelectA11yDirective</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="method-appendarialabeltooptions-is-removed-">Method appendAriaLabelToOptions is removed.</h3>
+<h3 id="method-customizengselectarialabeldropdown-is-removed-">Method customizeNgSelectAriaLabelDropdown is removed.</h3>
+<h3 id="method-onopen-is-removed-">Method onOpen is removed.</h3>
+<h1 id="class-popoverdirective">Class PopoverDirective</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="class-searchboxcomponent">Class SearchBoxComponent</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-breakpointservice-changed-">Property breakpointService changed.</h3>
+<p>Previous version:</p>
+<pre><code><span class="hljs-keyword">breakpointService: </span><span class="hljs-keyword">BreakpointService </span><span class="hljs-title">| null</span>
+</code></pre><p>Current version:</p>
+<pre><code><span class="hljs-keyword">breakpointService: </span><span class="hljs-keyword">BreakpointService</span>
+</code></pre><h3 id="property-changedetecorref-is-removed-">Property changeDetecorRef is removed.</h3>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h3 id="method-isenabledfeature-is-removed-">Method isEnabledFeature is removed.</h3>
+<h1 id="class-themeservice">Class ThemeService</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<h3 id="property-featureconfigservice-is-removed-">Property featureConfigService is removed.</h3>
+<h1 id="variable-use_legacy_media_component">Variable USE_LEGACY_MEDIA_COMPONENT</h1>
+<h2 id="-spartacus-storefront">@spartacus/storefront</h2>
+<p>Variable USE_LEGACY_MEDIA_COMPONENT has been removed and is no longer part of the public API.</p>
+<h1 id="variable-useraccounttranslations">Variable userAccountTranslations</h1>
+<h2 id="-spartacus-user-account-assets">@spartacus/user/account/assets</h2>
+<p>Variable userAccountTranslations has been removed and is no longer part of the public API.</p>
+<h1 id="variable-userprofiletranslations">Variable userProfileTranslations</h1>
+<h2 id="-spartacus-user-profile-assets">@spartacus/user/profile/assets</h2>
+<p>Variable userProfileTranslations has been removed and is no longer part of the public API.</p>
+</body></html>
