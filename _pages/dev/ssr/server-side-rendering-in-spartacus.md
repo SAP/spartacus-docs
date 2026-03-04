@@ -388,4 +388,4 @@ If you are involved in Spartacus internal development (for example, if you are c
    npm run serve:ssr
    ```
 
-**Note**: if you serve the production SSR build on `localhost`, you need allow-list it, e.g. with a special env variable `NG_ALLOWED_HOSTS=localhost npm run serve:ssr`. It's needed since the Angular security patch releases v19.2.21+ and v21.2.0+. For more options, see [Angular docs](https://angular.dev/best-practices/security#preventing-server-side-request-forgery-ssrf).
+**Note**: if you serve the SSR build on `localhost`, you need allow-list it, e.g. with a special env variable `NG_ALLOWED_HOSTS=localhost npm run serve:ssr`. It's needed since the Angular security patch releases v19.2.21+ and v21.2.0+. For more options, see [Angular docs](https://angular.dev/best-practices/security#preventing-server-side-request-forgery-ssrf).
