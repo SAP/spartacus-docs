@@ -1,18 +1,7 @@
 # Angular Control Flow Migration - Possible Errors & Solutions
 
-Angular control flow migration (`@angular/core:control-flow`) is optional for Angular 20 upgrade, but mandatory during Angular 21 upgrade. This document describes common errors that may occur during the migration and provides solutions with example code snippets.
-
-***NOTE:*** If any errors occur during the migration, they will be displayed in the terminal with details about the error type and location. The migration process will continue to run and attempt to migrate as much code as possible. It is recommended to review the error messages and fix the issues and re-run the migration for remaining files.
-
-There are two places during Angular migration that may trigger the control flow migration:
-1. You can select the optional migration when you update to Angular 20.
-```bash  
- Select the migrations that you'd like to run  
-   ❯◯ [control-flow-migration] Converts the entire application to block control flow syntax.  
-```
-1. During Angular 21 upgrade the migration runs automatically.
-
-To re-run the migration command to complete the migration process, use the following command:
+ This document describes common errors that may occur during the Angular control flow migration and provides solutions with example code snippets.
+ After fixing all errors, re-run the migration command to complete the migration process using the following command:
 
 ```bash
 ng generate @angular/core:control-flow
@@ -120,7 +109,7 @@ Using multiple `let` or `as` aliases in the same `*ngIf` directive. This commonl
 ```html
 <!-- Using ng-template with both 'as' and 'let' declarations -->
 <ng-template
-  [ngIf]="user$ | async as user"
+  ngIf*="user$ | async as user"
   let-first
   let-index="index"
 >
