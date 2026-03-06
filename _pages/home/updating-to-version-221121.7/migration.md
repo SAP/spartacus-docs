@@ -102,9 +102,7 @@ You can update your application to use Angular 21 as follows:
     ◯ [router-current-navigation] Replaces usages of the deprecated Router getCurrentNavigation method with the Router.currentNavigation signal.
    ```
 
-  Although the `control-flow-migration` is optional step at this stage, it is a mandatory step when you update to Angular 21. Running it during Angular 20 update or Angular 21 update will have the same effect, so you can choose to run it at either stage. We recommend to do so as a separate step before upgrading to Angular 21. 
-
-  The ` router-current-navigation` is not required in terms of updating Spartacus to version 221121.7. However, you can safely run this migration if you wish to.
+  We recommend to NOT run the `control-flow-migration` now. We'll run it after Angular 20 migration, as described later in this document. Regarding `router-current-navigation` migration, you can run it, although it's not required.
 
 ### Migrating to New Control Flow
 
