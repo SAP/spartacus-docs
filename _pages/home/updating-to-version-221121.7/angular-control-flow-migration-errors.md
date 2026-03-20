@@ -1,4 +1,6 @@
-# Troubleshooting the Angular Control Flow Migration
+---
+title: Troubleshooting the Angular Control Flow Migration
+---
 
 If you encounter errors during the Angular control flow migration, consult the sections below to see examples of common errors that could occur, as well as solutions to resolve those errors.
 
