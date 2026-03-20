@@ -1,56 +1,40 @@
-# Angular Control Flow Migration - Possible Errors & Solutions
+# Troubleshooting the Angular Control Flow Migration
 
- This document describes common errors that may occur during the Angular control flow migration and provides solutions with example code snippets.
- After fixing all errors, re-run the migration command to complete the migration process using the following command:
+If you encounter errors during the Angular control flow migration, consult the sections below to see examples of common errors that could occur, as well as solutions to resolve those errors.
 
-```bash
+After fixing all errors, re-run the migration command and complete the migration process by running the following command:
+
+```text
 ng generate @angular/core:control-flow
 ```
 
-## Helpful Tips
-- Run the migration in **dry-run mode** first to see what changes will be made without actually modifying files:
+It is recommended that you run the migration in `dry-run` mode first, which allows you to see what changes will be made, without actually modifying any files. The following is an example of running the migration command in `dry-run` mode:
 
-```bash
-# Run migration in dry-run mode first (recommended)
+```text
 ng generate @angular/core:control-flow --dry-run
 ```
-- if you want to run the migration on a specific path (e.g. a specific component), you can use the `--path` option to specify the path to the file or directory you want to migrate. This is useful if you want to migrate one component at a time:
 
-```bash
-# Run migration on specific path
+If you want to run the migration on a specific path (for example, if you want to run the migration on a specific component), you can use the `--path` option to specify the path to the file or directory you want to migrate. This is useful if you want to migrate one component at a time.
+
+The following is an example of running the migration on a specific path:
+
+```text
 ng generate @angular/core:control-flow --path=src/app/my-component
 ```
 
-## Table of Contents
+## Duplicate ng-template Names Error
 
-1. [Duplicate ng-template Names Error](#1-duplicate-ng-template-names-error)
-2. [Multiple Aliases on ngIf Error](#2-multiple-aliases-on-ngif-error)
-3. [Collection Aliasing on ngFor Error](#3-collection-aliasing-on-ngfor-error)
-4. [Invalid @switch Block Structure - Text Node Error](#4-invalid-switch-block-structure---text-node-error)
-5. [Invalid @switch Block Structure - Element Without Case Error](#5-invalid-switch-block-structure---element-without-case-error)
-6. [i18n Nesting Error](#6-i18n-nesting-error)
-7. [Invalid HTML Structure After Migration](#7-invalid-html-structure-after-migration)
-8. [Template Processing Error](#8-template-processing-error)
-9. [Parse Errors](#9-parse-errors)
-10. [ViewChild/ViewChildren Reference Conflict](#10-viewchildviewchildren-reference-conflict)
+If you have duplicate `ng-template` names in your code, you may encounter an error during the migration. The following is an example:
 
----
-
-## 1. Duplicate ng-template Names Error
-
-### Error Message
-
-```
+```text
 A duplicate ng-template name "#loading" was found. The control flow migration requires unique ng-template names within a component.
 ```
 
 **Source:** `types.ts:492-495`
 
-### Cause
+The cause of this error message is that two or more `<ng-template>` elements have the same `#name` reference within the same component.
 
-Two or more `<ng-template>` elements have the same `#name` reference within the same component.
-
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <ng-template #loading>Loading data...</ng-template>
@@ -60,9 +44,7 @@ Two or more `<ng-template>` elements have the same `#name` reference within the 
 <div *ngIf="otherData; else loading">{{ otherData }}</div>
 ```
 
-### After (Solution)
-
-The migration eliminates the need for named templates in simple cases:
+The migration eliminates the need for named templates in simple cases, so you can fix the issue by adjusting your code, as shown in the following example:
 
 ```html
 @if (data) {
@@ -78,7 +60,7 @@ The migration eliminates the need for named templates in simple cases:
 }
 ```
 
-**Alternative:** If you need to keep templates, use unique names:
+If you still need to use templates, you can resolve the issue by using unique names, as shown in the following example:
 
 ```html
 <ng-template #loadingData>Loading data...</ng-template>
@@ -88,23 +70,20 @@ The migration eliminates the need for named templates in simple cases:
 <div *ngIf="otherData; else loadingOther">{{ otherData }}</div>
 ```
 
----
+## Multiple Aliases on ngIf Error
 
-## 2. Multiple Aliases on ngIf Error
+If you have more than one alias on the same `*ngIf` directive in your code, you may encounter an error such as the following during the migration:
 
-### Error Message
-
-```
+```text
 Found more than one alias on your ngIf. Remove one of them and re-run the migration.
 ```
 
-### Cause
+This issue arises when using multiple `let` or `as` aliases in the same `*ngIf` directive. This commonly occurs in the following scenarios:
 
-Using multiple `let` or `as` aliases in the same `*ngIf` directive. This commonly happens with:
-- Extended `ng-template` syntax with both `as` and `let-*` attributes
-- Combining `as` with `let` in `*ngIf`
+- You have extended the `ng-template` syntax with both `as` and `let-*` attributes
+- You have combined `as` with `let` in `*ngIf`
 
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <!-- Using ng-template with both 'as' and 'let' declarations -->
@@ -120,15 +99,13 @@ Using multiple `let` or `as` aliases in the same `*ngIf` directive. This commonl
   </div>
 </ng-template>
 
-<!-- Or simpler form with dual alias -->
+<!-- Or in simpler form with dual alias -->
 <div *ngIf="user$ | async as user; let myUser">
   {{ user.name }}
 </div>
 ```
 
-### After (Solution)
-
-Use only one alias - typically the `as` form works best:
+You can fix the issue by using only one alias. In many cases, the `as` form works best. The following is an example:
 
 ```html
 @if (user$ | async; as user) {
@@ -139,21 +116,17 @@ Use only one alias - typically the `as` form works best:
 }
 ```
 
----
+## Collection Aliasing on ngFor Error
 
-## 3. Collection Aliasing on ngFor Error
+If you are using `as` to alias an entire collection in `*ngFor`, you may encounter an error such as the following during the migration:
 
-### Error Message
-
-```
+```text
 Found an aliased collection on an ngFor: "item of items$ | async as items". Collection aliasing is not supported with @for. Refactor the code to remove the `as` alias and re-run the migration.
 ```
 
-### Cause
+The `@for` block does not support collection aliasing because you iterate over items, not the collection itself.
 
-Using `as` to alias the entire collection in `*ngFor`. The `@for` block doesn't support collection aliasing because you iterate over items, not the collection itself.
-
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <div *ngFor="let item of items$ | async as items">
@@ -161,9 +134,7 @@ Using `as` to alias the entire collection in `*ngFor`. The `@for` block doesn't 
 </div>
 ```
 
-### After (Solution)
-
-**Option 1: Use `@if` wrapper** (recommended for migration)
+One possible solution to this issue is to use the `@if` wrapper, which is recommended for migration. The following is an example:
 
 ```html
 @if (items$ | async; as items) {
@@ -175,7 +146,7 @@ Using `as` to alias the entire collection in `*ngFor`. The `@for` block doesn't 
 }
 ```
 
-**Option 2: Use `@let` declaration** (Angular 18.1+)
+Another option that can resolve the issue is to use a `@let` declaration, as shown in the following example:
 
 ```html
 @let items = items$ | async;
@@ -186,23 +157,19 @@ Using `as` to alias the entire collection in `*ngFor`. The `@for` block doesn't 
 }
 ```
 
-> **Note:** Don't forget to add `track` expression - it's required for `@for`.
+**Note:** Do not forget to add the `track` expression. It is required for `@for`.
 
----
+## Invalid @switch Block Structure - Text Node Error
 
-## 4. Invalid @switch Block Structure - Text Node Error
+If you have direct text content inside an `[ngSwitch]` container that is not within a case or default block, you may encounter an error such as the following during the migration:
 
-### Error Message
-
-```
+```text
 Text node: "Status indicator:" would result in invalid migrated @switch block structure. @switch can only have @case or @default as children.
 ```
 
-### Cause
+In the new `@switch` syntax, only `@case` and `@default` blocks are allowed as direct children.
 
-Direct text content inside an `[ngSwitch]` container that is not within a case or default block. In the new `@switch` syntax, only `@case` and `@default` blocks are allowed as direct children.
-
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <div [ngSwitch]="status">
@@ -214,9 +181,7 @@ Direct text content inside an `[ngSwitch]` container that is not within a case o
 </div>
 ```
 
-### After (Solution)
-
-**Option 1: Move text outside the switch**
+One solution to this issue is to move the text outside the switch, as shown in the following example:
 
 ```html
 <div>
@@ -240,7 +205,7 @@ Direct text content inside an `[ngSwitch]` container that is not within a case o
 </div>
 ```
 
-**Option 2: Include text in each case**
+Another option is to include the text in each case, as shown in the following example:
 
 ```html
 @switch (status) {
@@ -259,21 +224,15 @@ Direct text content inside an `[ngSwitch]` container that is not within a case o
 }
 ```
 
----
+## Invalid @switch Block Structure - Element Without Case Error
 
-## 5. Invalid @switch Block Structure - Element Without Case Error
+If you have an HTML element inside `[ngSwitch]` and that HTML element does not have an `*ngSwitchCase` or `*ngSwitchDefault` directive, you may encounter an error such as the following during the migration:
 
-### Error Message
-
-```
+```text
 Element node: "div" would result in invalid migrated @switch block structure. @switch can only have @case or @default as children.
 ```
 
-### Cause
-
-An HTML element inside `[ngSwitch]` that doesn't have `*ngSwitchCase` or `*ngSwitchDefault` directive.
-
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <div [ngSwitch]="status">
@@ -284,9 +243,7 @@ An HTML element inside `[ngSwitch]` that doesn't have `*ngSwitchCase` or `*ngSwi
 </div>
 ```
 
-### After (Solution)
-
-Separate the non-case element from the switch container:
+The solution is to separate the non-case element from the switch container, as shown in the following example:
 
 ```html
 <div>
@@ -305,21 +262,17 @@ Separate the non-case element from the switch container:
 </div>
 ```
 
----
+## i18n Nesting Error
 
-## 6. i18n Nesting Error
+After migration, if an element with the `i18n` attribute ends up containing another element with an `i18n` attribute, this is invalid in Angular and will result in an error. The following is an example of the error message you could receive:
 
-### Error Message
-
-```
-i18n Nesting error: The migration would result in invalid i18n nesting for /path/to/component.html. Element with i18n attribute "div" would result having a child of element with i18n attribute "span". Please fix and re-run the migration.
+```text
+i18n Nesting error: The migration would result in invalid i18n nesting for /path/to/component.html. Element with i18n attribute "div" would result in having a child of element with i18n attribute "span". Please fix and re-run the migration.
 ```
 
-### Cause
+This error occurs when `*ngIf` or similar structural directives create implicit containers that get removed during migration.
 
-After migration, an element with `i18n` attribute would contain another element with `i18n` attribute, which is invalid in Angular. This happens when `*ngIf` or similar structural directives create implicit containers that get removed during migration.
-
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <div i18n="@@parentMessage">
@@ -330,11 +283,9 @@ After migration, an element with `i18n` attribute would contain another element 
 </div>
 ```
 
-After migration, the `ng-container` is removed, making the `span` with `i18n` a direct child of the `div` with `i18n` - which is invalid.
+After migration, the `ng-container` is removed, making the `span` with `i18n` a direct child of the `div` with `i18n`, which is invalid.
 
-### After (Solution)
-
-**Option 1: Restructure to avoid nesting**
+One solution to this issue is to restructure your code to avoid nesting, as shown in the following example:
 
 ```html
 <div i18n="@@parentMessage">Parent content only</div>
@@ -343,9 +294,7 @@ After migration, the `ng-container` is removed, making the `span` with `i18n` a 
 }
 ```
 
-**Option 2: Remove inner i18n attribute**
-
-If the child text can be part of the parent translation:
+Another option is to remove the inner i18n attribute. For example, the child text can be part of the parent translation, as shown in the following example:
 
 ```html
 <div i18n="@@parentMessage">
@@ -356,23 +305,15 @@ If the child text can be part of the parent translation:
 </div>
 ```
 
----
+## Invalid HTML Structure After Migration
 
-## 7. Invalid HTML Structure After Migration
+If the migration produces HTML that cannot be parsed due to malformed tags, unclosed elements, or improper nesting, you may encounter an error such as the following:
 
-### Error Message
-
-```
+```text
 The migration resulted in invalid HTML for /path/to/component.html. Please check the template for valid HTML structures and run the migration again.
 ```
 
-### Cause
-
-The migration produces HTML that cannot be parsed due to malformed tags, unclosed elements, or improper nesting.
-
-### Common Issues and Solutions
-
-**A) Unclosed tags**
+The following is an example of code with unclosed tags that could cause this type of error to occur, as well as the solution to resolve the issue:
 
 ```html
 <!-- Before (Problematic) -->
@@ -387,7 +328,7 @@ The migration produces HTML that cannot be parsed due to malformed tags, unclose
 }
 ```
 
-**B) Improper table structure**
+The following is an example of code with improper table structure that could cause this type of error to occur, as well as the solution to resolve the issue:
 
 ```html
 <!-- Before (Problematic) -->
@@ -414,23 +355,17 @@ The migration produces HTML that cannot be parsed due to malformed tags, unclose
 </table>
 ```
 
----
+## Template Processing Error
 
-## 8. Template Processing Error
+An error may occur during `ng-template` placeholder replacement, typically when a referenced template does not exist. In this case, you may encounter an error such as the following:
 
-### Error Message
-
-```
+```text
 {type: 'template', error: Error: ...}
 ```
 
 **Source:** `migration.ts:47-48`
 
-### Cause
-
-Error during ng-template placeholder replacement, typically when a referenced template doesn't exist.
-
-### Before (Problematic)
+The following is an example of problematic code that could cause this type of error to occur:
 
 ```html
 <div *ngIf="condition; else nonExistentTemplate">
@@ -439,9 +374,7 @@ Error during ng-template placeholder replacement, typically when a referenced te
 <!-- No #nonExistentTemplate exists! -->
 ```
 
-### After (Solution)
-
-Either add the missing template or use the new control flow syntax:
+To resolve this issue, you can either add the missing template, or use the new control flow syntax, as shown in the following example:
 
 ```html
 @if (condition) {
@@ -453,23 +386,15 @@ Either add the missing template or use the new control flow syntax:
 }
 ```
 
----
+## Parse Errors
 
-## 9. Parse Errors
+If a template has syntax errors that prevent parsing, you may encounter an error such as the following:
 
-### Error Message
-
-```
+```text
 {type: 'parse', error: Error: The migration resulted in invalid HTML for /path/to/component.html. Please check the template for valid HTML structures and run the migration again.}
 ```
 
-### Cause
-
-Template has syntax errors that prevent parsing.
-
-### Common Issues and Solutions
-
-**A) Invalid Angular binding syntax**
+The following is an example of code with invalid Angular binding syntax that could cause a parse error to occur, as well as the solution to resolve the issue:
 
 ```html
 <!-- Before (Problematic) - Special characters in binding names -->
@@ -479,7 +404,7 @@ Template has syntax errors that prevent parsing.
 <div [attr.data-value]="value">Content with valid binding</div>
 ```
 
-**B) Unclosed interpolation**
+The following is an example of code with unclosed interpolation that could cause a parse error to occur, as well as the solution to resolve the issue:
 
 ```html
 <!-- Before (Problematic) -->
@@ -489,7 +414,7 @@ Template has syntax errors that prevent parsing.
 <div>{{ name }}</div>
 ```
 
-**C) Invalid attribute syntax**
+The following is an example of code with invalid attribute syntax that could cause a parse error to occur, as well as the solution to resolve the issue:
 
 ```html
 <!-- Before (Problematic) - Missing closing parenthesis -->
@@ -499,23 +424,21 @@ Template has syntax errors that prevent parsing.
 <input [value]="name" (change)="update($event)" />
 ```
 
----
+## ViewChild/ViewChildren Reference Conflict
 
-## 10. ViewChild/ViewChildren Reference Conflict
+The migration might try to remove an `ng-template` that is referenced by `@ViewChild` or `@ViewChildren` in the component class.
 
-### Cause
+The good news is that the migration handles this automatically by preserving templates that are referenced by `ViewChild` or `ViewChildren`.
 
-The migration might try to remove an `ng-template` that's referenced by `@ViewChild` or `@ViewChildren` in the component class.
-
-> **Good news:** The migration handles this automatically by preserving templates that are referenced by `ViewChild`/`ViewChildren`.
-
-### Example
+The following is an example of templates that are referenced by `@Viewchild`:
 
 ```typescript
 // component.ts
 @ViewChild('myTemplate') myTemplate: TemplateRef<any>;
 @ViewChild('contentTemplate') contentTemplate: TemplateRef<any>;
 ```
+
+And the following is an example of the corresponding migrated code, where templates referenced by `@ViewChild` are preserved:
 
 ```html
 <!-- Templates referenced by @ViewChild are preserved -->
@@ -538,7 +461,4 @@ The migration might try to remove an `ng-template` that's referenced by `@ViewCh
 <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
 ```
 
-The migration will:
-1. **Preserve** the `ng-template` wrapper (because it's referenced by `@ViewChild`)
-2. **Migrate** the internal control flow syntax (`*ngIf` → `@if`, `*ngFor` → `@for`)
-
+In this scenario, the migration preserves the `ng-template` wrapper, because it is referenced by `@ViewChild`, and it migrates the internal control flow syntax. For example, `*ngIf` is migrated to `@if`, and `*ngFor` is migrated to `@for`.
