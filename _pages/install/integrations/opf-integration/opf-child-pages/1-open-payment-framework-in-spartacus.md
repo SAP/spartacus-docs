@@ -402,18 +402,16 @@ provideConfig(defaultOpfB2bCheckoutOccEndpointsConfig);
 
 This configuration overrides the standard payment-authorized order placement endpoint with a B2B-specific implementation that uses the format `orgUsers/${userId}/orders?fields=FULL` for placing orders after successful payment transactions.
 
-### Troubleshooting OPF Checkout Flow Selection
+### Troubleshooting the OPF Checkout Flow Selection
 
-If you customized checkout configuration (for example, by combining B2B checkout steps with OPF checkout flows), you might observe that OPF checkout is not picked up even though OPF is configured as the base store payment provider. This typically happens when multiple modules provide a checkout configuration object and your setup effectively overwrites parts of it (for example, steps overwriting flows), depending on config-provider order and merge behavior. This is not necessarily an out-of-the-box Spartacus issue, but it can happen in customized setups.
+If you have customized your checkout configuration (for example, by combining B2B checkout steps with OPF checkout flows), you might observe that OPF checkout is not picked up even though OPF is configured as the base store payment provider. This typically happens when multiple modules provide a checkout configuration object, and your setup effectively overwrites parts of it (for example, steps overwriting flows), depending on the config-provider order and the merge behavior. This is not necessarily an out-of-the-box Spartacus issue, but it can happen in customized setups.
 
-#### Symptoms
+The following are symptoms you may see that are caused by this issue:
 
-- Checkout uses the "default" flow instead of the OPF flow.
-- `baseStore.paymentProvider` is set (for example, to OPF), but `checkout.flows[OPF]` is missing at runtime.
+- The checkout uses the "default" flow instead of the OPF flow.
+- The `baseStore.paymentProvider` is set (for example, to OPF), but the corresponding `checkout.flows[OPF]` is missing at runtime.
 
-#### Recommended workaround
-
-You can regain full control over which checkout flow is used by overriding `CheckoutFlowOrchestratorService`. The example below only returns an OPF flow when the base store payment provider matches an OPF flow, and otherwise falls back to standard Spartacus behavior (so it will not force OPF in local or development environments, or in non-OPF base stores).
+You can regain full control over which checkout flow is used by overriding `CheckoutFlowOrchestratorService`. In the following example, only an OPF flow is returned when the base store payment provider matches an OPF flow, and otherwise it falls back to standard Spartacus behavior. As a result, it will not force an OPF flow in local or development environments, or in non-OPF base stores.
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -439,7 +437,7 @@ export class OpfCheckoutFlowOrchestratorService extends CheckoutFlowOrchestrator
 }
 ```
 
-Provide the custom service in your OPF module:
+After you have overridden the `CheckoutFlowOrchestratorService`, you provide the custom service in your OPF module, as shown in the following example:
 
 ```ts
 import { CheckoutFlowOrchestratorService } from '@spartacus/checkout/base/components';
