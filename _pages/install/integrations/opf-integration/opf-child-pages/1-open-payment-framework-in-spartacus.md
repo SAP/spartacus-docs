@@ -402,6 +402,54 @@ provideConfig(defaultOpfB2bCheckoutOccEndpointsConfig);
 
 This configuration overrides the standard payment-authorized order placement endpoint with a B2B-specific implementation that uses the format `orgUsers/${userId}/orders?fields=FULL` for placing orders after successful payment transactions.
 
+### Troubleshooting the OPF Checkout Flow Selection
+
+If you have customized your checkout configuration (for example, by combining B2B checkout steps with OPF checkout flows), you might observe that OPF checkout is not picked up even though OPF is configured as the base store payment provider. This typically happens when multiple modules provide a checkout configuration object, and your setup effectively overwrites parts of it (for example, steps overwriting flows), depending on the config-provider order and the merge behavior. This is not necessarily an out-of-the-box Spartacus issue, but it can happen in customized setups.
+
+The following are symptoms you may see that are caused by this issue:
+
+- The checkout uses the "default" flow instead of the OPF flow.
+- The `baseStore.paymentProvider` is set (for example, to OPF), but the corresponding `checkout.flows[OPF]` is missing at runtime.
+
+You can regain full control over which checkout flow is used by overriding `CheckoutFlowOrchestratorService`. In the following example, only an OPF flow is returned when the base store payment provider matches an OPF flow, and otherwise it falls back to standard Spartacus behavior. As a result, it will not force an OPF flow in local or development environments, or in non-OPF base stores.
+
+```ts
+import { Injectable } from '@angular/core';
+import { CheckoutFlowOrchestratorService } from '@spartacus/checkout/base/components';
+import { CheckoutFlow, CheckoutConfig } from '@spartacus/checkout/base/root';
+import { defaultOpfB2bCheckoutConfig } from '@spartacus/opf/b2b-checkout/root';
+
+@Injectable()
+export class OpfCheckoutFlowOrchestratorService extends CheckoutFlowOrchestratorService {
+  override getCheckoutFlow(): CheckoutFlow | undefined {
+    const paymentProvider = this.paymentProviderName;
+
+    if (paymentProvider) {
+      const opfCheckout = (defaultOpfB2bCheckoutConfig as CheckoutConfig).checkout;
+      const opfFlow = opfCheckout?.flows?.[paymentProvider];
+      if (opfFlow) {
+        return opfFlow;
+      }
+    }
+
+    return super.getCheckoutFlow();
+  }
+}
+```
+
+After you have overridden the `CheckoutFlowOrchestratorService`, you provide the custom service in your OPF module, as shown in the following example:
+
+```ts
+import { CheckoutFlowOrchestratorService } from '@spartacus/checkout/base/components';
+
+providers: [
+  {
+    provide: CheckoutFlowOrchestratorService,
+    useClass: OpfCheckoutFlowOrchestratorService,
+  },
+];
+```
+
 ## Configuring Terms and Conditions
 
 On the open payment framework **Checkout Payment and Review** page, the following modes are available for handling Terms and Conditions:
