@@ -514,6 +514,6 @@ provideConfig(<RoutingConfig>{
 
 In the above example, the `paymentVerificationResult` specifies where users are redirected if the payment verification is successful, and the `paymentVerificationCancel` specifies where users are redirected if the payment verification is canceled.
 
-## Compliance and PCI DSS scope
+## Compliance With the Payment Card Industry Data Security Standard (PCI DSS)
 
-For OPF payment options where payment details are entered in the Payment Service Provider (PSP) user interface (for example, a PSP-hosted iframe or a PSP-hosted payment page), Composable Storefront and OPF do not receive or process raw cardholder data. Instead, they work with PSP results such as tokens and payment authorization outcomes. Composable Storefront also does not directly manipulate the CSS of credit-card input fields, and the styling is controlled by the PSP UI.
+For OPF payment options where payment details are entered into the user interface of the Payment Service Provider (PSP), such as a PSP-hosted iframe or a PSP-hosted payment page, Spartacus and OPF do not receive or process any raw cardholder data. Instead, Spartacus and OPF work with PSP results, such as tokens and payment authorization outcomes. Spartacus also does not directly manipulate the CSS of credit card input fields. Instead, the styling is controlled by the PSP UI.
