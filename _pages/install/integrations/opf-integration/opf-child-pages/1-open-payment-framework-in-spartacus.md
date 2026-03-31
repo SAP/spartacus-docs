@@ -513,3 +513,7 @@ provideConfig(<RoutingConfig>{
 ```
 
 In the above example, the `paymentVerificationResult` specifies where users are redirected if the payment verification is successful, and the `paymentVerificationCancel` specifies where users are redirected if the payment verification is canceled.
+
+## Compliance With the Payment Card Industry Data Security Standard (PCI DSS)
+
+For OPF payment options where payment details are entered into the user interface of the Payment Service Provider (PSP), such as a PSP-hosted iframe or a PSP-hosted payment page, Spartacus and OPF do not receive or process any raw cardholder data. Instead, Spartacus and OPF work with PSP results, such as tokens and payment authorization outcomes. Spartacus also does not directly manipulate the CSS of credit card input fields. Instead, the styling is controlled by the PSP UI.
