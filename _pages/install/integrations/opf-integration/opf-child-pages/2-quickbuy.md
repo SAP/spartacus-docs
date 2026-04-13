@@ -12,9 +12,7 @@ Quick Buy functionality is added to your storefront app when you install the ope
 
 ### CMS Components
 
-Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component.
-
-If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
+Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component. If you are using OPF CTA Quick Buy (for example, PayPal), CTAs are rendered through the `OpfCtaQuickBuyButtons` CMS component.
 
 ### Adding CMS Component Manually
 
@@ -23,9 +21,10 @@ To add all of the necessary CMS data for Quick Buy, import the following ImpEx:
 ```text
 INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType
 ;;OpfQuickBuyButtonsComponent;Opf Quick Buy Buttons Component;OpfQuickBuyButtonsComponent
+;;OpfCtaQuickBuyButtons;Opf Quick Buy CTA Buttons Component;OpfCtaQuickBuyButtons
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;cmsComponents(uid, $contentCV)
-;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
+;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;CartTotalsComponent,CartApplyCouponComponent,CartQuickOrderFormComponent,OpfCtaQuickBuyButtons,OpfQuickBuyButtonsComponent,CartProceedToCheckoutComponent
 ```
 
 **Note:** The `$contentCV` variable that is used in the above ImpEx example, and which stores information about the content catalog, is defined as follows:
@@ -92,3 +91,13 @@ The card parameters configuration for Google Pay is hard-coded in the `OpfGoogle
 ```
 
 For more information on extending services in Spartacus, see [Customizing Services](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/864a3158bf9f49c99e6196e4e0d27323.html?locale=en-US&version=2211#loioaaa415776447413e95bc5c8982049421).
+
+## OPF CTA Quick Buy
+
+In addition to the Google Pay and Apple Pay buttons provided by `OpfQuickBuyButtonsComponent`, OPF can also provide “Quick Buy” call-to-action (CTA) buttons (for example, PayPal) for the product details page (PDP) and the cart page. This is separate from the wallet Quick Buy implementation in `@spartacus/opf/quick-buy`.
+
+Composable Storefront renders OPF CTA Quick Buy CTAs through the `OpfCtaQuickBuyButtons` CMS component. Place this component on the relevant CMS page (for example, PDP or cart) where you want the PayPal CTA to appear.
+
+When the page loads, Composable Storefront requests the CTA payload based on where the customer is in the storefront (for example, PDP or cart). In the OPF Workbench, ensure that your payment provider is configured to return CTA scripts for the matching CTA script location. Otherwise, the component has nothing to render.
+
+OPF returns the CTA content as HTML along with JavaScript and CSS resource URLs. Composable Storefront renders the CTA container, loads the provided resources, and runs them in the browser to display.
