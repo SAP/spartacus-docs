@@ -14,6 +14,8 @@ Quick Buy functionality is added to your storefront app when you install the ope
 
 Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component. If you are using OPF CTA Quick Buy (for example, PayPal), CTAs are rendered through the `OpfCtaQuickBuyButtons` CMS component.
 
+If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
+
 ### Adding CMS Component Manually
 
 To add all of the necessary CMS data for Quick Buy, import the following ImpEx:
