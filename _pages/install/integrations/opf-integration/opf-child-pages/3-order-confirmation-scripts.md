@@ -1,10 +1,10 @@
 ---
-title: Order Confirmation Scripts
+title: Order Confirmation Scripts (CTA Scripts)
 ---
 
-Order confirmation scripts display feedback or instructions to customers after an order has been placed. For example, an order confirmation message might provide bank details or voucher codes for a delayed payment method, such as Boleto. Another example is providing customers with a direct debit mandate.
+Order confirmation scripts, also known as Call-to-Action (CTA) scripts, display feedback or instructions to customers after an order has been placed. For example, an order confirmation message might provide bank details or voucher codes for a delayed payment method, such as Boleto. Another example is providing customers with a direct debit mandate.
 
-Order confirmation scripts, also known as Call-to-Action (CTA) scripts, consist of a bundle that includes an HTML snippet with JS and CSS resource files.
+Order confirmation scripts consist of a bundle that includes an HTML snippet with JS and CSS resource files.
 
 Order confirmation scripts can be enabled on the Order Details page and the Order Confirmation page.
 

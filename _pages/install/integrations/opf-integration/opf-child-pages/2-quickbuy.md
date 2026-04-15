@@ -4,6 +4,8 @@ title: Quick Buy
 
 Quick Buy is a CMS-based feature that can display Google Pay and Apple Pay buttons on the cart page. Quick Buy allows users to easily purchase items in their cart, whether they are logged in or checking out as a guest.
 
+Starting with Spartacus version 221121.10, Quick Buy now also supports services such as PayPal. This functionality is described in [CTA Quick Buy](#cta-quick-buy), below.
+
 Before enabling Quick Buy in Spartacus, you must first enable the Quick Buy functionality in SAP Commerce Cloud. For more information, see [Configure Quick Buy for Google Pay](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/712bd315f3ff433f9580e55eabd1fcca.html) and [Configure Quick Buy for Apple Pay](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f8a/1f1b1a6072594d41867cb19e6677526f.html).
 
 ## Enabling Quick Buy in Spartacus
@@ -12,7 +14,7 @@ Quick Buy functionality is added to your storefront app when you install the ope
 
 ### CMS Components
 
-Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component. If you are using OPF CTA Quick Buy (for example, PayPal), CTAs are rendered through the `OpfCtaQuickBuyButtons` CMS component.
+Quick Buy is CMS-driven and consists of the `OpfQuickBuyButtonsComponent` component. If you are using CTA Quick Buy for services such as PayPal, CTAs are rendered through the `OpfCtaQuickBuyButtons` CMS component.
 
 If you are using the [Spartacus Sample Data Extension](link), the Quick Buy component is already enabled. However, if you decide not to use the `spartacussampledata` extension, you can enable the Quick Buy CMS component manually through ImpEx.
 
@@ -94,12 +96,12 @@ The card parameters configuration for Google Pay is hard-coded in the `OpfGoogle
 
 For more information on extending services in Spartacus, see [Customizing Services](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/864a3158bf9f49c99e6196e4e0d27323.html?locale=en-US&version=2211#loioaaa415776447413e95bc5c8982049421).
 
-## OPF CTA Quick Buy
+## CTA Quick Buy
 
-In addition to the Google Pay and Apple Pay buttons provided by `OpfQuickBuyButtonsComponent`, OPF can also provide “Quick Buy” call-to-action (CTA) buttons (for example, PayPal) for the product details page (PDP) and the cart page. This is separate from the wallet Quick Buy implementation in `@spartacus/opf/quick-buy`.
+In addition to the Google Pay and Apple Pay buttons provided by the `OpfQuickBuyButtonsComponent`, starting with Spartacus version 221121.10, OPF also provides a “Quick Buy” call-to-action (CTA) button for the product details page and the cart page. This CTA Quick Buy, which can be used with services such as PayPal, is separate from the wallet Quick Buy implementation in `@spartacus/opf/quick-buy`.
 
-Composable Storefront renders OPF CTA Quick Buy CTAs through the `OpfCtaQuickBuyButtons` CMS component. Place this component on the relevant CMS page (for example, PDP or cart) where you want the PayPal CTA to appear.
+Spartacus renders Quick Buy CTAs through the `OpfCtaQuickBuyButtons` CMS component. Place this component on the relevant CMS page where you want the PayPal CTA to appear, such as the product details page or the cart.
 
-When the page loads, Composable Storefront requests the CTA payload based on where the customer is in the storefront (for example, PDP or cart). In the OPF Workbench, ensure that your payment provider is configured to return CTA scripts for the matching CTA script location. Otherwise, the component has nothing to render.
+When the page loads, Spartacus requests the CTA payload based on where the customer is in the storefront (for example, the product details page or the cart). In the OPF Workbench, ensure that your payment provider is configured to return CTA scripts for the matching CTA script location. Otherwise, the component has nothing to render.
 
-OPF returns the CTA content as HTML along with JavaScript and CSS resource URLs. Composable Storefront renders the CTA container, loads the provided resources, and runs them in the browser to display.
+OPF returns the CTA content as HTML, along with the JavaScript and CSS resource URLs. Spartacus renders the CTA container, loads the provided resources, and runs them in the browser to display.
