@@ -1,13 +1,13 @@
 ---
 title: Media Component
 feature:
-  - name: Media Component
-    spa_version: 2.0
-    cx_version: n/a
-  - name: Image Lazy Loading
-    spa_version: 3.0
-    cx_version: n/a
-    anchor: "#image-lazy-loading"
+- name: Media Component
+  spa_version: 2.0
+  cx_version: n/a
+- name: Image Lazy Loading
+  spa_version: 3.0
+  cx_version: n/a
+  anchor: "#image-lazy-loading"
 ---
 
 {% capture version_note %}
@@ -22,14 +22,14 @@ There are two main types of images that are rendered in Spartacus: product image
 
 **Note:** Icons are a special type of image and are not rendered with the media component. For more information, see [{% assign linkedpage = site.pages | where: "name", "icon-library.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/styling-and-page-layout/icon-library.md %}).
 
----
+***
 
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
   {:toc}
 
----
+***
 
 ## Responsive Media
 
@@ -328,50 +328,52 @@ Another important aspect for SEO is the usage of the alternative (`alt`) text fo
 
 ## Configuring the Media Base URL and Media Prefix
 
-The [BackendConfig](https://github.com/SAP/spartacus/blob/aec865bb4ecec20e123459d912e6218a01ea14f8/projects/core/src/occ/config/occ-config.ts#L13) interface is defining an extension points allowing customers to configure the _backend connection settings for the OCC API calls_ as well as _media asset loading_ within Spartacus.
+In the `projects/core/src/occ/config/occ-config.ts` file, the `BackendConfig` interface defines extension points that allow customers to configure the backend connection settings for OCC API calls, as well as how media asset loading behaves within Spartacus.
 
-Starting with Spartacus version 221121.10, you can configure the `media.baseUrl` and the `media.prefix` to control how the media assets loading in Spartacus works:
+Starting with Spartacus version 221121.10, you can configure the `media.baseUrl` and the `media.prefix` to control how media asset loading works in Spartacus, as described in the following table:
 
-| Property        | Description                        |                                       Default value | Controled via Feature Flag |
-| :-------------- | :--------------------------------- | --------------------------------------------------: | -------------------------: |
-| `media.baseUrl` | Separate base URL for media assets | `occ.baseUrl` or `''` (if `occ.baseUrl` is not set) |                            |
-| `media.prefix`  | Path prefix for media URLs         |                                                `''` |        `enableMediaPrefix` |
+| Property | Description | Default value | Feature Flag |
+| --- | --- | --- | --- |
+| `media.baseUrl` | Separate base URL for media assets | `occ.baseUrl` or `''` (if `occ.baseUrl` is not defined) | None |
+| `media.prefix` | Path prefix for media URLs | `''` | `enableMediaPrefix` |
 
-Example Usage:
+**Note:** If you have upgraded your storefront to version 221121.10, to use the `media.prefix` property, you need to ensure the `enableMediaPrefix` is set to `true` in your `spartacus-features.module.ts` file. For newly installed storefront apps that are version 221121.10 or newer, this feature toggle is already enabled. For more information, see [Activating Enable Media Prefix](link-to-be-added-after-conversion-to-doc-tool).
+
+The following is an example of how you can configure these media properties:
 
 ```ts
 provideConfig({
   backend: {
     // ...
     media: {
-      baseUrl: "https://cdn.example.com", // Optional: separate media host
-      prefix: "/medias", // Optional: media path prefix (appended to the media.backendUrl)
+      baseUrl: "https://cdn.example.com", // Optional separate media host
+      prefix: "/media", // Optional media path prefix (appended to the media.backendUrl)
     },
   },
 });
 ```
 
-With the above example's configuration Spartacus will try to resolve any media (which is defined using the relative path within the CMS or the application code) by prepending it with the `https://cdn.example.com/medias`. Meaning if the media path in the Bacoffice CMS is stored as `/HeroBanner-1-widescreen-en.jpg` Spartacus `MediaService` would resolve the media path to the `https://cdn.example.com/medias/HeroBanner-1-widescreen-en.jpg`).
+With the configuration shown above, Spartacus tries to resolve any media (which is defined using the relative path within the CMS or the application code) by prepending it with `https://cdn.example.com/media`. In other words, if the media path in Backoffice is defined as `/HeroBanner-1-widescreen-en.jpg`, then in Spartacus, the `MediaService` resolves the media path to `https://cdn.example.com/media/HeroBanner-1-widescreen-en.jpg`.
 
-### Media configuration via Environment Variables
+### Using Environment Variables for Media Configuration
 
-Spartacus Environment Model ([environment.model.ts](https://github.com/SAP/spartacus/blob/aec865bb4ecec20e123459d912e6218a01ea14f8/projects/storefrontapp/src/environments/models/environment.model.ts#L7)) defines two optional properties for controlling above mentioned Media configuration attributes and these are:
+In the `projects/storefrontapp/src/environments/models/environment.model.ts`, the `Environment` interface defines two optional properties for controlling the media configuration properties, as follows:
 
-| Property         | Description                                                       | Maps to BackendConfig |
-| :--------------- | :---------------------------------------------------------------- | --------------------: |
-| `mediaBaseUrl`   | Sets the media base Url value                                     |       `media.baseUrl` |
-| `mediaApiPrefix` | Appends prefix to base URL (requires `enableMediaPrefix` feature) |        `media.prefix` |
+- `mediaBaseUrl` sets the media base URL value, and maps to the `media.baseUrl` backend config.
+- `mediaApiPrefix` appends a prefix to the base URL, and maps to the `media.prefix` backend config.
 
-If both of the above prooperties are `undefined` the media resolution would fall back to `occBaseUrl` value.
+If both of these properties are `undefined`, the media resolution falls back to the `occBaseUrl` value.
 
-Example Usage:
+The following is an example of how you can configure these properties:
 
 ```ts
 export const environment: Environment = {
   occBaseUrl: "https://api.example.com",
   occApiPrefix: "/occ/v2/",
-  mediaBaseUrl: "https://cdn.example.com", // Optional: CDN for media
-  mediaApiPrefix: "/medias", // Optional: media path
+  mediaBaseUrl: "https://cdn.example.com", // Optional CDN for media
+  mediaApiPrefix: "/media", // Optional media path
   // ...
 };
 ```
+
+**Note:** As described above for the `media.prefix`, to use the `mediaApiPrefix`, you need to ensure that the `enableMediaPrefix` feature toggle is set to `true` in your `spartacus-features.module.ts` file.
