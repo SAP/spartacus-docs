@@ -102,6 +102,28 @@ In addition to the Google Pay and Apple Pay buttons provided by the `OpfQuickBuy
 
 Spartacus renders Quick Buy CTAs through the `OpfCtaQuickBuyButtons` CMS component. Place this component on the relevant CMS page where you want the PayPal CTA to appear, such as the product details page or the cart.
 
-When the page loads, Spartacus requests the CTA payload based on where the customer is in the storefront (for example, the product details page or the cart). In the OPF Workbench, ensure that your payment provider is configured to return CTA scripts for the matching CTA script location. Otherwise, the component has nothing to render.
+When the page loads, Spartacus requests the CTA payload based on where the customer currently is in the storefront (for example, the product details page or the cart). In the OPF Workbench, ensure that your payment provider is configured to return CTA scripts for the **matching CTA script location**. Otherwise, the component has nothing to render.
 
-OPF returns the CTA content as HTML, along with the JavaScript and CSS resource URLs. Spartacus renders the CTA container, loads the provided resources, and runs them in the browser to display.
+To ensure the CTA script location matches where the CTA Quick Buy component is rendered in Spartacus, verify the configuration in the OPF Workbench as follows:
+
+1. Log in to the OPF Workbench.
+2. Go to **Payment Integrations**.
+3. Select the integration that you want to configure, and then choose **Show details**.
+
+   ![OPF Workbench - Payment Integrations]({{ site.baseurl }}/assets/images/opf/quickbuy/workbench-quickbuy-cta-step-1.png)
+
+4. In **Authorization**, choose **Edit**.
+
+   ![OPF Workbench - Integration details]({{ site.baseurl }}/assets/images/opf/quickbuy/workbench-quickbuy-cta-step-2.png)
+
+5. In the **Authorization** tab, from the dropdown menu, choose **Payment Call-to-Action Configuration**.
+
+   ![OPF Workbench - Edit authorization]({{ site.baseurl }}/assets/images/opf/quickbuy/workbench-quickbuy-cta-step-3.png)
+
+6. In the **Consumer Facing Component Assignment** section, select **Cart Button** to display the script in the Quick Buy component on the cart page and then click **Save**.
+
+   ![OPF Workbench - Payment Call-to-Action Configuration]({{ site.baseurl }}/assets/images/opf/quickbuy/workbench-quickbuy-cta-step-4.png)
+
+7. Ensure that your CTA configuration is enabled in the **Enablement** section.
+
+OPF returns the CTA content as HTML, along with the JavaScript and CSS resource URLs. Spartacus renders the CTA quick buy container, loads the provided resources, and runs them in the browser to display.
