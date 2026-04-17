@@ -27,7 +27,7 @@ There are two main types of images that are rendered in Spartacus: product image
 **Table of Contents**
 
 - This will become a table of contents (this text will be scrapped).
-{:toc}
+  {:toc}
 
 ***
 
@@ -97,17 +97,17 @@ If the image container only contains a single image, `cx-media` automatically re
 ### Configuring Manual Width and Height Attributes for Images
 
 You can manually set the width and height attributes for images to improve page performance and Core Web Vitals. To do this, extend the image object with `width` and `height` properties, as shown in the following example:
-  
+
 ```ts
-export interface Image { 
-  altText?: string; 
-  role?: string; 
-  format?: string; 
-  galleryIndex?: number; 
-  imageType?: ImageType; 
-  url?: string; 
-  width?: number; // Allows manual width setting 
-  height?: number; // Allows manual height setting 
+export interface Image {
+  altText?: string;
+  role?: string;
+  format?: string;
+  galleryIndex?: number;
+  imageType?: ImageType;
+  url?: string;
+  width?: number; // Allows manual width setting
+  height?: number; // Allows manual height setting
 }
 ```
 
@@ -125,7 +125,7 @@ The following is an example:
 ```
 
 The above configuration renders the following HTML:
-  
+
 ```html
 <img
   srcset="test.jpg 480w, test-800w.jpg 800w"
@@ -182,25 +182,33 @@ This above configuration renders the following HTML:
   <source
     media="(max-width: 480px)"
     srcset="
-      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg" />
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg
+    "
+  />
   <source
     media="(max-width: 770px)"
     srcset="
-      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-770x350-HomeSpeed-EN-01-770W.jpg" />
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-770x350-HomeSpeed-EN-01-770W.jpg
+    "
+  />
   <source
     media="(max-width: 960px)"
     srcset="
-      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-960x330-HomeSpeed-EN-01-960W.jpg" />
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-960x330-HomeSpeed-EN-01-960W.jpg
+    "
+  />
   <source
     media="(min-width: 961px)"
     srcset="
-      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg" />
-<img
+      https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg
+    "
+  />
+  <img
     loading="null"
     alt="Save Big On Select SLR DSLR Cameras"
     title="Save Big On Select SLR DSLR Cameras"
     src="https://composable-storefront-demo.eastus.cloudapp.azure.com:8443/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg"
-/>
+  />
 </picture>
 ```
 
@@ -227,7 +235,7 @@ export const mediaConfig: MediaConfig = {
 };
 ```
 
-**Note:** These are separate configuration objects.  The `pictureElementFormats` property is used to define formats with media queries for the `<picture>` HTML tag, while `mediaConfig` is used to define formats with width descriptors for the `<img>` HTML tag.
+**Note:** These are separate configuration objects. The `pictureElementFormats` property is used to define formats with media queries for the `<picture>` HTML tag, while `mediaConfig` is used to define formats with width descriptors for the `<img>` HTML tag.
 
 ## Implementation Details for Spartacus 2211.29 and older
 
@@ -237,9 +245,9 @@ The `cx-media` media component renders images with the native `picture` HTML ele
 
 The `picture` element allows the specification of multiple image sources within nested source elements, facilitating precise control over which image is displayed, based on the browser's current conditions.
 
-While the `picture` element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match, or if the browser does not support the `picture` element. 
+While the `picture` element offers extensive customization for image selection based on various factors, it maintains compatibility by including an `img` element as a fallback. This ensures that an image is displayed even in scenarios where no source elements match, or if the browser does not support the `picture` element.
 
-The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The main image `src` and the various image descriptions for the `srcset`  are collected by the `MediaService`. This service compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and the `srcset` is generated for the `picture` element, so that the browser can select and download the correct image.
+The mapping from an image format to the `srcset` width descriptor is driven by the media configuration in Spartacus. The main image `src` and the various image descriptions for the `srcset` are collected by the `MediaService`. This service compares the images from the media container with a configuration set of media formats and their sizes. The matching sizes are collected and sorted, and the `srcset` is generated for the `picture` element, so that the browser can select and download the correct image.
 
 You can provide a custom configuration using the `MediaConfig` typing. The following is an example of the default media configuration:
 
@@ -268,8 +276,8 @@ To enable the legacy approach of using `<img>` tags by default, you need to prov
 
 ```ts
 provideConfig(<MediaConfig>{
-    useLegacyMediaComponent: true,
-})
+  useLegacyMediaComponent: true,
+});
 ```
 
 **Note:** Starting with Spartacus 2211.31, the `USE_LEGACY_MEDIA_COMPONENT` token and `useLegacyMediaComponent` are deprecated.
@@ -291,7 +299,7 @@ If no matching image format is available in the media container, nor in the medi
 Images can be created with a lazy loading strategy, as follows:
 
 ```html
-<img src="..." loading="lazy">
+<img src="..." loading="lazy" />
 ```
 
 This lazy loading strategy is a relatively new browser capability that was [adopted recently in various browsers](https://caniuse.com/loading-lazy-attr). The lazy loading strategy is used to defer the loading of the image if it is not in the viewport. When the user scrolls down the page, the image is loaded automatically.
@@ -302,8 +310,8 @@ The lazy loading strategy is not enabled by default, but can be configured using
 
 ```ts
 provideConfig({
-  imageLoadingStrategy: ImageLoadingStrategy.LAZY
-} as MediaConfig)
+  imageLoadingStrategy: ImageLoadingStrategy.LAZY,
+} as MediaConfig);
 ```
 
 For more information, see [{% assign linkedpage = site.pages | where: "name", "deferred-loading.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/deferred-loading.md %}) and [{% assign linkedpage = site.pages | where: "name", "above-the-fold.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/performance/above-the-fold.md %}).
@@ -317,3 +325,55 @@ To ensure that crawlers get an optimized image from the `img` element, the main 
 Note that the actual image for the page is not driven by the `img` element, because crawlers will use other sources to indicate the image. Spartacus supports both page meta tags (for example, `'og:image'`) and structural data (`json-ld`) to provide that data to crawlers. For more information, see [{% assign linkedpage = site.pages | where: "name", "html-tags.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/html-tags.md %}) and [{% assign linkedpage = site.pages | where: "name", "structured-data.md" %}{{ linkedpage[0].title }}]({{ site.baseurl }}{% link _pages/dev/seo/structured-data.md %}).
 
 Another important aspect for SEO is the usage of the alternative (`alt`) text for images. The `alt` text is automatically selected by the `MediaService` if it is available in the media container data. However, you can also input a custom `alt` text through the component input.
+
+## Configuring the Media Base URL and Media Prefix
+
+In the `projects/core/src/occ/config/occ-config.ts` file, the `BackendConfig` interface defines extension points that allow customers to configure the backend connection settings for OCC API calls, as well as how media asset loading behaves within Spartacus.
+
+Starting with Spartacus version 221121.10, you can configure the `media.baseUrl` and the `media.prefix` to control how media asset loading works in Spartacus, as described in the following table:
+
+| Property | Description | Default value | Feature Flag |
+| --- | --- | --- | --- |
+| `media.baseUrl` | Separate base URL for media assets | `occ.baseUrl` or `''` (if `occ.baseUrl` is not defined) | None |
+| `media.prefix` | Path prefix for media URLs | `''` | `enableMediaPrefix` |
+
+**Note:** If you have upgraded your storefront to version 221121.10, to use the `media.prefix` property, you need to ensure the `enableMediaPrefix` is set to `true` in your `spartacus-features.module.ts` file. For newly installed storefront apps that are version 221121.10 or newer, this feature toggle is already enabled. For more information, see [Activating Enable Media Prefix](link-to-be-added-after-conversion-to-doc-tool).
+
+The following is an example of how you can configure these media properties:
+
+```ts
+provideConfig({
+  backend: {
+    // ...
+    media: {
+      baseUrl: "https://cdn.example.com", // Optional separate media host
+      prefix: "/media", // Optional media path prefix (appended to the media.backendUrl)
+    },
+  },
+});
+```
+
+With the configuration shown above, Spartacus tries to resolve any media (which is defined using the relative path within the CMS or the application code) by prepending it with `https://cdn.example.com/media`. In other words, if the media path in Backoffice is defined as `/HeroBanner-1-widescreen-en.jpg`, then in Spartacus, the `MediaService` resolves the media path to `https://cdn.example.com/media/HeroBanner-1-widescreen-en.jpg`.
+
+### Using Environment Variables for Media Configuration
+
+In the `projects/storefrontapp/src/environments/models/environment.model.ts`, the `Environment` interface defines two optional properties for controlling the media configuration properties, as follows:
+
+- `mediaBaseUrl` sets the media base URL value, and maps to the `media.baseUrl` backend config.
+- `mediaApiPrefix` appends a prefix to the base URL, and maps to the `media.prefix` backend config.
+
+If both of these properties are `undefined`, the media resolution falls back to the `occBaseUrl` value.
+
+The following is an example of how you can configure these properties:
+
+```ts
+export const environment: Environment = {
+  occBaseUrl: "https://api.example.com",
+  occApiPrefix: "/occ/v2/",
+  mediaBaseUrl: "https://cdn.example.com", // Optional CDN for media
+  mediaApiPrefix: "/media", // Optional media path
+  // ...
+};
+```
+
+**Note:** As described above for the `media.prefix`, to use the `mediaApiPrefix`, you need to ensure that the `enableMediaPrefix` feature toggle is set to `true` in your `spartacus-features.module.ts` file.
