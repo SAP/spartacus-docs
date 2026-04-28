@@ -6,34 +6,44 @@ feature:
   cx_version: 2211-jdk21.11
 ---
 
-Federated Login is an enhancement to the Custom Login Page support in Spartacus that allows using a single Spartacus instance to serve as the login page for multiple different domains.  
+Federated Login is an enhancement to the Custom Login Page support in Spartacus that allows using a single Spartacus instance to serve as the login page for multiple different domains.
 
-## When to use this feature
-One of the restrictions in using the Custom Login Page feature of CCv2 is that the storefront and authorization server must be on the same domain or Site.  The recommended way to achieve this is to move the OCC API to the same domain, through either reverse-proxying requests from `/api/**` or setting up `api.*` subdomains.  This would need to be done for each storefront domain that is different than the APIs domain.
+# When to use this feature
+One of the restrictions in using the Custom Login Page feature of CCv2 is that the storefront and authorization server must be on the same domain or Site.
 
-i.e.  Using sub-domain
+i.e.  Incompatible hosting for Custom Login Page
 ```
-          Before                               After
-Storefront  |  OCC API               Storefront  | OCC API (host)  | OCC API (path)
-------------|-----------------       ------------|-----------------|------------------
-brand1.com  | api.backend.com        brand1.com  | api.brand1.com  | brand1.com/api/  
-brand1.jp   |        "               brand1.jp   | api.brand1.jp   | brand1.jp/api/   
-brand2.com  |        "               brand2.com  | api.brand2.com  | brand2.com/api/  
-brand2.jp   |        "               brand2.jp   | api.brand2.jp   | brand2.jp/api/   
+Storefront  |  OCC API        
+------------|---------------- 
+brand1.com  | api.backend.com 
+brand1.jp   |        "        
+brand2.com  |        "        
+brand2.jp   |        "        
+```
+
+The recommended way to create a valid hosting arrangement is to host the OCC API to the same domain through either reverse-proxying requests from a path like `/api/**` or from a sub-domain like `api.*`.  This would need to be done for each storefront domain that is different than the APIs domain.
+
+i.e.  Valid hosting for Custom Login Page
+```
+Storefront  | OCC API (host option)  | OCC API (path option)
+------------|------------------------|----------------------
+brand1.com  | api.brand1.com         | brand1.com/api/  
+brand1.jp   | api.brand1.jp          | brand1.jp/api/   
+brand2.com  | api.brand2.com         | brand2.com/api/  
+brand2.jp   | api.brand2.jp          | brand2.jp/api/   
 ```
 
 If the recommended approach is not feasible, the Federated Login feature provides an alternative.  Instead of making the API accessible at each individual domain, we use a single new storefront as the login page provider for all the other storefront domains.  This "login storefront" will be the only instance required to be on the same domain, reducing the hosting complexity.
 
-i.e.  Using federated login
+i.e.  Valid hosting using federated login
 ```
-          Before                                     After
-Storefront  |  OCC API               Storefront        | OCC API
-------------|-----------------       ------------------|-----------------
-brand1.com  | api.backend.com        brand1.com        | api.backend.com
-brand1.jp   |        "               brand1.jp         |        "       
-brand2.com  |        "               brand2.com        |        "       
-brand2.jp   |        "               brand2.jp         |        "       
-                                     login.backend.com | api.backend.com
+Storefront        | OCC API
+------------------|-----------------
+brand1.com        | api.backend.com
+brand1.jp         |        "       
+brand2.com        |        "       
+brand2.jp         |        "       
+login.backend.com | api.backend.com
 ```
 
 With Federated login implemented, the complete login process is:
