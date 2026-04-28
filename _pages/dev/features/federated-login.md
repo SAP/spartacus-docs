@@ -95,6 +95,11 @@ The `originsMap` is a map of key and origin pairs that correspond to the storefr
 #### 1. Authorize parameters
 Add the context parameter to the list of allow parameters on the authorize request.  The value of property `authserver.authorizationCode.allowed.params` needs to be extended with the context parameter name configured in Spartacus.  The default value is "ctx".
 
+i.e. Default value of allowed params with "ctx" added
+```
+authserver.authorizationCode.allowed.params=client_id,client_secret,response_type,redirect_uri,scope,state,code_challenge,code_challenge_method,nonce,continue,_csrf,ctx
+```
+
 #### 2. Allowed hosts
 Add the host of the login page(es) to the list of allowed Custom Login Page hosts.  This is required for later configuration of the OAuthClientDetails.
 Property `authserver.oauthclientdetails.loginpageuri.allowed.hosts`.
