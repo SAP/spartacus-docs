@@ -78,9 +78,10 @@ import { type FederatedLoginConfig } from '@spartacus/core';
         enabled: true,
         loginHosts: ['login.backend.com'],
         originMap: {
-          sf1: 'https://storefront1.com',
-          sf2: 'https://stroefront2.com',
-          sf3: 'https://storefront3.com',
+          sf1: 'https://brand1.com',
+          sf2: 'https://brand1.jp',
+          sf3: 'https://brand2.com',
+          sf4: 'https://brand2.jp',
         },
       },
     }),
