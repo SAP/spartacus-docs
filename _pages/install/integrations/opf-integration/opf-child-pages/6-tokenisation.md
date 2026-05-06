@@ -39,3 +39,25 @@ c. Guard: authenticated users only
 Impact :
 a. If AccountPaymentDetailsComponent is already on the account payment page, OPF tokenisation takes over rendering.
 b. Customers get tokenised card management (view/set default/delete) with tokenisation-specific UI behavior.
+
+## Tokenisation Folder Structure
+
+tokenisation → Feature package root
+    components → Shared components module exports
+    core → Core feature logic
+        connectors → Connector/adapter contracts
+        facade → Facade implementation/providers
+        tokens → DI and converter tokens
+    root → Runtime integration layer
+        adapters → OCC adapter customization
+        components → Checkout + My Account UI
+            opf-tokenisation-saved-cards-toggle → Saved cards payment option (radio)
+            opf-tokenisation-payment-method → Saved cards list/actions in checkout
+            opf-tokenisation-new-payments-heading → New payment section heading
+            opf-tokenisation-account-payment-methods → My Account payment methods UI
+        facade → Public root facade contract
+        model → Context and payment models
+        services → Saved-cards state/transition services
+        utils → Utility helpers
+    styles → Feature style entry
+    components → Component SCSS placeholders
