@@ -59,7 +59,7 @@ With Federated login implemented, the complete login process is:
 ## Requirements and Restrictions
 
 - A new login storefront domain that is on the same domain/Site as the OCC APIs
-- CMS base site for each domain
+- A single CMS base site for each domain
 - Redesigned login page CMS data to use only absolute links
 - List of origins embedded in spartacus data
 
@@ -110,7 +110,7 @@ Add the appropriate values to `corsfilter.authorizationserver.allowedOrigins`.
 #### 2. OAuthClientDetails 
 In Backoffice or via Impex, update the OAuthClientDetails for the storefronts that we want to use federated login with.  Set the Custom Login Page to the login host with the path `/login?ctx={ctx}`.  For example, with a host of "login.backend.com", the full value would be "https://login.backend.com/login?ctx={ctx}".
 
-See Custom Login Placeholders --LINK TBD-- for more details on modifying the placeholder names or behaviors.
+See [Extensible Placeholders](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/ca1176a372b242a6abd75a39fe803eea.html?state=DRAFT&q=loio89c86d4e1116457486db2b78fe539db9#extensible-placeholder-mechanism-for-login-page-uris) for more details on placeholder configuration and behavior.
 
 
 
