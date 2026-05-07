@@ -105,7 +105,12 @@ Add the host of the login page(es) to the list of allowed Custom Login Page host
 Property `authserver.oauthclientdetails.loginpageuri.allowed.hosts`.
 
 #### 3. CORS filters
-Add the appropriate values to `corsfilter.authorizationserver.allowedOrigins`.
+Add the origin for both the login storefront and all other storefronts to `corsfilter.authorizationserver.allowedOrigins`.
+
+i.e.
+```
+corsfilter.authorizationserver.allowedOrigins=https://login.backend.com https://brand1.com https://brand1.jp https://brand2.com https://brand2.jp
+```
 
 #### 2. OAuthClientDetails 
 In Backoffice or via Impex, update the OAuthClientDetails for the storefronts that we want to use federated login with.  Set the Custom Login Page to the login host with the path `/login?ctx={ctx}`.  For example, with a host of "login.backend.com", the full value would be "https://login.backend.com/login?ctx={ctx}".
