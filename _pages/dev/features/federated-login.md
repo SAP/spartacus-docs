@@ -60,7 +60,9 @@ The federated login feature has the following requirements and restrictions:
 
 - You must set up a new "login storefront" domain that is on the same domain or site as the OCC APIs.
 - A single CMS base site is required for each domain.
-- You need to redesign the login page CMS data to use only absolute links.
+- You need to redesign the login page CMS.
+  - Link data should use only absolute links.  Relative links in copy will not have the correct base URL.
+  - Remove Mini-Cart from page structure.  Cart data is not transferred to login domain in the context.
 - You need a list of origins embedded in the Spartacus data.
 
 ## Configuring Federated Login in Spartacus
@@ -123,6 +125,16 @@ The following procedure describes how to configure SAP Commerce Cloud to use fed
 For more details about placeholder configuration and behavior, see [Extensible Placeholder Mechanism for Login Page URIs](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/aa417173fe4a4ba5a473c93eb730a417/ca1176a372b242a6abd75a39fe803eea.html?state=DRAFT&q=loio89c86d4e1116457486db2b78fe539db9#extensible-placeholder-mechanism-for-login-page-uris).
 
 ## Recommendations
+
+### Login page design
+It is recommended to pare down the CMS structure for the login page.  This recommendation is driven by the two main technical limitations, relative links will have incorrect base URL and lack of cart data.  Reducing the login page to only the necessary components and links reduces the CMS configuration challenges when using Federated Login.
+
+It could be confusing to the customer to suddenly see an incorrect cart counter on the login page, so removing cart counters and mini-carts are suggested.  
+
+Relative links not tied to the angular router, i.e. anchor tags in CMS copy, are not guaranteed to link properly to the originating domain.  These should be replaced with absolute links if possible.
+
+
+### Isolating testing values
 
 It is recommended that you use Angular's environments feature to isolate development, staging, and production origin maps. This helps prevent you from including development configurations and publicizing staging origins. The downside of this approach is that you need to make separate builds for staging and production.
 
