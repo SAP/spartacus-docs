@@ -156,3 +156,19 @@ import { environment } from '../../environments/environment';
 ```
 
 For more information, see [Configuring application environments](https://angular.dev/tools/cli/environments) in the official Angular documentation.
+
+### Asymmetric configuration
+
+If your build process supports multiple builds with unique configurations for each storefront, you can further minimize the origin data embedded in the storefront scripts.
+
+The federated login instance requires the login hosts array and the entire origin map for every storefront being served.  This amounts to the complete configuration.  A storefront, on the other hand, only requires the key-value pair for itself in the origin map.  It does not require any entries in the login hosts array.
+
+i.e. `spartacus-configuration.module.ts` with asymmetric configuration for the build of brand1.com
+```typescript
+    provideConfig(<FederatedLoginConfig>{
+      federatedLogin: {
+        enabled: true,
+        originMap: {'sf1': 'https://brand1.com'},
+      },
+    }),
+```
