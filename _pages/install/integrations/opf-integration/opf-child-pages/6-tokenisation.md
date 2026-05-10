@@ -11,7 +11,7 @@ It supports two key flows:
 
 ## Enabling Tokenisation in Spartacus
 
-Tokenisation functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md).
+Tokenisation functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md). Note that Tokenisation is not enabled by default and must be explicitly selected during the schematics installation.
 
 After installation, tokenisation is available through OPF modules and configuration.
 
@@ -40,28 +40,6 @@ b. If a user selected a saved card and then moves to another payment option, che
 Impact :
 a. If AccountPaymentDetailsComponent is already on the account payment page, OPF tokenisation takes over rendering.
 b. Customers get tokenised card management (view/set default/delete) and expiry indicators with tokenisation-specific UI behavior.
-
-## Tokenisation Folder Structure
-
-tokenisation → Feature package root
-components → Shared components module exports
-core → Core feature logic
-connectors → Connector/adapter contracts
-facade → Facade implementation/providers
-tokens → DI and converter tokens
-root → Runtime integration layer
-adapters → OCC adapter customization
-components → Checkout + My Account UI
-opf-tokenisation-saved-cards-toggle → Saved cards payment option (radio)
-opf-tokenisation-payment-method → Saved cards list/actions in checkout
-opf-tokenisation-new-payments-heading → New payment section heading
-opf-tokenisation-account-payment-methods → My Account payment methods UI
-facade → Public root facade contract
-model → Context and payment models
-services → Saved-cards state/transition services
-utils → Utility helpers
-styles → Feature style entry
-components → Component SCSS placeholders
 
 ## Runtime Behavior
 
