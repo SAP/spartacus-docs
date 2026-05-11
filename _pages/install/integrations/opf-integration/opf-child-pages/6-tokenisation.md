@@ -37,6 +37,17 @@ b. If a user selected a saved card and then moves to another payment option, che
    b. Mapped Spartacus component: OpfTokenisationAccountPaymentMethodsComponent
    c. Guard: authenticated users only
 
+   You can enable the Tokenisation CMS component manually through ImpEx.
+
+   ### Adding CMS Component Manually
+
+   To add all of the necessary CMS data for Tokenisation, import the following ImpEx:
+
+    ```text
+    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
+    ;;AccountPaymentDetailsComponent;Account Payment Details Component;AccountPaymentDetailsComponent;AccountPaymentDetailsComponent
+    ```
+
 Impact :
 a. If AccountPaymentDetailsComponent is already on the account payment page, OPF tokenisation takes over rendering.
 b. Customers get tokenised card management (view/set default/delete) and expiry indicators with tokenisation-specific UI behavior.
