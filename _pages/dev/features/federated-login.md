@@ -61,8 +61,8 @@ The federated login feature has the following requirements and restrictions:
 - You must set up a new "login storefront" domain that is on the same domain or site as the OCC APIs.
 - A single CMS base site is required for each domain.
 - You need to redesign the login page CMS.
-  - Link data should use only absolute links.  Relative links in copy will not have the correct base URL.
-  - Remove Mini-Cart from page structure.  Cart data is not transferred to login domain in the context.
+  - Link data should only use absolute links. Relative links that appear within the text of a paragraph component, for example will not have the correct base URL.
+  - Remove the mini-cart from page structure. Cart data is not transferred  in the context to the login domain.
 - You need a list of origins embedded in the Spartacus data.
 
 ## Configuring Federated Login in Spartacus
@@ -126,15 +126,15 @@ For more details about placeholder configuration and behavior, see [Extensible P
 
 ## Recommendations
 
-### Login page design
-It is recommended to pare down the CMS structure for the login page.  This recommendation is driven by the two main technical limitations, relative links will have incorrect base URL and lack of cart data.  Reducing the login page to only the necessary components and links reduces the CMS configuration challenges when using Federated Login.
+### Login Page Design
 
-It could be confusing to the customer to suddenly see an incorrect cart counter on the login page, so removing cart counters and mini-carts are suggested.  
+It is recommended that you simplify the CMS structure for the login page as much as possible. The main reasons for doing so are that relative links do not contain the correct base URL, and also lack cart data. By reducing the login page to only the necessary components and links, you can reduce the challenges with CMS configuration when using the federated login feature.
 
-Relative links not tied to the angular router, i.e. anchor tags in CMS copy, are not guaranteed to link properly to the originating domain.  These should be replaced with absolute links if possible.
+For example, it could be confusing to the customer to suddenly see an incorrect cart counter on the login page, so removing cart counters and mini-carts is recommended.  
 
+As for relative links, if these are not tied to the Angular router (such as anchor tags in the text of a paragraph component, for example), the links are not guaranteed to resolve properly to the originating domain. As a result, relative links should be replaced with absolute links, where possible.
 
-### Isolating testing values
+### Isolating Testing Values
 
 It is recommended that you use Angular's environments feature to isolate development, staging, and production origin maps. This helps prevent you from including development configurations and publicizing staging origins. The downside of this approach is that you need to make separate builds for staging and production.
 
@@ -157,13 +157,14 @@ import { environment } from '../../environments/environment';
 
 For more information, see [Configuring application environments](https://angular.dev/tools/cli/environments) in the official Angular documentation.
 
-### Asymmetric configuration
+### Asymmetric Configuration
 
-If your build process supports multiple builds with unique configurations for each storefront, you can further minimize the origin data embedded in the storefront scripts.
+If your build process supports multiple builds, with unique configurations for each storefront, you can further minimize the origin data embedded in the storefront scripts.
 
-The federated login instance requires the login hosts array and the entire origin map for every storefront being served.  This amounts to the complete configuration.  A storefront, on the other hand, only requires the key-value pair for itself in the origin map.  It does not require any entries in the login hosts array.
+The "login storefront" requires the login hosts array and the entire origin map for every storefront being served. This amounts to the complete configuration. Any other storefront in a federated login setup only requires the key-value pair for itself in the origin map. It does not require any entries in the login hosts array.
 
-i.e. `spartacus-configuration.module.ts` with asymmetric configuration for the build of brand1.com
+The following is an example of the `spartacus-configuration.module.ts` file with asymmetric configuration for the build of `brand1.com`:
+
 ```typescript
     provideConfig(<FederatedLoginConfig>{
       federatedLogin: {
