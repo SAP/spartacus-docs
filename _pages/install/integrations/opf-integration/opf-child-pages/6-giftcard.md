@@ -238,37 +238,3 @@ The `OpfGiftCardAppliedComponent` lists applied cards with remove buttons. Click
 | `OpfGiftCardOrderDetailTotalsComponent` | *(CMS-mapped)* | Replaces `AccountOrderDetailsTotalsComponent` in My Account order details to include gift card totals |
 | `OpfGiftCardOrderDetailBillingComponent` | *(nested)* | Renders billing details section with gift card payment method information |
 | `OpfGiftCardPaymentMethodDetailComponent` | *(nested)* | Renders the payment method detail section showing gift card as the payment type |
-
-## Gift Card Folder Structure
-
-```
-gift-card/                               → Feature package root
-├── assets/                              → Translation assets
-│   └── translations/                    → i18n translation files (en)
-├── components/                          → Shared lazy-loaded components module
-├── core/                                → Core feature logic
-│   ├── connectors/                      → Connector/adapter contracts
-│   └── facade/                          → Facade implementation
-├── occ/                                 → OCC layer
-│   ├── adapters/                        → OCC adapter for gift card operations
-│   ├── config/                          → OCC endpoint configuration
-│   └── model/                           → OCC model types
-└── root/                                → Runtime layer (eager-loaded)
-    ├── components/                      → UI components
-    │   ├── opf-gift-card-apply/         → Gift card form entry point
-    │   ├── opf-gift-card-applied/       → Applied gift cards list
-    │   ├── opf-gift-card-checkout/      → Checkout components
-    │   │   ├── opf-gift-card-checkout-order-summary/  → Order summary with gift card section
-    │   │   └── opf-gift-card-checkout-place-order/    → Place Order button for full-coverage flow
-    │   ├── opf-gift-card-order-confirmation/          → Order confirmation totals
-    │   ├── opf-gift-card-order-details/               → Order details components
-    │   │   ├── opf-gift-card-order-detail-billing/    → Billing details with gift card info
-    │   │   ├── opf-gift-card-order-detail-totals/     → Order detail totals
-    │   │   └── opf-gift-card-payment-method-detail/   → Payment method detail section
-    │   └── opf-gift-card-order-summary/               → Shared order summary component
-    ├── config/                          → OCC endpoint and cart config
-    ├── facade/                          → Public facade contract
-    ├── http-interceptors/               → Payment API interceptor
-    ├── model/                           → Gift card models and type augmentation
-    └── normalizers/                     → OCC normalizers
-```
