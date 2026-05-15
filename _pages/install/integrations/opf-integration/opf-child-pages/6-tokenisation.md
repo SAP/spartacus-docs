@@ -2,55 +2,60 @@
 title: Tokenisation
 ---
 
-Tokenisation is an OPF-based feature that enables customers to use saved payment cards during checkout and manage saved cards in My Account.
+Tokenisation is an OPF-based feature that enables customers to save payment cards, reuse them during checkout, and manage saved cards in My Account.
 
 It supports two key flows:
 
-1. Checkout saved cards flow: customers can select a previously saved card and place the order.
-2. My Account payment methods flow: logged-in customers can view, set default, and delete saved cards.
+1. Checkout saved cards flow: Customers can select a previously saved card, optionally update the default, and place the order.
+2. My Account payment methods flow: Logged-in customers can view, set default, and delete saved cards.
 
 ## Enabling Tokenisation in Spartacus
 
-Tokenisation functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md). Note that Tokenisation is not enabled by default and must be explicitly selected during the schematics installation.
+Tokenisation functionality is added to your storefront app when you install the open payment framework library, as described in [Enabling Open Payment Framework in Spartacus](link-to-section-in-1-open-payment-framework-in-spartacus.md). Note that tokenisation is disabled by default and must be explicitly enabled during the schematics installation.
 
 After installation, tokenisation is available through OPF modules and configuration.
 
 ## How Tokenisation is rendered ?
 
-1. Checkout flow (saved cards + new payment) :
-   Checkout tokenisation is outlet-driven, not CMS-driven. OPF injects tokenisation UI around checkout payment options through checkout outlets.
+### 1. Checkout Flow (Saved Cards + New Payment)
 
-Rendered elements:
-a. Saved cards payment option(radio button) and heading :
-Displayed as a radio option when saved cards exist.
-b. Saved cards list and card actions :  
- Shows tokenised cards and allows actions such as selecting a card for payment and setting default.
-c. New payment heading:
-Separates the saved-cards area from the new-payment area when both are available.
+Checkout tokenisation is outlet-driven, not CMS-driven. OPF injects tokenisation UI around checkout payment options through checkout outlets.
 
-Key behavior:
-a. Rendering is reactive to whether saved cards are available.
-b. If a user selected a saved card and then moves to another payment option, checkout payment details are cleared to avoid stale state.
+#### Rendered Elements
 
-2. My Account flow (CMS-driven) :
-   a. CMS component: AccountPaymentDetailsComponent
-   b. Mapped Spartacus component: OpfTokenisationAccountPaymentMethodsComponent
-   c. Guard: authenticated users only
+**Saved cards payment option (radio button) and heading**  
+ Displayed when saved cards exist.
+**Saved cards list and actions**  
+ Displays tokenised cards and allows actions such as selecting a card for payment and setting default.
+**New payment heading**  
+ Separates the saved-cards area from the new-payment area.
 
-   You can enable the Tokenisation CMS component manually through ImpEx.
+#### Key Behavior
 
-   ### Adding CMS Component Manually
+- Rendering depends on whether saved cards are available.
+- If a user switches from a saved card to another payment method, checkout payment details are cleared to avoid stale state.
 
-   To add all of the necessary CMS data for Tokenisation, import the following ImpEx:
+### 2. My Account Flow (CMS-Driven)
 
-    ```text
-    INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
-    ;;AccountPaymentDetailsComponent;Account Payment Details Component;AccountPaymentDetailsComponent;AccountPaymentDetailsComponent
-    ```
+- **CMS component**: `AccountPaymentDetailsComponent`
+- **Mapped Spartacus component**: `OpfTokenisationAccountPaymentMethodsComponent`
+- **Guard**: Authenticated users only
 
-Impact :
-a. If AccountPaymentDetailsComponent is already on the account payment page, OPF tokenisation takes over rendering.
-b. Customers get tokenised card management (view/set default/delete) and expiry indicators with tokenisation-specific UI behavior.
+You can enable the Tokenisation CMS component manually through ImpEx.
+
+#### Adding CMS Component Manually
+
+To add all required CMS data for tokenisation, import the following ImpEx:
+
+```text
+INSERT_UPDATE CMSFlexComponent;$contentCV[unique=true];uid[unique=true];name;flexType;&componentRef
+;;AccountPaymentDetailsComponent;Account Payment Details Component;AccountPaymentDetailsComponent;AccountPaymentDetailsComponent
+```
+
+#### Impact
+
+- If `AccountPaymentDetailsComponent` is already present, OPF tokenisation overrides the default rendering.
+- Customers can manage their saved cards, including viewing available cards, setting a default, deleting cards, and identifying expired cards through tokenisation-specific UI indicators.
 
 ## Runtime Behavior
 
@@ -59,4 +64,4 @@ b. Customers get tokenised card management (view/set default/delete) and expiry 
 3. Users can set a saved card as default, and this default is reflected in My Account payment methods.
 4. Expired card indicators are shown in both checkout and My Account so invalid cards are clearly identified.
 5. Saved-card mode is tracked through a dedicated internal selection state to keep checkout behavior consistent.
-6. If a shopper selects a saved card and then switches to another payment option, checkout payment details are cleared to prevent stale state
+6. If a shopper selects a saved card and then switches to another payment option, checkout payment details are cleared to prevent stale state.
