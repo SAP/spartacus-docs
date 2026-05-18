@@ -56,45 +56,78 @@ For more information about the available types of Apple Pay buttons, see [Displa
 
 ### Modifying Credit Card Parameters for Apple Pay
 
-The card parameters configuration for Apple Pay is hard-coded in the `ApplePayService` class in `apple-pay.service.ts`. You can modify the configuration by extending `ApplePayService` and overwriting the following object:
+The card parameters for Apple Pay are configurable through the `OpfQuickBuyConfig`. You can override the default configuration by using `provideConfig`:
 
 ```ts
-  protected readonly defaultApplePayCardParameters: any = {
-    shippingMethods: [],
-    merchantCapabilities: ['supports3DS'],
-    supportedNetworks: ['visa', 'masterCard', 'amex', 'discover'],
-    requiredShippingContactFields: ['email', 'name', 'postalAddress'],
-    requiredBillingContactFields: ['email', 'name', 'postalAddress'],
-  };
+provideConfig(<OpfQuickBuyConfig>{
+  providers: {
+    applePay: {
+      resourceUrl:
+        "https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js",
+      cardParameters: {
+        shippingMethods: [],
+        merchantCapabilities: ["supports3DS"],
+        supportedNetworks: ["visa", "masterCard", "amex", "discover"],
+        requiredShippingContactFields: ["email", "name", "postalAddress"],
+        requiredBillingContactFields: ["email", "name", "postalAddress"],
+      },
+    },
+  },
+});
 ```
 
-For more information on extending services in Spartacus, see [Customizing Services](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/864a3158bf9f49c99e6196e4e0d27323.html?locale=en-US&version=2211#loioaaa415776447413e95bc5c8982049421).
+For more information on providing configuration in Spartacus, see [Global Configuration in Composable Storefront](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/b547483f90a7422abf7c597b454af4b2.html?locale=en-US).
 
 ## Configuring Quick Buy for Google Pay
 
-You can modify the credit card parameters for Google Pay.
-
-The card parameters configuration for Google Pay is hard-coded in the `OpfGooglePayService` class in `google-pay.service.ts`. You can modify the configuration by extending `OpfGooglePayService` and overwriting the following object:
+The Google Pay configuration, including the environment, payment request parameters, and card parameters, is configurable through the `OpfQuickBuyConfig`. You can override the default configuration by using `provideConfig`:
 
 ```ts
-  protected readonly defaultGooglePayCardParameters: any = {
-    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-    allowedCardNetworks: [
-      'AMEX',
-      'DISCOVER',
-      'INTERAC',
-      'JCB',
-      'MASTERCARD',
-      'VISA',
-    ],
-    billingAddressRequired: true,
-    billingAddressParameters: {
-      format: 'FULL',
+provideConfig(<OpfQuickBuyConfig>{
+  providers: {
+    googlePay: {
+      resourceUrl: "https://pay.google.com/gp/p/js/pay.js",
+      environment: "TEST",
+      paymentRequest: {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        merchantInfo: {
+          merchantId: "",
+          merchantName: "Example Merchant",
+        },
+        emailRequired: true,
+        shippingAddressRequired: true,
+        shippingOptionRequired: true,
+        shippingAddressParameters: {
+          phoneNumberRequired: false,
+        },
+        callbackIntents: [
+          "PAYMENT_AUTHORIZATION",
+          "SHIPPING_ADDRESS",
+          "SHIPPING_OPTION",
+        ],
+      },
+      cardParameters: {
+        allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+        allowedCardNetworks: [
+          "AMEX",
+          "DISCOVER",
+          "INTERAC",
+          "JCB",
+          "MASTERCARD",
+          "VISA",
+        ],
+        billingAddressRequired: true,
+        billingAddressParameters: {
+          format: "FULL",
+        },
+      },
     },
-  };
+  },
+});
 ```
 
-For more information on extending services in Spartacus, see [Customizing Services](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/864a3158bf9f49c99e6196e4e0d27323.html?locale=en-US&version=2211#loioaaa415776447413e95bc5c8982049421).
+For more information on providing configuration in Spartacus, see [Global Configuration in Composable Storefront](https://help.sap.com/docs/SAP_COMMERCE_COMPOSABLE_STOREFRONT/eaef8c61b6d9477daf75bff9ac1b7eb4/b547483f90a7422abf7c597b454af4b2.html?locale=en-US).
 
 ## CTA Quick Buy
 
